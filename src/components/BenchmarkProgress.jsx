@@ -1,13 +1,27 @@
-import { Box, Card, Divider, Paper, Stack, ToggleButton, ToggleButtonGroup, Tooltip as MuiTooltip, Typography } from '@mui/material';
+import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import PersonIcon from '@mui/icons-material/Person';
-import GroupsIcon from '@mui/icons-material/Groups';
 import { useTheme } from '@mui/material/styles';
-import { useState } from 'react';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTERS, MISC } from '@/data';
-import { sumRotationDmg, sumRotationTime } from '@/utils';
+import { CHARACTERS, MVS, MISC } from '@/data';
+import { sumRotationDmg } from '@/utils';
+
+function sumRotationTime(gameId, team) {
+  let total = 0;
+
+  for (const member of team) {
+    const { rotation = [] } = member;
+
+    for (const actionKey of rotation) {
+      const [ownerId, skillId, actionId] = actionKey.split('-');
+      const { duration } = MVS[gameId][ownerId][skillId][actionId];
+
+      total += duration;
+    }
+  }
+
+  return total;
+}
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -20,38 +34,41 @@ const InfoLabel = ({ label, tip }) => (
 
 export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats, team, actionMap }) => {
   const theme = useTheme();
-  const { gameId, characterId } = useParams();
+  const { gameId } = useParams();
   const disabledColor = theme.palette.action.disabled;
-  const element = CHARACTERS[gameId]?.[characterId]?.element;
-  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
-  const [viewMode, setViewMode] = useState('team');
-
   if (isLoading || !weeklyScores) return null;
 
-  const hasTeamData = teamFinalStats && Object.keys(teamFinalStats).length > 0;
-  const showTeam = viewMode === 'team' && hasTeamData;
+  const members = team.filter(m => m.memberId);
+  const memberColors = members.map(m => {
+    const el = CHARACTERS[gameId]?.[m.memberId]?.element;
+    return MISC[gameId]?.ELEMENT_COLORS?.[el] ?? disabledColor;
+  });
 
-  const filter = showTeam ? {} : { ownerId: characterId };
-  const rotationTime = sumRotationTime(gameId, team, filter);
+  const rotationTime = sumRotationTime(gameId, team);
   const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
-  const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap, filter)));
+
+  const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap)));
   const benchmarkRating = activeScores[activeScores.length - 1];
-  const activeUserRating = toDps(sumRotationDmg(actionMap, filter));
+  const activeUserRating = toDps(sumRotationDmg(actionMap));
   const scaledBuildRating = activeUserRating / benchmarkRating * 100;
 
   const data = activeScores.map((dmg, index) => {
     const dist = weeklyDistribution?.[index];
-    return {
+    const entry = {
       week: index,
       damage: dmg,
-      q1: showTeam ? dmg : (toDps(sumRotationDmg(dist?.q1, filter)) ?? dmg),
-      iqr: showTeam ? 0 : (dist ? toDps(sumRotationDmg(dist.q3, filter)) - toDps(sumRotationDmg(dist.q1, filter)) : 0),
-      p10: showTeam ? dmg : (toDps(sumRotationDmg(dist?.p10, filter)) ?? dmg),
-      p90band: showTeam ? 0 : (dist ? toDps(sumRotationDmg(dist.p90, filter)) - toDps(sumRotationDmg(dist.p10, filter)) : 0),
+      q1: toDps(sumRotationDmg(dist?.q1)) ?? dmg,
+      iqr: dist ? toDps(sumRotationDmg(dist.q3)) - toDps(sumRotationDmg(dist.q1)) : 0,
+      p10: toDps(sumRotationDmg(dist?.p10)) ?? dmg,
+      p90band: dist ? toDps(sumRotationDmg(dist.p90)) - toDps(sumRotationDmg(dist.p10)) : 0,
     };
+    for (const m of members) {
+      entry[`dps_${m.memberId}`] = toDps(sumRotationDmg(weeklyScores[index], { ownerId: m.memberId }));
+    }
+    return entry;
   });
   const yMin = 0;
-  const distMax = (!showTeam && weeklyDistribution) ? Math.max(...weeklyDistribution.map(d => toDps(sumRotationDmg(d.p90, filter)))) : 0;
+  const distMax = weeklyDistribution ? Math.max(...weeklyDistribution.map(d => toDps(sumRotationDmg(d.p90)))) : 0;
   const yMax = Math.max(benchmarkRating, activeUserRating, distMax) * 1.08;
 
   const formatDamage = (v) => {
@@ -59,6 +76,25 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
     if (v >= 1_000) return `${(v / 1_000).toFixed(0)}K`;
     return v.toFixed(0);
   };
+
+  const getGrade = (pct) => {
+    if (pct > 100) return { grade: 'S', color: '#FFD700' };
+    const bands = [
+      { floor: 90, letter: 'A', color: '#4ade80' },
+      { floor: 80, letter: 'B', color: '#86efac' },
+      { floor: 70, letter: 'C', color: '#fbbf24' },
+      { floor: 60, letter: 'D', color: '#f97316' },
+    ];
+    for (const { floor, letter, color } of bands) {
+      if (pct >= floor) {
+        const pos = pct - floor;
+        const suffix = pos >= 7 ? '+' : pos < 3 ? '-' : '';
+        return { grade: letter + suffix, color };
+      }
+    }
+    return { grade: 'E', color: '#ef4444' };
+  };
+  const { grade, color: gradeColor } = getGrade(scaledBuildRating);
 
   return (
     <Card sx={{ flex: 1, minHeight: 0, display: 'flex' }}>
@@ -70,10 +106,12 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
           margin={{ top: 20, right: 50, left: 20, bottom: 5 }}
         >
           <defs>
-            <linearGradient id="gradientRating" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={disabledColor} stopOpacity={0.25} />
-              <stop offset="100%" stopColor={disabledColor} stopOpacity={0.02} />
-            </linearGradient>
+            {memberColors.map((color, i) => (
+              <linearGradient key={i} id={`gradientMember${i}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={color} stopOpacity={0.6} />
+                <stop offset="100%" stopColor={color} stopOpacity={0.2} />
+              </linearGradient>
+            ))}
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke={theme.palette.divider} />
           <XAxis
@@ -89,49 +127,32 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
           />
 
           <ReferenceLine
-            y={benchmarkRating}
-            stroke={disabledColor}
-            strokeDasharray="6 3"
-            strokeOpacity={0.5}
-            label={{
-              value: `Benchmark`,
-              position: 'insideTopRight',
-              fill: disabledColor,
-              fontSize: 11,
-            }}
-          />
-
-          <ReferenceLine
             y={activeUserRating}
-            stroke={elementColor}
             strokeWidth={2}
-            label={{
-              value: `You · ${scaledBuildRating.toFixed(1)}%`,
-              position: activeUserRating > benchmarkRating * 0.9 ? 'insideBottomRight' : 'right',
-              fill: elementColor,
-              fontSize: 12,
-              fontWeight: 600,
-            }}
           />
 
           {/* P10–P90 outer band */}
           <Area type="monotone" dataKey="p10" stackId="outer" stroke="none" fill="transparent" activeDot={false} />
-          <Area type="monotone" dataKey="p90band" stackId="outer" stroke="none" fill={disabledColor} fillOpacity={0.06} activeDot={false} />
+          <Area type="monotone" dataKey="p90band" stackId="outer" stroke="none" fill={disabledColor} fillOpacity={0.2} activeDot={false} />
 
           {/* IQR inner band */}
           <Area type="monotone" dataKey="q1" stackId="band" stroke="none" fill="transparent" activeDot={false} />
-          <Area type="monotone" dataKey="iqr" stackId="band" stroke="none" fill={disabledColor} fillOpacity={0.14} activeDot={false} />
+          <Area type="monotone" dataKey="iqr" stackId="band" stroke="none" fill={disabledColor} fillOpacity={0.4} activeDot={false} />
 
-          {/* Mean line */}
-          <Area
-            type="monotone"
-            dataKey="damage"
-            stroke={disabledColor}
-            strokeWidth={2}
-            fill="url(#gradientRating)"
-            dot={false}
-            activeDot={{ r: 5, strokeWidth: 2, fill: theme.palette.background.paper }}
-          />
+          {/* Stacked member DPS areas */}
+          {members.map((m, i) => (
+            <Area
+              key={m.memberId}
+              type="monotone"
+              dataKey={`dps_${m.memberId}`}
+              stackId="members"
+              stroke={memberColors[i]}
+              strokeWidth={1.5}
+              fill={`url(#gradientMember${i})`}
+              dot={false}
+              activeDot={{ r: 4, strokeWidth: 2, fill: theme.palette.background.paper }}
+            />
+          ))}
           
           <Tooltip
             content={({ active, payload }) => {
@@ -150,7 +171,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                   elevation={4}
                   sx={{
                     p: 1.5,
-                    minWidth: 140,
+                    minWidth: 160,
                     backgroundColor: 'background.paper',
                     border: 1,
                     borderColor: 'divider',
@@ -159,17 +180,27 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                   <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
                     Week {week}
                   </Typography>
-                  <Typography variant="body2">
-                    Avg: {damage.toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                  {members.map((m, i) => (
+                    <Box key={m.memberId} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
+                      <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: memberColors[i], flexShrink: 0 }} />
+                      <Typography variant="body2">
+                        {CHARACTERS[gameId]?.[m.memberId]?.name ?? m.memberId}:{' '}
+                        {(data[week]?.[`dps_${m.memberId}`] ?? 0).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                      </Typography>
+                    </Box>
+                  ))}
+                  <Divider sx={{ my: 0.5 }} />
+                  <Typography variant="body2" fontWeight="bold">
+                    Total: {damage.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                   </Typography>
-                  {!showTeam && dist && (
+                  {dist && (
                     <Typography variant="body2" color="text.secondary">
-                      Q1-Q3: {toDps(sumRotationDmg(dist.q1, filter)).toLocaleString('en-US', { maximumFractionDigits: 0 })} - {toDps(sumRotationDmg(dist.q3, filter)).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                      Q1–Q3: {toDps(sumRotationDmg(dist.q1)).toLocaleString('en-US', { maximumFractionDigits: 0 })} – {toDps(sumRotationDmg(dist.q3)).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                     </Typography>
                   )}
                   {percentGain != null && (
                     <Typography variant="body2" color={percentGain >= 0 ? 'success.main' : 'error.main'}>
-                      {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(2)}% vs prev
+                      {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(1)}% vs prev
                     </Typography>
                   )}
                 </Paper>
@@ -182,47 +213,26 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
       </Box>
       <Divider orientation="vertical" flexItem />
       <Stack spacing={1.5} sx={{ flex: 1, p: 2, minWidth: 150, justifyContent: 'center' }}>
-        {hasTeamData && (
-          <>
-            <ToggleButtonGroup
-              value={viewMode}
-              exclusive
-              onChange={(_, val) => { if (val) setViewMode(val); }}
-              size="small"
-              fullWidth
-            >
-              <ToggleButton value="solo">
-                <MuiTooltip title="Solo view" placement="top" arrow>
-                  <PersonIcon fontSize="small" />
-                </MuiTooltip>
-              </ToggleButton>
-              <ToggleButton value="team">
-                <MuiTooltip title="Team view" placement="top" arrow>
-                  <GroupsIcon fontSize="small" />
-                </MuiTooltip>
-              </ToggleButton>
-            </ToggleButtonGroup>
-            <Divider />
-          </>
-        )}
+
         <Box>
           <InfoLabel
             label="Rating"
-            tip={showTeam
-              ? "Your team's total damage as a percentage of the team benchmark. Reflects how your character's current build contributes relative to the team's expected optimum."
-              : "Your build's damage as a percentage of the benchmark. Above 100% means your build exceeds the expected stopping point."}
+            tip="Your team's total damage as a percentage of the team benchmark. Reflects how your character's current build contributes relative to the team's expected optimum."
           />
-          <Typography variant="h5" fontWeight="bold" color={scaledBuildRating >= 100 ? 'success.main' : 'warning.main'}>
-            {scaledBuildRating.toFixed(1)}%
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
+            <Typography variant="h4" fontWeight="bold" sx={{ color: gradeColor }}>
+              {grade}
+            </Typography>
+            <Typography variant="body1" fontWeight="medium" sx={{ color: gradeColor, opacity: 0.7 }}>
+              ({scaledBuildRating.toFixed(1)}%)
+            </Typography>
+          </Box>
         </Box>
         <Divider />
         <Box>
           <InfoLabel
-            label={showTeam ? "Team DPS" : "Solo DPS"}
-            tip={showTeam
-              ? "Your character's current damage plus teammates' simulated benchmark damage."
-              : "Total calculated damage for your current build's rotation."}
+            label="Team DPS"
+            tip="Your character's current damage plus teammates' simulated benchmark damage."
           />
           <Typography variant="h6" fontWeight="bold">
             {activeUserRating?.toLocaleString('en-US', { maximumFractionDigits: 0 }) ?? '—'}
@@ -230,10 +240,8 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
         </Box>
         <Box>
           <InfoLabel
-            label={showTeam ? "Benchmark" : "Benchmark"}
-            tip={showTeam
-              ? "Sum of each character's simulated average damage at the benchmark week."
-              : "Average damage of simulated builds at the week where farming becomes resin-inefficient (<1% weekly gain)."}
+            label="Benchmark"
+            tip="Sum of each character's simulated average damage at the benchmark week."
           />
           <Typography variant="h6" fontWeight="bold">
             {benchmarkRating?.toLocaleString('en-US', { maximumFractionDigits: 0 }) ?? '—'}

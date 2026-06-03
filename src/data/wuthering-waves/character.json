@@ -1,80 +1,66 @@
 {
   "1102": {
     "name": "Sanhua",
-    "quality": "4",
+    "quality": 4,
     "element": "GLACIO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 10062,
-        "BASE_ATK": 275,
-        "BASE_DEF": 941,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10062,
+      "BASE_ATK": 275,
+      "BASE_DEF": 941,
+      "PERCENT_GLACIO": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_BA": 0.38
+        "applyWhen": "contact",
+        "applyOnAction": "FC-1",
+        "comboAction": {
+          "action": [
+            "FC-2",
+            "FC-3",
+            "FC-4"
+          ]
         }
       },
       {
-        "trigger": "3-1",
-        "duration": 5000,
-        "maxProcs": 1,
-        "procs": {
-          "actionKeyTrigger": "7-1",
-          "actions": "7-2"
-        }
-      },
-      {
-        "trigger": "2-1",
-        "duration": 5000,
-        "maxProcs": 1,
-        "procs": {
-          "actionKeyTrigger": "7-1",
-          "actions": "7-3"
-        }
-      },
-      {
-        "trigger": "6-1",
-        "duration": 8000,
-        "maxProcs": 1,
-        "procs": {
-          "actionKeyTrigger": "7-1",
-          "actions": "7-4"
-        }
-      },
-      {
-        "trigger": "6-1",
-        "duration": 8000,
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
         "statMap": {
           "PERCENT_RS": 0.2
-        }
+        },
+        "duration": 8000
       },
       {
-        "trigger": "1-5",
-        "duration": 8000,
-        "actionFilter": [
-          "7-2",
-          "7-3",
-          "7-4"
+        "applyWhen": "cast",
+        "applyOnAction": "BA-5",
+        "useIfAction": [
+          "FC-2",
+          "FC-3",
+          "FC-4"
         ],
         "statMap": {
-          "PERCENT_RS": 0.2
-        }
+          "PERCENT_ALL": 0.2
+        },
+        "duration": 8000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
+        "statMap": {
+          "AMP_BA": 0.38
+        },
+        "duration": 14000
       },
       {
         "rank": 1,
-        "trigger": "1-5",
-        "duration": 10000,
+        "applyWhen": "cast",
+        "applyOnAction": "BA-5",
         "statMap": {
           "PERCENT_CR": 0.15
-        }
+        },
+        "duration": 10000
       },
       {
         "rank": 3,
@@ -85,20 +71,21 @@
       },
       {
         "rank": 4,
-        "trigger": "3-1",
-        "duration": 5000,
-        "maxProcs": 1,
-        "actionFilter": "7-1",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "useIfAction": "FC-1",
         "statMap": {
-          "PERCENT_HA": 1.2
-        }
+          "PERCENT_ALL": 1.2
+        },
+        "duration": 5000,
+        "maxUses": 1
       },
       {
         "rank": 5,
-        "actionFilter": [
-          "7-2",
-          "7-3",
-          "7-4"
+        "useIfAction": [
+          "FC-2",
+          "FC-3",
+          "FC-4"
         ],
         "statMap": {
           "PERCENT_CD": 1
@@ -106,16 +93,17 @@
       },
       {
         "rank": 6,
-        "trigger": [
-          "7-2",
-          "7-4"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-2",
+          "FC-4"
         ],
-        "target": "team",
-        "duration": 20000,
-        "maxStacks": 2,
+        "applyTo": "team",
         "statMap": {
           "PERCENT_ATK": 0.1
-        }
+        },
+        "duration": 20000,
+        "maxStacks": 2
       }
     ],
     "defaults": {
@@ -129,121 +117,164 @@
         "8": 5
       },
       "rotation": [
-        "6-1",
-        "3-1",
-        "2-1",
-        "7-1",
-        "8-1"
+        "IS-1",
+        "RL-1",
+        "RS-1",
+        "FC-1",
+        "OS-1"
       ]
     }
   },
   "1103": {
     "name": "Baizhi",
-    "quality": "4",
+    "quality": 4,
     "element": "GLACIO",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 12812,
-        "BASE_ATK": 212,
-        "BASE_DEF": 1002,
-        "PERCENT_HB": 0.12,
-        "PERCENT_HP": 0.12
-      }
+      "BASE_HP": 12812,
+      "BASE_ATK": 212,
+      "BASE_DEF": 1002,
+      "PERCENT_HB": 0.12,
+      "PERCENT_HP": 0.12
     },
     "effects": [
       {
-        "trigger": "2-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-2"
+        "applyWhen": "contact",
+        "applyOnAction": "RS-1",
+        "comboAction": {
+          "action": "RS-2"
         }
       },
       {
-        "trigger": "3-3",
-        "target": "active",
-        "maxProcs": 4,
-        "procs": [
-          {
-            "actions": "3-1"
-          },
-          {
-            "actions": "3-2"
+        "applyWhen": "cast",
+        "applyOnAction": "RL-3",
+        "applyTo": "active",
+        "intervalAction": {
+          "action": "RL-1"
+        },
+        "intervalCooldown": 2500,
+        "maxUses": 4,
+        "rankModifiers": {
+          "4": {
+            "maxUses": 2
           }
-        ]
-      },
-      {
-        "trigger": "6-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "6-2"
         }
       },
       {
-        "trigger": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4"
-        ],
-        "maxStacks": 4,
-        "maxProcs": 1,
-        "procs": {
-          "actionKeyTrigger": [
-            "1-5",
-            "2-1"
-          ],
-          "actions": "7-1"
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "comboAction": {
+          "action": "RL-2",
+          "times": 3
         }
       },
       {
-        "trigger": "2-1",
-        "target": "first",
-        "duration": 35000,
+        "applyWhen": "cast",
+        "applyOnCast": "HA",
+        "applyOnAction": "RS-1",
+        "intervalAction": {
+          "action": "FC-1"
+        },
+        "intervalCooldown": 2000,
+        "maxUses": 4
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "applyTo": "first",
         "statMap": {
           "PERCENT_ATK": 0.15
+        },
+        "duration": 35000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnCast": "HA",
+        "comboAction": {
+          "action": {
+            "type": "heal",
+            "attr": "HP",
+            "multipliers": {
+              "mv": 0.0025
+            }
+          }
         }
       },
       {
-        "trigger": "1-5",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-2"
+        "applyWhen": "contact",
+        "applyOnAction": "IS-1",
+        "comboAction": {
+          "action": "IS-2",
+          "times": 3
         }
       },
       {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 36000,
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
+        "intervalAction": {
+          "action": {
+            "type": "heal",
+            "attr": "HP",
+            "multipliers": {
+              "mv": 0.0154
+            }
+          }
+        },
+        "intervalCooldown": 3000,
+        "duration": 30000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_ALL": 0.15
-        }
+        },
+        "duration": 36000
       },
       {
         "rank": 2,
-        "trigger": "2-1",
-        "duration": 12000,
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
         "statMap": {
           "PERCENT_GLACIO": 0.15,
           "PERCENT_HB": 0.15
-        }
+        },
+        "duration": 12000
       },
       {
         "rank": 3,
-        "trigger": "6-1",
-        "duration": 10000,
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
         "statMap": {
           "PERCENT_HP": 0.12
+        },
+        "duration": 10000
+      },
+      {
+        "rank": 4,
+        "useIfAction": "RL-2",
+        "statMap": {
+          "PERCENT_MV": 0.2
+        }
+      },
+      {
+        "rank": 4,
+        "useIfAction": "RL-1",
+        "statMap": {
+          "FLAT_MV": 0.012
         }
       },
       {
         "rank": 6,
-        "trigger": "2-1",
-        "target": "team",
-        "duration": 35000,
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_GLACIO": 0.12
-        }
+        },
+        "duration": 35000
       }
     ],
     "defaults": {
@@ -257,37 +288,44 @@
         "7": 5
       },
       "rotation": [
-        "6-1",
-        "3-3",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "2-1",
-        "8-1"
+        "IS-1",
+        "RL-3",
+        "BA-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "RS-1",
+        "OS-1"
       ]
     }
   },
   "1104": {
     "name": "Lingyang",
-    "quality": "5",
+    "quality": 5,
     "element": "GLACIO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10387,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1209,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10387,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1209,
+      "PERCENT_GLACIO": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "3-1",
-        "duration": 14000,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
         "statMap": {
           "PERCENT_GLACIO": 0.5
+        },
+        "duration": 14000,
+        "rankModifiers": {
+          "3": {
+            "statMap": {
+              "PERCENT_BA": 0.2,
+              "PERCENT_RS": 0.1
+            }
+          }
         }
       },
       {
@@ -296,54 +334,57 @@
         }
       },
       {
-        "trigger": [
-          "7-2",
-          "7-3"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-2",
+          "FC-3"
         ],
-        "duration": 3000,
-        "maxProcs": 1,
-        "actionFilter": "7-4",
+        "useIfAction": "FC-4",
         "statMap": {
           "PERCENT_MV": 1.5
-        }
+        },
+        "duration": 3000,
+        "maxUses": 1
       },
       {
-        "rank": 3,
-        "trigger": "3-1",
-        "duration": 14000,
-        "statMap": {
-          "PERCENT_BA": 0.2,
-          "PERCENT_RS": 0.1
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 5.8794
+            }
+          }
         }
       },
       {
         "rank": 4,
-        "trigger": "8-1",
-        "target": "team",
-        "duration": 30000,
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_GLACIO": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
-        "trigger": "3-1",
-        "maxProcs": 1,
+        "useIfAction": "RL-1",
         "statMap": {
           "FLAT_MV": 2
         }
       },
       {
         "rank": 6,
-        "trigger": "7-4",
-        "maxProcs": 1,
-        "actionFilter": [
-          "7-2",
-          "7-3"
-        ],
+        "applyWhen": "cast",
+        "applyOnAction": "FC-4",
+        "useIfCast": "BA",
         "statMap": {
-          "PERCENT_BA": 1
-        }
+          "PERCENT_ALL": 1
+        },
+        "duration": 3000,
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -357,83 +398,104 @@
         "1": 5
       },
       "rotation": [
-        "6-1",
-        "3-1",
-        "7-1",
-        "7-2",
-        "7-4",
-        "7-3",
-        "7-4",
-        "7-2",
-        "7-4",
-        "7-3",
-        "7-4",
-        "7-2",
-        "7-5",
-        "7-6",
-        "8-1"
+        "IS-1",
+        "RL-1",
+        "FC-1",
+        "FC-2",
+        "FC-4",
+        "FC-3",
+        "FC-4",
+        "FC-2",
+        "FC-4",
+        "FC-3",
+        "FC-4",
+        "FC-2",
+        "FC-5",
+        "FC-6",
+        "OS-1"
       ]
     }
   },
   "1202": {
     "name": "Chixia",
-    "quality": "4",
+    "quality": 4,
     "element": "FUSION",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_HP": 9087,
-        "BASE_ATK": 300,
-        "BASE_DEF": 953,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 9087,
+      "BASE_ATK": 300,
+      "BASE_DEF": 953,
+      "PERCENT_FUSION": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "actionFilter": "7-2",
+        "useIfAction": "FC-2",
         "statMap": {
-          "PERCENT_RS": 0.5
+          "PERCENT_ALL": 0.5
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_CR": 1
+            }
+          }
         }
       },
       {
-        "trigger": "7-1",
+        "applyWhen": "contact",
+        "applyOnAction": "FC-3",
+        "intervalAction": {
+          "action": "FC-1"
+        },
+        "intervalCooldown": 100,
+        "maxUses": 30
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnAction": "FC-1",
+        "statMap": {
+          "PERCENT_ATK": 0.01
+        },
         "duration": 10000,
-        "statMap": {
-          "PERCENT_ATK": 0.3
+        "maxStacks": 30,
+        "rankModifiers": {
+          "5": {
+            "statMap": {
+              "PERCENT_ATK": 0.01
+            }
+          }
         }
       },
       {
-        "rank": 1,
-        "actionFilter": "7-2",
-        "statMap": {
-          "PERCENT_CR": 1
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 5.3
+            }
+          }
         }
       },
       {
         "rank": 3,
-        "actionFilter": "3-1",
-        "chance": 0.5,
+        "useIfAction": "RL-1",
         "statMap": {
           "PERCENT_RL": 0.4
-        }
-      },
-      {
-        "rank": 5,
-        "trigger": "7-1",
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_ATK": 0.3
-        }
+        },
+        "chance": 0.5
       },
       {
         "rank": 6,
-        "trigger": "7-2",
-        "target": "team",
-        "duration": 15000,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-2",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_BA": 0.25
-        }
+        },
+        "duration": 15000
       }
     ],
     "defaults": {
@@ -447,90 +509,77 @@
         "2": 5
       },
       "rotation": [
-        "6-1",
-        "7-1",
-        "7-2",
-        "3-1",
-        "7-1",
-        "7-2",
-        "8-1"
+        "IS-1",
+        "FC-3",
+        "FC-2",
+        "RL-1",
+        "FC-3",
+        "FC-2",
+        "OS-1"
       ]
     }
   },
   "1203": {
     "name": "Encore",
-    "quality": "5",
+    "quality": 5,
     "element": "FUSION",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 10512,
-        "BASE_ATK": 425,
-        "BASE_DEF": 1246,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_FUSION": 0.1
-        }
-      }
+      "BASE_HP": 10512,
+      "BASE_ATK": 425,
+      "BASE_DEF": 1246,
+      "PERCENT_FUSION": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "actionFilter": [
-          "3-1",
-          "3-2",
-          "3-3",
-          "3-4",
-          "3-5",
-          "3-6",
-          "3-7",
-          "7-2"
-        ],
+        "applyWhen": "cast",
+        "applyOnAction": "RL-8",
         "statMap": {
           "PERCENT_ALL": 0.1
-        }
+        },
+        "duration": 10000
       },
       {
-        "trigger": [
-          "2-1",
-          "3-6"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-1",
+          "RL-6"
         ],
-        "duration": 10000,
         "statMap": {
           "PERCENT_FUSION": 0.1
-        }
+        },
+        "duration": 10000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "intervalAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 1.7676
+            }
+          }
+        },
+        "intervalCooldown": 1500,
+        "duration": 6000
       },
       {
         "rank": 1,
-        "trigger": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-7",
-          "1-8",
-          "3-1",
-          "3-2",
-          "3-3",
-          "3-4",
-          "3-7"
-        ],
-        "maxStacks": 4,
-        "duration": 6000,
+        "applyWhen": "contact",
+        "applyOnCast": "BA",
         "statMap": {
           "PERCENT_FUSION": 0.03
-        }
+        },
+        "duration": 6000,
+        "maxStacks": 4
       },
       {
         "rank": 3,
-        "actionFilter": [
-          "7-1",
-          "7-2"
+        "useIfAction": [
+          "FC-1",
+          "FC-2"
         ],
         "statMap": {
           "PERCENT_MV": 0.4
@@ -538,12 +587,13 @@
       },
       {
         "rank": 4,
-        "target": "team",
-        "actionFilter": "7-2",
-        "duration": 30000,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-2",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_FUSION": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
@@ -553,21 +603,22 @@
       },
       {
         "rank": 6,
-        "trigger": [
-          "3-1",
-          "3-2",
-          "3-3",
-          "3-4",
-          "3-5",
-          "3-6",
-          "3-7",
-          "7-2"
+        "applyWhen": "contact",
+        "applyOnAction": [
+          "RL-1",
+          "RL-2",
+          "RL-3",
+          "RL-4",
+          "RL-5",
+          "RL-6",
+          "RL-7",
+          "FC-2"
         ],
-        "maxStacks": 6,
-        "duration": 10000,
         "statMap": {
           "PERCENT_ATK": 0.05
-        }
+        },
+        "duration": 10000,
+        "maxStacks": 6
       }
     ],
     "defaults": {
@@ -581,59 +632,59 @@
         "2": 5
       },
       "rotation": [
-        "6-1",
-        "3-8",
-        "3-6",
-        "3-1",
-        "3-2",
-        "3-3",
-        "3-4",
-        "3-6",
-        "3-1",
-        "3-2",
-        "3-3",
-        "3-4",
-        "3-6",
-        "7-2",
-        "8-1"
+        "IS-1",
+        "RL-8",
+        "RL-6",
+        "RL-1",
+        "RL-2",
+        "RL-3",
+        "RL-4",
+        "RL-6",
+        "RL-1",
+        "RL-2",
+        "RL-3",
+        "RL-4",
+        "RL-6",
+        "FC-2",
+        "OS-1"
       ]
     }
   },
   "1204": {
     "name": "Mortefi",
-    "quality": "4",
+    "quality": 4,
     "element": "FUSION",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10025,
-        "BASE_ATK": 250,
-        "BASE_DEF": 1136,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10025,
+      "BASE_ATK": 250,
+      "BASE_DEF": 1136,
+      "PERCENT_FUSION": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 10000,
-        "procs": [
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "applyTo": "active",
+        "followUpAction": [
           {
-            "filter": "BA",
-            "actions": "3-2"
+            "useIfConsidered": "BA",
+            "action": "RL-2"
           },
           {
-            "filter": "HA",
-            "actions": "3-2",
+            "useIfConsidered": "HA",
+            "action": "RL-2",
             "times": 2
           }
         ],
+        "followUpActionCooldown": 350,
+        "duration": 10000,
         "rankModifiers": {
           "1": {
-            "procs": {
-              "filter": "RS",
-              "actions": "3-2",
+            "followUpAction": {
+              "useIfConsidered": "RS",
+              "action": "RL-2",
               "times": 2
             }
           },
@@ -643,38 +694,48 @@
         }
       },
       {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "useIfAction": "FC-1",
+        "statMap": {
+          "PERCENT_ALL": 0.25
+        },
+        "duration": 8000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnAction": "RL-2",
+        "applyCooldown": 350,
+        "useIfAction": "RL-2",
+        "statMap": {
+          "PERCENT_ALL": 0.015
+        },
+        "duration": 10000,
+        "maxStacks": 50,
+        "rankModifiers": {
+          "4": {
+            "duration": 7000
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_HA": 0.38
-        }
-      },
-      {
-        "trigger": "2-1",
-        "duration": 8000,
-        "actionFilter": "7-1",
-        "statMap": {
-          "PERCENT_RS": 0.25
-        }
-      },
-      {
-        "trigger": "3-2",
-        "duration": 17000,
-        "maxStacks": 50,
-        "actionFilter": "3-2",
-        "statMap": {
-          "PERCENT_RL": 0.015
-        }
+        },
+        "duration": 14000
       },
       {
         "rank": 3,
-        "trigger": "3-1",
-        "duration": 10000,
-        "actionFilter": "3-2",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "useIfAction": "RL-2",
         "statMap": {
           "PERCENT_CD": 0.3
         },
+        "duration": 10000,
         "rankModifiers": {
           "4": {
             "duration": 7000
@@ -683,24 +744,25 @@
       },
       {
         "rank": 5,
-        "trigger": [
-          "2-1",
-          "7-1"
+        "applyWhen": "contact",
+        "applyOnAction": [
+          "RS-1",
+          "FC-1"
         ],
-        "maxProcs": 1,
-        "procs": {
-          "actions": "3-2",
+        "comboAction": {
+          "action": "RL-2",
           "times": 4
         }
       },
       {
         "rank": 6,
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 20000,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 20000
       }
     ],
     "defaults": {
@@ -714,81 +776,113 @@
         "8": 5
       },
       "rotation": [
-        "6-1",
-        "2-1",
-        "7-1",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "7-1",
-        "3-1",
-        "8-1"
+        "IS-1",
+        "RS-1",
+        "FC-1",
+        "BA-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "FC-1",
+        "RL-1",
+        "OS-1"
       ]
     }
   },
   "1301": {
     "name": "Calcharo",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRO",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_HP": 10500,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1185,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10500,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1185,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "7-1",
-        "duration": 15000,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
         "statMap": {
           "PERCENT_RL": 0.1
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": [
+              {
+                "mv": 1.9598
+              },
+              {
+                "mv": 3.9196
+              }
+            ]
+          }
         }
       },
       {
         "rank": 2,
-        "trigger": [
-          "3-2",
-          "6-1"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "IS-1",
+          "RL-2"
         ],
-        "duration": 15000,
         "statMap": {
           "PERCENT_RS": 0.3
-        }
+        },
+        "duration": 15000
       },
       {
         "rank": 3,
-        "trigger": "3-1",
-        "duration": 11000,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
         "statMap": {
           "PERCENT_ELECTRO": 0.25
-        }
+        },
+        "duration": 11000
       },
       {
         "rank": 4,
-        "trigger": "8-1",
-        "target": "team",
-        "duration": 30000,
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_ELECTRO": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
+        "useIfAction": [
+          "IS-1",
+          "RL-2"
+        ],
         "statMap": {
-          "PERCENT_IS": 0.5
+          "PERCENT_ALL": 0.5
         }
       },
       {
         "rank": 6,
-        "trigger": "7-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-3",
+        "applyWhen": "cast",
+        "applyOnAction": "FC-2",
+        "comboAction": {
+          "action": {
+            "cast": "CA",
+            "considered": [
+              "RL",
+              "CA"
+            ],
+            "multipliers": {
+              "mv": 1
+            }
+          },
           "times": 2
         }
       }
@@ -804,104 +898,99 @@
         "3": 5
       },
       "rotation": [
-        "3-2",
-        "3-1",
-        "7-2",
-        "3-3",
-        "3-4",
-        "3-3",
-        "3-4",
-        "3-3",
-        "7-2",
-        "3-3",
-        "3-4",
-        "3-3",
-        "3-4",
-        "3-3",
-        "7-2",
-        "8-1"
+        "RL-2",
+        "RL-1",
+        "FC-2",
+        "RL-3",
+        "RL-4",
+        "RL-3",
+        "RL-4",
+        "RL-3",
+        "FC-2",
+        "RL-3",
+        "RL-4",
+        "RL-3",
+        "RL-4",
+        "RL-3",
+        "FC-2",
+        "OS-1"
       ]
     }
   },
   "1302": {
     "name": "Yinlin",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRO",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 11000,
-        "BASE_ATK": 400,
-        "BASE_DEF": 1283,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 11000,
+      "BASE_ATK": 400,
+      "BASE_DEF": 1283,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "2-1",
+        "applyWhen": "contact",
+        "applyOnAction": "RS-1",
+        "followUpAction": {
+          "useIfCast": [
+            "BA",
+            "DC"
+          ],
+          "action": "RS-3"
+        },
         "duration": 10000,
-        "maxProcs": 4,
-        "procs": {
-          "filter": "BA",
-          "actions": "2-3"
-        }
+        "maxUses": 4
       },
       {
-        "trigger": "7-1",
-        "target": "team",
-        "duration": 18000,
-        "cooldown": 1000,
-        "procs": {
-          "actions": "7-2"
-        }
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "applyTo": "team",
+        "useIfType": "damage",
+        "followUpAction": {
+          "action": "FC-2"
+        },
+        "followUpActionCooldown": 1000,
+        "duration": 18000
       },
       {
-        "trigger": "2-1",
-        "duration": 5000,
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
         "statMap": {
           "PERCENT_CR": 0.15
-        }
+        },
+        "duration": 5000
       },
       {
-        "trigger": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-6",
-          "1-7",
-          "3-1",
-          "6-1"
-        ],
-        "maxProcs": 1,
-        "actionFilter": "2-2",
+        "useIfAction": "RS-2",
         "statMap": {
           "PERCENT_RS": 0.1
         }
       },
       {
-        "trigger": "2-2",
-        "duration": 4000,
+        "applyWhen": "cast",
+        "applyOnAction": "RS-2",
         "statMap": {
           "PERCENT_ATK": 0.1
-        }
+        },
+        "duration": 4000
       },
       {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_RL": 0.25,
           "AMP_ELECTRO": 0.2
-        }
+        },
+        "duration": 14000
       },
       {
         "rank": 1,
-        "actionFilter": [
-          "2-1",
-          "2-2"
+        "useIfAction": [
+          "RS-1",
+          "RS-2"
         ],
         "statMap": {
           "PERCENT_RS": 0.7
@@ -909,37 +998,43 @@
       },
       {
         "rank": 3,
-        "actionFilter": "7-2",
+        "useIfAction": "FC-2",
         "statMap": {
           "PERCENT_MV": 0.55
         }
       },
       {
         "rank": 4,
-        "trigger": "7-2",
-        "target": "team",
-        "duration": 12000,
+        "applyWhen": "contact",
+        "applyOnAction": "FC-2",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 12000
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "RL-1",
         "statMap": {
           "PERCENT_RL": 1
         }
       },
       {
         "rank": 6,
-        "trigger": "3-1",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "useIfCast": "BA",
+        "followUpAction": {
+          "action": {
+            "considered": "RS",
+            "multipliers": {
+              "mv": 4.1959
+            }
+          }
+        },
         "duration": 30000,
-        "maxProcs": 4,
-        "actionFilter": "3-1",
-        "proc": {
-          "filter": "BA",
-          "actions": "7-3"
-        }
+        "maxUses": 4
       }
     ],
     "defaults": {
@@ -953,97 +1048,120 @@
         "13": 5
       },
       "rotation": [
-        "6-1",
-        "1-4",
-        "2-1",
-        "1-5",
-        "2-2",
-        "3-1",
-        "1-1",
-        "7-1",
-        "7-2",
-        "8-1"
+        "IS-1",
+        "BA-4",
+        "RS-1",
+        "BA-5",
+        "RS-2",
+        "RL-1",
+        "BA-1",
+        "FC-1",
+        "OS-1"
       ]
     }
   },
   "1303": {
     "name": "Yuanwu",
-    "quality": "4",
+    "quality": 4,
     "element": "ELECTRO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 8525,
-        "BASE_ATK": 225,
-        "BASE_DEF": 1637,
-        "PERCENT_ICE": 0.12,
-        "PERCENT_DEF": 0.152
-      }
+      "BASE_HP": 8525,
+      "BASE_ATK": 225,
+      "BASE_DEF": 1637,
+      "PERCENT_ICE": 0.12,
+      "PERCENT_DEF": 0.152
     },
     "effects": [
       {
-        "trigger": "2-1",
-        "target": "team",
-        "duration": 12000,
-        "procs": {
-          "actions": "2-2"
-        }
+        "applyWhen": "contact",
+        "applyOnAction": "RS-1",
+        "applyTo": "active",
+        "useIfType": "damage",
+        "followUpAction": {
+          "action": "RS-2"
+        },
+        "followUpActionCooldown": 1200,
+        "duration": 12000
       },
       {
-        "trigger": [
-          "2-4",
-          "3-1"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-4",
+          "RL-1"
         ],
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-3"
-        }
+        "followUpAction": {
+          "action": "RS-3"
+        },
+        "maxUses": 1
       },
       {
-        "trigger": "8-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-1"
-        }
-      },
-      {
-        "actionFilter": "7-1",
+        "useIfAction": "FC-1",
         "statMap": {
           "PERCENT_MV": 0.4
         }
       },
       {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "followUpAction": {
+          "action": "RS-1"
+        },
+        "maxUses": 1
+      },
+      {
+        "rank": 1,
+        "useIfAction": [
+          "FC-2",
+          "FC-3",
+          "FC-4",
+          "FC-5",
+          "FC-6",
+          "FC-7"
+        ],
+        "statMap": {
+          "PERCENT_ATKSPD": 0.2
+        }
+      },
+      {
         "rank": 3,
-        "trigger": "2-2",
-        "maxProcs": 1,
+        "applyOnAction": "RS-2",
         "statMap": {
           "FLAT_MV": 0.2
         }
       },
       {
         "rank": 4,
-        "trigger": "3-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-10"
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "comboAction": {
+          "action": {
+            "type": "shield",
+            "attr": "DEF",
+            "multipliers": {
+              "mv": 2
+            }
+          }
         }
       },
       {
         "rank": 5,
-        "trigger": "2-1",
-        "duration": 12000,
+        "applyWhen": "contact",
+        "applyOnAction": "RS-1",
         "statMap": {
           "PERCENT_RL": 0.5
-        }
+        },
+        "duration": 12000
       },
       {
         "rank": 6,
-        "trigger": "2-1",
-        "target": "team",
-        "duration": 15000,
+        "applyWhen": "contact",
+        "applyOnAction": "RS-1",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_DEF": 0.32
-        }
+        },
+        "duration": 15000
       }
     ],
     "defaults": {
@@ -1057,43 +1175,41 @@
         "13": 5
       },
       "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "2-4",
-        "2-1",
-        "8-1"
+        "IS-1",
+        "RS-1",
+        "RL-1",
+        "RS-4",
+        "RS-1",
+        "OS-1"
       ]
     }
   },
   "1402": {
     "name": "Yangyang",
-    "quality": "4",
+    "quality": 4,
     "element": "AERO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 10200,
-        "BASE_ATK": 250,
-        "BASE_DEF": 1099,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10200,
+      "BASE_ATK": 250,
+      "BASE_DEF": 1099,
+      "PERCENT_AERO": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "6-1",
-        "duration": 8000,
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
         "statMap": {
           "PERCENT_AERO": 0.08
-        }
-      },
-      {
-        "rank": 1,
-        "trigger": "6-1",
+        },
         "duration": 8000,
-        "statMap": {
-          "PERCENT_AERO": 0.15
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_AERO": 0.15
+            }
+          }
         }
       },
       {
@@ -1104,26 +1220,27 @@
       },
       {
         "rank": 4,
-        "actionFilter": "7-2",
+        "useIfAction": "FC-2",
         "statMap": {
-          "PERCENT_BA": 0.95
+          "PERCENT_ALL": 0.95
         }
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "RL-1",
         "statMap": {
-          "PERCENT_RL": 0.85
+          "PERCENT_ALL": 0.85
         }
       },
       {
         "rank": 6,
-        "trigger": "7-2",
-        "target": "team",
-        "duration": 20000,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-2",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 20000
       }
     ],
     "defaults": {
@@ -1137,136 +1254,158 @@
         "8": 5
       },
       "rotation": [
-        "6-1",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-5",
-        "1-7",
-        "3-1",
-        "1-1",
-        "1-5",
-        "1-7",
-        "2-1",
-        "7-2",
-        "8-1"
+        "IS-1",
+        "BA-1",
+        "BA-2",
+        "BA-3",
+        "BA-5",
+        "BA-7",
+        "RL-1",
+        "BA-1",
+        "BA-5",
+        "BA-7",
+        "RS-1",
+        "FC-2",
+        "OS-1"
       ]
     }
   },
   "1403": {
     "name": "Aalto",
-    "quality": "4",
+    "quality": 4,
     "element": "AERO",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_HP": 9850,
-        "BASE_ATK": 262,
-        "BASE_DEF": 1075,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 9850,
+      "BASE_ATK": 262,
+      "BASE_DEF": 1075,
+      "PERCENT_AERO": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "2-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-1",
+        "applyWhen": "cast",
+        "applyOnAction": "RS-2",
+        "comboAction": {
+          "action": "RS-1",
           "times": 6
         }
       },
       {
-        "trigger": "3-1",
-        "duration": 10000,
-        "actionFilter": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-6",
-          "1-9"
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "useIfAction": [
+          "BA-1",
+          "BA-2",
+          "BA-3",
+          "BA-4",
+          "BA-5",
+          "BA-6",
+          "BA-7",
+          "BA-8",
+          "BA-9"
         ],
         "statMap": {
           "PERCENT_ATK": 0.1
         },
-        "rankModifiers": {
-          "3": {
-            "statMap": {
-              "PERCENT_MV": 1
-            }
-          }
+        "duration": 10000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnAction": "FC-2",
+        "comboAction": {
+          "action": "FC-1",
+          "times": 6
         }
       },
       {
-        "actionFilter": [
-          "1-7",
-          "1-8"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "BA-7",
+          "BA-8"
         ],
+        "applyCooldown": 30000,
         "statMap": {
           "PERCENT_CR": 1
-        }
+        },
+        "maxUses": 1
       },
       {
-        "trigger": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-6",
-          "1-9"
-        ],
-        "maxStacks": 6,
-        "maxProcs": 1,
-        "procs": {
-          "actionKeyTrigger": "7-2",
-          "actions": "7-1"
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_AERO": 0.23
-        }
+        },
+        "duration": 14000
       },
       {
         "rank": 2,
-        "trigger": "2-2",
-        "duration": 8000,
+        "applyWhen": "cast",
+        "applyOnAction": "RS-2",
         "statMap": {
           "PERCENT_ATK": 0.15
-        }
+        },
+        "duration": 8000
+      },
+      {
+        "rank": 3,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "useIfAction": [
+          "BA-1",
+          "BA-2",
+          "BA-3",
+          "BA-4",
+          "BA-5",
+          "BA-6",
+          "BA-9"
+        ],
+        "statMap": {
+          "PERCENT_MV": 1
+        },
+        "duration": 10000
       },
       {
         "rank": 4,
-        "actionFilter": [
-          "2-1",
-          "7-1"
+        "useIfAction": [
+          "RS-1",
+          "FC-1"
         ],
         "statMap": {
-          "PERCENT_RS": 0.3
+          "PERCENT_ALL": 0.3
         }
       },
       {
         "rank": 5,
-        "trigger": "7-2",
-        "duration": 6000,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-2",
         "statMap": {
           "PERCENT_AERO": 0.25
-        }
+        },
+        "duration": 6000
       },
       {
         "rank": 6,
-        "trigger": "3-1",
-        "duration": 10000,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
         "statMap": {
-          "PERCENT_CR": 0.08,
-          "PERCENT_HA": 0.5
-        }
+          "PERCENT_CR": 0.08
+        },
+        "duration": 10000
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "useIfAction": [
+          "BA-7",
+          "BA-8"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.5
+        },
+        "duration": 10000
       }
     ],
     "defaults": {
@@ -1280,114 +1419,143 @@
         "8": 5
       },
       "rotation": [
-        "6-1",
-        "3-1",
-        "2-2",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "1-5",
-        "8-1"
+        "IS-1",
+        "RL-1",
+        "RS-2",
+        "BA-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "BA-5",
+        "OS-1"
       ]
     }
   },
   "1404": {
     "name": "Jiyan",
-    "quality": "5",
+    "quality": 5,
     "element": "AERO",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_HP": 10487,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1185,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10487,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1185,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "actionFilter": "2-1",
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "statMap": {
+          "PERCENT_CD": 0.12
+        },
+        "duration": 8000
+      },
+      {
+        "useIfAction": "RS-1",
         "statMap": {
           "PERCENT_RS": 0.2
         }
       },
       {
-        "trigger": "6-1",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        }
-      },
-      {
-        "statMap": {
-          "PERCENT_CD": 0.12
-        }
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
+        "followUpAction": {
+          "useIfCast": "HA",
+          "action": {
+            "type": "damage",
+            "cast": "CA",
+            "considered": [
+              "OS",
+              "CA"
+            ],
+            "multipliers": {
+              "mv": 3.134
+            }
+          }
+        },
+        "followUpActionCooldown": 1000,
+        "duration": 8000,
+        "maxUses": 2
       },
       {
         "rank": 2,
-        "trigger": "6-1",
-        "duration": 15000,
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "applyCooldown": 15000,
         "statMap": {
           "PERCENT_ATK": 0.28
-        }
+        },
+        "duration": 15000
       },
       {
         "rank": 3,
-        "trigger": [
-          "2-1",
-          "3-1",
-          "6-1",
-          "7-1"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-1",
+          "RL-1",
+          "FC-1",
+          "IS-1"
         ],
-        "duration": 8000,
         "statMap": {
           "PERCENT_CR": 0.16,
           "PERCENT_CD": 0.32
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 4,
-        "trigger": [
-          "3-1",
-          "7-1"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RL-1",
+          "FC-1"
         ],
-        "target": "team",
-        "duration": 30000,
+        "applyTo": "team",
         "statMap": {
           "PERCENT_HA": 0.25
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
-        "actionFilter": "8-1",
+        "useIfAction": "OS-1",
         "statMap": {
           "PERCENT_MV": 1.2
         }
       },
       {
         "rank": 5,
-        "trigger": "6-1",
+        "applyWhen": "cast",
+        "applyOnType": "damage",
         "statMap": {
           "PERCENT_ATK": 0.45
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 6,
-        "trigger": [
-          "1-6",
-          "1-7",
-          "1-8",
-          "2-1",
-          "6-1"
+        "applyWhen": "cast",
+        "applyOnCast": "HA",
+        "applyOnAction": [
+          "IS-1",
+          "RS-1"
         ],
-        "maxStacks": 2,
-        "maxProcs": 1,
-        "actionFilter": "7-1",
+        "useIfAction": "FC-1",
         "statMap": {
           "FLAT_MV": 1.2
-        }
+        },
+        "maxStacks": 2,
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -1401,88 +1569,86 @@
         "4": 5
       },
       "rotation": [
-        "6-1",
-        "7-1",
-        "2-1",
-        "3-1",
-        "3-2",
-        "3-3",
-        "3-1",
-        "3-2",
-        "3-3",
-        "2-1",
-        "8-1"
+        "IS-1",
+        "FC-1",
+        "RS-1",
+        "RL-1",
+        "RL-2",
+        "RL-3",
+        "RL-1",
+        "RL-2",
+        "RL-3",
+        "RS-1",
+        "OS-1"
       ]
     }
   },
   "1405": {
     "name": "Jianxin",
-    "quality": "5",
+    "quality": 5,
     "element": "AERO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 14112,
-        "BASE_ATK": 337,
-        "BASE_DEF": 1124,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 14112,
+      "BASE_ATK": 337,
+      "BASE_DEF": 1124,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "3-3",
-        "target": "team",
-        "duration": 1000,
-        "maxProcs": 1,
-        "procs": [
+        "applyWhen": "cast",
+        "applyOnAction": "RL-3",
+        "followUpAction": [
           {
-            "actions": "3-1",
+            "action": "RL-1",
             "times": 16
           },
           {
-            "actions": "3-2"
+            "action": "RL-2"
           }
-        ]
-      },
-      {
-        "trigger": "7-3",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-8"
-        }
-      },
-      {
-        "trigger": "7-4",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-9"
-        }
-      },
-      {
-        "trigger": "7-5",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-10"
-        }
-      },
-      {
-        "trigger": [
-          "7-7",
-          "7-8",
-          "7-9",
-          "7-10"
         ],
-        "target": "team",
-        "duration": 30000,
-        "procs": {
-          "actions": "7-11"
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-3",
+        "comboAction": {
+          "action": "FC-8"
         }
       },
       {
-        "actionFilter": [
-          "3-1",
-          "3-2"
+        "applyWhen": "cast",
+        "applyOnAction": "FC-4",
+        "comboAction": {
+          "action": "FC-9"
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-5",
+        "comboAction": {
+          "action": "FC-10"
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-7",
+          "FC-8",
+          "FC-9",
+          "FC-10"
+        ],
+        "applyTo": "team",
+        "followUpAction": {
+          "action": "FC-11"
+        },
+        "duration": 30000
+      },
+      {
+        "useIfAction": [
+          "RL-1",
+          "RL-2"
         ],
         "statMap": {
           "PERCENT_RL": 0.2
@@ -1494,38 +1660,46 @@
         }
       },
       {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_RL": 0.38
-        }
+        },
+        "duration": 14000
       },
       {
         "rank": 4,
-        "trigger": "7-2",
-        "duration": 14000,
-        "actionFilter": [
-          "3-1",
-          "3-2"
+        "applyWhen": "cast",
+        "applyOnAction": "FC-2",
+        "useIfAction": [
+          "RL-1",
+          "RL-2"
         ],
         "statMap": {
-          "PERCENT_RL": 0.8
-        }
+          "PERCENT_ALL": 0.8
+        },
+        "duration": 14000
       },
       {
         "rank": 6,
-        "trigger": "7-1",
-        "duration": 5000,
-        "maxProcs": 1,
-        "procs": [
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "followUpAction": [
           {
-            "actions": "7-12"
+            "action": {
+              "considered": "HA",
+              "multipliers": {
+                "mv": 5.5667
+              }
+            }
           },
           {
-            "actions": "7-10"
+            "action": "FC-10"
           }
-        ]
+        ],
+        "duration": 5000,
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -1539,126 +1713,139 @@
         "8": 5
       },
       "rotation": [
-        "6-1",
-        "2-2",
-        "3-3",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-3",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-4",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-5",
-        "8-1"
+        "IS-1",
+        "RS-2",
+        "RL-3",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-3",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-4",
+        "FC-2",
+        "FC-2",
+        "FC-2",
+        "FC-5",
+        "OS-1"
       ]
     }
   },
   "1503": {
     "name": "Verina",
-    "quality": "5",
+    "quality": 5,
     "element": "SPECTRO",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 14237,
-        "BASE_ATK": 337,
-        "BASE_DEF": 1099,
-        "PERCENT_HB": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 14237,
+      "BASE_ATK": 337,
+      "BASE_DEF": 1099,
+      "PERCENT_HB": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "3-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "3-2"
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "comboAction": {
+          "action": "RL-2"
         }
       },
       {
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 12000,
-        "cooldown": 1000,
-        "procs": [
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "applyTo": "team",
+        "followUpAction": [
           {
-            "actions": "3-3"
+            "action": "RL-3"
           },
           {
-            "actions": "3-4"
+            "action": "RL-4"
           }
-        ]
+        ],
+        "followUpActionCooldown": 1000,
+        "duration": 12000
       },
       {
-        "trigger": [
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4"
         ],
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-5",
+        "comboAction": {
+          "action": "FC-5",
           "times": 3
         }
       },
       {
-        "trigger": "8-1",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "team",
         "duration": 30000,
         "statMap": {
           "AMP_ALL": 0.15
         }
       },
       {
-        "trigger": "8-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-6",
-          "times": 6
-        },
-        "rankModifiers": {
-          "1": {
-            "procs": {
-              "actions": "7-7",
-              "times": 6
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "intervalAction": {
+          "action": {
+            "type": "heal",
+            "multipliers": {
+              "mv": 0.19
             }
           }
-        }
+        },
+        "intervalCooldown": 1000,
+        "duration": 6000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "intervalAction": {
+          "action": {
+            "type": "heal",
+            "multipliers": {
+              "mv": 0.2
+            }
+          }
+        },
+        "intervalCooldown": 5000,
+        "duration": 30000
       },
       {
         "rank": 3,
-        "actionFilter": "7-4",
+        "useIfAction": "FC-4",
         "statMap": {
           "PERCENT_HB": 0.12
         }
       },
       {
         "rank": 4,
-        "trigger": [
-          "3-1",
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4",
-          "8-1"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RL-1",
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4",
+          "OS-1"
         ],
-        "target": "team",
+        "applyTo": "team",
         "duration": 24000,
         "statMap": {
           "PERCENT_SPECTRO": 0.15
@@ -1673,19 +1860,20 @@
       },
       {
         "rank": 6,
-        "trigger": [
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4"
         ],
-        "maxProcs": 1,
-        "procs": [
+        "maxUses": 1,
+        "followUpAction": [
           {
-            "actions": "3-3"
+            "action": "RL-3"
           },
           {
-            "actions": "3-4",
+            "action": "RL-4",
             "times": 3
           }
         ]
@@ -1702,62 +1890,65 @@
         "7": 5
       },
       "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "7-2",
-        "7-3",
-        "7-4",
-        "8-1"
+        "IS-1",
+        "RS-1",
+        "RL-1",
+        "FC-2",
+        "FC-3",
+        "FC-4",
+        "OS-1"
       ]
     }
   },
   "1601": {
     "name": "Taoqi",
-    "quality": "4",
+    "quality": 4,
     "element": "HAVOC",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_HP": 8950,
-        "BASE_ATK": 225,
-        "BASE_DEF": 1564,
-        "PERCENT_HAVOC": 0.12,
-        "PERCENT_DEF": 0.152
-      }
+      "BASE_HP": 8950,
+      "BASE_ATK": 225,
+      "BASE_DEF": 1564,
+      "PERCENT_HAVOC": 0.12,
+      "PERCENT_DEF": 0.152
     },
     "effects": [
       {
-        "trigger": "2-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-2"
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "RS-2"
         }
       },
       {
-        "trigger": "7-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-4"
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-4"
         }
       },
       {
-        "trigger": "7-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-5"
+        "applyWhen": "cast",
+        "applyOnAction": "FC-2",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-5"
         }
       },
       {
-        "trigger": "7-3",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-6"
+        "applyWhen": "cast",
+        "applyOnAction": "FC-3",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-6"
         }
       },
       {
-        "trigger": "2-1",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "applyTo": "team",
         "duration": 15000,
         "statMap": {
           "PERCENT_DEF": 0.15
@@ -1769,8 +1960,9 @@
         }
       },
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "duration": 14000,
         "statMap": {
           "AMP_RS": 0.38
@@ -1778,10 +1970,10 @@
       },
       {
         "rank": 1,
-        "actionFilter": [
-          "7-4",
-          "7-5",
-          "7-6"
+        "useIfAction": [
+          "FC-4",
+          "FC-5",
+          "FC-6"
         ],
         "statMap": {
           "PERCENT_SS": 0.4
@@ -1789,7 +1981,7 @@
       },
       {
         "rank": 2,
-        "actionFilter": "3-1",
+        "useIfAction": "RL-1",
         "statMap": {
           "PERCENT_CR": 0.2,
           "PERCENT_CD": 0.2
@@ -1797,7 +1989,8 @@
       },
       {
         "rank": 4,
-        "trigger": "1-6",
+        "applyWhen": "cast",
+        "applyOnAction": "BA-6",
         "duration": 5000,
         "statMap": {
           "PERCENT_DEF": 0.5
@@ -1805,18 +1998,19 @@
       },
       {
         "rank": 4,
-        "trigger": "1-6",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-7"
+        "applyWhen": "cast",
+        "applyOnAction": "BA-6",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-7"
         }
       },
       {
         "rank": 5,
-        "actionFilter": [
-          "7-1",
-          "7-2",
-          "7-3"
+        "useIfAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3"
         ],
         "statMap": {
           "PERCENT_BA": 0.5
@@ -1824,7 +2018,8 @@
       },
       {
         "rank": 6,
-        "trigger": "2-1",
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
         "duration": 30000,
         "statMap": {
           "PERCENT_BA": 0.4,
@@ -1843,37 +2038,36 @@
         "8": 5
       },
       "rotation": [
-        "6-1",
-        "7-1",
-        "7-2",
-        "7-3",
-        "3-1",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "2-1",
-        "8-1"
+        "IS-1",
+        "FC-1",
+        "FC-2",
+        "FC-3",
+        "RL-1",
+        "BA-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "RS-1",
+        "OS-1"
       ]
     }
   },
   "1602": {
     "name": "Danjin",
-    "quality": "4",
+    "quality": 4,
     "element": "HAVOC",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 9437,
-        "BASE_ATK": 262,
-        "BASE_DEF": 1148,
-        "PERCENT_HAVOC": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 9437,
+      "BASE_ATK": 262,
+      "BASE_DEF": 1148,
+      "PERCENT_HAVOC": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "2-3",
+        "applyWhen": "cast",
+        "applyOnAction": "RS-3",
         "duration": 12000,
         "statMap": {
           "PERCENT_ALL": 0.2
@@ -1887,28 +2081,31 @@
         }
       },
       {
-        "trigger": "3-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "3-2"
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "RL-2"
         }
       },
       {
-        "trigger": "1-6",
-        "maxProcs": 2,
-        "actionFilter": [
-          "2-2",
-          "2-3"
+        "applyWhen": "cast",
+        "applyOnAction": "BA-6",
+        "maxUses": 2,
+        "useIfAction": [
+          "RS-2",
+          "RS-3"
         ],
         "statMap": {
           "PERCENT_RS": 0.2
         }
       },
       {
-        "trigger": [
-          "2-4",
-          "2-5",
-          "2-6"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-4",
+          "RS-5",
+          "RS-6"
         ],
         "duration": 5000,
         "statMap": {
@@ -1916,8 +2113,9 @@
         }
       },
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "duration": 14000,
         "statMap": {
           "AMP_HAVOC": 0.23
@@ -1925,21 +2123,22 @@
       },
       {
         "rank": 1,
-        "trigger": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-6",
-          "2-1",
-          "2-2",
-          "2-3",
-          "2-4",
-          "2-5",
-          "2-6",
-          "3-1",
-          "3-2"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "BA-1",
+          "BA-2",
+          "BA-3",
+          "BA-4",
+          "BA-5",
+          "BA-6",
+          "RS-1",
+          "RS-2",
+          "RS-3",
+          "RS-4",
+          "RS-5",
+          "RS-6",
+          "RL-1",
+          "RL-2"
         ],
         "maxStacks": 6,
         "duration": 6000,
@@ -1955,11 +2154,11 @@
       },
       {
         "rank": 4,
-        "actionFilter": [
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4"
+        "useIfAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4"
         ],
         "statMap": {
           "PERCENT_CR": 0.15
@@ -1973,11 +2172,12 @@
       },
       {
         "rank": 6,
-        "trigger": [
-          "7-1",
-          "7-3"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-1",
+          "FC-3"
         ],
-        "target": "team",
+        "applyTo": "team",
         "duration": 20000,
         "statMap": {
           "PERCENT_ATK": 0.2
@@ -1992,62 +2192,61 @@
       ],
       "weaponId": "21020015",
       "setCounts": {
-        "8": 5
+        "12": 5
       },
       "rotation": [
-        "6-1",
-        "2-2",
-        "2-3",
-        "3-1",
-        "2-1",
-        "1-2",
-        "1-3",
-        "2-4",
-        "2-5",
-        "2-6",
-        "7-1",
-        "7-2",
-        "8-1"
+        "IS-1",
+        "RS-2",
+        "RS-3",
+        "RL-1",
+        "RS-1",
+        "BA-2",
+        "BA-3",
+        "RS-4",
+        "RS-5",
+        "RS-6",
+        "FC-1",
+        "FC-2",
+        "OS-1"
       ]
     }
   },
   "1205": {
     "name": "Changli",
-    "quality": "5",
+    "quality": 5,
     "element": "FUSION",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 10387,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1099,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10387,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1099,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "3-1",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
         "duration": 10000,
-        "maxProcs": 1,
-        "actionFilter": "7-1",
+        "maxUses": 1,
+        "useIfAction": "FC-1",
         "statMap": {
           "PERCENT_ATK": 0.25
         }
       },
       {
-        "actionFilter": [
-          "2-2",
-          "2-3"
+        "useIfAction": [
+          "RS-2",
+          "RS-3"
         ],
         "statMap": {
           "PERCENT_FUSION": 0.1
         }
       },
       {
-        "actionFilter": [
-          "7-1",
-          "3-1"
+        "useIfAction": [
+          "FC-1",
+          "RL-1"
         ],
         "statMap": {
           "PERCENT_FUSION": 0.2,
@@ -2055,8 +2254,9 @@
         }
       },
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "duration": 10000,
         "statMap": {
           "AMP_RL": 0.25,
@@ -2065,11 +2265,11 @@
       },
       {
         "rank": 1,
-        "actionFilter": [
-          "2-1",
-          "2-2",
-          "2-3",
-          "7-1"
+        "useIfAction": [
+          "RS-1",
+          "RS-2",
+          "RS-3",
+          "FC-1"
         ],
         "statMap": {
           "PERCENT_ALL": 0.1
@@ -2077,10 +2277,11 @@
       },
       {
         "rank": 2,
-        "trigger": [
-          "2-2",
-          "2-3",
-          "3-1"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-2",
+          "RS-3",
+          "RL-1"
         ],
         "duration": 8000,
         "statMap": {
@@ -2089,15 +2290,16 @@
       },
       {
         "rank": 3,
-        "actionFilter": "3-1",
+        "useIfAction": "RL-1",
         "statMap": {
           "PERCENT_RL": 0.8
         }
       },
       {
         "rank": 4,
-        "trigger": "6-1",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "applyTo": "team",
         "duration": 30000,
         "statMap": {
           "PERCENT_ATK": 0.2
@@ -2105,7 +2307,7 @@
       },
       {
         "rank": 5,
-        "actionFilter": "7-1",
+        "useIfAction": "FC-1",
         "statMap": {
           "PERCENT_MV": 0.5,
           "PERCENT_ALL": 0.5
@@ -2113,12 +2315,12 @@
       },
       {
         "rank": 6,
-        "actionFilter": [
-          "2-1",
-          "2-2",
-          "2-3",
-          "7-1",
-          "3-1"
+        "useIfAction": [
+          "RS-1",
+          "RS-2",
+          "RS-3",
+          "FC-1",
+          "RL-1"
         ],
         "statMap": {
           "IGNORE_DEF": 0.4
@@ -2136,42 +2338,41 @@
         "2": 5
       },
       "rotation": [
-        "6-1",
-        "2-3",
-        "1-10",
-        "1-3",
-        "1-4",
-        "2-2",
-        "2-1",
-        "2-2",
-        "2-1",
-        "2-2",
-        "7-1",
-        "3-1",
-        "7-1"
+        "IS-1",
+        "RS-3",
+        "BA-10",
+        "BA-3",
+        "BA-4",
+        "RS-2",
+        "RS-1",
+        "RS-2",
+        "RS-1",
+        "RS-2",
+        "FC-1",
+        "RL-1",
+        "FC-1"
       ]
     }
   },
   "1304": {
     "name": "Jinhsi",
-    "quality": "5",
+    "quality": 5,
     "element": "SPECTRO",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_HP": 10825,
-        "BASE_ATK": 412,
-        "BASE_DEF": 1258,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10825,
+      "BASE_ATK": 412,
+      "BASE_DEF": 1258,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "7-8",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-9"
+        "applyWhen": "cast",
+        "applyOnAction": "FC-8",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-9"
         }
       },
       {
@@ -2180,31 +2381,33 @@
         }
       },
       {
-        "actionFilter": "6-1",
+        "useIfAction": "IS-1",
         "statMap": {
           "PERCENT_MV": 0.5
         }
       },
       {
         "rank": 1,
-        "trigger": [
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4",
-          "7-7"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4",
+          "FC-7"
         ],
         "maxStacks": 4,
         "duration": 6000,
-        "maxProcs": 2,
-        "actionFilter": "6-1",
+        "maxUses": 2,
+        "useIfAction": "IS-1",
         "statMap": {
           "PERCENT_RS": 0.2
         }
       },
       {
         "rank": 3,
-        "trigger": "6-1",
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
         "maxStacks": 2,
         "duration": 20000,
         "statMap": {
@@ -2213,12 +2416,13 @@
       },
       {
         "rank": 4,
-        "trigger": [
-          "3-1",
-          "7-8",
-          "7-9"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RL-1",
+          "FC-8",
+          "FC-9"
         ],
-        "target": "team",
+        "applyTo": "team",
         "duration": 20000,
         "statMap": {
           "PERCENT_ALL": 0.2
@@ -2226,17 +2430,17 @@
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 1.2
         }
       },
       {
         "rank": 6,
-        "actionFilter": [
-          "7-8",
-          "7-9",
-          "7-10"
+        "useIfAction": [
+          "FC-8",
+          "FC-9",
+          "FC-10"
         ],
         "statMap": {
           "PERCENT_MV": 0.45
@@ -2254,60 +2458,61 @@
         "5": 5
       },
       "rotation": [
-        "6-1",
-        "2-2",
-        "7-7",
-        "7-1",
-        "7-2",
-        "7-3",
-        "7-4",
-        "7-8",
-        "7-10",
-        "3-1",
-        "8-1"
+        "IS-1",
+        "RS-2",
+        "FC-7",
+        "FC-1",
+        "FC-2",
+        "FC-3",
+        "FC-4",
+        "FC-8",
+        "FC-10",
+        "RL-1",
+        "OS-1"
       ]
     }
   },
   "1105": {
     "name": "Zhezhi",
-    "quality": "5",
+    "quality": 5,
     "element": "GLACIO",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 12250,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 12250,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "3-2",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-2",
+        "applyTo": "team",
         "duration": 30000,
-        "maxProcs": 21,
-        "procs": {
-          "actions": "3-1"
+        "maxUses": 21,
+        "followUpAction": {
+          "action": "RL-1"
         },
         "rankModifiers": {
           "2": {
-            "maxProcs": 6
+            "maxUses": 6
           }
         }
       },
       {
-        "trigger": "7-3",
+        "applyWhen": "cast",
+        "applyOnAction": "FC-3",
         "duration": 27000,
         "statMap": {
           "PERCENT_BA": 0.18
         }
       },
       {
-        "trigger": [
-          "7-2",
-          "7-3"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-2",
+          "FC-3"
         ],
         "maxStacks": 3,
         "duration": 27000,
@@ -2316,8 +2521,9 @@
         }
       },
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "duration": 14000,
         "statMap": {
           "AMP_RS": 0.25,
@@ -2326,7 +2532,8 @@
       },
       {
         "rank": 1,
-        "trigger": "7-3",
+        "applyWhen": "cast",
+        "applyOnAction": "FC-3",
         "duration": 27000,
         "statMap": {
           "PERCENT_CR": 0.1
@@ -2334,10 +2541,11 @@
       },
       {
         "rank": 3,
-        "trigger": [
-          "2-1",
-          "7-2",
-          "7-3"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-1",
+          "FC-2",
+          "FC-3"
         ],
         "maxStacks": 3,
         "duration": 27000,
@@ -2347,8 +2555,9 @@
       },
       {
         "rank": 4,
-        "trigger": "3-2",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-2",
+        "applyTo": "team",
         "duration": 30000,
         "statMap": {
           "PERCENT_ATK": 0.2
@@ -2356,16 +2565,16 @@
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 0.467
         }
       },
       {
         "rank": 6,
-        "actionFilter": [
-          "7-2",
-          "7-3"
+        "useIfAction": [
+          "FC-2",
+          "FC-3"
         ],
         "statMap": {
           "PERCENT_MV": 1.2
@@ -2383,41 +2592,40 @@
         "13": 5
       },
       "rotation": [
-        "6-1",
-        "1-1",
-        "1-2",
-        "1-3",
-        "2-1",
-        "7-1",
-        "7-2",
-        "7-2",
-        "7-3",
-        "3-2",
-        "8-1"
+        "IS-1",
+        "BA-1",
+        "BA-2",
+        "BA-3",
+        "RS-1",
+        "FC-1",
+        "FC-2",
+        "FC-2",
+        "FC-3",
+        "RL-2",
+        "OS-1"
       ]
     }
   },
   "1305": {
     "name": "Xiangli Yao",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10625,
-        "BASE_ATK": 425,
-        "BASE_DEF": 1222,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10625,
+      "BASE_ATK": 425,
+      "BASE_DEF": 1222,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": [
-          "2-1",
-          "3-5",
-          "7-1",
-          "7-2"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-1",
+          "RL-5",
+          "FC-1",
+          "FC-2"
         ],
         "duration": 8000,
         "maxStacks": 4,
@@ -2426,20 +2634,38 @@
         }
       },
       {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
+        "useIfCast": "BA",
+        "followUpAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 2.3763
+            }
+          }
+        },
+        "followUpActionCooldown": 2000,
+        "duration": 8000,
+        "maxUses": 3
+      },
+      {
         "rank": 1,
-        "actionFilter": "7-2",
+        "useIfAction": "FC-2",
         "statMap": {
           "PERCENT_MV": 0.48
         }
       },
       {
         "rank": 2,
-        "trigger": [
-          "2-1",
-          "3-1",
-          "3-5",
-          "7-1",
-          "7-2"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-1",
+          "RL-1",
+          "RL-5",
+          "FC-1",
+          "FC-2"
         ],
         "duration": 8000,
         "statMap": {
@@ -2448,14 +2674,15 @@
       },
       {
         "rank": 3,
-        "trigger": "3-1",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
         "duration": 24000,
-        "maxProcs": 5,
-        "actionFilter": [
-          "2-1",
-          "3-5",
-          "7-1",
-          "7-2"
+        "maxUses": 5,
+        "useIfAction": [
+          "RS-1",
+          "RL-5",
+          "FC-1",
+          "FC-2"
         ],
         "statMap": {
           "PERCENT_ALL": 0.63
@@ -2463,8 +2690,9 @@
       },
       {
         "rank": 4,
-        "trigger": "3-1",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "applyTo": "team",
         "duration": 30000,
         "statMap": {
           "PERCENT_RL": 0.25
@@ -2472,21 +2700,21 @@
       },
       {
         "rank": 5,
-        "actionFilter": "8-1",
+        "useIfAction": "OS-1",
         "statMap": {
           "PERCENT_MV": 2.22
         }
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 1
         }
       },
       {
         "rank": 6,
-        "actionFilter": "7-2",
+        "useIfAction": "FC-2",
         "statMap": {
           "PERCENT_MV": 0.76
         }
@@ -2503,55 +2731,56 @@
         "3": 5
       },
       "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "3-5",
-        "7-3",
-        "7-2",
-        "3-2",
-        "3-3",
-        "3-4",
-        "7-2",
-        "3-5",
-        "7-3",
-        "7-2",
-        "8-1"
+        "IS-1",
+        "RS-1",
+        "RL-1",
+        "RL-5",
+        "FC-3",
+        "FC-2",
+        "RL-2",
+        "RL-3",
+        "RL-4",
+        "FC-2",
+        "RL-5",
+        "FC-3",
+        "FC-2",
+        "OS-1"
       ]
     }
   },
   "1106": {
     "name": "Youhu",
-    "quality": "4",
+    "quality": 4,
     "element": "GLACIO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 9975,
-        "BASE_ATK": 262,
-        "BASE_DEF": 1051,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 9975,
+      "BASE_ATK": 262,
+      "BASE_DEF": 1051,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "2-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-2"
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "RS-2"
         }
       },
       {
-        "trigger": "6-1",
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
         "duration": "14000",
         "statMap": {
           "PERCENT_GLACIO": 0.15
         }
       },
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_CA": 1
         }
@@ -2564,7 +2793,8 @@
       },
       {
         "rank": 5,
-        "trigger": "6-1",
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
         "duration": 14000,
         "statMap": {
           "PERCENT_CR": 0.15
@@ -2572,11 +2802,12 @@
       },
       {
         "rank": 6,
-        "trigger": [
-          "2-3",
-          "2-4",
-          "2-5",
-          "2-6"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-3",
+          "RS-4",
+          "RS-5",
+          "RS-6"
         ],
         "maxStacks": 4,
         "duration": 7000,
@@ -2596,60 +2827,61 @@
         "7": 5
       },
       "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "2-1",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "2-1",
-        "2-1",
-        "8-1"
+        "IS-1",
+        "RS-1",
+        "RL-1",
+        "RS-1",
+        "BA-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "RS-1",
+        "RS-1",
+        "OS-1"
       ]
     }
   },
   "1505": {
     "name": "Shorekeeper",
-    "quality": "5",
+    "quality": 5,
     "element": "SPECTRO",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 16712,
-        "BASE_ATK": 287,
-        "BASE_DEF": 1099,
-        "PERCENT_HB": 0.12,
-        "PERCENT_HP": 0.12
-      }
+      "BASE_HP": 16712,
+      "BASE_ATK": 287,
+      "BASE_DEF": 1099,
+      "PERCENT_HB": 0.12,
+      "PERCENT_HP": 0.12
     },
     "effects": [
       {
-        "trigger": "2-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-1",
+        "applyWhen": "cast",
+        "applyOnAction": "RS-2",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "RS-1",
           "times": 5
         }
       },
       {
         "rank": 4,
-        "trigger": "2-2",
-        "maxProcs": 1,
-        "actionFilter": "2-2",
+        "applyWhen": "cast",
+        "applyOnAction": "RS-2",
+        "maxUses": 1,
+        "useIfAction": "RS-2",
         "statMap": {
           "PERCENT_HB": 0.7
         }
       },
       {
-        "trigger": "3-2",
-        "target": "active",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-2",
+        "applyTo": "active",
         "duration": 30000,
-        "cooldown": 3000,
-        "procs": {
-          "actions": "3-1"
+        "followUpAction": {
+          "action": "RL-1"
         },
+        "followUpActionCooldown": 3000,
         "rankModifiers": {
           "1": {
             "duration": 10000
@@ -2657,11 +2889,17 @@
         }
       },
       {
-        "trigger": "3-2",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-2",
+        "applyTo": "team",
         "duration": 30000,
-        "statMap": {
-          "PERCENT_CR": 0.125
+        "variableStatMap": {
+          "PERCENT_CR": {
+            "source": "ER",
+            "step": 0.002,
+            "value": 0.0001,
+            "max": 0.125
+          }
         },
         "rankModifiers": {
           "1": {
@@ -2675,11 +2913,17 @@
         }
       },
       {
-        "trigger": "3-2",
-        "target": "first",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-2",
+        "applyTo": "first",
         "duration": 30000,
-        "statMap": {
-          "PERCENT_CD": 0.25
+        "variableStatMap": {
+          "PERCENT_CD": {
+            "source": "ER",
+            "step": 0.001,
+            "value": 0.0001,
+            "max": 0.25
+          }
         },
         "rankModifiers": {
           "1": {
@@ -2688,7 +2932,8 @@
         }
       },
       {
-        "trigger": "3-2",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-2",
         "duration": 30000,
         "statMap": {
           "PERCENT_ER": 0.1
@@ -2700,36 +2945,37 @@
         }
       },
       {
-        "trigger": [
-          "7-2",
-          "7-3"
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-2",
+          "FC-3"
         ],
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-1",
           "times": 5
         }
       },
       {
-        "trigger": "6-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "6-3"
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "IS-3"
         }
       },
       {
-        "trigger": "6-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "6-4"
+        "applyWhen": "cast",
+        "applyOnAction": "IS-2",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "IS-4"
         }
       },
       {
-        "trigger": "6-2",
-        "maxProcs": 1,
-        "actionFilter": "6-2",
+        "useIfAction": "IS-2",
         "statMap": {
-          "PERCENT_CR": "1"
+          "PERCENT_CR": 1
         },
         "rankModifiers": {
           "6": {
@@ -2741,8 +2987,9 @@
         }
       },
       {
-        "trigger": "8-1",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "team",
         "duration": 30000,
         "statMap": {
           "AMP_ALL": 0.15
@@ -2760,31 +3007,29 @@
         "7": 5
       },
       "rotation": [
-        "6-2",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "7-2",
-        "2-2",
-        "3-2",
-        "8-1"
+        "IS-2",
+        "BA-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "FC-2",
+        "RS-2",
+        "RL-2",
+        "OS-1"
       ]
     }
   },
   "1504": {
     "name": "Lumi",
-    "quality": "4",
+    "quality": 4,
     "element": "ELECTRO",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_HP": 8500,
-        "BASE_ATK": 337,
-        "BASE_DEF": 879,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 8500,
+      "BASE_ATK": 337,
+      "BASE_DEF": 879,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -2795,23 +3040,25 @@
       },
       {
         "rank": 3,
-        "actionFilter": "3-1",
+        "useIfAction": "RL-1",
         "statMap": {
           "PERCENT_RL": 0.3
         }
       },
       {
-        "trigger": "1-10",
-        "maxProcs": 1,
-        "procs": {
-          "action": "1-2",
+        "applyWhen": "cast",
+        "applyOnAction": "BA-10",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "BA-2",
           "times": 2
         }
       },
       {
         "rank": 6,
-        "trigger": "3-1",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "applyTo": "team",
         "duration": 20000,
         "statMap": {
           "PERCENT_ATK": 0.2
@@ -2819,33 +3066,36 @@
       },
       {
         "rank": 2,
-        "actionFilter": [
-          "7-6",
-          "7-7"
+        "useIfAction": [
+          "FC-6",
+          "FC-7"
         ],
         "statMap": {
           "IGNORE_DEF": 0.2
         }
       },
       {
-        "trigger": "7-9",
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-1",
+        "applyWhen": "cast",
+        "applyOnAction": "FC-9",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-1",
           "times": 2
         }
       },
       {
-        "trigger": "8-1",
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-8",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-8",
           "times": 4
         }
       },
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "duration": 10000,
         "statMap": {
           "AMP_RS": 0.38
@@ -2863,116 +3113,56 @@
         "8": 5
       },
       "rotation": [
-        "6-1",
-        "3-1",
-        "7-6",
-        "7-2",
-        "7-3",
-        "7-4",
-        "7-7",
-        "1-1",
-        "7-9",
-        "7-9",
-        "7-9",
-        "7-6",
-        "8-1"
+        "IS-1",
+        "RL-1",
+        "FC-6",
+        "FC-2",
+        "FC-3",
+        "FC-4",
+        "FC-7",
+        "BA-1",
+        "FC-9",
+        "FC-9",
+        "FC-9",
+        "FC-6",
+        "OS-1"
       ]
     }
   },
   "1603": {
     "name": "Camellya",
-    "quality": "5",
+    "quality": 5,
     "element": "HAVOC",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 10325,
-        "BASE_ATK": 450,
-        "BASE_DEF": 1161,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10325,
+      "BASE_ATK": 450,
+      "BASE_DEF": 1161,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "rank": 2,
-        "actionFilter": "7-1",
-        "statMap": {
-          "PERCENT_MV": 1.2
-        },
-        "rankModifiers": {
-          "6": {
-            "statMap": {
-              "PERCENT_MV": 1.2
-            }
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_MV": 0.5
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": "7-1",
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
         "duration": 15000,
-        "statMap": {
-          "PERCENT_ATK": 0.58
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "6-1",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_BA": 0.25
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "6-1",
-        "statMap": {
-          "PERCENT_MV": 3.03
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "8-1",
-        "statMap": {
-          "PERCENT_MV": 0.68
-        }
-      },
-      {
-        "rank": 1,
-        "trigger": "6-1",
-        "duration": 18000,
-        "statMap": {
-          "PERCENT_CD": 0.28
-        }
-      },
-      {
-        "trigger": "7-1",
-        "duration": 15000,
-        "actionFilter": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-7",
-          "1-8",
-          "2-1",
-          "2-2",
-          "2-3",
-          "2-4",
-          "2-5",
-          "2-6",
-          "2-7",
-          "2-8",
-          "2-9"
+        "useIfAction": [
+          "BA-1",
+          "BA-2",
+          "BA-3",
+          "BA-4",
+          "BA-5",
+          "BA-7",
+          "BA-8",
+          "RS-1",
+          "RS-2",
+          "RS-3",
+          "RS-4",
+          "RS-5",
+          "RS-6",
+          "RS-7",
+          "RS-8",
+          "RS-9"
         ],
         "statMap": {
           "PERCENT_MV": 1
@@ -2986,11 +3176,77 @@
         }
       },
       {
-        "trigger": "7-1",
-        "maxProcs": 1,
-        "actionFilter": "8-1",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 3.2924
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "duration": 18000,
         "statMap": {
-          "FLAT_MV": 4.5902
+          "PERCENT_CD": 0.28
+        }
+      },
+      {
+        "rank": 2,
+        "useIfAction": "FC-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 1.2
+            }
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "useIfAction": "RL-1",
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 3,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_ATK": 0.58
+        }
+      },
+      {
+        "rank": 4,
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_BA": 0.25
+        }
+      },
+      {
+        "rank": 5,
+        "useIfAction": "IS-1",
+        "statMap": {
+          "PERCENT_MV": 3.03
+        }
+      },
+      {
+        "rank": 5,
+        "useIfAction": "OS-1",
+        "statMap": {
+          "PERCENT_MV": 0.68
         }
       }
     ],
@@ -3005,46 +3261,133 @@
         "6": 5
       },
       "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "2-2",
-        "2-3",
-        "2-4",
-        "2-6",
-        "2-5",
-        "7-1",
-        "2-2",
-        "2-3",
-        "2-4",
-        "2-6",
-        "2-5",
-        "2-7",
-        "8-1"
+        "IS-1",
+        "RS-1",
+        "RL-1",
+        "RS-2",
+        "RS-3",
+        "RS-4",
+        "RS-6",
+        "RS-5",
+        "FC-1",
+        "RS-2",
+        "RS-3",
+        "RS-4",
+        "RS-6",
+        "RS-5",
+        "RS-7",
+        "OS-1"
       ]
     }
   },
   "1107": {
     "name": "Carlotta",
-    "quality": "5",
+    "quality": 5,
     "element": "GLACIO",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_HP": 12450,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1197,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 12450,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1197,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
-    "buffs": {
-      "self": {
-        "constant": {
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-2",
+          "RL-2",
+          "IS-1",
+          "FC-1"
+        ],
+        "duration": 4000,
+        "statMap": {
           "IGNORE_DEF": 0.18
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_CR": 0.125
+            }
+          }
+        }
+      },
+      {
+        "useIfAction": [
+          "RL-1",
+          "RL-2",
+          "RL-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 7.942
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "useIfAction": "RL-3",
+        "statMap": {
+          "PERCENT_MV": 1.26
+        }
+      },
+      {
+        "rank": 3,
+        "useIfAction": [
+          "RS-1",
+          "RS-2"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.93
+        }
+      },
+      {
+        "rank": 3,
+        "useIfAction": "OS-1",
+        "statMap": {
+          "FLAT_MV": 10.3218
+        }
+      },
+      {
+        "rank": 4,
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "BA-6",
+          "BA-7",
+          "FC-1"
+        ],
+        "applyTo": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_RS": 0.25
+        }
+      },
+      {
+        "rank": 5,
+        "useIfAction": "FC-1",
+        "statMap": {
+          "PERCENT_MV": 0.47
+        }
+      },
+      {
+        "rank": 6,
+        "useIfAction": "RL-2",
+        "statMap": {
+          "PERCENT_FLAT": 1.866
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1107",
@@ -3056,49 +3399,168 @@
         "10": 5
       },
       "rotation": [
-        "6-1",
-        "2-1",
-        "2-2",
-        "1-8",
-        "7-1",
-        "3-1",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-3",
-        "8-1"
+        "IS-1",
+        "RS-1",
+        "RS-2",
+        "BA-8",
+        "FC-1",
+        "RL-1",
+        "RL-2",
+        "RL-2",
+        "RL-2",
+        "RL-2",
+        "RL-3",
+        "RS-1",
+        "RS-2",
+        "OS-1"
       ]
     }
   },
   "1606": {
     "name": "Roccia",
-    "quality": "5",
+    "quality": 5,
     "element": "HAVOC",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 12250,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "ally": {
-        "constant": {
-          "FLAT_ATK": 200
-        }
-      }
+      "BASE_HP": 12250,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "BA-5",
+          "RS-1"
+        ],
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "applyTo": "team",
+        "duration": 30000,
+        "variableStatMap": {
+          "FLAT_ATK": {
+            "source": "CR",
+            "step": 0.001,
+            "offset": 0.5,
+            "value": 1,
+            "max": 200
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_BA": 0.25,
           "AMP_HAVOC": 0.2
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-4"
+        }
+      },
+      {
+        "rank": 2,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-3",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_HAVOC": 0.1
+        }
+      },
+      {
+        "rank": 2,
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3"
+        ],
+        "maxStacks": 3,
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_HAVOC": 0.1
+        }
+      },
+      {
+        "rank": 3,
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_CR": 0.1,
+          "PERCENT_CD": 0.3
+        }
+      },
+      {
+        "rank": 4,
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "duration": 12000,
+        "useIfAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.6
+        }
+      },
+      {
+        "rank": 5,
+        "useIfAction": [
+          "BA-5",
+          "FC-1",
+          "FC-2",
+          "FC-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "rank": 5,
+        "useIfAction": "RL-1",
+        "statMap": {
+          "PERCENT_MV": 0.2
+        }
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "duration": 12000,
+        "useIfAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.6
+        }
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "duration": 12000,
+        "useIfAction": "FC-3",
+        "statMap": {
+          "PERCENT_MV": 1
         }
       }
     ],
@@ -3113,56 +3575,207 @@
         "12": 5
       },
       "rotation": [
-        "6-1",
-        "1-4",
-        "2-1",
-        "7-1",
-        "7-2",
-        "7-3",
-        "3-1",
-        "8-1"
+        "IS-1",
+        "BA-4",
+        "RS-1",
+        "FC-1",
+        "FC-2",
+        "FC-3",
+        "RL-1",
+        "OS-1"
       ]
     }
   },
   "1206": {
     "name": "Brant",
-    "quality": "5",
+    "quality": 5,
     "element": "FUSION",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 11675,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1307,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_FUSION": 0.15
-        },
-        "variable": {
-          "FLAT_ATK": {
-            "source": [
-              "ER",
-              0.01
-            ],
-            "offset": 1.5,
-            "value": 20,
-            "max": 2600
-          }
-        }
-      }
+      "BASE_HP": 11675,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1307,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "RL-2",
+          "times": 3
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "duration": 12000,
+        "variableStatMap": {
+          "FLAT_ATK": {
+            "source": "ER",
+            "step": 0.01,
+            "offset": 1.5,
+            "value": 8,
+            "max": 1040
+          }
+        }
+      },
+      {
+        "variableStatMap": {
+          "FLAT_ATK": {
+            "source": "ER",
+            "step": 0.01,
+            "offset": 1.5,
+            "value": 12,
+            "max": 1560
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "maxUses": 4,
+        "followUpAction": {
+          "action": "FC-2",
+          "times": 3
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-3"
+        },
+        "rankModifiers": {
+          "4": {
+            "followUpAction": {
+              "action": "FC-5",
+              "times": 3
+            }
+          }
+        }
+      },
+      {
+        "useIfAction": "FC-2",
+        "statMap": {
+          "PERCENT_HB": 0.2
+        }
+      },
+      {
+        "useIfAction": [
+          "BA-7",
+          "BA-8",
+          "BA-9",
+          "BA-10",
+          "BA-11",
+          "BA-12",
+          "BA-13",
+          "BA-14",
+          "BA-15",
+          "BA-16",
+          "FC-1"
+        ],
+        "statMap": {
+          "PERCENT_FUSION": 0.15
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RS": 0.25,
           "AMP_FUSION": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "BA-9",
+          "BA-13",
+          "BA-15",
+          "IS-1"
+        ],
+        "maxStacks": 3,
+        "duration": 5000,
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "useIfAction": [
+          "BA-7",
+          "BA-8",
+          "BA-9",
+          "BA-10",
+          "BA-11",
+          "BA-12",
+          "BA-13",
+          "BA-14",
+          "BA-15",
+          "BA-16",
+          "FC-1"
+        ],
+        "statMap": {
+          "PERCENT_CR": 0.3
+        }
+      },
+      {
+        "rank": 2,
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "team",
+        "maxUses": 2,
+        "duration": 20000,
+        "followUpAction": {
+          "useIfConsidered": "RS",
+          "action": "FC-4"
+        },
+        "followUpActionCooldown": 1000
+      },
+      {
+        "rank": 3,
+        "useIfAction": "FC-1",
+        "statMap": {
+          "PERCENT_MV": 0.42
+        }
+      },
+      {
+        "rank": 4,
+        "useIfAction": "FC-3",
+        "statMap": {
+          "PERCENT_SS": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "statMap": {
+          "PERCENT_BA": 0.15
+        }
+      },
+      {
+        "rank": 6,
+        "useIfAction": [
+          "BA-7",
+          "BA-8",
+          "BA-9",
+          "BA-10",
+          "BA-11",
+          "BA-12",
+          "BA-13",
+          "BA-14",
+          "BA-15",
+          "BA-16",
+          "FC-1"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.3
         }
       }
     ],
@@ -3177,40 +3790,201 @@
         "14": 5
       },
       "rotation": [
-        "6-1",
-        "2-2",
-        "3-1",
-        "1-11",
-        "1-12",
-        "1-13",
-        "1-14",
-        "1-15",
-        "7-1",
-        "8-1"
+        "IS-1",
+        "RS-2",
+        "RL-1",
+        "BA-11",
+        "BA-12",
+        "BA-13",
+        "BA-14",
+        "BA-15",
+        "FC-1",
+        "OS-1"
       ]
     }
   },
   "1506": {
     "name": "Phoebe",
-    "quality": "5",
+    "quality": 5,
     "element": "SPECTRO",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 10825,
-        "BASE_ATK": 412,
-        "BASE_DEF": 1258,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10825,
+      "BASE_ATK": 412,
+      "BASE_DEF": 1258,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "ally",
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "duration": 30000,
+        "followUpAction": {
+          "useIfAction": [
+            "BA-1",
+            "BA-2",
+            "BA-3",
+            "BA-6"
+          ],
+          "action": "RS-2"
+        },
+        "followUpActionCooldown": 500
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "useIfAction": "RL-1",
         "statMap": {
-          "AMP_FRAZZLE": 1,
-          "IGNORE_SPECTRO": 0.1
+          "PERCENT_MV": 2.55
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_MV": 2.25
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "useIfAction": "FC-3",
+        "statMap": {
+          "AMP_ALL": 2.56
+        },
+        "rankModifiers": {
+          "3": {
+            "statMap": {
+              "PERCENT_MV": 0.91
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-1",
+          "FC-2"
+        ],
+        "statMap": {
+          "PERCENT_SPECTRO": 0.12
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "useIfAction": "OS-1",
+        "statMap": {
+          "PERCENT_MV": 2.55
+        },
+        "rankModifiers": {
+          "2": {
+            "statMap": {
+              "AMP_OS": 1.2
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 5.2841
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-2",
+        "applyTo": "enemy",
+        "statMap": {
+          "SHRED_SPECTRO_RES": 0.1
+        },
+        "duration": 30000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-2",
+        "applyTo": "active",
+        "duration": 30000,
+        "statMap": {
+          "AMP_FRAZZLE": 1
+        },
+        "rankModifiers": {
+          "2": {
+            "statMap": {
+              "AMP_FRAZZLE": 1.2
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-2",
+        "useIfAction": "RL-1",
+        "statMap": {
+          "PERCENT_MV": 0.9
+        }
+      },
+      {
+        "rank": 3,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-2",
+        "useIfAction": "FC-3",
+        "statMap": {
+          "PERCENT_MV": 2.49
+        }
+      },
+      {
+        "rank": 4,
+        "applyWhen": "contact",
+        "applyOnAction": [
+          "BA-1",
+          "BA-2",
+          "BA-3",
+          "RS-3",
+          "RS-4",
+          "RS-5",
+          "BA-6",
+          "BA-7"
+        ],
+        "applyTo": "enemy",
+        "statMap": {
+          "SHRED_SPECTRO_RES": 0.1
+        },
+        "duration": 30000
+      },
+      {
+        "rank": 5,
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_SPECTRO": 0.12
+        }
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "RS-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-3"
         }
       }
     ],
@@ -3225,44 +3999,176 @@
         "8": 5
       },
       "rotation": [
-        "6-1",
-        "2-1",
-        "2-2",
-        "7-2",
-        "3-1",
-        "2-3",
-        "2-4",
-        "2-5",
-        "7-3",
-        "2-3",
-        "2-4",
-        "2-5",
-        "7-3",
-        "8-1"
+        "IS-1",
+        "RS-1",
+        "RS-1",
+        "FC-2",
+        "RL-1",
+        "RS-3",
+        "RS-4",
+        "RS-5",
+        "FC-3",
+        "RS-3",
+        "RS-4",
+        "RS-5",
+        "FC-3",
+        "OS-1"
       ]
     }
   },
   "1607": {
     "name": "Cantarella",
-    "quality": "5",
+    "quality": 5,
     "element": "HAVOC",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 11600,
-        "BASE_ATK": 400,
-        "BASE_DEF": 1099,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 11600,
+      "BASE_ATK": 400,
+      "BASE_DEF": 1099,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "RS-2",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "RS-3"
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "applyTo": "active",
+        "duration": 30000,
+        "maxUses": 21,
+        "followUpAction": {
+          "action": "RL-2"
+        },
+        "followUpActionCooldown": 1000,
+        "rankModifiers": {
+          "5": {
+            "maxUses": 5
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4",
+          "FC-6"
+        ],
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-7",
+          "times": 3
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-5",
+        "maxUses": 1,
+        "followUpAction": [
+          {
+            "action": "RS-3"
+          },
+          {
+            "action": "FC-8",
+            "times": 3
+          }
+        ]
+      },
+      {
+        "statMap": {
+          "PERCENT_HB": 0.2
+        },
+        "rankModifiers": {
+          "4": {
+            "statMap": {
+              "PERCENT_HB": 0.25
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-2",
+          "RL-1",
+          "FC-5"
+        ],
+        "maxStacks": 2,
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_HAVOC": 0.06
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RS": 0.25,
           "AMP_HAVOC": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "useIfAction": [
+          "RS-1",
+          "RS-2",
+          "FC-5"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 2,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "RS-3"
+        }
+      },
+      {
+        "rank": 2,
+        "useIfAction": "RS-3",
+        "statMap": {
+          "PERCENT_MV": 2.45
+        }
+      },
+      {
+        "rank": 3,
+        "useIfAction": "RL-1",
+        "statMap": {
+          "PERCENT_MV": 3.7
+        }
+      },
+      {
+        "rank": 6,
+        "useIfAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "duration": 10000,
+        "statMap": {
+          "IGNORE_DEF": 0.3
         }
       }
     ],
@@ -3277,40 +4183,116 @@
         "12": 5
       },
       "rotation": [
-        "6-1",
-        "1-3",
-        "2-1",
-        "3-1",
-        "1-5",
-        "2-2",
-        "7-1",
-        "7-2",
-        "7-3",
-        "7-5",
-        "8-1"
+        "IS-1",
+        "BA-3",
+        "RS-1",
+        "RL-1",
+        "BA-5",
+        "RS-2",
+        "FC-1",
+        "FC-2",
+        "FC-3",
+        "FC-5",
+        "OS-1"
       ]
     }
   },
   "1407": {
     "name": "Ciaccona",
-    "quality": "5",
+    "quality": 5,
     "element": "AERO",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_HP": 12237,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 12237,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "ally",
+        "statMap": {
+          "PERCENT_AERO": 0.24
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "RL-2"
+        }
+      },
+      {
+        "useIfAction": "FC-1",
+        "statMap": {
+          "PERCENT_HA": 0.3
+        },
+        "rankModifiers": {
+          "4": {
+            "statMap": {
+              "IGNORE_DEF": 0.45
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "team",
+        "duration": 30000,
         "statMap": {
           "AMP_EROSION": 1
+        }
+      },
+      {
+        "rank": 1,
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "BA-1",
+          "BA-2",
+          "BA-3",
+          "BA-4"
+        ],
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.35
+        }
+      },
+      {
+        "rank": 2,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "applyTo": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_AERO": 0.4
+        }
+      },
+      {
+        "rank": 4,
+        "useIfAction": [
+          "RL-1",
+          "RL-2",
+          "FC-2"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.45
+        }
+      },
+      {
+        "rank": 5,
+        "statMap": {
+          "PERCENT_RL": 0.4
+        }
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "BA-4",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-2"
         }
       }
     ],
@@ -3325,46 +4307,140 @@
         "16": 5
       },
       "rotation": [
-        "6-1",
-        "1-3",
-        "1-4",
-        "1-8",
-        "1-9",
-        "1-4",
-        "2-1",
-        "7-1",
-        "3-1",
-        "8-1"
+        "IS-1",
+        "BA-3",
+        "BA-4",
+        "BA-8",
+        "BA-9",
+        "BA-4",
+        "RS-1",
+        "FC-1",
+        "RL-1",
+        "OS-1"
       ]
     }
   },
   "1507": {
     "name": "Zani",
-    "quality": "5",
+    "quality": 5,
     "element": "SPECTRO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10775,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1136,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_FRAZZLE": 0.2
-        }
-      }
+      "BASE_HP": 10775,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1136,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "ally",
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-3",
+          "RS-4"
+        ],
+        "duration": 14000,
+        "statMap": {
+          "AMP_FRAZZLE": 0.2
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_SPECTRO": 0.5
+            }
+          }
+        }
+      },
+      {
+        "useIfAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4",
+          "FC-5"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.25
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 0.4
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-3",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-4",
+          "times": 40
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "duration": 14000,
+        "statMap": {
+          "PERCENT_SPECTRO": 0.12
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "ally",
+        "duration": 20000,
         "statMap": {
           "AMP_SPECTRO": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "statMap": {
+          "PERCENT_CR": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "useIfAction": [
+          "RS-3",
+          "RS-4"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "rank": 3,
+        "useIfAction": "RL-2",
+        "statMap": {
+          "PERCENT_MV": 12
+        }
+      },
+      {
+        "rank": 4,
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "applyTo": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "useIfAction": "RL-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        }
+      },
+      {
+        "rank": 6,
+        "useIfAction": "FC-3",
+        "statMap": {
+          "FLAT_MV": 16
         }
       }
     ],
@@ -3379,57 +4455,149 @@
         "11": 5
       },
       "rotation": [
-        "6-1",
-        "2-1",
-        "1-3",
-        "2-3",
-        "3-1",
-        "7-1",
-        "7-2",
-        "7-3",
-        "7-1",
-        "7-2",
-        "7-3",
-        "3-2",
-        "8-1"
+        "IS-1",
+        "RS-1",
+        "BA-3",
+        "RS-3",
+        "RL-1",
+        "FC-1",
+        "FC-2",
+        "FC-3",
+        "FC-1",
+        "FC-2",
+        "FC-3",
+        "RL-2",
+        "OS-1"
       ]
     }
   },
   "1207": {
     "name": "Lupa",
-    "quality": "5",
+    "quality": 5,
     "element": "FUSION",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_HP": 11912,
-        "BASE_ATK": 387,
-        "BASE_DEF": 1185,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.12
-        }
-      },
-      "team": {
-        "constant": {
-          "IGNORE_FUSION": 0.15,
-          "PERCENT_FUSION": 0.2,
-          "PERCENT_ATK": 0.24
-        }
-      }
+      "BASE_HP": 11912,
+      "BASE_ATK": 387,
+      "BASE_DEF": 1185,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "useIfAction": "RS-2",
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "applyTo": "team",
+        "duration": 35000,
+        "statMap": {
+          "PERCENT_ATK": 0.18,
+          "PERCENT_FUSION": 0.2,
+          "IGNORE_FUSION_RES": 0.15
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RS-2",
+          "BA-6",
+          "BA-7",
+          "BA-11",
+          "RL-1",
+          "FC-1",
+          "FC-2"
+        ],
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "FC-1",
+          "FC-2"
+        ],
+        "applyTo": "next",
+        "maxUses": 1,
+        "followUpAction": {
+          "action": "FC-3"
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_BA": 0.25,
           "AMP_FUSION": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_CR": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "RL-1",
+          "BA-6",
+          "BA-7",
+          "BA-11"
+        ],
+        "applyTo": "team",
+        "maxStacks": 2,
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_FUSION": 0.2
+        }
+      },
+      {
+        "rank": 3,
+        "useIfAction": "IS-2",
+        "statMap": {
+          "PERCENT_MV": 1
+        }
+      },
+      {
+        "rank": 4,
+        "useIfAction": "FC-2",
+        "statMap": {
+          "PERCENT_MV": 1.25
+        }
+      },
+      {
+        "rank": 5,
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "IS-1",
+          "IS-2"
+        ],
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_RL": 0.15
+        }
+      },
+      {
+        "rank": 6,
+        "useIfAction": [
+          "FC-2",
+          "RL-1",
+          "IS-2"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.3
         }
       }
     ],
@@ -3444,45 +4612,125 @@
         "18": 5
       },
       "rotation": [
-        "6-1",
-        "3-1",
-        "3-2",
-        "1-8",
-        "1-9",
-        "1-11",
-        "1-7",
-        "7-2",
-        "8-1"
+        "IS-2",
+        "RL-1",
+        "RL-2",
+        "BA-8",
+        "BA-9",
+        "BA-11",
+        "BA-7",
+        "FC-2",
+        "OS-1"
       ]
     }
   },
   "1409": {
     "name": "Cartethyia",
-    "quality": "5",
+    "quality": 5,
     "element": "AERO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 14800,
-        "BASE_ATK": 312,
-        "BASE_DEF": 611,
-        "PERCENT_CR": 0.08,
-        "PERCENT_HP": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ALL": 0.6
-        }
-      }
+      "BASE_HP": 14800,
+      "BASE_ATK": 312,
+      "BASE_DEF": 611,
+      "PERCENT_CR": 0.08,
+      "PERCENT_HP": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "ally",
+        "useIfAction": "RL-1",
+        "statMap": {
+          "PERCENT_ALL": 1
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_CD": 1
+            }
+          },
+          "3": {
+            "statMap": {
+              "PERCENT_MV": 1
+            }
+          }
+        }
+      },
+      {
+        "applyTo": "ally",
+        "statMap": {
+          "PERCENT_HB": 0.2
+        }
+      },
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.6
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "ally",
+        "duration": 20000,
         "statMap": {
           "AMP_AERO": 0.175
+        }
+      },
+      {
+        "rank": 2,
+        "useIfAction": [
+          "BA-1",
+          "BA-2",
+          "BA-3",
+          "BA-4",
+          "BA-6",
+          "BA-5",
+          "IS-1"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 2,
+        "useIfAction": [
+          "BA-7",
+          "BA-8",
+          "BA-9",
+          "BA-10"
+        ],
+        "statMap": {
+          "PERCENT_MV": 2
+        }
+      },
+      {
+        "rank": 4,
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "rank": 6,
+        "useIfAction": [
+          "RL-1",
+          "IS-2",
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4",
+          "FC-5",
+          "FC-6",
+          "FC-7",
+          "FC-8",
+          "FC-9",
+          "FC-10",
+          "FC-11",
+          "FC-12",
+          "FC-13",
+          "FC-14"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.4
         }
       }
     ],
@@ -3497,53 +4745,45 @@
         "17": 5
       },
       "rotation": [
-        "6-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "2-1",
-        "1-7",
-        "3-1",
-        "7-13",
-        "7-12",
-        "7-3",
-        "7-4",
-        "7-5",
-        "7-14",
-        "7-3",
-        "7-4",
-        "7-5",
-        "3-1",
-        "8-1"
+        "IS-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "RS-1",
+        "BA-10",
+        "RL-1",
+        "FC-13",
+        "FC-12",
+        "FC-3",
+        "FC-4",
+        "FC-5",
+        "FC-14",
+        "FC-3",
+        "FC-4",
+        "FC-5",
+        "RL-1",
+        "OS-1"
       ]
     }
   },
   "1608": {
     "name": "Phrolova",
-    "quality": "5",
+    "quality": 5,
     "element": "HAVOC",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 10775,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1136,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_CD": 0.6
-        }
-      }
+      "BASE_HP": 10775,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1136,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "match": [],
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_HA": 0.25,
           "AMP_HAVOC": 0.2
@@ -3562,46 +4802,38 @@
         "19": 3
       },
       "rotation": [
-        "6-2",
-        "1-3",
-        "3-3",
-        "2-1",
-        "3-3",
-        "1-1",
-        "1-2",
-        "1-3",
-        "3-3",
-        "1-5",
-        "7-1",
-        "8-1"
+        "IS-2",
+        "BA-3",
+        "RL-3",
+        "RS-1",
+        "RL-3",
+        "BA-1",
+        "BA-2",
+        "BA-3",
+        "RL-3",
+        "BA-5",
+        "FC-1",
+        "OS-1"
       ]
     }
   },
   "1306": {
     "name": "Augusta",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRO",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_HP": 10300,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1112,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ELECTRO": 0.15
-        }
-      }
+      "BASE_HP": 10300,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1112,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_GLACIO": 0.15,
           "AMP_FUSION": 0.15,
@@ -3624,55 +4856,59 @@
         "20": 3
       },
       "rotation": [
-        "6-1",
-        "1-9",
-        "1-10",
-        "2-1",
-        "1-9",
-        "1-10",
-        "3-1",
-        "7-1",
-        "7-2",
-        "7-3",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-3",
-        "8-1"
+        "IS-1",
+        "BA-9",
+        "BA-10",
+        "RS-1",
+        "BA-9",
+        "BA-10",
+        "RL-1",
+        "FC-1",
+        "FC-2",
+        "FC-3",
+        "RL-2",
+        "RL-2",
+        "RL-2",
+        "RL-2",
+        "RL-2",
+        "RL-2",
+        "RL-2",
+        "RL-2",
+        "RL-2",
+        "RL-3",
+        "OS-1"
       ]
     }
   },
   "1410": {
     "name": "Iuno",
-    "quality": "5",
+    "quality": 5,
     "element": "AERO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10525,
-        "BASE_ATK": 450,
-        "BASE_DEF": 1124,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "AMP_ALL": 0.4
-        }
-      }
+      "BASE_HP": 10525,
+      "BASE_ATK": 450,
+      "BASE_DEF": 1124,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 1
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_HA": 0.5
         }
@@ -3690,40 +4926,51 @@
         "20": 3
       },
       "rotation": [
-        "6-1",
-        "3-1",
-        "7-1",
-        "7-3",
-        "7-4",
-        "7-5",
-        "7-7",
-        "7-7",
-        "7-13",
-        "8-1"
+        "IS-1",
+        "RL-1",
+        "FC-1",
+        "FC-3",
+        "FC-4",
+        "FC-5",
+        "FC-7",
+        "FC-7",
+        "FC-13",
+        "OS-1"
       ]
     }
   },
   "1208": {
     "name": "Galbrena",
-    "quality": "5",
+    "quality": 5,
     "element": "FUSION",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10300,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1112,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10300,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1112,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_ALL": 0.2
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": [
+              {
+                "mv": 0.795,
+                "times": 3
+              },
+              {
+                "mv": 5.565
+              }
+            ]
+          }
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1208",
@@ -3736,55 +4983,42 @@
         "22": 3
       },
       "rotation": [
-        "6-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "1-2",
-        "1-3",
-        "2-2",
-        "3-1",
-        "7-2",
-        "7-3",
-        "7-4",
-        "7-5",
-        "7-3",
-        "7-4",
-        "7-5",
-        "8-1"
+        "IS-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "BA-2",
+        "BA-3",
+        "RS-2",
+        "RL-1",
+        "FC-2",
+        "FC-3",
+        "FC-4",
+        "FC-5",
+        "FC-3",
+        "FC-4",
+        "FC-5",
+        "OS-1"
       ]
     }
   },
   "1411": {
     "name": "Qiuyuan",
-    "quality": "5",
+    "quality": 5,
     "element": "AERO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12237,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.1
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_CD": 0.3
-        }
-      }
+      "BASE_HP": 12237,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_ES": 0.5
         }
@@ -3802,39 +5036,53 @@
         "21": 3
       },
       "rotation": [
-        "6-1",
-        "7-3",
-        "7-4",
-        "3-1",
-        "7-5",
-        "7-6",
-        "7-7",
-        "2-1",
-        "8-1"
+        "IS-1",
+        "FC-3",
+        "FC-4",
+        "RL-1",
+        "FC-5",
+        "FC-6",
+        "FC-7",
+        "RS-1",
+        "OS-1"
       ]
     }
   },
   "1307": {
     "name": "Buling",
-    "quality": "4",
+    "quality": 4,
     "element": "ELECTRO",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 10625,
-        "BASE_ATK": 225,
-        "BASE_DEF": 1258,
-        "PERCENT_HB": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10625,
+      "BASE_ATK": 225,
+      "BASE_DEF": 1258,
+      "PERCENT_HB": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "intervalAction": {
+          "action": {
+            "type": "heal",
+            "multipliers": {
+              "mv": 0.18
+            }
+          }
+        },
+        "intervalCooldown": 1000,
+        "duration": 16000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "team",
         "statMap": {
           "AMP_ALL": 0.15
-        }
+        },
+        "duration": 30000
       }
     ],
     "defaults": {
@@ -3848,45 +5096,30 @@
         "7": 5
       },
       "rotation": [
-        "6-1",
-        "1-1",
-        "1-2",
-        "1-5",
-        "2-1",
-        "1-4",
-        "1-7",
-        "1-10",
-        "7-1",
-        "8-1"
+        "IS-1",
+        "BA-1",
+        "BA-2",
+        "BA-5",
+        "RS-1",
+        "BA-4",
+        "BA-7",
+        "BA-10",
+        "FC-1",
+        "OS-1"
       ]
     }
   },
   "1508": {
     "name": "Chisa",
-    "quality": "5",
+    "quality": 5,
     "element": "HAVOC",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_HP": 10775,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1136,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HAVOC": 0.2,
-          "IGNORE_DEF": 0.18
-        }
-      },
-      "team": {
-        "constant": {
-          "IGNORE_DEF": 0.06
-        }
-      }
+      "BASE_HP": 10775,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1136,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "defaults": {
       "team": [
@@ -3900,38 +5133,38 @@
         "23": 3
       },
       "rotation": [
-        "6-1",
-        "1-2",
-        "1-7",
-        "1-3",
-        "3-1",
-        "2-2",
-        "7-2",
-        "7-5",
-        "7-7",
-        "7-10",
-        "8-1"
+        "IS-1",
+        "BA-2",
+        "BA-7",
+        "BA-3",
+        "RL-1",
+        "RS-2",
+        "FC-2",
+        "FC-5",
+        "FC-7",
+        "FC-10",
+        "OS-1"
       ]
     }
   },
   "1209": {
     "name": "Mornye",
-    "quality": "5",
+    "quality": 5,
     "element": "FUSION",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_HP": 15375,
-        "BASE_ATK": 287,
-        "BASE_DEF": 1356,
-        "PERCENT_OHB": 0.12,
-        "PERCENT_DEF": 0.152
-      }
+      "BASE_HP": 15375,
+      "BASE_ATK": 287,
+      "BASE_DEF": 1356,
+      "TUNE_BREAK_BOOST": 10,
+      "PERCENT_OHB": 0.12,
+      "PERCENT_DEF": 0.152
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "team",
         "statMap": {
           "AMP_ALL": 0.25
         }
@@ -3948,51 +5181,52 @@
         "25": 5
       },
       "rotation": [
-        "6-1",
-        "1-5",
-        "1-6",
-        "1-7",
-        "2-1",
-        "7-4",
-        "3-1",
-        "8-1"
+        "IS-1",
+        "BA-5",
+        "BA-6",
+        "BA-7",
+        "RS-1",
+        "FC-4",
+        "RL-1",
+        "OS-1"
       ]
     }
   },
   "1509": {
     "name": "Lynae",
-    "quality": "5",
+    "quality": 5,
     "element": "SPECTRO",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_HP": 12237,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_SPECTRO": 0.25
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_ALL": 0.24
-        }
-      }
+      "BASE_HP": 12237,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "TUNE_BREAK_BOOST": 10,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 1
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_ALL": 0.15,
           "AMP_RL": 0.25
-        }
+        },
+        "duration": 14000
       }
     ],
     "defaults": {
@@ -4006,43 +5240,36 @@
         "24": 5
       },
       "rotation": [
-        "6-1",
-        "3-1",
-        "2-1",
-        "1-8",
-        "7-3",
-        "7-4",
-        "7-5",
-        "7-2",
-        "8-1"
+        "IS-1",
+        "RL-1",
+        "RS-1",
+        "BA-8",
+        "FC-3",
+        "FC-4",
+        "FC-5",
+        "FC-2",
+        "OS-1"
       ]
     }
   },
   "1210": {
     "name": "Aemeath",
-    "quality": "5",
+    "quality": 5,
     "element": "FUSION",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 11025,
-        "BASE_ATK": 425,
-        "BASE_DEF": 1148,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_CD": 0.6
-        }
-      }
+      "BASE_HP": 11025,
+      "BASE_ATK": 425,
+      "BASE_DEF": 1148,
+      "TUNE_BREAK_BOOST": 10,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "ally",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "ally",
         "statMap": {
           "AMP_ALL": 0.2
         }
@@ -4059,46 +5286,51 @@
         "27": 5
       },
       "rotation": [
-        "6-1",
-        "1-3",
-        "1-4",
-        "3-1",
-        "2-4",
-        "2-5",
-        "2-6",
-        "7-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "7-2",
-        "2-8",
-        "3-2",
-        "8-1"
+        "IS-1",
+        "BA-3",
+        "BA-4",
+        "RL-1",
+        "RS-4",
+        "RS-5",
+        "RS-6",
+        "FC-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "FC-2",
+        "RS-8",
+        "RL-2",
+        "OS-1"
       ]
     }
   },
   "1510": {
     "name": "Luuk Herssen",
-    "quality": "5",
+    "quality": 5,
     "element": "SPECTRO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10300,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1112,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10300,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1112,
+      "TUNE_BREAK_BOOST": 10,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.25,
-          "AMP_ALL": 0.3
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 5
+            }
+          }
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1510",
@@ -4110,65 +5342,52 @@
         "26": 5
       },
       "rotation": [
-        "6-1",
-        "1-9",
-        "1-10",
-        "2-2",
-        "2-5",
-        "1-6",
-        "1-9",
-        "1-10",
-        "2-3",
-        "2-5",
-        "1-6",
-        "1-9",
-        "1-10",
-        "2-4",
-        "7-1",
-        "3-1",
-        "8-1"
+        "IS-1",
+        "BA-9",
+        "BA-10",
+        "RS-2",
+        "RS-5",
+        "BA-6",
+        "BA-9",
+        "BA-10",
+        "RS-3",
+        "RS-5",
+        "BA-6",
+        "BA-9",
+        "BA-10",
+        "RS-4",
+        "FC-1",
+        "RL-1",
+        "OS-1"
       ]
     }
   },
   "1412": {
     "name": "Sigrika",
-    "quality": "5",
+    "quality": 5,
     "element": "AERO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10775,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1136,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10775,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1136,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_AERO": 0.3,
-          "PERCENT_ES": 0.3
-        },
-        "variable": {
-          "PERCENT_ES": {
-            "source": [
-              "ER",
-              0.01
-            ],
-            "offset": 1.25,
-            "value": 0.02,
-            "max": 0.5
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "comboAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 7.95
+            }
           }
         }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_AERO": 0.18,
-          "PERCENT_ES": 0.18
-        }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1412",
@@ -4180,41 +5399,40 @@
         "29": 5
       },
       "rotation": [
-        "6-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "1-5",
-        "7-3",
-        "3-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "1-5",
-        "7-2",
-        "7-5",
-        "8-1"
+        "IS-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "BA-5",
+        "FC-3",
+        "RL-1",
+        "BA-2",
+        "BA-3",
+        "BA-4",
+        "BA-5",
+        "FC-2",
+        "FC-5",
+        "OS-1"
       ]
     }
   },
   "1108": {
     "name": "Hiyuki",
-    "quality": "5",
+    "quality": 5,
     "element": "GLACIO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 10300,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1112,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10300,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1112,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "ally",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "ally",
         "statMap": {
           "AMP_GLACIO": 0.2
         }
@@ -4231,47 +5449,47 @@
         "30": 5
       },
       "rotation": [
-        "6-1",
-        "1-3",
-        "1-4",
-        "3-1",
-        "2-2",
-        "2-3",
-        "1-7",
-        "1-8",
-        "1-9",
-        "1-10",
-        "1-11",
-        "7-1",
-        "7-1",
-        "7-1",
-        "1-13",
-        "3-2",
-        "3-3",
-        "3-3",
-        "3-3",
-        "8-1"
+        "IS-1",
+        "BA-3",
+        "BA-4",
+        "RL-1",
+        "RS-2",
+        "RS-3",
+        "BA-7",
+        "BA-8",
+        "BA-9",
+        "BA-10",
+        "BA-11",
+        "FC-1",
+        "FC-1",
+        "FC-1",
+        "BA-13",
+        "RL-2",
+        "RL-3",
+        "RL-3",
+        "RL-3",
+        "OS-1"
       ]
     }
   },
   "1211": {
     "name": "Denia",
-    "quality": "5",
+    "quality": 5,
     "element": "FUSION",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 11025,
-        "BASE_ATK": 425,
-        "BASE_DEF": 1148,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 11025,
+      "BASE_ATK": 425,
+      "BASE_DEF": 1148,
+      "TUNE_BREAK_BOOST": 10,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
         "statMap": {
           "AMP_ALL": 0.4
         }
@@ -4288,8 +5506,8 @@
         "28": 5
       },
       "rotation": [
-        "6-1",
-        "8-1"
+        "IS-1",
+        "OS-1"
       ]
     }
   }

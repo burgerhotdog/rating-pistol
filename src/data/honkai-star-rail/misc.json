@@ -13,13 +13,13 @@
     "Rope"
   ],
   "ELEMENT_COLORS": {
-    "Fire": "#ea7866",
-    "Ice": "#5ec7db",
-    "Imaginary": "#e8d85d",
-    "Lightning": "#eb77ea",
-    "Physical": "#bebebe",
-    "Quantum": "#9c96f4",
-    "Wind": "#62d3a2"
+    "FIRE": "#ea7866",
+    "ICE": "#5ec7db",
+    "IMAGINARY": "#e8d85d",
+    "LIGHTNING": "#eb77ea",
+    "PHYSICAL": "#bebebe",
+    "QUANTUM": "#9c96f4",
+    "WIND": "#62d3a2"
   },
   "WEAPON_TYPES": [
     "HUNT",
@@ -330,5 +330,6 @@
       "label": "Imaginary DMG Bonus",
       "isPercent": true
     }
-  }
+  },
+  "NEGATIVE_STATUSES": {}
 }

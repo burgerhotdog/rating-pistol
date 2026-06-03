@@ -1,73 +1,81 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useBuild } from '@/contexts';
-import { CHARACTERS, WEAPONS } from '@/data';
-import { getSetCounts, formatRotation } from '@/utils';
+import { CHARACTERS } from '@/data';
+import { getMember, getDefaultWeaponRank, applyStoredBuild, formatRotation } from '@/utils';
 
-const NULL_MEMBER = {
-  memberId: null,
-  weaponId: null,
-  setCounts: {},
-  rotation: [],
+const getTeamSize = (gameId) =>
+  gameId === 'genshin-impact' || gameId === 'honkai-star-rail' ? 4 : 3;
+
+const normalizeMemberPreset = (gameId, rawMemberPreset) => {
+  const overrides =
+    typeof rawMemberPreset === 'string'
+      ? { memberId: rawMemberPreset }
+      : rawMemberPreset;
+
+  const { defaults = {} } = CHARACTERS[gameId][overrides.memberId];
+
+  return { ...defaults, ...overrides };
 };
 
-export function useTeam() {
-  const { gameId, characterId } = useParams();
-  const teamSize = ['genshin-impact', 'honkai-star-rail'].includes(gameId) ? 4 : 3;
-  const build = useBuild().getBuilds(gameId)[characterId];
-  if (!build) throw new Error(`build does not exist for characterId ${characterId}`);
+const createBlankMember = () => ({
+  memberId: null,
+  rank: null,
+  weaponId: null,
+  weaponRank: null,
+  setCounts: {},
+  rotation: [],
+  useUserBuild: false,
+});
 
-  const defaultTeam = CHARACTERS[gameId][characterId].defaults?.team ?? [characterId, ...Array(teamSize - 1).fill(null)];
-  function initTeam(defaultTeam) {
-    const mappedTeam = defaultTeam.map(item => {
-      // null case
-      if (!item) {
-        return { ...NULL_MEMBER };
-      }
+const initMember = (gameId, memberPreset, builds) => {
+  let member = getMember(gameId, memberPreset.memberId);
 
-      // map case
-      if (item.memberId) {
-        const { defaults = {} } = CHARACTERS[gameId][item.memberId];
-        return {
-          memberId: item.memberId,
-          weaponId: item.weaponId ?? defaults.weaponId ?? NULL_MEMBER.weaponId,
-          setCounts: item.setCounts ?? defaults.setCounts ?? NULL_MEMBER.setCounts,
-          rotation: formatRotation(item.memberId, item.rotation ?? defaults.rotation ?? NULL_MEMBER.rotation),
-        };
-      }
-
-      // string case
-      const { defaults = {} } = CHARACTERS[gameId][item];
-      return {
-        memberId: item,
-        weaponId: defaults.weaponId ?? NULL_MEMBER.weaponId,
-        setCounts: defaults.setCounts ?? NULL_MEMBER.setCounts,
-        rotation: formatRotation(item, defaults.rotation ?? NULL_MEMBER.rotation),
-      };
-    });
-
-    // add build and ranks to current character
-    return mappedTeam.map(member => {
-      if (member.memberId !== characterId) return { ...member };
-      return {
-        ...member,
-        weaponId: build.weaponId,
-        setCounts: getSetCounts(build.equipList),
-        build,
-      };
-    }).map(m => {
-      const charQuality = m.memberId ? CHARACTERS[gameId][m.memberId]?.quality : null;
-      const weaponQuality = m.weaponId ? WEAPONS[gameId][m.weaponId]?.quality : null;
-
-      return {
-        ...m,
-        rank: charQuality === null ? null : (charQuality === "5" ? 0 : 6),
-        weaponRank: weaponQuality === null ? null : (weaponQuality === "5" ? 1 : 5),
-      };
-    });
+  if (memberPreset.weaponId) {
+    member.weaponId = memberPreset.weaponId;
+    member.weaponRank = getDefaultWeaponRank(gameId, memberPreset.weaponId);
   }
 
-  const [team, setTeam] = useState(initTeam(defaultTeam));
+  if (memberPreset.setCounts) {
+    member.setCounts = { ...memberPreset.setCounts };
+  }
+
+  if (memberPreset.rotation) {
+    member.rotation = formatRotation(member.memberId, memberPreset.rotation);
+  }
+
+  const storedBuild = builds[member.memberId];
+  if (storedBuild) {
+    member = applyStoredBuild(gameId, member, storedBuild);
+  }
+
+  return member;
+};
+
+const initTeam = (gameId, characterId, builds) => {
+  const teamSize = getTeamSize(gameId);
+  const teamPreset =
+    CHARACTERS[gameId][characterId].defaults?.team ??
+    [characterId, ...Array(teamSize - 1).fill(null)];
+  
+  return teamPreset.map(rawMemberPreset => {
+    if (rawMemberPreset == null) return createBlankMember();
+
+    const memberPreset = normalizeMemberPreset(gameId, rawMemberPreset);
+    return initMember(gameId, memberPreset, builds);
+  });
+};
+
+export const useTeam = () => {
+  const { gameId, characterId } = useParams();
+  const builds = useBuild().getBuilds(gameId);
+  const build = builds[characterId];
+
+  if (!build) {
+    throw new Error(`Attempting to init team for character with no build: ${characterId}`);
+  }
+
+  const [team, setTeam] = useState(() => initTeam(gameId, characterId, builds));
 
   function updateTeam(index, member) {
     if (index < 0 || index >= team.length) return;
@@ -79,4 +87,4 @@ export function useTeam() {
   }
 
   return { team, updateTeam, replaceTeam };
-}
+};

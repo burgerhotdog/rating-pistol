@@ -1,8 +1,8 @@
 {
   "10000003": {
     "name": "Jean",
-    "quality": "5",
-    "element": "Anemo",
+    "quality": 5,
+    "element": "ANEMO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -16,8 +16,8 @@
   },
   "10000006": {
     "name": "Lisa",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -38,8 +38,8 @@
   },
   "10000014": {
     "name": "Barbara",
-    "quality": "4",
-    "element": "Hydro",
+    "quality": 4,
+    "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -60,8 +60,8 @@
   },
   "10000015": {
     "name": "Kaeya",
-    "quality": "4",
-    "element": "Cryo",
+    "quality": 4,
+    "element": "CRYO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -75,8 +75,8 @@
   },
   "10000016": {
     "name": "Diluc",
-    "quality": "5",
-    "element": "Pyro",
+    "quality": 5,
+    "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -176,8 +176,8 @@
   },
   "10000020": {
     "name": "Razor",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "CLAYMORE",
     "tags": [
       "HEXEREI"
@@ -194,8 +194,8 @@
   },
   "10000021": {
     "name": "Amber",
-    "quality": "4",
-    "element": "Pyro",
+    "quality": 4,
+    "element": "PYRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -221,8 +221,8 @@
   },
   "10000022": {
     "name": "Venti",
-    "quality": "5",
-    "element": "Anemo",
+    "quality": 5,
+    "element": "ANEMO",
     "type": "BOW",
     "tags": [
       "HEXEREI"
@@ -239,8 +239,8 @@
   },
   "10000023": {
     "name": "Xiangling",
-    "quality": "4",
-    "element": "Pyro",
+    "quality": 4,
+    "element": "PYRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -323,8 +323,8 @@
   },
   "10000024": {
     "name": "Beidou",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -395,8 +395,8 @@
   },
   "10000025": {
     "name": "Xingqiu",
-    "quality": "4",
-    "element": "Hydro",
+    "quality": 4,
+    "element": "HYDRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -474,8 +474,8 @@
   },
   "10000027": {
     "name": "Ningguang",
-    "quality": "4",
-    "element": "Geo",
+    "quality": 4,
+    "element": "GEO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -496,8 +496,8 @@
   },
   "10000029": {
     "name": "Klee",
-    "quality": "5",
-    "element": "Pyro",
+    "quality": 5,
+    "element": "PYRO",
     "type": "CATALYST",
     "tags": [
       "HEXEREI"
@@ -522,8 +522,8 @@
   },
   "10000031": {
     "name": "Fischl",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "BOW",
     "tags": [
       "HEXEREI"
@@ -548,8 +548,8 @@
   },
   "10000032": {
     "name": "Bennett",
-    "quality": "4",
-    "element": "Pyro",
+    "quality": 4,
+    "element": "PYRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -571,8 +571,8 @@
   },
   "10000034": {
     "name": "Noelle",
-    "quality": "4",
-    "element": "Geo",
+    "quality": 4,
+    "element": "GEO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -602,8 +602,8 @@
   },
   "10000035": {
     "name": "Qiqi",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -617,8 +617,8 @@
   },
   "10000036": {
     "name": "Chongyun",
-    "quality": "4",
-    "element": "Cryo",
+    "quality": 4,
+    "element": "CRYO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -639,8 +639,8 @@
   },
   "10000041": {
     "name": "Mona",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "CATALYST",
     "tags": [
       "HEXEREI"
@@ -674,8 +674,8 @@
   },
   "10000042": {
     "name": "Keqing",
-    "quality": "5",
-    "element": "Electro",
+    "quality": 5,
+    "element": "ELECTRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -697,8 +697,8 @@
   },
   "10000043": {
     "name": "Sucrose",
-    "quality": "4",
-    "element": "Anemo",
+    "quality": 4,
+    "element": "ANEMO",
     "type": "CATALYST",
     "tags": [
       "HEXEREI"
@@ -723,8 +723,8 @@
   },
   "10000030": {
     "name": "Zhongli",
-    "quality": "5",
-    "element": "Geo",
+    "quality": 5,
+    "element": "GEO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -784,8 +784,8 @@
   },
   "10000033": {
     "name": "Tartaglia",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -799,8 +799,8 @@
   },
   "10000039": {
     "name": "Diona",
-    "quality": "4",
-    "element": "Cryo",
+    "quality": 4,
+    "element": "CRYO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -821,8 +821,8 @@
   },
   "10000044": {
     "name": "Xinyan",
-    "quality": "4",
-    "element": "Pyro",
+    "quality": 4,
+    "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -855,8 +855,8 @@
   },
   "10000037": {
     "name": "Ganyu",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -882,8 +882,8 @@
   },
   "10000038": {
     "name": "Albedo",
-    "quality": "5",
-    "element": "Geo",
+    "quality": 5,
+    "element": "GEO",
     "type": "SWORD",
     "tags": [
       "HEXEREI"
@@ -968,8 +968,8 @@
   },
   "10000026": {
     "name": "Xiao",
-    "quality": "5",
-    "element": "Anemo",
+    "quality": 5,
+    "element": "ANEMO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -994,8 +994,8 @@
   },
   "10000046": {
     "name": "Hu Tao",
-    "quality": "5",
-    "element": "Pyro",
+    "quality": 5,
+    "element": "PYRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1024,8 +1024,8 @@
   },
   "10000045": {
     "name": "Rosaria",
-    "quality": "4",
-    "element": "Cryo",
+    "quality": 4,
+    "element": "CRYO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1057,8 +1057,8 @@
   },
   "10000048": {
     "name": "Yanfei",
-    "quality": "4",
-    "element": "Pyro",
+    "quality": 4,
+    "element": "PYRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1079,8 +1079,8 @@
   },
   "10000051": {
     "name": "Eula",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1102,8 +1102,8 @@
   },
   "10000047": {
     "name": "Kaedehara Kazuha",
-    "quality": "5",
-    "element": "Anemo",
+    "quality": 5,
+    "element": "ANEMO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1127,8 +1127,8 @@
   },
   "10000002": {
     "name": "Kamisato Ayaka",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1151,8 +1151,8 @@
   },
   "10000049": {
     "name": "Yoimiya",
-    "quality": "5",
-    "element": "Pyro",
+    "quality": 5,
+    "element": "PYRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1179,8 +1179,8 @@
   },
   "10000053": {
     "name": "Sayu",
-    "quality": "4",
-    "element": "Anemo",
+    "quality": 4,
+    "element": "ANEMO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1194,8 +1194,8 @@
   },
   "10000052": {
     "name": "Raiden Shogun",
-    "quality": "5",
-    "element": "Electro",
+    "quality": 5,
+    "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1226,8 +1226,8 @@
   },
   "10000054": {
     "name": "Sangonomiya Kokomi",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1256,8 +1256,8 @@
   },
   "10000056": {
     "name": "Kujou Sara",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1271,8 +1271,8 @@
   },
   "10000050": {
     "name": "Thoma",
-    "quality": "4",
-    "element": "Pyro",
+    "quality": 4,
+    "element": "PYRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1286,8 +1286,8 @@
   },
   "10000062": {
     "name": "Aloy",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1301,8 +1301,8 @@
   },
   "10000055": {
     "name": "Gorou",
-    "quality": "4",
-    "element": "Geo",
+    "quality": 4,
+    "element": "GEO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1316,8 +1316,8 @@
   },
   "10000057": {
     "name": "Arataki Itto",
-    "quality": "5",
-    "element": "Geo",
+    "quality": 5,
+    "element": "GEO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1331,8 +1331,8 @@
   },
   "10000063": {
     "name": "Shenhe",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1346,8 +1346,8 @@
   },
   "10000064": {
     "name": "Yun Jin",
-    "quality": "4",
-    "element": "Geo",
+    "quality": 4,
+    "element": "GEO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1361,8 +1361,8 @@
   },
   "10000058": {
     "name": "Yae Miko",
-    "quality": "5",
-    "element": "Electro",
+    "quality": 5,
+    "element": "ELECTRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1376,8 +1376,8 @@
   },
   "10000066": {
     "name": "Kamisato Ayato",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1391,8 +1391,8 @@
   },
   "10000060": {
     "name": "Yelan",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1406,8 +1406,8 @@
   },
   "10000065": {
     "name": "Kuki Shinobu",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1421,8 +1421,8 @@
   },
   "10000059": {
     "name": "Shikanoin Heizou",
-    "quality": "4",
-    "element": "Anemo",
+    "quality": 4,
+    "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1436,8 +1436,8 @@
   },
   "10000067": {
     "name": "Collei",
-    "quality": "4",
-    "element": "Dendro",
+    "quality": 4,
+    "element": "DENDRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1451,8 +1451,8 @@
   },
   "10000068": {
     "name": "Dori",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1466,8 +1466,8 @@
   },
   "10000069": {
     "name": "Tighnari",
-    "quality": "5",
-    "element": "Dendro",
+    "quality": 5,
+    "element": "DENDRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1481,8 +1481,8 @@
   },
   "10000070": {
     "name": "Nilou",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1496,8 +1496,8 @@
   },
   "10000071": {
     "name": "Cyno",
-    "quality": "5",
-    "element": "Electro",
+    "quality": 5,
+    "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1528,8 +1528,8 @@
   },
   "10000072": {
     "name": "Candace",
-    "quality": "4",
-    "element": "Hydro",
+    "quality": 4,
+    "element": "HYDRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1543,8 +1543,8 @@
   },
   "10000073": {
     "name": "Nahida",
-    "quality": "5",
-    "element": "Dendro",
+    "quality": 5,
+    "element": "DENDRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1565,8 +1565,8 @@
   },
   "10000074": {
     "name": "Layla",
-    "quality": "4",
-    "element": "Cryo",
+    "quality": 4,
+    "element": "CRYO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1580,8 +1580,8 @@
   },
   "10000075": {
     "name": "Wanderer",
-    "quality": "5",
-    "element": "Anemo",
+    "quality": 5,
+    "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1603,8 +1603,8 @@
   },
   "10000076": {
     "name": "Faruzan",
-    "quality": "4",
-    "element": "Anemo",
+    "quality": 4,
+    "element": "ANEMO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1618,8 +1618,8 @@
   },
   "10000077": {
     "name": "Yaoyao",
-    "quality": "4",
-    "element": "Dendro",
+    "quality": 4,
+    "element": "DENDRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1633,8 +1633,8 @@
   },
   "10000078": {
     "name": "Alhaitham",
-    "quality": "5",
-    "element": "Dendro",
+    "quality": 5,
+    "element": "DENDRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1658,8 +1658,8 @@
   },
   "10000079": {
     "name": "Dehya",
-    "quality": "5",
-    "element": "Pyro",
+    "quality": 5,
+    "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1673,8 +1673,8 @@
   },
   "10000080": {
     "name": "Mika",
-    "quality": "4",
-    "element": "Cryo",
+    "quality": 4,
+    "element": "CRYO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1688,8 +1688,8 @@
   },
   "10000081": {
     "name": "Kaveh",
-    "quality": "4",
-    "element": "Dendro",
+    "quality": 4,
+    "element": "DENDRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1703,8 +1703,8 @@
   },
   "10000082": {
     "name": "Baizhu",
-    "quality": "5",
-    "element": "Dendro",
+    "quality": 5,
+    "element": "DENDRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1718,8 +1718,8 @@
   },
   "10000061": {
     "name": "Kirara",
-    "quality": "4",
-    "element": "Dendro",
+    "quality": 4,
+    "element": "DENDRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1733,8 +1733,8 @@
   },
   "10000083": {
     "name": "Lynette",
-    "quality": "4",
-    "element": "Anemo",
+    "quality": 4,
+    "element": "ANEMO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1748,8 +1748,8 @@
   },
   "10000084": {
     "name": "Lyney",
-    "quality": "5",
-    "element": "Pyro",
+    "quality": 5,
+    "element": "PYRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1763,8 +1763,8 @@
   },
   "10000085": {
     "name": "Freminet",
-    "quality": "4",
-    "element": "Cryo",
+    "quality": 4,
+    "element": "CRYO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1778,8 +1778,8 @@
   },
   "10000086": {
     "name": "Wriothesley",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1800,8 +1800,8 @@
   },
   "10000087": {
     "name": "Neuvillette",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1822,8 +1822,8 @@
   },
   "10000088": {
     "name": "Charlotte",
-    "quality": "4",
-    "element": "Cryo",
+    "quality": 4,
+    "element": "CRYO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1837,8 +1837,8 @@
   },
   "10000089": {
     "name": "Furina",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1875,8 +1875,8 @@
   },
   "10000090": {
     "name": "Chevreuse",
-    "quality": "4",
-    "element": "Pyro",
+    "quality": 4,
+    "element": "PYRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1890,8 +1890,8 @@
   },
   "10000091": {
     "name": "Navia",
-    "quality": "5",
-    "element": "Geo",
+    "quality": 5,
+    "element": "GEO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1912,8 +1912,8 @@
   },
   "10000092": {
     "name": "Gaming",
-    "quality": "4",
-    "element": "Pyro",
+    "quality": 4,
+    "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1927,8 +1927,8 @@
   },
   "10000093": {
     "name": "Xianyun",
-    "quality": "5",
-    "element": "Anemo",
+    "quality": 5,
+    "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1942,8 +1942,8 @@
   },
   "10000094": {
     "name": "Chiori",
-    "quality": "5",
-    "element": "Geo",
+    "quality": 5,
+    "element": "GEO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1957,8 +1957,8 @@
   },
   "10000096": {
     "name": "Arlecchino",
-    "quality": "5",
-    "element": "Pyro",
+    "quality": 5,
+    "element": "PYRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2048,8 +2048,8 @@
   },
   "10000095": {
     "name": "Sigewinne",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2063,8 +2063,8 @@
   },
   "10000097": {
     "name": "Sethos",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2078,8 +2078,8 @@
   },
   "10000098": {
     "name": "Clorinde",
-    "quality": "5",
-    "element": "Electro",
+    "quality": 5,
+    "element": "ELECTRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2093,8 +2093,8 @@
   },
   "10000099": {
     "name": "Emilie",
-    "quality": "5",
-    "element": "Dendro",
+    "quality": 5,
+    "element": "DENDRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2108,8 +2108,8 @@
   },
   "10000100": {
     "name": "Kachina",
-    "quality": "4",
-    "element": "Geo",
+    "quality": 4,
+    "element": "GEO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2123,8 +2123,8 @@
   },
   "10000101": {
     "name": "Kinich",
-    "quality": "5",
-    "element": "Dendro",
+    "quality": 5,
+    "element": "DENDRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -2138,8 +2138,8 @@
   },
   "10000102": {
     "name": "Mualani",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2153,8 +2153,8 @@
   },
   "10000103": {
     "name": "Xilonen",
-    "quality": "5",
-    "element": "Geo",
+    "quality": 5,
+    "element": "GEO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2168,8 +2168,8 @@
   },
   "10000104": {
     "name": "Chasca",
-    "quality": "5",
-    "element": "Anemo",
+    "quality": 5,
+    "element": "ANEMO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2183,8 +2183,8 @@
   },
   "10000105": {
     "name": "Ororon",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2198,8 +2198,8 @@
   },
   "10000106": {
     "name": "Mavuika",
-    "quality": "5",
-    "element": "Pyro",
+    "quality": 5,
+    "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -2213,8 +2213,8 @@
   },
   "10000107": {
     "name": "Citlali",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2228,8 +2228,8 @@
   },
   "10000108": {
     "name": "Lan Yan",
-    "quality": "4",
-    "element": "Anemo",
+    "quality": 4,
+    "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2243,8 +2243,8 @@
   },
   "10000109": {
     "name": "Yumemizuki Mizuki",
-    "quality": "5",
-    "element": "Anemo",
+    "quality": 5,
+    "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2258,8 +2258,8 @@
   },
   "10000110": {
     "name": "Iansan",
-    "quality": "4",
-    "element": "Electro",
+    "quality": 4,
+    "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2273,8 +2273,8 @@
   },
   "10000111": {
     "name": "Varesa",
-    "quality": "5",
-    "element": "Electro",
+    "quality": 5,
+    "element": "ELECTRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2288,8 +2288,8 @@
   },
   "10000112": {
     "name": "Escoffier",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2303,8 +2303,8 @@
   },
   "10000113": {
     "name": "Ifa",
-    "quality": "4",
-    "element": "Anemo",
+    "quality": 4,
+    "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2318,8 +2318,8 @@
   },
   "10000114": {
     "name": "Skirk",
-    "quality": "5",
-    "element": "Cryo",
+    "quality": 5,
+    "element": "CRYO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2341,8 +2341,8 @@
   },
   "10000115": {
     "name": "Dahlia",
-    "quality": "4",
-    "element": "Hydro",
+    "quality": 4,
+    "element": "HYDRO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2356,8 +2356,8 @@
   },
   "10000116": {
     "name": "Ineffa",
-    "quality": "5",
-    "element": "Electro",
+    "quality": 5,
+    "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2371,8 +2371,8 @@
   },
   "10000119": {
     "name": "Lauma",
-    "quality": "5",
-    "element": "Dendro",
+    "quality": 5,
+    "element": "DENDRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2386,8 +2386,8 @@
   },
   "10000120": {
     "name": "Flins",
-    "quality": "5",
-    "element": "Electro",
+    "quality": 5,
+    "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2401,8 +2401,8 @@
   },
   "10000121": {
     "name": "Aino",
-    "quality": "4",
-    "element": "Hydro",
+    "quality": 4,
+    "element": "HYDRO",
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -2416,8 +2416,8 @@
   },
   "10000122": {
     "name": "Nefer",
-    "quality": "5",
-    "element": "Dendro",
+    "quality": 5,
+    "element": "DENDRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2431,8 +2431,8 @@
   },
   "10000123": {
     "name": "Durin",
-    "quality": "5",
-    "element": "Pyro",
+    "quality": 5,
+    "element": "PYRO",
     "type": "SWORD",
     "tags": [
       "HEXEREI"
@@ -2463,8 +2463,8 @@
   },
   "10000124": {
     "name": "Jahoda",
-    "quality": "4",
-    "element": "Anemo",
+    "quality": 4,
+    "element": "ANEMO",
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2478,8 +2478,8 @@
   },
   "10000125": {
     "name": "Columbina",
-    "quality": "5",
-    "element": "Hydro",
+    "quality": 5,
+    "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2493,8 +2493,8 @@
   },
   "10000126": {
     "name": "Zibai",
-    "quality": "5",
-    "element": "Geo",
+    "quality": 5,
+    "element": "GEO",
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2508,8 +2508,8 @@
   },
   "10000127": {
     "name": "Illuga",
-    "quality": "4",
-    "element": "Geo",
+    "quality": 4,
+    "element": "GEO",
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2523,8 +2523,8 @@
   },
   "10000128": {
     "name": "Varka",
-    "quality": "5",
-    "element": "Anemo",
+    "quality": 5,
+    "element": "ANEMO",
     "type": "CLAYMORE",
     "tags": [
       "HEXEREI"
@@ -2541,8 +2541,8 @@
   },
   "10000130": {
     "name": "Linnea",
-    "quality": "5",
-    "element": "Geo",
+    "quality": 5,
+    "element": "GEO",
     "type": "BOW",
     "stats": {
       "constant": {

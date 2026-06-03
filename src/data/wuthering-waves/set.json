@@ -3,20 +3,21 @@
     "name": "Freezing Frost",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_GLACIO": 0.1
-          }
+        "statMap": {
+          "PERCENT_GLACIO": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_GLACIO": 0.3
-            }
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "BA",
+          "HA"
+        ],
+        "statMap": {
+          "PERCENT_GLACIO": 0.1
+        },
+        "duration": 15000,
+        "maxStacks": 3
       }
     }
   },
@@ -24,20 +25,17 @@
     "name": "Molten Rift",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_FUSION": 0.1
-          }
+        "statMap": {
+          "PERCENT_FUSION": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_FUSION": 0.3
-            }
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
+        "statMap": {
+          "PERCENT_FUSION": 0.3
+        },
+        "duration": 15000
       }
     }
   },
@@ -45,20 +43,21 @@
     "name": "Void Thunder",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ELECTRO": 0.1
-          }
+        "statMap": {
+          "PERCENT_ELECTRO": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_ELECTRO": 0.3
-            }
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "HA",
+          "RS"
+        ],
+        "statMap": {
+          "PERCENT_ELECTRO": 0.15
+        },
+        "duration": 15000,
+        "maxStacks": 2
       }
     }
   },
@@ -66,20 +65,17 @@
     "name": "Sierra Gale",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_AERO": 0.1
-          }
+        "statMap": {
+          "PERCENT_AERO": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_AERO": 0.3
-            }
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "statMap": {
+          "PERCENT_AERO": 0.3
+        },
+        "duration": 15000
       }
     }
   },
@@ -87,20 +83,17 @@
     "name": "Celestial Light",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPECTRO": 0.1
-          }
+        "statMap": {
+          "PERCENT_SPECTRO": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_SPECTRO": 0.3
-            }
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "statMap": {
+          "PERCENT_SPECTRO": 0.3
+        },
+        "duration": 15000
       }
     }
   },
@@ -108,20 +101,21 @@
     "name": "Havoc Eclipse",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HAVOC": 0.1
-          }
+        "statMap": {
+          "PERCENT_HAVOC": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_HAVOC": 0.3
-            }
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "BA",
+          "HA"
+        ],
+        "statMap": {
+          "PERCENT_HAVOC": 0.075
+        },
+        "duration": 15000,
+        "maxStacks": 4
       }
     }
   },
@@ -129,20 +123,18 @@
     "name": "Rejuvenating Glow",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HB": 0.1
-          }
+        "statMap": {
+          "PERCENT_HB": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "team": {
-            "constant": {
-              "PERCENT_ATK": 0.15
-            }
-          }
-        }
+        "applyWhen": "contact",
+        "applyOnType": "HEAL",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        },
+        "duration": 30000
       }
     }
   },
@@ -150,20 +142,18 @@
     "name": "Moonlit Clouds",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ER": 0.1
-          }
+        "statMap": {
+          "PERCENT_ER": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "next": {
-            "constant": {
-              "PERCENT_ATK": 0.225
-            }
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
+        "applyTo": "next",
+        "statMap": {
+          "PERCENT_ATK": 0.225
+        },
+        "duration": 15000
       }
     }
   },
@@ -171,64 +161,68 @@
     "name": "Lingering Tunes",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.1
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.1
         }
       },
-      "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_ATK": 0.2,
-              "PERCENT_OS": 0.6
-            }
+      "5": [
+        {
+          "applyOnCastSkill": "IS",
+          "applyCooldown": 1500,
+          "statMap": {
+            "PERCENT_ATK": 0.05
+          },
+          "maxStacks": 4,
+          "removeOnCast": "OS"
+        },
+        {
+          "statMap": {
+            "PERCENT_OS": 0.6
           }
         }
-      }
+      ]
     }
   },
   "10": {
     "name": "Frosty Resolve",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_RS": 0.12
-          }
+        "statMap": {
+          "PERCENT_RS": 0.12
         }
       },
-      "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_GLACIO": 0.45,
-              "PERCENT_RS": 0.36
-            }
-          }
+      "5": [
+        {
+          "applyOnCastSkill": "RS",
+          "statMap": {
+            "PERCENT_GLACIO": 0.225
+          },
+          "duration": 15000,
+          "maxStacks": 2
+        },
+        {
+          "applyOnCastSkill": "RL",
+          "statMap": {
+            "PERCENT_RS": 0.18
+          },
+          "duration": 5000,
+          "maxStacks": 2
         }
-      }
+      ]
     }
   },
   "11": {
     "name": "Eternal Radiance",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPECTRO": 0.1
-          }
+        "statMap": {
+          "PERCENT_SPECTRO": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_CR": 0.2,
-              "PERCENT_SPECTRO": 0.15
-            }
-          }
+        "statMap": {
+          "PERCENT_CR": 0.2,
+          "PERCENT_SPECTRO": 0.15
         }
       }
     }
@@ -237,76 +231,72 @@
     "name": "Midnight Veil",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HAVOC": 0.1
-          }
+        "statMap": {
+          "PERCENT_HAVOC": 0.1
         }
       },
-      "5": {
-        "buffs": {
-          "next": {
-            "constant": {
-              "PERCENT_HAVOC": 0.15
+      "5": [
+        {
+          "applyOnCastSkill": "OS",
+          "followUpAction": {
+            "action": {
+              "element": "HAVOC",
+              "considered": "OS",
+              "multipliers": {
+                "mv": 4.8
+              }
             }
-          }
+          },
+          "maxUses": 1
+        },
+        {
+          "applyOnCastSkill": "OS",
+          "applyTo": "next",
+          "statMap": {
+            "PERCENT_HAVOC": 0.15
+          },
+          "duration": 15000
         }
-      }
+      ]
     }
   },
   "13": {
     "name": "Empyrean Anthem",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ER": 0.1
-          }
+        "statMap": {
+          "PERCENT_ER": 0.1
         }
       },
-      "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_CA": 0.8
-            }
-          },
-          "team": {
-            "constant": {
-              "PERCENT_ATK": 0.2
-            }
+      "5": [
+        {
+          "statMap": {
+            "PERCENT_CA": 0.8
           }
+        },
+        {
+          "applyOnContactConsidered": "CA",
+          "applyTo": "active",
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          },
+          "duration": 4000
         }
-      }
+      ]
     }
   },
   "14": {
     "name": "Tidebreaking Courage",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ER": 0.1
-          }
+        "statMap": {
+          "PERCENT_ER": 0.1
         }
       },
       "5": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.15
-          }
-        },
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_GLACIO": 0.3,
-              "PERCENT_FUSION": 0.3,
-              "PERCENT_ELECTRO": 0.3,
-              "PERCENT_AERO": 0.3,
-              "PERCENT_SPECTRO": 0.3,
-              "PERCENT_HAVOC": 0.3
-            }
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.15,
+          "PERCENT_ALL": 0.3
         }
       }
     }
@@ -315,46 +305,38 @@
     "name": "Gusts of Welkin",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_AERO": 0.1
-          }
+        "statMap": {
+          "PERCENT_AERO": 0.1
         }
       },
-      "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_AERO": 0.15
-            }
-          },
-          "team": {
-            "constant": {
-              "PERCENT_AERO": 0.15
-            }
+      "5": [
+        {
+          "statMap": {
+            "PERCENT_AERO": 0.15
+          }
+        },
+        {
+          "applyOnCastSkill": "IS",
+          "applyTo": "team",
+          "statMap": {
+            "PERCENT_AERO": 0.15
           }
         }
-      }
+      ]
     }
   },
   "17": {
     "name": "Windward Pilgrimage",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_AERO": 0.1
-          }
+        "statMap": {
+          "PERCENT_AERO": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_CR": 0.1,
-              "PERCENT_AERO": 0.3
-            }
-          }
+        "statMap": {
+          "PERCENT_CR": 0.1,
+          "PERCENT_AERO": 0.3
         }
       }
     }
@@ -363,39 +345,36 @@
     "name": "Flaming Clawprint",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_FUSION": 0.1
-          }
+        "statMap": {
+          "PERCENT_FUSION": 0.1
         }
       },
-      "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_RL": 0.2
-            }
+      "5": [
+        {
+          "applyOnCastSkill": "RL",
+          "applyTo": "team",
+          "statMap": {
+            "PERCENT_FUSION": 0.15
           },
-          "team": {
-            "constant": {
-              "PERCENT_FUSION": 0.15
-            }
-          }
+          "duration": 35000
+        },
+        {
+          "applyOnCastSkill": "RL",
+          "statMap": {
+            "PERCENT_RL": 0.2
+          },
+          "duration": 35000
         }
-      }
+      ]
     }
   },
   "19": {
     "name": "Dream of the Lost",
     "setBonus": {
       "3": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_CR": 0.2,
-              "PERCENT_ES": 0.35
-            }
-          }
+        "statMap": {
+          "PERCENT_CR": 0.2,
+          "PERCENT_ES": 0.35
         }
       }
     }
@@ -404,63 +383,71 @@
     "name": "Crown of Valor",
     "setBonus": {
       "3": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_ATK": 0.3,
-              "PERCENT_CD": 0.2
-            }
-          }
-        }
+        "applyWhen": "contact",
+        "applyOnType": "SHIELD",
+        "applyCooldown": 500,
+        "statMap": {
+          "PERCENT_ATK": 0.06,
+          "PERCENT_CD": 0.04
+        },
+        "duration": 4000,
+        "maxStacks": 5
       }
     }
   },
   "21": {
     "name": "Law of Harmony",
     "setBonus": {
-      "3": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_HA": 0.3
-            }
+      "3": [
+        {
+          "applyOnCastSkill": "ES",
+          "statMap": {
+            "PERCENT_HA": 0.3
           },
-          "team": {
-            "constant": {
-              "PERCENT_ES": 0.16
-            }
-          }
+          "duration": 4000
+        },
+        {
+          "applyOnCastSkill": "ES",
+          "applyTo": "team",
+          "statMap": {
+            "PERCENT_ES": 0.04
+          },
+          "duration": 30000,
+          "maxStacks": 4
         }
-      }
+      ]
     }
   },
   "22": {
     "name": "Flamewing's Shadow",
     "setBonus": {
-      "3": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_CR_HA": 0.2,
-              "PERCENT_CR_ES": 0.2,
-              "PERCENT_FUSION": 0.16
-            }
-          }
+      "3": [
+        {
+          "applyOnContactConsidered": "ES",
+          "statMap": {
+            "PERCENT_CR_HA": 0.2,
+            "PERCENT_FUSION": 0.08
+          },
+          "duration": 6000
+        },
+        {
+          "applyOnContactConsidered": "HA",
+          "statMap": {
+            "PERCENT_CR_ES": 0.2,
+            "PERCENT_FUSION": 0.08
+          },
+          "duration": 6000
         }
-      }
+      ]
     }
   },
   "23": {
     "name": "Thread of Severed Fate",
     "setBonus": {
       "3": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_ATK": 0.2,
-              "PERCENT_RL": 0.3
-            }
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.2,
+          "PERCENT_RL": 0.3
         }
       }
     }
@@ -469,20 +456,18 @@
     "name": "Pact of Neonlight Leap",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPECTRO": 0.1
-          }
+        "statMap": {
+          "PERCENT_SPECTRO": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "next": {
-            "constant": {
-              "PERCENT_ATK": 0.3
-            }
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
+        "applyTo": "next",
+        "statMap": {
+          "PERCENT_ATK": 0.3
+        },
+        "duration": 15000
       }
     }
   },
@@ -490,20 +475,18 @@
     "name": "Halo of Starry Radiance",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HB": 0.1
-          }
+        "statMap": {
+          "PERCENT_HB": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "team": {
-            "constant": {
-              "PERCENT_ATK": 0.25
-            }
-          }
-        }
+        "applyWhen": "contact",
+        "applyOnType": "HEAL",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ATK": 0.25
+        },
+        "duration": 4000
       }
     }
   },
@@ -511,42 +494,41 @@
     "name": "Rite of Gilded Revelation",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPECTRO": 0.1
-          }
+        "statMap": {
+          "PERCENT_SPECTRO": 0.1
         }
       },
-      "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_SPECTRO": 0.3,
-              "PERCENT_BA": 0.4
-            }
-          }
+      "5": [
+        {
+          "applyOnContactConsidered": "BA",
+          "statMap": {
+            "PERCENT_SPECTRO": 0.1
+          },
+          "duration": 10000,
+          "maxStacks": 3
+        },
+        {
+          "applyOnCastSkill": "RL",
+          "statMap": {
+            "PERCENT_BA": 0.4
+          },
+          "removeOnCast": "OS"
         }
-      }
+      ]
     }
   },
   "27": {
     "name": "Trailblazing Star",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_FUSION": 0.1
-          }
+        "statMap": {
+          "PERCENT_FUSION": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_CR": 0.2,
-              "PERCENT_FUSION": 0.2
-            }
-          }
+        "statMap": {
+          "PERCENT_CR": 0.2,
+          "PERCENT_FUSION": 0.2
         }
       }
     }
@@ -555,47 +537,43 @@
     "name": "Chromatic Foam",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_FUSION": 0.1
-          }
+        "statMap": {
+          "PERCENT_FUSION": 0.1
         }
       },
-      "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_FUSION": 0.1
-            }
-          },
-          "next": {
-            "constant": {
-              "PERCENT_FUSION": 0.25
-            }
+      "5": [
+        {
+          "statMap": {
+            "PERCENT_FUSION": 0.1
           }
+        },
+        {
+          "applyOnCastSkill": "OS",
+          "applyTo": "next",
+          "statMap": {
+            "PERCENT_FUSION": 0.25
+          },
+          "duration": 15000
         }
-      }
+      ]
     }
   },
   "29": {
     "name": "Sound of True Name",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_AERO": 0.1
-          }
+        "statMap": {
+          "PERCENT_AERO": 0.1
         }
       },
       "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_CR_ES": 0.2,
-              "PERCENT_AERO": 0.15
-            }
-          }
-        }
+        "applyWhen": "contact",
+        "applyOnConsidered": "ES",
+        "statMap": {
+          "PERCENT_CR_ES": 0.2,
+          "PERCENT_AERO": 0.15
+        },
+        "duration": 5000
       }
     }
   },
@@ -603,36 +581,40 @@
     "name": "Wishes of Quiet Snowfall",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_GLACIO": 0.1
-          }
+        "statMap": {
+          "PERCENT_GLACIO": 0.1
         }
       },
-      "5": {
-        "buffs": {
-          "self": {
-            "constant": {
-              "PERCENT_CR": 0.25
-            }
-          },
-          "next": {
-            "constant": {
-              "PERCENT_GLACIO": 0.25
-            }
+      "5": [
+        {
+          "statMap": {
+            "PERCENT_GLACIO": 0.1
           }
+        },
+        {
+          "applyOnContactConsidered": "RL",
+          "statMap": {
+            "PERCENT_CR": 0.25
+          },
+          "duration": 30000
+        },
+        {
+          "applyOnCastSkill": "OS",
+          "applyTo": "next",
+          "statMap": {
+            "PERCENT_GLACIO": 0.25
+          },
+          "duration": 15000
         }
-      }
+      ]
     }
   },
   "31": {
     "name": "Reel of Spliced Memories",
     "setBonus": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.1
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.1
         }
       },
       "5": {}

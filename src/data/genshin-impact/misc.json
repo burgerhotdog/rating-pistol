@@ -12,15 +12,15 @@
     "Circlet"
   ],
   "ELEMENT_COLORS": {
-    "Anemo": "#2ed89f",
-    "Cryo": "#78f3f6",
-    "Dendro": "#9be43b",
-    "Electro": "#ce7ffc",
-    "Geo": "#ffae10",
-    "Hydro": "#00c1ff",
-    "Pyro": "#ff603f"
+    "ANEMO": "#2ed89f",
+    "CRYO": "#78f3f6",
+    "DENDRO": "#9be43b",
+    "ELECTRO": "#ce7ffc",
+    "GEO": "#ffae10",
+    "HYDRO": "#00c1ff",
+    "PYRO": "#ff603f"
   },
-  "ABILITY_TYPES": {
+  "SKILL_TYPES": {
     "NA": "Normal Attack",
     "CA": "Charged Attack",
     "PA": "Plunge Attack",
@@ -302,5 +302,6 @@
       "label": "Physical DMG Bonus",
       "isPercent": true
     }
-  }
+  },
+  "NEGATIVE_STATUSES": {}
 }

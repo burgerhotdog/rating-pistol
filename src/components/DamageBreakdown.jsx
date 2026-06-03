@@ -5,7 +5,7 @@ import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
 import { useState } from 'react';
 import { CHARACTERS, MISC } from '@/data';
-import { sumRotationDmg, getAction } from '@/utils';
+import { sumRotationDmg } from '@/utils';
 
 const renderLabel = ({ percent }) => {
   if (percent < 0.05) return null;
@@ -20,7 +20,7 @@ const FALLBACK_DMG_TYPE_LABELS = {
 
 function resolveDmgTypeLabel(gameId, dmgTypeId) {
   if (!dmgTypeId) return 'Unknown';
-  const mapped = MISC?.[gameId]?.ABILITY_TYPES?.[dmgTypeId];
+  const mapped = MISC?.[gameId]?.SKILL_TYPES?.[dmgTypeId];
   if (mapped) return mapped;
   return FALLBACK_DMG_TYPE_LABELS[dmgTypeId] ?? dmgTypeId;
 }
@@ -34,11 +34,10 @@ function resolveOwnerLabel(gameId, ownerId) {
  */
 function buildDmgTypeData(actionMap, gameId, characterId) {
   const totals = {};
-  for (const [actionKey, { damage }] of Object.entries(actionMap)) {
-    const { ownerId, considered } = getAction(gameId, actionKey);
-    if (ownerId !== characterId) continue;
+  for (const [, { owner, considered, damage }] of Object.entries(actionMap)) {
+    if (owner !== characterId) continue;
 
-    const label = resolveDmgTypeLabel(gameId, considered);
+    const label = resolveDmgTypeLabel(gameId, considered?.[0]);
     totals[label] = (totals[label] ?? 0) + damage;
   }
   return Object.entries(totals)
@@ -63,11 +62,10 @@ function buildOwnerData(actionMap, gameId) {
 export const DamageBreakdown = ({ actionMap }) => {
   const { gameId, characterId } = useParams();
   const theme = useTheme();
-  const [groupBy, setGroupBy] = useState('owner');
+  const [groupBy, setGroupBy] = useState('dmgType');
 
   if (!actionMap) return null;
 
-  const total = sumRotationDmg(actionMap);
   const data = (groupBy === 'owner'
     ? buildOwnerData(actionMap, gameId)
     : buildDmgTypeData(actionMap, gameId, characterId)).sort((a, b) => b.value - a.value);

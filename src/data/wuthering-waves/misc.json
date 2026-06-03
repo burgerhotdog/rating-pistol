@@ -19,24 +19,17 @@
     "SPECTRO": "#b7a835",
     "HAVOC": "#be4981"
   },
-  "ABILITY_TYPES": {
+  "SKILL_TYPES": {
     "BA": "Basic Attack",
     "HA": "Heavy Attack",
+    "MA": "Mid-air Attack",
+    "DC": "Dodge Counter",
     "RS": "Resonance Skill",
     "RL": "Resonance Liberation",
     "IS": "Intro Skill",
     "OS": "Outro Skill",
     "ES": "Echo Skill",
-    "DC": "Dodge Counter",
-    "MBA": "Mid-air Basic Attack",
-    "MHA": "Mid-air Heavy Attack",
-    "MDC": "Mid-air Dodge Counter",
-    "CA": "Coordinated Attack",
-    "JA": "Jump Attack",
-    "DA": "Dash Attack",
-    "HK": "Hold",
-    "RK": "Release",
-    "AUTO": ""
+    "CA": "Coordinated Attack"
   },
   "WEAPON_TYPES": [
     "BROADBLADE",
@@ -271,6 +264,20 @@
     "CD": {
       "label": "CRIT DMG",
       "isPercent": true
+    }
+  },
+  "NEGATIVE_STATUSES": {
+    "FRAZZLE": {
+      "maxStacks": 10,
+      "tickInterval": 3000,
+      "consumesOnTick": true
+    },
+    "EROSION": {
+      "maxStacks": 3,
+      "tickInterval": 2000,
+      "duration": 15000,
+      "consumesOnTick": false,
+      "refreshOnApply": true
     }
   }
 }

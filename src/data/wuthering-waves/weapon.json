@@ -1,1999 +1,3065 @@
 {
   "21010011": {
     "name": "Training Broadblade",
-    "quality": "1",
+    "quality": 1,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
   "21010012": {
     "name": "Tyro Broadblade",
-    "quality": "2",
+    "quality": 2,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
   "21010013": {
     "name": "Broadblade of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
+      },
+      "duration": 10000
     }
   },
   "21010015": {
     "name": "Lustrous Razor",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_ATK": 0.364,
-        "PERCENT_ER": 0.128
-      }
+      "BASE_ATK": 587,
+      "PERCENT_ATK": 0.365
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.21
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
+        "statMap": {
+          "PERCENT_RL": [
+            0.07,
+            0.14
+          ]
+        },
+        "duration": 12000,
+        "maxStacks": 3
       }
-    }
+    ]
   },
   "21010016": {
     "name": "Verdant Summit",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_HA": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 14000,
+        "maxStacks": 2
       }
-    }
+    ]
   },
   "21010023": {
     "name": "Originite: Type I",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_DEF": 0.384
-      }
+      "BASE_ATK": 300,
+      "PERCENT_DEF": 0.384
+    },
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "applyCooldown": 12000,
+      "followUpAction": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.03,
+              0.06
+            ]
+          }
+        }
+      },
+      "maxUses": 1
     }
   },
   "21010024": {
     "name": "Discord",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
     }
   },
   "21010034": {
     "name": "Broadblade#41",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ER": 0.324,
-        "PERCENT_ATK": 0.24
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.324
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
   "21010043": {
     "name": "Broadblade of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ER": 0.324
-      }
+      "BASE_ATK": 300,
+      "PERCENT_ER": 0.324
     }
   },
   "21010044": {
     "name": "Dauntless Evernight",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_DEF": 0.615
-      }
+      "BASE_ATK": 337,
+      "PERCENT_DEF": 0.615
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16,
-          "PERCENT_DEF": 0.3
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ],
+        "PERCENT_DEF": [
+          0.15,
+          0.3
+        ]
+      },
+      "duration": 15000
     }
   },
   "21010053": {
     "name": "Guardian Broadblade",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243,
-        "PERCENT_BA": 0.24,
-        "PERCENT_HA": 0.24
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_BA": [
+          0.12,
+          0.24
+        ],
+        "PERCENT_HA": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
   "21010064": {
     "name": "Helios Cleaver",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "applyCooldown": 12000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.09,
+          0.18
+        ]
+      },
+      "duration": 12000
     }
   },
   "21010074": {
     "name": "Autumntrace",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.64
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnConsidered": [
+        "BA",
+        "HA"
+      ],
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.128
+        ]
+      },
+      "duration": 7000,
+      "maxStacks": 5
     }
   },
   "21020011": {
     "name": "Training Sword",
-    "quality": "1",
+    "quality": 1,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
   "21020012": {
     "name": "Tyro Sword",
-    "quality": "2",
+    "quality": 2,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
   "21020013": {
     "name": "Sword of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
+      },
+      "duration": 10000
     }
   },
   "21020015": {
     "name": "Emerald of Genesis",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ER": 0.128
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.12
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.06,
+            0.12
+          ]
+        },
+        "duration": 10000,
+        "maxStacks": 2
       }
-    }
+    ]
   },
   "21020023": {
     "name": "Originite: Type II",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "applyOnCastSkill": "RL",
+      "applyCooldown": 20000,
+      "followUpAction": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.05,
+              0.1
+            ]
+          }
+        }
+      },
+      "maxUses": 1
     }
   },
   "21020024": {
     "name": "Overture",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
     }
   },
   "21020034": {
     "name": "Sword#18",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.36
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HA": [
+            0.18,
+            0.36
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "HA",
+        "applyCooldown": 8000,
+        "followUpAction": {
+          "action": {
+            "type": "heal",
+            "attr": "HP",
+            "multipliers": {
+              "mv": [
+                0.05,
+                0.1
+              ]
+            }
+          }
+        },
+        "maxUses": 1
       }
-    }
+    ]
   },
   "21020043": {
     "name": "Sword of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ER": 0.324
-      }
+      "BASE_ATK": 300,
+      "PERCENT_ER": 0.324
     }
   },
   "21020044": {
     "name": "Commando of Conviction",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.3
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.15,
+          0.3
+        ]
+      },
+      "duration": 15000
     }
   },
   "21020053": {
     "name": "Guardian Sword",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_HP": 0.303,
-        "PERCENT_RS": 0.24
+      "BASE_ATK": 300,
+      "PERCENT_HP": 0.303
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_RS": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
   "21020064": {
     "name": "Lunar Cutter",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "applyCooldown": 12000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.07,
+          0.14
+        ]
+      },
+      "duration": 12000
     }
   },
   "21020074": {
     "name": "Lumingloss",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.64,
-          "PERCENT_HA": 0.64
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_BA": [
+          0.2,
+          0.64
+        ],
+        "PERCENT_HA": [
+          0.2,
+          0.64
+        ]
+      },
+      "duration": 10000
     }
   },
   "21030011": {
     "name": "Training Pistols",
-    "quality": "1",
+    "quality": 1,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
   "21030012": {
     "name": "Tyro Pistols",
-    "quality": "2",
+    "quality": 2,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
   "21030013": {
     "name": "Pistols of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
+      },
+      "duration": 10000
     }
   },
   "21030015": {
     "name": "Static Mist",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ER": 0.128
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "next": {
-        "constant": {
-          "PERCENT_ATK": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
+        "applyTo": "next",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 14000
       }
-    }
+    ]
   },
   "21030023": {
     "name": "Originite: Type III",
-    "quality": "3",
+    "quality": 3,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "applyOnCastSkill": "DC",
+      "applyCooldown": 6000,
+      "followUpAction": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.016,
+              0.032
+            ]
+          }
+        }
+      },
+      "maxUses": 1
     }
   },
   "21030024": {
     "name": "Cadenza",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
     }
   },
   "21030034": {
     "name": "Pistols#26",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
-        }
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
       }
     }
   },
   "21030043": {
     "name": "Pistols of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ATK": 0.303
-      }
+      "BASE_ATK": 300,
+      "PERCENT_ATK": 0.303
     }
   },
   "21030044": {
     "name": "Undying Flame",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.4
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_RS": [
+          0.2,
+          0.4
+        ]
+      },
+      "duration": 15000
     }
   },
   "21030053": {
     "name": "Guardian Pistols",
-    "quality": "3",
+    "quality": 3,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ATK": 0.303,
-        "PERCENT_RS": 0.24
+      "BASE_ATK": 300,
+      "PERCENT_ATK": 0.303
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_RS": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
   "21030064": {
     "name": "Novaburst",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
-        }
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
       }
     }
   },
   "21030074": {
     "name": "Thunderbolt",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.69
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnCast": [
+        "BA",
+        "HA"
+      ],
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_RS": [
+          0.07,
+          0.23
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 3
     }
   },
   "21040011": {
     "name": "Training Gauntlets",
-    "quality": "1",
+    "quality": 1,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
   "21040012": {
     "name": "Tyro Gauntlets",
-    "quality": "2",
+    "quality": 2,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
   "21040013": {
     "name": "Gauntlets of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
+      },
+      "duration": 10000
     }
   },
   "21040015": {
     "name": "Abyss Surges",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_ATK": 0.364,
-        "PERCENT_ER": 0.128
-      }
+      "BASE_ATK": 587,
+      "PERCENT_ATK": 0.364
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.1,
-          "PERCENT_RS": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnCast": "RS",
+        "statMap": {
+          "PERCENT_BA": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 8000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnCast": "BA",
+        "statMap": {
+          "PERCENT_RS": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 8000
       }
-    }
+    ]
   },
   "21040023": {
     "name": "Originite: Type IV",
-    "quality": "3",
+    "quality": 3,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_CD": 0.405
-      }
+      "BASE_ATK": 300,
+      "PERCENT_CD": 0.405
+    },
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnConsidered": "BA",
+      "applyCooldown": 3000,
+      "followUpAction": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.005,
+              0.011
+            ]
+          }
+        }
+      },
+      "maxUses": 1
     }
   },
   "21040024": {
     "name": "Marcato",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
     }
   },
   "21040034": {
     "name": "Gauntlets#21D",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ER": 0.388
-      }
+      "BASE_ATK": 387,
+      "PERCENT_ER": 0.388
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16,
-          "PERCENT_DC": 1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.08,
+            0.16
+          ],
+          "PERCENT_DC": [
+            0.5,
+            1
+          ]
+        }
+      },
+      {
+        "applyOnCast": "DC",
+        "applyCooldown": 6000,
+        "followUpAction": {
+          "action": {
+            "type": "heal",
+            "attr": "HP",
+            "multipliers": {
+              "mv": [
+                0.05,
+                0.1
+              ]
+            }
+          }
         }
       }
-    }
+    ]
   },
   "21040043": {
     "name": "Gauntlets of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_DEF": 0.307
-      }
+      "BASE_ATK": 325,
+      "PERCENT_DEF": 0.307
     }
   },
   "21040044": {
     "name": "Amity Accord",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_DEF": 0.615
-      }
+      "BASE_ATK": 337,
+      "PERCENT_DEF": 0.615
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.4
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_RL": [
+          0.2,
+          0.4
+        ]
+      },
+      "duration": 15000
     }
   },
   "21040053": {
     "name": "Guardian Gauntlets",
-    "quality": "3",
+    "quality": 3,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_DEF": 0.384,
-        "PERECNT_RL": 0.24
+      "BASE_ATK": 300,
+      "PERCENT_DEF": 0.384
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_RL": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
   "21040064": {
     "name": "Hollow Mirage",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.15,
-          "PERCENT_DEF": 0.15
-        }
+    "effects": {
+      "applyOnCastSkill": "RL",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.09,
+          0.15
+        ],
+        "PERCENT_DEF": [
+          0.09,
+          0.15
+        ]
       }
     }
   },
   "21040074": {
     "name": "Stonard",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.54
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "statMap": {
+        "PERCENT_RL": [
+          0.18,
+          0.54
+        ]
+      },
+      "duration": 15000
     }
   },
   "21050011": {
     "name": "Training Rectifier",
-    "quality": "1",
+    "quality": 1,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
   "21050012": {
     "name": "Tyro Rectifier",
-    "quality": "2",
+    "quality": 2,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
   "21050013": {
     "name": "Rectifier of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
+      },
+      "duration": 10000
     }
   },
   "21050015": {
     "name": "Cosmic Ripples",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_ATK": 0.539,
-        "PERCENT_ER": 0.128
-      }
+      "BASE_ATK": 500,
+      "PERCENT_ATK": 0.539
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.16
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "BA",
+        "applyCooldown": 500,
+        "statMap": {
+          "PERCENT_BA": [
+            0.032,
+            0.064
+          ]
+        },
+        "duration": 8000,
+        "maxStacks": 5
       }
-    }
+    ]
   },
   "21050016": {
     "name": "Stringmaster",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "RS",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        },
+        "duration": 5000,
+        "maxStacks": 2
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "applyTo": "inactive",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       }
-    }
+    ]
   },
   "21050023": {
     "name": "Originite: Type V",
-    "quality": "3",
+    "quality": 3,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_HP": 0.303
-      }
+      "BASE_ATK": 300,
+      "PERCENT_HP": 0.303
+    },
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "applyCooldown": 20000,
+      "followUpAction": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.05,
+              0.1
+            ]
+          }
+        }
+      },
+      "maxUses": 1
     }
   },
   "21050024": {
     "name": "Variation",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
     }
   },
   "21050034": {
     "name": "Rectifier#25",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      },
+      "duration": 10000
     }
   },
   "21050043": {
     "name": "Rectifier of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ER": 0.324
-      }
+      "BASE_ATK": 300,
+      "PERCENT_ER": 0.324
     }
   },
   "21050044": {
     "name": "Jinzhou Keeper",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16,
-          "PERCENT_HP": 0.2
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "IS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ],
+        "PERCENT_HP": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 15000
     }
   },
   "21050053": {
     "name": "Guardian Rectifier",
-    "quality": "3",
+    "quality": 3,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243,
-        "PERCENT_BA": 0.24,
-        "PERCENT_HA": 0.24
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_BA": [
+          0.12,
+          0.24
+        ],
+        "PERCENT_HA": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
   "21050064": {
     "name": "Comet Flare",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_HP": 0.303
-      }
+      "BASE_ATK": 412,
+      "PERCENT_HP": 0.303
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HB": 0.18
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnConsidered": [
+        "BA",
+        "HA"
+      ],
+      "applyCooldown": 600,
+      "statMap": {
+        "PERCENT_HB": [
+          0.03,
+          0.06
+        ]
+      },
+      "duration": 8000,
+      "maxStacks": 3
     }
   },
   "21050074": {
     "name": "Augment",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.48
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RL",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.15,
+          0.48
+        ]
+      },
+      "duration": 15000
     }
   },
   "21010026": {
     "name": "Ages of Harvest",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "statMap": {
+          "PERCENT_RS": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 12000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
+        "statMap": {
+          "PERCENT_RS": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 12000
       }
-    }
+    ]
   },
   "21010063": {
     "name": "Beguiling Melody",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ATK": 0.303
-      }
+      "BASE_ATK": 300,
+      "PERCENT_ATK": 0.303
     }
   },
   "21020016": {
     "name": "Blazing Brilliance",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.56
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyCooldown": 500,
+        "statMap": {
+          "PERCENT_RS": [
+            0.04,
+            0.08
+          ]
+        },
+        "maxStacks": 4
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
+        "applyCooldown": 500,
+        "statMap": {
+          "PERCENT_RS": [
+            0.2,
+            0.4
+          ]
+        },
+        "maxStacks": 2
       }
-    }
+    ]
   },
   "21040016": {
     "name": "Verity's Handle",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "RL",
+        "statMap": {
+          "PERCENT_RL": [
+            0.48,
+            0.96
+          ]
+        },
+        "duration": 23000
       }
-    }
+    ]
   },
   "21050026": {
     "name": "Rime-Draped Sprouts",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CD": 0.72,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CD": 0.72
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.52
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
+        "statMap": {
+          "PERCENT_BA": [
+            0.12,
+            0.24
+          ]
+        },
+        "duration": 6000,
+        "maxStacks": 3
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
+        "statMap": {
+          "PERCENT_BA": [
+            0.52,
+            1.04
+          ]
+        },
+        "duration": 27000
       }
-    }
+    ]
   },
   "21010084": {
     "name": "Waning Redshift",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "applyCooldown": 20000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000
     }
   },
   "21020084": {
     "name": "Endless Collapse",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "applyCooldown": 20000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000
     }
   },
   "21030084": {
     "name": "Relativistic Jet",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "applyCooldown": 20000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000
     }
   },
   "21040084": {
     "name": "Celestial Spiral",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "applyCooldown": 20000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000
     }
   },
   "21050036": {
     "name": "Stellar Symphony",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ER": 0.77,
-        "PERCENT_HP": 0.12
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.77
     },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.14
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HP": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.14,
+            0.28
+          ]
+        },
+        "duration": 30000
       }
-    }
+    ]
   },
   "21050084": {
     "name": "Fusion Accretion",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "applyCooldown": 20000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000
     }
   },
   "21020017": {
     "name": "Somnoire Anchor",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.4,
-          "PERCENT_CR": 0.12
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnType": "damage",
+      "removeOnCast": "OS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.02,
+          0.04
+        ],
+        "PERCENT_CR": [
+          0.006,
+          0.012
+        ]
+      },
+      "duration": 3000,
+      "maxStacks": 10
     }
   },
   "21020026": {
     "name": "Red Spring",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.7
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ],
+          "PERCENT_BA": [
+            0.2,
+            0.4
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "BA",
+        "applyCooldown": 1000,
+        "statMap": {
+          "PERCENT_BA": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 14000,
+        "maxStacks": 3
       }
-    }
+    ]
   },
   "21010094": {
     "name": "Meditations on Mercy",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnType": "damage",
+      "applyIfEnemyStatus": true,
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4
     }
   },
   "21020094": {
     "name": "Fables of Wisdom",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnType": "damage",
+      "applyIfEnemyStatus": true,
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4
     }
   },
   "21030016": {
     "name": "The Last Dance",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CD": 0.72,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CD": 0.72
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_RS": [
+            0.48,
+            0.96
+          ]
+        },
+        "duration": 5000
       }
-    }
+    ]
   },
   "21030094": {
     "name": "Romance in Farewell",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnType": "damage",
+      "applyIfEnemyStatus": true,
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4
     }
   },
   "21040026": {
     "name": "Tragicomedy",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "BA",
+          "IS"
+        ],
+        "statMap": {
+          "PERCENT_HA": [
+            0.48,
+            0.96
+          ]
+        },
+        "duration": 3000
       }
-    }
+    ]
   },
   "21040094": {
     "name": "Legend of Drunken Hero",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnType": "damage",
+      "applyIfEnemyStatus": true,
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4
     }
   },
   "21050017": {
     "name": "Call of the Abyss",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HB": 0.32
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RL",
+      "statMap": {
+        "PERCENT_HB": [
+          0.16,
+          0.32
+        ]
+      },
+      "duration": 15000
     }
   },
   "21050094": {
     "name": "Waltz in Masquerade",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnType": "damage",
+      "applyIfEnemyStatus": true,
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4
     }
   },
   "21020036": {
     "name": "Unflickering Valor",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ER": 0.77,
-        "PERCENT_CR": 0.08
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.77
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_CR": [
+            0.08,
+            0.16
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "RL",
+        "statMap": {
+          "PERCENT_BA": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 10000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "BA",
+        "statMap": {
+          "PERCENT_BA": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 4000
       }
-    }
+    ]
   },
   "21050027": {
     "name": "Ocean's Gift",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_SPECTRO": 0.4
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnType": "damage",
+      "applyIfEnemyStatus": "FRAZZLE",
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_SPECTRO": [
+          0.06,
+          0.1
+        ]
+      },
+      "duration": 6000,
+      "maxStacks": 4
     }
   },
   "21050046": {
     "name": "Luminous Hymn",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.42,
-          "PERCENT_HA": 0.42
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
-      "ally": {
-        "constant": {
-          "AMP_FRAZZLE": 0.3
-        }
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyIfEnemyStatus": "FRAZZLE",
+        "statMap": {
+          "PERCENT_BA": [
+            0.14,
+            0.28
+          ],
+          "PERCENT_HA": [
+            0.14,
+            0.28
+          ]
+        },
+        "duration": 6000,
+        "maxStacks": 3
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
+        "applyTo": "enemy",
+        "statMap": {
+          "AMP_FRAZZLE": [
+            0.3,
+            0.6
+          ]
+        },
+        "duration": 30000
       }
-    }
+    ]
   },
   "21020046": {
     "name": "Bloodpact's Pledge",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_ER": 0.388
-      }
+      "BASE_ATK": 587,
+      "PERCENT_ER": 0.388
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.26
-        }
+    "effects": [
+      {
+        "applyWhen": "contact",
+        "applyOnType": "heal",
+        "statMap": {
+          "PERCENT_RS": [
+            0.1,
+            0.26
+          ]
+        },
+        "duration": 6000
       },
-      "team": {
-        "constant": {
-          "PERCENT_AERO": 0.26
-        }
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "1406-FC-4",
+          "1408-FC-4"
+        ],
+        "applyTo": "active",
+        "statMap": {
+          "AMP_AERO": [
+            0.1,
+            0.26
+          ]
+        },
+        "duration": 30000
       }
-    }
+    ]
   },
   "21050056": {
     "name": "Whispers of Sirens",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CD": 0.72,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CD": 0.72
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.4,
-          "IGNORE_HAVOC": 0.12
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "ES",
+        "removeOnCast": "OS",
+        "statMap": {
+          "PERCENT_BA": [
+            0.2,
+            0.4
+          ],
+          "IGNORE_HAVOC_RES": [
+            0.06,
+            0.12
+          ]
+        },
+        "duration": 10000,
+        "maxStacks": 2
       }
-    }
+    ]
   },
   "21030026": {
     "name": "Woodland Aria",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_AERO": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
-      "team": {
-        "constant": {
-          "IGNORE_AERO": 0.1
-        }
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": "EROSION",
+        "statMap": {
+          "PERCENT_AERO": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 10000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyIfEnemyStatus": "EROSION",
+        "applyTo": "enemy",
+        "statMap": {
+          "SHRED_AERO_RES": [
+            0.1,
+            0.16
+          ]
+        },
+        "duration": 20000
       }
-    }
+    ]
   },
   "21040036": {
     "name": "Blazing Justice",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "IGNORE_DEF": 0.08,
-          "AMP_FRAZZLE": 0.5
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "BA",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.08,
+            0.16
+          ],
+          "AMP_FRAZZLE": [
+            0.5,
+            1
+          ]
+        },
+        "duration": 6000
       }
-    }
+    ]
   },
   "21010036": {
     "name": "Wildfire Mark",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_FUSION": 0.24
-        }
+      {
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_RL": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 10000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "HA",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_FUSION": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 30000
       }
-    }
+    ]
   },
   "21020056": {
     "name": "Defier's Thorn",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_HP": 0.842
-      }
+      "BASE_ATK": 412,
+      "PERCENT_HP": 0.722
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "IGNORE_DEF": 0.08,
-          "AMP_ALL": 0.2
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HP": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "IS",
+          "BA"
+        ],
+        "statMap": {
+          "IGNORE_DEF": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyIfEnemyStatus": "EROSION",
+        "statMap": {
+          "AMP_ALL": [
+            0.2,
+            0.4
+          ]
+        },
+        "maxUses": 1
       }
-    }
+    ]
   },
   "21050066": {
     "name": "Lethean Elegy",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.32,
-          "AMP_ES": 0.32,
-          "IGNORE_DEF": 0.08
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "ES",
+        "statMap": {
+          "PERCENT_RS": [
+            0.32,
+            0.64
+          ],
+          "AMP_ES": [
+            0.32,
+            0.64
+          ],
+          "IGNORE_DEF": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 12000
       }
-    }
+    ]
   },
   "21010046": {
     "name": "Thunderflare Dominion",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 675,
-        "PERCENT_CR": 0.121,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 675,
+      "PERCENT_CR": 0.121
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.2,
-          "IGNORE_DEF_HA": 0.36
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "IS",
+          "RS"
+        ],
+        "statMap": {
+          "PERCENT_HA": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "shield",
+        "applyCooldown": 500,
+        "useIfConsidered": "HA",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.072,
+            0.12
+          ]
+        },
+        "duration": 7000,
+        "maxStacks": 5
       }
-    }
+    ]
   },
   "21010104": {
     "name": "Aureate Zenith",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CD": 0.405
-      }
+      "BASE_ATK": 412,
+      "PERCENT_CD": 0.405
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.23,
-          "PERCENT_HA": 0.345
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RL",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.072,
+          0.23
+        ],
+        "PERCENT_HA": [
+          0.108,
+          0.345
+        ]
+      },
+      "duration": 15000
     }
   },
   "21020104": {
     "name": "Feather Edge",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.23,
-          "PERCENT_RL": 0.345
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RL",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.072,
+          0.23
+        ],
+        "PERCENT_RL": [
+          0.108,
+          0.345
+        ]
+      },
+      "duration": 15000
     }
   },
   "21030104": {
     "name": "Solar Flame",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.36,
-          "PERCENT_HA": 0.36
-        }
-      }
+    "effects": {
+      "applyWhen": "contact",
+      "applyOnConsidered": [
+        "BA",
+        "HA"
+      ],
+      "applyCooldown": 1000,
+      "statMap": {
+        "PERCENT_ATK": [
+          0.022,
+          0.072
+        ],
+        "PERCENT_HA": [
+          0.022,
+          0.072
+        ]
+      },
+      "duration": 7000,
+      "maxStacks": 4
     }
   },
   "21040046": {
     "name": "Moongazer's Sigil",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.2,
-          "IGNORE_DEF_RL": 0.36
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_RL": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "shield",
+        "useIfConsidered": "RL",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.072,
+            0.12
+          ]
+        },
+        "duration": 7000,
+        "maxStacks": 5
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "useIfConsidered": "RL",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.36,
+            0.6
+          ]
+        },
+        "duration": 3000
       }
-    }
+    ]
   },
   "21040104": {
     "name": "Aether Strike",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CD": 0.405
-      }
+      "BASE_ATK": 412,
+      "PERCENT_CD": 0.405
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.23,
-          "PERCENT_RL": 0.345
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RL",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.072,
+          0.23
+        ],
+        "PERCENT_RL": [
+          0.108,
+          0.345
+        ]
+      },
+      "duration": 15000
     }
   },
   "21050104": {
     "name": "Radiant Dawn",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CD": 0.405
-      }
+      "BASE_ATK": 412,
+      "PERCENT_CD": 0.405
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.288,
-          "PERCENT_BA": 0.288
-        }
-      }
+    "effects": {
+      "applyOnCastSkill": "RS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.09,
+          0.288
+        ],
+        "PERCENT_BA": [
+          0.09,
+          0.288
+        ]
+      },
+      "duration": 10000
     }
   },
   "21020066": {
     "name": "Emerald Sentence",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.6
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_ES": 0.2
-        }
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "ES",
+        "removeOnCast": "OS",
+        "statMap": {
+          "PERCENT_HA": [
+            0.3,
+            0.6
+          ]
+        },
+        "duration": 12000,
+        "maxStacks": 2
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ES": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 30000
       }
-    }
+    ]
   },
   "21030036": {
     "name": "Lux & Umbra",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_HA": 0.24,
-          "AMP_ES": 0.24,
-          "IGNORE_DEF": 0.08
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "ES",
+        "statMap": {
+          "AMP_HA": [
+            0.24,
+            0.48
+          ],
+          "IGNORE_DEF": [
+            0.04,
+            0.08
+          ]
+        },
+        "duration": 6000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "HA",
+        "statMap": {
+          "AMP_ES": [
+            0.24,
+            0.48
+          ],
+          "IGNORE_DEF": [
+            0.04,
+            0.08
+          ]
+        },
+        "duration": 6000
       }
-    }
+    ]
   },
   "21010056": {
     "name": "Kumokiri",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_GLACIO": 0.24,
-          "PERCENT_FUSION": 0.24,
-          "PERCENT_ELECTRO": 0.24,
-          "PERCENT_AERO": 0.24,
-          "PERCENT_SPECTRO": 0.24,
-          "PERCENT_HAVOC": 0.24
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "statMap": {
+          "PERCENT_RL": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": true,
+        "statMap": {
+          "PERCENT_RL": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 15000,
+        "maxStacks": 2
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ALL": [
+            0.24,
+            0.48
+          ]
         }
       }
-    }
+    ]
   },
   "21010045": {
     "name": "Radiance Cleaver",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyIfEnemyStatus": "STRAIN",
+        "statMap": {
+          "PERCENT_RL": [
+            0.24,
+            0.36
+          ]
+        },
+        "duration": 3000
       }
-    }
+    ]
   },
   "21010066": {
     "name": "Starfield Calibrator",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ER": 0.77,
-        "PERCENT_DEF": 0.16
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.77
     },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_CD": 0.2
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_DEF": [
+            0.16,
+            0.32
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "heal",
+        "statMap": {
+          "PERCENT_CD": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 4000
       }
-    }
+    ]
   },
   "21020045": {
     "name": "Laser Shearer",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_ER": 0.388,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_ER": 0.388
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyIfEnemyStatus": "STRAIN",
+        "statMap": {
+          "PERCENT_RS": [
+            0.24,
+            0.36
+          ]
+        },
+        "duration": 3000
       }
-    }
+    ]
   },
   "21030045": {
     "name": "Phasic Homogenizer",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_GLACIO": 0.2,
-          "PERCENT_FUSION": 0.2,
-          "PERCENT_ELECTRO": 0.2,
-          "PERCENT_AERO": 0.2,
-          "PERCENT_SPECTRO": 0.2,
-          "PERCENT_HAVOC": 0.2
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "break",
+        "statMap": {
+          "PERCENT_ALL": [
+            0.2,
+            0.3
+          ]
+        },
+        "duration": 14000
       }
-    }
+    ]
   },
   "21030046": {
     "name": "Spectrum Blaster",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.36
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_ALL": 0.24
-        }
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": [
+          "IS",
+          "BA"
+        ],
+        "statMap": {
+          "PERCENT_BA": [
+            0.36,
+            0.72
+          ]
+        },
+        "duration": 4000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": [
+          "RUPTURE",
+          "STRAIN"
+        ],
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ALL": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 30000,
+        "maxStacks": 3
       }
-    }
+    ]
   },
   "21040045": {
     "name": "Pulsation Bracer",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyIfEnemyStatus": "STRAIN",
+        "applyCooldown": 500,
+        "statMap": {
+          "PERCENT_BA": [
+            0.06,
+            0.09
+          ]
+        },
+        "duration": 3000,
+        "maxStacks": 4
       }
-    }
+    ]
   },
   "21050045": {
     "name": "Boson Astrolabe",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 525,
-        "PERCENT_ER": 0.388,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 525,
+      "PERCENT_ER": 0.388
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.12,
-          "PERCENT_BA": 0.12
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "break",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.18
+          ],
+          "PERCENT_BA": [
+            0.12,
+            0.18
+          ]
+        },
+        "duration": 14000
       }
-    }
+    ]
   },
   "21020076": {
     "name": "Everbright Polestar",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "IGNORE_DEF_RL": 0.32,
-          "IGNORE_FUSION_RL": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyifInflict": [
+          "RUPTURE",
+          "BURST"
+        ],
+        "useIfConsidered": "RL",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.32,
+            0.64
+          ],
+          "IGNORE_FUSION_RES": [
+            0.1,
+            0.3
+          ]
+        },
+        "duration": 8000
       }
-    }
+    ]
   },
   "21040056": {
     "name": "Daybreaker's Spine",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_SPECTRO": 0.2,
-          "AMP_BA": 0.2,
-          "IGNORE_DEF_BA": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "BA",
+        "statMap": {
+          "PERCENT_SPECTRO": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 4000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": "STRAIN",
+        "useIfConsidered": "BA",
+        "statMap": {
+          "AMP_BA": [
+            0.2,
+            0.4
+          ],
+          "IGNORE_DEF": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 6000
       }
-    }
+    ]
   },
   "21040066": {
     "name": "Solsworn Ciphers",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_ES": 0.32,
-          "IGNORE_DEF_ES": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "IS",
+          "ES"
+        ],
+        "statMap": {
+          "AMP_ES": [
+            0.32,
+            0.64
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "ES",
+        "useIfConsidered": "AERO",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 6000
       }
-    }
+    ]
   },
   "21020086": {
     "name": "Frostburn",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_GLACIO": 0.28,
-          "IGNORE_DEF_RL": 0.1,
-          "AMP_CHAFE": 0.2
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": "CHAFE",
+        "statMap": {
+          "AMP_GLACIO": [
+            0.28,
+            0.56
+          ]
+        },
+        "duration": 6000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": "CHAFE",
+        "useIfConsidered": "RL",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 6000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "applyTo": "enemy",
+        "removeOnCast": "OS",
+        "statMap": {
+          "AMP_CHAFE": [
+            0.2,
+            0.4
+          ]
         }
       }
-    }
+    ]
   },
   "21050076": {
     "name": "Forged Dwarf Star",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.36
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.24
-        }
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": [
+          "BURST",
+          "STRAIN"
+        ],
+        "statMap": {
+          "PERCENT_RL": [
+            0.36,
+            0.72
+          ]
+        },
+        "duration": 5000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 15000
       }
-    }
+    ]
   }
 }

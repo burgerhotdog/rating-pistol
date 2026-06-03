@@ -13,7 +13,7 @@ function validatePayload({ gameId, characterId, build, team }) {
   const { element, stats: characterStats } = characterData;
   if (!element) return `missing "element" for characterId "${characterId}"`;
   if (!characterStats) return `missing "stats" for characterId "${characterId}"`;
-  const { BASE_HP, BASE_ATK, BASE_DEF } = characterStats.constant;
+  const { BASE_HP, BASE_ATK, BASE_DEF } = characterStats;
   if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for characterId "${characterId}"`;
   const characterMvs = MVS[gameId][characterId];
   if (!characterMvs) return `missing "mvs" for characterId "${characterId}"`;
@@ -40,7 +40,7 @@ function validatePayload({ gameId, characterId, build, team }) {
     const { name, element, stats } = memberData;
     if (!element) return `missing "element" for memberId "${memberId}"`;
     if (!stats) return `missing "stats" for memberId "${memberId}"`;
-    const { BASE_HP, BASE_ATK, BASE_DEF } = stats.constant;
+    const { BASE_HP, BASE_ATK, BASE_DEF } = stats;
     if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for memberId "${memberId}"`;
     if (!MVS[gameId][memberId]) return `missing "mvs" for memberId "${memberId}"`;
 
@@ -65,7 +65,13 @@ export function useSimulation(team) {
   const [result, setResult] = useState({});
   
   useEffect(() => {
-    const payload = { gameId, characterId, build, team };
+    // Use the team member's weaponId override (what-if scenario) for stat compilation.
+    // equipList always comes from the context build so trial generation is unaffected.
+    const mainMember = team.find(m => m.memberId === characterId);
+    const effectiveBuild = mainMember?.weaponId
+      ? { ...build, weaponId: mainMember.weaponId }
+      : build;
+    const payload = { gameId, characterId, build: effectiveBuild, team };
     const error = validatePayload(payload);
     if (error) {
       console.log(error);
@@ -116,7 +122,12 @@ export function useSimulation(team) {
           teamFinalStats: data.teamFinalStats,
           actionMap: data.actionMap,
           actionMapsWithSub: data.actionMapsWithSub,
+          timings: data.timings,
         }));
+
+        if (import.meta.env.DEV) {
+          console.log('[simulation timings]', data.timings);
+        }
 
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;
