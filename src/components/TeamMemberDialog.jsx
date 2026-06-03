@@ -33,7 +33,7 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTERS, MVS, WEAPONS, SETS, MISC } from '@/data';
+import { CHARACTERS, ACTION, WEAPONS, SETS, MISC } from '@/data';
 import { getMember, formatRotation, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
@@ -541,8 +541,8 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
 
   // Build grouped actions: { skillId: [{ actionKey, name }, ...] }
   const groupedOptions = useMemo(() => {
-    if (!characterId || !MVS[gameId]?.[characterId]) return {};
-    const skillTree = MVS[gameId][characterId];
+    if (!characterId || !ACTION[gameId]?.[characterId]) return {};
+    const skillTree = ACTION[gameId][characterId];
     const groups = {};
     for (const [skillId, skillDef] of Object.entries(skillTree)) {
       groups[skillId] = Object.entries(skillDef).map(([actionId, actionDef]) => ({
@@ -753,7 +753,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
   };
 
   const [ownerId, skillId, actionId] = actionKey.split('-');
-  const { cast, name, prefix } = MVS[gameId][ownerId][skillId][actionId];
+  const { cast, name, prefix } = ACTION[gameId][ownerId][skillId][actionId];
 
   return (
     <Box

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTERS, MVS, MISC } from '@/data';
+import { CHARACTERS, ACTION, MISC } from '@/data';
 import { sumRotationDmg } from '@/utils';
 
 function sumRotationTime(gameId, team) {
@@ -14,7 +14,7 @@ function sumRotationTime(gameId, team) {
 
     for (const actionKey of rotation) {
       const [ownerId, skillId, actionId] = actionKey.split('-');
-      const { duration } = MVS[gameId][ownerId][skillId][actionId];
+      const { duration } = ACTION[gameId][ownerId][skillId][actionId];
 
       total += duration;
     }
@@ -33,7 +33,7 @@ function sumMemberRotationTime(gameId, team, memberId) {
       const [ownerId, skillId, actionId] = actionKey.split('-');
       if (ownerId !== memberId) continue;
 
-      const { duration } = MVS[gameId][ownerId][skillId][actionId];
+      const { duration } = ACTION[gameId][ownerId][skillId][actionId];
       total += duration;
     }
   }

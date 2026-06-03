@@ -11,8 +11,6 @@ const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
 function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
-  const simulationStartMs = performance.now();
-
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build));
@@ -92,28 +90,18 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
     benchmarkWeek: lastBenchmarkWeek,
     weeklyScores,
     diff: lastDiff,
-    timingsMs: {
-      totalSimulationMs: Math.round(performance.now() - simulationStartMs),
-      weekTimingsMs,
-    },
   };
 }
 
 self.onmessage = ({ data }) => {
-  const workerStartMs = performance.now();
   const { gameId, characterId, build, team } = data;
   const { NUM_MAINSTATS } = MISC[gameId];
   const setIdList = build.equipList.map(equip => equip?.setId);
-  const timings = {
-    teammateCalibrationMs: 0,
-    mainSimulationMs: 0,
-  };
 
   const teamFinalStats = {};
 
   // Generate benchmark builds for teammates
   self.postMessage({ type: 'progress', statusMessage: 'Calibrating teammates', currentMember: null, completed: 0 });
-  const teammateCalibrationStartMs = performance.now();
   for (let ti = team.length - 1; ti >= 0; ti--) {
     const member = team[ti];
     const { memberId, weaponId, setCounts } = member;
@@ -145,11 +133,9 @@ self.onmessage = ({ data }) => {
     }
     teamFinalStats[memberId] = finalStats;
   }
-  timings.teammateCalibrationMs = Math.round(performance.now() - teammateCalibrationStartMs);
 
   // Run farming simulation for current character
   self.postMessage({ type: 'progress', statusMessage: 'Running simulation', currentMember: characterId, completed: 0, diff: null });
-  const mainSimulationStartMs = performance.now();
   const currentResult = simulateCharacter({
     gameId,
     characterId,
@@ -161,8 +147,6 @@ self.onmessage = ({ data }) => {
     }),
     setIdList,
   });
-  timings.weekTimingsMs = currentResult.timingsMs.weekTimingsMs;
-  timings.mainSimulationMs = Math.round(performance.now() - mainSimulationStartMs);
 
   const { trials, preferredMainStats, compiledRotation, benchmarkWeek: lastBenchmarkWeek, weeklyScores } = currentResult;
 
@@ -201,7 +185,6 @@ self.onmessage = ({ data }) => {
       };
       return [id, evaluateRotation(compiledRotation, compileStatMap(gameId, characterId, buildWithSub))];
     }));
-  timings.totalWorkerMs = Math.round(performance.now() - workerStartMs);
 
   self.postMessage({
     type: 'done',
@@ -213,6 +196,5 @@ self.onmessage = ({ data }) => {
     teamFinalStats,
     actionMap,
     actionMapsWithSub,
-    timings,
   });
 };
