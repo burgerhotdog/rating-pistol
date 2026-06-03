@@ -23,6 +23,24 @@ function sumRotationTime(gameId, team) {
   return total;
 }
 
+function sumMemberRotationTime(gameId, team, memberId) {
+  let total = 0;
+
+  for (const member of team) {
+    const { rotation = [] } = member;
+
+    for (const actionKey of rotation) {
+      const [ownerId, skillId, actionId] = actionKey.split('-');
+      if (ownerId !== memberId) continue;
+
+      const { duration } = MVS[gameId][ownerId][skillId][actionId];
+      total += duration;
+    }
+  }
+
+  return total;
+}
+
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
     <Typography variant="overline" color="text.secondary" lineHeight={1.4}>{label}</Typography>
@@ -32,7 +50,7 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats, team, actionMap }) => {
+export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats: _teamFinalStats, team, actionMap }) => {
   const theme = useTheme();
   const { gameId } = useParams();
   const disabledColor = theme.palette.action.disabled;
@@ -46,6 +64,9 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
 
   const rotationTime = sumRotationTime(gameId, team);
   const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
+  const memberRotationTimeMap = Object.fromEntries(
+    members.map((m) => [m.memberId, sumMemberRotationTime(gameId, team, m.memberId)])
+  );
 
   const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap)));
   const benchmarkRating = activeScores[activeScores.length - 1];
@@ -186,6 +207,11 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                       <Typography variant="body2">
                         {CHARACTERS[gameId]?.[m.memberId]?.name ?? m.memberId}:{' '}
                         {(data[week]?.[`dps_${m.memberId}`] ?? 0).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                        {' '}(
+                        {sumRotationDmg(weeklyScores[week], { ownerId: m.memberId }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                        {' / '}
+                        {((memberRotationTimeMap[m.memberId] ?? 0) / 1000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}s
+                        )
                       </Typography>
                     </Box>
                   ))}

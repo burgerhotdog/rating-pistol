@@ -1597,9 +1597,9 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RL-3",
-        "followUpAction": [
+        "combo": [
           {
             "action": "RL-1",
             "times": 16
@@ -1607,8 +1607,7 @@
           {
             "action": "RL-2"
           }
-        ],
-        "maxUses": 1
+        ]
       },
       {
         "applyWhen": "cast",
