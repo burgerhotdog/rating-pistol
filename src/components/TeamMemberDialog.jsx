@@ -11,7 +11,9 @@ import {
   DialogContent,
   DialogTitle,
   Chip,
-  Divider,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   FormControlLabel,
   GlobalStyles,
   IconButton,
@@ -522,23 +524,21 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
   );
 }
 
-function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
+const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
   const skillTree = ACTION[gameId][characterId];
-  const columnOrder = MISC[gameId].SKILL_TREE_COLUMNS;
 
-  // Apply search filter per group
-  const filteredGroups = useMemo(() => {
+  const filteredTree = useMemo(() => {
     const lower = search.toLowerCase();
     const result = {};
-    for (const { id } of columnOrder) {
-      const actions = Object.values(skillTree[id]);
-      result[id] = lower
-        ? actions.filter(({ name }) => name.toLowerCase().includes(lower))
-        : actions;
+
+    for (const [skillId, skillActionMap] of Object.entries(skillTree)) {
+      const skillActions = Object.values(skillActionMap);
+      result[skillId] = skillActions.filter(({ name }) => name.toLowerCase().includes(lower));
     }
+
     return result;
-  }, [skillTree, search, columnOrder]);
+  }, [skillTree, search]);
 
   const handleSelect = (actionKey) => {
     onSelect(actionKey);
@@ -546,42 +546,44 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
     onClose();
   };
 
-  const totalVisible = columnOrder.reduce((sum, { id }) => sum + (filteredGroups[id]?.length ?? 0), 0);
+  const hasMatches = Object.values(filteredTree).some(arr => arr.length > 0);
 
-  // Split into top row (all except OS) and bottom row (OS only)
-  const topIds = columnOrder.filter(({ id }) => id !== 'OS');
-
-  const renderColumn = ({ id, label }) => {
-    const filtered = filteredGroups[id] ?? [];
-    const total = Object.keys(skillTree[id]).length ?? 0;
-    return (
-      <Box key={id}>
-        <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 'bold', display: 'block', mb: 0.5 }}>
-          {label}{' '}
-          <Typography variant="caption" color="text.disabled" component="span">
-            {search ? `(${filtered.length}/${total})` : `(${total})`}
-          </Typography>
+  const renderGroup = ([id, filtered]) => (
+    <Box key={id}>
+      <Typography
+        variant="caption"
+        sx={{ display: 'block', color: 'text.secondary', fontWeight: 'bold', mb: 0.5 }}
+      >
+        {MISC[gameId].SKILL[id].name}{' '}
+        <Typography
+          variant="caption"
+          component="span"
+          sx={{ color: 'text.disabled' }}
+        >
+          ({filtered.length})
         </Typography>
-        <Stack spacing={0.5}>
-          {filtered.map(({ key, name }) => (
-            <Button
-              key={key}
-              variant="outlined"
-              size="small"
-              onClick={() => handleSelect(key)}
-              sx={{ justifyContent: 'flex-start', textTransform: 'none', fontSize: '0.75rem' }}
-            >
-              {name}
-            </Button>
-          ))}
-        </Stack>
-      </Box>
-    );
-  };
+      </Typography>
+
+      <Stack spacing={0.5}>
+        {filtered.map(({ key, name }) => (
+          <Button
+            key={key}
+            variant="outlined"
+            size="small"
+            onClick={() => handleSelect(key)}
+            sx={{ justifyContent: 'flex-start', textTransform: 'none', fontSize: '0.75rem' }}
+          >
+            {name}
+          </Button>
+        ))}
+      </Stack>
+    </Box>
+  );
 
   return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="md">
       <DialogTitle>Select Action</DialogTitle>
+
       <DialogContent>
         <TextField
           fullWidth
@@ -592,48 +594,19 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
           sx={{ mb: 2 }}
         />
 
-        {totalVisible === 0 ? (
-          <Typography variant="body2" color="text.secondary">
+        {hasMatches ? (
+          <Stack spacing={2}>
+            {Object.entries(filteredTree).map(renderGroup)}
+          </Stack>
+        ) : (
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             No skills available for this character.
           </Typography>
-        ) : (
-          <Stack spacing={2}>
-            {/* Top row: all groups except OS */}
-            {topIds.length > 0 && (
-              <Box
-                sx={{
-                  display: 'grid',
-                  gridTemplateColumns: `repeat(${topIds.length}, 1fr)`,
-                  gap: 1,
-                  alignItems: 'start',
-                }}
-              >
-                {topIds.map(renderColumn)}
-              </Box>
-            )}
-
-            {/* Bottom row: OS centered at same column width as top grid */}
-            {gameId === 'wuthering-waves' && (
-              <>
-                <Divider />
-                <Box
-                  sx={{
-                    display: 'grid',
-                    gridTemplateColumns: `repeat(${topIds.length}, 1fr)`,
-                  }}
-                >
-                  <Box sx={{ gridColumn: `${Math.ceil(topIds.length / 2)}` }}>
-                    {renderColumn({ id: 'OS', label: 'Outro Skill' })}
-                  </Box>
-                </Box>
-              </>
-            )}
-          </Stack>
         )}
       </DialogContent>
     </Dialog>
   );
-}
+};
 
 function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = false }) {
   const [hovered, setHovered] = useState(false);

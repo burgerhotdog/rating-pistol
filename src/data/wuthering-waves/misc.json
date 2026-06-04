@@ -20,6 +20,10 @@
     "HAVOC": "#be4981"
   },
   "SKILL": {
+    "NA": {
+      "name": "Normal Attack",
+      "short": "Normal"
+    },
     "BA": {
       "name": "Basic Attack",
       "short": "Basic"
@@ -43,6 +47,10 @@
     "RL": {
       "name": "Resonance Liberation",
       "short": "Liberation"
+    },
+    "FC": {
+      "name": "Forte Circuit",
+      "short": "Forte"
     },
     "IS": {
       "name": "Intro Skill",
