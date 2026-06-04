@@ -42,6 +42,20 @@
       "short": "Burst"
     }
   },
+  "SKILL_TREE_COLUMNS": [
+    {
+      "id": "NA",
+      "label": "Normal Attack"
+    },
+    {
+      "id": "ES",
+      "label": "Elemental Skill"
+    },
+    {
+      "id": "EB",
+      "label": "Elemental Burst"
+    }
+  ],
   "WEAPON_TYPES": [
     "SWORD",
     "CLAYMORE",

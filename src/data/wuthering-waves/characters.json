@@ -23,7 +23,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "BA-5",
+        "applyOnAction": "NA-5",
         "useIfAction": [
           "FC-2",
           "FC-3",
@@ -46,7 +46,7 @@
       {
         "rank": 1,
         "applyWhen": "cast",
-        "applyOnAction": "BA-5",
+        "applyOnAction": "NA-5",
         "statMap": {
           "PERCENT_CR": 0.15
         },
@@ -284,10 +284,10 @@
       "rotation": [
         "IS-1",
         "RL-3",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "RS-1",
         "OS-1"
       ]
@@ -777,10 +777,10 @@
         "IS-1",
         "RS-1",
         "FC-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "FC-1",
         "RL-1",
         "OS-1"
@@ -1049,12 +1049,12 @@
       },
       "rotation": [
         "IS-1",
-        "BA-4",
+        "NA-4",
         "RS-1",
-        "BA-5",
+        "NA-5",
         "RS-2",
         "RL-1",
-        "BA-1",
+        "NA-1",
         "FC-1",
         "OS-1"
       ]
@@ -1257,15 +1257,15 @@
       },
       "rotation": [
         "IS-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-5",
-        "BA-7",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-5",
+        "NA-7",
         "RL-1",
-        "BA-1",
-        "BA-5",
-        "BA-7",
+        "NA-1",
+        "NA-5",
+        "NA-7",
         "RS-1",
         "FC-2",
         "OS-1"
@@ -1298,15 +1298,15 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "useIfAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-5",
-          "BA-6",
-          "BA-7",
-          "BA-8",
-          "BA-9"
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-5",
+          "NA-6",
+          "NA-7",
+          "NA-8",
+          "NA-9"
         ],
         "statMap": {
           "PERCENT_ATK": 0.1
@@ -1324,8 +1324,8 @@
       {
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-7",
-          "BA-8"
+          "NA-7",
+          "NA-8"
         ],
         "applyCooldown": 30000,
         "statMap": {
@@ -1356,13 +1356,13 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "useIfAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-5",
-          "BA-6",
-          "BA-9"
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-5",
+          "NA-6",
+          "NA-9"
         ],
         "statMap": {
           "PERCENT_MV": 1
@@ -1402,8 +1402,8 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "useIfAction": [
-          "BA-7",
-          "BA-8"
+          "NA-7",
+          "NA-8"
         ],
         "statMap": {
           "PERCENT_ALL": 0.5
@@ -1425,11 +1425,11 @@
         "IS-1",
         "RL-1",
         "RS-2",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
-        "BA-5",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
+        "NA-5",
         "OS-1"
       ]
     }
@@ -2016,7 +2016,7 @@
       {
         "rank": 4,
         "applyWhen": "cast",
-        "applyOnAction": "BA-6",
+        "applyOnAction": "NA-6",
         "statMap": {
           "PERCENT_DEF": 0.5
         },
@@ -2025,7 +2025,7 @@
       {
         "rank": 4,
         "applyWhen": "contact",
-        "applyOnAction": "BA-6",
+        "applyOnAction": "NA-6",
         "comboAction": {
           "action": "FC-7"
         }
@@ -2068,10 +2068,10 @@
         "FC-2",
         "FC-3",
         "RL-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "RS-1",
         "OS-1"
       ]
@@ -2115,7 +2115,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "BA-6",
+        "applyOnAction": "NA-6",
         "useIfAction": [
           "RS-2",
           "RS-3"
@@ -2150,12 +2150,12 @@
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-5",
-          "BA-6",
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-5",
+          "NA-6",
           "RS-1",
           "RS-2",
           "RS-3",
@@ -2225,8 +2225,8 @@
         "RS-3",
         "RL-1",
         "RS-1",
-        "BA-2",
-        "BA-3",
+        "NA-2",
+        "NA-3",
         "RS-4",
         "RS-5",
         "RS-6",
@@ -2366,9 +2366,9 @@
       "rotation": [
         "IS-1",
         "RS-3",
-        "BA-10",
-        "BA-3",
-        "BA-4",
+        "NA-10",
+        "NA-3",
+        "NA-4",
         "RS-2",
         "RS-1",
         "RS-2",
@@ -2631,9 +2631,9 @@
       },
       "rotation": [
         "IS-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
+        "NA-1",
+        "NA-2",
+        "NA-3",
         "RS-1",
         "FC-1",
         "FC-2",
@@ -2868,10 +2868,10 @@
         "RS-1",
         "RL-1",
         "RS-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "RS-1",
         "RS-1",
         "OS-1"
@@ -3046,10 +3046,10 @@
       },
       "rotation": [
         "IS-2",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "FC-2",
         "RS-2",
         "RL-2",
@@ -3086,10 +3086,10 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "BA-10",
+        "applyOnAction": "NA-10",
         "maxUses": 1,
         "followUpAction": {
-          "action": "BA-2",
+          "action": "NA-2",
           "times": 2
         }
       },
@@ -3159,7 +3159,7 @@
         "FC-3",
         "FC-4",
         "FC-7",
-        "BA-1",
+        "NA-1",
         "FC-9",
         "FC-9",
         "FC-9",
@@ -3187,13 +3187,13 @@
         "applyOnAction": "FC-1",
         "duration": 15000,
         "useIfAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-5",
-          "BA-7",
-          "BA-8",
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-5",
+          "NA-7",
+          "NA-8",
           "RS-1",
           "RS-2",
           "RS-3",
@@ -3404,8 +3404,8 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-6",
-          "BA-7",
+          "NA-6",
+          "NA-7",
           "FC-1"
         ],
         "applyTo": "team",
@@ -3443,7 +3443,7 @@
         "IS-1",
         "RS-1",
         "RS-2",
-        "BA-8",
+        "NA-8",
         "FC-1",
         "RL-1",
         "RL-2",
@@ -3474,7 +3474,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-5",
+          "NA-5",
           "RS-1"
         ],
         "duration": 12000,
@@ -3565,7 +3565,7 @@
       {
         "rank": 5,
         "useIfAction": [
-          "BA-5",
+          "NA-5",
           "FC-1",
           "FC-2",
           "FC-3"
@@ -3618,7 +3618,7 @@
       },
       "rotation": [
         "IS-1",
-        "BA-4",
+        "NA-4",
         "RS-1",
         "FC-1",
         "FC-2",
@@ -3709,16 +3709,16 @@
       },
       {
         "useIfAction": [
-          "BA-7",
-          "BA-8",
-          "BA-9",
-          "BA-10",
-          "BA-11",
-          "BA-12",
-          "BA-13",
-          "BA-14",
-          "BA-15",
-          "BA-16",
+          "NA-7",
+          "NA-8",
+          "NA-9",
+          "NA-10",
+          "NA-11",
+          "NA-12",
+          "NA-13",
+          "NA-14",
+          "NA-15",
+          "NA-16",
           "FC-1"
         ],
         "statMap": {
@@ -3739,9 +3739,9 @@
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-9",
-          "BA-13",
-          "BA-15",
+          "NA-9",
+          "NA-13",
+          "NA-15",
           "IS-1"
         ],
         "maxStacks": 3,
@@ -3753,16 +3753,16 @@
       {
         "rank": 2,
         "useIfAction": [
-          "BA-7",
-          "BA-8",
-          "BA-9",
-          "BA-10",
-          "BA-11",
-          "BA-12",
-          "BA-13",
-          "BA-14",
-          "BA-15",
-          "BA-16",
+          "NA-7",
+          "NA-8",
+          "NA-9",
+          "NA-10",
+          "NA-11",
+          "NA-12",
+          "NA-13",
+          "NA-14",
+          "NA-15",
+          "NA-16",
           "FC-1"
         ],
         "statMap": {
@@ -3805,16 +3805,16 @@
       {
         "rank": 6,
         "useIfAction": [
-          "BA-7",
-          "BA-8",
-          "BA-9",
-          "BA-10",
-          "BA-11",
-          "BA-12",
-          "BA-13",
-          "BA-14",
-          "BA-15",
-          "BA-16",
+          "NA-7",
+          "NA-8",
+          "NA-9",
+          "NA-10",
+          "NA-11",
+          "NA-12",
+          "NA-13",
+          "NA-14",
+          "NA-15",
+          "NA-16",
           "FC-1"
         ],
         "statMap": {
@@ -3836,11 +3836,11 @@
         "IS-1",
         "RS-2",
         "RL-1",
-        "BA-11",
-        "BA-12",
-        "BA-13",
-        "BA-14",
-        "BA-15",
+        "NA-11",
+        "NA-12",
+        "NA-13",
+        "NA-14",
+        "NA-15",
         "FC-1",
         "OS-1"
       ]
@@ -3866,10 +3866,10 @@
         "duration": 30000,
         "followUpAction": {
           "useIfAction": [
-            "BA-1",
-            "BA-2",
-            "BA-3",
-            "BA-6"
+            "NA-1",
+            "NA-2",
+            "NA-3",
+            "NA-6"
           ],
           "action": "RS-2"
         },
@@ -3989,14 +3989,14 @@
         "rank": 4,
         "applyWhen": "contact",
         "applyOnAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
+          "NA-1",
+          "NA-2",
+          "NA-3",
           "RS-3",
           "RS-4",
           "RS-5",
-          "BA-6",
-          "BA-7"
+          "NA-6",
+          "NA-7"
         ],
         "applyTo": "enemy",
         "statMap": {
@@ -4229,10 +4229,10 @@
       },
       "rotation": [
         "IS-1",
-        "BA-3",
+        "NA-3",
         "RS-1",
         "RL-1",
-        "BA-5",
+        "NA-5",
         "RS-2",
         "FC-1",
         "FC-2",
@@ -4295,10 +4295,10 @@
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4"
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4"
         ],
         "duration": 10000,
         "statMap": {
@@ -4335,7 +4335,7 @@
       {
         "rank": 6,
         "applyWhen": "cast",
-        "applyOnAction": "BA-4",
+        "applyOnAction": "NA-4",
         "maxUses": 1,
         "followUpAction": {
           "action": "FC-2"
@@ -4354,11 +4354,11 @@
       },
       "rotation": [
         "IS-1",
-        "BA-3",
-        "BA-4",
-        "BA-8",
-        "BA-9",
-        "BA-4",
+        "NA-3",
+        "NA-4",
+        "NA-8",
+        "NA-9",
+        "NA-4",
         "RS-1",
         "FC-1",
         "RL-1",
@@ -4504,7 +4504,7 @@
       "rotation": [
         "IS-1",
         "RS-1",
-        "BA-3",
+        "NA-3",
         "RS-3",
         "RL-1",
         "FC-1",
@@ -4553,9 +4553,9 @@
         "applyWhen": "cast",
         "applyOnAction": [
           "RS-2",
-          "BA-6",
-          "BA-7",
-          "BA-11",
+          "NA-6",
+          "NA-7",
+          "NA-11",
           "RL-1",
           "FC-1",
           "FC-2"
@@ -4600,9 +4600,9 @@
         "applyWhen": "cast",
         "applyOnAction": [
           "RL-1",
-          "BA-6",
-          "BA-7",
-          "BA-11"
+          "NA-6",
+          "NA-7",
+          "NA-11"
         ],
         "applyTo": "team",
         "maxStacks": 2,
@@ -4663,10 +4663,10 @@
         "IS-2",
         "RL-1",
         "RL-2",
-        "BA-8",
-        "BA-9",
-        "BA-11",
-        "BA-7",
+        "NA-8",
+        "NA-9",
+        "NA-11",
+        "NA-7",
         "FC-2",
         "OS-1"
       ]
@@ -4727,12 +4727,12 @@
       {
         "rank": 2,
         "useIfAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-6",
-          "BA-5",
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-6",
+          "NA-5",
           "IS-1"
         ],
         "statMap": {
@@ -4742,10 +4742,10 @@
       {
         "rank": 2,
         "useIfAction": [
-          "BA-7",
-          "BA-8",
-          "BA-9",
-          "BA-10"
+          "NA-7",
+          "NA-8",
+          "NA-9",
+          "NA-10"
         ],
         "statMap": {
           "PERCENT_MV": 2
@@ -4795,11 +4795,11 @@
       },
       "rotation": [
         "IS-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "RS-1",
-        "BA-10",
+        "NA-10",
         "RL-1",
         "FC-13",
         "FC-12",
@@ -4853,15 +4853,15 @@
       },
       "rotation": [
         "IS-2",
-        "BA-3",
+        "NA-3",
         "RL-3",
         "RS-1",
         "RL-3",
-        "BA-1",
-        "BA-2",
-        "BA-3",
+        "NA-1",
+        "NA-2",
+        "NA-3",
         "RL-3",
-        "BA-5",
+        "NA-5",
         "FC-1",
         "OS-1"
       ]
@@ -4908,11 +4908,11 @@
       },
       "rotation": [
         "IS-1",
-        "BA-9",
-        "BA-10",
+        "NA-9",
+        "NA-10",
         "RS-1",
-        "BA-9",
-        "BA-10",
+        "NA-9",
+        "NA-10",
         "RL-1",
         "FC-1",
         "FC-2",
@@ -5037,11 +5037,11 @@
       },
       "rotation": [
         "IS-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
-        "BA-2",
-        "BA-3",
+        "NA-2",
+        "NA-3",
+        "NA-4",
+        "NA-2",
+        "NA-3",
         "RS-2",
         "RL-1",
         "FC-2",
@@ -5152,13 +5152,13 @@
       },
       "rotation": [
         "IS-1",
-        "BA-1",
-        "BA-2",
-        "BA-5",
+        "NA-1",
+        "NA-2",
+        "NA-5",
         "RS-1",
-        "BA-4",
-        "BA-7",
-        "BA-10",
+        "NA-4",
+        "NA-7",
+        "NA-10",
         "FC-1",
         "OS-1"
       ]
@@ -5190,9 +5190,9 @@
       },
       "rotation": [
         "IS-1",
-        "BA-2",
-        "BA-7",
-        "BA-3",
+        "NA-2",
+        "NA-7",
+        "NA-3",
         "RL-1",
         "RS-2",
         "FC-2",
@@ -5239,9 +5239,9 @@
       },
       "rotation": [
         "IS-1",
-        "BA-5",
-        "BA-6",
-        "BA-7",
+        "NA-5",
+        "NA-6",
+        "NA-7",
         "RS-1",
         "FC-4",
         "RL-1",
@@ -5301,7 +5301,7 @@
         "IS-1",
         "RL-1",
         "RS-1",
-        "BA-8",
+        "NA-8",
         "FC-3",
         "FC-4",
         "FC-5",
@@ -5346,16 +5346,16 @@
       },
       "rotation": [
         "IS-1",
-        "BA-3",
-        "BA-4",
+        "NA-3",
+        "NA-4",
         "RL-1",
         "RS-4",
         "RS-5",
         "RS-6",
         "FC-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "FC-2",
         "RS-8",
         "RL-2",
@@ -5403,18 +5403,18 @@
       },
       "rotation": [
         "IS-1",
-        "BA-9",
-        "BA-10",
+        "NA-9",
+        "NA-10",
         "RS-2",
         "RS-5",
-        "BA-6",
-        "BA-9",
-        "BA-10",
+        "NA-6",
+        "NA-9",
+        "NA-10",
         "RS-3",
         "RS-5",
-        "BA-6",
-        "BA-9",
-        "BA-10",
+        "NA-6",
+        "NA-9",
+        "NA-10",
         "RS-4",
         "FC-1",
         "RL-1",
@@ -5461,16 +5461,16 @@
       },
       "rotation": [
         "IS-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
-        "BA-5",
+        "NA-2",
+        "NA-3",
+        "NA-4",
+        "NA-5",
         "FC-3",
         "RL-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
-        "BA-5",
+        "NA-2",
+        "NA-3",
+        "NA-4",
+        "NA-5",
         "FC-2",
         "FC-5",
         "OS-1"
@@ -5512,20 +5512,20 @@
       },
       "rotation": [
         "IS-1",
-        "BA-3",
-        "BA-4",
+        "NA-3",
+        "NA-4",
         "RL-1",
         "RS-2",
         "RS-3",
-        "BA-7",
-        "BA-8",
-        "BA-9",
-        "BA-10",
-        "BA-11",
+        "NA-7",
+        "NA-8",
+        "NA-9",
+        "NA-10",
+        "NA-11",
         "FC-1",
         "FC-1",
         "FC-1",
-        "BA-13",
+        "NA-13",
         "RL-2",
         "RL-3",
         "RL-3",

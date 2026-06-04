@@ -1,7 +1,7 @@
 [
   {
     "id": "1102",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -495,7 +495,7 @@
   },
   {
     "id": "1103",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -1116,7 +1116,7 @@
   },
   {
     "id": "1104",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -1821,7 +1821,7 @@
   },
   {
     "id": "1202",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -2307,7 +2307,7 @@
   },
   {
     "id": "1203",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -3003,7 +3003,7 @@
   },
   {
     "id": "1204",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -3494,7 +3494,7 @@
   },
   {
     "id": "1301",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -4449,7 +4449,7 @@
   },
   {
     "id": "1302",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -4923,7 +4923,7 @@
   },
   {
     "id": "1303",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -5833,7 +5833,7 @@
   },
   {
     "id": "1402",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -6369,7 +6369,7 @@
   },
   {
     "id": "1403",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -6808,7 +6808,7 @@
   },
   {
     "id": "1404",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -7458,7 +7458,7 @@
   },
   {
     "id": "1405",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -8385,7 +8385,7 @@
   },
   {
     "id": "1503",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -9242,7 +9242,7 @@
   },
   {
     "id": "1601",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -9946,7 +9946,7 @@
   },
   {
     "id": "1602",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -10572,7 +10572,7 @@
   },
   {
     "id": "1205",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -11342,7 +11342,7 @@
   },
   {
     "id": "1304",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -12501,7 +12501,7 @@
   },
   {
     "id": "1105",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -12924,7 +12924,7 @@
   },
   {
     "id": "1305",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -13677,7 +13677,7 @@
   },
   {
     "id": "1106",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -14531,7 +14531,7 @@
   },
   {
     "id": "1505",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -15199,7 +15199,7 @@
   },
   {
     "id": "1504",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Yellow Light: Basic Attack",
         "cast": "BA",
@@ -16015,7 +16015,7 @@
   },
   {
     "id": "1603",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -16675,7 +16675,7 @@
   },
   {
     "id": "1107",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -17619,7 +17619,7 @@
   },
   {
     "id": "1606",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -18086,7 +18086,7 @@
   },
   {
     "id": "1206",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -19443,7 +19443,7 @@
   },
   {
     "id": "1506",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -20036,7 +20036,7 @@
   },
   {
     "id": "1607",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -20882,7 +20882,7 @@
   },
   {
     "id": "1407",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -21467,7 +21467,7 @@
   },
   {
     "id": "1507",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -22364,7 +22364,7 @@
   },
   {
     "id": "1207",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -23669,7 +23669,7 @@
   },
   {
     "id": "1409",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -25365,7 +25365,7 @@
   },
   {
     "id": "1608",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -26174,7 +26174,7 @@
   },
   {
     "id": "1306",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -27068,7 +27068,7 @@
   },
   {
     "id": "1410",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Moonring: Basic Attack 1",
         "cast": "BA",
@@ -28215,7 +28215,7 @@
   },
   {
     "id": "1208",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -29576,7 +29576,7 @@
   },
   {
     "id": "1411",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -30665,7 +30665,7 @@
   },
   {
     "id": "1307",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -31296,7 +31296,7 @@
   },
   {
     "id": "1508",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -32641,7 +32641,7 @@
   },
   {
     "id": "1209",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -33630,7 +33630,7 @@
   },
   {
     "id": "1509",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -34825,7 +34825,7 @@
   },
   {
     "id": "1210",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -36328,7 +36328,7 @@
   },
   {
     "id": "1510",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -37316,7 +37316,7 @@
   },
   {
     "id": "1412",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -38470,7 +38470,7 @@
   },
   {
     "id": "1108",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Present Self: Basic Attack 1",
         "cast": "BA",
@@ -39782,7 +39782,7 @@
   },
   {
     "id": "1211",
-    "BA": {
+    "NA": {
       "1": {
         "name": "Stagecraft Form: Basic Attack 1",
         "cast": "BA",
