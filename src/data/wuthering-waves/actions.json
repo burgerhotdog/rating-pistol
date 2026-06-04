@@ -8838,7 +8838,6 @@
       "2": {
         "name": "Arboreal Flourish Healing",
         "type": "heal",
-        "considered": null,
         "multipliers": [
           {
             "flat": [
@@ -8927,7 +8926,6 @@
       "4": {
         "name": "Photosynthesis Mark Healing",
         "type": "heal",
-        "considered": null,
         "multipliers": [
           {
             "flat": [
@@ -9015,7 +9013,8 @@
     },
     "FC": {
       "1": {
-        "name": "Starflower Blooms: Heavy Attack",
+        "name": "Heavy Attack",
+        "prefix": "Starflower Blooms",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -9070,7 +9069,8 @@
         ]
       },
       "2": {
-        "name": "Starflower Blooms: Mid-air Attack 1",
+        "name": "Mid-air Attack 1",
+        "prefix": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9104,7 +9104,8 @@
         ]
       },
       "3": {
-        "name": "Starflower Blooms: Mid-air Attack 2",
+        "name": "Mid-air Attack 2",
+        "prefix": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9138,7 +9139,8 @@
         ]
       },
       "4": {
-        "name": "Starflower Blooms: Mid-air Attack 3",
+        "name": "Mid-air Attack 3",
+        "prefix": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9173,7 +9175,8 @@
         ]
       },
       "5": {
-        "name": "Starflower Blooms Healing",
+        "name": "Healing",
+        "prefix": "Starflower Blooms",
         "type": "heal",
         "cast": "AUTO",
         "considered": "AUTO",
