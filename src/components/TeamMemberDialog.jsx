@@ -749,6 +749,24 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
         <DragIndicatorIcon sx={{ fontSize: 18 }} />
       </Box>
 
+      {/* Cast type chips */}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
+        {cast.map(castType => (
+          <Chip
+            key={castType}
+            size="small"
+            label={skillTypeLabels[castType]?.short ?? castType}
+            variant="outlined"
+            sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
+          />
+        ))}
+      </Box>
+
+      {/* Action name */}
+      <Typography variant="body2" noWrap sx={{ flex: 1, minWidth: 0 }}>
+        {name}
+      </Typography>
+
       {/* Tags chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
         {tags.map(tag => (
@@ -762,24 +780,6 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
               flexShrink: 0,
               '& .MuiChip-label': { px: '5px' },
             }}
-          />
-        ))}
-      </Box>
-
-      {/* Action name */}
-      <Typography variant="body2" noWrap sx={{ flex: 1, minWidth: 0 }}>
-        {name}
-      </Typography>
-
-      {/* Cast type chips */}
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
-        {cast.map(castType => (
-          <Chip
-            key={castType}
-            size="small"
-            label={skillTypeLabels[castType]?.short ?? castType}
-            variant="outlined"
-            sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
           />
         ))}
       </Box>
