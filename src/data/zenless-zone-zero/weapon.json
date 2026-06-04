@@ -1,5 +1,6 @@
-{
-  "12001": {
+[
+  {
+    "id": "12001",
     "name": "[Lunar] Pleniluna",
     "quality": 3,
     "type": "ATTACK",
@@ -10,7 +11,8 @@
       }
     }
   },
-  "12002": {
+  {
+    "id": "12002",
     "name": "[Lunar] Decrescent",
     "quality": 3,
     "type": "ATTACK",
@@ -21,7 +23,8 @@
       }
     }
   },
-  "12003": {
+  {
+    "id": "12003",
     "name": "[Lunar] Noviluna",
     "quality": 3,
     "type": "ATTACK",
@@ -32,7 +35,8 @@
       }
     }
   },
-  "12004": {
+  {
+    "id": "12004",
     "name": "[Reverb] Mark I",
     "quality": 3,
     "type": "SUPPORT",
@@ -43,7 +47,8 @@
       }
     }
   },
-  "12005": {
+  {
+    "id": "12005",
     "name": "[Reverb] Mark II",
     "quality": 3,
     "type": "SUPPORT",
@@ -54,7 +59,8 @@
       }
     }
   },
-  "12006": {
+  {
+    "id": "12006",
     "name": "[Reverb] Mark III",
     "quality": 3,
     "type": "SUPPORT",
@@ -65,7 +71,8 @@
       }
     }
   },
-  "12007": {
+  {
+    "id": "12007",
     "name": "[Vortex] Revolver",
     "quality": 3,
     "type": "STUN",
@@ -76,7 +83,8 @@
       }
     }
   },
-  "12008": {
+  {
+    "id": "12008",
     "name": "[Vortex] Arrow",
     "quality": 3,
     "type": "STUN",
@@ -87,7 +95,8 @@
       }
     }
   },
-  "12009": {
+  {
+    "id": "12009",
     "name": "[Vortex] Hatchet",
     "quality": 3,
     "type": "STUN",
@@ -98,7 +107,8 @@
       }
     }
   },
-  "12010": {
+  {
+    "id": "12010",
     "name": "[Magnetic Storm] Alpha",
     "quality": 3,
     "type": "ANOMALY",
@@ -109,7 +119,8 @@
       }
     }
   },
-  "12011": {
+  {
+    "id": "12011",
     "name": "[Magnetic Storm] Bravo",
     "quality": 3,
     "type": "ANOMALY",
@@ -120,7 +131,8 @@
       }
     }
   },
-  "12012": {
+  {
+    "id": "12012",
     "name": "[Magnetic Storm] Charlie",
     "quality": 3,
     "type": "ANOMALY",
@@ -131,7 +143,8 @@
       }
     }
   },
-  "12013": {
+  {
+    "id": "12013",
     "name": "[Identity] Base",
     "quality": 3,
     "type": "DEFENSE",
@@ -142,7 +155,8 @@
       }
     }
   },
-  "12014": {
+  {
+    "id": "12014",
     "name": "[Identity] Inflection",
     "quality": 3,
     "type": "DEFENSE",
@@ -153,7 +167,8 @@
       }
     }
   },
-  "13001": {
+  {
+    "id": "13001",
     "name": "Street Superstar",
     "quality": 4,
     "type": "ATTACK",
@@ -164,7 +179,8 @@
       }
     }
   },
-  "13002": {
+  {
+    "id": "13002",
     "name": "Slice of Time",
     "quality": 4,
     "type": "SUPPORT",
@@ -175,7 +191,8 @@
       }
     }
   },
-  "13003": {
+  {
+    "id": "13003",
     "name": "Rainforest Gourmet",
     "quality": 4,
     "type": "ANOMALY",
@@ -186,7 +203,8 @@
       }
     }
   },
-  "13004": {
+  {
+    "id": "13004",
     "name": "Starlight Engine",
     "quality": 4,
     "type": "ATTACK",
@@ -197,7 +215,8 @@
       }
     }
   },
-  "13005": {
+  {
+    "id": "13005",
     "name": "Steam Oven",
     "quality": 4,
     "type": "STUN",
@@ -208,7 +227,8 @@
       }
     }
   },
-  "13006": {
+  {
+    "id": "13006",
     "name": "Precious Fossilized Core",
     "quality": 4,
     "type": "STUN",
@@ -219,7 +239,8 @@
       }
     }
   },
-  "13007": {
+  {
+    "id": "13007",
     "name": "Original Transmorpher",
     "quality": 4,
     "type": "DEFENSE",
@@ -230,7 +251,8 @@
       }
     }
   },
-  "13008": {
+  {
+    "id": "13008",
     "name": "Weeping Gemini",
     "quality": 4,
     "type": "ANOMALY",
@@ -241,7 +263,8 @@
       }
     }
   },
-  "13009": {
+  {
+    "id": "13009",
     "name": "Electro-Lip Gloss",
     "quality": 4,
     "type": "ANOMALY",
@@ -252,7 +275,8 @@
       }
     }
   },
-  "13010": {
+  {
+    "id": "13010",
     "name": "Bunny Band",
     "quality": 4,
     "type": "DEFENSE",
@@ -263,7 +287,8 @@
       }
     }
   },
-  "13011": {
+  {
+    "id": "13011",
     "name": "Spring Embrace",
     "quality": 4,
     "type": "DEFENSE",
@@ -274,7 +299,8 @@
       }
     }
   },
-  "13101": {
+  {
+    "id": "13101",
     "name": "Demara Battery Mark II",
     "quality": 4,
     "type": "STUN",
@@ -285,7 +311,8 @@
       }
     }
   },
-  "13103": {
+  {
+    "id": "13103",
     "name": "The Vault",
     "quality": 4,
     "type": "SUPPORT",
@@ -296,7 +323,8 @@
       }
     }
   },
-  "13106": {
+  {
+    "id": "13106",
     "name": "Housekeeper",
     "quality": 4,
     "type": "ATTACK",
@@ -307,7 +335,8 @@
       }
     }
   },
-  "13108": {
+  {
+    "id": "13108",
     "name": "Starlight Engine Replica",
     "quality": 4,
     "type": "ATTACK",
@@ -318,7 +347,8 @@
       }
     }
   },
-  "13111": {
+  {
+    "id": "13111",
     "name": "Drill Rig - Red Axis",
     "quality": 4,
     "type": "ATTACK",
@@ -329,7 +359,8 @@
       }
     }
   },
-  "13112": {
+  {
+    "id": "13112",
     "name": "Big Cylinder",
     "quality": 4,
     "type": "DEFENSE",
@@ -340,7 +371,8 @@
       }
     }
   },
-  "13113": {
+  {
+    "id": "13113",
     "name": "Bashful Demon",
     "quality": 4,
     "type": "SUPPORT",
@@ -351,7 +383,8 @@
       }
     }
   },
-  "13115": {
+  {
+    "id": "13115",
     "name": "Kaboom the Cannon",
     "quality": 4,
     "type": "SUPPORT",
@@ -362,7 +395,8 @@
       }
     }
   },
-  "13128": {
+  {
+    "id": "13128",
     "name": "Roaring Ride",
     "quality": 4,
     "type": "ANOMALY",
@@ -373,7 +407,8 @@
       }
     }
   },
-  "14001": {
+  {
+    "id": "14001",
     "name": "Cannon Rotor",
     "quality": 4,
     "type": "ATTACK",
@@ -384,7 +419,8 @@
       }
     }
   },
-  "14002": {
+  {
+    "id": "14002",
     "name": "Unfettered Game Ball",
     "quality": 4,
     "type": "SUPPORT",
@@ -395,7 +431,8 @@
       }
     }
   },
-  "14003": {
+  {
+    "id": "14003",
     "name": "Six Shooter",
     "quality": 4,
     "type": "STUN",
@@ -406,7 +443,8 @@
       }
     }
   },
-  "14102": {
+  {
+    "id": "14102",
     "name": "Steel Cushion",
     "quality": 5,
     "type": "ATTACK",
@@ -417,7 +455,8 @@
       }
     }
   },
-  "14104": {
+  {
+    "id": "14104",
     "name": "The Brimstone",
     "quality": 5,
     "type": "ATTACK",
@@ -428,7 +467,8 @@
       }
     }
   },
-  "14110": {
+  {
+    "id": "14110",
     "name": "Hellfire Gears",
     "quality": 5,
     "type": "STUN",
@@ -439,7 +479,8 @@
       }
     }
   },
-  "14114": {
+  {
+    "id": "14114",
     "name": "The Restrained",
     "quality": 5,
     "type": "STUN",
@@ -450,7 +491,8 @@
       }
     }
   },
-  "14118": {
+  {
+    "id": "14118",
     "name": "Fusion Compiler",
     "quality": 5,
     "type": "ANOMALY",
@@ -461,7 +503,8 @@
       }
     }
   },
-  "14119": {
+  {
+    "id": "14119",
     "name": "Deep Sea Visitor",
     "quality": 5,
     "type": "ATTACK",
@@ -472,7 +515,8 @@
       }
     }
   },
-  "14121": {
+  {
+    "id": "14121",
     "name": "Weeping Cradle",
     "quality": 5,
     "type": "SUPPORT",
@@ -483,7 +527,8 @@
       }
     }
   },
-  "14124": {
+  {
+    "id": "14124",
     "name": "Riot Suppressor Mark VI",
     "quality": 5,
     "type": "ATTACK",
@@ -494,7 +539,8 @@
       }
     }
   },
-  "13013": {
+  {
+    "id": "13013",
     "name": "Gilded Blossom",
     "quality": 4,
     "type": "ATTACK",
@@ -505,7 +551,8 @@
       }
     }
   },
-  "13127": {
+  {
+    "id": "13127",
     "name": "Peacekeeper - Specialized",
     "quality": 4,
     "type": "DEFENSE",
@@ -516,7 +563,8 @@
       }
     }
   },
-  "14125": {
+  {
+    "id": "14125",
     "name": "Ice-Jade Teapot",
     "quality": 5,
     "type": "STUN",
@@ -527,7 +575,8 @@
       }
     }
   },
-  "14126": {
+  {
+    "id": "14126",
     "name": "Sharpened Stinger",
     "quality": 5,
     "type": "ANOMALY",
@@ -538,7 +587,8 @@
       }
     }
   },
-  "14107": {
+  {
+    "id": "14107",
     "name": "Tusks of Fury",
     "quality": 5,
     "type": "DEFENSE",
@@ -549,7 +599,8 @@
       }
     }
   },
-  "14117": {
+  {
+    "id": "14117",
     "name": "Flamemaker Shaker",
     "quality": 5,
     "type": "ANOMALY",
@@ -560,7 +611,8 @@
       }
     }
   },
-  "14116": {
+  {
+    "id": "14116",
     "name": "Blazing Laurel",
     "quality": 5,
     "type": "STUN",
@@ -571,7 +623,8 @@
       }
     }
   },
-  "14122": {
+  {
+    "id": "14122",
     "name": "Timeweaver",
     "quality": 5,
     "type": "ANOMALY",
@@ -582,7 +635,8 @@
       }
     }
   },
-  "13015": {
+  {
+    "id": "13015",
     "name": "Marcato Desire",
     "quality": 4,
     "type": "ATTACK",
@@ -593,7 +647,8 @@
       }
     }
   },
-  "14109": {
+  {
+    "id": "14109",
     "name": "Hailstorm Shrine",
     "quality": 5,
     "type": "ANOMALY",
@@ -604,7 +659,8 @@
       }
     }
   },
-  "14120": {
+  {
+    "id": "14120",
     "name": "Zanshin Herb Case",
     "quality": 5,
     "type": "ATTACK",
@@ -615,7 +671,8 @@
       }
     }
   },
-  "14131": {
+  {
+    "id": "14131",
     "name": "Elegant Vanity",
     "quality": 5,
     "type": "SUPPORT",
@@ -626,7 +683,8 @@
       }
     }
   },
-  "14132": {
+  {
+    "id": "14132",
     "name": "Heartstring Nocturne",
     "quality": 5,
     "type": "ATTACK",
@@ -637,7 +695,8 @@
       }
     }
   },
-  "13135": {
+  {
+    "id": "13135",
     "name": "Box Cutter",
     "quality": 4,
     "type": "STUN",
@@ -648,7 +707,8 @@
       }
     }
   },
-  "14136": {
+  {
+    "id": "14136",
     "name": "Spectral Gaze",
     "quality": 5,
     "type": "STUN",
@@ -659,7 +719,8 @@
       }
     }
   },
-  "14138": {
+  {
+    "id": "14138",
     "name": "Severed Innocence",
     "quality": 5,
     "type": "ATTACK",
@@ -670,7 +731,8 @@
       }
     }
   },
-  "14129": {
+  {
+    "id": "14129",
     "name": "Myriad Eclipse",
     "quality": 5,
     "type": "ATTACK",
@@ -681,7 +743,8 @@
       }
     }
   },
-  "14133": {
+  {
+    "id": "14133",
     "name": "Flight of Fancy",
     "quality": 5,
     "type": "ANOMALY",
@@ -692,7 +755,8 @@
       }
     }
   },
-  "12015": {
+  {
+    "id": "12015",
     "name": "[Cinder] Cobalt",
     "quality": 3,
     "type": "RUPTURE",
@@ -703,7 +767,8 @@
       }
     }
   },
-  "13012": {
+  {
+    "id": "13012",
     "name": "Puzzle Sphere",
     "quality": 4,
     "type": "RUPTURE",
@@ -714,7 +779,8 @@
       }
     }
   },
-  "13014": {
+  {
+    "id": "13014",
     "name": "Radiowave Journey",
     "quality": 4,
     "type": "RUPTURE",
@@ -725,7 +791,8 @@
       }
     }
   },
-  "13016": {
+  {
+    "id": "13016",
     "name": "Reel Projector",
     "quality": 4,
     "type": "DEFENSE",
@@ -736,7 +803,8 @@
       }
     }
   },
-  "13142": {
+  {
+    "id": "13142",
     "name": "Tremor Trigram Vessel",
     "quality": 4,
     "type": "DEFENSE",
@@ -747,7 +815,8 @@
       }
     }
   },
-  "14137": {
+  {
+    "id": "14137",
     "name": "Qingming Birdcage",
     "quality": 5,
     "type": "RUPTURE",
@@ -758,7 +827,8 @@
       }
     }
   },
-  "14139": {
+  {
+    "id": "14139",
     "name": "Roaring Fur-nace",
     "quality": 5,
     "type": "STUN",
@@ -769,7 +839,8 @@
       }
     }
   },
-  "14140": {
+  {
+    "id": "14140",
     "name": "Practiced Perfection",
     "quality": 5,
     "type": "ANOMALY",
@@ -780,7 +851,8 @@
       }
     }
   },
-  "14141": {
+  {
+    "id": "14141",
     "name": "Metanukimorphosis",
     "quality": 5,
     "type": "SUPPORT",
@@ -791,7 +863,8 @@
       }
     }
   },
-  "14130": {
+  {
+    "id": "14130",
     "name": "Bellicose Blaze",
     "quality": 5,
     "type": "ATTACK",
@@ -802,7 +875,8 @@
       }
     }
   },
-  "14146": {
+  {
+    "id": "14146",
     "name": "Cordis Germina",
     "quality": 5,
     "type": "ATTACK",
@@ -813,7 +887,8 @@
       }
     }
   },
-  "13144": {
+  {
+    "id": "13144",
     "name": "Grill O'Wisp",
     "quality": 4,
     "type": "RUPTURE",
@@ -824,7 +899,8 @@
       }
     }
   },
-  "14105": {
+  {
+    "id": "14105",
     "name": "Kraken's Cradle",
     "quality": 5,
     "type": "RUPTURE",
@@ -835,7 +911,8 @@
       }
     }
   },
-  "14145": {
+  {
+    "id": "14145",
     "name": "Dreamlit Hearth",
     "quality": 5,
     "type": "SUPPORT",
@@ -846,7 +923,8 @@
       }
     }
   },
-  "14147": {
+  {
+    "id": "14147",
     "name": "Wrathful Vajra",
     "quality": 5,
     "type": "RUPTURE",
@@ -857,7 +935,8 @@
       }
     }
   },
-  "14148": {
+  {
+    "id": "14148",
     "name": "Yesterday Calls",
     "quality": 5,
     "type": "STUN",
@@ -868,7 +947,8 @@
       }
     }
   },
-  "13019": {
+  {
+    "id": "13019",
     "name": "Cauldron of Clarity",
     "quality": 4,
     "type": "RUPTURE",
@@ -879,7 +959,8 @@
       }
     }
   },
-  "14134": {
+  {
+    "id": "14134",
     "name": "Half-Sugar Bunny",
     "quality": 5,
     "type": "DEFENSE",
@@ -890,7 +971,8 @@
       }
     }
   },
-  "14143": {
+  {
+    "id": "14143",
     "name": "Cloudcleave Radiance",
     "quality": 5,
     "type": "ATTACK",
@@ -901,7 +983,8 @@
       }
     }
   },
-  "14149": {
+  {
+    "id": "14149",
     "name": "Thoughtbop",
     "quality": 5,
     "type": "SUPPORT",
@@ -912,7 +995,8 @@
       }
     }
   },
-  "14150": {
+  {
+    "id": "14150",
     "name": "Angel in the Shell",
     "quality": 5,
     "type": "ANOMALY",
@@ -923,7 +1007,8 @@
       }
     }
   },
-  "13020": {
+  {
+    "id": "13020",
     "name": "The Simmering Pot",
     "quality": 4,
     "type": "STUN",
@@ -934,7 +1019,8 @@
       }
     }
   },
-  "14151": {
+  {
+    "id": "14151",
     "name": "Neon Fantasies",
     "quality": 5,
     "type": "STUN",
@@ -945,7 +1031,8 @@
       }
     }
   },
-  "14152": {
+  {
+    "id": "14152",
     "name": "Serpentine Seeker",
     "quality": 5,
     "type": "ATTACK",
@@ -956,4 +1043,4 @@
       }
     }
   }
-}
+]

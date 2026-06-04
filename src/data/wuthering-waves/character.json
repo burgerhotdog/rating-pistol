@@ -2241,14 +2241,14 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RL-1",
-        "duration": 10000,
-        "maxUses": 1,
         "useIfAction": "FC-1",
         "statMap": {
           "PERCENT_ATK": 0.25
-        }
+        },
+        "duration": 10000,
+        "maxUses": 1
       },
       {
         "useIfAction": [
@@ -2273,11 +2273,11 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "applyTo": "next",
-        "duration": 10000,
         "statMap": {
-          "AMP_RL": 0.25,
-          "AMP_FUSION": 0.2
-        }
+          "AMP_FUSION": 0.2,
+          "AMP_RL": 0.25
+        },
+        "duration": 10000
       },
       {
         "rank": 1,
@@ -2293,33 +2293,33 @@
       },
       {
         "rank": 2,
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": [
           "RS-2",
           "RS-3",
           "RL-1"
         ],
-        "duration": 8000,
         "statMap": {
           "PERCENT_CR": 0.25
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 3,
         "useIfAction": "RL-1",
         "statMap": {
-          "PERCENT_RL": 0.8
+          "PERCENT_ALL": 0.8
         }
       },
       {
         "rank": 4,
         "applyWhen": "cast",
-        "applyOnAction": "IS-1",
+        "applyOnCast": "IS",
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
@@ -2366,7 +2366,8 @@
         "RS-2",
         "FC-1",
         "RL-1",
-        "FC-1"
+        "FC-1",
+        "OS-1"
       ]
     }
   },
@@ -2385,11 +2386,18 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "FC-8",
-        "maxUses": 1,
-        "followUpAction": {
+        "combo": {
           "action": "FC-9"
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnAction": "FC-9",
+        "combo": {
+          "action": "FC-10",
+          "times": 50
         }
       },
       {
@@ -2413,37 +2421,39 @@
           "FC-4",
           "FC-7"
         ],
-        "maxStacks": 4,
-        "duration": 6000,
-        "maxUses": 2,
-        "useIfAction": "IS-1",
+        "useIfAction": [
+          "FC-8",
+          "FC-9",
+          "FC-10"
+        ],
         "statMap": {
-          "PERCENT_RS": 0.2
-        }
+          "PERCENT_ALL": 0.2
+        },
+        "duration": 6000,
+        "maxStacks": 4
       },
       {
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "IS-1",
-        "maxStacks": 2,
-        "duration": 20000,
         "statMap": {
           "PERCENT_ATK": 0.25
-        }
+        },
+        "duration": 20000,
+        "maxStacks": 2
       },
       {
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": [
           "RL-1",
-          "FC-8",
-          "FC-9"
+          "FC-8"
         ],
         "applyTo": "team",
-        "duration": 20000,
         "statMap": {
           "PERCENT_ALL": 0.2
-        }
+        },
+        "duration": 20000
       },
       {
         "rank": 5,
@@ -2477,14 +2487,13 @@
       "rotation": [
         "IS-1",
         "RS-2",
+        "RL-1",
         "FC-7",
         "FC-1",
         "FC-2",
         "FC-3",
         "FC-4",
         "FC-8",
-        "FC-10",
-        "RL-1",
         "OS-1"
       ]
     }
@@ -2506,12 +2515,13 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-2",
-        "applyTo": "team",
-        "duration": 30000,
-        "maxUses": 21,
+        "applyTo": "active",
         "followUpAction": {
           "action": "RL-1"
         },
+        "followUpActionCooldown": 1000,
+        "duration": 30000,
+        "maxUses": 21,
         "rankModifiers": {
           "2": {
             "maxUses": 6
@@ -2521,10 +2531,10 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-3",
-        "duration": 27000,
         "statMap": {
           "PERCENT_BA": 0.18
-        }
+        },
+        "duration": 27000
       },
       {
         "applyWhen": "cast",
@@ -2532,30 +2542,30 @@
           "FC-2",
           "FC-3"
         ],
-        "maxStacks": 3,
-        "duration": 27000,
         "statMap": {
           "PERCENT_ATK": 0.06
-        }
+        },
+        "duration": 27000,
+        "maxStacks": 3
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "applyTo": "next",
-        "duration": 14000,
         "statMap": {
-          "AMP_RS": 0.25,
-          "AMP_GLACIO": 0.2
-        }
+          "AMP_GLACIO": 0.2,
+          "AMP_RS": 0.25
+        },
+        "duration": 14000
       },
       {
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": "FC-3",
-        "duration": 27000,
         "statMap": {
           "PERCENT_CR": 0.1
-        }
+        },
+        "duration": 27000
       },
       {
         "rank": 3,
@@ -2565,21 +2575,21 @@
           "FC-2",
           "FC-3"
         ],
-        "maxStacks": 3,
-        "duration": 27000,
         "statMap": {
           "PERCENT_ATK": 0.15
-        }
+        },
+        "duration": 27000,
+        "maxStacks": 3
       },
       {
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "RL-2",
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
@@ -2618,8 +2628,8 @@
         "FC-1",
         "FC-2",
         "FC-2",
-        "FC-3",
         "RL-2",
+        "FC-3",
         "OS-1"
       ]
     }
@@ -2640,17 +2650,12 @@
     "effects": [
       {
         "applyWhen": "cast",
-        "applyOnAction": [
-          "RS-1",
-          "RL-5",
-          "FC-1",
-          "FC-2"
-        ],
-        "duration": 8000,
-        "maxStacks": 4,
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_ELECTRO": 0.05
-        }
+        },
+        "duration": 8000,
+        "maxStacks": 4
       },
       {
         "applyWhen": "cast",
@@ -2679,24 +2684,17 @@
       {
         "rank": 2,
         "applyWhen": "cast",
-        "applyOnAction": [
-          "RS-1",
-          "RL-1",
-          "RL-5",
-          "FC-1",
-          "FC-2"
-        ],
-        "duration": 8000,
+        "applyOnCast": "RS",
+        "applyOnAction": "RL-1",
         "statMap": {
           "PERCENT_CD": 0.3
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "duration": 24000,
-        "maxUses": 5,
         "useIfAction": [
           "RS-1",
           "RL-5",
@@ -2705,21 +2703,30 @@
         ],
         "statMap": {
           "PERCENT_ALL": 0.63
-        }
+        },
+        "duration": 24000,
+        "maxUses": 5
       },
       {
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
           "PERCENT_RL": 0.25
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
         "useIfAction": "OS-1",
+        "statMap": {
+          "PERCENT_MV": 2.22
+        }
+      },
+      {
+        "rank": 5,
+        "useIfConsidered": "OS",
         "statMap": {
           "PERCENT_MV": 2.22
         }

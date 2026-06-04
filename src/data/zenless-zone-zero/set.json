@@ -1,5 +1,6 @@
-{
-  "31000": {
+[
+  {
+    "id": "31000",
     "name": "Woodpecker Electro",
     "setBonus": {
       "2": {
@@ -18,7 +19,8 @@
       }
     }
   },
-  "31100": {
+  {
+    "id": "31100",
     "name": "Puffer Electro",
     "setBonus": {
       "2": {
@@ -38,7 +40,8 @@
       }
     }
   },
-  "31200": {
+  {
+    "id": "31200",
     "name": "Shockstar Disco",
     "setBonus": {
       "2": {
@@ -57,7 +60,8 @@
       }
     }
   },
-  "31300": {
+  {
+    "id": "31300",
     "name": "Freedom Blues",
     "setBonus": {
       "2": {
@@ -80,7 +84,8 @@
       }
     }
   },
-  "31400": {
+  {
+    "id": "31400",
     "name": "Hormone Punk",
     "setBonus": {
       "2": {
@@ -99,7 +104,8 @@
       }
     }
   },
-  "31500": {
+  {
+    "id": "31500",
     "name": "Soul Rock",
     "setBonus": {
       "2": {
@@ -111,7 +117,8 @@
       }
     }
   },
-  "31600": {
+  {
+    "id": "31600",
     "name": "Swing Jazz",
     "setBonus": {
       "2": {
@@ -130,7 +137,8 @@
       }
     }
   },
-  "32200": {
+  {
+    "id": "32200",
     "name": "Inferno Metal",
     "setBonus": {
       "2": {
@@ -149,7 +157,8 @@
       }
     }
   },
-  "32300": {
+  {
+    "id": "32300",
     "name": "Chaotic Metal",
     "setBonus": {
       "2": {
@@ -168,7 +177,8 @@
       }
     }
   },
-  "32400": {
+  {
+    "id": "32400",
     "name": "Thunder Metal",
     "setBonus": {
       "2": {
@@ -187,7 +197,8 @@
       }
     }
   },
-  "32500": {
+  {
+    "id": "32500",
     "name": "Polar Metal",
     "setBonus": {
       "2": {
@@ -207,7 +218,8 @@
       }
     }
   },
-  "32600": {
+  {
+    "id": "32600",
     "name": "Fanged Metal",
     "setBonus": {
       "2": {
@@ -226,7 +238,8 @@
       }
     }
   },
-  "31800": {
+  {
+    "id": "31800",
     "name": "Chaos Jazz",
     "setBonus": {
       "2": {
@@ -248,7 +261,8 @@
       }
     }
   },
-  "31900": {
+  {
+    "id": "31900",
     "name": "Proto Punk",
     "setBonus": {
       "4": {
@@ -260,7 +274,8 @@
       }
     }
   },
-  "32700": {
+  {
+    "id": "32700",
     "name": "Branch & Blade Song",
     "setBonus": {
       "2": {
@@ -280,7 +295,8 @@
       }
     }
   },
-  "32800": {
+  {
+    "id": "32800",
     "name": "Astral Voice",
     "setBonus": {
       "2": {
@@ -299,7 +315,8 @@
       }
     }
   },
-  "32900": {
+  {
+    "id": "32900",
     "name": "Shadow Harmony",
     "setBonus": {
       "2": {
@@ -320,7 +337,8 @@
       }
     }
   },
-  "33000": {
+  {
+    "id": "33000",
     "name": "Phaethon's Melody",
     "setBonus": {
       "2": {
@@ -340,7 +358,8 @@
       }
     }
   },
-  "33100": {
+  {
+    "id": "33100",
     "name": "Yunkui Tales",
     "setBonus": {
       "2": {
@@ -360,7 +379,8 @@
       }
     }
   },
-  "33200": {
+  {
+    "id": "33200",
     "name": "King of the Summit",
     "setBonus": {
       "2": {
@@ -379,7 +399,8 @@
       }
     }
   },
-  "33300": {
+  {
+    "id": "33300",
     "name": "Dawn's Bloom",
     "setBonus": {
       "2": {
@@ -398,7 +419,8 @@
       }
     }
   },
-  "33400": {
+  {
+    "id": "33400",
     "name": "Moonlight Lullaby",
     "setBonus": {
       "2": {
@@ -417,7 +439,8 @@
       }
     }
   },
-  "33500": {
+  {
+    "id": "33500",
     "name": "White Water Ballad",
     "setBonus": {
       "2": {
@@ -437,7 +460,8 @@
       }
     }
   },
-  "33600": {
+  {
+    "id": "33600",
     "name": "Shining Aria",
     "setBonus": {
       "2": {
@@ -457,7 +481,8 @@
       }
     }
   },
-  "33700": {
+  {
+    "id": "33700",
     "name": "Bunny in Wonderland",
     "setBonus": {
       "2": {
@@ -476,7 +501,8 @@
       }
     }
   },
-  "33800": {
+  {
+    "id": "33800",
     "name": "Notes From the Chained",
     "setBonus": {
       "2": {
@@ -501,4 +527,4 @@
       }
     }
   }
-}
+]

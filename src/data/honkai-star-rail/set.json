@@ -1,5 +1,6 @@
-{
-  "101": {
+[
+  {
+    "id": "101",
     "name": "Passerby of Wandering Cloud",
     "setBonus": {
       "2": {
@@ -11,7 +12,8 @@
       }
     }
   },
-  "102": {
+  {
+    "id": "102",
     "name": "Musketeer of Wild Wheat",
     "setBonus": {
       "2": {
@@ -31,7 +33,8 @@
       }
     }
   },
-  "103": {
+  {
+    "id": "103",
     "name": "Knight of Purity Palace",
     "setBonus": {
       "2": {
@@ -43,7 +46,8 @@
       }
     }
   },
-  "104": {
+  {
+    "id": "104",
     "name": "Hunter of Glacial Forest",
     "setBonus": {
       "2": {
@@ -62,7 +66,8 @@
       }
     }
   },
-  "105": {
+  {
+    "id": "105",
     "name": "Champion of Streetwise Boxing",
     "setBonus": {
       "2": {
@@ -81,10 +86,12 @@
       }
     }
   },
-  "106": {
+  {
+    "id": "106",
     "name": "Guard of Wuthering Snow"
   },
-  "107": {
+  {
+    "id": "107",
     "name": "Firesmith of Lava-Forging",
     "setBonus": {
       "2": {
@@ -108,7 +115,8 @@
       }
     }
   },
-  "108": {
+  {
+    "id": "108",
     "name": "Genius of Brilliant Stars",
     "setBonus": {
       "2": {
@@ -127,7 +135,8 @@
       }
     }
   },
-  "109": {
+  {
+    "id": "109",
     "name": "Band of Sizzling Thunder",
     "setBonus": {
       "2": {
@@ -146,7 +155,8 @@
       }
     }
   },
-  "110": {
+  {
+    "id": "110",
     "name": "Eagle of Twilight Line",
     "setBonus": {
       "2": {
@@ -158,7 +168,8 @@
       }
     }
   },
-  "111": {
+  {
+    "id": "111",
     "name": "Thief of Shooting Meteor",
     "setBonus": {
       "2": {
@@ -177,7 +188,8 @@
       }
     }
   },
-  "112": {
+  {
+    "id": "112",
     "name": "Wastelander of Banditry Desert",
     "setBonus": {
       "2": {
@@ -197,7 +209,8 @@
       }
     }
   },
-  "301": {
+  {
+    "id": "301",
     "name": "Space Sealing Station",
     "setBonus": {
       "2": {
@@ -214,7 +227,8 @@
       }
     }
   },
-  "302": {
+  {
+    "id": "302",
     "name": "Fleet of the Ageless",
     "setBonus": {
       "2": {
@@ -231,7 +245,8 @@
       }
     }
   },
-  "303": {
+  {
+    "id": "303",
     "name": "Pan-Cosmic Commercial Enterprise",
     "setBonus": {
       "2": {
@@ -255,7 +270,8 @@
       }
     }
   },
-  "304": {
+  {
+    "id": "304",
     "name": "Belobog of the Architects",
     "setBonus": {
       "2": {
@@ -272,7 +288,8 @@
       }
     }
   },
-  "305": {
+  {
+    "id": "305",
     "name": "Celestial Differentiator",
     "setBonus": {
       "2": {
@@ -284,7 +301,8 @@
       }
     }
   },
-  "306": {
+  {
+    "id": "306",
     "name": "Inert Salsotto",
     "setBonus": {
       "2": {
@@ -302,7 +320,8 @@
       }
     }
   },
-  "307": {
+  {
+    "id": "307",
     "name": "Talia: Kingdom of Banditry",
     "setBonus": {
       "2": {
@@ -319,7 +338,8 @@
       }
     }
   },
-  "308": {
+  {
+    "id": "308",
     "name": "Sprightly Vonwacq",
     "setBonus": {
       "2": {
@@ -331,7 +351,8 @@
       }
     }
   },
-  "113": {
+  {
+    "id": "113",
     "name": "Longevous Disciple",
     "setBonus": {
       "2": {
@@ -350,7 +371,8 @@
       }
     }
   },
-  "114": {
+  {
+    "id": "114",
     "name": "Messenger Traversing Hackerspace",
     "setBonus": {
       "2": {
@@ -362,7 +384,8 @@
       }
     }
   },
-  "309": {
+  {
+    "id": "309",
     "name": "Rutilant Arena",
     "setBonus": {
       "2": {
@@ -380,7 +403,8 @@
       }
     }
   },
-  "310": {
+  {
+    "id": "310",
     "name": "Broken Keel",
     "setBonus": {
       "2": {
@@ -397,7 +421,8 @@
       }
     }
   },
-  "115": {
+  {
+    "id": "115",
     "name": "The Ashblazing Grand Duke",
     "setBonus": {
       "2": {
@@ -416,7 +441,8 @@
       }
     }
   },
-  "116": {
+  {
+    "id": "116",
     "name": "Prisoner in Deep Confinement",
     "setBonus": {
       "2": {
@@ -435,7 +461,8 @@
       }
     }
   },
-  "311": {
+  {
+    "id": "311",
     "name": "Firmament Frontline: Glamoth",
     "setBonus": {
       "2": {
@@ -452,7 +479,8 @@
       }
     }
   },
-  "312": {
+  {
+    "id": "312",
     "name": "Penacony, Land of the Dreams",
     "setBonus": {
       "2": {
@@ -464,7 +492,8 @@
       }
     }
   },
-  "117": {
+  {
+    "id": "117",
     "name": "Pioneer Diver of Dead Waters",
     "setBonus": {
       "2": {
@@ -489,7 +518,8 @@
       }
     }
   },
-  "118": {
+  {
+    "id": "118",
     "name": "Watchmaker, Master of Dream Machinations",
     "setBonus": {
       "2": {
@@ -508,7 +538,8 @@
       }
     }
   },
-  "313": {
+  {
+    "id": "313",
     "name": "Sigonia, the Unclaimed Desolation",
     "setBonus": {
       "2": {
@@ -525,7 +556,8 @@
       }
     }
   },
-  "314": {
+  {
+    "id": "314",
     "name": "Izumo Gensei and Takama Divine Realm",
     "setBonus": {
       "2": {
@@ -542,7 +574,8 @@
       }
     }
   },
-  "119": {
+  {
+    "id": "119",
     "name": "Iron Cavalry Against the Scourge",
     "setBonus": {
       "2": {
@@ -561,7 +594,8 @@
       }
     }
   },
-  "120": {
+  {
+    "id": "120",
     "name": "The Wind-Soaring Valorous",
     "setBonus": {
       "2": {
@@ -585,7 +619,8 @@
       }
     }
   },
-  "315": {
+  {
+    "id": "315",
     "name": "Duran, Dynasty of Running Wolves",
     "setBonus": {
       "2": {
@@ -598,7 +633,8 @@
       }
     }
   },
-  "316": {
+  {
+    "id": "316",
     "name": "Forge of the Kalpagni Lantern",
     "setBonus": {
       "2": {
@@ -615,7 +651,8 @@
       }
     }
   },
-  "317": {
+  {
+    "id": "317",
     "name": "Lushaka, the Sunken Seas",
     "setBonus": {
       "2": {
@@ -627,7 +664,8 @@
       }
     }
   },
-  "318": {
+  {
+    "id": "318",
     "name": "The Wondrous BananAmusement Park",
     "setBonus": {
       "2": {
@@ -644,7 +682,8 @@
       }
     }
   },
-  "121": {
+  {
+    "id": "121",
     "name": "Sacerdos' Relived Ordeal",
     "setBonus": {
       "2": {
@@ -656,7 +695,8 @@
       }
     }
   },
-  "122": {
+  {
+    "id": "122",
     "name": "Scholar Lost in Erudition",
     "setBonus": {
       "2": {
@@ -676,7 +716,8 @@
       }
     }
   },
-  "123": {
+  {
+    "id": "123",
     "name": "Hero of Triumphant Song",
     "setBonus": {
       "2": {
@@ -696,7 +737,8 @@
       }
     }
   },
-  "124": {
+  {
+    "id": "124",
     "name": "Poet of Mourning Collapse",
     "setBonus": {
       "2": {
@@ -716,7 +758,8 @@
       }
     }
   },
-  "319": {
+  {
+    "id": "319",
     "name": "Bone Collection's Serene Demesne",
     "setBonus": {
       "2": {
@@ -733,7 +776,8 @@
       }
     }
   },
-  "320": {
+  {
+    "id": "320",
     "name": "Giant Tree of Rapt Brooding",
     "setBonus": {
       "2": {
@@ -750,7 +794,8 @@
       }
     }
   },
-  "125": {
+  {
+    "id": "125",
     "name": "Warrior Goddess of Sun and Thunder",
     "setBonus": {
       "2": {
@@ -770,7 +815,8 @@
       }
     }
   },
-  "126": {
+  {
+    "id": "126",
     "name": "Wavestrider Captain",
     "setBonus": {
       "2": {
@@ -789,7 +835,8 @@
       }
     }
   },
-  "321": {
+  {
+    "id": "321",
     "name": "Arcadia of Woven Dreams",
     "setBonus": {
       "2": {
@@ -801,7 +848,8 @@
       }
     }
   },
-  "322": {
+  {
+    "id": "322",
     "name": "Revelry by the Sea",
     "setBonus": {
       "2": {
@@ -818,7 +866,8 @@
       }
     }
   },
-  "127": {
+  {
+    "id": "127",
     "name": "World-Remaking Deliverer",
     "setBonus": {
       "2": {
@@ -838,7 +887,8 @@
       }
     }
   },
-  "128": {
+  {
+    "id": "128",
     "name": "Self-Enshrouded Recluse",
     "setBonus": {
       "4": {
@@ -850,7 +900,8 @@
       }
     }
   },
-  "323": {
+  {
+    "id": "323",
     "name": "Amphoreus, The Eternal Land",
     "setBonus": {
       "2": {
@@ -867,7 +918,8 @@
       }
     }
   },
-  "324": {
+  {
+    "id": "324",
     "name": "Tengoku@Livestream",
     "setBonus": {
       "2": {
@@ -884,7 +936,8 @@
       }
     }
   },
-  "129": {
+  {
+    "id": "129",
     "name": "Ever-Glorious Magical Girl",
     "setBonus": {
       "2": {
@@ -903,7 +956,8 @@
       }
     }
   },
-  "130": {
+  {
+    "id": "130",
     "name": "Diviner of Distant Reach",
     "setBonus": {
       "2": {
@@ -923,7 +977,8 @@
       }
     }
   },
-  "325": {
+  {
+    "id": "325",
     "name": "Punklorde Stage Zero",
     "setBonus": {
       "2": {
@@ -940,7 +995,8 @@
       }
     }
   },
-  "326": {
+  {
+    "id": "326",
     "name": "City of Converging Stars",
     "setBonus": {
       "2": {
@@ -953,4 +1009,4 @@
       }
     }
   }
-}
+]

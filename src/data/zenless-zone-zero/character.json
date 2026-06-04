@@ -1,5 +1,6 @@
-{
-  "1011": {
+[
+  {
+    "id": "1011",
     "name": "Anby",
     "quality": 4,
     "element": "ELECTRIC",
@@ -15,7 +16,8 @@
       }
     }
   },
-  "1021": {
+  {
+    "id": "1021",
     "name": "Nekomata",
     "quality": 5,
     "element": "PHYSICAL",
@@ -32,7 +34,8 @@
       }
     }
   },
-  "1031": {
+  {
+    "id": "1031",
     "name": "Nicole",
     "quality": 4,
     "element": "ETHER",
@@ -49,7 +52,8 @@
       }
     }
   },
-  "1041": {
+  {
+    "id": "1041",
     "name": "Soldier 11",
     "quality": 5,
     "element": "FIRE",
@@ -66,7 +70,8 @@
       }
     }
   },
-  "1061": {
+  {
+    "id": "1061",
     "name": "Corin",
     "quality": 4,
     "element": "PHYSICAL",
@@ -83,7 +88,8 @@
       }
     }
   },
-  "1081": {
+  {
+    "id": "1081",
     "name": "Billy",
     "quality": 4,
     "element": "PHYSICAL",
@@ -100,7 +106,8 @@
       }
     }
   },
-  "1101": {
+  {
+    "id": "1101",
     "name": "Koleda",
     "quality": 5,
     "element": "FIRE",
@@ -116,7 +123,8 @@
       }
     }
   },
-  "1111": {
+  {
+    "id": "1111",
     "name": "Anton",
     "quality": 4,
     "element": "ELECTRIC",
@@ -133,7 +141,8 @@
       }
     }
   },
-  "1121": {
+  {
+    "id": "1121",
     "name": "Ben",
     "quality": 4,
     "element": "FIRE",
@@ -150,7 +159,8 @@
       }
     }
   },
-  "1131": {
+  {
+    "id": "1131",
     "name": "Soukaku",
     "quality": 4,
     "element": "ICE",
@@ -167,7 +177,8 @@
       }
     }
   },
-  "1141": {
+  {
+    "id": "1141",
     "name": "Lycaon",
     "quality": 5,
     "element": "ICE",
@@ -183,7 +194,8 @@
       }
     }
   },
-  "1151": {
+  {
+    "id": "1151",
     "name": "Lucy",
     "quality": 4,
     "element": "FIRE",
@@ -200,7 +212,8 @@
       }
     }
   },
-  "1181": {
+  {
+    "id": "1181",
     "name": "Grace",
     "quality": 5,
     "element": "ELECTRIC",
@@ -216,7 +229,8 @@
       }
     }
   },
-  "1191": {
+  {
+    "id": "1191",
     "name": "Ellen",
     "quality": 5,
     "element": "ICE",
@@ -233,7 +247,8 @@
       }
     }
   },
-  "1211": {
+  {
+    "id": "1211",
     "name": "Rina",
     "quality": 5,
     "element": "ELECTRIC",
@@ -250,7 +265,8 @@
       }
     }
   },
-  "1241": {
+  {
+    "id": "1241",
     "name": "Zhu Yuan",
     "quality": 5,
     "element": "ETHER",
@@ -267,7 +283,8 @@
       }
     }
   },
-  "1281": {
+  {
+    "id": "1281",
     "name": "Piper",
     "quality": 4,
     "element": "PHYSICAL",
@@ -284,7 +301,8 @@
       }
     }
   },
-  "1251": {
+  {
+    "id": "1251",
     "name": "Qingyi",
     "quality": 5,
     "element": "ELECTRIC",
@@ -300,7 +318,8 @@
       }
     }
   },
-  "1261": {
+  {
+    "id": "1261",
     "name": "Jane",
     "quality": 5,
     "element": "PHYSICAL",
@@ -316,7 +335,8 @@
       }
     }
   },
-  "1271": {
+  {
+    "id": "1271",
     "name": "Seth",
     "quality": 4,
     "element": "ELECTRIC",
@@ -333,7 +353,8 @@
       }
     }
   },
-  "1071": {
+  {
+    "id": "1071",
     "name": "Caesar",
     "quality": 5,
     "element": "PHYSICAL",
@@ -349,7 +370,8 @@
       }
     }
   },
-  "1171": {
+  {
+    "id": "1171",
     "name": "Burnice",
     "quality": 5,
     "element": "FIRE",
@@ -366,7 +388,8 @@
       }
     }
   },
-  "1161": {
+  {
+    "id": "1161",
     "name": "Lighter",
     "quality": 5,
     "element": "FIRE",
@@ -382,7 +405,8 @@
       }
     }
   },
-  "1221": {
+  {
+    "id": "1221",
     "name": "Yanagi",
     "quality": 5,
     "element": "ELECTRIC",
@@ -398,7 +422,8 @@
       }
     }
   },
-  "1091": {
+  {
+    "id": "1091",
     "name": "Miyabi",
     "quality": 5,
     "element": "ICE",
@@ -414,7 +439,8 @@
       }
     }
   },
-  "1201": {
+  {
+    "id": "1201",
     "name": "Harumasa",
     "quality": 5,
     "element": "ELECTRIC",
@@ -431,7 +457,8 @@
       }
     }
   },
-  "1311": {
+  {
+    "id": "1311",
     "name": "Astra Yao",
     "quality": 5,
     "element": "ETHER",
@@ -448,7 +475,8 @@
       }
     }
   },
-  "1321": {
+  {
+    "id": "1321",
     "name": "Evelyn",
     "quality": 5,
     "element": "FIRE",
@@ -465,7 +493,8 @@
       }
     }
   },
-  "1351": {
+  {
+    "id": "1351",
     "name": "Pulchra",
     "quality": 4,
     "element": "PHYSICAL",
@@ -481,7 +510,8 @@
       }
     }
   },
-  "1361": {
+  {
+    "id": "1361",
     "name": "Trigger",
     "quality": 5,
     "element": "ELECTRIC",
@@ -497,7 +527,8 @@
       }
     }
   },
-  "1381": {
+  {
+    "id": "1381",
     "name": "Soldier 0 - Anby",
     "quality": 5,
     "element": "ELECTRIC",
@@ -514,7 +545,8 @@
       }
     }
   },
-  "1291": {
+  {
+    "id": "1291",
     "name": "Hugo",
     "quality": 5,
     "element": "ICE",
@@ -531,7 +563,8 @@
       }
     }
   },
-  "1331": {
+  {
+    "id": "1331",
     "name": "Vivian",
     "quality": 5,
     "element": "ETHER",
@@ -547,7 +580,8 @@
       }
     }
   },
-  "1371": {
+  {
+    "id": "1371",
     "name": "Yixuan",
     "quality": 5,
     "element": "ETHER",
@@ -565,7 +599,8 @@
       }
     }
   },
-  "1391": {
+  {
+    "id": "1391",
     "name": "Ju Fufu",
     "quality": 5,
     "element": "FIRE",
@@ -582,7 +617,8 @@
       }
     }
   },
-  "1421": {
+  {
+    "id": "1421",
     "name": "Pan Yinhu",
     "quality": 4,
     "element": "PHYSICAL",
@@ -599,7 +635,8 @@
       }
     }
   },
-  "1401": {
+  {
+    "id": "1401",
     "name": "Alice",
     "quality": 5,
     "element": "PHYSICAL",
@@ -615,7 +652,8 @@
       }
     }
   },
-  "1411": {
+  {
+    "id": "1411",
     "name": "Yuzuha",
     "quality": 5,
     "element": "PHYSICAL",
@@ -631,7 +669,8 @@
       }
     }
   },
-  "1301": {
+  {
+    "id": "1301",
     "name": "Orphie & Magus",
     "quality": 5,
     "element": "FIRE",
@@ -648,7 +687,8 @@
       }
     }
   },
-  "1461": {
+  {
+    "id": "1461",
     "name": "Seed",
     "quality": 5,
     "element": "ELECTRIC",
@@ -665,7 +705,8 @@
       }
     }
   },
-  "1051": {
+  {
+    "id": "1051",
     "name": "Yidhari",
     "quality": 5,
     "element": "ICE",
@@ -682,7 +723,8 @@
       }
     }
   },
-  "1441": {
+  {
+    "id": "1441",
     "name": "Manato",
     "quality": 4,
     "element": "FIRE",
@@ -699,7 +741,8 @@
       }
     }
   },
-  "1451": {
+  {
+    "id": "1451",
     "name": "Lucia",
     "quality": 5,
     "element": "ETHER",
@@ -716,7 +759,8 @@
       }
     }
   },
-  "1471": {
+  {
+    "id": "1471",
     "name": "Banyue",
     "quality": 5,
     "element": "FIRE",
@@ -733,7 +777,8 @@
       }
     }
   },
-  "1481": {
+  {
+    "id": "1481",
     "name": "Dialyn",
     "quality": 5,
     "element": "PHYSICAL",
@@ -750,7 +795,8 @@
       }
     }
   },
-  "1341": {
+  {
+    "id": "1341",
     "name": "Zhao",
     "quality": 5,
     "element": "ICE",
@@ -767,7 +813,8 @@
       }
     }
   },
-  "1431": {
+  {
+    "id": "1431",
     "name": "Ye Shunguang",
     "quality": 5,
     "element": "PHYSICAL",
@@ -784,7 +831,8 @@
       }
     }
   },
-  "1491": {
+  {
+    "id": "1491",
     "name": "Sunna",
     "quality": 5,
     "element": "PHYSICAL",
@@ -801,7 +849,8 @@
       }
     }
   },
-  "1501": {
+  {
+    "id": "1501",
     "name": "Aria",
     "quality": 5,
     "element": "ETHER",
@@ -817,7 +866,8 @@
       }
     }
   },
-  "1511": {
+  {
+    "id": "1511",
     "name": "Nangong Yu",
     "quality": 5,
     "element": "ETHER",
@@ -833,7 +883,8 @@
       }
     }
   },
-  "1521": {
+  {
+    "id": "1521",
     "name": "Cissia",
     "quality": 5,
     "element": "ELECTRIC",
@@ -850,4 +901,4 @@
       }
     }
   }
-}
+]

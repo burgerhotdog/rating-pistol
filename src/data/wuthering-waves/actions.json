@@ -10720,7 +10720,10 @@
       "5": {
         "name": "Mid-air Attack 1",
         "cast": "MA",
-        "considered": "BA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10750,7 +10753,10 @@
       "6": {
         "name": "Mid-air Attack 2",
         "cast": "MA",
-        "considered": "BA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10781,7 +10787,10 @@
       "7": {
         "name": "Mid-air Attack 3",
         "cast": "MA",
-        "considered": "BA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10812,7 +10821,10 @@
       "8": {
         "name": "Mid-air Attack 4",
         "cast": "MA",
-        "considered": "BA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10919,8 +10931,11 @@
       },
       "10": {
         "name": "Mid-air Heavy Attack",
-        "cast": "MHA",
-        "considered": "HA",
+        "cast": "MA",
+        "considered": [
+          "HA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10984,7 +10999,8 @@
     },
     "RS": {
       "1": {
-        "name": "True Sight: Capture",
+        "name": "Capture",
+        "prefix": "True Sight",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -11038,7 +11054,8 @@
         ]
       },
       "2": {
-        "name": "True Sight: Conquest",
+        "name": "Conquest",
+        "prefix": "True Sight",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -11115,8 +11132,9 @@
         ]
       },
       "3": {
-        "name": "True Sight: Charge",
-        "cast": "JA",
+        "name": "Charge",
+        "prefix": "True Sight",
+        "cast": "BA",
         "considered": "RS",
         "multipliers": [
           {
@@ -11950,7 +11968,8 @@
     },
     "FC": {
       "1": {
-        "name": "Incarnation: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "prefix": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -11980,7 +11999,8 @@
         ]
       },
       "2": {
-        "name": "Incarnation: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "prefix": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12056,7 +12076,8 @@
         ]
       },
       "3": {
-        "name": "Incarnation: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "prefix": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12109,7 +12130,8 @@
         ]
       },
       "4": {
-        "name": "Incarnation: Basic Attack 4",
+        "name": "Basic Attack 4",
+        "prefix": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12163,7 +12185,8 @@
         ]
       },
       "5": {
-        "name": "Incarnation: Heavy Attack",
+        "name": "Heavy Attack",
+        "prefix": "Incarnation",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -12216,7 +12239,8 @@
         ]
       },
       "6": {
-        "name": "Incarnation: Dodge Counter",
+        "name": "Dodge Counter",
+        "prefix": "Incarnation",
         "cast": "DC",
         "considered": [
           "BA",
@@ -12297,6 +12321,7 @@
       },
       "7": {
         "name": "Crescent Divinity",
+        "prefix": "Incarnation",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -12373,7 +12398,8 @@
         ]
       },
       "8": {
-        "name": "Illuminous Epiphany: Solar Flare",
+        "name": "Solar Flare",
+        "prefix": "Illuminous Epiphany",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -12404,8 +12430,8 @@
         ]
       },
       "9": {
-        "name": "Illuminous Epiphany: Stella Glamor",
-        "cast": "AUTO",
+        "name": "Stella Glamor",
+        "prefix": "Illuminous Epiphany",
         "considered": "RS",
         "multipliers": [
           {
@@ -12435,9 +12461,7 @@
       },
       "10": {
         "name": "Additional multiplier per Incandescence",
-        "cast": "AUTO",
         "considered": "RS",
-        "duration": 0,
         "multipliers": [
           {
             "mv": [
@@ -12460,8 +12484,7 @@
               0.7025,
               0.7393,
               0.776
-            ],
-            "times": 50
+            ]
           }
         ]
       }
@@ -12759,9 +12782,7 @@
       },
       "2": {
         "name": "Living Canvas",
-        "cast": "RL",
-        "considered": "RL",
-        "duration": 0
+        "cast": "RL"
       }
     },
     "IS": {
@@ -13402,9 +13423,12 @@
         ]
       },
       "6": {
-        "name": "Dodge Counter: Unfathomed",
-        "cast": "BA",
-        "considered": "RL",
+        "name": "Unfathomed",
+        "cast": "DC",
+        "considered": [
+          "RL",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -13581,9 +13605,12 @@
         ]
       },
       "3": {
-        "name": "Mid-air Attack: Revamp",
-        "cast": "BA",
-        "considered": "RL",
+        "name": "Revamp",
+        "cast": "MA",
+        "considered": [
+          "RL",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
