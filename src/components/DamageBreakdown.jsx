@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Box, Card, Paper, ToggleButton, ToggleButtonGroup, Tooltip as MuiTooltip, Typography } from '@mui/material';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
 import { useState } from 'react';
@@ -93,13 +93,13 @@ export const DamageBreakdown = ({ actionMap }) => {
     <Card sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 0.5, px: 2, pt: 1.5, pb: 0 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-          <Typography variant="subtitle2" fontWeight="bold">Damage Breakdown</Typography>
+          <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Damage Breakdown</Typography>
           <MuiTooltip
             title="How damage is distributed across your rotation. Toggle between damage type and teammate views."
             placement="top"
             arrow
           >
-            <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
+            <HelpOutlineOutlinedIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
           </MuiTooltip>
         </Box>
         <ToggleButtonGroup
@@ -148,7 +148,7 @@ export const DamageBreakdown = ({ actionMap }) => {
                   const { name, value } = payload[0].payload;
                   return (
                     <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
-                      <Typography variant="subtitle2" fontWeight="bold">{name}</Typography>
+                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{name}</Typography>
                       <Typography variant="body2" color="text.secondary">
                         {value.toLocaleString('en-US', { maximumFractionDigits: 0 })} damage
                       </Typography>

@@ -1,5 +1,4 @@
-import { Avatar, Card, CardContent, Stack, Typography, Skeleton } from '@mui/material';
-import { MISC, CHARACTERS, WEAPONS } from '@/data';
+import { Card, CardContent, Stack } from '@mui/material';
 import { CharacterPicker } from '@/components/CharacterPicker';
 
 export const TeamConfig = ({ gameId, team, updateTeam }) => {

@@ -30,9 +30,7 @@ const GameLink = ({ gameId }) => {
 const HomePage = () => (
   <>
     <Box
-      display={{ xs: 'none', md: 'flex' }}
-      justifyContent="center"
-      gap={2}
+      sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: 2 }}
     >
       <GameLink gameId="genshin-impact" />
       <GameLink gameId="honkai-star-rail" />
@@ -40,12 +38,12 @@ const HomePage = () => (
       <GameLink gameId="zenless-zone-zero" />
     </Box>
 
-    <Stack display={{ xs: 'flex', md: 'none' }} gap={2}>
-      <Box display="flex" justifyContent="center" gap={2}>
+    <Stack sx={{ display: { xs: 'flex', md: 'none' }, gap: 2 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
         <GameLink gameId="genshin-impact" />
         <GameLink gameId="honkai-star-rail" />
       </Box>
-      <Box display="flex" justifyContent="center" gap={2}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
         <GameLink gameId="wuthering-waves" />
         <GameLink gameId="zenless-zone-zero" />
       </Box>

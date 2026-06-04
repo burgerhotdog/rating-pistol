@@ -24,7 +24,7 @@ import {
   ToggleButtonGroup,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
@@ -94,7 +94,7 @@ function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
                   title={name}
                   sx={{ width: 100, height: 100 }}
                 />
-                <Typography variant="body2" textAlign="center" noWrap>
+                <Typography variant="body2" sx={{ textAlign: 'center' }} noWrap>
                   {name}
                 </Typography>
               </CardActionArea>
@@ -166,7 +166,7 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
                   title={name}
                   sx={{ width: 100, height: 100 }}
                 />
-                <Typography variant="body2" textAlign="center" noWrap>
+                <Typography variant="body2" sx={{ textAlign: 'center' }} noWrap>
                   {name}
                 </Typography>
               </CardActionArea>
@@ -246,7 +246,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
 
       <DialogContent>
         {/* Piece-count filter */}
-        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
+        <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 2 }}>
           <Typography variant="body2" color="text.secondary" sx={{ flexShrink: 0 }}>
             Piece bonus:
           </Typography>
@@ -296,7 +296,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
                   title={name}
                   sx={{ width: 100, height: 100 }}
                 />
-                <Typography variant="body2" textAlign="center" noWrap px={0.5}>
+                <Typography variant="body2" sx={{ textAlign: 'center', px: 0.5 }} noWrap>
                   {name}
                 </Typography>
               </CardActionArea>
@@ -322,10 +322,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
 
   return (
     <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      gap={0.5}
+      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -453,7 +450,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
         Set Bonuses
       </Typography>
 
-      <Stack direction="row" spacing={1} alignItems="flex-start" flexWrap="wrap" useFlexGap>
+      <Stack direction="row" spacing={1} useFlexGap sx={{ alignItems: 'flex-start', flexWrap: 'wrap' }}>
         {entries.map(([setId, pieces], index) => (
           <SetIcon
             key={setId}
@@ -467,7 +464,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
 
         {/* Add button — only shown when more sets can fit and not disabled */}
         {!disabled && remainingForAdd > 0 && (
-          <Box display="flex" flexDirection="column" alignItems="center" gap={0.5}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}>
             <Card
               sx={{
                 width: 80,
@@ -493,7 +490,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
         )}
       </Stack>
 
-      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1 }}>
+      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap', mt: 1 }}>
         <Button
           size="small"
           variant="outlined"
@@ -677,10 +674,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
 
   return (
     <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      gap={0.5}
+      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -707,7 +701,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
                   bgcolor: 'action.hover',
                 }}
               >
-                <Typography variant="caption" color="text.secondary" textAlign="center">
+                <Typography variant="caption" color="text.secondary" sx={{ textAlign: 'center' }}>
                   None
                 </Typography>
               </Box>
@@ -822,7 +816,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
 
       {/* Delete — hover only */}
       <IconButton className="rotation-delete" size="small" onClick={onRemove} sx={{ flexShrink: 0 }}>
-        <DeleteOutlineIcon fontSize="small" />
+        <DeleteOutlineOutlinedIcon fontSize="small" />
       </IconButton>
     </Box>
   );
@@ -865,7 +859,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
   }
 
   return (
-    <Box mt={2.5}>
+    <Box sx={{ mt: 2.5 }}>
       {dragging && <GlobalStyles styles={{ '*': { cursor: 'grabbing !important' } }} />}
       <Typography variant="subtitle2" sx={{ mb: 1 }}>
         Rotation
@@ -921,7 +915,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         )}
       </Box>
 
-      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
         <Button
           size="small"
           variant="outlined"
@@ -1042,9 +1036,9 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             />
           )}
 
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="flex-start" mt={1}>
-            <Stack direction="row" spacing={2} alignItems="flex-start">
-              <Stack spacing={1} alignItems="center">
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ alignItems: 'flex-start', mt: 1 }}>
+            <Stack direction="row" spacing={2} sx={{ alignItems: 'flex-start' }}>
+              <Stack spacing={1} sx={{ alignItems: 'center' }}>
                 {/* Character */}
                 <PickerButton
                   label="Character"
@@ -1082,7 +1076,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 </TextField>
               </Stack>
 
-              <Stack spacing={1} alignItems="center">
+              <Stack spacing={1} sx={{ alignItems: 'center' }}>
                 {/* Weapon */}
                 <PickerButton
                   label="Weapon"

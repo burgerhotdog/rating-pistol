@@ -32,8 +32,8 @@ export const GamePage = () => {
     <>
       <Header />
       <Box
-        display="flex"
         sx={{
+          display: 'flex',
           flex: 1,
           minHeight: 0,
           overflow: 'hidden',

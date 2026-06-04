@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Box, Card, Paper, Tooltip, Typography } from '@mui/material';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   ResponsiveContainer,
   BarChart,
@@ -72,9 +72,9 @@ export const SubstatPriority = ({ isLoading, actionMap, actionMapsWithSub }) => 
   return (
     <Card sx={{ flex: 1, overflow: 'hidden' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0.5 }}>
-        <Typography variant="subtitle2" fontWeight="bold">Substat Priority</Typography>
-        <Tooltip title="Damage increase from gaining one extra roll of each substat. Prioritize farming for the stats at the top." placement="top" arrow>
-          <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
+        <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Substat Priority</Typography>
+        <Tooltip title="Chart shows the team damage increase from gaining one extra roll of a substat." placement="top" arrow>
+          <HelpOutlineOutlinedIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
         </Tooltip>
       </Box>
       <Box sx={{ width: '100%', height: chartViewportHeight, px: 2, pb: 2 }}>
@@ -113,7 +113,7 @@ export const SubstatPriority = ({ isLoading, actionMap, actionMapsWithSub }) => 
                       borderColor: 'divider',
                     }}
                   >
-                    <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }} gutterBottom>
                       {label}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">

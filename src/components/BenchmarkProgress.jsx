@@ -1,6 +1,6 @@
 import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 import { CHARACTERS, ACTION, MISC } from '@/data';
@@ -43,9 +43,9 @@ function sumMemberRotationTime(gameId, team, memberId) {
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-    <Typography variant="overline" color="text.secondary" lineHeight={1.4}>{label}</Typography>
+    <Typography variant="overline" color="text.secondary" sx={{ lineHeight: 1.4 }}>{label}</Typography>
     <MuiTooltip title={tip} placement="top" arrow>
-      <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
+      <HelpOutlineOutlinedIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
     </MuiTooltip>
   </Box>
 );
@@ -198,7 +198,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                     borderColor: 'divider',
                   }}
                 >
-                  <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                  <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 'bold' }}>
                     Week {week}
                   </Typography>
                   {members.map((m, i) => (
@@ -216,16 +216,16 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                     </Box>
                   ))}
                   <Divider sx={{ my: 0.5 }} />
-                  <Typography variant="body2" fontWeight="bold">
+                  <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
                     Total: {damage.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                   </Typography>
                   {dist && (
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                       Q1–Q3: {toDps(sumRotationDmg(dist.q1)).toLocaleString('en-US', { maximumFractionDigits: 0 })} – {toDps(sumRotationDmg(dist.q3)).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                     </Typography>
                   )}
                   {percentGain != null && (
-                    <Typography variant="body2" color={percentGain >= 0 ? 'success.main' : 'error.main'}>
+                    <Typography variant="body2" sx={{ color: percentGain >= 0 ? 'success.main' : 'error.main' }}>
                       {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(1)}% vs prev
                     </Typography>
                   )}
@@ -246,7 +246,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
             tip="Your team's total damage as a percentage of the team benchmark. Reflects how your character's current build contributes relative to the team's expected optimum."
           />
           <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
-            <Typography variant="h4" fontWeight="bold" sx={{ color: gradeColor }}>
+            <Typography variant="h4" sx={{ color: gradeColor, fontWeight: 'bold' }}>
               {grade}
             </Typography>
             <Typography variant="body1" fontWeight="medium" sx={{ color: gradeColor, opacity: 0.7 }}>
@@ -260,7 +260,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
             label="Team DPS"
             tip="Your character's current damage plus teammates' simulated benchmark damage."
           />
-          <Typography variant="h6" fontWeight="bold">
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {activeUserRating?.toLocaleString('en-US', { maximumFractionDigits: 0 }) ?? '—'}
           </Typography>
         </Box>
@@ -269,7 +269,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
             label="Benchmark"
             tip="Sum of each character's simulated average damage at the benchmark week."
           />
-          <Typography variant="h6" fontWeight="bold">
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {benchmarkRating?.toLocaleString('en-US', { maximumFractionDigits: 0 }) ?? '—'}
           </Typography>
         </Box>
