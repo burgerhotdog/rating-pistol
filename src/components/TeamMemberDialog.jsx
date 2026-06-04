@@ -391,7 +391,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
   // Index of the set being replaced; null means we're adding a new one
   const [replacingIndex, setReplacingIndex] = useState(null);
 
-  const entries = Object.entries(setCounts); // [[setId, pieces], ...]
+  const entries = Object.entries(setCounts).toSorted((a, b) => b[1] - a[1]); // [[setId, pieces], ...]
   const usedPieces = entries.reduce((sum, [, n]) => sum + n, 0);
 
   const remainingForAdd = capacity - usedPieces;

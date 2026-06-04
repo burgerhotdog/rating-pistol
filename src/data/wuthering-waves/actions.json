@@ -6051,7 +6051,7 @@
         ]
       },
       "7": {
-        "name": "Heavy Attack: Zephyr Song",
+        "name": "Zephyr Song",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -6268,7 +6268,7 @@
     },
     "FC": {
       "1": {
-        "name": "Heavy Attack: Stormy Strike",
+        "name": "Stormy Strike",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7025,7 +7025,7 @@
         ]
       },
       "7": {
-        "name": "Heavy Attack: Windborne Strike",
+        "name": "Windborne Strike",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7056,7 +7056,7 @@
         ]
       },
       "8": {
-        "name": "Heavy Attack: Abyssal Slash",
+        "name": "Abyssal Slash",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7257,7 +7257,8 @@
     },
     "RL": {
       "1": {
-        "name": "Heavy Attack: Lance Of Qingloong 1",
+        "name": "Lance Of Qingloong 1",
+        "tags": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7289,7 +7290,8 @@
         ]
       },
       "2": {
-        "name": "Heavy Attack: Lance Of Qingloong 2",
+        "name": "Lance Of Qingloong 2",
+        "tags": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7321,7 +7323,8 @@
         ]
       },
       "3": {
-        "name": "Heavy Attack: Lance Of Qingloong 3",
+        "name": "Lance Of Qingloong 3",
+        "tags": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7393,7 +7396,7 @@
     },
     "FC": {
       "1": {
-        "name": "Resonance Liberation: Emerald Storm: Finale",
+        "name": "Emerald Storm - Finale",
         "cast": "RL",
         "considered": "HA",
         "multipliers": [
@@ -13851,7 +13854,7 @@
         ]
       },
       "5": {
-        "name": "Heavy Attack: Frostfall",
+        "name": "Frostfall",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -18384,8 +18387,11 @@
       },
       "8": {
         "name": "Mid-air Attack 1: Charged Attack",
-        "cast": "HK",
-        "considered": "HK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18464,8 +18470,11 @@
       },
       "9": {
         "name": "Mid-air Attack 1: Flip",
-        "cast": "RK",
-        "considered": "RK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18518,7 +18527,7 @@
         ]
       },
       "10": {
-        "name": "Mid-air Attack 1 Slash",
+        "name": "Mid-air Attack 1: Slash",
         "cast": "MA",
         "considered": [
           "BA",
@@ -18612,8 +18621,11 @@
       },
       "12": {
         "name": "Mid-air Attack 2: Charged Attack",
-        "cast": "HK",
-        "considered": "HK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18644,8 +18656,11 @@
       },
       "13": {
         "name": "Mid-air Attack 2: Flip",
-        "cast": "RK",
-        "considered": "RK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18734,8 +18749,11 @@
       },
       "15": {
         "name": "Mid-air Attack 3: Flip",
-        "cast": "RK",
-        "considered": "RK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -22153,6 +22171,7 @@
     "FC": {
       "1": {
         "name": "Heavy Slash - Daybreak",
+        "tags": "Inferno Mode",
         "cast": "BA",
         "considered": [
           "HA",
@@ -22187,6 +22206,7 @@
       },
       "2": {
         "name": "Heavy Slash - Dawning",
+        "tags": "Inferno Mode",
         "cast": "BA",
         "considered": [
           "HA",
@@ -22221,6 +22241,7 @@
       },
       "3": {
         "name": "Heavy Slash - Nightfall",
+        "tags": "Inferno Mode",
         "cast": "BA",
         "considered": [
           "HA",
@@ -22283,7 +22304,6 @@
           "HA",
           "FRAZZLE"
         ],
-        "duration": 0,
         "multipliers": [
           {
             "mv": [
@@ -22313,6 +22333,7 @@
       },
       "5": {
         "name": "Heavy Slash - Lightsmash",
+        "tags": "Inferno Mode",
         "considered": [
           "HA",
           "FRAZZLE"
@@ -22353,7 +22374,6 @@
           "OS",
           "FRAZZLE"
         ],
-        "duration": 0,
         "multipliers": [
           {
             "mv": 1.5
@@ -22667,7 +22687,7 @@
         ]
       },
       "6": {
-        "name": "Heavy Attack - Wolf's Gnawing",
+        "name": "Wolf's Gnawing",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -22722,7 +22742,7 @@
         ]
       },
       "7": {
-        "name": "Heavy Attack - Wolf's Claw",
+        "name": "Wolf's Claw",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -22953,7 +22973,7 @@
         ]
       },
       "11": {
-        "name": "Mid-air Attack - Firestrike",
+        "name": "Firestrike",
         "cast": "MA",
         "considered": "HA",
         "multipliers": [
@@ -23009,7 +23029,7 @@
       },
       "12": {
         "name": "Plunging Attack",
-        "cast": "MHA",
+        "cast": "MA",
         "considered": "BA",
         "multipliers": [
           {
@@ -23087,7 +23107,7 @@
         ]
       },
       "13": {
-        "name": "Basic Attack - Starfall",
+        "name": "Starfall",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -26303,7 +26323,7 @@
         ]
       },
       "5": {
-        "name": "Heavy Attack: Steelclash",
+        "name": "Steelclash",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -26406,8 +26426,15 @@
       },
       "8": {
         "name": "Mid-air Dodge Counter",
-        "cast": "MDC",
-        "considered": "MDC",
+        "cast": [
+          "MA",
+          "DC"
+        ],
+        "considered": [
+          "BA",
+          "MA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -26437,7 +26464,7 @@
         ]
       },
       "9": {
-        "name": "Heavy Attack - Thunderoar: Backstep",
+        "name": "Thunderoar - Backstep",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -26468,8 +26495,8 @@
         ]
       },
       "10": {
-        "name": "Heavy Attack - Thunderoar: Spinslash",
-        "cast": "RK",
+        "name": "Thunderoar - Spinslash",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -26500,8 +26527,8 @@
         ]
       },
       "11": {
-        "name": "Heavy Attack - Thunderoar: Uppercut",
-        "cast": "JA",
+        "name": "Thunderoar - Uppercut",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -26532,9 +26559,12 @@
         ]
       },
       "12": {
-        "name": "Dodge Counter - Heavy Attack: Steelclash",
+        "name": "Steelclash",
         "cast": "DC",
-        "considered": "HA",
+        "considered": [
+          "HA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -26564,9 +26594,12 @@
         ]
       },
       "13": {
-        "name": "Dodge Counter - Thunderoar: Backstep",
+        "name": "Thunderoar - Backstep",
         "cast": "DC",
-        "considered": "HA",
+        "considered": [
+          "HA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -32203,6 +32236,7 @@
     "FC": {
       "1": {
         "name": "Sawring - Blitz 1",
+        "tags": "Chainsaw Mode",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -32235,6 +32269,7 @@
       },
       "2": {
         "name": "Sawring - Blitz 2",
+        "tags": "Chainsaw Mode",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -32266,8 +32301,9 @@
         ]
       },
       "3": {
-        "name": "Sawring - Blitz Stage 2 Hold",
-        "cast": "HK",
+        "name": "Sawring - Blitz 2: Hold",
+        "tags": "Chainsaw Mode",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -32298,8 +32334,9 @@
         ]
       },
       "4": {
-        "name": "Sawring - Blitz Stage 2: Discordance",
-        "cast": "RK",
+        "name": "Sawring - Blitz 2: Discordance",
+        "tags": "Chainsaw Mode",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -32331,6 +32368,7 @@
       },
       "5": {
         "name": "Sawring - Blitz 3",
+        "tags": "Chainsaw Mode",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -32362,8 +32400,9 @@
         ]
       },
       "6": {
-        "name": "Sawring - Blitz Stage 3 Hold",
-        "cast": "HK",
+        "name": "Sawring - Blitz 3: Hold",
+        "tags": "Chainsaw Mode",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -32394,8 +32433,9 @@
         ]
       },
       "7": {
-        "name": "Sawring - Blitz Stage 3: Falltone",
-        "cast": "RK",
+        "name": "Sawring - Blitz 3: Falltone",
+        "tags": "Chainsaw Mode",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -32426,9 +32466,13 @@
         ]
       },
       "8": {
-        "name": "Chainsaw Mode - Dodge Counter",
+        "name": "Dodge Counter",
+        "tags": "Chainsaw Mode",
         "cast": "DC",
-        "considered": "RL",
+        "considered": [
+          "RL",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -32458,9 +32502,13 @@
         ]
       },
       "9": {
-        "name": "Chainsaw Mode - Dodge Counter Hold",
-        "cast": "HK",
-        "considered": "RL",
+        "name": "Dodge Counter: Hold",
+        "tags": "Chainsaw Mode",
+        "cast": "DC",
+        "considered": [
+          "RL",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -32491,6 +32539,7 @@
       },
       "10": {
         "name": "Sawring - Eradication",
+        "tags": "Chainsaw Mode",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
