@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTERS, ACTION, MISC } from '@/data';
+import { CHARACTER, ACTION, MISC } from '@/data';
 import { sumRotationDmg } from '@/utils';
 
 function sumRotationTime(gameId, team) {
@@ -58,7 +58,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
 
   const members = team.filter(m => m.memberId);
   const memberColors = members.map(m => {
-    const el = CHARACTERS[gameId]?.[m.memberId]?.element;
+    const el = CHARACTER[gameId]?.[m.memberId]?.element;
     return MISC[gameId]?.ELEMENT_COLORS?.[el] ?? disabledColor;
   });
 
@@ -205,7 +205,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                     <Box key={m.memberId} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
                       <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: memberColors[i], flexShrink: 0 }} />
                       <Typography variant="body2">
-                        {CHARACTERS[gameId]?.[m.memberId]?.name ?? m.memberId}:{' '}
+                        {CHARACTER[gameId]?.[m.memberId]?.name ?? m.memberId}:{' '}
                         {(data[week]?.[`dps_${m.memberId}`] ?? 0).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                         {' '}(
                         {sumRotationDmg(weeklyScores[week], { ownerId: m.memberId }).toLocaleString('en-US', { maximumFractionDigits: 0 })}

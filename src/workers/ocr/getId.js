@@ -1,4 +1,4 @@
-import { CHARACTERS } from '@/data';
+import { CHARACTER } from '@/data';
 import { compareStrings } from './helpers';
 
 const REGION = { x: 67, y: 24, w: 600, h: 54};
@@ -7,7 +7,7 @@ const PARAMS = {
   tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ',
 };
 const nameToId = Object.fromEntries(
-  Object.entries(CHARACTERS['wuthering-waves'])
+  Object.entries(CHARACTER['wuthering-waves'])
     .map(([id, { name }]) => ([name, id]))
 );
 

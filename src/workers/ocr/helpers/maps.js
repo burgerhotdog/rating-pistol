@@ -1,4 +1,4 @@
-import { WEAPONS, MISC } from '@/data';
+import { WEAPON, MISC } from '@/data';
 
 const { MAIN_STAT_TYPES } = MISC['wuthering-waves'];
 
@@ -6,7 +6,7 @@ export const whitelistStat = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx
 export const whitelistValue = '0123456789.%';
 
 export const weaponNameToId = Object.fromEntries(
-  Object.entries(WEAPONS['wuthering-waves']).map(([id, { name }]) => ([name, id]))
+  Object.entries(WEAPON['wuthering-waves']).map(([id, { name }]) => ([name, id]))
 );
 
 export const mainStatNameToIdByCost = Object.fromEntries(

@@ -33,7 +33,7 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTERS, ACTION, WEAPONS, SETS, MISC } from '@/data';
+import { CHARACTER, ACTION, WEAPON, SET, MISC } from '@/data';
 import { getMember, formatRotation, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
@@ -42,7 +42,7 @@ function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
-    return Object.entries(CHARACTERS[gameId])
+    return Object.entries(CHARACTER[gameId])
       .filter(([_, { name }]) => name.toLowerCase().includes(lower))
       .map(([id, { name }]) => ({ id, name }))
       .sort((a, b) => a.name.localeCompare(b.name));
@@ -111,7 +111,7 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
-    return Object.entries(WEAPONS[gameId])
+    return Object.entries(WEAPON[gameId])
       .filter(([_, w]) =>
         (!weaponType || w.type === weaponType) &&
         w.name.toLowerCase().includes(lower)
@@ -187,7 +187,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
   // Collect all piece-count tiers that exist across all sets in this game
   const allPieceTiers = useMemo(() => {
     const tiers = new Set();
-    for (const setData of Object.values(SETS[gameId])) {
+    for (const setData of Object.values(SET[gameId])) {
       for (const key of Object.keys(setData?.setBonus ?? {})) {
         const n = Number(key);
         if (Number.isFinite(n)) tiers.add(n);
@@ -212,7 +212,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
-    return Object.entries(SETS[gameId])
+    return Object.entries(SET[gameId])
       .filter(([_, setData]) => {
         const bonusKeys = Object.keys(setData?.setBonus ?? {}).map(Number);
         // Must have at least one bonus tier matching the filter (if set) and within capacity
@@ -318,7 +318,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
 
 function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
   const [hovered, setHovered] = useState(false);
-  const name = SETS[gameId]?.[setId]?.name ?? setId;
+  const name = SET[gameId]?.[setId]?.name ?? setId;
 
   return (
     <Box
@@ -326,7 +326,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <Box position="relative">
+      <Box sx={{ position: 'relative' }}>
         <Card sx={{ width: 80 }}>
           <CardActionArea onClick={onClick}>
             <CardMedia
@@ -678,7 +678,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <Typography variant="caption" color="text.secondary">
+      <Typography variant="subtitle1" color="text.secondary">
         {label}
       </Typography>
       <Box position="relative">
@@ -928,7 +928,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
           size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(CHARACTERS[gameId][characterId]?.defaults?.rotation ?? [])}
+          onClick={() => onChange(CHARACTER[gameId][characterId]?.defaults?.rotation ?? [])}
         >
           Reset Default
         </Button>
@@ -963,8 +963,8 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   useEffect(() => setDraft(member), [member]);
 
-  const memberData = CHARACTERS[gameId][draft.memberId];
-  const weaponData = WEAPONS[gameId]?.[draft.weaponId];
+  const memberData = CHARACTER[gameId][draft.memberId];
+  const weaponData = WEAPON[gameId]?.[draft.weaponId];
   const weaponType = memberData?.type ?? null;
 
   // Stored build for the current draft member (only meaningful for teammates)

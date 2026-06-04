@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
-import { MISC, CHARACTERS } from '@/data';
+import { MISC, CHARACTER } from '@/data';
 import { computeTotalStat, compileStatMap } from '@/utils';
 import { CustomAvatar } from '@/components';
 import { useBuild } from '@/contexts';
@@ -68,20 +68,20 @@ export const StatsPanel = ({ team, updateTeam }) => {
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
         avatar={<CustomAvatar gameId={gameId} characterId={characterId} />}
-        title={CHARACTERS[gameId]?.[characterId]?.name ?? ""}
+        title={CHARACTER[gameId]?.[characterId]?.name ?? ""}
         subheader={
           <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
             <Chip
-              label={CHARACTERS[gameId]?.[characterId]?.element ?? ""}
+              label={CHARACTER[gameId]?.[characterId]?.element ?? ""}
               variant="outlined"
               size="small"
               sx={{
-                color: MISC[gameId]?.ELEMENT_COLORS[CHARACTERS[gameId]?.[characterId]?.element]
+                color: MISC[gameId]?.ELEMENT_COLORS[CHARACTER[gameId]?.[characterId]?.element]
               }}
             />
-            {CHARACTERS[gameId]?.[characterId]?.type && (
+            {CHARACTER[gameId]?.[characterId]?.type && (
               <Chip
-                label={CHARACTERS[gameId]?.[characterId]?.type}
+                label={CHARACTER[gameId]?.[characterId]?.type}
                 variant="outlined"
                 size="small"
               />

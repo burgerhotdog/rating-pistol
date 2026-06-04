@@ -3,7 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
 import { Header, Navbar } from '@/components';
 import { useBuild, useUser } from '@/contexts';
-import { CHARACTERS } from '@/data';
+import { CHARACTER } from '@/data';
 import { Content } from '@/pages';
 
 export const GamePage = () => {
@@ -14,13 +14,13 @@ export const GamePage = () => {
     if (a === pinned) return -1;
     if (b === pinned) return 1;
 
-    const aName = CHARACTERS[gameId][a].name;
-    const bName = CHARACTERS[gameId][b].name;
+    const aName = CHARACTER[gameId][a].name;
+    const bName = CHARACTER[gameId][b].name;
     return aName.localeCompare(bName);
   }), [gameId, builds, pinned]);
 
   // Navigate guard against invalid characterIds
-  if (characterId && (!CHARACTERS[gameId][characterId] || !builds[characterId])) {
+  if (characterId && (!CHARACTER[gameId][characterId] || !builds[characterId])) {
     return <Navigate to={`/${gameId}`} replace />;
   }
 

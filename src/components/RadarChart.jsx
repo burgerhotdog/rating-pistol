@@ -3,7 +3,7 @@ import { Card, Box, Paper, Tooltip as MuiTooltip, Typography } from '@mui/materi
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip, Legend } from 'recharts';
 import { useBuild } from '@/contexts';
-import { CHARACTERS, MISC } from '@/data';
+import { CHARACTER, MISC } from '@/data';
 import { computeTotalStat, compileStatMap } from '@/utils';
 import { useTheme } from '@mui/material/styles';
 
@@ -12,9 +12,9 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
   const build = useBuild().getBuilds(gameId)[characterId];
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
-  const element = CHARACTERS[gameId]?.[characterId]?.element;
+  const element = CHARACTER[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
-  const calcs = CHARACTERS[gameId][characterId]?.calcs;
+  const calcs = CHARACTER[gameId][characterId]?.calcs;
 
   if (isLoading || !build || !combinedSimEquips) return null;
   const simSources = Object.entries(combinedSimEquips).map(([statId, value]) => ({

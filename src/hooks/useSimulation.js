@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useBuild } from '@/contexts';
-import { CHARACTERS, ACTION, WEAPONS } from '@/data';
+import { CHARACTER, ACTION, WEAPON } from '@/data';
 
 function validatePayload({ gameId, characterId, build, team }) {
   // gameId
   if (!['wuthering-waves'].includes(gameId)) return `invalid gameId "${gameId}"`;
 
   // characterId (characters.json and mvs.json)
-  const characterData = CHARACTERS[gameId][characterId];
+  const characterData = CHARACTER[gameId][characterId];
   if (!characterData) return `characterId "${characterId}" doesn't exist in gameId "${gameId}"`;
   const { element, stats: characterStats } = characterData;
   if (!element) return `missing "element" for characterId "${characterId}"`;
@@ -22,7 +22,7 @@ function validatePayload({ gameId, characterId, build, team }) {
   if (!build) return 'build is undefined';
   const { weaponId, equipList } = build;
   if (!weaponId) return 'weaponId is undefined';
-  const weaponData = WEAPONS[gameId][weaponId];
+  const weaponData = WEAPON[gameId][weaponId];
   if (!weaponData) return `weaponId "${weaponId}" doesn't exist in gameId "${gameId}"`;
   const { name: weaponName, quality: weaponQuality } = weaponData;
   if (Number(weaponQuality) < 3) return `weapon "${weaponName}" is not supported"`;
@@ -35,7 +35,7 @@ function validatePayload({ gameId, characterId, build, team }) {
     const { memberId, weaponId, setCounts, rotation, build } = member;
     if (memberId === null) continue;
     if (!memberId) return 'team contains undefined memberId';
-    const memberData = CHARACTERS[gameId][memberId];
+    const memberData = CHARACTER[gameId][memberId];
     if (!memberData) return `memberId "${memberId}" doesn't exist in gameId "${gameId}"`;
     const { name, element, stats } = memberData;
     if (!element) return `missing "element" for memberId "${memberId}"`;
@@ -98,7 +98,7 @@ export function useSimulation(team) {
       if (data.type === 'progress') {
         setResult(prev => ({
           ...prev,
-          ...('currentMember' in data ? { currentMember: data.currentMember ? CHARACTERS[gameId][data.currentMember].name : null } : {}),
+          ...('currentMember' in data ? { currentMember: data.currentMember ? CHARACTER[gameId][data.currentMember].name : null } : {}),
           ...('completed' in data ? { completed: data.completed } : {}),
           ...('diff' in data ? { diff: data.diff } : {}),
           ...('trial' in data ? { trial: data.trial } : {}),

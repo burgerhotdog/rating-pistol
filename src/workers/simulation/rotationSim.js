@@ -1,4 +1,4 @@
-import { CHARACTERS, WEAPONS, SETS, MISC, ACTION } from '@/data';
+import { CHARACTER, WEAPON, SET, MISC, ACTION } from '@/data';
 import { resolveRankedValue, compileStatMap, mergeStatMaps, computeTotalStat, toArray, getSetCounts } from '@/utils';
 
 const actionsCache = new Map();
@@ -104,7 +104,7 @@ const getActiveSetBonuses = (gameId, member) => {
 
   const activeBonuses = [];
   for (const [setId, activePieces] of Object.entries(setCounts)) {
-    const setBonuses = SETS[gameId]?.[setId]?.setBonus;
+    const setBonuses = SET[gameId]?.[setId]?.setBonus;
     if (!setBonuses) continue;
     for (const [numPiecesToActivate, setBonusData] of Object.entries(setBonuses)) {
       if (activePieces < Number(numPiecesToActivate)) continue;
@@ -124,7 +124,7 @@ const normalizeActions = (gameId, memberId, memberRank) => {
   const maxLevel = gameId === 'zenless-zone-zero' ? 12 : 10;
   const addBySkillId = {};
 
-  const { skillLevelMods = [] } = CHARACTERS[gameId][memberId];
+  const { skillLevelMods = [] } = CHARACTER[gameId][memberId];
   for (const { rank, skillId, add } of skillLevelMods) {
     if (rank > memberRank) continue;
     addBySkillId[skillId] = add;
@@ -278,12 +278,12 @@ const normalizeEffects = (gameId, member) => {
     effectIndex++;
   }
 
-  for (const effect of CHARACTERS[gameId][memberId].effects) {
+  for (const effect of CHARACTER[gameId][memberId].effects) {
     if ((effect.rank ?? 0) > rank) continue;
     registerEffect(effect, rank);
   }
 
-  for (const effect of toArray(WEAPONS[gameId][weaponId].effects)) {
+  for (const effect of toArray(WEAPON[gameId][weaponId].effects)) {
     registerEffect(effect, weaponRank);
   }
 

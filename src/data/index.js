@@ -19,10 +19,10 @@ import WW_MISC from './wuthering-waves/misc.json';
 import ZZZ_MISC from './zenless-zone-zero/misc.json';
 export const MISC = { [GI]: GI_MISC, [HSR]: HSR_MISC, [WW]: WW_MISC, [ZZZ]: ZZZ_MISC };
 
-import GI_CHAR from './genshin-impact/character.json';
-import HSR_CHAR from './honkai-star-rail/character.json';
-import WW_CHAR from './wuthering-waves/character.json';
-import ZZZ_CHAR from './zenless-zone-zero/character.json';
+import GI_CHAR from './genshin-impact/characters.json';
+import HSR_CHAR from './honkai-star-rail/characters.json';
+import WW_CHAR from './wuthering-waves/characters.json';
+import ZZZ_CHAR from './zenless-zone-zero/characters.json';
 
 const convert = (json) => {
   const resolved = {};
@@ -35,7 +35,7 @@ const convert = (json) => {
   return resolved;
 };
 
-export const CHARACTERS = {
+export const CHARACTER = {
   [GI]: normalizeCharacters(GI, GI_CHAR),
   [HSR]: normalizeCharacters(HSR, HSR_CHAR),
   [WW]: normalizeCharacters(WW, WW_CHAR),
@@ -47,26 +47,26 @@ import WW_ACTIONS from './wuthering-waves/actions.json';
 export const ACTION = {
   [GI]: {},
   [HSR]: {},
-  [WW]: normalizeActions(WW, CHARACTERS, WW_ACTIONS),
+  [WW]: normalizeActions(WW, CHARACTER, WW_ACTIONS),
   [ZZZ]: {},
 };
 
-import GI_WEAP from './genshin-impact/weapon.json';
-import HSR_WEAP from './honkai-star-rail/weapon.json';
-import WW_WEAP from './wuthering-waves/weapon.json';
-import ZZZ_WEAP from './zenless-zone-zero/weapon.json';
-export const WEAPONS = {
+import GI_WEAP from './genshin-impact/weapons.json';
+import HSR_WEAP from './honkai-star-rail/weapons.json';
+import WW_WEAP from './wuthering-waves/weapons.json';
+import ZZZ_WEAP from './zenless-zone-zero/weapons.json';
+export const WEAPON = {
   [GI]: convert(GI_WEAP),
   [HSR]: convert(HSR_WEAP),
   [WW]: normalizeWeapons(WW, WW_WEAP),
   [ZZZ]: convert(ZZZ_WEAP),
 };
 
-import GI_SET from './genshin-impact/set.json';
-import HSR_SET from './honkai-star-rail/set.json';
-import WW_SET from './wuthering-waves/set.json';
-import ZZZ_SET from './zenless-zone-zero/set.json';
-export const SETS = {
+import GI_SET from './genshin-impact/sets.json';
+import HSR_SET from './honkai-star-rail/sets.json';
+import WW_SET from './wuthering-waves/sets.json';
+import ZZZ_SET from './zenless-zone-zero/sets.json';
+export const SET = {
   [GI]: convert(GI_SET),
   [HSR]: convert(HSR_SET),
   [WW]: normalizeSets(WW, WW_SET),

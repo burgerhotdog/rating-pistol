@@ -4,14 +4,14 @@ import { compileRotation, evaluateRotation } from './rotationSim';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
-import { CHARACTERS, MISC } from '@/data';
+import { CHARACTER, MISC } from '@/data';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
 function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
-  const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
+  const match = CHARACTER[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build));
   });

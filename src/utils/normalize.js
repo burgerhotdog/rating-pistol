@@ -1,4 +1,4 @@
-import { CHARACTERS } from '@/data';
+import { CHARACTER } from '@/data';
 
 const normalizeAction = () => {
 

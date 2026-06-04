@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useBuild } from '@/contexts';
-import { CHARACTERS } from '@/data';
+import { CHARACTER } from '@/data';
 import { getMember, getDefaultWeaponRank, applyStoredBuild, formatRotation } from '@/utils';
 
 const getTeamSize = (gameId) =>
@@ -13,7 +13,7 @@ const normalizeMemberPreset = (gameId, rawMemberPreset) => {
       ? { memberId: rawMemberPreset }
       : rawMemberPreset;
 
-  const { defaults = {} } = CHARACTERS[gameId][overrides.memberId];
+  const { defaults = {} } = CHARACTER[gameId][overrides.memberId];
 
   return { ...defaults, ...overrides };
 };
@@ -55,7 +55,7 @@ const initMember = (gameId, memberPreset, builds) => {
 const initTeam = (gameId, characterId, builds) => {
   const teamSize = getTeamSize(gameId);
   const teamPreset =
-    CHARACTERS[gameId][characterId].defaults?.team ??
+    CHARACTER[gameId][characterId].defaults?.team ??
     [characterId, ...Array(teamSize - 1).fill(null)];
   
   return teamPreset.map(rawMemberPreset => {

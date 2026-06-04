@@ -10,7 +10,7 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { CHARACTERS } from '@/data';
+import { CHARACTER } from '@/data';
 import { CustomAvatar } from '@/components';
 
 export const CharacterPicker = ({ gameId, currentId, updateTeam }) => {
@@ -19,7 +19,7 @@ export const CharacterPicker = ({ gameId, currentId, updateTeam }) => {
 
   const options = useMemo(() => {
     const searchLower = search.toLowerCase();
-    return Object.entries(CHARACTERS[gameId])
+    return Object.entries(CHARACTER[gameId])
       .filter(([_, { name }]) =>
         name.toLowerCase().includes(searchLower)
       )

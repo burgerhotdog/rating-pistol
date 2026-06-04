@@ -10,12 +10,12 @@ import {
   Tooltip as Tooltip2,
   Cell,
 } from 'recharts';
-import { MISC, CHARACTERS } from '@/data';
+import { MISC, CHARACTER } from '@/data';
 import { sumRotationDmg } from '@/utils';
 
 export const SubstatPriority = ({ isLoading, actionMap, actionMapsWithSub }) => {
   const { gameId, characterId } = useParams();
-  const { element } = CHARACTERS[gameId][characterId];
+  const { element } = CHARACTER[gameId][characterId];
   const rating = sumRotationDmg(actionMap);
   if (isLoading) return null;
 

@@ -1,4 +1,4 @@
-import { CHARACTERS, WEAPONS, MISC } from '@/data';
+import { CHARACTER, WEAPON, MISC } from '@/data';
 import { mergeEquipList, mergeStatMaps } from '@/utils';
 
 export function compileStatMap(gameId, characterId, build) {
@@ -6,8 +6,8 @@ export function compileStatMap(gameId, characterId, build) {
 
   return mergeStatMaps(
     MISC[gameId].DEFAULT_STATS,
-    CHARACTERS[gameId][characterId].stats,
-    WEAPONS[gameId][weaponId]?.stats ?? {},
+    CHARACTER[gameId][characterId].stats,
+    WEAPON[gameId][weaponId]?.stats ?? {},
     statMap ?? mergeEquipList(equipList)
   );
 }

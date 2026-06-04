@@ -4,7 +4,7 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
 import { useState } from 'react';
-import { CHARACTERS, MISC } from '@/data';
+import { CHARACTER, MISC } from '@/data';
 import { sumRotationDmg } from '@/utils';
 
 const renderLabel = ({ percent }) => {
@@ -26,7 +26,7 @@ function resolveDmgTypeLabel(gameId, dmgTypeId) {
 }
 
 function resolveOwnerLabel(gameId, ownerId) {
-  return CHARACTERS?.[gameId]?.[ownerId]?.name ?? ownerId;
+  return CHARACTER?.[gameId]?.[ownerId]?.name ?? ownerId;
 }
 
 /**
@@ -70,7 +70,7 @@ export const DamageBreakdown = ({ actionMap }) => {
     ? buildOwnerData(actionMap, gameId)
     : buildDmgTypeData(actionMap, gameId, characterId)).sort((a, b) => b.value - a.value);
 
-  const element = CHARACTERS[gameId][characterId].element;
+  const element = CHARACTER[gameId][characterId].element;
   const monoColor = MISC?.[gameId]?.ELEMENT_COLORS?.[element] ?? theme.palette.primary.main;
 
   const getSliceFill = (index, count) => {
@@ -84,7 +84,7 @@ export const DamageBreakdown = ({ actionMap }) => {
   };
 
   const getOwnerSliceFill = (ownerId) => {
-    const ownerElement = CHARACTERS?.[gameId]?.[ownerId]?.element;
+    const ownerElement = CHARACTER?.[gameId]?.[ownerId]?.element;
     const ownerElementColor = MISC?.[gameId]?.ELEMENT_COLORS?.[ownerElement];
     return alpha(ownerElementColor ?? monoColor, 0.95);
   };

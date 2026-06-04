@@ -14,17 +14,6 @@
     },
     "effects": [
       {
-        "applyWhen": "contact",
-        "applyOnAction": "FC-1",
-        "comboAction": {
-          "action": [
-            "FC-2",
-            "FC-3",
-            "FC-4"
-          ]
-        }
-      },
-      {
         "applyWhen": "cast",
         "applyOnCast": "IS",
         "statMap": {
@@ -122,6 +111,9 @@
         "RL-1",
         "RS-1",
         "FC-1",
+        "FC-2",
+        "FC-3",
+        "FC-4",
         "OS-1"
       ]
     }
