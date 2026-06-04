@@ -394,7 +394,7 @@
       },
       "2": {
         "name": "Glacier",
-        "prefix": "Ice Burst",
+        "tags": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -425,7 +425,7 @@
       },
       "3": {
         "name": "Ice Prism",
-        "prefix": "Ice Burst",
+        "tags": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -456,7 +456,7 @@
       },
       "4": {
         "name": "Ice Thorn",
-        "prefix": "Ice Burst",
+        "tags": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -1597,7 +1597,7 @@
       },
       "2": {
         "name": "Feral Gyrate 1",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1654,7 +1654,7 @@
       },
       "3": {
         "name": "Feral Gyrate 2",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1687,7 +1687,7 @@
       },
       "4": {
         "name": "Mountain Roamer",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -1720,7 +1720,7 @@
       },
       "5": {
         "name": "Stormy Kicks",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1777,7 +1777,7 @@
       },
       "6": {
         "name": "Tail Strike",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "MA",
         "considered": [
           "BA",
@@ -2634,7 +2634,7 @@
     "RL": {
       "1": {
         "name": "Frolicking 1",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2667,7 +2667,7 @@
       },
       "2": {
         "name": "Frolicking 2",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2700,7 +2700,7 @@
       },
       "3": {
         "name": "Frolicking 3",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2733,7 +2733,7 @@
       },
       "4": {
         "name": "Frolicking 4",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2766,7 +2766,7 @@
       },
       "5": {
         "name": "Heavy Attack",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -2798,7 +2798,7 @@
       },
       "6": {
         "name": "Rampage",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -2831,7 +2831,7 @@
       },
       "7": {
         "name": "Dodge Counter",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "DC",
         "considered": [
           "BA",
@@ -2938,7 +2938,7 @@
       },
       "2": {
         "name": "Rupture",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "RL",
         "considered": "RL",
         "multipliers": [
@@ -4008,7 +4008,7 @@
       },
       "3": {
         "name": "Hounds Roar 1",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "duration": 500,
@@ -4041,7 +4041,7 @@
       },
       "4": {
         "name": "Hounds Roar 2",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "duration": 500,
@@ -4100,7 +4100,7 @@
       },
       "5": {
         "name": "Hounds Roar 3",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4132,7 +4132,7 @@
       },
       "6": {
         "name": "Hounds Roar 4",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4165,7 +4165,7 @@
       },
       "7": {
         "name": "Hounds Roar 5",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4198,7 +4198,7 @@
       },
       "8": {
         "name": "Heavy Attack",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -4231,7 +4231,7 @@
       },
       "9": {
         "name": "Dodge Counter",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "DC",
         "considered": [
           "RL",
@@ -4384,7 +4384,7 @@
       },
       "2": {
         "name": "\"Death Messenger\"",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -9014,7 +9014,7 @@
     "FC": {
       "1": {
         "name": "Heavy Attack",
-        "prefix": "Starflower Blooms",
+        "tags": "Starflower Blooms",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -9070,7 +9070,7 @@
       },
       "2": {
         "name": "Mid-air Attack 1",
-        "prefix": "Starflower Blooms",
+        "tags": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9105,7 +9105,7 @@
       },
       "3": {
         "name": "Mid-air Attack 2",
-        "prefix": "Starflower Blooms",
+        "tags": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9140,7 +9140,7 @@
       },
       "4": {
         "name": "Mid-air Attack 3",
-        "prefix": "Starflower Blooms",
+        "tags": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9176,7 +9176,7 @@
       },
       "5": {
         "name": "Healing",
-        "prefix": "Starflower Blooms",
+        "tags": "Starflower Blooms",
         "type": "heal",
         "cast": "AUTO",
         "considered": "AUTO",
@@ -11003,7 +11003,7 @@
     "RS": {
       "1": {
         "name": "Capture",
-        "prefix": "True Sight",
+        "tags": "True Sight",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -11058,7 +11058,7 @@
       },
       "2": {
         "name": "Conquest",
-        "prefix": "True Sight",
+        "tags": "True Sight",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -11136,7 +11136,7 @@
       },
       "3": {
         "name": "Charge",
-        "prefix": "True Sight",
+        "tags": "True Sight",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -11972,7 +11972,7 @@
     "FC": {
       "1": {
         "name": "Basic Attack 1",
-        "prefix": "Incarnation",
+        "tags": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12003,7 +12003,7 @@
       },
       "2": {
         "name": "Basic Attack 2",
-        "prefix": "Incarnation",
+        "tags": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12080,7 +12080,7 @@
       },
       "3": {
         "name": "Basic Attack 3",
-        "prefix": "Incarnation",
+        "tags": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12134,7 +12134,7 @@
       },
       "4": {
         "name": "Basic Attack 4",
-        "prefix": "Incarnation",
+        "tags": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12189,7 +12189,7 @@
       },
       "5": {
         "name": "Heavy Attack",
-        "prefix": "Incarnation",
+        "tags": "Incarnation",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -12243,7 +12243,7 @@
       },
       "6": {
         "name": "Dodge Counter",
-        "prefix": "Incarnation",
+        "tags": "Incarnation",
         "cast": "DC",
         "considered": [
           "BA",
@@ -12324,7 +12324,7 @@
       },
       "7": {
         "name": "Crescent Divinity",
-        "prefix": "Incarnation",
+        "tags": "Incarnation",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -12402,7 +12402,7 @@
       },
       "8": {
         "name": "Solar Flare",
-        "prefix": "Illuminous Epiphany",
+        "tags": "Illuminous Epiphany",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -12434,7 +12434,7 @@
       },
       "9": {
         "name": "Stella Glamor",
-        "prefix": "Illuminous Epiphany",
+        "tags": "Illuminous Epiphany",
         "considered": "RS",
         "multipliers": [
           {

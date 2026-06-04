@@ -20,8 +20,8 @@ const FALLBACK_DMG_TYPE_LABELS = {
 
 function resolveDmgTypeLabel(gameId, dmgTypeId) {
   if (!dmgTypeId) return 'Unknown';
-  const mapped = MISC?.[gameId]?.SKILL_TYPES?.[dmgTypeId];
-  if (mapped) return mapped;
+  const mapped = MISC?.[gameId]?.SKILL?.[dmgTypeId];
+  if (mapped) return mapped.name;
   return FALLBACK_DMG_TYPE_LABELS[dmgTypeId] ?? dmgTypeId;
 }
 

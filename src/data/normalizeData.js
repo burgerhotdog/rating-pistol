@@ -130,8 +130,8 @@ export const normalizeActions = (gameId, characters, rawJson) => {
           actionDef.multipliers = actionRaw.multipliers;
         }
 
-        if (actionRaw.prefix) {
-          actionDef.prefix = actionRaw.prefix;
+        if (actionRaw.tags) {
+          actionDef.tags = toArray(actionRaw.tags);
         }
 
         skillDef[actionId] = actionDef;

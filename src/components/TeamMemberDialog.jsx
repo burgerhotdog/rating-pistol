@@ -445,8 +445,8 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
   }
 
   return (
-    <Box>
-      <Typography variant="subtitle2" sx={{ mb: 1 }}>
+    <Stack spacing={0.5}>
+      <Typography variant="subtitle1">
         Set Bonuses
       </Typography>
 
@@ -518,59 +518,27 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
         onSelect={handleSelect}
         remainingCapacity={currentRemainingCapacity}
       />
-    </Box>
+    </Stack>
   );
 }
 
-const SKILL_GROUP_ORDER = ['BA', 'RS', 'FC', 'RL', 'IS', 'OS'];
-const SKILL_GROUP_LABELS = {
-  BA: 'Normal Attack',
-  RS: 'Resonance Skill',
-  FC: 'Forte Circuit',
-  RL: 'Resonance Liberation',
-  IS: 'Intro Skill',
-  OS: 'Outro Skill',
-};
-
 function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
-  const abilityTypeLabels = MISC[gameId]?.SKILL_TYPES ?? {};
-
-  // Build grouped actions: { skillId: [{ actionKey, name }, ...] }
-  const groupedOptions = useMemo(() => {
-    if (!characterId || !ACTION[gameId]?.[characterId]) return {};
-    const skillTree = ACTION[gameId][characterId];
-    const groups = {};
-    for (const [skillId, skillDef] of Object.entries(skillTree)) {
-      groups[skillId] = Object.entries(skillDef).map(([actionId, actionDef]) => ({
-        actionKey: `${characterId}-${skillId}-${actionId}`,
-        name: actionDef.name,
-      }));
-    }
-    return groups;
-  }, [gameId, characterId]);
-
-  // Ordered list of skill group keys present for this character
-  const skillOrder = useMemo(() => {
-    const keys = Object.keys(groupedOptions);
-    return [
-      ...SKILL_GROUP_ORDER.filter(k => keys.includes(k)),
-      ...keys.filter(k => !SKILL_GROUP_ORDER.includes(k)),
-    ];
-  }, [groupedOptions]);
+  const skillTree = ACTION[gameId][characterId];
+  const columnOrder = MISC[gameId].SKILL_TREE_COLUMNS;
 
   // Apply search filter per group
   const filteredGroups = useMemo(() => {
     const lower = search.toLowerCase();
     const result = {};
-    for (const skillId of skillOrder) {
-      const actions = groupedOptions[skillId] ?? [];
-      result[skillId] = lower
+    for (const { id } of columnOrder) {
+      const actions = Object.values(skillTree[id]);
+      result[id] = lower
         ? actions.filter(({ name }) => name.toLowerCase().includes(lower))
         : actions;
     }
     return result;
-  }, [groupedOptions, skillOrder, search]);
+  }, [skillTree, search, columnOrder]);
 
   const handleSelect = (actionKey) => {
     onSelect(actionKey);
@@ -578,18 +546,16 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
     onClose();
   };
 
-  const totalVisible = skillOrder.reduce((sum, id) => sum + (filteredGroups[id]?.length ?? 0), 0);
+  const totalVisible = columnOrder.reduce((sum, { id }) => sum + (filteredGroups[id]?.length ?? 0), 0);
 
   // Split into top row (all except OS) and bottom row (OS only)
-  const topIds = skillOrder.filter(id => id !== 'OS');
-  const hasOs = skillOrder.includes('OS');
+  const topIds = columnOrder.filter(({ id }) => id !== 'OS');
 
-  const renderColumn = (skillId) => {
-    const filtered = filteredGroups[skillId] ?? [];
-    const total = groupedOptions[skillId]?.length ?? 0;
-    const label = SKILL_GROUP_LABELS[skillId] ?? abilityTypeLabels[skillId] ?? skillId;
+  const renderColumn = ({ id, label }) => {
+    const filtered = filteredGroups[id] ?? [];
+    const total = Object.keys(skillTree[id]).length ?? 0;
     return (
-      <Box key={skillId}>
+      <Box key={id}>
         <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 'bold', display: 'block', mb: 0.5 }}>
           {label}{' '}
           <Typography variant="caption" color="text.disabled" component="span">
@@ -597,12 +563,12 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
           </Typography>
         </Typography>
         <Stack spacing={0.5}>
-          {filtered.map(({ actionKey, name }) => (
+          {filtered.map(({ key, name }) => (
             <Button
-              key={actionKey}
+              key={key}
               variant="outlined"
               size="small"
-              onClick={() => handleSelect(actionKey)}
+              onClick={() => handleSelect(key)}
               sx={{ justifyContent: 'flex-start', textTransform: 'none', fontSize: '0.75rem' }}
             >
               {name}
@@ -647,7 +613,7 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
             )}
 
             {/* Bottom row: OS centered at same column width as top grid */}
-            {hasOs && (
+            {gameId === 'wuthering-waves' && (
               <>
                 <Divider />
                 <Box
@@ -657,7 +623,7 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
                   }}
                 >
                   <Box sx={{ gridColumn: `${Math.ceil(topIds.length / 2)}` }}>
-                    {renderColumn('OS')}
+                    {renderColumn({ id: 'OS', label: 'Outro Skill' })}
                   </Box>
                 </Box>
               </>
@@ -681,7 +647,8 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
       <Typography variant="subtitle1" color="text.secondary">
         {label}
       </Typography>
-      <Box position="relative">
+
+      <Box sx={{ position: 'relative' }}>
         <Card sx={{ width: 80 }}>
           <CardActionArea onClick={onClick} disabled={disabled}>
             {imageUrl ? (
@@ -747,7 +714,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
   };
 
   const [ownerId, skillId, actionId] = actionKey.split('-');
-  const { cast, name, prefix } = ACTION[gameId][ownerId][skillId][actionId];
+  const { cast, name, tags = [] } = ACTION[gameId][ownerId][skillId][actionId];
 
   return (
     <Box
@@ -782,6 +749,23 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
         <DragIndicatorIcon sx={{ fontSize: 18 }} />
       </Box>
 
+      {/* Tags chips */}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
+        {tags.map(tag => (
+          <Chip
+            key={tag}
+            size="small"
+            label={tag}
+            sx={{
+              height: 20,
+              fontSize: '0.65rem',
+              flexShrink: 0,
+              '& .MuiChip-label': { px: '5px' },
+            }}
+          />
+        ))}
+      </Box>
+
       {/* Action name */}
       <Typography variant="body2" noWrap sx={{ flex: 1, minWidth: 0 }}>
         {name}
@@ -793,26 +777,12 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
           <Chip
             key={castType}
             size="small"
-            label={skillTypeLabels[castType] ?? castType}
+            label={skillTypeLabels[castType]?.short ?? castType}
             variant="outlined"
             sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
           />
         ))}
       </Box>
-
-      {/* Prefix badge */}
-      {prefix && (
-        <Chip
-          size="small"
-          label={prefix}
-          sx={{
-            height: 20,
-            fontSize: '0.65rem',
-            flexShrink: 0,
-            '& .MuiChip-label': { px: '6px' },
-          }}
-        />
-      )}
 
       {/* Delete — hover only */}
       <IconButton className="rotation-delete" size="small" onClick={onRemove} sx={{ flexShrink: 0 }}>
@@ -825,7 +795,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
 function RotationEditor({ gameId, characterId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
-  const skillTypeLabels = MISC[gameId]?.SKILL_TYPES ?? {};
+  const skillTypeLabels = MISC[gameId]?.SKILL ?? {};
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -1018,7 +988,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   return (
     <>
-      <Dialog open={open} onClose={handleCancel} fullWidth maxWidth="md">
+      <Dialog open={open} onClose={handleCancel} fullWidth maxWidth="sm">
         <DialogTitle>Configure Team Member</DialogTitle>
 
         <DialogContent>

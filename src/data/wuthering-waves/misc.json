@@ -19,18 +19,74 @@
     "SPECTRO": "#b7a835",
     "HAVOC": "#be4981"
   },
-  "SKILL_TYPES": {
-    "BA": "Basic Attack",
-    "HA": "Heavy Attack",
-    "MA": "Mid-air Attack",
-    "DC": "Dodge Counter",
-    "RS": "Resonance Skill",
-    "RL": "Resonance Liberation",
-    "IS": "Intro Skill",
-    "OS": "Outro Skill",
-    "ES": "Echo Skill",
-    "CA": "Coordinated Attack"
+  "SKILL": {
+    "BA": {
+      "name": "Basic Attack",
+      "short": "Basic"
+    },
+    "HA": {
+      "name": "Heavy Attack",
+      "short": "Heavy"
+    },
+    "MA": {
+      "name": "Mid-air Attack",
+      "short": "Mid-air"
+    },
+    "DC": {
+      "name": "Dodge Counter",
+      "short": "Dodge"
+    },
+    "RS": {
+      "name": "Resonance Skill",
+      "short": "Skill"
+    },
+    "RL": {
+      "name": "Resonance Liberation",
+      "short": "Liberation"
+    },
+    "IS": {
+      "name": "Intro Skill",
+      "short": "Intro"
+    },
+    "OS": {
+      "name": "Outro Skill",
+      "short": "Outro"
+    },
+    "ES": {
+      "name": "Echo Skill",
+      "short": "Echo"
+    },
+    "CA": {
+      "name": "Coordinated Attack",
+      "short": "Coordinated"
+    }
   },
+  "SKILL_TREE_COLUMNS": [
+    {
+      "id": "BA",
+      "label": "Normal Attack"
+    },
+    {
+      "id": "RS",
+      "label": "Resonance Skill"
+    },
+    {
+      "id": "FC",
+      "label": "Forte Circuit"
+    },
+    {
+      "id": "RL",
+      "label": "Resonance Liberation"
+    },
+    {
+      "id": "IS",
+      "label": "Intro Skill"
+    },
+    {
+      "id": "OS",
+      "label": "Outro Skill"
+    }
+  ],
   "WEAPON_TYPES": [
     "BROADBLADE",
     "SWORD",
