@@ -19,6 +19,28 @@
     "ICE": "#44d3d7",
     "PHYSICAL": "#e9a117"
   },
+  "SKILL_TREE_COLUMNS": [
+    {
+      "id": "BA",
+      "label": "Basic"
+    },
+    {
+      "id": "DA",
+      "label": "Dodge"
+    },
+    {
+      "id": "A",
+      "label": "Assist"
+    },
+    {
+      "id": "S",
+      "label": "Special"
+    },
+    {
+      "id": "C",
+      "label": "Chain"
+    }
+  ],
   "WEAPON_TYPES": [
     "ATTACK",
     "SUPPORT",

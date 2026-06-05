@@ -9,7 +9,7 @@ const HeaderNav = () => {
   const [isFanHovered, setIsFanHovered] = useState(false);
 
   return (
-    <Stack direction="row" alignItems="center" spacing={1}>
+    <Stack direction="row" sx={{ alignItems: 'center' }} spacing={1}>
       <Box
         component={Link}
         to="/"
@@ -31,7 +31,7 @@ const HeaderNav = () => {
           src={ICON_ASSETS.default}
           sx={{ width: 40 }}
         />
-        <Typography variant="h5" fontWeight="bold">
+        <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
           Rating Pistol
         </Typography>
       </Box>

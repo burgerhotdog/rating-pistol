@@ -1,6 +1,7 @@
-{
-  "1102": {
-    "BA": {
+[
+  {
+    "id": "1102",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -393,7 +394,7 @@
       },
       "2": {
         "name": "Glacier",
-        "prefix": "Ice Burst",
+        "tags": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -424,7 +425,7 @@
       },
       "3": {
         "name": "Ice Prism",
-        "prefix": "Ice Burst",
+        "tags": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -455,7 +456,7 @@
       },
       "4": {
         "name": "Ice Thorn",
-        "prefix": "Ice Burst",
+        "tags": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -492,8 +493,9 @@
       }
     }
   },
-  "1103": {
-    "BA": {
+  {
+    "id": "1103",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -1112,8 +1114,9 @@
       }
     }
   },
-  "1104": {
-    "BA": {
+  {
+    "id": "1104",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -1594,7 +1597,7 @@
       },
       "2": {
         "name": "Feral Gyrate 1",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1651,7 +1654,7 @@
       },
       "3": {
         "name": "Feral Gyrate 2",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1684,7 +1687,7 @@
       },
       "4": {
         "name": "Mountain Roamer",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -1717,7 +1720,7 @@
       },
       "5": {
         "name": "Stormy Kicks",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1774,7 +1777,7 @@
       },
       "6": {
         "name": "Tail Strike",
-        "prefix": "Striding Lion",
+        "tags": "Striding Lion",
         "cast": "MA",
         "considered": [
           "BA",
@@ -1816,8 +1819,9 @@
       }
     }
   },
-  "1202": {
-    "BA": {
+  {
+    "id": "1202",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -2301,8 +2305,9 @@
       }
     }
   },
-  "1203": {
-    "BA": {
+  {
+    "id": "1203",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -2629,7 +2634,7 @@
     "RL": {
       "1": {
         "name": "Frolicking 1",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2662,7 +2667,7 @@
       },
       "2": {
         "name": "Frolicking 2",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2695,7 +2700,7 @@
       },
       "3": {
         "name": "Frolicking 3",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2728,7 +2733,7 @@
       },
       "4": {
         "name": "Frolicking 4",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2761,7 +2766,7 @@
       },
       "5": {
         "name": "Heavy Attack",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -2793,7 +2798,7 @@
       },
       "6": {
         "name": "Rampage",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -2826,7 +2831,7 @@
       },
       "7": {
         "name": "Dodge Counter",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "DC",
         "considered": [
           "BA",
@@ -2933,7 +2938,7 @@
       },
       "2": {
         "name": "Rupture",
-        "prefix": "Cosmos",
+        "tags": "Cosmos",
         "cast": "RL",
         "considered": "RL",
         "multipliers": [
@@ -2996,8 +3001,9 @@
       }
     }
   },
-  "1204": {
-    "BA": {
+  {
+    "id": "1204",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -3486,8 +3492,9 @@
       }
     }
   },
-  "1301": {
-    "BA": {
+  {
+    "id": "1301",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -4001,7 +4008,7 @@
       },
       "3": {
         "name": "Hounds Roar 1",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "duration": 500,
@@ -4034,7 +4041,7 @@
       },
       "4": {
         "name": "Hounds Roar 2",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "duration": 500,
@@ -4093,7 +4100,7 @@
       },
       "5": {
         "name": "Hounds Roar 3",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4125,7 +4132,7 @@
       },
       "6": {
         "name": "Hounds Roar 4",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4158,7 +4165,7 @@
       },
       "7": {
         "name": "Hounds Roar 5",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4191,7 +4198,7 @@
       },
       "8": {
         "name": "Heavy Attack",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -4224,7 +4231,7 @@
       },
       "9": {
         "name": "Dodge Counter",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "DC",
         "considered": [
           "RL",
@@ -4377,7 +4384,7 @@
       },
       "2": {
         "name": "\"Death Messenger\"",
-        "prefix": "Deathblade Gear",
+        "tags": "Deathblade Gear",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -4440,8 +4447,9 @@
       }
     }
   },
-  "1302": {
-    "BA": {
+  {
+    "id": "1302",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -4913,8 +4921,9 @@
       }
     }
   },
-  "1303": {
-    "BA": {
+  {
+    "id": "1303",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -5822,8 +5831,9 @@
       }
     }
   },
-  "1402": {
-    "BA": {
+  {
+    "id": "1402",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -6041,7 +6051,7 @@
         ]
       },
       "7": {
-        "name": "Heavy Attack: Zephyr Song",
+        "name": "Zephyr Song",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -6258,7 +6268,7 @@
     },
     "FC": {
       "1": {
-        "name": "Heavy Attack: Stormy Strike",
+        "name": "Stormy Strike",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -6357,8 +6367,9 @@
       }
     }
   },
-  "1403": {
-    "BA": {
+  {
+    "id": "1403",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -6680,8 +6691,7 @@
       },
       "2": {
         "name": "Mist Avatar",
-        "cast": "RS",
-        "considered": "RS"
+        "cast": "RS"
       }
     },
     "RL": {
@@ -6783,9 +6793,7 @@
         ]
       },
       "2": {
-        "name": "Mistcloak Dash",
-        "cast": "DASH",
-        "considered": "DASH"
+        "name": "Mistcloak Dash"
       }
     },
     "OS": {
@@ -6795,8 +6803,9 @@
       }
     }
   },
-  "1404": {
-    "BA": {
+  {
+    "id": "1404",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -7013,7 +7022,7 @@
         ]
       },
       "7": {
-        "name": "Heavy Attack: Windborne Strike",
+        "name": "Windborne Strike",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7044,7 +7053,7 @@
         ]
       },
       "8": {
-        "name": "Heavy Attack: Abyssal Slash",
+        "name": "Abyssal Slash",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7245,7 +7254,8 @@
     },
     "RL": {
       "1": {
-        "name": "Heavy Attack: Lance Of Qingloong 1",
+        "name": "Lance Of Qingloong 1",
+        "tags": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7277,7 +7287,8 @@
         ]
       },
       "2": {
-        "name": "Heavy Attack: Lance Of Qingloong 2",
+        "name": "Lance Of Qingloong 2",
+        "tags": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7309,7 +7320,8 @@
         ]
       },
       "3": {
-        "name": "Heavy Attack: Lance Of Qingloong 3",
+        "name": "Lance Of Qingloong 3",
+        "tags": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7381,7 +7393,7 @@
     },
     "FC": {
       "1": {
-        "name": "Resonance Liberation: Emerald Storm: Finale",
+        "name": "Emerald Storm - Finale",
         "cast": "RL",
         "considered": "HA",
         "multipliers": [
@@ -7444,8 +7456,9 @@
       }
     }
   },
-  "1405": {
-    "BA": {
+  {
+    "id": "1405",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -8370,8 +8383,9 @@
       }
     }
   },
-  "1503": {
-    "BA": {
+  {
+    "id": "1503",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -8824,7 +8838,6 @@
       "2": {
         "name": "Arboreal Flourish Healing",
         "type": "heal",
-        "considered": null,
         "multipliers": [
           {
             "flat": [
@@ -8913,7 +8926,6 @@
       "4": {
         "name": "Photosynthesis Mark Healing",
         "type": "heal",
-        "considered": null,
         "multipliers": [
           {
             "flat": [
@@ -9001,7 +9013,8 @@
     },
     "FC": {
       "1": {
-        "name": "Starflower Blooms: Heavy Attack",
+        "name": "Heavy Attack",
+        "tags": "Starflower Blooms",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -9056,7 +9069,8 @@
         ]
       },
       "2": {
-        "name": "Starflower Blooms: Mid-air Attack 1",
+        "name": "Mid-air Attack 1",
+        "tags": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9090,7 +9104,8 @@
         ]
       },
       "3": {
-        "name": "Starflower Blooms: Mid-air Attack 2",
+        "name": "Mid-air Attack 2",
+        "tags": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9124,7 +9139,8 @@
         ]
       },
       "4": {
-        "name": "Starflower Blooms: Mid-air Attack 3",
+        "name": "Mid-air Attack 3",
+        "tags": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9159,7 +9175,8 @@
         ]
       },
       "5": {
-        "name": "Starflower Blooms Healing",
+        "name": "Healing",
+        "tags": "Starflower Blooms",
         "type": "heal",
         "cast": "AUTO",
         "considered": "AUTO",
@@ -9223,8 +9240,9 @@
       }
     }
   },
-  "1601": {
-    "BA": {
+  {
+    "id": "1601",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -9926,8 +9944,9 @@
       }
     }
   },
-  "1602": {
-    "BA": {
+  {
+    "id": "1602",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -10551,8 +10570,9 @@
       }
     }
   },
-  "1205": {
-    "BA": {
+  {
+    "id": "1205",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -10703,7 +10723,10 @@
       "5": {
         "name": "Mid-air Attack 1",
         "cast": "MA",
-        "considered": "BA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10733,7 +10756,10 @@
       "6": {
         "name": "Mid-air Attack 2",
         "cast": "MA",
-        "considered": "BA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10764,7 +10790,10 @@
       "7": {
         "name": "Mid-air Attack 3",
         "cast": "MA",
-        "considered": "BA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10795,7 +10824,10 @@
       "8": {
         "name": "Mid-air Attack 4",
         "cast": "MA",
-        "considered": "BA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10902,8 +10934,11 @@
       },
       "10": {
         "name": "Mid-air Heavy Attack",
-        "cast": "MHA",
-        "considered": "HA",
+        "cast": "MA",
+        "considered": [
+          "HA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10967,7 +11002,8 @@
     },
     "RS": {
       "1": {
-        "name": "True Sight: Capture",
+        "name": "Capture",
+        "tags": "True Sight",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -11021,7 +11057,8 @@
         ]
       },
       "2": {
-        "name": "True Sight: Conquest",
+        "name": "Conquest",
+        "tags": "True Sight",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -11098,8 +11135,9 @@
         ]
       },
       "3": {
-        "name": "True Sight: Charge",
-        "cast": "JA",
+        "name": "Charge",
+        "tags": "True Sight",
+        "cast": "BA",
         "considered": "RS",
         "multipliers": [
           {
@@ -11302,8 +11340,9 @@
       }
     }
   },
-  "1304": {
-    "BA": {
+  {
+    "id": "1304",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -11932,7 +11971,8 @@
     },
     "FC": {
       "1": {
-        "name": "Incarnation: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tags": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -11962,7 +12002,8 @@
         ]
       },
       "2": {
-        "name": "Incarnation: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tags": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12038,7 +12079,8 @@
         ]
       },
       "3": {
-        "name": "Incarnation: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tags": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12091,7 +12133,8 @@
         ]
       },
       "4": {
-        "name": "Incarnation: Basic Attack 4",
+        "name": "Basic Attack 4",
+        "tags": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12145,7 +12188,8 @@
         ]
       },
       "5": {
-        "name": "Incarnation: Heavy Attack",
+        "name": "Heavy Attack",
+        "tags": "Incarnation",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -12198,7 +12242,8 @@
         ]
       },
       "6": {
-        "name": "Incarnation: Dodge Counter",
+        "name": "Dodge Counter",
+        "tags": "Incarnation",
         "cast": "DC",
         "considered": [
           "BA",
@@ -12279,6 +12324,7 @@
       },
       "7": {
         "name": "Crescent Divinity",
+        "tags": "Incarnation",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -12355,7 +12401,8 @@
         ]
       },
       "8": {
-        "name": "Illuminous Epiphany: Solar Flare",
+        "name": "Solar Flare",
+        "tags": "Illuminous Epiphany",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -12386,8 +12433,8 @@
         ]
       },
       "9": {
-        "name": "Illuminous Epiphany: Stella Glamor",
-        "cast": "AUTO",
+        "name": "Stella Glamor",
+        "tags": "Illuminous Epiphany",
         "considered": "RS",
         "multipliers": [
           {
@@ -12417,9 +12464,7 @@
       },
       "10": {
         "name": "Additional multiplier per Incandescence",
-        "cast": "AUTO",
         "considered": "RS",
-        "duration": 0,
         "multipliers": [
           {
             "mv": [
@@ -12442,8 +12487,7 @@
               0.7025,
               0.7393,
               0.776
-            ],
-            "times": 50
+            ]
           }
         ]
       }
@@ -12455,8 +12499,9 @@
       }
     }
   },
-  "1105": {
-    "BA": {
+  {
+    "id": "1105",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -12740,9 +12785,7 @@
       },
       "2": {
         "name": "Living Canvas",
-        "cast": "RL",
-        "considered": "RL",
-        "duration": 0
+        "cast": "RL"
       }
     },
     "IS": {
@@ -12879,8 +12922,9 @@
       }
     }
   },
-  "1305": {
-    "BA": {
+  {
+    "id": "1305",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -13382,9 +13426,12 @@
         ]
       },
       "6": {
-        "name": "Dodge Counter: Unfathomed",
-        "cast": "BA",
-        "considered": "RL",
+        "name": "Unfathomed",
+        "cast": "DC",
+        "considered": [
+          "RL",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -13561,9 +13608,12 @@
         ]
       },
       "3": {
-        "name": "Mid-air Attack: Revamp",
-        "cast": "BA",
-        "considered": "RL",
+        "name": "Revamp",
+        "cast": "MA",
+        "considered": [
+          "RL",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -13625,8 +13675,9 @@
       }
     }
   },
-  "1106": {
-    "BA": {
+  {
+    "id": "1106",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -13800,7 +13851,7 @@
         ]
       },
       "5": {
-        "name": "Heavy Attack: Frostfall",
+        "name": "Frostfall",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -14478,8 +14529,9 @@
       }
     }
   },
-  "1505": {
-    "BA": {
+  {
+    "id": "1505",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -15145,8 +15197,9 @@
       }
     }
   },
-  "1504": {
-    "BA": {
+  {
+    "id": "1504",
+    "NA": {
       "1": {
         "name": "Yellow Light: Basic Attack",
         "cast": "BA",
@@ -15960,8 +16013,9 @@
       }
     }
   },
-  "1603": {
-    "BA": {
+  {
+    "id": "1603",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -16619,8 +16673,9 @@
       }
     }
   },
-  "1107": {
-    "BA": {
+  {
+    "id": "1107",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -17562,8 +17617,9 @@
       }
     }
   },
-  "1606": {
-    "BA": {
+  {
+    "id": "1606",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -18028,8 +18084,9 @@
       }
     }
   },
-  "1206": {
-    "BA": {
+  {
+    "id": "1206",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -18327,8 +18384,11 @@
       },
       "8": {
         "name": "Mid-air Attack 1: Charged Attack",
-        "cast": "HK",
-        "considered": "HK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18407,8 +18467,11 @@
       },
       "9": {
         "name": "Mid-air Attack 1: Flip",
-        "cast": "RK",
-        "considered": "RK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18461,7 +18524,7 @@
         ]
       },
       "10": {
-        "name": "Mid-air Attack 1 Slash",
+        "name": "Mid-air Attack 1: Slash",
         "cast": "MA",
         "considered": [
           "BA",
@@ -18555,8 +18618,11 @@
       },
       "12": {
         "name": "Mid-air Attack 2: Charged Attack",
-        "cast": "HK",
-        "considered": "HK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18587,8 +18653,11 @@
       },
       "13": {
         "name": "Mid-air Attack 2: Flip",
-        "cast": "RK",
-        "considered": "RK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18677,8 +18746,11 @@
       },
       "15": {
         "name": "Mid-air Attack 3: Flip",
-        "cast": "RK",
-        "considered": "RK",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -19384,8 +19456,9 @@
       }
     }
   },
-  "1506": {
-    "BA": {
+  {
+    "id": "1506",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -19976,8 +20049,9 @@
       }
     }
   },
-  "1607": {
-    "BA": {
+  {
+    "id": "1607",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -20821,8 +20895,9 @@
       }
     }
   },
-  "1407": {
-    "BA": {
+  {
+    "id": "1407",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -21405,8 +21480,9 @@
       }
     }
   },
-  "1507": {
-    "BA": {
+  {
+    "id": "1507",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -22092,6 +22168,7 @@
     "FC": {
       "1": {
         "name": "Heavy Slash - Daybreak",
+        "tags": "Inferno Mode",
         "cast": "BA",
         "considered": [
           "HA",
@@ -22126,6 +22203,7 @@
       },
       "2": {
         "name": "Heavy Slash - Dawning",
+        "tags": "Inferno Mode",
         "cast": "BA",
         "considered": [
           "HA",
@@ -22160,6 +22238,7 @@
       },
       "3": {
         "name": "Heavy Slash - Nightfall",
+        "tags": "Inferno Mode",
         "cast": "BA",
         "considered": [
           "HA",
@@ -22222,7 +22301,6 @@
           "HA",
           "FRAZZLE"
         ],
-        "duration": 0,
         "multipliers": [
           {
             "mv": [
@@ -22252,6 +22330,7 @@
       },
       "5": {
         "name": "Heavy Slash - Lightsmash",
+        "tags": "Inferno Mode",
         "considered": [
           "HA",
           "FRAZZLE"
@@ -22292,7 +22371,6 @@
           "OS",
           "FRAZZLE"
         ],
-        "duration": 0,
         "multipliers": [
           {
             "mv": 1.5
@@ -22301,8 +22379,9 @@
       }
     }
   },
-  "1207": {
-    "BA": {
+  {
+    "id": "1207",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -22605,7 +22684,7 @@
         ]
       },
       "6": {
-        "name": "Heavy Attack - Wolf's Gnawing",
+        "name": "Wolf's Gnawing",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -22660,7 +22739,7 @@
         ]
       },
       "7": {
-        "name": "Heavy Attack - Wolf's Claw",
+        "name": "Wolf's Claw",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -22891,7 +22970,7 @@
         ]
       },
       "11": {
-        "name": "Mid-air Attack - Firestrike",
+        "name": "Firestrike",
         "cast": "MA",
         "considered": "HA",
         "multipliers": [
@@ -22947,7 +23026,7 @@
       },
       "12": {
         "name": "Plunging Attack",
-        "cast": "MHA",
+        "cast": "MA",
         "considered": "BA",
         "multipliers": [
           {
@@ -23025,7 +23104,7 @@
         ]
       },
       "13": {
-        "name": "Basic Attack - Starfall",
+        "name": "Starfall",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -23605,8 +23684,9 @@
       }
     }
   },
-  "1409": {
-    "BA": {
+  {
+    "id": "1409",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -25300,8 +25380,9 @@
       }
     }
   },
-  "1608": {
-    "BA": {
+  {
+    "id": "1608",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -26108,8 +26189,9 @@
       }
     }
   },
-  "1306": {
-    "BA": {
+  {
+    "id": "1306",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -26238,7 +26320,7 @@
         ]
       },
       "5": {
-        "name": "Heavy Attack: Steelclash",
+        "name": "Steelclash",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -26341,8 +26423,15 @@
       },
       "8": {
         "name": "Mid-air Dodge Counter",
-        "cast": "MDC",
-        "considered": "MDC",
+        "cast": [
+          "MA",
+          "DC"
+        ],
+        "considered": [
+          "BA",
+          "MA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -26372,7 +26461,7 @@
         ]
       },
       "9": {
-        "name": "Heavy Attack - Thunderoar: Backstep",
+        "name": "Thunderoar - Backstep",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -26403,8 +26492,8 @@
         ]
       },
       "10": {
-        "name": "Heavy Attack - Thunderoar: Spinslash",
-        "cast": "RK",
+        "name": "Thunderoar - Spinslash",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -26435,8 +26524,8 @@
         ]
       },
       "11": {
-        "name": "Heavy Attack - Thunderoar: Uppercut",
-        "cast": "JA",
+        "name": "Thunderoar - Uppercut",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -26467,9 +26556,12 @@
         ]
       },
       "12": {
-        "name": "Dodge Counter - Heavy Attack: Steelclash",
+        "name": "Steelclash",
         "cast": "DC",
-        "considered": "HA",
+        "considered": [
+          "HA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -26499,9 +26591,12 @@
         ]
       },
       "13": {
-        "name": "Dodge Counter - Thunderoar: Backstep",
+        "name": "Thunderoar - Backstep",
         "cast": "DC",
-        "considered": "HA",
+        "considered": [
+          "HA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -27001,8 +27096,9 @@
       }
     }
   },
-  "1410": {
-    "BA": {
+  {
+    "id": "1410",
+    "NA": {
       "1": {
         "name": "Moonring: Basic Attack 1",
         "cast": "BA",
@@ -28147,8 +28243,9 @@
       }
     }
   },
-  "1208": {
-    "BA": {
+  {
+    "id": "1208",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -29507,8 +29604,9 @@
       }
     }
   },
-  "1411": {
-    "BA": {
+  {
+    "id": "1411",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -30595,8 +30693,9 @@
       }
     }
   },
-  "1307": {
-    "BA": {
+  {
+    "id": "1307",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -31225,8 +31324,9 @@
       }
     }
   },
-  "1508": {
-    "BA": {
+  {
+    "id": "1508",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -32133,6 +32233,7 @@
     "FC": {
       "1": {
         "name": "Sawring - Blitz 1",
+        "tags": "Chainsaw Mode",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -32165,6 +32266,7 @@
       },
       "2": {
         "name": "Sawring - Blitz 2",
+        "tags": "Chainsaw Mode",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -32196,8 +32298,9 @@
         ]
       },
       "3": {
-        "name": "Sawring - Blitz Stage 2 Hold",
-        "cast": "HK",
+        "name": "Sawring - Blitz 2: Hold",
+        "tags": "Chainsaw Mode",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -32228,8 +32331,9 @@
         ]
       },
       "4": {
-        "name": "Sawring - Blitz Stage 2: Discordance",
-        "cast": "RK",
+        "name": "Sawring - Blitz 2: Discordance",
+        "tags": "Chainsaw Mode",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -32261,6 +32365,7 @@
       },
       "5": {
         "name": "Sawring - Blitz 3",
+        "tags": "Chainsaw Mode",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -32292,8 +32397,9 @@
         ]
       },
       "6": {
-        "name": "Sawring - Blitz Stage 3 Hold",
-        "cast": "HK",
+        "name": "Sawring - Blitz 3: Hold",
+        "tags": "Chainsaw Mode",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -32324,8 +32430,9 @@
         ]
       },
       "7": {
-        "name": "Sawring - Blitz Stage 3: Falltone",
-        "cast": "RK",
+        "name": "Sawring - Blitz 3: Falltone",
+        "tags": "Chainsaw Mode",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -32356,9 +32463,13 @@
         ]
       },
       "8": {
-        "name": "Chainsaw Mode - Dodge Counter",
+        "name": "Dodge Counter",
+        "tags": "Chainsaw Mode",
         "cast": "DC",
-        "considered": "RL",
+        "considered": [
+          "RL",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -32388,9 +32499,13 @@
         ]
       },
       "9": {
-        "name": "Chainsaw Mode - Dodge Counter Hold",
-        "cast": "HK",
-        "considered": "RL",
+        "name": "Dodge Counter: Hold",
+        "tags": "Chainsaw Mode",
+        "cast": "DC",
+        "considered": [
+          "RL",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -32421,6 +32536,7 @@
       },
       "10": {
         "name": "Sawring - Eradication",
+        "tags": "Chainsaw Mode",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -32569,8 +32685,9 @@
       }
     }
   },
-  "1209": {
-    "BA": {
+  {
+    "id": "1209",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -33557,8 +33674,9 @@
       }
     }
   },
-  "1509": {
-    "BA": {
+  {
+    "id": "1509",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -34751,8 +34869,9 @@
       }
     }
   },
-  "1210": {
-    "BA": {
+  {
+    "id": "1210",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -36253,8 +36372,9 @@
       }
     }
   },
-  "1510": {
-    "BA": {
+  {
+    "id": "1510",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -37240,8 +37360,9 @@
       }
     }
   },
-  "1412": {
-    "BA": {
+  {
+    "id": "1412",
+    "NA": {
       "1": {
         "name": "Basic Attack 1",
         "cast": "BA",
@@ -38393,8 +38514,9 @@
       }
     }
   },
-  "1108": {
-    "BA": {
+  {
+    "id": "1108",
+    "NA": {
       "1": {
         "name": "Present Self: Basic Attack 1",
         "cast": "BA",
@@ -39704,8 +39826,9 @@
       }
     }
   },
-  "1211": {
-    "BA": {
+  {
+    "id": "1211",
+    "NA": {
       "1": {
         "name": "Stagecraft Form: Basic Attack 1",
         "cast": "BA",
@@ -40782,4 +40905,4 @@
       }
     }
   }
-}
+]

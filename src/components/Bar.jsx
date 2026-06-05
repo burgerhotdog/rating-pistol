@@ -19,7 +19,7 @@ export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) =>
   return (
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Stack spacing={2} sx={{ width: '50%', maxWidth: 360 }}>
-        <Typography variant="body2" color="text.secondary" textAlign="center">
+        <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
           {statusMessage || 'Running simulation...'}
         </Typography>
 
@@ -34,7 +34,7 @@ export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) =>
           }}
         />
 
-        <Box display="flex" justifyContent="space-between">
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant="caption" color="text.secondary">
             {currentMember ? (completed === 0 ? `${currentMember}: Constructing baseline scores...` : `${currentMember}: Week ${completed}: Trial ${trial}`) : ''}
           </Typography>

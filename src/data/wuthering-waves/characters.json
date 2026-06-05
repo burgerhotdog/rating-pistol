@@ -1,5 +1,6 @@
-{
-  "1102": {
+[
+  {
+    "id": "1102",
     "name": "Sanhua",
     "quality": 4,
     "element": "GLACIO",
@@ -13,17 +14,6 @@
     },
     "effects": [
       {
-        "applyWhen": "contact",
-        "applyOnAction": "FC-1",
-        "comboAction": {
-          "action": [
-            "FC-2",
-            "FC-3",
-            "FC-4"
-          ]
-        }
-      },
-      {
         "applyWhen": "cast",
         "applyOnCast": "IS",
         "statMap": {
@@ -33,7 +23,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "BA-5",
+        "applyOnAction": "NA-5",
         "useIfAction": [
           "FC-2",
           "FC-3",
@@ -56,7 +46,7 @@
       {
         "rank": 1,
         "applyWhen": "cast",
-        "applyOnAction": "BA-5",
+        "applyOnAction": "NA-5",
         "statMap": {
           "PERCENT_CR": 0.15
         },
@@ -121,11 +111,15 @@
         "RL-1",
         "RS-1",
         "FC-1",
+        "FC-2",
+        "FC-3",
+        "FC-4",
         "OS-1"
       ]
     }
   },
-  "1103": {
+  {
+    "id": "1103",
     "name": "Baizhi",
     "quality": 4,
     "element": "GLACIO",
@@ -290,16 +284,17 @@
       "rotation": [
         "IS-1",
         "RL-3",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "RS-1",
         "OS-1"
       ]
     }
   },
-  "1104": {
+  {
+    "id": "1104",
     "name": "Lingyang",
     "quality": 5,
     "element": "GLACIO",
@@ -416,7 +411,8 @@
       ]
     }
   },
-  "1202": {
+  {
+    "id": "1202",
     "name": "Chixia",
     "quality": 4,
     "element": "FUSION",
@@ -519,7 +515,8 @@
       ]
     }
   },
-  "1203": {
+  {
+    "id": "1203",
     "name": "Encore",
     "quality": 5,
     "element": "FUSION",
@@ -650,7 +647,8 @@
       ]
     }
   },
-  "1204": {
+  {
+    "id": "1204",
     "name": "Mortefi",
     "quality": 4,
     "element": "FUSION",
@@ -779,17 +777,18 @@
         "IS-1",
         "RS-1",
         "FC-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "FC-1",
         "RL-1",
         "OS-1"
       ]
     }
   },
-  "1301": {
+  {
+    "id": "1301",
     "name": "Calcharo",
     "quality": 5,
     "element": "ELECTRO",
@@ -917,7 +916,8 @@
       ]
     }
   },
-  "1302": {
+  {
+    "id": "1302",
     "name": "Yinlin",
     "quality": 5,
     "element": "ELECTRO",
@@ -1049,18 +1049,19 @@
       },
       "rotation": [
         "IS-1",
-        "BA-4",
+        "NA-4",
         "RS-1",
-        "BA-5",
+        "NA-5",
         "RS-2",
         "RL-1",
-        "BA-1",
+        "NA-1",
         "FC-1",
         "OS-1"
       ]
     }
   },
-  "1303": {
+  {
+    "id": "1303",
     "name": "Yuanwu",
     "quality": 4,
     "element": "ELECTRO",
@@ -1184,7 +1185,8 @@
       ]
     }
   },
-  "1402": {
+  {
+    "id": "1402",
     "name": "Yangyang",
     "quality": 4,
     "element": "AERO",
@@ -1255,22 +1257,23 @@
       },
       "rotation": [
         "IS-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-5",
-        "BA-7",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-5",
+        "NA-7",
         "RL-1",
-        "BA-1",
-        "BA-5",
-        "BA-7",
+        "NA-1",
+        "NA-5",
+        "NA-7",
         "RS-1",
         "FC-2",
         "OS-1"
       ]
     }
   },
-  "1403": {
+  {
+    "id": "1403",
     "name": "Aalto",
     "quality": 4,
     "element": "AERO",
@@ -1295,15 +1298,15 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "useIfAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-5",
-          "BA-6",
-          "BA-7",
-          "BA-8",
-          "BA-9"
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-5",
+          "NA-6",
+          "NA-7",
+          "NA-8",
+          "NA-9"
         ],
         "statMap": {
           "PERCENT_ATK": 0.1
@@ -1321,8 +1324,8 @@
       {
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-7",
-          "BA-8"
+          "NA-7",
+          "NA-8"
         ],
         "applyCooldown": 30000,
         "statMap": {
@@ -1353,13 +1356,13 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "useIfAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-5",
-          "BA-6",
-          "BA-9"
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-5",
+          "NA-6",
+          "NA-9"
         ],
         "statMap": {
           "PERCENT_MV": 1
@@ -1399,8 +1402,8 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "useIfAction": [
-          "BA-7",
-          "BA-8"
+          "NA-7",
+          "NA-8"
         ],
         "statMap": {
           "PERCENT_ALL": 0.5
@@ -1422,16 +1425,17 @@
         "IS-1",
         "RL-1",
         "RS-2",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
-        "BA-5",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
+        "NA-5",
         "OS-1"
       ]
     }
   },
-  "1404": {
+  {
+    "id": "1404",
     "name": "Jiyan",
     "quality": 5,
     "element": "AERO",
@@ -1583,7 +1587,8 @@
       ]
     }
   },
-  "1405": {
+  {
+    "id": "1405",
     "name": "Jianxin",
     "quality": 5,
     "element": "AERO",
@@ -1597,9 +1602,9 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RL-3",
-        "followUpAction": [
+        "comboAction": [
           {
             "action": "RL-1",
             "times": 16
@@ -1607,8 +1612,7 @@
           {
             "action": "RL-2"
           }
-        ],
-        "maxUses": 1
+        ]
       },
       {
         "applyWhen": "cast",
@@ -1742,7 +1746,8 @@
       ]
     }
   },
-  "1503": {
+  {
+    "id": "1503",
     "name": "Verina",
     "quality": 5,
     "element": "SPECTRO",
@@ -1756,29 +1761,31 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RL-1",
         "comboAction": {
           "action": "RL-2"
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RL-1",
         "applyTo": "team",
-        "followUpAction": [
-          {
-            "action": "RL-3"
-          },
-          {
-            "action": "RL-4"
-          }
-        ],
+        "followUpAction": {
+          "action": "RL-3"
+        },
         "followUpActionCooldown": 1000,
         "duration": 12000
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
+        "applyOnAction": "RL-3",
+        "comboAction": {
+          "action": "RL-4"
+        }
+      },
+      {
+        "applyWhen": "contact",
         "applyOnAction": [
           "FC-1",
           "FC-2",
@@ -1792,12 +1799,19 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4",
+          "RL-1",
+          "OS-1"
+        ],
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
-          "AMP_ALL": 0.15
-        }
+          "PERCENT_ATK": 0.2
+        },
+        "duration": 20000
       },
       {
         "applyWhen": "cast",
@@ -1816,6 +1830,16 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
+        "applyTo": "team",
+        "statMap": {
+          "AMP_ALL": 0.15
+        },
+        "duration": 30000
+      },
+      {
+        "rank": 1,
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
         "intervalAction": {
           "action": {
             "type": "heal",
@@ -1829,7 +1853,7 @@
       },
       {
         "rank": 3,
-        "useIfAction": "FC-4",
+        "useIfAction": "RL-4",
         "statMap": {
           "PERCENT_HB": 0.12
         }
@@ -1838,18 +1862,18 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": [
-          "RL-1",
           "FC-1",
           "FC-2",
           "FC-3",
           "FC-4",
+          "RL-1",
           "OS-1"
         ],
         "applyTo": "team",
-        "duration": 24000,
         "statMap": {
           "PERCENT_SPECTRO": 0.15
-        }
+        },
+        "duration": 24000
       },
       {
         "rank": 5,
@@ -1860,23 +1884,28 @@
       },
       {
         "rank": 6,
-        "applyWhen": "cast",
+        "useIfAction": [
+          "FC-1",
+          "FC-2",
+          "FC-3",
+          "FC-4"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "rank": 6,
+        "applyWhen": "contact",
         "applyOnAction": [
           "FC-1",
           "FC-2",
           "FC-3",
           "FC-4"
         ],
-        "maxUses": 1,
-        "followUpAction": [
-          {
-            "action": "RL-3"
-          },
-          {
-            "action": "RL-4",
-            "times": 3
-          }
-        ]
+        "comboAction": {
+          "action": "RL-3"
+        }
       }
     ],
     "defaults": {
@@ -1900,7 +1929,8 @@
       ]
     }
   },
-  "1601": {
+  {
+    "id": "1601",
     "name": "Taoqi",
     "quality": 4,
     "element": "HAVOC",
@@ -1914,34 +1944,30 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RS-1",
-        "maxUses": 1,
-        "followUpAction": {
+        "comboAction": {
           "action": "RS-2"
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "FC-1",
-        "maxUses": 1,
-        "followUpAction": {
+        "comboAction": {
           "action": "FC-4"
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "FC-2",
-        "maxUses": 1,
-        "followUpAction": {
+        "comboAction": {
           "action": "FC-5"
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "FC-3",
-        "maxUses": 1,
-        "followUpAction": {
+        "comboAction": {
           "action": "FC-6"
         }
       },
@@ -1949,10 +1975,10 @@
         "applyWhen": "cast",
         "applyOnAction": "RS-1",
         "applyTo": "team",
-        "duration": 15000,
         "statMap": {
           "PERCENT_DEF": 0.15
         },
+        "duration": 15000,
         "rankModifiers": {
           "3": {
             "duration": 15000
@@ -1963,10 +1989,10 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "applyTo": "next",
-        "duration": 14000,
         "statMap": {
           "AMP_RS": 0.38
-        }
+        },
+        "duration": 14000
       },
       {
         "rank": 1,
@@ -1990,18 +2016,17 @@
       {
         "rank": 4,
         "applyWhen": "cast",
-        "applyOnAction": "BA-6",
-        "duration": 5000,
+        "applyOnAction": "NA-6",
         "statMap": {
           "PERCENT_DEF": 0.5
-        }
+        },
+        "duration": 5000
       },
       {
         "rank": 4,
-        "applyWhen": "cast",
-        "applyOnAction": "BA-6",
-        "maxUses": 1,
-        "followUpAction": {
+        "applyWhen": "contact",
+        "applyOnAction": "NA-6",
+        "comboAction": {
           "action": "FC-7"
         }
       },
@@ -2020,11 +2045,11 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "RS-1",
-        "duration": 30000,
         "statMap": {
           "PERCENT_BA": 0.4,
           "PERCENT_HA": 0.4
-        }
+        },
+        "duration": 30000
       }
     ],
     "defaults": {
@@ -2043,16 +2068,17 @@
         "FC-2",
         "FC-3",
         "RL-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "RS-1",
         "OS-1"
       ]
     }
   },
-  "1602": {
+  {
+    "id": "1602",
     "name": "Danjin",
     "quality": 4,
     "element": "HAVOC",
@@ -2068,10 +2094,10 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RS-3",
-        "duration": 12000,
         "statMap": {
           "PERCENT_ALL": 0.2
         },
+        "duration": 12000,
         "rankModifiers": {
           "2": {
             "statMap": {
@@ -2081,24 +2107,23 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RL-1",
-        "maxUses": 1,
-        "followUpAction": {
+        "comboAction": {
           "action": "RL-2"
         }
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "BA-6",
-        "maxUses": 2,
+        "applyOnAction": "NA-6",
         "useIfAction": [
           "RS-2",
           "RS-3"
         ],
         "statMap": {
           "PERCENT_RS": 0.2
-        }
+        },
+        "maxUses": 2
       },
       {
         "applyWhen": "cast",
@@ -2107,30 +2132,30 @@
           "RS-5",
           "RS-6"
         ],
-        "duration": 5000,
         "statMap": {
           "PERCENT_HA": 0.3
-        }
+        },
+        "duration": 5000
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "applyTo": "next",
-        "duration": 14000,
         "statMap": {
           "AMP_HAVOC": 0.23
-        }
+        },
+        "duration": 14000
       },
       {
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-5",
-          "BA-6",
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-5",
+          "NA-6",
           "RS-1",
           "RS-2",
           "RS-3",
@@ -2140,11 +2165,11 @@
           "RL-1",
           "RL-2"
         ],
-        "maxStacks": 6,
-        "duration": 6000,
         "statMap": {
           "PERCENT_ATK": 0.05
-        }
+        },
+        "duration": 6000,
+        "maxStacks": 6
       },
       {
         "rank": 3,
@@ -2178,10 +2203,10 @@
           "FC-3"
         ],
         "applyTo": "team",
-        "duration": 20000,
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 20000
       }
     ],
     "defaults": {
@@ -2200,8 +2225,8 @@
         "RS-3",
         "RL-1",
         "RS-1",
-        "BA-2",
-        "BA-3",
+        "NA-2",
+        "NA-3",
         "RS-4",
         "RS-5",
         "RS-6",
@@ -2211,7 +2236,8 @@
       ]
     }
   },
-  "1205": {
+  {
+    "id": "1205",
     "name": "Changli",
     "quality": 5,
     "element": "FUSION",
@@ -2225,14 +2251,14 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RL-1",
-        "duration": 10000,
-        "maxUses": 1,
         "useIfAction": "FC-1",
         "statMap": {
           "PERCENT_ATK": 0.25
-        }
+        },
+        "duration": 10000,
+        "maxUses": 1
       },
       {
         "useIfAction": [
@@ -2257,11 +2283,11 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "applyTo": "next",
-        "duration": 10000,
         "statMap": {
-          "AMP_RL": 0.25,
-          "AMP_FUSION": 0.2
-        }
+          "AMP_FUSION": 0.2,
+          "AMP_RL": 0.25
+        },
+        "duration": 10000
       },
       {
         "rank": 1,
@@ -2277,33 +2303,33 @@
       },
       {
         "rank": 2,
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": [
           "RS-2",
           "RS-3",
           "RL-1"
         ],
-        "duration": 8000,
         "statMap": {
           "PERCENT_CR": 0.25
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 3,
         "useIfAction": "RL-1",
         "statMap": {
-          "PERCENT_RL": 0.8
+          "PERCENT_ALL": 0.8
         }
       },
       {
         "rank": 4,
         "applyWhen": "cast",
-        "applyOnAction": "IS-1",
+        "applyOnCast": "IS",
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
@@ -2340,9 +2366,9 @@
       "rotation": [
         "IS-1",
         "RS-3",
-        "BA-10",
-        "BA-3",
-        "BA-4",
+        "NA-10",
+        "NA-3",
+        "NA-4",
         "RS-2",
         "RS-1",
         "RS-2",
@@ -2350,11 +2376,13 @@
         "RS-2",
         "FC-1",
         "RL-1",
-        "FC-1"
+        "FC-1",
+        "OS-1"
       ]
     }
   },
-  "1304": {
+  {
+    "id": "1304",
     "name": "Jinhsi",
     "quality": 5,
     "element": "SPECTRO",
@@ -2368,11 +2396,18 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "FC-8",
-        "maxUses": 1,
-        "followUpAction": {
+        "comboAction": {
           "action": "FC-9"
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnAction": "FC-9",
+        "comboAction": {
+          "action": "FC-10",
+          "times": 50
         }
       },
       {
@@ -2396,37 +2431,39 @@
           "FC-4",
           "FC-7"
         ],
-        "maxStacks": 4,
-        "duration": 6000,
-        "maxUses": 2,
-        "useIfAction": "IS-1",
+        "useIfAction": [
+          "FC-8",
+          "FC-9",
+          "FC-10"
+        ],
         "statMap": {
-          "PERCENT_RS": 0.2
-        }
+          "PERCENT_ALL": 0.2
+        },
+        "duration": 6000,
+        "maxStacks": 4
       },
       {
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "IS-1",
-        "maxStacks": 2,
-        "duration": 20000,
         "statMap": {
           "PERCENT_ATK": 0.25
-        }
+        },
+        "duration": 20000,
+        "maxStacks": 2
       },
       {
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": [
           "RL-1",
-          "FC-8",
-          "FC-9"
+          "FC-8"
         ],
         "applyTo": "team",
-        "duration": 20000,
         "statMap": {
           "PERCENT_ALL": 0.2
-        }
+        },
+        "duration": 20000
       },
       {
         "rank": 5,
@@ -2460,19 +2497,19 @@
       "rotation": [
         "IS-1",
         "RS-2",
+        "RL-1",
         "FC-7",
         "FC-1",
         "FC-2",
         "FC-3",
         "FC-4",
         "FC-8",
-        "FC-10",
-        "RL-1",
         "OS-1"
       ]
     }
   },
-  "1105": {
+  {
+    "id": "1105",
     "name": "Zhezhi",
     "quality": 5,
     "element": "GLACIO",
@@ -2488,12 +2525,13 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-2",
-        "applyTo": "team",
-        "duration": 30000,
-        "maxUses": 21,
+        "applyTo": "active",
         "followUpAction": {
           "action": "RL-1"
         },
+        "followUpActionCooldown": 1000,
+        "duration": 30000,
+        "maxUses": 21,
         "rankModifiers": {
           "2": {
             "maxUses": 6
@@ -2503,10 +2541,10 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-3",
-        "duration": 27000,
         "statMap": {
           "PERCENT_BA": 0.18
-        }
+        },
+        "duration": 27000
       },
       {
         "applyWhen": "cast",
@@ -2514,30 +2552,30 @@
           "FC-2",
           "FC-3"
         ],
-        "maxStacks": 3,
-        "duration": 27000,
         "statMap": {
           "PERCENT_ATK": 0.06
-        }
+        },
+        "duration": 27000,
+        "maxStacks": 3
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "applyTo": "next",
-        "duration": 14000,
         "statMap": {
-          "AMP_RS": 0.25,
-          "AMP_GLACIO": 0.2
-        }
+          "AMP_GLACIO": 0.2,
+          "AMP_RS": 0.25
+        },
+        "duration": 14000
       },
       {
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": "FC-3",
-        "duration": 27000,
         "statMap": {
           "PERCENT_CR": 0.1
-        }
+        },
+        "duration": 27000
       },
       {
         "rank": 3,
@@ -2547,21 +2585,21 @@
           "FC-2",
           "FC-3"
         ],
-        "maxStacks": 3,
-        "duration": 27000,
         "statMap": {
           "PERCENT_ATK": 0.15
-        }
+        },
+        "duration": 27000,
+        "maxStacks": 3
       },
       {
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "RL-2",
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
@@ -2593,20 +2631,21 @@
       },
       "rotation": [
         "IS-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
+        "NA-1",
+        "NA-2",
+        "NA-3",
         "RS-1",
         "FC-1",
         "FC-2",
         "FC-2",
-        "FC-3",
         "RL-2",
+        "FC-3",
         "OS-1"
       ]
     }
   },
-  "1305": {
+  {
+    "id": "1305",
     "name": "Xiangli Yao",
     "quality": 5,
     "element": "ELECTRO",
@@ -2621,17 +2660,12 @@
     "effects": [
       {
         "applyWhen": "cast",
-        "applyOnAction": [
-          "RS-1",
-          "RL-5",
-          "FC-1",
-          "FC-2"
-        ],
-        "duration": 8000,
-        "maxStacks": 4,
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_ELECTRO": 0.05
-        }
+        },
+        "duration": 8000,
+        "maxStacks": 4
       },
       {
         "applyWhen": "cast",
@@ -2660,24 +2694,17 @@
       {
         "rank": 2,
         "applyWhen": "cast",
-        "applyOnAction": [
-          "RS-1",
-          "RL-1",
-          "RL-5",
-          "FC-1",
-          "FC-2"
-        ],
-        "duration": 8000,
+        "applyOnCast": "RS",
+        "applyOnAction": "RL-1",
         "statMap": {
           "PERCENT_CD": 0.3
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "duration": 24000,
-        "maxUses": 5,
         "useIfAction": [
           "RS-1",
           "RL-5",
@@ -2686,21 +2713,30 @@
         ],
         "statMap": {
           "PERCENT_ALL": 0.63
-        }
+        },
+        "duration": 24000,
+        "maxUses": 5
       },
       {
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
           "PERCENT_RL": 0.25
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
         "useIfAction": "OS-1",
+        "statMap": {
+          "PERCENT_MV": 2.22
+        }
+      },
+      {
+        "rank": 5,
+        "useIfConsidered": "OS",
         "statMap": {
           "PERCENT_MV": 2.22
         }
@@ -2748,7 +2784,8 @@
       ]
     }
   },
-  "1106": {
+  {
+    "id": "1106",
     "name": "Youhu",
     "quality": 4,
     "element": "GLACIO",
@@ -2831,17 +2868,18 @@
         "RS-1",
         "RL-1",
         "RS-1",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "RS-1",
         "RS-1",
         "OS-1"
       ]
     }
   },
-  "1505": {
+  {
+    "id": "1505",
     "name": "Shorekeeper",
     "quality": 5,
     "element": "SPECTRO",
@@ -3008,10 +3046,10 @@
       },
       "rotation": [
         "IS-2",
-        "BA-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-1",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "FC-2",
         "RS-2",
         "RL-2",
@@ -3019,7 +3057,8 @@
       ]
     }
   },
-  "1504": {
+  {
+    "id": "1504",
     "name": "Lumi",
     "quality": 4,
     "element": "ELECTRO",
@@ -3047,10 +3086,10 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "BA-10",
+        "applyOnAction": "NA-10",
         "maxUses": 1,
         "followUpAction": {
-          "action": "BA-2",
+          "action": "NA-2",
           "times": 2
         }
       },
@@ -3120,7 +3159,7 @@
         "FC-3",
         "FC-4",
         "FC-7",
-        "BA-1",
+        "NA-1",
         "FC-9",
         "FC-9",
         "FC-9",
@@ -3129,7 +3168,8 @@
       ]
     }
   },
-  "1603": {
+  {
+    "id": "1603",
     "name": "Camellya",
     "quality": 5,
     "element": "HAVOC",
@@ -3147,13 +3187,13 @@
         "applyOnAction": "FC-1",
         "duration": 15000,
         "useIfAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-5",
-          "BA-7",
-          "BA-8",
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-5",
+          "NA-7",
+          "NA-8",
           "RS-1",
           "RS-2",
           "RS-3",
@@ -3280,7 +3320,8 @@
       ]
     }
   },
-  "1107": {
+  {
+    "id": "1107",
     "name": "Carlotta",
     "quality": 5,
     "element": "GLACIO",
@@ -3363,8 +3404,8 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-6",
-          "BA-7",
+          "NA-6",
+          "NA-7",
           "FC-1"
         ],
         "applyTo": "team",
@@ -3402,7 +3443,7 @@
         "IS-1",
         "RS-1",
         "RS-2",
-        "BA-8",
+        "NA-8",
         "FC-1",
         "RL-1",
         "RL-2",
@@ -3416,7 +3457,8 @@
       ]
     }
   },
-  "1606": {
+  {
+    "id": "1606",
     "name": "Roccia",
     "quality": 5,
     "element": "HAVOC",
@@ -3432,7 +3474,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-5",
+          "NA-5",
           "RS-1"
         ],
         "duration": 12000,
@@ -3523,7 +3565,7 @@
       {
         "rank": 5,
         "useIfAction": [
-          "BA-5",
+          "NA-5",
           "FC-1",
           "FC-2",
           "FC-3"
@@ -3576,7 +3618,7 @@
       },
       "rotation": [
         "IS-1",
-        "BA-4",
+        "NA-4",
         "RS-1",
         "FC-1",
         "FC-2",
@@ -3586,7 +3628,8 @@
       ]
     }
   },
-  "1206": {
+  {
+    "id": "1206",
     "name": "Brant",
     "quality": 5,
     "element": "FUSION",
@@ -3666,16 +3709,16 @@
       },
       {
         "useIfAction": [
-          "BA-7",
-          "BA-8",
-          "BA-9",
-          "BA-10",
-          "BA-11",
-          "BA-12",
-          "BA-13",
-          "BA-14",
-          "BA-15",
-          "BA-16",
+          "NA-7",
+          "NA-8",
+          "NA-9",
+          "NA-10",
+          "NA-11",
+          "NA-12",
+          "NA-13",
+          "NA-14",
+          "NA-15",
+          "NA-16",
           "FC-1"
         ],
         "statMap": {
@@ -3696,9 +3739,9 @@
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-9",
-          "BA-13",
-          "BA-15",
+          "NA-9",
+          "NA-13",
+          "NA-15",
           "IS-1"
         ],
         "maxStacks": 3,
@@ -3710,16 +3753,16 @@
       {
         "rank": 2,
         "useIfAction": [
-          "BA-7",
-          "BA-8",
-          "BA-9",
-          "BA-10",
-          "BA-11",
-          "BA-12",
-          "BA-13",
-          "BA-14",
-          "BA-15",
-          "BA-16",
+          "NA-7",
+          "NA-8",
+          "NA-9",
+          "NA-10",
+          "NA-11",
+          "NA-12",
+          "NA-13",
+          "NA-14",
+          "NA-15",
+          "NA-16",
           "FC-1"
         ],
         "statMap": {
@@ -3762,16 +3805,16 @@
       {
         "rank": 6,
         "useIfAction": [
-          "BA-7",
-          "BA-8",
-          "BA-9",
-          "BA-10",
-          "BA-11",
-          "BA-12",
-          "BA-13",
-          "BA-14",
-          "BA-15",
-          "BA-16",
+          "NA-7",
+          "NA-8",
+          "NA-9",
+          "NA-10",
+          "NA-11",
+          "NA-12",
+          "NA-13",
+          "NA-14",
+          "NA-15",
+          "NA-16",
           "FC-1"
         ],
         "statMap": {
@@ -3793,17 +3836,18 @@
         "IS-1",
         "RS-2",
         "RL-1",
-        "BA-11",
-        "BA-12",
-        "BA-13",
-        "BA-14",
-        "BA-15",
+        "NA-11",
+        "NA-12",
+        "NA-13",
+        "NA-14",
+        "NA-15",
         "FC-1",
         "OS-1"
       ]
     }
   },
-  "1506": {
+  {
+    "id": "1506",
     "name": "Phoebe",
     "quality": 5,
     "element": "SPECTRO",
@@ -3822,10 +3866,10 @@
         "duration": 30000,
         "followUpAction": {
           "useIfAction": [
-            "BA-1",
-            "BA-2",
-            "BA-3",
-            "BA-6"
+            "NA-1",
+            "NA-2",
+            "NA-3",
+            "NA-6"
           ],
           "action": "RS-2"
         },
@@ -3945,14 +3989,14 @@
         "rank": 4,
         "applyWhen": "contact",
         "applyOnAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
+          "NA-1",
+          "NA-2",
+          "NA-3",
           "RS-3",
           "RS-4",
           "RS-5",
-          "BA-6",
-          "BA-7"
+          "NA-6",
+          "NA-7"
         ],
         "applyTo": "enemy",
         "statMap": {
@@ -4016,7 +4060,8 @@
       ]
     }
   },
-  "1607": {
+  {
+    "id": "1607",
     "name": "Cantarella",
     "quality": 5,
     "element": "HAVOC",
@@ -4184,10 +4229,10 @@
       },
       "rotation": [
         "IS-1",
-        "BA-3",
+        "NA-3",
         "RS-1",
         "RL-1",
-        "BA-5",
+        "NA-5",
         "RS-2",
         "FC-1",
         "FC-2",
@@ -4197,7 +4242,8 @@
       ]
     }
   },
-  "1407": {
+  {
+    "id": "1407",
     "name": "Ciaccona",
     "quality": 5,
     "element": "AERO",
@@ -4249,10 +4295,10 @@
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4"
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4"
         ],
         "duration": 10000,
         "statMap": {
@@ -4289,7 +4335,7 @@
       {
         "rank": 6,
         "applyWhen": "cast",
-        "applyOnAction": "BA-4",
+        "applyOnAction": "NA-4",
         "maxUses": 1,
         "followUpAction": {
           "action": "FC-2"
@@ -4308,11 +4354,11 @@
       },
       "rotation": [
         "IS-1",
-        "BA-3",
-        "BA-4",
-        "BA-8",
-        "BA-9",
-        "BA-4",
+        "NA-3",
+        "NA-4",
+        "NA-8",
+        "NA-9",
+        "NA-4",
         "RS-1",
         "FC-1",
         "RL-1",
@@ -4320,7 +4366,8 @@
       ]
     }
   },
-  "1507": {
+  {
+    "id": "1507",
     "name": "Zani",
     "quality": 5,
     "element": "SPECTRO",
@@ -4457,7 +4504,7 @@
       "rotation": [
         "IS-1",
         "RS-1",
-        "BA-3",
+        "NA-3",
         "RS-3",
         "RL-1",
         "FC-1",
@@ -4471,7 +4518,8 @@
       ]
     }
   },
-  "1207": {
+  {
+    "id": "1207",
     "name": "Lupa",
     "quality": 5,
     "element": "FUSION",
@@ -4505,9 +4553,9 @@
         "applyWhen": "cast",
         "applyOnAction": [
           "RS-2",
-          "BA-6",
-          "BA-7",
-          "BA-11",
+          "NA-6",
+          "NA-7",
+          "NA-11",
           "RL-1",
           "FC-1",
           "FC-2"
@@ -4552,9 +4600,9 @@
         "applyWhen": "cast",
         "applyOnAction": [
           "RL-1",
-          "BA-6",
-          "BA-7",
-          "BA-11"
+          "NA-6",
+          "NA-7",
+          "NA-11"
         ],
         "applyTo": "team",
         "maxStacks": 2,
@@ -4615,16 +4663,17 @@
         "IS-2",
         "RL-1",
         "RL-2",
-        "BA-8",
-        "BA-9",
-        "BA-11",
-        "BA-7",
+        "NA-8",
+        "NA-9",
+        "NA-11",
+        "NA-7",
         "FC-2",
         "OS-1"
       ]
     }
   },
-  "1409": {
+  {
+    "id": "1409",
     "name": "Cartethyia",
     "quality": 5,
     "element": "AERO",
@@ -4678,12 +4727,12 @@
       {
         "rank": 2,
         "useIfAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-6",
-          "BA-5",
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-4",
+          "NA-6",
+          "NA-5",
           "IS-1"
         ],
         "statMap": {
@@ -4693,10 +4742,10 @@
       {
         "rank": 2,
         "useIfAction": [
-          "BA-7",
-          "BA-8",
-          "BA-9",
-          "BA-10"
+          "NA-7",
+          "NA-8",
+          "NA-9",
+          "NA-10"
         ],
         "statMap": {
           "PERCENT_MV": 2
@@ -4746,11 +4795,11 @@
       },
       "rotation": [
         "IS-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "RS-1",
-        "BA-10",
+        "NA-10",
         "RL-1",
         "FC-13",
         "FC-12",
@@ -4766,7 +4815,8 @@
       ]
     }
   },
-  "1608": {
+  {
+    "id": "1608",
     "name": "Phrolova",
     "quality": 5,
     "element": "HAVOC",
@@ -4803,21 +4853,22 @@
       },
       "rotation": [
         "IS-2",
-        "BA-3",
+        "NA-3",
         "RL-3",
         "RS-1",
         "RL-3",
-        "BA-1",
-        "BA-2",
-        "BA-3",
+        "NA-1",
+        "NA-2",
+        "NA-3",
         "RL-3",
-        "BA-5",
+        "NA-5",
         "FC-1",
         "OS-1"
       ]
     }
   },
-  "1306": {
+  {
+    "id": "1306",
     "name": "Augusta",
     "quality": 5,
     "element": "ELECTRO",
@@ -4857,11 +4908,11 @@
       },
       "rotation": [
         "IS-1",
-        "BA-9",
-        "BA-10",
+        "NA-9",
+        "NA-10",
         "RS-1",
-        "BA-9",
-        "BA-10",
+        "NA-9",
+        "NA-10",
         "RL-1",
         "FC-1",
         "FC-2",
@@ -4880,7 +4931,8 @@
       ]
     }
   },
-  "1410": {
+  {
+    "id": "1410",
     "name": "Iuno",
     "quality": 5,
     "element": "AERO",
@@ -4939,7 +4991,8 @@
       ]
     }
   },
-  "1208": {
+  {
+    "id": "1208",
     "name": "Galbrena",
     "quality": 5,
     "element": "FUSION",
@@ -4984,11 +5037,11 @@
       },
       "rotation": [
         "IS-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
-        "BA-2",
-        "BA-3",
+        "NA-2",
+        "NA-3",
+        "NA-4",
+        "NA-2",
+        "NA-3",
         "RS-2",
         "RL-1",
         "FC-2",
@@ -5002,7 +5055,8 @@
       ]
     }
   },
-  "1411": {
+  {
+    "id": "1411",
     "name": "Qiuyuan",
     "quality": 5,
     "element": "AERO",
@@ -5048,7 +5102,8 @@
       ]
     }
   },
-  "1307": {
+  {
+    "id": "1307",
     "name": "Buling",
     "quality": 4,
     "element": "ELECTRO",
@@ -5097,19 +5152,20 @@
       },
       "rotation": [
         "IS-1",
-        "BA-1",
-        "BA-2",
-        "BA-5",
+        "NA-1",
+        "NA-2",
+        "NA-5",
         "RS-1",
-        "BA-4",
-        "BA-7",
-        "BA-10",
+        "NA-4",
+        "NA-7",
+        "NA-10",
         "FC-1",
         "OS-1"
       ]
     }
   },
-  "1508": {
+  {
+    "id": "1508",
     "name": "Chisa",
     "quality": 5,
     "element": "HAVOC",
@@ -5134,9 +5190,9 @@
       },
       "rotation": [
         "IS-1",
-        "BA-2",
-        "BA-7",
-        "BA-3",
+        "NA-2",
+        "NA-7",
+        "NA-3",
         "RL-1",
         "RS-2",
         "FC-2",
@@ -5147,7 +5203,8 @@
       ]
     }
   },
-  "1209": {
+  {
+    "id": "1209",
     "name": "Mornye",
     "quality": 5,
     "element": "FUSION",
@@ -5182,9 +5239,9 @@
       },
       "rotation": [
         "IS-1",
-        "BA-5",
-        "BA-6",
-        "BA-7",
+        "NA-5",
+        "NA-6",
+        "NA-7",
         "RS-1",
         "FC-4",
         "RL-1",
@@ -5192,7 +5249,8 @@
       ]
     }
   },
-  "1509": {
+  {
+    "id": "1509",
     "name": "Lynae",
     "quality": 5,
     "element": "SPECTRO",
@@ -5243,7 +5301,7 @@
         "IS-1",
         "RL-1",
         "RS-1",
-        "BA-8",
+        "NA-8",
         "FC-3",
         "FC-4",
         "FC-5",
@@ -5252,7 +5310,8 @@
       ]
     }
   },
-  "1210": {
+  {
+    "id": "1210",
     "name": "Aemeath",
     "quality": 5,
     "element": "FUSION",
@@ -5287,16 +5346,16 @@
       },
       "rotation": [
         "IS-1",
-        "BA-3",
-        "BA-4",
+        "NA-3",
+        "NA-4",
         "RL-1",
         "RS-4",
         "RS-5",
         "RS-6",
         "FC-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
+        "NA-2",
+        "NA-3",
+        "NA-4",
         "FC-2",
         "RS-8",
         "RL-2",
@@ -5304,7 +5363,8 @@
       ]
     }
   },
-  "1510": {
+  {
+    "id": "1510",
     "name": "Luuk Herssen",
     "quality": 5,
     "element": "SPECTRO",
@@ -5343,18 +5403,18 @@
       },
       "rotation": [
         "IS-1",
-        "BA-9",
-        "BA-10",
+        "NA-9",
+        "NA-10",
         "RS-2",
         "RS-5",
-        "BA-6",
-        "BA-9",
-        "BA-10",
+        "NA-6",
+        "NA-9",
+        "NA-10",
         "RS-3",
         "RS-5",
-        "BA-6",
-        "BA-9",
-        "BA-10",
+        "NA-6",
+        "NA-9",
+        "NA-10",
         "RS-4",
         "FC-1",
         "RL-1",
@@ -5362,7 +5422,8 @@
       ]
     }
   },
-  "1412": {
+  {
+    "id": "1412",
     "name": "Sigrika",
     "quality": 5,
     "element": "AERO",
@@ -5400,23 +5461,24 @@
       },
       "rotation": [
         "IS-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
-        "BA-5",
+        "NA-2",
+        "NA-3",
+        "NA-4",
+        "NA-5",
         "FC-3",
         "RL-1",
-        "BA-2",
-        "BA-3",
-        "BA-4",
-        "BA-5",
+        "NA-2",
+        "NA-3",
+        "NA-4",
+        "NA-5",
         "FC-2",
         "FC-5",
         "OS-1"
       ]
     }
   },
-  "1108": {
+  {
+    "id": "1108",
     "name": "Hiyuki",
     "quality": 5,
     "element": "GLACIO",
@@ -5450,20 +5512,20 @@
       },
       "rotation": [
         "IS-1",
-        "BA-3",
-        "BA-4",
+        "NA-3",
+        "NA-4",
         "RL-1",
         "RS-2",
         "RS-3",
-        "BA-7",
-        "BA-8",
-        "BA-9",
-        "BA-10",
-        "BA-11",
+        "NA-7",
+        "NA-8",
+        "NA-9",
+        "NA-10",
+        "NA-11",
         "FC-1",
         "FC-1",
         "FC-1",
-        "BA-13",
+        "NA-13",
         "RL-2",
         "RL-3",
         "RL-3",
@@ -5472,7 +5534,8 @@
       ]
     }
   },
-  "1211": {
+  {
+    "id": "1211",
     "name": "Denia",
     "quality": 5,
     "element": "FUSION",
@@ -5511,4 +5574,4 @@
       ]
     }
   }
-}
+]

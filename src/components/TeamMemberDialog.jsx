@@ -1,20 +1,23 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   Box,
   Button,
   Card,
   CardActionArea,
   CardMedia,
+  Chip,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  Chip,
-  Divider,
   FormControlLabel,
   GlobalStyles,
   IconButton,
+  ListItemButton,
   MenuItem,
   Stack,
   Switch,
@@ -24,8 +27,9 @@ import {
   ToggleButtonGroup,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
@@ -33,7 +37,7 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTERS, MVS, WEAPONS, SETS, MISC } from '@/data';
+import { CHARACTER, ACTION, WEAPON, SET, MISC } from '@/data';
 import { getMember, formatRotation, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
@@ -42,7 +46,7 @@ function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
-    return Object.entries(CHARACTERS[gameId])
+    return Object.entries(CHARACTER[gameId])
       .filter(([_, { name }]) => name.toLowerCase().includes(lower))
       .map(([id, { name }]) => ({ id, name }))
       .sort((a, b) => a.name.localeCompare(b.name));
@@ -94,7 +98,7 @@ function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
                   title={name}
                   sx={{ width: 100, height: 100 }}
                 />
-                <Typography variant="body2" textAlign="center" noWrap>
+                <Typography variant="body2" sx={{ textAlign: 'center' }} noWrap>
                   {name}
                 </Typography>
               </CardActionArea>
@@ -111,7 +115,7 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
-    return Object.entries(WEAPONS[gameId])
+    return Object.entries(WEAPON[gameId])
       .filter(([_, w]) =>
         (!weaponType || w.type === weaponType) &&
         w.name.toLowerCase().includes(lower)
@@ -166,7 +170,7 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
                   title={name}
                   sx={{ width: 100, height: 100 }}
                 />
-                <Typography variant="body2" textAlign="center" noWrap>
+                <Typography variant="body2" sx={{ textAlign: 'center' }} noWrap>
                   {name}
                 </Typography>
               </CardActionArea>
@@ -187,7 +191,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
   // Collect all piece-count tiers that exist across all sets in this game
   const allPieceTiers = useMemo(() => {
     const tiers = new Set();
-    for (const setData of Object.values(SETS[gameId])) {
+    for (const setData of Object.values(SET[gameId])) {
       for (const key of Object.keys(setData?.setBonus ?? {})) {
         const n = Number(key);
         if (Number.isFinite(n)) tiers.add(n);
@@ -212,7 +216,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
-    return Object.entries(SETS[gameId])
+    return Object.entries(SET[gameId])
       .filter(([_, setData]) => {
         const bonusKeys = Object.keys(setData?.setBonus ?? {}).map(Number);
         // Must have at least one bonus tier matching the filter (if set) and within capacity
@@ -233,20 +237,25 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
-      <DialogTitle sx={{ pr: 6 }}>
+      <DialogTitle>
         Select Set
         <IconButton
           aria-label="close"
           onClick={onClose}
-          sx={{ position: 'absolute', right: 8, top: 8 }}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: 'text.disabled',
+          }}
         >
-          <CloseIcon fontSize="small" />
+          <CloseIcon />
         </IconButton>
       </DialogTitle>
 
       <DialogContent>
         {/* Piece-count filter */}
-        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
+        <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 2 }}>
           <Typography variant="body2" color="text.secondary" sx={{ flexShrink: 0 }}>
             Piece bonus:
           </Typography>
@@ -296,7 +305,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
                   title={name}
                   sx={{ width: 100, height: 100 }}
                 />
-                <Typography variant="body2" textAlign="center" noWrap px={0.5}>
+                <Typography variant="body2" sx={{ textAlign: 'center', px: 0.5 }} noWrap>
                   {name}
                 </Typography>
               </CardActionArea>
@@ -318,18 +327,15 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
 
 function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
   const [hovered, setHovered] = useState(false);
-  const name = SETS[gameId]?.[setId]?.name ?? setId;
+  const name = SET[gameId]?.[setId]?.name ?? setId;
 
   return (
     <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      gap={0.5}
+      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <Box position="relative">
+      <Box sx={{ position: 'relative' }}>
         <Card sx={{ width: 80 }}>
           <CardActionArea onClick={onClick}>
             <CardMedia
@@ -394,7 +400,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
   // Index of the set being replaced; null means we're adding a new one
   const [replacingIndex, setReplacingIndex] = useState(null);
 
-  const entries = Object.entries(setCounts); // [[setId, pieces], ...]
+  const entries = Object.entries(setCounts).toSorted((a, b) => b[1] - a[1]); // [[setId, pieces], ...]
   const usedPieces = entries.reduce((sum, [, n]) => sum + n, 0);
 
   const remainingForAdd = capacity - usedPieces;
@@ -448,12 +454,12 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
   }
 
   return (
-    <Box>
-      <Typography variant="subtitle2" sx={{ mb: 1 }}>
+    <Stack spacing={0.5}>
+      <Typography variant="subtitle1">
         Set Bonuses
       </Typography>
 
-      <Stack direction="row" spacing={1} alignItems="flex-start" flexWrap="wrap" useFlexGap>
+      <Stack direction="row" spacing={1} useFlexGap sx={{ alignItems: 'flex-start', flexWrap: 'wrap' }}>
         {entries.map(([setId, pieces], index) => (
           <SetIcon
             key={setId}
@@ -467,7 +473,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
 
         {/* Add button — only shown when more sets can fit and not disabled */}
         {!disabled && remainingForAdd > 0 && (
-          <Box display="flex" flexDirection="column" alignItems="center" gap={0.5}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}>
             <Card
               sx={{
                 width: 80,
@@ -493,7 +499,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
         )}
       </Stack>
 
-      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1 }}>
+      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap', mt: 1 }}>
         <Button
           size="small"
           variant="outlined"
@@ -521,59 +527,25 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
         onSelect={handleSelect}
         remainingCapacity={currentRemainingCapacity}
       />
-    </Box>
+    </Stack>
   );
 }
 
-const SKILL_GROUP_ORDER = ['BA', 'RS', 'FC', 'RL', 'IS', 'OS'];
-const SKILL_GROUP_LABELS = {
-  BA: 'Normal Attack',
-  RS: 'Resonance Skill',
-  FC: 'Forte Circuit',
-  RL: 'Resonance Liberation',
-  IS: 'Intro Skill',
-  OS: 'Outro Skill',
-};
-
-function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
+const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
-  const abilityTypeLabels = MISC[gameId]?.SKILL_TYPES ?? {};
+  const skillTree = ACTION[gameId][characterId];
 
-  // Build grouped actions: { skillId: [{ actionKey, name }, ...] }
-  const groupedOptions = useMemo(() => {
-    if (!characterId || !MVS[gameId]?.[characterId]) return {};
-    const skillTree = MVS[gameId][characterId];
-    const groups = {};
-    for (const [skillId, skillDef] of Object.entries(skillTree)) {
-      groups[skillId] = Object.entries(skillDef).map(([actionId, actionDef]) => ({
-        actionKey: `${characterId}-${skillId}-${actionId}`,
-        name: actionDef.name,
-      }));
-    }
-    return groups;
-  }, [gameId, characterId]);
-
-  // Ordered list of skill group keys present for this character
-  const skillOrder = useMemo(() => {
-    const keys = Object.keys(groupedOptions);
-    return [
-      ...SKILL_GROUP_ORDER.filter(k => keys.includes(k)),
-      ...keys.filter(k => !SKILL_GROUP_ORDER.includes(k)),
-    ];
-  }, [groupedOptions]);
-
-  // Apply search filter per group
-  const filteredGroups = useMemo(() => {
+  const filteredTree = useMemo(() => {
     const lower = search.toLowerCase();
     const result = {};
-    for (const skillId of skillOrder) {
-      const actions = groupedOptions[skillId] ?? [];
-      result[skillId] = lower
-        ? actions.filter(({ name }) => name.toLowerCase().includes(lower))
-        : actions;
+
+    for (const [skillId, skillActionMap] of Object.entries(skillTree)) {
+      const skillActions = Object.values(skillActionMap);
+      result[skillId] = skillActions.filter(({ name }) => name.toLowerCase().includes(lower));
     }
+
     return result;
-  }, [groupedOptions, skillOrder, search]);
+  }, [skillTree, search]);
 
   const handleSelect = (actionKey) => {
     onSelect(actionKey);
@@ -581,113 +553,130 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
     onClose();
   };
 
-  const totalVisible = skillOrder.reduce((sum, id) => sum + (filteredGroups[id]?.length ?? 0), 0);
+  const hasMatches = Object.values(filteredTree).some(arr => arr.length > 0);
 
-  // Split into top row (all except OS) and bottom row (OS only)
-  const topIds = skillOrder.filter(id => id !== 'OS');
-  const hasOs = skillOrder.includes('OS');
+  const { SKILL } = MISC[gameId];
 
-  const renderColumn = (skillId) => {
-    const filtered = filteredGroups[skillId] ?? [];
-    const total = groupedOptions[skillId]?.length ?? 0;
-    const label = SKILL_GROUP_LABELS[skillId] ?? abilityTypeLabels[skillId] ?? skillId;
+  const renderGroup = ([id, filtered]) => {
+    if (filtered.length === 0) return null;
+
+    const label = SKILL[id].name;
+
     return (
-      <Box key={skillId}>
-        <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 'bold', display: 'block', mb: 0.5 }}>
-          {label}{' '}
-          <Typography variant="caption" color="text.disabled" component="span">
-            {search ? `(${filtered.length}/${total})` : `(${total})`}
+      <Accordion key={id} disableGutters defaultExpanded>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+            {label}
           </Typography>
-        </Typography>
-        <Stack spacing={0.5}>
-          {filtered.map(({ actionKey, name }) => (
-            <Button
-              key={actionKey}
-              variant="outlined"
-              size="small"
-              onClick={() => handleSelect(actionKey)}
-              sx={{ justifyContent: 'flex-start', textTransform: 'none', fontSize: '0.75rem' }}
-            >
-              {name}
-            </Button>
-          ))}
-        </Stack>
-      </Box>
+          <Typography variant="body2" sx={{ ml: 1, color: 'text.disabled' }}>
+            ({filtered.length})
+          </Typography>
+        </AccordionSummary>
+
+        <AccordionDetails sx={{ pt: 0 }}>
+          <Stack spacing={0.5}>
+            {filtered.map(({ key, name, cast = [] }) => (
+              <ListItemButton
+                key={key}
+                onClick={() => handleSelect(key)}
+                disableGutters
+                dense
+                sx={{ px: 0.5 }}
+              >
+                {cast.map(type => (
+                  <Chip
+                    key={type}
+                    size="small"
+                    label={SKILL[type]?.short}
+                    sx={{
+                      height: 20,
+                      fontSize: '0.65rem',
+                      flexShrink: 0,
+                      mr: 0.5,
+                      '& .MuiChip-label': { px: '5px' },
+                    }}
+                  />
+                ))}
+                <Typography variant="body2">
+                  {name}
+                </Typography>
+              </ListItemButton>
+            ))}
+          </Stack>
+        </AccordionDetails>
+      </Accordion>
     );
   };
 
   return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
-      <DialogTitle>Select Action</DialogTitle>
-      <DialogContent>
+    <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
+      <DialogTitle>
+        Select Action
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: 'text.disabled',
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
+
+
+      <Box sx={{ px: 3, mb: 2 }}>
         <TextField
           fullWidth
           size="small"
           placeholder="Search actions..."
           value={search}
           onChange={e => setSearch(e.target.value)}
-          sx={{ mb: 2 }}
         />
+      </Box>
 
-        {totalVisible === 0 ? (
-          <Typography variant="body2" color="text.secondary">
+      <DialogContent dividers sx={{
+        scrollbarColor: 'rgba(255,255,255,0.18) transparent',
+        '&::-webkit-scrollbar': { width: 5 },
+        '&::-webkit-scrollbar-track': { background: 'transparent' },
+        '&::-webkit-scrollbar-thumb': {
+          background: 'rgba(255,255,255,0.18)',
+          borderRadius: 3,
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+          background: 'rgba(255,255,255,0.32)',
+        },
+      }}>
+        {hasMatches ? (
+          <Stack spacing={1}>
+            {Object.entries(filteredTree).map(renderGroup)}
+          </Stack>
+        ) : (
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             No skills available for this character.
           </Typography>
-        ) : (
-          <Stack spacing={2}>
-            {/* Top row: all groups except OS */}
-            {topIds.length > 0 && (
-              <Box
-                sx={{
-                  display: 'grid',
-                  gridTemplateColumns: `repeat(${topIds.length}, 1fr)`,
-                  gap: 1,
-                  alignItems: 'start',
-                }}
-              >
-                {topIds.map(renderColumn)}
-              </Box>
-            )}
-
-            {/* Bottom row: OS centered at same column width as top grid */}
-            {hasOs && (
-              <>
-                <Divider />
-                <Box
-                  sx={{
-                    display: 'grid',
-                    gridTemplateColumns: `repeat(${topIds.length}, 1fr)`,
-                  }}
-                >
-                  <Box sx={{ gridColumn: `${Math.ceil(topIds.length / 2)}` }}>
-                    {renderColumn('OS')}
-                  </Box>
-                </Box>
-              </>
-            )}
-          </Stack>
         )}
       </DialogContent>
     </Dialog>
   );
-}
+};
 
 function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = false }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      gap={0.5}
+      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <Typography variant="caption" color="text.secondary">
+      <Typography variant="subtitle1" color="text.secondary">
         {label}
       </Typography>
-      <Box position="relative">
+
+      <Box sx={{ position: 'relative' }}>
         <Card sx={{ width: 80 }}>
           <CardActionArea onClick={onClick} disabled={disabled}>
             {imageUrl ? (
@@ -707,7 +696,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
                   bgcolor: 'action.hover',
                 }}
               >
-                <Typography variant="caption" color="text.secondary" textAlign="center">
+                <Typography variant="caption" color="text.secondary" sx={{ textAlign: 'center' }}>
                   None
                 </Typography>
               </Box>
@@ -753,7 +742,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
   };
 
   const [ownerId, skillId, actionId] = actionKey.split('-');
-  const { cast, name, prefix } = MVS[gameId][ownerId][skillId][actionId];
+  const { cast, name, tags = [] } = ACTION[gameId][ownerId][skillId][actionId];
 
   return (
     <Box
@@ -788,41 +777,44 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
         <DragIndicatorIcon sx={{ fontSize: 18 }} />
       </Box>
 
-      {/* Action name */}
-      <Typography variant="body2" noWrap sx={{ flex: 1, minWidth: 0 }}>
-        {name}
-      </Typography>
-
       {/* Cast type chips */}
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
         {cast.map(castType => (
           <Chip
             key={castType}
             size="small"
-            label={skillTypeLabels[castType] ?? castType}
+            label={skillTypeLabels[castType]?.short ?? castType}
             variant="outlined"
             sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
           />
         ))}
       </Box>
 
-      {/* Prefix badge */}
-      {prefix && (
-        <Chip
-          size="small"
-          label={prefix}
-          sx={{
-            height: 20,
-            fontSize: '0.65rem',
-            flexShrink: 0,
-            '& .MuiChip-label': { px: '6px' },
-          }}
-        />
-      )}
+      {/* Action name */}
+      <Typography variant="body2" noWrap sx={{ flex: 1, minWidth: 0 }}>
+        {name}
+      </Typography>
+
+      {/* Tags chips */}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
+        {tags.map(tag => (
+          <Chip
+            key={tag}
+            size="small"
+            label={tag}
+            sx={{
+              height: 20,
+              fontSize: '0.65rem',
+              flexShrink: 0,
+              '& .MuiChip-label': { px: '5px' },
+            }}
+          />
+        ))}
+      </Box>
 
       {/* Delete — hover only */}
       <IconButton className="rotation-delete" size="small" onClick={onRemove} sx={{ flexShrink: 0 }}>
-        <DeleteOutlineIcon fontSize="small" />
+        <DeleteOutlineOutlinedIcon fontSize="small" />
       </IconButton>
     </Box>
   );
@@ -831,7 +823,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
 function RotationEditor({ gameId, characterId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
-  const skillTypeLabels = MISC[gameId]?.SKILL_TYPES ?? {};
+  const skillTypeLabels = MISC[gameId]?.SKILL ?? {};
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -865,7 +857,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
   }
 
   return (
-    <Box mt={2.5}>
+    <Box sx={{ mt: 2.5 }}>
       {dragging && <GlobalStyles styles={{ '*': { cursor: 'grabbing !important' } }} />}
       <Typography variant="subtitle2" sx={{ mb: 1 }}>
         Rotation
@@ -921,7 +913,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         )}
       </Box>
 
-      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
         <Button
           size="small"
           variant="outlined"
@@ -934,7 +926,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
           size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(CHARACTERS[gameId][characterId]?.defaults?.rotation ?? [])}
+          onClick={() => onChange(CHARACTER[gameId][characterId]?.defaults?.rotation ?? [])}
         >
           Reset Default
         </Button>
@@ -969,8 +961,8 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   useEffect(() => setDraft(member), [member]);
 
-  const memberData = CHARACTERS[gameId][draft.memberId];
-  const weaponData = WEAPONS[gameId]?.[draft.weaponId];
+  const memberData = CHARACTER[gameId][draft.memberId];
+  const weaponData = WEAPON[gameId]?.[draft.weaponId];
   const weaponType = memberData?.type ?? null;
 
   // Stored build for the current draft member (only meaningful for teammates)
@@ -1024,10 +1016,24 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   return (
     <>
-      <Dialog open={open} onClose={handleCancel} fullWidth maxWidth="md">
-        <DialogTitle>Configure Team Member</DialogTitle>
+      <Dialog open={open} onClose={handleCancel} maxWidth="sm" fullWidth>
+        <DialogTitle>
+          Configure Team Member
+          <IconButton
+            aria-label="close"
+            onClick={onClose}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 8,
+              color: 'text.disabled',
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
 
-        <DialogContent>
+        <DialogContent dividers>
           {showToggle && (
             <FormControlLabel
               control={
@@ -1042,9 +1048,9 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             />
           )}
 
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="flex-start" mt={1}>
-            <Stack direction="row" spacing={2} alignItems="flex-start">
-              <Stack spacing={1} alignItems="center">
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ alignItems: 'flex-start', mt: 1 }}>
+            <Stack direction="row" spacing={2} sx={{ alignItems: 'flex-start' }}>
+              <Stack spacing={1} sx={{ alignItems: 'center' }}>
                 {/* Character */}
                 <PickerButton
                   label="Character"
@@ -1082,7 +1088,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 </TextField>
               </Stack>
 
-              <Stack spacing={1} alignItems="center">
+              <Stack spacing={1} sx={{ alignItems: 'center' }}>
                 {/* Weapon */}
                 <PickerButton
                   label="Weapon"

@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { Card, Box, Paper, Tooltip as MuiTooltip, Typography } from '@mui/material';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip, Legend } from 'recharts';
 import { useBuild } from '@/contexts';
-import { CHARACTERS, MISC } from '@/data';
-import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
+import { CHARACTER, MISC } from '@/data';
+import { computeTotalStat, compileStatMap } from '@/utils';
 import { useTheme } from '@mui/material/styles';
 
 export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
@@ -12,9 +12,9 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
   const build = useBuild().getBuilds(gameId)[characterId];
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
-  const element = CHARACTERS[gameId]?.[characterId]?.element;
+  const element = CHARACTER[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
-  const calcs = CHARACTERS[gameId][characterId]?.calcs;
+  const calcs = CHARACTER[gameId][characterId]?.calcs;
 
   if (isLoading || !build || !combinedSimEquips) return null;
   const simSources = Object.entries(combinedSimEquips).map(([statId, value]) => ({
@@ -46,9 +46,9 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
   return (
     <Card sx={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0 }}>
-        <Typography variant="subtitle2" fontWeight="bold">Stat Distribution</Typography>
+        <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Stat Distribution</Typography>
         <MuiTooltip title="Compares your build's stat totals against the benchmark's average. The gray area is the target — stats that extend beyond it are over-invested." placement="top" arrow>
-          <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
+          <HelpOutlineOutlinedIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
         </MuiTooltip>
       </Box>
       <Box sx={{ flex: 1, minHeight: 0, position: 'relative' }}>
@@ -94,7 +94,7 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
                     color: 'text.primary',
                   }}
                 >
-                  <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }} gutterBottom>
                     {MISC[gameId].MENU_STATS[label].label}
                   </Typography>
                   {payload.map((entry) => {

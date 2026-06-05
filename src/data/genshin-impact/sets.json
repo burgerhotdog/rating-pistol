@@ -1,5 +1,6 @@
-{
-  "14002": {
+[
+  {
+    "id": "14002",
     "name": "Thundersoother",
     "setBonus": {
       "4": {
@@ -11,7 +12,8 @@
       }
     }
   },
-  "14003": {
+  {
+    "id": "14003",
     "name": "Lavawalker",
     "setBonus": {
       "4": {
@@ -23,7 +25,8 @@
       }
     }
   },
-  "14004": {
+  {
+    "id": "14004",
     "name": "Maiden Beloved",
     "setBonus": {
       "2": {
@@ -42,7 +45,8 @@
       }
     }
   },
-  "15001": {
+  {
+    "id": "15001",
     "name": "Gladiator's Finale",
     "setBonus": {
       "2": {
@@ -61,7 +65,8 @@
       }
     }
   },
-  "15002": {
+  {
+    "id": "15002",
     "name": "Viridescent Venerer",
     "setBonus": {
       "2": {
@@ -84,7 +89,8 @@
       }
     }
   },
-  "15003": {
+  {
+    "id": "15003",
     "name": "Wanderer's Troupe",
     "setBonus": {
       "2": {
@@ -103,7 +109,8 @@
       }
     }
   },
-  "15005": {
+  {
+    "id": "15005",
     "name": "Thundering Fury",
     "setBonus": {
       "2": {
@@ -127,7 +134,8 @@
       }
     }
   },
-  "15006": {
+  {
+    "id": "15006",
     "name": "Crimson Witch of Flames",
     "setBonus": {
       "2": {
@@ -151,7 +159,8 @@
       }
     }
   },
-  "15007": {
+  {
+    "id": "15007",
     "name": "Noblesse Oblige",
     "setBonus": {
       "2": {
@@ -170,7 +179,8 @@
       }
     }
   },
-  "15008": {
+  {
+    "id": "15008",
     "name": "Bloodstained Chivalry",
     "setBonus": {
       "2": {
@@ -189,7 +199,8 @@
       }
     }
   },
-  "15014": {
+  {
+    "id": "15014",
     "name": "Archaic Petra",
     "setBonus": {
       "2": {
@@ -211,7 +222,8 @@
       }
     }
   },
-  "15015": {
+  {
+    "id": "15015",
     "name": "Retracing Bolide",
     "setBonus": {
       "4": {
@@ -224,7 +236,8 @@
       }
     }
   },
-  "14001": {
+  {
+    "id": "14001",
     "name": "Blizzard Strayer",
     "setBonus": {
       "2": {
@@ -243,7 +256,8 @@
       }
     }
   },
-  "15016": {
+  {
+    "id": "15016",
     "name": "Heart of Depth",
     "setBonus": {
       "2": {
@@ -263,7 +277,8 @@
       }
     }
   },
-  "15017": {
+  {
+    "id": "15017",
     "name": "Tenacity of the Millelith",
     "setBonus": {
       "2": {
@@ -282,7 +297,8 @@
       }
     }
   },
-  "15018": {
+  {
+    "id": "15018",
     "name": "Pale Flame",
     "setBonus": {
       "2": {
@@ -302,7 +318,8 @@
       }
     }
   },
-  "15019": {
+  {
+    "id": "15019",
     "name": "Shimenawa's Reminiscence",
     "setBonus": {
       "2": {
@@ -323,7 +340,8 @@
       }
     }
   },
-  "15020": {
+  {
+    "id": "15020",
     "name": "Emblem of Severed Fate",
     "setBonus": {
       "2": {
@@ -349,7 +367,8 @@
       }
     }
   },
-  "15021": {
+  {
+    "id": "15021",
     "name": "Husk of Opulent Dreams",
     "setBonus": {
       "2": {
@@ -369,7 +388,8 @@
       }
     }
   },
-  "15022": {
+  {
+    "id": "15022",
     "name": "Ocean-Hued Clam",
     "setBonus": {
       "2": {
@@ -381,7 +401,8 @@
       }
     }
   },
-  "15023": {
+  {
+    "id": "15023",
     "name": "Vermillion Hereafter",
     "setBonus": {
       "2": {
@@ -400,7 +421,8 @@
       }
     }
   },
-  "15024": {
+  {
+    "id": "15024",
     "name": "Echoes of an Offering",
     "setBonus": {
       "2": {
@@ -412,7 +434,8 @@
       }
     }
   },
-  "15025": {
+  {
+    "id": "15025",
     "name": "Deepwood Memories",
     "setBonus": {
       "2": {
@@ -431,7 +454,8 @@
       }
     }
   },
-  "15026": {
+  {
+    "id": "15026",
     "name": "Gilded Dreams",
     "setBonus": {
       "2": {
@@ -451,7 +475,8 @@
       }
     }
   },
-  "15027": {
+  {
+    "id": "15027",
     "name": "Desert Pavilion Chronicle",
     "setBonus": {
       "2": {
@@ -472,7 +497,8 @@
       }
     }
   },
-  "15028": {
+  {
+    "id": "15028",
     "name": "Flower of Paradise Lost",
     "setBonus": {
       "2": {
@@ -502,7 +528,8 @@
       }
     }
   },
-  "15029": {
+  {
+    "id": "15029",
     "name": "Nymph's Dream",
     "setBonus": {
       "2": {
@@ -522,7 +549,8 @@
       }
     }
   },
-  "15030": {
+  {
+    "id": "15030",
     "name": "Vourukasha's Glow",
     "setBonus": {
       "2": {
@@ -548,7 +576,8 @@
       }
     }
   },
-  "15031": {
+  {
+    "id": "15031",
     "name": "Marechaussee Hunter",
     "setBonus": {
       "2": {
@@ -568,7 +597,8 @@
       }
     }
   },
-  "15032": {
+  {
+    "id": "15032",
     "name": "Golden Troupe",
     "setBonus": {
       "2": {
@@ -587,7 +617,8 @@
       }
     }
   },
-  "15033": {
+  {
+    "id": "15033",
     "name": "Song of Days Past",
     "setBonus": {
       "2": {
@@ -599,7 +630,8 @@
       }
     }
   },
-  "15034": {
+  {
+    "id": "15034",
     "name": "Nighttime Whispers in the Echoing Woods",
     "setBonus": {
       "2": {
@@ -618,7 +650,8 @@
       }
     }
   },
-  "15035": {
+  {
+    "id": "15035",
     "name": "Fragment of Harmonic Whimsy",
     "setBonus": {
       "2": {
@@ -637,7 +670,8 @@
       }
     }
   },
-  "15036": {
+  {
+    "id": "15036",
     "name": "Unfinished Reverie",
     "setBonus": {
       "2": {
@@ -656,10 +690,12 @@
       }
     }
   },
-  "15037": {
+  {
+    "id": "15037",
     "name": "Scroll of the Hero of Cinder City"
   },
-  "15038": {
+  {
+    "id": "15038",
     "name": "Obsidian Codex",
     "setBonus": {
       "2": {
@@ -678,7 +714,8 @@
       }
     }
   },
-  "15039": {
+  {
+    "id": "15039",
     "name": "Long Night's Oath",
     "setBonus": {
       "2": {
@@ -697,7 +734,8 @@
       }
     }
   },
-  "15040": {
+  {
+    "id": "15040",
     "name": "Finale of the Deep Galleries",
     "setBonus": {
       "2": {
@@ -717,7 +755,8 @@
       }
     }
   },
-  "15041": {
+  {
+    "id": "15041",
     "name": "Night of the Sky's Unveiling",
     "setBonus": {
       "2": {
@@ -739,7 +778,8 @@
       }
     }
   },
-  "15042": {
+  {
+    "id": "15042",
     "name": "Silken Moon's Serenade",
     "setBonus": {
       "2": {
@@ -761,7 +801,8 @@
       }
     }
   },
-  "15043": {
+  {
+    "id": "15043",
     "name": "Aubade of Morningstar and Moon",
     "setBonus": {
       "2": {
@@ -782,7 +823,8 @@
       }
     }
   },
-  "15044": {
+  {
+    "id": "15044",
     "name": "A Day Carved From Rising Winds",
     "setBonus": {
       "2": {
@@ -802,4 +844,4 @@
       }
     }
   }
-}
+]

@@ -1,9 +1,9 @@
 import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTERS, MVS, MISC } from '@/data';
+import { CHARACTER, ACTION, MISC } from '@/data';
 import { sumRotationDmg } from '@/utils';
 
 function sumRotationTime(gameId, team) {
@@ -14,8 +14,26 @@ function sumRotationTime(gameId, team) {
 
     for (const actionKey of rotation) {
       const [ownerId, skillId, actionId] = actionKey.split('-');
-      const { duration } = MVS[gameId][ownerId][skillId][actionId];
+      const { duration } = ACTION[gameId][ownerId][skillId][actionId];
 
+      total += duration;
+    }
+  }
+
+  return total;
+}
+
+function sumMemberRotationTime(gameId, team, memberId) {
+  let total = 0;
+
+  for (const member of team) {
+    const { rotation = [] } = member;
+
+    for (const actionKey of rotation) {
+      const [ownerId, skillId, actionId] = actionKey.split('-');
+      if (ownerId !== memberId) continue;
+
+      const { duration } = ACTION[gameId][ownerId][skillId][actionId];
       total += duration;
     }
   }
@@ -25,14 +43,14 @@ function sumRotationTime(gameId, team) {
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-    <Typography variant="overline" color="text.secondary" lineHeight={1.4}>{label}</Typography>
+    <Typography variant="overline" color="text.secondary" sx={{ lineHeight: 1.4 }}>{label}</Typography>
     <MuiTooltip title={tip} placement="top" arrow>
-      <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
+      <HelpOutlineOutlinedIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
     </MuiTooltip>
   </Box>
 );
 
-export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats, team, actionMap }) => {
+export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats: _teamFinalStats, team, actionMap }) => {
   const theme = useTheme();
   const { gameId } = useParams();
   const disabledColor = theme.palette.action.disabled;
@@ -40,12 +58,15 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
 
   const members = team.filter(m => m.memberId);
   const memberColors = members.map(m => {
-    const el = CHARACTERS[gameId]?.[m.memberId]?.element;
+    const el = CHARACTER[gameId]?.[m.memberId]?.element;
     return MISC[gameId]?.ELEMENT_COLORS?.[el] ?? disabledColor;
   });
 
   const rotationTime = sumRotationTime(gameId, team);
   const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
+  const memberRotationTimeMap = Object.fromEntries(
+    members.map((m) => [m.memberId, sumMemberRotationTime(gameId, team, m.memberId)])
+  );
 
   const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap)));
   const benchmarkRating = activeScores[activeScores.length - 1];
@@ -177,29 +198,34 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                     borderColor: 'divider',
                   }}
                 >
-                  <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                  <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 'bold' }}>
                     Week {week}
                   </Typography>
                   {members.map((m, i) => (
                     <Box key={m.memberId} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
                       <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: memberColors[i], flexShrink: 0 }} />
                       <Typography variant="body2">
-                        {CHARACTERS[gameId]?.[m.memberId]?.name ?? m.memberId}:{' '}
+                        {CHARACTER[gameId]?.[m.memberId]?.name ?? m.memberId}:{' '}
                         {(data[week]?.[`dps_${m.memberId}`] ?? 0).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                        {' '}(
+                        {sumRotationDmg(weeklyScores[week], { ownerId: m.memberId }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                        {' / '}
+                        {((memberRotationTimeMap[m.memberId] ?? 0) / 1000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}s
+                        )
                       </Typography>
                     </Box>
                   ))}
                   <Divider sx={{ my: 0.5 }} />
-                  <Typography variant="body2" fontWeight="bold">
+                  <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
                     Total: {damage.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                   </Typography>
                   {dist && (
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                       Q1–Q3: {toDps(sumRotationDmg(dist.q1)).toLocaleString('en-US', { maximumFractionDigits: 0 })} – {toDps(sumRotationDmg(dist.q3)).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                     </Typography>
                   )}
                   {percentGain != null && (
-                    <Typography variant="body2" color={percentGain >= 0 ? 'success.main' : 'error.main'}>
+                    <Typography variant="body2" sx={{ color: percentGain >= 0 ? 'success.main' : 'error.main' }}>
                       {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(1)}% vs prev
                     </Typography>
                   )}
@@ -220,7 +246,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
             tip="Your team's total damage as a percentage of the team benchmark. Reflects how your character's current build contributes relative to the team's expected optimum."
           />
           <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
-            <Typography variant="h4" fontWeight="bold" sx={{ color: gradeColor }}>
+            <Typography variant="h4" sx={{ color: gradeColor, fontWeight: 'bold' }}>
               {grade}
             </Typography>
             <Typography variant="body1" fontWeight="medium" sx={{ color: gradeColor, opacity: 0.7 }}>
@@ -234,7 +260,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
             label="Team DPS"
             tip="Your character's current damage plus teammates' simulated benchmark damage."
           />
-          <Typography variant="h6" fontWeight="bold">
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {activeUserRating?.toLocaleString('en-US', { maximumFractionDigits: 0 }) ?? '—'}
           </Typography>
         </Box>
@@ -243,7 +269,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
             label="Benchmark"
             tip="Sum of each character's simulated average damage at the benchmark week."
           />
-          <Typography variant="h6" fontWeight="bold">
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {benchmarkRating?.toLocaleString('en-US', { maximumFractionDigits: 0 }) ?? '—'}
           </Typography>
         </Box>

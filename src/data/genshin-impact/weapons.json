@@ -1,5 +1,6 @@
-{
-  "11101": {
+[
+  {
+    "id": "11101",
     "name": "Dull Blade",
     "quality": 1,
     "type": "SWORD",
@@ -9,7 +10,8 @@
       }
     }
   },
-  "11201": {
+  {
+    "id": "11201",
     "name": "Silver Sword",
     "quality": 2,
     "type": "SWORD",
@@ -19,7 +21,8 @@
       }
     }
   },
-  "11301": {
+  {
+    "id": "11301",
     "name": "Cool Steel",
     "quality": 3,
     "type": "SWORD",
@@ -30,7 +33,8 @@
       }
     }
   },
-  "11302": {
+  {
+    "id": "11302",
     "name": "Harbinger of Dawn",
     "quality": 3,
     "type": "SWORD",
@@ -41,7 +45,8 @@
       }
     }
   },
-  "11303": {
+  {
+    "id": "11303",
     "name": "Traveler's Handy Sword",
     "quality": 3,
     "type": "SWORD",
@@ -52,7 +57,8 @@
       }
     }
   },
-  "11304": {
+  {
+    "id": "11304",
     "name": "Dark Iron Sword",
     "quality": 3,
     "type": "SWORD",
@@ -63,7 +69,8 @@
       }
     }
   },
-  "11305": {
+  {
+    "id": "11305",
     "name": "Fillet Blade",
     "quality": 3,
     "type": "SWORD",
@@ -74,7 +81,8 @@
       }
     }
   },
-  "11306": {
+  {
+    "id": "11306",
     "name": "Skyrider Sword",
     "quality": 3,
     "type": "SWORD",
@@ -85,7 +93,8 @@
       }
     }
   },
-  "11401": {
+  {
+    "id": "11401",
     "name": "Favonius Sword",
     "quality": 4,
     "type": "SWORD",
@@ -96,7 +105,8 @@
       }
     }
   },
-  "11402": {
+  {
+    "id": "11402",
     "name": "The Flute",
     "quality": 4,
     "type": "SWORD",
@@ -107,7 +117,8 @@
       }
     }
   },
-  "11403": {
+  {
+    "id": "11403",
     "name": "Sacrificial Sword",
     "quality": 4,
     "type": "SWORD",
@@ -118,7 +129,8 @@
       }
     }
   },
-  "11404": {
+  {
+    "id": "11404",
     "name": "Royal Longsword",
     "quality": 4,
     "type": "SWORD",
@@ -129,7 +141,8 @@
       }
     }
   },
-  "11405": {
+  {
+    "id": "11405",
     "name": "Lion's Roar",
     "quality": 4,
     "type": "SWORD",
@@ -140,7 +153,8 @@
       }
     }
   },
-  "11406": {
+  {
+    "id": "11406",
     "name": "Prototype Rancour",
     "quality": 4,
     "type": "SWORD",
@@ -151,7 +165,8 @@
       }
     }
   },
-  "11407": {
+  {
+    "id": "11407",
     "name": "Iron Sting",
     "quality": 4,
     "type": "SWORD",
@@ -162,7 +177,8 @@
       }
     }
   },
-  "11408": {
+  {
+    "id": "11408",
     "name": "Blackcliff Longsword",
     "quality": 4,
     "type": "SWORD",
@@ -173,7 +189,8 @@
       }
     }
   },
-  "11409": {
+  {
+    "id": "11409",
     "name": "The Black Sword",
     "quality": 4,
     "type": "SWORD",
@@ -184,7 +201,8 @@
       }
     }
   },
-  "11412": {
+  {
+    "id": "11412",
     "name": "Sword of Descension",
     "quality": 4,
     "type": "SWORD",
@@ -195,7 +213,8 @@
       }
     }
   },
-  "11501": {
+  {
+    "id": "11501",
     "name": "Aquila Favonia",
     "quality": 5,
     "type": "SWORD",
@@ -206,7 +225,8 @@
       }
     }
   },
-  "11502": {
+  {
+    "id": "11502",
     "name": "Skyward Blade",
     "quality": 5,
     "type": "SWORD",
@@ -217,7 +237,8 @@
       }
     }
   },
-  "12101": {
+  {
+    "id": "12101",
     "name": "Waster Greatsword",
     "quality": 1,
     "type": "CLAYMORE",
@@ -227,7 +248,8 @@
       }
     }
   },
-  "12201": {
+  {
+    "id": "12201",
     "name": "Old Merc's Pal",
     "quality": 2,
     "type": "CLAYMORE",
@@ -237,7 +259,8 @@
       }
     }
   },
-  "12301": {
+  {
+    "id": "12301",
     "name": "Ferrous Shadow",
     "quality": 3,
     "type": "CLAYMORE",
@@ -248,7 +271,8 @@
       }
     }
   },
-  "12302": {
+  {
+    "id": "12302",
     "name": "Bloodtainted Greatsword",
     "quality": 3,
     "type": "CLAYMORE",
@@ -259,7 +283,8 @@
       }
     }
   },
-  "12303": {
+  {
+    "id": "12303",
     "name": "White Iron Greatsword",
     "quality": 3,
     "type": "CLAYMORE",
@@ -270,7 +295,8 @@
       }
     }
   },
-  "12305": {
+  {
+    "id": "12305",
     "name": "Debate Club",
     "quality": 3,
     "type": "CLAYMORE",
@@ -281,7 +307,8 @@
       }
     }
   },
-  "12306": {
+  {
+    "id": "12306",
     "name": "Skyrider Greatsword",
     "quality": 3,
     "type": "CLAYMORE",
@@ -292,7 +319,8 @@
       }
     }
   },
-  "12401": {
+  {
+    "id": "12401",
     "name": "Favonius Greatsword",
     "quality": 4,
     "type": "CLAYMORE",
@@ -303,7 +331,8 @@
       }
     }
   },
-  "12402": {
+  {
+    "id": "12402",
     "name": "The Bell",
     "quality": 4,
     "type": "CLAYMORE",
@@ -314,7 +343,8 @@
       }
     }
   },
-  "12403": {
+  {
+    "id": "12403",
     "name": "Sacrificial Greatsword",
     "quality": 4,
     "type": "CLAYMORE",
@@ -325,7 +355,8 @@
       }
     }
   },
-  "12404": {
+  {
+    "id": "12404",
     "name": "Royal Greatsword",
     "quality": 4,
     "type": "CLAYMORE",
@@ -336,7 +367,8 @@
       }
     }
   },
-  "12405": {
+  {
+    "id": "12405",
     "name": "Rainslasher",
     "quality": 4,
     "type": "CLAYMORE",
@@ -347,7 +379,8 @@
       }
     }
   },
-  "12406": {
+  {
+    "id": "12406",
     "name": "Prototype Archaic",
     "quality": 4,
     "type": "CLAYMORE",
@@ -358,7 +391,8 @@
       }
     }
   },
-  "12407": {
+  {
+    "id": "12407",
     "name": "Whiteblind",
     "quality": 4,
     "type": "CLAYMORE",
@@ -369,7 +403,8 @@
       }
     }
   },
-  "12408": {
+  {
+    "id": "12408",
     "name": "Blackcliff Slasher",
     "quality": 4,
     "type": "CLAYMORE",
@@ -380,7 +415,8 @@
       }
     }
   },
-  "12409": {
+  {
+    "id": "12409",
     "name": "Serpent Spine",
     "quality": 4,
     "type": "CLAYMORE",
@@ -391,7 +427,8 @@
       }
     }
   },
-  "12501": {
+  {
+    "id": "12501",
     "name": "Skyward Pride",
     "quality": 5,
     "type": "CLAYMORE",
@@ -402,7 +439,8 @@
       }
     }
   },
-  "12502": {
+  {
+    "id": "12502",
     "name": "Wolf's Gravestone",
     "quality": 5,
     "type": "CLAYMORE",
@@ -413,7 +451,8 @@
       }
     }
   },
-  "13101": {
+  {
+    "id": "13101",
     "name": "Beginner's Protector",
     "quality": 1,
     "type": "POLEARM",
@@ -423,7 +462,8 @@
       }
     }
   },
-  "13201": {
+  {
+    "id": "13201",
     "name": "Iron Point",
     "quality": 2,
     "type": "POLEARM",
@@ -433,7 +473,8 @@
       }
     }
   },
-  "13301": {
+  {
+    "id": "13301",
     "name": "White Tassel",
     "quality": 3,
     "type": "POLEARM",
@@ -444,7 +485,8 @@
       }
     }
   },
-  "13302": {
+  {
+    "id": "13302",
     "name": "Halberd",
     "quality": 3,
     "type": "POLEARM",
@@ -455,7 +497,8 @@
       }
     }
   },
-  "13303": {
+  {
+    "id": "13303",
     "name": "Black Tassel",
     "quality": 3,
     "type": "POLEARM",
@@ -466,7 +509,8 @@
       }
     }
   },
-  "13401": {
+  {
+    "id": "13401",
     "name": "Dragon's Bane",
     "quality": 4,
     "type": "POLEARM",
@@ -477,7 +521,8 @@
       }
     }
   },
-  "13402": {
+  {
+    "id": "13402",
     "name": "Prototype Starglitter",
     "quality": 4,
     "type": "POLEARM",
@@ -488,7 +533,8 @@
       }
     }
   },
-  "13403": {
+  {
+    "id": "13403",
     "name": "Crescent Pike",
     "quality": 4,
     "type": "POLEARM",
@@ -499,7 +545,8 @@
       }
     }
   },
-  "13404": {
+  {
+    "id": "13404",
     "name": "Blackcliff Pole",
     "quality": 4,
     "type": "POLEARM",
@@ -510,7 +557,8 @@
       }
     }
   },
-  "13405": {
+  {
+    "id": "13405",
     "name": "Deathmatch",
     "quality": 4,
     "type": "POLEARM",
@@ -521,7 +569,8 @@
       }
     }
   },
-  "13407": {
+  {
+    "id": "13407",
     "name": "Favonius Lance",
     "quality": 4,
     "type": "POLEARM",
@@ -532,7 +581,8 @@
       }
     }
   },
-  "13502": {
+  {
+    "id": "13502",
     "name": "Skyward Spine",
     "quality": 5,
     "type": "POLEARM",
@@ -543,7 +593,8 @@
       }
     }
   },
-  "13505": {
+  {
+    "id": "13505",
     "name": "Primordial Jade Winged-Spear",
     "quality": 5,
     "type": "POLEARM",
@@ -554,7 +605,8 @@
       }
     }
   },
-  "14101": {
+  {
+    "id": "14101",
     "name": "Apprentice's Notes",
     "quality": 1,
     "type": "CATALYST",
@@ -564,7 +616,8 @@
       }
     }
   },
-  "14201": {
+  {
+    "id": "14201",
     "name": "Pocket Grimoire",
     "quality": 2,
     "type": "CATALYST",
@@ -574,7 +627,8 @@
       }
     }
   },
-  "14301": {
+  {
+    "id": "14301",
     "name": "Magic Guide",
     "quality": 3,
     "type": "CATALYST",
@@ -585,7 +639,8 @@
       }
     }
   },
-  "14302": {
+  {
+    "id": "14302",
     "name": "Thrilling Tales of Dragon Slayers",
     "quality": 3,
     "type": "CATALYST",
@@ -596,7 +651,8 @@
       }
     }
   },
-  "14303": {
+  {
+    "id": "14303",
     "name": "Otherworldly Story",
     "quality": 3,
     "type": "CATALYST",
@@ -607,7 +663,8 @@
       }
     }
   },
-  "14304": {
+  {
+    "id": "14304",
     "name": "Emerald Orb",
     "quality": 3,
     "type": "CATALYST",
@@ -618,7 +675,8 @@
       }
     }
   },
-  "14305": {
+  {
+    "id": "14305",
     "name": "Twin Nephrite",
     "quality": 3,
     "type": "CATALYST",
@@ -629,7 +687,8 @@
       }
     }
   },
-  "14401": {
+  {
+    "id": "14401",
     "name": "Favonius Codex",
     "quality": 4,
     "type": "CATALYST",
@@ -640,7 +699,8 @@
       }
     }
   },
-  "14402": {
+  {
+    "id": "14402",
     "name": "The Widsith",
     "quality": 4,
     "type": "CATALYST",
@@ -651,7 +711,8 @@
       }
     }
   },
-  "14403": {
+  {
+    "id": "14403",
     "name": "Sacrificial Fragments",
     "quality": 4,
     "type": "CATALYST",
@@ -662,7 +723,8 @@
       }
     }
   },
-  "14404": {
+  {
+    "id": "14404",
     "name": "Royal Grimoire",
     "quality": 4,
     "type": "CATALYST",
@@ -673,7 +735,8 @@
       }
     }
   },
-  "14405": {
+  {
+    "id": "14405",
     "name": "Solar Pearl",
     "quality": 4,
     "type": "CATALYST",
@@ -684,7 +747,8 @@
       }
     }
   },
-  "14406": {
+  {
+    "id": "14406",
     "name": "Prototype Amber",
     "quality": 4,
     "type": "CATALYST",
@@ -695,7 +759,8 @@
       }
     }
   },
-  "14407": {
+  {
+    "id": "14407",
     "name": "Mappa Mare",
     "quality": 4,
     "type": "CATALYST",
@@ -706,7 +771,8 @@
       }
     }
   },
-  "14408": {
+  {
+    "id": "14408",
     "name": "Blackcliff Agate",
     "quality": 4,
     "type": "CATALYST",
@@ -717,7 +783,8 @@
       }
     }
   },
-  "14409": {
+  {
+    "id": "14409",
     "name": "Eye of Perception",
     "quality": 4,
     "type": "CATALYST",
@@ -728,7 +795,8 @@
       }
     }
   },
-  "14501": {
+  {
+    "id": "14501",
     "name": "Skyward Atlas",
     "quality": 5,
     "type": "CATALYST",
@@ -739,7 +807,8 @@
       }
     }
   },
-  "14502": {
+  {
+    "id": "14502",
     "name": "Lost Prayer to the Sacred Winds",
     "quality": 5,
     "type": "CATALYST",
@@ -750,7 +819,8 @@
       }
     }
   },
-  "15101": {
+  {
+    "id": "15101",
     "name": "Hunter's Bow",
     "quality": 1,
     "type": "BOW",
@@ -760,7 +830,8 @@
       }
     }
   },
-  "15201": {
+  {
+    "id": "15201",
     "name": "",
     "quality": 2,
     "type": "BOW",
@@ -770,7 +841,8 @@
       }
     }
   },
-  "15301": {
+  {
+    "id": "15301",
     "name": "Raven Bow",
     "quality": 3,
     "type": "BOW",
@@ -781,7 +853,8 @@
       }
     }
   },
-  "15302": {
+  {
+    "id": "15302",
     "name": "Sharpshooter's Oath",
     "quality": 3,
     "type": "BOW",
@@ -792,7 +865,8 @@
       }
     }
   },
-  "15303": {
+  {
+    "id": "15303",
     "name": "Recurve Bow",
     "quality": 3,
     "type": "BOW",
@@ -803,7 +877,8 @@
       }
     }
   },
-  "15304": {
+  {
+    "id": "15304",
     "name": "Slingshot",
     "quality": 3,
     "type": "BOW",
@@ -814,7 +889,8 @@
       }
     }
   },
-  "15305": {
+  {
+    "id": "15305",
     "name": "Messenger",
     "quality": 3,
     "type": "BOW",
@@ -825,7 +901,8 @@
       }
     }
   },
-  "15401": {
+  {
+    "id": "15401",
     "name": "Favonius Warbow",
     "quality": 4,
     "type": "BOW",
@@ -836,7 +913,8 @@
       }
     }
   },
-  "15402": {
+  {
+    "id": "15402",
     "name": "The Stringless",
     "quality": 4,
     "type": "BOW",
@@ -847,7 +925,8 @@
       }
     }
   },
-  "15403": {
+  {
+    "id": "15403",
     "name": "Sacrificial Bow",
     "quality": 4,
     "type": "BOW",
@@ -858,7 +937,8 @@
       }
     }
   },
-  "15404": {
+  {
+    "id": "15404",
     "name": "Royal Bow",
     "quality": 4,
     "type": "BOW",
@@ -869,7 +949,8 @@
       }
     }
   },
-  "15405": {
+  {
+    "id": "15405",
     "name": "Rust",
     "quality": 4,
     "type": "BOW",
@@ -880,7 +961,8 @@
       }
     }
   },
-  "15406": {
+  {
+    "id": "15406",
     "name": "Prototype Crescent",
     "quality": 4,
     "type": "BOW",
@@ -891,7 +973,8 @@
       }
     }
   },
-  "15407": {
+  {
+    "id": "15407",
     "name": "Compound Bow",
     "quality": 4,
     "type": "BOW",
@@ -902,7 +985,8 @@
       }
     }
   },
-  "15408": {
+  {
+    "id": "15408",
     "name": "Blackcliff Warbow",
     "quality": 4,
     "type": "BOW",
@@ -913,7 +997,8 @@
       }
     }
   },
-  "15409": {
+  {
+    "id": "15409",
     "name": "The Viridescent Hunt",
     "quality": 4,
     "type": "BOW",
@@ -924,7 +1009,8 @@
       }
     }
   },
-  "15501": {
+  {
+    "id": "15501",
     "name": "Skyward Harp",
     "quality": 5,
     "type": "BOW",
@@ -935,7 +1021,8 @@
       }
     }
   },
-  "15502": {
+  {
+    "id": "15502",
     "name": "Amos' Bow",
     "quality": 5,
     "type": "BOW",
@@ -946,7 +1033,8 @@
       }
     }
   },
-  "12504": {
+  {
+    "id": "12504",
     "name": "The Unforged",
     "quality": 5,
     "type": "CLAYMORE",
@@ -957,7 +1045,8 @@
       }
     }
   },
-  "13408": {
+  {
+    "id": "13408",
     "name": "Royal Spear",
     "quality": 4,
     "type": "POLEARM",
@@ -968,7 +1057,8 @@
       }
     }
   },
-  "13504": {
+  {
+    "id": "13504",
     "name": "Vortex Vanquisher",
     "quality": 5,
     "type": "POLEARM",
@@ -979,7 +1069,8 @@
       }
     }
   },
-  "14504": {
+  {
+    "id": "14504",
     "name": "Memory of Dust",
     "quality": 5,
     "type": "CATALYST",
@@ -990,7 +1081,8 @@
       }
     }
   },
-  "11413": {
+  {
+    "id": "11413",
     "name": "Festering Desire",
     "quality": 4,
     "type": "SWORD",
@@ -1001,7 +1093,8 @@
       }
     }
   },
-  "11504": {
+  {
+    "id": "11504",
     "name": "Summit Shaper",
     "quality": 5,
     "type": "SWORD",
@@ -1012,7 +1105,8 @@
       }
     }
   },
-  "12411": {
+  {
+    "id": "12411",
     "name": "Snow-Tombed Starsilver",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1023,7 +1117,8 @@
       }
     }
   },
-  "13409": {
+  {
+    "id": "13409",
     "name": "Dragonspine Spear",
     "quality": 4,
     "type": "POLEARM",
@@ -1034,7 +1129,8 @@
       }
     }
   },
-  "14412": {
+  {
+    "id": "14412",
     "name": "Frostbearer",
     "quality": 4,
     "type": "CATALYST",
@@ -1045,7 +1141,8 @@
       }
     }
   },
-  "11505": {
+  {
+    "id": "11505",
     "name": "Primordial Jade Cutter",
     "quality": 5,
     "type": "SWORD",
@@ -1056,7 +1153,8 @@
       }
     }
   },
-  "12410": {
+  {
+    "id": "12410",
     "name": "Lithic Blade",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1067,7 +1165,8 @@
       }
     }
   },
-  "13406": {
+  {
+    "id": "13406",
     "name": "Lithic Spear",
     "quality": 4,
     "type": "POLEARM",
@@ -1078,7 +1177,8 @@
       }
     }
   },
-  "13501": {
+  {
+    "id": "13501",
     "name": "Staff of Homa",
     "quality": 5,
     "type": "POLEARM",
@@ -1099,7 +1199,8 @@
       }
     }
   },
-  "11410": {
+  {
+    "id": "11410",
     "name": "The Alley Flash",
     "quality": 4,
     "type": "SWORD",
@@ -1110,7 +1211,8 @@
       }
     }
   },
-  "14410": {
+  {
+    "id": "14410",
     "name": "Wine and Song",
     "quality": 4,
     "type": "CATALYST",
@@ -1121,7 +1223,8 @@
       }
     }
   },
-  "15410": {
+  {
+    "id": "15410",
     "name": "Alley Hunter",
     "quality": 4,
     "type": "BOW",
@@ -1132,7 +1235,8 @@
       }
     }
   },
-  "15413": {
+  {
+    "id": "15413",
     "name": "Windblume Ode",
     "quality": 4,
     "type": "BOW",
@@ -1143,7 +1247,8 @@
       }
     }
   },
-  "15503": {
+  {
+    "id": "15503",
     "name": "Elegy for the End",
     "quality": 5,
     "type": "BOW",
@@ -1154,7 +1259,8 @@
       }
     }
   },
-  "12503": {
+  {
+    "id": "12503",
     "name": "Song of Broken Pines",
     "quality": 5,
     "type": "CLAYMORE",
@@ -1165,7 +1271,8 @@
       }
     }
   },
-  "11503": {
+  {
+    "id": "11503",
     "name": "Freedom-Sworn",
     "quality": 5,
     "type": "SWORD",
@@ -1176,7 +1283,8 @@
       }
     }
   },
-  "14413": {
+  {
+    "id": "14413",
     "name": "Dodoco Tales",
     "quality": 4,
     "type": "CATALYST",
@@ -1187,7 +1295,8 @@
       }
     }
   },
-  "15412": {
+  {
+    "id": "15412",
     "name": "Mitternachts Waltz",
     "quality": 4,
     "type": "BOW",
@@ -1198,7 +1307,8 @@
       }
     }
   },
-  "11414": {
+  {
+    "id": "11414",
     "name": "Amenoma Kageuchi",
     "quality": 4,
     "type": "SWORD",
@@ -1209,7 +1319,8 @@
       }
     }
   },
-  "11509": {
+  {
+    "id": "11509",
     "name": "Mistsplitter Reforged",
     "quality": 5,
     "type": "SWORD",
@@ -1220,7 +1331,8 @@
       }
     }
   },
-  "12414": {
+  {
+    "id": "12414",
     "name": "Katsuragikiri Nagamasa",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1231,7 +1343,8 @@
       }
     }
   },
-  "13414": {
+  {
+    "id": "13414",
     "name": "Kitain Cross Spear",
     "quality": 4,
     "type": "POLEARM",
@@ -1242,7 +1355,8 @@
       }
     }
   },
-  "14414": {
+  {
+    "id": "14414",
     "name": "Hakushin Ring",
     "quality": 4,
     "type": "CATALYST",
@@ -1253,7 +1367,8 @@
       }
     }
   },
-  "15414": {
+  {
+    "id": "15414",
     "name": "Hamayumi",
     "quality": 4,
     "type": "BOW",
@@ -1264,7 +1379,8 @@
       }
     }
   },
-  "15509": {
+  {
+    "id": "15509",
     "name": "Thundering Pulse",
     "quality": 5,
     "type": "BOW",
@@ -1275,7 +1391,8 @@
       }
     }
   },
-  "12412": {
+  {
+    "id": "12412",
     "name": "Luxurious Sea-Lord",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1286,7 +1403,8 @@
       }
     }
   },
-  "13415": {
+  {
+    "id": "13415",
     "name": "\"The Catch\"",
     "quality": 4,
     "type": "POLEARM",
@@ -1297,7 +1415,8 @@
       }
     }
   },
-  "13509": {
+  {
+    "id": "13509",
     "name": "Engulfing Lightning",
     "quality": 5,
     "type": "POLEARM",
@@ -1324,7 +1443,8 @@
       }
     }
   },
-  "14506": {
+  {
+    "id": "14506",
     "name": "Everlasting Moonglow",
     "quality": 5,
     "type": "CATALYST",
@@ -1335,7 +1455,8 @@
       }
     }
   },
-  "15415": {
+  {
+    "id": "15415",
     "name": "Predator",
     "quality": 4,
     "type": "BOW",
@@ -1346,7 +1467,8 @@
       }
     }
   },
-  "12416": {
+  {
+    "id": "12416",
     "name": "Akuoumaru",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1357,7 +1479,8 @@
       }
     }
   },
-  "13416": {
+  {
+    "id": "13416",
     "name": "Wavebreaker's Fin",
     "quality": 4,
     "type": "POLEARM",
@@ -1368,7 +1491,8 @@
       }
     }
   },
-  "15416": {
+  {
+    "id": "15416",
     "name": "Mouun's Moon",
     "quality": 4,
     "type": "BOW",
@@ -1379,7 +1503,8 @@
       }
     }
   },
-  "15507": {
+  {
+    "id": "15507",
     "name": "Polar Star",
     "quality": 5,
     "type": "BOW",
@@ -1390,7 +1515,8 @@
       }
     }
   },
-  "11415": {
+  {
+    "id": "11415",
     "name": "Cinnabar Spindle",
     "quality": 4,
     "type": "SWORD",
@@ -1401,7 +1527,8 @@
       }
     }
   },
-  "12510": {
+  {
+    "id": "12510",
     "name": "Redhorn Stonethresher",
     "quality": 5,
     "type": "CLAYMORE",
@@ -1412,7 +1539,8 @@
       }
     }
   },
-  "13507": {
+  {
+    "id": "13507",
     "name": "Calamity Queller",
     "quality": 5,
     "type": "POLEARM",
@@ -1423,7 +1551,8 @@
       }
     }
   },
-  "14415": {
+  {
+    "id": "14415",
     "name": "Oathsworn Eye",
     "quality": 4,
     "type": "CATALYST",
@@ -1434,7 +1563,8 @@
       }
     }
   },
-  "14509": {
+  {
+    "id": "14509",
     "name": "Kagura's Verity",
     "quality": 5,
     "type": "CATALYST",
@@ -1445,7 +1575,8 @@
       }
     }
   },
-  "11510": {
+  {
+    "id": "11510",
     "name": "Haran Geppaku Futsu",
     "quality": 5,
     "type": "SWORD",
@@ -1456,7 +1587,8 @@
       }
     }
   },
-  "15411": {
+  {
+    "id": "15411",
     "name": "Fading Twilight",
     "quality": 4,
     "type": "BOW",
@@ -1467,7 +1599,8 @@
       }
     }
   },
-  "15508": {
+  {
+    "id": "15508",
     "name": "Aqua Simulacra",
     "quality": 5,
     "type": "BOW",
@@ -1478,7 +1611,8 @@
       }
     }
   },
-  "11416": {
+  {
+    "id": "11416",
     "name": "Kagotsurube Isshin",
     "quality": 4,
     "type": "SWORD",
@@ -1489,7 +1623,8 @@
       }
     }
   },
-  "11417": {
+  {
+    "id": "11417",
     "name": "Sapwood Blade",
     "quality": 4,
     "type": "SWORD",
@@ -1500,7 +1635,8 @@
       }
     }
   },
-  "12417": {
+  {
+    "id": "12417",
     "name": "Forest Regalia",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1511,7 +1647,8 @@
       }
     }
   },
-  "13417": {
+  {
+    "id": "13417",
     "name": "Moonpiercer",
     "quality": 4,
     "type": "POLEARM",
@@ -1522,7 +1659,8 @@
       }
     }
   },
-  "14417": {
+  {
+    "id": "14417",
     "name": "Fruit of Fulfillment",
     "quality": 4,
     "type": "CATALYST",
@@ -1533,7 +1671,8 @@
       }
     }
   },
-  "15417": {
+  {
+    "id": "15417",
     "name": "King's Squire",
     "quality": 4,
     "type": "BOW",
@@ -1544,7 +1683,8 @@
       }
     }
   },
-  "15418": {
+  {
+    "id": "15418",
     "name": "End of the Line",
     "quality": 4,
     "type": "BOW",
@@ -1555,7 +1695,8 @@
       }
     }
   },
-  "15511": {
+  {
+    "id": "15511",
     "name": "Hunter's Path",
     "quality": 5,
     "type": "BOW",
@@ -1566,7 +1707,8 @@
       }
     }
   },
-  "11418": {
+  {
+    "id": "11418",
     "name": "Xiphos' Moonlight",
     "quality": 4,
     "type": "SWORD",
@@ -1577,7 +1719,8 @@
       }
     }
   },
-  "11511": {
+  {
+    "id": "11511",
     "name": "Key of Khaj-Nisut",
     "quality": 5,
     "type": "SWORD",
@@ -1588,7 +1731,8 @@
       }
     }
   },
-  "12415": {
+  {
+    "id": "12415",
     "name": "Makhaira Aquamarine",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1599,7 +1743,8 @@
       }
     }
   },
-  "13419": {
+  {
+    "id": "13419",
     "name": "Missive Windspear",
     "quality": 4,
     "type": "POLEARM",
@@ -1610,7 +1755,8 @@
       }
     }
   },
-  "13511": {
+  {
+    "id": "13511",
     "name": "Staff of the Scarlet Sands",
     "quality": 5,
     "type": "POLEARM",
@@ -1630,7 +1776,8 @@
       }
     }
   },
-  "14416": {
+  {
+    "id": "14416",
     "name": "Wandering Evenstar",
     "quality": 4,
     "type": "CATALYST",
@@ -1641,7 +1788,8 @@
       }
     }
   },
-  "14511": {
+  {
+    "id": "14511",
     "name": "A Thousand Floating Dreams",
     "quality": 5,
     "type": "CATALYST",
@@ -1652,7 +1800,8 @@
       }
     }
   },
-  "11422": {
+  {
+    "id": "11422",
     "name": "Toukabou Shigure",
     "quality": 4,
     "type": "SWORD",
@@ -1663,7 +1812,8 @@
       }
     }
   },
-  "14512": {
+  {
+    "id": "14512",
     "name": "Tulaytullah's Remembrance",
     "quality": 5,
     "type": "CATALYST",
@@ -1674,7 +1824,8 @@
       }
     }
   },
-  "11512": {
+  {
+    "id": "11512",
     "name": "Light of Foliar Incision",
     "quality": 5,
     "type": "SWORD",
@@ -1685,7 +1836,8 @@
       }
     }
   },
-  "12418": {
+  {
+    "id": "12418",
     "name": "Mailed Flower",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1696,7 +1848,8 @@
       }
     }
   },
-  "12511": {
+  {
+    "id": "12511",
     "name": "Beacon of the Reed Sea",
     "quality": 5,
     "type": "CLAYMORE",
@@ -1707,7 +1860,8 @@
       }
     }
   },
-  "14505": {
+  {
+    "id": "14505",
     "name": "Jadefall's Splendor",
     "quality": 5,
     "type": "CATALYST",
@@ -1718,7 +1872,8 @@
       }
     }
   },
-  "15419": {
+  {
+    "id": "15419",
     "name": "Ibis Piercer",
     "quality": 4,
     "type": "BOW",
@@ -1729,7 +1884,8 @@
       }
     }
   },
-  "11424": {
+  {
+    "id": "11424",
     "name": "Wolf-Fang",
     "quality": 4,
     "type": "SWORD",
@@ -1740,7 +1896,8 @@
       }
     }
   },
-  "11425": {
+  {
+    "id": "11425",
     "name": "Finale of the Deep",
     "quality": 4,
     "type": "SWORD",
@@ -1751,7 +1908,8 @@
       }
     }
   },
-  "11426": {
+  {
+    "id": "11426",
     "name": "Fleuve Cendre Ferryman",
     "quality": 4,
     "type": "SWORD",
@@ -1762,7 +1920,8 @@
       }
     }
   },
-  "12424": {
+  {
+    "id": "12424",
     "name": "Talking Stick",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1773,7 +1932,8 @@
       }
     }
   },
-  "12425": {
+  {
+    "id": "12425",
     "name": "Tidal Shadow",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1784,7 +1944,8 @@
       }
     }
   },
-  "13424": {
+  {
+    "id": "13424",
     "name": "Ballad of the Fjords",
     "quality": 4,
     "type": "POLEARM",
@@ -1795,7 +1956,8 @@
       }
     }
   },
-  "13425": {
+  {
+    "id": "13425",
     "name": "Rightful Reward",
     "quality": 4,
     "type": "POLEARM",
@@ -1806,7 +1968,8 @@
       }
     }
   },
-  "14424": {
+  {
+    "id": "14424",
     "name": "Sacrificial Jade",
     "quality": 4,
     "type": "CATALYST",
@@ -1817,7 +1980,8 @@
       }
     }
   },
-  "14425": {
+  {
+    "id": "14425",
     "name": "Flowing Purity",
     "quality": 4,
     "type": "CATALYST",
@@ -1828,7 +1992,8 @@
       }
     }
   },
-  "15424": {
+  {
+    "id": "15424",
     "name": "Scion of the Blazing Sun",
     "quality": 4,
     "type": "BOW",
@@ -1839,7 +2004,8 @@
       }
     }
   },
-  "15425": {
+  {
+    "id": "15425",
     "name": "Song of Stillness",
     "quality": 4,
     "type": "BOW",
@@ -1850,7 +2016,8 @@
       }
     }
   },
-  "15512": {
+  {
+    "id": "15512",
     "name": "The First Great Magic",
     "quality": 5,
     "type": "BOW",
@@ -1861,7 +2028,8 @@
       }
     }
   },
-  "11427": {
+  {
+    "id": "11427",
     "name": "The Dockhand's Assistant",
     "quality": 4,
     "type": "SWORD",
@@ -1872,7 +2040,8 @@
       }
     }
   },
-  "12427": {
+  {
+    "id": "12427",
     "name": "Portable Power Saw",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1883,7 +2052,8 @@
       }
     }
   },
-  "13427": {
+  {
+    "id": "13427",
     "name": "Prospector's Drill",
     "quality": 4,
     "type": "POLEARM",
@@ -1894,7 +2064,8 @@
       }
     }
   },
-  "14426": {
+  {
+    "id": "14426",
     "name": "Ballad of the Boundless Blue",
     "quality": 4,
     "type": "CATALYST",
@@ -1905,7 +2076,8 @@
       }
     }
   },
-  "14513": {
+  {
+    "id": "14513",
     "name": "Cashflow Supervision",
     "quality": 5,
     "type": "CATALYST",
@@ -1916,7 +2088,8 @@
       }
     }
   },
-  "14514": {
+  {
+    "id": "14514",
     "name": "Tome of the Eternal Flow",
     "quality": 5,
     "type": "CATALYST",
@@ -1927,7 +2100,8 @@
       }
     }
   },
-  "15427": {
+  {
+    "id": "15427",
     "name": "Range Gauge",
     "quality": 4,
     "type": "BOW",
@@ -1938,7 +2112,8 @@
       }
     }
   },
-  "11428": {
+  {
+    "id": "11428",
     "name": "Sword of Narzissenkreuz",
     "quality": 4,
     "type": "SWORD",
@@ -1949,7 +2124,8 @@
       }
     }
   },
-  "11513": {
+  {
+    "id": "11513",
     "name": "Splendor of Tranquil Waters",
     "quality": 5,
     "type": "SWORD",
@@ -1960,7 +2136,8 @@
       }
     }
   },
-  "12426": {
+  {
+    "id": "12426",
     "name": "\"Ultimate Overlord's Mega Magic Sword\"",
     "quality": 4,
     "type": "CLAYMORE",
@@ -1971,7 +2148,8 @@
       }
     }
   },
-  "12512": {
+  {
+    "id": "12512",
     "name": "Verdict",
     "quality": 5,
     "type": "CLAYMORE",
@@ -1982,7 +2160,8 @@
       }
     }
   },
-  "14515": {
+  {
+    "id": "14515",
     "name": "Crane's Echoing Call",
     "quality": 5,
     "type": "CATALYST",
@@ -1993,7 +2172,8 @@
       }
     }
   },
-  "11514": {
+  {
+    "id": "11514",
     "name": "Uraku Misugiri",
     "quality": 5,
     "type": "SWORD",
@@ -2004,7 +2184,8 @@
       }
     }
   },
-  "13426": {
+  {
+    "id": "13426",
     "name": "Dialogues of the Desert Sages",
     "quality": 4,
     "type": "POLEARM",
@@ -2015,7 +2196,8 @@
       }
     }
   },
-  "13512": {
+  {
+    "id": "13512",
     "name": "Crimson Moon's Semblance",
     "quality": 5,
     "type": "POLEARM",
@@ -2026,7 +2208,8 @@
       }
     }
   },
-  "11515": {
+  {
+    "id": "11515",
     "name": "Absolution",
     "quality": 5,
     "type": "SWORD",
@@ -2037,7 +2220,8 @@
       }
     }
   },
-  "15426": {
+  {
+    "id": "15426",
     "name": "Cloudforged",
     "quality": 4,
     "type": "BOW",
@@ -2048,7 +2232,8 @@
       }
     }
   },
-  "15513": {
+  {
+    "id": "15513",
     "name": "Silvershower Heartstrings",
     "quality": 5,
     "type": "BOW",
@@ -2059,7 +2244,8 @@
       }
     }
   },
-  "13513": {
+  {
+    "id": "13513",
     "name": "Lumidouce Elegy",
     "quality": 5,
     "type": "POLEARM",
@@ -2070,7 +2256,8 @@
       }
     }
   },
-  "11431": {
+  {
+    "id": "11431",
     "name": "Flute of Ezpitzal",
     "quality": 4,
     "type": "SWORD",
@@ -2081,7 +2268,8 @@
       }
     }
   },
-  "12431": {
+  {
+    "id": "12431",
     "name": "Earth Shaker",
     "quality": 4,
     "type": "CLAYMORE",
@@ -2092,7 +2280,8 @@
       }
     }
   },
-  "12513": {
+  {
+    "id": "12513",
     "name": "Fang of the Mountain King",
     "quality": 5,
     "type": "CLAYMORE",
@@ -2103,7 +2292,8 @@
       }
     }
   },
-  "13431": {
+  {
+    "id": "13431",
     "name": "Footprint of the Rainbow",
     "quality": 4,
     "type": "POLEARM",
@@ -2114,7 +2304,8 @@
       }
     }
   },
-  "14427": {
+  {
+    "id": "14427",
     "name": "Ash-Graven Drinking Horn",
     "quality": 4,
     "type": "CATALYST",
@@ -2125,7 +2316,8 @@
       }
     }
   },
-  "14431": {
+  {
+    "id": "14431",
     "name": "Ring of Yaxche",
     "quality": 4,
     "type": "CATALYST",
@@ -2136,7 +2328,8 @@
       }
     }
   },
-  "14516": {
+  {
+    "id": "14516",
     "name": "Surf's Up",
     "quality": 5,
     "type": "CATALYST",
@@ -2147,7 +2340,8 @@
       }
     }
   },
-  "15431": {
+  {
+    "id": "15431",
     "name": "Chain Breaker",
     "quality": 4,
     "type": "BOW",
@@ -2158,7 +2352,8 @@
       }
     }
   },
-  "11430": {
+  {
+    "id": "11430",
     "name": "Sturdy Bone",
     "quality": 4,
     "type": "SWORD",
@@ -2169,7 +2364,8 @@
       }
     }
   },
-  "11516": {
+  {
+    "id": "11516",
     "name": "Peak Patrol Song",
     "quality": 5,
     "type": "SWORD",
@@ -2180,7 +2376,8 @@
       }
     }
   },
-  "12430": {
+  {
+    "id": "12430",
     "name": "Fruitful Hook",
     "quality": 4,
     "type": "CLAYMORE",
@@ -2191,7 +2388,8 @@
       }
     }
   },
-  "13430": {
+  {
+    "id": "13430",
     "name": "Mountain-Bracing Bolt",
     "quality": 4,
     "type": "POLEARM",
@@ -2202,7 +2400,8 @@
       }
     }
   },
-  "11432": {
+  {
+    "id": "11432",
     "name": "Calamity of Eshu",
     "quality": 4,
     "type": "SWORD",
@@ -2213,7 +2412,8 @@
       }
     }
   },
-  "14430": {
+  {
+    "id": "14430",
     "name": "Waveriding Whirl",
     "quality": 4,
     "type": "CATALYST",
@@ -2224,7 +2424,8 @@
       }
     }
   },
-  "15430": {
+  {
+    "id": "15430",
     "name": "Flower-Wreathed Feathers",
     "quality": 4,
     "type": "BOW",
@@ -2235,7 +2436,8 @@
       }
     }
   },
-  "15514": {
+  {
+    "id": "15514",
     "name": "Astral Vulture's Crimson Plumage",
     "quality": 5,
     "type": "BOW",
@@ -2246,7 +2448,8 @@
       }
     }
   },
-  "12514": {
+  {
+    "id": "12514",
     "name": "A Thousand Blazing Suns",
     "quality": 5,
     "type": "CLAYMORE",
@@ -2257,7 +2460,8 @@
       }
     }
   },
-  "14517": {
+  {
+    "id": "14517",
     "name": "Starcaller's Watch",
     "quality": 5,
     "type": "CATALYST",
@@ -2268,7 +2472,8 @@
       }
     }
   },
-  "13432": {
+  {
+    "id": "13432",
     "name": "Tamayuratei no Ohanashi",
     "quality": 4,
     "type": "POLEARM",
@@ -2279,7 +2484,8 @@
       }
     }
   },
-  "14518": {
+  {
+    "id": "14518",
     "name": "Sunny Morning Sleep-In",
     "quality": 5,
     "type": "CATALYST",
@@ -2290,7 +2496,8 @@
       }
     }
   },
-  "14519": {
+  {
+    "id": "14519",
     "name": "Vivid Notions",
     "quality": 5,
     "type": "CATALYST",
@@ -2301,7 +2508,8 @@
       }
     }
   },
-  "13514": {
+  {
+    "id": "13514",
     "name": "Symphonist of Scents",
     "quality": 5,
     "type": "POLEARM",
@@ -2312,7 +2520,8 @@
       }
     }
   },
-  "15432": {
+  {
+    "id": "15432",
     "name": "Sequence of Solitude",
     "quality": 4,
     "type": "BOW",
@@ -2323,7 +2532,8 @@
       }
     }
   },
-  "11517": {
+  {
+    "id": "11517",
     "name": "Azurelight",
     "quality": 5,
     "type": "SWORD",
@@ -2334,7 +2544,8 @@
       }
     }
   },
-  "13515": {
+  {
+    "id": "13515",
     "name": "Fractured Halo",
     "quality": 5,
     "type": "POLEARM",
@@ -2345,7 +2556,8 @@
       }
     }
   },
-  "11433": {
+  {
+    "id": "11433",
     "name": "Serenity's Call",
     "quality": 4,
     "type": "SWORD",
@@ -2356,7 +2568,8 @@
       }
     }
   },
-  "12433": {
+  {
+    "id": "12433",
     "name": "Master Key",
     "quality": 4,
     "type": "CLAYMORE",
@@ -2367,7 +2580,8 @@
       }
     }
   },
-  "13433": {
+  {
+    "id": "13433",
     "name": "Prospector's Shovel",
     "quality": 4,
     "type": "POLEARM",
@@ -2378,7 +2592,8 @@
       }
     }
   },
-  "13516": {
+  {
+    "id": "13516",
     "name": "Bloodsoaked Ruins",
     "quality": 5,
     "type": "POLEARM",
@@ -2389,7 +2604,8 @@
       }
     }
   },
-  "14432": {
+  {
+    "id": "14432",
     "name": "Etherlight Spindlelute",
     "quality": 4,
     "type": "CATALYST",
@@ -2400,7 +2616,8 @@
       }
     }
   },
-  "14433": {
+  {
+    "id": "14433",
     "name": "Blackmarrow Lantern",
     "quality": 4,
     "type": "CATALYST",
@@ -2411,7 +2628,8 @@
       }
     }
   },
-  "14520": {
+  {
+    "id": "14520",
     "name": "Nightweaver's Looking Glass",
     "quality": 5,
     "type": "CATALYST",
@@ -2422,7 +2640,8 @@
       }
     }
   },
-  "15433": {
+  {
+    "id": "15433",
     "name": "Snare Hook",
     "quality": 4,
     "type": "BOW",
@@ -2433,7 +2652,8 @@
       }
     }
   },
-  "13434": {
+  {
+    "id": "13434",
     "name": "Sacrificer's Staff",
     "quality": 4,
     "type": "POLEARM",
@@ -2444,7 +2664,8 @@
       }
     }
   },
-  "14434": {
+  {
+    "id": "14434",
     "name": "Dawning Frost",
     "quality": 4,
     "type": "CATALYST",
@@ -2455,7 +2676,8 @@
       }
     }
   },
-  "14521": {
+  {
+    "id": "14521",
     "name": "Reliquary of Truth",
     "quality": 5,
     "type": "CATALYST",
@@ -2466,7 +2688,8 @@
       }
     }
   },
-  "11518": {
+  {
+    "id": "11518",
     "name": "Athame Artis",
     "quality": 5,
     "type": "SWORD",
@@ -2477,7 +2700,8 @@
       }
     }
   },
-  "15434": {
+  {
+    "id": "15434",
     "name": "Rainbow Serpent's Rain Bow",
     "quality": 4,
     "type": "BOW",
@@ -2488,7 +2712,8 @@
       }
     }
   },
-  "15515": {
+  {
+    "id": "15515",
     "name": "The Daybreak Chronicles",
     "quality": 5,
     "type": "BOW",
@@ -2499,7 +2724,8 @@
       }
     }
   },
-  "11519": {
+  {
+    "id": "11519",
     "name": "Lightbearing Moonshard",
     "quality": 5,
     "type": "SWORD",
@@ -2510,7 +2736,8 @@
       }
     }
   },
-  "14522": {
+  {
+    "id": "14522",
     "name": "Nocturne's Curtain Call",
     "quality": 5,
     "type": "CATALYST",
@@ -2521,7 +2748,8 @@
       }
     }
   },
-  "12515": {
+  {
+    "id": "12515",
     "name": "Gest of the Mighty Wolf",
     "quality": 5,
     "type": "CLAYMORE",
@@ -2532,7 +2760,8 @@
       }
     }
   },
-  "15516": {
+  {
+    "id": "15516",
     "name": "Golden Frostbound Oath",
     "quality": 5,
     "type": "BOW",
@@ -2543,4 +2772,4 @@
       }
     }
   }
-}
+]

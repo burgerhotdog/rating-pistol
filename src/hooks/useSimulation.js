@@ -1,28 +1,28 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useBuild } from '@/contexts';
-import { CHARACTERS, MVS, WEAPONS } from '@/data';
+import { CHARACTER, ACTION, WEAPON } from '@/data';
 
 function validatePayload({ gameId, characterId, build, team }) {
   // gameId
   if (!['wuthering-waves'].includes(gameId)) return `invalid gameId "${gameId}"`;
 
   // characterId (characters.json and mvs.json)
-  const characterData = CHARACTERS[gameId][characterId];
+  const characterData = CHARACTER[gameId][characterId];
   if (!characterData) return `characterId "${characterId}" doesn't exist in gameId "${gameId}"`;
   const { element, stats: characterStats } = characterData;
   if (!element) return `missing "element" for characterId "${characterId}"`;
   if (!characterStats) return `missing "stats" for characterId "${characterId}"`;
   const { BASE_HP, BASE_ATK, BASE_DEF } = characterStats;
   if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for characterId "${characterId}"`;
-  const characterMvs = MVS[gameId][characterId];
+  const characterMvs = ACTION[gameId][characterId];
   if (!characterMvs) return `missing "mvs" for characterId "${characterId}"`;
 
   // build
   if (!build) return 'build is undefined';
   const { weaponId, equipList } = build;
   if (!weaponId) return 'weaponId is undefined';
-  const weaponData = WEAPONS[gameId][weaponId];
+  const weaponData = WEAPON[gameId][weaponId];
   if (!weaponData) return `weaponId "${weaponId}" doesn't exist in gameId "${gameId}"`;
   const { name: weaponName, quality: weaponQuality } = weaponData;
   if (Number(weaponQuality) < 3) return `weapon "${weaponName}" is not supported"`;
@@ -35,14 +35,14 @@ function validatePayload({ gameId, characterId, build, team }) {
     const { memberId, weaponId, setCounts, rotation, build } = member;
     if (memberId === null) continue;
     if (!memberId) return 'team contains undefined memberId';
-    const memberData = CHARACTERS[gameId][memberId];
+    const memberData = CHARACTER[gameId][memberId];
     if (!memberData) return `memberId "${memberId}" doesn't exist in gameId "${gameId}"`;
     const { name, element, stats } = memberData;
     if (!element) return `missing "element" for memberId "${memberId}"`;
     if (!stats) return `missing "stats" for memberId "${memberId}"`;
     const { BASE_HP, BASE_ATK, BASE_DEF } = stats;
     if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for memberId "${memberId}"`;
-    if (!MVS[gameId][memberId]) return `missing "mvs" for memberId "${memberId}"`;
+    if (!ACTION[gameId][memberId]) return `missing "mvs" for memberId "${memberId}"`;
 
     if (!weaponId) return `team member "${name}" contains undefined weaponId`;
     if (!setCounts) return `team member "${name}" contains undefined setCounts`;
@@ -98,7 +98,7 @@ export function useSimulation(team) {
       if (data.type === 'progress') {
         setResult(prev => ({
           ...prev,
-          ...('currentMember' in data ? { currentMember: data.currentMember ? CHARACTERS[gameId][data.currentMember].name : null } : {}),
+          ...('currentMember' in data ? { currentMember: data.currentMember ? CHARACTER[gameId][data.currentMember].name : null } : {}),
           ...('completed' in data ? { completed: data.completed } : {}),
           ...('diff' in data ? { diff: data.diff } : {}),
           ...('trial' in data ? { trial: data.trial } : {}),
@@ -122,12 +122,7 @@ export function useSimulation(team) {
           teamFinalStats: data.teamFinalStats,
           actionMap: data.actionMap,
           actionMapsWithSub: data.actionMapsWithSub,
-          timings: data.timings,
         }));
-
-        if (import.meta.env.DEV) {
-          console.log('[simulation timings]', data.timings);
-        }
 
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;

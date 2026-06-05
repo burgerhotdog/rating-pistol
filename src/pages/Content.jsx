@@ -33,8 +33,8 @@ export const Content = () => {
 
   return (
     <Box
-      display="flex"
       sx={{
+        display: 'flex',
         flex: 1,
         minHeight: 0,
         overflow: 'hidden',
@@ -56,8 +56,8 @@ export const Content = () => {
             statusMessage={statusMessage}
           />
         ) : (
-          <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 0, gap: 1 }}>
-            <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 250 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, gap: 1 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 250 }}>
               <BenchmarkProgress
                 weeklyScores={weeklyScores}
                 weeklyDistribution={weeklyDistribution}
@@ -68,7 +68,7 @@ export const Content = () => {
               />
             </Box>
 
-            <Box display="flex" flexDirection="row" sx={{ flex: 1, minHeight: 100, gap: 1 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100, gap: 1 }}>
               <CustomRadarChart
                 combinedSimEquips={finalStats}
                 isLoading={isLoading}
@@ -78,7 +78,7 @@ export const Content = () => {
               />
             </Box>
 
-            <Box display="flex" flexDirection="row" sx={{ flex: 1, minHeight: 100 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100 }}>
               <SubstatPriority
                 isLoading={isLoading}
                 actionMap={actionMap}

@@ -1,5 +1,6 @@
-{
-  "20000": {
+[
+  {
+    "id": "20000",
     "name": "Arrows",
     "quality": 3,
     "type": "HUNT",
@@ -11,7 +12,8 @@
       }
     }
   },
-  "20001": {
+  {
+    "id": "20001",
     "name": "Cornucopia",
     "quality": 3,
     "type": "ABUNDANCE",
@@ -23,7 +25,8 @@
       }
     }
   },
-  "20002": {
+  {
+    "id": "20002",
     "name": "Collapsing Sky",
     "quality": 3,
     "type": "DESTRUCTION",
@@ -35,7 +38,8 @@
       }
     }
   },
-  "20003": {
+  {
+    "id": "20003",
     "name": "Amber",
     "quality": 3,
     "type": "PRESERVATION",
@@ -47,7 +51,8 @@
       }
     }
   },
-  "20004": {
+  {
+    "id": "20004",
     "name": "Void",
     "quality": 3,
     "type": "NIHILITY",
@@ -59,7 +64,8 @@
       }
     }
   },
-  "20005": {
+  {
+    "id": "20005",
     "name": "Chorus",
     "quality": 3,
     "type": "HARMONY",
@@ -71,7 +77,8 @@
       }
     }
   },
-  "20006": {
+  {
+    "id": "20006",
     "name": "Data Bank",
     "quality": 3,
     "type": "ERUDITION",
@@ -83,7 +90,8 @@
       }
     }
   },
-  "20007": {
+  {
+    "id": "20007",
     "name": "Darting Arrow",
     "quality": 3,
     "type": "HUNT",
@@ -95,7 +103,8 @@
       }
     }
   },
-  "20008": {
+  {
+    "id": "20008",
     "name": "Fine Fruit",
     "quality": 3,
     "type": "ABUNDANCE",
@@ -107,7 +116,8 @@
       }
     }
   },
-  "20009": {
+  {
+    "id": "20009",
     "name": "Shattered Home",
     "quality": 3,
     "type": "DESTRUCTION",
@@ -119,7 +129,8 @@
       }
     }
   },
-  "20010": {
+  {
+    "id": "20010",
     "name": "DEFENSE",
     "quality": 3,
     "type": "PRESERVATION",
@@ -131,7 +142,8 @@
       }
     }
   },
-  "20011": {
+  {
+    "id": "20011",
     "name": "Loop",
     "quality": 3,
     "type": "NIHILITY",
@@ -143,7 +155,8 @@
       }
     }
   },
-  "20012": {
+  {
+    "id": "20012",
     "name": "Meshing Cogs",
     "quality": 3,
     "type": "HARMONY",
@@ -155,7 +168,8 @@
       }
     }
   },
-  "20013": {
+  {
+    "id": "20013",
     "name": "Passkey",
     "quality": 3,
     "type": "ERUDITION",
@@ -167,7 +181,8 @@
       }
     }
   },
-  "20014": {
+  {
+    "id": "20014",
     "name": "Adversarial",
     "quality": 3,
     "type": "HUNT",
@@ -179,7 +194,8 @@
       }
     }
   },
-  "20015": {
+  {
+    "id": "20015",
     "name": "Multiplication",
     "quality": 3,
     "type": "ABUNDANCE",
@@ -191,7 +207,8 @@
       }
     }
   },
-  "20016": {
+  {
+    "id": "20016",
     "name": "Mutual Demise",
     "quality": 3,
     "type": "DESTRUCTION",
@@ -203,7 +220,8 @@
       }
     }
   },
-  "20017": {
+  {
+    "id": "20017",
     "name": "Pioneering",
     "quality": 3,
     "type": "PRESERVATION",
@@ -215,7 +233,8 @@
       }
     }
   },
-  "20018": {
+  {
+    "id": "20018",
     "name": "Hidden Shadow",
     "quality": 3,
     "type": "NIHILITY",
@@ -227,7 +246,8 @@
       }
     }
   },
-  "20019": {
+  {
+    "id": "20019",
     "name": "Mediation",
     "quality": 3,
     "type": "HARMONY",
@@ -239,7 +259,8 @@
       }
     }
   },
-  "20020": {
+  {
+    "id": "20020",
     "name": "Sagacity",
     "quality": 3,
     "type": "ERUDITION",
@@ -251,7 +272,8 @@
       }
     }
   },
-  "21000": {
+  {
+    "id": "21000",
     "name": "Post-Op Conversation",
     "quality": 4,
     "type": "ABUNDANCE",
@@ -263,7 +285,8 @@
       }
     }
   },
-  "21001": {
+  {
+    "id": "21001",
     "name": "Good Night and Sleep Well",
     "quality": 4,
     "type": "NIHILITY",
@@ -275,7 +298,8 @@
       }
     }
   },
-  "21002": {
+  {
+    "id": "21002",
     "name": "Day One of My New Life",
     "quality": 4,
     "type": "PRESERVATION",
@@ -287,7 +311,8 @@
       }
     }
   },
-  "21003": {
+  {
+    "id": "21003",
     "name": "Only Silence Remains",
     "quality": 4,
     "type": "HUNT",
@@ -299,7 +324,8 @@
       }
     }
   },
-  "21004": {
+  {
+    "id": "21004",
     "name": "Memories of the Past",
     "quality": 4,
     "type": "HARMONY",
@@ -311,7 +337,8 @@
       }
     }
   },
-  "21005": {
+  {
+    "id": "21005",
     "name": "The Moles Welcome You",
     "quality": 4,
     "type": "DESTRUCTION",
@@ -323,7 +350,8 @@
       }
     }
   },
-  "21006": {
+  {
+    "id": "21006",
     "name": "The Birth of the Self",
     "quality": 4,
     "type": "ERUDITION",
@@ -335,7 +363,8 @@
       }
     }
   },
-  "21007": {
+  {
+    "id": "21007",
     "name": "Shared Feeling",
     "quality": 4,
     "type": "ABUNDANCE",
@@ -347,7 +376,8 @@
       }
     }
   },
-  "21008": {
+  {
+    "id": "21008",
     "name": "Eyes of the Prey",
     "quality": 4,
     "type": "NIHILITY",
@@ -359,7 +389,8 @@
       }
     }
   },
-  "21009": {
+  {
+    "id": "21009",
     "name": "Landau's Choice",
     "quality": 4,
     "type": "PRESERVATION",
@@ -371,7 +402,8 @@
       }
     }
   },
-  "21010": {
+  {
+    "id": "21010",
     "name": "Swordplay",
     "quality": 4,
     "type": "HUNT",
@@ -383,7 +415,8 @@
       }
     }
   },
-  "21011": {
+  {
+    "id": "21011",
     "name": "Planetary Rendezvous",
     "quality": 4,
     "type": "HARMONY",
@@ -395,7 +428,8 @@
       }
     }
   },
-  "21012": {
+  {
+    "id": "21012",
     "name": "A Secret Vow",
     "quality": 4,
     "type": "DESTRUCTION",
@@ -407,7 +441,8 @@
       }
     }
   },
-  "21013": {
+  {
+    "id": "21013",
     "name": "Make the World Clamor",
     "quality": 4,
     "type": "ERUDITION",
@@ -419,7 +454,8 @@
       }
     }
   },
-  "21014": {
+  {
+    "id": "21014",
     "name": "Perfect Timing",
     "quality": 4,
     "type": "ABUNDANCE",
@@ -431,7 +467,8 @@
       }
     }
   },
-  "21015": {
+  {
+    "id": "21015",
     "name": "Resolution Shines As Pearls of Sweat",
     "quality": 4,
     "type": "NIHILITY",
@@ -443,7 +480,8 @@
       }
     }
   },
-  "21016": {
+  {
+    "id": "21016",
     "name": "Trend of the Universal Market",
     "quality": 4,
     "type": "PRESERVATION",
@@ -455,7 +493,8 @@
       }
     }
   },
-  "21017": {
+  {
+    "id": "21017",
     "name": "Subscribe for More!",
     "quality": 4,
     "type": "HUNT",
@@ -467,7 +506,8 @@
       }
     }
   },
-  "21018": {
+  {
+    "id": "21018",
     "name": "Dance! Dance! Dance!",
     "quality": 4,
     "type": "HARMONY",
@@ -479,7 +519,8 @@
       }
     }
   },
-  "21019": {
+  {
+    "id": "21019",
     "name": "Under the Blue Sky",
     "quality": 4,
     "type": "DESTRUCTION",
@@ -491,7 +532,8 @@
       }
     }
   },
-  "21020": {
+  {
+    "id": "21020",
     "name": "Geniuses' Repose",
     "quality": 4,
     "type": "ERUDITION",
@@ -503,7 +545,8 @@
       }
     }
   },
-  "21021": {
+  {
+    "id": "21021",
     "name": "Quid Pro Quo",
     "quality": 4,
     "type": "ABUNDANCE",
@@ -515,7 +558,8 @@
       }
     }
   },
-  "21022": {
+  {
+    "id": "21022",
     "name": "Fermata",
     "quality": 4,
     "type": "NIHILITY",
@@ -527,7 +571,8 @@
       }
     }
   },
-  "21023": {
+  {
+    "id": "21023",
     "name": "We Are Wildfire",
     "quality": 4,
     "type": "PRESERVATION",
@@ -539,7 +584,8 @@
       }
     }
   },
-  "21024": {
+  {
+    "id": "21024",
     "name": "River Flows in Spring",
     "quality": 4,
     "type": "HUNT",
@@ -551,7 +597,8 @@
       }
     }
   },
-  "21025": {
+  {
+    "id": "21025",
     "name": "Past and Future",
     "quality": 4,
     "type": "HARMONY",
@@ -563,7 +610,8 @@
       }
     }
   },
-  "21026": {
+  {
+    "id": "21026",
     "name": "Woof! Walk Time!",
     "quality": 4,
     "type": "DESTRUCTION",
@@ -575,7 +623,8 @@
       }
     }
   },
-  "21027": {
+  {
+    "id": "21027",
     "name": "The Seriousness of Breakfast",
     "quality": 4,
     "type": "ERUDITION",
@@ -587,7 +636,8 @@
       }
     }
   },
-  "21028": {
+  {
+    "id": "21028",
     "name": "Warmth Shortens Cold Nights",
     "quality": 4,
     "type": "ABUNDANCE",
@@ -599,7 +649,8 @@
       }
     }
   },
-  "21029": {
+  {
+    "id": "21029",
     "name": "We Will Meet Again",
     "quality": 4,
     "type": "NIHILITY",
@@ -611,7 +662,8 @@
       }
     }
   },
-  "21030": {
+  {
+    "id": "21030",
     "name": "This Is Me!",
     "quality": 4,
     "type": "PRESERVATION",
@@ -623,7 +675,8 @@
       }
     }
   },
-  "21031": {
+  {
+    "id": "21031",
     "name": "Return to Darkness",
     "quality": 4,
     "type": "HUNT",
@@ -635,7 +688,8 @@
       }
     }
   },
-  "21032": {
+  {
+    "id": "21032",
     "name": "Carve the Moon, Weave the Clouds",
     "quality": 4,
     "type": "HARMONY",
@@ -647,7 +701,8 @@
       }
     }
   },
-  "21033": {
+  {
+    "id": "21033",
     "name": "Nowhere to Run",
     "quality": 4,
     "type": "DESTRUCTION",
@@ -659,7 +714,8 @@
       }
     }
   },
-  "21034": {
+  {
+    "id": "21034",
     "name": "Today Is Another Peaceful Day",
     "quality": 4,
     "type": "ERUDITION",
@@ -671,7 +727,8 @@
       }
     }
   },
-  "23000": {
+  {
+    "id": "23000",
     "name": "Night on the Milky Way",
     "quality": 5,
     "type": "ERUDITION",
@@ -683,7 +740,8 @@
       }
     }
   },
-  "23001": {
+  {
+    "id": "23001",
     "name": "In the Night",
     "quality": 5,
     "type": "HUNT",
@@ -695,7 +753,8 @@
       }
     }
   },
-  "23002": {
+  {
+    "id": "23002",
     "name": "Something Irreplaceable",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -707,7 +766,8 @@
       }
     }
   },
-  "23003": {
+  {
+    "id": "23003",
     "name": "But the Battle Isn't Over",
     "quality": 5,
     "type": "HARMONY",
@@ -719,7 +779,8 @@
       }
     }
   },
-  "23004": {
+  {
+    "id": "23004",
     "name": "In the Name of the World",
     "quality": 5,
     "type": "NIHILITY",
@@ -731,7 +792,8 @@
       }
     }
   },
-  "23005": {
+  {
+    "id": "23005",
     "name": "Moment of Victory",
     "quality": 5,
     "type": "PRESERVATION",
@@ -743,7 +805,8 @@
       }
     }
   },
-  "23010": {
+  {
+    "id": "23010",
     "name": "Before Dawn",
     "quality": 5,
     "type": "ERUDITION",
@@ -755,7 +818,8 @@
       }
     }
   },
-  "23012": {
+  {
+    "id": "23012",
     "name": "Sleep Like the Dead",
     "quality": 5,
     "type": "HUNT",
@@ -767,7 +831,8 @@
       }
     }
   },
-  "23013": {
+  {
+    "id": "23013",
     "name": "Time Waits for No One",
     "quality": 5,
     "type": "ABUNDANCE",
@@ -779,7 +844,8 @@
       }
     }
   },
-  "24000": {
+  {
+    "id": "24000",
     "name": "On the Fall of an Aeon",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -791,7 +857,8 @@
       }
     }
   },
-  "24001": {
+  {
+    "id": "24001",
     "name": "Cruising in the Stellar Sea",
     "quality": 5,
     "type": "HUNT",
@@ -803,7 +870,8 @@
       }
     }
   },
-  "24002": {
+  {
+    "id": "24002",
     "name": "Texture of Memories",
     "quality": 5,
     "type": "PRESERVATION",
@@ -815,7 +883,8 @@
       }
     }
   },
-  "22000": {
+  {
+    "id": "22000",
     "name": "Before the Tutorial Mission Starts",
     "quality": 4,
     "type": "NIHILITY",
@@ -827,7 +896,8 @@
       }
     }
   },
-  "23007": {
+  {
+    "id": "23007",
     "name": "Incessant Rain",
     "quality": 5,
     "type": "NIHILITY",
@@ -839,7 +909,8 @@
       }
     }
   },
-  "23008": {
+  {
+    "id": "23008",
     "name": "Echoes of the Coffin",
     "quality": 5,
     "type": "ABUNDANCE",
@@ -851,7 +922,8 @@
       }
     }
   },
-  "23006": {
+  {
+    "id": "23006",
     "name": "Patience Is All You Need",
     "quality": 5,
     "type": "NIHILITY",
@@ -863,7 +935,8 @@
       }
     }
   },
-  "23009": {
+  {
+    "id": "23009",
     "name": "The Unreachable Side",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -875,7 +948,8 @@
       }
     }
   },
-  "23011": {
+  {
+    "id": "23011",
     "name": "She Already Shut Her Eyes",
     "quality": 5,
     "type": "PRESERVATION",
@@ -887,7 +961,8 @@
       }
     }
   },
-  "23015": {
+  {
+    "id": "23015",
     "name": "Brighter Than the Sun",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -899,7 +974,8 @@
       }
     }
   },
-  "24003": {
+  {
+    "id": "24003",
     "name": "Solitary Healing",
     "quality": 5,
     "type": "NIHILITY",
@@ -911,7 +987,8 @@
       }
     }
   },
-  "23014": {
+  {
+    "id": "23014",
     "name": "I Shall Be My Own Sword",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -923,7 +1000,8 @@
       }
     }
   },
-  "23016": {
+  {
+    "id": "23016",
     "name": "Worrisome, Blissful",
     "quality": 5,
     "type": "HUNT",
@@ -935,7 +1013,8 @@
       }
     }
   },
-  "22001": {
+  {
+    "id": "22001",
     "name": "Hey, Over Here",
     "quality": 4,
     "type": "ABUNDANCE",
@@ -947,7 +1026,8 @@
       }
     }
   },
-  "23017": {
+  {
+    "id": "23017",
     "name": "Night of Fright",
     "quality": 5,
     "type": "ABUNDANCE",
@@ -959,7 +1039,8 @@
       }
     }
   },
-  "23018": {
+  {
+    "id": "23018",
     "name": "An Instant Before A Gaze",
     "quality": 5,
     "type": "ERUDITION",
@@ -971,7 +1052,8 @@
       }
     }
   },
-  "23019": {
+  {
+    "id": "23019",
     "name": "Past Self in Mirror",
     "quality": 5,
     "type": "HARMONY",
@@ -983,7 +1065,8 @@
       }
     }
   },
-  "23020": {
+  {
+    "id": "23020",
     "name": "Baptism of Pure Thought",
     "quality": 5,
     "type": "HUNT",
@@ -995,7 +1078,8 @@
       }
     }
   },
-  "21035": {
+  {
+    "id": "21035",
     "name": "What Is Real?",
     "quality": 4,
     "type": "ABUNDANCE",
@@ -1007,7 +1091,8 @@
       }
     }
   },
-  "21036": {
+  {
+    "id": "21036",
     "name": "Dreamville Adventure",
     "quality": 4,
     "type": "HARMONY",
@@ -1019,7 +1104,8 @@
       }
     }
   },
-  "21037": {
+  {
+    "id": "21037",
     "name": "Final Victor",
     "quality": 4,
     "type": "HUNT",
@@ -1031,7 +1117,8 @@
       }
     }
   },
-  "21038": {
+  {
+    "id": "21038",
     "name": "Flames Afar",
     "quality": 4,
     "type": "DESTRUCTION",
@@ -1043,7 +1130,8 @@
       }
     }
   },
-  "21039": {
+  {
+    "id": "21039",
     "name": "Destiny's Threads Forewoven",
     "quality": 4,
     "type": "PRESERVATION",
@@ -1055,7 +1143,8 @@
       }
     }
   },
-  "21040": {
+  {
+    "id": "21040",
     "name": "The Day The Cosmos Fell",
     "quality": 4,
     "type": "ERUDITION",
@@ -1067,7 +1156,8 @@
       }
     }
   },
-  "21041": {
+  {
+    "id": "21041",
     "name": "It's Showtime",
     "quality": 4,
     "type": "NIHILITY",
@@ -1079,7 +1169,8 @@
       }
     }
   },
-  "21042": {
+  {
+    "id": "21042",
     "name": "Indelible Promise",
     "quality": 4,
     "type": "DESTRUCTION",
@@ -1091,7 +1182,8 @@
       }
     }
   },
-  "23021": {
+  {
+    "id": "23021",
     "name": "Earthly Escapade",
     "quality": 5,
     "type": "HARMONY",
@@ -1103,7 +1195,8 @@
       }
     }
   },
-  "23022": {
+  {
+    "id": "23022",
     "name": "Reforged Remembrance",
     "quality": 5,
     "type": "NIHILITY",
@@ -1115,7 +1208,8 @@
       }
     }
   },
-  "21043": {
+  {
+    "id": "21043",
     "name": "Concert for Two",
     "quality": 4,
     "type": "PRESERVATION",
@@ -1127,7 +1221,8 @@
       }
     }
   },
-  "23023": {
+  {
+    "id": "23023",
     "name": "Inherently Unjust Destiny",
     "quality": 5,
     "type": "PRESERVATION",
@@ -1139,7 +1234,8 @@
       }
     }
   },
-  "23024": {
+  {
+    "id": "23024",
     "name": "Along the Passing Shore",
     "quality": 5,
     "type": "NIHILITY",
@@ -1151,7 +1247,8 @@
       }
     }
   },
-  "21044": {
+  {
+    "id": "21044",
     "name": "Boundless Choreo",
     "quality": 4,
     "type": "NIHILITY",
@@ -1163,7 +1260,8 @@
       }
     }
   },
-  "22002": {
+  {
+    "id": "22002",
     "name": "For Tomorrow's Journey",
     "quality": 4,
     "type": "HARMONY",
@@ -1175,7 +1273,8 @@
       }
     }
   },
-  "23026": {
+  {
+    "id": "23026",
     "name": "Flowing Nightglow",
     "quality": 5,
     "type": "HARMONY",
@@ -1187,7 +1286,8 @@
       }
     }
   },
-  "23027": {
+  {
+    "id": "23027",
     "name": "Sailing Towards a Second Life",
     "quality": 5,
     "type": "HUNT",
@@ -1199,7 +1299,8 @@
       }
     }
   },
-  "21045": {
+  {
+    "id": "21045",
     "name": "After the Charmony Fall",
     "quality": 4,
     "type": "ERUDITION",
@@ -1211,7 +1312,8 @@
       }
     }
   },
-  "23025": {
+  {
+    "id": "23025",
     "name": "Whereabouts Should Dreams Rest",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -1223,7 +1325,8 @@
       }
     }
   },
-  "23028": {
+  {
+    "id": "23028",
     "name": "Yet Hope Is Priceless",
     "quality": 5,
     "type": "ERUDITION",
@@ -1235,7 +1338,8 @@
       }
     }
   },
-  "24004": {
+  {
+    "id": "24004",
     "name": "Eternal Calculus",
     "quality": 5,
     "type": "ERUDITION",
@@ -1247,7 +1351,8 @@
       }
     }
   },
-  "21046": {
+  {
+    "id": "21046",
     "name": "Poised to Bloom",
     "quality": 4,
     "type": "HARMONY",
@@ -1259,7 +1364,8 @@
       }
     }
   },
-  "23029": {
+  {
+    "id": "23029",
     "name": "Those Many Springs",
     "quality": 5,
     "type": "NIHILITY",
@@ -1271,7 +1377,8 @@
       }
     }
   },
-  "23030": {
+  {
+    "id": "23030",
     "name": "Dance at Sunset",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -1283,7 +1390,8 @@
       }
     }
   },
-  "21047": {
+  {
+    "id": "21047",
     "name": "Shadowed by Night",
     "quality": 4,
     "type": "HUNT",
@@ -1295,7 +1403,8 @@
       }
     }
   },
-  "23031": {
+  {
+    "id": "23031",
     "name": "I Venture Forth to Hunt",
     "quality": 5,
     "type": "HUNT",
@@ -1307,7 +1416,8 @@
       }
     }
   },
-  "23032": {
+  {
+    "id": "23032",
     "name": "Scent Alone Stays True",
     "quality": 5,
     "type": "ABUNDANCE",
@@ -1319,7 +1429,8 @@
       }
     }
   },
-  "21048": {
+  {
+    "id": "21048",
     "name": "Dream's Montage",
     "quality": 4,
     "type": "ABUNDANCE",
@@ -1331,7 +1442,8 @@
       }
     }
   },
-  "22003": {
+  {
+    "id": "22003",
     "name": "Ninja Record: Sound Hunt",
     "quality": 4,
     "type": "DESTRUCTION",
@@ -1343,7 +1455,8 @@
       }
     }
   },
-  "23033": {
+  {
+    "id": "23033",
     "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
     "quality": 5,
     "type": "ERUDITION",
@@ -1355,7 +1468,8 @@
       }
     }
   },
-  "23034": {
+  {
+    "id": "23034",
     "name": "A Grounded Ascent",
     "quality": 5,
     "type": "HARMONY",
@@ -1367,7 +1481,8 @@
       }
     }
   },
-  "23035": {
+  {
+    "id": "23035",
     "name": "Long Road Leads Home",
     "quality": 5,
     "type": "NIHILITY",
@@ -1379,7 +1494,8 @@
       }
     }
   },
-  "20021": {
+  {
+    "id": "20021",
     "name": "Shadowburn",
     "quality": 3,
     "type": "REMEMBRANCE",
@@ -1391,7 +1507,8 @@
       }
     }
   },
-  "20022": {
+  {
+    "id": "20022",
     "name": "Reminiscence",
     "quality": 3,
     "type": "REMEMBRANCE",
@@ -1403,7 +1520,8 @@
       }
     }
   },
-  "21050": {
+  {
+    "id": "21050",
     "name": "Victory In a Blink",
     "quality": 4,
     "type": "REMEMBRANCE",
@@ -1415,7 +1533,8 @@
       }
     }
   },
-  "21051": {
+  {
+    "id": "21051",
     "name": "Geniuses' Greetings",
     "quality": 4,
     "type": "REMEMBRANCE",
@@ -1427,7 +1546,8 @@
       }
     }
   },
-  "21052": {
+  {
+    "id": "21052",
     "name": "Sweat Now, Cry Less",
     "quality": 4,
     "type": "REMEMBRANCE",
@@ -1439,7 +1559,8 @@
       }
     }
   },
-  "23036": {
+  {
+    "id": "23036",
     "name": "Time Woven Into Gold",
     "quality": 5,
     "type": "REMEMBRANCE",
@@ -1451,7 +1572,8 @@
       }
     }
   },
-  "23037": {
+  {
+    "id": "23037",
     "name": "Into the Unreachable Veil",
     "quality": 5,
     "type": "ERUDITION",
@@ -1463,7 +1585,8 @@
       }
     }
   },
-  "23038": {
+  {
+    "id": "23038",
     "name": "If Time Were a Flower",
     "quality": 5,
     "type": "HARMONY",
@@ -1475,7 +1598,8 @@
       }
     }
   },
-  "23039": {
+  {
+    "id": "23039",
     "name": "Flame of Blood, Blaze My Path",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -1487,7 +1611,8 @@
       }
     }
   },
-  "24005": {
+  {
+    "id": "24005",
     "name": "Memory's Curtain Never Falls",
     "quality": 5,
     "type": "REMEMBRANCE",
@@ -1499,7 +1624,8 @@
       }
     }
   },
-  "22004": {
+  {
+    "id": "22004",
     "name": "The Great Cosmic Enterprise",
     "quality": 4,
     "type": "ERUDITION",
@@ -1511,7 +1637,8 @@
       }
     }
   },
-  "23040": {
+  {
+    "id": "23040",
     "name": "Make Farewells More Beautiful",
     "quality": 5,
     "type": "REMEMBRANCE",
@@ -1523,7 +1650,8 @@
       }
     }
   },
-  "23041": {
+  {
+    "id": "23041",
     "name": "Life Should Be Cast to Flames",
     "quality": 5,
     "type": "ERUDITION",
@@ -1535,7 +1663,8 @@
       }
     }
   },
-  "23042": {
+  {
+    "id": "23042",
     "name": "Long May Rainbows Adorn the Sky",
     "quality": 5,
     "type": "REMEMBRANCE",
@@ -1547,7 +1676,8 @@
       }
     }
   },
-  "23043": {
+  {
+    "id": "23043",
     "name": "Lies Dance on the Breeze",
     "quality": 5,
     "type": "NIHILITY",
@@ -1559,7 +1689,8 @@
       }
     }
   },
-  "21053": {
+  {
+    "id": "21053",
     "name": "Journey, Forever Peaceful",
     "quality": 4,
     "type": "PRESERVATION",
@@ -1571,7 +1702,8 @@
       }
     }
   },
-  "21054": {
+  {
+    "id": "21054",
     "name": "The Story's Next Page",
     "quality": 4,
     "type": "REMEMBRANCE",
@@ -1583,7 +1715,8 @@
       }
     }
   },
-  "21055": {
+  {
+    "id": "21055",
     "name": "Unto Tomorrow's Morrow",
     "quality": 4,
     "type": "ABUNDANCE",
@@ -1595,7 +1728,8 @@
       }
     }
   },
-  "21056": {
+  {
+    "id": "21056",
     "name": "In Pursuit of the Wind",
     "quality": 4,
     "type": "HARMONY",
@@ -1607,7 +1741,8 @@
       }
     }
   },
-  "21057": {
+  {
+    "id": "21057",
     "name": "The Flower Remembers",
     "quality": 4,
     "type": "REMEMBRANCE",
@@ -1619,7 +1754,8 @@
       }
     }
   },
-  "21058": {
+  {
+    "id": "21058",
     "name": "A Trail of Bygone Blood",
     "quality": 4,
     "type": "DESTRUCTION",
@@ -1631,7 +1767,8 @@
       }
     }
   },
-  "21060": {
+  {
+    "id": "21060",
     "name": "A Dream Scented in Wheat",
     "quality": 4,
     "type": "ERUDITION",
@@ -1643,7 +1780,8 @@
       }
     }
   },
-  "21061": {
+  {
+    "id": "21061",
     "name": "Holiday Thermae Escapade",
     "quality": 4,
     "type": "NIHILITY",
@@ -1655,7 +1793,8 @@
       }
     }
   },
-  "21062": {
+  {
+    "id": "21062",
     "name": "See You at the End",
     "quality": 4,
     "type": "HUNT",
@@ -1667,7 +1806,8 @@
       }
     }
   },
-  "23044": {
+  {
+    "id": "23044",
     "name": "Thus Burns the Dawn",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -1679,7 +1819,8 @@
       }
     }
   },
-  "23045": {
+  {
+    "id": "23045",
     "name": "A Thankless Coronation",
     "quality": 5,
     "type": "DESTRUCTION",
@@ -1691,7 +1832,8 @@
       }
     }
   },
-  "23046": {
+  {
+    "id": "23046",
     "name": "The Hell Where Ideals Burn",
     "quality": 5,
     "type": "HUNT",
@@ -1703,7 +1845,8 @@
       }
     }
   },
-  "22005": {
+  {
+    "id": "22005",
     "name": "The Forever Victual",
     "quality": 4,
     "type": "HARMONY",
@@ -1715,7 +1858,8 @@
       }
     }
   },
-  "23047": {
+  {
+    "id": "23047",
     "name": "Why Does the Ocean Sing",
     "quality": 5,
     "type": "NIHILITY",
@@ -1727,7 +1871,8 @@
       }
     }
   },
-  "23048": {
+  {
+    "id": "23048",
     "name": "Epoch Etched in Golden Blood",
     "quality": 5,
     "type": "HARMONY",
@@ -1739,7 +1884,8 @@
       }
     }
   },
-  "23049": {
+  {
+    "id": "23049",
     "name": "To Evernight's Stars",
     "quality": 5,
     "type": "REMEMBRANCE",
@@ -1751,7 +1897,8 @@
       }
     }
   },
-  "23051": {
+  {
+    "id": "23051",
     "name": "Though Worlds Apart",
     "quality": 5,
     "type": "PRESERVATION",
@@ -1763,7 +1910,8 @@
       }
     }
   },
-  "22006": {
+  {
+    "id": "22006",
     "name": "Fly Into a Pink Tomorrow",
     "quality": 4,
     "type": "REMEMBRANCE",
@@ -1775,7 +1923,8 @@
       }
     }
   },
-  "23052": {
+  {
+    "id": "23052",
     "name": "This Love, Forever",
     "quality": 5,
     "type": "REMEMBRANCE",
@@ -1787,7 +1936,8 @@
       }
     }
   },
-  "23050": {
+  {
+    "id": "23050",
     "name": "Never Forget Her Flame",
     "quality": 5,
     "type": "NIHILITY",
@@ -1799,7 +1949,8 @@
       }
     }
   },
-  "20023": {
+  {
+    "id": "20023",
     "name": "Sneering",
     "quality": 3,
     "type": "ELATION",
@@ -1811,7 +1962,8 @@
       }
     }
   },
-  "20024": {
+  {
+    "id": "20024",
     "name": "Lingering Tear",
     "quality": 3,
     "type": "ELATION",
@@ -1823,7 +1975,8 @@
       }
     }
   },
-  "21064": {
+  {
+    "id": "21064",
     "name": "Mushy Shroomy's Adventures",
     "quality": 4,
     "type": "ELATION",
@@ -1835,7 +1988,8 @@
       }
     }
   },
-  "21065": {
+  {
+    "id": "21065",
     "name": "Today's Good Luck",
     "quality": 4,
     "type": "ELATION",
@@ -1847,7 +2001,8 @@
       }
     }
   },
-  "23053": {
+  {
+    "id": "23053",
     "name": "Dazzled by a Flowery World",
     "quality": 5,
     "type": "ELATION",
@@ -1859,7 +2014,8 @@
       }
     }
   },
-  "23054": {
+  {
+    "id": "23054",
     "name": "When She Decided to See",
     "quality": 5,
     "type": "ELATION",
@@ -1871,7 +2027,8 @@
       }
     }
   },
-  "23056": {
+  {
+    "id": "23056",
     "name": "The Finale of a Lie",
     "quality": 5,
     "type": "HUNT",
@@ -1883,7 +2040,8 @@
       }
     }
   },
-  "24006": {
+  {
+    "id": "24006",
     "name": "Elation Brimming With Blessings",
     "quality": 5,
     "type": "ELATION",
@@ -1895,4 +2053,4 @@
       }
     }
   }
-}
+]

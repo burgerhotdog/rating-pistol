@@ -3,27 +3,23 @@ import {
   Card,
   CardActionArea,
   CardMedia,
-  CardContent,
   Dialog,
   DialogTitle,
   DialogContent,
   TextField,
   Grid,
-  Box,
   Typography,
-  Button,
-  IconButton,
 } from '@mui/material';
-import { MISC, CHARACTERS, WEAPONS } from '@/data';
+import { CHARACTER } from '@/data';
 import { CustomAvatar } from '@/components';
 
 export const CharacterPicker = ({ gameId, currentId, updateTeam }) => {
   const [open, setOpen] = useState(false);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const options = useMemo(() => {
     const searchLower = search.toLowerCase();
-    return Object.entries(CHARACTERS[gameId])
+    return Object.entries(CHARACTER[gameId])
       .filter(([_, { name }]) =>
         name.toLowerCase().includes(searchLower)
       )
@@ -34,7 +30,7 @@ export const CharacterPicker = ({ gameId, currentId, updateTeam }) => {
   const handleSelect = (id) => {
     updateTeam(id);
     setOpen(false);
-    setSearch("");
+    setSearch('');
   };
 
   return (
@@ -77,7 +73,7 @@ export const CharacterPicker = ({ gameId, currentId, updateTeam }) => {
                         title={name}
                         sx={{ width: 100, height: 100 }}
                       />
-                      <Typography variant="body2" textAlign="center" noWrap>
+                      <Typography variant="body2" sx={{ textAlign: 'center' }} noWrap>
                         {name}
                       </Typography>
                     </CardActionArea>

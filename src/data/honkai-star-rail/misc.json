@@ -21,6 +21,24 @@
     "QUANTUM": "#9c96f4",
     "WIND": "#62d3a2"
   },
+  "SKILL_TREE_COLUMNS": [
+    {
+      "id": "BA",
+      "label": "Basic ATK"
+    },
+    {
+      "id": "S",
+      "label": "Skill"
+    },
+    {
+      "id": "U",
+      "label": "Ultimate"
+    },
+    {
+      "id": "T",
+      "label": "Talent"
+    }
+  ],
   "WEAPON_TYPES": [
     "HUNT",
     "ABUNDANCE",

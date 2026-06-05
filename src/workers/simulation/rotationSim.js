@@ -1,4 +1,4 @@
-import { CHARACTERS, WEAPONS, SETS, MISC, MVS } from '@/data';
+import { CHARACTER, WEAPON, SET, MISC, ACTION } from '@/data';
 import { resolveRankedValue, compileStatMap, mergeStatMaps, computeTotalStat, toArray, getSetCounts } from '@/utils';
 
 const actionsCache = new Map();
@@ -104,7 +104,7 @@ const getActiveSetBonuses = (gameId, member) => {
 
   const activeBonuses = [];
   for (const [setId, activePieces] of Object.entries(setCounts)) {
-    const setBonuses = SETS[gameId]?.[setId]?.setBonus;
+    const setBonuses = SET[gameId]?.[setId]?.setBonus;
     if (!setBonuses) continue;
     for (const [numPiecesToActivate, setBonusData] of Object.entries(setBonuses)) {
       if (activePieces < Number(numPiecesToActivate)) continue;
@@ -114,7 +114,7 @@ const getActiveSetBonuses = (gameId, member) => {
   return activeBonuses;
 };
 
-// Enriches every action in MVS[gameId][memberId] with pre-summed damage multipliers
+// Enriches every action in ACTION[gameId][memberId] with pre-summed damage multipliers
 // (sumMvTimes, sumTimes, sumFlat) at the correct skill level for memberRank.
 // Results are cached in actionsCache by memberId.
 const normalizeActions = (gameId, memberId, memberRank) => {
@@ -124,14 +124,14 @@ const normalizeActions = (gameId, memberId, memberRank) => {
   const maxLevel = gameId === 'zenless-zone-zero' ? 12 : 10;
   const addBySkillId = {};
 
-  const { skillLevelMods = [] } = CHARACTERS[gameId][memberId];
+  const { skillLevelMods = [] } = CHARACTER[gameId][memberId];
   for (const { rank, skillId, add } of skillLevelMods) {
     if (rank > memberRank) continue;
     addBySkillId[skillId] = add;
   }
 
   // Sum mv/flat multipliers at the resolved level for each action
-  const skillTree = MVS[gameId][memberId];
+  const skillTree = ACTION[gameId][memberId];
   for (const [skillId, skill] of Object.entries(skillTree)) {
     const level = maxLevel + (addBySkillId[skillId] ?? 0);
 
@@ -198,25 +198,16 @@ const normalizeEffects = (gameId, member) => {
   // each into effectDefinitions, and registers it in castEffectsByAction /
   // contactEffectsByAction based on what actions trigger it.
   function registerEffect(rawEffect, rank = Infinity) {
-    const resolved = {};
+    const resolved = { ...rawEffect };
 
     const effectKey = `${memberId}-${effectIndex}`;
     resolved.effectKey = effectKey;
-    resolved.chance = rawEffect.chance ?? 1;
-    resolved.applyCooldown = rawEffect.applyCooldown ?? 0;
-
-    if (rawEffect.removeOnCast) {
-      resolved.removeOnCast = toArray(rawEffect.removeOnCast);
-    }
-
-    resolved.applyTo = rawEffect.applyTo ?? 'self';
-    resolved.maxStacks = rawEffect.maxStacks ?? 1;
-    resolved.duration = rawEffect.duration ?? Infinity;
-    resolved.maxUses = rawEffect.maxUses ?? Infinity;
-    resolved.followUpActionCooldown = rawEffect.followUpActionCooldown ?? 0;
 
     if (rawEffect.useIfAction) {
-      resolved.useIfAction = toArray(rawEffect.useIfAction).map(sk => `${memberId}-${sk}`);
+      resolved.useIfAction = toArray(rawEffect.useIfAction).map(key => {
+        if (key.split('-').length === 3) return key;
+        return `${memberId}-${key}`;
+      });
     }
 
     if (rawEffect.useIfConsidered) {
@@ -287,12 +278,12 @@ const normalizeEffects = (gameId, member) => {
     effectIndex++;
   }
 
-  for (const effect of toArray(CHARACTERS[gameId][memberId].effects)) {
+  for (const effect of CHARACTER[gameId][memberId].effects) {
     if ((effect.rank ?? 0) > rank) continue;
     registerEffect(effect, rank);
   }
 
-  for (const effect of toArray(WEAPONS[gameId][weaponId].effects)) {
+  for (const effect of toArray(WEAPON[gameId][weaponId].effects)) {
     registerEffect(effect, weaponRank);
   }
 
