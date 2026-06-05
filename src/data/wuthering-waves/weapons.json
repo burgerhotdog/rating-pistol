@@ -2346,7 +2346,7 @@
         "applyWhen": "contact",
         "applyOnType": "shield",
         "applyCooldown": 500,
-        "useIfConsidered": "HA",
+        "useOnConsidered": "HA",
         "statMap": {
           "IGNORE_DEF": [
             0.072,
@@ -2471,7 +2471,7 @@
       {
         "applyWhen": "contact",
         "applyOnType": "shield",
-        "useIfConsidered": "RL",
+        "useOnConsidered": "RL",
         "statMap": {
           "IGNORE_DEF": [
             0.072,
@@ -2484,7 +2484,7 @@
       {
         "applyWhen": "cast",
         "applyOnCast": "IS",
-        "useIfConsidered": "RL",
+        "useOnConsidered": "RL",
         "statMap": {
           "IGNORE_DEF": [
             0.36,
@@ -2964,7 +2964,7 @@
           "RUPTURE",
           "BURST"
         ],
-        "useIfConsidered": "RL",
+        "useOnConsidered": "RL",
         "statMap": {
           "IGNORE_DEF": [
             0.32,
@@ -3012,7 +3012,7 @@
         "applyWhen": "contact",
         "applyOnType": "inflict",
         "applyIfInflict": "STRAIN",
-        "useIfConsidered": "BA",
+        "useOnConsidered": "BA",
         "statMap": {
           "AMP_BA": [
             0.2,
@@ -3062,7 +3062,7 @@
       {
         "applyWhen": "contact",
         "applyOnConsidered": "ES",
-        "useIfConsidered": "AERO",
+        "useOnConsidered": "AERO",
         "statMap": {
           "IGNORE_DEF": [
             0.1,
@@ -3107,7 +3107,7 @@
         "applyWhen": "contact",
         "applyOnType": "inflict",
         "applyIfInflict": "CHAFE",
-        "useIfConsidered": "RL",
+        "useOnConsidered": "RL",
         "statMap": {
           "IGNORE_DEF": [
             0.1,

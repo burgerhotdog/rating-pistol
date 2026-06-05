@@ -755,9 +755,8 @@
         ]
       },
       "2": {
-        "name": "Emergency Plan Healing",
+        "name": "Emergency Plan: Healing",
         "type": "heal",
-        "considered": "RSH",
         "attr": "HP",
         "multipliers": [
           {
@@ -808,7 +807,8 @@
               0.1051
             ]
           }
-        ]
+        ],
+        "times": 3
       }
     },
     "RL": {
@@ -994,9 +994,8 @@
         ]
       },
       "2": {
-        "name": "Overflowing Frost Healing",
+        "name": "Overflowing Frost: Healing",
         "type": "heal",
-        "considered": "ISH",
         "attr": "HP",
         "multipliers": [
           {
@@ -1047,7 +1046,8 @@
               0.0137
             ]
           }
-        ]
+        ],
+        "times": 3
       }
     },
     "FC": {
@@ -6660,7 +6660,7 @@
     },
     "RS": {
       "1": {
-        "name": "Mist Bullet",
+        "name": "Mist Bullet (x6)",
         "considered": "RS",
         "multipliers": [
           {
@@ -6687,7 +6687,8 @@
               1.0885
             ]
           }
-        ]
+        ],
+        "times": 6
       },
       "2": {
         "name": "Mist Avatar",
@@ -6763,7 +6764,7 @@
     },
     "FC": {
       "1": {
-        "name": "Mist Bullet",
+        "name": "Mist Bullet (Mist Drop)",
         "considered": "RS",
         "multipliers": [
           {
@@ -7795,7 +7796,7 @@
     },
     "RL": {
       "1": {
-        "name": "Purification Force Field Continuous",
+        "name": "Purification Force Field: Continuous",
         "considered": "RL",
         "multipliers": [
           {
@@ -7824,7 +7825,7 @@
         ]
       },
       "2": {
-        "name": "Purification Force Field Explosion",
+        "name": "Purification Force Field: Explosion",
         "considered": "RL",
         "multipliers": [
           {
@@ -7854,9 +7855,7 @@
       },
       "3": {
         "name": "Purification Force Field",
-        "cast": "RL",
-        "considered": "RL",
-        "duration": 0
+        "cast": "RL"
       }
     },
     "IS": {
@@ -8322,8 +8321,6 @@
       "11": {
         "name": "Shield Healing",
         "type": "heal",
-        "considered": "FC",
-        "duration": 0,
         "multipliers": [
           {
             "flat": [
@@ -8836,7 +8833,7 @@
         ]
       },
       "2": {
-        "name": "Arboreal Flourish Healing",
+        "name": "Arboreal Flourish: Healing (x3)",
         "type": "heal",
         "multipliers": [
           {
@@ -8887,7 +8884,8 @@
               0.4343
             ]
           }
-        ]
+        ],
+        "times": 3
       },
       "3": {
         "name": "Photosynthesis Mark",
@@ -8924,7 +8922,7 @@
         ]
       },
       "4": {
-        "name": "Photosynthesis Mark Healing",
+        "name": "Photosynthesis Mark: Healing",
         "type": "heal",
         "multipliers": [
           {
@@ -9175,12 +9173,9 @@
         ]
       },
       "5": {
-        "name": "Healing",
+        "name": "Healing (x3)",
         "tags": "Starflower Blooms",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
-        "duration": 0,
         "multipliers": [
           {
             "flat": [
@@ -9230,7 +9225,8 @@
               0.5429
             ]
           }
-        ]
+        ],
+        "times": 3
       }
     },
     "OS": {
@@ -9533,10 +9529,8 @@
         ]
       },
       "2": {
-        "name": "Fortified Defense Healing",
+        "name": "Fortified Defense: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "attr": "DEF",
         "multipliers": [
           {
@@ -9755,10 +9749,8 @@
         ]
       },
       "4": {
-        "name": "Timed Counters 1 Shield",
+        "name": "Timed Counters 1: Shield",
         "type": "shield",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "attr": "DEF",
         "multipliers": [
           {
@@ -9812,10 +9804,8 @@
         ]
       },
       "5": {
-        "name": "Timed Counters 2 Shield",
+        "name": "Timed Counters 2: Shield",
         "type": "shield",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "attr": "DEF",
         "multipliers": [
           {
@@ -9869,10 +9859,8 @@
         ]
       },
       "6": {
-        "name": "Timed Counters 3 Shield",
+        "name": "Timed Counters 3: Shield",
         "type": "shield",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "attr": "DEF",
         "multipliers": [
           {
@@ -9922,17 +9910,6 @@
               1.0291,
               1.0778
             ]
-          }
-        ]
-      },
-      "7": {
-        "name": "Sequence Node 4 Healing",
-        "type": "heal",
-        "considered": "FC",
-        "attr": "HP",
-        "multipliers": [
-          {
-            "mv": 0.25
           }
         ]
       }
@@ -10371,7 +10348,6 @@
       },
       "2": {
         "name": "Scarlet Burst",
-        "cast": "AUTO",
         "considered": "RL",
         "multipliers": [
           {
@@ -12489,7 +12465,8 @@
               0.776
             ]
           }
-        ]
+        ],
+        "times": 50
       }
     },
     "OS": {
@@ -15567,8 +15544,7 @@
       },
       "10": {
         "name": "Yellow Light: Zoom (1 second)",
-        "cast": "DA",
-        "considered": "DA"
+        "cast": "DA"
       }
     },
     "RS": {

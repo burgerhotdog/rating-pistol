@@ -19,6 +19,7 @@ import {
   IconButton,
   ListItemButton,
   MenuItem,
+  Select,
   Stack,
   Switch,
   TextField,
@@ -1011,9 +1012,6 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
     onClose();
   };
 
-  const rankOptions = [0, 1, 2, 3, 4, 5, 6];
-  const weaponRankOptions = [1, 2, 3, 4, 5];
-
   return (
     <>
       <Dialog open={open} onClose={handleCancel} maxWidth="sm" fullWidth>
@@ -1060,11 +1058,11 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   onClear={() => setDraft(prev => ({
                     ...prev,
                     memberId: null,
+                    rank: null,
                     weaponId: null,
+                    weaponRank: null,
                     setCounts: {},
                     rotation: [],
-                    rank: null,
-                    weaponRank: null,
                     useUserBuild: false,
                   }))}
                 />
@@ -1080,7 +1078,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   <MenuItem value="" disabled>
                     
                   </MenuItem>
-                  {rankOptions.map(rank => (
+                  {[0, 1, 2, 3, 4, 5, 6].map(rank => (
                     <MenuItem key={rank} value={rank}>
                       {`S${rank}`}
                     </MenuItem>
@@ -1114,7 +1112,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   <MenuItem value="" disabled>
                     
                   </MenuItem>
-                  {weaponRankOptions.map(rank => (
+                  {[1, 2, 3, 4, 5].map(rank => (
                     <MenuItem key={`weapon-rank-${rank}`} value={rank}>
                       {`S${rank}`}
                     </MenuItem>
