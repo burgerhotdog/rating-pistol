@@ -7259,6 +7259,7 @@
         "tags": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
+        "duration": 1000,
         "multipliers": [
           {
             "mv": [
@@ -7292,6 +7293,7 @@
         "tags": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
+        "duration": 1000,
         "multipliers": [
           {
             "mv": [
@@ -7325,6 +7327,7 @@
         "tags": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
+        "duration": 1000,
         "multipliers": [
           {
             "mv": [
@@ -26754,6 +26757,7 @@
         "name": "Sublime is the Sun - Sunborne",
         "cast": "RL",
         "considered": "HA",
+        "duration": 0,
         "multipliers": [
           {
             "mv": [
