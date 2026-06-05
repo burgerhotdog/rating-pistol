@@ -6691,8 +6691,7 @@
       },
       "2": {
         "name": "Mist Avatar",
-        "cast": "RS",
-        "considered": "RS"
+        "cast": "RS"
       }
     },
     "RL": {
@@ -6794,9 +6793,7 @@
         ]
       },
       "2": {
-        "name": "Mistcloak Dash",
-        "cast": "DASH",
-        "considered": "DASH"
+        "name": "Mistcloak Dash"
       }
     },
     "OS": {

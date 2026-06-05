@@ -1,22 +1,23 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   Box,
   Button,
   Card,
   CardActionArea,
   CardMedia,
+  Chip,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  Chip,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
   FormControlLabel,
   GlobalStyles,
   IconButton,
+  ListItemButton,
   MenuItem,
   Stack,
   Switch,
@@ -28,6 +29,7 @@ import {
 import AddIcon from '@mui/icons-material/Add';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
@@ -235,14 +237,19 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
-      <DialogTitle sx={{ pr: 6 }}>
+      <DialogTitle>
         Select Set
         <IconButton
           aria-label="close"
           onClick={onClose}
-          sx={{ position: 'absolute', right: 8, top: 8 }}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: 'text.disabled',
+          }}
         >
-          <CloseIcon fontSize="small" />
+          <CloseIcon />
         </IconButton>
       </DialogTitle>
 
@@ -548,54 +555,102 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
   const hasMatches = Object.values(filteredTree).some(arr => arr.length > 0);
 
-  const renderGroup = ([id, filtered]) => (
-    <Box key={id}>
-      <Typography
-        variant="caption"
-        sx={{ display: 'block', color: 'text.secondary', fontWeight: 'bold', mb: 0.5 }}
-      >
-        {MISC[gameId].SKILL[id].name}{' '}
-        <Typography
-          variant="caption"
-          component="span"
-          sx={{ color: 'text.disabled' }}
-        >
-          ({filtered.length})
-        </Typography>
-      </Typography>
+  const { SKILL } = MISC[gameId];
 
-      <Stack spacing={0.5}>
-        {filtered.map(({ key, name }) => (
-          <Button
-            key={key}
-            variant="outlined"
-            size="small"
-            onClick={() => handleSelect(key)}
-            sx={{ justifyContent: 'flex-start', textTransform: 'none', fontSize: '0.75rem' }}
-          >
-            {name}
-          </Button>
-        ))}
-      </Stack>
-    </Box>
-  );
+  const renderGroup = ([id, filtered]) => {
+    if (filtered.length === 0) return null;
+
+    const label = SKILL[id].name;
+
+    return (
+      <Accordion key={id} disableGutters defaultExpanded>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+            {label}
+          </Typography>
+          <Typography variant="body2" sx={{ ml: 1, color: 'text.disabled' }}>
+            ({filtered.length})
+          </Typography>
+        </AccordionSummary>
+
+        <AccordionDetails sx={{ pt: 0 }}>
+          <Stack spacing={0.5}>
+            {filtered.map(({ key, name, cast = [] }) => (
+              <ListItemButton
+                key={key}
+                onClick={() => handleSelect(key)}
+                disableGutters
+                dense
+                sx={{ px: 0.5 }}
+              >
+                {cast.map(type => (
+                  <Chip
+                    key={type}
+                    size="small"
+                    label={SKILL[type]?.short}
+                    sx={{
+                      height: 20,
+                      fontSize: '0.65rem',
+                      flexShrink: 0,
+                      mr: 0.5,
+                      '& .MuiChip-label': { px: '5px' },
+                    }}
+                  />
+                ))}
+                <Typography variant="body2">
+                  {name}
+                </Typography>
+              </ListItemButton>
+            ))}
+          </Stack>
+        </AccordionDetails>
+      </Accordion>
+    );
+  };
 
   return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="md">
-      <DialogTitle>Select Action</DialogTitle>
+    <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
+      <DialogTitle>
+        Select Action
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: 'text.disabled',
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
 
-      <DialogContent>
+
+      <Box sx={{ px: 3, mb: 2 }}>
         <TextField
           fullWidth
           size="small"
           placeholder="Search actions..."
           value={search}
           onChange={e => setSearch(e.target.value)}
-          sx={{ mb: 2 }}
         />
+      </Box>
 
+      <DialogContent dividers sx={{
+        scrollbarColor: 'rgba(255,255,255,0.18) transparent',
+        '&::-webkit-scrollbar': { width: 5 },
+        '&::-webkit-scrollbar-track': { background: 'transparent' },
+        '&::-webkit-scrollbar-thumb': {
+          background: 'rgba(255,255,255,0.18)',
+          borderRadius: 3,
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+          background: 'rgba(255,255,255,0.32)',
+        },
+      }}>
         {hasMatches ? (
-          <Stack spacing={2}>
+          <Stack spacing={1}>
             {Object.entries(filteredTree).map(renderGroup)}
           </Stack>
         ) : (
@@ -961,10 +1016,24 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   return (
     <>
-      <Dialog open={open} onClose={handleCancel} fullWidth maxWidth="sm">
-        <DialogTitle>Configure Team Member</DialogTitle>
+      <Dialog open={open} onClose={handleCancel} maxWidth="sm" fullWidth>
+        <DialogTitle>
+          Configure Team Member
+          <IconButton
+            aria-label="close"
+            onClick={onClose}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 8,
+              color: 'text.disabled',
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
 
-        <DialogContent>
+        <DialogContent dividers>
           {showToggle && (
             <FormControlLabel
               control={
