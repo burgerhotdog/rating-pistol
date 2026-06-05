@@ -197,21 +197,6 @@ const normalizeEffects = (gameId, member) => {
     const effectKey = `${memberId}-${effectIndex}`;
     resolved.effectKey = effectKey;
 
-    if (rawEffect.useOnAction) {
-      resolved.useOnAction = toArray(rawEffect.useOnAction).map(key => {
-        if (key.split('-').length === 3) return key;
-        return `${memberId}-${key}`;
-      });
-    }
-
-    if (rawEffect.useOnConsidered) {
-      resolved.useOnConsidered = toArray(rawEffect.useOnConsidered);
-    }
-
-    if (rawEffect.useOnType) {
-      resolved.useOnType = toArray(rawEffect.useOnType);
-    }
-
     if (rawEffect.statMap) {
       const resolvedStatMap = {};
 
@@ -228,7 +213,6 @@ const normalizeEffects = (gameId, member) => {
     resolved.variableStatMap = mergeVariableStatMaps(rawEffect.variableStatMap);
     resolved.followUpAction = toArray(rawEffect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank));
     resolved.intervalAction = toArray(rawEffect.intervalAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 200 + procIndex, rank));
-    resolved.intervalCooldown = rawEffect.intervalCooldown;
 
     if (rawEffect.rankModifiers) {
       for (const [rankReq, modifier] of Object.entries(rawEffect.rankModifiers)) {
@@ -237,11 +221,7 @@ const normalizeEffects = (gameId, member) => {
     }
 
     const applyWhen = rawEffect.applyWhen;
-    const applyOnAction = toArray(rawEffect.applyOnAction).map(key => {
-      const segments = key.split('-');
-      if (segments.length === 3) return key;
-      return `${memberId}-${key}`;
-    });
+    const applyOnAction = toArray(rawEffect.applyOnAction);
     const applyOnType = toArray(rawEffect.applyOnType);
     const applyOnCast = toArray(rawEffect.applyOnCast);
     const applyOnConsidered = toArray(rawEffect.applyOnConsidered);

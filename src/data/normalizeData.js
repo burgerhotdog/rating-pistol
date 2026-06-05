@@ -4,6 +4,11 @@ const TRIGGERS = ['apply', 'use', 'remove'];
 const FILTERS = ['Type', 'Cast', 'Considered', 'Action'];
 const ACTIONS = ['followUp', 'interval'];
 
+const normalizeActionKey = (charId, shortKey) => {
+  if (shortKey.split('-').length === 3) return shortKey;
+  return `${charId}-${shortKey}`;
+};
+
 const normalizeEffect = (rawEffect, charId = null) => {
   const resolved = { ...rawEffect };
 
@@ -25,8 +30,7 @@ const normalizeEffect = (rawEffect, charId = null) => {
       const resolvedValue = toArray(rawValue);
       if (FILTER === 'Action') {
         for (const [i, shortKey] of resolvedValue.entries()) {
-          if (shortKey.split('-').length === 3) continue;
-          resolvedValue[i] = `${charId}-${shortKey}`;
+          resolvedValue[i] = normalizeActionKey(charId, shortKey);
         }
       }
 
@@ -34,7 +38,17 @@ const normalizeEffect = (rawEffect, charId = null) => {
     }
   }
 
-  resolved.followUpCooldown = rawEffect.followUpCooldown ?? 0;
+  for (const ACTION of ACTIONS) {
+    const field = `${ACTION}Action`;
+    const rawValue = rawEffect[field];
+    if (rawValue == null) continue;
+
+    const resolvedValue = toArray(rawValue);
+    resolved[field] = resolvedValue;
+
+    const fieldCooldown = `${ACTION}Cooldown`;
+    resolved[fieldCooldown] = rawEffect[fieldCooldown] ?? 0;
+  }
 
   if (rawEffect.statMap) {
     resolved.statMap = { ...rawEffect.statMap };
