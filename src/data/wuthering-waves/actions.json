@@ -16440,7 +16440,7 @@
       },
       "6": {
         "name": "Blazing Waltz",
-        "cast": "HK",
+        "cast": "BA",
         "considered": "BA",
         "multipliers": [
           {
@@ -16504,7 +16504,7 @@
       },
       "8": {
         "name": "Vining Ronde",
-        "cast": "JA",
+        "cast": "BA",
         "considered": "BA",
         "multipliers": [
           {
@@ -16537,7 +16537,10 @@
       "9": {
         "name": "Atonement",
         "cast": "DC",
-        "considered": "BA",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -20657,8 +20660,11 @@
       },
       "4": {
         "name": "Abysmal Vortex",
-        "cast": "JA",
-        "considered": "BA",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -24915,7 +24921,6 @@
       },
       "7": {
         "name": "Fleurdelys: Upward Cut",
-        "cast": "JA",
         "considered": "BA",
         "attr": "HP",
         "multipliers": [
@@ -25227,8 +25232,11 @@
       },
       "12": {
         "name": "Fleurdelys: Mid-air Attack 3",
-        "cast": "MHA",
-        "considered": "BA",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "attr": "HP",
         "multipliers": [
           {
@@ -27760,7 +27768,7 @@
     "FC": {
       "1": {
         "name": "Flux: Moonbow",
-        "cast": "JA",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -27791,7 +27799,7 @@
       },
       "2": {
         "name": "Flux: Moonring",
-        "cast": "JA",
+        "cast": "HA",
         "considered": "RL",
         "multipliers": [
           {
@@ -28596,7 +28604,10 @@
       "6": {
         "name": "Ashfall Barrage Plunging Attack",
         "cast": "MA",
-        "considered": "HA",
+        "considered": [
+          "HA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -28626,8 +28637,11 @@
       },
       "7": {
         "name": "Ashfall Barrage Sustained Fire",
-        "cast": "MHA",
-        "considered": "MHA",
+        "cast": "MA",
+        "considered": [
+          "HA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -28712,7 +28726,7 @@
       },
       "9": {
         "name": "Volley of Death 2",
-        "cast": "HK",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -28744,7 +28758,7 @@
       },
       "10": {
         "name": "Volley of Death 3",
-        "cast": "HK",
+        "cast": "HA",
         "considered": "ES",
         "multipliers": [
           {
@@ -29337,7 +29351,7 @@
       },
       "7": {
         "name": "Flamewing Verdict 2",
-        "cast": "HK",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -29369,7 +29383,7 @@
       },
       "8": {
         "name": "Flamewing Verdict 3",
-        "cast": "HK",
+        "cast": "HA",
         "considered": "ES",
         "multipliers": [
           {
@@ -29482,7 +29496,10 @@
       "10": {
         "name": "Hellsent Barrage Plunging Attack",
         "cast": "MA",
-        "considered": "HA",
+        "considered": [
+          "HA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -29512,8 +29529,11 @@
       },
       "11": {
         "name": "Hellsent Barrage Sustained Fire",
-        "cast": "MHA",
-        "considered": "MHA",
+        "cast": "MA",
+        "considered": [
+          "HA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -30546,7 +30566,7 @@
       },
       "6": {
         "name": "Thus Spoke the Blade: To Save",
-        "cast": "HK",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -30650,7 +30670,7 @@
       },
       "7": {
         "name": "Thus Spoke the Blade: To Sacrifice",
-        "cast": "HK",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -31784,7 +31804,7 @@
       },
       "10": {
         "name": "Severed Facet",
-        "cast": "HK",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -31816,8 +31836,8 @@
       },
       "11": {
         "name": "Hanging Finality",
-        "cast": "HK",
-        "considered": "HK",
+        "cast": "BA",
+        "considered": "BA",
         "multipliers": [
           {
             "mv": [
@@ -32076,9 +32096,8 @@
         ]
       },
       "3": {
-        "name": "Serrated Loop Hold",
-        "cast": "HK",
-        "considered": "HK",
+        "name": "Serrated Loop: Hold",
+        "considered": "RS",
         "multipliers": [
           {
             "mv": [
@@ -34329,8 +34348,7 @@
       },
       "16": {
         "name": "Kaleidoscopic Parade: Graffiti Blast",
-        "cast": "RK",
-        "considered": "RK",
+        "considered": "BA",
         "multipliers": [
           {
             "mv": [
@@ -34418,8 +34436,11 @@
       },
       "18": {
         "name": "Kaleidoscopic Parade: Mid-air Heavy Attack",
-        "cast": "MHA",
-        "considered": "BA",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -34735,7 +34756,7 @@
       },
       "3": {
         "name": "Kaleidoscopic Parade: Polychrome Leap 1",
-        "cast": "JA",
+        "cast": "BA",
         "considered": "BA",
         "multipliers": [
           {
@@ -34767,7 +34788,7 @@
       },
       "4": {
         "name": "Kaleidoscopic Parade: Polychrome Leap 2",
-        "cast": "JA",
+        "cast": "BA",
         "considered": "BA",
         "multipliers": [
           {
@@ -34799,7 +34820,7 @@
       },
       "5": {
         "name": "Kaleidoscopic Parade: Polychrome Leap 3",
-        "cast": "JA",
+        "cast": "BA",
         "considered": "BA",
         "multipliers": [
           {
@@ -36779,8 +36800,11 @@
       },
       "9": {
         "name": "Mid-air Attack 2 Scythe: Resection",
-        "cast": "JA",
-        "considered": "JA",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -36834,8 +36858,11 @@
       },
       "10": {
         "name": "Mid-air Attack 3 Scythe: Resection",
-        "cast": "JA",
-        "considered": "JA",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -39378,8 +39405,11 @@
       },
       "16": {
         "name": "Foreclaimed Self: Mid-air Attack 3",
-        "cast": "MHA",
-        "considered": "RL",
+        "cast": "MA",
+        "considered": [
+          "RL",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -40471,8 +40501,11 @@
       },
       "17": {
         "name": "Breakdown Form: Mid-air Heavy Attack",
-        "cast": "MHA",
-        "considered": "MHA",
+        "cast": "MA",
+        "considered": [
+          "HA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
