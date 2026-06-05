@@ -1,57 +1,53 @@
 import { toArray } from '@/utils';
 
-const APPLY_TYPES = ['applyOnType', 'applyOnCast', 'applyOnConsidered'];
+const TRIGGERS = ['apply', 'use', 'remove'];
+const FILTERS = ['Type', 'Cast', 'Considered', 'Action'];
+const ACTIONS = ['followUp', 'interval'];
+
+const normalizeActionKey = (charId, shortKey) => {
+  if (shortKey.split('-').length === 3) return shortKey;
+  return `${charId}-${shortKey}`;
+};
 
 const normalizeEffect = (rawEffect, charId = null) => {
   const resolved = { ...rawEffect };
 
-  if (rawEffect.rank != null) {
-    resolved.rank = rawEffect.rank;
-  }
-
-  resolved.applyWhen = rawEffect.applyWhen;
-  resolved.applyTo = rawEffect.applyTo ?? 'self';
-  
-  for (const TYPE of APPLY_TYPES) {
-    const rawValue = rawEffect[TYPE];
-    if (rawValue == null) continue;
-
-    resolved[TYPE] = toArray(rawValue);
-  }
-
-  if (rawEffect.applyOnAction != null) {
-    resolved.applyOnAction = toArray(rawEffect.applyOnAction).map(key => {
-      if (key.split('-').length === 3) return key;
-      return `${charId}-${key}`;
-    });
-  }
-
-  resolved.applyCooldown = rawEffect.applyCooldown ?? 0;
+  resolved.rank = rawEffect.rank ?? 0;
   resolved.chance = rawEffect.chance ?? 1;
-
-  if (rawEffect.removeOnCast) {
-    resolved.removeOnCast = toArray(rawEffect.removeOnCast);
-  }
-
-  resolved.maxStacks = rawEffect.maxStacks ?? 1;
+  resolved.applyTo = rawEffect.applyTo ?? 'self';
+  resolved.applyWhen = rawEffect.applyWhen;
+  resolved.applyCooldown = rawEffect.applyCooldown ?? 0;
   resolved.duration = rawEffect.duration ?? Infinity;
   resolved.maxUses = rawEffect.maxUses ?? Infinity;
+  resolved.maxStacks = rawEffect.maxStacks ?? 1;
+  
+  for (const TRIGGER of TRIGGERS) {
+    for (const FILTER of FILTERS) {
+      const triggerOnFilter = `${TRIGGER}On${FILTER}`;
+      const rawValue = rawEffect[triggerOnFilter];
+      if (rawValue == null) continue;
 
-  resolved.followUpActionCooldown = rawEffect.followUpActionCooldown ?? 0;
+      const resolvedValue = toArray(rawValue);
+      if (FILTER === 'Action') {
+        for (const [i, shortKey] of resolvedValue.entries()) {
+          resolvedValue[i] = normalizeActionKey(charId, shortKey);
+        }
+      }
 
-  if (rawEffect.useIfType) {
-    resolved.useIfType = toArray(rawEffect.useIfType);
+      resolved[triggerOnFilter] = resolvedValue;
+    }
   }
 
-  if (rawEffect.useIfConsidered) {
-    resolved.useIfConsidered = toArray(rawEffect.useIfConsidered);
-  }
+  for (const ACTION of ACTIONS) {
+    const field = `${ACTION}Action`;
+    const rawValue = rawEffect[field];
+    if (rawValue == null) continue;
 
-  if (rawEffect.useIfAction) {
-    resolved.useIfAction = toArray(rawEffect.useIfAction).map(key => {
-      if (key.split('-').length === 3) return key;
-      return `${charId}-${key}`;
-    });
+    const resolvedValue = toArray(rawValue);
+    resolved[field] = resolvedValue;
+
+    const fieldCooldown = `${ACTION}Cooldown`;
+    resolved[fieldCooldown] = rawEffect[fieldCooldown] ?? 0;
   }
 
   if (rawEffect.statMap) {
@@ -101,6 +97,7 @@ export const normalizeActions = (gameId, characters, rawJson) => {
 
         actionDef.cast = toArray(actionRaw.cast);
         actionDef.considered = toArray(actionRaw.considered);
+        actionDef.times = actionRaw.times ?? 1;
 
         if (actionDef.type === 'damage') {
           const actionElement = actionRaw.element ?? charElement;

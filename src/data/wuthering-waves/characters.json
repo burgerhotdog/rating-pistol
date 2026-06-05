@@ -24,7 +24,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "NA-5",
-        "useIfAction": [
+        "useOnAction": [
           "FC-2",
           "FC-3",
           "FC-4"
@@ -63,7 +63,7 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_ALL": 1.2
         },
@@ -72,7 +72,7 @@
       },
       {
         "rank": 5,
-        "useIfAction": [
+        "useOnAction": [
           "FC-2",
           "FC-3",
           "FC-4"
@@ -133,16 +133,8 @@
     },
     "effects": [
       {
-        "applyWhen": "contact",
-        "applyOnAction": "RS-1",
-        "comboAction": {
-          "action": "RS-2"
-        }
-      },
-      {
         "applyWhen": "cast",
         "applyOnAction": "RL-3",
-        "applyTo": "active",
         "intervalAction": {
           "action": "RL-1"
         },
@@ -152,14 +144,6 @@
           "4": {
             "maxUses": 2
           }
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "RL-1",
-        "comboAction": {
-          "action": "RL-2",
-          "times": 3
         }
       },
       {
@@ -182,9 +166,9 @@
         "duration": 35000
       },
       {
-        "applyWhen": "contact",
+        "applyWhen": "cast",
         "applyOnCast": "HA",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "type": "heal",
             "attr": "HP",
@@ -192,20 +176,12 @@
               "mv": 0.0025
             }
           }
-        }
-      },
-      {
-        "applyWhen": "contact",
-        "applyOnAction": "IS-1",
-        "comboAction": {
-          "action": "IS-2",
-          "times": 3
-        }
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "applyTo": "next",
         "intervalAction": {
           "action": {
             "type": "heal",
@@ -248,14 +224,14 @@
       },
       {
         "rank": 4,
-        "useIfAction": "RL-2",
+        "useOnAction": "RL-2",
         "statMap": {
           "PERCENT_MV": 0.2
         }
       },
       {
         "rank": 4,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "FLAT_MV": 0.012
         }
@@ -283,12 +259,14 @@
       },
       "rotation": [
         "IS-1",
+        "IS-2",
         "RL-3",
         "NA-1",
         "NA-2",
         "NA-3",
         "NA-4",
         "RS-1",
+        "RS-2",
         "OS-1"
       ]
     }
@@ -334,7 +312,7 @@
           "FC-2",
           "FC-3"
         ],
-        "useIfAction": "FC-4",
+        "useOnAction": "FC-4",
         "statMap": {
           "PERCENT_MV": 1.5
         },
@@ -344,14 +322,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
               "mv": 5.8794
             }
           }
-        }
+        },
+        "maxUses": 1
       },
       {
         "rank": 4,
@@ -365,7 +344,7 @@
       },
       {
         "rank": 5,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "FLAT_MV": 2
         }
@@ -374,7 +353,7 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "FC-4",
-        "useIfCast": "BA",
+        "useOnCast": "BA",
         "statMap": {
           "PERCENT_ALL": 1
         },
@@ -426,7 +405,7 @@
     },
     "effects": [
       {
-        "useIfAction": "FC-2",
+        "useOnAction": "FC-2",
         "statMap": {
           "PERCENT_ALL": 0.5
         },
@@ -466,18 +445,19 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
               "mv": 5.3
             }
           }
-        }
+        },
+        "maxUses": 1
       },
       {
         "rank": 3,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_RL": 0.4
         },
@@ -574,7 +554,7 @@
       },
       {
         "rank": 3,
-        "useIfAction": [
+        "useOnAction": [
           "FC-1",
           "FC-2"
         ],
@@ -667,21 +647,21 @@
         "applyTo": "active",
         "followUpAction": [
           {
-            "useIfConsidered": "BA",
+            "useOnConsidered": "BA",
             "action": "RL-2"
           },
           {
-            "useIfConsidered": "HA",
+            "useOnConsidered": "HA",
             "action": "RL-2",
             "times": 2
           }
         ],
-        "followUpActionCooldown": 350,
+        "followUpCooldown": 350,
         "duration": 10000,
         "rankModifiers": {
           "1": {
             "followUpAction": {
-              "useIfConsidered": "RS",
+              "useOnConsidered": "RS",
               "action": "RL-2",
               "times": 2
             }
@@ -694,7 +674,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RS-1",
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_ALL": 0.25
         },
@@ -704,7 +684,7 @@
         "applyWhen": "contact",
         "applyOnAction": "RL-2",
         "applyCooldown": 350,
-        "useIfAction": "RL-2",
+        "useOnAction": "RL-2",
         "statMap": {
           "PERCENT_ALL": 0.015
         },
@@ -729,7 +709,7 @@
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "useIfAction": "RL-2",
+        "useOnAction": "RL-2",
         "statMap": {
           "PERCENT_CD": 0.3
         },
@@ -742,15 +722,16 @@
       },
       {
         "rank": 5,
-        "applyWhen": "contact",
+        "applyWhen": "cast",
         "applyOnAction": [
           "RS-1",
           "FC-1"
         ],
-        "comboAction": {
+        "followUpAction": {
           "action": "RL-2",
           "times": 4
-        }
+        },
+        "maxUses": 1
       },
       {
         "rank": 6,
@@ -812,7 +793,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": [
@@ -824,7 +805,8 @@
               }
             ]
           }
-        }
+        },
+        "maxUses": 1
       },
       {
         "rank": 2,
@@ -859,7 +841,7 @@
       },
       {
         "rank": 5,
-        "useIfAction": [
+        "useOnAction": [
           "IS-1",
           "RL-2"
         ],
@@ -871,7 +853,7 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "FC-2",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "cast": "CA",
             "considered": [
@@ -883,7 +865,8 @@
             }
           },
           "times": 2
-        }
+        },
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -934,7 +917,7 @@
         "applyWhen": "contact",
         "applyOnAction": "RS-1",
         "followUpAction": {
-          "useIfCast": [
+          "useOnCast": [
             "BA",
             "DC"
           ],
@@ -947,11 +930,11 @@
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
         "applyTo": "team",
-        "useIfType": "damage",
+        "useOnType": "damage",
         "followUpAction": {
           "action": "FC-2"
         },
-        "followUpActionCooldown": 1000,
+        "followUpCooldown": 1000,
         "duration": 18000
       },
       {
@@ -963,7 +946,7 @@
         "duration": 5000
       },
       {
-        "useIfAction": "RS-2",
+        "useOnAction": "RS-2",
         "statMap": {
           "PERCENT_RS": 0.1
         }
@@ -988,7 +971,7 @@
       },
       {
         "rank": 1,
-        "useIfAction": [
+        "useOnAction": [
           "RS-1",
           "RS-2"
         ],
@@ -998,7 +981,7 @@
       },
       {
         "rank": 3,
-        "useIfAction": "FC-2",
+        "useOnAction": "FC-2",
         "statMap": {
           "PERCENT_MV": 0.55
         }
@@ -1015,7 +998,7 @@
       },
       {
         "rank": 5,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_RL": 1
         }
@@ -1024,7 +1007,7 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "useIfCast": "BA",
+        "useOnCast": "BA",
         "followUpAction": {
           "action": {
             "considered": "RS",
@@ -1078,11 +1061,11 @@
         "applyWhen": "contact",
         "applyOnAction": "RS-1",
         "applyTo": "active",
-        "useIfType": "damage",
+        "useOnType": "damage",
         "followUpAction": {
           "action": "RS-2"
         },
-        "followUpActionCooldown": 1200,
+        "followUpCooldown": 1200,
         "duration": 12000
       },
       {
@@ -1097,7 +1080,7 @@
         "maxUses": 1
       },
       {
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_MV": 0.4
         }
@@ -1112,7 +1095,7 @@
       },
       {
         "rank": 1,
-        "useIfAction": [
+        "useOnAction": [
           "FC-2",
           "FC-3",
           "FC-4",
@@ -1135,7 +1118,7 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "type": "shield",
             "attr": "DEF",
@@ -1143,7 +1126,8 @@
               "mv": 2
             }
           }
-        }
+        },
+        "maxUses": 1
       },
       {
         "rank": 5,
@@ -1222,14 +1206,14 @@
       },
       {
         "rank": 4,
-        "useIfAction": "FC-2",
+        "useOnAction": "FC-2",
         "statMap": {
           "PERCENT_ALL": 0.95
         }
       },
       {
         "rank": 5,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_ALL": 0.85
         }
@@ -1288,16 +1272,8 @@
     "effects": [
       {
         "applyWhen": "cast",
-        "applyOnAction": "RS-2",
-        "comboAction": {
-          "action": "RS-1",
-          "times": 6
-        }
-      },
-      {
-        "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "useIfAction": [
+        "useOnAction": [
           "NA-1",
           "NA-2",
           "NA-3",
@@ -1312,14 +1288,6 @@
           "PERCENT_ATK": 0.1
         },
         "duration": 10000
-      },
-      {
-        "applyWhen": "contact",
-        "applyOnAction": "FC-2",
-        "comboAction": {
-          "action": "FC-1",
-          "times": 6
-        }
       },
       {
         "applyWhen": "cast",
@@ -1355,7 +1323,7 @@
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "useIfAction": [
+        "useOnAction": [
           "NA-1",
           "NA-2",
           "NA-3",
@@ -1371,7 +1339,7 @@
       },
       {
         "rank": 4,
-        "useIfAction": [
+        "useOnAction": [
           "RS-1",
           "FC-1"
         ],
@@ -1401,7 +1369,7 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "useIfAction": [
+        "useOnAction": [
           "NA-7",
           "NA-8"
         ],
@@ -1425,6 +1393,7 @@
         "IS-1",
         "RL-1",
         "RS-2",
+        "RS-1",
         "NA-1",
         "NA-2",
         "NA-3",
@@ -1465,7 +1434,7 @@
         "duration": 8000
       },
       {
-        "useIfAction": "RS-1",
+        "useOnAction": "RS-1",
         "statMap": {
           "PERCENT_RS": 0.2
         }
@@ -1475,7 +1444,7 @@
         "applyOnAction": "OS-1",
         "applyTo": "next",
         "followUpAction": {
-          "useIfCast": "HA",
+          "useOnCast": "HA",
           "action": {
             "type": "damage",
             "cast": "CA",
@@ -1488,7 +1457,7 @@
             }
           }
         },
-        "followUpActionCooldown": 1000,
+        "followUpCooldown": 1000,
         "duration": 8000,
         "maxUses": 2
       },
@@ -1532,7 +1501,7 @@
       },
       {
         "rank": 5,
-        "useIfAction": "OS-1",
+        "useOnAction": "OS-1",
         "statMap": {
           "PERCENT_MV": 1.2
         }
@@ -1554,7 +1523,7 @@
           "IS-1",
           "RS-1"
         ],
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "FLAT_MV": 1.2
         },
@@ -1602,38 +1571,13 @@
     },
     "effects": [
       {
-        "applyWhen": "contact",
+        "applyWhen": "cast",
         "applyOnAction": "RL-3",
-        "comboAction": [
-          {
-            "action": "RL-1",
-            "times": 16
-          },
-          {
-            "action": "RL-2"
-          }
-        ]
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "FC-3",
-        "comboAction": {
-          "action": "FC-8"
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "FC-4",
-        "comboAction": {
-          "action": "FC-9"
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "FC-5",
-        "comboAction": {
-          "action": "FC-10"
-        }
+        "intervalAction": {
+          "action": "RL-1"
+        },
+        "intervalCooldown": 250,
+        "duration": 3120
       },
       {
         "applyWhen": "cast",
@@ -1643,14 +1587,14 @@
           "FC-9",
           "FC-10"
         ],
-        "applyTo": "team",
-        "followUpAction": {
+        "intervalAction": {
           "action": "FC-11"
         },
+        "intervalCooldown": 6000,
         "duration": 30000
       },
       {
-        "useIfAction": [
+        "useOnAction": [
           "RL-1",
           "RL-2"
         ],
@@ -1676,7 +1620,7 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "FC-2",
-        "useIfAction": [
+        "useOnAction": [
           "RL-1",
           "RL-2"
         ],
@@ -1729,6 +1673,7 @@
         "FC-2",
         "FC-2",
         "FC-3",
+        "FC-8",
         "FC-2",
         "FC-2",
         "FC-2",
@@ -1738,10 +1683,12 @@
         "FC-2",
         "FC-2",
         "FC-4",
+        "FC-9",
         "FC-2",
         "FC-2",
         "FC-2",
         "FC-5",
+        "FC-10",
         "OS-1"
       ]
     }
@@ -1763,39 +1710,15 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "RL-1",
-        "comboAction": {
-          "action": "RL-2"
-        }
-      },
-      {
-        "applyWhen": "contact",
-        "applyOnAction": "RL-1",
         "applyTo": "team",
         "followUpAction": {
-          "action": "RL-3"
+          "action": [
+            "RL-3",
+            "RL-4"
+          ]
         },
-        "followUpActionCooldown": 1000,
+        "followUpCooldown": 1000,
         "duration": 12000
-      },
-      {
-        "applyWhen": "contact",
-        "applyOnAction": "RL-3",
-        "comboAction": {
-          "action": "RL-4"
-        }
-      },
-      {
-        "applyWhen": "contact",
-        "applyOnAction": [
-          "FC-1",
-          "FC-2",
-          "FC-3",
-          "FC-4"
-        ],
-        "comboAction": {
-          "action": "FC-5",
-          "times": 3
-        }
       },
       {
         "applyWhen": "cast",
@@ -1853,7 +1776,7 @@
       },
       {
         "rank": 3,
-        "useIfAction": "RL-4",
+        "useOnAction": "RL-4",
         "statMap": {
           "PERCENT_HB": 0.12
         }
@@ -1884,7 +1807,7 @@
       },
       {
         "rank": 6,
-        "useIfAction": [
+        "useOnAction": [
           "FC-1",
           "FC-2",
           "FC-3",
@@ -1896,16 +1819,17 @@
       },
       {
         "rank": 6,
-        "applyWhen": "contact",
+        "applyWhen": "cast",
         "applyOnAction": [
           "FC-1",
           "FC-2",
           "FC-3",
           "FC-4"
         ],
-        "comboAction": {
+        "followUpAction": {
           "action": "RL-3"
-        }
+        },
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -1922,9 +1846,13 @@
         "IS-1",
         "RS-1",
         "RL-1",
+        "RL-2",
         "FC-2",
+        "FC-5",
         "FC-3",
+        "FC-5",
         "FC-4",
+        "FC-5",
         "OS-1"
       ]
     }
@@ -1943,34 +1871,6 @@
       "PERCENT_DEF": 0.152
     },
     "effects": [
-      {
-        "applyWhen": "contact",
-        "applyOnAction": "RS-1",
-        "comboAction": {
-          "action": "RS-2"
-        }
-      },
-      {
-        "applyWhen": "contact",
-        "applyOnAction": "FC-1",
-        "comboAction": {
-          "action": "FC-4"
-        }
-      },
-      {
-        "applyWhen": "contact",
-        "applyOnAction": "FC-2",
-        "comboAction": {
-          "action": "FC-5"
-        }
-      },
-      {
-        "applyWhen": "contact",
-        "applyOnAction": "FC-3",
-        "comboAction": {
-          "action": "FC-6"
-        }
-      },
       {
         "applyWhen": "cast",
         "applyOnAction": "RS-1",
@@ -1996,7 +1896,7 @@
       },
       {
         "rank": 1,
-        "useIfAction": [
+        "useOnAction": [
           "FC-4",
           "FC-5",
           "FC-6"
@@ -2007,11 +1907,26 @@
       },
       {
         "rank": 2,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_CR": 0.2,
           "PERCENT_CD": 0.2
         }
+      },
+      {
+        "rank": 4,
+        "applyWhen": "cast",
+        "applyOnAction": "NA-6",
+        "followUpAction": {
+          "action": {
+            "type": "heal",
+            "attr": "HP",
+            "multipliers": {
+              "mv": 0.25
+            }
+          }
+        },
+        "maxUses": 1
       },
       {
         "rank": 4,
@@ -2023,16 +1938,8 @@
         "duration": 5000
       },
       {
-        "rank": 4,
-        "applyWhen": "contact",
-        "applyOnAction": "NA-6",
-        "comboAction": {
-          "action": "FC-7"
-        }
-      },
-      {
         "rank": 5,
-        "useIfAction": [
+        "useOnAction": [
           "FC-1",
           "FC-2",
           "FC-3"
@@ -2065,14 +1972,18 @@
       "rotation": [
         "IS-1",
         "FC-1",
+        "FC-4",
         "FC-2",
+        "FC-5",
         "FC-3",
+        "FC-6",
         "RL-1",
         "NA-1",
         "NA-2",
         "NA-3",
         "NA-4",
         "RS-1",
+        "RS-2",
         "OS-1"
       ]
     }
@@ -2107,16 +2018,9 @@
         }
       },
       {
-        "applyWhen": "contact",
-        "applyOnAction": "RL-1",
-        "comboAction": {
-          "action": "RL-2"
-        }
-      },
-      {
         "applyWhen": "cast",
         "applyOnAction": "NA-6",
-        "useIfAction": [
+        "useOnAction": [
           "RS-2",
           "RS-3"
         ],
@@ -2179,7 +2083,7 @@
       },
       {
         "rank": 4,
-        "useIfAction": [
+        "useOnAction": [
           "FC-1",
           "FC-2",
           "FC-3",
@@ -2224,6 +2128,7 @@
         "RS-2",
         "RS-3",
         "RL-1",
+        "RL-2",
         "RS-1",
         "NA-2",
         "NA-3",
@@ -2253,7 +2158,7 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "RL-1",
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_ATK": 0.25
         },
@@ -2261,7 +2166,7 @@
         "maxUses": 1
       },
       {
-        "useIfAction": [
+        "useOnAction": [
           "RS-2",
           "RS-3"
         ],
@@ -2270,7 +2175,7 @@
         }
       },
       {
-        "useIfAction": [
+        "useOnAction": [
           "FC-1",
           "RL-1"
         ],
@@ -2291,7 +2196,7 @@
       },
       {
         "rank": 1,
-        "useIfAction": [
+        "useOnAction": [
           "RS-1",
           "RS-2",
           "RS-3",
@@ -2316,7 +2221,7 @@
       },
       {
         "rank": 3,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_ALL": 0.8
         }
@@ -2333,7 +2238,7 @@
       },
       {
         "rank": 5,
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_MV": 0.5,
           "PERCENT_ALL": 0.5
@@ -2341,7 +2246,7 @@
       },
       {
         "rank": 6,
-        "useIfAction": [
+        "useOnAction": [
           "RS-1",
           "RS-2",
           "RS-3",
@@ -2396,27 +2301,12 @@
     },
     "effects": [
       {
-        "applyWhen": "contact",
-        "applyOnAction": "FC-8",
-        "comboAction": {
-          "action": "FC-9"
-        }
-      },
-      {
-        "applyWhen": "contact",
-        "applyOnAction": "FC-9",
-        "comboAction": {
-          "action": "FC-10",
-          "times": 50
-        }
-      },
-      {
         "statMap": {
           "PERCENT_SPECTRO": 0.2
         }
       },
       {
-        "useIfAction": "IS-1",
+        "useOnAction": "IS-1",
         "statMap": {
           "PERCENT_MV": 0.5
         }
@@ -2431,7 +2321,7 @@
           "FC-4",
           "FC-7"
         ],
-        "useIfAction": [
+        "useOnAction": [
           "FC-8",
           "FC-9",
           "FC-10"
@@ -2467,14 +2357,14 @@
       },
       {
         "rank": 5,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 1.2
         }
       },
       {
         "rank": 6,
-        "useIfAction": [
+        "useOnAction": [
           "FC-8",
           "FC-9",
           "FC-10"
@@ -2504,6 +2394,8 @@
         "FC-3",
         "FC-4",
         "FC-8",
+        "FC-9",
+        "FC-10",
         "OS-1"
       ]
     }
@@ -2529,7 +2421,7 @@
         "followUpAction": {
           "action": "RL-1"
         },
-        "followUpActionCooldown": 1000,
+        "followUpCooldown": 1000,
         "duration": 30000,
         "maxUses": 21,
         "rankModifiers": {
@@ -2603,14 +2495,14 @@
       },
       {
         "rank": 5,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 0.467
         }
       },
       {
         "rank": 6,
-        "useIfAction": [
+        "useOnAction": [
           "FC-2",
           "FC-3"
         ],
@@ -2671,7 +2563,7 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "applyTo": "next",
-        "useIfCast": "BA",
+        "useOnCast": "BA",
         "followUpAction": {
           "action": {
             "considered": "OS",
@@ -2680,13 +2572,13 @@
             }
           }
         },
-        "followUpActionCooldown": 2000,
+        "followUpCooldown": 2000,
         "duration": 8000,
         "maxUses": 3
       },
       {
         "rank": 1,
-        "useIfAction": "FC-2",
+        "useOnAction": "FC-2",
         "statMap": {
           "PERCENT_MV": 0.48
         }
@@ -2705,7 +2597,7 @@
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "useIfAction": [
+        "useOnAction": [
           "RS-1",
           "RL-5",
           "FC-1",
@@ -2729,28 +2621,28 @@
       },
       {
         "rank": 5,
-        "useIfAction": "OS-1",
+        "useOnAction": "OS-1",
         "statMap": {
           "PERCENT_MV": 2.22
         }
       },
       {
         "rank": 5,
-        "useIfConsidered": "OS",
+        "useOnConsidered": "OS",
         "statMap": {
           "PERCENT_MV": 2.22
         }
       },
       {
         "rank": 5,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 1
         }
       },
       {
         "rank": 6,
-        "useIfAction": "FC-2",
+        "useOnAction": "FC-2",
         "statMap": {
           "PERCENT_MV": 0.76
         }
@@ -2906,7 +2798,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RS-2",
         "maxUses": 1,
-        "useIfAction": "RS-2",
+        "useOnAction": "RS-2",
         "statMap": {
           "PERCENT_HB": 0.7
         }
@@ -2919,7 +2811,7 @@
         "followUpAction": {
           "action": "RL-1"
         },
-        "followUpActionCooldown": 3000,
+        "followUpCooldown": 3000,
         "rankModifiers": {
           "1": {
             "duration": 10000
@@ -3011,7 +2903,7 @@
         }
       },
       {
-        "useIfAction": "IS-2",
+        "useOnAction": "IS-2",
         "statMap": {
           "PERCENT_CR": 1
         },
@@ -3079,7 +2971,7 @@
       },
       {
         "rank": 3,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_RL": 0.3
         }
@@ -3105,7 +2997,7 @@
       },
       {
         "rank": 2,
-        "useIfAction": [
+        "useOnAction": [
           "FC-6",
           "FC-7"
         ],
@@ -3186,7 +3078,7 @@
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
         "duration": 15000,
-        "useIfAction": [
+        "useOnAction": [
           "NA-1",
           "NA-2",
           "NA-3",
@@ -3218,14 +3110,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
               "mv": 3.2924
             }
           }
-        }
+        },
+        "maxUses": 1
       },
       {
         "rank": 1,
@@ -3238,7 +3131,7 @@
       },
       {
         "rank": 2,
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_MV": 1.2
         },
@@ -3252,7 +3145,7 @@
       },
       {
         "rank": 3,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 0.5
         }
@@ -3277,14 +3170,14 @@
       },
       {
         "rank": 5,
-        "useIfAction": "IS-1",
+        "useOnAction": "IS-1",
         "statMap": {
           "PERCENT_MV": 3.03
         }
       },
       {
         "rank": 5,
-        "useIfAction": "OS-1",
+        "useOnAction": "OS-1",
         "statMap": {
           "PERCENT_MV": 0.68
         }
@@ -3355,7 +3248,7 @@
         }
       },
       {
-        "useIfAction": [
+        "useOnAction": [
           "RL-1",
           "RL-2",
           "RL-3"
@@ -3367,25 +3260,26 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
               "mv": 7.942
             }
           }
-        }
+        },
+        "maxUses": 1
       },
       {
         "rank": 2,
-        "useIfAction": "RL-3",
+        "useOnAction": "RL-3",
         "statMap": {
           "PERCENT_MV": 1.26
         }
       },
       {
         "rank": 3,
-        "useIfAction": [
+        "useOnAction": [
           "RS-1",
           "RS-2"
         ],
@@ -3395,7 +3289,7 @@
       },
       {
         "rank": 3,
-        "useIfAction": "OS-1",
+        "useOnAction": "OS-1",
         "statMap": {
           "FLAT_MV": 10.3218
         }
@@ -3416,14 +3310,14 @@
       },
       {
         "rank": 5,
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_MV": 0.47
         }
       },
       {
         "rank": 6,
-        "useIfAction": "RL-2",
+        "useOnAction": "RL-2",
         "statMap": {
           "PERCENT_FLAT": 1.866
         }
@@ -3553,7 +3447,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RS-1",
         "duration": 12000,
-        "useIfAction": [
+        "useOnAction": [
           "FC-1",
           "FC-2",
           "FC-3"
@@ -3564,7 +3458,7 @@
       },
       {
         "rank": 5,
-        "useIfAction": [
+        "useOnAction": [
           "NA-5",
           "FC-1",
           "FC-2",
@@ -3576,7 +3470,7 @@
       },
       {
         "rank": 5,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 0.2
         }
@@ -3586,7 +3480,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "duration": 12000,
-        "useIfAction": [
+        "useOnAction": [
           "FC-1",
           "FC-2",
           "FC-3"
@@ -3600,7 +3494,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "duration": 12000,
-        "useIfAction": "FC-3",
+        "useOnAction": "FC-3",
         "statMap": {
           "PERCENT_MV": 1
         }
@@ -3702,13 +3596,13 @@
         }
       },
       {
-        "useIfAction": "FC-2",
+        "useOnAction": "FC-2",
         "statMap": {
           "PERCENT_HB": 0.2
         }
       },
       {
-        "useIfAction": [
+        "useOnAction": [
           "NA-7",
           "NA-8",
           "NA-9",
@@ -3752,7 +3646,7 @@
       },
       {
         "rank": 2,
-        "useIfAction": [
+        "useOnAction": [
           "NA-7",
           "NA-8",
           "NA-9",
@@ -3777,21 +3671,21 @@
         "maxUses": 2,
         "duration": 20000,
         "followUpAction": {
-          "useIfConsidered": "RS",
+          "useOnConsidered": "RS",
           "action": "FC-4"
         },
-        "followUpActionCooldown": 1000
+        "followUpCooldown": 1000
       },
       {
         "rank": 3,
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_MV": 0.42
         }
       },
       {
         "rank": 4,
-        "useIfAction": "FC-3",
+        "useOnAction": "FC-3",
         "statMap": {
           "PERCENT_SS": 0.2
         }
@@ -3804,7 +3698,7 @@
       },
       {
         "rank": 6,
-        "useIfAction": [
+        "useOnAction": [
           "NA-7",
           "NA-8",
           "NA-9",
@@ -3865,7 +3759,7 @@
         "applyOnAction": "RS-1",
         "duration": 30000,
         "followUpAction": {
-          "useIfAction": [
+          "useOnAction": [
             "NA-1",
             "NA-2",
             "NA-3",
@@ -3873,12 +3767,12 @@
           ],
           "action": "RS-2"
         },
-        "followUpActionCooldown": 500
+        "followUpCooldown": 500
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 2.55
         },
@@ -3893,7 +3787,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "useIfAction": "FC-3",
+        "useOnAction": "FC-3",
         "statMap": {
           "AMP_ALL": 2.56
         },
@@ -3918,7 +3812,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "useIfAction": "OS-1",
+        "useOnAction": "OS-1",
         "statMap": {
           "PERCENT_MV": 2.55
         },
@@ -3933,14 +3827,15 @@
       {
         "applyWhen": "cast",
         "applyOnCast": "OS",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
               "mv": 5.2841
             }
           }
-        }
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
@@ -3971,7 +3866,7 @@
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": "FC-2",
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 0.9
         }
@@ -3980,7 +3875,7 @@
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "FC-2",
-        "useIfAction": "FC-3",
+        "useOnAction": "FC-3",
         "statMap": {
           "PERCENT_MV": 2.49
         }
@@ -4091,7 +3986,7 @@
         "followUpAction": {
           "action": "RL-2"
         },
-        "followUpActionCooldown": 1000,
+        "followUpCooldown": 1000,
         "rankModifiers": {
           "5": {
             "maxUses": 5
@@ -4164,7 +4059,7 @@
       },
       {
         "rank": 1,
-        "useIfAction": [
+        "useOnAction": [
           "RS-1",
           "RS-2",
           "FC-5"
@@ -4184,21 +4079,21 @@
       },
       {
         "rank": 2,
-        "useIfAction": "RS-3",
+        "useOnAction": "RS-3",
         "statMap": {
           "PERCENT_MV": 2.45
         }
       },
       {
         "rank": 3,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 3.7
         }
       },
       {
         "rank": 6,
-        "useIfAction": [
+        "useOnAction": [
           "FC-1",
           "FC-2",
           "FC-3"
@@ -4270,7 +4165,7 @@
         }
       },
       {
-        "useIfAction": "FC-1",
+        "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_HA": 0.3
         },
@@ -4317,7 +4212,7 @@
       },
       {
         "rank": 4,
-        "useIfAction": [
+        "useOnAction": [
           "RL-1",
           "RL-2",
           "FC-2"
@@ -4399,7 +4294,7 @@
         }
       },
       {
-        "useIfAction": [
+        "useOnAction": [
           "FC-1",
           "FC-2",
           "FC-3",
@@ -4451,7 +4346,7 @@
       },
       {
         "rank": 2,
-        "useIfAction": [
+        "useOnAction": [
           "RS-3",
           "RS-4"
         ],
@@ -4461,7 +4356,7 @@
       },
       {
         "rank": 3,
-        "useIfAction": "RL-2",
+        "useOnAction": "RL-2",
         "statMap": {
           "PERCENT_MV": 12
         }
@@ -4478,14 +4373,14 @@
       },
       {
         "rank": 5,
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_MV": 1.2
         }
       },
       {
         "rank": 6,
-        "useIfAction": "FC-3",
+        "useOnAction": "FC-3",
         "statMap": {
           "FLAT_MV": 16
         }
@@ -4533,7 +4428,7 @@
     },
     "effects": [
       {
-        "useIfAction": "RS-2",
+        "useOnAction": "RS-2",
         "statMap": {
           "PERCENT_MV": 0.5
         }
@@ -4613,14 +4508,14 @@
       },
       {
         "rank": 3,
-        "useIfAction": "IS-2",
+        "useOnAction": "IS-2",
         "statMap": {
           "PERCENT_MV": 1
         }
       },
       {
         "rank": 4,
-        "useIfAction": "FC-2",
+        "useOnAction": "FC-2",
         "statMap": {
           "PERCENT_MV": 1.25
         }
@@ -4639,7 +4534,7 @@
       },
       {
         "rank": 6,
-        "useIfAction": [
+        "useOnAction": [
           "FC-2",
           "RL-1",
           "IS-2"
@@ -4687,7 +4582,7 @@
     },
     "effects": [
       {
-        "useIfAction": "RL-1",
+        "useOnAction": "RL-1",
         "statMap": {
           "PERCENT_ALL": 1
         },
@@ -4726,7 +4621,7 @@
       },
       {
         "rank": 2,
-        "useIfAction": [
+        "useOnAction": [
           "NA-1",
           "NA-2",
           "NA-3",
@@ -4741,7 +4636,7 @@
       },
       {
         "rank": 2,
-        "useIfAction": [
+        "useOnAction": [
           "NA-7",
           "NA-8",
           "NA-9",
@@ -4760,7 +4655,7 @@
       },
       {
         "rank": 6,
-        "useIfAction": [
+        "useOnAction": [
           "RL-1",
           "IS-2",
           "FC-1",
@@ -4948,14 +4843,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
               "mv": 1
             }
           }
-        }
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
@@ -5008,7 +4904,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": [
@@ -5021,7 +4917,8 @@
               }
             ]
           }
-        }
+        },
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -5267,14 +5164,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
               "mv": 1
             }
           }
-        }
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
@@ -5381,14 +5279,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
               "mv": 5
             }
           }
-        }
+        },
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -5439,14 +5338,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "comboAction": {
+        "followUpAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
               "mv": 7.95
             }
           }
-        }
+        },
+        "maxUses": 1
       }
     ],
     "defaults": {

@@ -35,7 +35,7 @@ const resolveVariableStatMap = (variableStatMap = {}, sourceStatMap = {}) => {
   return resolved;
 };
 
-// Converts an inline action definition embedded in a followUpAction/combo entry into
+// Converts an inline action definition embedded in a followUpAction entry into
 // a normalized action object (same shape as entries in actionsCache), with mv/flat sums
 // resolved at the given rank. Returns null if the proc has no inline action.
 const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = Infinity) => {
@@ -80,12 +80,12 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = 
   };
 };
 
-// Normalizes a single proc entry (from followUpAction or combo array) into a
-// consistent shape with resolved useIf* conditions and a ready inlineAction (if any).
+// Normalizes a single proc entry (from followUpAction array) into a
+// consistent shape with resolved useOn* conditions and a ready inlineAction (if any).
 const normalizeProc = (memberId, effectKey, proc, procIndex, rank = Infinity) => ({
-  useIfConsidered: proc.useIfConsidered && toArray(proc.useIfConsidered),
-  useIfCast: proc.useIfCast && toArray(proc.useIfCast),
-  useIfAction: proc.useIfAction && toArray(proc.useIfAction).map(sk => `${memberId}-${sk}`),
+  useOnConsidered: proc.useOnConsidered && toArray(proc.useOnConsidered),
+  useOnCast: proc.useOnCast && toArray(proc.useOnCast),
+  useOnAction: proc.useOnAction && toArray(proc.useOnAction).map(sk => `${memberId}-${sk}`),
   action: toArray(proc.action),
   inlineAction: normalizeInlineProcAction(memberId, effectKey, proc, procIndex, rank),
   times: proc.times ?? 1,
@@ -157,7 +157,6 @@ const normalizeActions = (gameId, memberId, memberRank) => {
         sumFlat,
         sumMvTimes: sumMv,
         sumTimes,
-        times: 1,
       };
     }
   }
@@ -177,19 +176,14 @@ const normalizeEffects = (gameId, member) => {
   const effectDefinitions = {};
 
   // Applies a rankModifiers entry on top of an already-resolved effect definition,
-  // adjusting duration, maxUses, statMap, variableStatMap, or combo.
+  // adjusting duration, maxUses, statMap, variableStatMap
   function applyRankModifier(resolved, modifier = {}) {
-    const { duration, maxUses, statMap, variableStatMap, combo } = modifier;
+    const { duration, maxUses, statMap, variableStatMap } = modifier;
     if (duration) resolved.duration += duration;
     if (maxUses) resolved.maxUses += maxUses;
     if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap);
     if (variableStatMap) {
       resolved.variableStatMap = mergeVariableStatMaps(resolved.variableStatMap, variableStatMap);
-    }
-    if (combo) {
-      resolved.combo.push(
-        ...toArray(combo).map((proc, procIndex) => normalizeProc(memberId, resolved.effectKey, proc, 100 + procIndex, rank))
-      );
     }
   }
 
@@ -202,21 +196,6 @@ const normalizeEffects = (gameId, member) => {
 
     const effectKey = `${memberId}-${effectIndex}`;
     resolved.effectKey = effectKey;
-
-    if (rawEffect.useIfAction) {
-      resolved.useIfAction = toArray(rawEffect.useIfAction).map(key => {
-        if (key.split('-').length === 3) return key;
-        return `${memberId}-${key}`;
-      });
-    }
-
-    if (rawEffect.useIfConsidered) {
-      resolved.useIfConsidered = toArray(rawEffect.useIfConsidered);
-    }
-
-    if (rawEffect.useIfType) {
-      resolved.useIfType = toArray(rawEffect.useIfType);
-    }
 
     if (rawEffect.statMap) {
       const resolvedStatMap = {};
@@ -233,9 +212,7 @@ const normalizeEffects = (gameId, member) => {
     resolved.applyIfInflict = rawEffect.applyIfInflict ?? null;
     resolved.variableStatMap = mergeVariableStatMaps(rawEffect.variableStatMap);
     resolved.followUpAction = toArray(rawEffect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank));
-    resolved.combo = toArray(rawEffect.comboAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 100 + procIndex, rank));
     resolved.intervalAction = toArray(rawEffect.intervalAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 200 + procIndex, rank));
-    resolved.intervalCooldown = rawEffect.intervalCooldown;
 
     if (rawEffect.rankModifiers) {
       for (const [rankReq, modifier] of Object.entries(rawEffect.rankModifiers)) {
@@ -244,11 +221,7 @@ const normalizeEffects = (gameId, member) => {
     }
 
     const applyWhen = rawEffect.applyWhen;
-    const applyOnAction = toArray(rawEffect.applyOnAction).map(key => {
-      const segments = key.split('-');
-      if (segments.length === 3) return key;
-      return `${memberId}-${key}`;
-    });
+    const applyOnAction = toArray(rawEffect.applyOnAction);
     const applyOnType = toArray(rawEffect.applyOnType);
     const applyOnCast = toArray(rawEffect.applyOnCast);
     const applyOnConsidered = toArray(rawEffect.applyOnConsidered);
@@ -279,7 +252,7 @@ const normalizeEffects = (gameId, member) => {
   }
 
   for (const effect of CHARACTER[gameId][memberId].effects) {
-    if ((effect.rank ?? 0) > rank) continue;
+    if (effect.rank > rank) continue;
     registerEffect(effect, rank);
   }
 
@@ -392,17 +365,17 @@ const buildFootprint = ({
   for (const [effectKey, trackerOrPlaceholder] of trackersToEval) {
     const stacks = trackerOrPlaceholder?.stacks ?? 1;
     const {
-      useIfAction,
-      useIfConsidered,
-      useIfType,
+      useOnAction,
+      useOnConsidered,
+      useOnType,
       statMap,
       variableStatMap,
       chance = 1,
     } = allEffectDefinitions[effectKey];
 
-    if (useIfAction && !useIfAction.includes(actionKey)) continue;
-    if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
-    if (useIfType && !useIfType.includes(type)) continue;
+    if (useOnAction && !useOnAction.includes(actionKey)) continue;
+    if (useOnConsidered && !considered.some(c => useOnConsidered.includes(c))) continue;
+    if (useOnType && !useOnType.includes(type)) continue;
 
     const effectOwner = effectKey.split('-')[0];
     const effectiveScale = chance * stacks;
@@ -783,8 +756,8 @@ function decayProcCounts(members, effectTrackers, action) {
     for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
       if (effectTracker.followUpActionRemaining === Infinity) continue;
       const effectOwner = effectKey.split('-')[0];
-      const { useIfAction, followUpAction, intervalAction } = members[effectOwner].effectDefinitions[effectKey];
-      if (useIfAction && !useIfAction.includes(actionKey)) continue;
+      const { useOnAction, followUpAction, intervalAction } = members[effectOwner].effectDefinitions[effectKey];
+      if (useOnAction && !useOnAction.includes(actionKey)) continue;
       if (!followUpAction && !intervalAction) effectTracker.followUpActionRemaining -= 1;
       if (effectTracker.followUpActionRemaining <= 0) delete trackerMap[effectKey];
     }
@@ -795,56 +768,6 @@ function decayProcCounts(members, effectTrackers, action) {
   decayMap(inactive);
   decayMap(enemy);
   for (const map of Object.values(byMember)) decayMap(map);
-}
-
-// ─── Unified recursive proc helpers ──────────────────────────────────────────
-//
-// These three functions handle all proc triggering. They call processAction
-// recursively, so proc actions go through the same cast → footprint → contact
-// → followUp pipeline as top-level rotation actions. `depth` limits the chain
-// length; `onFootprint` is null during the priming pass and a push callback
-// during the recording pass.
-
-// Fires combo procs registered on the effects that were applied by the current
-// action. Combo procs are immediate (triggered at the moment the effect is applied).
-function processComboProcs(appliedEffectKeys, action, ctx, depth, onFootprint) {
-  if (depth >= MAX_PROC_DEPTH) return;
-  const { members, effectTrackers } = ctx;
-  const { key: actionKey, considered, cast } = action;
-
-  for (const effectKey of appliedEffectKeys) {
-    const [effectOwner] = effectKey.split('-');
-    const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
-    if (!effectDef?.combo?.length) continue;
-
-    const stacks = (
-      effectTrackers.team[effectKey] ??
-      effectTrackers.active[effectKey] ??
-      effectTrackers.inactive[effectKey] ??
-      effectTrackers.enemy[effectKey] ??
-      effectTrackers.byMember[effectOwner]?.[effectKey]
-    )?.stacks ?? 1;
-
-    for (const { useIfConsidered, useIfCast, useIfAction, action: procActionIds, inlineAction, times } of effectDef.combo) {
-      if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
-      if (useIfCast && !(cast ?? []).some(c => useIfCast.includes(c))) continue;
-      if (useIfAction && !useIfAction.includes(actionKey)) continue;
-
-      // Snapshot proc actions before recursing to prevent mid-iteration mutation
-      const procActions = [];
-      for (const procActionId of procActionIds) {
-        const procActionKey = effectOwner + '-' + procActionId;
-        const procAction = actionsCache.get(effectOwner)?.[procActionKey];
-        if (!procAction) continue;
-        procActions.push(procAction);
-      }
-      if (inlineAction) procActions.push(inlineAction);
-
-      for (const procAction of procActions) {
-        processAction(procAction, ctx, depth + 1, onFootprint, stacks * times, times);
-      }
-    }
-  }
 }
 
 // Fires action-triggered followUp procs from all active tracker maps.
@@ -863,16 +786,16 @@ function processFollowUpProcs(action, ctx, depth, onFootprint) {
       const [effectOwner] = effectKey.split('-');
       const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
       if (!effectDef) continue;
-      if (effectDef.useIfType && !effectDef.useIfType.includes(type)) continue;
+      if (effectDef.useOnType && !effectDef.useOnType.includes(type)) continue;
 
-      const { followUpAction, followUpActionCooldown } = effectDef;
+      const { followUpAction, followUpCooldown } = effectDef;
       if (!followUpAction?.length) continue;
 
       let procFired = false;
-      for (const { useIfConsidered, useIfCast, useIfAction, action: procActionIds, inlineAction, times } of followUpAction) {
-        if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
-        if (useIfCast && !(cast ?? []).some(c => useIfCast.includes(c))) continue;
-        if (useIfAction && !useIfAction.includes(actionKey)) continue;
+      for (const { useOnConsidered, useOnCast, useOnAction, action: procActionIds, inlineAction, times } of followUpAction) {
+        if (useOnConsidered && !considered.some(c => useOnConsidered.includes(c))) continue;
+        if (useOnCast && !(cast ?? []).some(c => useOnCast.includes(c))) continue;
+        if (useOnAction && !useOnAction.includes(actionKey)) continue;
 
         // Snapshot proc actions before recursing to prevent mid-iteration mutation
         const procActions = [];
@@ -886,7 +809,7 @@ function processFollowUpProcs(action, ctx, depth, onFootprint) {
 
         // Set cooldown BEFORE recursing so re-entrant calls to processFollowUpProcs
         // (from within the proc action itself) see it as blocked and skip.
-        if (followUpActionCooldown > 0) procCooldownMap[effectKey] = followUpActionCooldown;
+        if (followUpCooldown > 0) procCooldownMap[effectKey] = followUpCooldown;
 
         for (const procAction of procActions) {
           processAction(procAction, ctx, depth + 1, onFootprint, effectTracker.stacks * times, times);
@@ -961,98 +884,22 @@ function processIntervalProcs(ctx, elapsed, depth, onFootprint) {
   processTrackerMap(enemy);
 }
 
-// Fires interval procs for effects that were just applied on contact during this action.
-// Only processes the supplied `contactApplied` effect keys, with `elapsed = duration - offset`
-// representing the remaining window after the contact point.
-function processContactIntervalProcs(contactApplied, ctx, elapsed, depth, onFootprint) {
-  if (depth >= MAX_PROC_DEPTH) return;
-  const { members, effectTrackers, procCooldownMap } = ctx;
-  const { byMember, team, active, inactive, enemy } = effectTrackers;
-  const appliedSet = new Set(contactApplied);
-
-  function processTrackerMap(trackerMap) {
-    const entries = Object.entries(trackerMap); // snapshot before recursing
-    for (const [effectKey, effectTracker] of entries) {
-      if (!appliedSet.has(effectKey)) continue;
-      const [effectOwner] = effectKey.split('-');
-      const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
-      if (!effectDef) continue;
-
-      const { intervalAction, intervalCooldown } = effectDef;
-      if (!intervalAction?.length || !intervalCooldown) continue;
-      if (procCooldownMap[effectKey]) continue;
-
-      effectTracker.procTimer -= elapsed;
-
-      while (effectTracker.procTimer <= 0) {
-        for (const { action: procActionIds, inlineAction, times } of intervalAction) {
-          // Snapshot proc actions before recursing to prevent mid-iteration mutation
-          const procActions = [];
-          for (const procActionId of procActionIds) {
-            const procActionKey = effectOwner + '-' + procActionId;
-            const procAction = actionsCache.get(effectOwner)?.[procActionKey];
-            if (!procAction) continue;
-            procActions.push(procAction);
-          }
-          if (inlineAction) procActions.push(inlineAction);
-
-          for (const procAction of procActions) {
-            processAction(procAction, ctx, depth + 1, onFootprint, effectTracker.stacks * times, times);
-          }
-        }
-
-        effectTracker.procTimer += intervalCooldown;
-        effectTracker.followUpActionRemaining--;
-        if (effectTracker.followUpActionRemaining <= 0) {
-          delete trackerMap[effectKey];
-          break;
-        }
-      }
-    }
-  }
-
-  for (const memberMap of Object.values(byMember)) processTrackerMap(memberMap);
-  processTrackerMap(team);
-  processTrackerMap(active);
-  processTrackerMap(inactive);
-  processTrackerMap(enemy);
-}
-
-/**
- * Process a single action through the full simulation pipeline.
- * Called recursively for proc actions (combo, followUp, interval).
- *
- * At depth 0: drives timing, cooldown ticks, and decay (i.e. the main rotation action).
- * At depth > 0: applies effects and records footprints only (proc actions).
- *
- * @param {Object}   action       - Normalized action object from actionsCache
- * @param {Object}   ctx          - Shared simulation context
- * @param {number}   depth        - Current recursion depth (0 = top-level rotation action)
- * @param {Function} onFootprint  - Called with each built footprint; null in priming pass
- * @param {number}   repeatCount  - Damage repeat multiplier (stacks × times for procs)
- * @param {number}   applyTimes   - Stack count to pass to applyEffects for proc actions
- */
-function processAction(action, ctx, depth, onFootprint, repeatCount = 1, applyTimes = 1) {
-  if (depth >= MAX_PROC_DEPTH) return;
+function processTopLevelAction(action, ctx, onFootprint) {
   const { gameId, members, effectTrackers, applyCooldownMap, procCooldownMap, allEffectDefinitions, characterId } = ctx;
+  const { duration, offset } = action;
+  const remaining = duration - offset;
 
-  // ── Cast phase: apply cast effects, then fire any combo procs they triggered ──
-  const castApplied = depth === 0
-    ? applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'cast' })
-    : applyEffects({ gameId, action, members, effectTrackers, times: applyTimes, trigger: 'cast' });
-  processComboProcs(castApplied, action, ctx, depth, onFootprint);
+  // ── Cast (t = 0) ───────────────────────────────────────────────────
+  applyEffects({ ...ctx, action, trigger: 'cast' });
 
-  // ── Timing (top-level actions only): advance effect timers, fire interval procs ──
-  if (depth === 0) {
-    const { duration, offset } = action;
-    advanceEffects(effectTrackers, offset, duration);
-    tickEnemyStatuses(gameId, effectTrackers, duration);
-    processIntervalProcs(ctx, duration, depth, onFootprint);
-    tickProcCooldowns(procCooldownMap, offset);
-    tickProcCooldowns(applyCooldownMap, offset);
-  }
+  // ── Pre-contact window (t = 0 → offset) ───────────────────────────
+  advanceEffects(effectTrackers, offset, offset);
+  tickEnemyStatuses(gameId, effectTrackers, offset);
+  processIntervalProcs(ctx, offset, onFootprint);
+  tickProcCooldowns(procCooldownMap, offset);
+  tickProcCooldowns(applyCooldownMap, offset);
 
-  // ── Footprint: snapshot current effect state for evaluateRotationSummary ──
+  // ── Contact (t = offset) ───────────────────────────────────────────
   onFootprint?.(buildFootprint({
     gameId,
     action,
@@ -1061,32 +908,36 @@ function processAction(action, ctx, depth, onFootprint, repeatCount = 1, applyTi
     members,
     allEffectDefinitions,
     characterId,
-    repeatCount,
+    repeatCount: 1,
   }));
+  applyEffects({ ...ctx, action, trigger: 'contact' });
 
-  // ── Contact phase: apply on-hit effects, then fire any combo procs they triggered ──
-  const contactApplied = depth === 0
-    ? applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'contact' })
-    : applyEffects({ gameId, action, members, effectTrackers, times: applyTimes, trigger: 'contact' });
-  processComboProcs(contactApplied, action, ctx, depth, onFootprint);
+  // ── Post-contact window (t = offset → end) ─────────────────────────
+  // Contact effects are now in the tracker, so this one call handles them too
+  advanceEffects(effectTrackers, 0, remaining);
+  tickEnemyStatuses(gameId, effectTrackers, remaining);
+  processIntervalProcs(ctx, remaining, onFootprint);
+  tickProcCooldowns(procCooldownMap, remaining);
+  tickProcCooldowns(applyCooldownMap, remaining);
 
-  // ── Contact interval procs: fire interval effects applied on contact, using remaining window ──
-  if (depth === 0) {
-    const { duration, offset } = action;
-    processContactIntervalProcs(contactApplied, ctx, duration - offset, depth, onFootprint);
-  }
+  // ── Follow-ups + cleanup ───────────────────────────────────────────
+  processFollowUpProcs(action, ctx, 0, onFootprint);
+  decayProcCounts(members, effectTrackers, action);
+  tickProcCooldowns(procCooldownMap, 0); // final pass
+}
 
-  // ── FollowUp procs: fire any action-triggered followUp procs from active effects ──
-  // Cooldown is set before recursing inside processFollowUpProcs, so re-entrant
-  // calls naturally skip already-fired effects without needing a depth guard.
+function processProcAction(action, ctx, depth, onFootprint, repeatCount, applyTimes) {
+  if (depth >= MAX_PROC_DEPTH) return;
+  applyEffects({ ...ctx, action, times: applyTimes, trigger: 'cast' });
+  onFootprint?.(buildFootprint({ ...ctx, action, repeatCount }));
+  applyEffects({ ...ctx, action, times: applyTimes, trigger: 'contact' });
   processFollowUpProcs(action, ctx, depth, onFootprint);
+}
 
-  // ── Decay/cooldowns (top-level actions only) ──
-  if (depth === 0) {
-    decayProcCounts(members, effectTrackers, action);
-    tickProcCooldowns(procCooldownMap, action.duration);
-    tickProcCooldowns(applyCooldownMap, action.duration);
-  }
+function processAction(action, ctx, depth, onFootprint, repeatCount = 1, applyTimes = 1) {
+  if (depth >= MAX_PROC_DEPTH) return;
+  if (depth === 0) processTopLevelAction(action, ctx, onFootprint);
+  else processProcAction(action, ctx, depth, onFootprint, repeatCount, applyTimes);
 }
 
 export const compileRotation = (gameId, rawTeam, characterId) => {
