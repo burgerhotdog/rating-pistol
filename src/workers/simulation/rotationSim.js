@@ -45,20 +45,14 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = 
   const cast = toArray(inline.cast);
   const considered = toArray(inline.considered ?? cast);
 
-  let sumMvTimes = 0;
-  let sumTimes = 0;
   let sumFlat = 0;
+  let sumMv = 0;
+  let sumTimes = 0;
 
-  for (const { mv: rawMv, flat: rawFlat, times = 1 } of toArray(inline.multipliers)) {
-    if (rawMv != null) {
-      const mv = Array.isArray(rawMv) ? resolveRankedValue(rawMv, rank) : rawMv;
-      sumMvTimes += mv * times;
-      sumTimes += times;
-    }
-    if (rawFlat != null) {
-      const flat = Array.isArray(rawFlat) ? resolveRankedValue(rawFlat, rank) : rawFlat;
-      sumFlat += flat;
-    }
+  for (const { mv, flat, times = 1 } of toArray(inline.multipliers)) {
+    if (mv != null) sumMv += resolveRankedValue(mv, rank) * times;
+    if (flat != null) sumFlat += resolveRankedValue(flat, rank) * times;
+    sumTimes += times;
   }
 
   return {
@@ -72,8 +66,8 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = 
     duration: inline.duration ?? (cast.length ? 1000 : 0),
     offset: inline.offset ?? (cast.length ? 500 : 0),
     attr: inline.attr ?? 'ATK',
-    hasMultipliers: sumMvTimes > 0 || sumFlat > 0,
-    sumMvTimes,
+    hasMultipliers: sumMv > 0 || sumFlat > 0,
+    sumMv,
     sumTimes,
     sumFlat,
     times: inline.times ?? 1,
@@ -115,7 +109,7 @@ const getActiveSetBonuses = (gameId, member) => {
 };
 
 // Enriches every action in ACTION[gameId][memberId] with pre-summed damage multipliers
-// (sumMvTimes, sumTimes, sumFlat) at the correct skill level for memberRank.
+// (sumMv, sumTimes, sumFlat) at the correct skill level for memberRank.
 // Results are cached in actionsCache by memberId.
 const normalizeActions = (gameId, memberId, memberRank) => {
   const resolved = {};
@@ -132,30 +126,26 @@ const normalizeActions = (gameId, memberId, memberRank) => {
 
   // Sum mv/flat multipliers at the resolved level for each action
   const skillTree = ACTION[gameId][memberId];
-  for (const [skillId, skill] of Object.entries(skillTree)) {
-    const level = maxLevel + (addBySkillId[skillId] ?? 0);
+  for (const [skillId, actions] of Object.entries(skillTree)) {
+    const levelIndex = maxLevel + (addBySkillId[skillId] ?? 0) - 1;
 
-    for (const action of Object.values(skill)) {
-      const { key, multipliers } = action;
+    for (const action of Object.values(actions)) {
+      const { key, multipliers = [] } = action;
 
       let sumFlat = 0;
       let sumMv = 0;
       let sumTimes = 0;
-      for (const { mv, flat, times = 1 } of (multipliers ?? [])) {
-        if (flat) {
-          sumFlat += flat[level-1];
-        }
-        if (mv) {
-          sumMv += mv[level-1] * times;
-          sumTimes += times;
-        }
+      for (const { flat, mv, times = 1 } of multipliers) {
+        if (flat) sumFlat += flat[levelIndex] * times;
+        if (mv) sumMv += mv[levelIndex] * times;
+        sumTimes += times;
       }
 
       resolved[key] = {
         ...action,
         hasMultipliers: !!action.multipliers,
         sumFlat,
-        sumMvTimes: sumMv,
+        sumMv,
         sumTimes,
       };
     }
@@ -299,7 +289,7 @@ const buildFootprint = ({
     considered,
     attr,
     hasMultipliers,
-    sumMvTimes,
+    sumMv,
     sumTimes,
     sumFlat,
     times = 1,
@@ -312,7 +302,7 @@ const buildFootprint = ({
     type,
     element,
     attr,
-    sumMvTimes,
+    sumMv,
     sumTimes,
     sumFlat,
     times,
@@ -442,7 +432,7 @@ const buildFootprint = ({
     const ownerStatMap = members[actionOwner].statMap;
     const effectStatMap = mergeStatMaps(constantEffectContribs, fixedVariableContribs);
     const statMapWithEffects = mergeStatMaps(ownerStatMap, effectStatMap);
-    const baseValue = computeBase(statMapWithEffects, attr, sumMvTimes, sumTimes, sumFlat);
+    const baseValue = computeBase(statMapWithEffects, attr, sumMv, sumTimes, sumFlat);
 
     if (type === 'heal') {
       const healingBonus = computeTotalStat('HB', statMapWithEffects);
@@ -460,12 +450,12 @@ const buildFootprint = ({
 // ─── Damage math (mirrors simulateRotation) ───────────────────────────────────
 
 // Base damage before crits/bonuses/reductions:
-//   sumFlat + attr × (sumMvTimes + FLAT_MV × sumTimes) × (1 + PERCENT_MV)
-const computeBase = (statMap, attr, sumMvTimes, sumTimes, sumFlat) => {
+//   sumFlat + attr × (sumMv + FLAT_MV × sumTimes) × (1 + PERCENT_MV)
+const computeBase = (statMap, attr, sumMv, sumTimes, sumFlat) => {
   const flatMv = statMap.FLAT_MV ?? 0;
   const percentMv = statMap.PERCENT_MV ?? 0;
   const attrValue = computeTotalStat(attr, statMap);
-  return sumFlat + attrValue * (sumMvTimes + flatMv * sumTimes) * (1 + percentMv);
+  return sumFlat + attrValue * (sumMv + flatMv * sumTimes) * (1 + percentMv);
 };
 
 // Combined multiplier from crits, damage bonus (PERCENT_*), and amplification (AMP_*).
@@ -989,9 +979,11 @@ export const compileRotation = (gameId, rawTeam, characterId) => {
   // Replay the full rotation without recording footprints to warm up the effect
   // trackers into a steady-state snapshot (effects that will actually be active).
   for (const { memberId, rotation } of team.toReversed()) {
+    const memberCache = actionsCache.get(memberId);
     for (const actionKey of rotation) {
       ctx.activeId = memberId;
-      processAction(actionsCache.get(memberId)[actionKey], ctx, 0, null);
+      const action = memberCache[actionKey];
+      processAction(action, ctx, 0, null);
     }
   }
 
@@ -1002,9 +994,11 @@ export const compileRotation = (gameId, rawTeam, characterId) => {
   const footprints = [];
 
   for (const { memberId, rotation } of team.toReversed()) {
+    const memberCache = actionsCache.get(memberId);
     for (const actionKey of rotation) {
       ctx.activeId = memberId;
-      processAction(actionsCache.get(memberId)[actionKey], ctx, 0, fp => footprints.push(fp));
+      const action = memberCache[actionKey];
+      processAction(action, ctx, 0, fp => footprints.push(fp));
     }
   }
 
@@ -1022,9 +1016,9 @@ export const evaluateRotation = (compiledRotation, newCharCompiledStatMap) => {
       type,
       element,
       attr,
-      sumMvTimes,
-      sumTimes,
       sumFlat,
+      sumMv,
+      sumTimes,
       times,
       considered,
       hasMultipliers,
@@ -1098,7 +1092,7 @@ export const evaluateRotation = (compiledRotation, newCharCompiledStatMap) => {
     const effectStatMap = mergeStatMaps(constantEffectContribs, fixedVariableContribs, charVariableResolved);
     const statMapWithEffects = mergeStatMaps(ownerBaseStatMap, effectStatMap);
 
-    const baseValue = computeBase(statMapWithEffects, attr, sumMvTimes, sumTimes, sumFlat);
+    const baseValue = computeBase(statMapWithEffects, attr, sumMv, sumTimes, sumFlat);
 
     if (type === 'heal') {
       const healingBonus = computeTotalStat('HB', statMapWithEffects);
