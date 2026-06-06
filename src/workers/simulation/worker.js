@@ -1,6 +1,7 @@
 import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
 import { findBenchmarkWeek, getAverageScores, findRelativeError} from './helpers';
 import { compileRotation, evaluateRotation } from './rotationSim';
+import { precomputeActions, precomputeEffects } from './precomputeDefinitions';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
@@ -95,6 +96,16 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
 
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, team } = data;
+
+  // Pre-compute actions and effect definitions
+  const precomputedMap = {};
+  for (const member of team) {
+    if (!member.memberId) continue;
+    const actionCache = precomputeActions(gameId, member.memberId, member.rank);
+    const effectCache = precomputeEffects(gameId, member);
+    precomputedMap[member.memberId] = { actionCache, effectCache };
+  }
+
   const { NUM_MAINSTATS } = MISC[gameId];
   const setIdList = build.equipList.map(equip => equip?.setId);
 
