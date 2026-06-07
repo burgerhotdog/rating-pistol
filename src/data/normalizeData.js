@@ -4,6 +4,16 @@ const TRIGGERS = ['apply', 'use', 'remove'];
 const FILTERS = ['Action', 'Type', 'Tagged', 'Cast', 'Considered'];
 const ACTIONS = ['followUp', 'interval'];
 
+const CAST_DURATION_MAP = {
+  BA: 750,
+  HA: 1000,
+  MA: 1000,
+  DC: 1500,
+  RS: 1250,
+  RL: 500,
+  IS: 1000,
+};
+
 const normalizeActionKey = (charId, shortKey) => {
   if (shortKey.split('-').length === 3) return shortKey;
   return `${charId}-${shortKey}`;
@@ -133,8 +143,9 @@ export const normalizeActions = (gameId, characters, rawJson) => {
 
         if (!action.cast || ['OS', 'CA'].some(c => resolvedAction.cast.includes(c))) {
           resolvedAction.duration ??= 0;
+        } else {
+          resolvedAction.duration ??= CAST_DURATION_MAP[resolvedAction.cast[0]];
         }
-        resolvedAction.duration ??= 750;
         resolvedAction.offset ??= resolvedAction.duration * 0.75;
 
         if (action.multipliers) resolvedAction.attr ??= 'ATK';

@@ -498,11 +498,11 @@ function advanceEffects(effectTrackers, offset, duration) {
 }
 
 // Decrements all active proc/apply cooldowns by `delta` ms and removes expired ones.
-function tickProcCooldowns(procCooldownMap, delta) {
-  for (const [cooldownKey, cooldownRemaining] of Object.entries(procCooldownMap)) {
+function tickProcCooldowns(followUpCooldownMap, delta) {
+  for (const [cooldownKey, cooldownRemaining] of Object.entries(followUpCooldownMap)) {
     const nextValue = cooldownRemaining - delta;
-    if (nextValue <= 0) delete procCooldownMap[cooldownKey];
-    else procCooldownMap[cooldownKey] = nextValue;
+    if (nextValue <= 0) delete followUpCooldownMap[cooldownKey];
+    else followUpCooldownMap[cooldownKey] = nextValue;
   }
 }
 
@@ -528,8 +528,7 @@ function tickEnemyStatuses(gameId, effectTrackers, elapsed) {
   }
 }
 
-// Decrements `usesRemaining` for all effects that triggered a followUp on
-// this action, and removes effects that have exhausted their remaining uses.
+// Decrements `usesRemaining` for all effects that triggered and removes effects that have exhausted their remaining uses.
 function decayProcCounts(memberMap, effectTrackers, action) {
   const { team, active, inactive, enemy, byMember } = effectTrackers;
 
@@ -547,13 +546,15 @@ function decayProcCounts(memberMap, effectTrackers, action) {
         intervalAction,
       } = effectTracker.effectDef;
 
+      if (followUpAction || intervalAction) continue;
+
       if (useOnAction && !useOnAction.includes(action.key)) continue;
       if (useOnType && !useOnType.includes(action.type)) continue;
       if (useOnTagged && !action.tagged.some(t => useOnTagged.includes(t))) continue;
       if (useOnCast && !action.cast.some(c => useOnCast.includes(c))) continue;
       if (useOnConsidered && !action.considered.some(c => useOnConsidered.includes(c))) continue;
 
-      if (!followUpAction && !intervalAction) effectTracker.usesRemaining -= 1;
+      effectTracker.usesRemaining -= 1;
       if (effectTracker.usesRemaining <= 0) delete trackerMap[effectKey];
     }
   }
@@ -570,33 +571,23 @@ function decayProcCounts(memberMap, effectTrackers, action) {
 // as opposed to interval procs which fire on a timer.
 function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
   if (depth >= MAX_PROC_DEPTH) return;
-  const { effectTrackers, procCooldownMap } = ctx;
+  const { effectTrackers, followUpCooldownMap, activeId } = ctx;
+  const { byMember, team, active, inactive } = effectTrackers;
   const { key, owner, considered, cast, type } = action;
-  const { byMember, team, active, inactive, enemy } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
-    const entries = Object.entries(trackerMap); // snapshot before recursing
+    const entries = Object.entries(trackerMap);
     for (const [effectKey, effectTracker] of entries) {
-      if (procCooldownMap[effectKey]) continue;
-
       const { stacks, effectDef } = effectTracker;
+      const { followUpAction } = effectDef;
+      if (!followUpAction || followUpCooldownMap[effectKey]) continue;
 
-      const {
-        useOnAction,
-        useOnType,
-        useOnTagged,
-        useOnCast,
-        useOnConsidered,
-      } = effectDef;
-
+      const { useOnAction, useOnType, useOnTagged, useOnCast, useOnConsidered } = effectDef;
       if (useOnAction && !useOnAction.includes(key)) continue;
       if (useOnType && !useOnType.includes(type)) continue;
       if (useOnTagged && !action.tagged.some(t => useOnTagged.includes(t))) continue;
       if (useOnCast && !cast.some(c => useOnCast.includes(c))) continue;
       if (useOnConsidered && !considered.some(c => useOnConsidered.includes(c))) continue;
-
-      const { followUpAction, followUpCooldown, times } = effectDef;
-      if (!followUpAction) continue;
 
       const procActions = [];
       for (const action of followUpAction) {
@@ -610,23 +601,22 @@ function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
 
       // Set cooldown BEFORE recursing so re-entrant calls to processFollowUpProcs
       // (from within the proc action itself) see it as blocked and skip.
-      if (followUpCooldown > 0) {
-        procCooldownMap[effectKey] = followUpCooldown;
-      }
-
-      for (const action of procActions) {
-        processAction(action, ctx, depth + 1, onFootprint, defCache, stacks * times, times);
+      if (effectDef.followUpCooldown) {
+        followUpCooldownMap[effectKey] = effectDef.followUpCooldown;
       }
 
       effectTracker.usesRemaining--;
+      if (effectTracker.usesRemaining <= 0) delete trackerMap[effectKey];
+
+      for (const action of procActions) {
+        processAction(action, ctx, depth + 1, onFootprint, defCache, stacks * effectDef.times, effectDef.times);
+      }
     }
   }
 
   processTrackerMap(byMember[owner]);
   processTrackerMap(team);
-  processTrackerMap(active);
-  processTrackerMap(inactive);
-  processTrackerMap(enemy);
+  processTrackerMap(activeId === owner ? active : inactive);
 }
 
 // Fires timer-based (interval) procs. Called once per rotation action with
@@ -634,15 +624,15 @@ function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
 // re-arming after each fire by adding intervalCooldown back to the timer.
 function processIntervalProcs(ctx, elapsed, depth, onFootprint, defCache) {
   if (depth >= MAX_PROC_DEPTH) return;
-  const { effectTrackers, procCooldownMap } = ctx;
-  const { byMember, team, active, inactive, enemy } = effectTrackers;
+  const { effectTrackers } = ctx;
+  const { byMember, team } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
-    const entries = Object.entries(trackerMap); // snapshot before recursing
+    const entries = Object.entries(trackerMap);
     for (const [effectKey, effectTracker] of entries) {
       const { stacks, effectDef } = effectTracker;
       const { intervalAction, intervalCooldown, times } = effectDef;
-      if (!intervalAction || procCooldownMap[effectKey]) continue;
+      if (!intervalAction) continue;
 
       effectTracker.procTimer -= elapsed;
       while (effectTracker.procTimer <= 0) {
@@ -674,13 +664,10 @@ function processIntervalProcs(ctx, elapsed, depth, onFootprint, defCache) {
     processTrackerMap(memberTracker);
   }
   processTrackerMap(team);
-  processTrackerMap(active);
-  processTrackerMap(inactive);
-  processTrackerMap(enemy);
 }
 
 function processTopLevelAction(action, ctx, onFootprint, defCache) {
-  const { gameId, memberMap, effectTrackers, applyCooldownMap, procCooldownMap, characterId } = ctx;
+  const { gameId, memberMap, effectTrackers, applyCooldownMap, followUpCooldownMap, characterId } = ctx;
   const { duration, offset } = action;
   const remaining = duration - offset;
 
@@ -691,7 +678,7 @@ function processTopLevelAction(action, ctx, onFootprint, defCache) {
   advanceEffects(effectTrackers, offset, offset);
   tickEnemyStatuses(gameId, effectTrackers, offset);
   processIntervalProcs(ctx, offset, 0, onFootprint, defCache);
-  tickProcCooldowns(procCooldownMap, offset);
+  tickProcCooldowns(followUpCooldownMap, offset);
   tickProcCooldowns(applyCooldownMap, offset);
 
   // ── Contact (t = offset) ───────────────────────────────────────────
@@ -712,13 +699,12 @@ function processTopLevelAction(action, ctx, onFootprint, defCache) {
   advanceEffects(effectTrackers, 0, remaining);
   tickEnemyStatuses(gameId, effectTrackers, remaining);
   processIntervalProcs(ctx, remaining, 0, onFootprint, defCache);
-  tickProcCooldowns(procCooldownMap, remaining);
+  tickProcCooldowns(followUpCooldownMap, remaining);
   tickProcCooldowns(applyCooldownMap, remaining);
 
   // ── Follow-ups + cleanup ───────────────────────────────────────────
   processFollowUpProcs(action, ctx, 0, onFootprint, defCache);
   decayProcCounts(memberMap, effectTrackers, action);
-  tickProcCooldowns(procCooldownMap, 0); // final pass
 }
 
 function processProcAction(action, ctx, depth, onFootprint, repeatCount, applyTimes, defCache) {
@@ -760,11 +746,11 @@ export const compileRotation = (gameId, rawTeam, characterId, defCache) => {
     enemyStatuses: {},
   };
   const applyCooldownMap = {};
-  const procCooldownMap = {};
+  const followUpCooldownMap = {};
 
   // Shared context object threaded through all processAction calls. activeId is
   // mutated per rotation action to track which member is the current rotation actor.
-  const ctx = { gameId, memberMap, effectTrackers, applyCooldownMap, procCooldownMap, characterId, activeId: null };
+  const ctx = { gameId, memberMap, effectTrackers, applyCooldownMap, followUpCooldownMap, characterId, activeId: null };
 
   // ── Priming pass ──────────────────────────────────────────────────────────
   // Replay the full rotation without recording footprints to warm up the effect
