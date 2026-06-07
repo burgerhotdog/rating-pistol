@@ -20763,9 +20763,8 @@
         ]
       },
       "7": {
-        "name": "Trance Healing",
+        "name": "Trance: Healing",
         "type": "heal",
-        "considered": "FC",
         "multipliers": [
           {
             "flat": [
@@ -20818,9 +20817,8 @@
         ]
       },
       "8": {
-        "name": "Perception Drain Healing",
+        "name": "Perception Drain: Healing (x3)",
         "type": "heal",
-        "considered": "FC",
         "multipliers": [
           {
             "flat": [
@@ -20870,7 +20868,8 @@
               3.4491
             ]
           }
-        ]
+        ],
+        "times": 3
       }
     },
     "OS": {

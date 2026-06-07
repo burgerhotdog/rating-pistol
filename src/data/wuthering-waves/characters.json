@@ -135,9 +135,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-3",
-        "intervalAction": {
-          "action": "RL-1"
-        },
+        "intervalAction": "RL-1",
         "intervalCooldown": 2500,
         "maxUses": 4,
         "rankModifiers": {
@@ -150,9 +148,7 @@
         "applyWhen": "cast",
         "applyOnCast": "HA",
         "applyOnAction": "RS-1",
-        "intervalAction": {
-          "action": "FC-1"
-        },
+        "intervalAction": "FC-1",
         "intervalCooldown": 2000,
         "maxUses": 4
       },
@@ -169,12 +165,10 @@
         "applyWhen": "cast",
         "applyOnCast": "HA",
         "followUpAction": {
-          "action": {
-            "type": "heal",
-            "attr": "HP",
-            "multipliers": {
-              "mv": 0.0025
-            }
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": 0.0025
           }
         },
         "maxUses": 1
@@ -183,12 +177,10 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "intervalAction": {
-          "action": {
-            "type": "heal",
-            "attr": "HP",
-            "multipliers": {
-              "mv": 0.0154
-            }
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": 0.0154
           }
         },
         "intervalCooldown": 3000,
@@ -323,11 +315,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 5.8794
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 5.8794
           }
         },
         "maxUses": 1
@@ -420,9 +410,7 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "FC-3",
-        "intervalAction": {
-          "action": "FC-1"
-        },
+        "intervalAction": "FC-1",
         "intervalCooldown": 100,
         "maxUses": 30
       },
@@ -446,11 +434,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 5.3
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 5.3
           }
         },
         "maxUses": 1
@@ -532,11 +518,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "intervalAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 1.7676
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 1.7676
           }
         },
         "intervalCooldown": 1500,
@@ -645,26 +629,28 @@
         "applyTo": "active",
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "followUpAction": [
-          {
-            "useOnConsidered": "BA",
-            "action": "RL-2"
-          },
-          {
-            "useOnConsidered": "HA",
-            "action": "RL-2",
-            "times": 2
-          }
-        ],
+        "useOnCast": "BA",
+        "followUpAction": "RL-2",
         "followUpCooldown": 350,
         "duration": 10000,
         "rankModifiers": {
+          "4": {
+            "duration": 7000
+          }
+        }
+      },
+      {
+        "applyTo": "active",
+        "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "useOnCast": "HA",
+        "followUpAction": "RL-2",
+        "followUpCooldown": 350,
+        "times": 2,
+        "duration": 10000,
+        "rankModifiers": {
           "1": {
-            "followUpAction": {
-              "useOnConsidered": "RS",
-              "action": "RL-2",
-              "times": 2
-            }
+            "useOnCast": "RS"
           },
           "4": {
             "duration": 7000
@@ -727,10 +713,8 @@
           "RS-1",
           "FC-1"
         ],
-        "followUpAction": {
-          "action": "RL-2",
-          "times": 4
-        },
+        "followUpAction": "RL-2",
+        "times": 4,
         "maxUses": 1
       },
       {
@@ -794,17 +778,15 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": [
-              {
-                "mv": 1.9598
-              },
-              {
-                "mv": 3.9196
-              }
-            ]
-          }
+          "considered": "OS",
+          "multipliers": [
+            {
+              "mv": 1.9598
+            },
+            {
+              "mv": 3.9196
+            }
+          ]
         },
         "maxUses": 1
       },
@@ -854,18 +836,16 @@
         "applyWhen": "cast",
         "applyOnAction": "FC-2",
         "followUpAction": {
-          "action": {
-            "cast": "CA",
-            "considered": [
-              "RL",
-              "CA"
-            ],
-            "multipliers": {
-              "mv": 1
-            }
-          },
-          "times": 2
+          "cast": "CA",
+          "considered": [
+            "RL",
+            "CA"
+          ],
+          "multipliers": {
+            "mv": 1
+          }
         },
+        "times": 2,
         "maxUses": 1
       }
     ],
@@ -916,13 +896,11 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "RS-1",
-        "followUpAction": {
-          "useOnCast": [
-            "BA",
-            "DC"
-          ],
-          "action": "RS-3"
-        },
+        "useOnCast": [
+          "BA",
+          "DC"
+        ],
+        "followUpAction": "RS-3",
         "duration": 10000,
         "maxUses": 4
       },
@@ -931,9 +909,7 @@
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
         "useOnType": "damage",
-        "followUpAction": {
-          "action": "FC-2"
-        },
+        "followUpAction": "FC-2",
         "followUpCooldown": 1000,
         "duration": 18000
       },
@@ -1009,11 +985,9 @@
         "applyOnAction": "RL-1",
         "useOnCast": "BA",
         "followUpAction": {
-          "action": {
-            "considered": "RS",
-            "multipliers": {
-              "mv": 4.1959
-            }
+          "considered": "RS",
+          "multipliers": {
+            "mv": 4.1959
           }
         },
         "duration": 30000,
@@ -1062,9 +1036,7 @@
         "applyWhen": "contact",
         "applyOnAction": "RS-1",
         "useOnType": "damage",
-        "followUpAction": {
-          "action": "RS-2"
-        },
+        "followUpAction": "RS-2",
         "followUpCooldown": 1200,
         "duration": 12000
       },
@@ -1074,9 +1046,7 @@
           "RS-4",
           "RL-1"
         ],
-        "followUpAction": {
-          "action": "RS-3"
-        },
+        "followUpAction": "RS-3",
         "maxUses": 1
       },
       {
@@ -1088,9 +1058,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "followUpAction": {
-          "action": "RS-1"
-        },
+        "followUpAction": "RS-1",
         "maxUses": 1
       },
       {
@@ -1119,12 +1087,10 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "followUpAction": {
-          "action": {
-            "type": "shield",
-            "attr": "DEF",
-            "multipliers": {
-              "mv": 2
-            }
+          "type": "shield",
+          "attr": "DEF",
+          "multipliers": {
+            "mv": 2
           }
         },
         "maxUses": 1
@@ -1443,18 +1409,16 @@
         "applyTo": "next",
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
+        "useOnCast": "HA",
         "followUpAction": {
-          "useOnCast": "HA",
-          "action": {
-            "type": "damage",
-            "cast": "CA",
-            "considered": [
-              "OS",
-              "CA"
-            ],
-            "multipliers": {
-              "mv": 3.134
-            }
+          "type": "damage",
+          "cast": "CA",
+          "considered": [
+            "OS",
+            "CA"
+          ],
+          "multipliers": {
+            "mv": 3.134
           }
         },
         "followUpCooldown": 1000,
@@ -1573,9 +1537,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-3",
-        "intervalAction": {
-          "action": "RL-1"
-        },
+        "intervalAction": "RL-1",
         "intervalCooldown": 250,
         "duration": 3120
       },
@@ -1587,9 +1549,7 @@
           "FC-9",
           "FC-10"
         ],
-        "intervalAction": {
-          "action": "FC-11"
-        },
+        "intervalAction": "FC-11",
         "intervalCooldown": 6000,
         "duration": 30000
       },
@@ -1633,20 +1593,20 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "followUpAction": [
-          {
-            "action": {
-              "considered": "HA",
-              "multipliers": {
-                "mv": 5.5667
-              }
-            }
-          },
-          {
-            "action": "FC-10"
+        "followUpAction": {
+          "cast": "RS",
+          "considered": "HA",
+          "multipliers": {
+            "mv": 5.5667
           }
-        ],
-        "duration": 5000,
+        },
+        "maxUses": 1
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "followUpAction": "FC-10",
         "maxUses": 1
       }
     ],
@@ -1711,12 +1671,10 @@
         "applyTo": "team",
         "applyWhen": "contact",
         "applyOnAction": "RL-1",
-        "followUpAction": {
-          "action": [
-            "RL-3",
-            "RL-4"
-          ]
-        },
+        "followUpAction": [
+          "RL-3",
+          "RL-4"
+        ],
         "followUpCooldown": 1000,
         "duration": 12000
       },
@@ -1740,11 +1698,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "intervalAction": {
-          "action": {
-            "type": "heal",
-            "multipliers": {
-              "mv": 0.19
-            }
+          "type": "heal",
+          "multipliers": {
+            "mv": 0.19
           }
         },
         "intervalCooldown": 1000,
@@ -1764,11 +1720,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "intervalAction": {
-          "action": {
-            "type": "heal",
-            "multipliers": {
-              "mv": 0.2
-            }
+          "type": "heal",
+          "multipliers": {
+            "mv": 0.2
           }
         },
         "intervalCooldown": 5000,
@@ -1826,9 +1780,7 @@
           "FC-3",
           "FC-4"
         ],
-        "followUpAction": {
-          "action": "RL-3"
-        },
+        "followUpAction": "RL-3",
         "maxUses": 1
       }
     ],
@@ -1918,12 +1870,10 @@
         "applyWhen": "cast",
         "applyOnAction": "NA-6",
         "followUpAction": {
-          "action": {
-            "type": "heal",
-            "attr": "HP",
-            "multipliers": {
-              "mv": 0.25
-            }
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": 0.25
           }
         },
         "maxUses": 1
@@ -2418,9 +2368,7 @@
         "applyTo": "active",
         "applyWhen": "cast",
         "applyOnAction": "RL-2",
-        "followUpAction": {
-          "action": "RL-1"
-        },
+        "followUpAction": "RL-1",
         "followUpCooldown": 1000,
         "duration": 30000,
         "maxUses": 21,
@@ -2565,11 +2513,9 @@
         "applyOnAction": "OS-1",
         "useOnCast": "BA",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 2.3763
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 2.3763
           }
         },
         "followUpCooldown": 2000,
@@ -2693,10 +2639,8 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RS-1",
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "RS-2"
-        }
+        "followUpAction": "RS-2",
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
@@ -2787,11 +2731,9 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RS-2",
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "RS-1",
-          "times": 5
-        }
+        "followUpAction": "RS-1",
+        "times": 5,
+        "maxUses": 1
       },
       {
         "rank": 4,
@@ -2808,9 +2750,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-2",
         "duration": 30000,
-        "followUpAction": {
-          "action": "RL-1"
-        },
+        "followUpAction": "RL-1",
         "followUpCooldown": 3000,
         "rankModifiers": {
           "1": {
@@ -2880,27 +2820,21 @@
           "FC-2",
           "FC-3"
         ],
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-1",
-          "times": 5
-        }
+        "followUpAction": "FC-1",
+        "times": 5,
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "IS-1",
         "maxUses": 1,
-        "followUpAction": {
-          "action": "IS-3"
-        }
+        "followUpAction": "IS-3"
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "IS-2",
         "maxUses": 1,
-        "followUpAction": {
-          "action": "IS-4"
-        }
+        "followUpAction": "IS-4"
       },
       {
         "useOnAction": "IS-2",
@@ -2979,21 +2913,19 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "NA-10",
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "NA-2",
-          "times": 2
-        }
+        "followUpAction": "NA-2",
+        "times": 2,
+        "maxUses": 1
       },
       {
         "rank": 6,
         "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "duration": 20000,
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 20000
       },
       {
         "rank": 2,
@@ -3008,20 +2940,16 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-9",
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-1",
-          "times": 2
-        }
+        "followUpAction": "FC-1",
+        "times": 2,
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-8",
-          "times": 4
-        }
+        "followUpAction": "FC-8",
+        "times": 4,
+        "maxUses": 1
       },
       {
         "applyTo": "next",
@@ -3111,11 +3039,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 3.2924
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 3.2924
           }
         },
         "maxUses": 1
@@ -3261,11 +3187,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 7.942
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 7.942
           }
         },
         "maxUses": 1
@@ -3405,9 +3329,7 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-4"
-        }
+        "followUpAction": "FC-4"
       },
       {
         "rank": 2,
@@ -3539,11 +3461,9 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "RL-2",
-          "times": 3
-        }
+        "followUpAction": "RL-2",
+        "times": 3,
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
@@ -3573,27 +3493,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "IS-1",
-        "maxUses": 4,
-        "followUpAction": {
-          "action": "FC-2",
-          "times": 3
-        }
+        "followUpAction": "FC-2",
+        "times": 3,
+        "maxUses": 4
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-3"
-        },
-        "rankModifiers": {
-          "4": {
-            "followUpAction": {
-              "action": "FC-5",
-              "times": 3
-            }
-          }
-        }
+        "followUpAction": "FC-3",
+        "maxUses": 1
       },
       {
         "useOnAction": "FC-2",
@@ -3668,13 +3576,11 @@
         "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "maxUses": 2,
+        "useOnConsidered": "RS",
+        "followUpAction": "FC-4",
+        "followUpCooldown": 1000,
         "duration": 20000,
-        "followUpAction": {
-          "useOnConsidered": "RS",
-          "action": "FC-4"
-        },
-        "followUpCooldown": 1000
+        "maxUses": 2
       },
       {
         "rank": 3,
@@ -3757,17 +3663,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RS-1",
-        "duration": 30000,
-        "followUpAction": {
-          "useOnAction": [
-            "NA-1",
-            "NA-2",
-            "NA-3",
-            "NA-6"
-          ],
-          "action": "RS-2"
-        },
-        "followUpCooldown": 500
+        "useOnAction": [
+          "NA-1",
+          "NA-2",
+          "NA-3",
+          "NA-6"
+        ],
+        "followUpAction": "RS-2",
+        "followUpCooldown": 500,
+        "duration": 30000
       },
       {
         "applyWhen": "cast",
@@ -3828,11 +3732,9 @@
         "applyWhen": "cast",
         "applyOnCast": "OS",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 5.2841
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 5.2841
           }
         },
         "maxUses": 1
@@ -3922,9 +3824,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RS-1",
         "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-3"
-        }
+        "followUpAction": "FC-3"
       }
     ],
     "defaults": {
@@ -3973,9 +3873,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RS-2",
         "maxUses": 1,
-        "followUpAction": {
-          "action": "RS-3"
-        }
+        "followUpAction": "RS-3"
       },
       {
         "applyTo": "active",
@@ -3983,9 +3881,7 @@
         "applyOnAction": "RL-1",
         "duration": 30000,
         "maxUses": 21,
-        "followUpAction": {
-          "action": "RL-2"
-        },
+        "followUpAction": "RL-2",
         "followUpCooldown": 1000,
         "rankModifiers": {
           "5": {
@@ -4002,25 +3898,9 @@
           "FC-4",
           "FC-6"
         ],
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-7",
-          "times": 3
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "FC-5",
-        "maxUses": 1,
-        "followUpAction": [
-          {
-            "action": "RS-3"
-          },
-          {
-            "action": "FC-8",
-            "times": 3
-          }
-        ]
+        "followUpAction": "FC-7",
+        "times": 3,
+        "maxUses": 1
       },
       {
         "statMap": {
@@ -4073,9 +3953,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "maxUses": 1,
-        "followUpAction": {
-          "action": "RS-3"
-        }
+        "followUpAction": "RS-3"
       },
       {
         "rank": 2,
@@ -4133,6 +4011,8 @@
         "FC-2",
         "FC-3",
         "FC-5",
+        "RS-3",
+        "FC-8",
         "OS-1"
       ]
     }
@@ -4160,9 +4040,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "maxUses": 1,
-        "followUpAction": {
-          "action": "RL-2"
-        }
+        "followUpAction": "RL-2"
       },
       {
         "useOnAction": "FC-1",
@@ -4232,9 +4110,7 @@
         "applyWhen": "cast",
         "applyOnAction": "NA-4",
         "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-2"
-        }
+        "followUpAction": "FC-2"
       }
     ],
     "defaults": {
@@ -4315,11 +4191,9 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-3",
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-4",
-          "times": 40
-        }
+        "followUpAction": "FC-4",
+        "times": 40,
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
@@ -4468,9 +4342,7 @@
           "FC-2"
         ],
         "maxUses": 1,
-        "followUpAction": {
-          "action": "FC-3"
-        }
+        "followUpAction": "FC-3"
       },
       {
         "applyTo": "next",
@@ -4844,11 +4716,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 1
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 1
           }
         },
         "maxUses": 1
@@ -4905,18 +4775,16 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": [
-              {
-                "mv": 0.795,
-                "times": 3
-              },
-              {
-                "mv": 5.565
-              }
-            ]
-          }
+          "considered": "OS",
+          "multipliers": [
+            {
+              "mv": 0.795,
+              "times": 3
+            },
+            {
+              "mv": 5.565
+            }
+          ]
         },
         "maxUses": 1
       }
@@ -5017,11 +4885,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "intervalAction": {
-          "action": {
-            "type": "heal",
-            "multipliers": {
-              "mv": 0.18
-            }
+          "type": "heal",
+          "multipliers": {
+            "mv": 0.18
           }
         },
         "intervalCooldown": 1000,
@@ -5165,11 +5031,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 1
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 1
           }
         },
         "maxUses": 1
@@ -5280,11 +5144,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 5
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 5
           }
         },
         "maxUses": 1
@@ -5339,11 +5201,9 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "followUpAction": {
-          "action": {
-            "considered": "OS",
-            "multipliers": {
-              "mv": 7.95
-            }
+          "considered": "OS",
+          "multipliers": {
+            "mv": 7.95
           }
         },
         "maxUses": 1

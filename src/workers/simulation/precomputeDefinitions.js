@@ -32,49 +32,37 @@ const getActiveSetBonuses = (gameId, member) => {
   return activeBonuses;
 };
 
-const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = Infinity) => {
-  const inline = proc.action;
-  if (!inline) return null;
-
-  const cast = toArray(inline.cast);
-  const considered = toArray(inline.considered ?? cast);
+const normalizeInlineAction = (memberId, effectKey, definition, index, rank = Infinity) => {
+  const cast = toArray(definition.cast);
+  const considered = toArray(definition.considered);
 
   let sumFlat = 0;
   let sumMv = 0;
   let sumTimes = 0;
 
-  for (const { mv, flat, times = 1 } of toArray(inline.multipliers)) {
-    if (mv != null) sumMv += resolveRankedValue(mv, rank) * times;
+  for (const { mv, flat, times = 1 } of toArray(definition.multipliers)) {
     if (flat != null) sumFlat += resolveRankedValue(flat, rank) * times;
+    if (mv != null) sumMv += resolveRankedValue(mv, rank) * times;
     sumTimes += times;
   }
 
   return {
-    key: `${effectKey}-proc-${procIndex}`,
+    key: `${effectKey}-INLINE-${index}`,
     owner: memberId,
-    skill: inline.skill ?? 'PROC',
-    type: inline.type ?? 'damage',
-    element: inline.element,
+    skill: definition.skill ?? 'INLINE',
+    type: definition.type ?? 'damage',
+    element: definition.element,
     cast,
     considered,
-    duration: inline.duration ?? (cast.length ? 1000 : 0),
-    offset: inline.offset ?? (cast.length ? 500 : 0),
-    attr: inline.attr ?? 'ATK',
+    duration: definition.duration ?? (cast.length ? 750 : 0),
+    offset: definition.offset ?? (cast.length ? 500 : 0),
+    attr: definition.attr ?? 'ATK',
+    sumFlat,
     sumMv,
     sumTimes,
-    sumFlat,
-    times: inline.times ?? 1,
+    times: definition.times ?? 1,
   };
 };
-
-const normalizeProc = (memberId, effectKey, proc, procIndex, rank = Infinity) => ({
-  useOnConsidered: proc.useOnConsidered && toArray(proc.useOnConsidered),
-  useOnCast: proc.useOnCast && toArray(proc.useOnCast),
-  useOnAction: proc.useOnAction && toArray(proc.useOnAction).map(sk => `${memberId}-${sk}`),
-  action: toArray(proc.action),
-  inlineAction: normalizeInlineProcAction(memberId, effectKey, proc, procIndex, rank),
-  times: proc.times ?? 1,
-});
 
 export const precomputeActions = (gameId, memberId, memberRank) => {
   const resolved = {};
@@ -118,23 +106,40 @@ export const precomputeActions = (gameId, memberId, memberRank) => {
   return resolved;
 };
 
+function applyRankModifier(resolved, modifier) {
+  for (const [key, value] of Object.entries(modifier)) {
+    if (key === 'statMap') {
+      resolved.statMap = mergeStatMaps(resolved.statMap, value);
+      continue;
+    }
+
+    if (key === 'variableStatMap') {
+      resolved.variableStatMap = mergeVariableStatMaps(resolved.variableStatMap, value);
+      continue;
+    }
+
+    if (resolved[key] == null) {
+      resolved[key] = value;
+      continue;
+    }
+
+    if (typeof value === 'number') {
+      resolved[key] += value;
+      continue;
+    }
+
+    if (typeof value === 'string') {
+      resolved[key].push(value);
+      continue;
+    }
+  }
+}
+
 export const precomputeEffects = (gameId, member) => {
   const { memberId, rank, weaponId, weaponRank } = member;
   const castEffectsByAction = {};
   const contactEffectsByAction = {};
   const effectDefinitions = {};
-
-  // Applies a rankModifiers entry on top of an already-resolved effect definition,
-  // adjusting duration, maxUses, statMap, variableStatMap
-  function applyRankModifier(resolved, modifier = {}) {
-    const { duration, maxUses, statMap, variableStatMap } = modifier;
-    if (duration) resolved.duration += duration;
-    if (maxUses) resolved.maxUses += maxUses;
-    if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap);
-    if (variableStatMap) {
-      resolved.variableStatMap = mergeVariableStatMaps(resolved.variableStatMap, variableStatMap);
-    }
-  }
 
   let effectIndex = 0;
   // Processes a list of raw effects (from character / weapon / set JSON), normalizes
@@ -146,10 +151,11 @@ export const precomputeEffects = (gameId, member) => {
     const effectKey = `${memberId}-${effectIndex}`;
     resolved.effectKey = effectKey;
 
-    if (rawEffect.statMap) {
+    const { statMap } = rawEffect;
+    if (statMap) {
       const resolvedStatMap = {};
 
-      for (const [stat, value] of Object.entries(rawEffect.statMap)) {
+      for (const [stat, value] of Object.entries(statMap)) {
         resolvedStatMap[stat] = resolveRankedValue(value, rank);
       }
 
@@ -160,39 +166,52 @@ export const precomputeEffects = (gameId, member) => {
     resolved.applyIfEnemyStatus = rawEffect.applyIfEnemyStatus ?? null;
     resolved.applyIfInflict = rawEffect.applyIfInflict ?? null;
     resolved.variableStatMap = mergeVariableStatMaps(rawEffect.variableStatMap);
-    resolved.followUpAction = toArray(rawEffect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank));
-    resolved.intervalAction = toArray(rawEffect.intervalAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 200 + procIndex, rank));
+
+    const { followUpAction, intervalAction, times } = rawEffect;
+
+    if (followUpAction) {
+      resolved.followUpAction = followUpAction.map((action, index) => {
+        if (typeof action === 'string') return action;
+        return normalizeInlineAction(memberId, effectKey, action, index, rank);
+      });
+      resolved.times = times ?? 1;
+    }
+
+    if (intervalAction) {
+      resolved.intervalAction = intervalAction.map((action, index) => {
+        if (typeof action === 'string') return action;
+        return normalizeInlineAction(memberId, effectKey, action, index, rank);
+      });
+      resolved.times = times ?? 1;
+    }
 
     if (rawEffect.rankModifiers) {
       for (const [rankReq, modifier] of Object.entries(rawEffect.rankModifiers)) {
-        if (Number(rankReq) <= rank) applyRankModifier(resolved, modifier);
+        if (Number(rankReq) <= rank) {
+          applyRankModifier(resolved, modifier);
+        }
       }
     }
 
-    const applyWhen = rawEffect.applyWhen;
-    const applyOnAction = toArray(rawEffect.applyOnAction);
-    const applyOnType = toArray(rawEffect.applyOnType);
-    const applyOnCast = toArray(rawEffect.applyOnCast);
-    const applyOnConsidered = toArray(rawEffect.applyOnConsidered);
-
-    if (!applyWhen) {
-      // No trigger condition — effect is always active (passive)
-      resolved.isPassive = true;
-    } else {
-      // Walk every action to find which ones trigger this effect, and register
-      // it in the appropriate By-Action map (cast or contact).
+    const { applyWhen, applyOnType, applyOnCast, applyOnConsidered, applyOnAction } = rawEffect;
+    if (applyWhen) {
       const skillTree = ACTION[gameId][memberId];
-      const inflictMatch = applyOnType.includes('inflict');
       for (const skillDef of Object.values(skillTree)) {
         for (const actionDef of Object.values(skillDef)) {
           const { key, type, cast, considered } = actionDef;
-          const actionMatch = applyOnAction.includes(key);
-          const typeMatch = applyOnType.includes(type);
-          const castMatch = cast.some(c => applyOnCast.includes(c));
-          const consideredMatch = considered.some(c => applyOnConsidered.includes(c));
-          if (actionMatch || castMatch || typeMatch || consideredMatch || inflictMatch) {
-            if (applyWhen === 'cast') (castEffectsByAction[key] ??= []).push(effectKey);
-            if (applyWhen === 'contact') (contactEffectsByAction[key] ??= []).push(effectKey);
+
+          const typeMatch = applyOnType && applyOnType.includes(type);
+          const castMatch = applyOnCast && cast.some(c => applyOnCast.includes(c));
+          const consideredMatch = applyOnConsidered && considered.some(c => applyOnConsidered.includes(c));
+          const actionMatch = applyOnAction && applyOnAction.includes(key);
+
+          if (actionMatch || castMatch || typeMatch || consideredMatch) {
+            if (applyWhen === 'cast') {
+              (castEffectsByAction[key] ??= []).push(effectKey);
+            }
+            if (applyWhen === 'contact') {
+              (contactEffectsByAction[key] ??= []).push(effectKey);
+            }
           }
         }
       }
@@ -207,11 +226,11 @@ export const precomputeEffects = (gameId, member) => {
     registerEffect(effect, rank);
   }
 
-  for (const effect of toArray(WEAPON[gameId][weaponId].effects)) {
+  for (const effect of WEAPON[gameId][weaponId].effects) {
     registerEffect(effect, weaponRank);
   }
 
-  for (const effect of getActiveSetBonuses(gameId, member).flatMap(toArray)) {
+  for (const effect of getActiveSetBonuses(gameId, member).flat()) {
     registerEffect(effect);
   }
 

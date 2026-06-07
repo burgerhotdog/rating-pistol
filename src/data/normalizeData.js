@@ -15,7 +15,13 @@ const normalizeEffect = (rawEffect, charId = null) => {
   resolved.rank = rawEffect.rank ?? 0;
   resolved.chance = rawEffect.chance ?? 1;
   resolved.applyTo = rawEffect.applyTo ?? 'self';
-  resolved.applyWhen = rawEffect.applyWhen;
+
+  if (rawEffect.applyWhen) {
+    resolved.applyWhen = rawEffect.applyWhen;
+  } else {
+    resolved.isPassive = true;
+  }
+
   resolved.applyCooldown = rawEffect.applyCooldown ?? 0;
   resolved.duration = rawEffect.duration ?? Infinity;
   resolved.maxUses = rawEffect.maxUses ?? Infinity;
@@ -43,7 +49,10 @@ const normalizeEffect = (rawEffect, charId = null) => {
     const rawValue = rawEffect[field];
     if (rawValue == null) continue;
 
-    const resolvedValue = toArray(rawValue);
+    const resolvedValue = toArray(rawValue).map(a => {
+      if (typeof a === 'string') return normalizeActionKey(charId, a);
+      return a;
+    });
     resolved[field] = resolvedValue;
 
     const fieldCooldown = `${ACTION}Cooldown`;

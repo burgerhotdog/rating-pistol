@@ -11,14 +11,14 @@ const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
-function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
+function simulateCharacter({ gameId, characterId, build, team, setIdList, defCache }) {
   const match = CHARACTER[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build));
   });
 
   // Compile the rotation to enable fast computations across all trials and weeks
-  const compiledRotation = compileRotation(gameId, team, characterId);
+  const compiledRotation = compileRotation(gameId, team, characterId, defCache);
 
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) {
@@ -97,13 +97,15 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, team } = data;
 
-  // Pre-compute actions and effect definitions
-  const precomputedMap = {};
+  // Pre-compute action and effect definitions
+  const defCache = {};
   for (const member of team) {
-    if (!member.memberId) continue;
-    const actionCache = precomputeActions(gameId, member.memberId, member.rank);
-    const effectCache = precomputeEffects(gameId, member);
-    precomputedMap[member.memberId] = { actionCache, effectCache };
+    const { memberId, rank } = member;
+    if (!memberId) continue;
+
+    const action = precomputeActions(gameId, memberId, rank);
+    const effect = precomputeEffects(gameId, member);
+    defCache[memberId] = { action, effect };
   }
 
   const { NUM_MAINSTATS } = MISC[gameId];
@@ -133,6 +135,7 @@ self.onmessage = ({ data }) => {
       build: memberBuild,
       team,
       setIdList: memberSetIdList,
+      defCache,
     });
     
     const finalStats = {};
@@ -157,6 +160,7 @@ self.onmessage = ({ data }) => {
       return { ...member, build: { weaponId: member.weaponId, statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } };
     }),
     setIdList,
+    defCache,
   });
 
   const { trials, preferredMainStats, compiledRotation, benchmarkWeek: lastBenchmarkWeek, weeklyScores } = currentResult;
