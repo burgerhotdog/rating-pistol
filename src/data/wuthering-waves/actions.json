@@ -361,6 +361,7 @@
       },
       "2": {
         "name": "Glacier Burst",
+        "tags": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -391,6 +392,7 @@
       },
       "3": {
         "name": "Ice Prism Burst",
+        "tags": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -421,6 +423,7 @@
       },
       "4": {
         "name": "Ice Thorn Burst",
+        "tags": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {

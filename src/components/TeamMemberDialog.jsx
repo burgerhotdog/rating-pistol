@@ -183,37 +183,27 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
   );
 }
 
-// ─── SetSelectDialog ────────────────────────────────────────────────────────
-
-function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity }) {
+const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity }) => {
   const [search, setSearch] = useState('');
-  const [pieceFilter, setPieceFilter] = useState(null);
 
-  // Collect all piece-count tiers that exist across all sets in this game
-  const allPieceTiers = useMemo(() => {
+  const allSetTiers = useMemo(() => {
     const tiers = new Set();
-    for (const setData of Object.values(SET[gameId])) {
-      for (const key of Object.keys(setData?.setBonus ?? {})) {
-        const n = Number(key);
-        if (Number.isFinite(n)) tiers.add(n);
+
+    for (const { setBonus = {} } of Object.values(SET[gameId])) {
+      for (const key of Object.keys(setBonus)) {
+        tiers.add(Number(key));
       }
     }
+
     return [...tiers].sort((a, b) => b - a);
   }, [gameId]);
 
   // Which tiers are possible given remaining capacity
-  const enabledTiers = useMemo(
-    () => new Set(allPieceTiers.filter(t => t <= remainingCapacity)),
-    [allPieceTiers, remainingCapacity]
-  );
+  const enabledTiers = useMemo(() =>
+    new Set(allSetTiers.filter(t => t <= remainingCapacity))
+  , [allSetTiers, remainingCapacity]);
 
-  // Sync default filter to first enabled tier whenever dialog opens
-  useEffect(() => {
-    if (open) {
-      const firstEnabled = allPieceTiers.find(t => enabledTiers.has(t)) ?? null;
-      setPieceFilter(firstEnabled);
-    }
-  }, [open, allPieceTiers, enabledTiers]);
+  const [tierFilter, setTierFilter] = useState(allSetTiers[0]);
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
@@ -221,23 +211,36 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
       .filter(([_, setData]) => {
         const bonusKeys = Object.keys(setData?.setBonus ?? {}).map(Number);
         // Must have at least one bonus tier matching the filter (if set) and within capacity
-        const hasMatchingTier = pieceFilter
-          ? bonusKeys.includes(pieceFilter) && enabledTiers.has(pieceFilter)
+        const hasMatchingTier = tierFilter
+          ? bonusKeys.includes(tierFilter) && enabledTiers.has(tierFilter)
           : bonusKeys.some(k => enabledTiers.has(k));
         return hasMatchingTier && setData.name.toLowerCase().includes(lower);
       })
       .map(([id, setData]) => ({ id, name: setData.name }))
       .sort((a, b) => a.name.localeCompare(b.name));
-  }, [gameId, search, pieceFilter, enabledTiers]);
+  }, [gameId, search, tierFilter, enabledTiers]);
 
   const handleSelect = (id) => {
-    onSelect(id, pieceFilter);
+    onSelect(id, tierFilter);
     setSearch('');
     onClose();
   };
 
   return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
+    <Dialog
+      open={open}
+      onClose={onClose}
+      fullWidth
+      maxWidth="lg"
+      slotProps={{
+        transition: {
+          onExited: () => {
+            setSearch('');
+            setTierFilter(allSetTiers[0]);
+          }
+        }
+      }}
+    >
       <DialogTitle>
         Select Set
         <IconButton
@@ -263,10 +266,10 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
           <ToggleButtonGroup
             size="small"
             exclusive
-            value={pieceFilter}
-            onChange={(_, val) => { if (val !== null) setPieceFilter(val); }}
+            value={tierFilter}
+            onChange={(_, val) => { if (val !== null) setTierFilter(val); }}
           >
-            {allPieceTiers.map(tier => (
+            {allSetTiers.map(tier => (
               <ToggleButton
                 key={tier}
                 value={tier}
@@ -322,7 +325,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
       </DialogContent>
     </Dialog>
   );
-}
+};
 
 // ─── SetIcon — single icon with hover-X and piece-count badge ───────────────
 
@@ -743,7 +746,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
   };
 
   const [ownerId, skillId, actionId] = actionKey.split('-');
-  const { cast, name, tags = [] } = ACTION[gameId][ownerId][skillId][actionId];
+  const { cast, name, tags } = ACTION[gameId][ownerId][skillId][actionId];
 
   return (
     <Box

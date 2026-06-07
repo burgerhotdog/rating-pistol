@@ -48,7 +48,6 @@ const buildFootprint = ({
 }) => {
   const {
     owner: actionOwner,
-    key: actionKey,
     element,
     type,
     considered,
@@ -61,7 +60,7 @@ const buildFootprint = ({
 
   // Base shape
   const footprint = {
-    actionKey,
+    actionKey: action.key,
     owner: actionOwner,
     type,
     element,
@@ -121,17 +120,21 @@ const buildFootprint = ({
 
   for (const [effectKey, { stacks = 1, effectDef }] of trackersToEval) {
     const {
-      chance = 1,
-      useOnType,
-      useOnConsidered,
       useOnAction,
+      useOnType,
+      useOnTags,
+      useOnCast,
+      useOnConsidered,
+      chance = 1,
       statMap,
       variableStatMap,
     } = effectDef;
 
-    if (useOnType && !useOnType.includes(type)) continue;
-    if (useOnConsidered && !considered.some(c => useOnConsidered.includes(c))) continue;
-    if (useOnAction && !useOnAction.includes(actionKey)) continue;
+    if (useOnAction && !useOnAction.includes(action.key)) continue;
+    if (useOnType && !useOnType.includes(action.type)) continue;
+    if (useOnTags && !action.tags.some(t => useOnTags.includes(t))) continue;
+    if (useOnCast && !action.cast.some(c => useOnCast.includes(c))) continue;
+    if (useOnConsidered && !action.considered.some(c => useOnConsidered.includes(c))) continue;
 
     const effectOwner = effectKey.split('-')[0];
     const effectScale = chance * stacks;
@@ -529,14 +532,26 @@ function tickEnemyStatuses(gameId, effectTrackers, elapsed) {
 // this action, and removes effects that have exhausted their remaining uses.
 function decayProcCounts(memberMap, effectTrackers, action) {
   const { team, active, inactive, enemy, byMember } = effectTrackers;
-  const { key: actionKey } = action;
 
   function decayMap(trackerMap) {
     for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
       if (effectTracker.usesRemaining === Infinity) continue;
 
-      const { useOnAction, followUpAction, intervalAction } = effectTracker.effectDef;
-      if (useOnAction && !useOnAction.includes(actionKey)) continue;
+      const {
+        useOnAction,
+        useOnType,
+        useOnTags,
+        useOnCast,
+        useOnConsidered,
+        followUpAction,
+        intervalAction,
+      } = effectTracker.effectDef;
+
+      if (useOnAction && !useOnAction.includes(action.key)) continue;
+      if (useOnType && !useOnType.includes(action.type)) continue;
+      if (useOnTags && !action.tags.some(t => useOnTags.includes(t))) continue;
+      if (useOnCast && !action.cast.some(c => useOnCast.includes(c))) continue;
+      if (useOnConsidered && !action.considered.some(c => useOnConsidered.includes(c))) continue;
 
       if (!followUpAction && !intervalAction) effectTracker.usesRemaining -= 1;
       if (effectTracker.usesRemaining <= 0) delete trackerMap[effectKey];
@@ -565,11 +580,20 @@ function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
       if (procCooldownMap[effectKey]) continue;
 
       const { stacks, effectDef } = effectTracker;
-      const { useOnType, useOnCast, useOnConsidered, useOnAction } = effectDef;
+
+      const {
+        useOnAction,
+        useOnType,
+        useOnTags,
+        useOnCast,
+        useOnConsidered,
+      } = effectDef;
+
+      if (useOnAction && !useOnAction.includes(key)) continue;
       if (useOnType && !useOnType.includes(type)) continue;
+      if (useOnTags && !action.tags.some(t => useOnTags.includes(t))) continue;
       if (useOnCast && !cast.some(c => useOnCast.includes(c))) continue;
       if (useOnConsidered && !considered.some(c => useOnConsidered.includes(c))) continue;
-      if (useOnAction && !useOnAction.includes(key)) continue;
 
       const { followUpAction, followUpCooldown, times } = effectDef;
       if (!followUpAction) continue;

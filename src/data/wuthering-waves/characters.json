@@ -25,11 +25,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "NA-5",
-        "useOnAction": [
-          "FC-2",
-          "FC-3",
-          "FC-4"
-        ],
+        "useOnTags": "Ice Burst",
         "statMap": {
           "PERCENT_ALL": 0.2
         },
