@@ -365,8 +365,8 @@ function applyEffects({ gameId, action, memberMap, effectTrackers, applyCooldown
     }
   }
 
-  const effectsByAction = trigger === 'contact'
-    ? defCache[actionOwner].effect.contactEffectsByAction
+  const effectsByAction = trigger === 'hit'
+    ? defCache[actionOwner].effect.hitEffectsByAction
     : defCache[actionOwner].effect.castEffectsByAction;
 
   const triggeredEffects = new Set(effectsByAction[key] ?? []);

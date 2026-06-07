@@ -405,14 +405,14 @@
         }
       },
       {
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "FC-3",
         "intervalAction": "FC-1",
         "intervalCooldown": 100,
         "maxUses": 30
       },
       {
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "FC-1",
         "statMap": {
           "PERCENT_ATK": 0.01
@@ -525,7 +525,7 @@
       },
       {
         "rank": 1,
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnCast": "BA",
         "statMap": {
           "PERCENT_FUSION": 0.03
@@ -561,7 +561,7 @@
       },
       {
         "rank": 6,
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": [
           "RL-1",
           "RL-2",
@@ -664,7 +664,7 @@
         "duration": 8000
       },
       {
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "RL-2",
         "applyCooldown": 350,
         "useOnAction": "RL-2",
@@ -891,7 +891,7 @@
     },
     "effects": [
       {
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "RS-1",
         "useOnCast": [
           "BA",
@@ -962,7 +962,7 @@
       {
         "rank": 4,
         "applyTo": "team",
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "FC-2",
         "statMap": {
           "PERCENT_ATK": 0.2
@@ -1030,7 +1030,7 @@
     "effects": [
       {
         "applyTo": "active",
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "RS-1",
         "useOnType": "damage",
         "followUpAction": "RS-2",
@@ -1094,7 +1094,7 @@
       },
       {
         "rank": 5,
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "RS-1",
         "statMap": {
           "PERCENT_RL": 0.5
@@ -1104,7 +1104,7 @@
       {
         "rank": 6,
         "applyTo": "team",
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "RS-1",
         "statMap": {
           "PERCENT_DEF": 0.32
@@ -1389,7 +1389,7 @@
         "duration": 15000
       },
       {
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnType": "damage",
         "statMap": {
           "PERCENT_CD": 0.12
@@ -1666,7 +1666,7 @@
     "effects": [
       {
         "applyTo": "team",
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "RL-1",
         "followUpAction": [
           "RL-3",
@@ -2103,7 +2103,7 @@
     },
     "effects": [
       {
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "RL-1",
         "useOnAction": "FC-1",
         "statMap": {
@@ -2155,7 +2155,7 @@
       },
       {
         "rank": 2,
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": [
           "RS-2",
           "RS-3",
@@ -3782,7 +3782,7 @@
       {
         "rank": 4,
         "applyTo": "enemy",
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": [
           "NA-1",
           "NA-2",

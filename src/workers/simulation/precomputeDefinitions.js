@@ -1,5 +1,5 @@
 import { CHARACTER, ACTION, WEAPON, SET } from '@/data';
-import { resolveRankedValue, mergeStatMaps, toArray, getSetCounts } from '@/utils';
+import { resolveRankedValue, mergeStatMaps, getSetCounts } from '@/utils';
 
 const mergeVariableStatMaps = (...maps) => {
   return maps.reduce((acc, map = {}) => {
@@ -128,13 +128,13 @@ function applyRankModifier(resolved, modifier) {
 export const precomputeEffects = (gameId, member) => {
   const { memberId, rank, weaponId, weaponRank } = member;
   const castEffectsByAction = {};
-  const contactEffectsByAction = {};
+  const hitEffectsByAction = {};
   const effectDefinitions = {};
 
   let effectIndex = 0;
   // Processes a list of raw effects (from character / weapon / set JSON), normalizes
   // each into effectDefinitions, and registers it in castEffectsByAction /
-  // contactEffectsByAction based on what actions trigger it.
+  // hitEffectsByAction based on what actions trigger it.
   function registerEffect(rawEffect, rank = Infinity) {
     const resolved = { ...rawEffect };
 
@@ -199,8 +199,8 @@ export const precomputeEffects = (gameId, member) => {
             if (applyWhen === 'cast') {
               (castEffectsByAction[key] ??= []).push(effectKey);
             }
-            if (applyWhen === 'contact') {
-              (contactEffectsByAction[key] ??= []).push(effectKey);
+            if (applyWhen === 'hit') {
+              (hitEffectsByAction[key] ??= []).push(effectKey);
             }
           }
         }
@@ -224,5 +224,5 @@ export const precomputeEffects = (gameId, member) => {
     registerEffect(effect);
   }
 
-  return { castEffectsByAction, contactEffectsByAction, effectDefinitions };
+  return { castEffectsByAction, hitEffectsByAction, effectDefinitions };
 };
