@@ -168,7 +168,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "intervalAction": {
           "type": "heal",
           "attr": "HP",
@@ -182,7 +182,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_ALL": 0.15
         },
@@ -287,15 +287,17 @@
         }
       },
       {
+        "useOnAction": "IS-1",
         "statMap": {
-          "PERCENT_IS": 0.5
+          "PERCENT_ALL": 0.5
         }
       },
       {
         "applyWhen": "cast",
         "applyOnAction": [
           "FC-2",
-          "FC-3"
+          "FC-3",
+          "FC-5"
         ],
         "useOnAction": "FC-4",
         "statMap": {
@@ -306,7 +308,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
           "multipliers": {
@@ -338,7 +340,7 @@
         "applyOnAction": "FC-4",
         "useOnCast": "BA",
         "statMap": {
-          "PERCENT_ALL": 1
+          "PERCENT_BA": 1
         },
         "duration": 3000,
         "maxUses": 1

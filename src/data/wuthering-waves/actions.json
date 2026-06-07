@@ -755,7 +755,7 @@
         ]
       },
       "2": {
-        "name": "Emergency Plan: Healing",
+        "name": "Emergency Plan: Healing (x3)",
         "type": "heal",
         "attr": "HP",
         "multipliers": [
@@ -781,9 +781,7 @@
               1898,
               1992,
               2087
-            ]
-          },
-          {
+            ],
             "mv": [
               0.029,
               0.0314,
@@ -848,9 +846,8 @@
         ]
       },
       "2": {
-        "name": "Remnant Entities Healing",
+        "name": "Remnant Entities: Healing (x3)",
         "type": "heal",
-        "considered": "RLH",
         "attr": "HP",
         "multipliers": [
           {
@@ -875,9 +872,7 @@
               1151,
               1209,
               1266
-            ]
-          },
-          {
+            ],
             "mv": [
               0.0142,
               0.0153,
@@ -901,13 +896,13 @@
               0.0514
             ]
           }
-        ]
+        ],
+        "times": 3
       },
       "3": {
-        "name": "Momentary Union Healing",
+        "name": "Momentary Union: Healing (x3)",
         "type": "heal",
         "cast": "RL",
-        "considered": "RLH",
         "attr": "HP",
         "multipliers": [
           {
@@ -932,9 +927,7 @@
               1024,
               1074,
               1125
-            ]
-          },
-          {
+            ],
             "mv": [
               0.0126,
               0.0136,
@@ -958,12 +951,13 @@
               0.0457
             ]
           }
-        ]
+        ],
+        "times": 3
       }
     },
     "FC": {
       "1": {
-        "name": "Concentration Healing",
+        "name": "Concentration: Healing",
         "type": "heal",
         "attr": "HP",
         "multipliers": [
@@ -989,9 +983,7 @@
               104,
               109,
               114
-            ]
-          },
-          {
+            ],
             "mv": [
               0.0016,
               0.0017,
@@ -1051,7 +1043,7 @@
         ]
       },
       "2": {
-        "name": "Overflowing Frost: Healing",
+        "name": "Overflowing Frost: Healing (x3)",
         "type": "heal",
         "attr": "HP",
         "multipliers": [
@@ -1077,9 +1069,7 @@
               248,
               260,
               273
-            ]
-          },
-          {
+            ],
             "mv": [
               0.0038,
               0.0041,
@@ -1498,7 +1488,7 @@
     },
     "RL": {
       "1": {
-        "name": "Strive: Lion's Vigor",
+        "name": "Strive - Lion's Vigor",
         "cast": "RL",
         "considered": "RL",
         "multipliers": [
