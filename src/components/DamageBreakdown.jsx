@@ -1,74 +1,39 @@
 import { useParams } from 'react-router-dom';
-import { Box, Card, Paper, ToggleButton, ToggleButtonGroup, Tooltip as MuiTooltip, Typography } from '@mui/material';
+import { Box, Card, Paper, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
-import { useState } from 'react';
-import { CHARACTER, MISC } from '@/data';
-import { sumRotationDmg } from '@/utils';
+import { CHARACTER, ACTION, MISC } from '@/data';
 
 const renderLabel = ({ percent }) => {
   if (percent < 0.05) return null;
   return `${(percent * 100).toFixed(0)}%`;
 };
 
-const FALLBACK_DMG_TYPE_LABELS = {
-  HEAL: 'Healing',
-  SHIELD: 'Shield',
-  BUFF: 'Buff',
-};
-
-function resolveDmgTypeLabel(gameId, dmgTypeId) {
-  if (!dmgTypeId) return 'Unknown';
-  const mapped = MISC?.[gameId]?.SKILL?.[dmgTypeId];
-  if (mapped) return mapped.name;
-  return FALLBACK_DMG_TYPE_LABELS[dmgTypeId] ?? dmgTypeId;
-}
-
-function resolveOwnerLabel(gameId, ownerId) {
-  return CHARACTER?.[gameId]?.[ownerId]?.name ?? ownerId;
-}
-
 /**
  * Builds chart data grouped by damage type (uses getAction to resolve `considered`).
  */
 function buildDmgTypeData(actionMap, gameId, characterId) {
   const totals = {};
-  for (const [, { owner, considered, damage }] of Object.entries(actionMap)) {
-    if (owner !== characterId) continue;
+  for (const temp of Object.values(actionMap.byMember[characterId])) {
+    const { considered, damage } = temp;
+    const label = MISC[gameId].SKILL[considered[0]]?.name;
 
-    const label = resolveDmgTypeLabel(gameId, considered?.[0]);
-    totals[label] = (totals[label] ?? 0) + damage;
+    totals[label] ??= 0;
+    totals[label] += damage;
   }
   return Object.entries(totals)
     .map(([name, value]) => ({ name, value }))
     .filter(d => d.value > 0);
 }
 
-/**
- * Builds chart data grouped by owner (character).
- */
-function buildOwnerData(actionMap, gameId) {
-  const ownerIds = [...new Set(Object.keys(actionMap).map(k => k.split('-')[0]))];
-  return ownerIds
-    .map(ownerId => ({
-      ownerId,
-      name: resolveOwnerLabel(gameId, ownerId),
-      value: sumRotationDmg(actionMap, { ownerId }),
-    }))
-    .filter(d => d.value > 0);
-}
-
 export const DamageBreakdown = ({ actionMap }) => {
   const { gameId, characterId } = useParams();
   const theme = useTheme();
-  const [groupBy, setGroupBy] = useState('dmgType');
 
   if (!actionMap) return null;
 
-  const data = (groupBy === 'owner'
-    ? buildOwnerData(actionMap, gameId)
-    : buildDmgTypeData(actionMap, gameId, characterId)).sort((a, b) => b.value - a.value);
+  const data = buildDmgTypeData(actionMap, gameId, characterId).sort((a, b) => b.value - a.value);
 
   const element = CHARACTER[gameId][characterId].element;
   const monoColor = MISC?.[gameId]?.ELEMENT_COLORS?.[element] ?? theme.palette.primary.main;
@@ -83,35 +48,19 @@ export const DamageBreakdown = ({ actionMap }) => {
     return alpha(toned, 0.94);
   };
 
-  const getOwnerSliceFill = (ownerId) => {
-    const ownerElement = CHARACTER?.[gameId]?.[ownerId]?.element;
-    const ownerElementColor = MISC?.[gameId]?.ELEMENT_COLORS?.[ownerElement];
-    return alpha(ownerElementColor ?? monoColor, 0.95);
-  };
-
   return (
     <Card sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 0.5, px: 2, pt: 1.5, pb: 0 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
           <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Damage Breakdown</Typography>
           <MuiTooltip
-            title="How damage is distributed across your rotation. Toggle between damage type and teammate views."
+            title="How damage is distributed across your rotation."
             placement="top"
             arrow
           >
             <HelpOutlineOutlinedIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
           </MuiTooltip>
         </Box>
-        <ToggleButtonGroup
-          size="small"
-          value={groupBy}
-          exclusive
-          onChange={(_, val) => val && setGroupBy(val)}
-          sx={{ height: 24 }}
-        >
-          <ToggleButton value="dmgType" sx={{ fontSize: 11, px: 1, py: 0 }}>By Type</ToggleButton>
-          <ToggleButton value="owner" sx={{ fontSize: 11, px: 1, py: 0 }}>By Character</ToggleButton>
-        </ToggleButtonGroup>
       </Box>
 
       <Box sx={{ flex: 1, minHeight: 0, position: 'relative' }}>
@@ -134,9 +83,7 @@ export const DamageBreakdown = ({ actionMap }) => {
                 {data.map((entry, index) => (
                   <Cell
                     key={entry.name}
-                    fill={groupBy === 'owner'
-                      ? getOwnerSliceFill(entry.ownerId)
-                      : getSliceFill(index, data.length)}
+                    fill={getSliceFill(index, data.length)}
                     stroke={alpha(theme.palette.background.paper, 0.85)}
                     strokeWidth={2}
                   />

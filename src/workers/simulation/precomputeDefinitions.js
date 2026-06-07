@@ -33,34 +33,24 @@ const getActiveSetBonuses = (gameId, member) => {
 };
 
 const normalizeInlineAction = (memberId, effectKey, definition, index, rank = Infinity) => {
-  const cast = toArray(definition.cast);
-  const considered = toArray(definition.considered);
-
   let sumFlat = 0;
   let sumMv = 0;
   let sumTimes = 0;
 
-  for (const { mv, flat, times = 1 } of toArray(definition.multipliers)) {
+  for (const { mv, flat, times = 1 } of definition.multipliers) {
     if (flat != null) sumFlat += resolveRankedValue(flat, rank) * times;
     if (mv != null) sumMv += resolveRankedValue(mv, rank) * times;
     sumTimes += times;
   }
 
   return {
+    ...definition,
     key: `${effectKey}-INLINE-${index}`,
     owner: memberId,
     skill: definition.skill ?? 'INLINE',
-    type: definition.type ?? 'damage',
-    element: definition.element,
-    cast,
-    considered,
-    duration: definition.duration ?? (cast.length ? 750 : 0),
-    offset: definition.offset ?? (cast.length ? 500 : 0),
-    attr: definition.attr ?? 'ATK',
     sumFlat,
     sumMv,
     sumTimes,
-    times: definition.times ?? 1,
   };
 };
 

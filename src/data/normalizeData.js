@@ -9,7 +9,31 @@ const normalizeActionKey = (charId, shortKey) => {
   return `${charId}-${shortKey}`;
 };
 
-const normalizeEffect = (rawEffect, charId = null) => {
+const normalizeInline = (inline, element = 'PHYSICAL') => {
+  const resolved = {
+    ...inline,
+    attr: inline.attr ?? 'ATK',
+    multipliers: toArray(inline.multipliers),
+    cast: toArray(inline.cast),
+    considered: toArray(inline.considered),
+    times: inline.times ?? 1,
+  };
+  
+  resolved.type ??= 'damage';
+  if (resolved.type === 'damage') {
+    resolved.element ??= element;
+  }
+
+  if (!inline.cast || ['OS', 'CA'].some(c => resolved.cast.includes(c))) {
+    resolved.duration ??= 0;
+  }
+  resolved.duration ??= 750;
+  resolved.offset ??= resolved.duration / 2;
+
+  return resolved;
+};
+
+const normalizeEffect = (rawEffect, charId = null, element = null) => {
   const resolved = { ...rawEffect };
 
   resolved.rank = rawEffect.rank ?? 0;
@@ -51,7 +75,7 @@ const normalizeEffect = (rawEffect, charId = null) => {
 
     const resolvedValue = toArray(rawValue).map(a => {
       if (typeof a === 'string') return normalizeActionKey(charId, a);
-      return a;
+      return normalizeInline(a, element);
     });
     resolved[field] = resolvedValue;
 
@@ -70,11 +94,11 @@ export const normalizeCharacters = (gameId, rawJson) => {
   const resolved = {};
 
   for (const charEntry of rawJson) {
-    const { id } = charEntry;
+    const { id, element } = charEntry;
 
     const effects = [];
     for (const effect of toArray(charEntry.effects)) {
-      effects.push(normalizeEffect(effect, id));
+      effects.push(normalizeEffect(effect, id, element));
     }
 
     resolved[id] = { ...charEntry, effects };
@@ -110,9 +134,7 @@ export const normalizeActions = (gameId, characters, rawJson) => {
 
         if (actionDef.type === 'damage') {
           const actionElement = actionRaw.element ?? charElement;
-
           actionDef.element = actionElement;
-          actionDef.considered.push(actionElement);
         }
 
         if (actionRaw.duration != null) {
@@ -160,7 +182,7 @@ export const normalizeWeapons = (gameId, rawJson) => {
 
     const effects = [];
     for (const effect of toArray(weapEntry.effects)) {
-      effects.push(normalizeEffect(effect, id));
+      effects.push(normalizeEffect(effect));
     }
 
     resolved[id] = { ...weapEntry, effects };

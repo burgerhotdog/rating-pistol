@@ -217,7 +217,7 @@ const buildFootprint = ({
       const healingBonus = computeTotalStat('HB', statMapWithEffects);
       footprint.fixedHealing = baseValue * (1 + healingBonus) * times * repeatCount;
     } else {
-      const bonuses = computeBonuses(statMapWithEffects, considered, enemyStatMap);
+      const bonuses = computeBonuses(statMapWithEffects, considered, element, enemyStatMap);
       const reductions = computeReductions(gameId, statMapWithEffects, element, enemyStatMap);
       footprint.fixedDamage = baseValue * bonuses * reductions * times * repeatCount;
     }
@@ -237,11 +237,12 @@ const computeBase = (statMap, attr, sumMv, sumTimes, sumFlat) => {
 
 // Combined multiplier from crits, damage bonus (PERCENT_*), and amplification (AMP_*).
 // dmgTypes is the action's `considered` array — each type adds its own PERCENT/AMP bonus.
-const computeBonuses = (statMap, dmgTypes, enemyStatMap) => {
+const computeBonuses = (statMap, considered, element, enemyStatMap) => {
   const critRate = Math.max(Math.min(computeTotalStat('CR', statMap), 1), 0);
   const critDamage = computeTotalStat('CD', statMap) - 1;
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
+  const dmgTypes = [...considered, ...(element ? [element]: [])];
   let dmgBonusMult = 1 + (statMap['PERCENT_ALL'] ?? 0) + (enemyStatMap['PERCENT_ALL'] ?? 0);
   let ampMult = 1 + (statMap['AMP_ALL'] ?? 0) + (enemyStatMap['AMP_ALL'] ?? 0);
 
@@ -771,7 +772,8 @@ export const compileRotation = (gameId, rawTeam, characterId, defCache) => {
 
 export const evaluateRotation = (compiledRotation, newCharCompiledStatMap) => {
   const { gameId, characterId, footprints } = compiledRotation;
-  const actionMap = {};
+  const other = {};
+  const byMember = {};
 
   for (const footprint of footprints) {
     const {
@@ -795,19 +797,19 @@ export const evaluateRotation = (compiledRotation, newCharCompiledStatMap) => {
       enemyStatMap,
     } = footprint;
 
-    if (!actionMap[actionKey]) {
-      actionMap[actionKey] = { owner, considered, damage: 0, healing: 0 };
-    }
+    byMember[owner] ??= {};
+    byMember[owner][actionKey] ??= { element, considered, damage: 0, healing: 0 };
 
     if (type === 'shield' || type === 'buff' || (!sumFlat && !sumMv)) continue;
 
     // Pre-computed fixed result for non-character actions with no char variable effects
-    if (fixedDamage !== null) {
-      actionMap[actionKey].damage += fixedDamage;
+    if (fixedDamage != null) {
+      byMember[owner][actionKey].damage += fixedDamage;
       continue;
     }
-    if (fixedHealing !== null) {
-      actionMap[actionKey].healing += fixedHealing;
+
+    if (fixedHealing != null) {
+      byMember[owner][actionKey].healing += fixedHealing;
       continue;
     }
 
@@ -859,13 +861,13 @@ export const evaluateRotation = (compiledRotation, newCharCompiledStatMap) => {
 
     if (type === 'heal') {
       const healingBonus = computeTotalStat('HB', statMapWithEffects);
-      actionMap[actionKey].healing += baseValue * (1 + healingBonus) * times * repeatCount;
+      byMember[owner][actionKey].healing += baseValue * (1 + healingBonus) * times * repeatCount;
     } else {
-      const bonuses = computeBonuses(statMapWithEffects, considered, enemyStatMap);
+      const bonuses = computeBonuses(statMapWithEffects, considered, element, enemyStatMap);
       const reductions = computeReductions(gameId, statMapWithEffects, element, enemyStatMap);
-      actionMap[actionKey].damage += baseValue * bonuses * reductions * times * repeatCount;
+      byMember[owner][actionKey].damage += baseValue * bonuses * reductions * times * repeatCount;
     }
   }
 
-  return actionMap;
+  return { other, byMember };
 };

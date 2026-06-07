@@ -106,13 +106,13 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1);
-    const newDamage = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
+    const newSummary = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
 
     // Compare with latest and replace if needed
-    if (sumRotationDmg(newDamage, characterId) * newPenalty > sumRotationDmg(latestDamage, characterId) * latestPenalty) {
+    if (sumRotationDmg(newSummary) * newPenalty > sumRotationDmg(latestDamage) * latestPenalty) {
       latestBuild = newBuild;
       latestPenalty = newPenalty;
-      latestDamage = newDamage;
+      latestDamage = newSummary;
     }
   }
 
@@ -156,7 +156,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
       const newDamage = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
 
       // Compare new damage with buffer and replace if better
-      if (sumRotationDmg(newDamage, characterId) * newPenalty > sumRotationDmg(bufferDamage, characterId) * bufferPenalty) {
+      if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
         bufferBuild = newBuild;
         bufferPenalty = newPenalty;
         bufferDamage = newDamage;
