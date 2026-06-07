@@ -746,7 +746,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
   };
 
   const [ownerId, skillId, actionId] = actionKey.split('-');
-  const { cast, name, tags } = ACTION[gameId][ownerId][skillId][actionId];
+  const { cast, name, tagged } = ACTION[gameId][ownerId][skillId][actionId];
 
   return (
     <Box
@@ -801,7 +801,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
 
       {/* Tags chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
-        {tags.map(tag => (
+        {tagged.map(tag => (
           <Chip
             key={tag}
             size="small"

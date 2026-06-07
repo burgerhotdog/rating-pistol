@@ -136,44 +136,34 @@ export const precomputeEffects = (gameId, member) => {
   // each into effectDefinitions, and registers it in castEffectsByAction /
   // hitEffectsByAction based on what actions trigger it.
   function registerEffect(rawEffect, rank = Infinity) {
-    const resolved = { ...rawEffect };
-
     const effectKey = `${memberId}-${effectIndex}`;
-    resolved.effectKey = effectKey;
+    const resolved = {
+      ...rawEffect,
+      effectKey,
+    };
 
-    const { statMap } = rawEffect;
-    if (statMap) {
+    if (rawEffect.statMap) {
       const resolvedStatMap = {};
 
-      for (const [stat, value] of Object.entries(statMap)) {
+      for (const [stat, value] of Object.entries(rawEffect.statMap)) {
         resolvedStatMap[stat] = resolveRankedValue(value, rank);
       }
 
       resolved.statMap = resolvedStatMap;
     }
 
-    resolved.statusMap = rawEffect.statusMap ?? {};
-    resolved.applyIfEnemyStatus = rawEffect.applyIfEnemyStatus ?? null;
-    resolved.applyIfInflict = rawEffect.applyIfInflict ?? null;
+    resolved.statusMap ??= {};
     resolved.variableStatMap = mergeVariableStatMaps(rawEffect.variableStatMap);
+    
+    resolved.followUpAction &&= rawEffect.followUpAction.map((action, index) => {
+      if (typeof action === 'string') return action;
+      return normalizeInlineAction(memberId, effectKey, action, index, rank);
+    });
 
-    const { followUpAction, intervalAction, times } = rawEffect;
-
-    if (followUpAction) {
-      resolved.followUpAction = followUpAction.map((action, index) => {
-        if (typeof action === 'string') return action;
-        return normalizeInlineAction(memberId, effectKey, action, index, rank);
-      });
-      resolved.times = times ?? 1;
-    }
-
-    if (intervalAction) {
-      resolved.intervalAction = intervalAction.map((action, index) => {
-        if (typeof action === 'string') return action;
-        return normalizeInlineAction(memberId, effectKey, action, index, rank);
-      });
-      resolved.times = times ?? 1;
-    }
+    resolved.intervalAction &&= rawEffect.intervalAction.map((action, index) => {
+      if (typeof action === 'string') return action;
+      return normalizeInlineAction(memberId, effectKey, action, index, rank);
+    });
 
     if (rawEffect.rankModifiers) {
       for (const [rankReq, modifier] of Object.entries(rawEffect.rankModifiers)) {
@@ -183,19 +173,20 @@ export const precomputeEffects = (gameId, member) => {
       }
     }
 
-    const { applyWhen, applyOnType, applyOnCast, applyOnConsidered, applyOnAction } = rawEffect;
+    const { applyWhen, applyOnAction, applyOnType, applyOnTagged, applyOnCast, applyOnConsidered } = rawEffect;
     if (applyWhen) {
       const skillTree = ACTION[gameId][memberId];
       for (const skillDef of Object.values(skillTree)) {
-        for (const actionDef of Object.values(skillDef)) {
-          const { key, type, cast, considered } = actionDef;
+        for (const action of Object.values(skillDef)) {
+          const { key } = action;
 
-          const typeMatch = applyOnType && applyOnType.includes(type);
-          const castMatch = applyOnCast && cast.some(c => applyOnCast.includes(c));
-          const consideredMatch = applyOnConsidered && considered.some(c => applyOnConsidered.includes(c));
-          const actionMatch = applyOnAction && applyOnAction.includes(key);
+          const actionMatch = applyOnAction && applyOnAction.includes(action.key);
+          const typeMatch = applyOnType && applyOnType.includes(action.type);
+          const taggedMatch = applyOnTagged && action.tagged.some(t => applyOnTagged.includes(t));
+          const castMatch = applyOnCast && action.cast.some(c => applyOnCast.includes(c));
+          const consideredMatch = applyOnConsidered && action.considered.some(c => applyOnConsidered.includes(c));
 
-          if (actionMatch || castMatch || typeMatch || consideredMatch) {
+          if (actionMatch || typeMatch || taggedMatch || castMatch || consideredMatch) {
             if (applyWhen === 'cast') {
               (castEffectsByAction[key] ??= []).push(effectKey);
             }

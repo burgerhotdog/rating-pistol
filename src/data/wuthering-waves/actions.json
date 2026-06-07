@@ -361,7 +361,7 @@
       },
       "2": {
         "name": "Glacier Burst",
-        "tags": "Ice Burst",
+        "tagged": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -392,7 +392,7 @@
       },
       "3": {
         "name": "Ice Prism Burst",
-        "tags": "Ice Burst",
+        "tagged": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -423,7 +423,7 @@
       },
       "4": {
         "name": "Ice Thorn Burst",
-        "tags": "Ice Burst",
+        "tagged": "Ice Burst",
         "considered": "RS",
         "multipliers": [
           {
@@ -1563,7 +1563,7 @@
       },
       "2": {
         "name": "Feral Gyrate 1",
-        "tags": "Striding Lion",
+        "tagged": "Striding Lion",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1620,7 +1620,7 @@
       },
       "3": {
         "name": "Feral Gyrate 2",
-        "tags": "Striding Lion",
+        "tagged": "Striding Lion",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1653,7 +1653,7 @@
       },
       "4": {
         "name": "Mountain Roamer",
-        "tags": "Striding Lion",
+        "tagged": "Striding Lion",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -1686,7 +1686,7 @@
       },
       "5": {
         "name": "Stormy Kicks",
-        "tags": "Striding Lion",
+        "tagged": "Striding Lion",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1743,7 +1743,7 @@
       },
       "6": {
         "name": "Tail Strike",
-        "tags": "Striding Lion",
+        "tagged": "Striding Lion",
         "cast": "MA",
         "considered": [
           "BA",
@@ -2634,7 +2634,7 @@
     "RL": {
       "1": {
         "name": "Frolicking 1",
-        "tags": "Cosmos",
+        "tagged": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2667,7 +2667,7 @@
       },
       "2": {
         "name": "Frolicking 2",
-        "tags": "Cosmos",
+        "tagged": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2700,7 +2700,7 @@
       },
       "3": {
         "name": "Frolicking 3",
-        "tags": "Cosmos",
+        "tagged": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2733,7 +2733,7 @@
       },
       "4": {
         "name": "Frolicking 4",
-        "tags": "Cosmos",
+        "tagged": "Cosmos",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2766,7 +2766,7 @@
       },
       "5": {
         "name": "Heavy Attack",
-        "tags": "Cosmos",
+        "tagged": "Cosmos",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -2798,7 +2798,7 @@
       },
       "6": {
         "name": "Rampage",
-        "tags": "Cosmos",
+        "tagged": "Cosmos",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -2831,7 +2831,7 @@
       },
       "7": {
         "name": "Dodge Counter",
-        "tags": "Cosmos",
+        "tagged": "Cosmos",
         "cast": "DC",
         "considered": [
           "BA",
@@ -2905,7 +2905,7 @@
       },
       "2": {
         "name": "Rupture",
-        "tags": "Cosmos",
+        "tagged": "Cosmos",
         "cast": "RL",
         "considered": "RL",
         "multipliers": [
@@ -4008,7 +4008,7 @@
       },
       "3": {
         "name": "Hounds Roar 1",
-        "tags": "Deathblade Gear",
+        "tagged": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "duration": 500,
@@ -4041,7 +4041,7 @@
       },
       "4": {
         "name": "Hounds Roar 2",
-        "tags": "Deathblade Gear",
+        "tagged": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "duration": 500,
@@ -4100,7 +4100,7 @@
       },
       "5": {
         "name": "Hounds Roar 3",
-        "tags": "Deathblade Gear",
+        "tagged": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4132,7 +4132,7 @@
       },
       "6": {
         "name": "Hounds Roar 4",
-        "tags": "Deathblade Gear",
+        "tagged": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4165,7 +4165,7 @@
       },
       "7": {
         "name": "Hounds Roar 5",
-        "tags": "Deathblade Gear",
+        "tagged": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4198,7 +4198,7 @@
       },
       "8": {
         "name": "Heavy Attack",
-        "tags": "Deathblade Gear",
+        "tagged": "Deathblade Gear",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -4231,7 +4231,7 @@
       },
       "9": {
         "name": "Dodge Counter",
-        "tags": "Deathblade Gear",
+        "tagged": "Deathblade Gear",
         "cast": "DC",
         "considered": [
           "RL",
@@ -4325,7 +4325,7 @@
       },
       "2": {
         "name": "\"Death Messenger\"",
-        "tags": "Deathblade Gear",
+        "tagged": "Deathblade Gear",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -7256,7 +7256,7 @@
     "RL": {
       "1": {
         "name": "Lance Of Qingloong 1",
-        "tags": "Qingloong Mode",
+        "tagged": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
         "duration": 1000,
@@ -7290,7 +7290,7 @@
       },
       "2": {
         "name": "Lance Of Qingloong 2",
-        "tags": "Qingloong Mode",
+        "tagged": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
         "duration": 1000,
@@ -7324,7 +7324,7 @@
       },
       "3": {
         "name": "Lance Of Qingloong 3",
-        "tags": "Qingloong Mode",
+        "tagged": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
         "duration": 1000,
@@ -8982,7 +8982,7 @@
     "FC": {
       "1": {
         "name": "Heavy Attack",
-        "tags": "Starflower Blooms",
+        "tagged": "Starflower Blooms",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -9038,7 +9038,7 @@
       },
       "2": {
         "name": "Mid-air Attack 1",
-        "tags": "Starflower Blooms",
+        "tagged": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9073,7 +9073,7 @@
       },
       "3": {
         "name": "Mid-air Attack 2",
-        "tags": "Starflower Blooms",
+        "tagged": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9108,7 +9108,7 @@
       },
       "4": {
         "name": "Mid-air Attack 3",
-        "tags": "Starflower Blooms",
+        "tagged": "Starflower Blooms",
         "cast": "MA",
         "considered": [
           "BA",
@@ -9144,7 +9144,7 @@
       },
       "5": {
         "name": "Healing (x3)",
-        "tags": "Starflower Blooms",
+        "tagged": "Starflower Blooms",
         "type": "heal",
         "multipliers": [
           {
@@ -10982,7 +10982,7 @@
     "RS": {
       "1": {
         "name": "Capture",
-        "tags": "True Sight",
+        "tagged": "True Sight",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -11037,7 +11037,7 @@
       },
       "2": {
         "name": "Conquest",
-        "tags": "True Sight",
+        "tagged": "True Sight",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -11115,7 +11115,7 @@
       },
       "3": {
         "name": "Charge",
-        "tags": "True Sight",
+        "tagged": "True Sight",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -11919,7 +11919,7 @@
     "FC": {
       "1": {
         "name": "Basic Attack 1",
-        "tags": "Incarnation",
+        "tagged": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -11950,7 +11950,7 @@
       },
       "2": {
         "name": "Basic Attack 2",
-        "tags": "Incarnation",
+        "tagged": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12027,7 +12027,7 @@
       },
       "3": {
         "name": "Basic Attack 3",
-        "tags": "Incarnation",
+        "tagged": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12081,7 +12081,7 @@
       },
       "4": {
         "name": "Basic Attack 4",
-        "tags": "Incarnation",
+        "tagged": "Incarnation",
         "cast": "BA",
         "considered": "RS",
         "multipliers": [
@@ -12136,7 +12136,7 @@
       },
       "5": {
         "name": "Heavy Attack",
-        "tags": "Incarnation",
+        "tagged": "Incarnation",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -12190,7 +12190,7 @@
       },
       "6": {
         "name": "Dodge Counter",
-        "tags": "Incarnation",
+        "tagged": "Incarnation",
         "cast": "DC",
         "considered": [
           "BA",
@@ -12271,7 +12271,7 @@
       },
       "7": {
         "name": "Crescent Divinity",
-        "tags": "Incarnation",
+        "tagged": "Incarnation",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -12349,7 +12349,7 @@
       },
       "8": {
         "name": "Solar Flare",
-        "tags": "Illuminous Epiphany",
+        "tagged": "Illuminous Epiphany",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -12381,7 +12381,7 @@
       },
       "9": {
         "name": "Stella Glamor",
-        "tags": "Illuminous Epiphany",
+        "tagged": "Illuminous Epiphany",
         "considered": "RS",
         "multipliers": [
           {
@@ -22094,7 +22094,7 @@
     "FC": {
       "1": {
         "name": "Heavy Slash - Daybreak",
-        "tags": "Inferno Mode",
+        "tagged": "Inferno Mode",
         "cast": "BA",
         "considered": [
           "HA",
@@ -22129,7 +22129,7 @@
       },
       "2": {
         "name": "Heavy Slash - Dawning",
-        "tags": "Inferno Mode",
+        "tagged": "Inferno Mode",
         "cast": "BA",
         "considered": [
           "HA",
@@ -22164,7 +22164,7 @@
       },
       "3": {
         "name": "Heavy Slash - Nightfall",
-        "tags": "Inferno Mode",
+        "tagged": "Inferno Mode",
         "cast": "BA",
         "considered": [
           "HA",
@@ -22256,7 +22256,7 @@
       },
       "5": {
         "name": "Heavy Slash - Lightsmash",
-        "tags": "Inferno Mode",
+        "tagged": "Inferno Mode",
         "considered": [
           "HA",
           "FRAZZLE"
@@ -32198,7 +32198,7 @@
     "FC": {
       "1": {
         "name": "Sawring - Blitz 1",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -32231,7 +32231,7 @@
       },
       "2": {
         "name": "Sawring - Blitz 2",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -32264,7 +32264,7 @@
       },
       "3": {
         "name": "Sawring - Blitz 2: Hold",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -32297,7 +32297,7 @@
       },
       "4": {
         "name": "Sawring - Blitz 2: Discordance",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -32330,7 +32330,7 @@
       },
       "5": {
         "name": "Sawring - Blitz 3",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -32363,7 +32363,7 @@
       },
       "6": {
         "name": "Sawring - Blitz 3: Hold",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -32396,7 +32396,7 @@
       },
       "7": {
         "name": "Sawring - Blitz 3: Falltone",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -32429,7 +32429,7 @@
       },
       "8": {
         "name": "Dodge Counter",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "DC",
         "considered": [
           "RL",
@@ -32465,7 +32465,7 @@
       },
       "9": {
         "name": "Dodge Counter: Hold",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "DC",
         "considered": [
           "RL",
@@ -32501,7 +32501,7 @@
       },
       "10": {
         "name": "Sawring - Eradication",
-        "tags": "Chainsaw Mode",
+        "tagged": "Chainsaw Mode",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [

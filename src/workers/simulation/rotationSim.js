@@ -122,7 +122,7 @@ const buildFootprint = ({
     const {
       useOnAction,
       useOnType,
-      useOnTags,
+      useOnTagged,
       useOnCast,
       useOnConsidered,
       chance = 1,
@@ -132,7 +132,7 @@ const buildFootprint = ({
 
     if (useOnAction && !useOnAction.includes(action.key)) continue;
     if (useOnType && !useOnType.includes(action.type)) continue;
-    if (useOnTags && !action.tags.some(t => useOnTags.includes(t))) continue;
+    if (useOnTagged && !action.tags.some(t => useOnTagged.includes(t))) continue;
     if (useOnCast && !action.cast.some(c => useOnCast.includes(c))) continue;
     if (useOnConsidered && !action.considered.some(c => useOnConsidered.includes(c))) continue;
 
@@ -540,7 +540,7 @@ function decayProcCounts(memberMap, effectTrackers, action) {
       const {
         useOnAction,
         useOnType,
-        useOnTags,
+        useOnTagged,
         useOnCast,
         useOnConsidered,
         followUpAction,
@@ -549,7 +549,7 @@ function decayProcCounts(memberMap, effectTrackers, action) {
 
       if (useOnAction && !useOnAction.includes(action.key)) continue;
       if (useOnType && !useOnType.includes(action.type)) continue;
-      if (useOnTags && !action.tags.some(t => useOnTags.includes(t))) continue;
+      if (useOnTagged && !action.tags.some(t => useOnTagged.includes(t))) continue;
       if (useOnCast && !action.cast.some(c => useOnCast.includes(c))) continue;
       if (useOnConsidered && !action.considered.some(c => useOnConsidered.includes(c))) continue;
 
@@ -584,14 +584,14 @@ function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
       const {
         useOnAction,
         useOnType,
-        useOnTags,
+        useOnTagged,
         useOnCast,
         useOnConsidered,
       } = effectDef;
 
       if (useOnAction && !useOnAction.includes(key)) continue;
       if (useOnType && !useOnType.includes(type)) continue;
-      if (useOnTags && !action.tags.some(t => useOnTags.includes(t))) continue;
+      if (useOnTagged && !action.tags.some(t => useOnTagged.includes(t))) continue;
       if (useOnCast && !cast.some(c => useOnCast.includes(c))) continue;
       if (useOnConsidered && !considered.some(c => useOnConsidered.includes(c))) continue;
 

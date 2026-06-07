@@ -1,7 +1,7 @@
 import { toArray } from '@/utils';
 
 const TRIGGERS = ['apply', 'use', 'remove'];
-const FILTERS = ['Type', 'Cast', 'Considered', 'Action'];
+const FILTERS = ['Action', 'Type', 'Tagged', 'Cast', 'Considered'];
 const ACTIONS = ['followUp', 'interval'];
 
 const normalizeActionKey = (charId, shortKey) => {
@@ -80,6 +80,7 @@ const normalizeEffect = (effect, charId = null, element = null) => {
     });
 
     resolved[`${ACTION}Cooldown`] ??= 0;
+    resolved.times ??= 1;
   }
 
   return resolved;

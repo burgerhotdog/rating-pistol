@@ -25,7 +25,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "NA-5",
-        "useOnTags": "Ice Burst",
+        "useOnTagged": "Ice Burst",
         "statMap": {
           "PERCENT_ALL": 0.2
         },
@@ -34,7 +34,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_BA": 0.38
         },
@@ -69,11 +69,7 @@
       },
       {
         "rank": 5,
-        "useOnAction": [
-          "FC-2",
-          "FC-3",
-          "FC-4"
-        ],
+        "useOnTagged": "Ice Burst",
         "statMap": {
           "PERCENT_CD": 1
         }
