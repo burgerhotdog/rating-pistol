@@ -132,7 +132,7 @@ const buildFootprint = ({
 
     if (useOnAction && !useOnAction.includes(action.key)) continue;
     if (useOnType && !useOnType.includes(action.type)) continue;
-    if (useOnTagged && !action.tags.some(t => useOnTagged.includes(t))) continue;
+    if (useOnTagged && !action.tagged.some(t => useOnTagged.includes(t))) continue;
     if (useOnCast && !action.cast.some(c => useOnCast.includes(c))) continue;
     if (useOnConsidered && !action.considered.some(c => useOnConsidered.includes(c))) continue;
 
@@ -549,7 +549,7 @@ function decayProcCounts(memberMap, effectTrackers, action) {
 
       if (useOnAction && !useOnAction.includes(action.key)) continue;
       if (useOnType && !useOnType.includes(action.type)) continue;
-      if (useOnTagged && !action.tags.some(t => useOnTagged.includes(t))) continue;
+      if (useOnTagged && !action.tagged.some(t => useOnTagged.includes(t))) continue;
       if (useOnCast && !action.cast.some(c => useOnCast.includes(c))) continue;
       if (useOnConsidered && !action.considered.some(c => useOnConsidered.includes(c))) continue;
 
@@ -591,7 +591,7 @@ function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
 
       if (useOnAction && !useOnAction.includes(key)) continue;
       if (useOnType && !useOnType.includes(type)) continue;
-      if (useOnTagged && !action.tags.some(t => useOnTagged.includes(t))) continue;
+      if (useOnTagged && !action.tagged.some(t => useOnTagged.includes(t))) continue;
       if (useOnCast && !cast.some(c => useOnCast.includes(c))) continue;
       if (useOnConsidered && !considered.some(c => useOnConsidered.includes(c))) continue;
 

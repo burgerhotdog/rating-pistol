@@ -12,6 +12,7 @@ const normalizeActionKey = (charId, shortKey) => {
 const normalizeInlineAction = (action, element = 'PHYSICAL') => {
   const resolved = {
     ...action,
+    tagged: toArray(action.tagged),
     cast: toArray(action.cast),
     considered: toArray(action.considered),
     multipliers: toArray(action.multipliers),
@@ -120,7 +121,7 @@ export const normalizeActions = (gameId, characters, rawJson) => {
           key: `${id}-${skillId}-${actionId}`,
           owner: id,
           skill: skillId,
-          tags: toArray(action.tags),
+          tagged: toArray(action.tagged),
           cast: toArray(action.cast),
           considered: toArray(action.considered),
         };
