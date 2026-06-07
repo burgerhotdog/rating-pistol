@@ -390,6 +390,13 @@
     },
     "effects": [
       {
+        "applyWhen": "hit",
+        "applyOnAction": "FC-3",
+        "intervalAction": "FC-1",
+        "intervalCooldown": 100,
+        "maxUses": 30
+      },
+      {
         "useOnAction": "FC-2",
         "statMap": {
           "PERCENT_ALL": 0.5
@@ -401,13 +408,6 @@
             }
           }
         }
-      },
-      {
-        "applyWhen": "hit",
-        "applyOnAction": "FC-3",
-        "intervalAction": "FC-1",
-        "intervalCooldown": 100,
-        "maxUses": 30
       },
       {
         "applyWhen": "hit",
@@ -427,7 +427,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
           "multipliers": {
@@ -438,11 +438,11 @@
       },
       {
         "rank": 3,
+        "chance": 0.5,
         "useOnAction": "RL-1",
         "statMap": {
-          "PERCENT_RL": 0.4
-        },
-        "chance": 0.5
+          "PERCENT_ALL": 0.4
+        }
       },
       {
         "rank": 6,
@@ -491,12 +491,10 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnAction": "RL-8",
+        "useOnTagged": "Cosmos",
         "statMap": {
           "PERCENT_ALL": 0.1
-        },
-        "duration": 10000
+        }
       },
       {
         "applyWhen": "cast",
@@ -511,7 +509,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "intervalAction": {
           "considered": "OS",
           "multipliers": {
@@ -560,16 +558,7 @@
       {
         "rank": 6,
         "applyWhen": "hit",
-        "applyOnAction": [
-          "RL-1",
-          "RL-2",
-          "RL-3",
-          "RL-4",
-          "RL-5",
-          "RL-6",
-          "RL-7",
-          "FC-2"
-        ],
+        "applyOnTagged": "Cosmos",
         "statMap": {
           "PERCENT_ATK": 0.05
         },
@@ -680,7 +669,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_HA": 0.38
         },
@@ -688,17 +677,9 @@
       },
       {
         "rank": 3,
-        "applyWhen": "cast",
-        "applyOnAction": "RL-1",
         "useOnAction": "RL-2",
         "statMap": {
           "PERCENT_CD": 0.3
-        },
-        "duration": 10000,
-        "rankModifiers": {
-          "4": {
-            "duration": 7000
-          }
         }
       },
       {
