@@ -16,8 +16,9 @@
       {
         "applyWhen": "cast",
         "applyOnCast": "IS",
+        "useOnCast": "RS",
         "statMap": {
-          "PERCENT_RS": 0.2
+          "PERCENT_ALL": 0.2
         },
         "duration": 8000
       },
@@ -111,9 +112,9 @@
         "RL-1",
         "RS-1",
         "FC-1",
+        "FC-4",
         "FC-2",
         "FC-3",
-        "FC-4",
         "OS-1"
       ]
     }
