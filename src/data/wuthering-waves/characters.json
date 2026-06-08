@@ -1653,7 +1653,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "intervalAction": {
           "type": "heal",
           "multipliers": {
@@ -1666,7 +1666,7 @@
       {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_ALL": 0.15
         },
@@ -1737,7 +1737,10 @@
           "FC-3",
           "FC-4"
         ],
-        "followUpAction": "RL-3",
+        "followUpAction": [
+          "RL-3",
+          "RL-4"
+        ],
         "maxUses": 1
       }
     ],
