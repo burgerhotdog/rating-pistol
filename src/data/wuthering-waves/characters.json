@@ -1338,6 +1338,12 @@
     },
     "effects": [
       {
+        "useOnAction": "RS-1",
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
         "applyWhen": "cast",
         "applyOnAction": "IS-1",
         "statMap": {
@@ -1354,18 +1360,11 @@
         "duration": 8000
       },
       {
-        "useOnAction": "RS-1",
-        "statMap": {
-          "PERCENT_RS": 0.2
-        }
-      },
-      {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "useOnCast": "HA",
         "followUpAction": {
-          "type": "damage",
           "cast": "CA",
           "considered": [
             "OS",
@@ -1419,7 +1418,7 @@
       },
       {
         "rank": 5,
-        "useOnAction": "OS-1",
+        "useOnConsidered": "OS",
         "statMap": {
           "PERCENT_MV": 1.2
         }
@@ -1489,11 +1488,18 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RL-3",
         "intervalAction": "RL-1",
         "intervalCooldown": 250,
         "duration": 3120
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnAction": "RL-3",
+        "intervalAction": "RL-2",
+        "intervalOffset": 3120,
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
@@ -1513,7 +1519,7 @@
           "RL-2"
         ],
         "statMap": {
-          "PERCENT_RL": 0.2
+          "PERCENT_ALL": 0.2
         }
       },
       {
@@ -1524,7 +1530,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_RL": 0.38
         },
@@ -1547,20 +1553,16 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "followUpAction": {
-          "cast": "RS",
-          "considered": "HA",
-          "multipliers": {
-            "mv": 5.5667
-          }
-        },
-        "maxUses": 1
-      },
-      {
-        "rank": 6,
-        "applyWhen": "cast",
-        "applyOnAction": "FC-1",
-        "followUpAction": "FC-10",
+        "followUpAction": [
+          {
+            "cast": "RS",
+            "considered": "HA",
+            "multipliers": {
+              "mv": 5.5667
+            }
+          },
+          "FC-10"
+        ],
         "maxUses": 1
       }
     ],
@@ -1578,6 +1580,7 @@
         "IS-1",
         "RS-2",
         "RL-3",
+        "FC-7",
         "FC-2",
         "FC-2",
         "FC-2",

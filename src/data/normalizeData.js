@@ -2,7 +2,6 @@ import { toArray } from '@/utils';
 
 const TRIGGERS = ['apply', 'use', 'remove'];
 const FILTERS = ['Action', 'Type', 'Tagged', 'Cast', 'Considered'];
-const ACTIONS = ['followUp', 'interval'];
 
 const CAST_DURATION_MAP = {
   BA: 750,
@@ -44,9 +43,7 @@ const normalizeInlineAction = (action, element = 'PHYSICAL') => {
 };
 
 const normalizeEffect = (effect, charId = null, element = null) => {
-  const resolved = {
-    ...effect,
-  };
+  const resolved = { ...effect };
 
   resolved.rank ??= 0;
   resolved.chance ??= 1;
@@ -79,18 +76,26 @@ const normalizeEffect = (effect, charId = null, element = null) => {
     }
   }
 
-  // followUp, interval
-  for (const ACTION of ACTIONS) {
-    const key = `${ACTION}Action`;
-    const value = effect[key];
-    if (value == null) continue;
-
-    resolved[key] = toArray(value).map(a => {
-      if (typeof a === 'string') return normalizeActionKey(charId, a);
-      return normalizeInlineAction(a, element);
+  if (effect.followUpAction) {
+    resolved.followUpAction = toArray(effect.followUpAction).map(actionKeyOrObj => {
+      if (typeof actionKeyOrObj === 'string') {
+        return normalizeActionKey(charId, actionKeyOrObj);
+      }
+      return normalizeInlineAction(actionKeyOrObj, element);
     });
+    resolved.followUpCooldown ??= 0;
+    resolved.times ??= 1;
+  }
 
-    resolved[`${ACTION}Cooldown`] ??= 0;
+  if (effect.intervalAction) {
+    resolved.intervalAction = toArray(effect.intervalAction).map(actionKeyOrObj => {
+      if (typeof actionKeyOrObj === 'string') {
+        return normalizeActionKey(charId, actionKeyOrObj);
+      }
+      return normalizeInlineAction(actionKeyOrObj, element);
+    });
+    resolved.intervalCooldown ??= 1000;
+    resolved.intervalOffset ??= 0;
     resolved.times ??= 1;
   }
 

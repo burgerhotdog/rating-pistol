@@ -7126,7 +7126,7 @@
         ]
       },
       "10": {
-        "name": "Mid-air Attack: Banner Of Triumph",
+        "name": "Banner Of Triumph",
         "cast": "MA",
         "considered": [
           "BA",
@@ -7160,7 +7160,7 @@
         ]
       },
       "11": {
-        "name": "Mid-air Attack Follow-Up",
+        "name": "Mid-air Attack: Follow-Up Attack",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -7266,7 +7266,8 @@
         "tagged": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
-        "duration": 1000,
+        "duration": 1500,
+        "offset": 500,
         "multipliers": [
           {
             "mv": [
@@ -7300,7 +7301,8 @@
         "tagged": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
-        "duration": 1000,
+        "duration": 1500,
+        "offset": 500,
         "multipliers": [
           {
             "mv": [
@@ -7334,7 +7336,8 @@
         "tagged": "Qingloong Mode",
         "cast": "HA",
         "considered": "HA",
-        "duration": 1000,
+        "duration": 1500,
+        "offset": 500,
         "multipliers": [
           {
             "mv": [
@@ -7365,8 +7368,7 @@
       },
       "4": {
         "name": "Emerald Storm - Prelude",
-        "cast": "RL",
-        "considered": "RL"
+        "cast": "RL"
       }
     },
     "FC": {
@@ -7871,6 +7873,8 @@
     "FC": {
       "1": {
         "name": "Pushing Punch",
+        "tagged": "Zhoutian Progress",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -7900,9 +7904,10 @@
       },
       "2": {
         "name": "Zhoutian Progress Continuous",
+        "tagged": "Zhoutian Progress",
         "cast": "HA",
         "considered": "HA",
-        "duration": 0.25,
+        "duration": 250,
         "multipliers": [
           {
             "mv": [
@@ -7930,7 +7935,8 @@
         ]
       },
       "3": {
-        "name": "Minor Zhoutian Shock",
+        "name": "Minor Zhoutian: Shock",
+        "tagged": "Zhoutian Progress",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7960,7 +7966,8 @@
         ]
       },
       "4": {
-        "name": "Major Zhoutian: Inner Shock",
+        "name": "Major Zhoutian Inner: Shock",
+        "tagged": "Zhoutian Progress",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -7990,7 +7997,8 @@
         ]
       },
       "5": {
-        "name": "Major Zhoutian: Outer Shock",
+        "name": "Major Zhoutian Outer: Shock",
+        "tagged": "Zhoutian Progress",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -8021,6 +8029,8 @@
       },
       "6": {
         "name": "Yielding Pull",
+        "tagged": "Zhoutian Progress",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -8049,10 +8059,8 @@
         ]
       },
       "7": {
-        "name": "Incomplete Minor Zhoutian Final Shield",
+        "name": "Incomplete Minor Zhoutian: Shield",
         "type": "shield",
-        "considered": "FC",
-        "duration": 0,
         "multipliers": [
           {
             "flat": [
@@ -8076,9 +8084,7 @@
               1379,
               1448,
               1516
-            ]
-          },
-          {
+            ],
             "mv": [
               0.1706,
               0.1775,
@@ -8105,10 +8111,8 @@
         ]
       },
       "8": {
-        "name": "Minor Zhoutian Final Shield",
+        "name": "Minor Zhoutian: Shield",
         "type": "shield",
-        "considered": "FC",
-        "duration": 0,
         "multipliers": [
           {
             "flat": [
@@ -8132,9 +8136,7 @@
               2759,
               2896,
               3033
-            ]
-          },
-          {
+            ],
             "mv": [
               0.3413,
               0.3549,
@@ -8161,10 +8163,8 @@
         ]
       },
       "9": {
-        "name": "Major Zhoutian: Inner Final Shield",
+        "name": "Major Zhoutian Inner: Shield",
         "type": "shield",
-        "considered": "FC",
-        "duration": 0,
         "multipliers": [
           {
             "flat": [
@@ -8188,9 +8188,7 @@
               5519,
               5793,
               6067
-            ]
-          },
-          {
+            ],
             "mv": [
               0.6825,
               0.7098,
@@ -8217,10 +8215,8 @@
         ]
       },
       "10": {
-        "name": "Major Zhoutian: Outer Final Shield",
+        "name": "Major Zhoutian Outer: Shield",
         "type": "shield",
-        "considered": "FC",
-        "duration": 0,
         "multipliers": [
           {
             "flat": [
@@ -8244,9 +8240,7 @@
               9195,
               9652,
               10108
-            ]
-          },
-          {
+            ],
             "mv": [
               1.137,
               1.1825,
@@ -8298,9 +8292,7 @@
               2207,
               2317,
               2427
-            ]
-          },
-          {
+            ],
             "mv": [
               0.273,
               0.2839,

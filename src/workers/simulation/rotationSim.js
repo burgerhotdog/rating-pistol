@@ -388,13 +388,14 @@ function applyEffects({ gameId, action, memberMap, effectTrackers, applyCooldown
 
   function applyEffect(tracker, effectKey) {
     const effectDef = defCache[actionOwner].effect.effectDefinitions[effectKey];
-    const { maxStacks, duration, maxUses, intervalCooldown } = effectDef;
+    const { intervalCooldown, intervalOffset, duration, maxUses, maxStacks } = effectDef;
     const currentStacks = tracker[effectKey]?.stacks ?? 0;
+
     tracker[effectKey] = {
       stacks: Math.min(currentStacks + times, maxStacks),
       timeRemaining: duration,
       usesRemaining: maxUses,
-      ...(intervalCooldown ? { procTimer: tracker[effectKey]?.procTimer ?? intervalCooldown } : {}),
+      ...(intervalCooldown ? { procTimer: tracker[effectKey]?.procTimer ?? intervalOffset } : {}),
       effectDef,
     };
   }
@@ -650,12 +651,13 @@ function processIntervalProcs(ctx, elapsed, depth, onFootprint, defCache) {
           processAction(action, ctx, depth + 1, onFootprint, defCache, stacks * times, times);
         }
 
-        effectTracker.procTimer += intervalCooldown;
         effectTracker.usesRemaining--;
         if (effectTracker.usesRemaining <= 0) {
           delete trackerMap[effectKey];
           break;
         }
+
+        effectTracker.procTimer += intervalCooldown;
       }
     }
   }
