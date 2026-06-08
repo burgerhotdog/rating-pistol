@@ -206,12 +206,9 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                       <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: memberColors[i], flexShrink: 0 }} />
                       <Typography variant="body2">
                         {CHARACTER[gameId]?.[m.memberId]?.name ?? m.memberId}:{' '}
-                        {(data[week]?.[`dps_${m.memberId}`] ?? 0).toLocaleString('en-US', { maximumFractionDigits: 0 })}
-                        {' '}(
                         {sumRotationDmg(weeklyScores[week], { ownerId: m.memberId }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                         {' / '}
                         {((memberRotationTimeMap[m.memberId] ?? 0) / 1000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}s
-                        )
                       </Typography>
                     </Box>
                   ))}
