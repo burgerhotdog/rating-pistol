@@ -6185,7 +6185,6 @@
         "name": "Wind Spirals",
         "cast": "RL",
         "considered": "RL",
-        "duration": 0,
         "multipliers": [
           {
             "mv": [
@@ -6273,7 +6272,7 @@
         ]
       },
       "2": {
-        "name": "Mid-air Attack: Feather Release",
+        "name": "Feather Release",
         "cast": "MA",
         "considered": [
           "BA",
@@ -6600,7 +6599,7 @@
         ]
       },
       "8": {
-        "name": "Fully Charged Aimed Shot",
+        "name": "Aimed Shot: Full Charge",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -6737,7 +6736,7 @@
     },
     "FC": {
       "1": {
-        "name": "Mist Bullet (Mist Drop)",
+        "name": "Mist Bullet (Forte) (x6)",
         "considered": "RS",
         "multipliers": [
           {
@@ -6764,7 +6763,8 @@
               1.0885
             ]
           }
-        ]
+        ],
+        "times": 6
       },
       "2": {
         "name": "Mistcloak Dash"
