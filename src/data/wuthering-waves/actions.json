@@ -9392,7 +9392,6 @@
       },
       "6": {
         "name": "Strategic Parry",
-        "cast": "AUTO",
         "considered": "HA",
         "attr": "DEF",
         "multipliers": [
@@ -9551,9 +9550,7 @@
               2996,
               3145,
               3293
-            ]
-          },
-          {
+            ],
             "mv": [
               0.45,
               0.468,
@@ -9738,9 +9735,7 @@
               946,
               993,
               1040
-            ]
-          },
-          {
+            ],
             "mv": [
               0.1125,
               0.117,
@@ -9793,9 +9788,7 @@
               1419,
               1489,
               1560
-            ]
-          },
-          {
+            ],
             "mv": [
               0.1687,
               0.1755,
@@ -9848,9 +9841,7 @@
               2365,
               2482,
               2600
-            ]
-          },
-          {
+            ],
             "mv": [
               0.2812,
               0.2925,
@@ -10311,7 +10302,7 @@
     },
     "RL": {
       "1": {
-        "name": "Crimson Bloom",
+        "name": "Crimson Bloom: Continuous",
         "cast": "RL",
         "considered": "RL",
         "multipliers": [
@@ -10343,7 +10334,7 @@
         ]
       },
       "2": {
-        "name": "Scarlet Burst",
+        "name": "Crimson Bloom: Scarlet Burst",
         "considered": "RL",
         "multipliers": [
           {
@@ -10408,7 +10399,7 @@
       },
       "2": {
         "name": "Scatterbloom",
-        "cast": "BA",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {
@@ -10438,7 +10429,7 @@
         ]
       },
       "3": {
-        "name": "Full Energy Chaoscleave",
+        "name": "Chaoscleave: Full Charge",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -10470,8 +10461,8 @@
         ]
       },
       "4": {
-        "name": "Full Energy Scatterbloom",
-        "cast": "BA",
+        "name": "Scatterbloom: Full Charge",
+        "cast": "HA",
         "considered": "HA",
         "multipliers": [
           {

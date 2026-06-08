@@ -1784,9 +1784,10 @@
     },
     "effects": [
       {
-        "applyTo": "team",
+        "applyTo": "active",
         "applyWhen": "cast",
         "applyOnAction": "RS-1",
+        "removeOnAction": "NA-4",
         "statMap": {
           "PERCENT_DEF": 0.15
         },
@@ -1798,9 +1799,9 @@
         }
       },
       {
-        "applyWhen": "cast",
-        "applyOnAction": "OS-1",
         "applyTo": "next",
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_RS": 0.38
         },
@@ -1829,6 +1830,7 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "NA-6",
+        "applyCooldown": 15000,
         "followUpAction": {
           "type": "heal",
           "attr": "HP",
@@ -1842,6 +1844,7 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "NA-6",
+        "applyCooldown": 15000,
         "statMap": {
           "PERCENT_DEF": 0.5
         },
@@ -1855,7 +1858,7 @@
           "FC-3"
         ],
         "statMap": {
-          "PERCENT_BA": 0.5
+          "PERCENT_ALL": 0.5
         }
       },
       {
@@ -1935,8 +1938,9 @@
           "RS-3"
         ],
         "statMap": {
-          "PERCENT_RS": 0.2
+          "PERCENT_ALL": 0.2
         },
+        "duration": 5000,
         "maxUses": 2
       },
       {
@@ -1954,7 +1958,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_HAVOC": 0.23
         },
@@ -1962,23 +1966,8 @@
       },
       {
         "rank": 1,
-        "applyWhen": "cast",
-        "applyOnAction": [
-          "NA-1",
-          "NA-2",
-          "NA-3",
-          "NA-4",
-          "NA-5",
-          "NA-6",
-          "RS-1",
-          "RS-2",
-          "RS-3",
-          "RS-4",
-          "RS-5",
-          "RS-6",
-          "RL-1",
-          "RL-2"
-        ],
+        "applyWhen": "hit",
+        "applyOnType": "damage",
         "statMap": {
           "PERCENT_ATK": 0.05
         },
