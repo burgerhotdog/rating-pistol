@@ -4001,7 +4001,6 @@
         "tagged": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
-        "duration": 500,
         "multipliers": [
           {
             "mv": [
@@ -4034,7 +4033,6 @@
         "tagged": "Deathblade Gear",
         "cast": "BA",
         "considered": "BA",
-        "duration": 500,
         "multipliers": [
           {
             "mv": [
@@ -4735,6 +4733,7 @@
       },
       "3": {
         "name": "Electromagnetic Blast",
+        "tagged": "Sinner's Mark",
         "cast": "CA",
         "considered": [
           "RS",
@@ -4837,6 +4836,7 @@
       },
       "2": {
         "name": "Judgment Strike",
+        "tagged": "Punishment Mark",
         "cast": "CA",
         "considered": [
           "RS",
@@ -5257,9 +5257,12 @@
         ]
       },
       "2": {
-        "name": "Thunder Wedge Coordinated Attack",
+        "name": "Thunder Wedge: Coordinated Attack",
         "cast": "CA",
-        "considered": "CA",
+        "considered": [
+          "RS",
+          "CA"
+        ],
         "attr": "DEF",
         "multipliers": [
           {
@@ -5289,7 +5292,7 @@
         ]
       },
       "3": {
-        "name": "Thunder Wedge Detonation",
+        "name": "Thunder Wedge: Detonation",
         "considered": "RS",
         "attr": "DEF",
         "multipliers": [
@@ -5390,8 +5393,11 @@
     "FC": {
       "1": {
         "name": "Thunder Uprising",
-        "cast": "RS",
-        "considered": "RS",
+        "cast": "CA",
+        "considered": [
+          "RS",
+          "CA"
+        ],
         "attr": "DEF",
         "multipliers": [
           {
@@ -5421,7 +5427,8 @@
         ]
       },
       "2": {
-        "name": "Lightning Infused Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Lightning Infused",
         "cast": "BA",
         "considered": "BA",
         "attr": "DEF",
@@ -5453,7 +5460,8 @@
         ]
       },
       "3": {
-        "name": "Lightning Infused Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Lightning Infused",
         "cast": "BA",
         "considered": "BA",
         "attr": "DEF",
@@ -5486,7 +5494,8 @@
         ]
       },
       "4": {
-        "name": "Lightning Infused Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Lightning Infused",
         "cast": "BA",
         "considered": "BA",
         "attr": "DEF",
@@ -5544,7 +5553,8 @@
         ]
       },
       "5": {
-        "name": "Lightning Infused Basic Attack 4",
+        "name": "Basic Attack 4",
+        "tagged": "Lightning Infused",
         "cast": "BA",
         "considered": "BA",
         "attr": "DEF",
@@ -5577,7 +5587,8 @@
         ]
       },
       "6": {
-        "name": "Lightning Infused Basic Attack 5",
+        "name": "Basic Attack 5",
+        "tagged": "Lightning Infused",
         "cast": "BA",
         "considered": "BA",
         "attr": "DEF",
@@ -5634,7 +5645,8 @@
         ]
       },
       "7": {
-        "name": "Lightning Infused Heavy Attack",
+        "name": "Heavy Attack",
+        "tagged": "Lightning Infused",
         "cast": "HA",
         "considered": "HA",
         "attr": "DEF",
@@ -5667,6 +5679,7 @@
       },
       "8": {
         "name": "Thunderweaver",
+        "tagged": "Lightning Infused",
         "cast": "BA",
         "considered": "BA",
         "attr": "DEF",
@@ -5723,9 +5736,13 @@
         ]
       },
       "9": {
-        "name": "Lightning Infused Dodge Counter",
-        "cast": "BA",
-        "considered": "BA",
+        "name": "Dodge Counter",
+        "tagged": "Lightning Infused",
+        "cast": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "attr": "DEF",
         "multipliers": [
           {

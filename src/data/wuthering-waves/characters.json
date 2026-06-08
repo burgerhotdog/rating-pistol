@@ -611,7 +611,7 @@
     "effects": [
       {
         "applyTo": "active",
-        "applyWhen": "cast",
+        "applyWhen": "hit",
         "applyOnAction": "RL-1",
         "useOnCast": "BA",
         "followUpAction": "RL-2",
@@ -625,7 +625,7 @@
       },
       {
         "applyTo": "active",
-        "applyWhen": "cast",
+        "applyWhen": "hit",
         "applyOnAction": "RL-1",
         "useOnCast": "HA",
         "followUpAction": "RL-2",
@@ -752,7 +752,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
           "multipliers": [
@@ -780,12 +780,10 @@
       },
       {
         "rank": 3,
-        "applyWhen": "cast",
-        "applyOnAction": "RL-1",
+        "useOnTagged": "Deathblade Gear",
         "statMap": {
           "PERCENT_ELECTRO": 0.25
-        },
-        "duration": 11000
+        }
       },
       {
         "rank": 4,
@@ -837,19 +835,23 @@
       },
       "rotation": [
         "RL-2",
+        "RS-1",
+        "RS-2",
+        "RS-3",
+        "FC-1",
         "RL-1",
         "FC-2",
         "RL-3",
         "RL-4",
-        "RL-3",
-        "RL-4",
-        "RL-3",
+        "RL-5",
+        "RL-6",
+        "RL-7",
         "FC-2",
         "RL-3",
         "RL-4",
-        "RL-3",
-        "RL-4",
-        "RL-3",
+        "RL-5",
+        "RL-6",
+        "RL-7",
         "FC-2",
         "OS-1"
       ]
@@ -882,7 +884,7 @@
       },
       {
         "applyTo": "team",
-        "applyWhen": "cast",
+        "applyWhen": "hit",
         "applyOnAction": "FC-1",
         "useOnType": "damage",
         "followUpAction": "FC-2",
@@ -900,11 +902,11 @@
       {
         "useOnAction": "RS-2",
         "statMap": {
-          "PERCENT_RS": 0.1
+          "PERCENT_ALL": 0.1
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "hit",
         "applyOnAction": "RS-2",
         "statMap": {
           "PERCENT_ATK": 0.1
@@ -914,10 +916,10 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
-          "AMP_RL": 0.25,
-          "AMP_ELECTRO": 0.2
+          "AMP_ELECTRO": 0.2,
+          "AMP_RL": 0.25
         },
         "duration": 14000
       },
@@ -928,7 +930,7 @@
           "RS-2"
         ],
         "statMap": {
-          "PERCENT_RS": 0.7
+          "PERCENT_ALL": 0.7
         }
       },
       {
@@ -952,7 +954,7 @@
         "rank": 5,
         "useOnAction": "RL-1",
         "statMap": {
-          "PERCENT_RL": 1
+          "PERCENT_ALL": 1
         }
       },
       {
@@ -1033,20 +1035,13 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "followUpAction": "RS-1",
         "maxUses": 1
       },
       {
         "rank": 1,
-        "useOnAction": [
-          "FC-2",
-          "FC-3",
-          "FC-4",
-          "FC-5",
-          "FC-6",
-          "FC-7"
-        ],
+        "useOnTagged": "Lightning Infused",
         "statMap": {
           "PERCENT_ATKSPD": 0.2
         }
