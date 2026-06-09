@@ -19054,10 +19054,8 @@
         ]
       },
       "2": {
-        "name": "To the Horizon Healing",
+        "name": "To the Horizon: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "attr": "ER",
         "multipliers": [
           {
@@ -19082,9 +19080,7 @@
               1576,
               1655,
               1733
-            ]
-          },
-          {
+            ],
             "mv": [
               175,
               196,
@@ -19712,7 +19708,6 @@
       },
       "2": {
         "name": "Ring of Mirrors: Refracted Holy Light",
-        "cast": "AUTO",
         "considered": "BA",
         "multipliers": [
           {
@@ -20333,7 +20328,6 @@
       },
       "3": {
         "name": "Jolt",
-        "cast": "AUTO",
         "considered": "BA",
         "multipliers": [
           {
@@ -20397,7 +20391,6 @@
       },
       "2": {
         "name": "Diffusion",
-        "cast": "AUTO",
         "considered": [
           "BA",
           "CA"
@@ -21304,9 +21297,6 @@
       },
       "2": {
         "name": "Symphonic Poem: Tonic",
-        "cast": "AUTO",
-        "considered": "AUTO",
-        "duration": 0,
         "multipliers": [
           {
             "mv": [
@@ -25663,7 +25653,6 @@
     "RL": {
       "1": {
         "name": "Hecate: Basic Attack 1",
-        "cast": "AUTO",
         "considered": "ES",
         "multipliers": [
           {
@@ -25694,7 +25683,6 @@
       },
       "2": {
         "name": "Hecate: Basic Attack 2",
-        "cast": "AUTO",
         "considered": "ES",
         "multipliers": [
           {
@@ -25726,7 +25714,6 @@
       },
       "3": {
         "name": "Hecate: Enhanced Attack: Strings",
-        "cast": "AUTO",
         "considered": "ES",
         "multipliers": [
           {
@@ -25781,7 +25768,6 @@
       },
       "4": {
         "name": "Hecate: Enhanced Attack: Winds",
-        "cast": "AUTO",
         "considered": "ES",
         "multipliers": [
           {
@@ -25836,7 +25822,6 @@
       },
       "5": {
         "name": "Hecate: Enhanced Attack: Cadenza",
-        "cast": "AUTO",
         "considered": "ES",
         "multipliers": [
           {
@@ -27890,10 +27875,8 @@
         ]
       },
       "8": {
-        "name": "Moonbow: Basic Attack 1 Healing",
+        "name": "Moonbow: Basic Attack 1: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "mv": [
@@ -27922,10 +27905,8 @@
         ]
       },
       "9": {
-        "name": "Moonbow: Basic Attack 2 Healing",
+        "name": "Moonbow: Basic Attack 2: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "mv": [
@@ -27954,10 +27935,8 @@
         ]
       },
       "10": {
-        "name": "Moonbow: Basic Attack 3 Healing",
+        "name": "Moonbow: Basic Attack 3: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "mv": [
@@ -27986,10 +27965,8 @@
         ]
       },
       "11": {
-        "name": "Moonbow: Dodge Counter Healing",
+        "name": "Moonbow: Dodge Counter: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "mv": [
@@ -28018,10 +27995,8 @@
         ]
       },
       "12": {
-        "name": "Arc Beyond the Edge Healing",
+        "name": "Arc Beyond the Edge: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "mv": [
@@ -28081,10 +28056,8 @@
         ]
       },
       "14": {
-        "name": "Absolute Fullness Healing",
+        "name": "Absolute Fullness: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "mv": [
@@ -28113,10 +28086,8 @@
         ]
       },
       "15": {
-        "name": "Full Moon Domain Healing",
+        "name": "Full Moon Domain: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "mv": [
@@ -31079,9 +31050,8 @@
         ]
       },
       "2": {
-        "name": "Pull-in Effect Continuous",
-        "cast": "AUTO",
-        "considered": "AUTO",
+        "name": "Pull-in Effect: Continuous",
+        "considered": "RS",
         "multipliers": [
           {
             "mv": [
@@ -31240,10 +31210,8 @@
         ]
       },
       "2": {
-        "name": "Summon and Smite Healing",
+        "name": "Summon and Smite: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "mv": [
@@ -31497,7 +31465,7 @@
         ]
       },
       "4": {
-        "name": "Death Snip Additional DMG",
+        "name": "Death Snip: Additional",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -31528,10 +31496,8 @@
         ]
       },
       "5": {
-        "name": "Death Snip Healing",
+        "name": "Death Snip: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "mv": [
@@ -32119,10 +32085,8 @@
         ]
       },
       "2": {
-        "name": "Moment of Nihility Healing",
+        "name": "Moment of Nihility: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "flat": [
@@ -32537,7 +32501,6 @@
       },
       "11": {
         "name": "Bonus DMG Multiplier per Ring of Chainsaw",
-        "cast": "AUTO",
         "considered": "buff",
         "multipliers": [
           {
@@ -32567,10 +32530,8 @@
         ]
       },
       "12": {
-        "name": "Sawring - Eradication Shield",
+        "name": "Sawring - Eradication: Shield",
         "type": "shield",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "flat": [
@@ -33310,8 +33271,7 @@
       },
       "3": {
         "name": "Optimal Solution",
-        "cast": "AUTO",
-        "considered": "AUTO",
+        "considered": "RS",
         "multipliers": [
           {
             "mv": [
@@ -33341,8 +33301,7 @@
       },
       "4": {
         "name": "Wide Field Observation Mode: Distributed Array",
-        "cast": "AUTO",
-        "considered": "AUTO",
+        "considered": "RS",
         "multipliers": [
           {
             "mv": [
@@ -34777,8 +34736,7 @@
       },
       "6": {
         "name": "Tune Rupture Response - Spectral Analysis",
-        "cast": "AUTO",
-        "considered": "TR",
+        "considered": "TB",
         "attr": "TUNE",
         "multipliers": [
           {
@@ -36169,8 +36127,7 @@
       },
       "3": {
         "name": "Tune Rupture Response - Starburst",
-        "cast": "AUTO",
-        "considered": "TR",
+        "considered": "TB",
         "attr": "TUNE",
         "multipliers": [
           {
@@ -36201,7 +36158,6 @@
       },
       "4": {
         "name": "Seraphic Duet Bonus DMG (Per Instance)",
-        "cast": "AUTO",
         "considered": "buff",
         "attr": "TUNE",
         "multipliers": [
@@ -37181,7 +37137,6 @@
       },
       "6": {
         "name": "Ichor Deposit",
-        "cast": "AUTO",
         "considered": "BA",
         "multipliers": [
           {
@@ -38504,7 +38459,7 @@
     "id": "1108",
     "NA": {
       "1": {
-        "name": "Present Self: Basic Attack 1",
+        "name": "Basic Attack 1",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -38559,7 +38514,7 @@
         ]
       },
       "2": {
-        "name": "Present Self: Basic Attack 2",
+        "name": "Basic Attack 2",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -38590,7 +38545,7 @@
         ]
       },
       "3": {
-        "name": "Present Self: Basic Attack 3",
+        "name": "Basic Attack 3",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -38646,7 +38601,7 @@
         ]
       },
       "4": {
-        "name": "Present Self: Frost Splinter",
+        "name": "Frost Splinter",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -38702,7 +38657,7 @@
         ]
       },
       "5": {
-        "name": "Present Self: Mid-air Attack",
+        "name": "Mid-air Attack",
         "cast": "MA",
         "considered": [
           "BA",
@@ -38736,7 +38691,7 @@
         ]
       },
       "6": {
-        "name": "Present Self: Dodge Counter",
+        "name": "Dodge Counter",
         "cast": "DC",
         "considered": [
           "BA",
@@ -38770,7 +38725,8 @@
         ]
       },
       "7": {
-        "name": "Foreclaimed Self: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Foreclaimed Self",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -38801,7 +38757,8 @@
         ]
       },
       "8": {
-        "name": "Foreclaimed Self: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Foreclaimed Self",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -38856,7 +38813,8 @@
         ]
       },
       "9": {
-        "name": "Foreclaimed Self: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Foreclaimed Self",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -38912,7 +38870,8 @@
         ]
       },
       "10": {
-        "name": "Foreclaimed Self: Basic Attack 4",
+        "name": "Basic Attack 4",
+        "tagged": "Foreclaimed Self",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -39039,7 +38998,8 @@
         ]
       },
       "11": {
-        "name": "Foreclaimed Self: Basic Attack 5",
+        "name": "Basic Attack 5",
+        "tagged": "Foreclaimed Self",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -39094,7 +39054,8 @@
         ]
       },
       "12": {
-        "name": "Foreclaimed Self: Heavy Attack",
+        "name": "Heavy Attack",
+        "tagged": "Foreclaimed Self",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -39125,7 +39086,8 @@
         ]
       },
       "13": {
-        "name": "Foreclaimed Self: Bitterfrost",
+        "name": "Bitterfrost",
+        "tagged": "Foreclaimed Self",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -39181,7 +39143,8 @@
         ]
       },
       "14": {
-        "name": "Foreclaimed Self: Mid-air Attack 1",
+        "name": "Mid-air Attack 1",
+        "tagged": "Foreclaimed Self",
         "cast": "MA",
         "considered": "RL",
         "multipliers": [
@@ -39260,7 +39223,8 @@
         ]
       },
       "15": {
-        "name": "Foreclaimed Self: Mid-air Attack 2",
+        "name": "Mid-air Attack 2",
+        "tagged": "Foreclaimed Self",
         "cast": "MA",
         "considered": "RL",
         "multipliers": [
@@ -39363,7 +39327,8 @@
         ]
       },
       "16": {
-        "name": "Foreclaimed Self: Mid-air Attack 3",
+        "name": "Mid-air Attack 3",
+        "tagged": "Foreclaimed Self",
         "cast": "MA",
         "considered": [
           "RL",
@@ -39397,9 +39362,13 @@
         ]
       },
       "17": {
-        "name": "Foreclaimed Self: Dodge Counter",
+        "name": "Dodge Counter",
+        "tagged": "Foreclaimed Self",
         "cast": "DC",
-        "considered": "RL",
+        "considered": [
+          "RL",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -39454,7 +39423,7 @@
     },
     "RS": {
       "1": {
-        "name": "Present Self: Resonance Skill",
+        "name": "Frostblight",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -39511,6 +39480,7 @@
       },
       "2": {
         "name": "Frostblight: Jade Cleave",
+        "tagged": "Foreclaimed Self",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -39543,8 +39513,9 @@
       },
       "3": {
         "name": "Frostblight: Petalfall",
-        "cast": "MRS",
-        "considered": "MRS",
+        "tagged": "Foreclaimed Self",
+        "cast": "RS",
+        "considered": "RS",
         "multipliers": [
           {
             "mv": [
@@ -39720,6 +39691,7 @@
     "FC": {
       "1": {
         "name": "Iai",
+        "tagged": "Foreclaimed Self",
         "cast": "BA",
         "considered": "RL",
         "multipliers": [
@@ -39819,7 +39791,8 @@
     "id": "1211",
     "NA": {
       "1": {
-        "name": "Stagecraft Form: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Stagecraft Form",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -39850,7 +39823,8 @@
         ]
       },
       "2": {
-        "name": "Stagecraft Form: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Stagecraft Form",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -39882,7 +39856,8 @@
         ]
       },
       "3": {
-        "name": "Stagecraft Form: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Stagecraft Form",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -39914,7 +39889,8 @@
         ]
       },
       "4": {
-        "name": "Stagecraft Form: Basic Attack 4",
+        "name": "Basic Attack 4",
+        "tagged": "Stagecraft Form",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -39945,7 +39921,8 @@
         ]
       },
       "5": {
-        "name": "Stagecraft Form: Heavy Attack",
+        "name": "Heavy Attack",
+        "tagged": "Stagecraft Form",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -39977,7 +39954,8 @@
         ]
       },
       "6": {
-        "name": "Stagecraft Form: Mid-air Attack",
+        "name": "Mid-air Attack",
+        "tagged": "Stagecraft Form",
         "cast": "MA",
         "considered": [
           "BA",
@@ -40035,7 +40013,8 @@
         ]
       },
       "7": {
-        "name": "Stagecraft Form: Dodge Counter",
+        "name": "Dodge Counter",
+        "tagged": "Stagecraft Form",
         "cast": "DC",
         "considered": [
           "BA",
@@ -40070,7 +40049,8 @@
         ]
       },
       "8": {
-        "name": "Breakdown Form: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Breakdown Form",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -40101,7 +40081,8 @@
         ]
       },
       "9": {
-        "name": "Breakdown Form: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Breakdown Form",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -40157,7 +40138,8 @@
         ]
       },
       "10": {
-        "name": "Breakdown Form: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Breakdown Form",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -40188,7 +40170,8 @@
         ]
       },
       "11": {
-        "name": "Breakdown Form: Basic Attack 4",
+        "name": "Basic Attack 4",
+        "tagged": "Breakdown Form",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -40243,7 +40226,8 @@
         ]
       },
       "12": {
-        "name": "Breakdown Form: Heavy Attack",
+        "name": "Heavy Attack",
+        "tagged": "Breakdown Form",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -40274,7 +40258,8 @@
         ]
       },
       "13": {
-        "name": "Breakdown Form: Mid-air Attack 1",
+        "name": "Mid-air Attack 1",
+        "tagged": "Breakdown Form",
         "cast": "MA",
         "considered": [
           "BA",
@@ -40308,7 +40293,8 @@
         ]
       },
       "14": {
-        "name": "Breakdown Form: Mid-air Attack 2",
+        "name": "Mid-air Attack 2",
+        "tagged": "Breakdown Form",
         "cast": "MA",
         "considered": [
           "BA",
@@ -40367,7 +40353,8 @@
         ]
       },
       "15": {
-        "name": "Breakdown Form: Mid-air Attack 3",
+        "name": "Mid-air Attack 3",
+        "tagged": "Breakdown Form",
         "cast": "MA",
         "considered": [
           "BA",
@@ -40401,7 +40388,8 @@
         ]
       },
       "16": {
-        "name": "Breakdown Form: Mid-air Attack 4",
+        "name": "Mid-air Attack 4",
+        "tagged": "Breakdown Form",
         "cast": "MA",
         "considered": [
           "BA",
@@ -40459,7 +40447,8 @@
         ]
       },
       "17": {
-        "name": "Breakdown Form: Mid-air Heavy Attack",
+        "name": "Mid-air Heavy Attack",
+        "tagged": "Breakdown Form",
         "cast": "MA",
         "considered": [
           "HA",
@@ -40517,7 +40506,8 @@
         ]
       },
       "18": {
-        "name": "Breakdown Form: Dodge Counter",
+        "name": "Dodge Counter",
+        "tagged": "Breakdown Form",
         "cast": "DC",
         "considered": [
           "BA",
@@ -40553,7 +40543,8 @@
     },
     "RS": {
       "1": {
-        "name": "Stagecraft Form: Phantom Bubble",
+        "name": "Phantom Bubble",
+        "tagged": "Stagecraft Form",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -40609,7 +40600,8 @@
         ]
       },
       "2": {
-        "name": "Breakdown Form: Beckon",
+        "name": "Beckon",
+        "tagged": "Breakdown Form",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -40665,7 +40657,8 @@
         ]
       },
       "3": {
-        "name": "Breakdown Form: Banish 1",
+        "name": "Banish 1",
+        "tagged": "Breakdown Form",
         "cast": "RS",
         "considered": "RL",
         "multipliers": [
@@ -40697,7 +40690,8 @@
         ]
       },
       "4": {
-        "name": "Breakdown Form: Banish 2",
+        "name": "Banish 2",
+        "tagged": "Breakdown Form",
         "cast": "RS",
         "considered": "RL",
         "multipliers": [
@@ -40730,7 +40724,8 @@
     },
     "RL": {
       "1": {
-        "name": "Stagecraft Form: Final Act",
+        "name": "Final Act",
+        "tagged": "Stagecraft Form",
         "cast": "RL",
         "considered": "RL",
         "multipliers": [
@@ -40761,7 +40756,8 @@
         ]
       },
       "2": {
-        "name": "Breakdown Form: Final Act",
+        "name": "Final Act",
+        "tagged": "Breakdown Form",
         "cast": "RL",
         "considered": "RL",
         "multipliers": [
@@ -40828,6 +40824,7 @@
     "IS": {
       "1": {
         "name": "It's Been A While!",
+        "tagged": "Stagecraft Form",
         "cast": "IS",
         "considered": "IS",
         "multipliers": [
@@ -40859,6 +40856,7 @@
       },
       "2": {
         "name": "Knock Knock",
+        "tagged": "Breakdown Form",
         "cast": "IS",
         "considered": "IS",
         "multipliers": [
