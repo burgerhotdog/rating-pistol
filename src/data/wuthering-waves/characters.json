@@ -2935,7 +2935,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "duration": 15000,
+        "removeOnCast": "OS",
         "useOnAction": [
           "NA-1",
           "NA-2",
@@ -2944,30 +2944,41 @@
           "NA-5",
           "NA-7",
           "NA-8",
-          "RS-1",
           "RS-2",
           "RS-3",
           "RS-4",
           "RS-5",
           "RS-6",
-          "RS-7",
           "RS-8",
-          "RS-9"
+          "RS-9",
+          "RS-1",
+          "RS-7"
         ],
         "statMap": {
           "PERCENT_MV": 1
         },
+        "duration": 15000,
         "rankModifiers": {
           "6": {
             "statMap": {
-              "PERCENT_MV": 4
+              "PERCENT_MV": 2
             }
           }
         }
       },
       {
+        "statMap": {
+          "PERCENT_HAVOC": 0.15
+        }
+      },
+      {
+        "statMap": {
+          "PERCENT_BA": 0.15
+        }
+      },
+      {
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
           "multipliers": {
@@ -2977,26 +2988,29 @@
         "maxUses": 1
       },
       {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "useOnConsidered": "OS",
+        "statMap": {
+          "FLAT_MV": 4.5902
+        },
+        "maxUses": 1
+      },
+      {
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": "IS-1",
-        "duration": 18000,
+        "applyCooldown": 25000,
         "statMap": {
           "PERCENT_CD": 0.28
-        }
+        },
+        "duration": 18000
       },
       {
         "rank": 2,
         "useOnAction": "FC-1",
         "statMap": {
           "PERCENT_MV": 1.2
-        },
-        "rankModifiers": {
-          "6": {
-            "statMap": {
-              "PERCENT_MV": 1.2
-            }
-          }
         }
       },
       {
@@ -3010,19 +3024,20 @@
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "duration": 15000,
         "statMap": {
           "PERCENT_ATK": 0.58
-        }
+        },
+        "duration": 15000
       },
       {
         "rank": 4,
+        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "IS-1",
-        "duration": 30000,
         "statMap": {
           "PERCENT_BA": 0.25
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
@@ -3033,10 +3048,19 @@
       },
       {
         "rank": 5,
-        "useOnAction": "OS-1",
+        "useOnConsidered": "OS",
         "statMap": {
           "PERCENT_MV": 0.68
         }
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "applyCooldown": 25000,
+        "followUpAction": "FC-1",
+        "duration": 15000,
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -3052,12 +3076,12 @@
       "rotation": [
         "IS-1",
         "RS-1",
-        "RL-1",
         "RS-2",
         "RS-3",
         "RS-4",
         "RS-6",
         "RS-5",
+        "RL-1",
         "FC-1",
         "RS-2",
         "RS-3",

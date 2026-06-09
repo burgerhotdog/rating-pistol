@@ -16137,7 +16137,7 @@
       "6": {
         "name": "Heavy Attack",
         "cast": "HA",
-        "considered": "HA",
+        "considered": "BA",
         "multipliers": [
           {
             "mv": [
@@ -16272,6 +16272,7 @@
       },
       "2": {
         "name": "Vining Waltz 1",
+        "tagged": "Blossom Mode",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -16303,6 +16304,7 @@
       },
       "3": {
         "name": "Vining Waltz 2",
+        "tagged": "Blossom Mode",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -16335,6 +16337,7 @@
       },
       "4": {
         "name": "Vining Waltz 3",
+        "tagged": "Blossom Mode",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -16367,6 +16370,7 @@
       },
       "5": {
         "name": "Vining Waltz 4",
+        "tagged": "Blossom Mode",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -16399,6 +16403,7 @@
       },
       "6": {
         "name": "Blazing Waltz",
+        "tagged": "Blossom Mode",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -16431,6 +16436,7 @@
       },
       "7": {
         "name": "Floral Ravage",
+        "tagged": "Blossom Mode",
         "cast": "RS",
         "considered": "BA",
         "multipliers": [
@@ -16463,6 +16469,7 @@
       },
       "8": {
         "name": "Vining Ronde",
+        "tagged": "Blossom Mode",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -16495,6 +16502,7 @@
       },
       "9": {
         "name": "Atonement",
+        "tagged": "Blossom Mode",
         "cast": "DC",
         "considered": [
           "BA",
