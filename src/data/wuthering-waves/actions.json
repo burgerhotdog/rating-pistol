@@ -8749,6 +8749,7 @@
         "name": "Botany Experiment",
         "cast": "RS",
         "considered": "RS",
+        "duration": 500,
         "multipliers": [
           {
             "mv": [
@@ -9039,6 +9040,7 @@
           "BA",
           "MA"
         ],
+        "duration": 400,
         "multipliers": [
           {
             "mv": [
@@ -9074,6 +9076,7 @@
           "BA",
           "MA"
         ],
+        "duration": 400,
         "multipliers": [
           {
             "mv": [
@@ -9109,6 +9112,7 @@
           "BA",
           "MA"
         ],
+        "duration": 400,
         "multipliers": [
           {
             "mv": [
@@ -12395,6 +12399,7 @@
       },
       "10": {
         "name": "Additional multiplier per Incandescence",
+        "tagged": "Illuminous Epiphany",
         "considered": "RS",
         "multipliers": [
           {
@@ -13949,10 +13954,8 @@
         ]
       },
       "2": {
-        "name": "Scroll Divination Healing",
+        "name": "Scroll Divination: Healing (x3)",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "multipliers": [
           {
             "flat": [
@@ -13976,9 +13979,7 @@
               2933,
               3078,
               3224
-            ]
-          },
-          {
+            ],
             "mv": [
               0.39,
               0.4056,
@@ -14002,7 +14003,8 @@
               1.4946
             ]
           }
-        ]
+        ],
+        "times": 3
       },
       "3": {
         "name": "Chime",
@@ -14288,7 +14290,7 @@
     "FC": {
       "1": {
         "name": "Poetic Essence",
-        "cast": "HA",
+        "cast": "RS",
         "considered": "RS",
         "multipliers": [
           {
@@ -14319,9 +14321,8 @@
         ]
       },
       "2": {
-        "name": "Poetic Essence Healing",
+        "name": "Poetic Essence: Healing (x3)",
         "type": "heal",
-        "considered": "FC",
         "multipliers": [
           {
             "flat": [
@@ -14345,9 +14346,7 @@
               3324,
               3489,
               3654
-            ]
-          },
-          {
+            ],
             "mv": [
               0.442,
               0.4597,
@@ -14371,12 +14370,12 @@
               1.6939
             ]
           }
-        ]
+        ],
+        "times": 3
       },
       "3": {
-        "name": "Double Pun Bonus Healing",
+        "name": "Double Pun Bonus Healing (x3)",
         "type": "heal",
-        "considered": "FC",
         "multipliers": [
           {
             "flat": [
@@ -14400,9 +14399,7 @@
               1955,
               2052,
               2149
-            ]
-          },
-          {
+            ],
             "mv": [
               0.26,
               0.2704,
@@ -14426,7 +14423,8 @@
               0.9964
             ]
           }
-        ]
+        ],
+        "times": 3
       }
     },
     "IS": {
@@ -14654,9 +14652,12 @@
         ]
       },
       "6": {
-        "name": "Plunging Attack",
-        "cast": "BA",
-        "considered": "BA",
+        "name": "Mid-air Attack",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -14722,8 +14723,7 @@
     },
     "RS": {
       "1": {
-        "name": "Dim Star Butterfly",
-        "cast": "AUTO",
+        "name": "Dim Star Butterfly (x5)",
         "considered": "RS",
         "multipliers": [
           {
@@ -14750,13 +14750,13 @@
               0.5713
             ]
           }
-        ]
+        ],
+        "times": 5
       },
       "2": {
-        "name": "Chaos Theory Healing",
+        "name": "Chaos Theory: Healing (x3)",
         "type": "heal",
         "cast": "RS",
-        "considered": "RS",
         "attr": "HP",
         "multipliers": [
           {
@@ -14781,9 +14781,7 @@
               2179,
               2287,
               2395
-            ]
-          },
-          {
+            ],
             "mv": [
               0.03,
               0.0325,
@@ -14807,15 +14805,14 @@
               0.1089
             ]
           }
-        ]
+        ],
+        "times": 3
       }
     },
     "RL": {
       "1": {
-        "name": "End Loop",
+        "name": "End Loop: Healing",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "attr": "HP",
         "multipliers": [
           {
@@ -14840,9 +14837,7 @@
               727,
               763,
               799
-            ]
-          },
-          {
+            ],
             "mv": [
               0.012,
               0.013,
@@ -14870,14 +14865,12 @@
       },
       "2": {
         "name": "End Loop",
-        "cast": "RL",
-        "considered": "RL",
-        "duration": 0
+        "cast": "RL"
       }
     },
     "FC": {
       "1": {
-        "name": "Flare Star Butterfly",
+        "name": "Flare Star Butterfly (x5)",
         "considered": "BA",
         "multipliers": [
           {
@@ -14904,7 +14897,8 @@
               0.6804
             ]
           }
-        ]
+        ],
+        "times": 5
       },
       "2": {
         "name": "Illation",
@@ -15040,10 +15034,8 @@
         ]
       },
       "3": {
-        "name": "Enlightenment Healing",
+        "name": "Enlightenment: Healing (x3)",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "attr": "HP",
         "multipliers": [
           {
@@ -15068,9 +15060,7 @@
               430,
               451,
               472
-            ]
-          },
-          {
+            ],
             "mv": [
               0.006,
               0.0065,
@@ -15094,13 +15084,12 @@
               0.0218
             ]
           }
-        ]
+        ],
+        "times": 3
       },
       "4": {
-        "name": "Discernment Healing",
+        "name": "Discernment: Healing (x3)",
         "type": "heal",
-        "cast": "AUTO",
-        "considered": "AUTO",
         "attr": "HP",
         "multipliers": [
           {
@@ -15125,9 +15114,7 @@
               479,
               503,
               527
-            ]
-          },
-          {
+            ],
             "mv": [
               0.0066,
               0.0072,
@@ -15151,7 +15138,8 @@
               0.024
             ]
           }
-        ]
+        ],
+        "times": 3
       }
     },
     "OS": {
@@ -15165,7 +15153,8 @@
     "id": "1504",
     "NA": {
       "1": {
-        "name": "Yellow Light: Basic Attack",
+        "name": "Basic Attack",
+        "tagged": "Yellow Light",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -15198,9 +15187,9 @@
       },
       "2": {
         "name": "Glitter",
-        "cast": "AUTO",
-        "considered": "AUTO",
-        "duration": 0,
+        "tagged": "Yellow Light",
+        "considered": "BA",
+        "duration": 500,
         "multipliers": [
           {
             "mv": [
@@ -15229,7 +15218,8 @@
         ]
       },
       "3": {
-        "name": "Yellow Light: Plunging Attack",
+        "name": "Mid-air Attack",
+        "tagged": "Yellow Light",
         "cast": "MA",
         "considered": [
           "BA",
@@ -15263,7 +15253,8 @@
         ]
       },
       "4": {
-        "name": "Red Light: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Red Light",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -15294,7 +15285,8 @@
         ]
       },
       "5": {
-        "name": "Red Light: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Red Light",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -15350,7 +15342,8 @@
         ]
       },
       "6": {
-        "name": "Red Light: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Red Light",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -15405,7 +15398,8 @@
         ]
       },
       "7": {
-        "name": "Red Light: Heavy Attack",
+        "name": "Heavy Attack",
+        "tagged": "Red Light",
         "cast": "HA",
         "considered": "BA",
         "multipliers": [
@@ -15437,7 +15431,8 @@
         ]
       },
       "8": {
-        "name": "Red Light: Plunging Attack",
+        "name": "Mid-air Attack",
+        "tagged": "Red Light",
         "cast": "MA",
         "considered": [
           "BA",
@@ -15471,7 +15466,8 @@
         ]
       },
       "9": {
-        "name": "Red Light: Dodge Counter",
+        "name": "Dodge Counter",
+        "tagged": "Red Light",
         "cast": "DC",
         "considered": [
           "BA",
@@ -15528,15 +15524,12 @@
             "times": 5
           }
         ]
-      },
-      "10": {
-        "name": "Yellow Light: Zoom (1 second)",
-        "cast": "DA"
       }
     },
     "RS": {
       "1": {
         "name": "Pounce",
+        "tagged": "Yellow Light",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -15568,6 +15561,7 @@
       },
       "2": {
         "name": "Rebound",
+        "tagged": "Red Light",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -15634,6 +15628,7 @@
     "FC": {
       "1": {
         "name": "Glare",
+        "tagged": "Yellow Spotlight",
         "considered": "BA",
         "multipliers": [
           {
@@ -15663,7 +15658,8 @@
         ]
       },
       "2": {
-        "name": "Red Spotlight: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Red Spotlight",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -15694,7 +15690,8 @@
         ]
       },
       "3": {
-        "name": "Red Spotlight: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Red Spotlight",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -15750,7 +15747,8 @@
         ]
       },
       "4": {
-        "name": "Red Spotlight: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Red Spotlight",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -15805,7 +15803,8 @@
         ]
       },
       "5": {
-        "name": "Red Spotlight: Heavy Attack",
+        "name": "Heavy Attack",
+        "tagged": "Red Spotlight",
         "cast": "HA",
         "considered": "BA",
         "multipliers": [
@@ -15838,6 +15837,7 @@
       },
       "6": {
         "name": "Energized Pounce",
+        "tagged": "Yellow Spotlight",
         "cast": "RS",
         "considered": "BA",
         "multipliers": [
@@ -15870,6 +15870,7 @@
       },
       "7": {
         "name": "Energized Rebound",
+        "tagged": "Red Spotlight",
         "cast": "RS",
         "considered": "BA",
         "multipliers": [
@@ -15928,11 +15929,6 @@
             ]
           }
         ]
-      },
-      "9": {
-        "name": "Channeled Dash (1 second)",
-        "cast": "DA",
-        "considered": "DA"
       }
     },
     "IS": {

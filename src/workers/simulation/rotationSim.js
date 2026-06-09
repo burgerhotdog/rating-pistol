@@ -336,7 +336,7 @@ function hasAnyNegativeStatus(gameId, effectTrackers) {
   return Object.keys(statuses).some(name => hasEnemyStatus(name, effectTrackers) > 0);
 }
 
-// Core effect-application function. For a given action + trigger ('cast' or 'contact'),
+// Core effect-application function. For a given action + trigger ('cast' or 'hit'),
 // looks up registered effect keys, checks all conditions and cooldowns, then writes
 // updated stacks/timers into the relevant tracker maps. Returns the set of effectKeys
 // that were actually applied (used to drive combo proc processing).
@@ -676,7 +676,7 @@ function processTopLevelAction(action, ctx, onFootprint, defCache) {
   // ── Cast (t = 0) ───────────────────────────────────────────────────
   applyEffects({ ...ctx, action, trigger: 'cast', defCache });
 
-  // ── Pre-contact window (t = 0 → offset) ───────────────────────────
+  // ── Pre-hit window (t = 0 → offset) ───────────────────────────
   advanceEffects(effectTrackers, offset, offset);
   tickEnemyStatuses(gameId, effectTrackers, offset);
   processIntervalProcs(ctx, offset, 0, onFootprint, defCache);
@@ -694,9 +694,9 @@ function processTopLevelAction(action, ctx, onFootprint, defCache) {
     repeatCount: 1,
     defCache,
   }));
-  applyEffects({ ...ctx, action, trigger: 'contact', defCache });
+  applyEffects({ ...ctx, action, trigger: 'hit', defCache });
 
-  // ── Post-contact window (t = offset → end) ─────────────────────────
+  // ── Post-hit window (t = offset → end) ─────────────────────────
   // Contact effects are now in the tracker, so this one call handles them too
   advanceEffects(effectTrackers, 0, remaining);
   tickEnemyStatuses(gameId, effectTrackers, remaining);
@@ -713,7 +713,7 @@ function processProcAction(action, ctx, depth, onFootprint, repeatCount, applyTi
   if (depth >= MAX_PROC_DEPTH) return;
   applyEffects({ ...ctx, action, times: applyTimes, trigger: 'cast', defCache });
   onFootprint?.(buildFootprint({ ...ctx, action, repeatCount, defCache }));
-  applyEffects({ ...ctx, action, times: applyTimes, trigger: 'contact', defCache });
+  applyEffects({ ...ctx, action, times: applyTimes, trigger: 'hit', defCache });
   processFollowUpProcs(action, ctx, depth, onFootprint, defCache);
 }
 
