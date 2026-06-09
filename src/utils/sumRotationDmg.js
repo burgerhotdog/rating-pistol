@@ -1,9 +1,18 @@
-export function sumRotationDmg(dmg, filters = {}) {
-  return Object.entries(dmg).reduce((acc, [actionKey, { damage }]) => {
-    const [ownerId, skillId, actionId] = actionKey.split('-');
-    if (filters.ownerId && filters.ownerId !== ownerId) return acc;
-    if (filters.skillId && filters.skillId !== skillId) return acc;
-    if (filters.actionId && filters.actionId !== actionId) return acc;
-    return acc + damage;
-  }, 0);
+export function sumRotationDmg(summary, filters = {}) {
+  const { ownerId } = filters;
+  const { byMember, other } = summary;
+  const result = {};
+
+  for (const [memberId, actionMap] of Object.entries(byMember)) {
+    if (ownerId && ownerId !== memberId) continue;
+
+    for (const [shortKey, actionSummary] of Object.entries(actionMap)) {
+      for (const [key, value] of Object.entries(actionSummary)) {
+        result[key] ??= 0;
+        result[key] += value;
+      }
+    }
+  }
+
+  return result.damage ?? 0;
 }

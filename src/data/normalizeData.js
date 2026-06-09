@@ -1,57 +1,102 @@
 import { toArray } from '@/utils';
 
 const TRIGGERS = ['apply', 'use', 'remove'];
-const FILTERS = ['Type', 'Cast', 'Considered', 'Action'];
-const ACTIONS = ['followUp', 'interval'];
+const FILTERS = ['Action', 'Type', 'Tagged', 'Cast', 'Considered'];
+
+const CAST_DURATION_MAP = {
+  BA: 750,
+  HA: 1000,
+  MA: 1000,
+  DC: 1500,
+  RS: 1250,
+  RL: 500,
+  IS: 1000,
+};
 
 const normalizeActionKey = (charId, shortKey) => {
   if (shortKey.split('-').length === 3) return shortKey;
   return `${charId}-${shortKey}`;
 };
 
-const normalizeEffect = (rawEffect, charId = null) => {
-  const resolved = { ...rawEffect };
+const normalizeInlineAction = (action, element = 'PHYSICAL') => {
+  const resolved = {
+    ...action,
+    tagged: toArray(action.tagged),
+    cast: toArray(action.cast),
+    considered: toArray(action.considered),
+    multipliers: toArray(action.multipliers),
+  };
 
-  resolved.rank = rawEffect.rank ?? 0;
-  resolved.chance = rawEffect.chance ?? 1;
-  resolved.applyTo = rawEffect.applyTo ?? 'self';
-  resolved.applyWhen = rawEffect.applyWhen;
-  resolved.applyCooldown = rawEffect.applyCooldown ?? 0;
-  resolved.duration = rawEffect.duration ?? Infinity;
-  resolved.maxUses = rawEffect.maxUses ?? Infinity;
-  resolved.maxStacks = rawEffect.maxStacks ?? 1;
+  resolved.type ??= 'damage';
+  resolved.times ??= 1;
+
+  if (action.multipliers) resolved.attr ??= 'ATK';
+  if (!action.cast || ['OS', 'CA'].some(c => resolved.cast.includes(c))) {
+    resolved.duration ??= 0;
+  }
+  resolved.duration ??= 750;
+  resolved.offset ??= resolved.duration * 0.75;
+
+  if (resolved.type === 'damage') resolved.element ??= element;
+
+  return resolved;
+};
+
+const normalizeEffect = (effect, charId = null, element = null) => {
+  const resolved = { ...effect };
+
+  resolved.rank ??= 0;
+  resolved.chance ??= 1;
+  resolved.applyTo ??= 'self';
+
+  if (!resolved.applyWhen) resolved.isPassive = true;
+
+  resolved.applyCooldown ??= 0;
+  resolved.duration ??= Infinity;
+  resolved.maxUses ??= Infinity;
+  resolved.maxStacks ??= 1;
   
+  // apply, use, remove
+  // Type, Cast, Considered, Action
   for (const TRIGGER of TRIGGERS) {
     for (const FILTER of FILTERS) {
-      const triggerOnFilter = `${TRIGGER}On${FILTER}`;
-      const rawValue = rawEffect[triggerOnFilter];
-      if (rawValue == null) continue;
+      const key = `${TRIGGER}On${FILTER}`;
+      const value = effect[key];
+      if (value == null) continue;
 
-      const resolvedValue = toArray(rawValue);
+      const resolvedValue = toArray(value);
+
       if (FILTER === 'Action') {
-        for (const [i, shortKey] of resolvedValue.entries()) {
-          resolvedValue[i] = normalizeActionKey(charId, shortKey);
+        for (const [index, shortKey] of resolvedValue.entries()) {
+          resolvedValue[index] = normalizeActionKey(charId, shortKey);
         }
       }
 
-      resolved[triggerOnFilter] = resolvedValue;
+      resolved[key] = resolvedValue;
     }
   }
 
-  for (const ACTION of ACTIONS) {
-    const field = `${ACTION}Action`;
-    const rawValue = rawEffect[field];
-    if (rawValue == null) continue;
-
-    const resolvedValue = toArray(rawValue);
-    resolved[field] = resolvedValue;
-
-    const fieldCooldown = `${ACTION}Cooldown`;
-    resolved[fieldCooldown] = rawEffect[fieldCooldown] ?? 0;
+  if (effect.followUpAction) {
+    resolved.followUpAction = toArray(effect.followUpAction).map(actionKeyOrObj => {
+      if (typeof actionKeyOrObj === 'string') {
+        return normalizeActionKey(charId, actionKeyOrObj);
+      }
+      return normalizeInlineAction(actionKeyOrObj, element);
+    });
+    resolved.followUpCooldown ??= 0;
+    resolved.times ??= 1;
   }
 
-  if (rawEffect.statMap) {
-    resolved.statMap = { ...rawEffect.statMap };
+  if (effect.intervalAction) {
+    resolved.intervalAction = toArray(effect.intervalAction).map(actionKeyOrObj => {
+      if (typeof actionKeyOrObj === 'string') {
+        return normalizeActionKey(charId, actionKeyOrObj);
+      }
+      return normalizeInlineAction(actionKeyOrObj, element);
+    });
+    resolved.intervalCooldown ??= 1000;
+    resolved.intervalOffset ??= 0;
+    resolved.times ??= 1;
   }
 
   return resolved;
@@ -61,11 +106,11 @@ export const normalizeCharacters = (gameId, rawJson) => {
   const resolved = {};
 
   for (const charEntry of rawJson) {
-    const { id } = charEntry;
+    const { id, element } = charEntry;
 
     const effects = [];
     for (const effect of toArray(charEntry.effects)) {
-      effects.push(normalizeEffect(effect, id));
+      effects.push(normalizeEffect(effect, id, element));
     }
 
     resolved[id] = { ...charEntry, effects };
@@ -85,53 +130,32 @@ export const normalizeActions = (gameId, characters, rawJson) => {
     for (const [skillId, skillRaw] of Object.entries(rawSkillTree)) {
       const skillDef = {};
 
-      for (const [actionId, actionRaw] of Object.entries(skillRaw)) {
-        const actionDef = {};
+      for (const [actionId, action] of Object.entries(skillRaw)) {
+        const resolvedAction = {
+          ...action,
+          key: `${id}-${skillId}-${actionId}`,
+          owner: id,
+          skill: skillId,
+          tagged: toArray(action.tagged),
+          cast: toArray(action.cast),
+          considered: toArray(action.considered),
+        };
 
-        actionDef.key = `${id}-${skillId}-${actionId}`;
-        actionDef.owner = id;
-        actionDef.skill = skillId;
+        resolvedAction.type ??= 'damage';
+        resolvedAction.times ??= 1;
 
-        actionDef.name = actionRaw.name;
-        actionDef.type = actionRaw.type ?? 'damage';
+        if (resolvedAction.type === 'damage') resolvedAction.element ??= charElement;
 
-        actionDef.cast = toArray(actionRaw.cast);
-        actionDef.considered = toArray(actionRaw.considered);
-        actionDef.times = actionRaw.times ?? 1;
-
-        if (actionDef.type === 'damage') {
-          const actionElement = actionRaw.element ?? charElement;
-
-          actionDef.element = actionElement;
-          actionDef.considered.push(actionElement);
-        }
-
-        if (actionRaw.duration != null) {
-          actionDef.duration = actionRaw.duration;
-        } else if (!actionDef.cast.length) {
-          actionDef.duration = 0;
-        } else if (['OS', 'CA'].some(type => actionDef.cast.includes(type))) {
-          actionDef.duration = 0;
+        if (!action.cast || ['OS', 'CA'].some(c => resolvedAction.cast.includes(c))) {
+          resolvedAction.duration ??= 0;
         } else {
-          actionDef.duration = 600;
+          resolvedAction.duration ??= CAST_DURATION_MAP[resolvedAction.cast[0]];
         }
+        resolvedAction.offset ??= resolvedAction.duration * 0.75;
 
-        if (actionRaw.offset != null) {
-          actionDef.offset = actionRaw.offset;
-        } else {
-          actionDef.offset = actionDef.duration / 2;
-        }
+        if (action.multipliers) resolvedAction.attr ??= 'ATK';
 
-        if (actionRaw.multipliers) {
-          actionDef.attr = actionRaw.attr ?? 'ATK';
-          actionDef.multipliers = actionRaw.multipliers;
-        }
-
-        if (actionRaw.tags) {
-          actionDef.tags = toArray(actionRaw.tags);
-        }
-
-        skillDef[actionId] = actionDef;
+        skillDef[actionId] = resolvedAction;
       }
 
       charDef[skillId] = skillDef;
@@ -151,7 +175,7 @@ export const normalizeWeapons = (gameId, rawJson) => {
 
     const effects = [];
     for (const effect of toArray(weapEntry.effects)) {
-      effects.push(normalizeEffect(effect, id));
+      effects.push(normalizeEffect(effect));
     }
 
     resolved[id] = { ...weapEntry, effects };
