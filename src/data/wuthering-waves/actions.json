@@ -18970,7 +18970,7 @@
       },
       "2": {
         "name": "Plunging Attack",
-        "cast": "RS",
+        "cast": "BA",
         "considered": "BA",
         "multipliers": [
           {
@@ -19058,7 +19058,7 @@
         ]
       },
       "2": {
-        "name": "To the Horizon: Healing",
+        "name": "To the Horizon: Healing (x3)",
         "type": "heal",
         "attr": "ER",
         "multipliers": [
@@ -19108,7 +19108,8 @@
               606
             ]
           }
-        ]
+        ],
+        "times": 3
       }
     },
     "FC": {
@@ -19218,10 +19219,8 @@
         ]
       },
       "2": {
-        "name": "Waves of Acclaims Healing",
+        "name": "Waves of Acclaims: Healing (x3)",
         "type": "heal",
-        "considered": "FC",
-        "duration": 0,
         "attr": "ER",
         "multipliers": [
           {
@@ -19246,9 +19245,7 @@
               985,
               1034,
               1083
-            ]
-          },
-          {
+            ],
             "mv": [
               109,
               122,
@@ -19272,13 +19269,12 @@
               379
             ]
           }
-        ]
+        ],
+        "times": 3
       },
       "3": {
-        "name": "Ocean Odyssey Shield",
+        "name": "Returned From Ashes: Shield",
         "type": "shield",
-        "considered": "FC",
-        "duration": 0,
         "attr": "ER",
         "multipliers": [
           {
@@ -19303,9 +19299,7 @@
               7884,
               8276,
               8668
-            ]
-          },
-          {
+            ],
             "mv": [
               900,
               1008,
@@ -19328,28 +19322,6 @@
               2979,
               3120
             ]
-          }
-        ]
-      },
-      "4": {
-        "name": "Sequence Node 2 Explosion",
-        "considered": "BA",
-        "duration": 0,
-        "multipliers": [
-          {
-            "mv": 4.4
-          }
-        ]
-      },
-      "5": {
-        "name": "Sequence Node 4 Healing",
-        "type": "heal",
-        "considered": "FC",
-        "duration": 0,
-        "attr": "ER",
-        "multipliers": [
-          {
-            "mv": 660
           }
         ]
       }
@@ -19642,7 +19614,8 @@
         ]
       },
       "7": {
-        "name": "Chamuel's Star: Dodge Counter",
+        "name": "Dodge Counter",
+        "tagged": "Chamuel's Star",
         "cast": "DC",
         "considered": [
           "BA",
@@ -19711,7 +19684,7 @@
         ]
       },
       "2": {
-        "name": "Ring of Mirrors: Refracted Holy Light",
+        "name": "Refracted Holy Light",
         "considered": "BA",
         "multipliers": [
           {
@@ -19742,7 +19715,8 @@
         ]
       },
       "3": {
-        "name": "Chamuel's Star: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Chamuel's Star",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -19773,7 +19747,8 @@
         ]
       },
       "4": {
-        "name": "Chamuel's Star: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Chamuel's Star",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -19805,7 +19780,8 @@
         ]
       },
       "5": {
-        "name": "Chamuel's Star: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Chamuel's Star",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -19840,6 +19816,39 @@
     "RL": {
       "1": {
         "name": "Dawn of Enlightenment",
+        "tagged": "Absolution",
+        "cast": "RL",
+        "considered": "RL",
+        "multipliers": [
+          {
+            "mv": [
+              2.02,
+              2.1857,
+              2.3513,
+              2.5832,
+              2.7489,
+              2.9394,
+              3.2044,
+              3.4694,
+              3.7344,
+              4.016,
+              4.3473,
+              4.6786,
+              5.0099,
+              5.3411,
+              5.6724,
+              6.0037,
+              6.335,
+              6.6663,
+              6.9975,
+              7.3288
+            ]
+          }
+        ]
+      },
+      "2": {
+        "name": "Dawn of Enlightenment",
+        "tagged": "Confession",
         "cast": "RL",
         "considered": "RL",
         "multipliers": [
@@ -19935,6 +19944,40 @@
       },
       "3": {
         "name": "Starflash",
+        "tagged": "Absolution",
+        "cast": "HA",
+        "considered": "HA",
+        "multipliers": [
+          {
+            "mv": [
+              0.4159,
+              0.45,
+              0.4841,
+              0.5319,
+              0.566,
+              0.6052,
+              0.6598,
+              0.7143,
+              0.7689,
+              0.8269,
+              0.8951,
+              0.9633,
+              1.0315,
+              1.0997,
+              1.1679,
+              1.2361,
+              1.3043,
+              1.3725,
+              1.4407,
+              1.5089
+            ],
+            "times": 3
+          }
+        ]
+      },
+      "4": {
+        "name": "Starflash",
+        "tagged": "Confession",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -20001,11 +20044,13 @@
     },
     "OS": {
       "1": {
-        "name": "Attentive Heart (Absolution)",
+        "name": "Attentive Heart",
+        "tagged": "Absolution",
         "cast": "OS"
       },
       "2": {
-        "name": "Attentive Heart (Confession)",
+        "name": "Attentive Heart",
+        "tagged": "Confession",
         "cast": "OS"
       }
     }
