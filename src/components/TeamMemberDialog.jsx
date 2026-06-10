@@ -39,7 +39,7 @@ import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CHARACTER, ACTION, WEAPON, SET, MISC } from '@/data';
-import { getMember, formatRotation, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
+import { getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
@@ -1141,7 +1141,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             gameId={gameId}
             characterId={draft.memberId}
             rotation={draft.rotation}
-            onChange={(rotation) => setDraft(prev => ({ ...prev, rotation: formatRotation(draft.memberId, rotation) }))}
+            onChange={(rotation) => setDraft(prev => ({ ...prev, rotation }))}
           />
         </DialogContent>
 

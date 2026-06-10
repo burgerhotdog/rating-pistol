@@ -17096,8 +17096,11 @@
       },
       "9": {
         "name": "Customary Greetings",
-        "cast": "BA",
-        "considered": "BA",
+        "cast": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -17378,6 +17381,7 @@
       },
       "2": {
         "name": "Death Knell",
+        "tagged": "Twilight Tango",
         "cast": "RL",
         "considered": "RS",
         "multipliers": [
@@ -17434,6 +17438,7 @@
       },
       "3": {
         "name": "Fatal Finale",
+        "tagged": "Twilight Tango",
         "cast": "RL",
         "considered": "RS",
         "multipliers": [
@@ -18001,15 +18006,6 @@
               6.2354,
               6.5306
             ]
-          }
-        ]
-      },
-      "4": {
-        "name": "Super Attractive Magic Box",
-        "considered": "ES",
-        "multipliers": [
-          {
-            "flat": 100
           }
         ]
       }

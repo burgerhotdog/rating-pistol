@@ -1,5 +1,4 @@
 import { CHARACTER } from '@/data';
-import { formatRotation } from '@/utils/formatRotation';
 import { getDefaultCharacterRank, getDefaultWeaponRank } from '@/utils/getDefaultRanks';
 
 export function getMember(gameId, characterId) {
@@ -14,7 +13,7 @@ export function getMember(gameId, characterId) {
     weaponId,
     weaponRank: weaponId ? getDefaultWeaponRank(gameId, weaponId) : null,
     setCounts: data.defaults?.setCounts ?? {},
-    rotation: formatRotation(characterId, data.defaults?.rotation ?? []),
+    rotation: data.defaults?.rotation ?? [],
     useUserBuild: false,
   };
 }

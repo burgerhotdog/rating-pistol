@@ -187,7 +187,7 @@ const compileEffects = (gameId, member) => {
         }
       }
     } else {
-      passive[resolved.applyTo] ??= {};
+      passive[resolved.applyTo] ??= [];
       passive[resolved.applyTo].push(resolved);
     }
 
