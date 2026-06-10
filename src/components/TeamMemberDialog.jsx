@@ -537,19 +537,21 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
 
 const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
-  const skillTree = ACTION[gameId][characterId];
+  const actionMap = ACTION[gameId][characterId];
 
   const filteredTree = useMemo(() => {
     const lower = search.toLowerCase();
     const result = {};
 
-    for (const [skillId, skillActionMap] of Object.entries(skillTree)) {
-      const skillActions = Object.values(skillActionMap);
-      result[skillId] = skillActions.filter(({ name }) => name.toLowerCase().includes(lower));
+    for (const key in actionMap) {
+      const action = actionMap[key];
+      if (action.name.toLowerCase().includes(lower)) {
+        (result[action.skill] ??= []).push(action);
+      }
     }
 
     return result;
-  }, [skillTree, search]);
+  }, [search, actionMap]);
 
   const handleSelect = (actionKey) => {
     onSelect(actionKey);
@@ -737,7 +739,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
 
 // ─── Rotation drag-and-drop helpers ────────────────────────────────────────
 
-function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove }) {
+function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLabels, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
   const style = {
@@ -745,8 +747,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
     transition,
   };
 
-  const [ownerId, skillId, actionId] = actionKey.split('-');
-  const { cast, name, tagged } = ACTION[gameId][ownerId][skillId][actionId];
+  const { cast, name, tagged } = ACTION[gameId][characterId][actionKey];
 
   return (
     <Box
@@ -903,6 +904,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
                   key={sortableIds[index]}
                   id={sortableIds[index]}
                   actionKey={actionKey}
+                  characterId={characterId}
                   gameId={gameId}
                   skillTypeLabels={skillTypeLabels}
                   onRemove={() => removeSkill(index)}

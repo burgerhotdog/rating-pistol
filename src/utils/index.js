@@ -7,6 +7,6 @@ export * from './getSetCounts';
 export * from './sumRotationDmg';
 export * from './formatRotation';
 export * from './toArray';
-export * from './resolveRankedValue';
+export * from './resolveRanked';
 export * from './getDefaultRanks';
 export * from './applyStoredBuild';

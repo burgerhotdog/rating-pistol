@@ -10,11 +10,10 @@ function sumRotationTime(gameId, team) {
   let total = 0;
 
   for (const member of team) {
-    const { rotation = [] } = member;
+    const { memberId, rotation = [] } = member;
 
     for (const actionKey of rotation) {
-      const [ownerId, skillId, actionId] = actionKey.split('-');
-      const { duration } = ACTION[gameId][ownerId][skillId][actionId];
+      const { duration } = ACTION[gameId][memberId][actionKey];
 
       total += duration;
     }
@@ -23,17 +22,15 @@ function sumRotationTime(gameId, team) {
   return total;
 }
 
-function sumMemberRotationTime(gameId, team, memberId) {
+function sumMemberRotationTime(gameId, team, filterId) {
   let total = 0;
 
   for (const member of team) {
-    const { rotation = [] } = member;
+    const { memberId, rotation = [] } = member;
+    if (memberId !== filterId) continue;
 
     for (const actionKey of rotation) {
-      const [ownerId, skillId, actionId] = actionKey.split('-');
-      if (ownerId !== memberId) continue;
-
-      const { duration } = ACTION[gameId][ownerId][skillId][actionId];
+      const { duration } = ACTION[gameId][memberId][actionKey];
       total += duration;
     }
   }

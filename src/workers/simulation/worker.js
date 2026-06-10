@@ -1,7 +1,7 @@
 import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
 import { findBenchmarkWeek, getAverageScores, findRelativeError} from './helpers';
 import { compileRotation, evaluateRotation } from './rotationSim';
-import { precomputeActions, precomputeEffects } from './precomputeDefinitions';
+import { compileCache } from './cache';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
@@ -11,14 +11,14 @@ const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
-function simulateCharacter({ gameId, characterId, build, team, setIdList, defCache }) {
+function simulateCharacter({ gameId, characterId, build, team, setIdList, cache }) {
   const match = CHARACTER[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build));
   });
 
   // Compile the rotation to enable fast computations across all trials and weeks
-  const compiledRotation = compileRotation(gameId, team, characterId, defCache);
+  const compiledRotation = compileRotation(gameId, team, characterId, cache);
 
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) {
@@ -97,16 +97,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, defCac
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, team } = data;
 
-  // Pre-compute action and effect definitions
-  const defCache = {};
-  for (const member of team) {
-    const { memberId, rank } = member;
-    if (!memberId) continue;
-
-    const action = precomputeActions(gameId, memberId, rank);
-    const effect = precomputeEffects(gameId, member);
-    defCache[memberId] = { action, effect };
-  }
+  const cache = compileCache(gameId, team);
 
   const { NUM_MAINSTATS } = MISC[gameId];
   const setIdList = build.equipList.map(equip => equip?.setId);
@@ -135,7 +126,7 @@ self.onmessage = ({ data }) => {
       build: memberBuild,
       team,
       setIdList: memberSetIdList,
-      defCache,
+      cache,
     });
     
     const finalStats = {};
@@ -160,7 +151,7 @@ self.onmessage = ({ data }) => {
       return { ...member, build: { weaponId: member.weaponId, statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } };
     }),
     setIdList,
-    defCache,
+    cache,
   });
 
   const { trials, preferredMainStats, compiledRotation, benchmarkWeek: lastBenchmarkWeek, weeklyScores } = currentResult;

@@ -3,7 +3,7 @@ import { Box, Card, Paper, Tooltip as MuiTooltip, Typography } from '@mui/materi
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
-import { CHARACTER, ACTION, MISC } from '@/data';
+import { CHARACTER, MISC } from '@/data';
 
 const renderLabel = ({ percent }) => {
   if (percent < 0.05) return null;

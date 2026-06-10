@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useBuild } from '@/contexts';
-import { CHARACTER, ACTION, WEAPON } from '@/data';
+import { CHARACTER, WEAPON } from '@/data';
 
 function validatePayload({ gameId, characterId, build, team }) {
   // gameId
@@ -15,8 +15,6 @@ function validatePayload({ gameId, characterId, build, team }) {
   if (!characterStats) return `missing "stats" for characterId "${characterId}"`;
   const { BASE_HP, BASE_ATK, BASE_DEF } = characterStats;
   if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for characterId "${characterId}"`;
-  const characterMvs = ACTION[gameId][characterId];
-  if (!characterMvs) return `missing "mvs" for characterId "${characterId}"`;
 
   // build
   if (!build) return 'build is undefined';
@@ -42,7 +40,6 @@ function validatePayload({ gameId, characterId, build, team }) {
     if (!stats) return `missing "stats" for memberId "${memberId}"`;
     const { BASE_HP, BASE_ATK, BASE_DEF } = stats;
     if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for memberId "${memberId}"`;
-    if (!ACTION[gameId][memberId]) return `missing "mvs" for memberId "${memberId}"`;
 
     if (!weaponId) return `team member "${name}" contains undefined weaponId`;
     if (!setCounts) return `team member "${name}" contains undefined setCounts`;

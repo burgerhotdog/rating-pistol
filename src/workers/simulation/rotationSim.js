@@ -36,7 +36,7 @@ const resolveVariableStatMap = (variableStatMap = {}, sourceStatMap = {}) => {
  *   the footprint stores enough data for `evaluateRotationSummary` to replay
  *   the damage math cheaply.
  */
-const buildFootprint = ({
+const buildFootprint = (ctx, {
   gameId,
   action,
   effectTrackers,
@@ -44,32 +44,20 @@ const buildFootprint = ({
   memberMap,
   characterId,
   repeatCount = 1,
-  defCache,
 }) => {
-  const {
-    owner: actionOwner,
-    element,
-    type,
-    considered,
-    attr,
-    sumMv,
-    sumTimes,
-    sumFlat,
-    times = 1,
-  } = action;
+  const { cache } = ctx;
 
-  // Base shape
   const footprint = {
     actionKey: action.key,
-    owner: actionOwner,
-    type,
-    element,
-    attr,
-    sumFlat,
-    sumMv,
-    sumTimes,
-    times,
-    considered,
+    owner: action.owner,
+    type: action.type,
+    element: action.element,
+    attr: action.attr,
+    sumFlat: action.sumFlat,
+    sumMv: action.sumMv,
+    sumTimes: action.sumTimes,
+    times: action.times,
+    considered: action.considered,
     repeatCount,
     fixedDamage: null,
     fixedHealing: null,
@@ -83,14 +71,31 @@ const buildFootprint = ({
   };
 
   // This footprint does nothing
-  if (type === 'shield' || type === 'buff' || (!sumFlat && !sumMv)) {
+  if (action.type === 'shield' || (!action.sumFlat && !action.sumMv)) {
     return footprint;
   }
 
   // Build enemy stat map snapshot
   const enemyStatMap = {};
-  for (const { stacks, effectDef } of Object.values(effectTrackers.enemy)) {
-    const { statMap } = effectDef;
+
+  // Passive effects
+  for (const member in cache.link) {
+    const { passive } = cache.link[member];
+
+    for (const effect of passive.enemy) {
+      const { statMap, chance } = effect;
+      if (!statMap) continue;
+
+      for (const stat in statMap) {
+        enemyStatMap[stat] ??= 0;
+        enemyStatMap[stat] += statMap[stat] * chance;
+      }
+    }
+  }
+
+  // Active effects
+  for (const { stacks, effect } of Object.values(effectTrackers.enemy)) {
+    const { statMap } = effect;
     if (!statMap) continue;
 
     for (const [stat, value] of Object.entries(statMap)) {
@@ -108,17 +113,14 @@ const buildFootprint = ({
   const fixedVariableContribs = {};
   const charVariableEffectSpecs = [];
 
-  // Include passive effects from the owner's own definitions plus all active tracker maps
-  const trackersToEval = [
-    ...Object.entries(defCache[actionOwner].effect.effectDefinitions)
-      .filter(([, { isPassive }]) => isPassive)
-      .map(([key, effectDef]) => ([key, { effectDef }])),
-    ...Object.entries(effectTrackers.team),
-    ...Object.entries(activeId === actionOwner ? effectTrackers.active : effectTrackers.inactive),
-    ...Object.entries(effectTrackers.byMember[actionOwner]),
+  const effectsToEval = [
+    ...cache.link[action.owner].passive.self.map(effect => ({ effect })),
+    ...Object.values(effectTrackers.team),
+    ...Object.values(activeId === action.owner ? effectTrackers.active : effectTrackers.inactive),
+    ...Object.values(effectTrackers.byMember[action.owner]),
   ];
 
-  for (const [effectKey, { stacks = 1, effectDef }] of trackersToEval) {
+  for (const { stacks = 1, effect } of effectsToEval) {
     const {
       useOnAction,
       useOnType,
@@ -128,7 +130,7 @@ const buildFootprint = ({
       chance = 1,
       statMap,
       variableStatMap,
-    } = effectDef;
+    } = effect;
 
     if (useOnAction && !useOnAction.includes(action.key)) continue;
     if (useOnType && !useOnType.includes(action.type)) continue;
@@ -136,7 +138,6 @@ const buildFootprint = ({
     if (useOnCast && !action.cast.some(c => useOnCast.includes(c))) continue;
     if (useOnConsidered && !action.considered.some(c => useOnConsidered.includes(c))) continue;
 
-    const effectOwner = effectKey.split('-')[0];
     const effectScale = chance * stacks;
 
     if (statMap) {
@@ -147,12 +148,12 @@ const buildFootprint = ({
     }
 
     if (variableStatMap) {
-      if (effectOwner === characterId) {
+      if (effect.owner === characterId) {
         // Must be re-evaluated per artifact — record the spec
         charVariableEffectSpecs.push({ variableStatMap, stacks, chance });
       } else {
         // Teammate's variable effect: owner's statMap is fixed, pre-resolve now
-        const ownerCurrentStatMap = getCurrentStatMap(effectOwner, effectTrackers, memberMap, defCache, activeId);
+        const ownerCurrentStatMap = getCurrentStatMap(effect.owner, effectTrackers, memberMap, activeId);
         const resolvedStatMap = resolveVariableStatMap(variableStatMap, ownerCurrentStatMap);
         for (const [stat, value] of Object.entries(resolvedStatMap)) {
           fixedVariableContribs[stat] ??= 0;
@@ -175,8 +176,8 @@ const buildFootprint = ({
     const charConstant = {};
 
     function addConstantFromMap(trackerMap) {
-      for (const { stacks, effectDef } of Object.values(trackerMap)) {
-        const { statMap, chance = 1 } = effectDef;
+      for (const { stacks, effect } of Object.values(trackerMap)) {
+        const { statMap, chance = 1 } = effect;
         if (!statMap) continue;
 
         for (const [statId, value] of Object.entries(statMap)) {
@@ -192,9 +193,9 @@ const buildFootprint = ({
 
     // Also include passive effects (weapon passives, innate buffs) which never
     // enter tracker maps but do contribute to the character's constant stat base.
-    for (const effectDef of Object.values(defCache[characterId].effect.effectDefinitions)) {
-      if (!effectDef.isPassive || !effectDef.statMap) continue;
-      const { statMap, chance = 1 } = effectDef;
+    for (const effect of Object.values(cache.effect[characterId])) {
+      if (!effect.isPassive || !effect.statMap) continue;
+      const { statMap, chance = 1 } = effect;
       for (const [statId, value] of Object.entries(statMap)) {
         charConstant[statId] = (charConstant[statId] ?? 0) + value * chance;
       }
@@ -205,24 +206,24 @@ const buildFootprint = ({
 
   // For teammate actions affected by charVariableEffectSpecs, store the owner's
   // base statMap so evaluateRotationSummary can reconstruct statMapWithEffects.
-  if (actionOwner !== characterId && charVariableEffectSpecs.length > 0) {
-    footprint.ownerBaseStatMap = memberMap[actionOwner].statMap;
+  if (action.owner !== characterId && charVariableEffectSpecs.length > 0) {
+    footprint.ownerBaseStatMap = memberMap[action.owner].statMap;
   }
 
   // ── Pre-compute fixed damage for teammate actions ────────────────────
-  if (actionOwner !== characterId && charVariableEffectSpecs.length === 0) {
-    const ownerStatMap = memberMap[actionOwner].statMap;
+  if (action.owner !== characterId && charVariableEffectSpecs.length === 0) {
+    const ownerStatMap = memberMap[action.owner].statMap;
     const effectStatMap = mergeStatMaps(constantEffectContribs, fixedVariableContribs);
     const statMapWithEffects = mergeStatMaps(ownerStatMap, effectStatMap);
-    const baseValue = computeBase(statMapWithEffects, attr, sumMv, sumTimes, sumFlat);
+    const baseValue = computeBase(statMapWithEffects, action.attr, action.sumMv, action.sumTimes, action.sumFlat);
 
-    if (type === 'heal') {
+    if (action.type === 'heal') {
       const healingBonus = computeTotalStat('HB', statMapWithEffects);
-      footprint.fixedHealing = baseValue * (1 + healingBonus) * times * repeatCount;
+      footprint.fixedHealing = baseValue * (1 + healingBonus) * action.times * repeatCount;
     } else {
-      const bonuses = computeBonuses(statMapWithEffects, considered, element, enemyStatMap);
-      const reductions = computeReductions(gameId, statMapWithEffects, element, enemyStatMap);
-      footprint.fixedDamage = baseValue * bonuses * reductions * times * repeatCount;
+      const bonuses = computeBonuses(statMapWithEffects, action.considered, action.element, enemyStatMap);
+      const reductions = computeReductions(gameId, statMapWithEffects, action.element, enemyStatMap);
+      footprint.fixedDamage = baseValue * bonuses * reductions * action.times * repeatCount;
     }
   }
 
@@ -283,13 +284,13 @@ const computeReductions = (gameId, statMap, element, enemyStatMap) => {
 // Computes a member's effective stat map at the current moment by layering active
 // effects on top of their base compiled stat map. Two-pass: constant effects first
 // (so variable effects can reference the updated values in pass 2).
-const getCurrentStatMap = (memberId, effectTrackers, memberMap, defCache, activeId) => {
+const getCurrentStatMap = (memberId, effectTrackers, memberMap, activeId) => {
   const baseStats = { ...memberMap[memberId].statMap };
   const activeTracker = activeId === memberId ? effectTrackers.active : effectTrackers.inactive;
 
   function addConstantEffectStats(trackerMap) {
-    for (const { stacks, effectDef } of Object.values(trackerMap)) {
-      const { statMap } = effectDef;
+    for (const { stacks, effect } of Object.values(trackerMap)) {
+      const { statMap } = effect;
       if (!statMap) continue;
 
       for (const [stat, value] of Object.entries(statMap)) {
@@ -304,8 +305,8 @@ const getCurrentStatMap = (memberId, effectTrackers, memberMap, defCache, active
   addConstantEffectStats(activeTracker);
 
   function addVariableEffectStats(trackerMap) {
-    for (const { stacks, effectDef } of Object.values(trackerMap)) {
-      const { variableStatMap } = effectDef;
+    for (const { stacks, effect } of Object.values(trackerMap)) {
+      const { variableStatMap } = effect;
       if (!variableStatMap) continue;
 
       const resolvedStatMap = resolveVariableStatMap(variableStatMap, baseStats);
@@ -337,21 +338,18 @@ function hasAnyNegativeStatus(gameId, effectTrackers) {
 }
 
 // Core effect-application function. For a given action + trigger ('cast' or 'hit'),
-// looks up registered effect keys, checks all conditions and cooldowns, then writes
-// updated stacks/timers into the relevant tracker maps. Returns the set of effectKeys
-// that were actually applied (used to drive combo proc processing).
-function applyEffects({ gameId, action, memberMap, effectTrackers, applyCooldownMap = {}, times = 1, trigger = 'cast', defCache }) {
-  const { owner: actionOwner, key, input } = action;
+// checks all conditions and cooldowns, then writes updated stacks/timers into the relevant tracker maps.
+function applyEffects(ctx, { action, memberMap, effectTrackers, applyCooldownMap = {}, times = 1, trigger = 'cast' }) {
+  const { gameId, cache } = ctx;
 
-  if (trigger === 'cast' && input) {
+  if (trigger === 'cast' && action.cast) {
     const removeFromMap = (trackerMap) => {
-      for (const [effectKey, { effectDef }] of Object.entries(trackerMap)) {
-        const effectOwner = effectKey.split('-')[0];
-        if (effectOwner !== actionOwner) continue;
+      for (const { effect } of Object.values(trackerMap)) {
+        if (effect.owner !== action.owner) continue;
 
-        if (effectDef.removeOnCast) {
-          if (effectDef.removeOnCast.includes(input)) {
-            delete trackerMap[effectKey];
+        if (effect.removeOnCast) {
+          if (effect.removeOnCast.includes(action.cast)) {
+            delete trackerMap[effect.id];
           }
         }
       }
@@ -365,11 +363,7 @@ function applyEffects({ gameId, action, memberMap, effectTrackers, applyCooldown
     }
   }
 
-  const effectsByAction = trigger === 'hit'
-    ? defCache[actionOwner].effect.hitEffectsByAction
-    : defCache[actionOwner].effect.castEffectsByAction;
-
-  const triggeredEffects = new Set(effectsByAction[key] ?? []);
+  const triggeredEffects = new Set(cache.link[action.owner].active[action.key]?.[trigger] ?? []);
   if (triggeredEffects.size === 0) return;
 
   const memberIds = Object.keys(effectTrackers.byMember);
@@ -377,32 +371,31 @@ function applyEffects({ gameId, action, memberMap, effectTrackers, applyCooldown
 
   const validTargetsById = Object.fromEntries(
     memberIds.map(id => {
-      const targets = [id === actionOwner ? 'self' : 'ally'];
+      const targets = [id === action.owner ? 'self' : 'ally'];
       if (memberMap[id].index === 0) targets.push('first');
-      if ((memberMap[id].index + 1) % teamSize === memberMap[actionOwner].index) targets.push('next');
+      if ((memberMap[id].index + 1) % teamSize === memberMap[action.owner].index) targets.push('next');
       return [id, targets];
     })
   );
 
   const inflictedStatuses = new Set();
 
-  function applyEffect(tracker, effectKey) {
-    const effectDef = defCache[actionOwner].effect.effectDefinitions[effectKey];
-    const { intervalCooldown, intervalOffset, duration, maxUses, maxStacks } = effectDef;
-    const currentStacks = tracker[effectKey]?.stacks ?? 0;
+  function applyEffect(tracker, effect) {
+    const { intervalCooldown, intervalOffset, duration, maxUses, maxStacks } = effect;
+    const currentStacks = tracker[effect.id]?.stacks ?? 0;
 
-    tracker[effectKey] = {
+    tracker[effect.id] = {
       stacks: Math.min(currentStacks + times, maxStacks),
       timeRemaining: duration,
       usesRemaining: maxUses,
-      ...(intervalCooldown ? { procTimer: tracker[effectKey]?.procTimer ?? intervalOffset } : {}),
-      effectDef,
+      ...(intervalCooldown ? { procTimer: tracker[effect.id]?.procTimer ?? intervalOffset } : {}),
+      effect,
     };
   }
 
   for (const effect of triggeredEffects) {
-    const { applyTo, effectKey, applyCooldown, applyIfEnemyStatus, applyIfInflict } = defCache[actionOwner].effect.effectDefinitions[effect];
-    if (applyCooldownMap[effectKey]) continue;
+    const { applyTo, applyCooldown, applyIfEnemyStatus, applyIfInflict } = effect;
+    if (applyCooldownMap[effect.id]) continue;
     if (applyIfInflict) continue;
 
     if (applyIfEnemyStatus) {
@@ -414,12 +407,12 @@ function applyEffects({ gameId, action, memberMap, effectTrackers, applyCooldown
 
     if (applyTo === 'team' || applyTo === 'active' || applyTo === 'inactive') {
       applyEffect(effectTrackers[applyTo], effect);
-      if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
+      if (applyCooldown > 0) applyCooldownMap[effect.id] = applyCooldown;
       continue;
     }
 
     if (applyTo === 'enemy') {
-      const { statMap: effectStatMap = {}, statusMap = {} } = defCache[actionOwner].effect.effectDefinitions[effect];
+      const { statMap: effectStatMap = {}, statusMap = {} } = effect;
       if (Object.keys(effectStatMap).length > 0) applyEffect(effectTrackers.enemy, effect);
 
       for (const [statusName, stacksToAdd] of Object.entries(statusMap)) {
@@ -440,38 +433,38 @@ function applyEffects({ gameId, action, memberMap, effectTrackers, applyCooldown
         if ((effectTrackers.enemyStatuses[statusName]?.stacks ?? 0) > stacksBefore) inflictedStatuses.add(statusName);
       }
 
-      if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
+      if (applyCooldown > 0) applyCooldownMap[effect.id] = applyCooldown;
       continue;
     }
 
     for (const [id, validTargets] of Object.entries(validTargetsById)) {
       if (validTargets.includes(applyTo)) applyEffect(effectTrackers.byMember[id], effect);
     }
-    if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
+    if (applyCooldown > 0) applyCooldownMap[effect.id] = applyCooldown;
   }
 
   for (const effect of triggeredEffects) {
-    const { applyTo, effectKey, applyCooldown, applyIfInflict } = defCache[actionOwner].effect.effectDefinitions[effect];
+    const { applyTo, applyCooldown, applyIfInflict } = effect;
     if (!applyIfInflict || !inflictedStatuses.has(applyIfInflict)) continue;
-    if (applyCooldownMap[effectKey]) continue;
+    if (applyCooldownMap[effect.id]) continue;
 
     if (applyTo === 'team' || applyTo === 'active' || applyTo === 'inactive') {
       applyEffect(effectTrackers[applyTo], effect);
-      if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
+      if (applyCooldown > 0) applyCooldownMap[effect.id] = applyCooldown;
       continue;
     }
 
     if (applyTo === 'enemy') {
-      const { statMap: effectStatMap = {} } = defCache[actionOwner].effect.effectDefinitions[effect];
+      const { statMap: effectStatMap = {} } = effect;
       if (Object.keys(effectStatMap).length > 0) applyEffect(effectTrackers.enemy, effect);
-      if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
+      if (applyCooldown > 0) applyCooldownMap[effect.id] = applyCooldown;
       continue;
     }
 
     for (const [id, validTargets] of Object.entries(validTargetsById)) {
       if (validTargets.includes(applyTo)) applyEffect(effectTrackers.byMember[id], effect);
     }
-    if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
+    if (applyCooldown > 0) applyCooldownMap[effect.id] = applyCooldown;
   }
 }
 
@@ -479,12 +472,12 @@ function applyEffects({ gameId, action, memberMap, effectTrackers, applyCooldown
 // `offset` is used to check expiry (effects expiring before the action mid-point
 // are gone), while `duration` is the full advance applied to survivors.
 function advanceEffects(effectTrackers, offset, duration) {
-  function advanceMap(map) {
-    for (const [effectKey, effectData] of Object.entries(map)) {
-      if (effectData.timeRemaining - offset <= 0) {
-        delete map[effectKey];
+  function advanceMap(trackerMap) {
+    for (const [id, tracker] of Object.entries(trackerMap)) {
+      if (tracker.timeRemaining - offset <= 0) {
+        delete trackerMap[id];
       } else {
-        effectData.timeRemaining -= duration;
+        tracker.timeRemaining -= duration;
       }
     }
   }
@@ -534,8 +527,8 @@ function decayProcCounts(memberMap, effectTrackers, action) {
   const { team, active, inactive, enemy, byMember } = effectTrackers;
 
   function decayMap(trackerMap) {
-    for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
-      if (effectTracker.usesRemaining === Infinity) continue;
+    for (const [id, tracker] of Object.entries(trackerMap)) {
+      if (tracker.usesRemaining === Infinity) continue;
 
       const {
         useOnAction,
@@ -545,7 +538,7 @@ function decayProcCounts(memberMap, effectTrackers, action) {
         useOnConsidered,
         followUpAction,
         intervalAction,
-      } = effectTracker.effectDef;
+      } = tracker.effect;
 
       if (followUpAction || intervalAction) continue;
 
@@ -555,8 +548,8 @@ function decayProcCounts(memberMap, effectTrackers, action) {
       if (useOnCast && !action.cast.some(c => useOnCast.includes(c))) continue;
       if (useOnConsidered && !action.considered.some(c => useOnConsidered.includes(c))) continue;
 
-      effectTracker.usesRemaining -= 1;
-      if (effectTracker.usesRemaining <= 0) delete trackerMap[effectKey];
+      tracker.usesRemaining -= 1;
+      if (tracker.usesRemaining <= 0) delete trackerMap[id];
     }
   }
 
@@ -570,20 +563,18 @@ function decayProcCounts(memberMap, effectTrackers, action) {
 // Fires action-triggered followUp procs from all active tracker maps.
 // These are one-shot or limited-use procs that fire when a matching action occurs,
 // as opposed to interval procs which fire on a timer.
-function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
+function processFollowUpProcs(action, ctx, depth, onFootprint) {
   if (depth >= MAX_PROC_DEPTH) return;
-  const { effectTrackers, followUpCooldownMap, activeId } = ctx;
+  const { cache, effectTrackers, followUpCooldownMap, activeId } = ctx;
   const { byMember, team, active, inactive } = effectTrackers;
   const { key, owner, considered, cast, type } = action;
 
   function processTrackerMap(trackerMap) {
-    const entries = Object.entries(trackerMap);
-    for (const [effectKey, effectTracker] of entries) {
-      const { stacks, effectDef } = effectTracker;
-      const { followUpAction } = effectDef;
-      if (!followUpAction || followUpCooldownMap[effectKey]) continue;
+    for (const tracker of Object.values(trackerMap)) {
+      const { stacks, effect } = tracker;
+      if (!effect.followUpAction || followUpCooldownMap[effect.id]) continue;
 
-      const { useOnAction, useOnType, useOnTagged, useOnCast, useOnConsidered } = effectDef;
+      const { useOnAction, useOnType, useOnTagged, useOnCast, useOnConsidered } = effect;
       if (useOnAction && !useOnAction.includes(key)) continue;
       if (useOnType && !useOnType.includes(type)) continue;
       if (useOnTagged && !action.tagged.some(t => useOnTagged.includes(t))) continue;
@@ -591,9 +582,9 @@ function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
       if (useOnConsidered && !considered.some(c => useOnConsidered.includes(c))) continue;
 
       const procActions = [];
-      for (const action of followUpAction) {
+      for (const action of effect.followUpAction) {
         if (typeof action === 'string') {
-          const procAction = defCache[effectKey.split('-')[0]].action[action];
+          const procAction = cache.action[effect.owner][action];
           procActions.push(procAction);
         } else {
           procActions.push(action);
@@ -602,15 +593,15 @@ function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
 
       // Set cooldown BEFORE recursing so re-entrant calls to processFollowUpProcs
       // (from within the proc action itself) see it as blocked and skip.
-      if (effectDef.followUpCooldown) {
-        followUpCooldownMap[effectKey] = effectDef.followUpCooldown;
+      if (effect.followUpCooldown) {
+        followUpCooldownMap[effect.id] = effect.followUpCooldown;
       }
 
-      effectTracker.usesRemaining--;
-      if (effectTracker.usesRemaining <= 0) delete trackerMap[effectKey];
+      tracker.usesRemaining--;
+      if (tracker.usesRemaining <= 0) delete trackerMap[effect.id];
 
       for (const action of procActions) {
-        processAction(action, ctx, depth + 1, onFootprint, defCache, stacks * effectDef.times, effectDef.times);
+        processAction(action, ctx, depth + 1, onFootprint, stacks * effect.times, effect.times);
       }
     }
   }
@@ -623,24 +614,23 @@ function processFollowUpProcs(action, ctx, depth, onFootprint, defCache) {
 // Fires timer-based (interval) procs. Called once per rotation action with
 // the action's duration as `elapsed`. Effects fire repeatedly while their timer is <= 0,
 // re-arming after each fire by adding intervalCooldown back to the timer.
-function processIntervalProcs(ctx, elapsed, depth, onFootprint, defCache) {
+function processIntervalProcs(ctx, elapsed, depth, onFootprint) {
   if (depth >= MAX_PROC_DEPTH) return;
-  const { effectTrackers } = ctx;
+  const { cache, effectTrackers } = ctx;
   const { byMember, team } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
-    const entries = Object.entries(trackerMap);
-    for (const [effectKey, effectTracker] of entries) {
-      const { stacks, effectDef } = effectTracker;
-      const { intervalAction, intervalCooldown, times } = effectDef;
+    for (const tracker of Object.values(trackerMap)) {
+      const { stacks, effect } = tracker;
+      const { intervalAction, intervalCooldown, times } = effect;
       if (!intervalAction) continue;
 
-      effectTracker.procTimer -= elapsed;
-      while (effectTracker.procTimer <= 0) {
+      tracker.procTimer -= elapsed;
+      while (tracker.procTimer <= 0) {
         const procActions = [];
         for (const action of intervalAction) {
           if (typeof action === 'string') {
-            const procAction = defCache[effectKey.split('-')[0]].action[action];
+            const procAction = cache.action[effect.owner][action];
             procActions.push(procAction);
           } else {
             procActions.push(action);
@@ -648,16 +638,16 @@ function processIntervalProcs(ctx, elapsed, depth, onFootprint, defCache) {
         }
 
         for (const action of procActions) {
-          processAction(action, ctx, depth + 1, onFootprint, defCache, stacks * times, times);
+          processAction(action, ctx, depth + 1, onFootprint, stacks * times, times);
         }
 
-        effectTracker.usesRemaining--;
-        if (effectTracker.usesRemaining <= 0) {
-          delete trackerMap[effectKey];
+        tracker.usesRemaining--;
+        if (tracker.usesRemaining <= 0) {
+          delete trackerMap[effect.id];
           break;
         }
 
-        effectTracker.procTimer += intervalCooldown;
+        tracker.procTimer += intervalCooldown;
       }
     }
   }
@@ -668,23 +658,23 @@ function processIntervalProcs(ctx, elapsed, depth, onFootprint, defCache) {
   processTrackerMap(team);
 }
 
-function processTopLevelAction(action, ctx, onFootprint, defCache) {
+function processTopLevelAction(action, ctx, onFootprint) {
   const { gameId, memberMap, effectTrackers, applyCooldownMap, followUpCooldownMap, characterId } = ctx;
   const { duration, offset } = action;
   const remaining = duration - offset;
 
   // ── Cast (t = 0) ───────────────────────────────────────────────────
-  applyEffects({ ...ctx, action, trigger: 'cast', defCache });
+  applyEffects(ctx, { ...ctx, action, trigger: 'cast' });
 
   // ── Pre-hit window (t = 0 → offset) ───────────────────────────
   advanceEffects(effectTrackers, offset, offset);
   tickEnemyStatuses(gameId, effectTrackers, offset);
-  processIntervalProcs(ctx, offset, 0, onFootprint, defCache);
+  processIntervalProcs(ctx, offset, 0, onFootprint);
   tickProcCooldowns(followUpCooldownMap, offset);
   tickProcCooldowns(applyCooldownMap, offset);
 
   // ── Contact (t = offset) ───────────────────────────────────────────
-  onFootprint?.(buildFootprint({
+  onFootprint?.(buildFootprint(ctx, {
     gameId,
     action,
     effectTrackers,
@@ -692,38 +682,37 @@ function processTopLevelAction(action, ctx, onFootprint, defCache) {
     memberMap,
     characterId,
     repeatCount: 1,
-    defCache,
   }));
-  applyEffects({ ...ctx, action, trigger: 'hit', defCache });
+  applyEffects(ctx, { ...ctx, action, trigger: 'hit' });
 
   // ── Post-hit window (t = offset → end) ─────────────────────────
   // Contact effects are now in the tracker, so this one call handles them too
   advanceEffects(effectTrackers, 0, remaining);
   tickEnemyStatuses(gameId, effectTrackers, remaining);
-  processIntervalProcs(ctx, remaining, 0, onFootprint, defCache);
+  processIntervalProcs(ctx, remaining, 0, onFootprint);
   tickProcCooldowns(followUpCooldownMap, remaining);
   tickProcCooldowns(applyCooldownMap, remaining);
 
   // ── Follow-ups + cleanup ───────────────────────────────────────────
-  processFollowUpProcs(action, ctx, 0, onFootprint, defCache);
+  processFollowUpProcs(action, ctx, 0, onFootprint);
   decayProcCounts(memberMap, effectTrackers, action);
 }
 
-function processProcAction(action, ctx, depth, onFootprint, repeatCount, applyTimes, defCache) {
+function processProcAction(action, ctx, depth, onFootprint, repeatCount, applyTimes) {
   if (depth >= MAX_PROC_DEPTH) return;
-  applyEffects({ ...ctx, action, times: applyTimes, trigger: 'cast', defCache });
-  onFootprint?.(buildFootprint({ ...ctx, action, repeatCount, defCache }));
-  applyEffects({ ...ctx, action, times: applyTimes, trigger: 'hit', defCache });
-  processFollowUpProcs(action, ctx, depth, onFootprint, defCache);
+  applyEffects(ctx, { ...ctx, action, times: applyTimes, trigger: 'cast' });
+  onFootprint?.(buildFootprint(ctx, { ...ctx, action, repeatCount }));
+  applyEffects(ctx, { ...ctx, action, times: applyTimes, trigger: 'hit' });
+  processFollowUpProcs(action, ctx, depth, onFootprint);
 }
 
-function processAction(action, ctx, depth, onFootprint, defCache, repeatCount = 1, applyTimes = 1) {
+function processAction(action, ctx, depth, onFootprint, repeatCount = 1, applyTimes = 1) {
   if (depth >= MAX_PROC_DEPTH) return;
-  if (depth === 0) processTopLevelAction(action, ctx, onFootprint, defCache);
-  else processProcAction(action, ctx, depth, onFootprint, repeatCount, applyTimes, defCache);
+  if (depth === 0) processTopLevelAction(action, ctx, onFootprint);
+  else processProcAction(action, ctx, depth, onFootprint, repeatCount, applyTimes);
 }
 
-export const compileRotation = (gameId, rawTeam, characterId, defCache) => {
+export const compileRotation = (gameId, rawTeam, characterId, cache) => {
   const team = rawTeam.filter(m => m.memberId);
 
   const memberMap = {};
@@ -752,7 +741,16 @@ export const compileRotation = (gameId, rawTeam, characterId, defCache) => {
 
   // Shared context object threaded through all processAction calls. activeId is
   // mutated per rotation action to track which member is the current rotation actor.
-  const ctx = { gameId, memberMap, effectTrackers, applyCooldownMap, followUpCooldownMap, characterId, activeId: null };
+  const ctx = {
+    gameId,
+    cache,
+    memberMap,
+    effectTrackers,
+    applyCooldownMap,
+    followUpCooldownMap,
+    characterId,
+    activeId: null,
+  };
 
   // ── Priming pass ──────────────────────────────────────────────────────────
   // Replay the full rotation without recording footprints to warm up the effect
@@ -760,8 +758,8 @@ export const compileRotation = (gameId, rawTeam, characterId, defCache) => {
   for (const { memberId, rotation } of team.toReversed()) {
     for (const actionKey of rotation) {
       ctx.activeId = memberId;
-      const action = defCache[memberId].action[actionKey];
-      processAction(action, ctx, 0, null, defCache);
+      const action = cache.action[memberId][actionKey];
+      processAction(action, ctx, 0, null);
     }
   }
 
@@ -774,8 +772,8 @@ export const compileRotation = (gameId, rawTeam, characterId, defCache) => {
   for (const { memberId, rotation } of team.toReversed()) {
     for (const actionKey of rotation) {
       ctx.activeId = memberId;
-      const action = defCache[memberId].action[actionKey];
-      processAction(action, ctx, 0, fp => footprints.push(fp), defCache);
+      const action = cache.action[memberId][actionKey];
+      processAction(action, ctx, 0, fp => footprints.push(fp));
     }
   }
 

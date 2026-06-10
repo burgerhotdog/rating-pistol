@@ -41,7 +41,7 @@ const initMember = (gameId, memberPreset, builds) => {
   }
 
   if (memberPreset.rotation) {
-    member.rotation = formatRotation(member.memberId, memberPreset.rotation);
+    member.rotation = [...memberPreset.rotation];
   }
 
   const storedBuild = builds[member.memberId];

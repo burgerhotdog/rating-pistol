@@ -1,4 +1,4 @@
-import { normalizeCharacters, normalizeActions, normalizeWeapons, normalizeSets } from './normalizeData';
+import { normalizeCharacters, normalizeActions, normalizeWeapons, normalizeSets } from './normalize';
 
 const GI = 'genshin-impact';
 const HSR = 'honkai-star-rail';
@@ -36,10 +36,10 @@ const convert = (json) => {
 };
 
 export const CHARACTER = {
-  [GI]: normalizeCharacters(GI, GI_CHAR),
-  [HSR]: normalizeCharacters(HSR, HSR_CHAR),
-  [WW]: normalizeCharacters(WW, WW_CHAR),
-  [ZZZ]: normalizeCharacters(ZZZ, ZZZ_CHAR),
+  [GI]: normalizeCharacters(GI_CHAR),
+  [HSR]: normalizeCharacters(HSR_CHAR),
+  [WW]: normalizeCharacters(WW_CHAR),
+  [ZZZ]: normalizeCharacters(ZZZ_CHAR),
 };
 
 import WW_ACTIONS from './wuthering-waves/actions.json';
@@ -47,7 +47,7 @@ import WW_ACTIONS from './wuthering-waves/actions.json';
 export const ACTION = {
   [GI]: {},
   [HSR]: {},
-  [WW]: normalizeActions(WW, CHARACTER, WW_ACTIONS),
+  [WW]: normalizeActions(WW_ACTIONS, CHARACTER[WW]),
   [ZZZ]: {},
 };
 
@@ -58,7 +58,7 @@ import ZZZ_WEAP from './zenless-zone-zero/weapons.json';
 export const WEAPON = {
   [GI]: convert(GI_WEAP),
   [HSR]: convert(HSR_WEAP),
-  [WW]: normalizeWeapons(WW, WW_WEAP),
+  [WW]: normalizeWeapons(WW_WEAP),
   [ZZZ]: convert(ZZZ_WEAP),
 };
 
@@ -69,6 +69,6 @@ import ZZZ_SET from './zenless-zone-zero/sets.json';
 export const SET = {
   [GI]: convert(GI_SET),
   [HSR]: convert(HSR_SET),
-  [WW]: normalizeSets(WW, WW_SET),
+  [WW]: normalizeSets(WW_SET),
   [ZZZ]: convert(ZZZ_SET),
 };
