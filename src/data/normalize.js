@@ -66,6 +66,8 @@ const normalizeEffect = (effect, source) => {
     }
   }
 
+  resolved.useIfStatus &&= toArray(effect.useIfStatus);
+
   if (effect.followUpAction) {
     resolved.followUpAction = toArray(effect.followUpAction).map(keyOrObj => {
       if (typeof keyOrObj === 'string') return keyOrObj;

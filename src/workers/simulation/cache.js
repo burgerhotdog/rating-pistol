@@ -87,6 +87,11 @@ function applyRankModifier(resolved, modifier) {
       continue;
     }
 
+    if (key === 'statusMap') {
+      resolved.statusMap = mergeStatMaps(resolved.statusMap, modifier.statusMap);
+      continue;
+    }
+
     if (resolved[key] == null) {
       resolved[key] = modifier[key];
       continue;
@@ -134,7 +139,6 @@ const compileEffects = (gameId, member) => {
       resolved.statMap ??= mergeStatMaps(rawEffect.statMap, resolvedStatMap);
     }
 
-    resolved.statusMap ??= {};
     resolved.variableStatMap = mergeVariableStatMaps(rawEffect.variableStatMap);
     
     resolved.followUpAction &&= rawEffect.followUpAction.map(action => {

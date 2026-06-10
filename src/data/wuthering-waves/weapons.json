@@ -1713,7 +1713,7 @@
     "effects": {
       "applyWhen": "contact",
       "applyOnType": "damage",
-      "applyIfEnemyStatus": true,
+      "applyIfStatus": true,
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1737,7 +1737,7 @@
     "effects": {
       "applyWhen": "contact",
       "applyOnType": "damage",
-      "applyIfEnemyStatus": true,
+      "applyIfStatus": true,
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1795,7 +1795,7 @@
     "effects": {
       "applyWhen": "contact",
       "applyOnType": "damage",
-      "applyIfEnemyStatus": true,
+      "applyIfStatus": true,
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1853,7 +1853,7 @@
     "effects": {
       "applyWhen": "contact",
       "applyOnType": "damage",
-      "applyIfEnemyStatus": true,
+      "applyIfStatus": true,
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1897,7 +1897,7 @@
     "effects": {
       "applyWhen": "contact",
       "applyOnType": "damage",
-      "applyIfEnemyStatus": true,
+      "applyIfStatus": true,
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1963,7 +1963,7 @@
     "effects": {
       "applyWhen": "contact",
       "applyOnType": "damage",
-      "applyIfEnemyStatus": "FRAZZLE",
+      "applyIfStatus": "FRAZZLE",
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_SPECTRO": [
@@ -1996,7 +1996,7 @@
       {
         "applyWhen": "contact",
         "applyOnType": "damage",
-        "applyIfEnemyStatus": "FRAZZLE",
+        "applyIfStatus": "FRAZZLE",
         "rankedStatMap": {
           "PERCENT_BA": [
             0.14,
@@ -2132,7 +2132,7 @@
       {
         "applyWhen": "contact",
         "applyOnType": "damage",
-        "applyIfEnemyStatus": "EROSION",
+        "applyIfStatus": "EROSION",
         "applyTo": "enemy",
         "rankedStatMap": {
           "SHRED_AERO_RES": [
@@ -2260,7 +2260,7 @@
       {
         "applyWhen": "contact",
         "applyOnType": "damage",
-        "applyIfEnemyStatus": "EROSION",
+        "applyIfStatus": "EROSION",
         "rankedStatMap": {
           "AMP_ALL": [
             0.2,
@@ -2714,7 +2714,7 @@
       {
         "applyWhen": "contact",
         "applyOnType": "damage",
-        "applyIfEnemyStatus": "STRAIN",
+        "applyIfStatus": "STRAIN",
         "rankedStatMap": {
           "PERCENT_RL": [
             0.24,
@@ -2777,7 +2777,7 @@
       {
         "applyWhen": "contact",
         "applyOnType": "damage",
-        "applyIfEnemyStatus": "STRAIN",
+        "applyIfStatus": "STRAIN",
         "rankedStatMap": {
           "PERCENT_RS": [
             0.24,
@@ -2891,7 +2891,7 @@
       {
         "applyWhen": "contact",
         "applyOnType": "damage",
-        "applyIfEnemyStatus": "STRAIN",
+        "applyIfStatus": "STRAIN",
         "applyCooldown": 500,
         "rankedStatMap": {
           "PERCENT_BA": [

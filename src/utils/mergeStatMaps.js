@@ -5,7 +5,8 @@ export const mergeStatMaps = (...maps) => {
     if (!map) continue;
 
     for (const stat in map) {
-      merged[stat] = (merged[stat] ?? 0) + map[stat];
+      merged[stat] ??= 0;
+      merged[stat] += map[stat];
     }
   }
 

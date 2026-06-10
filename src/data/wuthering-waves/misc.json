@@ -330,7 +330,7 @@
       "isPercent": true
     }
   },
-  "NEGATIVE_STATUSES": {
+  "STATUSES": {
     "FRAZZLE": {
       "maxStacks": 10,
       "tickInterval": 3000,
@@ -340,8 +340,7 @@
       "maxStacks": 3,
       "tickInterval": 2000,
       "duration": 15000,
-      "consumesOnTick": false,
-      "refreshOnApply": true
+      "consumesOnTick": false
     }
   }
 }
