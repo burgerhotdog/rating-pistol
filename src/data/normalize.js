@@ -169,15 +169,14 @@ export const normalizeSets = (json) => {
   const normalized = {};
 
   for (const entry of json) {
-    const { id, setBonus = {} } = entry;
-    const normalizedSetBonus = {};
+    const { id, tieredEffects = {} } = entry;
+    const normalizedTieredEffects = {};
 
-    for (const tier in setBonus) {
-      const effects = setBonus[tier];
-      normalizedSetBonus[tier] = normalizeEffects(effects);
+    for (const tier in tieredEffects) {
+      normalizedTieredEffects[tier] = normalizeEffects(tieredEffects[tier]);
     }
 
-    normalized[id] = { ...entry, setBonus: normalizedSetBonus };
+    normalized[id] = { ...entry, tieredEffects: normalizedTieredEffects };
   }
 
   return normalized;

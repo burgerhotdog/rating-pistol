@@ -186,12 +186,14 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
 const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity }) => {
   const [search, setSearch] = useState('');
 
-  const allSetTiers = useMemo(() => {
+  const allTiers = useMemo(() => {
     const tiers = new Set();
 
-    for (const { setBonus = {} } of Object.values(SET[gameId])) {
-      for (const key of Object.keys(setBonus)) {
-        tiers.add(Number(key));
+    for (const setId in SET[gameId]) {
+      const set = SET[gameId][setId];
+
+      for (const tier in set.tieredEffects) {
+        tiers.add(Number(tier));
       }
     }
 
@@ -200,16 +202,16 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
 
   // Which tiers are possible given remaining capacity
   const enabledTiers = useMemo(() =>
-    new Set(allSetTiers.filter(t => t <= remainingCapacity))
-  , [allSetTiers, remainingCapacity]);
+    new Set(allTiers.filter(t => t <= remainingCapacity))
+  , [allTiers, remainingCapacity]);
 
-  const [tierFilter, setTierFilter] = useState(allSetTiers[0]);
+  const [tierFilter, setTierFilter] = useState(allTiers[0]);
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
     return Object.entries(SET[gameId])
       .filter(([_, setData]) => {
-        const bonusKeys = Object.keys(setData?.setBonus ?? {}).map(Number);
+        const bonusKeys = Object.keys(setData?.tieredEffects ?? {}).map(Number);
         // Must have at least one bonus tier matching the filter (if set) and within capacity
         const hasMatchingTier = tierFilter
           ? bonusKeys.includes(tierFilter) && enabledTiers.has(tierFilter)
@@ -236,7 +238,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
         transition: {
           onExited: () => {
             setSearch('');
-            setTierFilter(allSetTiers[0]);
+            setTierFilter(allTiers[0]);
           }
         }
       }}
@@ -269,7 +271,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
             value={tierFilter}
             onChange={(_, val) => { if (val !== null) setTierFilter(val); }}
           >
-            {allSetTiers.map(tier => (
+            {allTiers.map(tier => (
               <ToggleButton
                 key={tier}
                 value={tier}

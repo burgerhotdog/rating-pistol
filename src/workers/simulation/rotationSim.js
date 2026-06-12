@@ -149,13 +149,13 @@ const buildFootprint = (ctx, {
   }
 
   // Active effects
-  for (const { stacks, effect } of Object.values(effectTrackers.enemy)) {
-    const { statMap } = effect;
-    if (!statMap) continue;
+  for (const effectKey in effectTrackers.enemy) {
+    const { stacks, effect } = effectTrackers.enemy[effectKey];
+    if (!effect.statMap) continue;
 
-    for (const [stat, value] of Object.entries(statMap)) {
-      enemyStatMap[stat] ??= 0;
-      enemyStatMap[stat] += value * stacks;
+    for (const statId in effect.statMap) {
+      enemyStatMap[statId] ??= 0;
+      enemyStatMap[statId] += effect.statMap[statId] * stacks;
     }
   }
   footprint.enemyStatMap = enemyStatMap;

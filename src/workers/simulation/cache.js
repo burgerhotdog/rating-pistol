@@ -10,8 +10,10 @@ const mergeVariableStatMaps = (...maps) => {
   }, {});
 };
 
-const getActiveSetBonuses = (gameId, member) => {
+const compileSetEffects = (gameId, member) => {
+  const compiled = [];
   let setCounts = {};
+
   if (member.setCounts) {
     setCounts = member.setCounts;
   } else if (member.build?.setCounts) {
@@ -20,16 +22,19 @@ const getActiveSetBonuses = (gameId, member) => {
     setCounts = getSetCounts(member.build?.equipList ?? []);
   }
 
-  const activeBonuses = [];
-  for (const [setId, activePieces] of Object.entries(setCounts)) {
-    const setBonuses = SET[gameId]?.[setId]?.setBonus;
-    if (!setBonuses) continue;
-    for (const [numPiecesToActivate, setBonusData] of Object.entries(setBonuses)) {
-      if (activePieces < Number(numPiecesToActivate)) continue;
-      activeBonuses.push(setBonusData);
+  for (const setId in setCounts) {
+    const count = setCounts[setId];
+    const { tieredEffects } = SET[gameId][setId];
+    if (!tieredEffects) continue;
+
+    for (const tier in tieredEffects) {
+      if (count >= Number(tier)) {
+        compiled.push(...tieredEffects[tier]);
+      }
     }
   }
-  return activeBonuses;
+
+  return compiled;
 };
 
 const compressMultipliers = (action, param) => {
@@ -280,7 +285,7 @@ const compileEffects = (gameId, member, idList) => {
     registerEffect(effect, 'weapon', weaponRank);
   }
 
-  for (const effect of getActiveSetBonuses(gameId, member).flat()) {
+  for (const effect of compileSetEffects(gameId, member)) {
     registerEffect(effect, 'set');
   }
 
