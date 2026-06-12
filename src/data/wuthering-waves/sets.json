@@ -135,9 +135,9 @@
         }
       },
       "5": {
-        "applyWhen": "contact",
-        "applyOnType": "HEAL",
         "applyTo": "team",
+        "applyWhen": "hit",
+        "applyOnType": "heal",
         "statMap": {
           "PERCENT_ATK": 0.15
         },
@@ -155,9 +155,9 @@
         }
       },
       "5": {
+        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnCast": "OS",
-        "applyTo": "next",
         "statMap": {
           "PERCENT_ATK": 0.225
         },
@@ -176,13 +176,14 @@
       },
       "5": [
         {
-          "applyOnCastSkill": "IS",
+          "applyWhen": "cast",
+          "applyOnCast": "IS",
           "applyCooldown": 1500,
+          "removeOnCast": "OS",
           "statMap": {
             "PERCENT_ATK": 0.05
           },
-          "maxStacks": 4,
-          "removeOnCast": "OS"
+          "maxStacks": 4
         },
         {
           "statMap": {
@@ -203,7 +204,8 @@
       },
       "5": [
         {
-          "applyOnCastSkill": "RS",
+          "applyWhen": "cast",
+          "applyOnCast": "RS",
           "statMap": {
             "PERCENT_GLACIO": 0.225
           },
@@ -211,7 +213,7 @@
           "maxStacks": 2
         },
         {
-          "applyOnCastSkill": "RL",
+          "applyOnCast": "RL",
           "statMap": {
             "PERCENT_RS": 0.18
           },
@@ -249,21 +251,21 @@
       },
       "5": [
         {
-          "applyOnCastSkill": "OS",
+          "applyWhen": "cast",
+          "applyOnCast": "OS",
           "followUpAction": {
-            "action": {
-              "element": "HAVOC",
-              "considered": "OS",
-              "multipliers": {
-                "mv": 4.8
-              }
+            "element": "HAVOC",
+            "considered": "OS",
+            "multipliers": {
+              "mv": 4.8
             }
           },
           "maxUses": 1
         },
         {
-          "applyOnCastSkill": "OS",
           "applyTo": "next",
+          "applyWhen": "cast",
+          "applyOnCast": "OS",
           "statMap": {
             "PERCENT_HAVOC": 0.15
           },
@@ -288,8 +290,9 @@
           }
         },
         {
-          "applyOnContactConsidered": "CA",
           "applyTo": "active",
+          "applyWhen": "hit",
+          "applyOnConsidered": "CA",
           "statMap": {
             "PERCENT_ATK": 0.2
           },
@@ -331,7 +334,6 @@
           }
         },
         {
-          "applyOnCastSkill": "IS",
           "applyTo": "team",
           "statMap": {
             "PERCENT_AERO": 0.15
@@ -368,15 +370,17 @@
       },
       "5": [
         {
-          "applyOnCastSkill": "RL",
           "applyTo": "team",
+          "applyWhen": "cast",
+          "applyOnCast": "RL",
           "statMap": {
             "PERCENT_FUSION": 0.15
           },
           "duration": 35000
         },
         {
-          "applyOnCastSkill": "RL",
+          "applyWhen": "cast",
+          "applyOnCast": "RL",
           "statMap": {
             "PERCENT_RL": 0.2
           },
@@ -402,8 +406,8 @@
     "name": "Crown of Valor",
     "setBonus": {
       "3": {
-        "applyWhen": "contact",
-        "applyOnType": "SHIELD",
+        "applyWhen": "hit",
+        "applyOnType": "shield",
         "applyCooldown": 500,
         "statMap": {
           "PERCENT_ATK": 0.06,
@@ -420,15 +424,17 @@
     "setBonus": {
       "3": [
         {
-          "applyOnCastSkill": "ES",
+          "applyWhen": "cast",
+          "applyOnCast": "ES",
           "statMap": {
             "PERCENT_HA": 0.3
           },
           "duration": 4000
         },
         {
-          "applyOnCastSkill": "ES",
           "applyTo": "team",
+          "applyWhen": "cast",
+          "applyOnCast": "ES",
           "statMap": {
             "PERCENT_ES": 0.04
           },
@@ -444,17 +450,35 @@
     "setBonus": {
       "3": [
         {
-          "applyOnContactConsidered": "ES",
+          "applyWhen": "hit",
+          "applyOnConsidered": "ES",
+          "useOnConsidered": "HA",
           "statMap": {
-            "PERCENT_CR_HA": 0.2,
+            "PERCENT_CR": 0.2
+          },
+          "duration": 6000
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnConsidered": "ES",
+          "statMap": {
             "PERCENT_FUSION": 0.08
           },
           "duration": 6000
         },
         {
-          "applyOnContactConsidered": "HA",
+          "applyWhen": "hit",
+          "applyOnConsidered": "HA",
+          "useOnConsidered": "ES",
           "statMap": {
-            "PERCENT_CR_ES": 0.2,
+            "PERCENT_CR": 0.2
+          },
+          "duration": 6000
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnConsidered": "HA",
+          "statMap": {
             "PERCENT_FUSION": 0.08
           },
           "duration": 6000
@@ -484,9 +508,9 @@
         }
       },
       "5": {
+        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnCast": "OS",
-        "applyTo": "next",
         "statMap": {
           "PERCENT_ATK": 0.3
         },
@@ -504,9 +528,9 @@
         }
       },
       "5": {
-        "applyWhen": "contact",
-        "applyOnType": "HEAL",
         "applyTo": "team",
+        "applyWhen": "hit",
+        "applyOnType": "heal",
         "statMap": {
           "PERCENT_ATK": 0.25
         },
@@ -525,7 +549,8 @@
       },
       "5": [
         {
-          "applyOnContactConsidered": "BA",
+          "applyWhen": "hit",
+          "applyOnConsidered": "BA",
           "statMap": {
             "PERCENT_SPECTRO": 0.1
           },
@@ -533,11 +558,12 @@
           "maxStacks": 3
         },
         {
-          "applyOnCastSkill": "RL",
+          "applyWhen": "cast",
+          "applyOnCast": "RL",
+          "removeOnCast": "OS",
           "statMap": {
             "PERCENT_BA": 0.4
-          },
-          "removeOnCast": "OS"
+          }
         }
       ]
     }
@@ -575,8 +601,9 @@
           }
         },
         {
-          "applyOnCastSkill": "OS",
           "applyTo": "next",
+          "applyWhen": "cast",
+          "applyOnCast": "OS",
           "statMap": {
             "PERCENT_FUSION": 0.25
           },
@@ -595,7 +622,7 @@
         }
       },
       "5": {
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnConsidered": "ES",
         "statMap": {
           "PERCENT_CR_ES": 0.2,
@@ -621,15 +648,17 @@
           }
         },
         {
-          "applyOnContactConsidered": "RL",
+          "applyWhen": "hit",
+          "applyOnConsidered": "RL",
           "statMap": {
             "PERCENT_CR": 0.25
           },
           "duration": 30000
         },
         {
-          "applyOnCastSkill": "OS",
           "applyTo": "next",
+          "applyWhen": "cast",
+          "applyOnCast": "OS",
           "statMap": {
             "PERCENT_GLACIO": 0.25
           },

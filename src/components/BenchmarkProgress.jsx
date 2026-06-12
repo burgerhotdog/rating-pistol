@@ -6,37 +6,23 @@ import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, 
 import { CHARACTER, ACTION, MISC } from '@/data';
 import { sumRotationDmg } from '@/utils';
 
-function sumRotationTime(gameId, team) {
+const sumRotationTime = (gameId, team, filterMemberId) => {
   let total = 0;
 
   for (const member of team) {
     const { memberId, rotation = [] } = member;
+    if (filterMemberId && memberId !== filterMemberId) continue;
 
-    for (const actionKey of rotation) {
-      const { duration } = ACTION[gameId][memberId][actionKey];
+    for (const key of rotation) {
+      const [skillId] = key.split('-');
+      const { duration } = ACTION[gameId][memberId][skillId][key];
 
       total += duration;
     }
   }
 
   return total;
-}
-
-function sumMemberRotationTime(gameId, team, filterId) {
-  let total = 0;
-
-  for (const member of team) {
-    const { memberId, rotation = [] } = member;
-    if (memberId !== filterId) continue;
-
-    for (const actionKey of rotation) {
-      const { duration } = ACTION[gameId][memberId][actionKey];
-      total += duration;
-    }
-  }
-
-  return total;
-}
+};
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -62,7 +48,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
   const rotationTime = sumRotationTime(gameId, team);
   const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
   const memberRotationTimeMap = Object.fromEntries(
-    members.map((m) => [m.memberId, sumMemberRotationTime(gameId, team, m.memberId)])
+    members.map((m) => [m.memberId, sumRotationTime(gameId, team, m.memberId)])
   );
 
   const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap)));

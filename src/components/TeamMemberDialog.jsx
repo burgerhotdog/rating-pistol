@@ -537,21 +537,29 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
 
 const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
-  const actionMap = ACTION[gameId][characterId];
+  const skillMap = ACTION[gameId][characterId];
 
   const filteredTree = useMemo(() => {
     const lower = search.toLowerCase();
-    const result = {};
+    const filtered = {};
 
-    for (const key in actionMap) {
-      const action = actionMap[key];
-      if (action.name.toLowerCase().includes(lower)) {
-        (result[action.skill] ??= []).push(action);
+    for (const skillId in skillMap) {
+      const skill = skillMap[skillId];
+      const filteredSkill = [];
+
+      for (const key in skill) {
+        const action = skill[key];
+
+        if (action.name.toLowerCase().includes(lower)) {
+          filteredSkill.push(action);
+        }
       }
+
+      filtered[skillId] = filteredSkill;
     }
 
-    return result;
-  }, [search, actionMap]);
+    return filtered;
+  }, [search, skillMap]);
 
   const handleSelect = (actionKey) => {
     onSelect(actionKey);
@@ -747,7 +755,8 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLab
     transition,
   };
 
-  const { cast, name, tagged } = ACTION[gameId][characterId][actionKey];
+  const [skillId] = actionKey.split('-');
+  const { cast, name, tagged } = ACTION[gameId][characterId][skillId][actionKey];
 
   return (
     <Box

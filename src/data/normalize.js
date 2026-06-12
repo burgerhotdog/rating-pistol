@@ -19,40 +19,48 @@ const DURATION_BY_CAST = {
   CA: 0,
 };
 
-const normalizeAction = (action, element = 'PHYSICAL') => {
-  const resolved = {
+const normalizeAction = (action, entryElement = 'PHYSICAL') => {
+  const normalized = {
     ...action,
     tagged: toArray(action.tagged),
     cast: toArray(action.cast),
-    considered: toArray(action.considered),
-    multipliers: toArray(action.multipliers),
   };
 
-  resolved.type ??= 'damage';
-  resolved.times ??= 1;
+  if (!action.cast) {
+    normalized.duration ??= 0;
+  } else {
+    normalized.duration ??= DURATION_BY_CAST[normalized.cast[0]];
+  }
 
-  if (action.multipliers) resolved.attr ??= 'ATK';
-  if (!action.cast) resolved.duration ??= 0;
-  resolved.duration ??= DURATION_BY_CAST[resolved.cast[0]];
-  resolved.offset ??= resolved.duration * 0.75;
+  normalized.type ??= 'damage';
+  normalized.times ??= 1;
+  normalized.offset ??= Math.round(normalized.duration * 0.75);
 
-  if (resolved.type === 'damage') resolved.element ??= element;
+  if (action.multipliers) {
+    normalized.multipliers = toArray(action.multipliers);
+    normalized.considered = toArray(action.considered);
+    normalized.attr ??= 'ATK';
+    
+    if (normalized.type === 'damage') {
+      normalized.element ??= entryElement;
+    }
+  }
 
-  return resolved;
+  return normalized;
 };
 
-const normalizeEffect = (effect, source) => {
-  const resolved = { ...effect };
+const normalizeEffect = (effect, entryElement) => {
+  const normalized = { ...effect };
 
-  resolved.rank ??= 0;
-  resolved.chance ??= 1;
-  resolved.applyTo ??= 'self';
-  resolved.applyCooldown ??= 0;
-  resolved.duration ??= Infinity;
-  resolved.maxUses ??= Infinity;
-  resolved.maxStacks ??= 1;
+  normalized.rank ??= 0;
+  normalized.chance ??= 1;
+  normalized.applyTo ??= 'self';
+  normalized.applyCooldown ??= 0;
+  normalized.duration ??= Infinity;
+  normalized.maxUses ??= Infinity;
+  normalized.maxStacks ??= 1;
 
-  if (!resolved.applyWhen) resolved.isPassive = true;
+  if (!normalized.applyWhen) normalized.isPassive = true;
   
   // apply, use, remove
   // Action, Type, Tagged, Cast, Considered
@@ -62,108 +70,115 @@ const normalizeEffect = (effect, source) => {
       const value = effect[key];
       if (value == null) continue;
 
-      resolved[key] = toArray(value);
+      normalized[key] = toArray(value);
     }
   }
 
-  resolved.useIfStatus &&= toArray(effect.useIfStatus);
+  normalized.useIfStatus &&= toArray(effect.useIfStatus);
 
   if (effect.followUpAction) {
-    resolved.followUpAction = toArray(effect.followUpAction).map(keyOrObj => {
+    normalized.followUpAction = toArray(effect.followUpAction).map(keyOrObj => {
       if (typeof keyOrObj === 'string') return keyOrObj;
-      return normalizeAction(keyOrObj, source.element);
+      return normalizeAction(keyOrObj, entryElement);
     });
-    resolved.followUpCooldown ??= 0;
-    resolved.times ??= 1;
+    normalized.followUpCooldown ??= 0;
+    normalized.times ??= 1;
   }
 
   if (effect.intervalAction) {
-    resolved.intervalAction = toArray(effect.intervalAction).map(keyOrObj => {
+    normalized.intervalAction = toArray(effect.intervalAction).map(keyOrObj => {
       if (typeof keyOrObj === 'string') return keyOrObj;
-      return normalizeAction(keyOrObj, source.element);
+      return normalizeAction(keyOrObj, entryElement);
     });
-    resolved.intervalCooldown ??= 1000;
-    resolved.intervalOffset ??= 0;
-    resolved.times ??= 1;
+    normalized.intervalCooldown ??= 1000;
+    normalized.intervalOffset ??= 0;
+    normalized.times ??= 1;
   }
 
-  return resolved;
+  return normalized;
+};
+
+const normalizeEffects = (effects, entryElement) => {
+  const normalized = [];
+
+  for (const effect of toArray(effects)) {
+    normalized.push(normalizeEffect(effect, entryElement));
+  }
+
+  return normalized;
 };
 
 export const normalizeCharacters = (json) => {
-  const resolved = {};
+  const normalized = {};
 
-  for (const character of json) {
-    resolved[character.id] = {
-      ...character,
-      effects: toArray(character.effects).map(effect =>
-        normalizeEffect(effect, character)
-      ),
-    };
+  for (const entry of json) {
+    const { id, element, effects } = entry;
+
+    normalized[id] = { ...entry, effects: normalizeEffects(effects, element) };
   }
 
-  return resolved;
+  return normalized;
 };
 
 export const normalizeActions = (json, characters) => {
-  const resolved = {};
+  const normalized = {};
 
-  for (const character of json) {
-    const { id, ...skillTree } = character;
-    const { element } = characters[id];
-    const resolvedCharacter = {};
+  for (const entry of json) {
+    const { id, ...skillMap } = entry;
+    const normalizedEntry = {};
 
-    for (const skillId in skillTree) {
-      for (const actionId in skillTree[skillId]) {
+    for (const skillId in skillMap) {
+      const skill = skillMap[skillId];
+      const normalizedSkill = {};
+
+      for (const actionId in skill) {
+        const action = skill[actionId];
         const key = `${skillId}-${actionId}`;
-        resolvedCharacter[key] = {
-          ...normalizeAction(skillTree[skillId][actionId], element),
+
+        normalizedSkill[key] = {
+          ...normalizeAction(action, characters[id].element),
           key,
-          owner: id,
-          skill: skillId,
+          skillId,
           id: actionId,
+          ownerId: id,
         };
       }
+
+      normalizedEntry[skillId] = normalizedSkill;
     }
 
-    resolved[id] = resolvedCharacter;
+    normalized[entry.id] = normalizedEntry;
   }
 
-  return resolved;
+  return normalized;
 };
 
 export const normalizeWeapons = (json) => {
-  const resolved = {};
+  const normalized = {};
 
-  for (const weapon of json) {
-    const effects = [];
-    for (const effect of toArray(weapon.effects)) {
-      effects.push(normalizeEffect(effect, weapon));
-    }
+  for (const entry of json) {
+    const { id, effects } = entry;
 
-    resolved[weapon.id] = { ...weapon, effects };
+    normalized[id] = { ...entry, effects: normalizeEffects(effects) };
   }
 
-  return resolved;
+  return normalized;
 };
 
 export const normalizeSets = (json) => {
-  const resolved = {};
+  const normalized = {};
 
-  for (const set of json) {
-    const setBonus = {};
+  for (const entry of json) {
+    const { id, setBonus = {} } = entry;
+    const normalizedSetBonus = {};
 
-    for (const tier in set.setBonus) {
-      const effects = [];
-      for (const effect of toArray(set.setBonus[tier])) {
-        effects.push(normalizeEffect(effect, set));
-      }
-
-      setBonus[tier] = effects;
+    for (const tier in setBonus) {
+      const effects = setBonus[tier];
+      normalizedSetBonus[tier] = normalizeEffects(effects);
     }
 
-    resolved[set.id] = { ...set, setBonus };
+    normalized[id] = { ...entry, setBonus: normalizedSetBonus };
   }
 
-  return resolved;
+  return normalized;
 };

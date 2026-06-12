@@ -17,6 +17,7 @@ function buildDmgTypeData(actionMap, gameId, characterId) {
   const totals = {};
   for (const temp of Object.values(actionMap.byMember[characterId])) {
     const { considered, damage } = temp;
+    if (!considered) continue;
     const label = MISC[gameId].SKILL[considered[0]]?.name;
 
     totals[label] ??= 0;

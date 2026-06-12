@@ -1488,14 +1488,14 @@
     },
     "effects": [
       {
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "RL-3",
         "intervalAction": "RL-1",
         "intervalCooldown": 250,
         "duration": 3120
       },
       {
-        "applyWhen": "contact",
+        "applyWhen": "hit",
         "applyOnAction": "RL-3",
         "intervalAction": "RL-2",
         "intervalOffset": 3120,
