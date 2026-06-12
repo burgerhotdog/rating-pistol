@@ -1,5 +1,6 @@
 import { CHARACTER, ACTION, WEAPON, SET } from '@/data';
 import { resolveRankedValue, mergeStatMaps, getSetCounts, resolveRankedStatMap } from '@/utils';
+import { matchApplyOn } from './match';
 
 const mergeVariableStatMaps = (...maps) => {
   return maps.reduce((acc, map = {}) => {
@@ -239,8 +240,6 @@ const compileEffects = (gameId, member, idList) => {
 
     resolved.variableStatMap = mergeVariableStatMaps(rawEffect.variableStatMap);
 
-    const { applyOnAction, applyOnType, applyOnTagged, applyOnCast, applyOnConsidered } = rawEffect;
-
     if (!rawEffect.applyWhen) {
       for (const target of resolved.applyTo) {
         (passive[target] ??= []).push(resolved);
@@ -251,21 +250,13 @@ const compileEffects = (gameId, member, idList) => {
         const skill = skillMap[skillId];
 
         for (const actionKey in skill) {
-          const action = skill[actionKey];
-
-          const actionMatch = applyOnAction && applyOnAction.includes(action.key);
-          const typeMatch = applyOnType && applyOnType.includes(action.type);
-          const taggedMatch = applyOnTagged && action.tagged.some(t => applyOnTagged.includes(t));
-          const castMatch = applyOnCast && action.cast.some(c => applyOnCast.includes(c));
-          const consideredMatch = applyOnConsidered && action.considered && action.considered.some(c => applyOnConsidered.includes(c));
-
-          if (actionMatch || typeMatch || taggedMatch || castMatch || consideredMatch) {
-            active[action.key] ??= { cast: [], hit: [] };
+          if (matchApplyOn(skill[actionKey], rawEffect)) {
+            active[actionKey] ??= { cast: [], hit: [] };
 
             if (rawEffect.applyWhen === 'cast') {
-              active[action.key].cast.push(resolved);
+              active[actionKey].cast.push(resolved);
             } else {
-              active[action.key].hit.push(resolved);
+              active[actionKey].hit.push(resolved);
             }
           }
         }

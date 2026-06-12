@@ -1,5 +1,6 @@
 import { MISC } from '@/data';
 import { compileStatMap, mergeStatMaps, computeTotalStat } from '@/utils';
+import { matchRemoveOn, matchRemoveIf, matchApplyIf } from './match';
 
 const MAX_PROC_DEPTH = 4;
 
@@ -378,43 +379,27 @@ const getCurrentStatMap = (memberId, effectTrackers, compiledStatMap, activeId) 
   return baseStats;
 };
 
-// ─── Effect application (verbatim from simulateRotation) ─────────────────────
+function removeEffects(ctx, action) {
+  const { effectTrackers } = ctx;
 
-// Returns the current stack count for an enemy status (e.g. Burn, Freeze).
-function hasEnemyStatus(statusName, effectTrackers) {
-  return effectTrackers.enemyStatuses[statusName]?.stacks ?? 0;
-}
+  for (const trackerMap of [
+    effectTrackers.active,
+    effectTrackers.inactive,
+    ...Object.values(effectTrackers.byMember),
+  ]) {
+    for (const effectKey in trackerMap) {
+      const { effect } = trackerMap[effectKey];
+      if (effect.owner !== action.ownerId) continue;
 
-// Returns true if any negative status is currently applied to the enemy.
-function hasAnyNegativeStatus(gameId, effectTrackers) {
-  const statuses = MISC[gameId].NEGATIVE_STATUSES ?? {};
-  return Object.keys(statuses).some(name => hasEnemyStatus(name, effectTrackers) > 0);
-}
-
-// Core effect-application function. For a given action + trigger ('cast' or 'hit'),
-// checks all conditions and cooldowns, then writes updated stacks/timers into the relevant tracker maps.
-function applyEffects(ctx, { action, effectTrackers, applyCooldownMap = {}, times = 1, trigger = 'cast' }) {
-  const { gameId, cache } = ctx;
-
-  if (trigger === 'cast' && action.cast) {
-    const removeFromMap = (trackerMap) => {
-      for (const { effect } of Object.values(trackerMap)) {
-        if (effect.owner !== action.ownerId) continue;
-
-        if (effect.removeOnCast) {
-          if (action.cast.some(c => effect.removeOnCast.includes(c))) {
-            delete trackerMap[effect.key];
-          }
-        }
+      if (matchRemoveOn(action, effect) || matchRemoveIf(action, effect, ctx)) {
+        delete trackerMap[effectKey];
       }
-    };
-
-    removeFromMap(effectTrackers.active);
-    removeFromMap(effectTrackers.inactive);
-    for (const memberTracker of Object.values(effectTrackers.byMember)) {
-      removeFromMap(memberTracker);
     }
   }
+}
+
+function applyEffects(ctx, action, trigger, applyTimes = 1) {
+  const { gameId, cache, effectTrackers, applyCooldownMap } = ctx;
 
   const triggeredEffects = new Set(cache.link[action.ownerId].active[action.key]?.[trigger] ?? []);
   if (triggeredEffects.size === 0) return;
@@ -426,7 +411,7 @@ function applyEffects(ctx, { action, effectTrackers, applyCooldownMap = {}, time
     const currentStacks = tracker[effect.key]?.stacks ?? 0;
 
     tracker[effect.key] = {
-      stacks: Math.min(currentStacks + times, effect.maxStacks),
+      stacks: Math.min(currentStacks + applyTimes, effect.maxStacks),
       timeRemaining: effect.duration,
       usesRemaining: effect.maxUses,
       ...(intervalCooldown ? { procTimer: tracker[effect.key]?.procTimer ?? intervalOffset } : {}),
@@ -435,16 +420,11 @@ function applyEffects(ctx, { action, effectTrackers, applyCooldownMap = {}, time
   }
 
   for (const effect of triggeredEffects) {
-    const { applyIfStatus, applyIfInflict } = effect;
+    const { applyIfInflict } = effect;
     if (applyCooldownMap[effect.owner]?.[effect.id]) continue;
     if (applyIfInflict) continue;
 
-    if (applyIfStatus) {
-      const hasStatus = applyIfStatus === 'any'
-        ? hasAnyNegativeStatus(gameId, effectTrackers)
-        : hasEnemyStatus(applyIfStatus, effectTrackers) > 0;
-      if (!hasStatus) continue;
-    }
+    if (!matchApplyIf(action, effect, ctx)) continue;
 
     for (const target of effect.applyTo) {
       if (target === 'active' || target === 'inactive') {
@@ -461,7 +441,7 @@ function applyEffects(ctx, { action, effectTrackers, applyCooldownMap = {}, time
 
             if (!currentTracker) {
               const tracker = {
-                stacks: Math.min(stacksToApply * times, status.maxStacks),
+                stacks: Math.min(stacksToApply * applyTimes, status.maxStacks),
                 tickTimer: status.tickInterval,
               };
 
@@ -471,7 +451,7 @@ function applyEffects(ctx, { action, effectTrackers, applyCooldownMap = {}, time
 
               effectTrackers.enemyStatuses[statusId] = tracker;
             } else {
-              currentTracker.stacks = Math.min(currentTracker.stacks + stacksToApply * times, status.maxStacks);
+              currentTracker.stacks = Math.min(currentTracker.stacks + stacksToApply * applyTimes, status.maxStacks);
 
               if (status.duration) {
                 currentTracker.duration = status.duration;
@@ -652,18 +632,19 @@ function processFollowUpProcs(action, ctx, depth) {
 function processIntervalProcs(ctx, elapsed, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
   const { cache, effectTrackers } = ctx;
-  const { byMember } = effectTrackers;
 
-  function processTrackerMap(trackerMap) {
-    for (const tracker of Object.values(trackerMap)) {
-      const { stacks, effect } = tracker;
-      const { intervalAction, intervalCooldown, times } = effect;
-      if (!intervalAction) continue;
+  for (const memberId in effectTrackers.byMember) {
+    const trackerMap = effectTrackers.byMember[memberId];
+
+    for (const effectKey in trackerMap) {
+      const tracker = trackerMap[effectKey];
+      const { effect } = tracker;
+      if (!effect.intervalAction) continue;
 
       tracker.procTimer -= elapsed;
       while (tracker.procTimer <= 0) {
         const procActions = [];
-        for (const action of intervalAction) {
+        for (const action of effect.intervalAction) {
           if (typeof action === 'string') {
             const procAction = cache.action[effect.owner][action];
             procActions.push(procAction);
@@ -673,7 +654,7 @@ function processIntervalProcs(ctx, elapsed, depth) {
         }
 
         for (const action of procActions) {
-          processAction(action, ctx, depth + 1, stacks * times, times);
+          processAction(action, ctx, depth + 1, tracker.stacks * effect.times, effect.times);
         }
 
         tracker.usesRemaining--;
@@ -682,13 +663,9 @@ function processIntervalProcs(ctx, elapsed, depth) {
           break;
         }
 
-        tracker.procTimer += intervalCooldown;
+        tracker.procTimer += effect.intervalCooldown;
       }
     }
-  }
-
-  for (const memberTracker of Object.values(byMember)) {
-    processTrackerMap(memberTracker);
   }
 }
 
@@ -698,7 +675,8 @@ function processTopLevelAction(action, ctx) {
   const remaining = duration - offset;
 
   // ── Cast (t = 0) ───────────────────────────────────────────────────
-  applyEffects(ctx, { ...ctx, action, trigger: 'cast' });
+  removeEffects(ctx, action);
+  applyEffects(ctx, action, 'cast');
 
   // ── Pre-hit window (t = 0 → offset) ───────────────────────────
   advanceEffects(effectTrackers, offset, offset);
@@ -718,7 +696,7 @@ function processTopLevelAction(action, ctx) {
       repeatCount: 1,
     }));
   }
-  applyEffects(ctx, { ...ctx, action, trigger: 'hit' });
+  applyEffects(ctx, action, 'hit');
 
   // ── Post-hit window (t = offset → end) ─────────────────────────
   // Contact effects are now in the tracker, so this one call handles them too
@@ -735,13 +713,13 @@ function processTopLevelAction(action, ctx) {
 
 function processProcAction(action, ctx, depth, repeatCount, applyTimes) {
   if (depth >= MAX_PROC_DEPTH) return;
-  applyEffects(ctx, { ...ctx, action, times: applyTimes, trigger: 'cast' });
+  applyEffects(ctx, action, 'cast', applyTimes);
 
   if (ctx.recordFootprint) {
     ctx.footprints.push(buildFootprint(ctx, { ...ctx, action, repeatCount }));
   }
 
-  applyEffects(ctx, { ...ctx, action, times: applyTimes, trigger: 'hit' });
+  applyEffects(ctx, action, 'hit', applyTimes);
   processFollowUpProcs(action, ctx, depth);
 }
 

@@ -177,9 +177,10 @@
       "5": [
         {
           "applyWhen": "cast",
-          "applyOnCast": "IS",
+          "applyOnType": "damage",
+          "applyIfState": "active",
           "applyCooldown": 1500,
-          "removeOnCast": "OS",
+          "removeIfState": "inactive",
           "statMap": {
             "PERCENT_ATK": 0.05
           },
