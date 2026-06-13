@@ -525,10 +525,15 @@
     "name": "Thread of Severed Fate",
     "tieredEffects": {
       "3": {
+        "applyWhen": "hit",
+        "applyIfInflict": {
+          "BANE": 1
+        },
         "statMap": {
           "PERCENT_ATK": 0.2,
           "PERCENT_RL": 0.3
-        }
+        },
+        "duration": 5000
       }
     }
   },
@@ -588,13 +593,11 @@
           "statMap": {
             "PERCENT_SPECTRO": 0.1
           },
-          "duration": 10000,
+          "duration": 5000,
           "maxStacks": 3
         },
         {
-          "applyWhen": "cast",
-          "applyOnCast": "RL",
-          "removeOnCast": "OS",
+          "useOnCast": "RL",
           "statMap": {
             "PERCENT_BA": 0.4
           }
@@ -612,10 +615,13 @@
         }
       },
       "5": {
+        "applyWhen": "hit",
+        "applyIfInflict": "BURST",
         "statMap": {
           "PERCENT_CR": 0.2,
           "PERCENT_FUSION": 0.2
-        }
+        },
+        "duration": 8000
       }
     }
   },
@@ -630,9 +636,14 @@
       },
       "5": [
         {
+          "applyWhen": "hit",
+          "applyIfInflict": {
+            "BURST": 1
+          },
           "statMap": {
             "PERCENT_FUSION": 0.1
-          }
+          },
+          "duration": 15000
         },
         {
           "applyTo": "next",
@@ -658,8 +669,9 @@
       "5": {
         "applyWhen": "hit",
         "applyOnConsidered": "ES",
+        "useOnCast": "ES",
         "statMap": {
-          "PERCENT_CR_ES": 0.2,
+          "PERCENT_CR": 0.2,
           "PERCENT_AERO": 0.15
         },
         "duration": 5000
@@ -677,9 +689,14 @@
       },
       "5": [
         {
+          "applyWhen": "hit",
+          "applyIfInflict": {
+            "CHAFE": 1
+          },
           "statMap": {
             "PERCENT_GLACIO": 0.1
-          }
+          },
+          "duration": 15000
         },
         {
           "applyWhen": "hit",
