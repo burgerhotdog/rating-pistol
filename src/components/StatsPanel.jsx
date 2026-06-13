@@ -93,7 +93,9 @@ export const StatsPanel = ({ team, updateTeam }) => {
       <CardContent sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
         <Stack spacing={1}>
           {Object.entries(MENU_STATS).map(([id, { label, isPercent }]) => {
-            const totalValue = computeTotalStat(id, statMap);
+            // cd for ww visual change
+            const cdww = (gameId === 'wuthering-waves' && id === 'CD') ? 1 : 0;
+            const totalValue = computeTotalStat(id, statMap) + cdww;
             const displayValue = isPercent ? totalValue * 100 : totalValue;
             const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && id === 'ER') ? 1 : 0;
             if (id !== 'EM' && displayValue === 0) return;
