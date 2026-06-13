@@ -214,6 +214,7 @@
           "maxStacks": 2
         },
         {
+          "applyWhen": "cast",
           "applyOnCast": "RL",
           "statMap": {
             "PERCENT_RS": 0.18
@@ -233,12 +234,29 @@
           "PERCENT_SPECTRO": 0.1
         }
       },
-      "5": {
-        "statMap": {
-          "PERCENT_CR": 0.2,
-          "PERCENT_SPECTRO": 0.15
+      "5": [
+        {
+          "applyWhen": "hit",
+          "applyIfInflict": {
+            "FRAZZLE": 1
+          },
+          "statMap": {
+            "PERCENT_CR": 0.2
+          },
+          "duration": 15000
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnType": "damage",
+          "applyIfStatus": {
+            "FRAZZLE": 10
+          },
+          "statMap": {
+            "PERCENT_SPECTRO": 0.15
+          },
+          "duration": 15000
         }
-      }
+      ]
     }
   },
   {

@@ -1,63 +1,8 @@
 import { MISC } from '@/data';
 import { compileStatMap, mergeStatMaps, computeTotalStat } from '@/utils';
-import { matchRemoveOn, matchRemoveIf, matchApplyIf } from './match';
+import { matchIfInflict, matchUseOn, matchRemoveOn, matchUseIf, matchRemoveIf, matchApplyIf } from './match';
 
 const MAX_PROC_DEPTH = 4;
-
-const matchesUseOn = (action, effect) => {
-  const { useOnAction, useOnType, useOnTagged, useOnCast, useOnConsidered } = effect;
-
-  if (!(useOnAction || useOnType || useOnTagged || useOnCast || useOnConsidered)) return true;
-
-  if (useOnAction) {
-    if (useOnAction.includes(action.key)) return true;
-  }
-
-  if (useOnType) {
-    if (useOnType.includes(action.type)) return true;
-  }
-
-  if (useOnTagged) {
-    for (const tag of action.tagged) {
-      if (useOnTagged.includes(tag)) return true;
-    }
-  }
-
-  if (useOnCast) {
-    for (const type of action.cast) {
-      if (useOnCast.includes(type)) return true;
-    }
-  }
-
-  if (useOnConsidered && action.considered) {
-    for (const type of action.considered) {
-      if (useOnConsidered.includes(type)) return true;
-    }
-  }
-
-  return false;
-};
-
-const matchesUseIf = (effect, effectTrackers) => {
-  const { useIfStatus } = effect;
-
-  if (!useIfStatus) {
-    return true;
-  } else {
-    if (useIfStatus.includes('any')) {
-      if (Object.keys(effectTrackers.enemyStatuses).length) return true;
-    }
-
-    for (const id of useIfStatus) {
-      if (effectTrackers.enemyStatuses[id]) return true;
-    }
-
-    return false;
-  }
-};
-
-const matchesUseFilter = (action, effect, effectTrackers) =>
-  matchesUseOn(action, effect) && matchesUseIf(effect, effectTrackers);
 
 // Evaluates each variable-stat entry against the current sourceStatMap.
 // Each entry scales a stat (statId) proportionally to another stat (source),
@@ -181,7 +126,7 @@ const buildFootprint = (ctx, {
   ];
 
   for (const { stacks = 1, effect } of effectsToEval) {
-    if (!matchesUseFilter(action, effect, effectTrackers)) continue;
+    if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
 
     const effectScale = effect.chance * stacks;
 
@@ -398,99 +343,93 @@ function removeEffects(ctx, action) {
   }
 }
 
-function applyEffects(ctx, action, trigger, applyTimes = 1) {
-  const { gameId, cache, effectTrackers, applyCooldownMap } = ctx;
+function applyEffect(trackerMap, effect, applyTimes) {
+  const { intervalCooldown, intervalOffset } = effect;
+  const currentStacks = trackerMap[effect.key]?.stacks ?? 0;
 
+  trackerMap[effect.key] = {
+    stacks: Math.min(currentStacks + applyTimes, effect.maxStacks),
+    timeRemaining: effect.duration,
+    usesRemaining: effect.maxUses,
+    ...(intervalCooldown ? { procTimer: trackerMap[effect.key]?.procTimer ?? intervalOffset } : {}),
+    effect,
+  };
+}
+
+function applyStatus(statusTracker, status, stacks) {
+  const tracker = statusTracker[status.id];
+
+  if (!tracker) {
+    statusTracker[status.id] = {
+      stacks: Math.min(stacks, status.maxStacks),
+      tickTimer: status.tickInterval,
+      duration: status.duration,
+    };
+  } else {
+    tracker.stacks = Math.min(tracker.stacks + stacks, status.maxStacks);
+    tracker.duration = status.duration;
+  }
+}
+
+function applyEffects(ctx, action, trigger, applyTimes = 1) {
+  const { gameId, cache, effectTrackers, statusTracker, cooldownTrackers } = ctx;
   const triggeredEffects = new Set(cache.link[action.ownerId].active[action.key]?.[trigger] ?? []);
+  const inflictedStatuses = {};
+
   if (triggeredEffects.size === 0) return;
 
-  const inflictedStatuses = new Set();
-
-  function applyEffect(tracker, effect) {
-    const { intervalCooldown, intervalOffset } = effect;
-    const currentStacks = tracker[effect.key]?.stacks ?? 0;
-
-    tracker[effect.key] = {
-      stacks: Math.min(currentStacks + applyTimes, effect.maxStacks),
-      timeRemaining: effect.duration,
-      usesRemaining: effect.maxUses,
-      ...(intervalCooldown ? { procTimer: tracker[effect.key]?.procTimer ?? intervalOffset } : {}),
-      effect,
-    };
-  }
 
   for (const effect of triggeredEffects) {
-    const { applyIfInflict } = effect;
-    if (applyCooldownMap[effect.owner]?.[effect.id]) continue;
-    if (applyIfInflict) continue;
-
+    if (effect.applyIfInflict) continue;
+    if (cooldownTrackers.apply[effect.key]) continue;
     if (!matchApplyIf(action, effect, ctx)) continue;
 
     for (const target of effect.applyTo) {
       if (target === 'active' || target === 'inactive') {
-        applyEffect(effectTrackers[target], effect);
+        applyEffect(effectTrackers[target], effect, applyTimes);
       } else if (target === 'enemy') {
         if (effect.statMap) {
-          applyEffect(effectTrackers.enemy, effect);
+          applyEffect(effectTrackers.enemy, effect, applyTimes);
         }
+
         if (effect.statusMap) {
           for (const statusId in effect.statusMap) {
             const status = MISC[gameId].STATUSES[statusId];
-            const currentTracker = effectTrackers.enemyStatuses[statusId];
-            const stacksToApply = effect.statusMap[status];
+            const stacks = effect.statusMap[statusId] * applyTimes;
 
-            if (!currentTracker) {
-              const tracker = {
-                stacks: Math.min(stacksToApply * applyTimes, status.maxStacks),
-                tickTimer: status.tickInterval,
-              };
+            applyStatus(statusTracker, status, stacks)
 
-              if (status.duration) {
-                tracker.duration = status.duration;
-              }
-
-              effectTrackers.enemyStatuses[statusId] = tracker;
-            } else {
-              currentTracker.stacks = Math.min(currentTracker.stacks + stacksToApply * applyTimes, status.maxStacks);
-
-              if (status.duration) {
-                currentTracker.duration = status.duration;
-              }
-            }
-
-            inflictedStatuses.add(statusId);
+            inflictedStatuses[statusId] ??= 0;
+            inflictedStatuses[statusId] += stacks;
           }
         }
       } else {
-        applyEffect(effectTrackers.byMember[target], effect);
+        applyEffect(effectTrackers.byMember[target], effect, applyTimes);
       }
     }
 
-    if (effect.applyCooldown > 0) {
-      applyCooldownMap[effect.owner] ??= {};
-      applyCooldownMap[effect.owner][effect.id] = effect.applyCooldown;
+    if (effect.applyCooldown) {
+      cooldownTrackers.apply[effect.key] = effect.applyCooldown;
     }
   }
 
   for (const effect of triggeredEffects) {
-    const { applyCooldown, applyIfInflict } = effect;
-    if (!applyIfInflict || !inflictedStatuses.has(applyIfInflict)) continue;
-    if (applyCooldownMap[effect.owner]?.[effect.id]) continue;
+    if (!effect.applyIfInflict) continue;
+    if (cooldownTrackers.apply[effect.key]) continue;
+    if (!matchIfInflict(effect.applyIfInflict, inflictedStatuses)) continue;
 
     for (const target of effect.applyTo) {
       if (target === 'active' || target === 'inactive') {
-        applyEffect(effectTrackers[target], effect);
-      } else if (target === 'enemy') {
-        if (effect.statMap) {
-          applyEffect(effectTrackers.enemy, effect);
-        }
+        applyEffect(effectTrackers[target], effect, applyTimes);
+      } else if (target === 'enemy' && effect.statMap) {
+        applyEffect(effectTrackers.enemy, effect, applyTimes);
       } else {
-        applyEffect(effectTrackers.byMember[target], effect);
+        applyEffect(effectTrackers.byMember[target], effect, applyTimes);
       }
     }
-    if (applyCooldown > 0) {
-      applyCooldownMap[effect.owner] ??= {};
-      applyCooldownMap[effect.owner][effect.id] = applyCooldown;
+
+    if (effect.applyCooldown) {
+      cooldownTrackers.apply[effect.key] = effect.applyCooldown;
     }
   }
 }
@@ -518,65 +457,79 @@ function advanceEffects(effectTrackers, offset, duration) {
 }
 
 // Decrements all active proc/apply cooldowns by `delta` ms and removes expired ones.
-function tickProcCooldowns(followUpCooldownMap, delta) {
-  for (const member in followUpCooldownMap) {
-    for (const [cooldownKey, cooldownRemaining] of Object.entries(followUpCooldownMap[member])) {
-      const nextValue = cooldownRemaining - delta;
-      if (nextValue <= 0) delete followUpCooldownMap[member][cooldownKey];
-      else followUpCooldownMap[member][cooldownKey] = nextValue;
+function tickCooldownMap(cooldownTrackers, delta) {
+  for (const type in cooldownTrackers) {
+    const cooldownMap = cooldownTrackers[type];
+
+    for (const effectKey in cooldownMap) {
+      const nextValue = cooldownMap[effectKey] - delta;
+
+      if (nextValue <= 0) {
+        delete cooldownMap[effectKey];
+      } else {
+        cooldownMap[effectKey] = nextValue;
+      }
     }
   }
 }
 
-// Advances enemy status timers (Burn, Freeze, etc.), firing tick-based stack
-// consumption and expiring statuses that have run out of duration.
-function tickEnemyStatuses(gameId, effectTrackers, elapsed) {
-  const statuses = MISC[gameId].NEGATIVE_STATUSES ?? {};
-  for (const [statusName, statusDef] of Object.entries(statuses)) {
-    const state = effectTrackers.enemyStatuses[statusName];
-    if (!state) continue;
-    if (state.duration !== undefined) {
-      state.duration -= elapsed;
-      if (state.duration <= 0) {
-        delete effectTrackers.enemyStatuses[statusName];
-        continue;
+function tickEnemyStatuses(gameId, statusTracker, elapsed) {
+  const statuses = MISC[gameId].STATUSES ?? {};
+
+  for (const statusId in statusTracker) {
+    const tracker = statusTracker[statusId];
+    const status = statuses[statusId];
+    let timer = elapsed;
+
+    while (timer > 0) {
+      const decrease = Math.min(tracker.duration, tracker.tickTimer, timer);
+
+      tracker.duration -= decrease;
+      tracker.tickTimer -= decrease;
+      timer -= decrease;
+
+      if (tracker.duration <= 0) {
+        if (status.reapply) {
+          tracker.duration = status.duration;
+          tracker.stacks--;
+          if (tracker.stacks <= 0) {
+            delete statusTracker[statusId];
+            break;
+          }
+        } else {
+          delete statusTracker[statusId];
+          break;
+        }
       }
-    }
-    state.tickTimer -= elapsed;
-    while (state.tickTimer <= 0 && state.stacks > 0) {
-      if (statusDef.consumesOnTick) {
-        state.stacks--;
-        if (state.stacks === 0) { delete effectTrackers.enemyStatuses[statusName]; break; }
+
+      if (tracker.tickTimer <= 0) {
+        // damage footprint function goes here
+        tracker.tickTimer = status.tickInterval;
       }
-      state.tickTimer += statusDef.tickInterval;
     }
   }
 }
 
 // Decrements `usesRemaining` for all effects that triggered and removes effects that have exhausted their remaining uses.
-function decayProcCounts(compiledStatMap, effectTrackers, action) {
-  const { active, inactive, enemy, byMember } = effectTrackers;
-
-  function decayMap(trackerMap) {
+function decayProcCounts(ctx, compiledStatMap, action) {
+  for (const trackerMap of [
+    ctx.effectTrackers.active,
+    ctx.effectTrackers.inactive,
+    ctx.effectTrackers.enemy,
+    ...Object.values(ctx.effectTrackers.byMember),
+  ]) {
     for (const [id, tracker] of Object.entries(trackerMap)) {
       if (tracker.usesRemaining === Infinity) continue;
 
       const { effect } = tracker;
       if (effect.followUpAction || effect.intervalAction) continue;
-      if (!matchesUseFilter(action, effect, effectTrackers)) continue;
+      if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
 
       tracker.usesRemaining -= 1;
       if (tracker.usesRemaining <= 0) {
         delete trackerMap[id];
       }
     }
-  }
-
-  decayMap(active);
-  decayMap(inactive);
-  decayMap(enemy);
-  for (const member in byMember) {
-    decayMap(byMember[member]);
   }
 }
 
@@ -585,14 +538,14 @@ function decayProcCounts(compiledStatMap, effectTrackers, action) {
 // as opposed to interval procs which fire on a timer.
 function processFollowUpProcs(action, ctx, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
-  const { cache, effectTrackers, followUpCooldownMap, activeId } = ctx;
+  const { cache, effectTrackers, cooldownTrackers, activeId } = ctx;
   const { byMember, active, inactive } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
     for (const tracker of Object.values(trackerMap)) {
       const { stacks, effect } = tracker;
-      if (!effect.followUpAction || followUpCooldownMap[effect.owner]?.[effect.id]) continue;
-      if (!matchesUseFilter(action, effect, effectTrackers)) continue;
+      if (!effect.followUpAction || cooldownTrackers.followUp[effect.key]) continue;
+      if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
 
       const procActions = [];
       for (const action of effect.followUpAction) {
@@ -607,8 +560,7 @@ function processFollowUpProcs(action, ctx, depth) {
       // Set cooldown BEFORE recursing so re-entrant calls to processFollowUpProcs
       // (from within the proc action itself) see it as blocked and skip.
       if (effect.followUpCooldown) {
-        followUpCooldownMap[effect.owner] ??= {};
-        followUpCooldownMap[effect.owner][effect.id] = effect.followUpCooldown;
+        cooldownTrackers.followUp[effect.key] = effect.followUpCooldown;
       }
 
       tracker.usesRemaining--;
@@ -670,7 +622,7 @@ function processIntervalProcs(ctx, elapsed, depth) {
 }
 
 function processTopLevelAction(action, ctx) {
-  const { gameId, compiledStatMap, effectTrackers, applyCooldownMap, followUpCooldownMap, characterId } = ctx;
+  const { gameId, compiledStatMap, effectTrackers, statusTracker, cooldownTrackers, characterId } = ctx;
   const { duration, offset } = action;
   const remaining = duration - offset;
 
@@ -680,10 +632,9 @@ function processTopLevelAction(action, ctx) {
 
   // ── Pre-hit window (t = 0 → offset) ───────────────────────────
   advanceEffects(effectTrackers, offset, offset);
-  tickEnemyStatuses(gameId, effectTrackers, offset);
+  tickEnemyStatuses(gameId, statusTracker, offset);
   processIntervalProcs(ctx, offset, 0);
-  tickProcCooldowns(followUpCooldownMap, offset);
-  tickProcCooldowns(applyCooldownMap, offset);
+  tickCooldownMap(cooldownTrackers, offset);
 
   // ── Contact (t = offset) ───────────────────────────────────────────
   if (ctx.recordFootprint) {
@@ -701,14 +652,13 @@ function processTopLevelAction(action, ctx) {
   // ── Post-hit window (t = offset → end) ─────────────────────────
   // Contact effects are now in the tracker, so this one call handles them too
   advanceEffects(effectTrackers, 0, remaining);
-  tickEnemyStatuses(gameId, effectTrackers, remaining);
+  tickEnemyStatuses(gameId, statusTracker, remaining);
   processIntervalProcs(ctx, remaining, 0);
-  tickProcCooldowns(followUpCooldownMap, remaining);
-  tickProcCooldowns(applyCooldownMap, remaining);
+  tickCooldownMap(cooldownTrackers, remaining);
 
   // ── Follow-ups + cleanup ───────────────────────────────────────────
   processFollowUpProcs(action, ctx, 0);
-  decayProcCounts(compiledStatMap, effectTrackers, action);
+  decayProcCounts(ctx, compiledStatMap, action);
 }
 
 function processProcAction(action, ctx, depth, repeatCount, applyTimes) {
@@ -742,10 +692,12 @@ export const compileRotation = (gameId, rawTeam, characterId, cache) => {
     active: {},
     inactive: {},
     enemy: {},
-    enemyStatuses: {},
   };
-  const applyCooldownMap = {};
-  const followUpCooldownMap = {};
+  const statusTracker = {};
+  const cooldownTrackers = {
+    apply: {},
+    followUp: {},
+  };
 
   // Shared context object threaded through all processAction calls. activeId is
   // mutated per rotation action to track which member is the current rotation actor.
@@ -754,8 +706,8 @@ export const compileRotation = (gameId, rawTeam, characterId, cache) => {
     cache,
     compiledStatMap,
     effectTrackers,
-    applyCooldownMap,
-    followUpCooldownMap,
+    statusTracker,
+    cooldownTrackers,
     characterId,
     activeId: null,
     recordFootprint: false,

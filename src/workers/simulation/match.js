@@ -28,14 +28,20 @@ const matchOnConsidered = (onConsidered, action) => {
   return false;
 };
 
-const matchIfStatus = (ifStatus, effectTrackers) => {
-  if (ifStatus.includes('any')) {
-    return Boolean(Object.keys(effectTrackers.enemyStatuses).length);
+const matchIfStatus = (ifStatus, enemyStatuses) => {
+  if (ifStatus === 'any') {
+    return Boolean(Object.keys(enemyStatuses).length);
   }
   
-  for (const statusId of ifStatus) {
-    if (effectTrackers.enemyStatuses[statusId]) return true;
+  for (const statusId in ifStatus) {
+    if (!enemyStatuses[statusId]) continue;
+    const requiredStacks = ifStatus[statusId];
+
+    if (enemyStatuses[statusId].stacks >= requiredStacks) {
+      return true;
+    }
   }
+
   return false;
 }
 
@@ -45,6 +51,23 @@ const matchIfState = (ifState, action, activeId) => {
   if (ifState === 'active' && !isActive) return false;
   if (ifState === 'inactive' && isActive) return false;
   return true;
+};
+
+export const matchIfInflict = (ifInflict, inflictedStatuses) => {
+  if (ifInflict === 'any') {
+    return Boolean(Object.keys(inflictedStatuses).length);
+  }
+
+  for (const statusId in ifInflict) {
+    if (!inflictedStatuses[statusId]) continue;
+    const requiredStacks = ifInflict[statusId];
+
+    if (inflictedStatuses[statusId] >= requiredStacks) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
 export const matchApplyOn = (action, effect) => {
@@ -86,10 +109,10 @@ export const matchUseOn = (action, effect) => {
 };
 
 export const matchApplyIf = (action, effect, ctx) => {
-  const { applyIfStatus, applyIfState } = effect;
-  if (!(applyIfStatus || applyIfState)) return true;
+  const { applyIfInflict, applyIfStatus, applyIfState } = effect;
+  if (!(applyIfInflict || applyIfStatus || applyIfState)) return true;
 
-  if (applyIfStatus && matchIfStatus(applyIfStatus, ctx.effectTrackers)) return true;
+  if (applyIfStatus && matchIfStatus(applyIfStatus, ctx.statusTracker)) return true;
   if (applyIfState && matchIfState(applyIfState, action, ctx.activeId)) return true;
 
   return false;
@@ -98,7 +121,7 @@ export const matchApplyIf = (action, effect, ctx) => {
 export const matchRemoveIf = (action, effect, ctx) => {
   const { removeIfStatus, removeIfState } = effect;
 
-  if (removeIfStatus && matchIfStatus(removeIfStatus, ctx.effectTrackers)) return true;
+  if (removeIfStatus && matchIfStatus(removeIfStatus, ctx.statusTracker)) return true;
   if (removeIfState && matchIfState(removeIfState, action, ctx.activeId)) return true;
 
   return false;
@@ -108,7 +131,7 @@ export const matchUseIf = (action, effect, ctx) => {
   const { useIfStatus, useIfState } = effect;
   if (!(useIfStatus || useIfState)) return true;
 
-  if (useIfStatus && matchIfStatus(useIfStatus, ctx.effectTrackers)) return true;
+  if (useIfStatus && matchIfStatus(useIfStatus, ctx.statusTracker)) return true;
   if (useIfState && matchIfState(useIfState, action, ctx.activeId)) return true;
 
   return false;

@@ -3632,7 +3632,9 @@
       },
       {
         "useOnAction": "FC-3",
-        "useIfStatus": "FRAZZLE",
+        "useIfStatus": {
+          "FRAZZLE": 1
+        },
         "statMap": {
           "AMP_ALL": 2.56
         }
@@ -3711,7 +3713,9 @@
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
         "useOnConsidered": "OS",
-        "useIfStatus": "FRAZZLE",
+        "useIfStatus": {
+          "FRAZZLE": 1
+        },
         "statMap": {
           "AMP_ALL": 1.2
         }

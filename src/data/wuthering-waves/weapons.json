@@ -1963,7 +1963,9 @@
     "effects": {
       "applyWhen": "hit",
       "applyOnType": "damage",
-      "applyIfStatus": "FRAZZLE",
+      "applyIfStatus": {
+        "FRAZZLE": 1
+      },
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_SPECTRO": [
@@ -1996,7 +1998,9 @@
       {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfStatus": "FRAZZLE",
+        "applyIfStatus": {
+          "FRAZZLE": 1
+        },
         "rankedStatMap": {
           "PERCENT_BA": [
             0.14,
@@ -2133,7 +2137,9 @@
         "applyTo": "enemy",
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfStatus": "EROSION",
+        "applyIfStatus": {
+          "EROSION": 1
+        },
         "rankedStatMap": {
           "SHRED_AERO_RES": [
             0.1,
@@ -2260,7 +2266,9 @@
       {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfStatus": "EROSION",
+        "applyIfStatus": {
+          "EROSION": 1
+        },
         "rankedStatMap": {
           "AMP_ALL": [
             0.2,
@@ -2714,7 +2722,7 @@
       {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfStatus": "STRAIN",
+        "applyIfTune": "STRAIN",
         "rankedStatMap": {
           "PERCENT_RL": [
             0.24,
@@ -2777,7 +2785,7 @@
       {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfStatus": "STRAIN",
+        "applyIfTune": "STRAIN",
         "rankedStatMap": {
           "PERCENT_RS": [
             0.24,
@@ -2891,7 +2899,7 @@
       {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfStatus": "STRAIN",
+        "applyIfTune": "STRAIN",
         "applyCooldown": 500,
         "rankedStatMap": {
           "PERCENT_BA": [

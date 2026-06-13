@@ -332,15 +332,18 @@
   },
   "STATUSES": {
     "FRAZZLE": {
-      "maxStacks": 10,
+      "id": "FRAZZLE",
       "tickInterval": 3000,
-      "consumesOnTick": true
+      "duration": 3000,
+      "maxStacks": 10,
+      "reapply": true
     },
     "EROSION": {
-      "maxStacks": 3,
-      "tickInterval": 2000,
+      "id": "EROSION",
+      "tickInterval": 3000,
       "duration": 15000,
-      "consumesOnTick": false
+      "maxStacks": 3,
+      "reapply": false
     }
   }
 }
