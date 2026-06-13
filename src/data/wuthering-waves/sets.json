@@ -311,7 +311,7 @@
         {
           "applyTo": "active",
           "applyWhen": "hit",
-          "applyOnConsidered": "CA",
+          "applyOnCast": "CA",
           "statMap": {
             "PERCENT_ATK": 0.2
           },
@@ -348,15 +348,25 @@
       },
       "5": [
         {
+          "applyTo": "team",
+          "applyWhen": "hit",
+          "applyIfInflict": {
+            "EROSION": 1
+          },
           "statMap": {
             "PERCENT_AERO": 0.15
-          }
+          },
+          "duration": 20000
         },
         {
-          "applyTo": "team",
+          "applyWhen": "hit",
+          "applyIfInflict": {
+            "EROSION": 1
+          },
           "statMap": {
             "PERCENT_AERO": 0.15
-          }
+          },
+          "duration": 20000
         }
       ]
     }
@@ -371,10 +381,15 @@
         }
       },
       "5": {
+        "applyWhen": "hit",
+        "applyIfStatus": {
+          "EROSION": 1
+        },
         "statMap": {
           "PERCENT_CR": 0.1,
           "PERCENT_AERO": 0.3
-        }
+        },
+        "duration": 10000
       }
     }
   },
