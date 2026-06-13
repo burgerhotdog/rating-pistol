@@ -756,7 +756,7 @@
       },
       "2": {
         "name": "Emergency Plan: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "attr": "HP",
         "multipliers": [
           {
@@ -847,7 +847,7 @@
       },
       "2": {
         "name": "Remnant Entities: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "attr": "HP",
         "multipliers": [
           {
@@ -901,7 +901,7 @@
       },
       "3": {
         "name": "Momentary Union: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "cast": "RL",
         "attr": "HP",
         "multipliers": [
@@ -958,7 +958,7 @@
     "FC": {
       "1": {
         "name": "Concentration: Healing",
-        "type": "heal",
+        "type": "healing",
         "attr": "HP",
         "multipliers": [
           {
@@ -1044,7 +1044,7 @@
       },
       "2": {
         "name": "Overflowing Frost: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "attr": "HP",
         "multipliers": [
           {
@@ -8268,7 +8268,7 @@
       },
       "11": {
         "name": "Shield Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -8837,7 +8837,7 @@
       },
       "2": {
         "name": "Arboreal Flourish: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -8924,7 +8924,7 @@
       },
       "4": {
         "name": "Photosynthesis Mark: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -9144,7 +9144,7 @@
       "5": {
         "name": "Healing (x3)",
         "tagged": "Starflower Blooms",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -9529,7 +9529,7 @@
       },
       "2": {
         "name": "Fortified Defense: Healing",
-        "type": "heal",
+        "type": "healing",
         "attr": "DEF",
         "multipliers": [
           {
@@ -13955,7 +13955,7 @@
       },
       "2": {
         "name": "Scroll Divination: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -14322,7 +14322,7 @@
       },
       "2": {
         "name": "Poetic Essence: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -14375,7 +14375,7 @@
       },
       "3": {
         "name": "Double Pun Bonus Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -14755,7 +14755,7 @@
       },
       "2": {
         "name": "Chaos Theory: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "cast": "RS",
         "attr": "HP",
         "multipliers": [
@@ -14812,7 +14812,7 @@
     "RL": {
       "1": {
         "name": "End Loop: Healing",
-        "type": "heal",
+        "type": "healing",
         "attr": "HP",
         "multipliers": [
           {
@@ -15035,7 +15035,7 @@
       },
       "3": {
         "name": "Enlightenment: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "attr": "HP",
         "multipliers": [
           {
@@ -15089,7 +15089,7 @@
       },
       "4": {
         "name": "Discernment: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "attr": "HP",
         "multipliers": [
           {
@@ -19059,7 +19059,7 @@
       },
       "2": {
         "name": "To the Horizon: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "attr": "ER",
         "multipliers": [
           {
@@ -19220,7 +19220,7 @@
       },
       "2": {
         "name": "Waves of Acclaims: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "attr": "ER",
         "multipliers": [
           {
@@ -20696,7 +20696,7 @@
       },
       "7": {
         "name": "Trance: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -20750,7 +20750,7 @@
       },
       "8": {
         "name": "Perception Drain: Healing (x3)",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -27925,7 +27925,7 @@
       },
       "8": {
         "name": "Moonbow: Basic Attack 1: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "mv": [
@@ -27955,7 +27955,7 @@
       },
       "9": {
         "name": "Moonbow: Basic Attack 2: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "mv": [
@@ -27985,7 +27985,7 @@
       },
       "10": {
         "name": "Moonbow: Basic Attack 3: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "mv": [
@@ -28015,7 +28015,7 @@
       },
       "11": {
         "name": "Moonbow: Dodge Counter: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "mv": [
@@ -28045,7 +28045,7 @@
       },
       "12": {
         "name": "Arc Beyond the Edge: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "mv": [
@@ -28106,7 +28106,7 @@
       },
       "14": {
         "name": "Absolute Fullness: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "mv": [
@@ -28136,7 +28136,7 @@
       },
       "15": {
         "name": "Full Moon Domain: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "mv": [
@@ -30955,7 +30955,7 @@
       },
       "9": {
         "name": "Twin Mountains Healing",
-        "type": "heal",
+        "type": "healing",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -31011,7 +31011,7 @@
       },
       "10": {
         "name": "Twin Thunders Healing",
-        "type": "heal",
+        "type": "healing",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -31260,7 +31260,7 @@
       },
       "2": {
         "name": "Summon and Smite: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "mv": [
@@ -31546,7 +31546,7 @@
       },
       "5": {
         "name": "Death Snip: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "mv": [
@@ -32135,7 +32135,7 @@
       },
       "2": {
         "name": "Moment of Nihility: Healing",
-        "type": "heal",
+        "type": "healing",
         "multipliers": [
           {
             "flat": [
@@ -33206,7 +33206,7 @@
     "RS": {
       "1": {
         "name": "Wide Field Observation Mode: Distributed Array Healing",
-        "type": "heal",
+        "type": "healing",
         "cast": "RS",
         "considered": "RS",
         "attr": "DEF",
@@ -33263,7 +33263,7 @@
       },
       "2": {
         "name": "Expectation Error Healing",
-        "type": "heal",
+        "type": "healing",
         "cast": "RS",
         "considered": "RS",
         "attr": "DEF",
@@ -33417,7 +33417,7 @@
     "FC": {
       "1": {
         "name": "Syntony Field Healing",
-        "type": "heal",
+        "type": "healing",
         "considered": "FC",
         "attr": "DEF",
         "multipliers": [

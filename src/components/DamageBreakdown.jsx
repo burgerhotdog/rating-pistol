@@ -10,23 +10,21 @@ const renderLabel = ({ percent }) => {
   return `${(percent * 100).toFixed(0)}%`;
 };
 
-/**
- * Builds chart data grouped by damage type (uses getAction to resolve `considered`).
- */
-function buildDmgTypeData(actionMap, gameId, characterId) {
+const buildDmgTypeData = (actionMap, gameId, characterId) => {
   const totals = {};
-  for (const temp of Object.values(actionMap.byMember[characterId])) {
-    const { considered, damage } = temp;
+
+  for (const temp of Object.values(actionMap)) {
+    const { ownerId, considered, damage } = temp;
+    if (ownerId !== characterId) continue;
     if (!considered) continue;
     const label = MISC[gameId].SKILL[considered[0]]?.name;
 
     totals[label] ??= 0;
     totals[label] += damage;
   }
-  return Object.entries(totals)
-    .map(([name, value]) => ({ name, value }))
-    .filter(d => d.value > 0);
-}
+
+  return Object.entries(totals).map(([name, value]) => ({ name, value })).filter(d => d.value > 0);
+};
 
 export const DamageBreakdown = ({ actionMap }) => {
   const { gameId, characterId } = useParams();

@@ -136,7 +136,7 @@
       "applyCooldown": 12000,
       "followUpAction": {
         "action": {
-          "type": "heal",
+          "type": "healing",
           "attr": "HP",
           "multipliers": {
             "mv": [
@@ -382,7 +382,7 @@
       "applyCooldown": 20000,
       "followUpAction": {
         "action": {
-          "type": "heal",
+          "type": "healing",
           "attr": "HP",
           "multipliers": {
             "mv": [
@@ -429,7 +429,7 @@
         "applyCooldown": 8000,
         "followUpAction": {
           "action": {
-            "type": "heal",
+            "type": "healing",
             "attr": "HP",
             "multipliers": {
               "mv": [
@@ -639,7 +639,7 @@
       "applyCooldown": 6000,
       "followUpAction": {
         "action": {
-          "type": "heal",
+          "type": "healing",
           "attr": "HP",
           "multipliers": {
             "mv": [
@@ -885,7 +885,7 @@
       "applyCooldown": 3000,
       "followUpAction": {
         "action": {
-          "type": "heal",
+          "type": "healing",
           "attr": "HP",
           "multipliers": {
             "mv": [
@@ -935,7 +935,7 @@
         "applyCooldown": 6000,
         "followUpAction": {
           "action": {
-            "type": "heal",
+            "type": "healing",
             "attr": "HP",
             "multipliers": {
               "mv": [
@@ -1185,7 +1185,7 @@
       "applyCooldown": 20000,
       "followUpAction": {
         "action": {
-          "type": "heal",
+          "type": "healing",
           "attr": "HP",
           "multipliers": {
             "mv": [

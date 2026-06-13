@@ -167,7 +167,8 @@ const resolveEffect = (effect, id, memberId, rank) => {
       } else {
         const resolvedAction = {
           ...action,
-          key: `EFFECT-${id}`,
+          short: `EFFECT-${id}`,
+          key: `${memberId}-EFFECT-${id}`,
           skillId: 'EFFECT',
           id,
           ownerId: memberId,
@@ -249,14 +250,16 @@ const compileEffects = (gameId, member, idList) => {
       for (const skillId in skillMap) {
         const skill = skillMap[skillId];
 
-        for (const actionKey in skill) {
-          if (matchApplyOn(skill[actionKey], rawEffect)) {
-            active[actionKey] ??= { cast: [], hit: [] };
+        for (const actionShort in skill) {
+          const action = skill[actionShort];
+
+          if (matchApplyOn(action, rawEffect)) {
+            active[action.key] ??= { cast: [], hit: [] };
 
             if (rawEffect.applyWhen === 'cast') {
-              active[actionKey].cast.push(resolved);
+              active[action.key].cast.push(resolved);
             } else {
-              active[actionKey].hit.push(resolved);
+              active[action.key].hit.push(resolved);
             }
           }
         }

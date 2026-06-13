@@ -4,30 +4,28 @@ export function getAverageScores(trials, weekCount) {
   for (let week = 0; week <= weekCount; week++) {
     const currentWeekRotMap = {};
 
-    for (const [member, actionMap] of Object.entries(trials[0].scores[week].byMember)) {
-      const currentWeekMemberMap = {};
+    for (const key in trials[0].scores[week]) {
+      const footprint = trials[0].scores[week][key];
 
-      for (const [actionKey, { element, considered }] of Object.entries(actionMap)) {
-        let damageSum = 0;
-        let healingSum = 0;
+      let damageSum = 0;
+      let healingSum = 0;
+      let shieldSum = 0;
 
-        for (const trial of trials) {
-          damageSum += trial.scores[week].byMember[member][actionKey].damage ?? 0;
-          healingSum += trial.scores[week].byMember[member][actionKey].healing ?? 0;
-        }
-
-        currentWeekMemberMap[actionKey] = {
-          element,
-          considered,
-          damage: damageSum / trials.length,
-          healing: healingSum / trials.length,
-        };
+      for (const trial of trials) {
+        damageSum += trial.scores[week][key].damage ?? 0;
+        healingSum += trial.scores[week][key].healing ?? 0;
+        shieldSum += trial.scores[week][key].shield ?? 0;
       }
 
-      currentWeekRotMap[member] = currentWeekMemberMap;
+      currentWeekRotMap[key] = {
+        ...footprint,
+        damage: damageSum / trials.length,
+        healing: healingSum / trials.length,
+        shield: shieldSum / trials.length,
+      };
     }
 
-    averages.push({ other: {}, byMember: currentWeekRotMap });
+    averages.push(currentWeekRotMap);
   }
 
   return averages;

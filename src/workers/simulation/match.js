@@ -1,5 +1,5 @@
 const matchOnAction = (onAction, action) => {
-  return onAction.includes(action.key);
+  return onAction.includes(action.short);
 };
 
 const matchOnType = (onType, action) => {

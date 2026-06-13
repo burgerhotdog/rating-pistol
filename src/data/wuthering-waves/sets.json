@@ -494,18 +494,18 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "ES",
+          "applyOnConsidered": "HA",
+          "useOnConsidered": "ES",
           "statMap": {
-            "PERCENT_FUSION": 0.08
+            "PERCENT_CR": 0.2
           },
           "duration": 6000
         },
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "HA",
-          "useOnConsidered": "ES",
+          "applyOnConsidered": "ES",
           "statMap": {
-            "PERCENT_CR": 0.2
+            "PERCENT_FUSION": 0.08
           },
           "duration": 6000
         },
@@ -616,7 +616,10 @@
       },
       "5": {
         "applyWhen": "hit",
-        "applyIfInflict": "BURST",
+        "applyIfInflict": {
+          "BURST": 1,
+          "RUPTURE": 1
+        },
         "statMap": {
           "PERCENT_CR": 0.2,
           "PERCENT_FUSION": 0.2
@@ -669,7 +672,7 @@
       "5": {
         "applyWhen": "hit",
         "applyOnConsidered": "ES",
-        "useOnCast": "ES",
+        "useOnConsidered": "ES",
         "statMap": {
           "PERCENT_CR": 0.2,
           "PERCENT_AERO": 0.15

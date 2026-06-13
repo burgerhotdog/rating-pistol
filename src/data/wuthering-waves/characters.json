@@ -158,7 +158,7 @@
         "applyWhen": "cast",
         "applyOnCast": "HA",
         "followUpAction": {
-          "type": "heal",
+          "type": "healing",
           "attr": "HP",
           "multipliers": {
             "mv": 0.0025
@@ -170,7 +170,7 @@
         "applyWhen": "cast",
         "applyOnCast": "OS",
         "intervalAction": {
-          "type": "heal",
+          "type": "healing",
           "attr": "HP",
           "multipliers": {
             "mv": 0.0154
@@ -1655,7 +1655,7 @@
         "applyWhen": "cast",
         "applyOnCast": "OS",
         "intervalAction": {
-          "type": "heal",
+          "type": "healing",
           "multipliers": {
             "mv": 0.19
           }
@@ -1677,7 +1677,7 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "intervalAction": {
-          "type": "heal",
+          "type": "healing",
           "multipliers": {
             "mv": 0.2
           }
@@ -1832,7 +1832,7 @@
         "applyOnAction": "NA-6",
         "applyCooldown": 15000,
         "followUpAction": {
-          "type": "heal",
+          "type": "healing",
           "attr": "HP",
           "multipliers": {
             "mv": 0.25
@@ -2690,7 +2690,7 @@
         "applyOnAction": "RL-2",
         "variableStatMap": {
           "PERCENT_CR": {
-            "source": "ER",
+            "attr": "ER",
             "step": 0.002,
             "value": 0.0001,
             "max": 0.125
@@ -2714,7 +2714,7 @@
         "applyOnAction": "RL-2",
         "variableStatMap": {
           "PERCENT_CD": {
-            "source": "ER",
+            "attr": "ER",
             "step": 0.001,
             "value": 0.0001,
             "max": 0.25
@@ -3253,7 +3253,7 @@
         "applyOnAction": "RL-1",
         "variableStatMap": {
           "FLAT_ATK": {
-            "source": "CR",
+            "attr": "CR",
             "step": 0.001,
             "offset": 0.5,
             "value": 1,
@@ -3422,7 +3422,7 @@
         "applyOnAction": "RL-1",
         "variableStatMap": {
           "FLAT_ATK": {
-            "source": "ER",
+            "attr": "ER",
             "step": 0.01,
             "offset": 1.5,
             "value": 8,
@@ -3434,7 +3434,7 @@
       {
         "variableStatMap": {
           "FLAT_ATK": {
-            "source": "ER",
+            "attr": "ER",
             "step": 0.01,
             "offset": 1.5,
             "value": 12,
@@ -3521,7 +3521,7 @@
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
         "followUpAction": {
-          "type": "heal",
+          "type": "healing",
           "attr": "ER",
           "multipliers": {
             "mv": 660
@@ -4837,7 +4837,7 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "intervalAction": {
-          "type": "heal",
+          "type": "healing",
           "multipliers": {
             "mv": 0.18
           }

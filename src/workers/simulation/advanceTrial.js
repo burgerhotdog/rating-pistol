@@ -1,7 +1,7 @@
 import { MISC } from '@/data';
 import { computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
 import { weightedLottery, matchPenalty } from './helpers';
-import { evaluateRotation } from './rotationSim';
+import { evaluateRotation } from './rotation/rotationSim';
 
 const DAILY_STAMINA = 240;
 const WEEKLY_STAMINA = 120;

@@ -131,10 +131,12 @@ export const normalizeActions = (json, characters) => {
 
       for (const actionId in skill) {
         const action = skill[actionId];
-        const key = `${skillId}-${actionId}`;
+        const short = `${skillId}-${actionId}`;
+        const key = `${id}-${short}`;
 
-        normalizedSkill[key] = {
+        normalizedSkill[short] = {
           ...normalizeAction(action, characters[id].element),
+          short,
           key,
           skillId,
           id: actionId,

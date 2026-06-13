@@ -1,6 +1,6 @@
 import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
 import { findBenchmarkWeek, getAverageScores, findRelativeError} from './helpers';
-import { compileRotation, evaluateRotation } from './rotationSim';
+import { compileRotation, evaluateRotation } from './rotation/rotationSim';
 import { compileCache } from './cache';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';

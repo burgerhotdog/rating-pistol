@@ -1,7 +1,7 @@
 import { MISC } from '@/data';
 import { compileStatMap, computeTotalStat, sumRotationDmg } from '@/utils';
 import { matchPenalty } from './helpers';
-import { evaluateRotation } from './rotationSim';
+import { evaluateRotation } from './rotation/rotationSim';
 
 export function findPreferred(trial, gameId, characterId, match, team, matchTargets, compiledRotation) {
   const { MAIN_STAT_TYPES } = MISC[gameId];

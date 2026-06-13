@@ -1,18 +1,16 @@
-export function sumRotationDmg(summary, filters = {}) {
-  const { ownerId } = filters;
-  const { byMember, other } = summary;
-  const result = {};
+export const sumRotationDmg = (summary, filter = {}) => {
+  const { ownerId } = filter;
+  let result = 0;
 
-  for (const [memberId, actionMap] of Object.entries(byMember)) {
-    if (ownerId && ownerId !== memberId) continue;
+  for (const actionKey in summary) {
+    const actionSummary = summary[actionKey];
 
-    for (const [shortKey, actionSummary] of Object.entries(actionMap)) {
-      for (const [key, value] of Object.entries(actionSummary)) {
-        result[key] ??= 0;
-        result[key] += value;
-      }
+    if (ownerId && ownerId !== actionSummary.ownerId) {
+      continue;
     }
+
+    result += actionSummary.damage;
   }
 
-  return result.damage ?? 0;
-}
+  return result;
+};
