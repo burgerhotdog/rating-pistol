@@ -74,7 +74,7 @@ function applyEffects(ctx, action, trigger, applyTimes = 1) {
 
         if (effect.statusMap) {
           for (const statusId in effect.statusMap) {
-            const status = cache.misc.STATUSES[statusId];
+            const status = cache.data.misc.STATUSES[statusId];
             const stacks = effect.statusMap[statusId] * applyTimes;
 
             applyStatus(enemyState.status, status, stacks)
@@ -149,7 +149,7 @@ function tickCooldownTrackers(cooldownTrackers, delta) {
 }
 
 function tickEnemyStatuses(ctx, stateMap, elapsed) {
-  const statuses = ctx.cache.misc.STATUSES ?? {};
+  const statuses = ctx.cache.data.misc.STATUSES ?? {};
 
   for (const statusId in stateMap) {
     const tracker = stateMap[statusId];

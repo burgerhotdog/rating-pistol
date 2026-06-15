@@ -76,6 +76,10 @@ const normalizeEffect = (effect, entryElement) => {
     }
   }
 
+  if (effect.useIfTagged) {
+    normalized.useIfTagged = toArray(effect.useIfTagged);
+  }
+
   if (effect.followUpAction) {
     normalized.followUpAction = toArray(effect.followUpAction).map(keyOrObj => {
       if (typeof keyOrObj === 'string') return keyOrObj;
@@ -114,7 +118,16 @@ export const normalizeCharacters = (json) => {
   for (const entry of json) {
     const { id, element, effects } = entry;
 
-    normalized[id] = { ...entry, effects: normalizeEffects(effects, element) };
+    const resolved = {
+      ...entry,
+      effects: normalizeEffects(effects, element),
+    };
+
+    if (entry.tagged) {
+      resolved.tagged = toArray(entry.tagged);
+    }
+
+    normalized[id] = resolved;
   }
 
   return normalized;

@@ -54,7 +54,7 @@ const computeBonuses = (statMap, considered, element, enemyStatMap) => {
 // Resistance and defence reduction multipliers applied to final damage.
 // Uses the game's standard resistance brackets and the character-level def formula.
 const computeReductions = (cache, statMap, element, enemyStatMap) => {
-  const { MAX_LEVEL, ENEMY_RES } = cache.misc;
+  const { MAX_LEVEL, ENEMY_RES } = cache.data.misc;
 
   const resIgnore = (statMap[`IGNORE_${element}_RES`] ?? 0) + (enemyStatMap[`SHRED_${element}_RES`] ?? 0);
   const totalRes = ENEMY_RES - resIgnore;

@@ -4540,6 +4540,7 @@
     "quality": 5,
     "element": "HAVOC",
     "type": "RECTIFIER",
+    "tagged": "noEnergy",
     "stats": {
       "BASE_HP": 10775,
       "BASE_ATK": 437,

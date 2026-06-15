@@ -2,7 +2,7 @@ import { sumRotationDmg, mergeObj } from '@/utils';
 import { evaluateRotation } from './rotation/compile';
 
 export function findPreferred(trial, characterId, compiledRotation, cache) {
-  const { MAIN_STAT_TYPES } = cache.misc;
+  const { MAIN_STAT_TYPES } = cache.data.misc;
 
   return MAIN_STAT_TYPES.map((statOptions, costIndex) => {
     if (costIndex === 0 || costIndex === 2) return [];

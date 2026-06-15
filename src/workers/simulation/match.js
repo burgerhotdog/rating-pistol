@@ -30,6 +30,18 @@ const matchOnConsidered = (onConsidered, action) => {
   return false;
 };
 
+const matchIfTagged = (ifTagged, tagged) => {
+  if (!tagged) return false;
+
+  for (const tag of ifTagged) {
+    if (tagged.includes(tag)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 const matchIfStatus = (ifStatus, stateMap) => {
   if (ifStatus === 'any') {
     return Boolean(Object.keys(stateMap).length);
@@ -142,12 +154,12 @@ export const matchRemoveIf = (action, effect, ctx) => {
 };
 
 export const matchUseIf = (action, effect, ctx) => {
-  const { useIfStatus, useIfAttr, useIfState } = effect;
-  if (!(useIfStatus || useIfAttr || useIfState)) return true;
+  if (!(effect.useIfTagged || effect.useIfStatus || effect.useIfAttr || effect.useIfState)) return true;
 
-  if (useIfStatus && matchIfStatus(useIfStatus, ctx.enemyState.status)) return true;
-  if (useIfState && matchIfState(useIfState, action, ctx.activeId)) return true;
-  if (useIfAttr && matchIfAttr(useIfAttr, mergeObj(ctx.cache.baseMap[effect.ownerId], ctx.equipMapByMember[effect.ownerId]))) return true;
+  if (effect.useIfTagged && matchIfTagged(effect.useIfTagged, ctx.cache.data.character[effect.ownerId].tagged)) return true;
+  if (effect.useIfStatus && matchIfStatus(effect.useIfStatus, ctx.enemyState.status)) return true;
+  if (effect.useIfState && matchIfState(effect.useIfState, action, ctx.activeId)) return true;
+  if (effect.useIfAttr && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.baseMap[effect.ownerId], ctx.equipMapByMember[effect.ownerId]))) return true;
 
   return false;
 };

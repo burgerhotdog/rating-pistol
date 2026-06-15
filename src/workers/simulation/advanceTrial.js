@@ -86,14 +86,14 @@ export function advanceTrial(preferredMainStats, trial, matchMap, characterId, c
 
     // Randomly assign main stat (according to weighted rules)
     // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(4, cache.misc);
+    const { mainStatId, mainStatValue } = assignMainStat(4, cache.data.misc);
     if (!preferredMainStats[4].includes(mainStatId)) continue;
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = cache.misc.MAIN_STAT_FLATS[4];
+    const mainFlatMap = cache.data.misc.MAIN_STAT_FLATS[4];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats(cache.misc);
+    const subStatList = assignSubStats(cache.data.misc);
 
     const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
     const newEquipList = latestEquipList.with(0, newEquipObj);
@@ -119,14 +119,14 @@ export function advanceTrial(preferredMainStats, trial, matchMap, characterId, c
 
     // Randomly assign main stat (according to weighted rules)
     // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(3, cache.misc);
+    const { mainStatId, mainStatValue } = assignMainStat(3, cache.data.misc);
     if (!preferredMainStats[3].includes(mainStatId)) continue;
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = cache.misc.MAIN_STAT_FLATS[3];
+    const mainFlatMap = cache.data.misc.MAIN_STAT_FLATS[3];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats(cache.misc);
+    const subStatList = assignSubStats(cache.data.misc);
 
     // Construct newEquipObj
     const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
@@ -171,14 +171,14 @@ export function advanceTrial(preferredMainStats, trial, matchMap, characterId, c
 
     // Randomly assign main stat (according to weighted rules)
     // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(costIndex, cache.misc);
+    const { mainStatId, mainStatValue } = assignMainStat(costIndex, cache.data.misc);
     if (!preferredMainStats[costIndex].includes(mainStatId)) continue;
 
     // Assign main stat flat values
     // Randomly assign and upgrade sub stats
-    const mainFlatMap = cache.misc.MAIN_STAT_FLATS[costIndex];
+    const mainFlatMap = cache.data.misc.MAIN_STAT_FLATS[costIndex];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats(cache.misc);
+    const subStatList = assignSubStats(cache.data.misc);
 
     // Construct newEquipObj
     const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };

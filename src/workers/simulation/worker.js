@@ -68,8 +68,8 @@ self.onmessage = ({ data: payload }) => {
   const actionMap = evaluateRotation(compiledRotation, cache, mergeObj(cache.baseMap[characterId], cache.member[characterId].equipMap));
   const actionMapsWithSub = {};
 
-  for (const statId in cache.misc.SUB_STAT_TYPES) {
-    const { VALUE } = cache.misc.SUB_STAT_TYPES[statId];
+  for (const statId in cache.data.misc.SUB_STAT_TYPES) {
+    const { VALUE } = cache.data.misc.SUB_STAT_TYPES[statId];
 
     const adjustedStatMap = { ...mergeObj(cache.baseMap[characterId], cache.member[characterId].equipMap) };
     adjustedStatMap[statId] ??= 0;

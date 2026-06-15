@@ -280,5 +280,5 @@ export const compileCache = (data, team) => {
     memberMap[member.id] = member;
   }
 
-  return { action, effect, passive, baseMap, member: memberMap, misc: data.misc };
+  return { action, effect, passive, baseMap, member: memberMap, data };
 };

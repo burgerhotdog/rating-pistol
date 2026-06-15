@@ -437,6 +437,7 @@
     "name": "Dream of the Lost",
     "tieredEffects": {
       "3": {
+        "useIfTagged": "noEnergy",
         "statMap": {
           "PERCENT_CR": 0.2,
           "PERCENT_ES": 0.35
