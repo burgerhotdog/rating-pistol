@@ -1,18 +1,16 @@
-import { getAttr, sumRotationDmg, mergeObj } from '@/utils';
+import { sumRotationDmg } from '@/utils';
 import { findBenchmarkWeek, getAverageScores, findRelativeError} from './helpers';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
+import { createMatchMap } from './matchMap';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
 export const runTrials = (currentId, cache, data, compiledRotation) => {
-  const matchMap = Object.fromEntries((data.character[currentId].match ?? ['ER']).map(attr => {
-    const { equipMap } = cache.member[currentId];
-    return [attr, getAttr(attr, mergeObj(cache.baseMap[currentId], equipMap))];
-  }));
+  const matchMap = createMatchMap(currentId, data, cache);
 
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) {
