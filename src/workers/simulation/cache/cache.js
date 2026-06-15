@@ -1,6 +1,6 @@
 import { mergeObj, mergeObjs } from '@/utils/merge';
 import { resolveRankedValue, resolveRankedStatMap } from '@/utils/resolveRanked';
-import { matchApplyOn } from './match';
+import { matchApplyOn } from '../match';
 
 const mergeVariableStatMaps = (...maps) => {
   return maps.reduce((acc, map = {}) => {
