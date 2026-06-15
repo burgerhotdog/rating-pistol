@@ -329,12 +329,21 @@
           "PERCENT_ER": 0.1
         }
       },
-      "5": {
-        "statMap": {
-          "PERCENT_ATK": 0.15,
-          "PERCENT_ALL": 0.3
+      "5": [
+        {
+          "statMap": {
+            "PERCENT_ATK": 0.15
+          }
+        },
+        {
+          "useIfAttr": {
+            "ER": 2.5
+          },
+          "statMap": {
+            "PERCENT_ALL": 0.3
+          }
         }
-      }
+      ]
     }
   },
   {

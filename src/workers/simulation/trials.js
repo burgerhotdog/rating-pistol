@@ -8,7 +8,7 @@ const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
-export const runTrials = (currentId, team, cache, data, compiledRotation) => {
+export const runTrials = (currentId, cache, data, compiledRotation) => {
   const matchMap = Object.fromEntries((data.character[currentId].match ?? ['ER']).map(attr => {
     const { equipMap } = cache.member[currentId];
     return [attr, getAttr(attr, mergeObj(cache.baseMap[currentId], equipMap))];
@@ -27,7 +27,7 @@ export const runTrials = (currentId, team, cache, data, compiledRotation) => {
 
   for (let week = 1; week <= MAX_WEEKS; week++) {
     for (const [trialIndex, trial] of trials.entries()) {
-      advanceTrial(preferredMainStats, trial, matchMap, currentId, team, compiledRotation, cache);
+      advanceTrial(preferredMainStats, trial, matchMap, currentId, compiledRotation, cache);
       self.postMessage({ type: 'progress', trial: trialIndex + 1 });
     }
 
@@ -37,7 +37,7 @@ export const runTrials = (currentId, team, cache, data, compiledRotation) => {
 
       const trial = createTrial(cache, currentId, matchMap, compiledRotation);
       for (let w = 1; w <= week; w++) {
-        advanceTrial(preferredMainStats, trial, matchMap, currentId, team, compiledRotation, cache);
+        advanceTrial(preferredMainStats, trial, matchMap, currentId, compiledRotation, cache);
       }
       trials.push(trial);
     }

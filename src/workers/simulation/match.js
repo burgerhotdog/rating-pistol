@@ -1,3 +1,5 @@
+import { mergeObj, getAttr } from '@/utils';
+
 const matchOnAction = (onAction, action) => {
   return onAction.includes(action.short);
 };
@@ -44,6 +46,18 @@ const matchIfStatus = (ifStatus, stateMap) => {
 
   return false;
 }
+
+const matchIfAttr = (ifAttr, statMap) => {
+  for (const attr in ifAttr) {
+    const requiredValue = ifAttr[attr];
+
+    if (getAttr(attr, statMap) >= requiredValue) {
+      return true;
+    }
+  }
+
+  return false;
+};
 
 const matchIfState = (ifState, action, activeId) => {
   const isActive = action.ownerId === activeId;
@@ -128,11 +142,12 @@ export const matchRemoveIf = (action, effect, ctx) => {
 };
 
 export const matchUseIf = (action, effect, ctx) => {
-  const { useIfStatus, useIfState } = effect;
-  if (!(useIfStatus || useIfState)) return true;
+  const { useIfStatus, useIfAttr, useIfState } = effect;
+  if (!(useIfStatus || useIfAttr || useIfState)) return true;
 
   if (useIfStatus && matchIfStatus(useIfStatus, ctx.enemyState.status)) return true;
   if (useIfState && matchIfState(useIfState, action, ctx.activeId)) return true;
+  if (useIfAttr && matchIfAttr(useIfAttr, mergeObj(ctx.cache.baseMap[effect.ownerId], ctx.equipMapByMember[effect.ownerId]))) return true;
 
   return false;
 };

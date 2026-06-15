@@ -33,7 +33,7 @@ self.onmessage = ({ data: payload }) => {
     self.postMessage({ type: 'progress', currentMember: member.id, completed: 0, diff: null });
 
     const compiledRotation = compileRotation(team, member.id, cache);
-    const { trials } = runTrials(member.id, team, cache, data, compiledRotation);
+    const { trials } = runTrials(member.id, cache, data, compiledRotation);
     trialStatMaps[member.id] = getAvgStatMap(trials);
   }
 
@@ -44,7 +44,7 @@ self.onmessage = ({ data: payload }) => {
     return { ...member, equipMap: trialStatMaps[member.id] };
   });
   const compiledRotation = compileRotation(trialsTeam, characterId, cache);
-  const { trials, preferredMainStats, benchmarkWeek, weeklyScores } = runTrials(characterId, trialsTeam, cache, data, compiledRotation);
+  const { trials, preferredMainStats, benchmarkWeek, weeklyScores } = runTrials(characterId, cache, data, compiledRotation);
   const finalStats = getAvgStatMap(trials);
 
   // Per-week score percentiles for distribution bands

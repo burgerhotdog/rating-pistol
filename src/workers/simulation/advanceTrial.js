@@ -67,7 +67,7 @@ function assignMainStat(costIndex, misc) {
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrial(preferredMainStats, trial, matchMap, characterId, team, compiledRotation, cache) {
+export function advanceTrial(preferredMainStats, trial, matchMap, characterId, compiledRotation, cache) {
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
 
