@@ -1,4 +1,5 @@
-import { sumRotationDmg, mergeObj } from '@/utils';
+import { mergeObj } from '@/utils/merge';
+import { sumRotationDmg } from '@/utils/sumRotationDmg';
 import { evaluateRotation } from './rotation/compile';
 
 export function findPreferred(trial, characterId, compiledRotation, cache) {

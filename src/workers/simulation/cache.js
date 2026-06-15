@@ -1,4 +1,5 @@
-import { resolveRankedValue, resolveRankedStatMap, mergeObj, mergeObjs } from '@/utils';
+import { mergeObj, mergeObjs } from '@/utils/merge';
+import { resolveRankedValue, resolveRankedStatMap } from '@/utils/resolveRanked';
 import { matchApplyOn } from './match';
 
 const mergeVariableStatMaps = (...maps) => {

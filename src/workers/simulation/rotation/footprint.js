@@ -1,4 +1,5 @@
-import { mergeObj, mergeObjs, getAttr } from '@/utils';
+import { mergeObj, mergeObjs } from '@/utils/merge';
+import { getAttr } from '@/utils/getAttr';
 import { matchUseOn, matchUseIf } from '../match';
 
 const resolveVariableStatMap = (variableStatMap, sourceStatMap) => {

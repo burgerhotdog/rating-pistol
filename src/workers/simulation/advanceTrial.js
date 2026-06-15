@@ -1,4 +1,5 @@
-import { sumRotationDmg, mergeObj, mergeEquipList } from '@/utils';
+import { mergeObj, mergeEquipList } from '@/utils/merge';
+import { sumRotationDmg } from '@/utils/sumRotationDmg';
 import { weightedLottery } from './helpers';
 import { evaluateRotation } from './rotation/compile';
 import { getPenalty } from './penalty';

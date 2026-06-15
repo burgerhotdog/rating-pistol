@@ -1,4 +1,4 @@
-import { sumRotationDmg } from '@/utils';
+import { sumRotationDmg } from '@/utils/sumRotationDmg';
 import { findBenchmarkWeek, getAverageScores, findRelativeError} from './helpers';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';

@@ -1,4 +1,4 @@
-import { getAttr } from '@/utils';
+import { getAttr } from '@/utils/getAttr';
 
 function matchPenalty(current, target) {
   if (!target) return 1;

@@ -1,4 +1,5 @@
-import { getAttr, mergeObj } from '@/utils';
+import { getAttr } from '@/utils/getAttr';
+import { mergeObj } from '@/utils/merge';
 
 export const createMatchMap = (currId, data, cache) => {
   const matchMap = {};

@@ -45,7 +45,8 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.08,
@@ -132,18 +133,17 @@
       "PERCENT_DEF": 0.384
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "applyCooldown": 12000,
       "followUpAction": {
-        "action": {
-          "type": "healing",
-          "attr": "HP",
-          "multipliers": {
-            "mv": [
-              0.03,
-              0.06
-            ]
-          }
+        "type": "healing",
+        "attr": "HP",
+        "multipliers": {
+          "mv": [
+            0.03,
+            0.06
+          ]
         }
       },
       "maxUses": 1
@@ -197,7 +197,8 @@
       "PERCENT_DEF": 0.615
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.08,
@@ -243,7 +244,8 @@
       "PERCENT_ATK": 0.303
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "applyCooldown": 12000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -326,7 +328,8 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.08,
@@ -378,18 +381,17 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnCastSkill": "RL",
+      "applyWhen": "cast",
+      "applyOnCast": "RL",
       "applyCooldown": 20000,
       "followUpAction": {
-        "action": {
-          "type": "healing",
-          "attr": "HP",
-          "multipliers": {
-            "mv": [
-              0.05,
-              0.1
-            ]
-          }
+        "type": "healing",
+        "attr": "HP",
+        "multipliers": {
+          "mv": [
+            0.05,
+            0.1
+          ]
         }
       },
       "maxUses": 1
@@ -416,6 +418,8 @@
     },
     "effects": [
       {
+        "useOnConsidered": "HA",
+        "useCooldown": 8000,
         "rankedStatMap": {
           "PERCENT_HA": [
             0.18,
@@ -424,22 +428,18 @@
         }
       },
       {
-        "applyWhen": "hit",
-        "applyOnConsidered": "HA",
-        "applyCooldown": 8000,
+        "useOnConsidered": "HA",
+        "useCooldown": 8000,
         "followUpAction": {
-          "action": {
-            "type": "healing",
-            "attr": "HP",
-            "multipliers": {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
+          "type": "healing",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.05,
+              0.1
+            ]
           }
-        },
-        "maxUses": 1
+        }
       }
     ]
   },
@@ -463,7 +463,8 @@
       "PERCENT_ATK": 0.303
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.15,
@@ -501,7 +502,8 @@
       "PERCENT_ATK": 0.303
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "applyCooldown": 12000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -522,7 +524,8 @@
       "PERCENT_ATK": 0.364
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_BA": [
@@ -583,7 +586,8 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.08,
@@ -635,18 +639,17 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnCastSkill": "DC",
+      "applyWhen": "cast",
+      "applyOnCast": "DC",
       "applyCooldown": 6000,
-      "followUpAction": {
-        "action": {
-          "type": "healing",
-          "attr": "HP",
-          "multipliers": {
-            "mv": [
-              0.016,
-              0.032
-            ]
-          }
+      "intervalAction": {
+        "type": "healing",
+        "attr": "HP",
+        "multipliers": {
+          "mv": [
+            0.016,
+            0.032
+          ]
         }
       },
       "maxUses": 1
@@ -674,8 +677,8 @@
     "effects": {
       "rankedStatMap": {
         "PERCENT_ATK": [
-          0.1,
-          0.2
+          0.12,
+          0.24
         ]
       }
     }
@@ -700,7 +703,8 @@
       "PERCENT_ATK": 0.303
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_RS": [
           0.2,
@@ -740,8 +744,8 @@
     "effects": {
       "rankedStatMap": {
         "PERCENT_ATK": [
-          0.08,
-          0.16
+          0.12,
+          0.24
         ]
       }
     }
@@ -818,7 +822,8 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.08,
@@ -883,16 +888,14 @@
       "applyWhen": "hit",
       "applyOnConsidered": "BA",
       "applyCooldown": 3000,
-      "followUpAction": {
-        "action": {
-          "type": "healing",
-          "attr": "HP",
-          "multipliers": {
-            "mv": [
-              0.005,
-              0.011
-            ]
-          }
+      "intervalAction": {
+        "type": "healing",
+        "attr": "HP",
+        "multipliers": {
+          "mv": [
+            0.005,
+            0.011
+          ]
         }
       },
       "maxUses": 1
@@ -931,18 +934,17 @@
         }
       },
       {
+        "applyWhen": "cast",
         "applyOnCast": "DC",
         "applyCooldown": 6000,
         "followUpAction": {
-          "action": {
-            "type": "healing",
-            "attr": "HP",
-            "multipliers": {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
+          "type": "healing",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.05,
+              0.1
+            ]
           }
         }
       }
@@ -968,7 +970,8 @@
       "PERCENT_DEF": 0.615
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_RL": [
           0.2,
@@ -1006,7 +1009,8 @@
       "PERCENT_ATK": 0.303
     },
     "effects": {
-      "applyOnCastSkill": "RL",
+      "applyWhen": "cast",
+      "applyOnCast": "RL",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.09,
@@ -1029,7 +1033,8 @@
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "rankedStatMap": {
         "PERCENT_RL": [
           0.18,
@@ -1085,7 +1090,8 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.08,
@@ -1159,10 +1165,10 @@
         "maxStacks": 2
       },
       {
-        "useIfState": "inactive",
+        "useIfField": false,
         "rankedStatMap": {
           "PERCENT_ATK": [
-            0.12,
+            10.12,
             0.24
           ]
         }
@@ -1179,18 +1185,17 @@
       "PERCENT_HP": 0.303
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "applyCooldown": 20000,
-      "followUpAction": {
-        "action": {
-          "type": "healing",
-          "attr": "HP",
-          "multipliers": {
-            "mv": [
-              0.05,
-              0.1
-            ]
-          }
+      "intervalAction": {
+        "type": "healing",
+        "attr": "HP",
+        "multipliers": {
+          "mv": [
+            0.05,
+            0.1
+          ]
         }
       },
       "maxUses": 1
@@ -1216,7 +1221,8 @@
       "PERCENT_ER": 0.518
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.12,
@@ -1246,7 +1252,8 @@
       "PERCENT_ATK": 0.364
     },
     "effects": {
-      "applyOnCastSkill": "IS",
+      "applyWhen": "cast",
+      "applyOnCast": "IS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.08,
@@ -1318,7 +1325,8 @@
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnCastSkill": "RL",
+      "applyWhen": "cast",
+      "applyOnCast": "RL",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.15,
@@ -1508,7 +1516,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "applyCooldown": 20000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1529,7 +1538,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "applyCooldown": 20000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1550,7 +1560,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "applyCooldown": 20000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1571,7 +1582,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "applyCooldown": 20000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1624,7 +1636,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "applyCooldown": 20000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1873,7 +1886,8 @@
       "PERCENT_ER": 0.518
     },
     "effects": {
-      "applyOnCastSkill": "RL",
+      "applyWhen": "cast",
+      "applyOnCast": "RL",
       "rankedStatMap": {
         "PERCENT_HB": [
           0.16,
@@ -2376,7 +2390,8 @@
       "PERCENT_CD": 0.405
     },
     "effects": {
-      "applyOnCastSkill": "RL",
+      "applyWhen": "cast",
+      "applyOnCast": "RL",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.072,
@@ -2400,7 +2415,8 @@
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnCastSkill": "RL",
+      "applyWhen": "cast",
+      "applyOnCast": "RL",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.072,
@@ -2513,7 +2529,8 @@
       "PERCENT_CD": 0.405
     },
     "effects": {
-      "applyOnCastSkill": "RL",
+      "applyWhen": "cast",
+      "applyOnCast": "RL",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.072,
@@ -2537,7 +2554,8 @@
       "PERCENT_CD": 0.405
     },
     "effects": {
-      "applyOnCastSkill": "RS",
+      "applyWhen": "cast",
+      "applyOnCast": "RS",
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.09,
