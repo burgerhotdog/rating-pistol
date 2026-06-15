@@ -29,13 +29,19 @@ const compileSetEffects = (setCounts, data) => {
   return compiled;
 };
 
-const compressMultipliers = (action, param) => {
-  const resolveHitScaling = (unknown, param) => {
-    if (typeof unknown === 'number') return unknown;
-    if (unknown.length === 2) return resolveRankedValue(unknown, param);
-    return unknown[param];
-  };
+const createRankResolver = (index) => {
+  return (value) => {
+    if (typeof value === 'number') return value;
 
+    if (value.length === 2) {
+      return resolveRankedValue(value, index);
+    }
+
+    return value[index];
+  };
+};
+
+const compressMultipliers = (action, resolveScaling) => {
   const compressedMultipliers = {};
 
   for (const hit of action.multipliers) {
@@ -43,7 +49,7 @@ const compressMultipliers = (action, param) => {
     compressedMultipliers[element] ??= { flat: 0, mv: {}, hitCount: 0 };
 
     if (hit.flat) {
-      const flatValue = resolveHitScaling(hit.flat, param);
+      const flatValue = resolveScaling(hit.flat);
       compressedMultipliers[element].flat += flatValue * times;
     }
 
@@ -53,14 +59,10 @@ const compressMultipliers = (action, param) => {
         compressedMultipliers[element].mv[action.attr] += hit.mv * times;
       } else if (Array.isArray(hit.mv)) {
         compressedMultipliers[element].mv[action.attr] ??= 0;
-        if (hit.mv.length === 2) {
-          compressedMultipliers[element].mv[action.attr] += resolveRankedValue(hit.mv, param) * times;
-        } else {
-          compressedMultipliers[element].mv[action.attr] += hit.mv[param] * times;
-        }
+        compressedMultipliers[element].mv[action.attr] += resolveScaling(hit.mv) * times;
       } else {
         for (const attr in hit.mv) {
-          const attrMv = resolveHitScaling(hit.mv[attr], param);
+          const attrMv = resolveScaling(hit.mv[attr]);
 
           compressedMultipliers[element].mv[attr] ??= 0;
           compressedMultipliers[element].mv[attr] += attrMv * times;
@@ -75,7 +77,7 @@ const compressMultipliers = (action, param) => {
 };
 
 // Resolve multiplier arrays using skill level index
-const resolveActions = (data, member) => {
+const resolveActions = (data, member, teamSize) => {
   const maxSkillIndex = data.misc.MAX_SKILL_LEVEL - 1;
   const { skillLevelMods } = data.character[member.id];
   const addBySkillId = {};
@@ -92,17 +94,21 @@ const resolveActions = (data, member) => {
 
   for (const skillId in data.action[member.id]) {
     const skillIndex = maxSkillIndex + (addBySkillId[skillId] ?? 0);
+    const resolveMultiplierScaling = createRankResolver(skillIndex);
     const skill = data.action[member.id][skillId];
 
     for (const actionShort in skill) {
-      const action = skill[actionShort];
+      const action = { ...skill[actionShort] };
+      if (action.times === '$teamSize') {
+        action.times = teamSize;
+      }
 
       if (!action.multipliers) {
         resolved[actionShort] = action;
       } else {
         resolved[actionShort] = {
           ...action,
-          compressedMultipliers: compressMultipliers(action, skillIndex),
+          compressedMultipliers: compressMultipliers(action, resolveMultiplierScaling),
         };
       }
     }
@@ -136,7 +142,8 @@ const resolveEffect = (effect, effectId, member, resolvedActions) => {
       }
 
       if (action.multipliers && !action.compressedMultipliers) {
-        resolvedAction.compressedMultipliers = compressMultipliers(resolvedAction, member);
+        const resolveInlineScaling = createRankResolver(member.weaponId);
+        resolvedAction.compressedMultipliers = compressMultipliers(resolvedAction, resolveInlineScaling);
       }
 
       resolved.push(resolvedAction);
@@ -258,7 +265,7 @@ export const compileCache = (data, team) => {
   const memberMap = {};
 
   for (const member of team) {
-    const resolvedActions = resolveActions(data, member);
+    const resolvedActions = resolveActions(data, member, team.length);
     action[member.id] = resolvedActions;
 
     const { passivesbyTarget, effectsByAction } = compileEffects(data, member, idList, resolvedActions);

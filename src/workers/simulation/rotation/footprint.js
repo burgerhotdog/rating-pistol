@@ -1,6 +1,7 @@
 import { mergeObj, mergeObjs } from '@/utils/merge';
 import { getAttr } from '@/utils/getAttr';
 import { matchUseOn, matchUseIf } from '../match';
+import { isOnCooldown, setCooldown } from './cooldowns';
 
 const resolveVariableStatMap = (variableStatMap, sourceStatMap) => {
   const resolved = {};
@@ -150,6 +151,8 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
     ...Object.values(fieldState[actionOwnerFieldState]),
   ]) {
     if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
+    if (isOnCooldown('use', effect.key)) continue;
+
     const { chance, statMap, variableStatMap } = effect;
 
     if (statMap) { // Fixed statMap bonuses
@@ -171,6 +174,10 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
           footprint.fixedEffectStatMap[statId] += resolvedStatMap[statId] * chance * stacks;
         }
       }
+    }
+
+    if (effect.useCooldown) {
+      setCooldown('use', effect.key, effect.useCooldown);
     }
   }
 

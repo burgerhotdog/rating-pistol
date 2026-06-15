@@ -614,8 +614,8 @@
         "applyWhen": "hit",
         "applyOnAction": "RL-1",
         "useOnCast": "BA",
+        "useCooldown": 350,
         "followUpAction": "RL-2",
-        "followUpCooldown": 350,
         "duration": 10000,
         "rankMods": {
           "4": {
@@ -628,8 +628,8 @@
         "applyWhen": "hit",
         "applyOnAction": "RL-1",
         "useOnCast": "HA",
+        "useCooldown": 350,
         "followUpAction": "RL-2",
-        "followUpCooldown": 350,
         "times": 2,
         "duration": 10000,
         "rankMods": {
@@ -887,8 +887,8 @@
         "applyWhen": "hit",
         "applyOnAction": "FC-1",
         "useOnType": "damage",
+        "useCooldown": 1000,
         "followUpAction": "FC-2",
-        "followUpCooldown": 1000,
         "duration": 18000
       },
       {
@@ -1014,8 +1014,8 @@
         "applyWhen": "hit",
         "applyOnAction": "RS-1",
         "useOnType": "damage",
+        "useCooldown": 1200,
         "followUpAction": "RS-2",
-        "followUpCooldown": 1200,
         "duration": 12000
       },
       {
@@ -1365,6 +1365,7 @@
         "applyWhen": "cast",
         "applyOnCast": "OS",
         "useOnCast": "HA",
+        "useCooldown": 1000,
         "followUpAction": {
           "cast": "CA",
           "considered": [
@@ -1375,7 +1376,6 @@
             "mv": 3.134
           }
         },
-        "followUpCooldown": 1000,
         "duration": 8000,
         "maxUses": 2
       },
@@ -1629,11 +1629,11 @@
         "applyTo": "team",
         "applyWhen": "hit",
         "applyOnAction": "RL-1",
+        "useCooldown": 1000,
         "followUpAction": [
           "RL-3",
           "RL-4"
         ],
-        "followUpCooldown": 1000,
         "duration": 12000
       },
       {
@@ -2319,8 +2319,8 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-2",
         "useOnType": "damage",
+        "useCooldown": 1000,
         "followUpAction": "RL-1",
-        "followUpCooldown": 1000,
         "duration": 30000,
         "maxUses": 21,
         "rankMods": {
@@ -2463,13 +2463,13 @@
         "applyWhen": "cast",
         "applyOnCast": "OS",
         "useOnCast": "BA",
+        "useCooldown": 2000,
         "followUpAction": {
           "considered": "OS",
           "multipliers": {
             "mv": 2.3763
           }
         },
-        "followUpCooldown": 2000,
         "duration": 8000,
         "maxUses": 3
       },
@@ -3493,13 +3493,13 @@
         "applyWhen": "cast",
         "applyOnCast": "OS",
         "useOnCast": "RS",
+        "useCooldown": 1000,
         "followUpAction": {
           "considered": "BA",
           "multipliers": {
             "mv": 4.4
           }
         },
-        "followUpCooldown": 1000,
         "duration": 20000,
         "maxUses": 2
       },
@@ -3825,17 +3825,17 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RS-2",
-        "maxUses": 1,
-        "followUpAction": "RS-3"
+        "followUpAction": "RS-3",
+        "maxUses": 1
       },
       {
         "applyTo": "active",
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
+        "useCooldown": 1000,
+        "followUpAction": "RL-2",
         "duration": 30000,
         "maxUses": 21,
-        "followUpAction": "RL-2",
-        "followUpCooldown": 1000,
         "rankMods": {
           "5": {
             "maxUses": 5
@@ -3905,8 +3905,8 @@
         "rank": 2,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "maxUses": 1,
-        "followUpAction": "RS-3"
+        "followUpAction": "RS-3",
+        "maxUses": 1
       },
       {
         "rank": 2,
@@ -3937,10 +3937,10 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "duration": 10000,
         "statMap": {
           "IGNORE_DEF": 0.3
-        }
+        },
+        "duration": 10000
       }
     ],
     "defaults": {

@@ -755,7 +755,7 @@
         ]
       },
       "2": {
-        "name": "Emergency Plan: Healing (x3)",
+        "name": "Emergency Plan: Healing",
         "type": "healing",
         "attr": "HP",
         "multipliers": [
@@ -806,7 +806,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       }
     },
     "RL": {
@@ -846,7 +846,7 @@
         ]
       },
       "2": {
-        "name": "Remnant Entities: Healing (x3)",
+        "name": "Remnant Entities: Team Healing",
         "type": "healing",
         "attr": "HP",
         "multipliers": [
@@ -897,10 +897,10 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       },
       "3": {
-        "name": "Momentary Union: Healing (x3)",
+        "name": "Momentary Union: Team Healing",
         "type": "healing",
         "cast": "RL",
         "attr": "HP",
@@ -952,7 +952,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       }
     },
     "FC": {
@@ -1043,7 +1043,7 @@
         ]
       },
       "2": {
-        "name": "Overflowing Frost: Healing (x3)",
+        "name": "Overflowing Frost: Team Healing",
         "type": "healing",
         "attr": "HP",
         "multipliers": [
@@ -1094,7 +1094,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       }
     },
     "OS": {
@@ -8836,7 +8836,7 @@
         ]
       },
       "2": {
-        "name": "Arboreal Flourish: Healing (x3)",
+        "name": "Arboreal Flourish: Team Healing",
         "type": "healing",
         "multipliers": [
           {
@@ -8886,7 +8886,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       },
       "3": {
         "name": "Photosynthesis Mark",
@@ -13954,7 +13954,7 @@
         ]
       },
       "2": {
-        "name": "Scroll Divination: Healing (x3)",
+        "name": "Scroll Divination: Team Healing",
         "type": "healing",
         "multipliers": [
           {
@@ -14004,7 +14004,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       },
       "3": {
         "name": "Chime",
@@ -14321,7 +14321,7 @@
         ]
       },
       "2": {
-        "name": "Poetic Essence: Healing (x3)",
+        "name": "Poetic Essence: Team Healing",
         "type": "healing",
         "multipliers": [
           {
@@ -14371,10 +14371,10 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       },
       "3": {
-        "name": "Double Pun Bonus Healing (x3)",
+        "name": "Double Pun Bonus Team Healing",
         "type": "healing",
         "multipliers": [
           {
@@ -14424,7 +14424,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       }
     },
     "IS": {
@@ -14754,7 +14754,7 @@
         "times": 5
       },
       "2": {
-        "name": "Chaos Theory: Healing (x3)",
+        "name": "Chaos Theory: Team Healing",
         "type": "healing",
         "cast": "RS",
         "attr": "HP",
@@ -14806,7 +14806,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       }
     },
     "RL": {
@@ -15034,7 +15034,7 @@
         ]
       },
       "3": {
-        "name": "Enlightenment: Healing (x3)",
+        "name": "Enlightenment: Team Healing",
         "type": "healing",
         "attr": "HP",
         "multipliers": [
@@ -15085,10 +15085,10 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       },
       "4": {
-        "name": "Discernment: Healing (x3)",
+        "name": "Discernment: Team Healing",
         "type": "healing",
         "attr": "HP",
         "multipliers": [
@@ -15139,7 +15139,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       }
     },
     "OS": {
@@ -19058,7 +19058,7 @@
         ]
       },
       "2": {
-        "name": "To the Horizon: Healing (x3)",
+        "name": "To the Horizon: Team Healing",
         "type": "healing",
         "attr": "ER",
         "multipliers": [
@@ -19109,7 +19109,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       }
     },
     "FC": {
@@ -19219,7 +19219,7 @@
         ]
       },
       "2": {
-        "name": "Waves of Acclaims: Healing (x3)",
+        "name": "Waves of Acclaims: Team Healing",
         "type": "healing",
         "attr": "ER",
         "multipliers": [
@@ -19270,7 +19270,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       },
       "3": {
         "name": "Returned From Ashes: Shield",
@@ -20749,7 +20749,7 @@
         ]
       },
       "8": {
-        "name": "Perception Drain: Healing (x3)",
+        "name": "Perception Drain: Team Healing",
         "type": "healing",
         "multipliers": [
           {
@@ -20774,9 +20774,7 @@
               1182,
               1241,
               1300
-            ]
-          },
-          {
+            ],
             "mv": [
               0.9,
               0.936,
@@ -20801,7 +20799,7 @@
             ]
           }
         ],
-        "times": 3
+        "times": "$teamSize"
       }
     },
     "IS": {
@@ -33262,10 +33260,9 @@
         ]
       },
       "2": {
-        "name": "Expectation Error Healing",
+        "name": "Expectation Error: Healing",
         "type": "healing",
         "cast": "RS",
-        "considered": "RS",
         "attr": "DEF",
         "multipliers": [
           {
@@ -33290,9 +33287,7 @@
               156,
               163,
               171
-            ]
-          },
-          {
+            ],
             "mv": [
               0.1188,
               0.1235,
@@ -33416,9 +33411,8 @@
     },
     "FC": {
       "1": {
-        "name": "Syntony Field Healing",
+        "name": "Syntony Field: Healing",
         "type": "healing",
-        "considered": "FC",
         "attr": "DEF",
         "multipliers": [
           {
@@ -33443,9 +33437,7 @@
               126,
               132,
               139
-            ]
-          },
-          {
+            ],
             "mv": [
               0.0963,
               0.1002,

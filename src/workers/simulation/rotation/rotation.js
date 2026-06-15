@@ -1,7 +1,8 @@
 import { matchIfInflict, matchUseOn, matchRemoveOn, matchUseIf, matchRemoveIf, matchApplyIf } from '../match';
 import { buildFootprint, evaluateFootprint } from './footprint';
+import { isOnCooldown, setCooldown, advanceCooldowns, resetCooldowns } from './cooldowns';
 
-const MAX_PROC_DEPTH = 4;
+const MAX_PROC_DEPTH = 5;
 
 function removeEffects(ctx, action) {
   const { memberState, fieldState } = ctx;
@@ -51,7 +52,7 @@ function applyStatus(stateMap, status, stacks) {
 }
 
 function applyEffects(ctx, action, trigger, applyTimes = 1) {
-  const { cache, memberState, fieldState, enemyState, cooldownTrackers } = ctx;
+  const { cache, memberState, fieldState, enemyState } = ctx;
   if (!cache.effect[action.key]) return;
 
   const triggered = cache.effect[action.key].filter(e => e.applyWhen === trigger);
@@ -59,7 +60,7 @@ function applyEffects(ctx, action, trigger, applyTimes = 1) {
 
   for (const effect of triggered) {
     if (effect.applyIfInflict) continue;
-    if (cooldownTrackers.apply[effect.key]) continue;
+    if (isOnCooldown('apply', effect.key)) continue;
     if (!matchApplyIf(action, effect, ctx)) continue;
 
     for (const target of effect.applyTo) {
@@ -87,13 +88,13 @@ function applyEffects(ctx, action, trigger, applyTimes = 1) {
     }
 
     if (effect.applyCooldown) {
-      cooldownTrackers.apply[effect.key] = effect.applyCooldown;
+      setCooldown('apply', effect.key, effect.applyCooldown);
     }
   }
 
   for (const effect of triggered) {
     if (!effect.applyIfInflict) continue;
-    if (cooldownTrackers.apply[effect.key]) continue;
+    if (isOnCooldown('apply', effect.key)) continue;
     if (!matchIfInflict(effect.applyIfInflict, inflictedStatuses)) continue;
 
     for (const target of effect.applyTo) {
@@ -107,7 +108,7 @@ function applyEffects(ctx, action, trigger, applyTimes = 1) {
     }
 
     if (effect.applyCooldown) {
-      cooldownTrackers.apply[effect.key] = effect.applyCooldown;
+      setCooldown('apply', effect.key, effect.applyCooldown);
     }
   }
 }
@@ -129,20 +130,6 @@ function advanceEffects(ctx, offset, duration) {
         delete stateMap[effectKey];
       } else {
         stateMap[effectKey].timeRemaining -= duration;
-      }
-    }
-  }
-}
-
-function tickCooldownTrackers(cooldownTrackers, delta) {
-  for (const type in cooldownTrackers) {
-    const cooldownMap = cooldownTrackers[type];
-
-    for (const effectKey in cooldownMap) {
-      cooldownMap[effectKey] -= delta;
-
-      if (cooldownMap[effectKey] <= 0) {
-        delete cooldownMap[effectKey];
       }
     }
   }
@@ -187,12 +174,10 @@ function tickEnemyStatuses(ctx, stateMap, elapsed) {
 
 // Decrements `usesRemaining` for all effects that triggered and removes effects that have exhausted their remaining uses.
 function decayProcCounts(ctx, action) {
-  const { memberState, fieldState, enemyState } = ctx;
   for (const stateMap of [
-    ...Object.values(memberState),
-    fieldState.active,
-    fieldState.inactive,
-    enemyState.stat,
+    ...Object.values(ctx.memberState),
+    ...Object.values(ctx.fieldState),
+    ctx.enemyState.stat,
   ]) {
     for (const effectKey in stateMap) {
       const state = stateMap[effectKey];
@@ -211,7 +196,7 @@ function decayProcCounts(ctx, action) {
 
 function processFollowUpProcs(action, ctx, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
-  const { memberState, fieldState, cooldownTrackers, activeId } = ctx;
+  const { memberState, fieldState, activeId } = ctx;
   const actionOwnerState = activeId === action.ownerId ? 'active' : 'inactive';
 
   for (const stateMap of [
@@ -220,11 +205,11 @@ function processFollowUpProcs(action, ctx, depth) {
   ]) {
     for (const [effectKey, tracker] of Object.entries(stateMap)) {
       const { effect } = tracker;
-      if (!effect.followUpAction || cooldownTrackers.followUp[effectKey]) continue;
+      if (!effect.followUpAction || isOnCooldown('use', effectKey)) continue;
       if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
 
-      if (effect.followUpCooldown) {
-        cooldownTrackers.followUp[effectKey] = effect.followUpCooldown;
+      if (effect.useCooldown) {
+        setCooldown('use', effectKey, effect.useCooldown);
       }
 
       tracker.usesRemaining--;
@@ -268,7 +253,7 @@ function processIntervalProcs(ctx, elapsed, depth) {
 }
 
 function processTopLevelAction(action, ctx) {
-  const { enemyState, cooldownTrackers } = ctx;
+  const { enemyState } = ctx;
   const { duration, offset } = action;
   const remaining = duration - offset;
 
@@ -280,12 +265,14 @@ function processTopLevelAction(action, ctx) {
   advanceEffects(ctx, offset, offset);
   tickEnemyStatuses(ctx, enemyState.status, offset);
   processIntervalProcs(ctx, offset, 0);
-  tickCooldownTrackers(cooldownTrackers, offset);
+  advanceCooldowns(offset);
 
   // ── Contact (t = offset) ───────────────────────────────────────────
   if (ctx.recordFootprint) {
-    ctx.footprints.push(buildFootprint(ctx, action));
+    const footprint = buildFootprint(ctx, action);
+    ctx.footprints.push(footprint);
   }
+
   applyEffects(ctx, action, 'hit');
 
   // ── Post-hit window (t = offset → end) ─────────────────────────
@@ -293,7 +280,7 @@ function processTopLevelAction(action, ctx) {
   advanceEffects(ctx, 0, remaining);
   tickEnemyStatuses(ctx, enemyState.status, remaining);
   processIntervalProcs(ctx, remaining, 0);
-  tickCooldownTrackers(cooldownTrackers, remaining);
+  advanceCooldowns(remaining);
 
   // ── Follow-ups + cleanup ───────────────────────────────────────────
   processFollowUpProcs(action, ctx, 0);
@@ -301,11 +288,11 @@ function processTopLevelAction(action, ctx) {
 }
 
 function processProcAction(action, ctx, depth, repeatCount, applyTimes) {
-  if (depth >= MAX_PROC_DEPTH) return;
   applyEffects(ctx, action, 'cast', applyTimes);
 
   if (ctx.recordFootprint) {
-    ctx.footprints.push(buildFootprint(ctx, action, repeatCount));
+    const footprint = buildFootprint(ctx, action, repeatCount);
+    ctx.footprints.push(footprint);
   }
 
   applyEffects(ctx, action, 'hit', applyTimes);
@@ -313,9 +300,16 @@ function processProcAction(action, ctx, depth, repeatCount, applyTimes) {
 }
 
 function processAction(action, ctx, depth, repeatCount = 1, applyTimes = 1) {
-  if (depth >= MAX_PROC_DEPTH) return;
-  if (depth === 0) processTopLevelAction(action, ctx);
-  else processProcAction(action, ctx, depth, repeatCount, applyTimes);
+  if (depth >= MAX_PROC_DEPTH) {
+    console.log("MAX_PROC_DEPTH hit");
+    return;
+  }
+
+  if (depth === 0) {
+    processTopLevelAction(action, ctx);
+  } else {
+    processProcAction(action, ctx, depth, repeatCount, applyTimes);
+  }
 }
 
 export const compileRotation = (team, characterId, cache) => {
@@ -335,13 +329,15 @@ export const compileRotation = (team, characterId, cache) => {
     memberState,
     fieldState: { active: {}, inactive: {} },
     enemyState: { stat: {}, status: {} },
-    cooldownTrackers: { apply: {}, followUp: {} },
     recordFootprint: false,
     footprints: [],
   };
 
+  resetCooldowns();
+
   for (const member of team.toReversed()) {
     ctx.activeId = member.id;
+
     for (const actionShort of member.rotation) {
       const action = cache.action[member.id][actionShort];
       processAction(action, ctx, 0);
@@ -352,11 +348,14 @@ export const compileRotation = (team, characterId, cache) => {
 
   for (const member of team.toReversed()) {
     ctx.activeId = member.id;
+
     for (const actionShort of member.rotation) {
       const action = cache.action[member.id][actionShort];
       processAction(action, ctx, 0);
     }
   }
+
+  resetCooldowns();
 
   return { characterId, footprints: ctx.footprints };
 };

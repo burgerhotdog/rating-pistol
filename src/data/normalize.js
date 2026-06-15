@@ -57,7 +57,6 @@ const normalizeEffect = (effect, entryElement) => {
   normalized.rank ??= 0;
   normalized.chance ??= 1;
   normalized.applyTo ??= 'self';
-  normalized.applyCooldown ??= 0;
   normalized.duration ??= Infinity;
   normalized.maxUses ??= Infinity;
   normalized.maxStacks ??= 1;
@@ -85,7 +84,6 @@ const normalizeEffect = (effect, entryElement) => {
       if (typeof keyOrObj === 'string') return keyOrObj;
       return normalizeAction(keyOrObj, entryElement);
     });
-    normalized.followUpCooldown ??= 0;
     normalized.times ??= 1;
   }
 

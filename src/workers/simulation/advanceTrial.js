@@ -1,7 +1,7 @@
 import { mergeObj, mergeEquipList } from '@/utils/merge';
 import { sumRotationDmg } from '@/utils/sumRotationDmg';
 import { weightedLottery } from './helpers';
-import { evaluateRotation } from './rotation/compile';
+import { evaluateRotation } from './rotation';
 import { getPenalty } from './penalty';
 
 const DAILY_STAMINA = 240;

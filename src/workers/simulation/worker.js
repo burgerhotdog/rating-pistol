@@ -1,6 +1,6 @@
 import { mergeEquipList, mergeObj } from '@/utils/merge';
 import { sumRotationDmg } from '@/utils/sumRotationDmg';
-import { compileRotation, evaluateRotation } from './rotation/compile';
+import { compileRotation, evaluateRotation } from './rotation';
 import { compileCache } from './cache';
 import { runTrials } from './trials';
 

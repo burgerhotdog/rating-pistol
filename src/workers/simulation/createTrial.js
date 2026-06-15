@@ -1,4 +1,4 @@
-import { evaluateRotation } from './rotation/compile';
+import { evaluateRotation } from './rotation';
 import { getPenalty } from './penalty';
 
 export function createTrial(cache, characterId, matchMap, compiledRotation) {

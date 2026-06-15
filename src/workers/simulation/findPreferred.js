@@ -1,6 +1,6 @@
 import { mergeObj } from '@/utils/merge';
 import { sumRotationDmg } from '@/utils/sumRotationDmg';
-import { evaluateRotation } from './rotation/compile';
+import { evaluateRotation } from './rotation';
 
 export function findPreferred(trial, characterId, compiledRotation, cache) {
   const { MAIN_STAT_TYPES } = cache.data.misc;

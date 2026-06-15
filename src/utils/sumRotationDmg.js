@@ -14,3 +14,20 @@ export const sumRotationDmg = (summary, filter = {}) => {
 
   return result;
 };
+
+export const sumRotationHealing = (summary, filter = {}) => {
+  const { ownerId } = filter;
+  let result = 0;
+
+  for (const actionKey in summary) {
+    const actionSummary = summary[actionKey];
+
+    if (ownerId && ownerId !== actionSummary.ownerId) {
+      continue;
+    }
+
+    result += actionSummary.healing;
+  }
+
+  return result;
+};
