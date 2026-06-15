@@ -1,7 +1,5 @@
 import { normalizeCharacters, normalizeActions, normalizeWeapons, normalizeSets } from './normalize';
 
-console.log('hi');
-
 const GI = 'genshin-impact';
 const HSR = 'honkai-star-rail';
 const WW = 'wuthering-waves';

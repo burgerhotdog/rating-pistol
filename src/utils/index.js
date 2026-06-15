@@ -11,4 +11,3 @@ export * from './getAttr';
 export * from './resolveRanked';
 export * from './getDefaultRanks';
 export * from './applyStoredBuild';
-console.log('utils');
