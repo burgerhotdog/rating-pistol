@@ -1,6 +1,7 @@
 {
   "TITLE": "Honkai Star Rail",
   "MAX_LEVEL": 80,
+  "MAX_SKILL_LEVEL": 10,
   "ENEMY_RES": 0,
   "NUM_MAINSTATS": 6,
   "NUM_SUBSTATS": 4,

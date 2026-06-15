@@ -1159,9 +1159,7 @@
         "maxStacks": 2
       },
       {
-        "applyTo": "inactive",
-        "applyWhen": "cast",
-        "applyOnCast": "IS",
+        "useIfState": "inactive",
         "rankedStatMap": {
           "PERCENT_ATK": [
             0.12,

@@ -1,28 +1,17 @@
-import { MISC } from '@/data';
-import { compileStatMap, computeTotalStat, sumRotationDmg } from '@/utils';
-import { matchPenalty } from './helpers';
+import { sumRotationDmg, mergeObj } from '@/utils';
 import { evaluateRotation } from './rotation/compile';
 
-export function findPreferred(trial, gameId, characterId, match, team, matchTargets, compiledRotation) {
-  const { MAIN_STAT_TYPES } = MISC[gameId];
+export function findPreferred(trial, characterId, compiledRotation, cache) {
+  const { MAIN_STAT_TYPES } = cache.misc;
 
   return MAIN_STAT_TYPES.map((statOptions, costIndex) => {
     if (costIndex === 0 || costIndex === 2) return [];
 
     const preferred = [];
     for (const [id, data] of Object.entries(statOptions)) {
-      const testObj = { mainStatId: id, mainStatValue: data.VALUE, subStatList: [] };
-      const testBuild = { ...trial.build, equipList: [testObj] };
+      const testDamage = evaluateRotation(compiledRotation, cache, mergeObj(cache.baseMap[characterId], { [id]: data.VALUE }));
 
-      const testDamage = evaluateRotation(compiledRotation, compileStatMap(gameId, characterId, testBuild));
-      
-      const testPenalty = match.reduce((acc, stat, index) => {
-        const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, testBuild));
-        const targetValue = matchTargets[index];
-        return acc * matchPenalty(currentValue, targetValue);
-      }, 1)
-
-      if (sumRotationDmg(testDamage) * testPenalty > sumRotationDmg(trial.scores[0]) * trial.penalty) {
+      if (sumRotationDmg(testDamage) > sumRotationDmg(trial.scores[0])) {
         preferred.push(id);
       }
     }

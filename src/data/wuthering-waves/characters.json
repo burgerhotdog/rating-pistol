@@ -131,7 +131,7 @@
         "intervalAction": "RL-1",
         "intervalCooldown": 2500,
         "maxUses": 4,
-        "rankModifiers": {
+        "rankMods": {
           "4": {
             "maxUses": 2
           }
@@ -277,7 +277,7 @@
           "PERCENT_GLACIO": 0.5
         },
         "duration": 14000,
-        "rankModifiers": {
+        "rankMods": {
           "3": {
             "statMap": {
               "PERCENT_BA": 0.2,
@@ -401,7 +401,7 @@
         "statMap": {
           "PERCENT_ALL": 0.5
         },
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "statMap": {
               "PERCENT_CR": 1
@@ -417,7 +417,7 @@
         },
         "duration": 10000,
         "maxStacks": 30,
-        "rankModifiers": {
+        "rankMods": {
           "5": {
             "statMap": {
               "PERCENT_ATK": 0.01
@@ -617,7 +617,7 @@
         "followUpAction": "RL-2",
         "followUpCooldown": 350,
         "duration": 10000,
-        "rankModifiers": {
+        "rankMods": {
           "4": {
             "duration": 7000
           }
@@ -632,7 +632,7 @@
         "followUpCooldown": 350,
         "times": 2,
         "duration": 10000,
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "useOnCast": "RS"
           },
@@ -660,7 +660,7 @@
         },
         "duration": 10000,
         "maxStacks": 50,
-        "rankModifiers": {
+        "rankMods": {
           "4": {
             "duration": 7000
           }
@@ -1127,7 +1127,7 @@
           "PERCENT_AERO": 0.08
         },
         "duration": 8000,
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "statMap": {
               "PERCENT_AERO": 0.15
@@ -1792,7 +1792,7 @@
           "PERCENT_DEF": 0.15
         },
         "duration": 15000,
-        "rankModifiers": {
+        "rankMods": {
           "3": {
             "duration": 15000
           }
@@ -1922,7 +1922,7 @@
           "PERCENT_ALL": 0.2
         },
         "duration": 12000,
-        "rankModifiers": {
+        "rankMods": {
           "2": {
             "statMap": {
               "PERCENT_ALL": 0.2
@@ -2322,7 +2322,7 @@
         "followUpCooldown": 1000,
         "duration": 30000,
         "maxUses": 21,
-        "rankModifiers": {
+        "rankMods": {
           "2": {
             "maxUses": 6
           }
@@ -2592,7 +2592,7 @@
           "PERCENT_GLACIO": 0.15
         },
         "duration": 14000,
-        "rankModifiers": {
+        "rankMods": {
           "5": {
             "statMap": {
               "PERCENT_CR": 0.15
@@ -2678,7 +2678,7 @@
         "intervalAction": "RL-1",
         "intervalCooldown": 3000,
         "duration": 30000,
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "duration": 10000
           }
@@ -2697,7 +2697,7 @@
           }
         },
         "duration": 30000,
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "duration": 10000
           },
@@ -2721,7 +2721,7 @@
           }
         },
         "duration": 30000,
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "duration": 10000
           }
@@ -2734,7 +2734,7 @@
           "PERCENT_ER": 0.1
         },
         "duration": 30000,
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "duration": 10000
           }
@@ -2745,7 +2745,7 @@
         "statMap": {
           "PERCENT_CR": 1
         },
-        "rankModifiers": {
+        "rankMods": {
           "6": {
             "statMap": {
               "PERCENT_MV": 0.42,
@@ -2958,7 +2958,7 @@
           "PERCENT_MV": 1
         },
         "duration": 15000,
-        "rankModifiers": {
+        "rankMods": {
           "6": {
             "statMap": {
               "PERCENT_MV": 2
@@ -3120,7 +3120,7 @@
         "statMap": {
           "IGNORE_DEF": 0.18
         },
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "statMap": {
               "PERCENT_CR": 0.125
@@ -3596,7 +3596,7 @@
         "statMap": {
           "PERCENT_MV": 2.55
         },
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "statMap": {
               "PERCENT_MV": 2.25
@@ -3611,7 +3611,7 @@
         "statusMap": {
           "FRAZZLE": 8
         },
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "statusMap": {
               "FRAZZLE": 2
@@ -3693,7 +3693,7 @@
           "AMP_FRAZZLE": 1
         },
         "duration": 30000,
-        "rankModifiers": {
+        "rankMods": {
           "2": {
             "statMap": {
               "AMP_FRAZZLE": 1.2
@@ -3835,7 +3835,7 @@
         "maxUses": 21,
         "followUpAction": "RL-2",
         "followUpCooldown": 1000,
-        "rankModifiers": {
+        "rankMods": {
           "5": {
             "maxUses": 5
           }
@@ -3858,7 +3858,7 @@
         "statMap": {
           "PERCENT_HB": 0.2
         },
-        "rankModifiers": {
+        "rankMods": {
           "4": {
             "statMap": {
               "PERCENT_HB": 0.25
@@ -3999,7 +3999,7 @@
         "statMap": {
           "PERCENT_HA": 0.3
         },
-        "rankModifiers": {
+        "rankMods": {
           "4": {
             "statMap": {
               "IGNORE_DEF": 0.45
@@ -4113,7 +4113,7 @@
         "statMap": {
           "AMP_FRAZZLE": 0.2
         },
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "statMap": {
               "PERCENT_SPECTRO": 0.5
@@ -4132,7 +4132,7 @@
         "statMap": {
           "PERCENT_MV": 0.25
         },
-        "rankModifiers": {
+        "rankMods": {
           "6": {
             "statMap": {
               "PERCENT_MV": 0.4
@@ -4410,7 +4410,7 @@
         "statMap": {
           "PERCENT_ALL": 1
         },
-        "rankModifiers": {
+        "rankMods": {
           "1": {
             "statMap": {
               "PERCENT_CD": 1

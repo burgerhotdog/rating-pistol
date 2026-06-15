@@ -1,3 +1,25 @@
+export const mergeObj = (a, b) => {
+  const result = { ...a };
+
+  for (const key in b) {
+    result[key] = (result[key] ?? 0) + b[key];
+  }
+
+  return result;
+};
+
+export const mergeObjs = (...objects) => {
+  const result = {};
+
+  for (const obj of objects) {
+    for (const key in obj) {
+      result[key] = (result[key] ?? 0) + obj[key];
+    }
+  }
+
+  return result;
+};
+
 export function mergeEquipList(equipList) {
   const result = {};
 

@@ -1,4 +1,3 @@
-export * from './mergeEquipList';
 export * from './computeTotalStat';
 export * from './mergeStatMaps';
 export * from './compileStatMap';
@@ -7,6 +6,8 @@ export * from './getSetCounts';
 export * from './sumRotationDmg';
 export * from './formatRotation';
 export * from './toArray';
+export * from './merge';
+export * from './getAttr';
 export * from './resolveRanked';
 export * from './getDefaultRanks';
 export * from './applyStoredBuild';

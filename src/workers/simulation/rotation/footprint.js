@@ -1,39 +1,5 @@
+import { mergeObj, mergeObjs, getAttr } from '@/utils';
 import { matchUseOn, matchUseIf } from '../match';
-import { CONSTANTS } from '../constants';
-
-const mergeObj = (a, b) => {
-  const result = { ...a };
-
-  for (const key in b) {
-    result[key] = (result[key] ?? 0) + b[key];
-  }
-
-  return result;
-};
-
-const mergeObjs = (...objects) => {
-  const result = {};
-
-  for (const obj of objects) {
-    for (const key in obj) {
-      result[key] = (result[key] ?? 0) + obj[key];
-    }
-  }
-
-  return result;
-};
-
-const resolveAttr = (attr, statMap) => {
-  const baseValue = statMap[`BASE_${attr}`];
-  const percentValue = statMap[`PERCENT_${attr}`] ?? 0;
-  const flatValue = statMap[`FLAT_${attr}`] ?? 0;
-
-  if (baseValue === undefined) {
-    return percentValue;
-  }
-
-  return baseValue * (1 + percentValue) + flatValue;
-};
 
 const resolveVariableStatMap = (variableStatMap, sourceStatMap) => {
   const resolved = {};
@@ -43,7 +9,7 @@ const resolveVariableStatMap = (variableStatMap, sourceStatMap) => {
     const args = variableStatMap[statId];
 
     for (const { attr, offset = 0, step, value, max = Infinity } of args) {
-      const attrValue = resolveAttr(attr, sourceStatMap);
+      const attrValue = getAttr(attr, sourceStatMap);
       const mult = Math.max((attrValue - offset) / step, 0);
 
       resolved[statId] += Math.min(value * mult, max);
@@ -59,7 +25,7 @@ const computeBase = (statMap, compressed) => {
   let totalMvPart = 0;
 
   for (const attr in compressed.mv) {
-    const attrValue = resolveAttr(attr, statMap);
+    const attrValue = getAttr(attr, statMap);
     const mv = compressed.mv[attr] ?? 0;
 
     totalMvPart += attrValue * (mv + flatMv * compressed.hitCount);
@@ -69,8 +35,8 @@ const computeBase = (statMap, compressed) => {
 };
 
 const computeBonuses = (statMap, considered, element, enemyStatMap) => {
-  const critRate = Math.max(Math.min(resolveAttr('CR', statMap), 1), 0);
-  const critDamage = resolveAttr('CD', statMap);
+  const critRate = Math.max(Math.min(getAttr('CR', statMap), 1), 0);
+  const critDamage = getAttr('CD', statMap);
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
   const dmgTypes = [...considered, ...(element ? [element]: [])];
@@ -87,8 +53,8 @@ const computeBonuses = (statMap, considered, element, enemyStatMap) => {
 
 // Resistance and defence reduction multipliers applied to final damage.
 // Uses the game's standard resistance brackets and the character-level def formula.
-const computeReductions = (gameId, statMap, element, enemyStatMap) => {
-  const { MAX_LEVEL, ENEMY_RES } = CONSTANTS[gameId];
+const computeReductions = (cache, statMap, element, enemyStatMap) => {
+  const { MAX_LEVEL, ENEMY_RES } = cache.misc;
 
   const resIgnore = (statMap[`IGNORE_${element}_RES`] ?? 0) + (enemyStatMap[`SHRED_${element}_RES`] ?? 0);
   const totalRes = ENEMY_RES - resIgnore;
@@ -108,223 +74,146 @@ const computeReductions = (gameId, statMap, element, enemyStatMap) => {
   return resMult * defMult;
 };
 
-const getCurrentStatMap = (memberId, effectTrackers, compiledStatMap, activeId) => {
-  const baseStats = { ...compiledStatMap[memberId] };
-  const activeTracker = activeId === memberId ? effectTrackers.active : effectTrackers.inactive;
+const getCurrentStatMap = (memberId, memberState, fieldState, baseMap, activeId) => {
+  const currentMap = { ...baseMap };
+  const memberFieldState = memberId === activeId ? 'active' : 'inactive';
 
-  function addConstantEffectStats(trackerMap) {
-    for (const { stacks, effect } of Object.values(trackerMap)) {
-      const { statMap } = effect;
-      if (!statMap) continue;
+  for (const { stacks, effect } of [
+    ...Object.values(memberState[memberId]),
+    ...Object.values(fieldState[memberFieldState]),
+  ]) {
+    const { chance, statMap } = effect;
+    if (!statMap) continue;
 
-      for (const [stat, value] of Object.entries(statMap)) {
-        baseStats[stat] ??= 0;
-        baseStats[stat] += value * stacks;
-      }
+    for (const statId in statMap) {
+      currentMap[statId] ??= 0;
+      currentMap[statId] += statMap[statId] * stacks * chance;
     }
   }
 
-  addConstantEffectStats(effectTrackers.byMember[memberId]);
-  addConstantEffectStats(activeTracker);
+  for (const { stacks, effect } of [
+    ...Object.values(memberState[memberId]),
+    ...Object.values(fieldState[memberFieldState]),
+  ]) {
+    const { chance, variableStatMap } = effect;
+    if (!variableStatMap) continue;
 
-  function addVariableEffectStats(trackerMap) {
-    for (const { stacks, effect } of Object.values(trackerMap)) {
-      const { variableStatMap } = effect;
-      if (!variableStatMap) continue;
-
-      const resolvedStatMap = resolveVariableStatMap(variableStatMap, baseStats);
-      for (const [stat, value] of Object.entries(resolvedStatMap)) {
-        baseStats[stat] ??= 0;
-        baseStats[stat] += value * stacks;
-      }
+    const resolvedStatMap = resolveVariableStatMap(variableStatMap, currentMap);
+    for (const statId in resolvedStatMap) {
+      currentMap[statId] ??= 0;
+      currentMap[statId] += resolvedStatMap[statId] * stacks * chance;
     }
   }
 
-  addVariableEffectStats(effectTrackers.byMember[memberId]);
-  addVariableEffectStats(activeTracker);
-
-  return baseStats;
+  return currentMap;
 };
 
-export const buildFootprint = (ctx, {
-  action,
-  effectTrackers,
-  activeId,
-  compiledStatMap,
-  characterId,
-  repeatCount = 1,
-}) => {
-  const { gameId, cache } = ctx;
+export const buildFootprint = (ctx, action, repeatCount = 1) => {
+  const { cache, characterId, activeId, memberState, fieldState, enemyState } = ctx;
+  const actionOwnerFieldState = activeId === action.ownerId ? 'active' : 'inactive';
+  const characterIdFieldState = activeId === characterId ? 'active' : 'inactive';
 
   const footprint = {
-    key: action.key,
-    ownerId: action.ownerId,
-    skillId: action.skillId,
-    type: action.type,
-    element: action.element,
-    times: action.times,
-    considered: action.considered,
-    compressedMultipliers: action.compressedMultipliers,
+    ...action,
     repeatCount,
-    fixedDamage: 0,
-    fixedHealing: 0,
     // Set below
-    ownerBaseStatMap: null,  // only set for teammate actions with charVariableEffectSpecs
-    constantEffectContribs: {},
-    fixedVariableContribs: {},
+    enemyStatMap: {},
+    fixedEffectStatMap: {},
     charVariableEffectSpecs: [],
     charConstantEffectContribsForSource: {},
-    enemyStatMap: {},
+    ownerBaseStatMap: null,  // only set for teammate actions with charVariableEffectSpecs
   };
 
-  // This footprint does nothing
   if (!action.compressedMultipliers) {
     return footprint;
   }
 
-  // Build enemy stat map snapshot
-  const enemyStatMap = {};
+  // Resolve enemyStatMap
+  for (const { stacks = 1, effect } of [
+    ...(cache.passive.enemy ?? []).map(effect => ({ effect })),
+    ...Object.values(enemyState.stat),
+  ]) {
+    const { chance, statMap } = effect;
+    if (!statMap) continue;
 
-  // Passive effects
-  for (const member in cache.link) {
-    const { passive } = cache.link[member];
-    if (!passive.enemy) continue;
+    for (const statId in statMap) {
+      footprint.enemyStatMap[statId] ??= 0;
+      footprint.enemyStatMap[statId] += statMap[statId] * stacks * chance;
+    }
+  }
 
-    for (const effect of passive.enemy) {
-      const { statMap, chance } = effect;
+  for (const { stacks = 1, effect } of [
+    ...(cache.passive[action.ownerId] ?? []).map(effect => ({ effect })),
+    ...(cache.passive[actionOwnerFieldState] ?? []).map(effect => ({ effect })),
+    ...Object.values(memberState[action.ownerId]),
+    ...Object.values(fieldState[actionOwnerFieldState]),
+  ]) {
+    if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
+    const { chance, statMap, variableStatMap } = effect;
+
+    if (statMap) { // Fixed statMap bonuses
+      for (const statId in statMap) {
+        footprint.fixedEffectStatMap[statId] ??= 0;
+        footprint.fixedEffectStatMap[statId] += statMap[statId] * chance * stacks;
+      }
+    }
+
+    if (variableStatMap) {
+      if (effect.ownerId === characterId) { // variableStatMaps that scale off characterId's stats
+        footprint.charVariableEffectSpecs.push({ variableStatMap, stacks, chance });
+      } else { // variableStatMaps that scale off teammate stats
+        const ownerCurrentStatMap = getCurrentStatMap(effect.ownerId, memberState, fieldState, cache.baseMap[effect.ownerId], activeId);
+        const resolvedStatMap = resolveVariableStatMap(effect.variableStatMap, ownerCurrentStatMap);
+
+        for (const statId in resolvedStatMap) {
+          footprint.fixedEffectStatMap[statId] ??= 0;
+          footprint.fixedEffectStatMap[statId] += resolvedStatMap[statId] * chance * stacks;
+        }
+      }
+    }
+  }
+
+  if (footprint.charVariableEffectSpecs.length) {
+    for (const { stacks = 1, effect } of [
+      ...(cache.passive[characterId] ?? []).map(effect => ({ effect })),
+      ...(cache.passive[characterIdFieldState] ?? []).map(effect => ({ effect })),
+      ...Object.values(memberState[characterId]),
+      ...Object.values(fieldState[characterIdFieldState]),
+    ]) {
+      const { chance, statMap } = effect;
       if (!statMap) continue;
 
-      for (const stat in statMap) {
-        enemyStatMap[stat] ??= 0;
-        enemyStatMap[stat] += statMap[stat] * chance;
+      for (const statId in statMap) {
+        footprint.charConstantEffectContribsForSource[statId] ??= 0;
+        footprint.charConstantEffectContribsForSource[statId] += statMap[statId] * stacks * chance;
       }
     }
-  }
-
-  // Active effects
-  for (const effectKey in effectTrackers.enemy) {
-    const { stacks, effect } = effectTrackers.enemy[effectKey];
-    if (!effect.statMap) continue;
-
-    for (const statId in effect.statMap) {
-      enemyStatMap[statId] ??= 0;
-      enemyStatMap[statId] += effect.statMap[statId] * stacks;
-    }
-  }
-  footprint.enemyStatMap = enemyStatMap;
-
-  // Classify effect statMap contributions
-  // constantEffectContribs — flat stat boosts that don't depend on any character's variable stats (same for every build, resolved immediately)
-  // fixedVariableContribs — teammate variable effects whose owner's stats are already fixed, so they can also be pre-resolved now
-  // charVariableEffectSpecs — the character's own variable effects that scale off their stats, so they must be re-evaluated per artifact build
-  const constantEffectContribs = {};
-  const fixedVariableContribs = {};
-  const charVariableEffectSpecs = [];
-
-  const passiveEffects = [];
-  for (const memberId in cache.link) {
-    passiveEffects.push(...(cache.link[memberId].passive[action.ownerId] ?? []));
-  }
-
-  const effectsToEval = [
-    ...passiveEffects.map(effect => ({ effect })),
-    ...Object.values(activeId === action.ownerId ? effectTrackers.active : effectTrackers.inactive),
-    ...Object.values(effectTrackers.byMember[action.ownerId]),
-  ];
-
-  for (const { stacks = 1, effect } of effectsToEval) {
-    if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
-
-    const effectScale = effect.chance * stacks;
-
-    if (effect.statMap) {
-      for (const [stat, value] of Object.entries(effect.statMap)) {
-        constantEffectContribs[stat] ??= 0;
-        constantEffectContribs[stat] += value * effectScale;
-      }
-    }
-
-    if (effect.variableStatMap) {
-      if (effect.owner === characterId) {
-        // Must be re-evaluated per artifact — record the spec
-        charVariableEffectSpecs.push({ variableStatMap: effect.variableStatMap, stacks, chance: effect.chance });
-      } else {
-        // Teammate's variable effect: owner's statMap is fixed, pre-resolve now
-        const ownerCurrentStatMap = getCurrentStatMap(effect.owner, effectTrackers, compiledStatMap, activeId);
-        const resolvedStatMap = resolveVariableStatMap(effect.variableStatMap, ownerCurrentStatMap);
-        for (const [stat, value] of Object.entries(resolvedStatMap)) {
-          fixedVariableContribs[stat] ??= 0;
-          fixedVariableContribs[stat] += value * effectScale;
-        }
-      }
-    }
-  }
-
-  footprint.constantEffectContribs = constantEffectContribs;
-  footprint.fixedVariableContribs = fixedVariableContribs;
-  footprint.charVariableEffectSpecs = charVariableEffectSpecs;
-
-  // ── charConstantEffectContribsForSource ───────────────────────────────────
-  // Mirrors the first (constant) pass of getCurrentStatMap for the character.
-  // Used as the base statMap when resolving charVariableEffectSpecs in
-  // evaluateRotationSummary, so that variable effects depending on the
-  // character's own stat-scaled buffs are computed correctly.
-  if (charVariableEffectSpecs.length > 0) {
-    const charConstant = {};
-
-    function addConstantFromMap(trackerMap) {
-      for (const { stacks, effect } of Object.values(trackerMap)) {
-        const { statMap, chance = 1 } = effect;
-        if (!statMap) continue;
-
-        for (const [statId, value] of Object.entries(statMap)) {
-          charConstant[statId] ??= 0;
-          charConstant[statId] += value * stacks * chance;
-        }
-      }
-    }
-
-    addConstantFromMap(effectTrackers.byMember[characterId]);
-    addConstantFromMap(activeId === characterId ? effectTrackers.active : effectTrackers.inactive);
-
-    // Also include passive effects (weapon passives, innate buffs) which never
-    // enter tracker maps but do contribute to the character's constant stat base.
-    for (const effect of Object.values(cache.effect[characterId])) {
-      if (!effect.isPassive || !effect.statMap) continue;
-      const { statMap, chance = 1 } = effect;
-      for (const [statId, value] of Object.entries(statMap)) {
-        charConstant[statId] = (charConstant[statId] ?? 0) + value * chance;
-      }
-    }
-
-    footprint.charConstantEffectContribsForSource = charConstant;
   }
 
   // For teammate actions affected by charVariableEffectSpecs, store the owner's
   // base statMap so evaluateRotationSummary can reconstruct statMapWithEffects.
-  if (action.ownerId !== characterId && charVariableEffectSpecs.length > 0) {
-    footprint.ownerBaseStatMap = compiledStatMap[action.ownerId];
+  if (action.ownerId !== characterId && footprint.charVariableEffectSpecs.length) {
+    footprint.ownerBaseStatMap = cache.baseMap[action.ownerId];
   }
 
-  // ── Pre-compute fixed damage for teammate actions ────────────────────
-  if (action.ownerId !== characterId && charVariableEffectSpecs.length === 0) {
-    const ownerStatMap = compiledStatMap[action.ownerId];
-    const effectStatMap = mergeObj(constantEffectContribs, fixedVariableContribs);
-    const statMapWithEffects = mergeObj(ownerStatMap, effectStatMap);
+  // Compute fixed damage for teammate actions that aren't affected by variableStats
+  if (action.ownerId !== characterId && !footprint.charVariableEffectSpecs.length) {
+    footprint.fixed = { damage: 0, healing: 0, shield: 0 };
+    const statMap = mergeObjs(cache.baseMap[action.ownerId], ctx.equipMapByMember[action.ownerId], footprint.fixedEffectStatMap);
 
-    // per element in compressed
     for (const element in action.compressedMultipliers) {
-      const compressed = action.compressedMultipliers[element];
-
-      const baseValue = computeBase(statMapWithEffects, compressed);
+      const baseValue = computeBase(statMap, action.compressedMultipliers[element]);
 
       if (action.type === 'healing') {
-        const healingBonus = resolveAttr('HB', statMapWithEffects);
-        footprint.fixedHealing += baseValue * (1 + healingBonus) * action.times * repeatCount;
+        const healingBonus = getAttr('HB', statMap);
+        footprint.fixed.healing += baseValue * (1 + healingBonus) * action.times * repeatCount;
+      } else if (action.type === 'shield') {
+        const shieldBonus = getAttr('SS', statMap);
+        footprint.fixed.shield += baseValue * (1 + shieldBonus) * action.times * repeatCount;
       } else {
-        const bonuses = computeBonuses(statMapWithEffects, action.considered, element, enemyStatMap);
-        const reductions = computeReductions(gameId, statMapWithEffects, element, enemyStatMap);
-        footprint.fixedDamage += baseValue * bonuses * reductions * action.times * repeatCount;
+        const bonuses = computeBonuses(statMap, action.considered, element, footprint.enemyStatMap);
+        const reductions = computeReductions(cache, statMap, element, footprint.enemyStatMap);
+        footprint.fixed.damage += baseValue * bonuses * reductions * action.times * repeatCount;
       }
     }
   }
@@ -332,7 +221,7 @@ export const buildFootprint = (ctx, {
   return footprint;
 };
 
-export const evaluateFootprint = (footprint, gameId, characterId, newCharCompiledStatMap) => {
+export const evaluateFootprint = (footprint, cache, characterId, newCharCompiledStatMap) => {
   const summary = {
     key: footprint.key,
     ownerId: footprint.ownerId,
@@ -344,69 +233,52 @@ export const evaluateFootprint = (footprint, gameId, characterId, newCharCompile
     shield: 0,
   };
 
-  const {
-    times,
-    repeatCount,
-    constantEffectContribs,
-    fixedVariableContribs,
-    charVariableEffectSpecs,
-    charConstantEffectContribsForSource,
-    enemyStatMap,
-  } = footprint;
-
   if (!footprint.compressedMultipliers) {
     return summary;
   }
 
-  if (footprint.fixedDamage) {
-    summary.damage = footprint.fixedDamage;
-    return summary;
-  }
-
-  if (footprint.fixedHealing) {
-    summary.healing = footprint.fixedHealing;
-    return summary;
-  }
-
-  if (footprint.fixedShield) {
-    summary.shield = footprint.fixedShield;
+  if (footprint.fixed) {
+    for (const type in footprint.fixed) {
+      summary[type] += footprint.fixed[type];
+    }
     return summary;
   }
 
   // ── Determine the stat map to use as base for this action ────────────────
   // For character actions: newCharCompiledStatMap
   // For teammate actions affected by charVariableEffectSpecs: use teammate's
-  // pre-compiled statMap (stored in constantEffectContribs already accounts
+  // pre-compiled statMap (stored in fixedEffectStatMap already accounts
   // for the teammate's own base — we just need the owner's base to merge with).
   // NOTE: fixedDamage === null only when owner === characterId OR when
   // charVariableEffectSpecs is non-empty. In the latter case owner may differ.
-  const isCharAction = footprint.ownerId === characterId;
   // For teammate actions with charVariableEffectSpecs, ownerBaseStatMap was
   // stored in the footprint during compileRotation.
-  const ownerBaseStatMap = isCharAction ? newCharCompiledStatMap : footprint.ownerBaseStatMap ?? {};
 
   // ── Two-pass variable resolution (mirrors getCurrentStatMap logic) ────────
 
   // Pass 1: resolve charVariableEffectSpecs using (newCharCompiledStatMap + charConstant)
   // to get the character's "live" stat map at this moment.
+
   let charCurrentStatMap = newCharCompiledStatMap;
-  if (charVariableEffectSpecs.length > 0) {
-    const baseForSource = mergeObj(newCharCompiledStatMap, charConstantEffectContribsForSource);
+
+  if (footprint.charVariableEffectSpecs.length) {
+    const baseForSource = mergeObj(newCharCompiledStatMap, footprint.charConstantEffectContribsForSource);
     const resolvedPass1 = {};
-    for (const { variableStatMap, stacks, chance } of charVariableEffectSpecs) {
+    for (const { variableStatMap, stacks, chance } of footprint.charVariableEffectSpecs) {
       const r = resolveVariableStatMap(variableStatMap, baseForSource);
       for (const [statId, val] of Object.entries(r)) {
         resolvedPass1[statId] = (resolvedPass1[statId] ?? 0) + val * stacks * chance;
       }
     }
-    charCurrentStatMap = mergeObjs(newCharCompiledStatMap, charConstantEffectContribsForSource, resolvedPass1);
+    charCurrentStatMap = mergeObjs(newCharCompiledStatMap, footprint.charConstantEffectContribsForSource, resolvedPass1);
   }
 
   // Pass 2: resolve charVariableEffectSpecs using charCurrentStatMap to get
   // the contribution to the damage stat map.
+
   const charVariableResolved = {};
-  if (charVariableEffectSpecs.length > 0) {
-    for (const { variableStatMap, stacks, chance } of charVariableEffectSpecs) {
+  if (footprint.charVariableEffectSpecs.length > 0) {
+    for (const { variableStatMap, stacks, chance } of footprint.charVariableEffectSpecs) {
       const r = resolveVariableStatMap(variableStatMap, charCurrentStatMap);
       for (const [statId, val] of Object.entries(r)) {
         charVariableResolved[statId] = (charVariableResolved[statId] ?? 0) + val * stacks * chance;
@@ -414,24 +286,25 @@ export const evaluateFootprint = (footprint, gameId, characterId, newCharCompile
     }
   }
 
-  const effectStatMap = mergeObjs(constantEffectContribs, fixedVariableContribs, charVariableResolved);
-  const statMapWithEffects = mergeObj(ownerBaseStatMap, effectStatMap);
+  const ownerBaseStatMap = footprint.ownerId === characterId ? newCharCompiledStatMap : footprint.ownerBaseStatMap ?? {};
+  const effectStatMap = mergeObjs(footprint.fixedEffectStatMap, charVariableResolved);
+  const statMap = mergeObj(ownerBaseStatMap, effectStatMap);
 
-  // per element in compressed
   for (const element in footprint.compressedMultipliers) {
-    const compressed = footprint.compressedMultipliers[element];
-
-    const baseValue = computeBase(statMapWithEffects, compressed);
+    const baseValue = computeBase(statMap, footprint.compressedMultipliers[element]);
 
     if (footprint.type === 'healing') {
-      const healingBonus = resolveAttr('HB', statMapWithEffects);
-      summary.healing = baseValue * (1 + healingBonus) * times * repeatCount;
-      return summary;
+      const healingBonus = getAttr('HB', statMap);
+      summary.healing += baseValue * (1 + healingBonus) * footprint.times * footprint.repeatCount;
+    } else if (footprint.type === 'shield') {
+      const shieldBonus = getAttr('SS', statMap);
+      summary.shield += baseValue * (1 + shieldBonus) * footprint.times * footprint.repeatCount;
     } else {
-      const bonuses = computeBonuses(statMapWithEffects, footprint.considered, element, enemyStatMap);
-      const reductions = computeReductions(gameId, statMapWithEffects, element, enemyStatMap);
-      summary.damage = baseValue * bonuses * reductions * times * repeatCount;
-      return summary;
+      const bonuses = computeBonuses(statMap, footprint.considered, element, footprint.enemyStatMap);
+      const reductions = computeReductions(cache, statMap, element, footprint.enemyStatMap);
+      summary.damage += baseValue * bonuses * reductions * footprint.times * footprint.repeatCount;
     }
   }
+
+  return summary;
 };

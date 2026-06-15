@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useBuild } from '@/contexts';
 import { CHARACTER } from '@/data';
-import { getMember, getDefaultWeaponRank, applyStoredBuild, formatRotation } from '@/utils';
+import { getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 
 const getTeamSize = (gameId) =>
   gameId === 'genshin-impact' || gameId === 'honkai-star-rail' ? 4 : 3;
@@ -10,16 +10,16 @@ const getTeamSize = (gameId) =>
 const normalizeMemberPreset = (gameId, rawMemberPreset) => {
   const overrides =
     typeof rawMemberPreset === 'string'
-      ? { memberId: rawMemberPreset }
+      ? { id: rawMemberPreset }
       : rawMemberPreset;
 
-  const { defaults = {} } = CHARACTER[gameId][overrides.memberId];
+  const { defaults = {} } = CHARACTER[gameId][overrides.id];
 
   return { ...defaults, ...overrides };
 };
 
 const createBlankMember = () => ({
-  memberId: null,
+  id: null,
   rank: null,
   weaponId: null,
   weaponRank: null,
@@ -29,7 +29,7 @@ const createBlankMember = () => ({
 });
 
 const initMember = (gameId, memberPreset, builds) => {
-  let member = getMember(gameId, memberPreset.memberId);
+  let member = getMember(gameId, memberPreset.id);
 
   if (memberPreset.weaponId) {
     member.weaponId = memberPreset.weaponId;
@@ -44,7 +44,7 @@ const initMember = (gameId, memberPreset, builds) => {
     member.rotation = [...memberPreset.rotation];
   }
 
-  const storedBuild = builds[member.memberId];
+  const storedBuild = builds[member.id];
   if (storedBuild) {
     member = applyStoredBuild(gameId, member, storedBuild);
   }

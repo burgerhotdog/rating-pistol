@@ -43,6 +43,8 @@ const normalizeAction = (action, entryElement = 'PHYSICAL') => {
     
     if (normalized.type === 'damage') {
       normalized.element ??= entryElement;
+    } else {
+      normalized.element ??= normalized.type;
     }
   }
 
@@ -131,16 +133,16 @@ export const normalizeActions = (json, characters) => {
 
       for (const actionId in skill) {
         const action = skill[actionId];
-        const short = `${skillId}-${actionId}`;
-        const key = `${id}-${short}`;
+        const actionShort = `${skillId}-${actionId}`;
+        const actionKey = `${id}:${actionShort}`;
 
-        normalizedSkill[short] = {
+        normalizedSkill[actionShort] = {
           ...normalizeAction(action, characters[id].element),
-          short,
-          key,
-          skillId,
+          key: actionKey,
+          short: actionShort,
           id: actionId,
           ownerId: id,
+          skillId,
         };
       }
 

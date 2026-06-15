@@ -28,16 +28,16 @@ const matchOnConsidered = (onConsidered, action) => {
   return false;
 };
 
-const matchIfStatus = (ifStatus, enemyStatuses) => {
+const matchIfStatus = (ifStatus, stateMap) => {
   if (ifStatus === 'any') {
-    return Boolean(Object.keys(enemyStatuses).length);
+    return Boolean(Object.keys(stateMap).length);
   }
   
   for (const statusId in ifStatus) {
-    if (!enemyStatuses[statusId]) continue;
+    if (!stateMap[statusId]) continue;
     const requiredStacks = ifStatus[statusId];
 
-    if (enemyStatuses[statusId].stacks >= requiredStacks) {
+    if (stateMap[statusId].stacks >= requiredStacks) {
       return true;
     }
   }
@@ -109,10 +109,10 @@ export const matchUseOn = (action, effect) => {
 };
 
 export const matchApplyIf = (action, effect, ctx) => {
-  const { applyIfInflict, applyIfStatus, applyIfState } = effect;
-  if (!(applyIfInflict || applyIfStatus || applyIfState)) return true;
+  const { applyIfStatus, applyIfState } = effect;
+  if (!(applyIfStatus || applyIfState)) return true;
 
-  if (applyIfStatus && matchIfStatus(applyIfStatus, ctx.statusTracker)) return true;
+  if (applyIfStatus && matchIfStatus(applyIfStatus, ctx.enemyState.status)) return true;
   if (applyIfState && matchIfState(applyIfState, action, ctx.activeId)) return true;
 
   return false;
@@ -121,7 +121,7 @@ export const matchApplyIf = (action, effect, ctx) => {
 export const matchRemoveIf = (action, effect, ctx) => {
   const { removeIfStatus, removeIfState } = effect;
 
-  if (removeIfStatus && matchIfStatus(removeIfStatus, ctx.statusTracker)) return true;
+  if (removeIfStatus && matchIfStatus(removeIfStatus, ctx.enemyState.status)) return true;
   if (removeIfState && matchIfState(removeIfState, action, ctx.activeId)) return true;
 
   return false;
@@ -131,7 +131,7 @@ export const matchUseIf = (action, effect, ctx) => {
   const { useIfStatus, useIfState } = effect;
   if (!(useIfStatus || useIfState)) return true;
 
-  if (useIfStatus && matchIfStatus(useIfStatus, ctx.statusTracker)) return true;
+  if (useIfStatus && matchIfStatus(useIfStatus, ctx.enemyState.status)) return true;
   if (useIfState && matchIfState(useIfState, action, ctx.activeId)) return true;
 
   return false;

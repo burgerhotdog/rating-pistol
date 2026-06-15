@@ -1,58 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useBuild } from '@/contexts';
-import { CHARACTER, WEAPON } from '@/data';
-
-function validatePayload({ gameId, characterId, build, team }) {
-  // gameId
-  if (!['wuthering-waves'].includes(gameId)) return `invalid gameId "${gameId}"`;
-
-  // characterId (characters.json and mvs.json)
-  const characterData = CHARACTER[gameId][characterId];
-  if (!characterData) return `characterId "${characterId}" doesn't exist in gameId "${gameId}"`;
-  const { element, stats: characterStats } = characterData;
-  if (!element) return `missing "element" for characterId "${characterId}"`;
-  if (!characterStats) return `missing "stats" for characterId "${characterId}"`;
-  const { BASE_HP, BASE_ATK, BASE_DEF } = characterStats;
-  if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for characterId "${characterId}"`;
-
-  // build
-  if (!build) return 'build is undefined';
-  const { weaponId, equipList } = build;
-  if (!weaponId) return 'weaponId is undefined';
-  const weaponData = WEAPON[gameId][weaponId];
-  if (!weaponData) return `weaponId "${weaponId}" doesn't exist in gameId "${gameId}"`;
-  const { name: weaponName, quality: weaponQuality } = weaponData;
-  if (Number(weaponQuality) < 3) return `weapon "${weaponName}" is not supported"`;
-  if (!equipList) return 'equipList is undefined';
-
-  // team
-  if (!team) return 'team is undefined';
-  for (const member of team) {
-    if (!member) return 'team contains undefined member';
-    const { memberId, weaponId, setCounts, rotation, build } = member;
-    if (memberId === null) continue;
-    if (!memberId) return 'team contains undefined memberId';
-    const memberData = CHARACTER[gameId][memberId];
-    if (!memberData) return `memberId "${memberId}" doesn't exist in gameId "${gameId}"`;
-    const { name, element, stats } = memberData;
-    if (!element) return `missing "element" for memberId "${memberId}"`;
-    if (!stats) return `missing "stats" for memberId "${memberId}"`;
-    const { BASE_HP, BASE_ATK, BASE_DEF } = stats;
-    if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for memberId "${memberId}"`;
-
-    if (!weaponId) return `team member "${name}" contains undefined weaponId`;
-    if (!setCounts) return `team member "${name}" contains undefined setCounts`;
-    if (!rotation) return `team member "${name}" contains undefined rotation`;
-
-    if (memberId === characterId) {
-      if (!build) return `team member "${name}" contains undefined build`;
-      const { equipList } = build;
-      if (!equipList) return `team member "${name}" contains undefined equipList`;
-    }
-  }
-  return null;
-}
+import { CHARACTER, ACTION, WEAPON, SET, MISC } from '@/data';
+import { mergeEquipList } from '@/utils';
 
 export function useSimulation(team) {
   const { gameId, characterId } = useParams();
@@ -62,19 +12,34 @@ export function useSimulation(team) {
   const [result, setResult] = useState({});
   
   useEffect(() => {
-    // Use the team member's weaponId override (what-if scenario) for stat compilation.
-    // equipList always comes from the context build so trial generation is unaffected.
-    const mainMember = team.find(m => m.memberId === characterId);
-    const effectiveBuild = mainMember?.weaponId
-      ? { ...build, weaponId: mainMember.weaponId }
-      : build;
-    const payload = { gameId, characterId, build: effectiveBuild, team };
-    const error = validatePayload(payload);
-    if (error) {
-      console.log(error);
+    const normalizedTeam = team.filter(member => member.id).map(member => ({
+      ...member,
+      equipMap: member.build ? mergeEquipList(member.build.equipList) : {},
+    }));
+
+    const data = {
+      character: {},
+      action: {},
+      weapon: {},
+      set: {},
+      misc: MISC[gameId],
+    };
+
+    for (const member of normalizedTeam) {
+      data.character[member.id] = CHARACTER[gameId][member.id];
+      data.action[member.id] = ACTION[gameId][member.id];
+      data.weapon[member.weaponId] ??= WEAPON[gameId][member.weaponId];
+      for (const setId in member.setCounts) {
+        data.set[setId] = SET[gameId][setId];
+      }
+    }
+
+    const payload = { gameId, characterId, team: normalizedTeam, data };
+
+    if (!['wuthering-waves'].includes(gameId)) {
       workerRef.current?.terminate();
       workerRef.current = null;
-      setResult({ error });
+      setResult({});
       return;
     }
   
@@ -105,6 +70,7 @@ export function useSimulation(team) {
       }
 
       if (data.type === 'done') {
+        console.log(data);
         setResult(prev => ({
           ...prev,
           isFarmingDone: true,
@@ -116,7 +82,6 @@ export function useSimulation(team) {
           weeklyDistribution: data.weeklyDistribution,
           isLoading: false,
           simCharacter: characterId,
-          teamFinalStats: data.teamFinalStats,
           actionMap: data.actionMap,
           actionMapsWithSub: data.actionMapsWithSub,
         }));

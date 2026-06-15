@@ -1,10 +1,6 @@
 import { getSetCounts } from '@/utils/getSetCounts';
-import { getDefaultCharacterRank, getDefaultWeaponRank } from '@/utils/getDefaultRanks';
+import { getDefaultWeaponRank } from '@/utils/getDefaultRanks';
 
-/**
- * Returns a new member object with the stored build applied.
- * Pure — does not mutate the incoming member.
- */
 export function applyStoredBuild(gameId, member, storedBuild) {
   const next = { ...member, build: storedBuild, useUserBuild: true };
 

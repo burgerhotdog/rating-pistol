@@ -8,7 +8,7 @@ export function getMember(gameId, characterId) {
   const weaponId = data.defaults?.weaponId ?? null;
 
   return {
-    memberId: characterId,
+    id: characterId,
     rank: getDefaultCharacterRank(gameId, characterId),
     weaponId,
     weaponRank: weaponId ? getDefaultWeaponRank(gameId, weaponId) : null,

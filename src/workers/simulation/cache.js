@@ -1,5 +1,4 @@
-import { CHARACTER, ACTION, WEAPON, SET } from '@/data';
-import { resolveRankedValue, mergeStatMaps, getSetCounts, resolveRankedStatMap } from '@/utils';
+import { resolveRankedValue, resolveRankedStatMap, mergeObj, mergeObjs } from '@/utils';
 import { matchApplyOn } from './match';
 
 const mergeVariableStatMaps = (...maps) => {
@@ -11,21 +10,12 @@ const mergeVariableStatMaps = (...maps) => {
   }, {});
 };
 
-const compileSetEffects = (gameId, member) => {
+const compileSetEffects = (setCounts, data) => {
   const compiled = [];
-  let setCounts = {};
-
-  if (member.setCounts) {
-    setCounts = member.setCounts;
-  } else if (member.build?.setCounts) {
-    setCounts = member.build.setCounts;
-  } else {
-    setCounts = getSetCounts(member.build?.equipList ?? []);
-  }
 
   for (const setId in setCounts) {
     const count = setCounts[setId];
-    const { tieredEffects } = SET[gameId][setId];
+    const { tieredEffects } = data.set[setId];
     if (!tieredEffects) continue;
 
     for (const tier in tieredEffects) {
@@ -84,36 +74,34 @@ const compressMultipliers = (action, param) => {
 };
 
 // Resolve multiplier arrays using skill level index
-const resolveActions = (gameId, memberId, memberRank) => {
-  const maxLevelIndex = gameId === 'zenless-zone-zero' ? 11 : 9;
-  const { skillLevelMods } = CHARACTER[gameId][memberId];
-  const skillMap = ACTION[gameId][memberId];
+const resolveActions = (data, member) => {
+  const maxSkillIndex = data.misc.MAX_SKILL_LEVEL - 1;
+  const { skillLevelMods } = data.character[member.id];
   const addBySkillId = {};
   const resolved = {};
 
   if (skillLevelMods) {
     for (const mod of skillLevelMods) {
       const { rank, skillId, add } = mod;
+      if (rank > member.rank) continue;
 
-      if (rank <= memberRank) {
-        addBySkillId[skillId] = add;
-      }
+      addBySkillId[skillId] = add;
     }
   }
 
-  for (const skillId in skillMap) {
-    const skillLevelIndex = maxLevelIndex + (addBySkillId[skillId] ?? 0);
-    const skill = skillMap[skillId];
+  for (const skillId in data.action[member.id]) {
+    const skillIndex = maxSkillIndex + (addBySkillId[skillId] ?? 0);
+    const skill = data.action[member.id][skillId];
 
-    for (const actionKey in skill) {
-      const action = skill[actionKey];
+    for (const actionShort in skill) {
+      const action = skill[actionShort];
 
       if (!action.multipliers) {
-        resolved[actionKey] = action;
+        resolved[actionShort] = action;
       } else {
-        resolved[actionKey] = {
+        resolved[actionShort] = {
           ...action,
-          compressedMultipliers: compressMultipliers(action, skillLevelIndex),
+          compressedMultipliers: compressMultipliers(action, skillIndex),
         };
       }
     }
@@ -122,64 +110,35 @@ const resolveActions = (gameId, memberId, memberRank) => {
   return resolved;
 };
 
-function applyRankModifier(resolved, modifier) {
-  for (const key in modifier) {
-    if (key === 'statMap') {
-      resolved.statMap = mergeStatMaps(resolved.statMap, modifier.statMap);
-      continue;
-    }
-
-    if (key === 'variableStatMap') {
-      resolved.variableStatMap = mergeVariableStatMaps(resolved.variableStatMap, modifier.variableStatMap);
-      continue;
-    }
-
-    if (key === 'statusMap') {
-      resolved.statusMap = mergeStatMaps(resolved.statusMap, modifier.statusMap);
-      continue;
-    }
-
-    if (resolved[key] == null) {
-      resolved[key] = modifier[key];
-      continue;
-    }
-
-    if (typeof modifier[key] === 'number') {
-      resolved[key] += modifier[key];
-      continue;
-    }
-
-    if (typeof modifier[key] === 'string') {
-      resolved[key].push(modifier[key]);
-      continue;
-    }
-  }
-}
-
-
-const resolveEffect = (effect, id, memberId, rank) => {
+const resolveEffect = (effect, effectId, member, resolvedActions) => {
   const resolveEffectAction = (effectAction) => {
     const resolved = [];
 
-    for (const action of effectAction) {
+    for (const [index, action] of effectAction.entries()) {
+      const resolvedAction = {};
+
       if (typeof action === 'string') {
-        resolved.push(action);
+        Object.assign(resolvedAction, resolvedActions[action]);
       } else {
-        const resolvedAction = {
+        const inlineId = String(index + 1);
+        const inlineShort = `EFFECT_${effectId}-${inlineId}`;
+        const inlineKey = `${member.id}:${inlineShort}`;
+
+        Object.assign(resolvedAction, {
           ...action,
-          short: `EFFECT-${id}`,
-          key: `${memberId}-EFFECT-${id}`,
+          key: inlineKey,
+          short: inlineShort,
+          id: inlineId,
           skillId: 'EFFECT',
-          id,
-          ownerId: memberId,
-        };
-
-        if (action.multipliers) {
-          resolvedAction.compressedMultipliers = compressMultipliers(action, rank);
-        }
-
-        resolved.push(resolvedAction);
+          ownerId: member.id,
+        });
       }
+
+      if (action.multipliers && !action.compressedMultipliers) {
+        resolvedAction.compressedMultipliers = compressMultipliers(resolvedAction, member);
+      }
+
+      resolved.push(resolvedAction);
     }
 
     return resolved;
@@ -188,8 +147,12 @@ const resolveEffect = (effect, id, memberId, rank) => {
   const resolved = { ...effect };
 
   if (effect.rankedStatMap) {
-    const resolvedStatMap = resolveRankedStatMap(effect.rankedStatMap, rank);
-    resolved.statMap = mergeStatMaps(effect.statMap, resolvedStatMap);
+    const resolvedStatMap = resolveRankedStatMap(effect.rankedStatMap, member.weaponRank);
+    resolved.statMap = mergeObj(effect.statMap, resolvedStatMap);
+  }
+
+  if (effect.variableStatMap) {
+    resolved.variableStatMap = mergeVariableStatMaps(effect.variableStatMap);
   }
 
   if (effect.followUpAction) {
@@ -200,10 +163,29 @@ const resolveEffect = (effect, id, memberId, rank) => {
     resolved.intervalAction = resolveEffectAction(effect.intervalAction);
   }
 
-  if (effect.rankModifiers) {
-    for (const [rankReq, modifier] of Object.entries(effect.rankModifiers)) {
-      if (Number(rankReq) <= rank) {
-        applyRankModifier(resolved, modifier);
+  if (effect.rankMods) {
+    for (const rank in effect.rankMods) {
+      if (Number(rank) > member.rank) continue;
+
+      const mod = effect.rankMods[rank];
+
+      for (const key in mod) {
+        const oldValue = resolved[key];
+        const newValue = mod[key];
+
+        if (oldValue == null) {
+          resolved[key] = newValue;
+        } else if (key === 'variableStatMap') {
+          resolved.variableStatMap = mergeVariableStatMaps(oldValue, newValue);
+        } else if (typeof oldValue === 'object' && !Array.isArray(oldValue)) {
+          resolved[key] = mergeObj(oldValue, newValue);
+        } else if (typeof newValue === 'number') {
+          resolved[key] += newValue;
+        } else if (typeof newValue === 'string') {
+          resolved[key].push(newValue);
+        } else {
+          resolved[key].push(...newValue);
+        }
       }
     }
   }
@@ -211,96 +193,92 @@ const resolveEffect = (effect, id, memberId, rank) => {
   return resolved;
 };
 
-const compileEffects = (gameId, member, idList) => {
-  const { memberId, rank, weaponId, weaponRank } = member;
-  const memberIndex = idList.indexOf(memberId);
-  const teamSize = idList.length;
-  const definitions = {};
-  const passive = {};
-  const active = {};
-  let effectIndex = 0;
+const compileEffects = (data, member, idList, resolvedActions) => {
+  const passivesbyTarget = {};
+  const effectsByAction = {};
 
   const resolveApplyTo = (applyTo) => {
+    if (applyTo === 'self') return [member.id];
     if (applyTo === 'team') return idList;
-    if (applyTo === 'self') return [memberId];
-    if (applyTo === 'ally') return idList.filter(id => id !== memberId);
+    if (applyTo === 'ally') return idList.filter(id => id !== member.id);
     if (applyTo === 'first') return [idList[0]];
-    if (applyTo === 'next') return [idList[(memberIndex - 1 + teamSize) % teamSize]];
+    if (applyTo === 'next') return [idList.at(idList.indexOf(member.id) - 1)];
     return [applyTo];
   };
 
-  function registerEffect(rawEffect, source, rank = Infinity) {
-    const id = String(effectIndex + 1);
+  for (const [index, effect] of [
+    ...data.character[member.id].effects.filter(effect => effect.rank <= member.rank),
+    ...data.weapon[member.weaponId].effects,
+    ...compileSetEffects(member.setCounts, data),
+  ].entries()) {
+    const effectId = String(index + 1);
+    const effectKey = `${member.id}:${effectId}`;
+
     const resolved = {
-      ...resolveEffect(rawEffect, id, memberId, rank),
-      owner: memberId,
-      key: `${memberId}-${id}`,
-      id,
-      applyTo: resolveApplyTo(rawEffect.applyTo),
+      ...resolveEffect(effect, effectId, member, resolvedActions),
+      key: effectKey,
+      id: effectId,
+      ownerId: member.id,
+      applyTo: resolveApplyTo(effect.applyTo),
     };
 
-    resolved.variableStatMap = mergeVariableStatMaps(rawEffect.variableStatMap);
-
-    if (!rawEffect.applyWhen) {
+    // passive
+    if (!resolved.applyWhen) {
       for (const target of resolved.applyTo) {
-        (passive[target] ??= []).push(resolved);
+        passivesbyTarget[target] ??= []
+        passivesbyTarget[target].push(resolved);
       }
-    } else {
-      const skillMap = ACTION[gameId][memberId];
-      for (const skillId in skillMap) {
-        const skill = skillMap[skillId];
-
-        for (const actionShort in skill) {
-          const action = skill[actionShort];
-
-          if (matchApplyOn(action, rawEffect)) {
-            active[action.key] ??= { cast: [], hit: [] };
-
-            if (rawEffect.applyWhen === 'cast') {
-              active[action.key].cast.push(resolved);
-            } else {
-              active[action.key].hit.push(resolved);
-            }
-          }
-        }
-      }
+      continue;
     }
 
-    definitions[id] = resolved;
-    effectIndex++;
+    // active
+    for (const skillId in data.action[member.id]) {
+      const skill = data.action[member.id][skillId];
+
+      for (const actionShort in skill) {
+        const action = skill[actionShort];
+        if (!matchApplyOn(action, resolved)) continue;
+
+        effectsByAction[action.key] ??= [];
+        effectsByAction[action.key].push(resolved);
+      }
+    }
   }
 
-  for (const effect of CHARACTER[gameId][memberId].effects) {
-    if (effect.rank > rank) continue;
-    registerEffect(effect, 'character', rank);
-  }
-
-  for (const effect of WEAPON[gameId][weaponId].effects) {
-    registerEffect(effect, 'weapon', weaponRank);
-  }
-
-  for (const effect of compileSetEffects(gameId, member)) {
-    registerEffect(effect, 'set');
-  }
-
-  return { definitions, passive, active };
+  return { passivesbyTarget, effectsByAction };
 };
 
-export const compileCache = (gameId, rawTeam) => {
-  const team = rawTeam.filter(m => m.memberId);
-  const idList = team.map(m => m.memberId);
+export const compileCache = (data, team) => {
+  const idList = team.map(member => member.id);
   const action = {};
   const effect = {};
-  const link = {};
+  const passive = {};
+  const baseMap = {};
+  const memberMap = {};
 
   for (const member of team) {
-    const { memberId, rank } = member;
+    const resolvedActions = resolveActions(data, member);
+    action[member.id] = resolvedActions;
 
-    action[memberId] = resolveActions(gameId, memberId, rank);
-    const { definitions, passive, active } = compileEffects(gameId, member, idList);
-    effect[memberId] = definitions;
-    link[memberId] = { passive, active };
+    const { passivesbyTarget, effectsByAction } = compileEffects(data, member, idList, resolvedActions);
+
+    for (const target in passivesbyTarget) {
+      passive[target] ??= [];
+      passive[target].push(...passivesbyTarget[target]);
+    }
+
+    for (const actionKey in effectsByAction) {
+      effect[actionKey] = effectsByAction[actionKey];
+    }
+
+    baseMap[member.id] = mergeObjs(
+      data.misc.DEFAULT_STATS,
+      data.character[member.id].stats,
+      data.weapon[member.weaponId].stats,
+    );
+
+    memberMap[member.id] = member;
   }
 
-  return { action, effect, link };
+  return { action, effect, passive, baseMap, member: memberMap, misc: data.misc };
 };

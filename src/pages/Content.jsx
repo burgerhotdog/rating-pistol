@@ -23,7 +23,6 @@ export const Content = () => {
     isLoading,
     diff,
     simCharacter,
-    teamFinalStats,
     actionMap,
     actionMapsWithSub,
     currentMember,
@@ -62,7 +61,6 @@ export const Content = () => {
                 weeklyScores={weeklyScores}
                 weeklyDistribution={weeklyDistribution}
                 isLoading={isLoading}
-                teamFinalStats={teamFinalStats}
                 team={team}
                 actionMap={actionMap}
               />

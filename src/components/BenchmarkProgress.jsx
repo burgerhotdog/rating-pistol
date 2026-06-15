@@ -10,12 +10,12 @@ const sumRotationTime = (gameId, team, filterMemberId) => {
   let total = 0;
 
   for (const member of team) {
-    const { memberId, rotation = [] } = member;
-    if (filterMemberId && memberId !== filterMemberId) continue;
+    const { id, rotation = [] } = member;
+    if (filterMemberId && id !== filterMemberId) continue;
 
     for (const key of rotation) {
       const [skillId] = key.split('-');
-      const { duration } = ACTION[gameId][memberId][skillId][key];
+      const { duration } = ACTION[gameId][id][skillId][key];
 
       total += duration;
     }
@@ -33,22 +33,22 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats: _teamFinalStats, team, actionMap }) => {
+export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, team, actionMap }) => {
   const theme = useTheme();
   const { gameId } = useParams();
   const disabledColor = theme.palette.action.disabled;
   if (isLoading || !weeklyScores) return null;
 
-  const members = team.filter(m => m.memberId);
+  const members = team.filter(m => m.id);
   const memberColors = members.map(m => {
-    const el = CHARACTER[gameId]?.[m.memberId]?.element;
+    const el = CHARACTER[gameId]?.[m.id]?.element;
     return MISC[gameId]?.ELEMENT_COLORS?.[el] ?? disabledColor;
   });
 
   const rotationTime = sumRotationTime(gameId, team);
   const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
   const memberRotationTimeMap = Object.fromEntries(
-    members.map((m) => [m.memberId, sumRotationTime(gameId, team, m.memberId)])
+    members.map((m) => [m.id, sumRotationTime(gameId, team, m.id)])
   );
 
   const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap)));
@@ -67,7 +67,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
       p90band: dist ? toDps(sumRotationDmg(dist.p90)) - toDps(sumRotationDmg(dist.p10)) : 0,
     };
     for (const m of members) {
-      entry[`dps_${m.memberId}`] = toDps(sumRotationDmg(weeklyScores[index], { ownerId: m.memberId }));
+      entry[`dps_${m.id}`] = toDps(sumRotationDmg(weeklyScores[index], { ownerId: m.id }));
     }
     return entry;
   });
@@ -146,9 +146,9 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
           {/* Stacked member DPS areas */}
           {members.map((m, i) => (
             <Area
-              key={m.memberId}
+              key={m.id}
               type="monotone"
-              dataKey={`dps_${m.memberId}`}
+              dataKey={`dps_${m.id}`}
               stackId="members"
               stroke={memberColors[i]}
               strokeWidth={1.5}
@@ -185,13 +185,13 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                     Week {week}
                   </Typography>
                   {members.map((m, i) => (
-                    <Box key={m.memberId} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
+                    <Box key={m.id} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
                       <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: memberColors[i], flexShrink: 0 }} />
                       <Typography variant="body2">
-                        {CHARACTER[gameId]?.[m.memberId]?.name ?? m.memberId}:{' '}
-                        {sumRotationDmg(weeklyScores[week], { ownerId: m.memberId }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                        {CHARACTER[gameId]?.[m.id]?.name ?? m.id}:{' '}
+                        {sumRotationDmg(weeklyScores[week], { ownerId: m.id }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                         {' / '}
-                        {((memberRotationTimeMap[m.memberId] ?? 0) / 1000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}s
+                        {((memberRotationTimeMap[m.id] ?? 0) / 1000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}s
                       </Typography>
                     </Box>
                   ))}

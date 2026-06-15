@@ -400,7 +400,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
 
 // ─── SetCountsEditor ────────────────────────────────────────────────────────
 
-function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = false }) {
+function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) {
   const capacity = (gameId === 'genshin-impact' || gameId === 'wuthering-waves') ? 5 : 6;
   const [dialogOpen, setDialogOpen] = useState(false);
   // Index of the set being replaced; null means we're adding a new one
@@ -451,7 +451,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
   const currentRemainingCapacity =
     replacingIndex !== null ? remainingForReplace(replacingIndex) : remainingForAdd;
 
-  if (!memberId) {
+  if (!id) {
     return (
       <Typography variant="body2" color="text.secondary">
         Select a character to edit set bonuses.
@@ -510,7 +510,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
           size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(getMember(gameId, memberId).setCounts)}
+          onClick={() => onChange(getMember(gameId, id).setCounts)}
           disabled={disabled}
         >
           Reset Default
@@ -978,15 +978,15 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   useEffect(() => setDraft(member), [member]);
 
-  const memberData = CHARACTER[gameId][draft.memberId];
+  const memberData = CHARACTER[gameId][draft.id];
   const weaponData = WEAPON[gameId]?.[draft.weaponId];
   const weaponType = memberData?.type ?? null;
 
   // Stored build for the current draft member (only meaningful for teammates)
-  const storedBuild = draft.memberId && draft.memberId !== characterId
-    ? allBuilds[draft.memberId] ?? null
+  const storedBuild = draft.id && draft.id !== characterId
+    ? allBuilds[draft.id] ?? null
     : null;
-  const isMainCharacter = draft.memberId === characterId;
+  const isMainCharacter = draft.id === characterId;
   const showToggle = storedBuild !== null;
   const buildLocked = !isMainCharacter && draft.useUserBuild === true;
 
@@ -1068,12 +1068,12 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 {/* Character */}
                 <PickerButton
                   label="Character"
-                  imageUrl={`${gameId}/character/${draft.memberId}.webp`}
+                  imageUrl={`${gameId}/character/${draft.id}.webp`}
                   name={memberData?.name ?? null}
                   onClick={() => setCharDialogOpen(true)}
                   onClear={() => setDraft(prev => ({
                     ...prev,
-                    memberId: null,
+                    id: null,
                     rank: null,
                     weaponId: null,
                     weaponRank: null,
@@ -1088,7 +1088,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   size="small"
                   value={draft.rank ?? ''}
                   onChange={(e) => setDraft(prev => ({ ...prev, rank: Number(e.target.value) }))}
-                  disabled={!draft.memberId || buildLocked}
+                  disabled={!draft.id || buildLocked}
                   sx={{ width: 120 }}
                 >
                   <MenuItem value="" disabled>
@@ -1109,7 +1109,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   imageUrl={`${gameId}/weapon/${draft.weaponId}.webp`}
                   name={weaponData?.name ?? null}
                   onClick={() => setWeaponDialogOpen(true)}
-                  disabled={!draft.memberId || buildLocked}
+                  disabled={!draft.id || buildLocked}
                   onClear={buildLocked ? undefined : () => setDraft(prev => ({
                     ...prev,
                     weaponId: null,
@@ -1140,7 +1140,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             <Box sx={{ flex: 1, minWidth: { xs: '100%', sm: 280 } }}>
               <SetCountsEditor
                 gameId={gameId}
-                memberId={draft.memberId}
+                id={draft.id}
                 setCounts={draft.setCounts}
                 onChange={(setCounts) => setDraft(prev => ({ ...prev, setCounts }))}
                 disabled={buildLocked}
@@ -1150,7 +1150,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
           <RotationEditor
             gameId={gameId}
-            characterId={draft.memberId}
+            characterId={draft.id}
             rotation={draft.rotation}
             onChange={(rotation) => setDraft(prev => ({ ...prev, rotation }))}
           />

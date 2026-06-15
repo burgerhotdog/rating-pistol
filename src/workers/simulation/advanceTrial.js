@@ -1,7 +1,7 @@
-import { MISC } from '@/data';
-import { computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
-import { weightedLottery, matchPenalty } from './helpers';
+import { sumRotationDmg, mergeObj, mergeEquipList } from '@/utils';
+import { weightedLottery } from './helpers';
 import { evaluateRotation } from './rotation/compile';
+import { getPenalty } from './penalty';
 
 const DAILY_STAMINA = 240;
 const WEEKLY_STAMINA = 120;
@@ -43,8 +43,8 @@ const randomRoll = (statId) => {
   return WW_OTHER[statId][winnerIndex];
 };
 
-function assignSubStats() {
-  const optionsMap = MISC["wuthering-waves"].SUB_STAT_TYPES;
+function assignSubStats(misc) {
+  const optionsMap = misc.SUB_STAT_TYPES;
   const statPool = Object.entries(optionsMap)
     .map(([id, { WEIGHT }]) => [id, WEIGHT]);
 
@@ -59,22 +59,22 @@ function assignSubStats() {
   return subStatList;
 }
 
-function assignMainStat(costIndex) {
-  const optionsMap = MISC["wuthering-waves"].MAIN_STAT_TYPES[costIndex];
+function assignMainStat(costIndex, misc) {
+  const optionsMap = misc.MAIN_STAT_TYPES[costIndex];
   const weightsList = Object.values(optionsMap).map(({ WEIGHT }) => WEIGHT);
   const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)];
   const mainStatValue = optionsMap[mainStatId].VALUE;
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team, summary) {
+export function advanceTrial(preferredMainStats, trial, matchMap, characterId, team, compiledRotation, cache) {
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
 
   // Cartethyia sometimes prefers a 44111 build
   const isCartethyia = characterId == "1409";
 
-  let latestBuild = trial.build;
+  let latestEquipList = trial.equipList;
   let latestPenalty = trial.penalty;
   let latestDamage = trial.scores.at(-1);
 
@@ -86,85 +86,76 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
 
     // Randomly assign main stat (according to weighted rules)
     // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(4);
+    const { mainStatId, mainStatValue } = assignMainStat(4, cache.misc);
     if (!preferredMainStats[4].includes(mainStatId)) continue;
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[4];
+    const mainFlatMap = cache.misc.MAIN_STAT_FLATS[4];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats();
+    const subStatList = assignSubStats(cache.misc);
 
-    const setId = setIdList[0];
-    const newEquipObj = { setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
-    const newEquipList = latestBuild.equipList.with(0, newEquipObj);
-    const newBuild = { ...latestBuild, equipList: newEquipList };
+    const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
+    const newEquipList = latestEquipList.with(0, newEquipObj);
 
     // Compute new match penalty and damage with new build
-    const newPenalty = match.reduce((acc, stat, index) => {
-      const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild));
-      const targetValue = matchTargets[index];
-      return acc * matchPenalty(currentValue, targetValue);
-    }, 1);
-    const newSummary = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
+    const combinedStatMap = mergeObj(cache.baseMap[characterId], mergeEquipList(newEquipList))
+    const newPenalty = getPenalty(combinedStatMap, matchMap);
+    const newSummary = evaluateRotation(compiledRotation, cache, combinedStatMap);
 
     // Compare with latest and replace if needed
     if (sumRotationDmg(newSummary) * newPenalty > sumRotationDmg(latestDamage) * latestPenalty) {
-      latestBuild = newBuild;
+      latestEquipList = newEquipList;
       latestPenalty = newPenalty;
       latestDamage = newSummary;
     }
   }
 
   // Generate 15 3-costs per week
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 15; i++) {
     // 3-costs can belong to 1-3 sets but on average 2
     const coinFlip = Math.random() < 0.5 ? true : false;
     if (!coinFlip) continue;
 
     // Randomly assign main stat (according to weighted rules)
     // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(3);
+    const { mainStatId, mainStatValue } = assignMainStat(3, cache.misc);
     if (!preferredMainStats[3].includes(mainStatId)) continue;
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[3];
+    const mainFlatMap = cache.misc.MAIN_STAT_FLATS[3];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats();
+    const subStatList = assignSubStats(cache.misc);
 
-    // Construct newEquipObj (without setId)
+    // Construct newEquipObj
     const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
 
     // Create a buffer
-    let bufferBuild = latestBuild;
+    let bufferEquipList = latestEquipList;
     let bufferPenalty = latestPenalty;
     let bufferDamage = latestDamage;
 
     for (let slotIndex = 1; slotIndex < 3; slotIndex++) {
-      // Add in setId and construct newBuild
-      const equip = { ...newEquipObj, setId: setIdList[slotIndex] };
-      const newEquipList = latestBuild.equipList.with(slotIndex, equip);
-      const newBuild = { ...latestBuild, equipList: newEquipList };
+      // Construct newBuild
+      const equip = { ...newEquipObj };
+      const newEquipList = latestEquipList.with(slotIndex, equip);
 
       // Compute new match penalty and damage with new build
-      const newPenalty = match.reduce((acc, stat, index) => {
-        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild));
-        const targetValue = matchTargets[index];
-        return acc * matchPenalty(currentValue, targetValue);
-      }, 1);
-      const newDamage = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
+      const combinedStatMap = mergeObj(cache.baseMap[characterId], mergeEquipList(newEquipList))
+      const newPenalty = getPenalty(combinedStatMap, matchMap);
+      const newDamage = evaluateRotation(compiledRotation, cache, combinedStatMap);
 
       // Compare new damage with buffer and replace if better
       if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
-        bufferBuild = newBuild;
+        bufferEquipList = newEquipList;
         bufferPenalty = newPenalty;
         bufferDamage = newDamage;
       }
     }
 
     // buffer will already be latest if neither result was better
-    latestBuild = bufferBuild;
+    latestEquipList = bufferEquipList;
     latestPenalty = bufferPenalty;
     latestDamage = bufferDamage;
   }
@@ -180,52 +171,48 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
 
     // Randomly assign main stat (according to weighted rules)
     // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(costIndex);
+    const { mainStatId, mainStatValue } = assignMainStat(costIndex, cache.misc);
     if (!preferredMainStats[costIndex].includes(mainStatId)) continue;
 
     // Assign main stat flat values
     // Randomly assign and upgrade sub stats
-    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[costIndex];
+    const mainFlatMap = cache.misc.MAIN_STAT_FLATS[costIndex];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats();
+    const subStatList = assignSubStats(cache.misc);
 
-    // Construct newEquipObj (without setId)
+    // Construct newEquipObj
     const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
 
     // Decide which slots to test and create a buffer
     const startingSlot = costIndex === 1 ? 3 : 1;
-    let bufferBuild = latestBuild;
+    let bufferEquipList = latestEquipList;
     let bufferPenalty = latestPenalty;
     let bufferDamage = latestDamage;
     for (let slotIndex = startingSlot; slotIndex < (startingSlot + 2); slotIndex++) {
-      // Add in setId and construct newBuild
-      const equip = { ...newEquipObj, setId: setIdList[slotIndex] };
-      const newEquipList = latestBuild.equipList.with(slotIndex, equip);
-      const newBuild = { ...latestBuild, equipList: newEquipList };
+      // Construct newBuild
+      const equip = { ...newEquipObj };
+      const newEquipList = latestEquipList.with(slotIndex, equip);
 
       // Compute new match penalty and damage with new build
-      const newPenalty = match.reduce((acc, stat, index) => {
-        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild));
-        const targetValue = matchTargets[index];
-        return acc * matchPenalty(currentValue, targetValue);
-      }, 1);
-      const newDamage = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
+      const combinedStatMap = mergeObj(cache.baseMap[characterId], mergeEquipList(newEquipList))
+      const newPenalty = getPenalty(combinedStatMap, matchMap);
+      const newDamage = evaluateRotation(compiledRotation, cache, combinedStatMap);
 
       // Compare new damage with buffer and replace if better
       if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
-        bufferBuild = newBuild;
+        bufferEquipList = newEquipList;
         bufferPenalty = newPenalty;
         bufferDamage = newDamage;
       }
     }
 
     // buffer will already be latest if neither result was better
-    latestBuild = bufferBuild;
+    latestEquipList = bufferEquipList;
     latestPenalty = bufferPenalty;
     latestDamage = bufferDamage;
   }
 
-  trial.build = latestBuild;
+  trial.equipList = latestEquipList;
   trial.penalty = latestPenalty;
   trial.scores.push(latestDamage);
 }
