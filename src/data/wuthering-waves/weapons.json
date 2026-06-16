@@ -1484,6 +1484,8 @@
       {
         "applyWhen": "cast",
         "applyOnCast": "RS",
+        "applyIfField": true,
+        "removeOnCast": "OS",
         "rankedStatMap": {
           "PERCENT_BA": [
             0.12,
@@ -1496,6 +1498,7 @@
       {
         "applyWhen": "cast",
         "applyOnCast": "OS",
+        "useIfField": false,
         "rankedStatMap": {
           "PERCENT_BA": [
             0.52,
@@ -1660,7 +1663,8 @@
     "effects": {
       "applyWhen": "hit",
       "applyOnType": "damage",
-      "removeOnCast": "OS",
+      "applyCooldown": 1000,
+      "removeIfField": false,
       "rankedStatMap": {
         "PERCENT_ATK": [
           0.02,
@@ -2771,7 +2775,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "heal",
+        "applyOnType": "healing",
         "rankedStatMap": {
           "PERCENT_CD": [
             0.2,

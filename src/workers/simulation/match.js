@@ -133,8 +133,9 @@ export const matchUseOn = (action, effect) => {
 };
 
 export const matchApplyIf = (action, effect, ctx) => {
-  if (!('applyIfStatus' in effect || 'applyIfField' in effect)) return true;
+  if (!('applyIfType' in effect || 'applyIfStatus' in effect || 'applyIfField' in effect)) return true;
 
+  if ('applyIfType' in effect && matchOnType(effect.applyIfType, action)) return true;
   if ('applyIfStatus' in effect && matchIfStatus(effect.applyIfStatus, ctx.enemyState.status)) return true;
   if ('applyIfField' in effect && matchIfField(effect.applyIfField, action, ctx.activeId)) return true;
 

@@ -59,7 +59,7 @@ function applyEffects(ctx, action, trigger, applyTimes = 1) {
   const inflictedStatuses = {};
 
   for (const effect of triggered) {
-    if (effect.applyIfInflict) continue;
+    if ('applyIfInflict' in effect) continue;
     if (isOnCooldown('apply', effect.key)) continue;
     if (!matchApplyIf(action, effect, ctx)) continue;
 
@@ -69,11 +69,11 @@ function applyEffects(ctx, action, trigger, applyTimes = 1) {
       } else if (target === 'active' || target === 'inactive') {
         applyEffect(fieldState[target], effect, applyTimes);
       } else {
-        if (effect.statMap) {
+        if ('statMap' in effect) {
           applyEffect(enemyState.stat, effect, applyTimes);
         }
 
-        if (effect.statusMap) {
+        if ('statusMap' in effect) {
           for (const statusId in effect.statusMap) {
             const status = cache.data.misc.STATUSES[statusId];
             const stacks = effect.statusMap[statusId] * applyTimes;
@@ -93,21 +93,21 @@ function applyEffects(ctx, action, trigger, applyTimes = 1) {
   }
 
   for (const effect of triggered) {
-    if (!effect.applyIfInflict) continue;
+    if (!('applyIfInflict' in effect)) continue;
     if (isOnCooldown('apply', effect.key)) continue;
     if (!matchIfInflict(effect.applyIfInflict, inflictedStatuses)) continue;
 
     for (const target of effect.applyTo) {
       if (target === 'active' || target === 'inactive') {
         applyEffect(fieldState[target], effect, applyTimes);
-      } else if (target === 'enemy' && effect.statMap) {
+      } else if (target === 'enemy' && 'statMap' in effect) {
         applyEffect(enemyState.stat, effect, applyTimes);
       } else {
         applyEffect(memberState[target], effect, applyTimes);
       }
     }
 
-    if (effect.applyCooldown) {
+    if ('applyCooldown' in effect) {
       setCooldown('apply', effect.key, effect.applyCooldown);
     }
   }
@@ -116,20 +116,22 @@ function applyEffects(ctx, action, trigger, applyTimes = 1) {
 // Advances (and expires) all active effects by the action's timing window.
 // `offset` is used to check expiry (effects expiring before the action mid-point
 // are gone), while `duration` is the full advance applied to survivors.
-function advanceEffects(ctx, offset, duration) {
+function advanceEffects(ctx, elapsed) {
   const { memberState, fieldState, enemyState } = ctx;
 
-  for (const stateMap of [
+  for (const state of [
     ...Object.values(memberState),
     fieldState.active,
     fieldState.inactive,
     enemyState.stat,
   ]) {
-    for (const effectKey in stateMap) {
-      if (stateMap[effectKey].timeRemaining - offset <= 0) {
-        delete stateMap[effectKey];
+    for (const effectKey in state) {
+      const remaining = state[effectKey].timeRemaining - elapsed;
+
+      if (remaining > 0) {
+        state[effectKey].timeRemaining = remaining;
       } else {
-        stateMap[effectKey].timeRemaining -= duration;
+        delete state[effectKey];
       }
     }
   }
@@ -181,6 +183,7 @@ function decayProcCounts(ctx, action) {
   ]) {
     for (const effectKey in stateMap) {
       const state = stateMap[effectKey];
+
       if (state.usesRemaining === Infinity) continue;
       if (state.effect.followUpAction || state.effect.intervalAction) continue;
       if (!matchUseOn(action, state.effect) || !matchUseIf(action, state.effect, ctx)) continue;
@@ -199,13 +202,13 @@ function processFollowUpProcs(action, ctx, depth) {
   const { memberState, fieldState, activeId } = ctx;
   const actionOwnerState = activeId === action.ownerId ? 'active' : 'inactive';
 
-  for (const stateMap of [
+  for (const state of [
     memberState[action.ownerId],
     fieldState[actionOwnerState],
   ]) {
-    for (const [effectKey, tracker] of Object.entries(stateMap)) {
+    for (const [effectKey, tracker] of Object.entries(state)) {
       const { effect } = tracker;
-      if (!effect.followUpAction || isOnCooldown('use', effectKey)) continue;
+      if (!('followUpAction' in effect) || isOnCooldown('use', effectKey)) continue;
       if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
 
       if (effect.useCooldown) {
@@ -214,7 +217,7 @@ function processFollowUpProcs(action, ctx, depth) {
 
       tracker.usesRemaining--;
       if (tracker.usesRemaining <= 0) {
-        delete stateMap[effectKey];
+        delete state[effectKey];
       }
 
       for (const action of effect.followUpAction) {
@@ -233,11 +236,12 @@ function processIntervalProcs(ctx, elapsed, depth) {
 
     for (const [effectKey, tracker] of Object.entries(stateMap)) {
       const { effect } = tracker;
-      if (!effect.intervalAction) continue;
+      if (!('intervalAction' in effect)) continue;
 
       tracker.procTimer -= elapsed;
       while (tracker.procTimer <= 0) {
         tracker.usesRemaining--;
+
         if (tracker.usesRemaining <= 0) {
           delete stateMap[effectKey];
         }
@@ -262,7 +266,7 @@ function processTopLevelAction(action, ctx) {
   applyEffects(ctx, action, 'cast');
 
   // ── Pre-hit window (t = 0 → offset) ───────────────────────────
-  advanceEffects(ctx, offset, offset);
+  advanceEffects(ctx, offset);
   tickEnemyStatuses(ctx, enemyState.status, offset);
   processIntervalProcs(ctx, offset, 0);
   advanceCooldowns(offset);
@@ -277,7 +281,7 @@ function processTopLevelAction(action, ctx) {
 
   // ── Post-hit window (t = offset → end) ─────────────────────────
   // Contact effects are now in the tracker, so this one call handles them too
-  advanceEffects(ctx, 0, remaining);
+  advanceEffects(ctx, remaining);
   tickEnemyStatuses(ctx, enemyState.status, remaining);
   processIntervalProcs(ctx, remaining, 0);
   advanceCooldowns(remaining);
@@ -367,11 +371,11 @@ export const evaluateRotation = (compiledRotation, cache, newCharCompiledStatMap
   for (const footprint of footprints) {
     const result = evaluateFootprint(footprint, cache, characterId, newCharCompiledStatMap);
 
-    if (!summary[result.key]) {
-      summary[result.key] = result;
-    } else {
+    if (result.key in summary) {
       const existing = summary[result.key];
       existing[result.type] += result[result.type];
+    } else {
+      summary[result.key] = result;
     }
   }
 

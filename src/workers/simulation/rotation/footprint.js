@@ -151,18 +151,19 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
     ...Object.values(fieldState[actionOwnerFieldState]),
   ]) {
     if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
+    if ('followUpAction' in effect || 'intervalAction' in effect) continue;
     if (isOnCooldown('use', effect.key)) continue;
 
     const { chance, statMap, variableStatMap } = effect;
 
-    if (statMap) { // Fixed statMap bonuses
+    if ('statMap' in effect) { // Fixed statMap bonuses
       for (const statId in statMap) {
         footprint.fixedEffectStatMap[statId] ??= 0;
         footprint.fixedEffectStatMap[statId] += statMap[statId] * chance * stacks;
       }
     }
 
-    if (variableStatMap) {
+    if ('variableStatMap' in effect) {
       if (effect.ownerId === characterId) { // variableStatMaps that scale off characterId's stats
         footprint.charVariableEffectSpecs.push({ variableStatMap, stacks, chance });
       } else { // variableStatMaps that scale off teammate stats
@@ -176,7 +177,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
       }
     }
 
-    if (effect.useCooldown) {
+    if ('useCooldown' in effect) {
       setCooldown('use', effect.key, effect.useCooldown);
     }
   }
@@ -241,11 +242,11 @@ export const evaluateFootprint = (footprint, cache, characterId, newCharCompiled
     shield: 0,
   };
 
-  if (!footprint.compressedMultipliers) {
+  if (!('compressedMultipliers' in footprint)) {
     return summary;
   }
 
-  if (footprint.fixed) {
+  if ('fixed' in footprint) {
     for (const type in footprint.fixed) {
       summary[type] += footprint.fixed[type];
     }
