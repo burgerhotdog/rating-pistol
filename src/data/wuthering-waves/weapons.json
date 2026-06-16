@@ -2103,7 +2103,7 @@
       {
         "applyWhen": "cast",
         "applyOnCast": "ES",
-        "removeOnCast": "OS",
+        "removeIfState": false,
         "rankedStatMap": {
           "PERCENT_BA": [
             0.2,

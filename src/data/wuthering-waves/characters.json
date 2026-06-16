@@ -1199,7 +1199,6 @@
     "quality": 4,
     "element": "AERO",
     "type": "PISTOLS",
-    "tagged": "noEnergy",
     "stats": {
       "BASE_HP": 9850,
       "BASE_ATK": 262,
@@ -3823,12 +3822,6 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnAction": "RS-2",
-        "followUpAction": "RS-3",
-        "maxUses": 1
-      },
-      {
         "applyTo": "active",
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
@@ -3841,19 +3834,6 @@
             "maxUses": 5
           }
         }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": [
-          "FC-1",
-          "FC-2",
-          "FC-3",
-          "FC-4",
-          "FC-6"
-        ],
-        "followUpAction": "FC-7",
-        "times": 3,
-        "maxUses": 1
       },
       {
         "statMap": {
@@ -3869,26 +3849,22 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": [
-          "RS-2",
-          "RL-1",
-          "FC-5"
-        ],
-        "maxStacks": 2,
-        "duration": 10000,
+        "applyOnCast": "ES",
         "statMap": {
           "PERCENT_HAVOC": 0.06
-        }
+        },
+        "duration": 10000,
+        "maxStacks": 2
       },
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
-        "duration": 14000,
+        "applyOnCast": "OS",
         "statMap": {
-          "AMP_RS": 0.25,
-          "AMP_HAVOC": 0.2
-        }
+          "AMP_HAVOC": 0.2,
+          "AMP_RS": 0.25
+        },
+        "duration": 14000
       },
       {
         "rank": 1,
@@ -3903,9 +3879,9 @@
       },
       {
         "rank": 2,
-        "applyWhen": "cast",
+        "applyWhen": "hit",
         "applyOnAction": "RL-1",
-        "followUpAction": "RS-3",
+        "intervalAction": "RS-3",
         "maxUses": 1
       },
       {
@@ -3960,12 +3936,16 @@
         "RL-1",
         "NA-5",
         "RS-2",
-        "FC-1",
-        "FC-2",
-        "FC-3",
-        "FC-5",
         "RS-3",
+        "FC-1",
+        "FC-7",
+        "FC-2",
+        "FC-7",
+        "FC-3",
+        "FC-7",
+        "FC-5",
         "FC-8",
+        "RS-3",
         "OS-1"
       ]
     }
@@ -3985,6 +3965,19 @@
     },
     "effects": [
       {
+        "applyTo": "enemy",
+        "applyOnAction": [
+          "NA-4",
+          "RS-1",
+          "RL-2",
+          "IS-1"
+        ],
+        "statusMap": {
+          "EROSION": 1
+        }
+      },
+      {
+        "applyTo": "team",
         "statMap": {
           "PERCENT_AERO": 0.24
         }
@@ -3992,13 +3985,14 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "maxUses": 1,
-        "followUpAction": "RL-2"
+        "intervalAction": "RL-2",
+        "intervalCooldown": 1000,
+        "maxUses": 20
       },
       {
         "useOnAction": "FC-1",
         "statMap": {
-          "PERCENT_HA": 0.3
+          "PERCENT_ALL": 0.3
         },
         "rankMods": {
           "4": {
@@ -4009,45 +4003,36 @@
         }
       },
       {
-        "applyTo": "team",
+        "applyTo": "enemy",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
-        "duration": 30000,
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_EROSION": 1
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 1,
         "applyWhen": "cast",
-        "applyOnAction": [
-          "NA-1",
-          "NA-2",
-          "NA-3",
-          "NA-4"
-        ],
-        "duration": 10000,
+        "applyOnCast": "BA",
         "statMap": {
           "PERCENT_ATK": 0.35
-        }
+        },
+        "duration": 10000
       },
       {
         "rank": 2,
         "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "duration": 30000,
         "statMap": {
           "PERCENT_AERO": 0.4
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 4,
-        "useOnAction": [
-          "RL-1",
-          "RL-2",
-          "FC-2"
-        ],
+        "useOnConsidered": "RL",
         "statMap": {
           "IGNORE_DEF": 0.45
         }
@@ -4060,10 +4045,15 @@
       },
       {
         "rank": 6,
-        "applyWhen": "cast",
+        "applyWhen": "hit",
         "applyOnAction": "NA-4",
-        "maxUses": 1,
-        "followUpAction": "FC-2"
+        "intervalAction": {
+          "considered": "RL",
+          "multipliers": {
+            "mv": 2.2
+          }
+        },
+        "maxUses": 1
       }
     ],
     "defaults": {

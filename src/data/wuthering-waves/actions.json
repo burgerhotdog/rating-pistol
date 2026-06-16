@@ -20346,7 +20346,11 @@
       },
       "2": {
         "name": "Flickering Reverie",
-        "cast": "RS",
+        "tagged": "Mirage",
+        "cast": [
+          "RS",
+          "ES"
+        ],
         "considered": "RS",
         "multipliers": [
           {
@@ -20409,7 +20413,10 @@
     "RL": {
       "1": {
         "name": "Flowing Suffocation",
-        "cast": "RL",
+        "cast": [
+          "RL",
+          "ES"
+        ],
         "considered": "BA",
         "multipliers": [
           {
@@ -20440,6 +20447,7 @@
       },
       "2": {
         "name": "Diffusion",
+        "cast": "CA",
         "considered": [
           "BA",
           "CA"
@@ -20475,6 +20483,7 @@
     "FC": {
       "1": {
         "name": "Phantom Sting 1",
+        "tagged": "Mirage",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -20507,6 +20516,7 @@
       },
       "2": {
         "name": "Phantom Sting 2",
+        "tagged": "Mirage",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -20539,6 +20549,7 @@
       },
       "3": {
         "name": "Phantom Sting 3",
+        "tagged": "Mirage",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -20571,6 +20582,7 @@
       },
       "4": {
         "name": "Abysmal Vortex",
+        "tagged": "Mirage",
         "cast": "MA",
         "considered": [
           "BA",
@@ -20629,7 +20641,11 @@
       },
       "5": {
         "name": "Perception Drain",
-        "cast": "RS",
+        "tagged": "Mirage",
+        "cast": [
+          "RS",
+          "ES"
+        ],
         "considered": "BA",
         "multipliers": [
           {
@@ -20661,6 +20677,7 @@
       },
       "6": {
         "name": "Shadowy Sweep",
+        "tagged": "Mirage",
         "cast": "DC",
         "considered": [
           "BA",
@@ -20695,7 +20712,7 @@
         ]
       },
       "7": {
-        "name": "Trance: Healing",
+        "name": "Trance: Team Healing",
         "type": "healing",
         "multipliers": [
           {
@@ -20720,9 +20737,7 @@
               283,
               297,
               312
-            ]
-          },
-          {
+            ],
             "mv": [
               0.216,
               0.2246,
@@ -20746,7 +20761,8 @@
               0.8278
             ]
           }
-        ]
+        ],
+        "times": "$teamSize"
       },
       "8": {
         "name": "Perception Drain: Team Healing",
@@ -21140,7 +21156,7 @@
         ]
       },
       "7": {
-        "name": "Fully Charged Aimed Shot",
+        "name": "Aimed Shot: Full Charge",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -21344,6 +21360,7 @@
       },
       "2": {
         "name": "Symphonic Poem: Tonic",
+        "considered": "RL",
         "multipliers": [
           {
             "mv": [
@@ -21367,8 +21384,7 @@
               0.1015,
               0.1066,
               0.1116
-            ],
-            "times": 20
+            ]
           }
         ]
       }
@@ -21427,16 +21443,6 @@
               5.4716,
               5.7306
             ]
-          }
-        ]
-      },
-      "2": {
-        "name": "Sequence Node 6 Proc",
-        "considered": "RL",
-        "duration": 0,
-        "multipliers": [
-          {
-            "mv": 2.2
           }
         ]
       }
