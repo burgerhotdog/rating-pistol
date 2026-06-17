@@ -139,7 +139,7 @@
       "followUpAction": {
         "type": "healing",
         "attr": "HP",
-        "multipliers": {
+        "rankedMultipliers": {
           "mv": [
             0.03,
             0.06
@@ -387,7 +387,7 @@
       "followUpAction": {
         "type": "healing",
         "attr": "HP",
-        "multipliers": {
+        "rankedMultipliers": {
           "mv": [
             0.05,
             0.1
@@ -433,7 +433,7 @@
         "followUpAction": {
           "type": "healing",
           "attr": "HP",
-          "multipliers": {
+          "rankedMultipliers": {
             "mv": [
               0.05,
               0.1
@@ -645,7 +645,7 @@
       "intervalAction": {
         "type": "healing",
         "attr": "HP",
-        "multipliers": {
+        "rankedMultipliers": {
           "mv": [
             0.016,
             0.032
@@ -891,7 +891,7 @@
       "intervalAction": {
         "type": "healing",
         "attr": "HP",
-        "multipliers": {
+        "rankedMultipliers": {
           "mv": [
             0.005,
             0.011
@@ -940,7 +940,7 @@
         "followUpAction": {
           "type": "healing",
           "attr": "HP",
-          "multipliers": {
+          "rankedMultipliers": {
             "mv": [
               0.05,
               0.1
@@ -1191,7 +1191,7 @@
       "intervalAction": {
         "type": "healing",
         "attr": "HP",
-        "multipliers": {
+        "rankedMultipliers": {
           "mv": [
             0.05,
             0.1

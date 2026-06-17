@@ -274,7 +274,7 @@
           "followUpAction": {
             "element": "HAVOC",
             "considered": "OS",
-            "multipliers": {
+            "fixedMultipliers": {
               "mv": 4.8
             }
           },

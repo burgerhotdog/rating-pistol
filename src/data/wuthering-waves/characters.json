@@ -160,7 +160,7 @@
         "followUpAction": {
           "type": "healing",
           "attr": "HP",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 0.0025
           }
         },
@@ -172,7 +172,7 @@
         "intervalAction": {
           "type": "healing",
           "attr": "HP",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 0.0154
           }
         },
@@ -311,7 +311,7 @@
         "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 5.8794
           }
         },
@@ -430,7 +430,7 @@
         "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 5.3
           }
         },
@@ -512,7 +512,7 @@
         "applyOnCast": "OS",
         "intervalAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 1.7676
           }
         },
@@ -755,7 +755,7 @@
         "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": [
+          "fixedMultipliers": [
             {
               "mv": 1.9598
             },
@@ -815,7 +815,7 @@
             "RL",
             "CA"
           ],
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 1
           }
         },
@@ -964,7 +964,7 @@
         "useOnCast": "BA",
         "followUpAction": {
           "considered": "RS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 4.1959
           }
         },
@@ -1060,7 +1060,7 @@
         "followUpAction": {
           "type": "shield",
           "attr": "DEF",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 2
           }
         },
@@ -1371,7 +1371,7 @@
             "OS",
             "CA"
           ],
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 3.134
           }
         },
@@ -1557,7 +1557,7 @@
           {
             "cast": "RS",
             "considered": "HA",
-            "multipliers": {
+            "fixedMultipliers": {
               "mv": 5.5667
             }
           },
@@ -1656,7 +1656,7 @@
         "applyOnCast": "OS",
         "intervalAction": {
           "type": "healing",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 0.19
           }
         },
@@ -1678,7 +1678,7 @@
         "applyOnAction": "OS-1",
         "intervalAction": {
           "type": "healing",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 0.2
           }
         },
@@ -1834,7 +1834,7 @@
         "followUpAction": {
           "type": "healing",
           "attr": "HP",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 0.25
           }
         },
@@ -2465,7 +2465,7 @@
         "useCooldown": 2000,
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 2.3763
           }
         },
@@ -2981,7 +2981,7 @@
         "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 3.2924
           }
         },
@@ -3146,7 +3146,7 @@
         "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 7.942
           }
         },
@@ -3279,7 +3279,7 @@
         "followUpAction": {
           "cast": "ES",
           "considered": "ES",
-          "multipliers": {
+          "fixedMultipliers": {
             "flat": 100
           }
         },
@@ -3495,7 +3495,7 @@
         "useCooldown": 1000,
         "followUpAction": {
           "considered": "BA",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 4.4
           }
         },
@@ -3523,7 +3523,7 @@
         "followUpAction": {
           "type": "healing",
           "attr": "ER",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 660
           },
           "times": 3
@@ -3662,7 +3662,7 @@
         "applyOnCast": "OS",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 5.2841
           }
         },
@@ -4049,7 +4049,7 @@
         "applyOnAction": "NA-4",
         "intervalAction": {
           "considered": "RL",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 2.2
           }
         },
@@ -4100,10 +4100,10 @@
           "RS-3",
           "RS-4"
         ],
-        "duration": 14000,
         "statMap": {
           "AMP_FRAZZLE": 0.2
         },
+        "duration": 14000,
         "rankMods": {
           "1": {
             "statMap": {
@@ -4141,19 +4141,19 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "IS-1",
-        "duration": 14000,
         "statMap": {
           "PERCENT_SPECTRO": 0.12
-        }
+        },
+        "duration": 14000
       },
       {
         "applyTo": "ally",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
-        "duration": 20000,
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_SPECTRO": 0.2
-        }
+        },
+        "duration": 20000
       },
       {
         "rank": 2,
@@ -4661,7 +4661,7 @@
         "applyOnAction": "OS-1",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 1
           }
         },
@@ -4720,7 +4720,7 @@
         "applyOnAction": "OS-1",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": [
+          "fixedMultipliers": [
             {
               "mv": 0.795,
               "times": 3
@@ -4830,7 +4830,7 @@
         "applyOnAction": "OS-1",
         "intervalAction": {
           "type": "healing",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 0.18
           }
         },
@@ -4976,7 +4976,7 @@
         "applyOnAction": "OS-1",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 1
           }
         },
@@ -5089,7 +5089,7 @@
         "applyOnAction": "OS-1",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 5
           }
         },
@@ -5146,7 +5146,7 @@
         "applyOnAction": "OS-1",
         "followUpAction": {
           "considered": "OS",
-          "multipliers": {
+          "fixedMultipliers": {
             "mv": 7.95
           }
         },

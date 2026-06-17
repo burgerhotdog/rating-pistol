@@ -3,26 +3,8 @@ import { useParams } from 'react-router-dom';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTER, ACTION, MISC } from '@/data';
+import { CHARACTER, MISC } from '@/data';
 import { sumRotationDmg } from '@/utils';
-
-const sumRotationTime = (gameId, team, filterMemberId) => {
-  let total = 0;
-
-  for (const member of team) {
-    const { id, rotation = [] } = member;
-    if (filterMemberId && id !== filterMemberId) continue;
-
-    for (const key of rotation) {
-      const [skillId] = key.split('-');
-      const { duration } = ACTION[gameId][id][skillId][key];
-
-      total += duration;
-    }
-  }
-
-  return total;
-};
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -33,7 +15,7 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, team, actionMap }) => {
+export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, team, actionMap, cache }) => {
   const theme = useTheme();
   const { gameId } = useParams();
   const disabledColor = theme.palette.action.disabled;
@@ -41,14 +23,14 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
 
   const members = team.filter(m => m.id);
   const memberColors = members.map(m => {
-    const el = CHARACTER[gameId]?.[m.id]?.element;
+    const el = CHARACTER[gameId][m.id].element;
     return MISC[gameId]?.ELEMENT_COLORS?.[el] ?? disabledColor;
   });
 
-  const rotationTime = sumRotationTime(gameId, team);
+  const rotationTime = cache.fullRotationTime;
   const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
   const memberRotationTimeMap = Object.fromEntries(
-    members.map((m) => [m.id, sumRotationTime(gameId, team, m.id)])
+    members.map((m) => [m.id, cache.member[m.id].rotationTime])
   );
 
   const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap)));
@@ -188,7 +170,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                     <Box key={m.id} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
                       <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: memberColors[i], flexShrink: 0 }} />
                       <Typography variant="body2">
-                        {CHARACTER[gameId]?.[m.id]?.name ?? m.id}:{' '}
+                        {CHARACTER[gameId][m.id].name ?? m.id}:{' '}
                         {sumRotationDmg(weeklyScores[week], { ownerId: m.id }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                         {' / '}
                         {((memberRotationTimeMap[m.id] ?? 0) / 1000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}s

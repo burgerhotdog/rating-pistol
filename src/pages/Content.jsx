@@ -28,6 +28,7 @@ export const Content = () => {
     currentMember,
     trial,
     statusMessage,
+    cache,
   } = useSimulation(team);
 
   return (
@@ -63,6 +64,7 @@ export const Content = () => {
                 isLoading={isLoading}
                 team={team}
                 actionMap={actionMap}
+                cache={cache}
               />
             </Box>
 

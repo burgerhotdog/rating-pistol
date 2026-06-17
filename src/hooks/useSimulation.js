@@ -1,40 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useBuild } from '@/contexts';
-import { CHARACTER, ACTION, WEAPON, SET, MISC } from '@/data';
-import { mergeEquipList } from '@/utils';
+import { CHARACTER } from '@/data';
 
 export function useSimulation(team) {
   const { gameId, characterId } = useParams();
-  const build = useBuild().getBuilds(gameId)[characterId];
 
   const workerRef = useRef(null);
   const [result, setResult] = useState({});
   
   useEffect(() => {
-    const normalizedTeam = team.filter(member => member.id).map(member => ({
-      ...member,
-      equipMap: member.build ? mergeEquipList(member.build.equipList) : {},
-    }));
-
-    const data = {
-      character: {},
-      action: {},
-      weapon: {},
-      set: {},
-      misc: MISC[gameId],
-    };
-
-    for (const member of normalizedTeam) {
-      data.character[member.id] = CHARACTER[gameId][member.id];
-      data.action[member.id] = ACTION[gameId][member.id];
-      data.weapon[member.weaponId] ??= WEAPON[gameId][member.weaponId];
-      for (const setId in member.setCounts) {
-        data.set[setId] = SET[gameId][setId];
-      }
-    }
-
-    const payload = { gameId, characterId, team: normalizedTeam, data };
+    const payload = { gameId, characterId, team };
 
     if (!['wuthering-waves'].includes(gameId)) {
       workerRef.current?.terminate();
@@ -84,6 +59,7 @@ export function useSimulation(team) {
           simCharacter: characterId,
           actionMap: data.actionMap,
           actionMapsWithSub: data.actionMapsWithSub,
+          cache: data.cache,
         }));
 
         worker.terminate();
@@ -97,7 +73,7 @@ export function useSimulation(team) {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
     };
-  }, [gameId, characterId, build, team]);
+  }, [gameId, characterId, team]);
 
   return result;
 }

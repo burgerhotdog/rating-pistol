@@ -1,18 +1,19 @@
-import { getAttr } from '@/utils/getAttr';
-import { mergeObj } from '@/utils/merge';
+import { CHARACTER } from '@/data';
+import { getAttr } from '@/utils';
 
-export const createMatchMap = (currId, data, cache) => {
+export const createMatchMap = (cache, currId) => {
+  const { gameId, member } = cache;
+
+  const { matchList = [], tagged = [] } = CHARACTER[gameId][currId];
+  const { statMap } = member[currId];
   const matchMap = {};
-  const { tagged = [], matchList = [] } = data.character[currId];
 
-  for (const attr of [
-    ...(tagged.includes('noEnergy') ? [] : ['ER']),
-    ...matchList,
-  ]) {
-    const statMap = mergeObj(cache.baseMap[currId], cache.member[currId].equipMap);
-    const attrValue = getAttr(attr, statMap);
+  for (const attr of matchList) {
+    matchMap[attr] = getAttr(attr, statMap);
+  }
 
-    matchMap[attr] = attrValue;
+  if (!tagged.includes('noEnergy')) {
+    matchMap.ER = getAttr('ER', statMap);
   }
 
   return matchMap;

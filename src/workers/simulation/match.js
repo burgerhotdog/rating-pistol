@@ -155,7 +155,7 @@ export const matchUseIf = (action, effect, ctx) => {
   if ('useIfTagged' in effect && matchIfTagged(effect.useIfTagged, ctx.cache.data.character[effect.ownerId].tagged)) return true;
   if ('useIfStatus' in effect && matchIfStatus(effect.useIfStatus, ctx.enemyState.status)) return true;
   if ('useIfField' in effect && matchIfField(effect.useIfField, action, ctx.activeId)) return true;
-  if ('useIfAttr' in effect && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.baseMap[effect.ownerId], ctx.equipMapByMember[effect.ownerId]))) return true;
+  if ('useIfAttr' in effect && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.member[effect.ownerId].baseMap, ctx.equipMapByMember[effect.ownerId]))) return true;
 
   return false;
 };

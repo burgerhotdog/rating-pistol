@@ -1,5 +1,5 @@
-import { mergeObj, mergeEquipList } from '@/utils/merge';
-import { sumRotationDmg } from '@/utils/sumRotationDmg';
+import { MISC } from '@/data';
+import { mergeObj, mergeEquipList, sumRotationDmg } from '@/utils';
 import { weightedLottery } from './helpers';
 import { evaluateRotation } from './rotation';
 import { getPenalty } from './penalty';
@@ -68,7 +68,9 @@ function assignMainStat(costIndex, misc) {
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrial(preferredMainStats, trial, matchMap, characterId, compiledRotation, cache) {
+export function advanceTrial(cache, preferredMainStats, trial, matchMap, characterId, compiledRotation) {
+  const { gameId, member } = cache;
+  const { baseMap } = member[characterId];
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
 
@@ -87,22 +89,22 @@ export function advanceTrial(preferredMainStats, trial, matchMap, characterId, c
 
     // Randomly assign main stat (according to weighted rules)
     // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(4, cache.data.misc);
+    const { mainStatId, mainStatValue } = assignMainStat(4, MISC[gameId]);
     if (!preferredMainStats[4].includes(mainStatId)) continue;
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = cache.data.misc.MAIN_STAT_FLATS[4];
+    const mainFlatMap = MISC[gameId].MAIN_STAT_FLATS[4];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats(cache.data.misc);
+    const subStatList = assignSubStats(MISC[gameId]);
 
     const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
     const newEquipList = latestEquipList.with(0, newEquipObj);
 
     // Compute new match penalty and damage with new build
-    const combinedStatMap = mergeObj(cache.baseMap[characterId], mergeEquipList(newEquipList))
+    const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList))
     const newPenalty = getPenalty(combinedStatMap, matchMap);
-    const newSummary = evaluateRotation(compiledRotation, cache, combinedStatMap);
+    const newSummary = evaluateRotation(compiledRotation, combinedStatMap);
 
     // Compare with latest and replace if needed
     if (sumRotationDmg(newSummary) * newPenalty > sumRotationDmg(latestDamage) * latestPenalty) {
@@ -120,14 +122,14 @@ export function advanceTrial(preferredMainStats, trial, matchMap, characterId, c
 
     // Randomly assign main stat (according to weighted rules)
     // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(3, cache.data.misc);
+    const { mainStatId, mainStatValue } = assignMainStat(3, MISC[gameId]);
     if (!preferredMainStats[3].includes(mainStatId)) continue;
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = cache.data.misc.MAIN_STAT_FLATS[3];
+    const mainFlatMap = MISC[gameId].MAIN_STAT_FLATS[3];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats(cache.data.misc);
+    const subStatList = assignSubStats(MISC[gameId]);
 
     // Construct newEquipObj
     const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
@@ -143,9 +145,9 @@ export function advanceTrial(preferredMainStats, trial, matchMap, characterId, c
       const newEquipList = latestEquipList.with(slotIndex, equip);
 
       // Compute new match penalty and damage with new build
-      const combinedStatMap = mergeObj(cache.baseMap[characterId], mergeEquipList(newEquipList))
+      const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList))
       const newPenalty = getPenalty(combinedStatMap, matchMap);
-      const newDamage = evaluateRotation(compiledRotation, cache, combinedStatMap);
+      const newDamage = evaluateRotation(compiledRotation, combinedStatMap);
 
       // Compare new damage with buffer and replace if better
       if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
@@ -172,14 +174,14 @@ export function advanceTrial(preferredMainStats, trial, matchMap, characterId, c
 
     // Randomly assign main stat (according to weighted rules)
     // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(costIndex, cache.data.misc);
+    const { mainStatId, mainStatValue } = assignMainStat(costIndex, MISC[gameId]);
     if (!preferredMainStats[costIndex].includes(mainStatId)) continue;
 
     // Assign main stat flat values
     // Randomly assign and upgrade sub stats
-    const mainFlatMap = cache.data.misc.MAIN_STAT_FLATS[costIndex];
+    const mainFlatMap = MISC[gameId].MAIN_STAT_FLATS[costIndex];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats(cache.data.misc);
+    const subStatList = assignSubStats(MISC[gameId]);
 
     // Construct newEquipObj
     const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
@@ -195,9 +197,9 @@ export function advanceTrial(preferredMainStats, trial, matchMap, characterId, c
       const newEquipList = latestEquipList.with(slotIndex, equip);
 
       // Compute new match penalty and damage with new build
-      const combinedStatMap = mergeObj(cache.baseMap[characterId], mergeEquipList(newEquipList))
+      const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList))
       const newPenalty = getPenalty(combinedStatMap, matchMap);
-      const newDamage = evaluateRotation(compiledRotation, cache, combinedStatMap);
+      const newDamage = evaluateRotation(compiledRotation, combinedStatMap);
 
       // Compare new damage with buffer and replace if better
       if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {

@@ -1,6 +1,8 @@
+import { MISC } from '@/data';
 import { matchIfInflict, matchUseOn, matchRemoveOn, matchUseIf, matchRemoveIf, matchApplyIf } from '../match';
 import { buildFootprint, evaluateFootprint } from './footprint';
 import { isOnCooldown, setCooldown, advanceCooldowns, resetCooldowns } from './cooldowns';
+import { getFormulaConfig } from './formula';
 
 const MAX_PROC_DEPTH = 5;
 
@@ -53,9 +55,10 @@ function applyStatus(stateMap, status, stacks) {
 
 function applyEffects(ctx, action, trigger, applyTimes = 1) {
   const { cache, memberState, fieldState, enemyState } = ctx;
-  if (!cache.effect[action.key]) return;
 
-  const triggered = cache.effect[action.key].filter(e => e.applyWhen === trigger);
+  if (!(action.key in cache.effect)) return;
+
+  const triggered = cache.effect[action.key].filter(effect => effect.applyWhen === trigger);
   const inflictedStatuses = {};
 
   for (const effect of triggered) {
@@ -74,8 +77,10 @@ function applyEffects(ctx, action, trigger, applyTimes = 1) {
         }
 
         if ('statusMap' in effect) {
+          const { STATUSES = {} } = MISC[cache.gameId];
+
           for (const statusId in effect.statusMap) {
-            const status = cache.data.misc.STATUSES[statusId];
+            const status = STATUSES[statusId];
             const stacks = effect.statusMap[statusId] * applyTimes;
 
             applyStatus(enemyState.status, status, stacks)
@@ -138,11 +143,13 @@ function advanceEffects(ctx, elapsed) {
 }
 
 function tickEnemyStatuses(ctx, stateMap, elapsed) {
-  const statuses = ctx.cache.data.misc.STATUSES ?? {};
+  const { cache } = ctx;
+
+  const { STATUSES = {} } = MISC[cache.gameId];
 
   for (const statusId in stateMap) {
     const tracker = stateMap[statusId];
-    const status = statuses[statusId];
+    const status = STATUSES[statusId];
     let timer = elapsed;
 
     while (timer > 0) {
@@ -199,8 +206,8 @@ function decayProcCounts(ctx, action) {
 
 function processFollowUpProcs(action, ctx, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
-  const { memberState, fieldState, activeId } = ctx;
-  const actionOwnerState = activeId === action.ownerId ? 'active' : 'inactive';
+  const { onFieldId, memberState, fieldState } = ctx;
+  const actionOwnerState = onFieldId === action.ownerId ? 'active' : 'inactive';
 
   for (const state of [
     memberState[action.ownerId],
@@ -221,7 +228,7 @@ function processFollowUpProcs(action, ctx, depth) {
       }
 
       for (const action of effect.followUpAction) {
-        processAction(action, ctx, depth + 1, tracker.stacks * effect.times, effect.times);
+        processAction(ctx, action, depth + 1, tracker.stacks * effect.times, effect.times);
       }
     }
   }
@@ -232,9 +239,9 @@ function processIntervalProcs(ctx, elapsed, depth) {
   const { memberState } = ctx;
 
   for (const memberId in memberState) {
-    const stateMap = memberState[memberId];
+    const state = memberState[memberId];
 
-    for (const [effectKey, tracker] of Object.entries(stateMap)) {
+    for (const [effectKey, tracker] of Object.entries(state)) {
       const { effect } = tracker;
       if (!('intervalAction' in effect)) continue;
 
@@ -243,11 +250,11 @@ function processIntervalProcs(ctx, elapsed, depth) {
         tracker.usesRemaining--;
 
         if (tracker.usesRemaining <= 0) {
-          delete stateMap[effectKey];
+          delete state[effectKey];
         }
 
         for (const action of effect.intervalAction) {
-          processAction(action, ctx, depth + 1, tracker.stacks * effect.times, effect.times);
+          processAction(ctx, action, depth + 1, tracker.stacks * effect.times, effect.times);
         }
 
         tracker.procTimer += effect.intervalCooldown;
@@ -256,7 +263,7 @@ function processIntervalProcs(ctx, elapsed, depth) {
   }
 }
 
-function processTopLevelAction(action, ctx) {
+function processTopLevelAction(ctx, action) {
   const { enemyState } = ctx;
   const { duration, offset } = action;
   const remaining = duration - offset;
@@ -291,7 +298,7 @@ function processTopLevelAction(action, ctx) {
   decayProcCounts(ctx, action);
 }
 
-function processProcAction(action, ctx, depth, repeatCount, applyTimes) {
+function processProcAction(ctx, action, depth, repeatCount, applyTimes) {
   applyEffects(ctx, action, 'cast', applyTimes);
 
   if (ctx.recordFootprint) {
@@ -303,20 +310,21 @@ function processProcAction(action, ctx, depth, repeatCount, applyTimes) {
   processFollowUpProcs(action, ctx, depth);
 }
 
-function processAction(action, ctx, depth, repeatCount = 1, applyTimes = 1) {
+function processAction(ctx, action, depth, repeatCount = 1, applyTimes = 1) {
   if (depth >= MAX_PROC_DEPTH) {
     console.log("MAX_PROC_DEPTH hit");
     return;
   }
 
   if (depth === 0) {
-    processTopLevelAction(action, ctx);
+    processTopLevelAction(ctx, action);
   } else {
-    processProcAction(action, ctx, depth, repeatCount, applyTimes);
+    processProcAction(ctx, action, depth, repeatCount, applyTimes);
   }
 }
 
-export const compileRotation = (team, characterId, cache) => {
+export const compileRotation = (cache, currId, team) => {
+  // Setup context
   const equipMapByMember = {};
   const memberState = {};
 
@@ -325,51 +333,56 @@ export const compileRotation = (team, characterId, cache) => {
     memberState[member.id] = {};
   }
 
+  const formulaConfig = getFormulaConfig(cache.gameId);
+
   const ctx = {
     cache,
-    characterId,
-    activeId: null,
+    currId,
+    onFieldId: null,
     equipMapByMember,
     memberState,
     fieldState: { active: {}, inactive: {} },
     enemyState: { stat: {}, status: {} },
     recordFootprint: false,
     footprints: [],
+    formulaConfig,
   };
 
   resetCooldowns();
 
+  // Main Processing loop
+  // Priming pass
   for (const member of team.toReversed()) {
-    ctx.activeId = member.id;
+    const { rotation } = cache.member[member.id];
+    ctx.onFieldId = member.id;
 
-    for (const actionShort of member.rotation) {
-      const action = cache.action[member.id][actionShort];
-      processAction(action, ctx, 0);
+    for (const action of rotation) {
+      processAction(ctx, action, 0);
     }
   }
 
+  // Damage pass
   ctx.recordFootprint = true;
 
   for (const member of team.toReversed()) {
-    ctx.activeId = member.id;
+    const { rotation } = cache.member[member.id];
+    ctx.onFieldId = member.id;
 
-    for (const actionShort of member.rotation) {
-      const action = cache.action[member.id][actionShort];
-      processAction(action, ctx, 0);
+    for (const action of rotation) {
+      processAction(ctx, action, 0);
     }
   }
 
-  resetCooldowns();
-
-  return { characterId, footprints: ctx.footprints };
+  return { currId, footprints: ctx.footprints, formulaConfig };
 };
 
-export const evaluateRotation = (compiledRotation, cache, newCharCompiledStatMap) => {
-  const { characterId, footprints } = compiledRotation;
+export const evaluateRotation = (compiledRotation, statMap) => {
+  const { currId, footprints, formulaConfig } = compiledRotation;
+  const ctx = { currId, formulaConfig };
   const summary = {};
 
   for (const footprint of footprints) {
-    const result = evaluateFootprint(footprint, cache, characterId, newCharCompiledStatMap);
+    const result = evaluateFootprint(ctx, footprint, statMap);
 
     if (result.key in summary) {
       const existing = summary[result.key];

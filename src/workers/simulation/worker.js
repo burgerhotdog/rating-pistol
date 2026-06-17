@@ -1,6 +1,7 @@
-import { mergeEquipList, mergeObj } from '@/utils/merge';
+import { MISC } from '@/data';
+import { mergeEquipList } from '@/utils/merge';
 import { sumRotationDmg } from '@/utils/sumRotationDmg';
-import { compileRotation, evaluateRotation } from './rotation';
+import { evaluateRotation } from './rotation';
 import { compileCache } from './cache';
 import { runTrials } from './trials';
 
@@ -19,33 +20,57 @@ const getAvgStatMap = (trials) => {
   return avgStatMap;
 };
 
-self.onmessage = ({ data: payload }) => {
-  const { gameId, characterId, team, data } = payload;
-  const cache = { gameId, ...compileCache(data, team) };
-  const trialStatMaps = {};
+self.onmessage = ({ data }) => {
+  const { gameId, characterId, team: rawTeam } = data;
+  const team = rawTeam.filter(member => member.id);
+  const cache = compileCache(gameId, team);
+  const trialMaps = {};
 
-  // Generate benchmark builds for teammates
-  self.postMessage({ type: 'progress', statusMessage: 'Calibrating teammates', currentMember: null, completed: 0 });
+  self.postMessage({
+    type: 'progress',
+    statusMessage: 'Calibrating teammates',
+    currentMember: null,
+    completed: 0,
+  });
 
   for (let ti = team.length - 1; ti >= 0; ti--) {
     const member = team[ti];
     if (member.build) continue;
 
-    self.postMessage({ type: 'progress', currentMember: member.id, completed: 0, diff: null });
+    self.postMessage({
+      type: 'progress',
+      currentMember: member.id,
+      completed: 0,
+      diff: null,
+    });
 
-    const compiledRotation = compileRotation(team, member.id, cache);
-    const { trials } = runTrials(member.id, cache, data, compiledRotation);
-    trialStatMaps[member.id] = getAvgStatMap(trials);
+    const test = team.map(member => ({ ...member, equipMap: cache.member[member.id].equipMap }));
+    const { trials } = runTrials(cache, member.id, test);
+    trialMaps[member.id] = getAvgStatMap(trials);
   }
 
   // Run farming simulation for current character
-  self.postMessage({ type: 'progress', statusMessage: 'Running simulation', currentMember: characterId, completed: 0, diff: null });
-  const trialsTeam = team.map(member => {
-    if (member.build) return { ...member };
-    return { ...member, equipMap: trialStatMaps[member.id] };
+  self.postMessage({
+    type: 'progress',
+    statusMessage: 'Running simulation',
+    currentMember: characterId,
+    completed: 0,
+    diff: null,
   });
-  const compiledRotation = compileRotation(trialsTeam, characterId, cache);
-  const { trials, preferredMainStats, benchmarkWeek, weeklyScores } = runTrials(characterId, cache, data, compiledRotation);
+
+  const trialsTeam = team.map(member => {
+    if (member.build) return { ...member, equipMap: cache.member[member.id].equipMap };
+    return { ...member, equipMap: trialMaps[member.id] };
+  });
+
+  const {
+    trials,
+    preferredMainStats,
+    benchmarkWeek,
+    weeklyScores,
+    compiledRotation,
+  } = runTrials(cache, characterId, trialsTeam);
+
   const finalStats = getAvgStatMap(trials);
 
   // Per-week score percentiles for distribution bands
@@ -66,17 +91,15 @@ self.onmessage = ({ data: payload }) => {
 
   // Build actionMap using the character's actual equipped build (same as what
   // normalizeTeam returned for the character — m.build is the top-level build).
-  const actionMap = evaluateRotation(compiledRotation, cache, mergeObj(cache.baseMap[characterId], cache.member[characterId].equipMap));
+  const actionMap = evaluateRotation(compiledRotation, cache.member[characterId].statMap);
   const actionMapsWithSub = {};
 
-  for (const statId in cache.data.misc.SUB_STAT_TYPES) {
-    const { VALUE } = cache.data.misc.SUB_STAT_TYPES[statId];
-
-    const adjustedStatMap = { ...mergeObj(cache.baseMap[characterId], cache.member[characterId].equipMap) };
+  for (const [statId, { VALUE }] of Object.entries(MISC[gameId].SUB_STAT_TYPES)) {
+    const adjustedStatMap = { ...cache.member[characterId].statMap };
     adjustedStatMap[statId] ??= 0;
     adjustedStatMap[statId] += VALUE;
 
-    actionMapsWithSub[statId] = evaluateRotation(compiledRotation, cache, adjustedStatMap);
+    actionMapsWithSub[statId] = evaluateRotation(compiledRotation, adjustedStatMap);
   }
 
   self.postMessage({
@@ -88,5 +111,6 @@ self.onmessage = ({ data: payload }) => {
     weeklyDistribution,
     actionMap,
     actionMapsWithSub,
+    cache,
   });
 };

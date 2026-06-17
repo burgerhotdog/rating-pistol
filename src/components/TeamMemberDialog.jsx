@@ -39,7 +39,7 @@ import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CHARACTER, ACTION, WEAPON, SET, MISC } from '@/data';
-import { getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
+import { toArray, getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
@@ -549,8 +549,8 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
       const skill = skillMap[skillId];
       const filteredSkill = [];
 
-      for (const key in skill) {
-        const action = skill[key];
+      for (const actionId in skill) {
+        const action = skill[actionId];
 
         if (action.name.toLowerCase().includes(lower)) {
           filteredSkill.push(action);
@@ -599,7 +599,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 dense
                 sx={{ px: 0.5 }}
               >
-                {cast.map(type => (
+                {toArray(cast).map(type => (
                   <Chip
                     key={type}
                     size="small"
@@ -757,8 +757,8 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLab
     transition,
   };
 
-  const [skillId] = actionKey.split('-');
-  const { cast, name, tagged } = ACTION[gameId][characterId][skillId][actionKey];
+  const [skillId, actionId] = actionKey.split('-');
+  const { name, tagged, cast } = ACTION[gameId][characterId][skillId][actionId];
 
   return (
     <Box
@@ -795,7 +795,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLab
 
       {/* Cast type chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
-        {cast.map(castType => (
+        {toArray(cast).map(castType => (
           <Chip
             key={castType}
             size="small"
@@ -813,7 +813,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLab
 
       {/* Tags chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
-        {tagged.map(tag => (
+        {toArray(tagged).map(tag => (
           <Chip
             key={tag}
             size="small"
