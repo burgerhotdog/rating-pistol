@@ -19,12 +19,22 @@ const createEquipMap = (member) => {
   return {};
 };
 
-const convertRotation = (member, actions) => {
+const convertRotation = (ctx, member, actions) => {
+  const { teamSize } = ctx;
+
   const rotation = [];
   let rotationTime = 0;
 
   for (const shortKey of member.rotation) {
     const action = actions[shortKey];
+
+    if (teamSize === 1) {
+      const { cast } = action;
+      if (['IS', 'OS'].some(type => cast.includes(type))) {
+        continue;
+      }
+    }
+
     rotationTime += action.duration;
     rotation.push(action);
   }
@@ -51,7 +61,7 @@ export const compileCache = (gameId, team) => {
 
     const actions = normalizeActions(ctx, member);
 
-    const { rotation, rotationTime } = convertRotation(member, actions);
+    const { rotation, rotationTime } = convertRotation(ctx, member, actions);
     fullRotationTime += rotationTime;
 
     const { passivesbyTarget, effectsByAction } = normalizeEffects(ctx, member, actions);
