@@ -90,17 +90,12 @@ const matchIfField = (ifField, action, activeId) => {
 };
 
 export const matchIfInflict = (ifInflict, inflictedStatuses) => {
-  if (ifInflict === 'any') {
-    return Boolean(Object.keys(inflictedStatuses).length);
+  if (ifInflict === '*') {
+    return Boolean(inflictedStatuses.size);
   }
 
-  for (const statusId in ifInflict) {
-    if (!inflictedStatuses[statusId]) continue;
-    const requiredStacks = ifInflict[statusId];
-
-    if (inflictedStatuses[statusId] >= requiredStacks) {
-      return true;
-    }
+  for (const statusId of ifInflict) {
+    if (inflictedStatuses.has(statusId)) return true;
   }
 
   return false;

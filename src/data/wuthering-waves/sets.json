@@ -236,9 +236,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyIfInflict": {
-            "FRAZZLE": 1
-          },
+          "applyIfInflict": "FRAZZLE",
           "statMap": {
             "PERCENT_CR": 0.2
           },
@@ -358,9 +356,7 @@
         {
           "applyTo": "team",
           "applyWhen": "hit",
-          "applyIfInflict": {
-            "EROSION": 1
-          },
+          "applyIfInflict": "EROSION",
           "statMap": {
             "PERCENT_AERO": 0.15
           },
@@ -368,9 +364,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyIfInflict": {
-            "EROSION": 1
-          },
+          "applyIfInflict": "EROSION",
           "statMap": {
             "PERCENT_AERO": 0.15
           },
@@ -535,9 +529,7 @@
     "tieredEffects": {
       "3": {
         "applyWhen": "hit",
-        "applyIfInflict": {
-          "BANE": 1
-        },
+        "applyIfInflict": "BANE",
         "statMap": {
           "PERCENT_ATK": 0.2,
           "PERCENT_RL": 0.3
@@ -625,10 +617,10 @@
       },
       "5": {
         "applyWhen": "hit",
-        "applyIfInflict": {
-          "BURST": 1,
-          "RUPTURE": 1
-        },
+        "applyIfInflict": [
+          "BURST",
+          "RUPTURE"
+        ],
         "statMap": {
           "PERCENT_CR": 0.2,
           "PERCENT_FUSION": 0.2
@@ -649,9 +641,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyIfInflict": {
-            "BURST": 1
-          },
+          "applyIfInflict": "BURST",
           "statMap": {
             "PERCENT_FUSION": 0.1
           },
@@ -702,9 +692,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyIfInflict": {
-            "CHAFE": 1
-          },
+          "applyIfInflict": "CHAFE",
           "statMap": {
             "PERCENT_GLACIO": 0.1
           },

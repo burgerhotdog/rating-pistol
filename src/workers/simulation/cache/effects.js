@@ -70,6 +70,10 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
     resolved.useIfTagged = toArray(effect.useIfTagged);
   }
 
+  if (effect.applyIfInflict) {
+    resolved.applyIfInflict = toArray(effect.applyIfInflict);
+  }
+
   if ('rankedStatMap' in effect) {
     const { rankedStatMap } = effect;
     const statMap = {};

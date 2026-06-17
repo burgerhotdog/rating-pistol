@@ -2148,9 +2148,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": {
-          "EROSION": 1
-        },
+        "applyIfInflict": "EROSION",
         "rankedStatMap": {
           "PERCENT_AERO": [
             0.24,
@@ -2887,10 +2885,10 @@
         "applyTo": "team",
         "applyWhen": "hit",
         "applyOnCast": "BA",
-        "applyIfInflict": {
-          "RUPTURE": 1,
-          "STRAIN": 1
-        },
+        "applyIfInflict": [
+          "RUPTURE",
+          "STRAIN"
+        ],
         "rankedStatMap": {
           "PERCENT_ALL": [
             0.08,
@@ -3041,9 +3039,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": {
-          "STRAIN": 1
-        },
+        "applyIfInflict": "STRAIN",
         "useOnConsidered": "BA",
         "rankedStatMap": {
           "AMP_BA": [
@@ -3125,9 +3121,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": {
-          "CHAFE": 1
-        },
+        "applyIfInflict": "CHAFE",
         "rankedStatMap": {
           "AMP_GLACIO": [
             0.28,
@@ -3138,9 +3132,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": {
-          "CHAFE": 1
-        },
+        "applyIfInflict": "CHAFE",
         "useOnConsidered": "RL",
         "rankedStatMap": {
           "IGNORE_DEF": [
@@ -3185,10 +3177,10 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": {
-          "BURST": 1,
-          "STRAIN": 1
-        },
+        "applyIfInflict": [
+          "BURST",
+          "STRAIN"
+        ],
         "rankedStatMap": {
           "PERCENT_RL": [
             0.36,

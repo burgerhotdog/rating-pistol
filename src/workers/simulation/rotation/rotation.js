@@ -67,7 +67,7 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
   if (!(action.key in cache.effect)) return;
 
   const triggered = cache.effect[action.key].filter(effect => effect.applyWhen === trigger);
-  const inflictedStatuses = {};
+  const inflictedStatuses = new Set();
 
   for (const effect of triggered) {
     if ('applyIfInflict' in effect) continue;
@@ -93,8 +93,7 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 
             applyStatus(enemyState.status, status, stacks)
 
-            inflictedStatuses[statusId] ??= 0;
-            inflictedStatuses[statusId] += stacks;
+            inflictedStatuses.add(statusId);
           }
         }
       }
