@@ -2,10 +2,25 @@ import { getAttr } from '@/utils';
 
 export const getFormulaConfig = (gameId) => {
   switch(gameId) {
+    case 'genshin-impact':
+      return {
+        ENEMY_RES: 0.1,
+        getDefMult: (defRed, defIgn) => 190 / (200 * ((1 - defRed) * (1 - defIgn)) + 190),
+      };
+    case 'honkai-star-rail':
+      return {
+        ENEMY_RES: 0,
+        getDefMult: (defRed, defIgn) => 100 / (110 * (Math.max(0, 1 - defRed - defIgn)) + 100),
+      };
     case 'wuthering-waves':
       return {
         ENEMY_RES: 0.1,
-        getDefMult: (defIgnore) => 1520 / (3112 - 1592 * defIgnore),
+        getDefMult: (defRed, defIgn) => 1520 / (1592 * ((1 - defRed) * (1 - defIgn)) + 1520),
+      };
+    case 'zenless-zone-zero':
+      return {
+        ENEMY_RES: -0.2,
+        getDefMult: (defRed, defIgn, pen) => 60 / (Math.max(0, 794 * (1 - defRed) * (1 - defIgn) - pen) + 60),
       };
   }
 };
@@ -58,8 +73,10 @@ const computeReductions = (config, statMap, element, enemyStatMap) => {
     resMult = 1 / (5 * totalRes + 1);
   }
 
-  const defIgnore = (statMap['IGNORE_DEF'] ?? 0) + (enemyStatMap['SHRED_DEF'] ?? 0);
-  const defMult = getDefMult(defIgnore);
+  const defRed = enemyStatMap['SHRED_DEF'] ?? 0;
+  const defIgn = statMap['IGNORE_DEF'] ?? 0;
+  const pen = statMap['FLAT_PEN'] ?? 0;
+  const defMult = getDefMult(defRed, defIgn, pen);
 
   return resMult * defMult;
 };
