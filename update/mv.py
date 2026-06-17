@@ -36,8 +36,9 @@ def format_multipliers(raw_list):
 
     return result
 
-def mv_parser(game_id, data):
+def mv_parser(game_id, ID, data):
     mv_dict = {}
+    mv_dict["id"] = ID
     match game_id:
         case "genshin-impact":
             print("this shouldn't happen")
@@ -45,6 +46,13 @@ def mv_parser(game_id, data):
             print("this shouldn't happen")
         case "wuthering-waves":
             skill_group_ids = ["1", "2", "3", "6", "7"] # normal, skill, ult, intro, forte
+            skill_index_to_id = {
+                "1": "NA",
+                "2": "RS",
+                "3": "RL",
+                "6": "IS",
+                "7": "FC",
+            }
             
             for group_id in skill_group_ids:
                 skill_group_data = data["skill_trees"][group_id]["skill"]
@@ -75,22 +83,21 @@ def mv_parser(game_id, data):
 
                     skills[str(action_id)] = {
                         "name": skill_data["name"],
+                        "cast": "BA" if group_id == "1" else skill_index_to_id[group_id],
+                        "considered": "BA" if group_id == "1" else skill_index_to_id[group_id],
                         **({"attr": attr} if attr else {}),
-                        "multipliers": multipliers,
+                        "indexedMultipliers": multipliers,
                     }
 
                     action_id += 1
 
-                mv_dict[group_id] = { "name": skill_group_data["name"], "skills": skills }
+                mv_dict[skill_index_to_id[group_id]] = skills
 
-            mv_dict["8"] = {
-                "name": data["skill_trees"]["8"]["skill"]["name"],
-                "skills": {
-                    "1": {
-                        "desc": data["skill_trees"]["8"]["skill"]["desc"],
-                        "param": data["skill_trees"]["8"]["skill"]["param"],
-                    },
-                },
+            mv_dict["OS"] = {
+                "1": {
+                    "name": data["skill_trees"]["8"]["skill"]["name"],
+                    "cast": "OS",
+                }
             }
 
         case "zenless-zone-zero":

@@ -5278,5 +5278,48 @@
         "OS-1"
       ]
     }
+  },
+  {
+    "id": "1109",
+    "name": "Lucilla",
+    "tagged": "noEnergy",
+    "quality": 5,
+    "element": "GLACIO",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_HP": 12237,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    }
+  },
+  {
+    "id": "1308",
+    "name": "Rebecca",
+    "quality": 5,
+    "element": "ELECTRO",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_HP": 11600,
+      "BASE_ATK": 400,
+      "BASE_DEF": 1173,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    }
+  },
+  {
+    "id": "1511",
+    "name": "Lucy",
+    "quality": 5,
+    "element": "SPECTRO",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_HP": 11025,
+      "BASE_ATK": 425,
+      "BASE_DEF": 1148,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    }
   }
 ]

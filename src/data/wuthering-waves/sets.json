@@ -729,5 +729,20 @@
       },
       "5": {}
     }
+  },
+  {
+    "id": "32",
+    "name": "Shadow of Shattered Dreams",
+    "tieredEffects": {
+      "1": {
+        "applyWhen": "hit",
+        "applyIfInflict": "HACK",
+        "statMap": {
+          "PERCENT_BA": 0.35,
+          "PERCENT_HA": 0.35
+        },
+        "duration": 15000
+      }
+    }
   }
 ]

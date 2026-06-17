@@ -152,7 +152,7 @@ def character_constant_stats_parser(game_id, data):
         elif key.startswith("PERCENT_"):
             constant[key] = round(value, 3)
 
-    return { "constant": constant }
+    return constant
 
 def weapon_constant_stats_parser(game_id, data):
     constant = {}
@@ -234,7 +234,7 @@ def weapon_constant_stats_parser(game_id, data):
             stat_id = stat_map[data["rand_property"]["name"]]
             constant[stat_id] = (data["rand_property"]["value"] if stat_id.startswith("FLAT") else data["rand_property"]["value"] / 10000) * 2.5
 
-    return { "constant": constant }
+    return constant
 
 GAME_INFO = [
     {
@@ -256,7 +256,7 @@ GAME_INFO = [
             },
             "weapon": {
                 "name": lambda data: data["name"],
-                "quality": lambda data: str(data["rarity"]),
+                "quality": lambda data: int(data["rarity"]),
                 "type": lambda data: data["weapon_type"],
                 "stats": lambda data: weapon_constant_stats_parser("genshin-impact", data),
             },
@@ -270,9 +270,9 @@ GAME_INFO = [
             },
             "character": {
                 "quality": {
-                    "QUALITY_ORANGE_SP": "5",
-                    "QUALITY_ORANGE": "5",
-                    "QUALITY_PURPLE": "4",
+                    "QUALITY_ORANGE_SP": 5,
+                    "QUALITY_ORANGE": 5,
+                    "QUALITY_PURPLE": 4,
                 },
                 "type": {
                     "WEAPON_SWORD_ONE_HAND": "SWORD",
@@ -327,8 +327,8 @@ GAME_INFO = [
             },
             "character": {
                 "quality": {
-                    "CombatPowerAvatarRarityType5": "5",
-                    "CombatPowerAvatarRarityType4": "4",
+                    "CombatPowerAvatarRarityType5": 5,
+                    "CombatPowerAvatarRarityType4": 4,
                 },
                 "element": {
                     "Thunder": "Lightning",
@@ -346,9 +346,9 @@ GAME_INFO = [
             },
             "weapon": {
                 "quality": {
-                    "CombatPowerLightconeRarity5": "5",
-                    "CombatPowerLightconeRarity4": "4",
-                    "CombatPowerLightconeRarity3": "3",
+                    "CombatPowerLightconeRarity5": 5,
+                    "CombatPowerLightconeRarity4": 4,
+                    "CombatPowerLightconeRarity3": 3,
                 },
                 "type": {
                     "Rogue": "HUNT",
@@ -375,14 +375,14 @@ GAME_INFO = [
         "parsers": {
             "character": {
                 "name": lambda data: data["name"],
-                "quality": lambda data: str(data["rarity"]),
+                "quality": lambda data: data["rarity"],
                 "element": lambda data: data["element"],
                 "type": lambda data: data["weapon"],
                 "stats": lambda data: character_constant_stats_parser("wuthering-waves", data),
             },
             "weapon": {
                 "name": lambda data: data["name"],
-                "quality": lambda data: str(data["rarity"]),
+                "quality": lambda data: data["rarity"],
                 "type": lambda data: data["type"],
                 "stats": lambda data: weapon_constant_stats_parser("wuthering-waves", data),
             },
@@ -455,16 +455,16 @@ GAME_INFO = [
             },
             "character": {
                 "quality": {
-                    4: "5",
-                    3: "4",
-                    2: "3",
+                    4: 5,
+                    3: 4,
+                    2: 3,
                 },
             },
             "weapon": {
                 "quality": {
-                    4: "5",
-                    3: "4",
-                    2: "3",
+                    4: 5,
+                    3: 4,
+                    2: 3,
                 },
             },
         },

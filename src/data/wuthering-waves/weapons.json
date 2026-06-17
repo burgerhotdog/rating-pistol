@@ -3199,5 +3199,150 @@
         }
       }
     ]
+  },
+  {
+    "id": "21030056",
+    "name": "Spectral Trigger",
+    "quality": 5,
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": [
+      {
+        "rankedStatMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
+        "rankedStatMap": {
+          "PERCENT_SPECTRO": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 14000,
+        "maxStacks": 2
+      },
+      {
+        "applyWhen": "hit",
+        "applyIfInflict": "HACK",
+        "useOnConsidered": "HA",
+        "rankedStatMap": {
+          "AMP_HA": [
+            0.3,
+            0.6
+          ],
+          "IGNORE_DEF": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 14000
+      }
+    ]
+  },
+  {
+    "id": "21030066",
+    "name": "Skull Thrasher",
+    "quality": 5,
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CD": 0.72
+    },
+    "effects": [
+      {
+        "rankedStatMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "rankedStatMap": {
+          "PERCENT_BA": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 14000
+      },
+      {
+        "applyWhen": "hit",
+        "applyIfInflict": "HACK",
+        "rankedStatMap": {
+          "PERCENT_BA": [
+            0.12,
+            0.24
+          ]
+        },
+        "duration": 14000
+      },
+      {
+        "applyTo": "team",
+        "applyWhen": "hit",
+        "applyIfInflict": "HACK",
+        "rankedStatMap": {
+          "PERCENT_ATK": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 30000
+      }
+    ]
+  },
+  {
+    "id": "21050086",
+    "name": "Freeze Frame",
+    "quality": 5,
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": [
+      {
+        "rankedStatMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "hit",
+        "applyIfInflict": "CHAFE",
+        "rankedStatMap": {
+          "PERCENT_GLACIO": [
+            0.3,
+            0.6
+          ]
+        },
+        "duration": 12000
+      },
+      {
+        "applyTo": "team",
+        "applyWhen": "hit",
+        "applyIfInflict": "CHAFE",
+        "rankedStatMap": {
+          "PERCENT_ATK": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 30000
+      }
+    ]
   }
 ]
