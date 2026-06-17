@@ -175,14 +175,17 @@ export const evaluateFootprint = (ctx, footprint, statMap) => {
     shield: 0,
   };
 
-  if (!('compressed' in footprint)) {
+  if ('fixed' in footprint) {
+    const { fixed } = footprint;
+
+    for (const type in fixed) {
+      summary[type] += fixed[type];
+    }
+
     return summary;
   }
 
-  if ('fixed' in footprint) {
-    for (const type in footprint.fixed) {
-      summary[type] += footprint.fixed[type];
-    }
+  if (!('compressed' in footprint)) {
     return summary;
   }
 

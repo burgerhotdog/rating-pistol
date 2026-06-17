@@ -11,10 +11,6 @@ export const isOnCooldown = (ctx, type, effectKey) => {
 export function setCooldown(ctx, type, effectKey, duration) {
   const { cooldowns } = ctx;
 
-  if (!(type in cooldowns)) {
-    throw new Error('Invalid cooldown type');
-  }
-
   cooldowns[type][effectKey] = duration;
 }
 
@@ -25,11 +21,9 @@ export function advanceCooldowns(ctx, elapsed) {
     const entries = cooldowns[type];
 
     for (const effectKey in entries) {
-      const remaining = entries[effectKey] - elapsed;
+      entries[effectKey] -= elapsed;
 
-      if (remaining > 0) {
-        entries[effectKey] = remaining;
-      } else {
+      if (entries[effectKey] <= 0) {
         delete entries[effectKey];
       }
     }

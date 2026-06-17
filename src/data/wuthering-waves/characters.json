@@ -3966,6 +3966,7 @@
     "effects": [
       {
         "applyTo": "enemy",
+        "applyWhen": "hit",
         "applyOnAction": [
           "NA-4",
           "RS-1",

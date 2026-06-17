@@ -550,7 +550,8 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
       const filteredSkill = [];
 
       for (const actionId in skill) {
-        const action = skill[actionId];
+        const action = { ...skill[actionId] };
+        action.key = `${skillId}-${actionId}`;
 
         if (action.name.toLowerCase().includes(lower)) {
           filteredSkill.push(action);

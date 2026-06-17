@@ -33,6 +33,9 @@ const resolveApplyTo = (applyTo, ownerId, idList) => {
     case 'inactive':
       return [applyTo];
 
+    case 'enemy':
+      return [applyTo];
+
     default:
       return [ownerId];
   }

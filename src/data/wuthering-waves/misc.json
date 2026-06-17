@@ -334,24 +334,29 @@
   "STATUSES": {
     "CHAFE": {
       "id": "CHAFE",
+      "element": "GLACIO",
       "maxStacks": 10
     },
     "BURST": {
       "id": "BURST",
+      "element": "FUSION",
       "maxStacks": 10
     },
     "FLARE": {
       "id": "FLARE",
+      "element": "ELECTRO",
       "maxStacks": 10
     },
     "EROSION": {
       "id": "EROSION",
+      "element": "AERO",
       "tickInterval": 3000,
       "duration": 15000,
       "maxStacks": 3
     },
     "FRAZZLE": {
       "id": "FRAZZLE",
+      "element": "SPECTRO",
       "tickInterval": 3000,
       "duration": 3000,
       "maxStacks": 10,
@@ -359,6 +364,7 @@
     },
     "BANE": {
       "id": "BANE",
+      "element": "HAVOC",
       "maxStacks": 3
     }
   },

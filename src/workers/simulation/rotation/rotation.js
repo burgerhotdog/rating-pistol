@@ -3,6 +3,7 @@ import { matchIfInflict, matchUseOn, matchRemoveOn, matchUseIf, matchRemoveIf, m
 import { createCdTracker, isOnCooldown, setCooldown, advanceCooldowns } from './cooldowns';
 import { buildFootprint, evaluateFootprint } from './footprint';
 import { getFormulaConfig } from './formula';
+import { buildStatusFootprint } from './status';
 
 const MAX_PROC_DEPTH = 5;
 
@@ -153,40 +154,42 @@ function advanceEffectStates(ctx, elapsed) {
 
 function tickStatuses(ctx, elapsed) {
   const { cache, enemyState } = ctx;
-  const { status: statusState } = enemyState;
+  const { status: statusStates } = enemyState;
 
   const { STATUSES = {} } = MISC[cache.gameId];
 
-  for (const statusId in statusState) {
-    const tracker = statusState[statusId];
+  for (const statusId in statusStates) {
+    const statusState = statusStates[statusId];
     const status = STATUSES[statusId];
     let timer = elapsed;
 
     while (timer > 0) {
-      const decrease = Math.min(tracker.duration, tracker.tickTimer, timer);
+      const decrease = Math.min(statusState.duration, statusState.tickTimer, timer);
 
-      tracker.duration -= decrease;
-      tracker.tickTimer -= decrease;
+      statusState.duration -= decrease;
+      statusState.tickTimer -= decrease;
       timer -= decrease;
 
-      if (tracker.duration <= 0) {
+      if (statusState.duration <= 0) {
         if ('reapply' in status) {
-          tracker.duration = status.duration;
-          tracker.stacks--;
+          statusState.duration = status.duration;
+          statusState.stacks--;
 
-          if (tracker.stacks <= 0) {
-            delete statusState[statusId];
+          if (statusState.stacks <= 0) {
+            delete statusStates[statusId];
             break;
           }
         } else {
-          delete statusState[statusId];
+          delete statusStates[statusId];
           break;
         }
       }
 
-      if (tracker.tickTimer <= 0) {
+      if (statusState.tickTimer <= 0) {
         // damage footprint function goes here
-        tracker.tickTimer = status.tickInterval;
+        const footprint = buildStatusFootprint(ctx, statusId, statusState.stacks);
+        ctx.footprints.push(footprint);
+        statusState.tickTimer = status.tickInterval;
       }
     }
   }
@@ -215,27 +218,30 @@ function decayProcCounts(ctx, action) {
   }
 }
 
-function processFollowUpActions(action, ctx, depth) {
+function processFollowUpActions(ctx, action, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
+
   const { onFieldId, memberState, fieldState } = ctx;
   const actionOwnerState = onFieldId === action.ownerId ? 'active' : 'inactive';
 
-  for (const state of [
+  const effectStores = [
     memberState[action.ownerId],
     fieldState[actionOwnerState],
-  ]) {
-    for (const [effectKey, tracker] of Object.entries(state)) {
-      const { effect } = tracker;
+  ];
+
+  for (const effectStates of effectStores) {
+    for (const [effectKey, effectState] of Object.entries(effectStates)) {
+      const { effect } = effectState;
       if (!('followUpAction' in effect) || isOnCooldown(ctx, 'use', effectKey)) continue;
       if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
 
-      if (effect.useCooldown) {
+      if ('useCooldown' in effect) {
         setCooldown(ctx, 'use', effectKey, effect.useCooldown);
       }
 
-      tracker.usesRemaining--;
-      if (tracker.usesRemaining <= 0) {
-        delete state[effectKey];
+      effectState.usesRemaining--;
+      if (effectState.usesRemaining <= 0) {
+        delete effectStates[effectKey];
       }
 
       for (const action of effect.followUpAction) {
@@ -250,25 +256,25 @@ function processIntervalActions(ctx, elapsed, depth) {
   const { memberState } = ctx;
 
   for (const memberId in memberState) {
-    const state = memberState[memberId];
+    const effectStates = memberState[memberId];
 
-    for (const [effectKey, tracker] of Object.entries(state)) {
-      const { effect } = tracker;
+    for (const [effectKey, effectState] of Object.entries(effectStates)) {
+      const { effect } = effectState;
       if (!('intervalAction' in effect)) continue;
 
-      tracker.intervalTimer -= elapsed;
-      while (tracker.intervalTimer <= 0) {
-        tracker.usesRemaining--;
+      effectState.intervalTimer -= elapsed;
+      while (effectState.intervalTimer <= 0) {
+        effectState.usesRemaining--;
 
-        if (tracker.usesRemaining <= 0) {
-          delete state[effectKey];
+        if (effectState.usesRemaining <= 0) {
+          delete effectStates[effectKey];
         }
 
         for (const action of effect.intervalAction) {
-          processAction(ctx, action, depth + 1,effect.times);
+          processAction(ctx, action, depth + 1, effect.times);
         }
 
-        tracker.intervalTimer += effect.intervalCooldown;
+        effectState.intervalTimer += effect.intervalCooldown;
       }
     }
   }
@@ -304,7 +310,7 @@ function processTopLevelAction(ctx, action) {
   advanceCooldowns(ctx, remaining);
 
   // ── Follow-ups + cleanup ───────────────────────────────────────────
-  processFollowUpActions(action, ctx, 0);
+  processFollowUpActions(ctx, action, 0);
   decayProcCounts(ctx, action);
 }
 
@@ -317,7 +323,7 @@ function processProcAction(ctx, action, depth, repeatCount) {
   }
 
   applyEffects(ctx, action, 'hit', repeatCount);
-  processFollowUpActions(action, ctx, depth);
+  processFollowUpActions(ctx, action, depth);
 }
 
 function processAction(ctx, action, depth, repeatCount = 1) {
@@ -395,6 +401,11 @@ export const evaluateRotation = (compiledRotation, statMap) => {
 
     if (result.key in summary) {
       const existing = summary[result.key];
+
+      if (result.type === 'status') {
+        existing.damage += result.damage;
+      }
+
       existing[result.type] += result[result.type];
     } else {
       summary[result.key] = result;
