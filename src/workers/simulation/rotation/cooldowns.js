@@ -1,27 +1,28 @@
-const cooldownTracker = {
-  apply: {},
-  use: {},
+export const createCdTracker = () => {
+  return { apply: {}, use: {} };
 };
 
-export const isOnCooldown = (type, effectKey) => {
-  if (!(type in cooldownTracker)) {
+export const isOnCooldown = (ctx, type, effectKey) => {
+  const { cooldowns } = ctx;
+
+  return (cooldowns[type][effectKey] ?? 0) > 0;
+};
+
+export function setCooldown(ctx, type, effectKey, duration) {
+  const { cooldowns } = ctx;
+
+  if (!(type in cooldowns)) {
     throw new Error('Invalid cooldown type');
   }
 
-  return (cooldownTracker[type][effectKey] ?? 0) > 0;
-};
-
-export function setCooldown(type, effectKey, duration) {
-  if (!(type in cooldownTracker)) {
-    throw new Error('Invalid cooldown type');
-  }
-
-  cooldownTracker[type][effectKey] = duration;
+  cooldowns[type][effectKey] = duration;
 }
 
-export function advanceCooldowns(elapsed) {
+export function advanceCooldowns(ctx, elapsed) {
+  const { cooldowns } = ctx;
+
   for (const type of ['apply', 'use']) {
-    const entries = cooldownTracker[type];
+    const entries = cooldowns[type];
 
     for (const effectKey in entries) {
       const remaining = entries[effectKey] - elapsed;
@@ -33,9 +34,4 @@ export function advanceCooldowns(elapsed) {
       }
     }
   }
-}
-
-export function resetCooldowns() {
-  cooldownTracker.apply = {};
-  cooldownTracker.use = {};
 }

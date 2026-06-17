@@ -348,8 +348,7 @@
       "id": "EROSION",
       "tickInterval": 3000,
       "duration": 15000,
-      "maxStacks": 3,
-      "reapply": false
+      "maxStacks": 3
     },
     "FRAZZLE": {
       "id": "FRAZZLE",

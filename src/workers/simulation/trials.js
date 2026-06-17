@@ -1,11 +1,10 @@
 import { MISC } from '@/data';
 import { sumRotationDmg } from '@/utils';
 import { findBenchmarkWeek, getAverageScores, findRelativeError} from './helpers';
-import { compileRotation } from './rotation';
+import { compileRotation, evaluateRotation } from './rotation';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
 import { createMatchMap } from './matchMap';
-import { evaluateRotation } from './rotation';
 import { getPenalty } from './penalty';
 
 const MIN_TRIALS = 50;

@@ -1,5 +1,4 @@
-import { mergeObj, mergeObjs } from '@/utils/merge';
-import { getAttr } from '@/utils/getAttr';
+import { getAttr, mergeObj, mergeObjs } from '@/utils';
 import { matchUseOn, matchUseIf } from '../match';
 import { isOnCooldown, setCooldown } from './cooldowns';
 import { damageFormula } from './formula';
@@ -99,7 +98,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   ]) {
     if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
     if ('followUpAction' in effect || 'intervalAction' in effect) continue;
-    if (isOnCooldown('use', effect.key)) continue;
+    if (isOnCooldown(ctx, 'use', effect.key)) continue;
 
     const { chance, statMap, variableStatMap } = effect;
 
@@ -125,7 +124,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
     }
 
     if ('useCooldown' in effect) {
-      setCooldown('use', effect.key, effect.useCooldown);
+      setCooldown(ctx, 'use', effect.key, effect.useCooldown);
     }
   }
 
