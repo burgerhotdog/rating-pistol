@@ -2,7 +2,15 @@ import { mergeObj } from '@/utils/merge';
 import { getAttr } from '@/utils/getAttr';
 
 const matchOnAction = (onAction, action) => {
-  return onAction.includes(action.short);
+  for (const key of onAction) {
+    if (key.indexOf(':') === -1) {
+      if (key === action.short) return true;
+    } else {
+      if (key === action.key) return true;
+    }
+  }
+
+  return false;
 };
 
 const matchOnType = (onType, action) => {
@@ -13,6 +21,7 @@ const matchOnTagged = (onTagged, action) => {
   for (const tag of action.tagged) {
     if (onTagged.includes(tag)) return true;
   }
+
   return false;
 };
 
@@ -20,14 +29,17 @@ const matchOnCast = (onCast, action) => {
   for (const type of action.cast) {
     if (onCast.includes(type)) return true;
   }
+
   return false;
 };
 
 const matchOnConsidered = (onConsidered, action) => {
   if (!action.considered) return false;
+
   for (const type of action.considered) {
     if (onConsidered.includes(type)) return true;
   }
+
   return false;
 };
 

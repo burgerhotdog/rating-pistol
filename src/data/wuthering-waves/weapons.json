@@ -1694,10 +1694,6 @@
           "PERCENT_ATK": [
             0.12,
             0.24
-          ],
-          "PERCENT_BA": [
-            0.2,
-            0.4
           ]
         }
       },
@@ -1713,6 +1709,19 @@
         },
         "duration": 14000,
         "maxStacks": 3
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "1603:FC-1",
+        "applyCooldown": 1000,
+        "removeIfField": false,
+        "rankedStatMap": {
+          "PERCENT_BA": [
+            0.4,
+            0.8
+          ]
+        },
+        "duration": 10000
       }
     ]
   },
