@@ -56,7 +56,7 @@ const matchIfTagged = (ifTagged, tagged) => {
 };
 
 const matchIfStatus = (ifStatus, stateMap) => {
-  if (ifStatus === 'any') {
+  if (ifStatus === '*') {
     return Boolean(Object.keys(stateMap).length);
   }
   

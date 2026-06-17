@@ -1737,7 +1737,7 @@
     "effects": {
       "applyWhen": "hit",
       "applyOnType": "damage",
-      "applyIfStatus": "any",
+      "applyIfStatus": "*",
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1761,7 +1761,7 @@
     "effects": {
       "applyWhen": "hit",
       "applyOnType": "damage",
-      "applyIfStatus": "any",
+      "applyIfStatus": "*",
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1819,7 +1819,7 @@
     "effects": {
       "applyWhen": "hit",
       "applyOnType": "damage",
-      "applyIfStatus": "any",
+      "applyIfStatus": "*",
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1877,7 +1877,7 @@
     "effects": {
       "applyWhen": "hit",
       "applyOnType": "damage",
-      "applyIfStatus": "any",
+      "applyIfStatus": "*",
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -1922,7 +1922,7 @@
     "effects": {
       "applyWhen": "hit",
       "applyOnType": "damage",
-      "applyIfStatus": "any",
+      "applyIfStatus": "*",
       "applyCooldown": 1000,
       "rankedStatMap": {
         "PERCENT_ATK": [
@@ -2078,8 +2078,8 @@
         "applyTo": "active",
         "applyWhen": "cast",
         "applyOnAction": [
-          "1406-FC-4",
-          "1408-FC-4"
+          "1406:FC-4",
+          "1408:FC-4"
         ],
         "rankedStatMap": {
           "AMP_AERO": [
@@ -2148,7 +2148,6 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "inflict",
         "applyIfInflict": {
           "EROSION": 1
         },
@@ -2291,9 +2290,7 @@
         "duration": 15000
       },
       {
-        "applyWhen": "hit",
-        "applyOnType": "damage",
-        "applyIfStatus": {
+        "useIfStatus": {
           "EROSION": 1
         },
         "rankedStatMap": {
@@ -2301,8 +2298,7 @@
             0.2,
             0.4
           ]
-        },
-        "maxUses": 1
+        }
       }
     ]
   },
@@ -2508,6 +2504,7 @@
       {
         "applyWhen": "hit",
         "applyOnType": "shield",
+        "applyCooldown": 500,
         "useOnConsidered": "RL",
         "rankedStatMap": {
           "IGNORE_DEF": [
@@ -2603,7 +2600,7 @@
       {
         "applyWhen": "cast",
         "applyOnCast": "ES",
-        "removeOnCast": "OS",
+        "removeIfField": false,
         "rankedStatMap": {
           "PERCENT_HA": [
             0.3,
@@ -2708,8 +2705,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "inflict",
-        "applyIfInflict": "any",
+        "applyIfInflict": "*",
         "rankedStatMap": {
           "PERCENT_RL": [
             0.08,
@@ -2721,8 +2717,6 @@
       },
       {
         "applyTo": "team",
-        "applyWhen": "cast",
-        "applyOnCast": "IS",
         "rankedStatMap": {
           "PERCENT_ALL": [
             0.24,
@@ -2783,6 +2777,7 @@
         }
       },
       {
+        "applyTo": "team",
         "applyWhen": "hit",
         "applyOnType": "healing",
         "rankedStatMap": {
@@ -2846,7 +2841,7 @@
         }
       },
       {
-        "applyWhen": "hit",
+        "applyWhen": "cast",
         "applyOnType": "break",
         "rankedStatMap": {
           "PERCENT_ALL": [
@@ -2878,10 +2873,8 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnConsidered": [
-          "IS",
-          "BA"
-        ],
+        "applyOnCast": "IS",
+        "applyOnConsidered": "BA",
         "rankedStatMap": {
           "PERCENT_BA": [
             0.36,
@@ -2893,7 +2886,7 @@
       {
         "applyTo": "team",
         "applyWhen": "hit",
-        "applyOnType": "inflict",
+        "applyOnCast": "BA",
         "applyIfInflict": {
           "RUPTURE": 1,
           "STRAIN": 1
@@ -2962,7 +2955,7 @@
         }
       },
       {
-        "applyWhen": "hit",
+        "applyWhen": "cast",
         "applyOnType": "break",
         "rankedStatMap": {
           "PERCENT_ATK": [
@@ -2997,12 +2990,11 @@
         }
       },
       {
-        "applyWhen": "hit",
-        "applyOnType": "inflict",
-        "applyifInflict": [
-          "RUPTURE",
-          "BURST"
-        ],
+        "applyWhen": "cast",
+        "applyifInflict": {
+          "RUPTURE": 1,
+          "BURST": 1
+        },
         "useOnConsidered": "RL",
         "rankedStatMap": {
           "IGNORE_DEF": [
@@ -3049,7 +3041,6 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "inflict",
         "applyIfInflict": {
           "STRAIN": 1
         },
@@ -3101,7 +3092,7 @@
         "duration": 15000
       },
       {
-        "applyWhen": "hit",
+        "applyWhen": "cast",
         "applyOnConsidered": "ES",
         "useOnConsidered": "AERO",
         "rankedStatMap": {
@@ -3134,7 +3125,6 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "inflict",
         "applyIfInflict": {
           "CHAFE": 1
         },
@@ -3148,7 +3138,6 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "inflict",
         "applyIfInflict": {
           "CHAFE": 1
         },
@@ -3164,14 +3153,15 @@
       {
         "applyTo": "enemy",
         "applyWhen": "cast",
-        "applyOnCast": "IS",
-        "removeOnCast": "OS",
+        "applyIfField": true,
+        "applyCooldown": 100,
         "rankedStatMap": {
           "AMP_CHAFE": [
             0.2,
             0.4
           ]
-        }
+        },
+        "duration": 6000
       }
     ]
   },
@@ -3195,7 +3185,6 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "inflict",
         "applyIfInflict": {
           "BURST": 1,
           "STRAIN": 1
@@ -3210,15 +3199,12 @@
       },
       {
         "applyTo": "team",
-        "applyWhen": "cast",
-        "applyOnCast": "IS",
         "rankedStatMap": {
           "PERCENT_ATK": [
             0.24,
             0.48
           ]
-        },
-        "duration": 15000
+        }
       }
     ]
   }

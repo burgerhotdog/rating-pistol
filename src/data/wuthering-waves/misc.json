@@ -332,12 +332,17 @@
     }
   },
   "STATUSES": {
-    "FRAZZLE": {
-      "id": "FRAZZLE",
-      "tickInterval": 3000,
-      "duration": 3000,
-      "maxStacks": 10,
-      "reapply": true
+    "CHAFE": {
+      "id": "CHAFE",
+      "maxStacks": 10
+    },
+    "BURST": {
+      "id": "BURST",
+      "maxStacks": 10
+    },
+    "FLARE": {
+      "id": "FLARE",
+      "maxStacks": 10
     },
     "EROSION": {
       "id": "EROSION",
@@ -345,6 +350,28 @@
       "duration": 15000,
       "maxStacks": 3,
       "reapply": false
+    },
+    "FRAZZLE": {
+      "id": "FRAZZLE",
+      "tickInterval": 3000,
+      "duration": 3000,
+      "maxStacks": 10,
+      "reapply": true
+    },
+    "BANE": {
+      "id": "BANE",
+      "maxStacks": 3
+    }
+  },
+  "TUNES": {
+    "RUPTURE": {
+      "id": "RUPTURE"
+    },
+    "STRAIN": {
+      "id": "STRAIN"
+    },
+    "HACK": {
+      "id": "HACK"
     }
   }
 }
