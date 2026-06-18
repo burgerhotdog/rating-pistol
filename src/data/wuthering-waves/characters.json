@@ -4195,12 +4195,12 @@
         "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "duration": 35000,
         "statMap": {
           "PERCENT_ATK": 0.18,
           "PERCENT_FUSION": 0.2,
           "IGNORE_FUSION_RES": 0.15
-        }
+        },
+        "duration": 35000
       },
       {
         "applyWhen": "cast",
@@ -4213,10 +4213,10 @@
           "FC-1",
           "FC-2"
         ],
-        "duration": 8000,
         "statMap": {
           "PERCENT_ATK": 0.12
-        }
+        },
+        "duration": 8000
       },
       {
         "applyTo": "next",
@@ -4225,26 +4225,26 @@
           "FC-1",
           "FC-2"
         ],
-        "maxUses": 1,
-        "followUpAction": "FC-3"
+        "followUpAction": "FC-3",
+        "maxUses": 1
       },
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
-          "AMP_BA": 0.25,
-          "AMP_FUSION": 0.2
+          "AMP_FUSION": 0.2,
+          "AMP_BA": 0.25
         }
       },
       {
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "duration": 10000,
         "statMap": {
           "PERCENT_CR": 0.2
-        }
+        },
+        "duration": 10000
       },
       {
         "rank": 2,
@@ -4256,11 +4256,11 @@
           "NA-7",
           "NA-11"
         ],
-        "maxStacks": 2,
-        "duration": 30000,
         "statMap": {
           "PERCENT_FUSION": 0.2
-        }
+        },
+        "duration": 30000,
+        "maxStacks": 2
       },
       {
         "rank": 3,
@@ -4283,10 +4283,10 @@
           "IS-1",
           "IS-2"
         ],
-        "duration": 10000,
         "statMap": {
           "PERCENT_RL": 0.15
-        }
+        },
+        "duration": 10000
       },
       {
         "rank": 6,
@@ -4369,11 +4369,11 @@
       {
         "applyTo": "ally",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
-        "duration": 20000,
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_AERO": 0.175
-        }
+        },
+        "duration": 20000
       },
       {
         "rank": 2,
@@ -4551,7 +4551,8 @@
         "applyOnCast": "OS",
         "statMap": {
           "AMP_ALL": 0.15
-        }
+        },
+        "duration": 14000
       }
     ],
     "defaults": {
@@ -4605,23 +4606,13 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnAction": "OS-1",
-        "followUpAction": {
-          "considered": "OS",
-          "fixedMultipliers": {
-            "mv": 1
-          }
-        },
-        "maxUses": 1
-      },
-      {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_HA": 0.5
-        }
+        },
+        "duration": 14000
       }
     ],
     "defaults": {
@@ -4664,21 +4655,13 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnAction": "OS-1",
-        "followUpAction": {
-          "considered": "OS",
-          "fixedMultipliers": [
-            {
-              "mv": 0.795,
-              "times": 3
-            },
-            {
-              "mv": 5.565
-            }
-          ]
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "statMap": {
+          "AMP_ALL": 0.05
         },
-        "maxUses": 1
+        "duration": 5500,
+        "maxStacks": 4
       }
     ],
     "defaults": {
@@ -4732,7 +4715,8 @@
         "applyOnCast": "OS",
         "statMap": {
           "AMP_ES": 0.5
-        }
+        },
+        "duration": 14000
       }
     ],
     "defaults": {
@@ -4876,10 +4860,11 @@
       {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_ALL": 0.25
-        }
+        },
+        "duration": 30000
       }
     ],
     "defaults": {
@@ -4920,20 +4905,9 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnAction": "OS-1",
-        "followUpAction": {
-          "considered": "OS",
-          "fixedMultipliers": {
-            "mv": 1
-          }
-        },
-        "maxUses": 1
-      },
-      {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_ALL": 0.15,
           "AMP_RL": 0.25
@@ -4982,10 +4956,11 @@
       {
         "applyTo": "ally",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_ALL": 0.2
-        }
+        },
+        "duration": 20000
       }
     ],
     "defaults": {
@@ -5033,15 +5008,10 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnAction": "OS-1",
-        "followUpAction": {
-          "considered": "OS",
-          "fixedMultipliers": {
-            "mv": 5
-          }
-        },
-        "maxUses": 1
+        "rank": 1,
+        "statMap": {
+          "PERCENT_MA": 1.5
+        }
       }
     ],
     "defaults": {
@@ -5090,15 +5060,10 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnAction": "OS-1",
-        "followUpAction": {
-          "considered": "OS",
-          "fixedMultipliers": {
-            "mv": 7.95
-          }
-        },
-        "maxUses": 1
+        "rank": 6,
+        "statMap": {
+          "PERCENT_ALL": 0.3
+        }
       }
     ],
     "defaults": {
@@ -5146,10 +5111,12 @@
       {
         "applyTo": "ally",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
+        "useIfStatus": "CHAFE",
         "statMap": {
           "AMP_GLACIO": 0.2
-        }
+        },
+        "duration": 20000
       }
     ],
     "defaults": {
@@ -5204,10 +5171,11 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_ALL": 0.4
-        }
+        },
+        "duration": 16000
       }
     ],
     "defaults": {

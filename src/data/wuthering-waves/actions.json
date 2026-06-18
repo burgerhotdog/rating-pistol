@@ -28273,7 +28273,11 @@
     "OS": {
       "1": {
         "name": "From Gloom to Gleam",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": {
+          "mv": 1
+        }
       }
     }
   },
@@ -29646,7 +29650,17 @@
     "OS": {
       "1": {
         "name": "Ashen Pursuit",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": [
+          {
+            "mv": 0.795,
+            "times": 3
+          },
+          {
+            "mv": 5.565
+          }
+        ]
       }
     }
   },
@@ -34884,7 +34898,11 @@
     "OS": {
       "1": {
         "name": "Let's Hit the Road!",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": {
+          "mv": 1
+        }
       }
     }
   },
@@ -37378,7 +37396,11 @@
     "OS": {
       "1": {
         "name": "Bow to the Last Light",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": {
+          "mv": 5
+        }
       }
     }
   },
@@ -38532,7 +38554,11 @@
     "OS": {
       "1": {
         "name": "In This Very Moment",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": {
+          "mv": 7.95
+        }
       }
     }
   },
