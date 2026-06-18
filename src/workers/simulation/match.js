@@ -1,5 +1,5 @@
-import { mergeObj } from '@/utils/merge';
-import { getAttr } from '@/utils/getAttr';
+import { CHARACTER } from '@/data';
+import { toArray, mergeObj, getAttr } from '@/utils';
 
 const matchOnAction = (onAction, action) => {
   for (const key of onAction) {
@@ -159,7 +159,7 @@ export const matchRemoveIf = (action, effect, ctx) => {
 export const matchUseIf = (action, effect, ctx) => {
   if (!('useIfTagged' in effect || 'useIfStatus' in effect || 'useIfAttr' in effect || 'useIfField' in effect)) return true;
 
-  if ('useIfTagged' in effect && matchIfTagged(effect.useIfTagged, ctx.cache.data.character[effect.ownerId].tagged)) return true;
+  if ('useIfTagged' in effect && matchIfTagged(effect.useIfTagged, toArray(CHARACTER[ctx.cache.gameId][effect.ownerId].tagged))) return true;
   if ('useIfStatus' in effect && matchIfStatus(effect.useIfStatus, ctx.enemyState.status)) return true;
   if ('useIfField' in effect && matchIfField(effect.useIfField, action, ctx.activeId)) return true;
   if ('useIfAttr' in effect && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.member[effect.ownerId].baseMap, ctx.equipMapByMember[effect.ownerId]))) return true;

@@ -10,17 +10,17 @@ const MAX_PROC_DEPTH = 5;
 function removeEffects(ctx, action) {
   const { memberState, fieldState } = ctx;
 
-  for (const state of [
+  for (const effectStates of [
     ...Object.values(memberState),
     fieldState.active,
     fieldState.inactive,
   ]) {
-    for (const effectKey in state) {
-      const { effect } = state[effectKey];
+    for (const effectKey in effectStates) {
+      const { effect } = effectStates[effectKey];
       if (effect.ownerId !== action.ownerId) continue;
 
       if (matchRemoveOn(action, effect) || matchRemoveIf(action, effect, ctx)) {
-        delete state[effectKey];
+        delete effectStates[effectKey];
       }
     }
   }
@@ -46,11 +46,11 @@ function applyEffect(effectStates, effect, applyTimes) {
   effectStates[effect.key] = next;
 }
 
-function applyStatus(stateMap, status, stacks) {
-  const tracker = stateMap[status.id];
+function applyStatus(statusStates, status, stacks) {
+  const tracker = statusStates[status.id];
 
   if (!tracker) {
-    stateMap[status.id] = {
+    statusStates[status.id] = {
       stacks: Math.min(stacks, status.maxStacks),
       tickTimer: status.tickInterval,
       duration: status.duration,
@@ -185,9 +185,11 @@ function tickStatuses(ctx, elapsed) {
       }
 
       if (statusState.tickTimer <= 0) {
-        // damage footprint function goes here
-        const footprint = buildStatusFootprint(ctx, statusId, statusState.stacks);
-        ctx.footprints.push(footprint);
+        if (ctx.recordFootprint) {
+          const footprint = buildStatusFootprint(ctx, statusId, statusState.stacks);
+          ctx.footprints.push(footprint);
+        }
+
         statusState.tickTimer = status.tickInterval;
       }
     }
@@ -196,22 +198,22 @@ function tickStatuses(ctx, elapsed) {
 
 // Decrements `usesRemaining` for all effects that triggered and removes effects that have exhausted their remaining uses.
 function decayProcCounts(ctx, action) {
-  for (const stateMap of [
+  for (const effectStates of [
     ...Object.values(ctx.memberState),
     ...Object.values(ctx.fieldState),
     ctx.enemyState.stat,
   ]) {
-    for (const effectKey in stateMap) {
-      const state = stateMap[effectKey];
+    for (const effectKey in effectStates) {
+      const effectState = effectStates[effectKey];
 
-      if (state.usesRemaining === Infinity) continue;
-      if (state.effect.followUpAction || state.effect.intervalAction) continue;
-      if (!matchUseOn(action, state.effect) || !matchUseIf(action, state.effect, ctx)) continue;
+      if (effectState.usesRemaining === Infinity) continue;
+      if ('followUpAction' in effectState.effect || 'intervalAction' in effectState.effect) continue;
+      if (!matchUseOn(action, effectState.effect) || !matchUseIf(action, effectState.effect, ctx)) continue;
 
-      state.usesRemaining -= 1;
+      effectState.usesRemaining -= 1;
 
-      if (state.usesRemaining <= 0) {
-        delete stateMap[effectKey];
+      if (effectState.usesRemaining <= 0) {
+        delete effectStates[effectKey];
       }
     }
   }
@@ -302,7 +304,6 @@ function processTopLevelAction(ctx, action) {
   applyEffects(ctx, action, 'hit');
 
   // ── Post-hit window (t = offset → end) ─────────────────────────
-  // Contact effects are now in the tracker, so this one call handles them too
   advanceEffectStates(ctx, remaining);
   tickStatuses(ctx, remaining);
   processIntervalActions(ctx, remaining, 0);

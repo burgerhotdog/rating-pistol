@@ -1,5 +1,4 @@
-import { getSetCounts } from '@/utils/getSetCounts';
-import { getDefaultWeaponRank } from '@/utils/getDefaultRanks';
+import { getSetCounts, getDefaultWeaponRank } from '@/utils';
 
 export function applyStoredBuild(gameId, member, storedBuild) {
   const next = { ...member, build: storedBuild, useUserBuild: true };

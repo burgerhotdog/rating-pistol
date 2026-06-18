@@ -4,7 +4,7 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip, Legend } from 'recharts';
 import { useBuild } from '@/contexts';
 import { CHARACTER, MISC } from '@/data';
-import { computeTotalStat, compileStatMap } from '@/utils';
+import { getAttr, compileStatMap } from '@/utils';
 import { useTheme } from '@mui/material/styles';
 
 export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
@@ -32,8 +32,8 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
     )
     .filter(([stat]) => stat === 'HB' ? !calcs[0].type : true)
     .map(([stat]) => {
-      const buildRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, build, []));
-      const simRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, { weaponId: build.weaponId, equipList: simSources }, []));
+      const buildRaw = getAttr(stat, compileStatMap(gameId, characterId, build, []));
+      const simRaw = getAttr(stat, compileStatMap(gameId, characterId, { weaponId: build.weaponId, equipList: simSources }, []));
       return {
         stat,
         build: buildRaw / simRaw * 75 || 0,

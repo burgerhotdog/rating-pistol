@@ -1,13 +1,13 @@
-import { CHARACTER, WEAPON, MISC } from '@/data';
-import { mergeEquipList, mergeStatMaps } from '@/utils';
+import { MISC, CHARACTER, WEAPON } from '@/data';
+import { mergeObjs, mergeEquipList } from '@/utils';
 
 export function compileStatMap(gameId, characterId, build) {
-  const { weaponId, equipList = [], statMap } = build;
+  const { weaponId, equipList = [] } = build;
 
-  return mergeStatMaps(
+  return mergeObjs(
     MISC[gameId].DEFAULT_STATS,
     CHARACTER[gameId][characterId].stats,
     WEAPON[gameId][weaponId]?.stats ?? {},
-    statMap ?? mergeEquipList(equipList)
+    mergeEquipList(equipList)
   );
 }

@@ -592,7 +592,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
         <AccordionDetails sx={{ pt: 0 }}>
           <Stack spacing={0.5}>
-            {filtered.map(({ key, name, cast = [] }) => (
+            {filtered.map(({ key, name, tagged = [], cast = [] }) => (
               <ListItemButton
                 key={key}
                 onClick={() => handleSelect(key)}
@@ -614,9 +614,27 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                     }}
                   />
                 ))}
-                <Typography variant="body2">
+                <Typography
+                  variant="body2"
+                  noWrap
+                  sx={{ flexGrow: 1, minWidth: 0 }}
+                >
                   {name}
                 </Typography>
+                {toArray(tagged).map(tag => (
+                  <Chip
+                    key={tag}
+                    size="small"
+                    label={tag}
+                    sx={{
+                      height: 20,
+                      fontSize: '0.65rem',
+                      flexShrink: 0,
+                      mr: 0.5,
+                      '& .MuiChip-label': { px: '5px' },
+                    }}
+                  />
+                ))}
               </ListItemButton>
             ))}
           </Stack>
@@ -646,11 +664,11 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
       <Box sx={{ px: 3, mb: 2 }}>
         <TextField
-          fullWidth
           size="small"
           placeholder="Search actions..."
           value={search}
           onChange={e => setSearch(e.target.value)}
+          fullWidth
         />
       </Box>
 

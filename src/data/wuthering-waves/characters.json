@@ -4729,7 +4729,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnAction": "OS-1",
+        "applyOnCast": "OS",
         "statMap": {
           "AMP_ES": 0.5
         }

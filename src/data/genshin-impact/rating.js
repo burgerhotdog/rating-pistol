@@ -1,12 +1,11 @@
-import { computeTotalStat, compileStatMap } from '@/utils';
-import { CHARACTER } from '@/data'; 
+import { getAttr } from '@/utils';
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
 export function computeBase(statMap, hits, dmgType = []) {
-  const totalEm = computeTotalStat("EM", statMap);
+  const totalEm = getAttr("EM", statMap);
   
   // Base ability Multiplier:
   const baseDmgMult = 1 + (statMap[`RAW_${dmgType[1]}`] ?? 0);
@@ -36,7 +35,7 @@ export function computeBase(statMap, hits, dmgType = []) {
       ampRxnMult += rxnBonus * (1 + emBonus + totalRxnBonus);
     }
 
-    baseDamage += (computeTotalStat(attr, statMap) * mv * baseDmgMult + flatDamage) * ampRxnMult * times;
+    baseDamage += (getAttr(attr, statMap) * mv * baseDmgMult + flatDamage) * ampRxnMult * times;
   }
 
   return baseDamage;
@@ -44,15 +43,15 @@ export function computeBase(statMap, hits, dmgType = []) {
 
 export function computeBonuses(statMap, dmgType) {
   // Crit
-  const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
-  const critDamage = computeTotalStat("CD", statMap);
+  const critRate = Math.max(Math.min(getAttr("CR", statMap), 1), 0);
+  const critDamage = getAttr("CD", statMap);
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
   // Damage bonus
-  let dmgBonusMult = 1 + computeTotalStat("ALL", statMap);
+  let dmgBonusMult = 1 + getAttr("ALL", statMap);
 
   for (const type of dmgType) {
-    dmgBonusMult += computeTotalStat(type, statMap);
+    dmgBonusMult += getAttr(type, statMap);
   }
 
   return critMult * dmgBonusMult;

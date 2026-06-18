@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
 import { MISC, CHARACTER } from '@/data';
-import { computeTotalStat, compileStatMap } from '@/utils';
+import { getAttr, compileStatMap } from '@/utils';
 import { CustomAvatar } from '@/components';
 import { useBuild } from '@/contexts';
 import { TeamMemberDialog } from '@/components/TeamMemberDialog';
@@ -95,7 +95,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
           {Object.entries(MENU_STATS).map(([id, { label, isPercent }]) => {
             // cd for ww visual change
             const cdww = (gameId === 'wuthering-waves' && id === 'CD') ? 1 : 0;
-            const totalValue = computeTotalStat(id, statMap) + cdww;
+            const totalValue = getAttr(id, statMap) + cdww;
             const displayValue = isPercent ? totalValue * 100 : totalValue;
             const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && id === 'ER') ? 1 : 0;
             if (id !== 'EM' && displayValue === 0) return;

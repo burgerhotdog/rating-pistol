@@ -1,4 +1,4 @@
-import { computeTotalStat, compileStatMap } from '@/utils';
+import { getAttr, compileStatMap } from '@/utils';
 
 const CHARACTER_LEVEL = 80;
 const ENEMY_LEVEL = 90;
@@ -10,7 +10,7 @@ export function computeBase(statMap, calcs) {
   // Base ability
   const multiplier = calcs.scaling.multiplier ?? {};
   const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
-    const totalStat = computeTotalStat(stat, statMap);
+    const totalStat = getAttr(stat, statMap);
     return acc + totalStat * motionValue;
   }, 0);
   const flatComponent = calcs.scaling.flat ?? 0;
@@ -34,15 +34,15 @@ export function computeBonuses(statMap, calcs) {
 
   // Crit
   const canCrit = status !== "DOT" && status !== "BREAK";
-  const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
-  const critDamage = computeTotalStat("CD", statMap);
+  const critRate = Math.max(Math.min(getAttr("CR", statMap), 1), 0);
+  const critDamage = getAttr("CD", statMap);
   const critMult = canCrit ? (critRate * (1 + critDamage) + (1 - critRate)) : 1;
 
   // Damage bonus
-  const allDmgBonus = computeTotalStat("ALL", statMap);
-  const abilityDmgBonus = computeTotalStat(ability, statMap);
-  const elementDmgBonus = computeTotalStat(element, statMap);
-  const statusDmgBonus = status ? computeTotalStat(status, statMap) : 0;
+  const allDmgBonus = getAttr("ALL", statMap);
+  const abilityDmgBonus = getAttr(ability, statMap);
+  const elementDmgBonus = getAttr(element, statMap);
+  const statusDmgBonus = status ? getAttr(status, statMap) : 0;
   const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus + statusDmgBonus;
 
   // Vulnerability

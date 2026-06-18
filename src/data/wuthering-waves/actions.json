@@ -30731,11 +30731,9 @@
         "name": "Strike Before Ready",
         "cast": "OS",
         "considered": "ES",
-        "indexedMultipliers": [
-          {
-            "mv": 1
-          }
-        ]
+        "fixedMultipliers": {
+          "mv": 1
+        }
       }
     }
   },

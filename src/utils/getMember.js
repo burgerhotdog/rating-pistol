@@ -1,5 +1,5 @@
 import { CHARACTER } from '@/data';
-import { getDefaultCharacterRank, getDefaultWeaponRank } from '@/utils/getDefaultRanks';
+import { getDefaultCharacterRank, getDefaultWeaponRank } from '@/utils';
 
 export function getMember(gameId, characterId) {
   const data = CHARACTER[gameId][characterId];
