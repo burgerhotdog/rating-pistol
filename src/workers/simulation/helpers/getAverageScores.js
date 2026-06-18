@@ -3,25 +3,23 @@ export function getAverageScores(trials, weekCount) {
 
   for (let week = 0; week <= weekCount; week++) {
     const currentWeekRotMap = {};
+    const blueprintSummary = trials[0].scores[week];
 
-    for (const key in trials[0].scores[week]) {
-      const footprint = trials[0].scores[week][key];
+    for (const key in blueprintSummary) {
+      const footprint = blueprintSummary[key];
+      const { type } = footprint;
 
-      let damageSum = 0;
-      let healingSum = 0;
-      let shieldSum = 0;
+      let sum = 0;
 
       for (const trial of trials) {
-        damageSum += trial.scores[week][key].damage ?? 0;
-        healingSum += trial.scores[week][key].healing ?? 0;
-        shieldSum += trial.scores[week][key].shield ?? 0;
+        const currentWeekSummary = trial.scores[week];
+
+        sum += currentWeekSummary[key][type] ?? 0;
       }
 
       currentWeekRotMap[key] = {
         ...footprint,
-        damage: damageSum / trials.length,
-        healing: healingSum / trials.length,
-        shield: shieldSum / trials.length,
+        [type]: sum / trials.length,
       };
     }
 

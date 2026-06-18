@@ -1486,7 +1486,7 @@
       },
       {
         "statMap": {
-          "PERCENT_SS": 0.2
+          "PERCENT_SB": 0.2
         }
       },
       {
@@ -1777,7 +1777,7 @@
           "FC-6"
         ],
         "statMap": {
-          "PERCENT_SS": 0.4
+          "PERCENT_SB": 0.4
         }
       },
       {
@@ -3453,7 +3453,7 @@
         "rank": 4,
         "useOnAction": "FC-3",
         "statMap": {
-          "PERCENT_SS": 0.2
+          "PERCENT_SB": 0.2
         }
       },
       {

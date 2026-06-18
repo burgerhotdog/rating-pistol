@@ -1,11 +1,11 @@
 export const getAttr = (attr, statMap) => {
-  const baseValue = statMap[`BASE_${attr}`];
-  const percentValue = statMap[`PERCENT_${attr}`] ?? 0;
-  const flatValue = statMap[`FLAT_${attr}`] ?? 0;
-
-  if (baseValue === undefined) {
-    return percentValue;
+  if (!(`BASE_${attr}` in statMap)) {
+    return statMap[`PERCENT_${attr}`] ?? 0;
   }
 
-  return baseValue * (1 + percentValue) + flatValue;
+  const base = statMap[`BASE_${attr}`] ?? 0;
+  const percent = statMap[`PERCENT_${attr}`] ?? 0;
+  const flat = statMap[`FLAT_${attr}`] ?? 0;
+
+  return base * (1 + percent) + flat;
 };

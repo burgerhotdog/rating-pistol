@@ -40,23 +40,6 @@ const computeBase = (compressed, statMap) => {
   return totalMvPart * (1 + percentMv) + compressed.flat;
 };
 
-const computeBonuses = (statMap, considered, element, enemyStatMap) => {
-  const critRate = Math.max(Math.min(getAttr('CR', statMap), 1), 0);
-  const critDamage = getAttr('CD', statMap);
-  const critMult = critRate * (1 + critDamage) + (1 - critRate);
-
-  const dmgTypes = [...considered, ...(element ? [element]: [])];
-  let dmgBonusMult = 1 + (statMap['PERCENT_ALL'] ?? 0) + (enemyStatMap['PERCENT_ALL'] ?? 0);
-  let ampMult = 1 + (statMap['AMP_ALL'] ?? 0) + (enemyStatMap['AMP_ALL'] ?? 0);
-
-  for (const type of dmgTypes) {
-    dmgBonusMult += (statMap[`PERCENT_${type}`] ?? 0) + (enemyStatMap[`PERCENT_${type}`] ?? 0);
-    ampMult += (statMap[`AMP_${type}`] ?? 0) + (enemyStatMap[`AMP_${type}`] ?? 0);
-  }
-
-  return critMult * dmgBonusMult * ampMult;
-};
-
 // Resistance and defence reduction multipliers applied to final damage.
 // Uses the game's standard resistance brackets and the character-level def formula.
 const computeReductions = (config, statMap, element, enemyStatMap) => {
@@ -81,27 +64,57 @@ const computeReductions = (config, statMap, element, enemyStatMap) => {
   return resMult * defMult;
 };
 
+const computeBonuses = (statMap, considered, element, enemyStatMap) => {
+  const critRate = Math.max(Math.min(getAttr('CR', statMap), 1), 0);
+  const critDamage = getAttr('CD', statMap);
+  const critMult = critRate * (1 + critDamage) + (1 - critRate);
+
+  const dmgTypes = [...considered, ...(element ? [element]: [])];
+  let dmgBonusMult = 1 + (statMap['PERCENT_ALL'] ?? 0) + (enemyStatMap['PERCENT_ALL'] ?? 0);
+  let ampMult = 1 + (statMap['AMP_ALL'] ?? 0) + (enemyStatMap['AMP_ALL'] ?? 0);
+
+  for (const type of dmgTypes) {
+    dmgBonusMult += (statMap[`PERCENT_${type}`] ?? 0) + (enemyStatMap[`PERCENT_${type}`] ?? 0);
+    ampMult += (statMap[`AMP_${type}`] ?? 0) + (enemyStatMap[`AMP_${type}`] ?? 0);
+  }
+
+  return critMult * dmgBonusMult * ampMult;
+};
+
 export const damageFormula = (action, config, statMap) => {
-  const { type, considered, compressed, times } = action;
-  const { enemyStatMap, repeatCount } = config;
+  const { considered, compressed } = action;
+  const { enemyStatMap } = config;
+  const timesRepeat = action.times * config.repeatCount;
+  let sum = 0;
 
-  const result = { damage: 0, healing: 0, shield: 0 };
+  for (const element in action.compressed) {
+    const base = computeBase(compressed[element], statMap) * timesRepeat;
 
-  for (const element in compressed) {
-    const baseValue = computeBase(compressed[element], statMap);
+    switch (action.type) {
+      case 'damage': {
+        const bonuses = computeBonuses(statMap, considered, element, enemyStatMap);
+        const reductions = computeReductions(config, statMap, element, enemyStatMap);
 
-    if (type === 'healing') {
-      const healingBonus = getAttr('HB', statMap);
-      result.healing += baseValue * (1 + healingBonus) * times * repeatCount;
-    } else if (type === 'shield') {
-      const shieldBonus = getAttr('SS', statMap);
-      result.shield += baseValue * (1 + shieldBonus) * times * repeatCount;
-    } else {
-      const bonuses = computeBonuses(statMap, considered, element, enemyStatMap);
-      const reductions = computeReductions(config, statMap, element, enemyStatMap);
-      result.damage += baseValue * bonuses * reductions * times * repeatCount;
+        sum += base * bonuses * reductions;
+        break;
+      }
+
+      case 'healing': {
+        const healingBonus = 1 + getAttr('HB', statMap);
+        const healingReceived = 1 + getAttr('HR', statMap);
+
+        sum += base * healingBonus * healingReceived;
+        break;
+      }
+
+      case 'shield': {
+        const shieldBonus = 1 + getAttr('SB', statMap);
+
+        sum += base * shieldBonus;
+        break;
+      }
     }
   }
 
-  return result;
+  return sum;
 };

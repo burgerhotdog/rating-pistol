@@ -170,20 +170,7 @@ export const evaluateFootprint = (ctx, footprint, statMap) => {
     ownerId: footprint.ownerId,
     type: footprint.type,
     considered: footprint.considered,
-    damage: 0,
-    healing: 0,
-    shield: 0,
   };
-
-  if ('fixed' in footprint) {
-    const { fixed } = footprint;
-
-    for (const type in fixed) {
-      summary[type] += fixed[type];
-    }
-
-    return summary;
-  }
 
   if (!('compressed' in footprint)) {
     return summary;
@@ -235,7 +222,7 @@ export const evaluateFootprint = (ctx, footprint, statMap) => {
   const finalStatMap = mergeObj(ownerBaseStatMap, effectStatMap);
 
   const config = { ...formulaConfig, enemyStatMap: footprint.enemyStatMap, repeatCount: footprint.repeatCount };
-  const result = damageFormula(footprint, config, finalStatMap);
+  const sum = damageFormula(footprint, config, finalStatMap);
 
-  return { ...summary, ...result };
+  return { ...summary, [footprint.type]: sum };
 };

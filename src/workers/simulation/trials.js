@@ -11,7 +11,7 @@ const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
-const initTrial = (cache, currId, matchMap, compiledRotation) => {
+const createTrial = (cache, currId, matchMap, compiledRotation) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
   const { NUM_MAINSTATS } = MISC[gameId];
@@ -30,7 +30,7 @@ export const runTrials = (cache, currId, team) => {
   const trials = [];
 
   for (let i = 0; i < MIN_TRIALS; i++) {
-    const trial = initTrial(cache, currId, matchMap, compiledRotation);
+    const trial = createTrial(cache, currId, matchMap, compiledRotation);
     trials.push(trial);
   }
 
@@ -55,7 +55,7 @@ export const runTrials = (cache, currId, team) => {
       const values = trials.map(trial => sumRotationDmg(trial.scores[week]));
       if (findRelativeError(values) <= 0.005) break;
 
-      const trial = initTrial(cache, currId, matchMap, compiledRotation);
+      const trial = createTrial(cache, currId, matchMap, compiledRotation);
 
       for (let w = 1; w <= week; w++) {
         advanceTrial(ctx, trial);

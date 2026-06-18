@@ -393,30 +393,16 @@ export const compileRotation = (cache, currId, team) => {
   for (const footprint of ctx.footprints) {
     if (!('fixed' in footprint)) continue;
 
-    const result = {
-      key: footprint.key,
-      ownerId: footprint.ownerId,
-      type: footprint.type,
-      considered: footprint.considered,
-      damage: 0,
-      healing: 0,
-      shield: 0,
-    };
-
-    for (const type in footprint.fixed) {
-      result[type] += footprint.fixed[type];
-    }
-
-    if (result.key in earlySummary) {
-      const existing = earlySummary[result.key];
-
-      if (result.type === 'status') {
-        existing.damage += result.damage;
-      } else {
-        existing[result.type] += result[result.type];
-      }
+    if (footprint.key in earlySummary) {
+      earlySummary[footprint.key][footprint.type] += footprint.fixed;
     } else {
-      earlySummary[result.key] = result;
+      earlySummary[footprint.key] = {
+        key: footprint.key,
+        ownerId: footprint.ownerId,
+        type: footprint.type,
+        considered: footprint.considered,
+        [footprint.type]: footprint.fixed,
+      };
     }
   }
 
@@ -434,13 +420,7 @@ export const evaluateRotation = (compiledRotation, statMap) => {
     const result = evaluateFootprint(ctx, footprint, statMap);
 
     if (result.key in summary) {
-      const existing = summary[result.key];
-
-      if (result.type === 'status') {
-        existing.damage += result.damage;
-      } else {
-        existing[result.type] += result[result.type];
-      }
+      summary[result.key][result.type] += result[result.type];
     } else {
       summary[result.key] = result;
     }

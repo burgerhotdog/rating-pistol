@@ -2,7 +2,7 @@
   {
     "id": "101",
     "name": "Passerby of Wandering Cloud",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -15,7 +15,7 @@
   {
     "id": "102",
     "name": "Musketeer of Wild Wheat",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -36,7 +36,7 @@
   {
     "id": "103",
     "name": "Knight of Purity Palace",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -49,7 +49,7 @@
   {
     "id": "104",
     "name": "Hunter of Glacial Forest",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -69,7 +69,7 @@
   {
     "id": "105",
     "name": "Champion of Streetwise Boxing",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -93,7 +93,7 @@
   {
     "id": "107",
     "name": "Firesmith of Lava-Forging",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -118,7 +118,7 @@
   {
     "id": "108",
     "name": "Genius of Brilliant Stars",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -138,7 +138,7 @@
   {
     "id": "109",
     "name": "Band of Sizzling Thunder",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -158,7 +158,7 @@
   {
     "id": "110",
     "name": "Eagle of Twilight Line",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -171,7 +171,7 @@
   {
     "id": "111",
     "name": "Thief of Shooting Meteor",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -191,7 +191,7 @@
   {
     "id": "112",
     "name": "Wastelander of Banditry Desert",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -212,7 +212,7 @@
   {
     "id": "301",
     "name": "Space Sealing Station",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -230,7 +230,7 @@
   {
     "id": "302",
     "name": "Fleet of the Ageless",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -248,7 +248,7 @@
   {
     "id": "303",
     "name": "Pan-Cosmic Commercial Enterprise",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -273,7 +273,7 @@
   {
     "id": "304",
     "name": "Belobog of the Architects",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -291,7 +291,7 @@
   {
     "id": "305",
     "name": "Celestial Differentiator",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -304,7 +304,7 @@
   {
     "id": "306",
     "name": "Inert Salsotto",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -323,7 +323,7 @@
   {
     "id": "307",
     "name": "Talia: Kingdom of Banditry",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -341,7 +341,7 @@
   {
     "id": "308",
     "name": "Sprightly Vonwacq",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -354,7 +354,7 @@
   {
     "id": "113",
     "name": "Longevous Disciple",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -374,7 +374,7 @@
   {
     "id": "114",
     "name": "Messenger Traversing Hackerspace",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -387,7 +387,7 @@
   {
     "id": "309",
     "name": "Rutilant Arena",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -406,7 +406,7 @@
   {
     "id": "310",
     "name": "Broken Keel",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -424,7 +424,7 @@
   {
     "id": "115",
     "name": "The Ashblazing Grand Duke",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -444,7 +444,7 @@
   {
     "id": "116",
     "name": "Prisoner in Deep Confinement",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -464,7 +464,7 @@
   {
     "id": "311",
     "name": "Firmament Frontline: Glamoth",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -482,7 +482,7 @@
   {
     "id": "312",
     "name": "Penacony, Land of the Dreams",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -495,7 +495,7 @@
   {
     "id": "117",
     "name": "Pioneer Diver of Dead Waters",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "buffs": {
           "constant": {
@@ -521,7 +521,7 @@
   {
     "id": "118",
     "name": "Watchmaker, Master of Dream Machinations",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -541,7 +541,7 @@
   {
     "id": "313",
     "name": "Sigonia, the Unclaimed Desolation",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -559,7 +559,7 @@
   {
     "id": "314",
     "name": "Izumo Gensei and Takama Divine Realm",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -577,7 +577,7 @@
   {
     "id": "119",
     "name": "Iron Cavalry Against the Scourge",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -597,7 +597,7 @@
   {
     "id": "120",
     "name": "The Wind-Soaring Valorous",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -622,7 +622,7 @@
   {
     "id": "315",
     "name": "Duran, Dynasty of Running Wolves",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "buffs": {
           "constant": {
@@ -636,7 +636,7 @@
   {
     "id": "316",
     "name": "Forge of the Kalpagni Lantern",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -654,7 +654,7 @@
   {
     "id": "317",
     "name": "Lushaka, the Sunken Seas",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -667,7 +667,7 @@
   {
     "id": "318",
     "name": "The Wondrous BananAmusement Park",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -685,7 +685,7 @@
   {
     "id": "121",
     "name": "Sacerdos' Relived Ordeal",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -698,7 +698,7 @@
   {
     "id": "122",
     "name": "Scholar Lost in Erudition",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -719,7 +719,7 @@
   {
     "id": "123",
     "name": "Hero of Triumphant Song",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -740,7 +740,7 @@
   {
     "id": "124",
     "name": "Poet of Mourning Collapse",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -761,7 +761,7 @@
   {
     "id": "319",
     "name": "Bone Collection's Serene Demesne",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -779,7 +779,7 @@
   {
     "id": "320",
     "name": "Giant Tree of Rapt Brooding",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -797,7 +797,7 @@
   {
     "id": "125",
     "name": "Warrior Goddess of Sun and Thunder",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -818,7 +818,7 @@
   {
     "id": "126",
     "name": "Wavestrider Captain",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -838,7 +838,7 @@
   {
     "id": "321",
     "name": "Arcadia of Woven Dreams",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "buffs": {
           "constant": {
@@ -851,7 +851,7 @@
   {
     "id": "322",
     "name": "Revelry by the Sea",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -869,7 +869,7 @@
   {
     "id": "127",
     "name": "World-Remaking Deliverer",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -890,7 +890,7 @@
   {
     "id": "128",
     "name": "Self-Enshrouded Recluse",
-    "setBonus": {
+    "tieredEffects": {
       "4": {
         "buffs": {
           "constant": {
@@ -903,7 +903,7 @@
   {
     "id": "323",
     "name": "Amphoreus, The Eternal Land",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -921,7 +921,7 @@
   {
     "id": "324",
     "name": "Tengoku@Livestream",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -939,7 +939,7 @@
   {
     "id": "129",
     "name": "Ever-Glorious Magical Girl",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -959,7 +959,7 @@
   {
     "id": "130",
     "name": "Diviner of Distant Reach",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -980,7 +980,7 @@
   {
     "id": "325",
     "name": "Punklorde Stage Zero",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "stats": {
           "constant": {
@@ -998,7 +998,7 @@
   {
     "id": "326",
     "name": "City of Converging Stars",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
         "buffs": {
           "constant": {

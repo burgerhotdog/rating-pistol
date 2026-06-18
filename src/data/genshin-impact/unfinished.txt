@@ -1,0 +1,10 @@
+characters:
+
+actions:
+
+weapons:
+
+sets:
+- thundersoother
+- lavawalker
+- vv

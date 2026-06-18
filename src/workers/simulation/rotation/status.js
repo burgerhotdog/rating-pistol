@@ -9,13 +9,6 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
   const { cache, enemyState } = ctx;
   const status = MISC[cache.gameId].STATUSES[statusId];
 
-  const footprint = {
-    key: `misc:${statusId}`,
-    ownerId: 'misc',
-    type: 'status',
-    considered: 'status',
-  };
-
   const enemyStatMap = {};
 
   for (const { stacks = 1, effect } of [
@@ -35,6 +28,7 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
   const bonuses = 1 + (enemyStatMap[`AMP_${statusId}`] ?? 0);
 
   const totalRes = 0.1 - (enemyStatMap[`SHRED_${status.element}_RES`] ?? 0);
+
   let resMult;
   if (totalRes < 0) {
     resMult = 1 - totalRes / 2;
@@ -44,8 +38,11 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
     resMult = 1 / (5 * totalRes + 1);
   }
 
-  const damage = baseDmg * bonuses * resMult;
-
-  footprint.fixed = { damage, healing: 0, shield: 0 };
-  return footprint;
+  return {
+    key: `misc:${statusId}`,
+    ownerId: 'misc',
+    type: 'damage',
+    considered: 'status',
+    fixed: baseDmg * bonuses * resMult,
+  };
 };
