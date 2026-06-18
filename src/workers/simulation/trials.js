@@ -36,15 +36,19 @@ export const runTrials = (cache, currId, team) => {
 
   const preferredMainStats = findPreferred(cache, trials[0], currId, compiledRotation);
 
-  const ctx = { cache, currId, matchMap, compiledRotation };
+  const ctx = { cache, currId, matchMap, compiledRotation, preferredMainStats };
 
   let lastBenchmarkWeek = null;
   let lastDiff = null;
 
   for (let week = 1; week <= MAX_WEEKS; week++) {
-    for (const [trialIndex, trial] of trials.entries()) {
-      advanceTrial(cache, preferredMainStats, trial, matchMap, currId, compiledRotation);
-      self.postMessage({ type: 'progress', trial: trialIndex + 1 });
+    for (const [index, trial] of trials.entries()) {
+      advanceTrial(ctx, trial);
+
+      self.postMessage({
+        type: 'progress',
+        trial: index + 1,
+      });
     }
 
     while (trials.length < MAX_TRIALS) {
@@ -52,9 +56,11 @@ export const runTrials = (cache, currId, team) => {
       if (findRelativeError(values) <= 0.005) break;
 
       const trial = initTrial(cache, currId, matchMap, compiledRotation);
+
       for (let w = 1; w <= week; w++) {
-        advanceTrial(cache, preferredMainStats, trial, matchMap, currId, compiledRotation);
+        advanceTrial(ctx, trial);
       }
+
       trials.push(trial);
     }
 
@@ -62,14 +68,23 @@ export const runTrials = (cache, currId, team) => {
     const { benchmarkWeek, diff } = findBenchmarkWeek(weeklyScores);
     lastDiff = diff;
 
-    self.postMessage({ type: 'progress', currentMember: currId, completed: week, diff });
+    self.postMessage({
+      type: 'progress',
+      currentMember: currId,
+      completed: week,
+      diff,
+    });
+
     if (benchmarkWeek !== -1 && benchmarkWeek <= week) {
       lastBenchmarkWeek = benchmarkWeek;
       break;
     }
   }
 
-  if (!lastBenchmarkWeek) lastBenchmarkWeek = MAX_WEEKS;
+  if (!lastBenchmarkWeek) {
+    lastBenchmarkWeek = MAX_WEEKS;
+  }
+
   const weeklyScores = getAverageScores(trials, lastBenchmarkWeek);
 
   return {

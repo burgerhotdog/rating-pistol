@@ -68,14 +68,15 @@ function assignMainStat(costIndex, misc) {
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrial(cache, preferredMainStats, trial, matchMap, characterId, compiledRotation) {
+export function advanceTrial(ctx, trial) {
+  const { cache, currId, matchMap, compiledRotation, preferredMainStats } = ctx;
   const { gameId, member } = cache;
-  const { baseMap } = member[characterId];
+  const { baseMap } = member[currId];
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
 
   // Cartethyia sometimes prefers a 44111 build
-  const isCartethyia = characterId == "1409";
+  const isCartethyia = currId == "1409";
 
   let latestEquipList = trial.equipList;
   let latestPenalty = trial.penalty;

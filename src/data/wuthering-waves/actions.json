@@ -1805,7 +1805,11 @@
     "OS": {
       "1": {
         "name": "Frosty Marks",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": {
+          "mv": 5.8794
+        }
       }
     }
   },
@@ -2292,7 +2296,11 @@
     "OS": {
       "1": {
         "name": "Leaping Flames",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": {
+          "mv": 5.3
+        }
       }
     }
   },
@@ -4431,7 +4439,16 @@
     "OS": {
       "1": {
         "name": "Shadowy Raid",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": [
+          {
+            "mv": 1.9598
+          },
+          {
+            "mv": 3.9196
+          }
+        ]
       }
     }
   },
@@ -16639,7 +16656,11 @@
     "OS": {
       "1": {
         "name": "Twining",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": {
+          "mv": 3.2924
+        }
       }
     }
   },
@@ -17588,7 +17609,11 @@
     "OS": {
       "1": {
         "name": "Closing Remark",
-        "cast": "OS"
+        "cast": "OS",
+        "considered": "OS",
+        "fixedMultipliers": {
+          "mv": 7.942
+        }
       }
     }
   },
@@ -25521,7 +25546,10 @@
       },
       "5": {
         "name": "Scarlet Coda",
-        "cast": "HA",
+        "cast": [
+          "HA",
+          "ES"
+        ],
         "considered": "RS",
         "indexedMultipliers": [
           {
@@ -25705,8 +25733,11 @@
     },
     "RL": {
       "1": {
-        "name": "Hecate: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Hecate",
+        "cast": "BA",
         "considered": "ES",
+        "duration": 0,
         "indexedMultipliers": [
           {
             "mv": [
@@ -25735,8 +25766,11 @@
         ]
       },
       "2": {
-        "name": "Hecate: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Hecate",
+        "cast": "BA",
         "considered": "ES",
+        "duration": 0,
         "indexedMultipliers": [
           {
             "mv": [
@@ -25766,7 +25800,8 @@
         ]
       },
       "3": {
-        "name": "Hecate: Enhanced Attack: Strings",
+        "name": "Enhanced Attack: Strings",
+        "tagged": "Hecate",
         "considered": "ES",
         "indexedMultipliers": [
           {
@@ -25820,7 +25855,8 @@
         ]
       },
       "4": {
-        "name": "Hecate: Enhanced Attack: Winds",
+        "name": "Enhanced Attack: Winds",
+        "tagged": "Hecate",
         "considered": "ES",
         "indexedMultipliers": [
           {
@@ -25874,7 +25910,8 @@
         ]
       },
       "5": {
-        "name": "Hecate: Enhanced Attack: Cadenza",
+        "name": "Enhanced Attack: Cadenza",
+        "tagged": "Hecate",
         "considered": "ES",
         "indexedMultipliers": [
           {
