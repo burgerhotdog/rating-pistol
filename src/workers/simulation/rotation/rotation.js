@@ -388,13 +388,47 @@ export const compileRotation = (cache, currId, team) => {
     }
   }
 
-  return { currId, footprints: ctx.footprints, formulaConfig };
+  // consolidate fixed footprints
+  const earlySummary = {};
+  for (const footprint of ctx.footprints) {
+    if (!('fixed' in footprint)) continue;
+
+    const result = {
+      key: footprint.key,
+      ownerId: footprint.ownerId,
+      type: footprint.type,
+      considered: footprint.considered,
+      damage: 0,
+      healing: 0,
+      shield: 0,
+    };
+
+    for (const type in footprint.fixed) {
+      result[type] += footprint.fixed[type];
+    }
+
+    if (result.key in earlySummary) {
+      const existing = earlySummary[result.key];
+
+      if (result.type === 'status') {
+        existing.damage += result.damage;
+      } else {
+        existing[result.type] += result[result.type];
+      }
+    } else {
+      earlySummary[result.key] = result;
+    }
+  }
+
+  ctx.footprints = ctx.footprints.filter(footprint => !('fixed' in footprint));
+
+  return { currId, earlySummary, footprints: ctx.footprints, formulaConfig };
 };
 
 export const evaluateRotation = (compiledRotation, statMap) => {
-  const { currId, footprints, formulaConfig } = compiledRotation;
+  const { currId, earlySummary, footprints, formulaConfig } = compiledRotation;
   const ctx = { currId, formulaConfig };
-  const summary = {};
+  const summary = { ...earlySummary };
 
   for (const footprint of footprints) {
     const result = evaluateFootprint(ctx, footprint, statMap);
@@ -404,9 +438,9 @@ export const evaluateRotation = (compiledRotation, statMap) => {
 
       if (result.type === 'status') {
         existing.damage += result.damage;
+      } else {
+        existing[result.type] += result[result.type];
       }
-
-      existing[result.type] += result[result.type];
     } else {
       summary[result.key] = result;
     }

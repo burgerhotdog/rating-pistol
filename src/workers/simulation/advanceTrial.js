@@ -81,6 +81,7 @@ export function advanceTrial(ctx, trial) {
   let latestEquipList = trial.equipList;
   let latestPenalty = trial.penalty;
   let latestDamage = trial.scores.at(-1);
+  let latestScore = sumRotationDmg(latestDamage) * latestPenalty;
 
   // Generate 20 4-costs per week
   for (let i = 0; i < 20; i++) {
@@ -106,12 +107,14 @@ export function advanceTrial(ctx, trial) {
     const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList))
     const newPenalty = getPenalty(combinedStatMap, matchMap);
     const newSummary = evaluateRotation(compiledRotation, combinedStatMap);
+    const newScore = sumRotationDmg(newSummary) * newPenalty;
 
     // Compare with latest and replace if needed
-    if (sumRotationDmg(newSummary) * newPenalty > sumRotationDmg(latestDamage) * latestPenalty) {
+    if (newScore > latestScore) {
       latestEquipList = newEquipList;
       latestPenalty = newPenalty;
       latestDamage = newSummary;
+      latestScore = newScore;
     }
   }
 
@@ -139,6 +142,7 @@ export function advanceTrial(ctx, trial) {
     let bufferEquipList = latestEquipList;
     let bufferPenalty = latestPenalty;
     let bufferDamage = latestDamage;
+    let bufferScore = latestScore;
 
     for (let slotIndex = 1; slotIndex < 3; slotIndex++) {
       // Construct newBuild
@@ -149,12 +153,14 @@ export function advanceTrial(ctx, trial) {
       const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList))
       const newPenalty = getPenalty(combinedStatMap, matchMap);
       const newDamage = evaluateRotation(compiledRotation, combinedStatMap);
+      const newScore = sumRotationDmg(newDamage) * newPenalty;
 
       // Compare new damage with buffer and replace if better
-      if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
+      if (newScore > bufferScore) {
         bufferEquipList = newEquipList;
         bufferPenalty = newPenalty;
         bufferDamage = newDamage;
+        bufferScore = newScore;
       }
     }
 
@@ -162,6 +168,7 @@ export function advanceTrial(ctx, trial) {
     latestEquipList = bufferEquipList;
     latestPenalty = bufferPenalty;
     latestDamage = bufferDamage;
+    latestScore = bufferScore;
   }
 
   // Generate 1 and 3 costs from tacet fields
@@ -192,6 +199,8 @@ export function advanceTrial(ctx, trial) {
     let bufferEquipList = latestEquipList;
     let bufferPenalty = latestPenalty;
     let bufferDamage = latestDamage;
+    let bufferScore = latestScore;
+
     for (let slotIndex = startingSlot; slotIndex < (startingSlot + 2); slotIndex++) {
       // Construct newBuild
       const equip = { ...newEquipObj };
@@ -201,12 +210,14 @@ export function advanceTrial(ctx, trial) {
       const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList))
       const newPenalty = getPenalty(combinedStatMap, matchMap);
       const newDamage = evaluateRotation(compiledRotation, combinedStatMap);
+      const newScore = sumRotationDmg(newDamage) * newPenalty;
 
       // Compare new damage with buffer and replace if better
-      if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
+      if (newScore > bufferScore) {
         bufferEquipList = newEquipList;
         bufferPenalty = newPenalty;
         bufferDamage = newDamage;
+        bufferScore = newScore;
       }
     }
 
@@ -214,6 +225,7 @@ export function advanceTrial(ctx, trial) {
     latestEquipList = bufferEquipList;
     latestPenalty = bufferPenalty;
     latestDamage = bufferDamage;
+    latestScore = bufferScore;
   }
 
   trial.equipList = latestEquipList;

@@ -12,9 +12,9 @@ export function findPreferred(cache, trial, currId, compiledRotation) {
 
     const preferred = [];
     for (const [id, data] of Object.entries(statOptions)) {
-      const testDamage = evaluateRotation(compiledRotation, mergeObj(baseMap, { [id]: data.VALUE }));
+      const testSummary = evaluateRotation(compiledRotation, mergeObj(baseMap, { [id]: data.VALUE }));
 
-      if (sumRotationDmg(testDamage) > sumRotationDmg(trial.scores[0])) {
+      if (sumRotationDmg(testSummary) > sumRotationDmg(trial.scores[0])) {
         preferred.push(id);
       }
     }
