@@ -331,7 +331,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
 
 // ─── SetIcon — single icon with hover-X and piece-count badge ───────────────
 
-function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
+function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false }) {
   const [hovered, setHovered] = useState(false);
   const name = SET[gameId]?.[setId]?.name ?? setId;
 
@@ -343,7 +343,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
     >
       <Box sx={{ position: 'relative' }}>
         <Card sx={{ width: 80 }}>
-          <CardActionArea onClick={onClick}>
+          <CardActionArea onClick={onClick} disabled={disabled}>
             <CardMedia
               image={`${gameId}/set/${setId}.webp`}
               title={name}
@@ -370,7 +370,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
         />
 
         {/* Remove X — top-right, visible on hover */}
-        {hovered && (
+        {hovered && !disabled && (
           <IconButton
             size="small"
             onClick={(e) => { e.stopPropagation(); onRemove(); }}
@@ -391,7 +391,12 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
         )}
       </Box>
 
-      <Typography variant="caption" noWrap sx={{ maxWidth: 80 }}>
+      <Typography
+        variant="caption"
+        color={disabled && "textDisabled"}
+        noWrap
+        sx={{ maxWidth: 80 }}
+      >
         {name}
       </Typography>
     </Box>
@@ -461,7 +466,10 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
 
   return (
     <Stack spacing={0.5}>
-      <Typography variant="subtitle1">
+      <Typography
+        variant="subtitle1"
+        color={disabled && "textDisabled"}
+      >
         Set Bonuses
       </Typography>
 
@@ -472,6 +480,7 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
             gameId={gameId}
             setId={setId}
             pieces={pieces}
+            disabled={disabled}
             onRemove={disabled ? undefined : () => handleRemove(setId)}
             onClick={disabled ? undefined : () => openReplace(index)}
           />
@@ -585,7 +594,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
             {label}
           </Typography>
-          <Typography variant="body2" sx={{ ml: 1, color: 'text.disabled' }}>
+          <Typography variant="body2" color="textDisabled" sx={{ ml: 1 }}>
             ({filtered.length})
           </Typography>
         </AccordionSummary>
@@ -707,7 +716,10 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <Typography variant="subtitle1" color="text.secondary">
+      <Typography
+        variant="subtitle1"
+        color={disabled && "textDisabled"}
+      >
         {label}
       </Typography>
 
@@ -731,7 +743,11 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
                   bgcolor: 'action.hover',
                 }}
               >
-                <Typography variant="caption" color="text.secondary" sx={{ textAlign: 'center' }}>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ textAlign: 'center' }}
+                >
                   None
                 </Typography>
               </Box>
@@ -759,7 +775,12 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
           </IconButton>
         )}
       </Box>
-      <Typography variant="caption" noWrap sx={{ maxWidth: 80 }}>
+      <Typography
+        variant="caption"
+        color={disabled && "textDisabled"}
+        noWrap
+        sx={{ maxWidth: 80 }}
+      >
         {name ?? '—'}
       </Typography>
     </Box>
