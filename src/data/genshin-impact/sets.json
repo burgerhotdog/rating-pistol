@@ -67,7 +67,8 @@
         "statMap": {
           "PERCENT_ANEMO": 0.15
         }
-      }
+      },
+      "4": {}
     }
   },
   {
@@ -95,24 +96,11 @@
     "name": "Thundering Fury",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ELECTRO": 0.15
-          }
+        "statMap": {
+          "PERCENT_ELECTRO": 0.15
         }
       },
-      "4": {
-        "buffs": {
-          "statMap": {
-            "RXN_OVERLOADED": 0.4,
-            "RXN_ELECTROCHARGED": 0.4,
-            "RXN_SUPERCONDUCT": 0.4,
-            "RXN_HYPERBLOOM": 0.4,
-            "RXN_AGGRAVATE": 0.2,
-            "RXN_LUNARCHARGED": 0.2
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
@@ -120,24 +108,11 @@
     "name": "Crimson Witch of Flames",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_PYRO": 0.15
-          }
+        "statMap": {
+          "PERCENT_PYRO": 0.15
         }
       },
-      "4": {
-        "buffs": {
-          "statMap": {
-            "RXN_OVERLOADED": 0.4,
-            "RXN_BURNING": 0.4,
-            "RXN_BURGEON": 0.4,
-            "RXN_VAPORIZE": 0.15,
-            "RXN_MELT": 0.15,
-            "PERCENT_PYRO": 0.075
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
@@ -145,18 +120,18 @@
     "name": "Noblesse Oblige",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_EB": 0.2
-          }
+        "statMap": {
+          "PERCENT_EB": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
-        }
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnCast": "EB",
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        },
+        "duration": 12000
       }
     }
   },
@@ -165,19 +140,11 @@
     "name": "Bloodstained Chivalry",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_PHYSICAL": 0.25
-          }
+        "statMap": {
+          "PERCENT_PHYSICAL": 0.25
         }
       },
-      "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_CA": 0.5
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
@@ -185,36 +152,19 @@
     "name": "Archaic Petra",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_GEO": 0.15
-          }
+        "statMap": {
+          "PERCENT_GEO": 0.15
         }
       },
-      "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_PYRO": 0.35,
-            "PERCENT_ELECTRO": 0.35,
-            "PERCENT_CRYO": 0.35,
-            "PERCENT_HYDRO": 0.35
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
     "id": "15015",
     "name": "Retracing Bolide",
     "tieredEffects": {
-      "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_NA": 0.4,
-            "PERCENT_CA": 0.4
-          }
-        }
-      }
+      "2": {},
+      "4": {}
     }
   },
   {
@@ -222,19 +172,11 @@
     "name": "Blizzard Strayer",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_CRYO": 0.15
-          }
+        "statMap": {
+          "PERCENT_CRYO": 0.15
         }
       },
-      "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_CR": 0.4
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
@@ -242,19 +184,18 @@
     "name": "Heart of Depth",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_HYDRO": 0.15
-          }
+        "statMap": {
+          "PERCENT_HYDRO": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_NA": 0.3,
-            "PERCENT_CA": 0.3
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": "ES",
+        "statMap": {
+          "PERCENT_NA": 0.3,
+          "PERCENT_CA": 0.3
+        },
+        "duration": 15000
       }
     }
   },
@@ -263,18 +204,19 @@
     "name": "Tenacity of the Millelith",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_HP": 0.2
-          }
+        "statMap": {
+          "PERCENT_HP": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
-        }
+        "applyTo": "team",
+        "applyWhen": "hit",
+        "applyOnConsidered": "ES",
+        "applyCooldown": 500,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        },
+        "duration": 3000
       }
     }
   },
@@ -283,19 +225,20 @@
     "name": "Pale Flame",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_PHYSICAL": 0.25
-          }
+        "statMap": {
+          "PERCENT_PHYSICAL": 0.25
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_ATK": 0.18,
-            "PERCENT_PHYSICAL": 0.25
-          }
-        }
+        "applyWhen": "hit",
+        "applyOnConsidered": "ES",
+        "applyCooldown": 300,
+        "statMap": {
+          "PERCENT_ATK": 0.9,
+          "PERCENT_PHYSICAL": 0.125
+        },
+        "duration": 7000,
+        "maxStacks": 2
       }
     }
   },
@@ -304,20 +247,20 @@
     "name": "Shimenawa's Reminiscence",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.18
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_NA": 0.5,
-            "PERCENT_CA": 0.5,
-            "PERCENT_PA": 0.5
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnCast": "ES",
+        "applyCooldown": 10000,
+        "statMap": {
+          "PERCENT_NA": 0.5,
+          "PERCENT_CA": 0.5,
+          "PERCENT_PA": 0.5
+        },
+        "duration": 10000
       }
     }
   },
@@ -326,23 +269,17 @@
     "name": "Emblem of Severed Fate",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ER": 0.2
-          }
+        "statMap": {
+          "PERCENT_ER": 0.2
         }
       },
       "4": {
-        "stats": {
-          "variable": {
-            "PERCENT_EB": {
-              "source": [
-                "ER",
-                0.01
-              ],
-              "value": 0.0025,
-              "max": 0.75
-            }
+        "variableStatMap": {
+          "PERCENT_EB": {
+            "attr": "ER",
+            "step": 0.01,
+            "value": 0.0025,
+            "max": 0.75
           }
         }
       }
@@ -353,18 +290,14 @@
     "name": "Husk of Opulent Dreams",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_DEF": 0.3
-          }
+        "statMap": {
+          "PERCENT_DEF": 0.3
         }
       },
       "4": {
-        "stats": {
-          "statMap": {
-            "PERCENT_DEF": 0.24,
-            "PERCENT_GEO": 0.24
-          }
+        "statMap": {
+          "PERCENT_DEF": 0.24,
+          "PERCENT_GEO": 0.24
         }
       }
     }
@@ -374,11 +307,22 @@
     "name": "Ocean-Hued Clam",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_HB": 0.15
-          }
+        "statMap": {
+          "PERCENT_HB": 0.15
         }
+      },
+      "4": {
+        "applyWhen": "hit",
+        "applyOnType": "healing",
+        "applyCooldown": 3500,
+        "intervalAction": {
+          "element": "PHYSICAL",
+          "fixedMultipliers": {
+            "flat": 27000
+          }
+        },
+        "intervalOffset": 3000,
+        "maxUses": 1
       }
     }
   },
@@ -387,19 +331,21 @@
     "name": "Vermillion Hereafter",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.18
         }
       },
-      "4": {
-        "buffs": {
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnCast": "EB",
+          "removeIfField": false,
           "statMap": {
-            "PERCENT_ATK": 0.4
-          }
+            "PERCENT_ATK": 0.48
+          },
+          "duration": 16000
         }
-      }
+      ]
     }
   },
   {
@@ -407,12 +353,11 @@
     "name": "Echoes of an Offering",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.18
         }
-      }
+      },
+      "4": {}
     }
   },
   {
@@ -420,18 +365,20 @@
     "name": "Deepwood Memories",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_DENDRO": 0.15
-          }
+        "statMap": {
+          "PERCENT_DENDRO": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "SHRED_DENDRO": 0.3
-          }
-        }
+        "applyWhen": "hit",
+        "applyOnConsidered": [
+          "ES",
+          "EB"
+        ],
+        "statMap": {
+          "SHRED_DENDRO_RES": 0.3
+        },
+        "duration": 8000
       }
     }
   },
@@ -440,18 +387,13 @@
     "name": "Gilded Dreams",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "FLAT_EM": 80
-          }
+        "statMap": {
+          "FLAT_EM": 80
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_ATK": 0.14,
-            "FLAT_EM": 100
-          }
+        "statMap": {
+          "FLAT_EM": 150
         }
       }
     }
@@ -461,20 +403,20 @@
     "name": "Desert Pavilion Chronicle",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ANEMO": 0.15
-          }
+        "statMap": {
+          "PERCENT_ANEMO": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_NA": 0.4,
-            "PERCENT_CA": 0.4,
-            "PERCENT_PA": 0.4
-          }
-        }
+        "applyWhen": "hit",
+        "applyOnConsidered": "CA",
+        "statMap": {
+          "PERCENT_ATKSPD": 0.1,
+          "PERCENT_NA": 0.4,
+          "PERCENT_CA": 0.4,
+          "PERCENT_PA": 0.4
+        },
+        "duration": 15000
       }
     }
   },
@@ -483,30 +425,11 @@
     "name": "Flower of Paradise Lost",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "FLAT_EM": 80
-          }
+        "statMap": {
+          "FLAT_EM": 80
         }
       },
-      "4": {
-        "stats": {
-          "statMap": {
-            "RXN_BLOOM": 0.4,
-            "RXN_HYPERBLOOM": 0.4,
-            "RXN_BURGEON": 0.4,
-            "RXN_LUNARBLOOM": 0.1
-          }
-        },
-        "buffs": {
-          "statMap": {
-            "RXN_BLOOM": 0.4,
-            "RXN_HYPERBLOOM": 0.4,
-            "RXN_BURGEON": 0.4,
-            "RXN_LUNARBLOOM": 0.4
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
@@ -514,19 +437,24 @@
     "name": "Nymph's Dream",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_HYDRO": 0.15
-          }
+        "statMap": {
+          "PERCENT_HYDRO": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_ATK": 0.25,
-            "PERCENT_HYDRO": 0.15
-          }
-        }
+        "applyWhen": "hit",
+        "applyOnConsidered": [
+          "NA",
+          "CA",
+          "PA",
+          "ES",
+          "EB"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.0833,
+          "PERCENT_HYDRO": 0.05
+        },
+        "duration": 8000
       }
     }
   },
@@ -535,26 +463,24 @@
     "name": "Vourukasha's Glow",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_HP": 0.2
-          }
+        "statMap": {
+          "PERCENT_HP": 0.2
         }
       },
-      "4": {
-        "stats": {
+      "4": [
+        {
           "statMap": {
             "PERCENT_ES": 0.1,
             "PERCENT_EB": 0.1
           }
         },
-        "buffs": {
+        {
           "statMap": {
             "PERCENT_ES": 0.4,
             "PERCENT_EB": 0.4
           }
         }
-      }
+      ]
     }
   },
   {
@@ -562,18 +488,14 @@
     "name": "Marechaussee Hunter",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_NA": 0.15,
-            "PERCENT_CA": 0.15
-          }
+        "statMap": {
+          "PERCENT_NA": 0.15,
+          "PERCENT_CA": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_CR": 0.36
-          }
+        "statMap": {
+          "PERCENT_CR": 0.36
         }
       }
     }
@@ -583,19 +505,23 @@
     "name": "Golden Troupe",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ES": 0.2
-          }
+        "statMap": {
+          "PERCENT_ES": 0.2
         }
       },
-      "4": {
-        "stats": {
+      "4": [
+        {
           "statMap": {
-            "PERCENT_ES": 0.5
+            "PERCENT_ES": 0.25
+          }
+        },
+        {
+          "useIfField": false,
+          "statMap": {
+            "PERCENT_ES": 0.25
           }
         }
-      }
+      ]
     }
   },
   {
@@ -603,12 +529,11 @@
     "name": "Song of Days Past",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_HB": 0.15
-          }
+        "statMap": {
+          "PERCENT_HB": 0.15
         }
-      }
+      },
+      "4": {}
     }
   },
   {
@@ -616,17 +541,13 @@
     "name": "Nighttime Whispers in the Echoing Woods",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.18
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_GEO": 0.5
-          }
+        "statMap": {
+          "PERCENT_GEO": 0.5
         }
       }
     }
@@ -636,17 +557,13 @@
     "name": "Fragment of Harmonic Whimsy",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.18
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_ALL": 0.54
-          }
+        "statMap": {
+          "PERCENT_ALL": 0.54
         }
       }
     }
@@ -656,41 +573,38 @@
     "name": "Unfinished Reverie",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.18
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_ALL": 0.5
-          }
+        "statMap": {
+          "PERCENT_ALL": 0.5
         }
       }
     }
   },
   {
     "id": "15037",
-    "name": "Scroll of the Hero of Cinder City"
+    "name": "Scroll of the Hero of Cinder City",
+    "tieredEffects": {
+      "2": {},
+      "4": {}
+    }
   },
   {
     "id": "15038",
     "name": "Obsidian Codex",
     "tieredEffects": {
       "2": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_ALL": 0.15
-          }
+        "useIfField": true,
+        "statMap": {
+          "PERCENT_ALL": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_CR": 0.4
-          }
+        "statMap": {
+          "PERCENT_CR": 0.4
         }
       }
     }
@@ -700,17 +614,13 @@
     "name": "Long Night's Oath",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_PA": 0.25
-          }
+        "statMap": {
+          "PERCENT_PA": 0.25
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_PA": 0.75
-          }
+        "statMap": {
+          "PERCENT_PA": 0.75
         }
       }
     }
@@ -720,18 +630,15 @@
     "name": "Finale of the Deep Galleries",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_CRYO": 0.15
-          }
+        "statMap": {
+          "PERCENT_CRYO": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_NA": 0.6,
-            "PERCENT_EB": 0.6
-          }
+        "useIfTagged": "noEnergy",
+        "statMap": {
+          "PERCENT_NA": 0.6,
+          "PERCENT_EB": 0.6
         }
       }
     }
@@ -741,20 +648,14 @@
     "name": "Night of the Sky's Unveiling",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "FLAT_EM": 80
-          }
+        "statMap": {
+          "FLAT_EM": 80
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_CR": 0.3,
-            "RXN_LUNARCHARGED": 0.2,
-            "RXN_LUNARBLOOM": 0.2,
-            "RXN_LUNARCRYSTALIZE": 0.2
-          }
+        "useIfField": true,
+        "statMap": {
+          "PERCENT_CR": 0.3
         }
       }
     }
@@ -764,21 +665,18 @@
     "name": "Silken Moon's Serenade",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "PERCENT_ER": 0.2
-          }
+        "statMap": {
+          "PERCENT_ER": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "FLAT_EM": 120,
-            "RXN_LUNARCHARGED": 0.2,
-            "RXN_LUNARBLOOM": 0.2,
-            "RXN_LUNARCRYSTALIZE": 0.2
-          }
-        }
+        "applyTo": "team",
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "statMap": {
+          "FLAT_EM": 120
+        },
+        "duration": 8000
       }
     }
   },
@@ -787,21 +685,11 @@
     "name": "Aubade of Morningstar and Moon",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "statMap": {
-            "FLAT_EM": 80
-          }
+        "statMap": {
+          "FLAT_EM": 80
         }
       },
-      "4": {
-        "stats": {
-          "statMap": {
-            "RXN_LUNARCHARGED": 0.6,
-            "RXN_LUNARBLOOM": 0.6,
-            "RXN_LUNARCRYSTALIZE": 0.6
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
@@ -809,20 +697,72 @@
     "name": "A Day Carved From Rising Winds",
     "tieredEffects": {
       "2": {
-        "stats": {
+        "statMap": {
+          "PERCENT_ATK": 0.18
+        }
+      },
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnConsidered": [
+            "NA",
+            "CA",
+            "ES",
+            "EB"
+          ],
           "statMap": {
-            "PERCENT_ATK": 0.18
-          }
+            "PERCENT_ATK": 0.25
+          },
+          "duration": 6000
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnConsidered": [
+            "NA",
+            "CA",
+            "ES",
+            "EB"
+          ],
+          "useIfTagged": "Hexerei",
+          "statMap": {
+            "PERCENT_CR": 0.2
+          },
+          "duration": 6000
+        }
+      ]
+    }
+  },
+  {
+    "id": "15045",
+    "name": "Celestial Gift",
+    "tieredEffects": {
+      "2": {
+        "statMap": {
+          "PERCENT_ER": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "statMap": {
-            "PERCENT_ATK": 0.25,
-            "PERCENT_CR": 0.2
-          }
-        }
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnCast": "ES",
+        "applyIfTagged": "Hexerei",
+        "statMap": {
+          "PERCENT_ALL": 0.4
+        },
+        "duration": 20000
       }
+    }
+  },
+  {
+    "id": "15046",
+    "name": "Disenchantment in Deep Shadow",
+    "tieredEffects": {
+      "2": {
+        "statMap": {
+          "PERCENT_ATK": 0.18
+        }
+      },
+      "4": {}
     }
   }
 ]

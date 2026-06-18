@@ -4,17 +4,13 @@
     "name": "Woodpecker Electro",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CR": 0.08
-          }
+        "statMap": {
+          "PERCENT_CR": 0.08
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "COMBAT_ATK": 0.27
-          }
+        "statMap": {
+          "COMBAT_ATK": 0.27
         }
       }
     }
@@ -24,18 +20,14 @@
     "name": "Puffer Electro",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_PR": 0.08
-          }
+        "statMap": {
+          "PERCENT_PR": 0.08
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_U": 0.2,
-            "COMBAT_ATK": 0.15
-          }
+        "statMap": {
+          "PERCENT_U": 0.2,
+          "COMBAT_ATK": 0.15
         }
       }
     }
@@ -45,17 +37,13 @@
     "name": "Shockstar Disco",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_IMPACT": 0.06
-          }
+        "statMap": {
+          "PERCENT_IMPACT": 0.06
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_DAZE": 0.2
-          }
+        "statMap": {
+          "PERCENT_DAZE": 0.2
         }
       }
     }
@@ -65,21 +53,17 @@
     "name": "Freedom Blues",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "FLAT_AP": 30
-          }
+        "statMap": {
+          "FLAT_AP": 30
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "SHRED_BURNING": 0.2,
-            "SHRED_CORRUPTION": 0.2,
-            "SHRED_FREEZE": 0.2,
-            "SHRED_ASSAULT": 0.2,
-            "SHRED_SHOCKED": 0.2
-          }
+        "statMap": {
+          "SHRED_BURNING": 0.2,
+          "SHRED_CORRUPTION": 0.2,
+          "SHRED_FREEZE": 0.2,
+          "SHRED_ASSAULT": 0.2,
+          "SHRED_SHOCKED": 0.2
         }
       }
     }
@@ -89,17 +73,13 @@
     "name": "Hormone Punk",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.1
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "COMBAT_ATK": 0.25
-          }
+        "statMap": {
+          "COMBAT_ATK": 0.25
         }
       }
     }
@@ -109,10 +89,8 @@
     "name": "Soul Rock",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_DEF": 0.16
-          }
+        "statMap": {
+          "PERCENT_DEF": 0.16
         }
       }
     }
@@ -122,17 +100,13 @@
     "name": "Swing Jazz",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ER": 0.2
-          }
+        "statMap": {
+          "PERCENT_ER": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.15
-          }
+        "statMap": {
+          "PERCENT_ALL": 0.15
         }
       }
     }
@@ -142,17 +116,13 @@
     "name": "Inferno Metal",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_FIRE": 0.1
-          }
+        "statMap": {
+          "PERCENT_FIRE": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.28
-          }
+        "statMap": {
+          "PERCENT_CR": 0.28
         }
       }
     }
@@ -162,17 +132,13 @@
     "name": "Chaotic Metal",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ETHER": 0.1
-          }
+        "statMap": {
+          "PERCENT_ETHER": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.53
-          }
+        "statMap": {
+          "PERCENT_CD": 0.53
         }
       }
     }
@@ -182,17 +148,13 @@
     "name": "Thunder Metal",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ELECTRIC": 0.1
-          }
+        "statMap": {
+          "PERCENT_ELECTRIC": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "COMBAT_ATK": 0.28
-          }
+        "statMap": {
+          "COMBAT_ATK": 0.28
         }
       }
     }
@@ -202,18 +164,14 @@
     "name": "Polar Metal",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ICE": 0.1
-          }
+        "statMap": {
+          "PERCENT_ICE": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_BA": 0.4,
-            "PERCENT_DA": 0.4
-          }
+        "statMap": {
+          "PERCENT_BA": 0.4,
+          "PERCENT_DA": 0.4
         }
       }
     }
@@ -223,17 +181,13 @@
     "name": "Fanged Metal",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_PHYSICAL": 0.1
-          }
+        "statMap": {
+          "PERCENT_PHYSICAL": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.35
-          }
+        "statMap": {
+          "PERCENT_ALL": 0.35
         }
       }
     }
@@ -243,20 +197,16 @@
     "name": "Chaos Jazz",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "FLAT_AP": 30
-          }
+        "statMap": {
+          "FLAT_AP": 30
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_FIRE": 0.15,
-            "PERCENT_ELECTRIC": 0.15,
-            "PERCENT_EX": 0.2,
-            "PERCENT_AA": 0.2
-          }
+        "statMap": {
+          "PERCENT_FIRE": 0.15,
+          "PERCENT_ELECTRIC": 0.15,
+          "PERCENT_EX": 0.2,
+          "PERCENT_AA": 0.2
         }
       }
     }
@@ -266,10 +216,8 @@
     "name": "Proto Punk",
     "tieredEffects": {
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.15
-          }
+        "statMap": {
+          "PERCENT_ALL": 0.15
         }
       }
     }
@@ -279,18 +227,14 @@
     "name": "Branch & Blade Song",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CD": 0.16
-          }
+        "statMap": {
+          "PERCENT_CD": 0.16
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.3,
-            "PERCENT_CR": 0.12
-          }
+        "statMap": {
+          "PERCENT_CD": 0.3,
+          "PERCENT_CR": 0.12
         }
       }
     }
@@ -300,17 +244,13 @@
     "name": "Astral Voice",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.1
-          }
+        "statMap": {
+          "PERCENT_ATK": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.24
-          }
+        "statMap": {
+          "PERCENT_ALL": 0.24
         }
       }
     }
@@ -320,19 +260,15 @@
     "name": "Shadow Harmony",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_A": 0.15,
-            "PERCENT_DA": 0.15
-          }
+        "statMap": {
+          "PERCENT_A": 0.15,
+          "PERCENT_DA": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "COMBAT_ATK": 0.12,
-            "PERCENT_CR": 0.12
-          }
+        "statMap": {
+          "COMBAT_ATK": 0.12,
+          "PERCENT_CR": 0.12
         }
       }
     }
@@ -342,18 +278,14 @@
     "name": "Phaethon's Melody",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_AM": 0.08
-          }
+        "statMap": {
+          "PERCENT_AM": 0.08
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "FLAT_AP": 45,
-            "PERCENT_ETHER": 0.25
-          }
+        "statMap": {
+          "FLAT_AP": 45,
+          "PERCENT_ETHER": 0.25
         }
       }
     }
@@ -363,18 +295,14 @@
     "name": "Yunkui Tales",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HP": 0.1
-          }
+        "statMap": {
+          "PERCENT_HP": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.12,
-            "PERCENT_SHEER": 0.1
-          }
+        "statMap": {
+          "PERCENT_CR": 0.12,
+          "PERCENT_SHEER": 0.1
         }
       }
     }
@@ -384,17 +312,13 @@
     "name": "King of the Summit",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_DAZE": 0.06
-          }
+        "statMap": {
+          "PERCENT_DAZE": 0.06
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.3
-          }
+        "statMap": {
+          "PERCENT_CD": 0.3
         }
       }
     }
@@ -404,17 +328,13 @@
     "name": "Dawn's Bloom",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_BA": 0.15
-          }
+        "statMap": {
+          "PERCENT_BA": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_BA": 0.4
-          }
+        "statMap": {
+          "PERCENT_BA": 0.4
         }
       }
     }
@@ -424,17 +344,13 @@
     "name": "Moonlight Lullaby",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ER": 0.2
-          }
+        "statMap": {
+          "PERCENT_ER": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.18
-          }
+        "statMap": {
+          "PERCENT_ALL": 0.18
         }
       }
     }
@@ -444,18 +360,14 @@
     "name": "White Water Ballad",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_PHYSICAL": 0.1
-          }
+        "statMap": {
+          "PERCENT_PHYSICAL": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.2,
-            "COMBAT_ATK": 0.1
-          }
+        "statMap": {
+          "PERCENT_CR": 0.2,
+          "COMBAT_ATK": 0.1
         }
       }
     }
@@ -465,18 +377,14 @@
     "name": "Shining Aria",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ETHER": 0.1
-          }
+        "statMap": {
+          "PERCENT_ETHER": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "FLAT_AP": 36,
-            "PERCENT_ALL": 0.25
-          }
+        "statMap": {
+          "FLAT_AP": 36,
+          "PERCENT_ALL": 0.25
         }
       }
     }
@@ -486,17 +394,13 @@
     "name": "Bunny in Wonderland",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HP": 0.1
-          }
+        "statMap": {
+          "PERCENT_HP": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.18
-          }
+        "statMap": {
+          "PERCENT_ALL": 0.18
         }
       }
     }
@@ -506,23 +410,19 @@
     "name": "Notes From the Chained",
     "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ICE": 0.1
-          }
+        "statMap": {
+          "PERCENT_ICE": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "FLAT_AP": 48,
-            "PERCENT_CORRUPTION": 0.16,
-            "PERCENT_BURNING": 0.16,
-            "PERCENT_FREEZE": 0.16,
-            "PERCENT_SHOCKED": 0.16,
-            "PERCENT_ASSAULT": 0.16,
-            "PERCENT_DISORDER": 0.16
-          }
+        "statMap": {
+          "FLAT_AP": 48,
+          "PERCENT_CORRUPTION": 0.16,
+          "PERCENT_BURNING": 0.16,
+          "PERCENT_FREEZE": 0.16,
+          "PERCENT_SHOCKED": 0.16,
+          "PERCENT_ASSAULT": 0.16,
+          "PERCENT_DISORDER": 0.16
         }
       }
     }

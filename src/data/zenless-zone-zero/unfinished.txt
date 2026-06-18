@@ -1,0 +1,11 @@
+characters:
+
+actions:
+
+weapons:
+
+sets:
+incomplete:
+
+logic simplified:
+- all

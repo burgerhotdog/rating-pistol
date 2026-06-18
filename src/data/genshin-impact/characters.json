@@ -6,13 +6,11 @@
     "element": "ANEMO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 14695,
-        "BASE_ATK": 239,
-        "BASE_DEF": 769,
-        "BASE_EM": 0,
-        "PERCENT_HB": 0.222
-      }
+      "BASE_HP": 14695,
+      "BASE_ATK": 239,
+      "BASE_DEF": 769,
+      "BASE_EM": 0,
+      "PERCENT_HB": 0.222
     }
   },
   {
@@ -22,20 +20,11 @@
     "element": "ELECTRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 9570,
-        "BASE_ATK": 232,
-        "BASE_DEF": 573,
-        "BASE_EM": 0,
-        "FLAT_EM": 96
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "SHRED_DEF": 0.15
-        }
-      }
+      "BASE_HP": 9570,
+      "BASE_ATK": 232,
+      "BASE_DEF": 573,
+      "BASE_EM": 0,
+      "FLAT_EM": 96
     }
   },
   {
@@ -45,20 +34,11 @@
     "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 9787,
-        "BASE_ATK": 159,
-        "BASE_DEF": 669,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_HYDRO": 0.15
-        }
-      }
+      "BASE_HP": 9787,
+      "BASE_ATK": 159,
+      "BASE_DEF": 669,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -68,13 +48,11 @@
     "element": "CRYO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 11636,
-        "BASE_ATK": 223,
-        "BASE_DEF": 792,
-        "BASE_EM": 0,
-        "PERCENT_ER": 0.267
-      }
+      "BASE_HP": 11636,
+      "BASE_ATK": 223,
+      "BASE_DEF": 792,
+      "BASE_EM": 0,
+      "PERCENT_ER": 0.267
     }
   },
   {
@@ -84,100 +62,12 @@
     "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 12981,
-        "BASE_ATK": 335,
-        "BASE_DEF": 784,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_PYRO": 0.2
-        }
-      }
-    },
-    "calcs": [
-      {
-        "name": "Melt DPS",
-        "type": {
-          "element": "PYRO"
-        },
-        "rotation": [
-          {
-            "name" : "Ultimate",
-            "dmgType": [
-              "PYRO",
-              "EB"
-            ],
-            "hits": [
-              {
-                "mv": 3.672,
-                "reaction": "RMELT",
-                "times": 2
-              },
-              {
-                "mv": 1.08,
-                "times": 7
-              }
-            ]
-          },
-          {
-            "name" : "Skill",
-            "dmgType": [
-              "PYRO",
-              "ES"
-            ],
-            "hits": [
-              {
-                "mv": 1.699,
-                "reaction": "RMELT"
-              },
-              {
-                "mv": 1.757,
-                "reaction": "RMELT"
-              },
-              {
-                "mv": 2.318,
-                "reaction": "RMELT"
-              }
-            ]
-          },
-          {
-            "name" : "N4",
-            "dmgType": [
-              "PYRO",
-              "NA"
-            ],
-            "hits": [
-              {
-                "mv": 1.773
-              },
-              {
-                "mv": 1.732
-              },
-              {
-                "mv": 1.953
-              },
-              {
-                "mv": 2.649
-              }
-            ],
-            "times": 2
-          }
-        ],
-        "duration": 12,
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000016",
-          "10000032"
-        ]
-      }
-    ]
+      "BASE_HP": 12981,
+      "BASE_ATK": 335,
+      "BASE_DEF": 784,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
+    }
   },
   {
     "id": "10000020",
@@ -185,17 +75,13 @@
     "quality": 4,
     "element": "ELECTRO",
     "type": "CLAYMORE",
-    "tags": [
-      "HEXEREI"
-    ],
+    "tagged": "Hexerei",
     "stats": {
-      "constant": {
-        "BASE_HP": 11962,
-        "BASE_ATK": 234,
-        "BASE_DEF": 751,
-        "BASE_EM": 0,
-        "PERCENT_PHYSICAL": 0.3
-      }
+      "BASE_HP": 11962,
+      "BASE_ATK": 234,
+      "BASE_DEF": 751,
+      "BASE_EM": 0,
+      "PERCENT_PHYSICAL": 0.3
     }
   },
   {
@@ -205,25 +91,11 @@
     "element": "PYRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9461,
-        "BASE_ATK": 223,
-        "BASE_DEF": 601,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.15
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.15
-        }
-      }
+      "BASE_HP": 9461,
+      "BASE_ATK": 223,
+      "BASE_DEF": 601,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -232,17 +104,13 @@
     "quality": 5,
     "element": "ANEMO",
     "type": "BOW",
-    "tags": [
-      "HEXEREI"
-    ],
+    "tagged": "Hexerei",
     "stats": {
-      "constant": {
-        "BASE_HP": 10531,
-        "BASE_ATK": 263,
-        "BASE_DEF": 669,
-        "BASE_EM": 0,
-        "PERCENT_ER": 0.32
-      }
+      "BASE_HP": 10531,
+      "BASE_ATK": 263,
+      "BASE_DEF": 669,
+      "BASE_EM": 0,
+      "PERCENT_ER": 0.32
     }
   },
   {
@@ -252,83 +120,12 @@
     "element": "PYRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 10875,
-        "BASE_ATK": 225,
-        "BASE_DEF": 669,
-        "BASE_EM": 0,
-        "FLAT_EM": 96
-      }
-    },
-    "buffs": {
-      "ally": {
-        "constant": {
-          "PERCENT_ATK": 0.1
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_PYRO": 0.15,
-          "SHRED_PYRO": 0.15
-        }
-      }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "PYRO"
-        },
-        "rotation": [
-          {
-            "name" : "Skill",
-            "dmgType": [
-              "PYRO",
-              "ES"
-            ],
-            "hits": [
-              {
-                "mv": 2.365,
-                "reaction": "RVAPORIZE"
-              }
-            ],
-            "times": 3
-          },
-          {
-            "name" : "Ultimate",
-            "dmgType": [
-              "PYRO",
-              "EB"
-            ],
-            "hits": [
-              {
-                "mv": 1.53,
-                "reaction": "RVAPORIZE"
-              },
-              {
-                "mv": 1.87
-              },
-              {
-                "mv": 2.329
-              },
-              {
-                "mv": 2.38,
-                "reaction": "RVAPORIZE",
-                "times": 11
-              }
-            ]
-          }
-        ],
-        "duration": 14,
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000032",
-          "10000023"
-        ]
-      }
-    ]
+      "BASE_HP": 10875,
+      "BASE_ATK": 225,
+      "BASE_DEF": 669,
+      "BASE_EM": 0,
+      "FLAT_EM": 96
+    }
   },
   {
     "id": "10000024",
@@ -337,71 +134,12 @@
     "element": "ELECTRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 13050,
-        "BASE_ATK": 225,
-        "BASE_DEF": 648,
-        "BASE_EM": 0,
-        "PERCENT_ELECTRO": 0.24
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "SHRED_ELECTRO": 0.15
-        }
-      }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "rotation": [
-          {
-            "name" : "Skill",
-            "dmgType": [
-              "ELECTRO",
-              "ES"
-            ],
-            "hits": [
-              {
-                "mv": 2.584
-              },
-              {
-                "mv": 3.4,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name" : "Ultimate",
-            "dmgType": [
-              "ELECTRO",
-              "EB"
-            ],
-            "hits": [
-              {
-                "mv": 2.584
-              },
-              {
-                "mv": 2.04,
-                "times": 45
-              }
-            ]
-          }
-        ],
-        "duration": 15,
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000024",
-          "10000031"
-        ]
-      }
-    ]
+      "BASE_HP": 13050,
+      "BASE_ATK": 225,
+      "BASE_DEF": 648,
+      "BASE_EM": 0,
+      "PERCENT_ELECTRO": 0.24
+    }
   },
   {
     "id": "10000025",
@@ -410,78 +148,13 @@
     "element": "HYDRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 10222,
-        "BASE_ATK": 202,
-        "BASE_DEF": 758,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24,
-        "PERCENT_HYDRO": 0.2
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "RAW_ES": 0.5
-        }
-      },
-      "team": {
-        "constant": {
-          "SHRED_HYDRO": 0.15
-        }
-      }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HYDRO"
-        },
-        "rotation": [
-          {
-            "name" : "Skill",
-            "dmgType": [
-              "HYDRO",
-              "ES"
-            ],
-            "hits": [
-              {
-                "mv": 3.57
-              },
-              {
-                "mv": 4.063
-              }
-            ]
-          },
-          {
-            "name" : "Ultimate",
-            "dmgType": [
-              "HYDRO",
-              "EB"
-            ],
-            "hits": [
-              {
-                "mv": 1.153,
-                "times": 2
-              },
-              {
-                "mv": 1.153,
-                "times": 3
-              },
-              {
-                "mv": 1.153,
-                "times": 5
-              }
-            ],
-            "times": 5
-          }
-        ],
-        "duration": 15,
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+      "BASE_HP": 10222,
+      "BASE_ATK": 202,
+      "BASE_DEF": 758,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24,
+      "PERCENT_HYDRO": 0.2
+    }
   },
   {
     "id": "10000027",
@@ -490,20 +163,11 @@
     "element": "GEO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 9787,
-        "BASE_ATK": 212,
-        "BASE_DEF": 573,
-        "BASE_EM": 0,
-        "PERCENT_GEO": 0.24
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_GEO": 0.12
-        }
-      }
+      "BASE_HP": 9787,
+      "BASE_ATK": 212,
+      "BASE_DEF": 573,
+      "BASE_EM": 0,
+      "PERCENT_GEO": 0.24
     }
   },
   {
@@ -512,25 +176,13 @@
     "quality": 5,
     "element": "PYRO",
     "type": "CATALYST",
-    "tags": [
-      "HEXEREI"
-    ],
+    "tagged": "Hexerei",
     "stats": {
-      "constant": {
-        "BASE_HP": 10287,
-        "BASE_ATK": 311,
-        "BASE_DEF": 615,
-        "BASE_EM": 0,
-        "PERCENT_PYRO": 0.288
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "RAW_CA": 0.5,
-          "PERCENT_CA": 0.5
-        }
-      }
+      "BASE_HP": 10287,
+      "BASE_ATK": 311,
+      "BASE_DEF": 615,
+      "BASE_EM": 0,
+      "PERCENT_PYRO": 0.288
     }
   },
   {
@@ -539,25 +191,13 @@
     "quality": 4,
     "element": "ELECTRO",
     "type": "BOW",
-    "tags": [
-      "HEXEREI"
-    ],
+    "tagged": "Hexerei",
     "stats": {
-      "constant": {
-        "BASE_HP": 9189,
-        "BASE_ATK": 244,
-        "BASE_DEF": 594,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.225,
-          "FLAT_EM": 90
-        }
-      }
+      "BASE_HP": 9189,
+      "BASE_ATK": 244,
+      "BASE_DEF": 594,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -567,21 +207,11 @@
     "element": "PYRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12397,
-        "BASE_ATK": 191,
-        "BASE_DEF": 771,
-        "BASE_EM": 0,
-        "PERCENT_ER": 0.267
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "FLAT_ATK": 1202.35,
-          "PERCENT_PYRO": 0.15
-        }
-      }
+      "BASE_HP": 12397,
+      "BASE_ATK": 191,
+      "BASE_DEF": 771,
+      "BASE_EM": 0,
+      "PERCENT_ER": 0.267
     }
   },
   {
@@ -591,29 +221,11 @@
     "element": "GEO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 12071,
-        "BASE_ATK": 191,
-        "BASE_DEF": 799,
-        "BASE_EM": 0,
-        "PERCENT_DEF": 0.3
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_CA": 0.15
-        },
-        "variable": {
-          "FLAT_ATK": {
-            "source": [
-              "DEF",
-              1
-            ],
-            "value": 1.35
-          }
-        }
-      }
+      "BASE_HP": 12071,
+      "BASE_ATK": 191,
+      "BASE_DEF": 799,
+      "BASE_EM": 0,
+      "PERCENT_DEF": 0.3
     }
   },
   {
@@ -623,13 +235,11 @@
     "element": "CRYO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12368,
-        "BASE_ATK": 287,
-        "BASE_DEF": 922,
-        "BASE_EM": 0,
-        "PERCENT_HB": 0.222
-      }
+      "BASE_HP": 12368,
+      "BASE_ATK": 287,
+      "BASE_DEF": 922,
+      "BASE_EM": 0,
+      "PERCENT_HB": 0.222
     }
   },
   {
@@ -639,20 +249,11 @@
     "element": "CRYO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 10984,
-        "BASE_ATK": 223,
-        "BASE_DEF": 648,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "SHRED_CRYO": 0.1
-        }
-      }
+      "BASE_HP": 10984,
+      "BASE_ATK": 223,
+      "BASE_DEF": 648,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -661,34 +262,13 @@
     "quality": 5,
     "element": "HYDRO",
     "type": "CATALYST",
-    "tags": [
-      "HEXEREI"
-    ],
+    "tagged": "Hexerei",
     "stats": {
-      "constant": {
-        "BASE_HP": 10409,
-        "BASE_ATK": 287,
-        "BASE_DEF": 653,
-        "BASE_EM": 0,
-        "PERCENT_ER": 0.32
-      }
-    },
-    "variable": {
-      "PERCENT_HYDRO": {
-        "source": [
-          "ER",
-          1
-        ],
-        "value": 0.2
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_ALL": 0.6,
-          "RXN_VAPORIZE": 0.15
-        }
-      }
+      "BASE_HP": 10409,
+      "BASE_ATK": 287,
+      "BASE_DEF": 653,
+      "BASE_EM": 0,
+      "PERCENT_ER": 0.32
     }
   },
   {
@@ -698,21 +278,11 @@
     "element": "ELECTRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 13103,
-        "BASE_ATK": 323,
-        "BASE_DEF": 799,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_CR": 0.15,
-          "PERCENT_ER": 0.15
-        }
-      }
+      "BASE_HP": 13103,
+      "BASE_ATK": 323,
+      "BASE_DEF": 799,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -721,25 +291,13 @@
     "quality": 4,
     "element": "ANEMO",
     "type": "CATALYST",
-    "tags": [
-      "HEXEREI"
-    ],
+    "tagged": "Hexerei",
     "stats": {
-      "constant": {
-        "BASE_HP": 9244,
-        "BASE_ATK": 170,
-        "BASE_DEF": 703,
-        "BASE_EM": 0,
-        "PERCENT_ANEMO": 0.24
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "FLAT_EM": 250,
-          "PERCENT_ALL": 0.3285713
-        }
-      }
+      "BASE_HP": 9244,
+      "BASE_ATK": 170,
+      "BASE_DEF": 703,
+      "BASE_EM": 0,
+      "PERCENT_ANEMO": 0.24
     }
   },
   {
@@ -749,59 +307,11 @@
     "element": "GEO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 14695,
-        "BASE_ATK": 251,
-        "BASE_DEF": 738,
-        "BASE_EM": 0,
-        "PERCENT_GEO": 0.288
-      }
-    },
-    "buffs": {
-      "self": {
-        "variable": {
-          "ADD_NA": {
-            "source": [
-              "HP",
-              1
-            ],
-            "value": 0.0139
-          },
-          "ADD_CA": {
-            "source": [
-              "HP",
-              1
-            ],
-            "value": 0.0139
-          },
-          "ADD_PA": {
-            "source": [
-              "HP",
-              1
-            ],
-            "value": 0.0139
-          },
-          "ADD_ES": {
-            "source": [
-              "HP",
-              1
-            ],
-            "value": 0.019
-          },
-          "ADD_EB": {
-            "source": [
-              "HP",
-              1
-            ],
-            "value": 0.33
-          }
-        }
-      },
-      "team": {
-        "constant": {
-          "SHRED_ALL": 0.2
-        }
-      }
+      "BASE_HP": 14695,
+      "BASE_ATK": 251,
+      "BASE_DEF": 738,
+      "BASE_EM": 0,
+      "PERCENT_GEO": 0.288
     }
   },
   {
@@ -811,13 +321,11 @@
     "element": "HYDRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 13103,
-        "BASE_ATK": 301,
-        "BASE_DEF": 815,
-        "BASE_EM": 0,
-        "PERCENT_HYDRO": 0.288
-      }
+      "BASE_HP": 13103,
+      "BASE_ATK": 301,
+      "BASE_DEF": 815,
+      "BASE_EM": 0,
+      "PERCENT_HYDRO": 0.288
     }
   },
   {
@@ -827,20 +335,11 @@
     "element": "CRYO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9570,
-        "BASE_ATK": 212,
-        "BASE_DEF": 601,
-        "BASE_EM": 0,
-        "PERCENT_CRYO": 0.24
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "FLAT_EM": 200
-        }
-      }
+      "BASE_HP": 9570,
+      "BASE_ATK": 212,
+      "BASE_DEF": 601,
+      "BASE_EM": 0,
+      "PERCENT_CRYO": 0.24
     }
   },
   {
@@ -850,32 +349,11 @@
     "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 11201,
-        "BASE_ATK": 249,
-        "BASE_DEF": 799,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
-    },
-    "buffs": {
-      "self": {
-        "variable": {
-          "ADD_CA": {
-            "source": [
-              "DEF",
-              1
-            ],
-            "value": 0.5
-          }
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_PHYSICAL": 0.15,
-          "SHRED_PHYSICAL": 0.15
-        }
-      }
+      "BASE_HP": 11201,
+      "BASE_ATK": 249,
+      "BASE_DEF": 799,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -885,25 +363,11 @@
     "element": "CRYO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9797,
-        "BASE_ATK": 335,
-        "BASE_DEF": 630,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_CR": 0.2
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_CRYO": 0.2
-        }
-      }
+      "BASE_HP": 9797,
+      "BASE_ATK": 335,
+      "BASE_DEF": 630,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -912,86 +376,14 @@
     "quality": 5,
     "element": "GEO",
     "type": "SWORD",
-    "tags": [
-      "HEXEREI"
-    ],
+    "tagged": "Hexerei",
     "stats": {
-      "constant": {
-        "BASE_HP": 13226,
-        "BASE_ATK": 251,
-        "BASE_DEF": 876,
-        "BASE_EM": 0,
-        "PERCENT_GEO": 0.288
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "FLAT_EM": 125
-        },
-        "variable": {
-          "PERCENT_ALL": {
-            "source": [
-              "DEF",
-              1000
-            ],
-            "value": 0.14,
-            "max": 0.42
-          }
-        }
-      }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "GEO"
-        },
-        "rotation": [
-          {
-            "name" : "Skill",
-            "dmgType": [
-              "GEO",
-              "ES"
-            ],
-            "hits": [
-              {
-                "mv": 2.347
-              },
-              {
-                "attr": "DEF",
-                "mv": 2.405,
-                "times": 10
-              }
-            ]
-          },
-          {
-            "name" : "Ultimate",
-            "dmgType": [
-              "GEO",
-              "EB"
-            ],
-            "hits": [
-              {
-                "mv": 6.61
-              },
-              {
-                "mv": 1.296,
-                "times": 7
-              }
-            ]
-          }
-        ],
-        "duration": 20,
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000038",
-          "10000030"
-        ]
-      }
-    ]
+      "BASE_HP": 13226,
+      "BASE_ATK": 251,
+      "BASE_DEF": 876,
+      "BASE_EM": 0,
+      "PERCENT_GEO": 0.288
+    }
   },
   {
     "id": "10000026",
@@ -1000,24 +392,11 @@
     "element": "ANEMO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 12736,
-        "BASE_ATK": 349,
-        "BASE_DEF": 799,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ALL": 0.25,
-          "PERCENT_NA": 0.952,
-          "PERCENT_CA": 0.952,
-          "PERCENT_PA": 0.952,
-          "PERCENT_ES": 0.45
-        }
-      }
+      "BASE_HP": 12736,
+      "BASE_ATK": 349,
+      "BASE_DEF": 799,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -1027,28 +406,12 @@
     "element": "PYRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 15552,
-        "BASE_ATK": 106,
-        "BASE_DEF": 876,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384,
-        "PERCENT_PYRO": 0.33
-      }
-    },
-    "buffs": {
-      "self": {
-        "variable": {
-          "FLAT_ATK": {
-            "source": [
-              "HP",
-              1
-            ],
-            "value": 0.0626,
-            "max": 2856
-          }
-        }
-      }
+      "BASE_HP": 15552,
+      "BASE_ATK": 106,
+      "BASE_DEF": 876,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384,
+      "PERCENT_PYRO": 0.33
     }
   },
   {
@@ -1058,31 +421,11 @@
     "element": "CRYO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 12289,
-        "BASE_ATK": 240,
-        "BASE_DEF": 710,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_CR": 0.12,
-          "PERCENT_NA": 0.1
-        }
-      },
-      "ally": {
-        "constant": {
-          "PERCENT_CR": 0.15
-        }
-      },
-      "team": {
-        "constant": {
-          "SHRED_PHYSICAL": 0.2
-        }
-      }
+      "BASE_HP": 12289,
+      "BASE_ATK": 240,
+      "BASE_DEF": 710,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -1092,20 +435,11 @@
     "element": "PYRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 9352,
-        "BASE_ATK": 240,
-        "BASE_DEF": 587,
-        "BASE_EM": 0,
-        "PERCENT_PYRO": 0.24
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_PYRO": 0.2
-        }
-      }
+      "BASE_HP": 9352,
+      "BASE_ATK": 240,
+      "BASE_DEF": 587,
+      "BASE_EM": 0,
+      "PERCENT_PYRO": 0.24
     }
   },
   {
@@ -1115,21 +449,11 @@
     "element": "CRYO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 13226,
-        "BASE_ATK": 342,
-        "BASE_DEF": 751,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "SHRED_PHYSICAL": 0.25,
-          "SHRED_CRYO": 0.25
-        }
-      }
+      "BASE_HP": 13226,
+      "BASE_ATK": 342,
+      "BASE_DEF": 751,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -1139,23 +463,11 @@
     "element": "ANEMO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 13348,
-        "BASE_ATK": 297,
-        "BASE_DEF": 807,
-        "BASE_EM": 0,
-        "FLAT_EM": 115
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_HYDRO": 0.4,
-          "PERCENT_PYRO": 0.4,
-          "PERCENT_CRYO": 0.4,
-          "PERCENT_ELECTRO": 0.4
-        }
-      }
+      "BASE_HP": 13348,
+      "BASE_ATK": 297,
+      "BASE_DEF": 807,
+      "BASE_EM": 0,
+      "FLAT_EM": 115
     }
   },
   {
@@ -1165,22 +477,11 @@
     "element": "CRYO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12858,
-        "BASE_ATK": 342,
-        "BASE_DEF": 784,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_NA": 0.3,
-          "PERCENT_CA": 0.3,
-          "PERCENT_CRYO": 0.18
-        }
-      }
+      "BASE_HP": 12858,
+      "BASE_ATK": 342,
+      "BASE_DEF": 784,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -1190,26 +491,11 @@
     "element": "PYRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 10164,
-        "BASE_ATK": 323,
-        "BASE_DEF": 615,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "RAW_NA": 0.6174,
-          "PERCENT_PYRO": 0.2
-        }
-      },
-      "ally": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
+      "BASE_HP": 10164,
+      "BASE_ATK": 323,
+      "BASE_DEF": 615,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -1219,13 +505,11 @@
     "element": "ANEMO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 11854,
-        "BASE_ATK": 244,
-        "BASE_DEF": 745,
-        "BASE_EM": 0,
-        "FLAT_EM": 96
-      }
+      "BASE_HP": 11854,
+      "BASE_ATK": 244,
+      "BASE_DEF": 745,
+      "BASE_EM": 0,
+      "FLAT_EM": 96
     }
   },
   {
@@ -1235,30 +519,11 @@
     "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 12907,
-        "BASE_ATK": 337,
-        "BASE_DEF": 789,
-        "BASE_EM": 0,
-        "PERCENT_ER": 0.32
-      },
-      "variable": {
-        "PERCENT_ELECTRO": {
-          "source": [
-            "ER",
-            0.01
-          ],
-          "offset": 1,
-          "value": 0.004
-        }
-      }
-    },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_EB": 0.27
-        }
-      }
+      "BASE_HP": 12907,
+      "BASE_ATK": 337,
+      "BASE_DEF": 789,
+      "BASE_EM": 0,
+      "PERCENT_ER": 0.32
     }
   },
   {
@@ -1268,28 +533,13 @@
     "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 13471,
-        "BASE_ATK": 234,
-        "BASE_DEF": 657,
-        "BASE_EM": 0,
-        "PERCENT_HYDRO": 0.288,
-        "PERCENT_HB": 0.25,
-        "PERCENT_CR": -1.0
-      }
-    },
-    "buffs": {
-      "self": {
-        "variable": {
-          "ADD_NA": {
-            "source": [
-              "HB",
-              0.01
-            ],
-            "value": 60
-          }
-        }
-      }
+      "BASE_HP": 13471,
+      "BASE_ATK": 234,
+      "BASE_DEF": 657,
+      "BASE_EM": 0,
+      "PERCENT_HYDRO": 0.288,
+      "PERCENT_HB": 0.25,
+      "PERCENT_CR": -1.0
     }
   },
   {
@@ -1299,13 +549,11 @@
     "element": "ELECTRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9570,
-        "BASE_ATK": 195,
-        "BASE_DEF": 628,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 9570,
+      "BASE_ATK": 195,
+      "BASE_DEF": 628,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -1315,13 +563,11 @@
     "element": "PYRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 10331,
-        "BASE_ATK": 202,
-        "BASE_DEF": 751,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 10331,
+      "BASE_ATK": 202,
+      "BASE_DEF": 751,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -1331,13 +577,11 @@
     "element": "CRYO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 10899,
-        "BASE_ATK": 234,
-        "BASE_DEF": 676,
-        "BASE_EM": 0,
-        "PERCENT_CRYO": 0.288
-      }
+      "BASE_HP": 10899,
+      "BASE_ATK": 234,
+      "BASE_DEF": 676,
+      "BASE_EM": 0,
+      "PERCENT_CRYO": 0.288
     }
   },
   {
@@ -1347,13 +591,11 @@
     "element": "GEO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9570,
-        "BASE_ATK": 183,
-        "BASE_DEF": 648,
-        "BASE_EM": 0,
-        "PERCENT_GEO": 0.24
-      }
+      "BASE_HP": 9570,
+      "BASE_ATK": 183,
+      "BASE_DEF": 648,
+      "BASE_EM": 0,
+      "PERCENT_GEO": 0.24
     }
   },
   {
@@ -1363,13 +605,11 @@
     "element": "GEO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 12858,
-        "BASE_ATK": 227,
-        "BASE_DEF": 959,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 12858,
+      "BASE_ATK": 227,
+      "BASE_DEF": 959,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -1379,13 +619,11 @@
     "element": "CRYO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 12993,
-        "BASE_ATK": 304,
-        "BASE_DEF": 830,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.288
-      }
+      "BASE_HP": 12993,
+      "BASE_ATK": 304,
+      "BASE_DEF": 830,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.288
     }
   },
   {
@@ -1395,13 +633,11 @@
     "element": "GEO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 10657,
-        "BASE_ATK": 191,
-        "BASE_DEF": 734,
-        "BASE_EM": 0,
-        "PERCENT_ER": 0.267
-      }
+      "BASE_HP": 10657,
+      "BASE_ATK": 191,
+      "BASE_DEF": 734,
+      "BASE_EM": 0,
+      "PERCENT_ER": 0.267
     }
   },
   {
@@ -1411,13 +647,11 @@
     "element": "ELECTRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 10372,
-        "BASE_ATK": 340,
-        "BASE_DEF": 569,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 10372,
+      "BASE_ATK": 340,
+      "BASE_DEF": 569,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -1427,13 +661,11 @@
     "element": "HYDRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 13715,
-        "BASE_ATK": 299,
-        "BASE_DEF": 769,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
+      "BASE_HP": 13715,
+      "BASE_ATK": 299,
+      "BASE_DEF": 769,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -1443,13 +675,11 @@
     "element": "HYDRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 14450,
-        "BASE_ATK": 244,
-        "BASE_DEF": 548,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 14450,
+      "BASE_ATK": 244,
+      "BASE_DEF": 548,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -1459,13 +689,11 @@
     "element": "ELECTRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12289,
-        "BASE_ATK": 212,
-        "BASE_DEF": 751,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
+      "BASE_HP": 12289,
+      "BASE_ATK": 212,
+      "BASE_DEF": 751,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -1475,13 +703,11 @@
     "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 10657,
-        "BASE_ATK": 225,
-        "BASE_DEF": 684,
-        "BASE_EM": 0,
-        "PERCENT_ANEMO": 0.24
-      }
+      "BASE_HP": 10657,
+      "BASE_ATK": 225,
+      "BASE_DEF": 684,
+      "BASE_EM": 0,
+      "PERCENT_ANEMO": 0.24
     }
   },
   {
@@ -1491,13 +717,11 @@
     "element": "DENDRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9787,
-        "BASE_ATK": 200,
-        "BASE_DEF": 601,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 9787,
+      "BASE_ATK": 200,
+      "BASE_DEF": 601,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -1507,13 +731,11 @@
     "element": "ELECTRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 12397,
-        "BASE_ATK": 223,
-        "BASE_DEF": 723,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
+      "BASE_HP": 12397,
+      "BASE_ATK": 223,
+      "BASE_DEF": 723,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -1523,13 +745,11 @@
     "element": "DENDRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 10850,
-        "BASE_ATK": 268,
-        "BASE_DEF": 630,
-        "BASE_EM": 0,
-        "PERCENT_DENDRO": 0.288
-      }
+      "BASE_HP": 10850,
+      "BASE_ATK": 268,
+      "BASE_DEF": 630,
+      "BASE_EM": 0,
+      "PERCENT_DENDRO": 0.288
     }
   },
   {
@@ -1539,13 +759,11 @@
     "element": "HYDRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 15185,
-        "BASE_ATK": 230,
-        "BASE_DEF": 729,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.288
-      }
+      "BASE_HP": 15185,
+      "BASE_ATK": 230,
+      "BASE_DEF": 729,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.288
     }
   },
   {
@@ -1555,30 +773,12 @@
     "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 12491,
-        "BASE_ATK": 318,
-        "BASE_DEF": 859,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384,
-        "FLAT_EM": 100
-      }
-    },
-    "variable": {
-      "ADD_NA": {
-        "source": [
-          "EM",
-          1
-        ],
-        "value": 1.5
-      },
-      "ADD_ES": {
-        "source": [
-          "EM",
-          1
-        ],
-        "value": 2.5
-      }
+      "BASE_HP": 12491,
+      "BASE_ATK": 318,
+      "BASE_DEF": 859,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384,
+      "FLAT_EM": 100
     }
   },
   {
@@ -1588,13 +788,11 @@
     "element": "HYDRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 10875,
-        "BASE_ATK": 212,
-        "BASE_DEF": 683,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
+      "BASE_HP": 10875,
+      "BASE_ATK": 212,
+      "BASE_DEF": 683,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -1604,20 +802,11 @@
     "element": "DENDRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 10360,
-        "BASE_ATK": 299,
-        "BASE_DEF": 630,
-        "BASE_EM": 0,
-        "FLAT_EM": 115
-      }
-    },
-    "buffs": {
-      "ally": {
-        "constant": {
-          "FLAT_EM": 250
-        }
-      }
+      "BASE_HP": 10360,
+      "BASE_ATK": 299,
+      "BASE_DEF": 630,
+      "BASE_EM": 0,
+      "FLAT_EM": 115
     }
   },
   {
@@ -1627,13 +816,11 @@
     "element": "CRYO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 11092,
-        "BASE_ATK": 217,
-        "BASE_DEF": 655,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
+      "BASE_HP": 11092,
+      "BASE_ATK": 217,
+      "BASE_DEF": 655,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -1643,21 +830,11 @@
     "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 10164,
-        "BASE_ATK": 328,
-        "BASE_DEF": 607,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "RAW_NA": 0.5372,
-          "RAW_CA": 0.4298
-        }
-      }
+      "BASE_HP": 10164,
+      "BASE_ATK": 328,
+      "BASE_DEF": 607,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -1667,13 +844,11 @@
     "element": "ANEMO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9570,
-        "BASE_ATK": 196,
-        "BASE_DEF": 628,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 9570,
+      "BASE_ATK": 196,
+      "BASE_DEF": 628,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -1683,13 +858,11 @@
     "element": "DENDRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 12289,
-        "BASE_ATK": 212,
-        "BASE_DEF": 751,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
+      "BASE_HP": 12289,
+      "BASE_ATK": 212,
+      "BASE_DEF": 751,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -1699,23 +872,11 @@
     "element": "DENDRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 13348,
-        "BASE_ATK": 313,
-        "BASE_DEF": 782,
-        "BASE_EM": 0,
-        "PERCENT_DENDRO": 0.288
-      }
-    },
-    "variable": {
-      "PERCENT_ES": {
-        "source": [
-          "EM",
-          1
-        ],
-        "value": 0.001,
-        "max": 1
-      }
+      "BASE_HP": 13348,
+      "BASE_ATK": 313,
+      "BASE_DEF": 782,
+      "BASE_EM": 0,
+      "PERCENT_DENDRO": 0.288
     }
   },
   {
@@ -1725,13 +886,11 @@
     "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 15675,
-        "BASE_ATK": 265,
-        "BASE_DEF": 628,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.288
-      }
+      "BASE_HP": 15675,
+      "BASE_ATK": 265,
+      "BASE_DEF": 628,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.288
     }
   },
   {
@@ -1741,13 +900,11 @@
     "element": "CRYO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 12506,
-        "BASE_ATK": 223,
-        "BASE_DEF": 713,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
+      "BASE_HP": 12506,
+      "BASE_ATK": 223,
+      "BASE_DEF": 713,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -1757,13 +914,11 @@
     "element": "DENDRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 11962,
-        "BASE_ATK": 234,
-        "BASE_DEF": 751,
-        "BASE_EM": 0,
-        "FLAT_EM": 96
-      }
+      "BASE_HP": 11962,
+      "BASE_ATK": 234,
+      "BASE_DEF": 751,
+      "BASE_EM": 0,
+      "FLAT_EM": 96
     }
   },
   {
@@ -1773,13 +928,11 @@
     "element": "DENDRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 13348,
-        "BASE_ATK": 193,
-        "BASE_DEF": 500,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.288
-      }
+      "BASE_HP": 13348,
+      "BASE_ATK": 193,
+      "BASE_DEF": 500,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.288
     }
   },
   {
@@ -1789,13 +942,11 @@
     "element": "DENDRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12180,
-        "BASE_ATK": 223,
-        "BASE_DEF": 546,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
+      "BASE_HP": 12180,
+      "BASE_ATK": 223,
+      "BASE_DEF": 546,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -1805,13 +956,11 @@
     "element": "ANEMO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12397,
-        "BASE_ATK": 232,
-        "BASE_DEF": 712,
-        "BASE_EM": 0,
-        "PERCENT_ANEMO": 0.24
-      }
+      "BASE_HP": 12397,
+      "BASE_ATK": 232,
+      "BASE_DEF": 712,
+      "BASE_EM": 0,
+      "PERCENT_ANEMO": 0.24
     }
   },
   {
@@ -1821,13 +970,11 @@
     "element": "PYRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 11021,
-        "BASE_ATK": 318,
-        "BASE_DEF": 538,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 11021,
+      "BASE_ATK": 318,
+      "BASE_DEF": 538,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -1837,13 +984,11 @@
     "element": "CRYO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 12071,
-        "BASE_ATK": 255,
-        "BASE_DEF": 708,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 12071,
+      "BASE_ATK": 255,
+      "BASE_DEF": 708,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -1853,20 +998,11 @@
     "element": "CRYO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 13593,
-        "BASE_ATK": 311,
-        "BASE_DEF": 763,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "RAW_NA": 0.7031
-        }
-      }
+      "BASE_HP": 13593,
+      "BASE_ATK": 311,
+      "BASE_DEF": 763,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -1876,20 +1012,11 @@
     "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 14695,
-        "BASE_ATK": 208,
-        "BASE_DEF": 576,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "RAW_CA": 0.6
-        }
-      }
+      "BASE_HP": 14695,
+      "BASE_ATK": 208,
+      "BASE_DEF": 576,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -1899,13 +1026,11 @@
     "element": "CRYO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 10766,
-        "BASE_ATK": 173,
-        "BASE_DEF": 546,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 10766,
+      "BASE_ATK": 173,
+      "BASE_DEF": 546,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -1915,36 +1040,12 @@
     "element": "HYDRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 15307,
-        "BASE_ATK": 244,
-        "BASE_DEF": 696,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192,
-        "PERCENT_BASE": 0.4
-      }
-    },
-    "variable": {
-      "PERCENT_ES": {
-        "source": [
-          "HP",
-          1000
-        ],
-        "value": 0.007,
-        "max": 0.28
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "RAW_ES": 0.4
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_ALL": 0.75
-        }
-      }
+      "BASE_HP": 15307,
+      "BASE_ATK": 244,
+      "BASE_DEF": 696,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192,
+      "PERCENT_BASE": 0.4
     }
   },
   {
@@ -1954,13 +1055,11 @@
     "element": "PYRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 11962,
-        "BASE_ATK": 193,
-        "BASE_DEF": 605,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
+      "BASE_HP": 11962,
+      "BASE_ATK": 193,
+      "BASE_DEF": 605,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -1970,20 +1069,11 @@
     "element": "GEO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 12650,
-        "BASE_ATK": 352,
-        "BASE_DEF": 793,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "RAW_ES": 0.45
-        }
-      }
+      "BASE_HP": 12650,
+      "BASE_ATK": 352,
+      "BASE_DEF": 793,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -1993,13 +1083,11 @@
     "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 11419,
-        "BASE_ATK": 302,
-        "BASE_DEF": 703,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 11419,
+      "BASE_ATK": 302,
+      "BASE_DEF": 703,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -2009,13 +1097,11 @@
     "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 10409,
-        "BASE_ATK": 335,
-        "BASE_DEF": 573,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.288
-      }
+      "BASE_HP": 10409,
+      "BASE_ATK": 335,
+      "BASE_DEF": 573,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.288
     }
   },
   {
@@ -2025,13 +1111,11 @@
     "element": "GEO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 11438,
-        "BASE_ATK": 323,
-        "BASE_DEF": 953,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 11438,
+      "BASE_ATK": 323,
+      "BASE_DEF": 953,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -2041,90 +1125,12 @@
     "element": "PYRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 13103,
-        "BASE_ATK": 342,
-        "BASE_DEF": 765,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_PYRO": 0.4
-        }
-      }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "PYRO"
-        },
-        "rotation": [
-          {
-            "name" : "Skill",
-            "dmgType": [
-              "PYRO",
-              "ES"
-            ],
-            "hits": [
-              {
-                "mv": 0.267
-              },
-              {
-                "mv": 2.404
-              },
-              {
-                "mv": 0.572,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name" : "Charged Attack",
-            "dmgType": [
-              "PYRO",
-              "CA"
-            ],
-            "hits": [
-              {
-                "mv": 1.795,
-                "reaction": "RVAPORIZE"
-              }
-            ]
-          },
-          {
-            "name" : "N3",
-            "dmgType": [
-              "PYRO",
-              "NA"
-            ],
-            "hits": [
-              {
-                "mv": 3.101,
-                "reaction": "RVAPORIZE"
-              },
-              {
-                "mv": 3.03
-              },
-              {
-                "mv": 3.142
-              }
-            ],
-            "times": 5
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000096",
-          "10000032"
-        ]
-      }
-    ]
+      "BASE_HP": 13103,
+      "BASE_ATK": 342,
+      "BASE_DEF": 765,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
+    }
   },
   {
     "id": "10000095",
@@ -2133,13 +1139,11 @@
     "element": "HYDRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 13348,
-        "BASE_ATK": 193,
-        "BASE_DEF": 500,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.288
-      }
+      "BASE_HP": 13348,
+      "BASE_ATK": 193,
+      "BASE_DEF": 500,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.288
     }
   },
   {
@@ -2149,13 +1153,11 @@
     "element": "ELECTRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9787,
-        "BASE_ATK": 227,
-        "BASE_DEF": 560,
-        "BASE_EM": 0,
-        "FLAT_EM": 96
-      }
+      "BASE_HP": 9787,
+      "BASE_ATK": 227,
+      "BASE_DEF": 560,
+      "BASE_EM": 0,
+      "FLAT_EM": 96
     }
   },
   {
@@ -2165,13 +1167,11 @@
     "element": "ELECTRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12956,
-        "BASE_ATK": 337,
-        "BASE_DEF": 784,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 12956,
+      "BASE_ATK": 337,
+      "BASE_DEF": 784,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -2181,13 +1181,11 @@
     "element": "DENDRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 13568,
-        "BASE_ATK": 335,
-        "BASE_DEF": 730,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
+      "BASE_HP": 13568,
+      "BASE_ATK": 335,
+      "BASE_DEF": 730,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -2197,13 +1195,11 @@
     "element": "GEO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 11799,
-        "BASE_ATK": 217,
-        "BASE_DEF": 792,
-        "BASE_EM": 0,
-        "PERCENT_GEO": 0.24
-      }
+      "BASE_HP": 11799,
+      "BASE_ATK": 217,
+      "BASE_DEF": 792,
+      "BASE_EM": 0,
+      "PERCENT_GEO": 0.24
     }
   },
   {
@@ -2213,13 +1209,11 @@
     "element": "DENDRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 12858,
-        "BASE_ATK": 332,
-        "BASE_DEF": 802,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
+      "BASE_HP": 12858,
+      "BASE_ATK": 332,
+      "BASE_DEF": 802,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -2229,13 +1223,11 @@
     "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 15185,
-        "BASE_ATK": 182,
-        "BASE_DEF": 570,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 15185,
+      "BASE_ATK": 182,
+      "BASE_DEF": 570,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -2245,13 +1237,11 @@
     "element": "GEO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12405,
-        "BASE_ATK": 275,
-        "BASE_DEF": 930,
-        "BASE_EM": 0,
-        "PERCENT_DEF": 0.36
-      }
+      "BASE_HP": 12405,
+      "BASE_ATK": 275,
+      "BASE_DEF": 930,
+      "BASE_EM": 0,
+      "PERCENT_DEF": 0.36
     }
   },
   {
@@ -2261,13 +1251,11 @@
     "element": "ANEMO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9797,
-        "BASE_ATK": 347,
-        "BASE_DEF": 615,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 9797,
+      "BASE_ATK": 347,
+      "BASE_DEF": 615,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -2277,13 +1265,11 @@
     "element": "ELECTRO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9244,
-        "BASE_ATK": 244,
-        "BASE_DEF": 587,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 9244,
+      "BASE_ATK": 244,
+      "BASE_DEF": 587,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -2293,13 +1279,11 @@
     "element": "PYRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 12552,
-        "BASE_ATK": 359,
-        "BASE_DEF": 792,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
+      "BASE_HP": 12552,
+      "BASE_ATK": 359,
+      "BASE_DEF": 792,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -2309,13 +1293,11 @@
     "element": "CRYO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 11634,
-        "BASE_ATK": 127,
-        "BASE_DEF": 763,
-        "BASE_EM": 0,
-        "FLAT_EM": 115
-      }
+      "BASE_HP": 11634,
+      "BASE_ATK": 127,
+      "BASE_DEF": 763,
+      "BASE_EM": 0,
+      "FLAT_EM": 115
     }
   },
   {
@@ -2325,13 +1307,11 @@
     "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 9244,
-        "BASE_ATK": 251,
-        "BASE_DEF": 580,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 9244,
+      "BASE_ATK": 251,
+      "BASE_DEF": 580,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -2341,13 +1321,11 @@
     "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 12736,
-        "BASE_ATK": 215,
-        "BASE_DEF": 757,
-        "BASE_EM": 0,
-        "FLAT_EM": 115
-      }
+      "BASE_HP": 12736,
+      "BASE_ATK": 215,
+      "BASE_DEF": 757,
+      "BASE_EM": 0,
+      "FLAT_EM": 115
     }
   },
   {
@@ -2357,13 +1335,11 @@
     "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 10657,
-        "BASE_ATK": 257,
-        "BASE_DEF": 638,
-        "BASE_EM": 0,
-        "PERCENT_ATK": 0.24
-      }
+      "BASE_HP": 10657,
+      "BASE_ATK": 257,
+      "BASE_DEF": 638,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
     }
   },
   {
@@ -2373,13 +1349,11 @@
     "element": "ELECTRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 12699,
-        "BASE_ATK": 356,
-        "BASE_DEF": 782,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 12699,
+      "BASE_ATK": 356,
+      "BASE_DEF": 782,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -2389,13 +1363,11 @@
     "element": "CRYO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 13348,
-        "BASE_ATK": 347,
-        "BASE_DEF": 732,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 13348,
+      "BASE_ATK": 347,
+      "BASE_DEF": 732,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -2405,13 +1377,11 @@
     "element": "ANEMO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 10081,
-        "BASE_ATK": 178,
-        "BASE_DEF": 605,
-        "BASE_EM": 0,
-        "FLAT_EM": 96
-      }
+      "BASE_HP": 10081,
+      "BASE_ATK": 178,
+      "BASE_DEF": 605,
+      "BASE_EM": 0,
+      "FLAT_EM": 96
     }
   },
   {
@@ -2421,21 +1391,11 @@
     "element": "CRYO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12417,
-        "BASE_ATK": 359,
-        "BASE_DEF": 806,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "RAW_NA": 0.7,
-          "RAW_EB": 0.6
-        }
-      }
+      "BASE_HP": 12417,
+      "BASE_ATK": 359,
+      "BASE_DEF": 806,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -2445,13 +1405,11 @@
     "element": "HYDRO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12506,
-        "BASE_ATK": 189,
-        "BASE_DEF": 560,
-        "BASE_EM": 0,
-        "PERCENT_HP": 0.24
-      }
+      "BASE_HP": 12506,
+      "BASE_ATK": 189,
+      "BASE_DEF": 560,
+      "BASE_EM": 0,
+      "PERCENT_HP": 0.24
     }
   },
   {
@@ -2461,13 +1419,11 @@
     "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 12613,
-        "BASE_ATK": 330,
-        "BASE_DEF": 828,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 12613,
+      "BASE_ATK": 330,
+      "BASE_DEF": 828,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -2477,13 +1433,11 @@
     "element": "DENDRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 10654,
-        "BASE_ATK": 255,
-        "BASE_DEF": 669,
-        "BASE_EM": 200,
-        "FLAT_EM": 115
-      }
+      "BASE_HP": 10654,
+      "BASE_ATK": 255,
+      "BASE_DEF": 669,
+      "BASE_EM": 200,
+      "FLAT_EM": 115
     }
   },
   {
@@ -2493,13 +1447,11 @@
     "element": "ELECTRO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 12491,
-        "BASE_ATK": 352,
-        "BASE_DEF": 809,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
+      "BASE_HP": 12491,
+      "BASE_ATK": 352,
+      "BASE_DEF": 809,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -2509,13 +1461,11 @@
     "element": "HYDRO",
     "type": "CLAYMORE",
     "stats": {
-      "constant": {
-        "BASE_HP": 11201,
-        "BASE_ATK": 242,
-        "BASE_DEF": 607,
-        "BASE_EM": 0,
-        "FLAT_EM": 96
-      }
+      "BASE_HP": 11201,
+      "BASE_ATK": 242,
+      "BASE_DEF": 607,
+      "BASE_EM": 0,
+      "FLAT_EM": 96
     }
   },
   {
@@ -2525,13 +1475,11 @@
     "element": "DENDRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 12704,
-        "BASE_ATK": 344,
-        "BASE_DEF": 799,
-        "BASE_EM": 100,
-        "PERCENT_CD": 0.384
-      }
+      "BASE_HP": 12704,
+      "BASE_ATK": 344,
+      "BASE_DEF": 799,
+      "BASE_EM": 100,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -2540,31 +1488,13 @@
     "quality": 5,
     "element": "PYRO",
     "type": "SWORD",
-    "tags": [
-      "HEXEREI"
-    ],
+    "tagged": "Hexerei",
     "stats": {
-      "constant": {
-        "BASE_HP": 12430,
-        "BASE_ATK": 347,
-        "BASE_DEF": 822,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
-    },
-    "buffs": {
-      "self": {
-        "variable": {
-          "RAW_EB": {
-            "source": [
-              "ATK",
-              100
-            ],
-            "value": 0.03,
-            "max": 0.75
-          }
-        }
-      }
+      "BASE_HP": 12430,
+      "BASE_ATK": 347,
+      "BASE_DEF": 822,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -2574,13 +1504,11 @@
     "element": "ANEMO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9646,
-        "BASE_ATK": 223,
-        "BASE_DEF": 580,
-        "BASE_EM": 0,
-        "PERCENT_HB": 0.185
-      }
+      "BASE_HP": 9646,
+      "BASE_ATK": 223,
+      "BASE_DEF": 580,
+      "BASE_EM": 0,
+      "PERCENT_HB": 0.185
     }
   },
   {
@@ -2590,13 +1518,11 @@
     "element": "HYDRO",
     "type": "CATALYST",
     "stats": {
-      "constant": {
-        "BASE_HP": 14695,
-        "BASE_ATK": 96,
-        "BASE_DEF": 515,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 14695,
+      "BASE_ATK": 96,
+      "BASE_DEF": 515,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   },
   {
@@ -2606,13 +1532,11 @@
     "element": "GEO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 12919,
-        "BASE_ATK": 225,
-        "BASE_DEF": 957,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
+      "BASE_HP": 12919,
+      "BASE_ATK": 225,
+      "BASE_DEF": 957,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -2622,13 +1546,11 @@
     "element": "GEO",
     "type": "POLEARM",
     "stats": {
-      "constant": {
-        "BASE_HP": 11962,
-        "BASE_ATK": 191,
-        "BASE_DEF": 814,
-        "BASE_EM": 0,
-        "FLAT_EM": 96
-      }
+      "BASE_HP": 11962,
+      "BASE_ATK": 191,
+      "BASE_DEF": 814,
+      "BASE_EM": 0,
+      "FLAT_EM": 96
     }
   },
   {
@@ -2637,17 +1559,13 @@
     "quality": 5,
     "element": "ANEMO",
     "type": "CLAYMORE",
-    "tags": [
-      "HEXEREI"
-    ],
+    "tagged": "Hexerei",
     "stats": {
-      "constant": {
-        "BASE_HP": 12613,
-        "BASE_ATK": 353,
-        "BASE_DEF": 795,
-        "BASE_EM": 0,
-        "PERCENT_CD": 0.384
-      }
+      "BASE_HP": 12613,
+      "BASE_ATK": 353,
+      "BASE_DEF": 795,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   },
   {
@@ -2657,13 +1575,11 @@
     "element": "GEO",
     "type": "BOW",
     "stats": {
-      "constant": {
-        "BASE_HP": 9895,
-        "BASE_ATK": 144,
-        "BASE_DEF": 907,
-        "BASE_EM": 0,
-        "PERCENT_CR": 0.192
-      }
+      "BASE_HP": 9895,
+      "BASE_ATK": 144,
+      "BASE_DEF": 907,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   }
 ]
