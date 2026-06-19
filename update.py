@@ -89,8 +89,7 @@ def main():
             data = requests.get(f"{url_base}{mapped_id_type}/{ID}.json").json()
             parse_image(GAME, data, ID, "character")
             json_data.append(parse_data(GAME, data, ID, "character"))
-            if GAME['id'] == "wuthering-waves":
-                mv_data.append(mv_parser(GAME['id'], ID, data))
+            mv_data.append(mv_parser(GAME['id'], ID, data))
         write_json(f"src/data/{GAME['id']}/characters.json", json_data)
         write_json(mv_path, mv_data)
 

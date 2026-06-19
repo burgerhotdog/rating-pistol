@@ -3,16 +3,16 @@ import { getSetCounts, getDefaultWeaponRank } from '@/utils';
 export function applyStoredBuild(gameId, member, storedBuild) {
   const next = { ...member, build: storedBuild, useUserBuild: true };
 
-  if (storedBuild.rank != null) {
+  if ('rank' in storedBuild) {
     next.rank = storedBuild.rank;
   }
 
-  if (storedBuild.weaponId) {
+  if ('weaponId' in storedBuild) {
     next.weaponId = storedBuild.weaponId;
     next.weaponRank = storedBuild.weaponRank ?? getDefaultWeaponRank(gameId, storedBuild.weaponId);
   }
 
-  if (storedBuild.equipList) {
+  if ('equipList' in storedBuild) {
     next.setCounts = getSetCounts(storedBuild.equipList);
   }
 

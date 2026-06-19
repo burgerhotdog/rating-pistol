@@ -1,3 +1,5 @@
+import re
+
 def parse_segment(segment):
     segment = segment.replace(" ", "")
     parts = segment.split("*")
@@ -39,9 +41,52 @@ def format_multipliers(raw_list):
 def mv_parser(game_id, ID, data):
     mv_dict = {}
     mv_dict["id"] = ID
+
     match game_id:
         case "genshin-impact":
-            print("this shouldn't happen")
+            skill_index_to_id = {
+                0: "NA",
+                1: "ES",
+                2: "EB",
+                3: "EB",
+            }
+
+            for index, value in enumerate(data["skills"]):
+                skill_key = skill_index_to_id.get(index)
+                promote = {int(k): v for k, v in value["promote"].items()}
+                if len(promote) != 15:
+                    continue
+                base_desc = promote[0]["desc"]
+                skill_lines = {}
+                line_number = 1
+
+                for desc_string in base_desc:
+                    param_matches = re.findall(r'\{param(\d+):[^}]+\}', desc_string)
+
+                    if not param_matches:
+                        continue
+
+                    name = desc_string.split('|')[0]
+
+                    indexed_multipliers = []
+                    for param_str in param_matches:
+                        param_index = int(param_str) - 1
+
+                        mv_values = [
+                            promote[level]["param"][param_index]
+                            for level in range(15)
+                        ]
+
+                        indexed_multipliers.append({"mv": mv_values})
+
+                    skill_lines[line_number] = {
+                        "name": name,
+                        "indexedMultipliers": indexed_multipliers,
+                    }
+                    line_number += 1
+
+                mv_dict[skill_key] = skill_lines
+
         case "honkai-star-rail":
             print("this shouldn't happen")
         case "wuthering-waves":

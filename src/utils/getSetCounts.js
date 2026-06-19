@@ -1,4 +1,4 @@
-export function getSetCounts(equipList) {
+export const getSetCounts = (equipList) => {
   return equipList.reduce((acc, equip) => {
     const { setId } = equip ?? {};
     if (!setId) return acc;
@@ -6,4 +6,4 @@ export function getSetCounts(equipList) {
     acc[setId] = (acc[setId] ?? 0) + 1;
     return acc;
   }, {});
-}
+};
