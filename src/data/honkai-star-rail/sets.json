@@ -545,7 +545,7 @@
         },
         {
           "statMap": {
-            "PERCENT_CD": 0.40
+            "PERCENT_CD": 0.4
           }
         }
       ]
@@ -1057,6 +1057,22 @@
           }
         }
       ]
+    }
+  },
+  {
+    "id": "131",
+    "name": "As Navigator Isee Sees It",
+    "tieredEffects": {
+      "2": {},
+      "4": {}
+    }
+  },
+  {
+    "id": "132",
+    "name": "Divine-Querying Master Smith",
+    "tieredEffects": {
+      "2": {},
+      "4": {}
     }
   }
 ]

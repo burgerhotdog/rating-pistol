@@ -85,6 +85,73 @@ def parse_gi(data, resolved):
 
         resolved[skill_id] = skill
 
+def parse_hsr(data, resolved):
+    key_to_id = {
+        "Basic ATK": "BA",
+        "Skill": "S",
+        "Ultimate": "U",
+        "Talent": "T",
+        "Memosprite Skill": "MS",
+        "Memosprite Talent": "MT",
+        "Elation Skill": "ES",
+    }
+
+    to_eval = list(data["skills"].items())
+
+    if data["base_type"] == "Memory":
+        to_eval = [
+            *to_eval,
+            *data["memosprite"]["skills"].items()
+        ]
+
+    for raw_skill_id, raw_skill in to_eval:
+        if raw_skill["type_name"] not in key_to_id:
+            continue
+
+        skill_id = key_to_id[raw_skill["type_name"]]
+
+        indexed_multipliers = []
+
+        for key, value in raw_skill["level"].items():
+            param_list = value["param_list"]
+
+            for index, hit in enumerate(param_list):
+                if index < len(indexed_multipliers):
+                    indexed_multipliers[index]["mv"].append(hit)
+                else:
+                    indexed_multipliers.append({ "mv": [hit] })
+
+        filtered = []
+
+        for entry in indexed_multipliers:
+            mv = entry["mv"]
+
+            if len(mv) > 1 and all(x == mv[0] for x in mv):
+                continue
+
+            filtered.append(entry)
+
+        indexed_multipliers = filtered
+        
+        if skill_id not in resolved:
+            resolved[skill_id] = {
+                "1": {
+                    "name": raw_skill["name"],
+                    "cast": skill_id,
+                    "considered": skill_id,
+                    "indexedMultipliers": indexed_multipliers,
+                }
+            }
+        else:
+            count = len(resolved[skill_id]) + 1
+
+            resolved[skill_id][str(count)] = {
+                "name": raw_skill["name"],
+                "cast": skill_id,
+                "considered": skill_id,
+                "indexedMultipliers": indexed_multipliers,
+            }
+
 def parse_ww(data, resolved):
     key_to_id = {
         "1": "NA",
@@ -218,7 +285,7 @@ def parse_actions(data, game_id, char_id):
             parse_gi(data, resolved)
 
         case "honkai-star-rail":
-            print("this shouldn't happen")
+            parse_hsr(data, resolved)
 
         case "wuthering-waves":
             parse_ww(data, resolved)

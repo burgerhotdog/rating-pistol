@@ -481,7 +481,7 @@
   },
   {
     "id": "1213",
-    "name": "Dan Heng • Imbibitor Lunae",
+    "name": "Dan Heng \u00e2\u20ac\u00a2 Imbibitor Lunae",
     "quality": 5,
     "element": "IMAGINARY",
     "type": "DESTRUCTION",
@@ -1169,7 +1169,7 @@
   },
   {
     "id": "1414",
-    "name": "Dan Heng • Permansor Terrae",
+    "name": "Dan Heng \u00e2\u20ac\u00a2 Permansor Terrae",
     "quality": 5,
     "element": "PHYSICAL",
     "type": "PRESERVATION",
@@ -1261,6 +1261,54 @@
       "PERCENT_CD": 0.373,
       "PERCENT_LIGHTNING": 0.144,
       "PERCENT_ATK": 0.1
+    }
+  },
+  {
+    "id": "1505",
+    "name": "Evanescia",
+    "quality": 5,
+    "element": "Physical",
+    "type": "Elation",
+    "stats": {
+      "BASE_HP": 1048,
+      "BASE_ATK": 737,
+      "BASE_DEF": 461,
+      "BASE_SPD": 104,
+      "PERCENT_CR": 0.187,
+      "PERCENT_ELATION": 0.18,
+      "FLAT_SPD": 5
+    }
+  },
+  {
+    "id": "1506",
+    "name": "Silver Wolf LV.<unbreak>999</unbreak>",
+    "quality": 5,
+    "element": "Imaginary",
+    "type": "Elation",
+    "stats": {
+      "BASE_HP": 1048,
+      "BASE_ATK": 388,
+      "BASE_DEF": 655,
+      "BASE_SPD": 110,
+      "PERCENT_CR": 0.187,
+      "FLAT_SPD": 9,
+      "PERCENT_ELATION": 0.1
+    }
+  },
+  {
+    "id": "1507",
+    "name": "Mortenax Blade",
+    "quality": 5,
+    "element": "Fire",
+    "type": "NIHILITY",
+    "stats": {
+      "BASE_HP": 1358,
+      "BASE_ATK": 543,
+      "BASE_DEF": 485,
+      "BASE_SPD": 107,
+      "PERCENT_FIRE": 0.224,
+      "PERCENT_CR": 0.12,
+      "PERCENT_HP": 0.1
     }
   }
 ]

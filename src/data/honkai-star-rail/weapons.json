@@ -1736,5 +1736,49 @@
       "BASE_ATK": 529,
       "BASE_DEF": 463
     }
+  },
+  {
+    "id": "22007",
+    "name": "Tomorrow, Together",
+    "quality": 4,
+    "type": "Elation",
+    "stats": {
+      "BASE_HP": 953,
+      "BASE_ATK": 476,
+      "BASE_DEF": 331
+    }
+  },
+  {
+    "id": "23057",
+    "name": "Welcome to the Cosmic City",
+    "quality": 5,
+    "type": "Elation",
+    "stats": {
+      "BASE_HP": 1164,
+      "BASE_ATK": 476,
+      "BASE_DEF": 529
+    }
+  },
+  {
+    "id": "23058",
+    "name": "Until the Flowers Bloom Again",
+    "quality": 5,
+    "type": "Elation",
+    "stats": {
+      "BASE_HP": 953,
+      "BASE_ATK": 635,
+      "BASE_DEF": 463
+    }
+  },
+  {
+    "id": "23059",
+    "name": "Reforged in Hellfire",
+    "quality": 5,
+    "type": "NIHILITY",
+    "stats": {
+      "BASE_HP": 1376,
+      "BASE_ATK": 423,
+      "BASE_DEF": 463
+    }
   }
 ]
