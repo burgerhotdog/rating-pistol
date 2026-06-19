@@ -3090,7 +3090,7 @@
       {
         "applyWhen": "cast",
         "applyOnConsidered": "ES",
-        "useOnConsidered": "AERO",
+        "useOnElement": "AERO",
         "rankedStatMap": {
           "IGNORE_DEF": [
             0.1,

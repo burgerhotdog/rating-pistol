@@ -1063,16 +1063,41 @@
     "id": "131",
     "name": "As Navigator Isee Sees It",
     "tieredEffects": {
-      "2": {},
-      "4": {}
+      "2": {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        }
+      },
+      "4": {
+        "statMap": {
+          "PERCENT_S": 0.54,
+          "PERCENT_U": 0.54
+        }
+      }
     }
   },
   {
     "id": "132",
     "name": "Divine-Querying Master Smith",
     "tieredEffects": {
-      "2": {},
-      "4": {}
+      "2": {
+        "statMap": {
+          "PERCENT_HP": 0.12
+        }
+      },
+      "4": [
+        {
+          "statMap": {
+            "PERCENT_CD": 0.28
+          }
+        },
+        {
+          "applyTo": "team",
+          "statMap": {
+            "PERCENT_ALL": 0.15
+          }
+        }
+      ]
     }
   }
 ]

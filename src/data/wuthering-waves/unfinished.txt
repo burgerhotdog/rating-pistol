@@ -8,7 +8,6 @@ sets:
 incomplete:
 - Reel of Spliced Memories
 
-
 logic simplified:
 - Empyrean Anthem
 - Flamewing's Shadow

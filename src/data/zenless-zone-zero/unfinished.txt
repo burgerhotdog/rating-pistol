@@ -5,6 +5,20 @@ weapons:
 
 sets:
 incomplete:
+- Freedom Blues
+- Soul Rock
+- Proto Punk
+- Bunny in Wonderland
+- Notes From the Chained
 
-logic simplified:
-- all
+condition simplified:
+- Chaotic Metal
+- Polar Metal
+- Fanged Metal
+- Branch & Blade Song
+- Astral Voice
+- Phaethon's Melody
+- Yunkui Tales
+- White Water Ballad
+- Shining Aria
+- Wuthering Salon

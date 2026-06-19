@@ -8,11 +8,32 @@
           "PERCENT_CR": 0.08
         }
       },
-      "4": {
-        "statMap": {
-          "COMBAT_ATK": 0.27
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnConsidered": "BA",
+          "statMap": {
+            "COMBAT_ATK": 0.09
+          },
+          "duration": 6000
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnConsidered": "DC",
+          "statMap": {
+            "COMBAT_ATK": 0.09
+          },
+          "duration": 6000
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnConsidered": "ESA",
+          "statMap": {
+            "COMBAT_ATK": 0.09
+          },
+          "duration": 6000
         }
-      }
+      ]
     }
   },
   {
@@ -24,12 +45,21 @@
           "PERCENT_PR": 0.08
         }
       },
-      "4": {
-        "statMap": {
-          "PERCENT_U": 0.2,
-          "COMBAT_ATK": 0.15
+      "4": [
+        {
+          "statMap": {
+            "PERCENT_U": 0.2
+          }
+        },
+        {
+          "applyWhen": "cast",
+          "applyOnCast": "U",
+          "statMap": {
+            "COMBAT_ATK": 0.15
+          },
+          "duration": 12000
         }
-      }
+      ]
     }
   },
   {
@@ -42,6 +72,11 @@
         }
       },
       "4": {
+        "useOnConsidered": [
+          "BA",
+          "DA",
+          "DC"
+        ],
         "statMap": {
           "PERCENT_DAZE": 0.2
         }
@@ -57,15 +92,7 @@
           "FLAT_AP": 30
         }
       },
-      "4": {
-        "statMap": {
-          "SHRED_BURNING": 0.2,
-          "SHRED_CORRUPTION": 0.2,
-          "SHRED_FREEZE": 0.2,
-          "SHRED_ASSAULT": 0.2,
-          "SHRED_SHOCKED": 0.2
-        }
-      }
+      "4": {}
     }
   },
   {
@@ -78,9 +105,13 @@
         }
       },
       "4": {
+        "applyWhen": "cast",
+        "applyIfField": true,
+        "applyCooldown": 20000,
         "statMap": {
           "COMBAT_ATK": 0.25
-        }
+        },
+        "duration": 10000
       }
     }
   },
@@ -92,7 +123,8 @@
         "statMap": {
           "PERCENT_DEF": 0.16
         }
-      }
+      },
+      "4": {}
     }
   },
   {
@@ -105,9 +137,16 @@
         }
       },
       "4": {
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "CA",
+          "U"
+        ],
         "statMap": {
           "PERCENT_ALL": 0.15
-        }
+        },
+        "duration": 12000
       }
     }
   },
@@ -121,9 +160,13 @@
         }
       },
       "4": {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyIfStatus": "BURNING",
         "statMap": {
           "PERCENT_CR": 0.28
-        }
+        },
+        "duration": 8000
       }
     }
   },
@@ -136,11 +179,18 @@
           "PERCENT_ETHER": 0.1
         }
       },
-      "4": {
-        "statMap": {
-          "PERCENT_CD": 0.53
+      "4": [
+        {
+          "statMap": {
+            "PERCENT_CD": 0.2
+          }
+        },
+        {
+          "statMap": {
+            "PERCENT_CD": 0.33
+          }
         }
-      }
+      ]
     }
   },
   {
@@ -153,6 +203,7 @@
         }
       },
       "4": {
+        "useIfStatus": "SHOCKED",
         "statMap": {
           "COMBAT_ATK": 0.28
         }
@@ -168,12 +219,20 @@
           "PERCENT_ICE": 0.1
         }
       },
-      "4": {
-        "statMap": {
-          "PERCENT_BA": 0.4,
-          "PERCENT_DA": 0.4
+      "4": [
+        {
+          "statMap": {
+            "PERCENT_BA": 0.2,
+            "PERCENT_DA": 0.2
+          }
+        },
+        {
+          "statMap": {
+            "PERCENT_BA": 0.2,
+            "PERCENT_DA": 0.2
+          }
         }
-      }
+      ]
     }
   },
   {
@@ -201,24 +260,54 @@
           "FLAT_AP": 30
         }
       },
-      "4": {
-        "statMap": {
-          "PERCENT_FIRE": 0.15,
-          "PERCENT_ELECTRIC": 0.15,
-          "PERCENT_EX": 0.2,
-          "PERCENT_AA": 0.2
+      "4": [
+        {
+          "statMap": {
+            "PERCENT_FIRE": 0.15,
+            "PERCENT_ELECTRIC": 0.15
+          }
+        },
+        {
+          "useIfField": false,
+          "statMap": {
+            "PERCENT_ESA": 0.2,
+            "PERCENT_AA": 0.2
+          }
+        },
+        {
+          "applyWhen": "cast",
+          "applyIfField": true,
+          "applyCooldown": 7500,
+          "useIfField": true,
+          "statMap": {
+            "PERCENT_ESA": 0.2,
+            "PERCENT_AA": 0.2
+          },
+          "duration": 5000
         }
-      }
+      ]
     }
   },
   {
     "id": "31900",
     "name": "Proto Punk",
     "tieredEffects": {
+      "2": {
+        "statMap": {
+          "PERCENT_SB": 0.15
+        }
+      },
       "4": {
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "DA",
+          "EA"
+        ],
         "statMap": {
           "PERCENT_ALL": 0.15
-        }
+        },
+        "duration": 10000
       }
     }
   },
@@ -231,12 +320,21 @@
           "PERCENT_CD": 0.16
         }
       },
-      "4": {
-        "statMap": {
-          "PERCENT_CD": 0.3,
-          "PERCENT_CR": 0.12
+      "4": [
+        {
+          "useIfAttr": {
+            "AM": 115
+          },
+          "statMap": {
+            "PERCENT_CD": 0.3
+          }
+        },
+        {
+          "statMap": {
+            "PERCENT_CR": 0.12
+          }
         }
-      }
+      ]
     }
   },
   {
@@ -249,6 +347,7 @@
         }
       },
       "4": {
+        "applyTo": "team",
         "statMap": {
           "PERCENT_ALL": 0.24
         }
@@ -266,10 +365,17 @@
         }
       },
       "4": {
+        "applyWhen": "hit",
+        "applyOnConsidered": [
+          "A",
+          "DA"
+        ],
         "statMap": {
-          "COMBAT_ATK": 0.12,
-          "PERCENT_CR": 0.12
-        }
+          "COMBAT_ATK": 0.04,
+          "PERCENT_CR": 0.04
+        },
+        "duration": 15000,
+        "maxStacks": 3
       }
     }
   },
@@ -299,12 +405,26 @@
           "PERCENT_HP": 0.1
         }
       },
-      "4": {
-        "statMap": {
-          "PERCENT_CR": 0.12,
-          "PERCENT_SHEER": 0.1
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnCast": [
+            "ESA",
+            "CA",
+            "U"
+          ],
+          "statMap": {
+            "PERCENT_CR": 0.04
+          },
+          "duration": 15000,
+          "maxStacks": 3
+        },
+        {
+          "statMap": {
+            "PERCENT_SHEER": 0.1
+          }
         }
-      }
+      ]
     }
   },
   {
@@ -316,11 +436,37 @@
           "PERCENT_DAZE": 0.06
         }
       },
-      "4": {
-        "statMap": {
-          "PERCENT_CD": 0.3
+      "4": [
+        {
+          "applyTo": "team",
+          "applyWhen": "cast",
+          "applyOnCast": [
+            "ESA",
+            "CA"
+          ],
+          "applyIfWeapon": "STUN",
+          "statMap": {
+            "PERCENT_CD": 0.15
+          },
+          "duration": 15000
+        },
+        {
+          "applyTo": "team",
+          "applyWhen": "cast",
+          "applyOnCast": [
+            "ESA",
+            "CA"
+          ],
+          "applyIfWeapon": "STUN",
+          "useIfAttr": {
+            "CR": 0.5
+          },
+          "statMap": {
+            "PERCENT_CD": 0.15
+          },
+          "duration": 15000
         }
-      }
+      ]
     }
   },
   {
@@ -332,11 +478,25 @@
           "PERCENT_BA": 0.15
         }
       },
-      "4": {
-        "statMap": {
-          "PERCENT_BA": 0.4
+      "4": [
+        {
+          "statMap": {
+            "PERCENT_BA": 0.2
+          }
+        },
+        {
+          "applyWhen": "cast",
+          "applyOnCast": [
+            "ESA",
+            "U"
+          ],
+          "applyIfWeapon": "ATTACK",
+          "statMap": {
+            "PERCENT_BA": 0.2
+          },
+          "duration": 25000
         }
-      }
+      ]
     }
   },
   {
@@ -349,9 +509,17 @@
         }
       },
       "4": {
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "ESA",
+          "U"
+        ],
+        "applyIfWeapon": "SUPPORT",
         "statMap": {
           "PERCENT_ALL": 0.18
-        }
+        },
+        "duration": 25000
       }
     }
   },
@@ -381,12 +549,21 @@
           "PERCENT_ETHER": 0.1
         }
       },
-      "4": {
-        "statMap": {
-          "FLAT_AP": 36,
-          "PERCENT_ALL": 0.25
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnConsidered": "BA",
+          "statMap": {
+            "FLAT_AP": 36
+          },
+          "duration": 8000
+        },
+        {
+          "statMap": {
+            "PERCENT_ALL": 0.25
+          }
         }
-      }
+      ]
     }
   },
   {
@@ -399,9 +576,14 @@
         }
       },
       "4": {
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnCast": "ESA",
         "statMap": {
-          "PERCENT_ALL": 0.18
-        }
+          "PERCENT_ALL": 0.06
+        },
+        "duration": 25000,
+        "maxStacks": 3
       }
     }
   },
@@ -414,17 +596,64 @@
           "PERCENT_ICE": 0.1
         }
       },
-      "4": {
+      "4": {}
+    }
+  },
+  {
+    "id": "33900",
+    "name": "Wuthering Salon",
+    "tieredEffects": {
+      "2": {
         "statMap": {
-          "FLAT_AP": 48,
-          "PERCENT_CORRUPTION": 0.16,
-          "PERCENT_BURNING": 0.16,
-          "PERCENT_FREEZE": 0.16,
-          "PERCENT_SHOCKED": 0.16,
-          "PERCENT_ASSAULT": 0.16,
-          "PERCENT_DISORDER": 0.16
+          "PERCENT_WIND": 0.1
         }
-      }
+      },
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnCast": "ESA",
+          "statMap": {
+            "FLAT_AP": 25
+          },
+          "duration": 40000,
+          "maxStacks": 2
+        },
+        {
+          "statMap": {
+            "PERCENT_ALL": 0.18
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "34000",
+    "name": "The Sky Ablaze",
+    "tieredEffects": {
+      "2": {
+        "statMap": {
+          "PERCENT_ETHER": 0.1
+        }
+      },
+      "4": [
+        {
+          "useIfElement": "ETHER",
+          "statMap": {
+            "PERCENT_CD": 0.3
+          }
+        },
+        {
+          "applyWhen": "cast",
+          "applyOnCast": [
+            "ESA",
+            "U"
+          ],
+          "statMap": {
+            "COMBAT_ATK": 0.1
+          },
+          "duration": 30000
+        }
+      ]
     }
   }
 ]

@@ -829,5 +829,52 @@
       "BASE_AM": 148,
       "BASE_AP": 114
     }
+  },
+  {
+    "id": "1551",
+    "name": "Pyrois",
+    "quality": 5,
+    "element": "Ether",
+    "type": "Attack",
+    "stats": {
+      "BASE_HP": 7674,
+      "BASE_ATK": 924,
+      "BASE_DEF": 613,
+      "BASE_IMPACT": 94,
+      "BASE_AM": 94,
+      "BASE_AP": 93,
+      "PERCENT_CR": 0.144
+    }
+  },
+  {
+    "id": "1561",
+    "name": "Velina",
+    "quality": 5,
+    "element": "Wind",
+    "type": "Anomaly",
+    "stats": {
+      "BASE_HP": 7789,
+      "BASE_ATK": 873,
+      "BASE_DEF": 613,
+      "BASE_IMPACT": 86,
+      "BASE_AM": 112,
+      "BASE_AP": 165
+    }
+  },
+  {
+    "id": "1571",
+    "name": "Norma",
+    "quality": 5,
+    "element": "Fire",
+    "type": "Stun",
+    "stats": {
+      "BASE_HP": 7800,
+      "BASE_ATK": 762,
+      "BASE_DEF": 583,
+      "BASE_IMPACT": 106,
+      "BASE_AM": 99,
+      "BASE_AP": 98,
+      "PERCENT_CR": 0.144
+    }
   }
 ]

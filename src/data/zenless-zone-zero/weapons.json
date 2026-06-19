@@ -888,5 +888,35 @@
       "BASE_ATK": 713,
       "PERCENT_AM": 0.3
     }
+  },
+  {
+    "id": "14155",
+    "name": "Sol Exuvia",
+    "quality": 5,
+    "type": "Attack",
+    "stats": {
+      "BASE_ATK": 713,
+      "PERCENT_ATK": 0.3
+    }
+  },
+  {
+    "id": "14156",
+    "name": "Joyau Dore",
+    "quality": 5,
+    "type": "Anomaly",
+    "stats": {
+      "BASE_ATK": 713,
+      "PERCENT_ER": 0.6
+    }
+  },
+  {
+    "id": "14157",
+    "name": "Chief Sidekick",
+    "quality": 5,
+    "type": "Stun",
+    "stats": {
+      "BASE_ATK": 713,
+      "PERCENT_CR": 0.24
+    }
   }
 ]

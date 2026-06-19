@@ -6,9 +6,9 @@ weapons:
 
 sets:
 incomplete:
-- thundersoother
-- lavawalker
-- vv
+- Thundersoother
+- Lavawalker
+- Viridescent Venerer
 - thundering Fury
 - crimson witch
 - Bloodstained

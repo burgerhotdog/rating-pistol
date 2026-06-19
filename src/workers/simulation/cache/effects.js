@@ -66,6 +66,18 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
     }
   }
 
+  if (effect.useOnElement) {
+    resolved.useOnElement = toArray(effect.useOnElement);
+  }
+
+  if (effect.useIfElement) {
+    resolved.useIfElement = toArray(effect.useIfElement);
+  }
+
+  if (effect.useIfWeapon) {
+    resolved.useIfWeapon = toArray(effect.useIfWeapon);
+  }
+
   if (effect.useIfTagged) {
     resolved.useIfTagged = toArray(effect.useIfTagged);
   }
