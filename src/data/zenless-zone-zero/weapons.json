@@ -868,5 +868,25 @@
       "BASE_ATK": 713,
       "PERCENT_ER": 0.6
     }
+  },
+  {
+    "id": "14153",
+    "name": "Starlight Rider Faceplate",
+    "quality": 5,
+    "type": "Rupture",
+    "stats": {
+      "BASE_ATK": 713,
+      "PERCENT_HP": 0.3
+    }
+  },
+  {
+    "id": "14154",
+    "name": "Frostfall Sickle",
+    "quality": 5,
+    "type": "Anomaly",
+    "stats": {
+      "BASE_ATK": 713,
+      "PERCENT_AM": 0.3
+    }
   }
 ]

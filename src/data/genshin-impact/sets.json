@@ -764,5 +764,21 @@
       },
       "4": {}
     }
+  },
+  {
+    "id": "15045",
+    "name": "Celestial Gift",
+    "tieredEffects": {
+      "2": {},
+      "4": {}
+    }
+  },
+  {
+    "id": "15046",
+    "name": "Disenchantment in Deep Shadow",
+    "tieredEffects": {
+      "2": {},
+      "4": {}
+    }
   }
 ]

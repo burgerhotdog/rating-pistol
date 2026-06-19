@@ -798,5 +798,36 @@
       "BASE_AP": 93,
       "BASE_ER": 0
     }
+  },
+  {
+    "id": "1531",
+    "name": "Starlight - Billy",
+    "quality": 5,
+    "element": "Physical",
+    "type": "Rupture",
+    "stats": {
+      "BASE_HP": 8497,
+      "BASE_ATK": 860,
+      "BASE_DEF": 446,
+      "BASE_IMPACT": 95,
+      "BASE_AM": 90,
+      "BASE_AP": 89,
+      "PERCENT_CR": 0.144
+    }
+  },
+  {
+    "id": "1541",
+    "name": "Promeia",
+    "quality": 5,
+    "element": "Ice",
+    "type": "Anomaly",
+    "stats": {
+      "BASE_HP": 7789,
+      "BASE_ATK": 873,
+      "BASE_DEF": 613,
+      "BASE_IMPACT": 86,
+      "BASE_AM": 148,
+      "BASE_AP": 114
+    }
   }
 ]

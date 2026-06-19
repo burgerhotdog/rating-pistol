@@ -1,6 +1,5 @@
 characters:
 
-actions:
 
 weapons:
 

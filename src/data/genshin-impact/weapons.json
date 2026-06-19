@@ -2278,5 +2278,25 @@
       "BASE_ATK": 542,
       "PERCENT_CD": 0.882
     }
+  },
+  {
+    "id": "13517",
+    "name": "Disaster and Remorse",
+    "quality": 5,
+    "type": "POLEARM",
+    "stats": {
+      "BASE_ATK": 674,
+      "PERCENT_CR": 0.221
+    }
+  },
+  {
+    "id": "14523",
+    "name": "Angelos' Heptades",
+    "quality": 5,
+    "type": "CATALYST",
+    "stats": {
+      "BASE_ATK": 741,
+      "PERCENT_ATK": 0.165
+    }
   }
 ]

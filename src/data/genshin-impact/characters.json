@@ -1581,5 +1581,49 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     }
+  },
+  {
+    "id": "10000129",
+    "name": "Lohen",
+    "quality": 5,
+    "element": "Cryo",
+    "type": "POLEARM",
+    "tagged": "Hexerei",
+    "stats": {
+      "BASE_HP": 12858,
+      "BASE_ATK": 344,
+      "BASE_DEF": 784,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
+    }
+  },
+  {
+    "id": "10000131",
+    "name": "Nicole",
+    "quality": 5,
+    "element": "Pyro",
+    "type": "CATALYST",
+    "tagged": "Hexerei",
+    "stats": {
+      "BASE_HP": 10409,
+      "BASE_ATK": 342,
+      "BASE_DEF": 563,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.288
+    }
+  },
+  {
+    "id": "10000132",
+    "name": "Prune",
+    "quality": 4,
+    "element": "Anemo",
+    "type": "CATALYST",
+    "stats": {
+      "BASE_HP": 9679,
+      "BASE_ATK": 221,
+      "BASE_DEF": 580,
+      "BASE_EM": 0,
+      "PERCENT_ATK": 0.24
+    }
   }
 ]
