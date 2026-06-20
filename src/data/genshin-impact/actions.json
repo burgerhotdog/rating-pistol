@@ -159,7 +159,7 @@
         ]
       },
       "7": {
-        "name": "Plunge Attack: Collision",
+        "name": "Plunge Collision",
         "considered": "PA",
         "element": "PHYSICAL",
         "indexedMultipliers": [
@@ -530,8 +530,8 @@
         ]
       },
       "6": {
-        "name": "Plunge Attack: Collision",
-        "skillType": "PA",
+        "name": "Plunge Collision",
+        "considered": "PA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -893,8 +893,8 @@
         ]
       },
       "6": {
-        "name": "Plunge Attack: Collision",
-        "skillType": "PA",
+        "name": "Plunge Collision",
+        "considered": "PA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1138,6 +1138,7 @@
       "1": {
         "name": "Normal Attack 1",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1163,6 +1164,7 @@
       "2": {
         "name": "Normal Attack 2",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1188,6 +1190,7 @@
       "3": {
         "name": "Normal Attack 3",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1213,6 +1216,7 @@
       "4": {
         "name": "Normal Attack 4",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1238,6 +1242,7 @@
       "5": {
         "name": "Normal Attack 5",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1263,6 +1268,7 @@
       "6": {
         "name": "Charged Attack",
         "skillType": "CA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1305,8 +1311,9 @@
         ]
       },
       "7": {
-        "name": "Plunge Attack: Collision",
-        "skillType": "PA",
+        "name": "Plunge Collision",
+        "considered": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1332,6 +1339,7 @@
       "8": {
         "name": "Plunge Attack: Low",
         "skillType": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1357,6 +1365,7 @@
       "9": {
         "name": "Plunge Attack: High",
         "skillType": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1445,6 +1454,7 @@
       "1": {
         "name": "Normal Attack 1",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1470,6 +1480,7 @@
       "2": {
         "name": "Normal Attack 2",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1495,6 +1506,7 @@
       "3": {
         "name": "Normal Attack 3",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1520,6 +1532,7 @@
       "4": {
         "name": "Normal Attack 4",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1545,6 +1558,7 @@
       "5": {
         "name": "Charged Attack: Cyclic",
         "skillType": "CA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1570,6 +1584,7 @@
       "6": {
         "name": "Charged Attack: Final",
         "skillType": "CA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1593,8 +1608,9 @@
         ]
       },
       "7": {
-        "name": "Plunge Attack: Collision",
-        "skillType": "PA",
+        "name": "Plunge Collision",
+        "considered": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1620,6 +1636,7 @@
       "8": {
         "name": "Plunge Attack: Low",
         "skillType": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1645,6 +1662,7 @@
       "9": {
         "name": "Plunge Attack: High",
         "skillType": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1827,8 +1845,9 @@
     "id": "10000020",
     "NA": {
       "1": {
-        "name": "1-Hit DMG",
+        "name": "Normal Attack 1",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1852,8 +1871,9 @@
         ]
       },
       "2": {
-        "name": "2-Hit DMG",
+        "name": "Normal Attack 2",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1877,8 +1897,9 @@
         ]
       },
       "3": {
-        "name": "3-Hit DMG",
+        "name": "Normal Attack 3",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1902,8 +1923,9 @@
         ]
       },
       "4": {
-        "name": "4-Hit DMG",
+        "name": "Normal Attack 4",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1927,8 +1949,9 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "NA",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "CA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1952,8 +1975,9 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "NA",
+        "name": "Charged Attack: Final",
+        "skillType": "CA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1976,9 +2000,10 @@
           }
         ]
       },
-      "9": {
-        "name": "Plunge DMG",
-        "skillType": "NA",
+      "7": {
+        "name": "Plunge Collision",
+        "considered": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2001,9 +2026,10 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
-        "skillType": "NA",
+      "8": {
+        "name": "Plunge Attack: Low",
+        "skillType": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2023,7 +2049,14 @@
               4.1587,
               4.3876
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "PA",
+        "element": "PHYSICAL",
+        "indexedMultipliers": [
           {
             "mv": [
               2.0492,
@@ -2048,7 +2081,7 @@
     },
     "ES": {
       "1": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} Skill DMG",
+        "name": "Claw and Thunder: Press",
         "skillType": "ES",
         "indexedMultipliers": [
           {
@@ -2073,7 +2106,7 @@
         ]
       },
       "2": {
-        "name": "Hold Skill DMG",
+        "name": "Claw and Thunder: Hold",
         "skillType": "ES",
         "indexedMultipliers": [
           {
@@ -2100,7 +2133,7 @@
     },
     "EB": {
       "1": {
-        "name": "Burst DMG",
+        "name": "Lightning Fang",
         "skillType": "EB",
         "indexedMultipliers": [
           {
@@ -2125,8 +2158,8 @@
         ]
       },
       "2": {
-        "name": "Soul Companion DMG",
-        "skillType": "EB",
+        "name": "Soul Companion",
+        "considered": "EB",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2151,7 +2184,7 @@
       },
       "3": {
         "name": "Normal ATK SPD Bonus",
-        "skillType": "EB",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2180,8 +2213,9 @@
     "id": "10000021",
     "NA": {
       "1": {
-        "name": "1-Hit DMG",
+        "name": "Normal Attack 1",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2205,8 +2239,9 @@
         ]
       },
       "2": {
-        "name": "2-Hit DMG",
+        "name": "Normal Attack 2",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2230,8 +2265,9 @@
         ]
       },
       "3": {
-        "name": "3-Hit DMG",
+        "name": "Normal Attack 3",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2255,8 +2291,9 @@
         ]
       },
       "4": {
-        "name": "4-Hit DMG",
+        "name": "Normal Attack 4",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2280,8 +2317,9 @@
         ]
       },
       "5": {
-        "name": "5-Hit DMG",
+        "name": "Normal Attack 5",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2306,7 +2344,8 @@
       },
       "6": {
         "name": "Aimed Shot",
-        "skillType": "NA",
+        "skillType": "CA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2330,8 +2369,8 @@
         ]
       },
       "7": {
-        "name": "Fully-Charged Aimed Shot",
-        "skillType": "NA",
+        "name": "Aimed Shot: Full Charge",
+        "skillType": "CA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2355,8 +2394,9 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "NA",
+        "name": "Plunge Collision",
+        "considered": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2380,8 +2420,9 @@
         ]
       },
       "9": {
-        "name": "Low/High Plunge DMG",
-        "skillType": "NA",
+        "name": "Plunge Attack: Low",
+        "skillType": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2401,7 +2442,14 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "PA",
+        "element": "PHYSICAL",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -2426,8 +2474,8 @@
     },
     "ES": {
       "1": {
-        "name": "Inherited HP",
-        "skillType": "ES",
+        "name": "Baron Bunny: Inherited HP",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2451,8 +2499,8 @@
         ]
       },
       "2": {
-        "name": "Explosion DMG",
-        "skillType": "ES",
+        "name": "Baron Bunny: Explosion",
+        "considered": "ES",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2474,12 +2522,16 @@
             ]
           }
         ]
+      },
+      "3": {
+        "name": "Baron Bunny",
+        "skillType": "ES"
       }
     },
     "EB": {
       "1": {
-        "name": "Fiery Rain DMG Per Wave",
-        "skillType": "EB",
+        "name": "Fiery Rain: Wave",
+        "considered": "EB",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2503,7 +2555,7 @@
         ]
       },
       "2": {
-        "name": "Total Fiery Rain DMG",
+        "name": "Fiery Rain",
         "skillType": "EB",
         "indexedMultipliers": [
           {
@@ -2533,8 +2585,9 @@
     "id": "10000022",
     "NA": {
       "1": {
-        "name": "1-Hit DMG",
+        "name": "Normal Attack 1",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2577,8 +2630,9 @@
         ]
       },
       "2": {
-        "name": "2-Hit DMG",
+        "name": "Normal Attack 2",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2602,8 +2656,9 @@
         ]
       },
       "3": {
-        "name": "3-Hit DMG",
+        "name": "Normal Attack 3",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2627,8 +2682,9 @@
         ]
       },
       "4": {
-        "name": "4-Hit DMG",
+        "name": "Normal Attack 4",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2671,8 +2727,9 @@
         ]
       },
       "5": {
-        "name": "5-Hit DMG",
+        "name": "Normal Attack 5",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2696,8 +2753,9 @@
         ]
       },
       "6": {
-        "name": "6-Hit DMG",
+        "name": "Normal Attack 6",
         "skillType": "NA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2722,7 +2780,8 @@
       },
       "7": {
         "name": "Aimed Shot",
-        "skillType": "NA",
+        "skillType": "CA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2746,8 +2805,8 @@
         ]
       },
       "8": {
-        "name": "Fully-Charged Aimed Shot",
-        "skillType": "NA",
+        "name": "Aimed Shot: Full Charge",
+        "skillType": "CA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2771,8 +2830,9 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "NA",
+        "name": "Plunge Collision",
+        "considered": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2796,8 +2856,9 @@
         ]
       },
       "10": {
-        "name": "Low/High Plunge DMG",
-        "skillType": "NA",
+        "name": "Plunge Attack: Low",
+        "skillType": "PA",
+        "element": "PHYSICAL",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2817,7 +2878,14 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "11": {
+        "name": "Plunge Attack: High",
+        "skillType": "PA",
+        "element": "PHYSICAL",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -2839,8 +2907,8 @@
           }
         ]
       },
-      "11": {
-        "name": "Windsunder Arrow DMG",
+      "12": {
+        "name": "Windsunder Arrow",
         "skillType": "NA",
         "indexedMultipliers": [
           {
@@ -2867,7 +2935,7 @@
     },
     "ES": {
       "1": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Skyward Sonnet: Press",
         "skillType": "ES",
         "indexedMultipliers": [
           {
@@ -2892,7 +2960,7 @@
         ]
       },
       "3": {
-        "name": "Hold DMG",
+        "name": "Skyward Sonnet: Hold",
         "skillType": "ES",
         "indexedMultipliers": [
           {
@@ -2919,8 +2987,8 @@
     },
     "EB": {
       "1": {
-        "name": "DoT",
-        "skillType": "EB",
+        "name": "Wind's Grand Ode: DoT",
+        "considered": "EB",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2944,8 +3012,8 @@
         ]
       },
       "2": {
-        "name": "Additional Elemental DMG",
-        "skillType": "EB",
+        "name": "Wind's Grand Ode: Elemental Absorption",
+        "considered": "EB",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2967,6 +3035,10 @@
             ]
           }
         ]
+      },
+      "3": {
+        "name": "Wind's Grand Ode",
+        "skillType": "EB"
       }
     }
   },

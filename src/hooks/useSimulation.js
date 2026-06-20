@@ -11,11 +11,24 @@ export function useSimulation(team) {
   useEffect(() => {
     const payload = { gameId, characterId, team };
 
-    if (!['wuthering-waves'].includes(gameId)) {
+    if (!['genshin-impact', 'wuthering-waves'].includes(gameId)) {
+      console.log('simulation disabled for game');
       workerRef.current?.terminate();
       workerRef.current = null;
       setResult({});
       return;
+    }
+
+    for (const member of team) {
+      if (!member.id) continue;
+
+      if (!member.rotation.length) {
+        console.log('empty rotation');
+        workerRef.current?.terminate();
+        workerRef.current = null;
+        setResult({});
+        return;
+      }
     }
   
     setResult({

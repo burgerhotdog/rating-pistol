@@ -1,7 +1,7 @@
 import { MISC } from '@/data';
 import { mergeEquipList, sumRotationDmg } from '@/utils';
 import { compileCache } from './cache';
-import { runTrials } from './trials';
+import { runTrials } from './runTrials';
 import { evaluateRotation } from './rotation';
 
 const getAvgStatMap = (trials) => {

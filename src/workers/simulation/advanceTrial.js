@@ -44,8 +44,8 @@ const randomRoll = (statId) => {
   return WW_OTHER[statId][winnerIndex];
 };
 
-function assignSubStats(misc) {
-  const optionsMap = misc.SUB_STAT_TYPES;
+function assignSubStats(gameId) {
+  const optionsMap = MISC[gameId].SUB_STAT_TYPES;
   const statPool = Object.entries(optionsMap)
     .map(([id, { WEIGHT }]) => [id, WEIGHT]);
 
@@ -60,175 +60,114 @@ function assignSubStats(misc) {
   return subStatList;
 }
 
-function assignMainStat(costIndex, misc) {
-  const optionsMap = misc.MAIN_STAT_TYPES[costIndex];
+function assignMainStat(gameId, costIndex) {
+  const optionsMap = MISC[gameId].MAIN_STAT_TYPES[costIndex];
   const weightsList = Object.values(optionsMap).map(({ WEIGHT }) => WEIGHT);
   const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)];
   const mainStatValue = optionsMap[mainStatId].VALUE;
   return { mainStatId, mainStatValue };
 }
 
+const generateEquip = (ctx, cost) => {
+  const wrongSetChance = cost === 4 ? 0.25 : 0.5
+  if (Math.random() < wrongSetChance) return;
+
+  const { cache, preferredMainStats } = ctx;
+  const { gameId } = cache;
+
+  // Randomly assign main stat (according to weighted rules)
+  // Skip non preferred main stats
+  const { mainStatId, mainStatValue } = assignMainStat(gameId, cost);
+  if (!preferredMainStats[cost].includes(mainStatId)) return;
+
+  // Assign main stat flat values
+  // Assign sub stats
+  const mainFlatMap = MISC[gameId].MAIN_STAT_FLATS[cost];
+  const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
+  const subStatList = assignSubStats(gameId);
+
+  return {
+    mainStatId,
+    mainStatValue,
+    mainStatFlatId,
+    mainStatFlatValue,
+    subStatList,
+  };
+};
+
+const evaluateEquip = (ctx, cost, equip, latest) => {
+  const { cache, currId, matchMap, compiledRotation } = ctx;
+  const { baseMap } = cache.member[currId];
+
+  const buffer = { ...latest };
+
+  function compareAndReplace(slot) {
+    const newEquipList = latest.equipList.with(slot, equip);
+    const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
+    const newSummary = evaluateRotation(compiledRotation, combinedStatMap);
+    const newPenalty = getPenalty(combinedStatMap, matchMap);
+    const newScore = sumRotationDmg(newSummary) * newPenalty;
+
+    // Compare with buffer and replace if needed
+    if (newScore > buffer.score) {
+      buffer.equipList = newEquipList;
+      buffer.summary = newSummary;
+      buffer.penalty = newPenalty;
+      buffer.score = newScore;
+    }
+  }
+
+  if (cost === 4) {
+    compareAndReplace(0);
+  } else if (cost === 3) {
+    compareAndReplace(1);
+    compareAndReplace(2);
+  } else {
+    compareAndReplace(3);
+    compareAndReplace(4);
+  }
+
+  return buffer;
+};
+
 export function advanceTrial(ctx, trial) {
-  const { cache, currId, matchMap, compiledRotation, preferredMainStats } = ctx;
-  const { gameId, member } = cache;
-  const { baseMap } = member[currId];
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
 
-  // Cartethyia sometimes prefers a 44111 build
-  const isCartethyia = currId == "1409";
-
-  let latestEquipList = trial.equipList;
-  let latestPenalty = trial.penalty;
-  let latestDamage = trial.scores.at(-1);
-  let latestScore = sumRotationDmg(latestDamage) * latestPenalty;
+  const latest = {
+    equipList: trial.equipList,
+    summary: trial.scores.at(-1),
+    penalty: trial.penalty,
+    score: sumRotationDmg(trial.scores.at(-1)) * trial.penalty,
+  };
 
   // Generate 20 4-costs per week
   for (let i = 0; i < 20; i++) {
-    // Some 4-costs belong to 2 sets while some only have 1 set so we'll take the average
-    const coinFlip = Math.random() < 0.75 ? true : false;
-    if (!coinFlip) continue;
+    const newEquipObj = generateEquip(ctx, 4);
+    if (!newEquipObj) continue;
 
-    // Randomly assign main stat (according to weighted rules)
-    // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(4, MISC[gameId]);
-    if (!preferredMainStats[4].includes(mainStatId)) continue;
-    
-    // Assign main stat flat values
-    // Assign sub stats
-    const mainFlatMap = MISC[gameId].MAIN_STAT_FLATS[4];
-    const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats(MISC[gameId]);
-
-    const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
-    const newEquipList = latestEquipList.with(0, newEquipObj);
-
-    // Compute new match penalty and damage with new build
-    const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList))
-    const newPenalty = getPenalty(combinedStatMap, matchMap);
-    const newSummary = evaluateRotation(compiledRotation, combinedStatMap);
-    const newScore = sumRotationDmg(newSummary) * newPenalty;
-
-    // Compare with latest and replace if needed
-    if (newScore > latestScore) {
-      latestEquipList = newEquipList;
-      latestPenalty = newPenalty;
-      latestDamage = newSummary;
-      latestScore = newScore;
-    }
+    Object.assign(latest, evaluateEquip(ctx, 4, newEquipObj, latest));
   }
 
   // Generate 15 3-costs per week
   for (let i = 0; i < 15; i++) {
-    // 3-costs can belong to 1-3 sets but on average 2
-    const coinFlip = Math.random() < 0.5 ? true : false;
-    if (!coinFlip) continue;
+    const newEquipObj = generateEquip(ctx, 3);
+    if (!newEquipObj) continue;
 
-    // Randomly assign main stat (according to weighted rules)
-    // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(3, MISC[gameId]);
-    if (!preferredMainStats[3].includes(mainStatId)) continue;
-    
-    // Assign main stat flat values
-    // Assign sub stats
-    const mainFlatMap = MISC[gameId].MAIN_STAT_FLATS[3];
-    const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats(MISC[gameId]);
-
-    // Construct newEquipObj
-    const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
-
-    // Create a buffer
-    let bufferEquipList = latestEquipList;
-    let bufferPenalty = latestPenalty;
-    let bufferDamage = latestDamage;
-    let bufferScore = latestScore;
-
-    for (let slotIndex = 1; slotIndex < 3; slotIndex++) {
-      // Construct newBuild
-      const equip = { ...newEquipObj };
-      const newEquipList = latestEquipList.with(slotIndex, equip);
-
-      // Compute new match penalty and damage with new build
-      const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList))
-      const newPenalty = getPenalty(combinedStatMap, matchMap);
-      const newDamage = evaluateRotation(compiledRotation, combinedStatMap);
-      const newScore = sumRotationDmg(newDamage) * newPenalty;
-
-      // Compare new damage with buffer and replace if better
-      if (newScore > bufferScore) {
-        bufferEquipList = newEquipList;
-        bufferPenalty = newPenalty;
-        bufferDamage = newDamage;
-        bufferScore = newScore;
-      }
-    }
-
-    // buffer will already be latest if neither result was better
-    latestEquipList = bufferEquipList;
-    latestPenalty = bufferPenalty;
-    latestDamage = bufferDamage;
-    latestScore = bufferScore;
+    Object.assign(latest, evaluateEquip(ctx, 3, newEquipObj, latest));
   }
 
   // Generate 1 and 3 costs from tacet fields
   for (let i = 0; i < totalDropsPerWeek; i++) {
-    // Randomly assign set and skip off-set artifacts
-    const coinFlip = Math.random() < 0.5 ? true : false;
-    if (!coinFlip) continue;
+    const cost = Math.random() < 0.5 ? 1 : 3;
 
-    // Randomly assign cost
-    const costIndex = Math.random() < 0.5 ? 1 : 3;
+    const newEquipObj = generateEquip(ctx, cost);
+    if (!newEquipObj) continue;
 
-    // Randomly assign main stat (according to weighted rules)
-    // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(costIndex, MISC[gameId]);
-    if (!preferredMainStats[costIndex].includes(mainStatId)) continue;
-
-    // Assign main stat flat values
-    // Randomly assign and upgrade sub stats
-    const mainFlatMap = MISC[gameId].MAIN_STAT_FLATS[costIndex];
-    const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats(MISC[gameId]);
-
-    // Construct newEquipObj
-    const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
-
-    // Decide which slots to test and create a buffer
-    const startingSlot = costIndex === 1 ? 3 : 1;
-    let bufferEquipList = latestEquipList;
-    let bufferPenalty = latestPenalty;
-    let bufferDamage = latestDamage;
-    let bufferScore = latestScore;
-
-    for (let slotIndex = startingSlot; slotIndex < (startingSlot + 2); slotIndex++) {
-      // Construct newBuild
-      const equip = { ...newEquipObj };
-      const newEquipList = latestEquipList.with(slotIndex, equip);
-
-      // Compute new match penalty and damage with new build
-      const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList))
-      const newPenalty = getPenalty(combinedStatMap, matchMap);
-      const newDamage = evaluateRotation(compiledRotation, combinedStatMap);
-      const newScore = sumRotationDmg(newDamage) * newPenalty;
-
-      // Compare new damage with buffer and replace if better
-      if (newScore > bufferScore) {
-        bufferEquipList = newEquipList;
-        bufferPenalty = newPenalty;
-        bufferDamage = newDamage;
-        bufferScore = newScore;
-      }
-    }
-
-    // buffer will already be latest if neither result was better
-    latestEquipList = bufferEquipList;
-    latestPenalty = bufferPenalty;
-    latestDamage = bufferDamage;
-    latestScore = bufferScore;
+    Object.assign(latest, evaluateEquip(ctx, cost, newEquipObj, latest));
   }
 
-  trial.equipList = latestEquipList;
-  trial.penalty = latestPenalty;
-  trial.scores.push(latestDamage);
+  trial.equipList = latest.equipList;
+  trial.penalty = latest.penalty;
+  trial.scores.push(latest.summary);
 }
