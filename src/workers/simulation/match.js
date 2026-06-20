@@ -26,7 +26,7 @@ const matchOnTagged = (onTagged, action) => {
 };
 
 const matchOnCast = (onCast, action) => {
-  for (const type of action.cast) {
+  for (const type of action.skillType) {
     if (onCast.includes(type)) return true;
   }
 
@@ -118,13 +118,13 @@ export const matchIfInflict = (ifInflict, inflictedStatuses) => {
 };
 
 export const matchApplyOn = (action, effect) => {
-  const { applyOnAction, applyOnType, applyOnTagged, applyOnCast, applyOnConsidered } = effect;
-  if (!(applyOnAction || applyOnType || applyOnTagged || applyOnCast || applyOnConsidered)) return true;
+  const { applyOnAction, applyOnType, applyOnTagged, applyOnSkillType, applyOnConsidered } = effect;
+  if (!(applyOnAction || applyOnType || applyOnTagged || applyOnSkillType || applyOnConsidered)) return true;
 
   if (applyOnAction && matchOnAction(applyOnAction, action)) return true;
   if (applyOnType && matchOnType(applyOnType, action)) return true;
   if (applyOnTagged && matchOnTagged(applyOnTagged, action)) return true;
-  if (applyOnCast && matchOnCast(applyOnCast, action)) return true;
+  if (applyOnSkillType && matchOnCast(applyOnSkillType, action)) return true;
   if (applyOnConsidered && matchOnConsidered(applyOnConsidered, action)) return true;
 
   return false;

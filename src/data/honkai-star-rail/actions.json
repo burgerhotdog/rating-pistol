@@ -4,8 +4,7 @@
     "BA": {
       "1": {
         "name": "Frigid Cold Arrow",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -27,15 +26,14 @@
     "S": {
       "1": {
         "name": "The Power of Cuteness",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
               0.38,
-              0.40375,
+              0.4037,
               0.4275,
-              0.45125,
+              0.4512,
               0.475,
               0.494,
               0.513,
@@ -74,8 +72,7 @@
     "U": {
       "1": {
         "name": "Glacial Cascade",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -121,8 +118,7 @@
     "T": {
       "1": {
         "name": "Girl Power",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -152,8 +148,7 @@
     "BA": {
       "1": {
         "name": "Cloudlancer Art: North Wind",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -175,8 +170,7 @@
     "S": {
       "1": {
         "name": "Cloudlancer Art: Torrent",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -203,8 +197,7 @@
     "U": {
       "1": {
         "name": "Ethereal Dream",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -250,8 +243,7 @@
     "T": {
       "1": {
         "name": "Superiority of Reach",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -281,8 +273,7 @@
     "BA": {
       "1": {
         "name": "Sawblade Tuning",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -304,8 +295,7 @@
     "S": {
       "1": {
         "name": "Molten Detonation",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -351,8 +341,7 @@
     "U": {
       "1": {
         "name": "Heavenly Flare",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -379,8 +368,7 @@
     "T": {
       "1": {
         "name": "Victory Rush",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -410,8 +398,7 @@
     "BA": {
       "1": {
         "name": "Gravity Suppression",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -433,8 +420,7 @@
     "S": {
       "1": {
         "name": "Edge of the Void",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -480,8 +466,7 @@
     "U": {
       "1": {
         "name": "Synthetic <unbreak>Black Hole</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -527,8 +512,7 @@
     "T": {
       "1": {
         "name": "Time Distortion",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -558,8 +542,7 @@
     "BA": {
       "1": {
         "name": "Lightning Rush",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -581,8 +564,7 @@
     "S": {
       "1": {
         "name": "Shackle Breaker",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -609,8 +591,7 @@
     "U": {
       "1": {
         "name": "Frenzied Punishment",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -656,8 +637,7 @@
     "T": {
       "1": {
         "name": "Pain and Anger",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -687,8 +667,7 @@
     "BA": {
       "1": {
         "name": "Spectrum Beam",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -710,8 +689,7 @@
     "S": {
       "1": {
         "name": "Meteor Storm",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -721,9 +699,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -738,8 +716,7 @@
     "U": {
       "1": {
         "name": "Astral Blessing",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -766,8 +743,7 @@
     "T": {
       "1": {
         "name": "Astrometry",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -777,9 +753,9 @@
               0.091,
               0.098,
               0.105,
-              0.11375,
+              0.1138,
               0.1225,
-              0.13125,
+              0.1313,
               0.14,
               0.147,
               0.154,
@@ -797,8 +773,7 @@
     "BA": {
       "1": {
         "name": "What Are You Looking At?",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -820,8 +795,7 @@
     "S": {
       "1": {
         "name": "One-Time Offer",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -848,8 +822,7 @@
     "U": {
       "1": {
         "name": "<unbreak>It's Magic,</unbreak> <unbreak>I Added Some Magic</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -876,8 +849,7 @@
     "T": {
       "1": {
         "name": "Fine, I'll Do It Myself",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -887,9 +859,9 @@
               0.295,
               0.31,
               0.325,
-              0.34375,
+              0.3438,
               0.3625,
-              0.38125,
+              0.3812,
               0.4,
               0.415,
               0.43,
@@ -907,8 +879,7 @@
     "BA": {
       "1": {
         "name": "Windrider Bullet",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -930,8 +901,7 @@
     "S": {
       "1": {
         "name": "Combat Redeployment",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -941,9 +911,9 @@
               0.429,
               0.462,
               0.495,
-              0.53625,
+              0.5363,
               0.5775,
-              0.61875,
+              0.6188,
               0.66,
               0.693,
               0.726,
@@ -958,8 +928,7 @@
     "U": {
       "1": {
         "name": "The <unbreak>Belobog March</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1024,8 +993,7 @@
     "T": {
       "1": {
         "name": "Leading the Way",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1035,9 +1003,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -1055,8 +1023,7 @@
     "BA": {
       "1": {
         "name": "Thwack",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1078,8 +1045,7 @@
     "S": {
       "1": {
         "name": "Sheathed Blade",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1106,8 +1072,7 @@
     "U": {
       "1": {
         "name": "Butterfly Flurry",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1134,8 +1099,7 @@
     "T": {
       "1": {
         "name": "Resurgence",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1165,8 +1129,7 @@
     "BA": {
       "1": {
         "name": "Roaring Thunderclap",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1188,8 +1151,7 @@
     "S": {
       "1": {
         "name": "Lightning Flash",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1254,8 +1216,7 @@
     "U": {
       "1": {
         "name": "Here Comes the Mechanical Fever",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1282,8 +1243,7 @@
     "T": {
       "1": {
         "name": "Galvanic Chords",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1313,8 +1273,7 @@
     "BA": {
       "1": {
         "name": "Fist of Conviction",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1336,8 +1295,7 @@
     "S": {
       "1": {
         "name": "Daunting Smite",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1383,15 +1341,14 @@
     "U": {
       "1": {
         "name": "Enduring Bulwark",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
               0.3,
-              0.31875,
+              0.3187,
               0.3375,
-              0.35625,
+              0.3563,
               0.375,
               0.39,
               0.405,
@@ -1430,8 +1387,7 @@
     "T": {
       "1": {
         "name": "Unyielding Will",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1441,9 +1397,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -1461,8 +1417,7 @@
     "BA": {
       "1": {
         "name": "Behind the Kindness",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1484,15 +1439,14 @@
     "S": {
       "1": {
         "name": "Love, Heal, and Choose",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
               0.07,
-              0.074375,
-              0.07875,
-              0.083125,
+              0.0744,
+              0.0788,
+              0.0831,
               0.0875,
               0.091,
               0.0945,
@@ -1569,15 +1523,14 @@
     "U": {
       "1": {
         "name": "Gift of Rebirth",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
               0.092,
-              0.09775,
+              0.0978,
               0.1035,
-              0.10925,
+              0.1092,
               0.115,
               0.1196,
               0.1242,
@@ -1616,8 +1569,7 @@
     "T": {
       "1": {
         "name": "Innervation",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1627,9 +1579,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -1647,8 +1599,7 @@
     "BA": {
       "1": {
         "name": "Frost Shot",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1670,8 +1621,7 @@
     "S": {
       "1": {
         "name": "Frostbite",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1681,9 +1631,9 @@
               1.365,
               1.47,
               1.575,
-              1.70625,
+              1.7063,
               1.8375,
-              1.96875,
+              1.9688,
               2.1,
               2.205,
               2.31,
@@ -1698,8 +1648,7 @@
     "U": {
       "1": {
         "name": "Zone Suppression",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1745,8 +1694,7 @@
     "T": {
       "1": {
         "name": "Data Collecting",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1776,8 +1724,7 @@
     "BA": {
       "1": {
         "name": "I Want to Help",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1799,8 +1746,7 @@
     "S": {
       "1": {
         "name": "Svarog Watches Over You",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1846,8 +1792,7 @@
     "U": {
       "1": {
         "name": "Promise, <unbreak>Not Command</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1893,8 +1838,7 @@
     "T": {
       "1": {
         "name": "Because We're Family",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1924,8 +1868,7 @@
     "BA": {
       "1": {
         "name": "Dazzling Blades",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1947,8 +1890,7 @@
     "S": {
       "1": {
         "name": "Ricochet Love",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1975,8 +1917,7 @@
     "U": {
       "1": {
         "name": "Surprise Present",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2022,8 +1963,7 @@
     "T": {
       "1": {
         "name": "Windtorn Dagger",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2053,8 +1993,7 @@
     "BA": {
       "1": {
         "name": "Hehe! Don't Get Burned!",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2076,8 +2015,7 @@
     "S": {
       "1": {
         "name": "Hey! Remember Hook?",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2121,8 +2059,7 @@
       },
       "2": {
         "name": "Hey! Remember Hook?",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2187,8 +2124,7 @@
     "U": {
       "1": {
         "name": "Boom! <unbreak>Here Comes the Fire!</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2215,8 +2151,7 @@
     "T": {
       "1": {
         "name": "Ha! Oil to the Flames!",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2246,8 +2181,7 @@
     "BA": {
       "1": {
         "name": "Flower Pick",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2267,8 +2201,7 @@
       },
       "2": {
         "name": "Cherry on Top!",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2304,8 +2237,7 @@
     "S": {
       "1": {
         "name": "A Scoop of Moon",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2332,8 +2264,7 @@
     "U": {
       "1": {
         "name": "A Quartet? Woo-hoo!",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2360,8 +2291,7 @@
     "T": {
       "1": {
         "name": "Celestial Jade",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2391,8 +2321,7 @@
     "BA": {
       "1": {
         "name": "Dislodged",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2414,8 +2343,7 @@
     "S": {
       "1": {
         "name": "Soothing Melody",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2444,9 +2372,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -2480,8 +2408,7 @@
     "U": {
       "1": {
         "name": "Amidst the Rejoicing Clouds",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2508,8 +2435,7 @@
     "T": {
       "1": {
         "name": "Violet Sparknado",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2539,8 +2465,7 @@
     "BA": {
       "1": {
         "name": "Glistening Light",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2562,8 +2487,7 @@
     "S": {
       "1": {
         "name": "Rifting Zenith",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2590,8 +2514,7 @@
     "U": {
       "1": {
         "name": "Lightbringer",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2618,8 +2541,7 @@
     "T": {
       "1": {
         "name": "Prana Extirpated",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2629,9 +2551,9 @@
               0.429,
               0.462,
               0.495,
-              0.53625,
+              0.5363,
               0.5775,
-              0.61875,
+              0.6188,
               0.66,
               0.693,
               0.726,
@@ -2649,8 +2571,7 @@
     "BA": {
       "1": {
         "name": "Cloudfencer Art: Starshine",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2672,8 +2593,7 @@
     "S": {
       "1": {
         "name": "Cloudfencer Art: Mountainfall",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2683,9 +2603,9 @@
               1.365,
               1.47,
               1.575,
-              1.70625,
+              1.7063,
               1.8375,
-              1.96875,
+              1.9688,
               2.1,
               2.205,
               2.31,
@@ -2719,8 +2639,7 @@
     "U": {
       "1": {
         "name": "Shape of Taixu: Dawn Herald",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2766,8 +2685,7 @@
     "T": {
       "1": {
         "name": "Dancing Blade",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2777,9 +2695,9 @@
               0.165,
               0.17,
               0.175,
-              0.18125,
+              0.1812,
               0.1875,
-              0.19375,
+              0.1938,
               0.2,
               0.205,
               0.21,
@@ -2797,8 +2715,7 @@
     "BA": {
       "1": {
         "name": "Frost Thorn",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2820,8 +2737,7 @@
     "S": {
       "1": {
         "name": "Darting Ironthorn",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2848,8 +2764,7 @@
     "U": {
       "1": {
         "name": "Amidst the Raining Bliss",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2895,8 +2810,7 @@
     "T": {
       "1": {
         "name": "One With the Sword",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2906,9 +2820,9 @@
               0.165,
               0.17,
               0.175,
-              0.18125,
+              0.1812,
               0.1875,
-              0.19375,
+              0.1938,
               0.2,
               0.205,
               0.21,
@@ -2925,9 +2839,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -2963,9 +2877,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -2982,9 +2896,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -3002,8 +2916,7 @@
     "BA": {
       "1": {
         "name": "Diagnostic Kick",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3025,15 +2938,14 @@
     "S": {
       "1": {
         "name": "Singing Among Clouds",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
               0.078,
-              0.082875,
-              0.08775,
-              0.092625,
+              0.0829,
+              0.0877,
+              0.0926,
               0.0975,
               0.1014,
               0.1053,
@@ -3072,15 +2984,14 @@
     "U": {
       "1": {
         "name": "Felicitous Thunderleap",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
               0.09,
-              0.095625,
-              0.10125,
-              0.106875,
+              0.0956,
+              0.1013,
+              0.1069,
               0.1125,
               0.117,
               0.1215,
@@ -3119,15 +3030,14 @@
     "T": {
       "1": {
         "name": "Gourdful of Elixir",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
               0.036,
-              0.03825,
+              0.0382,
               0.0405,
-              0.04275,
+              0.0428,
               0.045,
               0.0468,
               0.0486,
@@ -3207,8 +3117,7 @@
     "BA": {
       "1": {
         "name": "System Warning",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3230,8 +3139,7 @@
     "S": {
       "1": {
         "name": "Allow Changes?",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3279,9 +3187,9 @@
               0.0825,
               0.085,
               0.0875,
-              0.090625,
-              0.09375,
-              0.096875,
+              0.0906,
+              0.0938,
+              0.0969,
               0.1,
               0.1025,
               0.105,
@@ -3296,8 +3204,7 @@
     "U": {
       "1": {
         "name": "User Banned",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3326,9 +3233,9 @@
               0.895,
               0.91,
               0.925,
-              0.94375,
+              0.9437,
               0.9625,
-              0.98125,
+              0.9812,
               1,
               1.015,
               1.03,
@@ -3345,9 +3252,9 @@
               0.387,
               0.396,
               0.405,
-              0.41625,
+              0.4163,
               0.4275,
-              0.43875,
+              0.4387,
               0.45,
               0.459,
               0.468,
@@ -3362,8 +3269,7 @@
     "T": {
       "1": {
         "name": "Awaiting System Response...",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3373,9 +3279,9 @@
               0.065,
               0.07,
               0.075,
-              0.08125,
+              0.0813,
               0.0875,
-              0.09375,
+              0.0938,
               0.1,
               0.105,
               0.11,
@@ -3411,9 +3317,9 @@
               0.039,
               0.042,
               0.045,
-              0.04875,
+              0.0488,
               0.0525,
-              0.05625,
+              0.0563,
               0.06,
               0.063,
               0.066,
@@ -3450,8 +3356,7 @@
     "BA": {
       "1": {
         "name": "Thorns of the Abyss",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3473,8 +3378,7 @@
     "S": {
       "1": {
         "name": "Prayer of Abyss Flower",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3520,8 +3424,7 @@
     "U": {
       "1": {
         "name": "Death Wish",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3548,8 +3451,7 @@
     "T": {
       "1": {
         "name": "Cycle of Life",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3598,8 +3500,7 @@
     "BA": {
       "1": {
         "name": "Arrowslinger",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3621,8 +3522,7 @@
     "S": {
       "1": {
         "name": "Emboldening Salvo",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3649,8 +3549,7 @@
     "U": {
       "1": {
         "name": "Diving Kestrel",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3679,9 +3578,9 @@
               0.231,
               0.238,
               0.245,
-              0.25375,
+              0.2537,
               0.2625,
-              0.27125,
+              0.2712,
               0.28,
               0.287,
               0.294,
@@ -3715,8 +3614,7 @@
     "T": {
       "1": {
         "name": "Seven Layers, One Arrow",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3746,8 +3644,7 @@
     "BA": {
       "1": {
         "name": "Midnight Tumult",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3769,8 +3666,7 @@
     "S": {
       "1": {
         "name": "Caressing Moonlight",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3799,9 +3695,9 @@
               0.645,
               0.66,
               0.675,
-              0.69375,
+              0.6937,
               0.7125,
-              0.73125,
+              0.7312,
               0.75,
               0.765,
               0.78,
@@ -3835,8 +3731,7 @@
     "U": {
       "1": {
         "name": "Twilight Trill",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3860,20 +3755,20 @@
           {
             "mv": [
               1.16,
-              1.26875,
+              1.2688,
               1.3775,
-              1.48625,
+              1.4863,
               1.595,
-              1.758125,
-              1.975625,
+              1.7581,
+              1.9756,
               2.2475,
-              2.57375,
+              2.5737,
               2.9,
-              3.041375,
-              3.18275,
-              3.324125,
+              3.0414,
+              3.1827,
+              3.3241,
               3.4655,
-              3.606875
+              3.6069
             ]
           },
           {
@@ -3901,8 +3796,7 @@
     "T": {
       "1": {
         "name": "Gentle but Cruel",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3932,8 +3826,7 @@
     "BA": {
       "1": {
         "name": "Direct Punch",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3953,8 +3846,7 @@
       },
       "2": {
         "name": "Sky-Shatter Fist",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3990,8 +3882,7 @@
     "S": {
       "1": {
         "name": "Lacerating Fist",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4037,8 +3928,7 @@
     "U": {
       "1": {
         "name": "Coup de Gr\u00e2ce",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4084,8 +3974,7 @@
     "T": {
       "1": {
         "name": "Flying Sparks",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4095,9 +3984,9 @@
               0.731,
               0.748,
               0.765,
-              0.78625,
+              0.7863,
               0.8075,
-              0.82875,
+              0.8287,
               0.85,
               0.867,
               0.884,
@@ -4115,8 +4004,7 @@
     "BA": {
       "1": {
         "name": "Shard Sword",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4136,8 +4024,7 @@
       },
       "2": {
         "name": "Forest of Swords",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4201,8 +4088,7 @@
     "S": {
       "1": {
         "name": "Hellscape",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4229,8 +4115,7 @@
     "U": {
       "1": {
         "name": "Death Sentence",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4352,8 +4237,7 @@
     "T": {
       "1": {
         "name": "Shuhu's Gift",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4382,9 +4266,9 @@
               0.715,
               0.77,
               0.825,
-              0.89375,
+              0.8938,
               0.9625,
-              1.03125,
+              1.0312,
               1.1,
               1.155,
               1.21,
@@ -4402,8 +4286,7 @@
     "BA": {
       "1": {
         "name": "Ice Crampon Technique",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4425,8 +4308,7 @@
     "S": {
       "1": {
         "name": "Salted Camping Cans",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4436,9 +4318,9 @@
               0.0575,
               0.06,
               0.0625,
-              0.065625,
-              0.06875,
-              0.071875,
+              0.0656,
+              0.0688,
+              0.0719,
               0.075,
               0.0775,
               0.08,
@@ -4510,15 +4392,14 @@
     "U": {
       "1": {
         "name": "Snowfield <unbreak>First Aid</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
               0.09,
-              0.095625,
-              0.10125,
-              0.106875,
+              0.0956,
+              0.1013,
+              0.1069,
               0.1125,
               0.117,
               0.1215,
@@ -4557,8 +4438,7 @@
     "T": {
       "1": {
         "name": "Outdoor Survival Experience",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4601,9 +4481,9 @@
           {
             "mv": [
               0.03,
-              0.031875,
-              0.03375,
-              0.035625,
+              0.0319,
+              0.0338,
+              0.0356,
               0.0375,
               0.039,
               0.0405,
@@ -4645,8 +4525,7 @@
     "BA": {
       "1": {
         "name": "Novaburst",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4668,8 +4547,7 @@
     "S": {
       "1": {
         "name": "Known by Stars, Shown by Hearts",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4679,9 +4557,9 @@
               0.039,
               0.042,
               0.045,
-              0.04875,
+              0.0488,
               0.0525,
-              0.05625,
+              0.0563,
               0.06,
               0.063,
               0.066,
@@ -4715,8 +4593,7 @@
     "U": {
       "1": {
         "name": "Woes of Many Morphed to One",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4743,8 +4620,7 @@
     "T": {
       "1": {
         "name": "Bleak Breeds Bliss",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4793,8 +4669,7 @@
     "BA": {
       "1": {
         "name": "Beneficent Lotus",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4814,8 +4689,7 @@
       },
       "2": {
         "name": "Transcendence",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4835,8 +4709,7 @@
       },
       "3": {
         "name": "Divine Spear",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4870,8 +4743,7 @@
       },
       "4": {
         "name": "Fulgurant Leap",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4907,8 +4779,7 @@
     "S": {
       "1": {
         "name": "Dracore Libre",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4933,16 +4804,14 @@
       },
       "2": {
         "name": "Cancel",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": []
       }
     },
     "U": {
       "1": {
         "name": "Azure's Aqua Ablutes All",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4988,8 +4857,7 @@
     "T": {
       "1": {
         "name": "Righteous Heart",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4999,9 +4867,9 @@
               0.065,
               0.07,
               0.075,
-              0.08125,
+              0.0813,
               0.0875,
-              0.09375,
+              0.0938,
               0.1,
               0.105,
               0.11,
@@ -5019,8 +4887,7 @@
     "BA": {
       "1": {
         "name": "Deficit...",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5042,8 +4909,7 @@
     "S": {
       "1": {
         "name": "Difficulty Paying?",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5053,9 +4919,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -5072,9 +4938,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -5089,8 +4955,7 @@
     "U": {
       "1": {
         "name": "Turn a Profit!",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5100,9 +4965,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -5119,9 +4984,9 @@
               0.1625,
               0.175,
               0.1875,
-              0.203125,
-              0.21875,
-              0.234375,
+              0.2031,
+              0.2188,
+              0.2344,
               0.25,
               0.2625,
               0.275,
@@ -5136,8 +5001,7 @@
     "T": {
       "1": {
         "name": "Trotter Market!?",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5147,9 +5011,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -5167,8 +5031,7 @@
     "BA": {
       "1": {
         "name": "Standing Ovation",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5190,8 +5053,7 @@
     "S": {
       "1": {
         "name": "Blazing Welcome",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5233,21 +5095,21 @@
           },
           {
             "mv": [
-              0.83904,
-              0.92298,
-              1.00692,
-              1.09086,
+              0.839,
+              0.923,
+              1.0069,
+              1.0909,
               1.1748,
-              1.30071,
-              1.46859,
-              1.67844,
-              1.93026,
-              2.18208,
-              2.291202,
-              2.400324,
-              2.509446,
-              2.618568,
-              2.72769
+              1.3007,
+              1.4686,
+              1.6784,
+              1.9303,
+              2.1821,
+              2.2912,
+              2.4003,
+              2.5094,
+              2.6186,
+              2.7277
             ]
           }
         ]
@@ -5256,8 +5118,7 @@
     "U": {
       "1": {
         "name": "Watch This Showstopper",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5303,8 +5164,7 @@
     "T": {
       "1": {
         "name": "PatrAeon Benefits",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5314,9 +5174,9 @@
               0.049,
               0.052,
               0.055,
-              0.05875,
+              0.0587,
               0.0625,
-              0.06625,
+              0.0663,
               0.07,
               0.073,
               0.076,
@@ -5334,8 +5194,7 @@
     "BA": {
       "1": {
         "name": "Lucent Moonglow",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5357,8 +5216,7 @@
     "S": {
       "1": {
         "name": "Transcendent Flash",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5383,8 +5241,7 @@
       },
       "2": {
         "name": "Moon On Glacial River",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5394,9 +5251,9 @@
               1.625,
               1.75,
               1.875,
-              2.03125,
+              2.0312,
               2.1875,
-              2.34375,
+              2.3438,
               2.5,
               2.625,
               2.75,
@@ -5413,9 +5270,9 @@
               0.8125,
               0.875,
               0.9375,
-              1.015625,
-              1.09375,
-              1.171875,
+              1.0156,
+              1.0938,
+              1.1719,
               1.25,
               1.3125,
               1.375,
@@ -5430,8 +5287,7 @@
     "U": {
       "1": {
         "name": "Florephemeral Dreamflux",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5477,8 +5333,7 @@
     "T": {
       "1": {
         "name": "Crescent Transmigration",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5527,8 +5382,7 @@
     "BA": {
       "1": {
         "name": "Oracle Brush",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5550,8 +5404,7 @@
     "S": {
       "1": {
         "name": "Samsara, Locked",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5578,8 +5431,7 @@
     "U": {
       "1": {
         "name": "Ten-Lords' Decree, All Shall Obey",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5608,9 +5460,9 @@
               0.165,
               0.17,
               0.175,
-              0.18125,
+              0.1812,
               0.1875,
-              0.19375,
+              0.1938,
               0.2,
               0.205,
               0.21,
@@ -5625,8 +5477,7 @@
     "T": {
       "1": {
         "name": "Sanction",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5636,9 +5487,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -5656,8 +5507,7 @@
     "BA": {
       "1": {
         "name": "Banner: Stormcaller",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5679,15 +5529,14 @@
     "S": {
       "1": {
         "name": "Talisman: Protection",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
               0.14,
-              0.14875,
+              0.1487,
               0.1575,
-              0.16625,
+              0.1663,
               0.175,
               0.182,
               0.189,
@@ -5764,8 +5613,7 @@
     "U": {
       "1": {
         "name": "Tail: <unbreak>Spiritual Domination</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5775,9 +5623,9 @@
               0.165,
               0.17,
               0.175,
-              0.18125,
+              0.1812,
               0.1875,
-              0.19375,
+              0.1938,
               0.2,
               0.205,
               0.21,
@@ -5811,15 +5659,14 @@
     "T": {
       "1": {
         "name": "Possession: Ethereal Metaflow",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
               0.03,
-              0.031875,
-              0.03375,
-              0.035625,
+              0.0319,
+              0.0338,
+              0.0356,
               0.0375,
               0.039,
               0.0405,
@@ -5861,8 +5708,7 @@
     "BA": {
       "1": {
         "name": "Fleeting Fragrance",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5884,8 +5730,7 @@
     "S": {
       "1": {
         "name": "Justice, Hereby Blooms",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5912,8 +5757,7 @@
     "U": {
       "1": {
         "name": "For In This Garden, Supreme Beauty Bestows",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5938,8 +5782,7 @@
       },
       "2": {
         "name": "Merit Bestowed in \"My\" Garden",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5985,8 +5828,7 @@
     "T": {
       "1": {
         "name": "Sublime Object",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5996,9 +5838,9 @@
               0.0145,
               0.016,
               0.0175,
-              0.019375,
-              0.02125,
-              0.023125,
+              0.0194,
+              0.0213,
+              0.0231,
               0.025,
               0.0265,
               0.028,
@@ -6016,8 +5858,7 @@
     "BA": {
       "1": {
         "name": "Mara-Sunder Awl",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6039,8 +5880,7 @@
     "S": {
       "1": {
         "name": "Iniquity Obliteration",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6069,9 +5909,9 @@
               0.455,
               0.49,
               0.525,
-              0.56875,
+              0.5687,
               0.6125,
-              0.65625,
+              0.6562,
               0.7,
               0.735,
               0.77,
@@ -6086,8 +5926,7 @@
     "U": {
       "1": {
         "name": "Divine Castigation",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6152,8 +5991,7 @@
     "T": {
       "1": {
         "name": "Karmic Perpetuation",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6163,9 +6001,9 @@
               0.585,
               0.63,
               0.675,
-              0.73125,
+              0.7312,
               0.7875,
-              0.84375,
+              0.8438,
               0.9,
               0.945,
               0.99,
@@ -6183,8 +6021,7 @@
     "BA": {
       "1": {
         "name": "Threading Fragrance",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6206,8 +6043,7 @@
     "S": {
       "1": {
         "name": "String Sings Slow Swirls",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6234,8 +6070,7 @@
     "U": {
       "1": {
         "name": "Petals to Stream, Repose in Dream",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6281,8 +6116,7 @@
     "T": {
       "1": {
         "name": "Somatotypical Helix",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6331,8 +6165,7 @@
     "BA": {
       "1": {
         "name": "Mind is Might",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6354,8 +6187,7 @@
     "S": {
       "1": {
         "name": "Intellectual Midwifery",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6365,9 +6197,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -6382,8 +6214,7 @@
     "U": {
       "1": {
         "name": "Syllogistic Paradox",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6410,8 +6241,7 @@
     "T": {
       "1": {
         "name": "Cogito, Ergo Sum",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6421,9 +6251,9 @@
               1.755,
               1.89,
               2.025,
-              2.19375,
+              2.1938,
               2.3625,
-              2.53125,
+              2.5312,
               2.7,
               2.835,
               2.97,
@@ -6441,8 +6271,7 @@
     "BA": {
       "1": {
         "name": "Monodrama",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6464,8 +6293,7 @@
     "S": {
       "1": {
         "name": "Dreamdiver",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6511,8 +6339,7 @@
     "U": {
       "1": {
         "name": "The Hero with a Thousand Faces",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6539,8 +6366,7 @@
     "T": {
       "1": {
         "name": "Red Herring",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6550,9 +6376,9 @@
               0.039,
               0.042,
               0.045,
-              0.04875,
+              0.0488,
               0.0525,
-              0.05625,
+              0.0563,
               0.06,
               0.063,
               0.066,
@@ -6570,8 +6396,7 @@
     "BA": {
       "1": {
         "name": "Percipience, Silent Dawn",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6621,8 +6446,7 @@
     "S": {
       "1": {
         "name": "Decadence, False Twilight",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6632,9 +6456,9 @@
               0.585,
               0.63,
               0.675,
-              0.73125,
+              0.7312,
               0.7875,
-              0.84375,
+              0.8438,
               0.9,
               0.945,
               0.99,
@@ -6668,8 +6492,7 @@
     "U": {
       "1": {
         "name": "Bliss of <unbreak>Otherworld's Embrace</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6715,8 +6538,7 @@
     "T": {
       "1": {
         "name": "Loom of Fate's Caprice",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6745,9 +6567,9 @@
               0.545,
               0.56,
               0.575,
-              0.59375,
+              0.5938,
               0.6125,
-              0.63125,
+              0.6312,
               0.65,
               0.665,
               0.68,
@@ -6759,10 +6581,10 @@
           {
             "mv": [
               0.048,
-              0.05592,
-              0.06384,
-              0.07176,
-              0.07968,
+              0.0559,
+              0.0638,
+              0.0718,
+              0.0797,
               0.0876,
               0.0948,
               0.102,
@@ -6803,8 +6625,7 @@
     "BA": {
       "1": {
         "name": "E\u2014Excuse Me, Please!",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6826,8 +6647,7 @@
     "S": {
       "1": {
         "name": "R\u2014Room Service!",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6873,8 +6693,7 @@
     "U": {
       "1": {
         "name": "G\u2014Gonna Be Late!",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6939,8 +6758,7 @@
     "T": {
       "1": {
         "name": "Horological Escapement",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6970,8 +6788,7 @@
     "BA": {
       "1": {
         "name": "Corkage Fee",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6991,8 +6808,7 @@
       },
       "2": {
         "name": "Nectar Blitz",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7028,8 +6844,7 @@
     "S": {
       "1": {
         "name": "Special Brew",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7056,8 +6871,7 @@
     "U": {
       "1": {
         "name": "Champagne Etiquette",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7067,9 +6881,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -7084,8 +6898,7 @@
     "T": {
       "1": {
         "name": "Tipsy Tussle",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7134,8 +6947,7 @@
     "BA": {
       "1": {
         "name": "Straight Bet",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7157,8 +6969,7 @@
     "S": {
       "1": {
         "name": "Cornerstone Deluxe",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7204,8 +7015,7 @@
     "U": {
       "1": {
         "name": "Roulette Shark",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7251,8 +7061,7 @@
     "T": {
       "1": {
         "name": "Shot Loaded Right",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7262,9 +7071,9 @@
               0.1625,
               0.175,
               0.1875,
-              0.203125,
-              0.21875,
-              0.234375,
+              0.2031,
+              0.2188,
+              0.2344,
               0.25,
               0.2625,
               0.275,
@@ -7281,9 +7090,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -7301,8 +7110,7 @@
     "BA": {
       "1": {
         "name": "Trilateral Wiltcross",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7324,8 +7132,7 @@
     "S": {
       "1": {
         "name": "Octobolt Flash",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7371,8 +7178,7 @@
     "U": {
       "1": {
         "name": "Slashed Dream Cries in Red",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7492,8 +7298,7 @@
       },
       "2": {
         "name": "Rainblade",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7556,8 +7361,7 @@
       },
       "3": {
         "name": "Rainblade",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7620,8 +7424,7 @@
       },
       "4": {
         "name": "Rainblade",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7684,8 +7487,7 @@
       },
       "5": {
         "name": "Stygian Resurge",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7712,8 +7514,7 @@
     "T": {
       "1": {
         "name": "Atop Rainleaf Hangs Oneness",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7743,8 +7544,7 @@
     "BA": {
       "1": {
         "name": "Wingflip White Noise",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7766,8 +7566,7 @@
     "S": {
       "1": {
         "name": "Pinion's Aria",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7777,9 +7576,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -7794,8 +7593,7 @@
     "U": {
       "1": {
         "name": "Vox Harmonique, Opus Cosmique",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7860,8 +7658,7 @@
     "T": {
       "1": {
         "name": "Tonal Resonance",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7871,9 +7668,9 @@
               0.095,
               0.11,
               0.125,
-              0.14375,
+              0.1437,
               0.1625,
-              0.18125,
+              0.1812,
               0.2,
               0.215,
               0.23,
@@ -7891,8 +7688,7 @@
     "BA": {
       "1": {
         "name": "Skullcrush Spurs",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7912,8 +7708,7 @@
       },
       "2": {
         "name": "Fanning the Hammer",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7935,8 +7730,7 @@
     "S": {
       "1": {
         "name": "Sizzlin' Tango",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7946,9 +7740,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -7963,8 +7757,7 @@
     "U": {
       "1": {
         "name": "Dust Devil's Sunset Rodeo",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8010,8 +7803,7 @@
     "T": {
       "1": {
         "name": "Five Peas in a Pod",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8021,9 +7813,9 @@
               0.455,
               0.49,
               0.525,
-              0.56875,
+              0.5687,
               0.6125,
-              0.65625,
+              0.6562,
               0.7,
               0.735,
               0.77,
@@ -8059,9 +7851,9 @@
               1.105,
               1.19,
               1.275,
-              1.38125,
+              1.3813,
               1.4875,
-              1.59375,
+              1.5938,
               1.7,
               1.785,
               1.87,
@@ -8079,8 +7871,7 @@
     "BA": {
       "1": {
         "name": "Order: Flare Propulsion",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8100,8 +7891,7 @@
       },
       "2": {
         "name": "Fyrefly Type-IV: Pyrogenic Decimation",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8123,8 +7913,7 @@
     "S": {
       "1": {
         "name": "Order: Aerial Bombardment",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8168,8 +7957,7 @@
       },
       "2": {
         "name": "Fyrefly Type-IV: Deathstar Overload",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8215,8 +8003,7 @@
     "U": {
       "1": {
         "name": "Fyrefly Type-IV: Complete Combustion",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8262,8 +8049,7 @@
     "T": {
       "1": {
         "name": "Chrysalid Pyronexus",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8312,8 +8098,7 @@
     "BA": {
       "1": {
         "name": "Lash of Riches",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8349,8 +8134,7 @@
     "S": {
       "1": {
         "name": "Acquisition Surety",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8377,8 +8161,7 @@
     "U": {
       "1": {
         "name": "Vow of the Deep",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8424,8 +8207,7 @@
     "T": {
       "1": {
         "name": "Fang of Flare Flaying",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8474,8 +8256,7 @@
     "BA": {
       "1": {
         "name": "Heart Afire",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8497,8 +8278,7 @@
     "S": {
       "1": {
         "name": "Scorch Onslaught",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8508,9 +8288,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -8527,9 +8307,9 @@
               0.585,
               0.63,
               0.675,
-              0.73125,
+              0.7312,
               0.7875,
-              0.84375,
+              0.8438,
               0.9,
               0.945,
               0.99,
@@ -8544,8 +8324,7 @@
     "U": {
       "1": {
         "name": "Pyrograph Arcanum",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8610,8 +8389,7 @@
     "T": {
       "1": {
         "name": "Quartet Finesse, Octave Finery",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8621,9 +8399,9 @@
               0.0975,
               0.105,
               0.1125,
-              0.121875,
-              0.13125,
-              0.140625,
+              0.1219,
+              0.1313,
+              0.1406,
               0.15,
               0.1575,
               0.165,
@@ -8640,9 +8418,9 @@
               0.0325,
               0.035,
               0.0375,
-              0.040625,
-              0.04375,
-              0.046875,
+              0.0406,
+              0.0437,
+              0.0469,
               0.05,
               0.0525,
               0.055,
@@ -8679,8 +8457,7 @@
     "BA": {
       "1": {
         "name": "Galespin Summersault",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8702,8 +8479,7 @@
     "S": {
       "1": {
         "name": "Bladeborne Quake",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8787,8 +8563,7 @@
     "U": {
       "1": {
         "name": "Earthbind, Etherbreak",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8872,8 +8647,7 @@
     "T": {
       "1": {
         "name": "Flashforge",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8922,8 +8696,7 @@
     "BA": {
       "1": {
         "name": "My Sword Zaps Demons",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8943,8 +8716,7 @@
       },
       "2": {
         "name": "Brows Be Smitten, Heart Be Bitten",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8966,8 +8738,7 @@
     "S": {
       "1": {
         "name": "Master, It's Tea Time!",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9013,8 +8784,7 @@
     "U": {
       "1": {
         "name": "<unbreak>March 7th,</unbreak> <unbreak>the Apex Heroine</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9041,8 +8811,7 @@
     "T": {
       "1": {
         "name": "Master, I've Ascended!",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9072,8 +8841,7 @@
     "BA": {
       "1": {
         "name": "Boltsunder",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9095,8 +8863,7 @@
     "S": {
       "1": {
         "name": "Waraxe",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9123,8 +8890,7 @@
     "U": {
       "1": {
         "name": "Terrasplit",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9168,8 +8934,7 @@
       },
       "2": {
         "name": "Boltsunder Blitz",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9198,9 +8963,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -9213,8 +8978,7 @@
       },
       "3": {
         "name": "Waraxe Skyward",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9243,9 +9007,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -9258,8 +9022,7 @@
       },
       "4": {
         "name": "Terrasplit",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9305,8 +9068,7 @@
     "T": {
       "1": {
         "name": "Thunderhunt",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9316,9 +9078,9 @@
               0.715,
               0.77,
               0.825,
-              0.89375,
+              0.8938,
               0.9625,
-              1.03125,
+              1.0312,
               1.1,
               1.155,
               1.21,
@@ -9355,8 +9117,7 @@
     "BA": {
       "1": {
         "name": "Votive Incense",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9378,8 +9139,7 @@
     "S": {
       "1": {
         "name": "Smoke and Splendor",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9444,8 +9204,7 @@
     "U": {
       "1": {
         "name": "Dripping Mistscape",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9529,8 +9288,7 @@
     "T": {
       "1": {
         "name": "Mistdance Manifest",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9540,9 +9298,9 @@
               0.4875,
               0.525,
               0.5625,
-              0.609375,
-              0.65625,
-              0.703125,
+              0.6094,
+              0.6562,
+              0.7031,
               0.75,
               0.7875,
               0.825,
@@ -9597,9 +9355,9 @@
               0.4875,
               0.525,
               0.5625,
-              0.609375,
-              0.65625,
-              0.703125,
+              0.6094,
+              0.6562,
+              0.7031,
               0.75,
               0.7875,
               0.825,
@@ -9617,8 +9375,7 @@
     "BA": {
       "1": {
         "name": "Hurlthorn",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9640,8 +9397,7 @@
     "S": {
       "1": {
         "name": "Fleetwinged Raid",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9651,9 +9407,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -9668,8 +9424,7 @@
     "U": {
       "1": {
         "name": "<unbreak>Dash In,</unbreak> <unbreak>Gash Out</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9696,8 +9451,7 @@
     "T": {
       "1": {
         "name": "Cascading Featherblade",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9707,9 +9461,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -9746,8 +9500,7 @@
     "BA": {
       "1": {
         "name": "Ninjutsu: Rise Above Tumbles",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9767,8 +9520,7 @@
       },
       "2": {
         "name": "Ningu: Demonbane Petalblade",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9816,8 +9568,7 @@
       },
       "3": {
         "name": "Ningu: Demonbane Petalblade",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9851,8 +9602,7 @@
       },
       "4": {
         "name": "Ningu: Demonbane Petalblade",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9872,8 +9622,7 @@
       },
       "5": {
         "name": "Ningu: Demonbane Petalblade",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9923,8 +9672,7 @@
     "S": {
       "1": {
         "name": "Ninja Strike: Rooted Resolute",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9951,8 +9699,7 @@
     "U": {
       "1": {
         "name": "Nind\u014d Supreme: Aishiteru",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9979,8 +9726,7 @@
     "T": {
       "1": {
         "name": "Ninja Tech: Endurance Gauge",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10009,9 +9755,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -10029,8 +9775,7 @@
     "BA": {
       "1": {
         "name": "Radiant Streak",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10050,8 +9795,7 @@
       },
       "2": {
         "name": "Fiery Caress",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10087,8 +9831,7 @@
     "S": {
       "1": {
         "name": "Virtue Beckons Bliss",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10098,9 +9841,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -10134,8 +9877,7 @@
     "U": {
       "1": {
         "name": "Solar Splendor Shines Upon All",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10162,8 +9904,7 @@
     "T": {
       "1": {
         "name": "Fortune Follows Where Virtue Spreads",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10193,8 +9934,7 @@
     "BA": {
       "1": {
         "name": "Gleaming Admonition",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10216,8 +9956,7 @@
     "S": {
       "1": {
         "name": "Benison of Paper and Rites",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10227,9 +9966,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -10246,9 +9985,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -10263,8 +10002,7 @@
     "U": {
       "1": {
         "name": "Ode to <unbreak>Caress and Cicatrix</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10310,8 +10048,7 @@
     "T": {
       "1": {
         "name": "The Sorrowing Body",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10341,8 +10078,7 @@
     "BA": {
       "1": {
         "name": "Did You Get It",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10364,8 +10100,7 @@
     "S": {
       "1": {
         "name": "Big Brain Energy",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10375,9 +10110,9 @@
               0.455,
               0.49,
               0.525,
-              0.56875,
+              0.5687,
               0.6125,
-              0.65625,
+              0.6562,
               0.7,
               0.735,
               0.77,
@@ -10390,8 +10125,7 @@
       },
       "2": {
         "name": "Hear Me Out",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10437,8 +10171,7 @@
     "U": {
       "1": {
         "name": "<unbreak>Told Ya!</unbreak> <unbreak>Magic Happens</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10484,8 +10217,7 @@
     "T": {
       "1": {
         "name": "Hand Them Over",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10534,8 +10266,7 @@
     "BA": {
       "1": {
         "name": "Thorned Nectar",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10555,8 +10286,7 @@
       },
       "2": {
         "name": "Slash by a Thousandfold Kiss",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10620,8 +10350,7 @@
     "S": {
       "1": {
         "name": "Rise, Exalted Renown",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10631,9 +10360,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -10646,8 +10375,7 @@
       },
       "2": {
         "name": "Rise, Exalted Renown",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10657,9 +10385,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -10674,8 +10402,7 @@
     "U": {
       "1": {
         "name": "Dance, <unbreak>Destined Weaveress</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10685,9 +10412,9 @@
               0.115,
               0.12,
               0.125,
-              0.13125,
+              0.1313,
               0.1375,
-              0.14375,
+              0.1437,
               0.15,
               0.155,
               0.16,
@@ -10702,8 +10429,7 @@
     "T": {
       "1": {
         "name": "Rosy-Fingered",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10768,7 +10494,7 @@
     "MS": {
       "1": {
         "name": "Thorned Snare",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -10805,7 +10531,7 @@
     "MT": {
       "1": {
         "name": "A Body Brewed by Tears",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": [
           {
@@ -10826,13 +10552,13 @@
       },
       "2": {
         "name": "The Speeding Summer",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": []
       },
       "3": {
         "name": "Bloom of Drying Grass",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": []
       }
@@ -10843,8 +10569,7 @@
     "BA": {
       "1": {
         "name": "Hundred Rockets",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10880,8 +10605,7 @@
     "S": {
       "1": {
         "name": "Where'd the Gifts Go",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10908,8 +10632,7 @@
     "U": {
       "1": {
         "name": "Guess Who Lives Here",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10919,9 +10642,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -10938,9 +10661,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -10974,8 +10697,7 @@
     "T": {
       "1": {
         "name": "Busy as Tribbie",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10985,9 +10707,9 @@
               0.117,
               0.126,
               0.135,
-              0.14625,
+              0.1462,
               0.1575,
-              0.16875,
+              0.1688,
               0.18,
               0.189,
               0.198,
@@ -11005,8 +10727,7 @@
     "BA": {
       "1": {
         "name": "Vow of Voyage",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11028,8 +10749,7 @@
     "S": {
       "1": {
         "name": "Deaths are Legion, Regrets are None",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11039,9 +10759,9 @@
               0.585,
               0.63,
               0.675,
-              0.73125,
+              0.7312,
               0.7875,
-              0.84375,
+              0.8438,
               0.9,
               0.945,
               0.99,
@@ -11058,9 +10778,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -11073,8 +10793,7 @@
       },
       "2": {
         "name": "Kingslayer Be King",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11084,9 +10803,9 @@
               0.715,
               0.77,
               0.825,
-              0.89375,
+              0.8938,
               0.9625,
-              1.03125,
+              1.0312,
               1.1,
               1.155,
               1.21,
@@ -11103,9 +10822,9 @@
               0.429,
               0.462,
               0.495,
-              0.53625,
+              0.5363,
               0.5775,
-              0.61875,
+              0.6188,
               0.66,
               0.693,
               0.726,
@@ -11118,8 +10837,7 @@
       },
       "3": {
         "name": "Godslayer Be God",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11165,8 +10883,7 @@
     "U": {
       "1": {
         "name": "Throne of Bones",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11214,9 +10931,9 @@
               0.165,
               0.17,
               0.175,
-              0.18125,
+              0.1812,
               0.1875,
-              0.19375,
+              0.1938,
               0.2,
               0.205,
               0.21,
@@ -11231,8 +10948,7 @@
     "T": {
       "1": {
         "name": "Blood for Blood",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11262,8 +10978,7 @@
     "BA": {
       "1": {
         "name": "Pain, Brews Truth",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11285,8 +11000,7 @@
     "S": {
       "1": {
         "name": "Fractal, Exiles Fallacy",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11296,9 +11010,9 @@
               0.455,
               0.49,
               0.525,
-              0.56875,
+              0.5687,
               0.6125,
-              0.65625,
+              0.6562,
               0.7,
               0.735,
               0.77,
@@ -11313,8 +11027,7 @@
     "U": {
       "1": {
         "name": "Sprouting Life Sculpts Earth",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11341,8 +11054,7 @@
     "T": {
       "1": {
         "name": "Tetrad Wisdom Reigns Thrice",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11372,8 +11084,7 @@
     "BA": {
       "1": {
         "name": "Lament, Nethersea's Ripple",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11395,8 +11106,7 @@
     "S": {
       "1": {
         "name": "Silence, Wraithfly's Caress",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11406,9 +11116,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -11425,9 +11135,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -11440,8 +11150,7 @@
       },
       "2": {
         "name": "Boneclaw, Doomdrake's Embrace",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11451,9 +11160,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -11470,9 +11179,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -11487,8 +11196,7 @@
     "U": {
       "1": {
         "name": "Doomshriek, Dawn's Chime",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11515,8 +11223,7 @@
     "T": {
       "1": {
         "name": "Desolation Across Palms",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11543,7 +11250,7 @@
     "MS": {
       "1": {
         "name": "Claw Splits the Veil",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -11564,7 +11271,7 @@
       },
       "2": {
         "name": "Breath Scorches the Shadow",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -11613,19 +11320,19 @@
       },
       "3": {
         "name": "Breath Scorches the Shadow",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": []
       },
       "4": {
         "name": "Breath Scorches the Shadow",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": []
       },
       "5": {
         "name": "Wings Sweep the Ruins",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -11676,19 +11383,19 @@
     "MT": {
       "1": {
         "name": "Mooncocoon Shrouds the Form",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": []
       },
       "2": {
         "name": "Roar Rumbles the Realm",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": []
       },
       "3": {
         "name": "Wings Sweep the Ruins",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": [
           {
@@ -11742,8 +11449,7 @@
     "BA": {
       "1": {
         "name": "Oops, a Missed Catch",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11765,8 +11471,7 @@
     "S": {
       "1": {
         "name": "Hey, Jackpot for the Taking",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11812,8 +11517,7 @@
     "U": {
       "1": {
         "name": "Yours Truly, <unbreak>Kitty Phantom Thief!</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11859,8 +11563,7 @@
     "T": {
       "1": {
         "name": "The Hospitable Dolosian",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11870,9 +11573,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -11890,8 +11593,7 @@
     "BA": {
       "1": {
         "name": "When Breeze Kisses Cirrus",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11913,8 +11615,7 @@
     "S": {
       "1": {
         "name": "Love Over the Rainbow",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11957,9 +11658,9 @@
           {
             "mv": [
               0.05,
-              0.05625,
+              0.0563,
               0.0625,
-              0.06875,
+              0.0688,
               0.075,
               0.08,
               0.085,
@@ -11998,15 +11699,14 @@
     "U": {
       "1": {
         "name": "We Who Fly <unbreak>Into Twilight</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
               0.05,
-              0.05625,
+              0.0563,
               0.0625,
-              0.06875,
+              0.0688,
               0.075,
               0.08,
               0.085,
@@ -12047,9 +11747,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -12121,8 +11821,7 @@
     "T": {
       "1": {
         "name": "First Light Heals the World",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12149,7 +11848,7 @@
     "MS": {
       "1": {
         "name": "Rainclouds, Time to Go!",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -12172,7 +11871,7 @@
     "MT": {
       "1": {
         "name": "Take Sky in Hand",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": [
           {
@@ -12235,13 +11934,13 @@
       },
       "2": {
         "name": "Soar, Unto the Sunlight",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": []
       },
       "3": {
         "name": "Fall, Then Take Wing",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": []
       }
@@ -12252,8 +11951,7 @@
     "BA": {
       "1": {
         "name": "Invisible Air: Barrier of the Wind King",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12273,8 +11971,7 @@
       },
       "2": {
         "name": "Release, the Golden Scepter",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12324,8 +12021,7 @@
     "S": {
       "1": {
         "name": "Strike Air: Hammer of the Wind King",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12335,9 +12031,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -12354,9 +12050,9 @@
               0.4875,
               0.525,
               0.5625,
-              0.609375,
-              0.65625,
-              0.703125,
+              0.6094,
+              0.6562,
+              0.7031,
               0.75,
               0.7875,
               0.825,
@@ -12373,9 +12069,9 @@
               0.091,
               0.098,
               0.105,
-              0.11375,
+              0.1138,
               0.1225,
-              0.13125,
+              0.1313,
               0.14,
               0.147,
               0.154,
@@ -12390,8 +12086,7 @@
     "U": {
       "1": {
         "name": "Excalibur",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12420,9 +12115,9 @@
               0.715,
               0.77,
               0.825,
-              0.89375,
+              0.8938,
               0.9625,
-              1.03125,
+              1.0312,
               1.1,
               1.155,
               1.21,
@@ -12437,8 +12132,7 @@
     "T": {
       "1": {
         "name": "Dragon Reactor Core",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12467,9 +12161,9 @@
               0.065,
               0.07,
               0.075,
-              0.08125,
+              0.0813,
               0.0875,
-              0.09375,
+              0.0938,
               0.1,
               0.105,
               0.11,
@@ -12487,8 +12181,7 @@
     "BA": {
       "1": {
         "name": "Kanshou and Bakuya",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12509,8 +12202,7 @@
     "S": {
       "1": {
         "name": "Caladbolg II: Fake Spiral Sword",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12554,16 +12246,14 @@
       },
       "2": {
         "name": "End",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": []
       }
     },
     "U": {
       "1": {
         "name": "Unlimited Blade Works",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12590,8 +12280,7 @@
     "T": {
       "1": {
         "name": "Mind's Eye (True)",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12621,8 +12310,7 @@
     "BA": {
       "1": {
         "name": "Stride to Deliverance",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12642,8 +12330,7 @@
       },
       "2": {
         "name": "Creation: Bloodthorn Ferry",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12679,8 +12366,7 @@
     "S": {
       "1": {
         "name": "Let There Be Light",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12724,8 +12410,7 @@
       },
       "2": {
         "name": "Calamity: Soulscorch Edict",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12754,9 +12439,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -12769,8 +12454,7 @@
       },
       "3": {
         "name": "Foundation: Stardeath Verdict",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12780,9 +12464,9 @@
               2.925,
               3.15,
               3.375,
-              3.65625,
+              3.6562,
               3.9375,
-              4.21875,
+              4.2188,
               4.5,
               4.725,
               4.95,
@@ -12799,9 +12483,9 @@
               0.2925,
               0.315,
               0.3375,
-              0.365625,
-              0.39375,
-              0.421875,
+              0.3656,
+              0.3937,
+              0.4219,
               0.45,
               0.4725,
               0.495,
@@ -12818,9 +12502,9 @@
               7.605,
               8.19,
               8.775,
-              9.50625,
+              9.5062,
               10.2375,
-              10.96875,
+              10.9688,
               11.7,
               12.285,
               12.87,
@@ -12835,8 +12519,7 @@
     "U": {
       "1": {
         "name": "He Who Bears the World Must Burn",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12863,8 +12546,7 @@
     "T": {
       "1": {
         "name": "Pyric Corpus",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12874,9 +12556,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -12889,8 +12571,7 @@
       },
       "2": {
         "name": "Fate: Divine Vessel",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12919,9 +12600,9 @@
               1.755,
               1.89,
               2.025,
-              2.19375,
+              2.1938,
               2.3625,
-              2.53125,
+              2.5312,
               2.7,
               2.835,
               2.97,
@@ -12939,8 +12620,7 @@
     "BA": {
       "1": {
         "name": "Aeolian Mode: Echoes in Still Waters",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12962,8 +12642,7 @@
     "S": {
       "1": {
         "name": "Overtone Hum: Chorus After Dark Tides",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13009,8 +12688,7 @@
     "U": {
       "1": {
         "name": "Maelstrom Rhapsody",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13075,8 +12753,7 @@
     "T": {
       "1": {
         "name": "Sirenic Serenade",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13088,7 +12765,7 @@
               0.1825,
               0.1975,
               0.2125,
-              0.23125,
+              0.2313,
               0.25,
               0.2625,
               0.275,
@@ -13107,7 +12784,7 @@
               0.1825,
               0.1975,
               0.2125,
-              0.23125,
+              0.2313,
               0.25,
               0.2625,
               0.275,
@@ -13125,8 +12802,7 @@
     "BA": {
       "1": {
         "name": "King's Castling",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13148,8 +12824,7 @@
     "S": {
       "1": {
         "name": "Pawn's Promotion",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13195,8 +12870,7 @@
     "U": {
       "1": {
         "name": "Scholar's Mate",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13223,8 +12897,7 @@
     "T": {
       "1": {
         "name": "Ave Imperator",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13273,8 +12946,7 @@
     "BA": {
       "1": {
         "name": "Time Thence Blurs",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13296,8 +12968,7 @@
     "S": {
       "1": {
         "name": "Day Gently Slips",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13322,8 +12993,7 @@
       },
       "2": {
         "name": "Day Gently Slips",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13350,8 +13020,7 @@
     "U": {
       "1": {
         "name": "O Wakeful World, Goodnight",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13399,9 +13068,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -13416,8 +13085,7 @@
     "T": {
       "1": {
         "name": "With Me, This Night",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13444,7 +13112,7 @@
     "MS": {
       "1": {
         "name": "Remembrance, Whirling, Like Rain",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -13479,7 +13147,7 @@
       },
       "2": {
         "name": "Dream, Dissolving, as Dew",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -13516,7 +13184,7 @@
     "MT": {
       "1": {
         "name": "Solitude, Drifting, In Murk",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": [
           {
@@ -13537,13 +13205,13 @@
       },
       "2": {
         "name": "Night, Trailing, In Step",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": []
       },
       "3": {
         "name": "You, Parting, Beyond Reach",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": []
       }
@@ -13554,8 +13222,7 @@
     "BA": {
       "1": {
         "name": "Aegis Vitae",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13577,8 +13244,7 @@
     "S": {
       "1": {
         "name": "Terra Omnibus",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13624,8 +13290,7 @@
     "U": {
       "1": {
         "name": "A Dragon's Zenith Knows No Rue",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13728,15 +13393,14 @@
     "T": {
       "1": {
         "name": "Of Virtue, Forms Unfold",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
               0.07,
-              0.07375,
+              0.0737,
               0.0775,
-              0.08125,
+              0.0813,
               0.085,
               0.088,
               0.091,
@@ -13778,8 +13442,7 @@
     "BA": {
       "1": {
         "name": "Lo, Hope Takes Flight!",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13799,8 +13462,7 @@
       },
       "2": {
         "name": "To Love and Tomorrow \u266a",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13836,8 +13498,7 @@
     "S": {
       "1": {
         "name": "Bloom, Elysium of Beyond",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13864,8 +13525,7 @@
     "U": {
       "1": {
         "name": "Verse \u25e6 Vow \u221e",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13875,9 +13535,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -13890,16 +13550,14 @@
       },
       "2": {
         "name": "<unbreak>Reunion at</unbreak> <unbreak>First Sight</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": []
       }
     },
     "T": {
       "1": {
         "name": "Hearts Gather as One",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13926,7 +13584,7 @@
     "MS": {
       "1": {
         "name": "Minuet of Blooms and Plumes",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -13947,7 +13605,7 @@
       },
       "2": {
         "name": "This Ode, to All Lives",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -13968,7 +13626,7 @@
       },
       "3": {
         "name": "Ode to Genesis",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14003,7 +13661,7 @@
       },
       "4": {
         "name": "Ode to Romance",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14038,7 +13696,7 @@
       },
       "5": {
         "name": "Ode to Passage",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14059,7 +13717,7 @@
       },
       "6": {
         "name": "Ode to Strife",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14080,42 +13738,42 @@
       },
       "7": {
         "name": "Ode to Life and Death",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
             "mv": [
               0.0012,
-              0.00144,
-              0.00168,
-              0.00192,
-              0.00216,
+              0.0014,
+              0.0017,
+              0.0019,
+              0.0022,
               0.0024,
-              0.00264,
-              0.00288,
-              0.00312,
-              0.00336
+              0.0026,
+              0.0029,
+              0.0031,
+              0.0034
             ]
           },
           {
             "mv": [
               0.0024,
-              0.00288,
-              0.00336,
-              0.00384,
-              0.00432,
+              0.0029,
+              0.0034,
+              0.0038,
+              0.0043,
               0.0048,
-              0.00528,
-              0.00576,
-              0.00624,
-              0.00672
+              0.0053,
+              0.0058,
+              0.0062,
+              0.0067
             ]
           }
         ]
       },
       "8": {
         "name": "Ode to Reason",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14150,7 +13808,7 @@
       },
       "9": {
         "name": "Ode to Sky",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14185,7 +13843,7 @@
       },
       "10": {
         "name": "Ode to Trickery",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14234,7 +13892,7 @@
       },
       "11": {
         "name": "Ode to Worldbearing",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14297,7 +13955,7 @@
       },
       "12": {
         "name": "Ode to Ocean",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14346,7 +14004,7 @@
       },
       "13": {
         "name": "Ode to Law",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14367,7 +14025,7 @@
       },
       "14": {
         "name": "Ode to Time",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14402,7 +14060,7 @@
       },
       "15": {
         "name": "Ode to Earth",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14437,7 +14095,7 @@
       },
       "16": {
         "name": "Ode to Ego",
-        "cast": "MS",
+        "skillType": "MS",
         "considered": "MS",
         "indexedMultipliers": [
           {
@@ -14460,7 +14118,7 @@
     "MT": {
       "1": {
         "name": "Waiting, In Every Past",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": [
           {
@@ -14481,7 +14139,7 @@
       },
       "2": {
         "name": "\"Hello, World \u266a\"",
-        "cast": "MT",
+        "skillType": "MT",
         "considered": "MT",
         "indexedMultipliers": []
       }
@@ -14492,8 +14150,7 @@
     "BA": {
       "1": {
         "name": "Fiddle... Fissured Memory",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14515,8 +14172,7 @@
     "S": {
       "1": {
         "name": "Lick... Enkindled Betrayal",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14543,8 +14199,7 @@
     "U": {
       "1": {
         "name": "Wallow... <unbreak>Entombed Ash</unbreak>",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14590,8 +14245,7 @@
     "T": {
       "1": {
         "name": "Who's Afraid of Constance?",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14601,9 +14255,9 @@
               0.195,
               0.21,
               0.225,
-              0.24375,
+              0.2437,
               0.2625,
-              0.28125,
+              0.2812,
               0.3,
               0.315,
               0.33,
@@ -14659,8 +14313,7 @@
     "BA": {
       "1": {
         "name": "Cat Got Your Flametongue?",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14680,8 +14333,7 @@
       },
       "2": {
         "name": "Bloom! Winner Takes All",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14715,8 +14367,7 @@
       },
       "3": {
         "name": "Bloom! Winner Takes All",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14752,14 +14403,12 @@
     "S": {
       "1": {
         "name": "Boom! Sparxicle's Poppin'",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": []
       },
       "2": {
         "name": "Engagement Farming",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14788,9 +14437,9 @@
               0.065,
               0.07,
               0.075,
-              0.08125,
+              0.0813,
               0.0875,
-              0.09375,
+              0.0938,
               0.1,
               0.105,
               0.11,
@@ -14805,8 +14454,7 @@
     "U": {
       "1": {
         "name": "Party's Wildin' and Camera's Rollin'",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14833,8 +14481,7 @@
     "T": {
       "1": {
         "name": "Sleight of Sparx Hand",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14918,7 +14565,7 @@
     "ES": {
       "1": {
         "name": "Signal Overflow: The Great Encore!",
-        "cast": "ES",
+        "skillType": "ES",
         "considered": "ES",
         "indexedMultipliers": [
           {
@@ -14929,9 +14576,9 @@
               0.1625,
               0.175,
               0.1875,
-              0.203125,
-              0.21875,
-              0.234375,
+              0.2031,
+              0.2188,
+              0.2344,
               0.25,
               0.2625,
               0.275,
@@ -14948,9 +14595,9 @@
               0.325,
               0.35,
               0.375,
-              0.40625,
+              0.4062,
               0.4375,
-              0.46875,
+              0.4688,
               0.5,
               0.525,
               0.55,
@@ -14968,8 +14615,7 @@
     "BA": {
       "1": {
         "name": "Whistlebolt Sings Joy",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15005,8 +14651,7 @@
     "S": {
       "1": {
         "name": "Decalight Unveils All",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15033,8 +14678,7 @@
     "U": {
       "1": {
         "name": "Hexagram of Feathered Fortune",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15061,8 +14705,7 @@
     "T": {
       "1": {
         "name": "Behold Wherever Light Unfolds",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15089,7 +14732,7 @@
     "ES": {
       "1": {
         "name": "Let Thy Fortune Burst in Flames",
-        "cast": "ES",
+        "skillType": "ES",
         "considered": "ES",
         "indexedMultipliers": [
           {
@@ -15139,8 +14782,7 @@
     "BA": {
       "1": {
         "name": "Talons: Inculcate Decorum",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15162,8 +14804,7 @@
     "S": {
       "1": {
         "name": "Flog: Smite Evil",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15228,8 +14869,7 @@
     "U": {
       "1": {
         "name": "Banquet: Insatiable Appetite",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15275,8 +14915,7 @@
     "T": {
       "1": {
         "name": "Rancor: Enmity Reprisal",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15306,8 +14945,7 @@
     "BA": {
       "1": {
         "name": "Syllabus: Pop Quiz",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15329,8 +14967,7 @@
     "S": {
       "1": {
         "name": "Discipline: Final Verdict",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15359,9 +14996,9 @@
               0.975,
               1.05,
               1.125,
-              1.21875,
+              1.2188,
               1.3125,
-              1.40625,
+              1.4062,
               1.5,
               1.575,
               1.65,
@@ -15376,8 +15013,7 @@
     "U": {
       "1": {
         "name": "Swordsong: Absolution Denied",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15423,8 +15059,7 @@
     "T": {
       "1": {
         "name": "Youth: Halcyon Evermore",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15453,9 +15088,9 @@
               0.1625,
               0.175,
               0.1875,
-              0.203125,
-              0.21875,
-              0.234375,
+              0.2031,
+              0.2188,
+              0.2344,
               0.25,
               0.2625,
               0.275,
@@ -15527,7 +15162,7 @@
     "ES": {
       "1": {
         "name": "Scarlet: Elation or Execution",
-        "cast": "ES",
+        "skillType": "ES",
         "considered": "ES",
         "indexedMultipliers": [
           {
@@ -15538,9 +15173,9 @@
               0.715,
               0.77,
               0.825,
-              0.89375,
+              0.8938,
               0.9625,
-              1.03125,
+              1.0312,
               1.1,
               1.155,
               1.21,
@@ -15558,8 +15193,7 @@
     "BA": {
       "1": {
         "name": "One Punch!",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15579,8 +15213,7 @@
       },
       "2": {
         "name": "Bonus Stage: \u03b1Wolf Instant",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15614,28 +15247,24 @@
       },
       "3": {
         "name": "Big Flipping Sword",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": []
       },
       "4": {
         "name": "Kaboom Eggsplosion",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": []
       },
       "5": {
         "name": "Funky Munch Bean",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": []
       }
     },
     "S": {
       "1": {
         "name": "Trigger Happy",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15662,8 +15291,7 @@
     "U": {
       "1": {
         "name": "God Mode: ON!",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15673,9 +15301,9 @@
               0.585,
               0.63,
               0.675,
-              0.73125,
+              0.7312,
               0.7875,
-              0.84375,
+              0.8438,
               0.9,
               0.945,
               0.99,
@@ -15690,8 +15318,7 @@
     "T": {
       "1": {
         "name": "I Carry, We Win",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15720,9 +15347,9 @@
               0.0026,
               0.0028,
               0.003,
-              0.00325,
+              0.0032,
               0.0035,
-              0.00375,
+              0.0037,
               0.004,
               0.0042,
               0.0044,
@@ -15756,13 +15383,13 @@
     "ES": {
       "1": {
         "name": "Pro-Gamer Move",
-        "cast": "ES",
+        "skillType": "ES",
         "considered": "ES",
         "indexedMultipliers": []
       },
       "2": {
         "name": "Honkai-DMG Demo",
-        "cast": "ES",
+        "skillType": "ES",
         "considered": "ES",
         "indexedMultipliers": [
           {
@@ -15773,9 +15400,9 @@
               0.585,
               0.63,
               0.675,
-              0.73125,
+              0.7312,
               0.7875,
-              0.84375,
+              0.8438,
               0.9,
               0.945,
               0.99,
@@ -15793,8 +15420,7 @@
     "BA": {
       "1": {
         "name": "A Broken Blade Still Slays",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15814,8 +15440,7 @@
       },
       "2": {
         "name": "A Tempered Blade Severs Souls",
-        "cast": "BA",
-        "considered": "BA",
+        "skillType": "BA",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15837,8 +15462,7 @@
     "S": {
       "1": {
         "name": "A Rain of Blades Seals Fate",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15882,16 +15506,14 @@
       },
       "2": {
         "name": "A Rain of Blades Seals Fate",
-        "cast": "S",
-        "considered": "S",
+        "skillType": "S",
         "indexedMultipliers": []
       }
     },
     "U": {
       "1": {
         "name": "Fornax Ex Corpore",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15954,8 +15576,7 @@
       },
       "2": {
         "name": "Tenax Per Ignem",
-        "cast": "U",
-        "considered": "U",
+        "skillType": "U",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15982,8 +15603,7 @@
     "T": {
       "1": {
         "name": "All Karma Comes Due",
-        "cast": "T",
-        "considered": "T",
+        "skillType": "T",
         "indexedMultipliers": [
           {
             "mv": [

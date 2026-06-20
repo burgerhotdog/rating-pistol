@@ -10,7 +10,7 @@
       },
       "5": {
         "applyWhen": "cast",
-        "applyOnCast": [
+        "applyOnSkillType": [
           "BA",
           "HA"
         ],
@@ -33,7 +33,7 @@
       },
       "5": {
         "applyWhen": "cast",
-        "applyOnCast": "RS",
+        "applyOnSkillType": "RS",
         "statMap": {
           "PERCENT_FUSION": 0.3
         },
@@ -52,7 +52,7 @@
       },
       "5": {
         "applyWhen": "cast",
-        "applyOnCast": [
+        "applyOnSkillType": [
           "HA",
           "RS"
         ],
@@ -75,7 +75,7 @@
       },
       "5": {
         "applyWhen": "cast",
-        "applyOnCast": "IS",
+        "applyOnSkillType": "IS",
         "statMap": {
           "PERCENT_AERO": 0.3
         },
@@ -94,7 +94,7 @@
       },
       "5": {
         "applyWhen": "cast",
-        "applyOnCast": "IS",
+        "applyOnSkillType": "IS",
         "statMap": {
           "PERCENT_SPECTRO": 0.3
         },
@@ -113,7 +113,7 @@
       },
       "5": {
         "applyWhen": "cast",
-        "applyOnCast": [
+        "applyOnSkillType": [
           "BA",
           "HA"
         ],
@@ -157,7 +157,7 @@
       "5": {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "PERCENT_ATK": 0.225
         },
@@ -205,7 +205,7 @@
       "5": [
         {
           "applyWhen": "cast",
-          "applyOnCast": "RS",
+          "applyOnSkillType": "RS",
           "statMap": {
             "PERCENT_GLACIO": 0.225
           },
@@ -214,7 +214,7 @@
         },
         {
           "applyWhen": "cast",
-          "applyOnCast": "RL",
+          "applyOnSkillType": "RL",
           "statMap": {
             "PERCENT_RS": 0.18
           },
@@ -268,7 +268,7 @@
       "5": [
         {
           "applyWhen": "cast",
-          "applyOnCast": "OS",
+          "applyOnSkillType": "OS",
           "intervalAction": {
             "element": "HAVOC",
             "considered": "OS",
@@ -281,7 +281,7 @@
         {
           "applyTo": "next",
           "applyWhen": "cast",
-          "applyOnCast": "OS",
+          "applyOnSkillType": "OS",
           "statMap": {
             "PERCENT_HAVOC": 0.15
           },
@@ -308,7 +308,7 @@
         {
           "applyTo": "active",
           "applyWhen": "hit",
-          "applyOnCast": "CA",
+          "applyOnSkillType": "CA",
           "statMap": {
             "PERCENT_ATK": 0.2
           },
@@ -408,7 +408,7 @@
         {
           "applyTo": "team",
           "applyWhen": "cast",
-          "applyOnCast": "RL",
+          "applyOnSkillType": "RL",
           "statMap": {
             "PERCENT_FUSION": 0.15
           },
@@ -416,7 +416,7 @@
         },
         {
           "applyWhen": "cast",
-          "applyOnCast": "RL",
+          "applyOnSkillType": "RL",
           "statMap": {
             "PERCENT_RL": 0.2
           },
@@ -462,7 +462,7 @@
       "3": [
         {
           "applyWhen": "cast",
-          "applyOnCast": "ES",
+          "applyOnSkillType": "ES",
           "statMap": {
             "PERCENT_HA": 0.3
           },
@@ -471,7 +471,7 @@
         {
           "applyTo": "team",
           "applyWhen": "cast",
-          "applyOnCast": "ES",
+          "applyOnSkillType": "ES",
           "statMap": {
             "PERCENT_ES": 0.04
           },
@@ -550,7 +550,7 @@
       "5": {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "PERCENT_ATK": 0.3
         },
@@ -650,7 +650,7 @@
         {
           "applyTo": "next",
           "applyWhen": "cast",
-          "applyOnCast": "OS",
+          "applyOnSkillType": "OS",
           "statMap": {
             "PERCENT_FUSION": 0.25
           },
@@ -718,7 +718,7 @@
         {
           "applyTo": "next",
           "applyWhen": "cast",
-          "applyOnCast": "OS",
+          "applyOnSkillType": "OS",
           "statMap": {
             "PERCENT_GLACIO": 0.25
           },

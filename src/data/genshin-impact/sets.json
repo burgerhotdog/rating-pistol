@@ -27,7 +27,7 @@
       "4": {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnCast": [
+        "applyOnSkillType": [
           "ES",
           "EB"
         ],
@@ -127,7 +127,7 @@
       "4": {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnCast": "EB",
+        "applyOnSkillType": "EB",
         "statMap": {
           "PERCENT_ATK": 0.2
         },
@@ -190,7 +190,7 @@
       },
       "4": {
         "applyWhen": "cast",
-        "applyOnCast": "ES",
+        "applyOnSkillType": "ES",
         "statMap": {
           "PERCENT_NA": 0.3,
           "PERCENT_CA": 0.3
@@ -253,7 +253,7 @@
       },
       "4": {
         "applyWhen": "cast",
-        "applyOnCast": "ES",
+        "applyOnSkillType": "ES",
         "applyCooldown": 10000,
         "statMap": {
           "PERCENT_NA": 0.5,
@@ -338,7 +338,7 @@
       "4": [
         {
           "applyWhen": "cast",
-          "applyOnCast": "EB",
+          "applyOnSkillType": "EB",
           "removeIfField": false,
           "statMap": {
             "PERCENT_ATK": 0.48
@@ -744,7 +744,7 @@
       "4": {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnCast": "ES",
+        "applyOnSkillType": "ES",
         "applyIfTagged": "Hexerei",
         "statMap": {
           "PERCENT_ALL": 0.4

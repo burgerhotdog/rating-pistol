@@ -29,8 +29,8 @@ const convertRotation = (ctx, member, actions) => {
     const action = actions[shortKey];
 
     if (teamSize === 1) {
-      const { cast } = action;
-      if (['IS', 'OS'].some(type => cast.includes(type))) {
+      const { skillType } = action;
+      if (['IS', 'OS'].some(type => skillType.includes(type))) {
         continue;
       }
     }

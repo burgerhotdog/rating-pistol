@@ -554,20 +554,20 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
     const lower = search.toLowerCase();
     const filtered = {};
 
-    for (const skillId in skillMap) {
-      const skill = skillMap[skillId];
+    for (const category in skillMap) {
+      const skill = skillMap[category];
       const filteredSkill = [];
 
       for (const actionId in skill) {
         const action = { ...skill[actionId] };
-        action.key = `${skillId}-${actionId}`;
+        action.key = `${category}-${actionId}`;
 
         if (action.name.toLowerCase().includes(lower)) {
           filteredSkill.push(action);
         }
       }
 
-      filtered[skillId] = filteredSkill;
+      filtered[category] = filteredSkill;
     }
 
     return filtered;
@@ -601,7 +601,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
         <AccordionDetails sx={{ pt: 0 }}>
           <Stack spacing={0.5}>
-            {filtered.map(({ key, name, tagged = [], cast = [] }) => (
+            {filtered.map(({ key, name, tagged = [], skillType = [] }) => (
               <ListItemButton
                 key={key}
                 onClick={() => handleSelect(key)}
@@ -609,7 +609,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 dense
                 sx={{ px: 0.5 }}
               >
-                {toArray(cast).map(type => (
+                {toArray(skillType).map(type => (
                   <Chip
                     key={type}
                     size="small"
@@ -797,8 +797,8 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLab
     transition,
   };
 
-  const [skillId, actionId] = actionKey.split('-');
-  const { name, tagged, cast } = ACTION[gameId][characterId][skillId][actionId];
+  const [category, actionId] = actionKey.split('-');
+  const { name, tagged, skillType } = ACTION[gameId][characterId][category][actionId];
 
   return (
     <Box
@@ -835,11 +835,11 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLab
 
       {/* Cast type chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
-        {toArray(cast).map(castType => (
+        {toArray(skillType).map(type => (
           <Chip
-            key={castType}
+            key={type}
             size="small"
-            label={skillTypeLabels[castType]?.short ?? castType}
+            label={skillTypeLabels[type]?.short ?? type}
             variant="outlined"
             sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
           />

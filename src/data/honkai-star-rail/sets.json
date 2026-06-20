@@ -55,7 +55,7 @@
       },
       "4": {
         "applyWhen": "cast",
-        "applyOnCast": "U",
+        "applyOnSkillType": "U",
         "statMap": {
           "PERCENT_CD": 0.25
         }
@@ -106,7 +106,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnCast": "U",
+          "applyOnSkillType": "U",
           "useOnType": "damage",
           "statMap": {
             "PERCENT_FIRE": 0.12
@@ -143,7 +143,7 @@
       },
       "4": {
         "applyWhen": "cast",
-        "applyOnCast": "S",
+        "applyOnSkillType": "S",
         "statMap": {
           "PERCENT_ATK": 0.2
         },
@@ -602,7 +602,7 @@
         },
         {
           "applyWhen": "cast",
-          "applyOnCast": "FUA",
+          "applyOnSkillType": "FUA",
           "statMap": {
             "PERCENT_U": 0.36
           }
@@ -707,7 +707,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnCast": "U",
+          "applyOnSkillType": "U",
           "statMap": {
             "PERCENT_S": 0.25
           },
@@ -1045,7 +1045,7 @@
       "2": [
         {
           "applyWhen": "cast",
-          "applyOnCast": "FUA",
+          "applyOnSkillType": "FUA",
           "statMap": {
             "PERCENT_ATK": 0.24
           }

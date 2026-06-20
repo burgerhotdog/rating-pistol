@@ -76,7 +76,7 @@ def parse_gi(data, resolved):
 
             skill[str(action_id)] = {
                 "name": desc_string.split('|')[0],
-                "cast": skill_id,
+                "skillType": skill_id,
                 "considered": skill_id,
                 "indexedMultipliers": indexed_multipliers,
             }
@@ -137,7 +137,7 @@ def parse_hsr(data, resolved):
             resolved[skill_id] = {
                 "1": {
                     "name": raw_skill["name"],
-                    "cast": skill_id,
+                    "skillType": skill_id,
                     "considered": skill_id,
                     "indexedMultipliers": indexed_multipliers,
                 }
@@ -147,7 +147,7 @@ def parse_hsr(data, resolved):
 
             resolved[skill_id][str(count)] = {
                 "name": raw_skill["name"],
-                "cast": skill_id,
+                "skillType": skill_id,
                 "considered": skill_id,
                 "indexedMultipliers": indexed_multipliers,
             }
@@ -190,7 +190,7 @@ def parse_ww(data, resolved):
 
             skills[str(action_id)] = {
                 "name": skill_data["name"],
-                "cast": "BA" if group_id == "1" else key_to_id[group_id],
+                "skillType": "BA" if group_id == "1" else key_to_id[group_id],
                 "considered": "BA" if group_id == "1" else key_to_id[group_id],
                 **({"attr": attr} if attr else {}),
                 "indexedMultipliers": multipliers,
@@ -203,7 +203,7 @@ def parse_ww(data, resolved):
     resolved["OS"] = {
         "1": {
             "name": data["skill_trees"]["8"]["skill"]["name"],
-            "cast": "OS",
+            "skillType": "OS",
         }
     }
 
@@ -244,7 +244,7 @@ def parse_zzz(data, resolved):
 
                     skill[str(index)] = {
                         "name": skill_name + " " + action_data["name"],
-                        "cast": skill_id,
+                        "skillType": skill_id,
                         "considered": skill_id,
                         "indexedMultipliers": [mult],
                     }
@@ -267,7 +267,7 @@ def parse_zzz(data, resolved):
 
                 skill[str(index)] = {
                     "name": skill_name + " " + action_data["name"],
-                    "cast": skill_id,
+                    "skillType": skill_id,
                     "considered": skill_id,
                     "indexedMultipliers": [mult],
                 }

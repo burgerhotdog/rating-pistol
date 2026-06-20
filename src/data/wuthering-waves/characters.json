@@ -15,7 +15,7 @@
     "effects": [
       {
         "applyWhen": "cast",
-        "applyOnCast": "IS",
+        "applyOnSkillType": "IS",
         "useOnCast": "RS",
         "statMap": {
           "PERCENT_ALL": 0.2
@@ -34,7 +34,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_BA": 0.38
         },
@@ -139,7 +139,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "HA",
+        "applyOnSkillType": "HA",
         "applyOnAction": "RS-1",
         "intervalAction": "FC-1",
         "intervalCooldown": 2000,
@@ -156,7 +156,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "HA",
+        "applyOnSkillType": "HA",
         "followUpAction": {
           "type": "healing",
           "attr": "HP",
@@ -168,7 +168,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "intervalAction": {
           "type": "healing",
           "attr": "HP",
@@ -182,7 +182,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ALL": 0.15
         },
@@ -487,7 +487,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "intervalAction": {
           "considered": "OS",
           "fixedMultipliers": {
@@ -500,7 +500,7 @@
       {
         "rank": 1,
         "applyWhen": "hit",
-        "applyOnCast": "BA",
+        "applyOnSkillType": "BA",
         "statMap": {
           "PERCENT_FUSION": 0.03
         },
@@ -647,7 +647,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_HA": 0.38
         },
@@ -772,7 +772,7 @@
         "applyWhen": "cast",
         "applyOnAction": "FC-2",
         "followUpAction": {
-          "cast": "CA",
+          "skillType": "CA",
           "considered": [
             "RL",
             "CA"
@@ -878,7 +878,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ELECTRO": 0.2,
           "AMP_RL": 0.25
@@ -997,7 +997,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "followUpAction": "RS-1",
         "maxUses": 1
       },
@@ -1192,7 +1192,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_AERO": 0.23
         },
@@ -1324,11 +1324,11 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "useOnCast": "HA",
         "useCooldown": 1000,
         "followUpAction": {
-          "cast": "CA",
+          "skillType": "CA",
           "considered": [
             "OS",
             "CA"
@@ -1397,7 +1397,7 @@
       {
         "rank": 6,
         "applyWhen": "cast",
-        "applyOnCast": "HA",
+        "applyOnSkillType": "HA",
         "applyOnAction": [
           "IS-1",
           "RS-1"
@@ -1492,7 +1492,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_RL": 0.38
         },
@@ -1517,7 +1517,7 @@
         "applyOnAction": "FC-1",
         "followUpAction": [
           {
-            "cast": "RS",
+            "skillType": "RS",
             "considered": "HA",
             "fixedMultipliers": {
               "mv": 5.5667
@@ -1615,7 +1615,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "intervalAction": {
           "type": "healing",
           "fixedMultipliers": {
@@ -1628,7 +1628,7 @@
       {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ALL": 0.15
         },
@@ -1763,7 +1763,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_RS": 0.38
         },
@@ -1920,7 +1920,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_HAVOC": 0.23
         },
@@ -2048,7 +2048,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_FUSION": 0.2,
           "AMP_RL": 0.25
@@ -2091,7 +2091,7 @@
         "rank": 4,
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnCast": "IS",
+        "applyOnSkillType": "IS",
         "statMap": {
           "PERCENT_ATK": 0.2
         },
@@ -2313,7 +2313,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_GLACIO": 0.2,
           "AMP_RS": 0.25
@@ -2412,7 +2412,7 @@
     "effects": [
       {
         "applyWhen": "cast",
-        "applyOnCast": "RS",
+        "applyOnSkillType": "RS",
         "statMap": {
           "PERCENT_ELECTRO": 0.05
         },
@@ -2422,7 +2422,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "useOnCast": "BA",
         "useCooldown": 2000,
         "followUpAction": {
@@ -2444,7 +2444,7 @@
       {
         "rank": 2,
         "applyWhen": "cast",
-        "applyOnCast": "RS",
+        "applyOnSkillType": "RS",
         "applyOnAction": "RL-1",
         "statMap": {
           "PERCENT_CD": 0.3
@@ -2565,7 +2565,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_CA": 1
         },
@@ -2719,7 +2719,7 @@
       {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ALL": 0.15
         },
@@ -2803,7 +2803,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_RS": 0.38
         },
@@ -2897,7 +2897,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "removeOnCast": "OS",
+        "removeIfField": false,
         "useOnAction": [
           "NA-1",
           "NA-2",
@@ -3082,7 +3082,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-1",
-        "removeOnCast": "OS",
+        "removeIfField": false,
         "useOnAction": [
           "RL-1",
           "RL-2",
@@ -3204,7 +3204,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": [
+        "applyOnSkillType": [
           "RS",
           "HA"
         ],
@@ -3215,9 +3215,9 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "followUpAction": {
-          "cast": "ES",
+          "skillType": "ES",
           "considered": "ES",
           "fixedMultipliers": {
             "flat": 100
@@ -3228,7 +3228,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_HAVOC": 0.2,
           "AMP_BA": 0.25
@@ -3396,7 +3396,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_FUSION": 0.2,
           "AMP_RS": 0.25
@@ -3430,7 +3430,7 @@
         "rank": 2,
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "useOnCast": "RS",
         "useCooldown": 1000,
         "followUpAction": {
@@ -3599,7 +3599,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "followUpAction": {
           "considered": "OS",
           "fixedMultipliers": {
@@ -3678,7 +3678,7 @@
         "rank": 4,
         "applyTo": "enemy",
         "applyWhen": "hit",
-        "applyOnCast": [
+        "applyOnSkillType": [
           "BA",
           "DC"
         ],
@@ -3789,7 +3789,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "ES",
+        "applyOnSkillType": "ES",
         "statMap": {
           "PERCENT_HAVOC": 0.06
         },
@@ -3799,7 +3799,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_HAVOC": 0.2,
           "AMP_RS": 0.25
@@ -3946,7 +3946,7 @@
       {
         "applyTo": "enemy",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_EROSION": 1
         },
@@ -3955,7 +3955,7 @@
       {
         "rank": 1,
         "applyWhen": "cast",
-        "applyOnCast": "BA",
+        "applyOnSkillType": "BA",
         "statMap": {
           "PERCENT_ATK": 0.35
         },
@@ -4090,7 +4090,7 @@
       {
         "applyTo": "ally",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_SPECTRO": 0.2
         },
@@ -4231,7 +4231,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_FUSION": 0.2,
           "AMP_BA": 0.25
@@ -4369,7 +4369,7 @@
       {
         "applyTo": "ally",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_AERO": 0.175
         },
@@ -4496,7 +4496,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_HAVOC": 0.2,
           "AMP_HA": 0.25
@@ -4548,7 +4548,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ALL": 0.15
         },
@@ -4608,7 +4608,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_HA": 0.5
         },
@@ -4712,7 +4712,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ES": 0.5
         },
@@ -4860,7 +4860,7 @@
       {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ALL": 0.25
         },
@@ -4907,7 +4907,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ALL": 0.15,
           "AMP_RL": 0.25
@@ -4956,7 +4956,7 @@
       {
         "applyTo": "ally",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ALL": 0.2
         },
@@ -5111,7 +5111,7 @@
       {
         "applyTo": "ally",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "useIfStatus": "CHAFE",
         "statMap": {
           "AMP_GLACIO": 0.2
@@ -5171,7 +5171,7 @@
       {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnCast": "OS",
+        "applyOnSkillType": "OS",
         "statMap": {
           "AMP_ALL": 0.4
         },

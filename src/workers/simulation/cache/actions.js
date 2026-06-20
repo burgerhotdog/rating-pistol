@@ -60,14 +60,21 @@ export const normalizeAction = (ctx, memberId, action) => {
   const normalized = {
     ...action,
     ownerId: memberId,
-    type: action.type ?? 'damage',
     tagged: toArray(action.tagged),
-    cast: toArray(action.cast),
-    considered: toArray(action.considered),
+    skillType: toArray(action.skillType),
     times: action.times ?? 1,
   };
 
-  normalized.duration ??= DURATION_BY_CAST[normalized.cast[0]] ?? 0;
+  const hasMultipliers = 'fixedMultipliers' in action || 'indexedMultipliers' in action || 'rankedMultipliers' in action;
+  if (hasMultipliers) {
+    normalized.type ??= 'damage';
+  }
+
+  if (normalized.type === 'damage') {
+    normalized.considered = toArray(normalized.considered ?? normalized.skillType);
+  }
+
+  normalized.duration ??= DURATION_BY_CAST[normalized.skillType[0]] ?? 0;
   normalized.offset ??= Math.round(normalized.duration * 0.75);
 
   if (normalized.times === '$teamSize') {
@@ -81,23 +88,23 @@ export const normalizeActions = (ctx, member) => {
   const skillIndex = MISC[ctx.gameId].MAX_SKILL_LEVEL - 1;
   const charData = CHARACTER[ctx.gameId][member.id];
   const actionData = ACTION[ctx.gameId][member.id];
-  const addBySkillId = {};
+  const addByCategory = {};
   const normalized = {};
 
   if ('skillLevelMods' in charData) {
     for (const mod of charData.skillLevelMods) {
       if (mod.rank > member.rank) continue;
 
-      addBySkillId[mod.skillId] = mod.add;
+      addByCategory[mod.category] = mod.add;
     }
   }
 
-  for (const skillId in actionData) {
-    const currentIndex = skillIndex + (addBySkillId[skillId] ?? 0);
-    const skill = actionData[skillId];
+  for (const category in actionData) {
+    const currentIndex = skillIndex + (addByCategory[category] ?? 0);
+    const skill = actionData[category];
 
     for (const actionId in skill) {
-      const actionShort = `${skillId}-${actionId}`;
+      const actionShort = `${category}-${actionId}`;
       const actionKey = `${member.id}:${actionShort}`;
 
       const resolved = {
@@ -118,7 +125,7 @@ export const normalizeActions = (ctx, member) => {
       if ('indexedMultipliers' in resolved) {
         spec.index = currentIndex;
         resolved.compressed = compressMultipliers(resolved.indexedMultipliers, spec)
-      } else {
+      } else if ('fixedMultipliers' in resolved) {
         resolved.compressed = compressMultipliers(toArray(resolved.fixedMultipliers), spec);
       }
 
