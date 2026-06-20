@@ -22,12 +22,12 @@ import HSR_CHAR from './honkai-star-rail/characters.json';
 import WW_CHAR from './wuthering-waves/characters.json';
 import ZZZ_CHAR from './zenless-zone-zero/characters.json';
 
-const convert = (arr, isAction = false) => {
+const convert = (arr, stripId = false) => {
   const resolved = {};
 
   for (const entry of arr) {
     const { id, ...rest } = entry;
-    resolved[id] = isAction ? rest : entry;
+    resolved[id] = stripId ? rest : entry;
   }
 
   return resolved;
@@ -40,13 +40,16 @@ export const CHARACTER = {
   [ZZZ]: convert(ZZZ_CHAR),
 };
 
+import GI_ACTIONS from './genshin-impact/actions.json';
+import HSR_ACTIONS from './honkai-star-rail/actions.json';
 import WW_ACTIONS from './wuthering-waves/actions.json';
+import ZZZ_ACTIONS from './zenless-zone-zero/actions.json';
 
 export const ACTION = {
-  [GI]: {},
-  [HSR]: {},
+  [GI]: convert(GI_ACTIONS, true),
+  [HSR]: convert(HSR_ACTIONS, true),
   [WW]: convert(WW_ACTIONS, true),
-  [ZZZ]: {},
+  [ZZZ]: convert(ZZZ_ACTIONS, true),
 };
 
 import GI_WEAP from './genshin-impact/weapons.json';

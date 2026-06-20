@@ -329,8 +329,6 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
   );
 };
 
-// ─── SetIcon — single icon with hover-X and piece-count badge ───────────────
-
 function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false }) {
   const [hovered, setHovered] = useState(false);
   const name = SET[gameId]?.[setId]?.name ?? setId;
@@ -402,8 +400,6 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false })
     </Box>
   );
 }
-
-// ─── SetCountsEditor ────────────────────────────────────────────────────────
 
 function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) {
   const capacity = (gameId === 'genshin-impact' || gameId === 'wuthering-waves') ? 5 : 6;
@@ -839,7 +835,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLab
           <Chip
             key={type}
             size="small"
-            label={skillTypeLabels[type]?.short ?? type}
+            label={skillTypeLabels[type]?.name ?? type}
             variant="outlined"
             sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
           />
