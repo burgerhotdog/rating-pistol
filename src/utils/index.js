@@ -1,6 +1,5 @@
 export * from './compileStatMap';
 export * from './getMember';
-export * from './getSetCounts';
 export * from './sumRotationDmg';
 export * from './toArray';
 export * from './merge';

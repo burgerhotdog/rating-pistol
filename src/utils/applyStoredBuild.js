@@ -1,4 +1,33 @@
-import { getSetCounts, getDefaultWeaponRank } from '@/utils';
+import { SET } from '@/data';
+import { getDefaultWeaponRank } from '@/utils';
+
+const getSetCounts = (gameId, equipList) => {
+  const setData = SET[gameId];
+  const setCounts = {};
+
+  for (const equip of equipList) {
+    if (!equip) continue;
+
+    const { setId } = equip;
+    if (!setId) continue;
+    
+    setCounts[setId] = (setCounts[setId] ?? 0) + 1;
+  }
+
+  const resolved = {};
+
+  for (const [setId, count] of Object.entries(setCounts)) {
+    const { tieredEffects = {} } = setData[setId];
+
+    for (const tier in tieredEffects) {
+      if (Number(tier) > count) continue;
+
+      resolved[setId] = Number(tier);
+    }
+  }
+
+  return resolved;
+};
 
 export function applyStoredBuild(gameId, member, storedBuild) {
   const next = { ...member, build: storedBuild, useUserBuild: true };
@@ -13,7 +42,7 @@ export function applyStoredBuild(gameId, member, storedBuild) {
   }
 
   if ('equipList' in storedBuild) {
-    next.setCounts = getSetCounts(storedBuild.equipList);
+    next.setCounts = getSetCounts(gameId, storedBuild.equipList);
   }
 
   return next;
