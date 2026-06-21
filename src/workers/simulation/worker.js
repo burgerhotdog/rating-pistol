@@ -75,7 +75,7 @@ self.onmessage = ({ data }) => {
   // Per-week score percentiles for distribution bands
   const weeklyDistribution = [];
   for (let week = 0; week <= benchmarkWeek; week++) {
-    const values = trials.map(t => t.scores[week]).sort((a, b) => sumRotationDmg(a) - sumRotationDmg(b));
+    const values = trials.map(t => t.weeklySummary[week]).sort((a, b) => sumRotationDmg(a) - sumRotationDmg(b));
     const n = values.length;
     weeklyDistribution.push({
       min: values[0],
@@ -91,6 +91,7 @@ self.onmessage = ({ data }) => {
   // Build actionMap using the character's actual equipped build (same as what
   // normalizeTeam returned for the character — m.build is the top-level build).
   const actionMap = evaluateRotation(compiledRotation, cache.member[characterId].statMap);
+  console.log(sumRotationDmg(actionMap));
   const actionMapsWithSub = {};
 
   for (const [statId, { VALUE }] of Object.entries(MISC[gameId].SUB_STAT_TYPES)) {

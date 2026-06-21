@@ -270,7 +270,7 @@
           "applyWhen": "cast",
           "applyOnSkillType": "OS",
           "intervalAction": {
-            "element": "HAVOC",
+            "element": "Havoc",
             "considered": "OS",
             "fixedMultipliers": {
               "mv": 4.8

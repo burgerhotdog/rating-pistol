@@ -316,7 +316,7 @@
         "applyOnType": "healing",
         "applyCooldown": 3500,
         "intervalAction": {
-          "element": "PHYSICAL",
+          "element": "Physical",
           "fixedMultipliers": {
             "flat": 27000
           }

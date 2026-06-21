@@ -1,30 +1,5 @@
 import { getAttr } from '@/utils';
 
-export const getFormulaConfig = (gameId) => {
-  switch(gameId) {
-    case 'genshin-impact':
-      return {
-        ENEMY_RES: 0.1,
-        getDefMult: (defRed, defIgn) => 190 / (200 * ((1 - defRed) * (1 - defIgn)) + 190),
-      };
-    case 'honkai-star-rail':
-      return {
-        ENEMY_RES: 0,
-        getDefMult: (defRed, defIgn) => 100 / (110 * (Math.max(0, 1 - defRed - defIgn)) + 100),
-      };
-    case 'wuthering-waves':
-      return {
-        ENEMY_RES: 0.1,
-        getDefMult: (defRed, defIgn) => 1520 / (1592 * ((1 - defRed) * (1 - defIgn)) + 1520),
-      };
-    case 'zenless-zone-zero':
-      return {
-        ENEMY_RES: -0.2,
-        getDefMult: (defRed, defIgn, pen) => 60 / (Math.max(0, 794 * (1 - defRed) * (1 - defIgn) - pen) + 60),
-      };
-  }
-};
-
 const computeBase = (compressed, statMap) => {
   const percentMv = statMap.PERCENT_MV ?? 0;
   const flatMv = statMap.FLAT_MV ?? 0;
@@ -92,8 +67,9 @@ export const damageFormula = (action, config, statMap) => {
 
     switch (action.type) {
       case 'damage': {
-        const bonuses = computeBonuses(statMap, considered, element, enemyStatMap);
-        const reductions = computeReductions(config, statMap, element, enemyStatMap);
+        const uppercase = element.toUpperCase();
+        const bonuses = computeBonuses(statMap, considered, uppercase, enemyStatMap);
+        const reductions = computeReductions(config, statMap, uppercase, enemyStatMap);
 
         sum += base * bonuses * reductions;
         break;

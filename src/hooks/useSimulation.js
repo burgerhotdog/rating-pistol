@@ -11,7 +11,7 @@ export function useSimulation(team) {
   useEffect(() => {
     const payload = { gameId, characterId, team };
 
-    if (!['genshin-impact', 'wuthering-waves'].includes(gameId)) {
+    if (!['genshin-impact', 'wuthering-waves', 'zenless-zone-zero'].includes(gameId)) {
       console.log('simulation disabled for game');
       workerRef.current?.terminate();
       workerRef.current = null;

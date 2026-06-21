@@ -13,13 +13,13 @@
     "Circlet"
   ],
   "ELEMENT_COLORS": {
-    "ANEMO": "#2ed89f",
-    "CRYO": "#78f3f6",
-    "DENDRO": "#9be43b",
-    "ELECTRO": "#ce7ffc",
-    "GEO": "#ffae10",
-    "HYDRO": "#00c1ff",
-    "PYRO": "#ff603f"
+    "Anemo": "#2ed89f",
+    "Cryo": "#78f3f6",
+    "Dendro": "#9be43b",
+    "Electro": "#ce7ffc",
+    "Geo": "#ffae10",
+    "Hydro": "#00c1ff",
+    "Pyro": "#ff603f"
   },
   "SKILL": {
     "NA": {
@@ -43,20 +43,6 @@
       "short": "Burst"
     }
   },
-  "SKILL_TREE_COLUMNS": [
-    {
-      "id": "NA",
-      "label": "Normal Attack"
-    },
-    {
-      "id": "ES",
-      "label": "Elemental Skill"
-    },
-    {
-      "id": "EB",
-      "label": "Elemental Burst"
-    }
-  ],
   "WEAPON_TYPES": [
     "SWORD",
     "CLAYMORE",
@@ -69,9 +55,9 @@
     "BASE_ATK": 0,
     "BASE_DEF": 0,
     "BASE_EM": 0,
+    "BASE_ER": 1,
     "PERCENT_CR": 0.05,
-    "PERCENT_CD": 0.5,
-    "PERCENT_ER": 1
+    "PERCENT_CD": 0.5
   },
   "MAIN_STAT_TYPES": [
     {

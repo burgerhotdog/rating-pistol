@@ -14,32 +14,14 @@
     "Rope"
   ],
   "ELEMENT_COLORS": {
-    "FIRE": "#ea7866",
-    "ICE": "#5ec7db",
-    "IMAGINARY": "#e8d85d",
-    "LIGHTNING": "#eb77ea",
-    "PHYSICAL": "#bebebe",
-    "QUANTUM": "#9c96f4",
-    "WIND": "#62d3a2"
+    "Fire": "#ea7866",
+    "Ice": "#5ec7db",
+    "Imaginary": "#e8d85d",
+    "Lightning": "#eb77ea",
+    "Physical": "#bebebe",
+    "Quantum": "#9c96f4",
+    "Wind": "#62d3a2"
   },
-  "SKILL_TREE_COLUMNS": [
-    {
-      "id": "BA",
-      "label": "Basic ATK"
-    },
-    {
-      "id": "S",
-      "label": "Skill"
-    },
-    {
-      "id": "U",
-      "label": "Ultimate"
-    },
-    {
-      "id": "T",
-      "label": "Talent"
-    }
-  ],
   "WEAPON_TYPES": [
     "HUNT",
     "ABUNDANCE",

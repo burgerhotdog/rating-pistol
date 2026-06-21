@@ -1,7 +1,7 @@
-const GI = 'genshin-impact';
-const HSR = 'honkai-star-rail';
-const WW = 'wuthering-waves';
-const ZZZ = 'zenless-zone-zero';
+export const GI = 'genshin-impact';
+export const HSR = 'honkai-star-rail';
+export const WW = 'wuthering-waves';
+export const ZZZ = 'zenless-zone-zero';
 
 export { default as VERSION } from './version.json';
 

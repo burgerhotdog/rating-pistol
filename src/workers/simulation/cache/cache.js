@@ -85,5 +85,11 @@ export const compileCache = (gameId, team) => {
     };
   }
 
-  return { gameId, member: memberCache, effect, passive, fullRotationTime };
+  return {
+    gameId,
+    member: memberCache,
+    effect,
+    passive,
+    fullRotationTime
+  };
 };

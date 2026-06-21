@@ -14,7 +14,6 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTER[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
-  const calcs = CHARACTER[gameId][characterId]?.calcs;
 
   if (isLoading || !build || !combinedSimEquips) return null;
   const simSources = Object.entries(combinedSimEquips).map(([statId, value]) => ({
@@ -26,11 +25,10 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
   const offElements = Object.keys(MISC[gameId].ELEMENT_COLORS).filter(e => e !== element);
 
   const data = Object.entries(MISC[gameId].MENU_STATS)
-    .filter(([stat]) => element === 'PHYSICAL'
+    .filter(([stat]) => element === 'Physical'
       ? !offElements.includes(stat)
-      : !offElements.includes(stat) && stat !== 'PHYSICAL'
+      : !offElements.includes(stat) && stat !== 'Physical'
     )
-    .filter(([stat]) => stat === 'HB' ? !calcs[0].type : true)
     .map(([stat]) => {
       const buildRaw = getAttr(stat, compileStatMap(gameId, characterId, build, []));
       const simRaw = getAttr(stat, compileStatMap(gameId, characterId, { weaponId: build.weaponId, equipList: simSources }, []));

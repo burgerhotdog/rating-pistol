@@ -1,17 +1,40 @@
+import { GI, HSR, WW, ZZZ } from '@/data';
 import { MISC, CHARACTER, ACTION } from '@/data';
 import { toArray } from '@/utils';
 import { resolveRankedValue } from './resolveRanked';
 
 const DURATION_BY_CAST = {
-  BA: 750,
-  HA: 1000,
-  MA: 1000,
-  DC: 1500,
-  RS: 1250,
-  RL: 500,
-  IS: 1000,
-  OS: 0,
-  CA: 0,
+  [GI]: {
+    NA: 1000,
+    CA: 1000,
+    PA: 1000,
+    ES: 1000,
+    EB: 1000,
+  },
+  [HSR]: {
+    BA: 1000,
+    S: 1000,
+    U: 1000,
+  },
+  [WW]: {
+    BA: 750,
+    HA: 1000,
+    MA: 1000,
+    DC: 1500,
+    RS: 1250,
+    RL: 500,
+    IS: 1000,
+    OS: 0,
+    CA: 0,
+  },
+  [ZZZ]: {
+    BA: 1000,
+    D: 1000,
+    A: 1000,
+    S: 1000,
+    CA: 1000,
+    U: 1000,
+  },
 };
 
 export const compressMultipliers = (multipliers, spec = {}) => {
@@ -28,7 +51,7 @@ export const compressMultipliers = (multipliers, spec = {}) => {
   const compressed = {};
 
   for (const hit of multipliers) {
-    const element = hit.element ?? spec.element ?? 'PHYSICAL';
+    const element = hit.element ?? spec.element ?? 'Physical';
     const times = hit.times ?? 1;
     compressed[element] ??= { flat: 0, mv: {}, hitCount: 0 };
     const compiled = compressed[element];
@@ -74,7 +97,7 @@ export const normalizeAction = (ctx, memberId, action) => {
     normalized.considered = toArray(normalized.considered ?? normalized.skillType);
   }
 
-  normalized.duration ??= DURATION_BY_CAST[normalized.skillType[0]] ?? 0;
+  normalized.duration ??= DURATION_BY_CAST[ctx.gameId][normalized.skillType[0]] ?? 0;
   normalized.offset ??= Math.round(normalized.duration * 0.75);
 
   if (normalized.times === '$teamSize') {

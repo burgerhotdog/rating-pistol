@@ -126,7 +126,7 @@ const PARSE_MAIN_VALUE = {
 const PARSE_SETID = {
   'genshin-impact': (equip) => String(equip.flat.setId),
   'honkai-star-rail': (equip) => String(equip._flat.setID),
-  'zenless-zone-zero': (equip) => String(equip.Equipment.Id).slice(0, 3),
+  'zenless-zone-zero': (equip) => `${String(equip.Equipment.Id).slice(0, 3)}00`,
 };
 
 const PARSE_SUBLIST = {

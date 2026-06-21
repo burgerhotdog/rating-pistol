@@ -13,12 +13,12 @@
     "1-Cost"
   ],
   "ELEMENT_COLORS": {
-    "GLACIO": "#4fb4cf",
-    "FUSION": "#d45772",
-    "ELECTRO": "#c154c7",
-    "AERO": "#44c4a3",
-    "SPECTRO": "#b7a835",
-    "HAVOC": "#be4981"
+    "Glacio": "#4fb4cf",
+    "Fusion": "#d45772",
+    "Electro": "#c154c7",
+    "Aero": "#44c4a3",
+    "Spectro": "#b7a835",
+    "Havoc": "#be4981"
   },
   "SKILL": {
     "NA": {
@@ -70,32 +70,6 @@
       "short": "Coordinated"
     }
   },
-  "SKILL_TREE_COLUMNS": [
-    {
-      "id": "NA",
-      "label": "Normal Attack"
-    },
-    {
-      "id": "RS",
-      "label": "Resonance Skill"
-    },
-    {
-      "id": "FC",
-      "label": "Forte Circuit"
-    },
-    {
-      "id": "RL",
-      "label": "Resonance Liberation"
-    },
-    {
-      "id": "IS",
-      "label": "Intro Skill"
-    },
-    {
-      "id": "OS",
-      "label": "Outro Skill"
-    }
-  ],
   "WEAPON_TYPES": [
     "BROADBLADE",
     "SWORD",
@@ -334,29 +308,29 @@
   "STATUSES": {
     "CHAFE": {
       "id": "CHAFE",
-      "element": "GLACIO",
+      "element": "Glacio",
       "maxStacks": 10
     },
     "BURST": {
       "id": "BURST",
-      "element": "FUSION",
+      "element": "Fusion",
       "maxStacks": 10
     },
     "FLARE": {
       "id": "FLARE",
-      "element": "ELECTRO",
+      "element": "Electro",
       "maxStacks": 10
     },
     "EROSION": {
       "id": "EROSION",
-      "element": "AERO",
+      "element": "Aero",
       "tickInterval": 3000,
       "duration": 15000,
       "maxStacks": 3
     },
     "FRAZZLE": {
       "id": "FRAZZLE",
-      "element": "SPECTRO",
+      "element": "Spectro",
       "tickInterval": 3000,
       "duration": 3000,
       "maxStacks": 10,
@@ -364,7 +338,7 @@
     },
     "BANE": {
       "id": "BANE",
-      "element": "HAVOC",
+      "element": "Havoc",
       "maxStacks": 3
     }
   },

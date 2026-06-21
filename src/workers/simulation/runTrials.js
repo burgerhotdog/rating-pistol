@@ -1,6 +1,6 @@
 import { MISC } from '@/data';
 import { sumRotationDmg } from '@/utils';
-import { findBenchmarkWeek, getAverageScores, findRelativeError} from './helpers';
+import { findBenchmarkWeek, findRelativeError} from './helpers';
 import { compileRotation, evaluateRotation } from './rotation';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
@@ -11,6 +11,38 @@ const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
+function getAverageSummaries(trials, weekCount) {
+  const averages = [];
+
+  for (let week = 0; week <= weekCount; week++) {
+    const currentWeekRotMap = {};
+    const blueprintSummary = trials[0].weeklySummary[week];
+
+    for (const key in blueprintSummary) {
+      const footprint = blueprintSummary[key];
+      const { type } = footprint;
+
+      let sum = 0;
+
+      for (const trial of trials) {
+        const currentWeekSummary = trial.weeklySummary[week];
+
+        sum += currentWeekSummary[key][type] ?? 0;
+      }
+
+      currentWeekRotMap[key] = {
+        ...footprint,
+        [type]: sum / trials.length,
+      };
+    }
+
+    averages.push(currentWeekRotMap);
+  }
+
+  return averages;
+}
+
+
 const createTrial = (cache, currId, matchMap, compiledRotation) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
@@ -19,7 +51,7 @@ const createTrial = (cache, currId, matchMap, compiledRotation) => {
   return {
     equipList: new Array(NUM_MAINSTATS).fill(null),
     penalty: getPenalty(baseMap, matchMap),
-    scores: [evaluateRotation(compiledRotation, baseMap)],
+    weeklySummary: [evaluateRotation(compiledRotation, baseMap)],
   };
 };
 
@@ -52,7 +84,7 @@ export const runTrials = (cache, currId, team) => {
     }
 
     while (trials.length < MAX_TRIALS) {
-      const values = trials.map(trial => sumRotationDmg(trial.scores[week]));
+      const values = trials.map(trial => sumRotationDmg(trial.weeklySummary[week]));
       if (findRelativeError(values) <= 0.005) break;
 
       const trial = createTrial(cache, currId, matchMap, compiledRotation);
@@ -64,7 +96,7 @@ export const runTrials = (cache, currId, team) => {
       trials.push(trial);
     }
 
-    const weeklyScores = getAverageScores(trials, week);
+    const weeklyScores = getAverageSummaries(trials, week);
     const { benchmarkWeek, diff } = findBenchmarkWeek(weeklyScores);
     lastDiff = diff;
 
@@ -85,7 +117,7 @@ export const runTrials = (cache, currId, team) => {
     lastBenchmarkWeek = MAX_WEEKS;
   }
 
-  const weeklyScores = getAverageScores(trials, lastBenchmarkWeek);
+  const weeklyScores = getAverageSummaries(trials, lastBenchmarkWeek);
 
   return {
     compiledRotation,

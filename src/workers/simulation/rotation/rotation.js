@@ -2,7 +2,7 @@ import { MISC } from '@/data';
 import { matchIfInflict, matchUseOn, matchRemoveOn, matchUseIf, matchRemoveIf, matchApplyIf } from '../match';
 import { createCdTracker, isOnCooldown, setCooldown, advanceCooldowns } from './cooldowns';
 import { buildFootprint, evaluateFootprint } from './footprint';
-import { getFormulaConfig } from './formula';
+import { formulaConfig as getFormulaConfig } from '../config';
 import { buildStatusFootprint } from './status';
 
 const MAX_PROC_DEPTH = 5;
@@ -349,7 +349,7 @@ export const compileRotation = (cache, currId, team) => {
     memberState[member.id] = {};
   }
 
-  const formulaConfig = getFormulaConfig(cache.gameId);
+  const formulaConfig = getFormulaConfig[cache.gameId];
 
   const ctx = {
     cache,

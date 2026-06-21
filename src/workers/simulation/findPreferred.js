@@ -8,13 +8,15 @@ export function findPreferred(cache, trial, currId, compiledRotation) {
   const { MAIN_STAT_TYPES } = MISC[gameId];
 
   return MAIN_STAT_TYPES.map((statOptions, costIndex) => {
-    if (costIndex === 0 || costIndex === 2) return [];
+    if (gameId === 'wuthering-waves') {
+      if (costIndex === 0 || costIndex === 2) return [];
+    }
 
     const preferred = [];
     for (const [id, data] of Object.entries(statOptions)) {
       const testSummary = evaluateRotation(compiledRotation, mergeObj(baseMap, { [id]: data.VALUE }));
 
-      if (sumRotationDmg(testSummary) > sumRotationDmg(trial.scores[0])) {
+      if (sumRotationDmg(testSummary) > sumRotationDmg(trial.weeklySummary[0])) {
         preferred.push(id);
       }
     }

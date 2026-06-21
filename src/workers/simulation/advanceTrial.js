@@ -1,13 +1,9 @@
+import { GI, HSR, WW, ZZZ } from '@/data';
 import { MISC } from '@/data';
 import { mergeObj, mergeEquipList, sumRotationDmg } from '@/utils';
 import { weightedLottery } from './helpers';
 import { evaluateRotation } from './rotation';
 import { getPenalty } from './penalty';
-
-const DAILY_STAMINA = 240;
-const WEEKLY_STAMINA = 120;
-const COST_PER_RUN = 60;
-const DROPS_PER_RUN = 4.33;
 
 const WW_ATKDEF = {
   FLAT_ATK: [30, 40, 50, 60],
@@ -31,7 +27,7 @@ const WW_OTHER = {
   PERCENT_RL: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
 };
 
-const randomRoll = (statId) => {
+const randomRollWW = (statId) => {
   if (statId === 'FLAT_ATK' || statId === 'FLAT_DEF') {
     const winnerIndex = weightedLottery([4, 19, 14, 1]);
     return WW_ATKDEF[statId][winnerIndex];
@@ -44,31 +40,76 @@ const randomRoll = (statId) => {
   return WW_OTHER[statId][winnerIndex];
 };
 
-function assignSubStats(gameId) {
-  const optionsMap = MISC[gameId].SUB_STAT_TYPES;
-  const statPool = Object.entries(optionsMap)
-    .map(([id, { WEIGHT }]) => [id, WEIGHT]);
+function assignSubStats(options, lineCount, randomRoll, doUpgrade = false) {
+  const statPool = options.map(([id, { WEIGHT }]) => [id, WEIGHT]);
 
   const subStatList = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < lineCount; i++) {
     const winnerIndex = weightedLottery(statPool.map(item => item[1]));
     const [subStatId] = statPool[winnerIndex];
     subStatList.push({ subStatId, subStatValue: randomRoll(subStatId) });
     statPool.splice(winnerIndex, 1);
   }
 
+  if (doUpgrade) {
+    const upgradeTimes = Math.random() < 0.2 ? 5 : 4;
+
+    for (let i = 0; i < upgradeTimes; i++) {
+      const upgradeIndex = Math.floor(Math.random() * 4);
+      const prev = subStatList[upgradeIndex];
+      subStatList[upgradeIndex] = {
+        subStatId: prev.subStatId,
+        subStatValue: prev.subStatValue + randomRoll(prev.subStatId),
+      };
+    }
+  }
+
   return subStatList;
 }
 
-function assignMainStat(gameId, costIndex) {
-  const optionsMap = MISC[gameId].MAIN_STAT_TYPES[costIndex];
-  const weightsList = Object.values(optionsMap).map(({ WEIGHT }) => WEIGHT);
-  const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)];
-  const mainStatValue = optionsMap[mainStatId].VALUE;
+function assignMainStat(options) {
+  const weightsList = Object.values(options).map(({ WEIGHT }) => WEIGHT);
+  const mainStatId = Object.keys(options)[weightedLottery(weightsList)];
+  const mainStatValue = options[mainStatId].VALUE;
+
   return { mainStatId, mainStatValue };
 }
 
-const generateEquip = (ctx, cost) => {
+const generateEquip = (ctx, slot) => {
+  if (Math.random() < 0.5) return;
+
+  const { cache, preferredMainStats } = ctx;
+  const { gameId } = cache;
+
+  const mainOptions = MISC[gameId].MAIN_STAT_TYPES[slot];
+  const { mainStatId, mainStatValue } = assignMainStat(mainOptions);
+  if (!preferredMainStats[slot].includes(mainStatId)) return;
+
+  const subOptions = MISC[gameId].SUB_STAT_TYPES;
+  const filtered = Object.entries(subOptions).filter(([statId]) => statId !== mainStatId);
+
+  const randomRoll = {
+    [GI]: statId => {
+      const { VALUE } = subOptions[statId];
+      return VALUE * (1 - (Math.floor(Math.random() * 4) / 10));
+    },
+    [HSR]: statId => {
+      const { VALUE } = subOptions[statId];
+      return VALUE * (1 - (Math.floor(Math.random() * 3) / 10));
+    },
+    [ZZZ]: statId => subOptions[statId].VALUE,
+  };
+
+  const subStatList = assignSubStats(filtered, 4, randomRoll[ctx.cache.gameId], true);
+
+  return {
+    mainStatId,
+    mainStatValue,
+    subStatList,
+  };
+};
+
+const generateEquipWW = (ctx, cost) => {
   const wrongSetChance = cost === 4 ? 0.25 : 0.5
   if (Math.random() < wrongSetChance) return;
 
@@ -77,14 +118,17 @@ const generateEquip = (ctx, cost) => {
 
   // Randomly assign main stat (according to weighted rules)
   // Skip non preferred main stats
-  const { mainStatId, mainStatValue } = assignMainStat(gameId, cost);
+  const options = MISC[gameId].MAIN_STAT_TYPES[cost];
+  const { mainStatId, mainStatValue } = assignMainStat(options);
   if (!preferredMainStats[cost].includes(mainStatId)) return;
 
   // Assign main stat flat values
   // Assign sub stats
   const mainFlatMap = MISC[gameId].MAIN_STAT_FLATS[cost];
   const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-  const subStatList = assignSubStats(gameId);
+  const subOptions = MISC[gameId].SUB_STAT_TYPES;
+  const filtered = Object.entries(subOptions);
+  const subStatList = assignSubStats(filtered, 5, randomRollWW);
 
   return {
     mainStatId,
@@ -95,7 +139,7 @@ const generateEquip = (ctx, cost) => {
   };
 };
 
-const evaluateEquip = (ctx, cost, equip, latest) => {
+const evaluateEquip = (ctx, spec, equip, latest) => {
   const { cache, currId, matchMap, compiledRotation } = ctx;
   const { baseMap } = cache.member[currId];
 
@@ -117,57 +161,97 @@ const evaluateEquip = (ctx, cost, equip, latest) => {
     }
   }
 
-  if (cost === 4) {
-    compareAndReplace(0);
-  } else if (cost === 3) {
-    compareAndReplace(1);
-    compareAndReplace(2);
+  if ('cost' in spec) {
+    if (spec.cost === 4) {
+      compareAndReplace(0);
+    } else if (spec.cost === 3) {
+      compareAndReplace(1);
+      compareAndReplace(2);
+    } else {
+      compareAndReplace(3);
+      compareAndReplace(4);
+    }
   } else {
-    compareAndReplace(3);
-    compareAndReplace(4);
+    compareAndReplace(spec.slot);
   }
 
   return buffer;
 };
 
-export function advanceTrial(ctx, trial) {
-  const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
-  const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
+const trialConfig = {
+  [GI]: {
+    weeklyRoutine: function (ctx, next) {
+      for (let i = 0; i < 66; i++) {
+        const slot = Math.floor(Math.random() * 5);
+        const newEquipObj = generateEquip(ctx, slot);
+        if (!newEquipObj) continue;
 
-  const latest = {
+        Object.assign(next, evaluateEquip(ctx, { slot }, newEquipObj, next));
+      }
+    },
+  },
+  [HSR]: {
+    weeklyRoutine: function (ctx, next) {
+      for (let i = 0; i < 84; i++) {
+        const slot = Math.floor(Math.random() * 6);
+        const newEquipObj = generateEquip(ctx, slot);
+        if (!newEquipObj) continue;
+
+        Object.assign(next, evaluateEquip(ctx, { slot }, newEquipObj, next));
+      }
+    },
+  },
+  [WW]: {
+    weeklyRoutine: function (ctx, next) {
+      for (let i = 0; i < 20; i++) {
+        const newEquipObj = generateEquipWW(ctx, 4);
+        if (!newEquipObj) continue;
+
+        Object.assign(next, evaluateEquip(ctx, { cost: 4 }, newEquipObj, next));
+      }
+
+      for (let i = 0; i < 75; i++) {
+        const newEquipObj = generateEquipWW(ctx, 3);
+        if (!newEquipObj) continue;
+
+        Object.assign(next, evaluateEquip(ctx, { cost: 3 }, newEquipObj, next));
+      }
+
+      for (let i = 0; i < 60; i++) {
+        const newEquipObj = generateEquipWW(ctx, 1);
+        if (!newEquipObj) continue;
+
+        Object.assign(next, evaluateEquip(ctx, { cost: 1 }, newEquipObj, next));
+      }
+    },
+  },
+  [ZZZ]: {
+    weeklyRoutine: function (ctx, next) {
+      for (let i = 0; i < 120; i++) {
+        const slot = Math.floor(Math.random() * 6);
+        const newEquipObj = generateEquip(ctx, slot);
+        if (!newEquipObj) continue;
+
+        Object.assign(next, evaluateEquip(ctx, { slot }, newEquipObj, next));
+      }
+    },
+  },
+};
+
+export function advanceTrial(ctx, trial) {
+  const { cache } = ctx;
+  const { weeklyRoutine } = trialConfig[cache.gameId];
+
+  const next = {
     equipList: trial.equipList,
-    summary: trial.scores.at(-1),
+    summary: trial.weeklySummary.at(-1),
     penalty: trial.penalty,
-    score: sumRotationDmg(trial.scores.at(-1)) * trial.penalty,
+    score: sumRotationDmg(trial.weeklySummary.at(-1)) * trial.penalty,
   };
 
-  // Generate 20 4-costs per week
-  for (let i = 0; i < 20; i++) {
-    const newEquipObj = generateEquip(ctx, 4);
-    if (!newEquipObj) continue;
+  weeklyRoutine(ctx, next);
 
-    Object.assign(latest, evaluateEquip(ctx, 4, newEquipObj, latest));
-  }
-
-  // Generate 15 3-costs per week
-  for (let i = 0; i < 15; i++) {
-    const newEquipObj = generateEquip(ctx, 3);
-    if (!newEquipObj) continue;
-
-    Object.assign(latest, evaluateEquip(ctx, 3, newEquipObj, latest));
-  }
-
-  // Generate 1 and 3 costs from tacet fields
-  for (let i = 0; i < totalDropsPerWeek; i++) {
-    const cost = Math.random() < 0.5 ? 1 : 3;
-
-    const newEquipObj = generateEquip(ctx, cost);
-    if (!newEquipObj) continue;
-
-    Object.assign(latest, evaluateEquip(ctx, cost, newEquipObj, latest));
-  }
-
-  trial.equipList = latest.equipList;
-  trial.penalty = latest.penalty;
-  trial.scores.push(latest.summary);
+  trial.equipList = next.equipList;
+  trial.penalty = next.penalty;
+  trial.weeklySummary.push(next.summary);
 }
