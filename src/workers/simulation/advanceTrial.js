@@ -6,33 +6,33 @@ import { evaluateRotation } from './rotation';
 import { getPenalty } from './penalty';
 
 const WW_ATKDEF = {
-  FLAT_ATK: [30, 40, 50, 60],
-  FLAT_DEF: [40, 50, 60, 70],
+  'atk': [30, 40, 50, 60],
+  'def': [40, 50, 60, 70],
 };
 
 const WW_CRIT = {
-  PERCENT_CR: [0.063, 0.069, 0.075, 0.081, 0.087, 0.093, 0.099, 0.105],
-  PERCENT_CD: [0.126, 0.138, 0.15, 0.162, 0.174, 0.186, 0.198, 0.21],
+  'critRate%': [0.063, 0.069, 0.075, 0.081, 0.087, 0.093, 0.099, 0.105],
+  'critDmg%': [0.126, 0.138, 0.15, 0.162, 0.174, 0.186, 0.198, 0.21],
 };
 
 const WW_OTHER = {
-  FLAT_HP: [320, 360, 390, 430, 470, 510, 540, 580],
-  PERCENT_HP: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_ATK: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_DEF: [0.081, 0.09, 0.1, 0.109, 0.118, 0.128, 0.138, 0.147],
-  PERCENT_ER: [0.068, 0.076, 0.084, 0.092, 0.1, 0.108, 0.116, 0.124],
-  PERCENT_BA: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_HA: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_RS: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_RL: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'hp': [320, 360, 390, 430, 470, 510, 540, 580],
+  'hp%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'atk%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'def%': [0.081, 0.09, 0.1, 0.109, 0.118, 0.128, 0.138, 0.147],
+  'energyRegen%': [0.068, 0.076, 0.084, 0.092, 0.1, 0.108, 0.116, 0.124],
+  'basicAttackDmgBonus%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'heavyAttackDmgBonus%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'resonanceSkillDmgBonus%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'resonanceLiberationDmgBonus%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
 };
 
 const randomRollWW = (statId) => {
-  if (statId === 'FLAT_ATK' || statId === 'FLAT_DEF') {
+  if (statId === 'atk' || statId === 'def') {
     const winnerIndex = weightedLottery([4, 19, 14, 1]);
     return WW_ATKDEF[statId][winnerIndex];
   }
-  if (statId === 'PERCENT_CR' || statId === 'PERCENT_CD') {
+  if (statId === 'critRate%' || statId === 'critDmg%') {
     const winnerIndex = weightedLottery([6, 6, 6, 2, 2, 2, 1, 1]);
     return WW_CRIT[statId][winnerIndex];
   }
@@ -109,8 +109,14 @@ const generateEquip = (ctx, slot) => {
   };
 };
 
+const FLATS = {
+  4: ["atk", 150],
+  3: ["atk", 100],
+  1: ["hp", 2280],
+};
+
 const generateEquipWW = (ctx, cost) => {
-  const wrongSetChance = cost === 4 ? 0.25 : 0.5
+  const wrongSetChance = cost === 4 ? 0.25 : 0.5;
   if (Math.random() < wrongSetChance) return;
 
   const { cache, preferredMainStats } = ctx;
@@ -124,8 +130,7 @@ const generateEquipWW = (ctx, cost) => {
 
   // Assign main stat flat values
   // Assign sub stats
-  const mainFlatMap = MISC[gameId].MAIN_STAT_FLATS[cost];
-  const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
+  const [mainStatFlatId, mainStatFlatValue] = FLATS[cost];
   const subOptions = MISC[gameId].SUB_STAT_TYPES;
   const filtered = Object.entries(subOptions);
   const subStatList = assignSubStats(filtered, 5, randomRollWW);

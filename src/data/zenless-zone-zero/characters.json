@@ -4,14 +4,18 @@
     "name": "Anby",
     "quality": 4,
     "element": "Electric",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 7501,
-      "BASE_ATK": 659,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 136,
-      "BASE_AM": 94,
-      "BASE_AP": 93
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 7501,
+      "baseAtk": 584,
+      "baseDef": 613,
+      "baseImpact": 118,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
     }
   },
   {
@@ -19,15 +23,18 @@
     "name": "Nekomata",
     "quality": 5,
     "element": "Physical",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7560,
-      "BASE_ATK": 911,
-      "BASE_DEF": 588,
-      "BASE_IMPACT": 92,
-      "BASE_AM": 97,
-      "BASE_AP": 96,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7560,
+      "baseAtk": 836,
+      "baseDef": 588,
+      "baseImpact": 92,
+      "baseAnomalyMastery": 97,
+      "baseAnomalyProficiency": 96
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -35,15 +42,18 @@
     "name": "Nicole",
     "quality": 4,
     "element": "Ether",
-    "type": "SUPPORT",
-    "stats": {
-      "BASE_HP": 8146,
-      "BASE_ATK": 649,
-      "BASE_DEF": 623,
-      "BASE_IMPACT": 88,
-      "BASE_AM": 90,
-      "BASE_AP": 93,
-      "BASE_ER": 0
+    "type": "Support",
+    "baseStats": {
+      "baseHp": 8146,
+      "baseAtk": 574,
+      "baseDef": 623,
+      "baseImpact": 88,
+      "baseAnomalyMastery": 90,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -51,15 +61,18 @@
     "name": "Soldier 11",
     "quality": 5,
     "element": "Fire",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 889,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 94,
-      "BASE_AP": 93,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 814,
+      "baseDef": 613,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -67,15 +80,18 @@
     "name": "Corin",
     "quality": 4,
     "element": "Physical",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 6977,
-      "BASE_ATK": 807,
-      "BASE_DEF": 605,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 93,
-      "BASE_AP": 96,
-      "PERCENT_CD": 0.288
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 6977,
+      "baseAtk": 732,
+      "baseDef": 605,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 93,
+      "baseAnomalyProficiency": 96
+    },
+    "ascensionStats": {
+      "critDmg%": 0.288,
+      "baseAtk": 75
     }
   },
   {
@@ -83,15 +99,18 @@
     "name": "Billy",
     "quality": 4,
     "element": "Physical",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 6907,
-      "BASE_ATK": 787,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 91,
-      "BASE_AM": 92,
-      "BASE_AP": 91,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 6907,
+      "baseAtk": 712,
+      "baseDef": 607,
+      "baseImpact": 91,
+      "baseAnomalyMastery": 92,
+      "baseAnomalyProficiency": 91
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -99,14 +118,18 @@
     "name": "Koleda",
     "quality": 5,
     "element": "Fire",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 8127,
-      "BASE_ATK": 736,
-      "BASE_DEF": 595,
-      "BASE_IMPACT": 134,
-      "BASE_AM": 97,
-      "BASE_AP": 96
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 8127,
+      "baseAtk": 661,
+      "baseDef": 595,
+      "baseImpact": 116,
+      "baseAnomalyMastery": 97,
+      "baseAnomalyProficiency": 96
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
     }
   },
   {
@@ -114,15 +137,18 @@
     "name": "Anton",
     "quality": 4,
     "element": "Electric",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7219,
-      "BASE_ATK": 792,
-      "BASE_DEF": 623,
-      "BASE_IMPACT": 95,
-      "BASE_AM": 86,
-      "BASE_AP": 90,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7219,
+      "baseAtk": 717,
+      "baseDef": 623,
+      "baseImpact": 95,
+      "baseAnomalyMastery": 86,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -130,15 +156,18 @@
     "name": "Ben",
     "quality": 4,
     "element": "Fire",
-    "type": "DEFENSE",
-    "stats": {
-      "BASE_HP": 8578,
-      "BASE_ATK": 653,
-      "BASE_DEF": 724,
-      "BASE_IMPACT": 95,
-      "BASE_AM": 86,
-      "BASE_AP": 90,
-      "BASE_ER": 0
+    "type": "Defense",
+    "baseStats": {
+      "baseHp": 8578,
+      "baseAtk": 578,
+      "baseDef": 724,
+      "baseImpact": 95,
+      "baseAnomalyMastery": 86,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -146,15 +175,18 @@
     "name": "Soukaku",
     "quality": 4,
     "element": "Ice",
-    "type": "SUPPORT",
-    "stats": {
-      "BASE_HP": 8026,
-      "BASE_ATK": 666,
-      "BASE_DEF": 598,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 93,
-      "BASE_AP": 96,
-      "BASE_ER": 0
+    "type": "Support",
+    "baseStats": {
+      "baseHp": 8026,
+      "baseAtk": 591,
+      "baseDef": 598,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 93,
+      "baseAnomalyProficiency": 96
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -162,14 +194,18 @@
     "name": "Lycaon",
     "quality": 5,
     "element": "Ice",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 8416,
-      "BASE_ATK": 729,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 137,
-      "BASE_AM": 91,
-      "BASE_AP": 90
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 8416,
+      "baseAtk": 654,
+      "baseDef": 607,
+      "baseImpact": 119,
+      "baseAnomalyMastery": 91,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
     }
   },
   {
@@ -177,15 +213,18 @@
     "name": "Lucy",
     "quality": 4,
     "element": "Fire",
-    "type": "SUPPORT",
-    "stats": {
-      "BASE_HP": 8026,
-      "BASE_ATK": 659,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 94,
-      "BASE_AP": 93,
-      "BASE_ER": 0
+    "type": "Support",
+    "baseStats": {
+      "baseHp": 8026,
+      "baseAtk": 584,
+      "baseDef": 613,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -193,14 +232,18 @@
     "name": "Grace",
     "quality": 5,
     "element": "Electric",
-    "type": "ANOMALY",
-    "stats": {
-      "BASE_HP": 7483,
-      "BASE_ATK": 826,
-      "BASE_DEF": 601,
-      "BASE_IMPACT": 83,
-      "BASE_AM": 151,
-      "BASE_AP": 116
+    "type": "Anomaly",
+    "baseStats": {
+      "baseHp": 7483,
+      "baseAtk": 751,
+      "baseDef": 601,
+      "baseImpact": 83,
+      "baseAnomalyMastery": 115,
+      "baseAnomalyProficiency": 116
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -208,15 +251,18 @@
     "name": "Ellen",
     "quality": 5,
     "element": "Ice",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 938,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 94,
-      "BASE_AP": 93,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 863,
+      "baseDef": 607,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -224,15 +270,18 @@
     "name": "Rina",
     "quality": 5,
     "element": "Electric",
-    "type": "SUPPORT",
-    "stats": {
-      "BASE_HP": 8609,
-      "BASE_ATK": 717,
-      "BASE_DEF": 601,
-      "BASE_IMPACT": 83,
-      "BASE_AM": 93,
-      "BASE_AP": 92,
-      "PERCENT_PR": 0.144
+    "type": "Support",
+    "baseStats": {
+      "baseHp": 8609,
+      "baseAtk": 642,
+      "baseDef": 601,
+      "baseImpact": 83,
+      "baseAnomalyMastery": 93,
+      "baseAnomalyProficiency": 92
+    },
+    "ascensionStats": {
+      "penRatio%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -240,15 +289,18 @@
     "name": "Zhu Yuan",
     "quality": 5,
     "element": "Ether",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7483,
-      "BASE_ATK": 919,
-      "BASE_DEF": 601,
-      "BASE_IMPACT": 90,
-      "BASE_AM": 93,
-      "BASE_AP": 92,
-      "PERCENT_CD": 0.288
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7483,
+      "baseAtk": 844,
+      "baseDef": 601,
+      "baseImpact": 90,
+      "baseAnomalyMastery": 93,
+      "baseAnomalyProficiency": 92
+    },
+    "ascensionStats": {
+      "critDmg%": 0.288,
+      "baseAtk": 75
     }
   },
   {
@@ -256,15 +308,18 @@
     "name": "Piper",
     "quality": 4,
     "element": "Physical",
-    "type": "ANOMALY",
-    "stats": {
-      "BASE_HP": 6977,
-      "BASE_ATK": 758,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 116,
-      "BASE_AP": 118,
-      "BASE_ER": 0
+    "type": "Anomaly",
+    "baseStats": {
+      "baseHp": 6977,
+      "baseAtk": 683,
+      "baseDef": 613,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 116,
+      "baseAnomalyProficiency": 118
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -272,14 +327,18 @@
     "name": "Qingyi",
     "quality": 5,
     "element": "Electric",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 8251,
-      "BASE_ATK": 758,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 136,
-      "BASE_AM": 94,
-      "BASE_AP": 93
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 8251,
+      "baseAtk": 683,
+      "baseDef": 613,
+      "baseImpact": 118,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
     }
   },
   {
@@ -287,14 +346,18 @@
     "name": "Jane",
     "quality": 5,
     "element": "Physical",
-    "type": "ANOMALY",
-    "stats": {
-      "BASE_HP": 7789,
-      "BASE_ATK": 881,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 148,
-      "BASE_AP": 114
+    "type": "Anomaly",
+    "baseStats": {
+      "baseHp": 7789,
+      "baseAtk": 806,
+      "baseDef": 607,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 112,
+      "baseAnomalyProficiency": 114
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -302,15 +365,18 @@
     "name": "Seth",
     "quality": 4,
     "element": "Electric",
-    "type": "DEFENSE",
-    "stats": {
-      "BASE_HP": 8701,
-      "BASE_ATK": 643,
-      "BASE_DEF": 746,
-      "BASE_IMPACT": 94,
-      "BASE_AM": 86,
-      "BASE_AP": 90,
-      "BASE_ER": 0
+    "type": "Defense",
+    "baseStats": {
+      "baseHp": 8701,
+      "baseAtk": 568,
+      "baseDef": 746,
+      "baseImpact": 94,
+      "baseAnomalyMastery": 86,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -318,14 +384,18 @@
     "name": "Caesar",
     "quality": 5,
     "element": "Physical",
-    "type": "DEFENSE",
-    "stats": {
-      "BASE_HP": 9526,
-      "BASE_ATK": 712,
-      "BASE_DEF": 754,
-      "BASE_IMPACT": 123,
-      "BASE_AM": 87,
-      "BASE_AP": 90
+    "type": "Defense",
+    "baseStats": {
+      "baseHp": 9526,
+      "baseAtk": 637,
+      "baseDef": 754,
+      "baseImpact": 105,
+      "baseAnomalyMastery": 87,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
     }
   },
   {
@@ -333,15 +403,18 @@
     "name": "Burnice",
     "quality": 5,
     "element": "Fire",
-    "type": "ANOMALY",
-    "stats": {
-      "BASE_HP": 7368,
-      "BASE_ATK": 863,
-      "BASE_DEF": 601,
-      "BASE_IMPACT": 83,
-      "BASE_AM": 118,
-      "BASE_AP": 120,
-      "BASE_ER": 0
+    "type": "Anomaly",
+    "baseStats": {
+      "baseHp": 7368,
+      "baseAtk": 788,
+      "baseDef": 601,
+      "baseImpact": 83,
+      "baseAnomalyMastery": 118,
+      "baseAnomalyProficiency": 120
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -349,14 +422,18 @@
     "name": "Lighter",
     "quality": 5,
     "element": "Fire",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 8253,
-      "BASE_ATK": 798,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 137,
-      "BASE_AM": 91,
-      "BASE_AP": 90
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 8253,
+      "baseAtk": 723,
+      "baseDef": 613,
+      "baseImpact": 119,
+      "baseAnomalyMastery": 91,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
     }
   },
   {
@@ -364,14 +441,18 @@
     "name": "Yanagi",
     "quality": 5,
     "element": "Electric",
-    "type": "ANOMALY",
-    "stats": {
-      "BASE_HP": 7789,
-      "BASE_ATK": 873,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 148,
-      "BASE_AP": 114
+    "type": "Anomaly",
+    "baseStats": {
+      "baseHp": 7789,
+      "baseAtk": 798,
+      "baseDef": 613,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 112,
+      "baseAnomalyProficiency": 114
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -379,14 +460,18 @@
     "name": "Miyabi",
     "quality": 5,
     "element": "Ice",
-    "type": "ANOMALY",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 881,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 116,
-      "BASE_AP": 238
+    "type": "Anomaly",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 806,
+      "baseDef": 607,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 116,
+      "baseAnomalyProficiency": 148
+    },
+    "ascensionStats": {
+      "baseAnomalyProficiency": 90,
+      "baseAtk": 75
     }
   },
   {
@@ -394,15 +479,18 @@
     "name": "Harumasa",
     "quality": 5,
     "element": "Electric",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7406,
-      "BASE_ATK": 916,
-      "BASE_DEF": 601,
-      "BASE_IMPACT": 90,
-      "BASE_AM": 80,
-      "BASE_AP": 95,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7406,
+      "baseAtk": 841,
+      "baseDef": 601,
+      "baseImpact": 90,
+      "baseAnomalyMastery": 80,
+      "baseAnomalyProficiency": 95
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -410,15 +498,18 @@
     "name": "Astra Yao",
     "quality": 5,
     "element": "Ether",
-    "type": "SUPPORT",
-    "stats": {
-      "BASE_HP": 8609,
-      "BASE_ATK": 716,
-      "BASE_DEF": 601,
-      "BASE_IMPACT": 83,
-      "BASE_AM": 93,
-      "BASE_AP": 92,
-      "BASE_ER": 0
+    "type": "Support",
+    "baseStats": {
+      "baseHp": 8609,
+      "baseAtk": 641,
+      "baseDef": 601,
+      "baseImpact": 83,
+      "baseAnomalyMastery": 93,
+      "baseAnomalyProficiency": 92
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -426,15 +517,18 @@
     "name": "Evelyn",
     "quality": 5,
     "element": "Fire",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7789,
-      "BASE_ATK": 930,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 92,
-      "BASE_AP": 90,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7789,
+      "baseAtk": 855,
+      "baseDef": 613,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 92,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -442,14 +536,18 @@
     "name": "Pulchra",
     "quality": 4,
     "element": "Physical",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 7613,
-      "BASE_ATK": 666,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 136,
-      "BASE_AM": 92,
-      "BASE_AP": 90
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 7613,
+      "baseAtk": 591,
+      "baseDef": 607,
+      "baseImpact": 118,
+      "baseAnomalyMastery": 92,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
     }
   },
   {
@@ -457,14 +555,18 @@
     "name": "Trigger",
     "quality": 5,
     "element": "Electric",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 7923,
-      "BASE_ATK": 751,
-      "BASE_DEF": 601,
-      "BASE_IMPACT": 131,
-      "BASE_AM": 96,
-      "BASE_AP": 95
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 7923,
+      "baseAtk": 676,
+      "baseDef": 601,
+      "baseImpact": 113,
+      "baseAnomalyMastery": 96,
+      "baseAnomalyProficiency": 95
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
     }
   },
   {
@@ -472,15 +574,18 @@
     "name": "Soldier 0 - Anby",
     "quality": 5,
     "element": "Electric",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 930,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 94,
-      "BASE_AP": 93,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 855,
+      "baseDef": 613,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -488,15 +593,18 @@
     "name": "Hugo",
     "quality": 5,
     "element": "Ice",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7941,
-      "BASE_ATK": 919,
-      "BASE_DEF": 617,
-      "BASE_IMPACT": 95,
-      "BASE_AM": 86,
-      "BASE_AP": 90,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7941,
+      "baseAtk": 844,
+      "baseDef": 617,
+      "baseImpact": 95,
+      "baseAnomalyMastery": 86,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -504,14 +612,18 @@
     "name": "Vivian",
     "quality": 5,
     "element": "Ether",
-    "type": "ANOMALY",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 881,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 144,
-      "BASE_AP": 118
+    "type": "Anomaly",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 806,
+      "baseDef": 607,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 108,
+      "baseAnomalyProficiency": 118
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -519,16 +631,18 @@
     "name": "Yixuan",
     "quality": 5,
     "element": "Ether",
-    "type": "RUPTURE",
-    "stats": {
-      "BASE_HP": 7954,
-      "BASE_ATK": 873,
-      "BASE_DEF": 441,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 92,
-      "BASE_AP": 90,
-      "PERCENT_CR": 0.144,
-      "PERCENT_HP": 0.042
+    "type": "Rupture",
+    "baseStats": {
+      "baseHp": 7954,
+      "baseAtk": 873,
+      "baseDef": 441,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 92,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseHp": 420
     }
   },
   {
@@ -536,15 +650,18 @@
     "name": "Ju Fufu",
     "quality": 5,
     "element": "Fire",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 8251,
-      "BASE_ATK": 766,
-      "BASE_DEF": 598,
-      "BASE_IMPACT": 118,
-      "BASE_AM": 93,
-      "BASE_AP": 96,
-      "PERCENT_CR": 0.144
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 8251,
+      "baseAtk": 691,
+      "baseDef": 598,
+      "baseImpact": 118,
+      "baseAnomalyMastery": 93,
+      "baseAnomalyProficiency": 96
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -552,15 +669,18 @@
     "name": "Pan Yinhu",
     "quality": 4,
     "element": "Physical",
-    "type": "DEFENSE",
-    "stats": {
-      "BASE_HP": 8454,
-      "BASE_ATK": 662,
-      "BASE_DEF": 713,
-      "BASE_IMPACT": 94,
-      "BASE_AM": 91,
-      "BASE_AP": 90,
-      "BASE_ER": 0
+    "type": "Defense",
+    "baseStats": {
+      "baseHp": 8454,
+      "baseAtk": 587,
+      "baseDef": 713,
+      "baseImpact": 94,
+      "baseAnomalyMastery": 91,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -568,14 +688,18 @@
     "name": "Alice",
     "quality": 5,
     "element": "Physical",
-    "type": "ANOMALY",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 881,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 142,
-      "BASE_AP": 118
+    "type": "Anomaly",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 806,
+      "baseDef": 607,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 106,
+      "baseAnomalyProficiency": 118
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -583,14 +707,18 @@
     "name": "Yuzuha",
     "quality": 5,
     "element": "Physical",
-    "type": "SUPPORT",
-    "stats": {
-      "BASE_HP": 8829,
-      "BASE_ATK": 758,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 124,
-      "BASE_AP": 93
+    "type": "Support",
+    "baseStats": {
+      "baseHp": 8829,
+      "baseAtk": 683,
+      "baseDef": 613,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 88,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -598,15 +726,18 @@
     "name": "Orphie & Magus",
     "quality": 5,
     "element": "Fire",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7789,
-      "BASE_ATK": 930,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 92,
-      "BASE_AP": 90,
-      "BASE_ER": 0
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7789,
+      "baseAtk": 855,
+      "baseDef": 613,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 92,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -614,15 +745,18 @@
     "name": "Seed",
     "quality": 5,
     "element": "Electric",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 930,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 94,
-      "BASE_AP": 93,
-      "PERCENT_CD": 0.288
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 855,
+      "baseDef": 613,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "critDmg%": 0.288,
+      "baseAtk": 75
     }
   },
   {
@@ -630,15 +764,18 @@
     "name": "Yidhari",
     "quality": 5,
     "element": "Ice",
-    "type": "RUPTURE",
-    "stats": {
-      "BASE_HP": 8497,
-      "BASE_ATK": 860,
-      "BASE_DEF": 448,
-      "BASE_IMPACT": 95,
-      "BASE_AM": 87,
-      "BASE_AP": 90,
-      "PERCENT_CR": 0.144
+    "type": "Rupture",
+    "baseStats": {
+      "baseHp": 8497,
+      "baseAtk": 785,
+      "baseDef": 448,
+      "baseImpact": 95,
+      "baseAnomalyMastery": 87,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -646,15 +783,18 @@
     "name": "Manato",
     "quality": 4,
     "element": "Fire",
-    "type": "RUPTURE",
-    "stats": {
-      "BASE_HP": 7725,
-      "BASE_ATK": 755,
-      "BASE_DEF": 444,
-      "BASE_IMPACT": 95,
-      "BASE_AM": 87,
-      "BASE_AP": 90,
-      "PERCENT_HP": 0.18
+    "type": "Rupture",
+    "baseStats": {
+      "baseHp": 7725,
+      "baseAtk": 680,
+      "baseDef": 444,
+      "baseImpact": 95,
+      "baseAnomalyMastery": 87,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "hp%": 0.18,
+      "baseAtk": 75
     }
   },
   {
@@ -662,15 +802,18 @@
     "name": "Lucia",
     "quality": 5,
     "element": "Ether",
-    "type": "SUPPORT",
-    "stats": {
-      "BASE_HP": 8477,
-      "BASE_ATK": 758,
-      "BASE_DEF": 595,
-      "BASE_IMPACT": 83,
-      "BASE_AM": 96,
-      "BASE_AP": 95,
-      "BASE_ER": 0
+    "type": "Support",
+    "baseStats": {
+      "baseHp": 8477,
+      "baseAtk": 683,
+      "baseDef": 595,
+      "baseImpact": 83,
+      "baseAnomalyMastery": 96,
+      "baseAnomalyProficiency": 95
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -678,15 +821,18 @@
     "name": "Banyue",
     "quality": 5,
     "element": "Fire",
-    "type": "RUPTURE",
-    "stats": {
-      "BASE_HP": 8497,
-      "BASE_ATK": 860,
-      "BASE_DEF": 446,
-      "BASE_IMPACT": 95,
-      "BASE_AM": 90,
-      "BASE_AP": 89,
-      "PERCENT_CR": 0.144
+    "type": "Rupture",
+    "baseStats": {
+      "baseHp": 8497,
+      "baseAtk": 785,
+      "baseDef": 446,
+      "baseImpact": 95,
+      "baseAnomalyMastery": 90,
+      "baseAnomalyProficiency": 89
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -694,15 +840,18 @@
     "name": "Dialyn",
     "quality": 5,
     "element": "Physical",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 8251,
-      "BASE_ATK": 758,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 110,
-      "BASE_AM": 94,
-      "BASE_AP": 93,
-      "PERCENT_CR": 0.144
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 8251,
+      "baseAtk": 683,
+      "baseDef": 613,
+      "baseImpact": 110,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -710,15 +859,18 @@
     "name": "Zhao",
     "quality": 5,
     "element": "Ice",
-    "type": "DEFENSE",
-    "stats": {
-      "BASE_HP": 9117,
-      "BASE_ATK": 766,
-      "BASE_DEF": 702,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 93,
-      "BASE_AP": 96,
-      "PERCENT_HP": 0.18
+    "type": "Defense",
+    "baseStats": {
+      "baseHp": 9117,
+      "baseAtk": 691,
+      "baseDef": 702,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 93,
+      "baseAnomalyProficiency": 96
+    },
+    "ascensionStats": {
+      "hp%": 0.18,
+      "baseAtk": 75
     }
   },
   {
@@ -726,15 +878,18 @@
     "name": "Ye Shunguang",
     "quality": 5,
     "element": "Physical",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 938,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 83,
-      "BASE_AM": 94,
-      "BASE_AP": 93,
-      "PERCENT_CR": 0.144
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 863,
+      "baseDef": 607,
+      "baseImpact": 83,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -742,15 +897,18 @@
     "name": "Sunna",
     "quality": 5,
     "element": "Physical",
-    "type": "SUPPORT",
-    "stats": {
-      "BASE_HP": 8477,
-      "BASE_ATK": 751,
-      "BASE_DEF": 601,
-      "BASE_IMPACT": 98,
-      "BASE_AM": 96,
-      "BASE_AP": 95,
-      "PERCENT_ATK": 0.21
+    "type": "Support",
+    "baseStats": {
+      "baseHp": 8477,
+      "baseAtk": 676,
+      "baseDef": 601,
+      "baseImpact": 98,
+      "baseAnomalyMastery": 96,
+      "baseAnomalyProficiency": 95
+    },
+    "ascensionStats": {
+      "atk%": 0.21,
+      "baseAtk": 75
     }
   },
   {
@@ -758,14 +916,18 @@
     "name": "Aria",
     "quality": 5,
     "element": "Ether",
-    "type": "ANOMALY",
-    "stats": {
-      "BASE_HP": 7750,
-      "BASE_ATK": 863,
-      "BASE_DEF": 620,
-      "BASE_IMPACT": 87,
-      "BASE_AM": 151,
-      "BASE_AP": 116
+    "type": "Anomaly",
+    "baseStats": {
+      "baseHp": 7750,
+      "baseAtk": 788,
+      "baseDef": 620,
+      "baseImpact": 87,
+      "baseAnomalyMastery": 115,
+      "baseAnomalyProficiency": 116
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -773,14 +935,18 @@
     "name": "Nangong Yu",
     "quality": 5,
     "element": "Ether",
-    "type": "STUN",
-    "stats": {
-      "BASE_HP": 8374,
-      "BASE_ATK": 747,
-      "BASE_DEF": 623,
-      "BASE_IMPACT": 120,
-      "BASE_AM": 126,
-      "BASE_AP": 93
+    "type": "Stun",
+    "baseStats": {
+      "baseHp": 8374,
+      "baseAtk": 672,
+      "baseDef": 623,
+      "baseImpact": 120,
+      "baseAnomalyMastery": 90,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -788,15 +954,18 @@
     "name": "Cissia",
     "quality": 5,
     "element": "Electric",
-    "type": "ATTACK",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 938,
-      "BASE_DEF": 607,
-      "BASE_IMPACT": 93,
-      "BASE_AM": 94,
-      "BASE_AP": 93,
-      "BASE_ER": 0
+    "type": "Attack",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 863,
+      "baseDef": 607,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -805,14 +974,17 @@
     "quality": 5,
     "element": "Physical",
     "type": "Rupture",
-    "stats": {
-      "BASE_HP": 8497,
-      "BASE_ATK": 860,
-      "BASE_DEF": 446,
-      "BASE_IMPACT": 95,
-      "BASE_AM": 90,
-      "BASE_AP": 89,
-      "PERCENT_CR": 0.144
+    "baseStats": {
+      "baseHp": 8497,
+      "baseAtk": 785,
+      "baseDef": 446,
+      "baseImpact": 95,
+      "baseAnomalyMastery": 90,
+      "baseAnomalyProficiency": 89
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -821,13 +993,17 @@
     "quality": 5,
     "element": "Ice",
     "type": "Anomaly",
-    "stats": {
-      "BASE_HP": 7789,
-      "BASE_ATK": 873,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 148,
-      "BASE_AP": 114
+    "baseStats": {
+      "baseHp": 7789,
+      "baseAtk": 798,
+      "baseDef": 613,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 112,
+      "baseAnomalyProficiency": 114
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
     }
   },
   {
@@ -836,14 +1012,17 @@
     "quality": 5,
     "element": "Ether",
     "type": "Attack",
-    "stats": {
-      "BASE_HP": 7674,
-      "BASE_ATK": 924,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 94,
-      "BASE_AM": 94,
-      "BASE_AP": 93,
-      "PERCENT_CR": 0.144
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 849,
+      "baseDef": 613,
+      "baseImpact": 94,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   },
   {
@@ -852,13 +1031,17 @@
     "quality": 5,
     "element": "Wind",
     "type": "Anomaly",
-    "stats": {
-      "BASE_HP": 7789,
-      "BASE_ATK": 873,
-      "BASE_DEF": 613,
-      "BASE_IMPACT": 86,
-      "BASE_AM": 112,
-      "BASE_AP": 165
+    "baseStats": {
+      "baseHp": 7789,
+      "baseAtk": 798,
+      "baseDef": 613,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 112,
+      "baseAnomalyProficiency": 111
+    },
+    "ascensionStats": {
+      "baseAnomalyProficiency": 54,
+      "baseAtk": 75
     }
   },
   {
@@ -867,14 +1050,17 @@
     "quality": 5,
     "element": "Fire",
     "type": "Stun",
-    "stats": {
-      "BASE_HP": 7800,
-      "BASE_ATK": 762,
-      "BASE_DEF": 583,
-      "BASE_IMPACT": 106,
-      "BASE_AM": 99,
-      "BASE_AP": 98,
-      "PERCENT_CR": 0.144
+    "baseStats": {
+      "baseHp": 7800,
+      "baseAtk": 687,
+      "baseDef": 583,
+      "baseImpact": 106,
+      "baseAnomalyMastery": 99,
+      "baseAnomalyProficiency": 98
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
     }
   }
 ]

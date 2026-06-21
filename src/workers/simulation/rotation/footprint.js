@@ -169,7 +169,7 @@ export const evaluateFootprint = (ctx, footprint, statMap) => {
     key: footprint.key,
     ownerId: footprint.ownerId,
     type: footprint.type,
-    considered: footprint.considered,
+    dmgType: footprint.dmgType,
   };
 
   if (!('compressed' in footprint)) {

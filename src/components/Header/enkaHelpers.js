@@ -1,5 +1,4 @@
-import { CHARACTER, WEAPON, MISC } from '@/data';
-import template from '@/template';
+import { GI, CHARACTER, WEAPON } from '@/data';
 import ENKA_STAT_MAP from './ENKA_STAT_MAP.json';
 
 // FETCH HELPERS
@@ -156,6 +155,21 @@ const PARSE_SUB_VALUE = {
     return value * valueRatio * timesAppeared;
   },
 };
+
+const template = gameId => ({
+  lastUpdated: null,
+  weaponId: null,
+  equipList: Array(gameId === GI ? 5 : 6).fill().map(() => ({
+    ...(gameId === 'wuthering-waves' && { cost: null }),
+    setId: null,
+    mainStatId: null,
+    mainStatValue: null,
+    subStatList: Array(4).fill().map(() => ({
+      subStatId: null,
+      subStatValue: null
+    }))
+  })),
+});
 
 export function parseEnkaObj(gameId, enkaObj) {
   const avatarId = String(enkaObj.avatarId);

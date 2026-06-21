@@ -5,12 +5,6 @@ export const ZZZ = 'zenless-zone-zero';
 
 export { default as VERSION } from './version.json';
 
-import GI_STAT from './genshin-impact/stat.json';
-import HSR_STAT from './honkai-star-rail/stat.json';
-import WW_STAT from './wuthering-waves/stat.json';
-import ZZZ_STAT from './zenless-zone-zero/stat.json';
-export const STAT = { [GI]: GI_STAT, [HSR]: HSR_STAT, [WW]: WW_STAT, [ZZZ]: ZZZ_STAT };
-
 import GI_MISC from './genshin-impact/misc.json';
 import HSR_MISC from './honkai-star-rail/misc.json';
 import WW_MISC from './wuthering-waves/misc.json';

@@ -42,7 +42,7 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
     key: `misc:${statusId}`,
     ownerId: 'misc',
     type: 'damage',
-    considered: 'status',
+    dmgType: 'status',
     fixed: baseDmg * bonuses * resMult,
   };
 };

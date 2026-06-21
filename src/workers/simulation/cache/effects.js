@@ -57,7 +57,7 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
   resolved.maxStacks ??= 1;
 
   for (const TRIGGER of ['apply', 'use', 'remove']) {
-    for (const FILTER of ['Action', 'Type', 'Tagged', 'Cast', 'Considered']) {
+    for (const FILTER of ['Action', 'Type', 'Tagged', 'SkillType', 'DmgType']) {
       const key = `${TRIGGER}On${FILTER}`;
       const value = effect[key];
       if (value == null) continue;
@@ -111,7 +111,7 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
           resolved[actionType].push(actions[linkedAction]);
         } else {
           const inlineId = String(index + 1);
-          const inlineShort = `EFFECT_${effectId}-${inlineId}`;
+          const inlineShort = `effect${effectId}.${inlineId}`;
           const inlineKey = `${member.id}:${inlineShort}`;
 
           const inline = {

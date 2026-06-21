@@ -1,15 +1,6 @@
-import { MISC, CHARACTER, WEAPON } from '@/data';
-import { mergeObj, mergeObjs, mergeEquipList } from '@/utils';
+import { mergeObj, mergeEquipList, compileBaseMap } from '@/utils';
 import { normalizeActions } from './actions';
 import { normalizeEffects } from './effects';
-
-const createBaseMap = (gameId, member) => {
-  return mergeObjs(
-    MISC[gameId].DEFAULT_STATS,
-    CHARACTER[gameId][member.id].stats,
-    WEAPON[gameId][member.weaponId].stats,
-  );
-};
 
 const createEquipMap = (member) => {
   if ('build' in member) {
@@ -30,7 +21,7 @@ const convertRotation = (ctx, member, actions) => {
 
     if (teamSize === 1) {
       const { skillType } = action;
-      if (['IS', 'OS'].some(type => skillType.includes(type))) {
+      if (['introSkill', 'outroSkill'].some(type => skillType.includes(type))) {
         continue;
       }
     }
@@ -55,7 +46,7 @@ export const compileCache = (gameId, team) => {
   let fullRotationTime = 0;
 
   for (const member of team) {
-    const baseMap = createBaseMap(gameId, member);
+    const baseMap = compileBaseMap(gameId, member.id, member.weaponId);
     const equipMap = createEquipMap(member);
     const statMap = mergeObj(baseMap, equipMap);
 

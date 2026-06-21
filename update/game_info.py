@@ -1,238 +1,244 @@
 import math
 
-def character_constant_stats_parser(game_id, data):
-    constant = {}
+def parse_base_stats(game_id, data):
+    parsed = {}
     match game_id:
         case "genshin-impact":
-            # Base stats
-            constant["BASE_HP"] = round(data["base_hp"] * data["stats_modifier"]["hp"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_hp"])
-            constant["BASE_ATK"] = round(data["base_atk"] * data["stats_modifier"]["atk"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_attack"])
-            constant["BASE_DEF"] = round(data["base_def"] * data["stats_modifier"]["def"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_defense"])
-            constant["BASE_EM"] = round(data["elemental_mastery"])
-            
-            # Ascension stats
-            stat_map = {
-                "fight_prop_hp_percent": "PERCENT_HP",
-                "fight_prop_attack_percent": "PERCENT_ATK",
-                "fight_prop_defense_percent": "PERCENT_DEF",
-                "fight_prop_element_mastery": "FLAT_EM",
-                "fight_prop_charge_efficiency": "PERCENT_ER",
-                "fight_prop_wind_add_hurt": "PERCENT_ANEMO",
-                "fight_prop_ice_add_hurt": "PERCENT_CRYO",
-                "fight_prop_grass_add_hurt": "PERCENT_DENDRO",
-                "fight_prop_elec_add_hurt": "PERCENT_ELECTRO",
-                "fight_prop_rock_add_hurt": "PERCENT_GEO",
-                "fight_prop_water_add_hurt": "PERCENT_HYDRO",
-                "fight_prop_fire_add_hurt": "PERCENT_PYRO",
-                "fight_prop_physical_add_hurt": "PERCENT_PHYSICAL",
-                "fight_prop_critical": "PERCENT_CR",
-                "fight_prop_critical_hurt": "PERCENT_CD",
-                "fight_prop_heal_add": "PERCENT_HB",
-            }
-            raw_id, value = list(data["stats_modifier"]["ascension"][5].items())[3]
-            stat_id = stat_map[raw_id]
-            constant[stat_id] = constant.get(stat_id, 0) + value
+            parsed["baseHp"] = round(data["base_hp"] * data["stats_modifier"]["hp"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_hp"])
+            parsed["baseAtk"] = round(data["base_atk"] * data["stats_modifier"]["atk"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_attack"])
+            parsed["baseDef"] = round(data["base_def"] * data["stats_modifier"]["def"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_defense"])
+
+            if data["elemental_mastery"]:
+                parsed["elementalMastery"] = round(data["elemental_mastery"])
 
         case "honkai-star-rail":
-            # Base stats
-            constant["BASE_HP"] = round(data["stats"]["6"]["hp_add"] * 79 + data["stats"]["6"]["hp_base"])
-            constant["BASE_ATK"] = round(data["stats"]["6"]["attack_add"] * 79 + data["stats"]["6"]["attack_base"])
-            constant["BASE_DEF"] = round(data["stats"]["6"]["defence_add"] * 79 + data["stats"]["6"]["defence_base"])
-            constant["BASE_SPD"] = round(data["stats"]["6"]["speed_base"])
-
-            # Ascension stats
-            stat_map = {
-                "HPAddedRatio": "PERCENT_HP",
-                "AttackAddedRatio": "PERCENT_ATK",
-                "DefenceAddedRatio": "PERCENT_DEF",
-                "CriticalChanceBase": "PERCENT_CR",
-                "CriticalDamageBase": "PERCENT_CD",
-                "StatusProbabilityBase": "PERCENT_EHR",
-                "HealRatioBase": "PERCENT_OHB",
-                "SpeedDelta": "FLAT_SPD",
-                "FireAddedRatio": "PERCENT_FIRE",
-                "IceAddedRatio": "PERCENT_ICE",
-                "ImaginaryAddedRatio": "PERCENT_IMAGINARY",
-                "ThunderAddedRatio": "PERCENT_LIGHTNING",
-                "PhysicalAddedRatio": "PERCENT_PHYSICAL",
-                "QuantumAddedRatio": "PERCENT_QUANTUM",
-                "WindAddedRatio": "PERCENT_WIND",
-                "BreakDamageAddedRatioBase": "PERCENT_BE",
-                "SPRatioBase": "PERCENT_ERR",
-                "StatusResistanceBase": "PERCENT_RES",
-                "ElationDamageAddedRatioBase": "PERCENT_ELATION",
-            }
-            nodes = [
-                node for node in data["skill_trees"].values()
-                if node.get("1", {}).get("point_type") == 1
-            ]
-            for node in nodes:
-                stat_id = stat_map[node["1"]["status_add_list"][0]["property_type"]]
-                stat_value = node["1"]["status_add_list"][0]["value"]
-                constant[stat_id] = constant.get(stat_id, 0) + stat_value
+            parsed["baseHp"] = round(data["stats"]["6"]["hp_add"] * 79 + data["stats"]["6"]["hp_base"])
+            parsed["baseAtk"] = round(data["stats"]["6"]["attack_add"] * 79 + data["stats"]["6"]["attack_base"])
+            parsed["baseDef"] = round(data["stats"]["6"]["defence_add"] * 79 + data["stats"]["6"]["defence_base"])
+            parsed["baseSpd"] = round(data["stats"]["6"]["speed_base"])
 
         case "wuthering-waves":
-            # Base stats
-            constant["BASE_HP"] = math.floor(data["stats"]["6"]["90"]["life"])
-            constant["BASE_ATK"] = math.floor(data["stats"]["6"]["90"]["atk"])
-            constant["BASE_DEF"] = math.floor(data["stats"]["6"]["90"]["def"])
-
-            # Ascension stats
-            stat_map = {
-                "HP+": "PERCENT_HP",
-                "HP Up": "PERCENT_HP",
-                "ATK+": "PERCENT_ATK",
-                "ATK Up": "PERCENT_ATK",
-                "DEF+": "PERCENT_DEF",
-                "DEF Up": "PERCENT_DEF",
-                "Crit. Rate+": "PERCENT_CR",
-                "Crit. Rate Up": "PERCENT_CR",
-                "Crit. DMG+": "PERCENT_CD",
-                "Crit. DMG Up": "PERCENT_CD",
-                "Healing Bonus+": "PERCENT_HB",
-                "Glacio DMG Bonus+": "PERCENT_GLACIO",
-                "Fusion DMG Bonus+": "PERCENT_FIRE",
-                "Electro DMG Bonus+": "PERCENT_ICE",
-                "Aero DMG Bonus+": "PERCENT_AERO",
-                "Spectro DMG Bonus+": "PERCENT_SPECTRO",
-                "Havoc DMG Bonus+": "PERCENT_HAVOC",
-            }
-            nodes = [
-                node for node in data["skill_trees"].values()
-                if node.get("node_type") == 4
-            ]
-            for node in nodes:
-                stat_id = stat_map[node["skill"]["name"]]
-                stat_value = float(node["skill"]["param"][0][:-1]) / 100
-                constant[stat_id] = constant.get(stat_id, 0) + stat_value
+            parsed["baseHp"] = math.floor(data["stats"]["6"]["90"]["life"])
+            parsed["baseAtk"] = math.floor(data["stats"]["6"]["90"]["atk"])
+            parsed["baseDef"] = math.floor(data["stats"]["6"]["90"]["def"])
 
         case "zenless-zone-zero":
-            # Base stats
-            constant["BASE_HP"] = round(data["stats"]["hp_growth"] / 10000 * 59 + data["stats"]["hp_max"] + data["level"]["6"]["hp_max"])
-            constant["BASE_ATK"] = round(data["stats"]["attack_growth"] / 10000 * 59 + data["stats"]["attack"] + data["level"]["6"]["attack"])
-            constant["BASE_DEF"] = round(data["stats"]["defence_growth"] / 10000 * 59 + data["stats"]["defence"] + data["level"]["6"]["defence"])
-            constant["BASE_IMPACT"] = round(data["stats"]["break_stun"])
-            constant["BASE_AM"] = round(data["stats"]["element_abnormal_power"])
-            constant["BASE_AP"] = round(data["stats"]["element_mystery"])
+            parsed["baseHp"] = round(data["stats"]["hp_growth"] / 10000 * 59 + data["stats"]["hp_max"] + data["level"]["6"]["hp_max"])
+            parsed["baseAtk"] = round(data["stats"]["attack_growth"] / 10000 * 59 + data["stats"]["attack"] + data["level"]["6"]["attack"])
+            parsed["baseDef"] = round(data["stats"]["defence_growth"] / 10000 * 59 + data["stats"]["defence"] + data["level"]["6"]["defence"])
+            parsed["baseImpact"] = round(data["stats"]["break_stun"])
+            parsed["baseAnomalyMastery"] = round(data["stats"]["element_abnormal_power"])
+            parsed["baseAnomalyProficiency"] = round(data["stats"]["element_mystery"])
 
-            # Ascension stats
-            stat_map = {
-                "Base HP": "BASE_HP",
-                "Base ATK": "BASE_ATK",
-                "Base DEF": "BASE_DEF",
-                "HP": "PERCENT_HP",
-                "ATK": "PERCENT_ATK",
-                "DEF": "PERCENT_DEF",
-                "Impact": "BASE_IMPACT",
-                "Anomaly Mastery": "BASE_AM",
-                "Anomaly Proficiency": "BASE_AP",
-                "Base Energy Regen": "BASE_ER",
-                "CRIT Rate": "PERCENT_CR",
-                "CRIT DMG": "PERCENT_CD",
-                "PEN Ratio": "PERCENT_PR",
+    return parsed
+
+def parse_ascension_stats(game_id, data):
+    parsed = {}
+
+    match game_id:
+        case "genshin-impact":
+            lookup = {
+                "fight_prop_hp_percent": "hp%",
+                "fight_prop_attack_percent": "atk%",
+                "fight_prop_defense_percent": "def%",
+                "fight_prop_element_mastery": "elementalMastery",
+                "fight_prop_charge_efficiency": "energyRecharge%",
+                "fight_prop_wind_add_hurt": "anemoDmgBonus%",
+                "fight_prop_ice_add_hurt": "cryoDmgBonus%",
+                "fight_prop_grass_add_hurt": "dendroDmgBonus%",
+                "fight_prop_elec_add_hurt": "electroDmgBonus%",
+                "fight_prop_rock_add_hurt": "geoDmgBonus%",
+                "fight_prop_water_add_hurt": "hydroDmgBonus%",
+                "fight_prop_fire_add_hurt": "pyroDmgBonus%",
+                "fight_prop_physical_add_hurt": "physicalDmgBonus%",
+                "fight_prop_critical": "critRate%",
+                "fight_prop_critical_hurt": "critDmg%",
+                "fight_prop_heal_add": "healingBonus%",
             }
-            for core_passive_bonus in data["extra_level"]["6"]["extra"].values():
-                stat_id = stat_map[core_passive_bonus["name"]]
-                if stat_id.startswith("PERCENT"):
-                    stat_value = core_passive_bonus["value"] / 10000
-                elif stat_id == "BASE_ER":
-                    stat_value = core_passive_bonus["value"] / 100
-                else:
-                    stat_value = core_passive_bonus["value"]
-                constant[stat_id] = constant.get(stat_id, 0) + stat_value
 
-    for key, value in constant.items():
-        # Special case
-        if game_id == "zenless-zone-zero" and key == "BASE_ER":
-            constant[key] = round(value, 2)
+            raw_id, stat_value = list(data["stats_modifier"]["ascension"][5].items())[3]
+            stat_id = lookup[raw_id]
 
-        elif key.startswith(("BASE_", "FLAT_")):
-            constant[key] = round(value)
+            parsed[stat_id] = stat_value
 
-        elif key.startswith("PERCENT_"):
-            constant[key] = round(value, 3)
+        case "honkai-star-rail":
+            lookup = {
+                "HPAddedRatio": "hp%",
+                "AttackAddedRatio": "atk%",
+                "DefenceAddedRatio": "def%",
+                "CriticalChanceBase": "critRate%",
+                "CriticalDamageBase": "critDmg%",
+                "StatusProbabilityBase": "effectHitRate%",
+                "HealRatioBase": "outgoingHealingBoost%",
+                "SpeedDelta": "spd",
+                "FireAddedRatio": "fireDmgBonus%",
+                "IceAddedRatio": "iceDmgBonus%",
+                "ImaginaryAddedRatio": "imaginaryDmgBonus%",
+                "ThunderAddedRatio": "lightningDmgBonus%",
+                "PhysicalAddedRatio": "physicalDmgBonus%",
+                "QuantumAddedRatio": "quantumDmgBonus%",
+                "WindAddedRatio": "windDmgBonus%",
+                "BreakDamageAddedRatioBase": "breakEffect%",
+                "SPRatioBase": "energyRegenerationRate%",
+                "StatusResistanceBase": "effectRes%",
+                "ElationDamageAddedRatioBase": "elation%",
+            }
 
-    return constant
+            for node in data["skill_trees"].values():
+                entry = node.get("1")
+                if not entry or entry.get("point_type") != 1:
+                    continue
+
+                add = entry["status_add_list"][0]
+                stat_id = lookup[add["property_type"]]
+                parsed[stat_id] = parsed.get(stat_id, 0) + add["value"]
+
+            for k in parsed:
+                parsed[k] = round(parsed[k], 4 if k.endswith("%") else 1)
+
+        case "wuthering-waves":
+            lookup = {
+                "HP+": "hp%",
+                "HP Up": "hp%",
+                "ATK+": "atk%",
+                "ATK Up": "atk%",
+                "DEF+": "def%",
+                "DEF Up": "def%",
+                "Crit. Rate+": "critRate%",
+                "Crit. Rate Up": "critRate%",
+                "Crit. DMG+": "critDmg%",
+                "Crit. DMG Up": "critDmg%",
+                "Healing Bonus+": "healingBonus%",
+                "Glacio DMG Bonus+": "glacioDmgBonus%",
+                "Fusion DMG Bonus+": "fusionDmgBonus%",
+                "Electro DMG Bonus+": "electroDmgBonus%",
+                "Aero DMG Bonus+": "aeroDmgBonus%",
+                "Spectro DMG Bonus+": "spectroDmgBonus%",
+                "Havoc DMG Bonus+": "havocDmgBonus%",
+            }
+
+            for v in data["skill_trees"].values():
+                skill = v.get("skill")
+                if v.get("node_type") != 4 or not skill:
+                    continue
+
+                name = skill["name"]
+                if name not in lookup:
+                    continue
+
+                stat_id = lookup[name]
+                stat_value = float(skill["param"][0].rstrip("%")) / 100
+
+                parsed[stat_id] = parsed.get(stat_id, 0) + stat_value
+
+            for k in parsed:
+                parsed[k] = round(parsed[k], 4 if k.endswith("%") else 1)
+
+        case "zenless-zone-zero":
+            lookup = {
+                11101: "baseHp",
+                11102: "hp%",
+                12101: "baseAtk",
+                12102: "atk%",
+                12201: "baseImpact",
+                13101: "baseDef",
+                13102: "def%",
+                20101: "critRate%",
+                21101: "critDmg%",
+                23101: "penRatio%",
+                23201: "pen",
+                30501: "baseEnergyRegen",
+                31201: "baseAnomalyProficiency",
+                31401: "baseAnomalyMastery",
+            }
+
+            for v in data["extra_level"]["6"]["extra"].values():
+                stat_id = lookup[v["prop"]]
+                value = v["value"]
+
+                if stat_id.endswith("%"):
+                    value = round(value / 10000, 4)
+
+                parsed[stat_id] = value
+
+    return parsed
 
 def weapon_constant_stats_parser(game_id, data):
     constant = {}
 
     match game_id:
         case "genshin-impact":
-            # Base stats
-            constant["BASE_ATK"] = round(data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"])
+            constant["baseAtk"] = round(data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"])
 
             # Ascension stats
             stat_map = {
-                "fight_prop_hp_percent": "PERCENT_HP",
-                "fight_prop_attack_percent": "PERCENT_ATK",
-                "fight_prop_defense_percent": "PERCENT_DEF",
-                "fight_prop_element_mastery": "FLAT_EM",
-                "fight_prop_charge_efficiency": "PERCENT_ER",
-                "fight_prop_wind_add_hurt": "PERCENT_ANEMO",
-                "fight_prop_ice_add_hurt": "PERCENT_CRYO",
-                "fight_prop_grass_add_hurt": "PERCENT_DENDRO",
-                "fight_prop_elec_add_hurt": "PERCENT_ELECTRO",
-                "fight_prop_rock_add_hurt": "PERCENT_GEO",
-                "fight_prop_water_add_hurt": "PERCENT_HYDRO",
-                "fight_prop_fire_add_hurt": "PERCENT_PYRO",
-                "fight_prop_physical_add_hurt": "PERCENT_PHYSICAL",
-                "fight_prop_critical": "PERCENT_CR",
-                "fight_prop_critical_hurt": "PERCENT_CD",
-                "fight_prop_heal_add": "PERCENT_HB",
+                "fight_prop_hp_percent": "hp%",
+                "fight_prop_attack_percent": "atk%",
+                "fight_prop_defense_percent": "def%",
+                "fight_prop_element_mastery": "elementalMastery",
+                "fight_prop_charge_efficiency": "energyRecharge%",
+                "fight_prop_wind_add_hurt": "anemoDmgBonus%",
+                "fight_prop_ice_add_hurt": "cryoDmgBonus%",
+                "fight_prop_grass_add_hurt": "dendroDmgBonus%",
+                "fight_prop_elec_add_hurt": "electroDmgBonus%",
+                "fight_prop_rock_add_hurt": "geoDmgBonus%",
+                "fight_prop_water_add_hurt": "hydroDmgBonus%",
+                "fight_prop_fire_add_hurt": "pyroDmgBonus%",
+                "fight_prop_physical_add_hurt": "physicalDmgBonus%",
+                "fight_prop_critical": "critRate%",
+                "fight_prop_critical_hurt": "critDmg%",
+                "fight_prop_heal_add": "healingBonus%",
             }
             raw_id, value_map = list(data["stats_modifier"].items())[1]
             stat_id = stat_map[raw_id]
             constant[stat_id] = value_map["base"] * value_map["levels"]["90"]
 
         case "honkai-star-rail":
-            # Base stats
-            constant["BASE_HP"] = round(data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79)
-            constant["BASE_ATK"] = round(data["stats"][6]["base_attack_add"] * 79 + data["stats"][6]["base_attack"])
-            constant["BASE_DEF"] = round(data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79)
+            constant["baseHp"] = round(data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79)
+            constant["baseAtk"] = round(data["stats"][6]["base_attack"] + data["stats"][6]["base_attack_add"] * 79)
+            constant["baseDef"] = round(data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79)
 
         case "wuthering-waves":
-            # Base stats
-            constant["BASE_ATK"] = math.floor(data["stats"]["6"]["90"][0]["value"])
+            constant["baseAtk"] = math.floor(data["stats"]["6"]["90"][0]["value"])
 
             # Ascension stats
             stat_map = {
-                "HP": "PERCENT_HP",
-                "ATK": "PERCENT_ATK",
-                "DEF": "PERCENT_DEF",
-                "Crit. Rate": "PERCENT_CR",
-                "Crit. DMG": "PERCENT_CD",
-                "Healing Bonus": "PERCENT_OHB",
-                "Glacio DMG Bonus": "PERCENT_GLACIO",
-                "Fusion DMG Bonus": "PERCENT_FIRE",
-                "Electro DMG Bonus": "PERCENT_ICE",
-                "Aero DMG Bonus": "PERCENT_AERO",
-                "Spectro DMG Bonus": "PERCENT_SPECTRO",
-                "Havoc DMG Bonus": "PERCENT_HAVOC",
-                "Energy Regen": "PERCENT_ER",
+                "HP": "hp%",
+                "ATK": "atk%",
+                "DEF": "def%",
+                "Crit. Rate": "critRate%",
+                "Crit. DMG": "critDmg%",
+                "Healing Bonus": "healingBonus%",
+                "Glacio DMG Bonus": "glacioDmgBonus%",
+                "Fusion DMG Bonus": "fusionDmgBonus%",
+                "Electro DMG Bonus": "electroDmgBonus%",
+                "Aero DMG Bonus": "aeroDmgBonus%",
+                "Spectro DMG Bonus": "spectroDmgBonus%",
+                "Havoc DMG Bonus": "havocDmgBonus%",
+                "Energy Regen": "energyRegen%",
             }
             stat_id = stat_map[data['stats']['6']['90'][1]['name']]
             constant[stat_id] = data["stats"]["6"]["90"][1]["value"] / 10000 if data["stats"]["6"]["90"][1]["is_percent"] else data["stats"]["6"]["90"][1]["value"]
 
         case "zenless-zone-zero":
-            # Base stats
-            constant["BASE_ATK"] = round(data["base_property"]["value"] * 104 / 7)
+            constant["baseAtk"] = round(data["base_property"]["value"] * 104 / 7)
 
             # Ascension stats
             stat_map = {
-                "HP": "PERCENT_HP",
-                "ATK": "PERCENT_ATK",
-                "DEF": "PERCENT_DEF",
-                "Impact": "PERCENT_IMPACT",
-                "Anomaly Mastery": "PERCENT_AM",
-                "Anomaly Proficiency": "FLAT_AP",
-                "Energy Regen": "PERCENT_ER",
-                "CRIT Rate": "PERCENT_CR",
-                "CRIT DMG": "PERCENT_CD",
-                "PEN Ratio": "PERCENT_PR",
+                "HP": "hp%",
+                "ATK": "atk%",
+                "DEF": "def%",
+                "Impact": "impact%",
+                "Anomaly Mastery": "anomalyMastery",
+                "Anomaly Proficiency": "anomalyProficiency",
+                "Energy Regen": "energyRegen%",
+                "CRIT Rate": "critRate%",
+                "CRIT DMG": "critDmg%",
+                "PEN Ratio": "penRatio%",
             }
+
             stat_id = stat_map[data["rand_property"]["name"]]
-            constant[stat_id] = (data["rand_property"]["value"] if stat_id.startswith("FLAT") else data["rand_property"]["value"] / 10000) * 2.5
+            constant[stat_id] = (data["rand_property"]["value"] / 10000 if stat_id.endswith("%") else data["rand_property"]["value"]) * 2.5
 
     return constant
 
@@ -252,7 +258,8 @@ GAME_INFO = [
                 "quality": lambda data: data["rarity"],
                 "element": lambda data: data["element"],
                 "type": lambda data: data["weapon"],
-                "stats": lambda data: character_constant_stats_parser("genshin-impact", data),
+                "baseStats": lambda data: parse_base_stats("genshin-impact", data),
+                "ascensionStats": lambda data: parse_ascension_stats("genshin-impact", data),
             },
             "weapon": {
                 "name": lambda data: data["name"],
@@ -308,7 +315,8 @@ GAME_INFO = [
                 "quality": lambda data: data["rarity"],
                 "element": lambda data: data["damage_type"],
                 "type": lambda data: data["base_type"],
-                "stats": lambda data: character_constant_stats_parser("honkai-star-rail", data),
+                "baseStats": lambda data: parse_base_stats("honkai-star-rail", data),
+                "ascensionStats": lambda data: parse_ascension_stats("honkai-star-rail", data),
             },
             "weapon": {
                 "name": lambda data: data["name"],
@@ -378,7 +386,8 @@ GAME_INFO = [
                 "quality": lambda data: data["rarity"],
                 "element": lambda data: data["element"],
                 "type": lambda data: data["weapon"],
-                "stats": lambda data: character_constant_stats_parser("wuthering-waves", data),
+                "baseStats": lambda data: parse_base_stats("wuthering-waves", data),
+                "ascensionStats": lambda data: parse_ascension_stats("wuthering-waves", data),
             },
             "weapon": {
                 "name": lambda data: data["name"],
@@ -437,7 +446,8 @@ GAME_INFO = [
                 "quality": lambda data: data["rarity"],
                 "element": lambda data: next(iter(data["element_type"].values())),
                 "type": lambda data: next(iter(data["weapon_type"].values())),
-                "stats": lambda data: character_constant_stats_parser("zenless-zone-zero", data),
+                "baseStats": lambda data: parse_base_stats("zenless-zone-zero", data),
+                "ascensionStats": lambda data: parse_ascension_stats("zenless-zone-zero", data),
             },
             "weapon": {
                 "name": lambda data: data["name"],

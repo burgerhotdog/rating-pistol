@@ -5,17 +5,17 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_GLACIO": 0.1
+          "glacioDmgBonus%": 0.1
         }
       },
       "5": {
         "applyWhen": "cast",
         "applyOnSkillType": [
-          "BA",
-          "HA"
+          "basicAttack",
+          "heavyAttack"
         ],
         "statMap": {
-          "PERCENT_GLACIO": 0.1
+          "glacioDmgBonus%": 0.1
         },
         "duration": 15000,
         "maxStacks": 3
@@ -28,14 +28,14 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_FUSION": 0.1
+          "fusionDmgBonus%": 0.1
         }
       },
       "5": {
         "applyWhen": "cast",
-        "applyOnSkillType": "RS",
+        "applyOnSkillType": "resonanceSkill",
         "statMap": {
-          "PERCENT_FUSION": 0.3
+          "fusionDmgBonus%": 0.3
         },
         "duration": 15000
       }
@@ -47,17 +47,17 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ELECTRO": 0.1
+          "electroDmgBonus%": 0.1
         }
       },
       "5": {
         "applyWhen": "cast",
         "applyOnSkillType": [
-          "HA",
-          "RS"
+          "heavyAttack",
+          "resonanceSkill"
         ],
         "statMap": {
-          "PERCENT_ELECTRO": 0.15
+          "electroDmgBonus%": 0.15
         },
         "duration": 15000,
         "maxStacks": 2
@@ -70,14 +70,14 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_AERO": 0.1
+          "aeroDmgBonus%": 0.1
         }
       },
       "5": {
         "applyWhen": "cast",
-        "applyOnSkillType": "IS",
+        "applyOnSkillType": "introSkill",
         "statMap": {
-          "PERCENT_AERO": 0.3
+          "aeroDmgBonus%": 0.3
         },
         "duration": 15000
       }
@@ -89,14 +89,14 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_SPECTRO": 0.1
+          "spectroDmgBonus%": 0.1
         }
       },
       "5": {
         "applyWhen": "cast",
-        "applyOnSkillType": "IS",
+        "applyOnSkillType": "introSkill",
         "statMap": {
-          "PERCENT_SPECTRO": 0.3
+          "spectroDmgBonus%": 0.3
         },
         "duration": 15000
       }
@@ -108,17 +108,17 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HAVOC": 0.1
+          "havocDmgBonus%": 0.1
         }
       },
       "5": {
         "applyWhen": "cast",
         "applyOnSkillType": [
-          "BA",
-          "HA"
+          "basicAttack",
+          "heavyAttack"
         ],
         "statMap": {
-          "PERCENT_HAVOC": 0.075
+          "havocDmgBonus%": 0.075
         },
         "duration": 15000,
         "maxStacks": 4
@@ -131,15 +131,15 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HB": 0.1
+          "healingBonus%": 0.1
         }
       },
       "5": {
         "applyTo": "team",
         "applyWhen": "hit",
-        "applyOnType": "heal",
+        "applyOnType": "healing",
         "statMap": {
-          "PERCENT_ATK": 0.15
+          "atk%": 0.15
         },
         "duration": 30000
       }
@@ -151,15 +151,15 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ER": 0.1
+          "energyRegen%": 0.1
         }
       },
       "5": {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnSkillType": "OS",
+        "applyOnSkillType": "outroSkill",
         "statMap": {
-          "PERCENT_ATK": 0.225
+          "atk%": 0.225
         },
         "duration": 15000
       }
@@ -171,7 +171,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.1
+          "atk%": 0.1
         }
       },
       "5": [
@@ -181,13 +181,13 @@
           "applyCooldown": 1500,
           "removeIfField": false,
           "statMap": {
-            "PERCENT_ATK": 0.05
+            "atk%": 0.05
           },
           "maxStacks": 4
         },
         {
           "statMap": {
-            "PERCENT_OS": 0.6
+            "outroSkillDmgBonus%": 0.6
           }
         }
       ]
@@ -199,24 +199,24 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_RS": 0.12
+          "resonanceSkillDmgBonus%": 0.12
         }
       },
       "5": [
         {
           "applyWhen": "cast",
-          "applyOnSkillType": "RS",
+          "applyOnSkillType": "resonanceSkill",
           "statMap": {
-            "PERCENT_GLACIO": 0.225
+            "glacioDmgBonus%": 0.225
           },
           "duration": 15000,
           "maxStacks": 2
         },
         {
           "applyWhen": "cast",
-          "applyOnSkillType": "RL",
+          "applyOnSkillType": "resonanceLiberation",
           "statMap": {
-            "PERCENT_RS": 0.18
+            "resonanceSkillDmgBonus%": 0.18
           },
           "duration": 5000,
           "maxStacks": 2
@@ -230,7 +230,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_SPECTRO": 0.1
+          "spectroDmgBonus%": 0.1
         }
       },
       "5": [
@@ -238,7 +238,7 @@
           "applyWhen": "hit",
           "applyIfInflict": "FRAZZLE",
           "statMap": {
-            "PERCENT_CR": 0.2
+            "critRate%": 0.2
           },
           "duration": 15000
         },
@@ -249,7 +249,7 @@
             "FRAZZLE": 10
           },
           "statMap": {
-            "PERCENT_SPECTRO": 0.15
+            "spectroDmgBonus%": 0.15
           },
           "duration": 15000
         }
@@ -262,16 +262,16 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HAVOC": 0.1
+          "havocDmgBonus%": 0.1
         }
       },
       "5": [
         {
           "applyWhen": "cast",
-          "applyOnSkillType": "OS",
+          "applyOnSkillType": "outroSkill",
           "intervalAction": {
             "element": "Havoc",
-            "considered": "OS",
+            "dmgType": "outroSkill",
             "fixedMultipliers": {
               "mv": 4.8
             }
@@ -281,9 +281,9 @@
         {
           "applyTo": "next",
           "applyWhen": "cast",
-          "applyOnSkillType": "OS",
+          "applyOnSkillType": "outroSkill",
           "statMap": {
-            "PERCENT_HAVOC": 0.15
+            "havocDmgBonus%": 0.15
           },
           "duration": 15000
         }
@@ -296,21 +296,21 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ER": 0.1
+          "energyRegen%": 0.1
         }
       },
       "5": [
         {
           "statMap": {
-            "PERCENT_CA": 0.8
+            "coordinatedAttackDmgBonus%": 0.8
           }
         },
         {
           "applyTo": "active",
           "applyWhen": "hit",
-          "applyOnSkillType": "CA",
+          "applyOnSkillType": "coordinatedAttack",
           "statMap": {
-            "PERCENT_ATK": 0.2
+            "atk%": 0.2
           },
           "duration": 4000
         }
@@ -323,21 +323,21 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ER": 0.1
+          "energyRegen%": 0.1
         }
       },
       "5": [
         {
           "statMap": {
-            "PERCENT_ATK": 0.15
+            "atk%": 0.15
           }
         },
         {
           "useIfAttr": {
-            "ER": 2.5
+            "energyRegen": 2.5
           },
           "statMap": {
-            "PERCENT_ALL": 0.3
+            "dmgBonus%": 0.3
           }
         }
       ]
@@ -349,7 +349,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_AERO": 0.1
+          "aeroDmgBonus%": 0.1
         }
       },
       "5": [
@@ -358,7 +358,7 @@
           "applyWhen": "hit",
           "applyIfInflict": "EROSION",
           "statMap": {
-            "PERCENT_AERO": 0.15
+            "aeroDmgBonus%": 0.15
           },
           "duration": 20000
         },
@@ -366,7 +366,7 @@
           "applyWhen": "hit",
           "applyIfInflict": "EROSION",
           "statMap": {
-            "PERCENT_AERO": 0.15
+            "aeroDmgBonus%": 0.15
           },
           "duration": 20000
         }
@@ -379,7 +379,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_AERO": 0.1
+          "aeroDmgBonus%": 0.1
         }
       },
       "5": {
@@ -388,8 +388,8 @@
           "EROSION": 1
         },
         "statMap": {
-          "PERCENT_CR": 0.1,
-          "PERCENT_AERO": 0.3
+          "critRate%": 0.1,
+          "aeroDmgBonus%": 0.3
         },
         "duration": 10000
       }
@@ -401,24 +401,24 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_FUSION": 0.1
+          "fusionDmgBonus%": 0.1
         }
       },
       "5": [
         {
           "applyTo": "team",
           "applyWhen": "cast",
-          "applyOnSkillType": "RL",
+          "applyOnSkillType": "resonanceLiberation",
           "statMap": {
-            "PERCENT_FUSION": 0.15
+            "fusionDmgBonus%": 0.15
           },
           "duration": 35000
         },
         {
           "applyWhen": "cast",
-          "applyOnSkillType": "RL",
+          "applyOnSkillType": "resonanceLiberation",
           "statMap": {
-            "PERCENT_RL": 0.2
+            "resonanceLiberationDmgBonus%": 0.2
           },
           "duration": 35000
         }
@@ -432,8 +432,8 @@
       "3": {
         "useIfTagged": "noEnergy",
         "statMap": {
-          "PERCENT_CR": 0.2,
-          "PERCENT_ES": 0.35
+          "critRate%": 0.2,
+          "echoSkillDmgBonus%": 0.35
         }
       }
     }
@@ -447,8 +447,8 @@
         "applyOnType": "shield",
         "applyCooldown": 500,
         "statMap": {
-          "PERCENT_ATK": 0.06,
-          "PERCENT_CD": 0.04
+          "atk%": 0.06,
+          "critDmg%": 0.04
         },
         "duration": 4000,
         "maxStacks": 5
@@ -462,18 +462,18 @@
       "3": [
         {
           "applyWhen": "cast",
-          "applyOnSkillType": "ES",
+          "applyOnSkillType": "echoSkill",
           "statMap": {
-            "PERCENT_HA": 0.3
+            "heavyAttackDmgBonus%": 0.3
           },
           "duration": 4000
         },
         {
           "applyTo": "team",
           "applyWhen": "cast",
-          "applyOnSkillType": "ES",
+          "applyOnSkillType": "echoSkill",
           "statMap": {
-            "PERCENT_ES": 0.04
+            "echoSkillDmgBonus%": 0.04
           },
           "duration": 30000,
           "maxStacks": 4
@@ -488,35 +488,35 @@
       "3": [
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "ES",
-          "useOnConsidered": "HA",
+          "applyOnDmgType": "echoSkill",
+          "useOnDmgType": "heavyAttack",
           "statMap": {
-            "PERCENT_CR": 0.2
+            "critRate%": 0.2
           },
           "duration": 6000
         },
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "HA",
-          "useOnConsidered": "ES",
+          "applyOnDmgType": "heavyAttack",
+          "useOnDmgType": "echoSkill",
           "statMap": {
-            "PERCENT_CR": 0.2
+            "critRate%": 0.2
           },
           "duration": 6000
         },
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "ES",
+          "applyOnDmgType": "echoSkill",
           "statMap": {
-            "PERCENT_FUSION": 0.08
+            "fusionDmgBonus%": 0.08
           },
           "duration": 6000
         },
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "HA",
+          "applyOnDmgType": "heavyAttack",
           "statMap": {
-            "PERCENT_FUSION": 0.08
+            "fusionDmgBonus%": 0.08
           },
           "duration": 6000
         }
@@ -529,10 +529,10 @@
     "tieredEffects": {
       "3": {
         "applyWhen": "hit",
-        "applyIfInflict": "BANE",
+        "applyIfInflict": "havocBane",
         "statMap": {
-          "PERCENT_ATK": 0.2,
-          "PERCENT_RL": 0.3
+          "atk%": 0.2,
+          "resonanceLiberationDmgBonus%": 0.3
         },
         "duration": 5000
       }
@@ -544,15 +544,15 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_SPECTRO": 0.1
+          "spectroDmgBonus%": 0.1
         }
       },
       "5": {
         "applyTo": "next",
         "applyWhen": "cast",
-        "applyOnSkillType": "OS",
+        "applyOnSkillType": "outroSkill",
         "statMap": {
-          "PERCENT_ATK": 0.3
+          "atk%": 0.3
         },
         "duration": 15000
       }
@@ -564,15 +564,15 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HB": 0.1
+          "healingBonus%": 0.1
         }
       },
       "5": {
         "applyTo": "team",
         "applyWhen": "hit",
-        "applyOnType": "heal",
+        "applyOnType": "healing",
         "statMap": {
-          "PERCENT_ATK": 0.25
+          "atk%": 0.25
         },
         "duration": 4000
       }
@@ -584,23 +584,23 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_SPECTRO": 0.1
+          "spectroDmgBonus%": 0.1
         }
       },
       "5": [
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "BA",
+          "applyOnDmgType": "basicAttack",
           "statMap": {
-            "PERCENT_SPECTRO": 0.1
+            "spectroDmgBonus%": 0.1
           },
           "duration": 5000,
           "maxStacks": 3
         },
         {
-          "useOnCast": "RL",
+          "useOnSkillType": "resonanceLiberation",
           "statMap": {
-            "PERCENT_BA": 0.4
+            "basicAttackDmgBonus%": 0.4
           }
         }
       ]
@@ -612,7 +612,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_FUSION": 0.1
+          "fusionDmgBonus%": 0.1
         }
       },
       "5": {
@@ -622,8 +622,8 @@
           "RUPTURE"
         ],
         "statMap": {
-          "PERCENT_CR": 0.2,
-          "PERCENT_FUSION": 0.2
+          "critRate%": 0.2,
+          "fusionDmgBonus%": 0.2
         },
         "duration": 8000
       }
@@ -635,7 +635,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_FUSION": 0.1
+          "fusionDmgBonus%": 0.1
         }
       },
       "5": [
@@ -643,16 +643,16 @@
           "applyWhen": "hit",
           "applyIfInflict": "BURST",
           "statMap": {
-            "PERCENT_FUSION": 0.1
+            "fusionDmgBonus%": 0.1
           },
           "duration": 15000
         },
         {
           "applyTo": "next",
           "applyWhen": "cast",
-          "applyOnSkillType": "OS",
+          "applyOnSkillType": "outroSkill",
           "statMap": {
-            "PERCENT_FUSION": 0.25
+            "fusionDmgBonus%": 0.25
           },
           "duration": 15000
         }
@@ -665,24 +665,24 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_AERO": 0.1
+          "aeroDmgBonus%": 0.1
         }
       },
       "5": [
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "ES",
-          "useOnConsidered": "ES",
+          "applyOnDmgType": "echoSkill",
+          "useOnDmgType": "echoSkill",
           "statMap": {
-            "PERCENT_CR": 0.2
+            "critRate%": 0.2
           },
           "duration": 5000
         },
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "ES",
+          "applyOnDmgType": "echoSkill",
           "statMap": {
-            "PERCENT_AERO": 0.15
+            "aeroDmgBonus%": 0.15
           },
           "duration": 5000
         }
@@ -695,7 +695,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_GLACIO": 0.1
+          "glacioDmgBonus%": 0.1
         }
       },
       "5": [
@@ -703,24 +703,24 @@
           "applyWhen": "hit",
           "applyIfInflict": "CHAFE",
           "statMap": {
-            "PERCENT_GLACIO": 0.1
+            "glacioDmgBonus%": 0.1
           },
           "duration": 15000
         },
         {
           "applyWhen": "hit",
-          "applyOnConsidered": "RL",
+          "applyOnDmgType": "resonanceLiberation",
           "statMap": {
-            "PERCENT_CR": 0.25
+            "critRate%": 0.25
           },
           "duration": 30000
         },
         {
           "applyTo": "next",
           "applyWhen": "cast",
-          "applyOnSkillType": "OS",
+          "applyOnSkillType": "outroSkill",
           "statMap": {
-            "PERCENT_GLACIO": 0.25
+            "glacioDmgBonus%": 0.25
           },
           "duration": 15000
         }
@@ -733,7 +733,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.1
+          "atk%": 0.1
         }
       },
       "5": {}
@@ -747,8 +747,8 @@
         "applyWhen": "hit",
         "applyIfInflict": "HACK",
         "statMap": {
-          "PERCENT_BA": 0.35,
-          "PERCENT_HA": 0.35
+          "basicAttackDmgBonus%": 0.35,
+          "heavyAttackDmgBonus%": 0.35
         },
         "duration": 15000
       }

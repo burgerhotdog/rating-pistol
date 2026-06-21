@@ -25,19 +25,19 @@ const matchOnTagged = (onTagged, action) => {
   return false;
 };
 
-const matchOnCast = (onCast, action) => {
+const matchOnSkillType = (onSkillType, action) => {
   for (const type of action.skillType) {
-    if (onCast.includes(type)) return true;
+    if (onSkillType.includes(type)) return true;
   }
 
   return false;
 };
 
-const matchOnConsidered = (onConsidered, action) => {
-  if (!action.considered) return false;
+const matchOnDmgType = (onDmgType, action) => {
+  if (!action.dmgType) return false;
 
-  for (const type of action.considered) {
-    if (onConsidered.includes(type)) return true;
+  for (const type of action.dmgType) {
+    if (onDmgType.includes(type)) return true;
   }
 
   return false;
@@ -118,39 +118,39 @@ export const matchIfInflict = (ifInflict, inflictedStatuses) => {
 };
 
 export const matchApplyOn = (action, effect) => {
-  const { applyOnAction, applyOnType, applyOnTagged, applyOnSkillType, applyOnConsidered } = effect;
-  if (!(applyOnAction || applyOnType || applyOnTagged || applyOnSkillType || applyOnConsidered)) return true;
+  const { applyOnAction, applyOnType, applyOnTagged, applyOnSkillType, applyOnDmgType } = effect;
+  if (!(applyOnAction || applyOnType || applyOnTagged || applyOnSkillType || applyOnDmgType)) return true;
 
   if (applyOnAction && matchOnAction(applyOnAction, action)) return true;
   if (applyOnType && matchOnType(applyOnType, action)) return true;
   if (applyOnTagged && matchOnTagged(applyOnTagged, action)) return true;
-  if (applyOnSkillType && matchOnCast(applyOnSkillType, action)) return true;
-  if (applyOnConsidered && matchOnConsidered(applyOnConsidered, action)) return true;
+  if (applyOnSkillType && matchOnSkillType(applyOnSkillType, action)) return true;
+  if (applyOnDmgType && matchOnDmgType(applyOnDmgType, action)) return true;
 
   return false;
 };
 
 export const matchRemoveOn = (action, effect) => {
-  const { removeOnAction, removeOnType, removeOnTagged, removeOnCast, removeOnConsidered } = effect;
+  const { removeOnAction, removeOnType, removeOnTagged, removeOnSkillType, removeOnDmgType } = effect;
 
   if (removeOnAction && matchOnAction(removeOnAction, action)) return true;
   if (removeOnType && matchOnType(removeOnType, action)) return true;
   if (removeOnTagged && matchOnTagged(removeOnTagged, action)) return true;
-  if (removeOnCast && matchOnCast(removeOnCast, action)) return true;
-  if (removeOnConsidered && matchOnConsidered(removeOnConsidered, action)) return true;
+  if (removeOnSkillType && matchOnSkillType(removeOnSkillType, action)) return true;
+  if (removeOnDmgType && matchOnDmgType(removeOnDmgType, action)) return true;
 
   return false;
 };
 
 export const matchUseOn = (action, effect) => {
-  const { useOnAction, useOnType, useOnTagged, useOnCast, useOnConsidered, useOnElement } = effect;
-  if (!(useOnAction || useOnType || useOnTagged || useOnCast || useOnConsidered || useOnElement)) return true;
+  const { useOnAction, useOnType, useOnTagged, useOnSkillType, useOnDmgType, useOnElement } = effect;
+  if (!(useOnAction || useOnType || useOnTagged || useOnSkillType || useOnDmgType || useOnElement)) return true;
 
   if (useOnAction && matchOnAction(useOnAction, action)) return true;
   if (useOnType && matchOnType(useOnType, action)) return true;
   if (useOnTagged && matchOnTagged(useOnTagged, action)) return true;
-  if (useOnCast && matchOnCast(useOnCast, action)) return true;
-  if (useOnConsidered && matchOnConsidered(useOnConsidered, action)) return true;
+  if (useOnSkillType && matchOnSkillType(useOnSkillType, action)) return true;
+  if (useOnDmgType && matchOnDmgType(useOnDmgType, action)) return true;
   if (useOnElement && matchOnElement(useOnElement, action.compressed.keys()))
 
   return false;

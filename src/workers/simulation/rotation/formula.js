@@ -1,8 +1,8 @@
 import { getAttr } from '@/utils';
 
 const computeBase = (compressed, statMap) => {
-  const percentMv = statMap.PERCENT_MV ?? 0;
-  const flatMv = statMap.FLAT_MV ?? 0;
+  const percentMv = getAttr('mv%', statMap);
+  const flatMv = getAttr('mv', statMap);
   let totalMvPart = 0;
 
   for (const attr in compressed.mv) {
@@ -20,7 +20,7 @@ const computeBase = (compressed, statMap) => {
 const computeReductions = (config, statMap, element, enemyStatMap) => {
   const { ENEMY_RES, getDefMult } = config;
 
-  const resIgnore = (statMap[`IGNORE_${element}_RES`] ?? 0) + (enemyStatMap[`SHRED_${element}_RES`] ?? 0);
+  const resIgnore = getAttr(`${element}ResIgnore%`, statMap) + getAttr(`${element}ResReduction%`, enemyStatMap);
   const totalRes = ENEMY_RES - resIgnore;
   let resMult;
   if (totalRes < 0) {
@@ -31,33 +31,33 @@ const computeReductions = (config, statMap, element, enemyStatMap) => {
     resMult = 1 / (5 * totalRes + 1);
   }
 
-  const defRed = enemyStatMap['SHRED_DEF'] ?? 0;
-  const defIgn = statMap['IGNORE_DEF'] ?? 0;
-  const pen = statMap['FLAT_PEN'] ?? 0;
+  const defRed = getAttr('defReduction%', enemyStatMap);
+  const defIgn = getAttr('defIgnore%', statMap);
+  const pen = getAttr('pen', statMap);
   const defMult = getDefMult(defRed, defIgn, pen);
 
   return resMult * defMult;
 };
 
-const computeBonuses = (statMap, considered, element, enemyStatMap) => {
-  const critRate = Math.max(Math.min(getAttr('CR', statMap), 1), 0);
-  const critDamage = getAttr('CD', statMap);
+const computeBonuses = (statMap, dmgType, element, enemyStatMap) => {
+  const critRate = Math.max(Math.min(getAttr('critRate%', statMap), 1), 0);
+  const critDamage = getAttr('critDmg%', statMap);
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
-  const dmgTypes = [...considered, ...(element ? [element]: [])];
-  let dmgBonusMult = 1 + (statMap['PERCENT_ALL'] ?? 0) + (enemyStatMap['PERCENT_ALL'] ?? 0);
-  let ampMult = 1 + (statMap['AMP_ALL'] ?? 0) + (enemyStatMap['AMP_ALL'] ?? 0);
+  const dmgTypes = [...dmgType, ...(element ? [element]: [])];
+  let dmgBonusMult = 1 + getAttr('dmgBonus%', statMap) + getAttr('dmgBonus%', enemyStatMap);
+  let ampMult = 1 + getAttr('dmgAmp%', statMap) + getAttr('dmgAmp%', enemyStatMap);
 
   for (const type of dmgTypes) {
-    dmgBonusMult += (statMap[`PERCENT_${type}`] ?? 0) + (enemyStatMap[`PERCENT_${type}`] ?? 0);
-    ampMult += (statMap[`AMP_${type}`] ?? 0) + (enemyStatMap[`AMP_${type}`] ?? 0);
+    dmgBonusMult += getAttr(`${type}DmgBonus%`, statMap) + getAttr(`${type}DmgBonus%`, enemyStatMap);
+    ampMult += getAttr(`${type}DmgAmp%`, statMap) + getAttr(`${type}DmgAmp%`, enemyStatMap);
   }
 
   return critMult * dmgBonusMult * ampMult;
 };
 
 export const damageFormula = (action, config, statMap) => {
-  const { considered, compressed } = action;
+  const { dmgType, compressed } = action;
   const { enemyStatMap } = config;
   const timesRepeat = action.times * config.repeatCount;
   let sum = 0;
@@ -67,8 +67,8 @@ export const damageFormula = (action, config, statMap) => {
 
     switch (action.type) {
       case 'damage': {
-        const uppercase = element.toUpperCase();
-        const bonuses = computeBonuses(statMap, considered, uppercase, enemyStatMap);
+        const uppercase = element.toLowerCase();
+        const bonuses = computeBonuses(statMap, dmgType, uppercase, enemyStatMap);
         const reductions = computeReductions(config, statMap, uppercase, enemyStatMap);
 
         sum += base * bonuses * reductions;
@@ -76,15 +76,15 @@ export const damageFormula = (action, config, statMap) => {
       }
 
       case 'healing': {
-        const healingBonus = 1 + getAttr('HB', statMap);
-        const healingReceived = 1 + getAttr('HR', statMap);
+        const healingBonus = 1 + getAttr('healingBonus', statMap);
+        const healingReceived = 1 + getAttr('healingReceived', statMap);
 
         sum += base * healingBonus * healingReceived;
         break;
       }
 
       case 'shield': {
-        const shieldBonus = 1 + getAttr('SB', statMap);
+        const shieldBonus = 1 + getAttr('shieldBonus', statMap);
 
         sum += base * shieldBonus;
         break;

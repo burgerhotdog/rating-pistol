@@ -29,7 +29,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
   const memberColors = membersMisc.map(m => {
     if (m.id === 'misc') return '#ffffff';
     const el = CHARACTER[gameId][m.id].element;
-    return MISC[gameId]?.ELEMENT_COLORS?.[el] ?? disabledColor;
+    return MISC[gameId]?.COLORS?.[el] ?? disabledColor;
   });
 
   const rotationTime = cache.fullRotationTime;

@@ -4,6 +4,7 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
 import { CHARACTER, MISC } from '@/data';
+import { formatStr } from '@/utils';
 
 const renderLabel = ({ percent }) => {
   if (percent < 0.05) return null;
@@ -14,10 +15,10 @@ const buildDmgTypeData = (actionMap, gameId, characterId) => {
   const totals = {};
 
   for (const temp of Object.values(actionMap)) {
-    const { ownerId, considered, damage } = temp;
+    const { ownerId, dmgType, damage } = temp;
     if (ownerId !== characterId) continue;
-    if (!considered) continue;
-    const label = considered[0];
+    if (!dmgType) continue;
+    const label = dmgType[0];
 
     totals[label] ??= 0;
     totals[label] += damage;
@@ -35,7 +36,7 @@ export const DamageBreakdown = ({ actionMap }) => {
   const data = buildDmgTypeData(actionMap, gameId, characterId).sort((a, b) => b.value - a.value);
 
   const element = CHARACTER[gameId][characterId].element;
-  const monoColor = MISC?.[gameId]?.ELEMENT_COLORS?.[element] ?? theme.palette.primary.main;
+  const monoColor = MISC?.[gameId]?.COLORS?.[element] ?? theme.palette.primary.main;
 
   const getSliceFill = (index, count) => {
     if (count <= 1) return alpha(monoColor, 0.95);
@@ -94,7 +95,7 @@ export const DamageBreakdown = ({ actionMap }) => {
                   const { name, value } = payload[0].payload;
                   return (
                     <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{name}</Typography>
+                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{formatStr(name)}</Typography>
                       <Typography variant="body2" color="text.secondary">
                         {value.toLocaleString('en-US', { maximumFractionDigits: 0 })} damage
                       </Typography>
@@ -107,6 +108,7 @@ export const DamageBreakdown = ({ actionMap }) => {
                 iconType="circle"
                 iconSize={8}
                 wrapperStyle={{ fontSize: 12 }}
+                formatter={(value) => formatStr(value)}
               />
             </PieChart>
           </ResponsiveContainer>

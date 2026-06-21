@@ -103,7 +103,7 @@ self.onmessage = async ({ data }) => {
       const mainStatValue = Number(mainStatValueString) / 100;
 
       // mainStatFlatId
-      const mainStatFlatId = cost === '1' ? 'FLAT_HP' : 'FLAT_ATK';
+      const mainStatFlatId = cost === '1' ? 'hp' : 'atk';
 
       // mainStatFlatValue
       const mainStatFlatRegion = { 
@@ -127,7 +127,7 @@ self.onmessage = async ({ data }) => {
         };
         const subStatFragmentRaw = await ocrRegion(subStatRegion, 7, whitelistStat);
         const subStatFragment = matchString(subStatFragmentRaw, Object.keys(subStatFragmentToSuffix));
-        const subStatSuffix = subStatFragmentToSuffix[subStatFragment];
+        const subStatPrefix = subStatFragmentToSuffix[subStatFragment];
 
         // subStatValue
         const subStatValueRegion = {
@@ -139,8 +139,8 @@ self.onmessage = async ({ data }) => {
         const subStatValueString = await ocrRegion(subStatValueRegion, 13, whitelistValue);
         // finalize id
         const isPercent = subStatValueString.endsWith('%');
-        const subStatPrefix = isPercent ? 'PERCENT' : 'FLAT';
-        const subStatId = `${subStatPrefix}_${subStatSuffix}`;
+        const subStatSuffix = isPercent ? '%' : '';
+        const subStatId = `${subStatPrefix}${subStatSuffix}`;
         // finalize value
         const noPercentStr = subStatValueString.endsWith('%') ? subStatValueString.slice(0, -1) : subStatValueString;
         const subStatValueRaw = matchString(noPercentStr, subStatValueOptionsById[subStatId]);

@@ -400,7 +400,7 @@ export const compileRotation = (cache, currId, team) => {
         key: footprint.key,
         ownerId: footprint.ownerId,
         type: footprint.type,
-        considered: footprint.considered,
+        dmgType: footprint.dmgType,
         [footprint.type]: footprint.fixed,
       };
     }

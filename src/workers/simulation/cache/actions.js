@@ -1,39 +1,65 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
-import { MISC, CHARACTER, ACTION } from '@/data';
+import { CHARACTER, ACTION } from '@/data';
 import { toArray } from '@/utils';
 import { resolveRankedValue } from './resolveRanked';
 
+const MV_INDEX = {
+  [GI]: 9,
+  [HSR]: 9,
+  [WW]: 9,
+  [ZZZ]: 11,
+};
+
+const makeGetIndex = (gameId, member) => {
+  const { rankMods = {} } = CHARACTER[gameId][member.id];
+  const defaultIndex = MV_INDEX[gameId];
+  const addByCategory = {};
+
+  for (const rank in rankMods) {
+    if (Number(rank) > member.rank) continue;
+
+    const mod = rankMods[rank];
+    for (const category in mod) {
+      addByCategory[category] ??= 0;
+      addByCategory[category] += mod[category];
+    }
+  }
+
+  return category => defaultIndex + (addByCategory[category] ?? 0);
+};
+
 const DURATION_BY_CAST = {
   [GI]: {
-    NA: 1000,
-    CA: 1000,
-    PA: 1000,
-    ES: 1000,
-    EB: 1000,
+    normalAttack: 1000,
+    chargedAttack: 1000,
+    plungeAttack: 1000,
+    elementalSkill: 1000,
+    elementalBurst: 1000,
   },
   [HSR]: {
-    BA: 1000,
-    S: 1000,
-    U: 1000,
+    basicAtk: 1000,
+    skill: 1000,
+    ultimate: 1000,
   },
   [WW]: {
-    BA: 750,
-    HA: 1000,
-    MA: 1000,
-    DC: 1500,
-    RS: 1250,
-    RL: 500,
-    IS: 1000,
-    OS: 0,
-    CA: 0,
+    basicAttack: 750,
+    heavyAttack: 1000,
+    midAirAttack: 1000,
+    dodgeCounter: 1500,
+    resonanceSkill: 1250,
+    resonanceLiberation: 500,
+    introSkill: 1000,
+    outroSkill: 0,
+    coordinatedAttack: 0,
   },
   [ZZZ]: {
-    BA: 1000,
-    D: 1000,
-    A: 1000,
-    S: 1000,
-    CA: 1000,
-    U: 1000,
+    basicAttack: 1000,
+    dodgeCounter: 1000,
+    dashAttack: 1000,
+    assistAttack: 1000,
+    specialAttack: 1000,
+    chainAttack: 1000,
+    ultimate: 1000,
   },
 };
 
@@ -67,7 +93,7 @@ export const compressMultipliers = (multipliers, spec = {}) => {
           compiled.mv[attr] += resolveScaling(hit.mv[attr]) * times;
         }
       } else { // single attr scaling
-        const attr = spec.attr ?? 'ATK';
+        const attr = spec.attr ?? 'atk';
         compiled.mv[attr] ??= 0;
         compiled.mv[attr] += resolveScaling(hit.mv) * times;
       }
@@ -94,7 +120,7 @@ export const normalizeAction = (ctx, memberId, action) => {
   }
 
   if (normalized.type === 'damage') {
-    normalized.considered = toArray(normalized.considered ?? normalized.skillType);
+    normalized.dmgType = toArray(normalized.dmgType ?? normalized.skillType);
   }
 
   normalized.duration ??= DURATION_BY_CAST[ctx.gameId][normalized.skillType[0]] ?? 0;
@@ -108,26 +134,16 @@ export const normalizeAction = (ctx, memberId, action) => {
 }
 
 export const normalizeActions = (ctx, member) => {
-  const skillIndex = MISC[ctx.gameId].MAX_SKILL_LEVEL - 1;
-  const charData = CHARACTER[ctx.gameId][member.id];
+  const { element: charElement } = CHARACTER[ctx.gameId][member.id];
   const actionData = ACTION[ctx.gameId][member.id];
-  const addByCategory = {};
   const normalized = {};
-
-  if ('skillLevelMods' in charData) {
-    for (const mod of charData.skillLevelMods) {
-      if (mod.rank > member.rank) continue;
-
-      addByCategory[mod.category] = mod.add;
-    }
-  }
+  const getIndex = makeGetIndex(ctx.gameId, member);
 
   for (const category in actionData) {
-    const currentIndex = skillIndex + (addByCategory[category] ?? 0);
     const skill = actionData[category];
 
     for (const actionId in skill) {
-      const actionShort = `${category}-${actionId}`;
+      const actionShort = `${category}.${actionId}`;
       const actionKey = `${member.id}:${actionShort}`;
 
       const resolved = {
@@ -140,13 +156,13 @@ export const normalizeActions = (ctx, member) => {
       const spec = { element: resolved.element, attr: resolved.attr };
 
       if (resolved.type === 'damage') {
-        spec.element ??= charData.element;
+        spec.element ??= charElement;
       } else {
         spec.element = resolved.type;
       }
 
       if ('indexedMultipliers' in resolved) {
-        spec.index = currentIndex;
+        spec.index = getIndex(category);
         resolved.compressed = compressMultipliers(resolved.indexedMultipliers, spec)
       } else if ('fixedMultipliers' in resolved) {
         resolved.compressed = compressMultipliers(toArray(resolved.fixedMultipliers), spec);

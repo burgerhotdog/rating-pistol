@@ -39,7 +39,7 @@ import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CHARACTER, ACTION, WEAPON, SET } from '@/data';
-import { toArray, getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
+import { toArray, formatStr, getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
@@ -556,7 +556,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
       for (const actionId in skill) {
         const action = { ...skill[actionId] };
-        action.key = `${category}-${actionId}`;
+        action.key = `${category}.${actionId}`;
 
         if (action.name.toLowerCase().includes(lower)) {
           filteredSkill.push(action);
@@ -584,7 +584,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
       <Accordion key={id} disableGutters defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-            {id}
+            {formatStr(id)}
           </Typography>
           <Typography variant="body2" color="textDisabled" sx={{ ml: 1 }}>
             ({filtered.length})
@@ -605,7 +605,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                   <Chip
                     key={type}
                     size="small"
-                    label={type}
+                    label={formatStr(type)}
                     sx={{
                       height: 20,
                       fontSize: '0.65rem',
@@ -789,7 +789,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
     transition,
   };
 
-  const [category, actionId] = actionKey.split('-');
+  const [category, actionId] = actionKey.split('.');
   const { name, tagged, skillType } = ACTION[gameId][characterId][category][actionId];
 
   return (
@@ -831,7 +831,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
           <Chip
             key={type}
             size="small"
-            label={type}
+            label={formatStr(type)}
             variant="outlined"
             sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
           />
@@ -992,7 +992,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         characterId={characterId}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
-        onSelect={(actionKey) => onChange([...rotation, actionKey])}
+        onSelect={actionKey => onChange([...rotation, actionKey])}
       />
     </Box>
   );

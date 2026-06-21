@@ -1,15 +1,33 @@
-import { MISC } from '@/data';
-import { sumRotationDmg } from '@/utils';
+import { GI, WW, CHARACTER } from '@/data';
+import { sumRotationDmg, getAttr } from '@/utils';
 import { findBenchmarkWeek, findRelativeError} from './helpers';
 import { compileRotation, evaluateRotation } from './rotation';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
-import { createMatchMap } from './matchMap';
 import { getPenalty } from './penalty';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
+
+const createMatchMap = (cache, currId) => {
+  const { gameId, member } = cache;
+
+  const { matchList = [], tagged = [] } = CHARACTER[gameId][currId];
+  const { statMap } = member[currId];
+  const matchMap = {};
+
+  for (const attr of matchList) {
+    matchMap[attr] = getAttr(attr, statMap);
+  }
+
+  if (!tagged.includes('noEnergy')) {
+    matchMap.energyRegen = getAttr('energyRegen', statMap);
+  }
+
+  return matchMap;
+};
+
 
 function getAverageSummaries(trials, weekCount) {
   const averages = [];
@@ -42,14 +60,13 @@ function getAverageSummaries(trials, weekCount) {
   return averages;
 }
 
-
 const createTrial = (cache, currId, matchMap, compiledRotation) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
-  const { NUM_MAINSTATS } = MISC[gameId];
+  const length = gameId === GI || gameId === WW ? 5 : 6
 
   return {
-    equipList: new Array(NUM_MAINSTATS).fill(null),
+    equipList: new Array(length).fill(null),
     penalty: getPenalty(baseMap, matchMap),
     weeklySummary: [evaluateRotation(compiledRotation, baseMap)],
   };

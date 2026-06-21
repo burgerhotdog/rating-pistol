@@ -5,7 +5,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_OHB": 0.1
+          "outgoingHealingBoost%": 0.1
         }
       },
       "4": {}
@@ -17,13 +17,13 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.12
+          "atk%": 0.12
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_SPD": 0.06,
-          "PERCENT_BA": 0.1
+          "spd%": 0.06,
+          "basicAtkDmgBonus%": 0.1
         }
       }
     }
@@ -34,12 +34,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_DEF": 0.15
+          "def%": 0.15
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_SB": 0.2
+          "shieldBonus%": 0.2
         }
       }
     }
@@ -50,14 +50,14 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ICE": 0.1
+          "iceDmgBonus%": 0.1
         }
       },
       "4": {
         "applyWhen": "cast",
-        "applyOnSkillType": "U",
+        "applyOnSkillType": "ultimate",
         "statMap": {
-          "PERCENT_CD": 0.25
+          "critDmg%": 0.25
         }
       }
     }
@@ -68,14 +68,14 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_PHYSICAL": 0.1
+          "physicalDmgBonus%": 0.1
         }
       },
       "4": {
         "applyWhen": "hit",
         "applyOnType": "damage",
         "statMap": {
-          "PERCENT_ATK": 0.05
+          "atk%": 0.05
         },
         "maxStacks": 5
       }
@@ -95,21 +95,21 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_FIRE": 0.1
+          "fireDmgBonus%": 0.1
         }
       },
       "4": [
         {
           "statMap": {
-            "PERCENT_S": 0.12
+            "skillDmgBonus%": 0.12
           }
         },
         {
           "applyWhen": "hit",
-          "applyOnSkillType": "U",
+          "applyOnSkillType": "ultimate",
           "useOnType": "damage",
           "statMap": {
-            "PERCENT_FIRE": 0.12
+            "fireDmgBonus%": 0.12
           },
           "maxUses": 1
         }
@@ -122,12 +122,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_QUANTUM": 0.1
+          "quantumDmgBonus%": 0.1
         }
       },
       "4": {
         "statMap": {
-          "DEF_IGNORE": 0.2
+          "defIgnore%": 0.2
         }
       }
     }
@@ -138,14 +138,14 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_LIGHTNING": 0.1
+          "lightningDmgBonus%": 0.1
         }
       },
       "4": {
         "applyWhen": "cast",
-        "applyOnSkillType": "S",
+        "applyOnSkillType": "skill",
         "statMap": {
-          "PERCENT_ATK": 0.2
+          "atk%": 0.2
         },
         "maxUses": 1
       }
@@ -157,7 +157,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_WIND": 0.1
+          "windDmgBonus%": 0.1
         }
       },
       "4": {}
@@ -169,12 +169,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_BE": 0.16
+          "breakEffect%": 0.16
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_BE": 0.16
+          "breakEffect%": 0.16
         }
       }
     }
@@ -185,13 +185,13 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_IMAGINARY": 0.1
+          "imaginaryDmgBonus%": 0.1
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_CR": 0.1,
-          "PERCENT_CD": 0.2
+          "critRate%": 0.1,
+          "critDmg%": 0.2
         }
       }
     }
@@ -203,15 +203,15 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_ATK": 0.12
+            "atk%": 0.12
           }
         },
         {
           "useIfAttr": {
-            "SPD": 120
+            "spd": 120
           },
           "statMap": {
-            "PERCENT_ATK": 0.12
+            "atk%": 0.12
           }
         }
       ]
@@ -224,16 +224,16 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_HP": 0.12
+            "hp%": 0.12
           }
         },
         {
           "applyTo": "team",
           "useIfAttr": {
-            "SPD": 120
+            "spd": 120
           },
           "statMap": {
-            "PERCENT_ATK": 0.08
+            "atk%": 0.08
           }
         }
       ]
@@ -246,13 +246,13 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_EHR": 0.1
+            "effectHitRate%": 0.1
           }
         },
         {
           "variableStatMap": {
-            "PERCENT_ATK": {
-              "attr": "EHR",
+            "atk%": {
+              "attr": "effectHitRate%",
               "step": 0.01,
               "value": 0.0025,
               "max": 0.25
@@ -269,15 +269,15 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_DEF": 0.15
+            "def%": 0.15
           }
         },
         {
           "useIfAttr": {
-            "EHR": 0.5
+            "effectHitRate%": 0.5
           },
           "statMap": {
-            "PERCENT_DEF": 0.15
+            "def%": 0.15
           }
         }
       ]
@@ -289,7 +289,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_CD": 0.16
+          "critDmg%": 0.16
         }
       }
     }
@@ -301,16 +301,16 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_CR": 0.08
+            "critRate%": 0.08
           }
         },
         {
           "useIfAttr": {
-            "CR": 0.5
+            "critRate%": 0.5
           },
           "statMap": {
-            "PERCENT_U": 0.15,
-            "PERCENT_FUA": 0.15
+            "ultimateDmgBonus%": 0.15,
+            "follow-upAttackDmgBonus%": 0.15
           }
         }
       ]
@@ -323,15 +323,15 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_BE": 0.16
+            "breakEffect%": 0.16
           }
         },
         {
           "useIfAttr": {
-            "SPD": 145
+            "spd": 145
           },
           "statMap": {
-            "PERCENT_BE": 0.2
+            "breakEffect%": 0.2
           }
         }
       ]
@@ -343,7 +343,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ERR": 0.05
+          "energyRegenerationRate%": 0.05
         }
       }
     }
@@ -354,12 +354,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HP": 0.2
+          "hp%": 0.2
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_CR": 0.16
+          "critRate%": 0.16
         }
       }
     }
@@ -370,7 +370,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_SPD": 0.06
+          "spd%": 0.06
         }
       },
       "4": {}
@@ -383,16 +383,16 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_CR": 0.08
+            "critRate%": 0.08
           }
         },
         {
           "useIfAttr": {
-            "CR": 0.7
+            "critRate%": 0.7
           },
           "statMap": {
-            "PERCENT_BA": 0.2,
-            "PERCENT_S": 0.2
+            "basicAtkDmgBonus%": 0.2,
+            "skillDmgBonus%": 0.2
           }
         }
       ]
@@ -405,16 +405,16 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_RES": 0.1
+            "effectRes%": 0.1
           }
         },
         {
           "applyTo": "team",
           "useIfAttr": {
-            "RES": 0.3
+            "effectRes%": 0.3
           },
           "statMap": {
-            "PERCENT_CD": 0.1
+            "critDmg%": 0.1
           }
         }
       ]
@@ -426,12 +426,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_FUA": 0.2
+          "follow-upAttackDmgBonus%": 0.2
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_ATK": 0.48
+          "atk%": 0.48
         }
       }
     }
@@ -442,12 +442,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.12
+          "atk%": 0.12
         }
       },
       "4": {
         "statMap": {
-          "DEF_IGNORE": 0.18
+          "defIgnore%": 0.18
         }
       }
     }
@@ -459,23 +459,23 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_ATK": 0.12
+            "atk%": 0.12
           }
         },
         {
           "useIfAttr": {
-            "SPD": 135
+            "spd": 135
           },
           "statMap": {
-            "PERCENT_ALL": 0.12
+            "dmgBonus%": 0.12
           }
         },
         {
           "useIfAttr": {
-            "SPD": 160
+            "spd": 160
           },
           "statMap": {
-            "PERCENT_ALL": 0.06
+            "dmgBonus%": 0.06
           }
         }
       ]
@@ -487,7 +487,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ERR": 0.05
+          "energyRegenerationRate%": 0.05
         }
       }
     }
@@ -498,19 +498,19 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ALL": 0.12
+          "dmgBonus%": 0.12
         }
       },
       "4": [
         {
           "statMap": {
-            "PERCENT_CR": 0.04
+            "critRate%": 0.04
           }
         },
         {
           "statMap": {
-            "PERCENT_CR": 0.04,
-            "PERCENT_CD": 0.24
+            "critRate%": 0.04,
+            "critDmg%": 0.24
           }
         }
       ]
@@ -522,13 +522,13 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_BE": 0.16
+          "breakEffect%": 0.16
         }
       },
       "4": {
         "applyTo": "team",
         "statMap": {
-          "PERCENT_BE": 0.3
+          "breakEffect%": 0.3
         }
       }
     }
@@ -540,12 +540,12 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_CR": 0.04
+            "critRate%": 0.04
           }
         },
         {
           "statMap": {
-            "PERCENT_CD": 0.4
+            "critDmg%": 0.4
           }
         }
       ]
@@ -558,12 +558,12 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_ATK": 0.12
+            "atk%": 0.12
           }
         },
         {
           "statMap": {
-            "PERCENT_CR": 0.12
+            "critRate%": 0.12
           }
         }
       ]
@@ -575,12 +575,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_BE": 0.16
+          "breakEffect%": 0.16
         }
       },
       "4": {
         "statMap": {
-          "DEF_IGNORE": 0.25
+          "defIgnore%": 0.25
         }
       }
     }
@@ -591,20 +591,20 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.12
+          "atk%": 0.12
         }
       },
       "4": [
         {
           "statMap": {
-            "PERCENT_CR": 0.06
+            "critRate%": 0.06
           }
         },
         {
           "applyWhen": "cast",
-          "applyOnSkillType": "FUA",
+          "applyOnSkillType": "follow-upAttack",
           "statMap": {
-            "PERCENT_U": 0.36
+            "ultimateDmgBonus%": 0.36
           }
         }
       ]
@@ -616,8 +616,8 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_FUA": 0.25,
-          "PERCENT_CD": 0.25
+          "follow-upAttackDmgBonus%": 0.25,
+          "critDmg%": 0.25
         }
       }
     }
@@ -629,12 +629,12 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_SPD": 0.06
+            "spd%": 0.06
           }
         },
         {
           "statMap": {
-            "PERCENT_BE": 0.4
+            "breakEffect%": 0.4
           }
         }
       ]
@@ -647,13 +647,13 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_ERR": 0.05
+            "energyRegenerationRate%": 0.05
           }
         },
         {
           "applyTo": "first",
           "statMap": {
-            "PERCENT_ATK": 0.12
+            "atk%": 0.12
           }
         }
       ]
@@ -666,12 +666,12 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_CD": 0.16
+            "critDmg%": 0.16
           }
         },
         {
           "statMap": {
-            "PERCENT_CD": 0.32
+            "critDmg%": 0.32
           }
         }
       ]
@@ -683,7 +683,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_SPD": 0.06
+          "spd%": 0.06
         }
       },
       "4": {}
@@ -695,21 +695,21 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_CR": 0.08
+          "critRate%": 0.08
         }
       },
       "4": [
         {
           "statMap": {
-            "PERCENT_S": 0.2,
-            "PERCENT_U": 0.2
+            "skillDmgBonus%": 0.2,
+            "ultimateDmgBonus%": 0.2
           }
         },
         {
           "applyWhen": "hit",
-          "applyOnSkillType": "U",
+          "applyOnSkillType": "ultimate",
           "statMap": {
-            "PERCENT_S": 0.25
+            "skillDmgBonus%": 0.25
           },
           "maxUses": 1
         }
@@ -722,13 +722,13 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.12
+          "atk%": 0.12
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_SPD": 0.06,
-          "PERCENT_CD": 0.3
+          "spd%": 0.06,
+          "critDmg%": 0.3
         }
       }
     }
@@ -739,13 +739,13 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_QUANTUM": 0.1
+          "quantumDmgBonus%": 0.1
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_SPD": -0.08,
-          "PERCENT_CR": 0.32
+          "spd%": -0.08,
+          "critRate%": 0.32
         }
       }
     }
@@ -757,7 +757,7 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_HP": 0.12
+            "hp%": 0.12
           }
         },
         {
@@ -765,7 +765,7 @@
             "HP": 5000
           },
           "statMap": {
-            "PERCENT_CD": 0.28
+            "critDmg%": 0.28
           }
         }
       ]
@@ -778,23 +778,23 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_SPD": 0.06
+            "spd%": 0.06
           }
         },
         {
           "useIfAttr": {
-            "SPD": 135
+            "spd": 135
           },
           "statMap": {
-            "PERCENT_OHB": 0.12
+            "outgoingHealingBoost%": 0.12
           }
         },
         {
           "useIfAttr": {
-            "SPD": 180
+            "spd": 180
           },
           "statMap": {
-            "PERCENT_OHB": 0.08
+            "outgoingHealingBoost%": 0.08
           }
         }
       ]
@@ -806,7 +806,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_SPD": 0.06
+          "spd%": 0.06
         }
       },
       "4": [
@@ -814,7 +814,7 @@
           "applyWhen": "hit",
           "applyOnType": "healing",
           "statMap": {
-            "PERCENT_SPD": 0.06
+            "spd%": 0.06
           }
         },
         {
@@ -822,7 +822,7 @@
           "applyWhen": "hit",
           "applyOnType": "healing",
           "statMap": {
-            "PERCENT_CD": 0.15
+            "critDmg%": 0.15
           }
         }
       ]
@@ -834,12 +834,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_CD": 0.16
+          "critDmg%": 0.16
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_ATK": 0.48
+          "atk%": 0.48
         }
       }
     }
@@ -850,7 +850,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ALL": 0.36
+          "dmgBonus%": 0.36
         }
       }
     }
@@ -862,23 +862,23 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_ATK": 0.12
+            "atk%": 0.12
           }
         },
         {
           "useIfAttr": {
-            "ATK": 2400
+            "atk": 2400
           },
           "statMap": {
-            "PERCENT_DOT": 0.12
+            "dotDmgBonus%": 0.12
           }
         },
         {
           "useIfAttr": {
-            "ATK": 3600
+            "atk": 3600
           },
           "statMap": {
-            "PERCENT_DOT": 0.12
+            "dotDmgBonus%": 0.12
           }
         }
       ]
@@ -890,19 +890,19 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_CR": 0.08
+          "critRate%": 0.08
         }
       },
       "4": [
         {
           "statMap": {
-            "PERCENT_HP": 0.24
+            "hp%": 0.24
           }
         },
         {
           "applyTo": "team",
           "statMap": {
-            "PERCENT_ALL": 0.15
+            "dmgBonus%": 0.15
           }
         }
       ]
@@ -914,19 +914,19 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_SB": 0.1
+          "shieldBonus%": 0.1
         }
       },
       "4": [
         {
           "statMap": {
-            "PERCENT_SB": 0.12
+            "shieldBonus%": 0.12
           }
         },
         {
           "applyTo": "team",
           "statMap": {
-            "PERCENT_CD": 0.15
+            "critDmg%": 0.15
           }
         }
       ]
@@ -939,13 +939,13 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_CR": 0.08
+            "critRate%": 0.08
           }
         },
         {
           "applyTo": "team",
           "statMap": {
-            "PERCENT_SPD": 0.08
+            "spd%": 0.08
           }
         }
       ]
@@ -958,12 +958,12 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_CD": 0.16
+            "critDmg%": 0.16
           }
         },
         {
           "statMap": {
-            "PERCENT_CD": 0.32
+            "critDmg%": 0.32
           }
         }
       ]
@@ -975,12 +975,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_CD": 0.16
+          "critDmg%": 0.16
         }
       },
       "4": {
         "statMap": {
-          "DEF_IGNORE": 0.2
+          "defIgnore%": 0.2
         }
       }
     }
@@ -991,30 +991,30 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_SPD": 0.06
+          "spd%": 0.06
         }
       },
       "4": [
         {
           "useIfAttr": {
-            "SPD": 120
+            "spd": 120
           },
           "statMap": {
-            "PERCENT_CR": 0.1
+            "critRate%": 0.1
           }
         },
         {
           "useIfAttr": {
-            "SPD": 160
+            "spd": 160
           },
           "statMap": {
-            "PERCENT_CR": 0.08
+            "critRate%": 0.08
           }
         },
         {
           "applyTo": "team",
           "statMap": {
-            "PERCENT_ELATION": 0.1
+            "elation%": 0.1
           }
         }
       ]
@@ -1027,12 +1027,12 @@
       "2": [
         {
           "statMap": {
-            "PERCENT_ELATION": 0.08
+            "elation%": 0.08
           }
         },
         {
           "statMap": {
-            "PERCENT_CD": 0.32
+            "critDmg%": 0.32
           }
         }
       ]
@@ -1045,15 +1045,15 @@
       "2": [
         {
           "applyWhen": "cast",
-          "applyOnSkillType": "FUA",
+          "applyOnSkillType": "follow-upAttack",
           "statMap": {
-            "PERCENT_ATK": 0.24
+            "atk%": 0.24
           }
         },
         {
           "applyTo": "team",
           "statMap": {
-            "PERCENT_CD": 0.12
+            "critDmg%": 0.12
           }
         }
       ]
@@ -1065,13 +1065,13 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.12
+          "atk%": 0.12
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_S": 0.54,
-          "PERCENT_U": 0.54
+          "skillDmgBonus%": 0.54,
+          "ultimateDmgBonus%": 0.54
         }
       }
     }
@@ -1082,19 +1082,19 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HP": 0.12
+          "hp%": 0.12
         }
       },
       "4": [
         {
           "statMap": {
-            "PERCENT_CD": 0.28
+            "critDmg%": 0.28
           }
         },
         {
           "applyTo": "team",
           "statMap": {
-            "PERCENT_ALL": 0.15
+            "dmgBonus%": 0.15
           }
         }
       ]

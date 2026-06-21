@@ -1,18 +1,5 @@
 {
-  "TITLE": "Wuthering Waves",
-  "MAX_LEVEL": 90,
-  "MAX_SKILL_LEVEL": 10,
-  "ENEMY_RES": 0.1,
-  "NUM_MAINSTATS": 5,
-  "NUM_SUBSTATS": 5,
-  "EQUIP_NAMES": [
-    "4-Cost",
-    "3-Cost",
-    "3-Cost",
-    "1-Cost",
-    "1-Cost"
-  ],
-  "ELEMENT_COLORS": {
+  "COLORS": {
     "Glacio": "#4fb4cf",
     "Fusion": "#d45772",
     "Electro": "#c154c7",
@@ -20,274 +7,187 @@
     "Spectro": "#b7a835",
     "Havoc": "#be4981"
   },
-  "WEAPON_TYPES": [
-    "BROADBLADE",
-    "SWORD",
-    "PISTOLS",
-    "GAUNTLETS",
-    "RECTIFIER"
-  ],
-  "DEFAULT_STATS": {
-    "BASE_HP": 0,
-    "BASE_ATK": 0,
-    "BASE_DEF": 0,
-    "BASE_ER": 1,
-    "PERCENT_CR": 0.05,
-    "PERCENT_CD": 0.5
-  },
-  "MAIN_STAT_FLATS": [
-    {},
-    {
-      "FLAT_HP": {
-        "NAME": "Flat HP",
-        "VALUE": 2280
-      }
-    },
-    {},
-    {
-      "FLAT_ATK": {
-        "NAME": "Flat ATK",
-        "VALUE": 100
-      }
-    },
-    {
-      "FLAT_ATK": {
-        "NAME": "Flat ATK",
-        "VALUE": 150
-      }
-    }
-  ],
   "MAIN_STAT_TYPES": [
     {},
     {
-      "PERCENT_HP": {
-        "NAME": "HP%",
+      "hp%": {
         "VALUE": 0.228,
         "WEIGHT": 1
       },
-      "PERCENT_ATK": {
-        "NAME": "ATK%",
+      "atk%": {
         "VALUE": 0.18,
         "WEIGHT": 1
       },
-      "PERCENT_DEF": {
-        "NAME": "DEF%",
+      "def%": {
         "VALUE": 0.18,
         "WEIGHT": 1
       }
     },
     {},
     {
-      "PERCENT_HP": {
-        "NAME": "HP%",
+      "hp%": {
         "VALUE": 0.3,
         "WEIGHT": 1
       },
-      "PERCENT_ATK": {
-        "NAME": "ATK%",
+      "atk%": {
         "VALUE": 0.3,
         "WEIGHT": 1
       },
-      "PERCENT_DEF": {
-        "NAME": "DEF%",
+      "def%": {
         "VALUE": 0.38,
         "WEIGHT": 1
       },
-      "PERCENT_GLACIO": {
-        "NAME": "Glacio DMG Bonus",
+      "glacioDmgBonus%": {
         "VALUE": 0.3,
         "WEIGHT": 2
       },
-      "PERCENT_FUSION": {
-        "NAME": "Fusion DMG Bonus",
+      "fusionDmgBonus%": {
         "VALUE": 0.3,
         "WEIGHT": 2
       },
-      "PERCENT_ELECTRO": {
-        "NAME": "Electro DMG Bonus",
+      "electroDmgBonus%": {
         "VALUE": 0.3,
         "WEIGHT": 2
       },
-      "PERCENT_AERO": {
-        "NAME": "Aero DMG Bonus",
+      "aeroDmgBonus%": {
         "VALUE": 0.3,
         "WEIGHT": 2
       },
-      "PERCENT_SPECTRO": {
-        "NAME": "Spectro DMG Bonus",
+      "spectroDmgBonus%": {
         "VALUE": 0.3,
         "WEIGHT": 2
       },
-      "PERCENT_HAVOC": {
-        "NAME": "Havoc DMG Bonus",
+      "havocDmgBonus%": {
         "VALUE": 0.3,
         "WEIGHT": 2
       },
-      "PERCENT_ER": {
-        "NAME": "Energy Regen",
+      "energyRegen%": {
         "VALUE": 0.32,
         "WEIGHT": 1
       }
     },
     {
-      "PERCENT_HP": {
-        "NAME": "HP%",
+      "hp%": {
         "VALUE": 0.33,
         "WEIGHT": 3
       },
-      "PERCENT_ATK": {
-        "NAME": "ATK%",
+      "atk%": {
         "VALUE": 0.33,
         "WEIGHT": 3
       },
-      "PERCENT_DEF": {
-        "NAME": "DEF%",
+      "def%": {
         "VALUE": 0.415,
         "WEIGHT": 3
       },
-      "PERCENT_CR": {
-        "NAME": "CRIT Rate",
+      "critRate%": {
         "VALUE": 0.22,
         "WEIGHT": 4
       },
-      "PERCENT_CD": {
-        "NAME": "CRIT DMG",
+      "critDmg%": {
         "VALUE": 0.44,
         "WEIGHT": 4
       },
-      "PERCENT_HB": {
-        "NAME": "Healing Bonus",
+      "healingBonus%": {
         "VALUE": 0.26,
         "WEIGHT": 2
       }
     }
   ],
   "SUB_STAT_TYPES": {
-    "FLAT_HP": {
-      "NAME": "Flat HP",
+    "hp": {
       "VALUE": 580,
       "WEIGHT": 1
     },
-    "FLAT_ATK": {
-      "NAME": "Flat ATK",
+    "atk": {
       "VALUE": 60,
       "WEIGHT": 1
     },
-    "FLAT_DEF": {
-      "NAME": "Flat DEF",
+    "def": {
       "VALUE": 70,
       "WEIGHT": 1
     },
-    "PERCENT_HP": {
-      "NAME": "HP%",
+    "hp%": {
       "VALUE": 0.116,
       "WEIGHT": 1
     },
-    "PERCENT_ATK": {
-      "NAME": "ATK%",
+    "atk%": {
       "VALUE": 0.116,
       "WEIGHT": 1
     },
-    "PERCENT_DEF": {
-      "NAME": "DEF%",
+    "def%": {
       "VALUE": 0.147,
       "WEIGHT": 1
     },
-    "PERCENT_ER": {
-      "NAME": "Energy Regen",
+    "energyRegen%": {
       "VALUE": 0.124,
       "WEIGHT": 1
     },
-    "PERCENT_CR": {
-      "NAME": "CRIT Rate",
+    "critRate%": {
       "VALUE": 0.105,
       "WEIGHT": 1
     },
-    "PERCENT_CD": {
-      "NAME": "CRIT DMG",
+    "critDmg%": {
       "VALUE": 0.21,
       "WEIGHT": 1
     },
-    "PERCENT_BA": {
-      "NAME": "Basic Attack DMG Bonus",
+    "basicAttackDmgBonus%": {
       "VALUE": 0.116,
       "WEIGHT": 1
     },
-    "PERCENT_HA": {
-      "NAME": "Heavy Attack DMG Bonus",
+    "heavyAttackDmgBonus%": {
       "VALUE": 0.116,
       "WEIGHT": 1
     },
-    "PERCENT_RS": {
-      "NAME": "Resonance Skill DMG Bonus",
+    "resonanceSkillDmgBonus%": {
       "VALUE": 0.116,
       "WEIGHT": 1
     },
-    "PERCENT_RL": {
-      "NAME": "Resonance Liberation DMG Bonus",
+    "resonanceLiberationDmgBonus%": {
       "VALUE": 0.116,
       "WEIGHT": 1
     }
   },
-  "MENU_STATS": {
-    "HP": {
-      "label": "HP",
-      "isPercent": false
-    },
-    "ATK": {
-      "label": "ATK",
-      "isPercent": false
-    },
-    "DEF": {
-      "label": "DEF",
-      "isPercent": false
-    },
-    "ER": {
-      "label": "Energy Regen",
-      "isPercent": true
-    },
-    "CR": {
-      "label": "CRIT Rate",
-      "isPercent": true
-    },
-    "CD": {
-      "label": "CRIT DMG",
-      "isPercent": true
-    }
-  },
+  "MENU_STATS": [
+    "hp",
+    "atk",
+    "def",
+    "energyRegen%",
+    "critRate%",
+    "critDmg%"
+  ],
   "STATUSES": {
-    "CHAFE": {
-      "id": "CHAFE",
+    "glacioChafe": {
+      "id": "glacioChafe",
       "element": "Glacio",
       "maxStacks": 10
     },
-    "BURST": {
-      "id": "BURST",
+    "fusionBurst": {
+      "id": "fusionBurst",
       "element": "Fusion",
       "maxStacks": 10
     },
-    "FLARE": {
-      "id": "FLARE",
+    "electroFlare": {
+      "id": "electroFlare",
       "element": "Electro",
       "maxStacks": 10
     },
-    "EROSION": {
-      "id": "EROSION",
+    "aeroErosion": {
+      "id": "aeroErosion",
       "element": "Aero",
       "tickInterval": 3000,
       "duration": 15000,
       "maxStacks": 3
     },
-    "FRAZZLE": {
-      "id": "FRAZZLE",
+    "spectroFrazzle": {
+      "id": "spectroFrazzle",
       "element": "Spectro",
       "tickInterval": 3000,
       "duration": 3000,
       "maxStacks": 10,
       "reapply": true
     },
-    "BANE": {
-      "id": "BANE",
+    "havocBane": {
+      "id": "havocBane",
       "element": "Havoc",
       "maxStacks": 3
     }

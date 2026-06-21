@@ -21,18 +21,18 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HB": 0.15
+          "healingBonus%": 0.15
         }
       },
       "4": {
         "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": [
-          "ES",
-          "EB"
+          "elementalSkill",
+          "elementalBurst"
         ],
         "statMap": {
-          "PERCENT_HR": 0.2
+          "healingReceived%": 0.2
         },
         "duration": 10000
       }
@@ -44,17 +44,17 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.18
+          "atk%": 0.18
         }
       },
       "4": {
         "useIfWeapon": [
-          "SWORD",
-          "CLAYMORE",
-          "POLEARM"
+          "Sword",
+          "Claymore",
+          "Polearm"
         ],
         "statMap": {
-          "PERCENT_NA": 0.35
+          "normalAttackDmgBonus%": 0.35
         }
       }
     }
@@ -65,7 +65,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ANEMO": 0.15
+          "anemoDmgBonus%": 0.15
         }
       },
       "4": {}
@@ -77,16 +77,16 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "FLAT_EM": 80
+          "elementalMastery": 80
         }
       },
       "4": {
         "useIfWeapon": [
-          "CATALYST",
-          "BOW"
+          "Catalyst",
+          "Bow"
         ],
         "statMap": {
-          "PERCENT_CA": 0.35
+          "chargedAttackDmgBonus%": 0.35
         }
       }
     }
@@ -97,7 +97,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ELECTRO": 0.15
+          "electroDmgBonus%": 0.15
         }
       },
       "4": {}
@@ -109,7 +109,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_PYRO": 0.15
+          "pyroDmgBonus%": 0.15
         }
       },
       "4": {}
@@ -121,15 +121,15 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_EB": 0.2
+          "elementalBurstDmgBonus%": 0.2
         }
       },
       "4": {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnSkillType": "EB",
+        "applyOnSkillType": "elementalBurst",
         "statMap": {
-          "PERCENT_ATK": 0.2
+          "atk%": 0.2
         },
         "duration": 12000
       }
@@ -141,7 +141,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_PHYSICAL": 0.25
+          "physicalDmgBonus%": 0.25
         }
       },
       "4": {}
@@ -153,7 +153,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_GEO": 0.15
+          "geoDmgBonus%": 0.15
         }
       },
       "4": {}
@@ -173,7 +173,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_CRYO": 0.15
+          "cryoDmgBonus%": 0.15
         }
       },
       "4": {}
@@ -185,15 +185,15 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HYDRO": 0.15
+          "hydroDmgBonus%": 0.15
         }
       },
       "4": {
         "applyWhen": "cast",
-        "applyOnSkillType": "ES",
+        "applyOnSkillType": "elementalSkill",
         "statMap": {
-          "PERCENT_NA": 0.3,
-          "PERCENT_CA": 0.3
+          "normalAttackDmgBonus%": 0.3,
+          "chargedAttackDmgBonus%": 0.3
         },
         "duration": 15000
       }
@@ -205,16 +205,16 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HP": 0.2
+          "hp%": 0.2
         }
       },
       "4": {
         "applyTo": "team",
         "applyWhen": "hit",
-        "applyOnConsidered": "ES",
+        "applyOnDmgType": "elementalSkill",
         "applyCooldown": 500,
         "statMap": {
-          "PERCENT_ATK": 0.2
+          "atk%": 0.2
         },
         "duration": 3000
       }
@@ -226,16 +226,16 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_PHYSICAL": 0.25
+          "physicalDmgBonus%": 0.25
         }
       },
       "4": {
         "applyWhen": "hit",
-        "applyOnConsidered": "ES",
+        "applyOnDmgType": "elementalSkill",
         "applyCooldown": 300,
         "statMap": {
-          "PERCENT_ATK": 0.9,
-          "PERCENT_PHYSICAL": 0.125
+          "atk%": 0.9,
+          "physicalDmgBonus%": 0.125
         },
         "duration": 7000,
         "maxStacks": 2
@@ -248,17 +248,17 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.18
+          "atk%": 0.18
         }
       },
       "4": {
         "applyWhen": "cast",
-        "applyOnSkillType": "ES",
+        "applyOnSkillType": "elementalSkill",
         "applyCooldown": 10000,
         "statMap": {
-          "PERCENT_NA": 0.5,
-          "PERCENT_CA": 0.5,
-          "PERCENT_PA": 0.5
+          "normalAttackDmgBonus%": 0.5,
+          "chargedAttackDmgBonus%": 0.5,
+          "plungeAttackDmgBonus%": 0.5
         },
         "duration": 10000
       }
@@ -270,12 +270,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ER": 0.2
+          "energyRecharge%": 0.2
         }
       },
       "4": {
         "variableStatMap": {
-          "PERCENT_EB": {
+          "elementalBurstDmgBonus%": {
             "attr": "ER",
             "step": 0.01,
             "value": 0.0025,
@@ -291,13 +291,13 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_DEF": 0.3
+          "def%": 0.3
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_DEF": 0.24,
-          "PERCENT_GEO": 0.24
+          "def%": 0.24,
+          "geoDmgBonus%": 0.24
         }
       }
     }
@@ -308,7 +308,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HB": 0.15
+          "healingBonus%": 0.15
         }
       },
       "4": {
@@ -332,16 +332,16 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.18
+          "atk%": 0.18
         }
       },
       "4": [
         {
           "applyWhen": "cast",
-          "applyOnSkillType": "EB",
+          "applyOnSkillType": "elementalBurst",
           "removeIfField": false,
           "statMap": {
-            "PERCENT_ATK": 0.48
+            "atk%": 0.48
           },
           "duration": 16000
         }
@@ -354,7 +354,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.18
+          "atk%": 0.18
         }
       },
       "4": {}
@@ -366,17 +366,17 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_DENDRO": 0.15
+          "dendroDmgBonus%": 0.15
         }
       },
       "4": {
         "applyWhen": "hit",
-        "applyOnConsidered": [
-          "ES",
-          "EB"
+        "applyOnDmgType": [
+          "elementalSkill",
+          "elementalBurst"
         ],
         "statMap": {
-          "SHRED_DENDRO_RES": 0.3
+          "dendroResReduction%": 0.3
         },
         "duration": 8000
       }
@@ -388,12 +388,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "FLAT_EM": 80
+          "elementalMastery": 80
         }
       },
       "4": {
         "statMap": {
-          "FLAT_EM": 150
+          "elementalMastery": 150
         }
       }
     }
@@ -404,17 +404,17 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ANEMO": 0.15
+          "anemoDmgBonus%": 0.15
         }
       },
       "4": {
         "applyWhen": "hit",
-        "applyOnConsidered": "CA",
+        "applyOnDmgType": "chargedAttack",
         "statMap": {
-          "PERCENT_ATKSPD": 0.1,
-          "PERCENT_NA": 0.4,
-          "PERCENT_CA": 0.4,
-          "PERCENT_PA": 0.4
+          "attackSpd%": 0.1,
+          "normalAttackDmgBonus%": 0.4,
+          "chargedAttackDmgBonus%": 0.4,
+          "plungeAttackDmgBonus%": 0.4
         },
         "duration": 15000
       }
@@ -426,7 +426,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "FLAT_EM": 80
+          "elementalMastery": 80
         }
       },
       "4": {}
@@ -438,21 +438,21 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HYDRO": 0.15
+          "hydroDmgBonus%": 0.15
         }
       },
       "4": {
         "applyWhen": "hit",
-        "applyOnConsidered": [
-          "NA",
-          "CA",
-          "PA",
-          "ES",
-          "EB"
+        "applyOnDmgType": [
+          "normalAttack",
+          "chargedAttack",
+          "plungeAttack",
+          "elementalSkill",
+          "elementalBurst"
         ],
         "statMap": {
-          "PERCENT_ATK": 0.0833,
-          "PERCENT_HYDRO": 0.05
+          "atk%": 0.0833,
+          "hydroDmgBonus%": 0.05
         },
         "duration": 8000
       }
@@ -464,20 +464,20 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HP": 0.2
+          "hp%": 0.2
         }
       },
       "4": [
         {
           "statMap": {
-            "PERCENT_ES": 0.1,
-            "PERCENT_EB": 0.1
+            "elementalSkillDmgBonus%": 0.1,
+            "elementalBurstDmgBonus%": 0.1
           }
         },
         {
           "statMap": {
-            "PERCENT_ES": 0.4,
-            "PERCENT_EB": 0.4
+            "elementalSkillDmgBonus%": 0.4,
+            "elementalBurstDmgBonus%": 0.4
           }
         }
       ]
@@ -489,13 +489,13 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_NA": 0.15,
-          "PERCENT_CA": 0.15
+          "normalAttackDmgBonus%": 0.15,
+          "chargedAttackDmgBonus%": 0.15
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_CR": 0.36
+          "critRate%": 0.36
         }
       }
     }
@@ -506,19 +506,19 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ES": 0.2
+          "elementalSkillDmgBonus%": 0.2
         }
       },
       "4": [
         {
           "statMap": {
-            "PERCENT_ES": 0.25
+            "elementalSkillDmgBonus%": 0.25
           }
         },
         {
           "useIfField": false,
           "statMap": {
-            "PERCENT_ES": 0.25
+            "elementalSkillDmgBonus%": 0.25
           }
         }
       ]
@@ -530,7 +530,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_HB": 0.15
+          "healingBonus%": 0.15
         }
       },
       "4": {}
@@ -542,12 +542,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.18
+          "atk%": 0.18
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_GEO": 0.5
+          "geoDmgBonus%": 0.5
         }
       }
     }
@@ -558,12 +558,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.18
+          "atk%": 0.18
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_ALL": 0.54
+          "dmgBonus%": 0.54
         }
       }
     }
@@ -574,12 +574,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.18
+          "atk%": 0.18
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_ALL": 0.5
+          "dmgBonus%": 0.5
         }
       }
     }
@@ -599,12 +599,12 @@
       "2": {
         "useIfField": true,
         "statMap": {
-          "PERCENT_ALL": 0.15
+          "dmgBonus%": 0.15
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_CR": 0.4
+          "critRate%": 0.4
         }
       }
     }
@@ -615,12 +615,12 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_PA": 0.25
+          "plungeAttackDmgBonus%": 0.25
         }
       },
       "4": {
         "statMap": {
-          "PERCENT_PA": 0.75
+          "plungeAttackDmgBonus%": 0.75
         }
       }
     }
@@ -631,14 +631,14 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_CRYO": 0.15
+          "cryoDmgBonus%": 0.15
         }
       },
       "4": {
         "useIfTagged": "noEnergy",
         "statMap": {
-          "PERCENT_NA": 0.6,
-          "PERCENT_EB": 0.6
+          "normalAttackDmgBonus%": 0.6,
+          "elementalBurstDmgBonus%": 0.6
         }
       }
     }
@@ -649,13 +649,13 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "FLAT_EM": 80
+          "elementalMastery": 80
         }
       },
       "4": {
         "useIfField": true,
         "statMap": {
-          "PERCENT_CR": 0.3
+          "critRate%": 0.3
         }
       }
     }
@@ -666,7 +666,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ER": 0.2
+          "energyRecharge%": 0.2
         }
       },
       "4": {
@@ -674,7 +674,7 @@
         "applyWhen": "hit",
         "applyOnType": "damage",
         "statMap": {
-          "FLAT_EM": 120
+          "elementalMastery": 120
         },
         "duration": 8000
       }
@@ -686,7 +686,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "FLAT_EM": 80
+          "elementalMastery": 80
         }
       },
       "4": {}
@@ -698,34 +698,34 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.18
+          "atk%": 0.18
         }
       },
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnConsidered": [
-            "NA",
-            "CA",
-            "ES",
-            "EB"
+          "applyOnDmgType": [
+            "normalAttack",
+            "chargedAttack",
+            "elementalSkill",
+            "elementalBurst"
           ],
           "statMap": {
-            "PERCENT_ATK": 0.25
+            "atk%": 0.25
           },
           "duration": 6000
         },
         {
           "applyWhen": "hit",
-          "applyOnConsidered": [
-            "NA",
-            "CA",
-            "ES",
-            "EB"
+          "applyOnDmgType": [
+            "normalAttack",
+            "chargedAttack",
+            "elementalSkill",
+            "elementalBurst"
           ],
           "useIfTagged": "Hexerei",
           "statMap": {
-            "PERCENT_CR": 0.2
+            "critRate%": 0.2
           },
           "duration": 6000
         }
@@ -738,16 +738,16 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ER": 0.2
+          "energyRecharge%": 0.2
         }
       },
       "4": {
         "applyTo": "team",
         "applyWhen": "cast",
-        "applyOnSkillType": "ES",
+        "applyOnSkillType": "elementalSkill",
         "applyIfTagged": "Hexerei",
         "statMap": {
-          "PERCENT_ALL": 0.4
+          "dmgBonus%": 0.4
         },
         "duration": 20000
       }
@@ -759,7 +759,7 @@
     "tieredEffects": {
       "2": {
         "statMap": {
-          "PERCENT_ATK": 0.18
+          "atk%": 0.18
         }
       },
       "4": {}

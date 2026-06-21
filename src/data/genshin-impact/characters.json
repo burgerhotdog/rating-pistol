@@ -4,13 +4,14 @@
     "name": "Jean",
     "quality": 5,
     "element": "Anemo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 14695,
-      "BASE_ATK": 239,
-      "BASE_DEF": 769,
-      "BASE_EM": 0,
-      "PERCENT_HB": 0.222
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 14695,
+      "baseAtk": 239,
+      "baseDef": 769
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.222
     }
   },
   {
@@ -18,13 +19,14 @@
     "name": "Lisa",
     "quality": 4,
     "element": "Electro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 9570,
-      "BASE_ATK": 232,
-      "BASE_DEF": 573,
-      "BASE_EM": 0,
-      "FLAT_EM": 96
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 9570,
+      "baseAtk": 232,
+      "baseDef": 573
+    },
+    "ascensionStats": {
+      "elementalMastery": 96
     }
   },
   {
@@ -32,13 +34,14 @@
     "name": "Barbara",
     "quality": 4,
     "element": "Hydro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 9787,
-      "BASE_ATK": 159,
-      "BASE_DEF": 669,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 9787,
+      "baseAtk": 159,
+      "baseDef": 669
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -46,13 +49,14 @@
     "name": "Kaeya",
     "quality": 4,
     "element": "Cryo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 11636,
-      "BASE_ATK": 223,
-      "BASE_DEF": 792,
-      "BASE_EM": 0,
-      "PERCENT_ER": 0.267
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 11636,
+      "baseAtk": 223,
+      "baseDef": 792
+    },
+    "ascensionStats": {
+      "energyRecharge%": 0.267
     }
   },
   {
@@ -60,13 +64,14 @@
     "name": "Diluc",
     "quality": 5,
     "element": "Pyro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 12981,
-      "BASE_ATK": 335,
-      "BASE_DEF": 784,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 12981,
+      "baseAtk": 335,
+      "baseDef": 784
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -74,14 +79,15 @@
     "name": "Razor",
     "quality": 4,
     "element": "Electro",
-    "type": "CLAYMORE",
+    "type": "Claymore",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 11962,
-      "BASE_ATK": 234,
-      "BASE_DEF": 751,
-      "BASE_EM": 0,
-      "PERCENT_PHYSICAL": 0.3
+    "baseStats": {
+      "baseHp": 11962,
+      "baseAtk": 234,
+      "baseDef": 751
+    },
+    "ascensionStats": {
+      "physicalDmgBonus%": 0.3
     }
   },
   {
@@ -89,13 +95,14 @@
     "name": "Amber",
     "quality": 4,
     "element": "Pyro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9461,
-      "BASE_ATK": 223,
-      "BASE_DEF": 601,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9461,
+      "baseAtk": 223,
+      "baseDef": 601
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -103,14 +110,15 @@
     "name": "Venti",
     "quality": 5,
     "element": "Anemo",
-    "type": "BOW",
+    "type": "Bow",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 10531,
-      "BASE_ATK": 263,
-      "BASE_DEF": 669,
-      "BASE_EM": 0,
-      "PERCENT_ER": 0.32
+    "baseStats": {
+      "baseHp": 10531,
+      "baseAtk": 263,
+      "baseDef": 669
+    },
+    "ascensionStats": {
+      "energyRecharge%": 0.32
     }
   },
   {
@@ -118,13 +126,14 @@
     "name": "Xiangling",
     "quality": 4,
     "element": "Pyro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 10875,
-      "BASE_ATK": 225,
-      "BASE_DEF": 669,
-      "BASE_EM": 0,
-      "FLAT_EM": 96
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 10875,
+      "baseAtk": 225,
+      "baseDef": 669
+    },
+    "ascensionStats": {
+      "elementalMastery": 96
     }
   },
   {
@@ -132,13 +141,14 @@
     "name": "Beidou",
     "quality": 4,
     "element": "Electro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 13050,
-      "BASE_ATK": 225,
-      "BASE_DEF": 648,
-      "BASE_EM": 0,
-      "PERCENT_ELECTRO": 0.24
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 13050,
+      "baseAtk": 225,
+      "baseDef": 648
+    },
+    "ascensionStats": {
+      "electroDmgBonus%": 0.24
     }
   },
   {
@@ -146,14 +156,15 @@
     "name": "Xingqiu",
     "quality": 4,
     "element": "Hydro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 10222,
-      "BASE_ATK": 202,
-      "BASE_DEF": 758,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24,
-      "PERCENT_HYDRO": 0.2
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 10222,
+      "baseAtk": 202,
+      "baseDef": 758
+    },
+    "ascensionStats": {
+      "atk%": 0.24,
+      "hydroDmgBonus%": 0.2
     }
   },
   {
@@ -161,13 +172,14 @@
     "name": "Ningguang",
     "quality": 4,
     "element": "Geo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 9787,
-      "BASE_ATK": 212,
-      "BASE_DEF": 573,
-      "BASE_EM": 0,
-      "PERCENT_GEO": 0.24
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 9787,
+      "baseAtk": 212,
+      "baseDef": 573
+    },
+    "ascensionStats": {
+      "geoDmgBonus%": 0.24
     }
   },
   {
@@ -175,14 +187,15 @@
     "name": "Klee",
     "quality": 5,
     "element": "Pyro",
-    "type": "CATALYST",
+    "type": "Catalyst",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 10287,
-      "BASE_ATK": 311,
-      "BASE_DEF": 615,
-      "BASE_EM": 0,
-      "PERCENT_PYRO": 0.288
+    "baseStats": {
+      "baseHp": 10287,
+      "baseAtk": 311,
+      "baseDef": 615
+    },
+    "ascensionStats": {
+      "pyroDmgBonus%": 0.288
     }
   },
   {
@@ -190,14 +203,15 @@
     "name": "Fischl",
     "quality": 4,
     "element": "Electro",
-    "type": "BOW",
+    "type": "Bow",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 9189,
-      "BASE_ATK": 244,
-      "BASE_DEF": 594,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "baseStats": {
+      "baseHp": 9189,
+      "baseAtk": 244,
+      "baseDef": 594
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -205,13 +219,14 @@
     "name": "Bennett",
     "quality": 4,
     "element": "Pyro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12397,
-      "BASE_ATK": 191,
-      "BASE_DEF": 771,
-      "BASE_EM": 0,
-      "PERCENT_ER": 0.267
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12397,
+      "baseAtk": 191,
+      "baseDef": 771
+    },
+    "ascensionStats": {
+      "energyRecharge%": 0.267
     }
   },
   {
@@ -219,13 +234,14 @@
     "name": "Noelle",
     "quality": 4,
     "element": "Geo",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 12071,
-      "BASE_ATK": 191,
-      "BASE_DEF": 799,
-      "BASE_EM": 0,
-      "PERCENT_DEF": 0.3
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 12071,
+      "baseAtk": 191,
+      "baseDef": 799
+    },
+    "ascensionStats": {
+      "def%": 0.3
     }
   },
   {
@@ -233,13 +249,14 @@
     "name": "Qiqi",
     "quality": 5,
     "element": "Cryo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12368,
-      "BASE_ATK": 287,
-      "BASE_DEF": 922,
-      "BASE_EM": 0,
-      "PERCENT_HB": 0.222
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12368,
+      "baseAtk": 287,
+      "baseDef": 922
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.222
     }
   },
   {
@@ -247,13 +264,14 @@
     "name": "Chongyun",
     "quality": 4,
     "element": "Cryo",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 10984,
-      "BASE_ATK": 223,
-      "BASE_DEF": 648,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 10984,
+      "baseAtk": 223,
+      "baseDef": 648
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -261,14 +279,15 @@
     "name": "Mona",
     "quality": 5,
     "element": "Hydro",
-    "type": "CATALYST",
+    "type": "Catalyst",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 10409,
-      "BASE_ATK": 287,
-      "BASE_DEF": 653,
-      "BASE_EM": 0,
-      "PERCENT_ER": 0.32
+    "baseStats": {
+      "baseHp": 10409,
+      "baseAtk": 287,
+      "baseDef": 653
+    },
+    "ascensionStats": {
+      "energyRecharge%": 0.32
     }
   },
   {
@@ -276,13 +295,14 @@
     "name": "Keqing",
     "quality": 5,
     "element": "Electro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 13103,
-      "BASE_ATK": 323,
-      "BASE_DEF": 799,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 13103,
+      "baseAtk": 323,
+      "baseDef": 799
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -290,14 +310,15 @@
     "name": "Sucrose",
     "quality": 4,
     "element": "Anemo",
-    "type": "CATALYST",
+    "type": "Catalyst",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 9244,
-      "BASE_ATK": 170,
-      "BASE_DEF": 703,
-      "BASE_EM": 0,
-      "PERCENT_ANEMO": 0.24
+    "baseStats": {
+      "baseHp": 9244,
+      "baseAtk": 170,
+      "baseDef": 703
+    },
+    "ascensionStats": {
+      "anemoDmgBonus%": 0.24
     }
   },
   {
@@ -305,13 +326,14 @@
     "name": "Zhongli",
     "quality": 5,
     "element": "Geo",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 14695,
-      "BASE_ATK": 251,
-      "BASE_DEF": 738,
-      "BASE_EM": 0,
-      "PERCENT_GEO": 0.288
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 14695,
+      "baseAtk": 251,
+      "baseDef": 738
+    },
+    "ascensionStats": {
+      "geoDmgBonus%": 0.288
     }
   },
   {
@@ -319,13 +341,14 @@
     "name": "Tartaglia",
     "quality": 5,
     "element": "Hydro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 13103,
-      "BASE_ATK": 301,
-      "BASE_DEF": 815,
-      "BASE_EM": 0,
-      "PERCENT_HYDRO": 0.288
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 13103,
+      "baseAtk": 301,
+      "baseDef": 815
+    },
+    "ascensionStats": {
+      "hydroDmgBonus%": 0.288
     }
   },
   {
@@ -333,13 +356,14 @@
     "name": "Diona",
     "quality": 4,
     "element": "Cryo",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9570,
-      "BASE_ATK": 212,
-      "BASE_DEF": 601,
-      "BASE_EM": 0,
-      "PERCENT_CRYO": 0.24
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9570,
+      "baseAtk": 212,
+      "baseDef": 601
+    },
+    "ascensionStats": {
+      "cryoDmgBonus%": 0.24
     }
   },
   {
@@ -347,13 +371,14 @@
     "name": "Xinyan",
     "quality": 4,
     "element": "Pyro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 11201,
-      "BASE_ATK": 249,
-      "BASE_DEF": 799,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 11201,
+      "baseAtk": 249,
+      "baseDef": 799
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -361,13 +386,14 @@
     "name": "Ganyu",
     "quality": 5,
     "element": "Cryo",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9797,
-      "BASE_ATK": 335,
-      "BASE_DEF": 630,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9797,
+      "baseAtk": 335,
+      "baseDef": 630
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -375,14 +401,15 @@
     "name": "Albedo",
     "quality": 5,
     "element": "Geo",
-    "type": "SWORD",
+    "type": "Sword",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 13226,
-      "BASE_ATK": 251,
-      "BASE_DEF": 876,
-      "BASE_EM": 0,
-      "PERCENT_GEO": 0.288
+    "baseStats": {
+      "baseHp": 13226,
+      "baseAtk": 251,
+      "baseDef": 876
+    },
+    "ascensionStats": {
+      "geoDmgBonus%": 0.288
     }
   },
   {
@@ -390,13 +417,14 @@
     "name": "Xiao",
     "quality": 5,
     "element": "Anemo",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 12736,
-      "BASE_ATK": 349,
-      "BASE_DEF": 799,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 12736,
+      "baseAtk": 349,
+      "baseDef": 799
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -404,14 +432,15 @@
     "name": "Hu Tao",
     "quality": 5,
     "element": "Pyro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 15552,
-      "BASE_ATK": 106,
-      "BASE_DEF": 876,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384,
-      "PERCENT_PYRO": 0.33
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 15552,
+      "baseAtk": 106,
+      "baseDef": 876
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384,
+      "pyroDmgBonus%": 0.33
     }
   },
   {
@@ -419,13 +448,14 @@
     "name": "Rosaria",
     "quality": 4,
     "element": "Cryo",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 12289,
-      "BASE_ATK": 240,
-      "BASE_DEF": 710,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 12289,
+      "baseAtk": 240,
+      "baseDef": 710
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -433,13 +463,14 @@
     "name": "Yanfei",
     "quality": 4,
     "element": "Pyro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 9352,
-      "BASE_ATK": 240,
-      "BASE_DEF": 587,
-      "BASE_EM": 0,
-      "PERCENT_PYRO": 0.24
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 9352,
+      "baseAtk": 240,
+      "baseDef": 587
+    },
+    "ascensionStats": {
+      "pyroDmgBonus%": 0.24
     }
   },
   {
@@ -447,13 +478,14 @@
     "name": "Eula",
     "quality": 5,
     "element": "Cryo",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 13226,
-      "BASE_ATK": 342,
-      "BASE_DEF": 751,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 13226,
+      "baseAtk": 342,
+      "baseDef": 751
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -461,13 +493,14 @@
     "name": "Kaedehara Kazuha",
     "quality": 5,
     "element": "Anemo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 297,
-      "BASE_DEF": 807,
-      "BASE_EM": 0,
-      "FLAT_EM": 115
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 13348,
+      "baseAtk": 297,
+      "baseDef": 807
+    },
+    "ascensionStats": {
+      "elementalMastery": 115
     }
   },
   {
@@ -475,13 +508,14 @@
     "name": "Kamisato Ayaka",
     "quality": 5,
     "element": "Cryo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12858,
-      "BASE_ATK": 342,
-      "BASE_DEF": 784,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12858,
+      "baseAtk": 342,
+      "baseDef": 784
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -489,13 +523,14 @@
     "name": "Yoimiya",
     "quality": 5,
     "element": "Pyro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 10164,
-      "BASE_ATK": 323,
-      "BASE_DEF": 615,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 10164,
+      "baseAtk": 323,
+      "baseDef": 615
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -503,13 +538,14 @@
     "name": "Sayu",
     "quality": 4,
     "element": "Anemo",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 11854,
-      "BASE_ATK": 244,
-      "BASE_DEF": 745,
-      "BASE_EM": 0,
-      "FLAT_EM": 96
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 11854,
+      "baseAtk": 244,
+      "baseDef": 745
+    },
+    "ascensionStats": {
+      "elementalMastery": 96
     }
   },
   {
@@ -517,13 +553,14 @@
     "name": "Raiden Shogun",
     "quality": 5,
     "element": "Electro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 12907,
-      "BASE_ATK": 337,
-      "BASE_DEF": 789,
-      "BASE_EM": 0,
-      "PERCENT_ER": 0.32
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 12907,
+      "baseAtk": 337,
+      "baseDef": 789
+    },
+    "ascensionStats": {
+      "energyRecharge%": 0.32
     }
   },
   {
@@ -531,15 +568,16 @@
     "name": "Sangonomiya Kokomi",
     "quality": 5,
     "element": "Hydro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 13471,
-      "BASE_ATK": 234,
-      "BASE_DEF": 657,
-      "BASE_EM": 0,
-      "PERCENT_HYDRO": 0.288,
-      "PERCENT_HB": 0.25,
-      "PERCENT_CR": -1.0
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 13471,
+      "baseAtk": 234,
+      "baseDef": 657
+    },
+    "ascensionStats": {
+      "hydroDmgBonus%": 0.288,
+      "healingBonus%": 0.25,
+      "critRate%": -1.0
     }
   },
   {
@@ -547,13 +585,14 @@
     "name": "Kujou Sara",
     "quality": 4,
     "element": "Electro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9570,
-      "BASE_ATK": 195,
-      "BASE_DEF": 628,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9570,
+      "baseAtk": 195,
+      "baseDef": 628
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -561,13 +600,14 @@
     "name": "Thoma",
     "quality": 4,
     "element": "Pyro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 10331,
-      "BASE_ATK": 202,
-      "BASE_DEF": 751,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 10331,
+      "baseAtk": 202,
+      "baseDef": 751
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -575,13 +615,14 @@
     "name": "Aloy",
     "quality": 5,
     "element": "Cryo",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 10899,
-      "BASE_ATK": 234,
-      "BASE_DEF": 676,
-      "BASE_EM": 0,
-      "PERCENT_CRYO": 0.288
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 10899,
+      "baseAtk": 234,
+      "baseDef": 676
+    },
+    "ascensionStats": {
+      "cryoDmgBonus%": 0.288
     }
   },
   {
@@ -589,13 +630,14 @@
     "name": "Gorou",
     "quality": 4,
     "element": "Geo",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9570,
-      "BASE_ATK": 183,
-      "BASE_DEF": 648,
-      "BASE_EM": 0,
-      "PERCENT_GEO": 0.24
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9570,
+      "baseAtk": 183,
+      "baseDef": 648
+    },
+    "ascensionStats": {
+      "geoDmgBonus%": 0.24
     }
   },
   {
@@ -603,13 +645,14 @@
     "name": "Arataki Itto",
     "quality": 5,
     "element": "Geo",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 12858,
-      "BASE_ATK": 227,
-      "BASE_DEF": 959,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 12858,
+      "baseAtk": 227,
+      "baseDef": 959
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -617,13 +660,14 @@
     "name": "Shenhe",
     "quality": 5,
     "element": "Cryo",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 12993,
-      "BASE_ATK": 304,
-      "BASE_DEF": 830,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.288
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 12993,
+      "baseAtk": 304,
+      "baseDef": 830
+    },
+    "ascensionStats": {
+      "atk%": 0.288
     }
   },
   {
@@ -631,13 +675,14 @@
     "name": "Yun Jin",
     "quality": 4,
     "element": "Geo",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 10657,
-      "BASE_ATK": 191,
-      "BASE_DEF": 734,
-      "BASE_EM": 0,
-      "PERCENT_ER": 0.267
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 10657,
+      "baseAtk": 191,
+      "baseDef": 734
+    },
+    "ascensionStats": {
+      "energyRecharge%": 0.267
     }
   },
   {
@@ -645,13 +690,14 @@
     "name": "Yae Miko",
     "quality": 5,
     "element": "Electro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 10372,
-      "BASE_ATK": 340,
-      "BASE_DEF": 569,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 10372,
+      "baseAtk": 340,
+      "baseDef": 569
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -659,13 +705,14 @@
     "name": "Kamisato Ayato",
     "quality": 5,
     "element": "Hydro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 13715,
-      "BASE_ATK": 299,
-      "BASE_DEF": 769,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 13715,
+      "baseAtk": 299,
+      "baseDef": 769
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -673,13 +720,14 @@
     "name": "Yelan",
     "quality": 5,
     "element": "Hydro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 14450,
-      "BASE_ATK": 244,
-      "BASE_DEF": 548,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 14450,
+      "baseAtk": 244,
+      "baseDef": 548
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -687,13 +735,14 @@
     "name": "Kuki Shinobu",
     "quality": 4,
     "element": "Electro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12289,
-      "BASE_ATK": 212,
-      "BASE_DEF": 751,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12289,
+      "baseAtk": 212,
+      "baseDef": 751
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -701,13 +750,14 @@
     "name": "Shikanoin Heizou",
     "quality": 4,
     "element": "Anemo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 10657,
-      "BASE_ATK": 225,
-      "BASE_DEF": 684,
-      "BASE_EM": 0,
-      "PERCENT_ANEMO": 0.24
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 10657,
+      "baseAtk": 225,
+      "baseDef": 684
+    },
+    "ascensionStats": {
+      "anemoDmgBonus%": 0.24
     }
   },
   {
@@ -715,13 +765,14 @@
     "name": "Collei",
     "quality": 4,
     "element": "Dendro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9787,
-      "BASE_ATK": 200,
-      "BASE_DEF": 601,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9787,
+      "baseAtk": 200,
+      "baseDef": 601
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -729,13 +780,14 @@
     "name": "Dori",
     "quality": 4,
     "element": "Electro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 12397,
-      "BASE_ATK": 223,
-      "BASE_DEF": 723,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 12397,
+      "baseAtk": 223,
+      "baseDef": 723
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -743,13 +795,14 @@
     "name": "Tighnari",
     "quality": 5,
     "element": "Dendro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 10850,
-      "BASE_ATK": 268,
-      "BASE_DEF": 630,
-      "BASE_EM": 0,
-      "PERCENT_DENDRO": 0.288
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 10850,
+      "baseAtk": 268,
+      "baseDef": 630
+    },
+    "ascensionStats": {
+      "dendroDmgBonus%": 0.288
     }
   },
   {
@@ -757,13 +810,14 @@
     "name": "Nilou",
     "quality": 5,
     "element": "Hydro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 15185,
-      "BASE_ATK": 230,
-      "BASE_DEF": 729,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.288
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 15185,
+      "baseAtk": 230,
+      "baseDef": 729
+    },
+    "ascensionStats": {
+      "hp%": 0.288
     }
   },
   {
@@ -771,14 +825,15 @@
     "name": "Cyno",
     "quality": 5,
     "element": "Electro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 12491,
-      "BASE_ATK": 318,
-      "BASE_DEF": 859,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384,
-      "FLAT_EM": 100
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 12491,
+      "baseAtk": 318,
+      "baseDef": 859
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384,
+      "elementalMastery": 100
     }
   },
   {
@@ -786,13 +841,14 @@
     "name": "Candace",
     "quality": 4,
     "element": "Hydro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 10875,
-      "BASE_ATK": 212,
-      "BASE_DEF": 683,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 10875,
+      "baseAtk": 212,
+      "baseDef": 683
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -800,13 +856,14 @@
     "name": "Nahida",
     "quality": 5,
     "element": "Dendro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 10360,
-      "BASE_ATK": 299,
-      "BASE_DEF": 630,
-      "BASE_EM": 0,
-      "FLAT_EM": 115
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 10360,
+      "baseAtk": 299,
+      "baseDef": 630
+    },
+    "ascensionStats": {
+      "elementalMastery": 115
     }
   },
   {
@@ -814,13 +871,14 @@
     "name": "Layla",
     "quality": 4,
     "element": "Cryo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 11092,
-      "BASE_ATK": 217,
-      "BASE_DEF": 655,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 11092,
+      "baseAtk": 217,
+      "baseDef": 655
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -828,13 +886,14 @@
     "name": "Wanderer",
     "quality": 5,
     "element": "Anemo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 10164,
-      "BASE_ATK": 328,
-      "BASE_DEF": 607,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 10164,
+      "baseAtk": 328,
+      "baseDef": 607
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -842,13 +901,14 @@
     "name": "Faruzan",
     "quality": 4,
     "element": "Anemo",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9570,
-      "BASE_ATK": 196,
-      "BASE_DEF": 628,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9570,
+      "baseAtk": 196,
+      "baseDef": 628
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -856,13 +916,14 @@
     "name": "Yaoyao",
     "quality": 4,
     "element": "Dendro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 12289,
-      "BASE_ATK": 212,
-      "BASE_DEF": 751,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 12289,
+      "baseAtk": 212,
+      "baseDef": 751
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -870,13 +931,14 @@
     "name": "Alhaitham",
     "quality": 5,
     "element": "Dendro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 313,
-      "BASE_DEF": 782,
-      "BASE_EM": 0,
-      "PERCENT_DENDRO": 0.288
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 13348,
+      "baseAtk": 313,
+      "baseDef": 782
+    },
+    "ascensionStats": {
+      "dendroDmgBonus%": 0.288
     }
   },
   {
@@ -884,13 +946,14 @@
     "name": "Dehya",
     "quality": 5,
     "element": "Pyro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 15675,
-      "BASE_ATK": 265,
-      "BASE_DEF": 628,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.288
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 15675,
+      "baseAtk": 265,
+      "baseDef": 628
+    },
+    "ascensionStats": {
+      "hp%": 0.288
     }
   },
   {
@@ -898,13 +961,14 @@
     "name": "Mika",
     "quality": 4,
     "element": "Cryo",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 12506,
-      "BASE_ATK": 223,
-      "BASE_DEF": 713,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 12506,
+      "baseAtk": 223,
+      "baseDef": 713
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -912,13 +976,14 @@
     "name": "Kaveh",
     "quality": 4,
     "element": "Dendro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 11962,
-      "BASE_ATK": 234,
-      "BASE_DEF": 751,
-      "BASE_EM": 0,
-      "FLAT_EM": 96
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 11962,
+      "baseAtk": 234,
+      "baseDef": 751
+    },
+    "ascensionStats": {
+      "elementalMastery": 96
     }
   },
   {
@@ -926,13 +991,14 @@
     "name": "Baizhu",
     "quality": 5,
     "element": "Dendro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 193,
-      "BASE_DEF": 500,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.288
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 13348,
+      "baseAtk": 193,
+      "baseDef": 500
+    },
+    "ascensionStats": {
+      "hp%": 0.288
     }
   },
   {
@@ -940,13 +1006,14 @@
     "name": "Kirara",
     "quality": 4,
     "element": "Dendro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12180,
-      "BASE_ATK": 223,
-      "BASE_DEF": 546,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12180,
+      "baseAtk": 223,
+      "baseDef": 546
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -954,13 +1021,14 @@
     "name": "Lynette",
     "quality": 4,
     "element": "Anemo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12397,
-      "BASE_ATK": 232,
-      "BASE_DEF": 712,
-      "BASE_EM": 0,
-      "PERCENT_ANEMO": 0.24
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12397,
+      "baseAtk": 232,
+      "baseDef": 712
+    },
+    "ascensionStats": {
+      "anemoDmgBonus%": 0.24
     }
   },
   {
@@ -968,13 +1036,14 @@
     "name": "Lyney",
     "quality": 5,
     "element": "Pyro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 11021,
-      "BASE_ATK": 318,
-      "BASE_DEF": 538,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 11021,
+      "baseAtk": 318,
+      "baseDef": 538
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -982,13 +1051,14 @@
     "name": "Freminet",
     "quality": 4,
     "element": "Cryo",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 12071,
-      "BASE_ATK": 255,
-      "BASE_DEF": 708,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 12071,
+      "baseAtk": 255,
+      "baseDef": 708
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -996,13 +1066,14 @@
     "name": "Wriothesley",
     "quality": 5,
     "element": "Cryo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 13593,
-      "BASE_ATK": 311,
-      "BASE_DEF": 763,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 13593,
+      "baseAtk": 311,
+      "baseDef": 763
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1010,13 +1081,14 @@
     "name": "Neuvillette",
     "quality": 5,
     "element": "Hydro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 14695,
-      "BASE_ATK": 208,
-      "BASE_DEF": 576,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 14695,
+      "baseAtk": 208,
+      "baseDef": 576
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1024,13 +1096,14 @@
     "name": "Charlotte",
     "quality": 4,
     "element": "Cryo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 10766,
-      "BASE_ATK": 173,
-      "BASE_DEF": 546,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 10766,
+      "baseAtk": 173,
+      "baseDef": 546
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -1038,14 +1111,14 @@
     "name": "Furina",
     "quality": 5,
     "element": "Hydro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 15307,
-      "BASE_ATK": 244,
-      "BASE_DEF": 696,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192,
-      "PERCENT_BASE": 0.4
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 15307,
+      "baseAtk": 244,
+      "baseDef": 696
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1053,13 +1126,14 @@
     "name": "Chevreuse",
     "quality": 4,
     "element": "Pyro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 11962,
-      "BASE_ATK": 193,
-      "BASE_DEF": 605,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 11962,
+      "baseAtk": 193,
+      "baseDef": 605
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -1067,13 +1141,14 @@
     "name": "Navia",
     "quality": 5,
     "element": "Geo",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 12650,
-      "BASE_ATK": 352,
-      "BASE_DEF": 793,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 12650,
+      "baseAtk": 352,
+      "baseDef": 793
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1081,13 +1156,14 @@
     "name": "Gaming",
     "quality": 4,
     "element": "Pyro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 11419,
-      "BASE_ATK": 302,
-      "BASE_DEF": 703,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 11419,
+      "baseAtk": 302,
+      "baseDef": 703
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -1095,13 +1171,14 @@
     "name": "Xianyun",
     "quality": 5,
     "element": "Anemo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 10409,
-      "BASE_ATK": 335,
-      "BASE_DEF": 573,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.288
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 10409,
+      "baseAtk": 335,
+      "baseDef": 573
+    },
+    "ascensionStats": {
+      "atk%": 0.288
     }
   },
   {
@@ -1109,13 +1186,14 @@
     "name": "Chiori",
     "quality": 5,
     "element": "Geo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 11438,
-      "BASE_ATK": 323,
-      "BASE_DEF": 953,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 11438,
+      "baseAtk": 323,
+      "baseDef": 953
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1123,13 +1201,14 @@
     "name": "Arlecchino",
     "quality": 5,
     "element": "Pyro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 13103,
-      "BASE_ATK": 342,
-      "BASE_DEF": 765,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 13103,
+      "baseAtk": 342,
+      "baseDef": 765
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1137,13 +1216,14 @@
     "name": "Sigewinne",
     "quality": 5,
     "element": "Hydro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 193,
-      "BASE_DEF": 500,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.288
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 13348,
+      "baseAtk": 193,
+      "baseDef": 500
+    },
+    "ascensionStats": {
+      "hp%": 0.288
     }
   },
   {
@@ -1151,13 +1231,14 @@
     "name": "Sethos",
     "quality": 4,
     "element": "Electro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9787,
-      "BASE_ATK": 227,
-      "BASE_DEF": 560,
-      "BASE_EM": 0,
-      "FLAT_EM": 96
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9787,
+      "baseAtk": 227,
+      "baseDef": 560
+    },
+    "ascensionStats": {
+      "elementalMastery": 96
     }
   },
   {
@@ -1165,13 +1246,14 @@
     "name": "Clorinde",
     "quality": 5,
     "element": "Electro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12956,
-      "BASE_ATK": 337,
-      "BASE_DEF": 784,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12956,
+      "baseAtk": 337,
+      "baseDef": 784
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1179,13 +1261,14 @@
     "name": "Emilie",
     "quality": 5,
     "element": "Dendro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 13568,
-      "BASE_ATK": 335,
-      "BASE_DEF": 730,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 13568,
+      "baseAtk": 335,
+      "baseDef": 730
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1193,13 +1276,14 @@
     "name": "Kachina",
     "quality": 4,
     "element": "Geo",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 11799,
-      "BASE_ATK": 217,
-      "BASE_DEF": 792,
-      "BASE_EM": 0,
-      "PERCENT_GEO": 0.24
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 11799,
+      "baseAtk": 217,
+      "baseDef": 792
+    },
+    "ascensionStats": {
+      "geoDmgBonus%": 0.24
     }
   },
   {
@@ -1207,13 +1291,14 @@
     "name": "Kinich",
     "quality": 5,
     "element": "Dendro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 12858,
-      "BASE_ATK": 332,
-      "BASE_DEF": 802,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 12858,
+      "baseAtk": 332,
+      "baseDef": 802
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1221,13 +1306,14 @@
     "name": "Mualani",
     "quality": 5,
     "element": "Hydro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 15185,
-      "BASE_ATK": 182,
-      "BASE_DEF": 570,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 15185,
+      "baseAtk": 182,
+      "baseDef": 570
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1235,13 +1321,14 @@
     "name": "Xilonen",
     "quality": 5,
     "element": "Geo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12405,
-      "BASE_ATK": 275,
-      "BASE_DEF": 930,
-      "BASE_EM": 0,
-      "PERCENT_DEF": 0.36
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12405,
+      "baseAtk": 275,
+      "baseDef": 930
+    },
+    "ascensionStats": {
+      "def%": 0.36
     }
   },
   {
@@ -1249,13 +1336,14 @@
     "name": "Chasca",
     "quality": 5,
     "element": "Anemo",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9797,
-      "BASE_ATK": 347,
-      "BASE_DEF": 615,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9797,
+      "baseAtk": 347,
+      "baseDef": 615
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1263,13 +1351,14 @@
     "name": "Ororon",
     "quality": 4,
     "element": "Electro",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9244,
-      "BASE_ATK": 244,
-      "BASE_DEF": 587,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9244,
+      "baseAtk": 244,
+      "baseDef": 587
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -1277,13 +1366,14 @@
     "name": "Mavuika",
     "quality": 5,
     "element": "Pyro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 12552,
-      "BASE_ATK": 359,
-      "BASE_DEF": 792,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 12552,
+      "baseAtk": 359,
+      "baseDef": 792
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1291,13 +1381,14 @@
     "name": "Citlali",
     "quality": 5,
     "element": "Cryo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 11634,
-      "BASE_ATK": 127,
-      "BASE_DEF": 763,
-      "BASE_EM": 0,
-      "FLAT_EM": 115
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 11634,
+      "baseAtk": 127,
+      "baseDef": 763
+    },
+    "ascensionStats": {
+      "elementalMastery": 115
     }
   },
   {
@@ -1305,13 +1396,14 @@
     "name": "Lan Yan",
     "quality": 4,
     "element": "Anemo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 9244,
-      "BASE_ATK": 251,
-      "BASE_DEF": 580,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 9244,
+      "baseAtk": 251,
+      "baseDef": 580
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -1319,13 +1411,14 @@
     "name": "Yumemizuki Mizuki",
     "quality": 5,
     "element": "Anemo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 12736,
-      "BASE_ATK": 215,
-      "BASE_DEF": 757,
-      "BASE_EM": 0,
-      "FLAT_EM": 115
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 12736,
+      "baseAtk": 215,
+      "baseDef": 757
+    },
+    "ascensionStats": {
+      "elementalMastery": 115
     }
   },
   {
@@ -1333,13 +1426,14 @@
     "name": "Iansan",
     "quality": 4,
     "element": "Electro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 10657,
-      "BASE_ATK": 257,
-      "BASE_DEF": 638,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 10657,
+      "baseAtk": 257,
+      "baseDef": 638
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   },
   {
@@ -1347,13 +1441,14 @@
     "name": "Varesa",
     "quality": 5,
     "element": "Electro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 12699,
-      "BASE_ATK": 356,
-      "BASE_DEF": 782,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 12699,
+      "baseAtk": 356,
+      "baseDef": 782
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1361,13 +1456,14 @@
     "name": "Escoffier",
     "quality": 5,
     "element": "Cryo",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 347,
-      "BASE_DEF": 732,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 13348,
+      "baseAtk": 347,
+      "baseDef": 732
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1375,13 +1471,14 @@
     "name": "Ifa",
     "quality": 4,
     "element": "Anemo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 10081,
-      "BASE_ATK": 178,
-      "BASE_DEF": 605,
-      "BASE_EM": 0,
-      "FLAT_EM": 96
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 10081,
+      "baseAtk": 178,
+      "baseDef": 605
+    },
+    "ascensionStats": {
+      "elementalMastery": 96
     }
   },
   {
@@ -1389,13 +1486,14 @@
     "name": "Skirk",
     "quality": 5,
     "element": "Cryo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12417,
-      "BASE_ATK": 359,
-      "BASE_DEF": 806,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12417,
+      "baseAtk": 359,
+      "baseDef": 806
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1403,13 +1501,14 @@
     "name": "Dahlia",
     "quality": 4,
     "element": "Hydro",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12506,
-      "BASE_ATK": 189,
-      "BASE_DEF": 560,
-      "BASE_EM": 0,
-      "PERCENT_HP": 0.24
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12506,
+      "baseAtk": 189,
+      "baseDef": 560
+    },
+    "ascensionStats": {
+      "hp%": 0.24
     }
   },
   {
@@ -1417,13 +1516,14 @@
     "name": "Ineffa",
     "quality": 5,
     "element": "Electro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 12613,
-      "BASE_ATK": 330,
-      "BASE_DEF": 828,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 12613,
+      "baseAtk": 330,
+      "baseDef": 828
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1431,13 +1531,15 @@
     "name": "Lauma",
     "quality": 5,
     "element": "Dendro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 10654,
-      "BASE_ATK": 255,
-      "BASE_DEF": 669,
-      "BASE_EM": 200,
-      "FLAT_EM": 115
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 10654,
+      "baseAtk": 255,
+      "baseDef": 669,
+      "elementalMastery": 200
+    },
+    "ascensionStats": {
+      "elementalMastery": 115
     }
   },
   {
@@ -1445,13 +1547,14 @@
     "name": "Flins",
     "quality": 5,
     "element": "Electro",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 12491,
-      "BASE_ATK": 352,
-      "BASE_DEF": 809,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 12491,
+      "baseAtk": 352,
+      "baseDef": 809
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1459,13 +1562,14 @@
     "name": "Aino",
     "quality": 4,
     "element": "Hydro",
-    "type": "CLAYMORE",
-    "stats": {
-      "BASE_HP": 11201,
-      "BASE_ATK": 242,
-      "BASE_DEF": 607,
-      "BASE_EM": 0,
-      "FLAT_EM": 96
+    "type": "Claymore",
+    "baseStats": {
+      "baseHp": 11201,
+      "baseAtk": 242,
+      "baseDef": 607
+    },
+    "ascensionStats": {
+      "elementalMastery": 96
     }
   },
   {
@@ -1473,13 +1577,15 @@
     "name": "Nefer",
     "quality": 5,
     "element": "Dendro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 12704,
-      "BASE_ATK": 344,
-      "BASE_DEF": 799,
-      "BASE_EM": 100,
-      "PERCENT_CD": 0.384
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 12704,
+      "baseAtk": 344,
+      "baseDef": 799,
+      "elementalMastery": 100
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1487,14 +1593,15 @@
     "name": "Durin",
     "quality": 5,
     "element": "Pyro",
-    "type": "SWORD",
+    "type": "Sword",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 12430,
-      "BASE_ATK": 347,
-      "BASE_DEF": 822,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "baseStats": {
+      "baseHp": 12430,
+      "baseAtk": 347,
+      "baseDef": 822
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1502,13 +1609,14 @@
     "name": "Jahoda",
     "quality": 4,
     "element": "Anemo",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9646,
-      "BASE_ATK": 223,
-      "BASE_DEF": 580,
-      "BASE_EM": 0,
-      "PERCENT_HB": 0.185
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9646,
+      "baseAtk": 223,
+      "baseDef": 580
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.185
     }
   },
   {
@@ -1516,13 +1624,14 @@
     "name": "Columbina",
     "quality": 5,
     "element": "Hydro",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 14695,
-      "BASE_ATK": 96,
-      "BASE_DEF": 515,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 14695,
+      "baseAtk": 96,
+      "baseDef": 515
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1530,13 +1639,14 @@
     "name": "Zibai",
     "quality": 5,
     "element": "Geo",
-    "type": "SWORD",
-    "stats": {
-      "BASE_HP": 12919,
-      "BASE_ATK": 225,
-      "BASE_DEF": 957,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "type": "Sword",
+    "baseStats": {
+      "baseHp": 12919,
+      "baseAtk": 225,
+      "baseDef": 957
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1544,13 +1654,14 @@
     "name": "Illuga",
     "quality": 4,
     "element": "Geo",
-    "type": "POLEARM",
-    "stats": {
-      "BASE_HP": 11962,
-      "BASE_ATK": 191,
-      "BASE_DEF": 814,
-      "BASE_EM": 0,
-      "FLAT_EM": 96
+    "type": "Polearm",
+    "baseStats": {
+      "baseHp": 11962,
+      "baseAtk": 191,
+      "baseDef": 814
+    },
+    "ascensionStats": {
+      "elementalMastery": 96
     }
   },
   {
@@ -1558,14 +1669,15 @@
     "name": "Varka",
     "quality": 5,
     "element": "Anemo",
-    "type": "CLAYMORE",
+    "type": "Claymore",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 12613,
-      "BASE_ATK": 353,
-      "BASE_DEF": 795,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "baseStats": {
+      "baseHp": 12613,
+      "baseAtk": 353,
+      "baseDef": 795
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1573,13 +1685,14 @@
     "name": "Linnea",
     "quality": 5,
     "element": "Geo",
-    "type": "BOW",
-    "stats": {
-      "BASE_HP": 9895,
-      "BASE_ATK": 144,
-      "BASE_DEF": 907,
-      "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+    "type": "Bow",
+    "baseStats": {
+      "baseHp": 9895,
+      "baseAtk": 144,
+      "baseDef": 907
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
     }
   },
   {
@@ -1587,14 +1700,15 @@
     "name": "Lohen",
     "quality": 5,
     "element": "Cryo",
-    "type": "POLEARM",
+    "type": "Polearm",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 12858,
-      "BASE_ATK": 344,
-      "BASE_DEF": 784,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+    "baseStats": {
+      "baseHp": 12858,
+      "baseAtk": 344,
+      "baseDef": 784
+    },
+    "ascensionStats": {
+      "critDmg%": 0.384
     }
   },
   {
@@ -1602,14 +1716,15 @@
     "name": "Nicole",
     "quality": 5,
     "element": "Pyro",
-    "type": "CATALYST",
+    "type": "Catalyst",
     "tagged": "Hexerei",
-    "stats": {
-      "BASE_HP": 10409,
-      "BASE_ATK": 342,
-      "BASE_DEF": 563,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.288
+    "baseStats": {
+      "baseHp": 10409,
+      "baseAtk": 342,
+      "baseDef": 563
+    },
+    "ascensionStats": {
+      "atk%": 0.288
     }
   },
   {
@@ -1617,13 +1732,14 @@
     "name": "Prune",
     "quality": 4,
     "element": "Anemo",
-    "type": "CATALYST",
-    "stats": {
-      "BASE_HP": 9679,
-      "BASE_ATK": 221,
-      "BASE_DEF": 580,
-      "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+    "type": "Catalyst",
+    "baseStats": {
+      "baseHp": 9679,
+      "baseAtk": 221,
+      "baseDef": 580
+    },
+    "ascensionStats": {
+      "atk%": 0.24
     }
   }
 ]
