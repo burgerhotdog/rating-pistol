@@ -17,7 +17,7 @@ const buildDmgTypeData = (actionMap, gameId, characterId) => {
     const { ownerId, considered, damage } = temp;
     if (ownerId !== characterId) continue;
     if (!considered) continue;
-    const label = MISC[gameId].SKILL[considered[0]]?.name;
+    const label = considered[0];
 
     totals[label] ??= 0;
     totals[label] += damage;

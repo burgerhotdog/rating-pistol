@@ -161,7 +161,7 @@ def parse_ww(data, resolved):
         "7": "FC",
     }
     
-    for group_id in ["1", "2", "3", "6", "7"]:
+    for group_id in ["1", "2", "3", "7", "6"]:
         skill_group_data = data["skill_trees"][group_id]["skill"]
 
         skills = {}

@@ -38,7 +38,7 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTER, ACTION, WEAPON, SET, MISC } from '@/data';
+import { CHARACTER, ACTION, WEAPON, SET } from '@/data';
 import { toArray, getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
@@ -577,18 +577,14 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
   const hasMatches = Object.values(filteredTree).some(arr => arr.length > 0);
 
-  const { SKILL } = MISC[gameId];
-
   const renderGroup = ([id, filtered]) => {
     if (filtered.length === 0) return null;
-
-    const label = SKILL[id].name;
 
     return (
       <Accordion key={id} disableGutters defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-            {label}
+            {id}
           </Typography>
           <Typography variant="body2" color="textDisabled" sx={{ ml: 1 }}>
             ({filtered.length})
@@ -609,7 +605,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                   <Chip
                     key={type}
                     size="small"
-                    label={SKILL[type]?.short}
+                    label={type}
                     sx={{
                       height: 20,
                       fontSize: '0.65rem',
@@ -785,7 +781,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
 
 // ─── Rotation drag-and-drop helpers ────────────────────────────────────────
 
-function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLabels, onRemove }) {
+function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
   const style = {
@@ -835,7 +831,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLab
           <Chip
             key={type}
             size="small"
-            label={skillTypeLabels[type]?.name ?? type}
+            label={type}
             variant="outlined"
             sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
           />
@@ -875,7 +871,6 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, skillTypeLab
 function RotationEditor({ gameId, characterId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
-  const skillTypeLabels = MISC[gameId]?.SKILL ?? {};
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -953,7 +948,6 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
                   actionKey={actionKey}
                   characterId={characterId}
                   gameId={gameId}
-                  skillTypeLabels={skillTypeLabels}
                   onRemove={() => removeSkill(index)}
                 />
               ))}

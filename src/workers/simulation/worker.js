@@ -91,7 +91,6 @@ self.onmessage = ({ data }) => {
   // Build actionMap using the character's actual equipped build (same as what
   // normalizeTeam returned for the character — m.build is the top-level build).
   const actionMap = evaluateRotation(compiledRotation, cache.member[characterId].statMap);
-  console.log(sumRotationDmg(actionMap));
   const actionMapsWithSub = {};
 
   for (const [statId, { VALUE }] of Object.entries(MISC[gameId].SUB_STAT_TYPES)) {

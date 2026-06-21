@@ -396,12 +396,12 @@ GAME_INFO = [
             },
             "character": {
                 "element": {
-                    1: "GLACIO",
-                    2: "FUSION",
-                    3: "ELECTRO",
-                    4: "AERO",
-                    5: "SPECTRO",
-                    6: "HAVOC",
+                    1: "Glacio",
+                    2: "Fusion",
+                    3: "Electro",
+                    4: "Aero",
+                    5: "Spectro",
+                    6: "Havoc",
                 },
                 "type": {
                     1: "BROADBLADE",
