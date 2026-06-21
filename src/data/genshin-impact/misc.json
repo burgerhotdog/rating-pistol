@@ -21,28 +21,6 @@
     "Hydro": "#00c1ff",
     "Pyro": "#ff603f"
   },
-  "SKILL": {
-    "NA": {
-      "name": "Normal Attack",
-      "short": "Normal"
-    },
-    "CA": {
-      "name": "Charged Attack",
-      "short": "Charged"
-    },
-    "PA": {
-      "name": "Plunge Attack",
-      "short": "Plunge"
-    },
-    "ES": {
-      "name": "Elemental Skill",
-      "short": "Skill"
-    },
-    "EB": {
-      "name": "Elemental Burst",
-      "short": "Burst"
-    }
-  },
   "WEAPON_TYPES": [
     "SWORD",
     "CLAYMORE",

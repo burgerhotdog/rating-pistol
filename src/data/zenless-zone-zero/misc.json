@@ -20,28 +20,6 @@
     "Ice": "#44d3d7",
     "Physical": "#e9a117"
   },
-  "SKILL": {
-    "BA": {
-      "name": "Basic Attack",
-      "short": "Basic"
-    },
-    "D": {
-      "name": "Dodge",
-      "short": "Dodge"
-    },
-    "A": {
-      "name": "Assist",
-      "short": "Assist"
-    },
-    "S": {
-      "name": "ESA",
-      "short": "ESA"
-    },
-    "CA": {
-      "name": "Chain Attack",
-      "short": "Chain"
-    }
-  },
   "WEAPON_TYPES": [
     "ATTACK",
     "SUPPORT",
