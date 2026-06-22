@@ -1,14 +1,12 @@
-import { CHARACTER, WEAPON, MISC } from '@/data';
-import template from '@/template';
-import ENKA_STAT_MAP from './ENKA_STAT_MAP.json';
+import { GI, HSR, ZZZ, CHARACTER, WEAPON } from '@/data';
+import ENKA_LOOKUP from './enkaLookup';
 
-// FETCH HELPERS
 const BASE_URL = 'https://rating-pistol.vercel.app/api/proxy?suffix=';
 
 const SUFFIX = {
-  'genshin-impact': 'uid/',
-  'honkai-star-rail': 'hsr/uid/',
-  'zenless-zone-zero': 'zzz/uid/',
+  [GI]: 'uid/',
+  [HSR]: 'hsr/uid/',
+  [ZZZ]: 'zzz/uid/',
 };
 
 const ERROR_CODES = {
@@ -20,149 +18,182 @@ const ERROR_CODES = {
   503: 'Server error',
 };
 
-// returns list if valid, otherwise returns error message string
-export async function fetchEnka(gameId, uid) {
+const parseAvatarList = {
+  [GI]: data => data.avatarInfoList ?? [],
+  [HSR]: data => data.detailInfo?.avatarDetailList ?? [],
+  [ZZZ]: data => (data.PlayerInfo?.ShowcaseDetail?.AvatarList ?? []).map(entry => ({
+    ...entry,
+    avatarId: entry.Id,
+  })),
+};
+
+export const fetchEnka = async (gameId, uid) => {
   try {
-    // fetch response
     const response = await fetch(`${BASE_URL}${SUFFIX[gameId]}${uid}`);
+
     if (!response.ok) {
-      return [response.status, ERROR_CODES[response.status]];
+      const { status } = response;
+      return [status, ERROR_CODES[status]];
     }
 
-    // pick out avatar list from response
-    const rawEnka = await response.json();
-    let avatarList;
-    switch (gameId) {
-      case 'genshin-impact':
-        avatarList = rawEnka.avatarInfoList;
-        break;
-      case 'honkai-star-rail':
-        avatarList = rawEnka.detailInfo?.avatarDetailList;
-        break;
-      case 'zenless-zone-zero':
-        avatarList = rawEnka.PlayerInfo?.ShowcaseDetail?.AvatarList;
-        avatarList = avatarList?.map(entry => ({
-          ...entry,
-          avatarId: entry.Id
-        }));
-        break;
-    }
+    const rawData = await response.json();
+    const avatarList = parseAvatarList[gameId](rawData)
+      .filter(({ avatarId }) => avatarId in CHARACTER[gameId]);
 
-    // prune unrecognized avatars
-    const validList = avatarList?.filter(({ avatarId }) => {
-      return CHARACTER[gameId][avatarId];
-    });
-
-    // empty list case
-    if (!validList?.length) {
+    if (!avatarList.length) {
       return [204, 'Profile showcase empty'];
     }
 
-    return [200, validList];
-  } catch (err) {
+    return [200, avatarList];
+  } catch {
     return [500, ERROR_CODES['500']];
   }
-}
+};
 
-// PARSE HELPERS
-const PARSE_WEAPONID = {
-  'genshin-impact': (enka) => {
-    const weaponObj = enka.equipList[enka.equipList.length - 1];
-    const weaponId = String(weaponObj.itemId);
-    return WEAPON['genshin-impact'][weaponId] ? weaponId : null;
-  },
-  'honkai-star-rail': (enka) => {
-    const weaponObj = enka.equipment;
-    const weaponId = weaponObj?.tid;
-    return WEAPON['honkai-star-rail'][weaponId] ? String(weaponId) : null;
-  },
-  'zenless-zone-zero': (enka) => {
-    const weaponObj = enka.Weapon;
-    const weaponId = weaponObj?.Id;
-    return WEAPON['zenless-zone-zero'][weaponId] ? String(weaponId) : null;
-  },
+const parseLevel = {
+  [GI]: obj => Number(obj.propMap['4001'].val),
+  [HSR]: obj => obj.level,
+  [ZZZ]: obj => obj.Level,
+};
+
+const parseRank = {
+  [GI]: obj => (obj.talentIdList ?? []).length,
+  [HSR]: obj => obj.rank ?? 0,
+  [ZZZ]: obj => obj.TalentLevel,
+};
+
+const parseChar = (gameId, charObj) => ({
+  level: parseLevel[gameId](charObj),
+  rank: parseRank[gameId](charObj),
+});
+
+const parseWeaponId = {
+  [GI]: obj => obj.equipList.at(-1)?.itemId,
+  [HSR]: obj => obj.equipment?.tid,
+  [ZZZ]: obj => obj.Weapon?.Id,
+};
+
+const parseWeaponLevel = {
+  [GI]: obj => obj.equipList.at(-1).weapon.level,
+  [HSR]: obj => obj.equipment.level,
+  [ZZZ]: obj => obj.Weapon.Level,
+};
+
+const parseWeaponRank = {
+  [GI]: obj => Object.values(obj.equipList.at(-1).weapon.affixMap)[0] + 1,
+  [HSR]: obj => obj.equipment.rank,
+  [ZZZ]: obj => obj.Weapon.UpgradeLevel,
+};
+
+const parseWeapon = (gameId, charObj) => {
+  const weaponId = parseWeaponId[gameId](charObj);
+  if (!(weaponId in WEAPON[gameId])) return { weaponId: null, weaponLevel: null, weaponRank: null };
+
+  return {
+    weaponId: String(weaponId),
+    weaponLevel: parseWeaponLevel[gameId](charObj),
+    weaponRank: parseWeaponRank[gameId](charObj),
+  }
 };
 
 const PARSE_EQUIPLIST = {
-  'genshin-impact': (enka) => enka.equipList.slice(0, -1),
-  'honkai-star-rail': (enka) => enka.relicList,
-  'zenless-zone-zero': (enka) => enka.EquippedList,
+  [GI]: enka => enka.equipList.slice(0, -1),
+  [HSR]: enka => enka.relicList,
+  [ZZZ]: enka => enka.EquippedList,
 };
 
-const GI_EQUIP_TYPE = [
-  'EQUIP_BRACER',
-  'EQUIP_NECKLACE',
-  'EQUIP_SHOES',
-  'EQUIP_RING',
-  'EQUIP_DRESS',
-];
-
 const PARSE_MAIN_INDEX = {
-  'genshin-impact': (equip) => GI_EQUIP_TYPE.indexOf(equip.flat.equipType),
-  'honkai-star-rail': (equip) => equip.type - 1,
-  'zenless-zone-zero': (equip) => equip.Slot - 1,
+  [GI]: equip => [
+    'EQUIP_BRACER',
+    'EQUIP_NECKLACE',
+    'EQUIP_SHOES',
+    'EQUIP_RING',
+    'EQUIP_DRESS',
+  ].indexOf(equip.flat.equipType),
+  [HSR]: equip => equip.type - 1,
+  [ZZZ]: equip => equip.Slot - 1,
 };
 
 const PARSE_MAIN_STAT = {
-  'genshin-impact': (equip) => equip.flat.reliquaryMainstat.mainPropId,
-  'honkai-star-rail': (equip) => equip._flat.props[0].type,
-  'zenless-zone-zero': (equip) => equip.Equipment.MainPropertyList[0].PropertyId,
+  [GI]: equip => equip.flat.reliquaryMainstat.mainPropId,
+  [HSR]: equip => equip._flat.props[0].type,
+  [ZZZ]: equip => equip.Equipment.MainPropertyList[0].PropertyId,
 };
 
 const PARSE_MAIN_VALUE = {
-  'genshin-impact': (equip) => {
+  [GI]: equip => {
     const key = equip.flat.reliquaryMainstat.mainPropId;
-    const valueRatio = ENKA_STAT_MAP['genshin-impact'][key].startsWith('PERCENT') ? 0.01 : 1;
+    const valueRatio = ENKA_LOOKUP[GI][key].endsWith('%') ? 0.01 : 1;
     return equip.flat.reliquaryMainstat.statValue * valueRatio;
   },
-  'honkai-star-rail': (equip) => equip._flat.props[0].value,
-  'zenless-zone-zero': (equip) => {
-    const key = ENKA_STAT_MAP['zenless-zone-zero'][equip.Equipment.MainPropertyList[0].PropertyId];
-    const valueRatio = key.startsWith('PERCENT') ? 0.0001 : 1;
+  [HSR]: equip => equip._flat.props[0].value,
+  [ZZZ]: equip => {
+    const key = ENKA_LOOKUP[ZZZ][equip.Equipment.MainPropertyList[0].PropertyId];
+    const valueRatio = key.endsWith('%') ? 0.0001 : 1;
     return equip.Equipment.MainPropertyList[0].PropertyValue * 4 * valueRatio;
   },
 };
 
 const PARSE_SETID = {
-  'genshin-impact': (equip) => String(equip.flat.setId),
-  'honkai-star-rail': (equip) => String(equip._flat.setID),
-  'zenless-zone-zero': (equip) => String(equip.Equipment.Id).slice(0, 3),
+  [GI]: equip => String(equip.flat.setId),
+  [HSR]: equip => String(equip._flat.setID),
+  [ZZZ]: equip => `${String(equip.Equipment.Id).slice(0, 3)}00`,
 };
 
 const PARSE_SUBLIST = {
-  'genshin-impact': (equip) => equip.flat.reliquarySubstats,
-  'honkai-star-rail': (equip) => equip._flat.props.slice(1),
-  'zenless-zone-zero': (equip) => equip.Equipment.RandomPropertyList,
+  [GI]: equip => equip.flat.reliquarySubstats,
+  [HSR]: equip => equip._flat.props.slice(1),
+  [ZZZ]: equip => equip.Equipment.RandomPropertyList,
 };
 
 const PARSE_SUB_STAT = {
-  'genshin-impact': (sub) => sub.appendPropId,
-  'honkai-star-rail': (sub) => sub.type,
-  'zenless-zone-zero': (sub) => sub.PropertyId,
+  [GI]: sub => sub.appendPropId,
+  [HSR]: sub => sub.type,
+  [ZZZ]: sub => sub.PropertyId,
 };
 
 const PARSE_SUB_VALUE = {
-  'genshin-impact': (sub) => {
+  [GI]: sub => {
     const key = sub.appendPropId;
-    const valueRatio = ENKA_STAT_MAP['genshin-impact'][key].startsWith('PERCENT') ? 0.01 : 1;
+    const valueRatio = ENKA_LOOKUP[GI][key].endsWith('%') ? 0.01 : 1;
     return sub.statValue * valueRatio;
   },
-  'honkai-star-rail': (sub) => sub.value,
-  'zenless-zone-zero': (sub) => {
-    const key = ENKA_STAT_MAP['zenless-zone-zero'][sub.PropertyId];
+  [HSR]: sub => sub.value,
+  [ZZZ]: sub => {
+    const key = ENKA_LOOKUP[ZZZ][sub.PropertyId];
     const value = sub.PropertyValue;
-    const valueRatio = key.startsWith('PERCENT') ? 0.0001 : 1;
+    const valueRatio = key.endsWith('%') ? 0.0001 : 1;
     const timesAppeared = sub.PropertyLevel;
     return value * valueRatio * timesAppeared;
   },
 };
 
+const template = gameId => ({
+  lastUpdated: null,
+  weaponId: null,
+  equipList: Array(gameId === GI ? 5 : 6).fill().map(() => ({
+    setId: null,
+    mainStatId: null,
+    mainStatValue: null,
+    subStatList: Array(4).fill().map(() => ({
+      subStatId: null,
+      subStatValue: null
+    }))
+  })),
+});
+
 export function parseEnkaObj(gameId, enkaObj) {
   const avatarId = String(enkaObj.avatarId);
   const avatarData = template(gameId);
 
-  // weapon
-  avatarData.weaponId = PARSE_WEAPONID[gameId](enkaObj);
+  const { level, rank } = parseChar(gameId, enkaObj);
+  avatarData.level = level;
+  avatarData.rank = rank;
+
+  const { weaponId, weaponLevel, weaponRank } = parseWeapon(gameId, enkaObj);
+  avatarData.weaponId = weaponId;
+  avatarData.weaponLevel = weaponLevel;
+  avatarData.weaponRank = weaponRank;
 
   // equipList
   const equipList = PARSE_EQUIPLIST[gameId](enkaObj) ?? [];
@@ -174,7 +205,7 @@ export function parseEnkaObj(gameId, enkaObj) {
 
     // main stat
     const mainStat = PARSE_MAIN_STAT[gameId](equipObj);
-    avatarData.equipList[indexMain].mainStatId = ENKA_STAT_MAP[gameId][mainStat];
+    avatarData.equipList[indexMain].mainStatId = ENKA_LOOKUP[gameId][mainStat];
 
     // main value
     const mainValue = PARSE_MAIN_VALUE[gameId](equipObj);
@@ -186,7 +217,7 @@ export function parseEnkaObj(gameId, enkaObj) {
     for (const [indexSub, subObj] of subStatList.entries()) {
       // stat
       const subStat = PARSE_SUB_STAT[gameId](subObj);
-      avatarData.equipList[indexMain].subStatList[indexSub].subStatId = ENKA_STAT_MAP[gameId][subStat];
+      avatarData.equipList[indexMain].subStatList[indexSub].subStatId = ENKA_LOOKUP[gameId][subStat];
 
       // value
       const subValue = PARSE_SUB_VALUE[gameId](subObj);

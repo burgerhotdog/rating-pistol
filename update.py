@@ -6,11 +6,12 @@ from update import (
     parse_image,
     read_json,
     write_json,
-    mv_parser
+    parse_actions
 )
 
-def parse_data(GAME, data, id_type):
+def parse_data(GAME, data, ID, id_type):
     result = {}
+    result["id"] = ID
     lang_section = GAME["lang"].get(id_type, {})
 
     for field, parser in GAME["parsers"][id_type].items():
@@ -79,32 +80,31 @@ def main():
     # Scrape
     url_base = f"https://static.nanoka.cc/{GAME['link']}/{version}/en/"
     if character_ids:
-        path = f"src/data/{GAME['id']}/character.json"
-        mv_path = f"src/data/{GAME['id']}/mv.json"
+        path = f"src/data/{GAME['id']}/characters.json"
+        mv_path = f"src/data/{GAME['id']}/actions.json"
         json_data = read_json(path)
         mv_data = read_json(mv_path)
         mapped_id_type = GAME["lang"]["id_type"].get("character", "character")
         for ID in character_ids:
             data = requests.get(f"{url_base}{mapped_id_type}/{ID}.json").json()
             parse_image(GAME, data, ID, "character")
-            json_data[ID] = parse_data(GAME, data, "character")
-            if GAME['id'] == "wuthering-waves":
-                mv_data[ID] = mv_parser(GAME['id'], data)
-        write_json(f"src/data/{GAME['id']}/character.json", json_data)
+            json_data.append(parse_data(GAME, data, ID, "character"))
+            mv_data.append(parse_actions(data, GAME['id'], ID))
+        write_json(f"src/data/{GAME['id']}/characters.json", json_data)
         write_json(mv_path, mv_data)
 
     if weapon_ids:
-        path = f"src/data/{GAME['id']}/weapon.json"
+        path = f"src/data/{GAME['id']}/weapons.json"
         json_data = read_json(path)
         mapped_id_type = GAME["lang"]["id_type"].get("weapon", "weapon")
         for ID in weapon_ids:
             data = requests.get(f"{url_base}{mapped_id_type}/{ID}.json").json()
             parse_image(GAME, data, ID, "weapon")
-            json_data[ID] = parse_data(GAME, data, "weapon")
-        write_json(f"src/data/{GAME['id']}/weapon.json", json_data)
+            json_data.append(parse_data(GAME, data, ID, "weapon"))
+        write_json(f"src/data/{GAME['id']}/weapons.json", json_data)
 
     if set_ids:
-        path = f"src/data/{GAME['id']}/set.json"
+        path = f"src/data/{GAME['id']}/sets.json"
         json_data = read_json(path)
         mapped_id_type = GAME["lang"]["id_type"].get("set", "set")
         for ID in set_ids:
@@ -114,8 +114,8 @@ def main():
             else:
                 data = requests.get(f"{url_base}{mapped_id_type}/{ID}.json").json()
             parse_image(GAME, data, ID, "set")
-            json_data[ID] = parse_data(GAME, data, "set")
-        write_json(f"src/data/{GAME['id']}/set.json", json_data)
+            json_data.append(parse_data(GAME, data, ID, "set"))
+        write_json(f"src/data/{GAME['id']}/sets.json", json_data)
 
     # Version number
     version_json[GAME['id']] = str(version)

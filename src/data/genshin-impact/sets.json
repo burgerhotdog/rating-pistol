@@ -2,65 +2,59 @@
   {
     "id": "14002",
     "name": "Thundersoother",
-    "setBonus": {
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.35
-          }
-        }
-      }
+    "tieredEffects": {
+      "2": {},
+      "4": {}
     }
   },
   {
     "id": "14003",
     "name": "Lavawalker",
-    "setBonus": {
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.35
-          }
-        }
-      }
+    "tieredEffects": {
+      "2": {},
+      "4": {}
     }
   },
   {
     "id": "14004",
     "name": "Maiden Beloved",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HB": 0.15
-          }
+        "statMap": {
+          "healingBonus%": 0.15
         }
       },
       "4": {
-        "stats": {
-          "constant": {
-            "PERCENT_HB": 0.2
-          }
-        }
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnSkillType": [
+          "elementalSkill",
+          "elementalBurst"
+        ],
+        "statMap": {
+          "healingReceived%": 0.2
+        },
+        "duration": 10000
       }
     }
   },
   {
     "id": "15001",
     "name": "Gladiator's Finale",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "atk%": 0.18
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_NA": 0.35
-          }
+        "useIfWeapon": [
+          "Sword",
+          "Claymore",
+          "Polearm"
+        ],
+        "statMap": {
+          "normalAttackDmgBonus%": 0.35
         }
       }
     }
@@ -68,43 +62,31 @@
   {
     "id": "15002",
     "name": "Viridescent Venerer",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ANEMO": 0.15
-          }
+        "statMap": {
+          "anemoDmgBonus%": 0.15
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "RXN_SWIRL": 0.6,
-            "SHRED_PYRO": 0.4,
-            "SHRED_ELECTRO": 0.4,
-            "SHRED_CRYO": 0.4,
-            "SHRED_HYDRO": 0.4
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
     "id": "15003",
     "name": "Wanderer's Troupe",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "FLAT_EM": 80
-          }
+        "statMap": {
+          "elementalMastery": 80
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CA": 0.35
-          }
+        "useIfWeapon": [
+          "Catalyst",
+          "Bow"
+        ],
+        "statMap": {
+          "chargedAttackDmgBonus%": 0.35
         }
       }
     }
@@ -112,256 +94,192 @@
   {
     "id": "15005",
     "name": "Thundering Fury",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ELECTRO": 0.15
-          }
+        "statMap": {
+          "electroDmgBonus%": 0.15
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "RXN_OVERLOADED": 0.4,
-            "RXN_ELECTROCHARGED": 0.4,
-            "RXN_SUPERCONDUCT": 0.4,
-            "RXN_HYPERBLOOM": 0.4,
-            "RXN_AGGRAVATE": 0.2,
-            "RXN_LUNARCHARGED": 0.2
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
     "id": "15006",
     "name": "Crimson Witch of Flames",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_PYRO": 0.15
-          }
+        "statMap": {
+          "pyroDmgBonus%": 0.15
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "RXN_OVERLOADED": 0.4,
-            "RXN_BURNING": 0.4,
-            "RXN_BURGEON": 0.4,
-            "RXN_VAPORIZE": 0.15,
-            "RXN_MELT": 0.15,
-            "PERCENT_PYRO": 0.075
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
     "id": "15007",
     "name": "Noblesse Oblige",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_EB": 0.2
-          }
+        "statMap": {
+          "elementalBurstDmgBonus%": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.2
-          }
-        }
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnSkillType": "elementalBurst",
+        "statMap": {
+          "atk%": 0.2
+        },
+        "duration": 12000
       }
     }
   },
   {
     "id": "15008",
     "name": "Bloodstained Chivalry",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_PHYSICAL": 0.25
-          }
+        "statMap": {
+          "physicalDmgBonus%": 0.25
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CA": 0.5
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
     "id": "15014",
     "name": "Archaic Petra",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_GEO": 0.15
-          }
+        "statMap": {
+          "geoDmgBonus%": 0.15
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_PYRO": 0.35,
-            "PERCENT_ELECTRO": 0.35,
-            "PERCENT_CRYO": 0.35,
-            "PERCENT_HYDRO": 0.35
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
     "id": "15015",
     "name": "Retracing Bolide",
-    "setBonus": {
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_NA": 0.4,
-            "PERCENT_CA": 0.4
-          }
-        }
-      }
+    "tieredEffects": {
+      "2": {},
+      "4": {}
     }
   },
   {
     "id": "14001",
     "name": "Blizzard Strayer",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CRYO": 0.15
-          }
+        "statMap": {
+          "cryoDmgBonus%": 0.15
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.4
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
     "id": "15016",
     "name": "Heart of Depth",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HYDRO": 0.15
-          }
+        "statMap": {
+          "hydroDmgBonus%": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_NA": 0.3,
-            "PERCENT_CA": 0.3
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnSkillType": "elementalSkill",
+        "statMap": {
+          "normalAttackDmgBonus%": 0.3,
+          "chargedAttackDmgBonus%": 0.3
+        },
+        "duration": 15000
       }
     }
   },
   {
     "id": "15017",
     "name": "Tenacity of the Millelith",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HP": 0.2
-          }
+        "statMap": {
+          "hp%": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.2
-          }
-        }
+        "applyTo": "team",
+        "applyWhen": "hit",
+        "applyOnDmgType": "elementalSkill",
+        "applyCooldown": 500,
+        "statMap": {
+          "atk%": 0.2
+        },
+        "duration": 3000
       }
     }
   },
   {
     "id": "15018",
     "name": "Pale Flame",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_PHYSICAL": 0.25
-          }
+        "statMap": {
+          "physicalDmgBonus%": 0.25
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.18,
-            "PERCENT_PHYSICAL": 0.25
-          }
-        }
+        "applyWhen": "hit",
+        "applyOnDmgType": "elementalSkill",
+        "applyCooldown": 300,
+        "statMap": {
+          "atk%": 0.9,
+          "physicalDmgBonus%": 0.125
+        },
+        "duration": 7000,
+        "maxStacks": 2
       }
     }
   },
   {
     "id": "15019",
     "name": "Shimenawa's Reminiscence",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "atk%": 0.18
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_NA": 0.5,
-            "PERCENT_CA": 0.5,
-            "PERCENT_PA": 0.5
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnSkillType": "elementalSkill",
+        "applyCooldown": 10000,
+        "statMap": {
+          "normalAttackDmgBonus%": 0.5,
+          "chargedAttackDmgBonus%": 0.5,
+          "plungeAttackDmgBonus%": 0.5
+        },
+        "duration": 10000
       }
     }
   },
   {
     "id": "15020",
     "name": "Emblem of Severed Fate",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ER": 0.2
-          }
+        "statMap": {
+          "energyRecharge%": 0.2
         }
       },
       "4": {
-        "stats": {
-          "variable": {
-            "PERCENT_EB": {
-              "source": [
-                "ER",
-                0.01
-              ],
-              "value": 0.0025,
-              "max": 0.75
-            }
+        "variableStatMap": {
+          "elementalBurstDmgBonus%": {
+            "attr": "ER",
+            "step": 0.01,
+            "value": 0.0025,
+            "max": 0.75
           }
         }
       }
@@ -370,20 +288,16 @@
   {
     "id": "15021",
     "name": "Husk of Opulent Dreams",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_DEF": 0.3
-          }
+        "statMap": {
+          "def%": 0.3
         }
       },
       "4": {
-        "stats": {
-          "constant": {
-            "PERCENT_DEF": 0.24,
-            "PERCENT_GEO": 0.24
-          }
+        "statMap": {
+          "def%": 0.24,
+          "geoDmgBonus%": 0.24
         }
       }
     }
@@ -391,86 +305,95 @@
   {
     "id": "15022",
     "name": "Ocean-Hued Clam",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HB": 0.15
-          }
+        "statMap": {
+          "healingBonus%": 0.15
         }
+      },
+      "4": {
+        "applyWhen": "hit",
+        "applyOnType": "healing",
+        "applyCooldown": 3500,
+        "intervalAction": {
+          "element": "Physical",
+          "fixedMultipliers": {
+            "flat": 27000
+          }
+        },
+        "intervalOffset": 3000,
+        "maxUses": 1
       }
     }
   },
   {
     "id": "15023",
     "name": "Vermillion Hereafter",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "atk%": 0.18
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.4
-          }
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "elementalBurst",
+          "removeIfField": false,
+          "statMap": {
+            "atk%": 0.48
+          },
+          "duration": 16000
         }
-      }
+      ]
     }
   },
   {
     "id": "15024",
     "name": "Echoes of an Offering",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "atk%": 0.18
         }
-      }
+      },
+      "4": {}
     }
   },
   {
     "id": "15025",
     "name": "Deepwood Memories",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_DENDRO": 0.15
-          }
+        "statMap": {
+          "dendroDmgBonus%": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "SHRED_DENDRO": 0.3
-          }
-        }
+        "applyWhen": "hit",
+        "applyOnDmgType": [
+          "elementalSkill",
+          "elementalBurst"
+        ],
+        "statMap": {
+          "dendroResReduction%": 0.3
+        },
+        "duration": 8000
       }
     }
   },
   {
     "id": "15026",
     "name": "Gilded Dreams",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "FLAT_EM": 80
-          }
+        "statMap": {
+          "elementalMastery": 80
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.14,
-            "FLAT_EM": 100
-          }
+        "statMap": {
+          "elementalMastery": 150
         }
       }
     }
@@ -478,121 +401,101 @@
   {
     "id": "15027",
     "name": "Desert Pavilion Chronicle",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ANEMO": 0.15
-          }
+        "statMap": {
+          "anemoDmgBonus%": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_NA": 0.4,
-            "PERCENT_CA": 0.4,
-            "PERCENT_PA": 0.4
-          }
-        }
+        "applyWhen": "hit",
+        "applyOnDmgType": "chargedAttack",
+        "statMap": {
+          "attackSpd%": 0.1,
+          "normalAttackDmgBonus%": 0.4,
+          "chargedAttackDmgBonus%": 0.4,
+          "plungeAttackDmgBonus%": 0.4
+        },
+        "duration": 15000
       }
     }
   },
   {
     "id": "15028",
     "name": "Flower of Paradise Lost",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "FLAT_EM": 80
-          }
+        "statMap": {
+          "elementalMastery": 80
         }
       },
-      "4": {
-        "stats": {
-          "constant": {
-            "RXN_BLOOM": 0.4,
-            "RXN_HYPERBLOOM": 0.4,
-            "RXN_BURGEON": 0.4,
-            "RXN_LUNARBLOOM": 0.1
-          }
-        },
-        "buffs": {
-          "constant": {
-            "RXN_BLOOM": 0.4,
-            "RXN_HYPERBLOOM": 0.4,
-            "RXN_BURGEON": 0.4,
-            "RXN_LUNARBLOOM": 0.4
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
     "id": "15029",
     "name": "Nymph's Dream",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HYDRO": 0.15
-          }
+        "statMap": {
+          "hydroDmgBonus%": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.25,
-            "PERCENT_HYDRO": 0.15
-          }
-        }
+        "applyWhen": "hit",
+        "applyOnDmgType": [
+          "normalAttack",
+          "chargedAttack",
+          "plungeAttack",
+          "elementalSkill",
+          "elementalBurst"
+        ],
+        "statMap": {
+          "atk%": 0.0833,
+          "hydroDmgBonus%": 0.05
+        },
+        "duration": 8000
       }
     }
   },
   {
     "id": "15030",
     "name": "Vourukasha's Glow",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HP": 0.2
-          }
+        "statMap": {
+          "hp%": 0.2
         }
       },
-      "4": {
-        "stats": {
-          "constant": {
-            "PERCENT_ES": 0.1,
-            "PERCENT_EB": 0.1
+      "4": [
+        {
+          "statMap": {
+            "elementalSkillDmgBonus%": 0.1,
+            "elementalBurstDmgBonus%": 0.1
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_ES": 0.4,
-            "PERCENT_EB": 0.4
+        {
+          "statMap": {
+            "elementalSkillDmgBonus%": 0.4,
+            "elementalBurstDmgBonus%": 0.4
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "15031",
     "name": "Marechaussee Hunter",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_NA": 0.15,
-            "PERCENT_CA": 0.15
-          }
+        "statMap": {
+          "normalAttackDmgBonus%": 0.15,
+          "chargedAttackDmgBonus%": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.36
-          }
+        "statMap": {
+          "critRate%": 0.36
         }
       }
     }
@@ -600,52 +503,51 @@
   {
     "id": "15032",
     "name": "Golden Troupe",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ES": 0.2
-          }
+        "statMap": {
+          "elementalSkillDmgBonus%": 0.2
         }
       },
-      "4": {
-        "stats": {
-          "constant": {
-            "PERCENT_ES": 0.5
+      "4": [
+        {
+          "statMap": {
+            "elementalSkillDmgBonus%": 0.25
+          }
+        },
+        {
+          "useIfField": false,
+          "statMap": {
+            "elementalSkillDmgBonus%": 0.25
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "15033",
     "name": "Song of Days Past",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HB": 0.15
-          }
+        "statMap": {
+          "healingBonus%": 0.15
         }
-      }
+      },
+      "4": {}
     }
   },
   {
     "id": "15034",
     "name": "Nighttime Whispers in the Echoing Woods",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "atk%": 0.18
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_GEO": 0.5
-          }
+        "statMap": {
+          "geoDmgBonus%": 0.5
         }
       }
     }
@@ -653,19 +555,15 @@
   {
     "id": "15035",
     "name": "Fragment of Harmonic Whimsy",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "atk%": 0.18
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.54
-          }
+        "statMap": {
+          "dmgBonus%": 0.54
         }
       }
     }
@@ -673,43 +571,40 @@
   {
     "id": "15036",
     "name": "Unfinished Reverie",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "atk%": 0.18
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.5
-          }
+        "statMap": {
+          "dmgBonus%": 0.5
         }
       }
     }
   },
   {
     "id": "15037",
-    "name": "Scroll of the Hero of Cinder City"
+    "name": "Scroll of the Hero of Cinder City",
+    "tieredEffects": {
+      "2": {},
+      "4": {}
+    }
   },
   {
     "id": "15038",
     "name": "Obsidian Codex",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.15
-          }
+        "useIfField": true,
+        "statMap": {
+          "dmgBonus%": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.4
-          }
+        "statMap": {
+          "critRate%": 0.4
         }
       }
     }
@@ -717,19 +612,15 @@
   {
     "id": "15039",
     "name": "Long Night's Oath",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_PA": 0.25
-          }
+        "statMap": {
+          "plungeAttackDmgBonus%": 0.25
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_PA": 0.75
-          }
+        "statMap": {
+          "plungeAttackDmgBonus%": 0.75
         }
       }
     }
@@ -737,20 +628,17 @@
   {
     "id": "15040",
     "name": "Finale of the Deep Galleries",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CRYO": 0.15
-          }
+        "statMap": {
+          "cryoDmgBonus%": 0.15
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_NA": 0.6,
-            "PERCENT_EB": 0.6
-          }
+        "useIfTagged": "noEnergy",
+        "statMap": {
+          "normalAttackDmgBonus%": 0.6,
+          "elementalBurstDmgBonus%": 0.6
         }
       }
     }
@@ -758,22 +646,16 @@
   {
     "id": "15041",
     "name": "Night of the Sky's Unveiling",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "FLAT_EM": 80
-          }
+        "statMap": {
+          "elementalMastery": 80
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.3,
-            "RXN_LUNARCHARGED": 0.2,
-            "RXN_LUNARBLOOM": 0.2,
-            "RXN_LUNARCRYSTALIZE": 0.2
-          }
+        "useIfField": true,
+        "statMap": {
+          "critRate%": 0.3
         }
       }
     }
@@ -781,67 +663,106 @@
   {
     "id": "15042",
     "name": "Silken Moon's Serenade",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ER": 0.2
-          }
+        "statMap": {
+          "energyRecharge%": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "FLAT_EM": 120,
-            "RXN_LUNARCHARGED": 0.2,
-            "RXN_LUNARBLOOM": 0.2,
-            "RXN_LUNARCRYSTALIZE": 0.2
-          }
-        }
+        "applyTo": "team",
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "statMap": {
+          "elementalMastery": 120
+        },
+        "duration": 8000
       }
     }
   },
   {
     "id": "15043",
     "name": "Aubade of Morningstar and Moon",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "FLAT_EM": 80
-          }
+        "statMap": {
+          "elementalMastery": 80
         }
       },
-      "4": {
-        "stats": {
-          "constant": {
-            "RXN_LUNARCHARGED": 0.6,
-            "RXN_LUNARBLOOM": 0.6,
-            "RXN_LUNARCRYSTALIZE": 0.6
-          }
-        }
-      }
+      "4": {}
     }
   },
   {
     "id": "15044",
     "name": "A Day Carved From Rising Winds",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.18
-          }
+        "statMap": {
+          "atk%": 0.18
+        }
+      },
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnDmgType": [
+            "normalAttack",
+            "chargedAttack",
+            "elementalSkill",
+            "elementalBurst"
+          ],
+          "statMap": {
+            "atk%": 0.25
+          },
+          "duration": 6000
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnDmgType": [
+            "normalAttack",
+            "chargedAttack",
+            "elementalSkill",
+            "elementalBurst"
+          ],
+          "useIfTagged": "Hexerei",
+          "statMap": {
+            "critRate%": 0.2
+          },
+          "duration": 6000
+        }
+      ]
+    }
+  },
+  {
+    "id": "15045",
+    "name": "Celestial Gift",
+    "tieredEffects": {
+      "2": {
+        "statMap": {
+          "energyRecharge%": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.25,
-            "PERCENT_CR": 0.2
-          }
-        }
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnSkillType": "elementalSkill",
+        "applyIfTagged": "Hexerei",
+        "statMap": {
+          "dmgBonus%": 0.4
+        },
+        "duration": 20000
       }
+    }
+  },
+  {
+    "id": "15046",
+    "name": "Disenchantment in Deep Shadow",
+    "tieredEffects": {
+      "2": {
+        "statMap": {
+          "atk%": 0.18
+        }
+      },
+      "4": {}
     }
   }
 ]

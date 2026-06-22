@@ -1,84 +1,34 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useBuild } from '@/contexts';
-import { CHARACTER, ACTION, WEAPON } from '@/data';
-
-function validatePayload({ gameId, characterId, build, team }) {
-  // gameId
-  if (!['wuthering-waves'].includes(gameId)) return `invalid gameId "${gameId}"`;
-
-  // characterId (characters.json and mvs.json)
-  const characterData = CHARACTER[gameId][characterId];
-  if (!characterData) return `characterId "${characterId}" doesn't exist in gameId "${gameId}"`;
-  const { element, stats: characterStats } = characterData;
-  if (!element) return `missing "element" for characterId "${characterId}"`;
-  if (!characterStats) return `missing "stats" for characterId "${characterId}"`;
-  const { BASE_HP, BASE_ATK, BASE_DEF } = characterStats;
-  if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for characterId "${characterId}"`;
-  const characterMvs = ACTION[gameId][characterId];
-  if (!characterMvs) return `missing "mvs" for characterId "${characterId}"`;
-
-  // build
-  if (!build) return 'build is undefined';
-  const { weaponId, equipList } = build;
-  if (!weaponId) return 'weaponId is undefined';
-  const weaponData = WEAPON[gameId][weaponId];
-  if (!weaponData) return `weaponId "${weaponId}" doesn't exist in gameId "${gameId}"`;
-  const { name: weaponName, quality: weaponQuality } = weaponData;
-  if (Number(weaponQuality) < 3) return `weapon "${weaponName}" is not supported"`;
-  if (!equipList) return 'equipList is undefined';
-
-  // team
-  if (!team) return 'team is undefined';
-  for (const member of team) {
-    if (!member) return 'team contains undefined member';
-    const { memberId, weaponId, setCounts, rotation, build } = member;
-    if (memberId === null) continue;
-    if (!memberId) return 'team contains undefined memberId';
-    const memberData = CHARACTER[gameId][memberId];
-    if (!memberData) return `memberId "${memberId}" doesn't exist in gameId "${gameId}"`;
-    const { name, element, stats } = memberData;
-    if (!element) return `missing "element" for memberId "${memberId}"`;
-    if (!stats) return `missing "stats" for memberId "${memberId}"`;
-    const { BASE_HP, BASE_ATK, BASE_DEF } = stats;
-    if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for memberId "${memberId}"`;
-    if (!ACTION[gameId][memberId]) return `missing "mvs" for memberId "${memberId}"`;
-
-    if (!weaponId) return `team member "${name}" contains undefined weaponId`;
-    if (!setCounts) return `team member "${name}" contains undefined setCounts`;
-    if (!rotation) return `team member "${name}" contains undefined rotation`;
-
-    if (memberId === characterId) {
-      if (!build) return `team member "${name}" contains undefined build`;
-      const { equipList } = build;
-      if (!equipList) return `team member "${name}" contains undefined equipList`;
-    }
-  }
-  return null;
-}
+import { CHARACTER } from '@/data';
 
 export function useSimulation(team) {
   const { gameId, characterId } = useParams();
-  const build = useBuild().getBuilds(gameId)[characterId];
 
   const workerRef = useRef(null);
   const [result, setResult] = useState({});
   
   useEffect(() => {
-    // Use the team member's weaponId override (what-if scenario) for stat compilation.
-    // equipList always comes from the context build so trial generation is unaffected.
-    const mainMember = team.find(m => m.memberId === characterId);
-    const effectiveBuild = mainMember?.weaponId
-      ? { ...build, weaponId: mainMember.weaponId }
-      : build;
-    const payload = { gameId, characterId, build: effectiveBuild, team };
-    const error = validatePayload(payload);
-    if (error) {
-      console.log(error);
+    const payload = { gameId, characterId, team };
+
+    if (!['genshin-impact', 'wuthering-waves', 'zenless-zone-zero'].includes(gameId)) {
+      console.log('simulation disabled for game');
       workerRef.current?.terminate();
       workerRef.current = null;
-      setResult({ error });
+      setResult({});
       return;
+    }
+
+    for (const member of team) {
+      if (!member.id) continue;
+
+      if (!member.rotation.length) {
+        console.log('empty rotation');
+        workerRef.current?.terminate();
+        workerRef.current = null;
+        setResult({});
+        return;
+      }
     }
   
     setResult({
@@ -108,6 +58,7 @@ export function useSimulation(team) {
       }
 
       if (data.type === 'done') {
+        console.log(data);
         setResult(prev => ({
           ...prev,
           isFarmingDone: true,
@@ -119,9 +70,9 @@ export function useSimulation(team) {
           weeklyDistribution: data.weeklyDistribution,
           isLoading: false,
           simCharacter: characterId,
-          teamFinalStats: data.teamFinalStats,
           actionMap: data.actionMap,
           actionMapsWithSub: data.actionMapsWithSub,
+          cache: data.cache,
         }));
 
         worker.terminate();
@@ -135,7 +86,7 @@ export function useSimulation(team) {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
     };
-  }, [gameId, characterId, build, team]);
+  }, [gameId, characterId, team]);
 
   return result;
 }

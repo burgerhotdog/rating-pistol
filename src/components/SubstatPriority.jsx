@@ -11,7 +11,7 @@ import {
   Cell,
 } from 'recharts';
 import { MISC, CHARACTER } from '@/data';
-import { sumRotationDmg } from '@/utils';
+import { sumRotationDmg, formatStr } from '@/utils';
 
 export const SubstatPriority = ({ isLoading, actionMap, actionMapsWithSub }) => {
   const { gameId, characterId } = useParams();
@@ -33,7 +33,7 @@ export const SubstatPriority = ({ isLoading, actionMap, actionMapsWithSub }) => 
   const maxDiff = newRatings.length ? newRatings[0].diff : 1;
 
   const chartData = newRatings.map(({ name, diff }) => ({
-    name: MISC[gameId].SUB_STAT_TYPES[name].NAME,
+    name: formatStr(name),
     value: diff,
   }));
 
@@ -127,7 +127,7 @@ export const SubstatPriority = ({ isLoading, actionMap, actionMapsWithSub }) => 
               {chartData.map((entry, index) => (
                 <Cell
                   key={index}
-                  fill={MISC[gameId].ELEMENT_COLORS[element]}
+                  fill={MISC[gameId].COLORS[element]}
                   opacity={0.4 + 0.6 * (entry.value / maxDiff)}
                 />
               ))}

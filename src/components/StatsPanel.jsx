@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
 import { MISC, CHARACTER } from '@/data';
-import { computeTotalStat, compileStatMap } from '@/utils';
+import { getAttr, formatStr, compileStatMap } from '@/utils';
 import { CustomAvatar } from '@/components';
 import { useBuild } from '@/contexts';
 import { TeamMemberDialog } from '@/components/TeamMemberDialog';
@@ -77,7 +77,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
               size="small"
               sx={{
                 fontWeight: 'bold',
-                color: MISC[gameId].ELEMENT_COLORS[CHARACTER[gameId][characterId].element]
+                color: MISC[gameId].COLORS[CHARACTER[gameId][characterId].element]
               }}
             />
             <Chip
@@ -92,11 +92,14 @@ export const StatsPanel = ({ team, updateTeam }) => {
 
       <CardContent sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
         <Stack spacing={1}>
-          {Object.entries(MENU_STATS).map(([id, { label, isPercent }]) => {
-            const totalValue = computeTotalStat(id, statMap);
+          {MENU_STATS.map((id) => {
+            // cd for ww visual change
+            const cdww = (gameId === 'wuthering-waves' && id === 'critDmg%') ? 1 : 0;
+            const totalValue = getAttr(id, statMap) + cdww;
+            const isPercent = id.endsWith('%');
             const displayValue = isPercent ? totalValue * 100 : totalValue;
-            const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && id === 'ER') ? 1 : 0;
-            if (id !== 'EM' && displayValue === 0) return;
+            const toFixedValue = isPercent ? 1 : 0;
+            if (id !== 'elementalMastery' && displayValue === 0) return;
             return (
               <Box
                 key={id}
@@ -107,7 +110,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
                 }}
               >
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  {label}
+                  {formatStr(id)}
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
                   {displayValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
@@ -127,7 +130,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
             <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
               <CustomAvatar
                 gameId={gameId}
-                characterId={member?.memberId ?? null}
+                characterId={member?.id ?? null}
               />
             </Box>
           ))}

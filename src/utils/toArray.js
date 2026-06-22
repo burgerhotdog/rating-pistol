@@ -1,4 +1,5 @@
-export function toArray(value) {
-  if (value == null) return [];
-  return Array.isArray(value) ? [...value] : [value];
-}
+export const toArray = (unknown) => {
+  if (Array.isArray(unknown)) return unknown;
+  if (unknown == null) return [];
+  return [unknown];
+};

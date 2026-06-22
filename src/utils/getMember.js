@@ -1,20 +1,19 @@
 import { CHARACTER } from '@/data';
-import { formatRotation } from '@/utils/formatRotation';
-import { getDefaultCharacterRank, getDefaultWeaponRank } from '@/utils/getDefaultRanks';
+import { getDefaultCharacterRank, getDefaultWeaponRank } from '@/utils';
 
 export function getMember(gameId, characterId) {
-  const data = CHARACTER[gameId][characterId];
-  if (!data) throw new Error(`Character "${characterId}" doesn't exist in game "${gameId}"`);
+  const charData = CHARACTER[gameId][characterId];
+  const { defaults = {} } = charData;
 
-  const weaponId = data.defaults?.weaponId ?? null;
+  const weaponId = defaults.weaponId ?? null;
 
   return {
-    memberId: characterId,
+    id: characterId,
     rank: getDefaultCharacterRank(gameId, characterId),
     weaponId,
     weaponRank: weaponId ? getDefaultWeaponRank(gameId, weaponId) : null,
-    setCounts: data.defaults?.setCounts ?? {},
-    rotation: formatRotation(characterId, data.defaults?.rotation ?? []),
+    setCounts: defaults.setCounts ?? {},
+    rotation: defaults.rotation ?? [],
     useUserBuild: false,
   };
 }

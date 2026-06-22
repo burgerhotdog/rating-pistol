@@ -3,1422 +3,1476 @@
     "id": "1001",
     "name": "March 7th",
     "quality": 4,
-    "element": "ICE",
-    "type": "PRESERVATION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1058,
-        "BASE_ATK": 512,
-        "BASE_DEF": 573,
-        "BASE_SPD": 101,
-        "PERCENT_ICE": 0.224,
-        "PERCENT_DEF": 0.225,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Ice",
+    "type": "Preservation",
+    "baseStats": {
+      "baseHp": 1058,
+      "baseAtk": 512,
+      "baseDef": 573,
+      "baseSpd": 101
+    },
+    "ascensionStats": {
+      "iceDmgBonus%": 0.224,
+      "def%": 0.225,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1002",
     "name": "Dan Heng",
     "quality": 4,
-    "element": "WIND",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 882,
-        "BASE_ATK": 547,
-        "BASE_DEF": 397,
-        "BASE_SPD": 110,
-        "PERCENT_WIND": 0.224,
-        "PERCENT_ATK": 0.18,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Wind",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 882,
+      "baseAtk": 547,
+      "baseDef": 397,
+      "baseSpd": 110
+    },
+    "ascensionStats": {
+      "windDmgBonus%": 0.224,
+      "atk%": 0.18,
+      "def%": 0.125
     }
   },
   {
     "id": "1003",
     "name": "Himeko",
     "quality": 5,
-    "element": "FIRE",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1048,
-        "BASE_ATK": 757,
-        "BASE_DEF": 437,
-        "BASE_SPD": 96,
-        "PERCENT_FIRE": 0.224,
-        "PERCENT_ATK": 0.18,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Fire",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 757,
+      "baseDef": 437,
+      "baseSpd": 96
+    },
+    "ascensionStats": {
+      "fireDmgBonus%": 0.224,
+      "atk%": 0.18,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1004",
     "name": "Welt",
     "quality": 5,
-    "element": "IMAGINARY",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1125,
-        "BASE_ATK": 621,
-        "BASE_DEF": 509,
-        "BASE_SPD": 102,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_IMAGINARY": 0.144,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Imaginary",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1125,
+      "baseAtk": 621,
+      "baseDef": 509,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "imaginaryDmgBonus%": 0.144,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1008",
     "name": "Arlan",
     "quality": 4,
-    "element": "LIGHTNING",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1200,
-        "BASE_ATK": 600,
-        "BASE_DEF": 331,
-        "BASE_SPD": 102,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_RES": 0.18,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Lightning",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1200,
+      "baseAtk": 600,
+      "baseDef": 331,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "effectRes%": 0.18,
+      "hp%": 0.1
     }
   },
   {
     "id": "1009",
     "name": "Asta",
     "quality": 4,
-    "element": "FIRE",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1023,
-        "BASE_ATK": 512,
-        "BASE_DEF": 463,
-        "BASE_SPD": 106,
-        "PERCENT_FIRE": 0.224,
-        "PERCENT_DEF": 0.225,
-        "PERCENT_CR": 0.067
-      }
+    "element": "Fire",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 1023,
+      "baseAtk": 512,
+      "baseDef": 463,
+      "baseSpd": 106
+    },
+    "ascensionStats": {
+      "fireDmgBonus%": 0.224,
+      "def%": 0.225,
+      "critRate%": 0.067
     }
   },
   {
     "id": "1013",
     "name": "Herta",
     "quality": 4,
-    "element": "ICE",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 953,
-        "BASE_ATK": 582,
-        "BASE_DEF": 397,
-        "BASE_SPD": 100,
-        "PERCENT_ICE": 0.224,
-        "PERCENT_DEF": 0.225,
-        "PERCENT_CR": 0.067
-      }
+    "element": "Ice",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 953,
+      "baseAtk": 582,
+      "baseDef": 397,
+      "baseSpd": 100
+    },
+    "ascensionStats": {
+      "iceDmgBonus%": 0.224,
+      "def%": 0.225,
+      "critRate%": 0.067
     }
   },
   {
     "id": "1101",
     "name": "Bronya",
     "quality": 5,
-    "element": "WIND",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1242,
-        "BASE_ATK": 582,
-        "BASE_DEF": 534,
-        "BASE_SPD": 99,
-        "PERCENT_WIND": 0.224,
-        "PERCENT_CD": 0.24,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Wind",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 1242,
+      "baseAtk": 582,
+      "baseDef": 534,
+      "baseSpd": 99
+    },
+    "ascensionStats": {
+      "windDmgBonus%": 0.224,
+      "critDmg%": 0.24,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1102",
     "name": "Seele",
     "quality": 5,
-    "element": "QUANTUM",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 931,
-        "BASE_ATK": 640,
-        "BASE_DEF": 364,
-        "BASE_SPD": 115,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_CD": 0.24,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Quantum",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 931,
+      "baseAtk": 640,
+      "baseDef": 364,
+      "baseSpd": 115
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "critDmg%": 0.24,
+      "def%": 0.125
     }
   },
   {
     "id": "1103",
     "name": "Serval",
     "quality": 4,
-    "element": "LIGHTNING",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 917,
-        "BASE_ATK": 653,
-        "BASE_DEF": 375,
-        "BASE_SPD": 104,
-        "PERCENT_CR": 0.187,
-        "PERCENT_EHR": 0.18,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Lightning",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 917,
+      "baseAtk": 653,
+      "baseDef": 375,
+      "baseSpd": 104
+    },
+    "ascensionStats": {
+      "critRate%": 0.187,
+      "effectHitRate%": 0.18,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1104",
     "name": "Gepard",
     "quality": 5,
-    "element": "ICE",
-    "type": "PRESERVATION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1397,
-        "BASE_ATK": 543,
-        "BASE_DEF": 655,
-        "BASE_SPD": 92,
-        "PERCENT_ICE": 0.224,
-        "PERCENT_RES": 0.18,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Ice",
+    "type": "Preservation",
+    "baseStats": {
+      "baseHp": 1397,
+      "baseAtk": 543,
+      "baseDef": 655,
+      "baseSpd": 92
+    },
+    "ascensionStats": {
+      "iceDmgBonus%": 0.224,
+      "effectRes%": 0.18,
+      "def%": 0.125
     }
   },
   {
     "id": "1105",
     "name": "Natasha",
     "quality": 4,
-    "element": "PHYSICAL",
-    "type": "ABUNDANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1164,
-        "BASE_ATK": 476,
-        "BASE_DEF": 507,
-        "BASE_SPD": 98,
-        "PERCENT_HP": 0.28,
-        "PERCENT_RES": 0.18,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Physical",
+    "type": "Abundance",
+    "baseStats": {
+      "baseHp": 1164,
+      "baseAtk": 476,
+      "baseDef": 507,
+      "baseSpd": 98
+    },
+    "ascensionStats": {
+      "hp%": 0.28,
+      "effectRes%": 0.18,
+      "def%": 0.125
     }
   },
   {
     "id": "1106",
     "name": "Pela",
     "quality": 4,
-    "element": "ICE",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 988,
-        "BASE_ATK": 547,
-        "BASE_DEF": 463,
-        "BASE_SPD": 105,
-        "PERCENT_ICE": 0.224,
-        "PERCENT_ATK": 0.18,
-        "PERCENT_EHR": 0.1
-      }
+    "element": "Ice",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 988,
+      "baseAtk": 547,
+      "baseDef": 463,
+      "baseSpd": 105
+    },
+    "ascensionStats": {
+      "iceDmgBonus%": 0.224,
+      "atk%": 0.18,
+      "effectHitRate%": 0.1
     }
   },
   {
     "id": "1107",
     "name": "Clara",
     "quality": 5,
-    "element": "PHYSICAL",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1242,
-        "BASE_ATK": 737,
-        "BASE_DEF": 485,
-        "BASE_SPD": 90,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_PHYSICAL": 0.144,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Physical",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1242,
+      "baseAtk": 737,
+      "baseDef": 485,
+      "baseSpd": 90
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "physicalDmgBonus%": 0.144,
+      "hp%": 0.1
     }
   },
   {
     "id": "1108",
     "name": "Sampo",
     "quality": 4,
-    "element": "WIND",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1023,
-        "BASE_ATK": 617,
-        "BASE_DEF": 397,
-        "BASE_SPD": 102,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_EHR": 0.18,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Wind",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1023,
+      "baseAtk": 617,
+      "baseDef": 397,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "effectHitRate%": 0.18,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1109",
     "name": "Hook",
     "quality": 4,
-    "element": "FIRE",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1341,
-        "BASE_ATK": 617,
-        "BASE_DEF": 353,
-        "BASE_SPD": 94,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_HP": 0.18,
-        "PERCENT_CD": 0.133
-      }
+    "element": "Fire",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1341,
+      "baseAtk": 617,
+      "baseDef": 353,
+      "baseSpd": 94
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "hp%": 0.18,
+      "critDmg%": 0.133
     }
   },
   {
     "id": "1201",
     "name": "Qingque",
     "quality": 4,
-    "element": "QUANTUM",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1023,
-        "BASE_ATK": 653,
-        "BASE_DEF": 441,
-        "BASE_SPD": 98,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_QUANTUM": 0.144,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Quantum",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 1023,
+      "baseAtk": 653,
+      "baseDef": 441,
+      "baseSpd": 98
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "quantumDmgBonus%": 0.144,
+      "def%": 0.125
     }
   },
   {
     "id": "1202",
     "name": "Tingyun",
     "quality": 4,
-    "element": "LIGHTNING",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 847,
-        "BASE_ATK": 529,
-        "BASE_DEF": 397,
-        "BASE_SPD": 112,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_DEF": 0.225,
-        "PERCENT_LIGHTNING": 0.08
-      }
+    "element": "Lightning",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 847,
+      "baseAtk": 529,
+      "baseDef": 397,
+      "baseSpd": 112
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "def%": 0.225,
+      "lightningDmgBonus%": 0.08
     }
   },
   {
     "id": "1204",
     "name": "Jing Yuan",
     "quality": 5,
-    "element": "LIGHTNING",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1164,
-        "BASE_ATK": 699,
-        "BASE_DEF": 485,
-        "BASE_SPD": 99,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_CR": 0.12,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Lightning",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 1164,
+      "baseAtk": 699,
+      "baseDef": 485,
+      "baseSpd": 99
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "critRate%": 0.12,
+      "def%": 0.125
     }
   },
   {
     "id": "1206",
     "name": "Sushang",
     "quality": 4,
-    "element": "PHYSICAL",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 917,
-        "BASE_ATK": 564,
-        "BASE_DEF": 419,
-        "BASE_SPD": 107,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_HP": 0.18,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Physical",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 917,
+      "baseAtk": 564,
+      "baseDef": 419,
+      "baseSpd": 107
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "hp%": 0.18,
+      "def%": 0.125
     }
   },
   {
     "id": "1209",
     "name": "Yanqing",
     "quality": 5,
-    "element": "ICE",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 893,
-        "BASE_ATK": 679,
-        "BASE_DEF": 412,
-        "BASE_SPD": 109,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_ICE": 0.144,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Ice",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 893,
+      "baseAtk": 679,
+      "baseDef": 412,
+      "baseSpd": 109
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "iceDmgBonus%": 0.144,
+      "hp%": 0.1
     }
   },
   {
     "id": "1211",
     "name": "Bailu",
     "quality": 5,
-    "element": "LIGHTNING",
-    "type": "ABUNDANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1319,
-        "BASE_ATK": 563,
-        "BASE_DEF": 485,
-        "BASE_SPD": 98,
-        "PERCENT_HP": 0.28,
-        "PERCENT_DEF": 0.225,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Lightning",
+    "type": "Abundance",
+    "baseStats": {
+      "baseHp": 1319,
+      "baseAtk": 563,
+      "baseDef": 485,
+      "baseSpd": 98
+    },
+    "ascensionStats": {
+      "hp%": 0.28,
+      "def%": 0.225,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1006",
     "name": "Silver Wolf",
     "quality": 5,
-    "element": "QUANTUM",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1048,
-        "BASE_ATK": 640,
-        "BASE_DEF": 461,
-        "BASE_SPD": 107,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_EHR": 0.18,
-        "PERCENT_QUANTUM": 0.08
-      }
+    "element": "Quantum",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 640,
+      "baseDef": 461,
+      "baseSpd": 107
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "effectHitRate%": 0.18,
+      "quantumDmgBonus%": 0.08
     }
   },
   {
     "id": "1203",
     "name": "Luocha",
     "quality": 5,
-    "element": "IMAGINARY",
-    "type": "ABUNDANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1281,
-        "BASE_ATK": 757,
-        "BASE_DEF": 364,
-        "BASE_SPD": 101,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_HP": 0.18,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Imaginary",
+    "type": "Abundance",
+    "baseStats": {
+      "baseHp": 1281,
+      "baseAtk": 757,
+      "baseDef": 364,
+      "baseSpd": 101
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "hp%": 0.18,
+      "def%": 0.125
     }
   },
   {
     "id": "1207",
     "name": "Yukong",
     "quality": 4,
-    "element": "IMAGINARY",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 917,
-        "BASE_ATK": 600,
-        "BASE_DEF": 375,
-        "BASE_SPD": 107,
-        "PERCENT_IMAGINARY": 0.224,
-        "PERCENT_HP": 0.18,
-        "PERCENT_ATK": 0.1
-      }
+    "element": "Imaginary",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 917,
+      "baseAtk": 600,
+      "baseDef": 375,
+      "baseSpd": 107
+    },
+    "ascensionStats": {
+      "imaginaryDmgBonus%": 0.224,
+      "hp%": 0.18,
+      "atk%": 0.1
     }
   },
   {
     "id": "1005",
     "name": "Kafka",
     "quality": 5,
-    "element": "LIGHTNING",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1087,
-        "BASE_ATK": 679,
-        "BASE_DEF": 485,
-        "BASE_SPD": 100,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_EHR": 0.18,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Lightning",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1087,
+      "baseAtk": 679,
+      "baseDef": 485,
+      "baseSpd": 100
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "effectHitRate%": 0.18,
+      "hp%": 0.1
     }
   },
   {
     "id": "1111",
     "name": "Luka",
     "quality": 4,
-    "element": "PHYSICAL",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 917,
-        "BASE_ATK": 582,
-        "BASE_DEF": 485,
-        "BASE_SPD": 103,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_EHR": 0.18,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Physical",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 917,
+      "baseAtk": 582,
+      "baseDef": 485,
+      "baseSpd": 103
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "effectHitRate%": 0.18,
+      "def%": 0.125
     }
   },
   {
     "id": "1205",
     "name": "Blade",
     "quality": 5,
-    "element": "WIND",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1358,
-        "BASE_ATK": 543,
-        "BASE_DEF": 485,
-        "BASE_SPD": 97,
-        "PERCENT_HP": 0.28,
-        "PERCENT_CR": 0.12,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Wind",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1358,
+      "baseAtk": 543,
+      "baseDef": 485,
+      "baseSpd": 97
+    },
+    "ascensionStats": {
+      "hp%": 0.28,
+      "critRate%": 0.12,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1110",
     "name": "Lynx",
     "quality": 4,
-    "element": "QUANTUM",
-    "type": "ABUNDANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1058,
-        "BASE_ATK": 494,
-        "BASE_DEF": 551,
-        "BASE_SPD": 100,
-        "PERCENT_HP": 0.28,
-        "PERCENT_DEF": 0.225,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Quantum",
+    "type": "Abundance",
+    "baseStats": {
+      "baseHp": 1058,
+      "baseAtk": 494,
+      "baseDef": 551,
+      "baseSpd": 100
+    },
+    "ascensionStats": {
+      "hp%": 0.28,
+      "def%": 0.225,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1208",
     "name": "Fu Xuan",
     "quality": 5,
-    "element": "QUANTUM",
-    "type": "PRESERVATION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1475,
-        "BASE_ATK": 466,
-        "BASE_DEF": 606,
-        "BASE_SPD": 100,
-        "PERCENT_CR": 0.187,
-        "PERCENT_HP": 0.18,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Quantum",
+    "type": "Preservation",
+    "baseStats": {
+      "baseHp": 1475,
+      "baseAtk": 466,
+      "baseDef": 606,
+      "baseSpd": 100
+    },
+    "ascensionStats": {
+      "critRate%": 0.187,
+      "hp%": 0.18,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1213",
-    "name": "Dan Heng • Imbibitor Lunae",
+    "name": "Dan Heng: Imbibitor Lunae",
     "quality": 5,
-    "element": "IMAGINARY",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1242,
-        "BASE_ATK": 699,
-        "BASE_DEF": 364,
-        "BASE_SPD": 102,
-        "PERCENT_IMAGINARY": 0.224,
-        "PERCENT_CR": 0.12,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Imaginary",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1242,
+      "baseAtk": 699,
+      "baseDef": 364,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "imaginaryDmgBonus%": 0.224,
+      "critRate%": 0.12,
+      "hp%": 0.1
     }
   },
   {
     "id": "1112",
     "name": "Topaz & Numby",
     "quality": 5,
-    "element": "FIRE",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 931,
-        "BASE_ATK": 621,
-        "BASE_DEF": 412,
-        "BASE_SPD": 110,
-        "PERCENT_FIRE": 0.224,
-        "PERCENT_CR": 0.12,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Fire",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 931,
+      "baseAtk": 621,
+      "baseDef": 412,
+      "baseSpd": 110
+    },
+    "ascensionStats": {
+      "fireDmgBonus%": 0.224,
+      "critRate%": 0.12,
+      "hp%": 0.1
     }
   },
   {
     "id": "1210",
     "name": "Guinaifen",
     "quality": 4,
-    "element": "FIRE",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 882,
-        "BASE_ATK": 582,
-        "BASE_DEF": 441,
-        "BASE_SPD": 106,
-        "PERCENT_FIRE": 0.224,
-        "PERCENT_BE": 0.24,
-        "PERCENT_EHR": 0.1
-      }
+    "element": "Fire",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 882,
+      "baseAtk": 582,
+      "baseDef": 441,
+      "baseSpd": 106
+    },
+    "ascensionStats": {
+      "fireDmgBonus%": 0.224,
+      "breakEffect%": 0.24,
+      "effectHitRate%": 0.1
     }
   },
   {
     "id": "1212",
     "name": "Jingliu",
     "quality": 5,
-    "element": "ICE",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1436,
-        "BASE_ATK": 679,
-        "BASE_DEF": 485,
-        "BASE_SPD": 96,
-        "PERCENT_CD": 0.373,
-        "FLAT_SPD": 9,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Ice",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1436,
+      "baseAtk": 679,
+      "baseDef": 485,
+      "baseSpd": 96
+    },
+    "ascensionStats": {
+      "critDmg%": 0.373,
+      "spd": 9,
+      "hp%": 0.1
     }
   },
   {
     "id": "1215",
     "name": "Hanya",
     "quality": 4,
-    "element": "PHYSICAL",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 917,
-        "BASE_ATK": 564,
-        "BASE_DEF": 353,
-        "BASE_SPD": 110,
-        "PERCENT_ATK": 0.28,
-        "FLAT_SPD": 9,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Physical",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 917,
+      "baseAtk": 564,
+      "baseDef": 353,
+      "baseSpd": 110
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "spd": 9,
+      "hp%": 0.1
     }
   },
   {
     "id": "1217",
     "name": "Huohuo",
     "quality": 5,
-    "element": "WIND",
-    "type": "ABUNDANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1358,
-        "BASE_ATK": 602,
-        "BASE_DEF": 509,
-        "BASE_SPD": 98,
-        "PERCENT_HP": 0.28,
-        "PERCENT_RES": 0.18,
-        "FLAT_SPD": 5
-      }
+    "element": "Wind",
+    "type": "Abundance",
+    "baseStats": {
+      "baseHp": 1358,
+      "baseAtk": 602,
+      "baseDef": 509,
+      "baseSpd": 98
+    },
+    "ascensionStats": {
+      "hp%": 0.28,
+      "effectRes%": 0.18,
+      "spd": 5
     }
   },
   {
     "id": "1302",
     "name": "Argenti",
     "quality": 5,
-    "element": "PHYSICAL",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1048,
-        "BASE_ATK": 737,
-        "BASE_DEF": 364,
-        "BASE_SPD": 103,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_PHYSICAL": 0.144,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Physical",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 737,
+      "baseDef": 364,
+      "baseSpd": 103
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "physicalDmgBonus%": 0.144,
+      "hp%": 0.1
     }
   },
   {
     "id": "1214",
     "name": "Xueyi",
     "quality": 4,
-    "element": "QUANTUM",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1058,
-        "BASE_ATK": 600,
-        "BASE_DEF": 397,
-        "BASE_SPD": 103,
-        "PERCENT_BE": 0.373,
-        "PERCENT_HP": 0.18,
-        "PERCENT_QUANTUM": 0.08
-      }
+    "element": "Quantum",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1058,
+      "baseAtk": 600,
+      "baseDef": 397,
+      "baseSpd": 103
+    },
+    "ascensionStats": {
+      "breakEffect%": 0.373,
+      "hp%": 0.18,
+      "quantumDmgBonus%": 0.08
     }
   },
   {
     "id": "1303",
     "name": "Ruan Mei",
     "quality": 5,
-    "element": "ICE",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1087,
-        "BASE_ATK": 660,
-        "BASE_DEF": 485,
-        "BASE_SPD": 104,
-        "PERCENT_BE": 0.373,
-        "PERCENT_DEF": 0.225,
-        "FLAT_SPD": 5
-      }
+    "element": "Ice",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 1087,
+      "baseAtk": 660,
+      "baseDef": 485,
+      "baseSpd": 104
+    },
+    "ascensionStats": {
+      "breakEffect%": 0.373,
+      "def%": 0.225,
+      "spd": 5
     }
   },
   {
     "id": "1305",
     "name": "Dr. Ratio",
     "quality": 5,
-    "element": "IMAGINARY",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1048,
-        "BASE_ATK": 776,
-        "BASE_DEF": 461,
-        "BASE_SPD": 103,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_CR": 0.12,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Imaginary",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 776,
+      "baseDef": 461,
+      "baseSpd": 103
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "critRate%": 0.12,
+      "def%": 0.125
     }
   },
   {
     "id": "1306",
     "name": "Sparkle",
     "quality": 5,
-    "element": "QUANTUM",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1397,
-        "BASE_ATK": 524,
-        "BASE_DEF": 485,
-        "BASE_SPD": 101,
-        "PERCENT_HP": 0.28,
-        "PERCENT_CD": 0.24,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Quantum",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 1397,
+      "baseAtk": 524,
+      "baseDef": 485,
+      "baseSpd": 101
+    },
+    "ascensionStats": {
+      "hp%": 0.28,
+      "critDmg%": 0.24,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1307",
     "name": "Black Swan",
     "quality": 5,
-    "element": "WIND",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1087,
-        "BASE_ATK": 660,
-        "BASE_DEF": 485,
-        "BASE_SPD": 102,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_WIND": 0.144,
-        "PERCENT_EHR": 0.1
-      }
+    "element": "Wind",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1087,
+      "baseAtk": 660,
+      "baseDef": 485,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "windDmgBonus%": 0.144,
+      "effectHitRate%": 0.1
     }
   },
   {
     "id": "1312",
     "name": "Misha",
     "quality": 4,
-    "element": "ICE",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1270,
-        "BASE_ATK": 600,
-        "BASE_DEF": 397,
-        "BASE_SPD": 96,
-        "PERCENT_ICE": 0.224,
-        "PERCENT_DEF": 0.225,
-        "PERCENT_CR": 0.067
-      }
+    "element": "Ice",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1270,
+      "baseAtk": 600,
+      "baseDef": 397,
+      "baseSpd": 96
+    },
+    "ascensionStats": {
+      "iceDmgBonus%": 0.224,
+      "def%": 0.225,
+      "critRate%": 0.067
     }
   },
   {
     "id": "1301",
     "name": "Gallagher",
     "quality": 4,
-    "element": "FIRE",
-    "type": "ABUNDANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1305,
-        "BASE_ATK": 529,
-        "BASE_DEF": 441,
-        "BASE_SPD": 98,
-        "PERCENT_RES": 0.28,
-        "PERCENT_BE": 0.133,
-        "PERCENT_HP": 0.18
-      }
+    "element": "Fire",
+    "type": "Abundance",
+    "baseStats": {
+      "baseHp": 1305,
+      "baseAtk": 529,
+      "baseDef": 441,
+      "baseSpd": 98
+    },
+    "ascensionStats": {
+      "effectRes%": 0.28,
+      "breakEffect%": 0.133,
+      "hp%": 0.18
     }
   },
   {
     "id": "1304",
     "name": "Aventurine",
     "quality": 5,
-    "element": "IMAGINARY",
-    "type": "PRESERVATION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1203,
-        "BASE_ATK": 446,
-        "BASE_DEF": 655,
-        "BASE_SPD": 106,
-        "PERCENT_DEF": 0.35,
-        "PERCENT_IMAGINARY": 0.144,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Imaginary",
+    "type": "Preservation",
+    "baseStats": {
+      "baseHp": 1203,
+      "baseAtk": 446,
+      "baseDef": 655,
+      "baseSpd": 106
+    },
+    "ascensionStats": {
+      "def%": 0.35,
+      "imaginaryDmgBonus%": 0.144,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1308",
     "name": "Acheron",
     "quality": 5,
-    "element": "LIGHTNING",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1125,
-        "BASE_ATK": 699,
-        "BASE_DEF": 437,
-        "BASE_SPD": 101,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_CD": 0.24,
-        "PERCENT_LIGHTNING": 0.08
-      }
+    "element": "Lightning",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1125,
+      "baseAtk": 699,
+      "baseDef": 437,
+      "baseSpd": 101
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "critDmg%": 0.24,
+      "lightningDmgBonus%": 0.08
     }
   },
   {
     "id": "1309",
     "name": "Robin",
     "quality": 5,
-    "element": "PHYSICAL",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1281,
-        "BASE_ATK": 640,
-        "BASE_DEF": 485,
-        "BASE_SPD": 102,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_HP": 0.18,
-        "FLAT_SPD": 5
-      }
+    "element": "Physical",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 1281,
+      "baseAtk": 640,
+      "baseDef": 485,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "hp%": 0.18,
+      "spd": 5
     }
   },
   {
     "id": "1315",
     "name": "Boothill",
     "quality": 5,
-    "element": "PHYSICAL",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1203,
-        "BASE_ATK": 621,
-        "BASE_DEF": 437,
-        "BASE_SPD": 107,
-        "PERCENT_BE": 0.373,
-        "PERCENT_ATK": 0.18,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Physical",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 1203,
+      "baseAtk": 621,
+      "baseDef": 437,
+      "baseSpd": 107
+    },
+    "ascensionStats": {
+      "breakEffect%": 0.373,
+      "atk%": 0.18,
+      "hp%": 0.1
     }
   },
   {
     "id": "1310",
     "name": "Firefly",
     "quality": 5,
-    "element": "FIRE",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 815,
-        "BASE_ATK": 524,
-        "BASE_DEF": 776,
-        "BASE_SPD": 104,
-        "PERCENT_BE": 0.373,
-        "PERCENT_RES": 0.18,
-        "FLAT_SPD": 5
-      }
+    "element": "Fire",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 815,
+      "baseAtk": 524,
+      "baseDef": 776,
+      "baseSpd": 104
+    },
+    "ascensionStats": {
+      "breakEffect%": 0.373,
+      "effectRes%": 0.18,
+      "spd": 5
     }
   },
   {
     "id": "1314",
     "name": "Jade",
     "quality": 5,
-    "element": "QUANTUM",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1087,
-        "BASE_ATK": 660,
-        "BASE_DEF": 509,
-        "BASE_SPD": 103,
-        "PERCENT_QUANTUM": 0.224,
-        "PERCENT_ATK": 0.18,
-        "PERCENT_RES": 0.1
-      }
+    "element": "Quantum",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 1087,
+      "baseAtk": 660,
+      "baseDef": 509,
+      "baseSpd": 103
+    },
+    "ascensionStats": {
+      "quantumDmgBonus%": 0.224,
+      "atk%": 0.18,
+      "effectRes%": 0.1
     }
   },
   {
     "id": "1218",
     "name": "Jiaoqiu",
     "quality": 5,
-    "element": "FIRE",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1358,
-        "BASE_ATK": 602,
-        "BASE_DEF": 509,
-        "BASE_SPD": 98,
-        "PERCENT_EHR": 0.28,
-        "PERCENT_FIRE": 0.144,
-        "FLAT_SPD": 5
-      }
+    "element": "Fire",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1358,
+      "baseAtk": 602,
+      "baseDef": 509,
+      "baseSpd": 98
+    },
+    "ascensionStats": {
+      "effectHitRate%": 0.28,
+      "fireDmgBonus%": 0.144,
+      "spd": 5
     }
   },
   {
     "id": "1221",
     "name": "Yunli",
     "quality": 5,
-    "element": "PHYSICAL",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1358,
-        "BASE_ATK": 679,
-        "BASE_DEF": 461,
-        "BASE_SPD": 94,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_HP": 0.18,
-        "PERCENT_CR": 0.067
-      }
+    "element": "Physical",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1358,
+      "baseAtk": 679,
+      "baseDef": 461,
+      "baseSpd": 94
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "hp%": 0.18,
+      "critRate%": 0.067
     }
   },
   {
     "id": "1224",
     "name": "March 7th",
     "quality": 4,
-    "element": "IMAGINARY",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1058,
-        "BASE_ATK": 564,
-        "BASE_DEF": 441,
-        "BASE_SPD": 102,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_CD": 0.24,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Imaginary",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 1058,
+      "baseAtk": 564,
+      "baseDef": 441,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "critDmg%": 0.24,
+      "def%": 0.125
     }
   },
   {
     "id": "1220",
     "name": "Feixiao",
     "quality": 5,
-    "element": "WIND",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1048,
-        "BASE_ATK": 602,
-        "BASE_DEF": 388,
-        "BASE_SPD": 112,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_CR": 0.12,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Wind",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 602,
+      "baseDef": 388,
+      "baseSpd": 112
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "critRate%": 0.12,
+      "def%": 0.125
     }
   },
   {
     "id": "1222",
     "name": "Lingsha",
     "quality": 5,
-    "element": "FIRE",
-    "type": "ABUNDANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1358,
-        "BASE_ATK": 679,
-        "BASE_DEF": 437,
-        "BASE_SPD": 98,
-        "PERCENT_BE": 0.373,
-        "PERCENT_HP": 0.18,
-        "PERCENT_ATK": 0.1
-      }
+    "element": "Fire",
+    "type": "Abundance",
+    "baseStats": {
+      "baseHp": 1358,
+      "baseAtk": 679,
+      "baseDef": 437,
+      "baseSpd": 98
+    },
+    "ascensionStats": {
+      "breakEffect%": 0.373,
+      "hp%": 0.18,
+      "atk%": 0.1
     }
   },
   {
     "id": "1223",
     "name": "Moze",
     "quality": 4,
-    "element": "LIGHTNING",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 811,
-        "BASE_ATK": 600,
-        "BASE_DEF": 353,
-        "BASE_SPD": 111,
-        "PERCENT_CD": 0.373,
-        "PERCENT_ATK": 0.18,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Lightning",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 811,
+      "baseAtk": 600,
+      "baseDef": 353,
+      "baseSpd": 111
+    },
+    "ascensionStats": {
+      "critDmg%": 0.373,
+      "atk%": 0.18,
+      "hp%": 0.1
     }
   },
   {
     "id": "1317",
     "name": "Rappa",
     "quality": 5,
-    "element": "IMAGINARY",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1087,
-        "BASE_ATK": 718,
-        "BASE_DEF": 461,
-        "BASE_SPD": 96,
-        "PERCENT_ATK": 0.28,
-        "FLAT_SPD": 9,
-        "PERCENT_BE": 0.133
-      }
+    "element": "Imaginary",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 1087,
+      "baseAtk": 718,
+      "baseDef": 461,
+      "baseSpd": 96
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "spd": 9,
+      "breakEffect%": 0.133
     }
   },
   {
     "id": "1225",
     "name": "Fugue",
     "quality": 5,
-    "element": "FIRE",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1125,
-        "BASE_ATK": 582,
-        "BASE_DEF": 558,
-        "BASE_SPD": 102,
-        "FLAT_SPD": 14,
-        "PERCENT_BE": 0.24,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Fire",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1125,
+      "baseAtk": 582,
+      "baseDef": 558,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "spd": 14,
+      "breakEffect%": 0.24,
+      "hp%": 0.1
     }
   },
   {
     "id": "1313",
     "name": "Sunday",
     "quality": 5,
-    "element": "IMAGINARY",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1242,
-        "BASE_ATK": 640,
-        "BASE_DEF": 534,
-        "BASE_SPD": 96,
-        "PERCENT_CD": 0.373,
-        "PERCENT_RES": 0.18,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Imaginary",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 1242,
+      "baseAtk": 640,
+      "baseDef": 534,
+      "baseSpd": 96
+    },
+    "ascensionStats": {
+      "critDmg%": 0.373,
+      "effectRes%": 0.18,
+      "def%": 0.125
     }
   },
   {
     "id": "1401",
     "name": "The Herta",
     "quality": 5,
-    "element": "ICE",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1164,
-        "BASE_ATK": 679,
-        "BASE_DEF": 485,
-        "BASE_SPD": 99,
-        "PERCENT_ICE": 0.224,
-        "PERCENT_ATK": 0.18,
-        "FLAT_SPD": 5
-      }
+    "element": "Ice",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 1164,
+      "baseAtk": 679,
+      "baseDef": 485,
+      "baseSpd": 99
+    },
+    "ascensionStats": {
+      "iceDmgBonus%": 0.224,
+      "atk%": 0.18,
+      "spd": 5
     }
   },
   {
     "id": "1402",
     "name": "Aglaea",
     "quality": 5,
-    "element": "LIGHTNING",
-    "type": "REMEMBRANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1242,
-        "BASE_ATK": 699,
-        "BASE_DEF": 485,
-        "BASE_SPD": 102,
-        "PERCENT_LIGHTNING": 0.224,
-        "PERCENT_CR": 0.12,
-        "PERCENT_DEF": 0.125
-      }
+    "element": "Lightning",
+    "type": "Remembrance",
+    "baseStats": {
+      "baseHp": 1242,
+      "baseAtk": 699,
+      "baseDef": 485,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "lightningDmgBonus%": 0.224,
+      "critRate%": 0.12,
+      "def%": 0.125
     }
   },
   {
     "id": "1403",
     "name": "Tribbie",
     "quality": 5,
-    "element": "QUANTUM",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1048,
-        "BASE_ATK": 524,
-        "BASE_DEF": 728,
-        "BASE_SPD": 96,
-        "PERCENT_CD": 0.373,
-        "PERCENT_CR": 0.12,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Quantum",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 524,
+      "baseDef": 728,
+      "baseSpd": 96
+    },
+    "ascensionStats": {
+      "critDmg%": 0.373,
+      "critRate%": 0.12,
+      "hp%": 0.1
     }
   },
   {
     "id": "1404",
     "name": "Mydei",
     "quality": 5,
-    "element": "IMAGINARY",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1552,
-        "BASE_ATK": 427,
-        "BASE_DEF": 194,
-        "BASE_SPD": 95,
-        "PERCENT_CD": 0.373,
-        "PERCENT_HP": 0.18,
-        "FLAT_SPD": 5
-      }
+    "element": "Imaginary",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1552,
+      "baseAtk": 427,
+      "baseDef": 194,
+      "baseSpd": 95
+    },
+    "ascensionStats": {
+      "critDmg%": 0.373,
+      "hp%": 0.18,
+      "spd": 5
     }
   },
   {
     "id": "1405",
     "name": "Anaxa",
     "quality": 5,
-    "element": "WIND",
-    "type": "ERUDITION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 970,
-        "BASE_ATK": 757,
-        "BASE_DEF": 558,
-        "BASE_SPD": 97,
-        "PERCENT_WIND": 0.224,
-        "PERCENT_CR": 0.12,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Wind",
+    "type": "Erudition",
+    "baseStats": {
+      "baseHp": 970,
+      "baseAtk": 757,
+      "baseDef": 558,
+      "baseSpd": 97
+    },
+    "ascensionStats": {
+      "windDmgBonus%": 0.224,
+      "critRate%": 0.12,
+      "hp%": 0.1
     }
   },
   {
     "id": "1407",
     "name": "Castorice",
     "quality": 5,
-    "element": "QUANTUM",
-    "type": "REMEMBRANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1630,
-        "BASE_ATK": 524,
-        "BASE_DEF": 485,
-        "BASE_SPD": 95,
-        "PERCENT_CR": 0.187,
-        "PERCENT_QUANTUM": 0.144,
-        "PERCENT_CD": 0.133
-      }
+    "element": "Quantum",
+    "type": "Remembrance",
+    "baseStats": {
+      "baseHp": 1630,
+      "baseAtk": 524,
+      "baseDef": 485,
+      "baseSpd": 95
+    },
+    "ascensionStats": {
+      "critRate%": 0.187,
+      "quantumDmgBonus%": 0.144,
+      "critDmg%": 0.133
     }
   },
   {
     "id": "1406",
     "name": "Cipher",
     "quality": 5,
-    "element": "QUANTUM",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 931,
-        "BASE_ATK": 640,
-        "BASE_DEF": 509,
-        "BASE_SPD": 106,
-        "FLAT_SPD": 14,
-        "PERCENT_QUANTUM": 0.144,
-        "PERCENT_EHR": 0.1
-      }
+    "element": "Quantum",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 931,
+      "baseAtk": 640,
+      "baseDef": 509,
+      "baseSpd": 106
+    },
+    "ascensionStats": {
+      "spd": 14,
+      "quantumDmgBonus%": 0.144,
+      "effectHitRate%": 0.1
     }
   },
   {
     "id": "1409",
     "name": "Hyacine",
     "quality": 5,
-    "element": "WIND",
-    "type": "REMEMBRANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1087,
-        "BASE_ATK": 388,
-        "BASE_DEF": 631,
-        "BASE_SPD": 110,
-        "FLAT_SPD": 14,
-        "PERCENT_RES": 0.18,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Wind",
+    "type": "Remembrance",
+    "baseStats": {
+      "baseHp": 1087,
+      "baseAtk": 388,
+      "baseDef": 631,
+      "baseSpd": 110
+    },
+    "ascensionStats": {
+      "spd": 14,
+      "effectRes%": 0.18,
+      "hp%": 0.1
     }
   },
   {
     "id": "1014",
     "name": "Saber",
     "quality": 5,
-    "element": "WIND",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1242,
-        "BASE_ATK": 602,
-        "BASE_DEF": 655,
-        "BASE_SPD": 101,
-        "PERCENT_WIND": 0.224,
-        "PERCENT_CR": 0.12,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Wind",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1242,
+      "baseAtk": 602,
+      "baseDef": 655,
+      "baseSpd": 101
+    },
+    "ascensionStats": {
+      "windDmgBonus%": 0.224,
+      "critRate%": 0.12,
+      "hp%": 0.1
     }
   },
   {
     "id": "1015",
     "name": "Archer",
     "quality": 5,
-    "element": "QUANTUM",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1164,
-        "BASE_ATK": 621,
-        "BASE_DEF": 485,
-        "BASE_SPD": 105,
-        "PERCENT_QUANTUM": 0.224,
-        "PERCENT_ATK": 0.18,
-        "PERCENT_CR": 0.067
-      }
+    "element": "Quantum",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 1164,
+      "baseAtk": 621,
+      "baseDef": 485,
+      "baseSpd": 105
+    },
+    "ascensionStats": {
+      "quantumDmgBonus%": 0.224,
+      "atk%": 0.18,
+      "critRate%": 0.067
     }
   },
   {
     "id": "1408",
     "name": "Phainon",
     "quality": 5,
-    "element": "PHYSICAL",
-    "type": "DESTRUCTION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1436,
-        "BASE_ATK": 582,
-        "BASE_DEF": 703,
-        "BASE_SPD": 94,
-        "PERCENT_CD": 0.373,
-        "PERCENT_CR": 0.12,
-        "FLAT_SPD": 5
-      }
+    "element": "Physical",
+    "type": "Destruction",
+    "baseStats": {
+      "baseHp": 1436,
+      "baseAtk": 582,
+      "baseDef": 703,
+      "baseSpd": 94
+    },
+    "ascensionStats": {
+      "critDmg%": 0.373,
+      "critRate%": 0.12,
+      "spd": 5
     }
   },
   {
     "id": "1410",
     "name": "Hysilens",
     "quality": 5,
-    "element": "PHYSICAL",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1203,
-        "BASE_ATK": 602,
-        "BASE_DEF": 485,
-        "BASE_SPD": 102,
-        "FLAT_SPD": 14,
-        "PERCENT_ATK": 0.18,
-        "PERCENT_EHR": 0.1
-      }
+    "element": "Physical",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1203,
+      "baseAtk": 602,
+      "baseDef": 485,
+      "baseSpd": 102
+    },
+    "ascensionStats": {
+      "spd": 14,
+      "atk%": 0.18,
+      "effectHitRate%": 0.1
     }
   },
   {
     "id": "1412",
     "name": "Cerydra",
     "quality": 5,
-    "element": "WIND",
-    "type": "HARMONY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1358,
-        "BASE_ATK": 621,
-        "BASE_DEF": 485,
-        "BASE_SPD": 99,
-        "PERCENT_WIND": 0.224,
-        "PERCENT_ATK": 0.18,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Wind",
+    "type": "Harmony",
+    "baseStats": {
+      "baseHp": 1358,
+      "baseAtk": 621,
+      "baseDef": 485,
+      "baseSpd": 99
+    },
+    "ascensionStats": {
+      "windDmgBonus%": 0.224,
+      "atk%": 0.18,
+      "hp%": 0.1
     }
   },
   {
     "id": "1413",
     "name": "Evernight",
     "quality": 5,
-    "element": "ICE",
-    "type": "REMEMBRANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1319,
-        "BASE_ATK": 543,
-        "BASE_DEF": 582,
-        "BASE_SPD": 99,
-        "PERCENT_CR": 0.187,
-        "PERCENT_HP": 0.18,
-        "PERCENT_CD": 0.133
-      }
+    "element": "Ice",
+    "type": "Remembrance",
+    "baseStats": {
+      "baseHp": 1319,
+      "baseAtk": 543,
+      "baseDef": 582,
+      "baseSpd": 99
+    },
+    "ascensionStats": {
+      "critRate%": 0.187,
+      "hp%": 0.18,
+      "critDmg%": 0.133
     }
   },
   {
     "id": "1414",
-    "name": "Dan Heng • Permansor Terrae",
+    "name": "Dan Heng \u00e2\u20ac\u00a2 Permansor Terrae",
     "quality": 5,
-    "element": "PHYSICAL",
-    "type": "PRESERVATION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1048,
-        "BASE_ATK": 582,
-        "BASE_DEF": 776,
-        "BASE_SPD": 97,
-        "PERCENT_ATK": 0.28,
-        "PERCENT_DEF": 0.225,
-        "FLAT_SPD": 5
-      }
+    "element": "Physical",
+    "type": "Preservation",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 582,
+      "baseDef": 776,
+      "baseSpd": 97
+    },
+    "ascensionStats": {
+      "atk%": 0.28,
+      "def%": 0.225,
+      "spd": 5
     }
   },
   {
     "id": "1415",
     "name": "Cyrene",
     "quality": 5,
-    "element": "ICE",
-    "type": "REMEMBRANCE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1397,
-        "BASE_ATK": 446,
-        "BASE_DEF": 582,
-        "BASE_SPD": 101,
-        "PERCENT_CD": 0.373,
-        "FLAT_SPD": 9,
-        "PERCENT_HP": 0.1
-      }
+    "element": "Ice",
+    "type": "Remembrance",
+    "baseStats": {
+      "baseHp": 1397,
+      "baseAtk": 446,
+      "baseDef": 582,
+      "baseSpd": 101
+    },
+    "ascensionStats": {
+      "critDmg%": 0.373,
+      "spd": 9,
+      "hp%": 0.1
     }
   },
   {
     "id": "1321",
     "name": "The Dahlia",
     "quality": 5,
-    "element": "FIRE",
-    "type": "NIHILITY",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1087,
-        "BASE_ATK": 679,
-        "BASE_DEF": 606,
-        "BASE_SPD": 96,
-        "PERCENT_BE": 0.373,
-        "PERCENT_RES": 0.18,
-        "FLAT_SPD": 5
-      }
+    "element": "Fire",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1087,
+      "baseAtk": 679,
+      "baseDef": 606,
+      "baseSpd": 96
+    },
+    "ascensionStats": {
+      "breakEffect%": 0.373,
+      "effectRes%": 0.18,
+      "spd": 5
     }
   },
   {
     "id": "1501",
     "name": "Sparxie",
     "quality": 5,
-    "element": "FIRE",
-    "type": "ELATION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1048,
-        "BASE_ATK": 640,
-        "BASE_DEF": 461,
-        "BASE_SPD": 107,
-        "PERCENT_ELATION": 0.28,
-        "PERCENT_CR": 0.12,
-        "PERCENT_CD": 0.133
-      }
+    "element": "Fire",
+    "type": "Elation",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 640,
+      "baseDef": 461,
+      "baseSpd": 107
+    },
+    "ascensionStats": {
+      "elation%": 0.28,
+      "critRate%": 0.12,
+      "critDmg%": 0.133
     }
   },
   {
     "id": "1502",
     "name": "Yao Guang",
     "quality": 5,
-    "element": "PHYSICAL",
-    "type": "ELATION",
-    "stats": {
-      "constant": {
-        "BASE_HP": 1242,
-        "BASE_ATK": 466,
-        "BASE_DEF": 655,
-        "BASE_SPD": 101,
-        "PERCENT_CR": 0.187,
-        "FLAT_SPD": 9,
-        "PERCENT_ELATION": 0.1
-      }
+    "element": "Physical",
+    "type": "Elation",
+    "baseStats": {
+      "baseHp": 1242,
+      "baseAtk": 466,
+      "baseDef": 655,
+      "baseSpd": 101
+    },
+    "ascensionStats": {
+      "critRate%": 0.187,
+      "spd": 9,
+      "elation%": 0.1
     }
   },
   {
     "id": "1504",
     "name": "Ashveil",
     "quality": 5,
-    "element": "LIGHTNING",
-    "type": "HUNT",
-    "stats": {
-      "constant": {
-        "BASE_HP": 854,
-        "BASE_ATK": 776,
-        "BASE_DEF": 388,
-        "BASE_SPD": 106,
-        "PERCENT_CD": 0.373,
-        "PERCENT_LIGHTNING": 0.144,
-        "PERCENT_ATK": 0.1
-      }
+    "element": "Lightning",
+    "type": "Hunt",
+    "baseStats": {
+      "baseHp": 854,
+      "baseAtk": 776,
+      "baseDef": 388,
+      "baseSpd": 106
+    },
+    "ascensionStats": {
+      "critDmg%": 0.373,
+      "lightningDmgBonus%": 0.144,
+      "atk%": 0.1
+    }
+  },
+  {
+    "id": "1505",
+    "name": "Evanescia",
+    "quality": 5,
+    "element": "Physical",
+    "type": "Elation",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 737,
+      "baseDef": 461,
+      "baseSpd": 104
+    },
+    "ascensionStats": {
+      "critRate%": 0.187,
+      "elation%": 0.18,
+      "spd": 5
+    }
+  },
+  {
+    "id": "1506",
+    "name": "Silver Wolf LV.<unbreak>999</unbreak>",
+    "quality": 5,
+    "element": "Imaginary",
+    "type": "Elation",
+    "baseStats": {
+      "baseHp": 1048,
+      "baseAtk": 388,
+      "baseDef": 655,
+      "baseSpd": 110
+    },
+    "ascensionStats": {
+      "critRate%": 0.187,
+      "spd": 9,
+      "elation%": 0.1
+    }
+  },
+  {
+    "id": "1507",
+    "name": "Mortenax Blade",
+    "quality": 5,
+    "element": "Fire",
+    "type": "Nihility",
+    "baseStats": {
+      "baseHp": 1358,
+      "baseAtk": 543,
+      "baseDef": 485,
+      "baseSpd": 107
+    },
+    "ascensionStats": {
+      "fireDmgBonus%": 0.224,
+      "critRate%": 0.12,
+      "hp%": 0.1
     }
   }
 ]

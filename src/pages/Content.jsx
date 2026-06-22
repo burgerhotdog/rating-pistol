@@ -23,12 +23,12 @@ export const Content = () => {
     isLoading,
     diff,
     simCharacter,
-    teamFinalStats,
     actionMap,
     actionMapsWithSub,
     currentMember,
     trial,
     statusMessage,
+    cache,
   } = useSimulation(team);
 
   return (
@@ -62,9 +62,9 @@ export const Content = () => {
                 weeklyScores={weeklyScores}
                 weeklyDistribution={weeklyDistribution}
                 isLoading={isLoading}
-                teamFinalStats={teamFinalStats}
                 team={team}
                 actionMap={actionMap}
+                cache={cache}
               />
             </Box>
 

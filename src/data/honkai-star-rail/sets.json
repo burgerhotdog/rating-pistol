@@ -2,33 +2,28 @@
   {
     "id": "101",
     "name": "Passerby of Wandering Cloud",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_OHB": 0.1
-          }
+        "statMap": {
+          "outgoingHealingBoost%": 0.1
         }
-      }
+      },
+      "4": {}
     }
   },
   {
     "id": "102",
     "name": "Musketeer of Wild Wheat",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.12
-          }
+        "statMap": {
+          "atk%": 0.12
         }
       },
       "4": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPD": 0.06,
-            "PERCENT_BA": 0.1
-          }
+        "statMap": {
+          "spd%": 0.06,
+          "basicAtkDmgBonus%": 0.1
         }
       }
     }
@@ -36,12 +31,15 @@
   {
     "id": "103",
     "name": "Knight of Purity Palace",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_DEF": 0.15
-          }
+        "statMap": {
+          "def%": 0.15
+        }
+      },
+      "4": {
+        "statMap": {
+          "shieldBonus%": 0.2
         }
       }
     }
@@ -49,19 +47,17 @@
   {
     "id": "104",
     "name": "Hunter of Glacial Forest",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ICE": 0.1
-          }
+        "statMap": {
+          "iceDmgBonus%": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.25
-          }
+        "applyWhen": "cast",
+        "applyOnSkillType": "ultimate",
+        "statMap": {
+          "critDmg%": 0.25
         }
       }
     }
@@ -69,68 +65,69 @@
   {
     "id": "105",
     "name": "Champion of Streetwise Boxing",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_PHYSICAL": 0.1
-          }
+        "statMap": {
+          "physicalDmgBonus%": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.25
-          }
-        }
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "statMap": {
+          "atk%": 0.05
+        },
+        "maxStacks": 5
       }
     }
   },
   {
     "id": "106",
-    "name": "Guard of Wuthering Snow"
+    "name": "Guard of Wuthering Snow",
+    "tieredEffects": {
+      "2": {},
+      "4": {}
+    }
   },
   {
     "id": "107",
     "name": "Firesmith of Lava-Forging",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_FIRE": 0.1
-          }
+        "statMap": {
+          "fireDmgBonus%": 0.1
         }
       },
-      "4": {
-        "stats": {
-          "constant": {
-            "PERCENT_S": 0.12
+      "4": [
+        {
+          "statMap": {
+            "skillDmgBonus%": 0.12
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_FIRE": 0.12
-          }
+        {
+          "applyWhen": "hit",
+          "applyOnSkillType": "ultimate",
+          "useOnType": "damage",
+          "statMap": {
+            "fireDmgBonus%": 0.12
+          },
+          "maxUses": 1
         }
-      }
+      ]
     }
   },
   {
     "id": "108",
     "name": "Genius of Brilliant Stars",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_QUANTUM": 0.1
-          }
+        "statMap": {
+          "quantumDmgBonus%": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "DEF_IGNORE": 0.2
-          }
+        "statMap": {
+          "defIgnore%": 0.2
         }
       }
     }
@@ -138,52 +135,46 @@
   {
     "id": "109",
     "name": "Band of Sizzling Thunder",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_LIGHTNING": 0.1
-          }
+        "statMap": {
+          "lightningDmgBonus%": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.2
-          }
-        }
+        "applyWhen": "cast",
+        "applyOnSkillType": "skill",
+        "statMap": {
+          "atk%": 0.2
+        },
+        "maxUses": 1
       }
     }
   },
   {
     "id": "110",
     "name": "Eagle of Twilight Line",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_WIND": 0.1
-          }
+        "statMap": {
+          "windDmgBonus%": 0.1
         }
-      }
+      },
+      "4": {}
     }
   },
   {
     "id": "111",
     "name": "Thief of Shooting Meteor",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_BE": 0.16
-          }
+        "statMap": {
+          "breakEffect%": 0.16
         }
       },
       "4": {
-        "stats": {
-          "constant": {
-            "PERCENT_BE": 0.16
-          }
+        "statMap": {
+          "breakEffect%": 0.16
         }
       }
     }
@@ -191,20 +182,16 @@
   {
     "id": "112",
     "name": "Wastelander of Banditry Desert",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_IMAGINARY": 0.1
-          }
+        "statMap": {
+          "imaginaryDmgBonus%": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.1,
-            "PERCENT_CD": 0.2
-          }
+        "statMap": {
+          "critRate%": 0.1,
+          "critDmg%": 0.2
         }
       }
     }
@@ -212,91 +199,97 @@
   {
     "id": "301",
     "name": "Space Sealing Station",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.12
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.12
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.12
+        {
+          "useIfAttr": {
+            "spd": 120
+          },
+          "statMap": {
+            "atk%": 0.12
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "302",
     "name": "Fleet of the Ageless",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HP": 0.12
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hp%": 0.12
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.08
+        {
+          "applyTo": "team",
+          "useIfAttr": {
+            "spd": 120
+          },
+          "statMap": {
+            "atk%": 0.08
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "303",
     "name": "Pan-Cosmic Commercial Enterprise",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_EHR": 0.1
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "effectHitRate%": 0.1
           }
         },
-        "buffs": {
-          "variable": {
-            "PERCENT_ATK": {
-              "source": [
-                "EHR",
-                0.01
-              ],
+        {
+          "variableStatMap": {
+            "atk%": {
+              "attr": "effectHitRate%",
+              "step": 0.01,
               "value": 0.0025,
               "max": 0.25
             }
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "304",
     "name": "Belobog of the Architects",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_DEF": 0.15
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "def%": 0.15
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_DEF": 0.15
+        {
+          "useIfAttr": {
+            "effectHitRate%": 0.5
+          },
+          "statMap": {
+            "def%": 0.15
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "305",
     "name": "Celestial Differentiator",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CD": 0.16
-          }
+        "statMap": {
+          "critDmg%": 0.16
         }
       }
     }
@@ -304,49 +297,53 @@
   {
     "id": "306",
     "name": "Inert Salsotto",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CR": 0.08
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critRate%": 0.08
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_U": 0.15,
-            "PERCENT_FUA": 0.15
+        {
+          "useIfAttr": {
+            "critRate%": 0.5
+          },
+          "statMap": {
+            "ultimateDmgBonus%": 0.15,
+            "follow-upAttackDmgBonus%": 0.15
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "307",
     "name": "Talia: Kingdom of Banditry",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_BE": 0.16
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "breakEffect%": 0.16
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_BE": 0.2
+        {
+          "useIfAttr": {
+            "spd": 145
+          },
+          "statMap": {
+            "breakEffect%": 0.2
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "308",
     "name": "Sprightly Vonwacq",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ERR": 0.05
-          }
+        "statMap": {
+          "energyRegenerationRate%": 0.05
         }
       }
     }
@@ -354,19 +351,15 @@
   {
     "id": "113",
     "name": "Longevous Disciple",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HP": 0.2
-          }
+        "statMap": {
+          "hp%": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.16
-          }
+        "statMap": {
+          "critRate%": 0.16
         }
       }
     }
@@ -374,69 +367,71 @@
   {
     "id": "114",
     "name": "Messenger Traversing Hackerspace",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPD": 0.06
-          }
+        "statMap": {
+          "spd%": 0.06
         }
-      }
+      },
+      "4": {}
     }
   },
   {
     "id": "309",
     "name": "Rutilant Arena",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CR": 0.08
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critRate%": 0.08
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_BA": 0.2,
-            "PERCENT_S": 0.2
+        {
+          "useIfAttr": {
+            "critRate%": 0.7
+          },
+          "statMap": {
+            "basicAtkDmgBonus%": 0.2,
+            "skillDmgBonus%": 0.2
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "310",
     "name": "Broken Keel",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_RES": 0.1
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "effectRes%": 0.1
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.1
+        {
+          "applyTo": "team",
+          "useIfAttr": {
+            "effectRes%": 0.3
+          },
+          "statMap": {
+            "critDmg%": 0.1
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "115",
     "name": "The Ashblazing Grand Duke",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_FUA": 0.2
-          }
+        "statMap": {
+          "follow-upAttackDmgBonus%": 0.2
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.48
-          }
+        "statMap": {
+          "atk%": 0.48
         }
       }
     }
@@ -444,19 +439,15 @@
   {
     "id": "116",
     "name": "Prisoner in Deep Confinement",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.12
-          }
+        "statMap": {
+          "atk%": 0.12
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "DEF_IGNORE": 0.18
-          }
+        "statMap": {
+          "defIgnore%": 0.18
         }
       }
     }
@@ -464,30 +455,39 @@
   {
     "id": "311",
     "name": "Firmament Frontline: Glamoth",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.12
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.12
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.18
+        {
+          "useIfAttr": {
+            "spd": 135
+          },
+          "statMap": {
+            "dmgBonus%": 0.12
+          }
+        },
+        {
+          "useIfAttr": {
+            "spd": 160
+          },
+          "statMap": {
+            "dmgBonus%": 0.06
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "312",
     "name": "Penacony, Land of the Dreams",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ERR": 0.05
-          }
+        "statMap": {
+          "energyRegenerationRate%": 0.05
         }
       }
     }
@@ -495,45 +495,40 @@
   {
     "id": "117",
     "name": "Pioneer Diver of Dead Waters",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.12
-          }
+        "statMap": {
+          "dmgBonus%": 0.12
         }
       },
-      "4": {
-        "stats": {
-          "constant": {
-            "PERCENT_CR": 0.04
+      "4": [
+        {
+          "statMap": {
+            "critRate%": 0.04
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.04,
-            "PERCENT_CD": 0.24
+        {
+          "statMap": {
+            "critRate%": 0.04,
+            "critDmg%": 0.24
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "118",
     "name": "Watchmaker, Master of Dream Machinations",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_BE": 0.16
-          }
+        "statMap": {
+          "breakEffect%": 0.16
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.3
-          }
+        "applyTo": "team",
+        "statMap": {
+          "breakEffect%": 0.3
         }
       }
     }
@@ -541,55 +536,51 @@
   {
     "id": "313",
     "name": "Sigonia, the Unclaimed Desolation",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CR": 0.04
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critRate%": 0.04
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.40
+        {
+          "statMap": {
+            "critDmg%": 0.4
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "314",
     "name": "Izumo Gensei and Takama Divine Realm",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.12
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.12
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.12
+        {
+          "statMap": {
+            "critRate%": 0.12
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "119",
     "name": "Iron Cavalry Against the Scourge",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_BE": 0.16
-          }
+        "statMap": {
+          "breakEffect%": 0.16
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "DEF_IGNORE": 0.25
-          }
+        "statMap": {
+          "defIgnore%": 0.25
         }
       }
     }
@@ -597,38 +588,36 @@
   {
     "id": "120",
     "name": "The Wind-Soaring Valorous",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.12
-          }
+        "statMap": {
+          "atk%": 0.12
         }
       },
-      "4": {
-        "stats": {
-          "constant": {
-            "PERCENT_CR": 0.06
+      "4": [
+        {
+          "statMap": {
+            "critRate%": 0.06
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_U": 0.36
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "follow-upAttack",
+          "statMap": {
+            "ultimateDmgBonus%": 0.36
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "315",
     "name": "Duran, Dynasty of Running Wolves",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "buffs": {
-          "constant": {
-            "PERCENT_FUA": 0.25,
-            "PERCENT_CD": 0.25
-          }
+        "statMap": {
+          "follow-upAttackDmgBonus%": 0.25,
+          "critDmg%": 0.25
         }
       }
     }
@@ -636,103 +625,110 @@
   {
     "id": "316",
     "name": "Forge of the Kalpagni Lantern",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPD": 0.06
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spd%": 0.06
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_BE": 0.4
+        {
+          "statMap": {
+            "breakEffect%": 0.4
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "317",
     "name": "Lushaka, the Sunken Seas",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ERR": 0.05
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRegenerationRate%": 0.05
+          }
+        },
+        {
+          "applyTo": "first",
+          "statMap": {
+            "atk%": 0.12
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "318",
     "name": "The Wondrous BananAmusement Park",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CD": 0.16
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critDmg%": 0.16
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.32
+        {
+          "statMap": {
+            "critDmg%": 0.32
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "121",
     "name": "Sacerdos' Relived Ordeal",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPD": 0.06
-          }
+        "statMap": {
+          "spd%": 0.06
         }
-      }
+      },
+      "4": {}
     }
   },
   {
     "id": "122",
     "name": "Scholar Lost in Erudition",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CR": 0.08
-          }
+        "statMap": {
+          "critRate%": 0.08
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_S": 0.45,
-            "PERCENT_U": 0.2
+      "4": [
+        {
+          "statMap": {
+            "skillDmgBonus%": 0.2,
+            "ultimateDmgBonus%": 0.2
           }
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnSkillType": "ultimate",
+          "statMap": {
+            "skillDmgBonus%": 0.25
+          },
+          "maxUses": 1
         }
-      }
+      ]
     }
   },
   {
     "id": "123",
     "name": "Hero of Triumphant Song",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.12
-          }
+        "statMap": {
+          "atk%": 0.12
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_SPD": 0.06,
-            "PERCENT_CD": 0.3
-          }
+        "statMap": {
+          "spd%": 0.06,
+          "critDmg%": 0.3
         }
       }
     }
@@ -740,20 +736,16 @@
   {
     "id": "124",
     "name": "Poet of Mourning Collapse",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_QUANTUM": 0.1
-          }
+        "statMap": {
+          "quantumDmgBonus%": 0.1
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_SPD": -0.08,
-            "PERCENT_CR": 0.32
-          }
+        "statMap": {
+          "spd%": -0.08,
+          "critRate%": 0.32
         }
       }
     }
@@ -761,76 +753,93 @@
   {
     "id": "319",
     "name": "Bone Collection's Serene Demesne",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_HP": 0.12
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hp%": 0.12
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.28
+        {
+          "useIfAttr": {
+            "HP": 5000
+          },
+          "statMap": {
+            "critDmg%": 0.28
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "320",
     "name": "Giant Tree of Rapt Brooding",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPD": 0.06
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spd%": 0.06
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_OHB": 0.2
+        {
+          "useIfAttr": {
+            "spd": 135
+          },
+          "statMap": {
+            "outgoingHealingBoost%": 0.12
+          }
+        },
+        {
+          "useIfAttr": {
+            "spd": 180
+          },
+          "statMap": {
+            "outgoingHealingBoost%": 0.08
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "125",
     "name": "Warrior Goddess of Sun and Thunder",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPD": 0.06
-          }
+        "statMap": {
+          "spd%": 0.06
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_SPD": 0.06,
-            "PERCENT_CD": 0.15
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnType": "healing",
+          "statMap": {
+            "spd%": 0.06
+          }
+        },
+        {
+          "applyTo": "team",
+          "applyWhen": "hit",
+          "applyOnType": "healing",
+          "statMap": {
+            "critDmg%": 0.15
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "126",
     "name": "Wavestrider Captain",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CD": 0.16
-          }
+        "statMap": {
+          "critDmg%": 0.16
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.48
-          }
+        "statMap": {
+          "atk%": 0.48
         }
       }
     }
@@ -838,12 +847,10 @@
   {
     "id": "321",
     "name": "Arcadia of Woven Dreams",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.36
-          }
+        "statMap": {
+          "dmgBonus%": 0.36
         }
       }
     }
@@ -851,107 +858,129 @@
   {
     "id": "322",
     "name": "Revelry by the Sea",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ATK": 0.12
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.12
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_DOT": 0.24
+        {
+          "useIfAttr": {
+            "atk": 2400
+          },
+          "statMap": {
+            "dotDmgBonus%": 0.12
+          }
+        },
+        {
+          "useIfAttr": {
+            "atk": 3600
+          },
+          "statMap": {
+            "dotDmgBonus%": 0.12
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "127",
     "name": "World-Remaking Deliverer",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CR": 0.08
-          }
+        "statMap": {
+          "critRate%": 0.08
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_HP": 0.24,
-            "PERCENT_ALL": 0.15
+      "4": [
+        {
+          "statMap": {
+            "hp%": 0.24
+          }
+        },
+        {
+          "applyTo": "team",
+          "statMap": {
+            "dmgBonus%": 0.15
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "128",
     "name": "Self-Enshrouded Recluse",
-    "setBonus": {
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.15
+    "tieredEffects": {
+      "2": {
+        "statMap": {
+          "shieldBonus%": 0.1
+        }
+      },
+      "4": [
+        {
+          "statMap": {
+            "shieldBonus%": 0.12
+          }
+        },
+        {
+          "applyTo": "team",
+          "statMap": {
+            "critDmg%": 0.15
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "323",
     "name": "Amphoreus, The Eternal Land",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CR": 0.08
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critRate%": 0.08
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_SPD": 0.08
+        {
+          "applyTo": "team",
+          "statMap": {
+            "spd%": 0.08
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "324",
     "name": "Tengoku@Livestream",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CD": 0.16
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critDmg%": 0.16
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.32
+        {
+          "statMap": {
+            "critDmg%": 0.32
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "129",
     "name": "Ever-Glorious Magical Girl",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_CD": 0.16
-          }
+        "statMap": {
+          "critDmg%": 0.16
         }
       },
       "4": {
-        "buffs": {
-          "constant": {
-            "DEF_IGNORE": 0.2
-          }
+        "statMap": {
+          "defIgnore%": 0.2
         }
       }
     }
@@ -959,54 +988,116 @@
   {
     "id": "130",
     "name": "Diviner of Distant Reach",
-    "setBonus": {
+    "tieredEffects": {
       "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_SPD": 0.06
-          }
+        "statMap": {
+          "spd%": 0.06
         }
       },
-      "4": {
-        "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.18,
-            "PERCENT_ELATION": 0.1
+      "4": [
+        {
+          "useIfAttr": {
+            "spd": 120
+          },
+          "statMap": {
+            "critRate%": 0.1
+          }
+        },
+        {
+          "useIfAttr": {
+            "spd": 160
+          },
+          "statMap": {
+            "critRate%": 0.08
+          }
+        },
+        {
+          "applyTo": "team",
+          "statMap": {
+            "elation%": 0.1
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "325",
     "name": "Punklorde Stage Zero",
-    "setBonus": {
-      "2": {
-        "stats": {
-          "constant": {
-            "PERCENT_ELATION": 0.08
+    "tieredEffects": {
+      "2": [
+        {
+          "statMap": {
+            "elation%": 0.08
           }
         },
-        "buffs": {
-          "constant": {
-            "PERCENT_CD": 0.32
+        {
+          "statMap": {
+            "critDmg%": 0.32
           }
         }
-      }
+      ]
     }
   },
   {
     "id": "326",
     "name": "City of Converging Stars",
-    "setBonus": {
-      "2": {
-        "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.24,
-            "PERCENT_CD": 0.12
+    "tieredEffects": {
+      "2": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "follow-upAttack",
+          "statMap": {
+            "atk%": 0.24
+          }
+        },
+        {
+          "applyTo": "team",
+          "statMap": {
+            "critDmg%": 0.12
           }
         }
+      ]
+    }
+  },
+  {
+    "id": "131",
+    "name": "As Navigator Isee Sees It",
+    "tieredEffects": {
+      "2": {
+        "statMap": {
+          "atk%": 0.12
+        }
+      },
+      "4": {
+        "statMap": {
+          "skillDmgBonus%": 0.54,
+          "ultimateDmgBonus%": 0.54
+        }
       }
+    }
+  },
+  {
+    "id": "132",
+    "name": "Divine-Querying Master Smith",
+    "tieredEffects": {
+      "2": {
+        "statMap": {
+          "hp%": 0.12
+        }
+      },
+      "4": [
+        {
+          "statMap": {
+            "critDmg%": 0.28
+          }
+        },
+        {
+          "applyTo": "team",
+          "statMap": {
+            "dmgBonus%": 0.15
+          }
+        }
+      ]
     }
   }
 ]

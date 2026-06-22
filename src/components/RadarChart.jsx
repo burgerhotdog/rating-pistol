@@ -4,8 +4,9 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip, Legend } from 'recharts';
 import { useBuild } from '@/contexts';
 import { CHARACTER, MISC } from '@/data';
-import { computeTotalStat, compileStatMap } from '@/utils';
+import { getAttr, compileStatMap } from '@/utils';
 import { useTheme } from '@mui/material/styles';
+import { formatStr } from '@/utils';
 
 export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
   const { gameId, characterId } = useParams();
@@ -13,8 +14,7 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTER[gameId]?.[characterId]?.element;
-  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
-  const calcs = CHARACTER[gameId][characterId]?.calcs;
+  const elementColor = MISC[gameId]?.COLORS?.[element];
 
   if (isLoading || !build || !combinedSimEquips) return null;
   const simSources = Object.entries(combinedSimEquips).map(([statId, value]) => ({
@@ -23,19 +23,18 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
     subStatList: []
   }));
 
-  const offElements = Object.keys(MISC[gameId].ELEMENT_COLORS).filter(e => e !== element);
+  const offElements = Object.keys(MISC[gameId].COLORS).filter(e => e !== element);
 
-  const data = Object.entries(MISC[gameId].MENU_STATS)
-    .filter(([stat]) => element === 'PHYSICAL'
+  const data = MISC[gameId].MENU_STATS
+    .filter(stat => element === 'Physical'
       ? !offElements.includes(stat)
-      : !offElements.includes(stat) && stat !== 'PHYSICAL'
+      : !offElements.includes(stat) && stat !== 'Physical'
     )
-    .filter(([stat]) => stat === 'HB' ? !calcs[0].type : true)
-    .map(([stat]) => {
-      const buildRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, build, []));
-      const simRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, { weaponId: build.weaponId, equipList: simSources }, []));
+    .map(stat => {
+      const buildRaw = getAttr(stat, compileStatMap(gameId, characterId, build, []));
+      const simRaw = getAttr(stat, compileStatMap(gameId, characterId, { weaponId: build.weaponId, equipList: simSources }, []));
       return {
-        stat,
+        stat: formatStr(stat),
         build: buildRaw / simRaw * 75 || 0,
         buildRaw,
         sim: simRaw ? 75 : 0,
@@ -95,16 +94,16 @@ export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
                   }}
                 >
                   <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }} gutterBottom>
-                    {MISC[gameId].MENU_STATS[label].label}
+                    {label}
                   </Typography>
                   {payload.map((entry) => {
-                    const { isPercent } = MISC[gameId].MENU_STATS[label];
+                    const isPercent = label.endsWith('%');
                     const totalValue = fullEntry[`${entry.dataKey}Raw`];
                     const displayValue = isPercent ? totalValue * 100 : totalValue;
-                    const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && label === 'ER') ? 1 : 0;
+                    const toFixedValue = isPercent ? 1 : 0;
                     return (
                       <Box key={entry.dataKey} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1 }}>
-                        <Typography variant="body2">{entry.name}: </Typography>
+                        <Typography variant="body2">{formatStr(entry.name)}: </Typography>
                         <Typography variant="body2">
                           {displayValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
                         </Typography>

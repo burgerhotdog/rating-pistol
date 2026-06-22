@@ -1,4 +1,4 @@
-import { sumRotationDmg } from '@/utils';
+import { sumRotationDmg } from '@/utils/sumRotationDmg';
 
 export function findBenchmarkWeek(weeklyScores, minGain = 0.01) {
   let gain = 0;

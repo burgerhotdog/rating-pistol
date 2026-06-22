@@ -6,6 +6,5 @@ export * from './BenchmarkProgress';
 export * from './SubstatPriority';
 export * from './Bar';
 export * from './CustomAvatar';
-export * from './TeamConfig';
 export * from './TeamMemberDialog';
 export * from './DamageBreakdown';

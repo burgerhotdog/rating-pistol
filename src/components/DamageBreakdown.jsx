@@ -3,29 +3,29 @@ import { Box, Card, Paper, Tooltip as MuiTooltip, Typography } from '@mui/materi
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
-import { CHARACTER, ACTION, MISC } from '@/data';
+import { CHARACTER, MISC } from '@/data';
+import { formatStr } from '@/utils';
 
 const renderLabel = ({ percent }) => {
   if (percent < 0.05) return null;
   return `${(percent * 100).toFixed(0)}%`;
 };
 
-/**
- * Builds chart data grouped by damage type (uses getAction to resolve `considered`).
- */
-function buildDmgTypeData(actionMap, gameId, characterId) {
+const buildDmgTypeData = (actionMap, gameId, characterId) => {
   const totals = {};
-  for (const temp of Object.values(actionMap.byMember[characterId])) {
-    const { considered, damage } = temp;
-    const label = MISC[gameId].SKILL[considered[0]]?.name;
+
+  for (const temp of Object.values(actionMap)) {
+    const { ownerId, dmgType, damage } = temp;
+    if (ownerId !== characterId) continue;
+    if (!dmgType) continue;
+    const label = dmgType[0];
 
     totals[label] ??= 0;
     totals[label] += damage;
   }
-  return Object.entries(totals)
-    .map(([name, value]) => ({ name, value }))
-    .filter(d => d.value > 0);
-}
+
+  return Object.entries(totals).map(([name, value]) => ({ name, value })).filter(d => d.value > 0);
+};
 
 export const DamageBreakdown = ({ actionMap }) => {
   const { gameId, characterId } = useParams();
@@ -36,7 +36,7 @@ export const DamageBreakdown = ({ actionMap }) => {
   const data = buildDmgTypeData(actionMap, gameId, characterId).sort((a, b) => b.value - a.value);
 
   const element = CHARACTER[gameId][characterId].element;
-  const monoColor = MISC?.[gameId]?.ELEMENT_COLORS?.[element] ?? theme.palette.primary.main;
+  const monoColor = MISC?.[gameId]?.COLORS?.[element] ?? theme.palette.primary.main;
 
   const getSliceFill = (index, count) => {
     if (count <= 1) return alpha(monoColor, 0.95);
@@ -95,7 +95,7 @@ export const DamageBreakdown = ({ actionMap }) => {
                   const { name, value } = payload[0].payload;
                   return (
                     <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{name}</Typography>
+                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{formatStr(name)}</Typography>
                       <Typography variant="body2" color="text.secondary">
                         {value.toLocaleString('en-US', { maximumFractionDigits: 0 })} damage
                       </Typography>
@@ -108,6 +108,7 @@ export const DamageBreakdown = ({ actionMap }) => {
                 iconType="circle"
                 iconSize={8}
                 wrapperStyle={{ fontSize: 12 }}
+                formatter={(value) => formatStr(value)}
               />
             </PieChart>
           </ResponsiveContainer>

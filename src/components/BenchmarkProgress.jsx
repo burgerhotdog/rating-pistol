@@ -3,43 +3,8 @@ import { useParams } from 'react-router-dom';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTER, ACTION, MISC } from '@/data';
+import { CHARACTER, MISC } from '@/data';
 import { sumRotationDmg } from '@/utils';
-
-function sumRotationTime(gameId, team) {
-  let total = 0;
-
-  for (const member of team) {
-    const { rotation = [] } = member;
-
-    for (const actionKey of rotation) {
-      const [ownerId, skillId, actionId] = actionKey.split('-');
-      const { duration } = ACTION[gameId][ownerId][skillId][actionId];
-
-      total += duration;
-    }
-  }
-
-  return total;
-}
-
-function sumMemberRotationTime(gameId, team, memberId) {
-  let total = 0;
-
-  for (const member of team) {
-    const { rotation = [] } = member;
-
-    for (const actionKey of rotation) {
-      const [ownerId, skillId, actionId] = actionKey.split('-');
-      if (ownerId !== memberId) continue;
-
-      const { duration } = ACTION[gameId][ownerId][skillId][actionId];
-      total += duration;
-    }
-  }
-
-  return total;
-}
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -50,22 +15,27 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats: _teamFinalStats, team, actionMap }) => {
+export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, team, actionMap, cache }) => {
   const theme = useTheme();
   const { gameId } = useParams();
   const disabledColor = theme.palette.action.disabled;
   if (isLoading || !weeklyScores) return null;
 
-  const members = team.filter(m => m.memberId);
-  const memberColors = members.map(m => {
-    const el = CHARACTER[gameId]?.[m.memberId]?.element;
-    return MISC[gameId]?.ELEMENT_COLORS?.[el] ?? disabledColor;
+  const members = team.filter(m => m.id);
+  const membersMisc = [
+    ...members,
+    ...(Object.values(actionMap).some(result => result.ownerId === 'misc') ? [{ id: 'misc' }] : []),
+  ];
+  const memberColors = membersMisc.map(m => {
+    if (m.id === 'misc') return '#ffffff';
+    const el = CHARACTER[gameId][m.id].element;
+    return MISC[gameId]?.COLORS?.[el] ?? disabledColor;
   });
 
-  const rotationTime = sumRotationTime(gameId, team);
+  const rotationTime = cache.fullRotationTime;
   const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
   const memberRotationTimeMap = Object.fromEntries(
-    members.map((m) => [m.memberId, sumMemberRotationTime(gameId, team, m.memberId)])
+    members.map((m) => [m.id, cache.member[m.id]?.rotationTime])
   );
 
   const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap)));
@@ -83,8 +53,8 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
       p10: toDps(sumRotationDmg(dist?.p10)) ?? dmg,
       p90band: dist ? toDps(sumRotationDmg(dist.p90)) - toDps(sumRotationDmg(dist.p10)) : 0,
     };
-    for (const m of members) {
-      entry[`dps_${m.memberId}`] = toDps(sumRotationDmg(weeklyScores[index], { ownerId: m.memberId }));
+    for (const m of membersMisc) {
+      entry[`dps_${m.id}`] = toDps(sumRotationDmg(weeklyScores[index], { ownerId: m.id }));
     }
     return entry;
   });
@@ -161,11 +131,11 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
           <Area type="monotone" dataKey="iqr" stackId="band" stroke="none" fill={disabledColor} fillOpacity={0.4} activeDot={false} />
 
           {/* Stacked member DPS areas */}
-          {members.map((m, i) => (
+          {membersMisc.map((m, i) => (
             <Area
-              key={m.memberId}
+              key={m.id}
               type="monotone"
-              dataKey={`dps_${m.memberId}`}
+              dataKey={`dps_${m.id}`}
               stackId="members"
               stroke={memberColors[i]}
               strokeWidth={1.5}
@@ -201,14 +171,21 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                   <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 'bold' }}>
                     Week {week}
                   </Typography>
-                  {members.map((m, i) => (
-                    <Box key={m.memberId} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
+                  {membersMisc.map((m, i) => (
+                    <Box key={m.id} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
                       <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: memberColors[i], flexShrink: 0 }} />
                       <Typography variant="body2">
-                        {CHARACTER[gameId]?.[m.memberId]?.name ?? m.memberId}:{' '}
-                        {sumRotationDmg(weeklyScores[week], { ownerId: m.memberId }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
-                        {' / '}
-                        {((memberRotationTimeMap[m.memberId] ?? 0) / 1000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}s
+                        {CHARACTER[gameId][m.id]?.name ?? m.id}:{' '}
+                        {sumRotationDmg(weeklyScores[week], { ownerId: m.id }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                        {m.id !== 'misc' && (
+                          <>
+                            {' / '}
+                            {((memberRotationTimeMap[m.id] ?? 0) / 1000).toLocaleString('en-US', {
+                              minimumFractionDigits: 2,
+                              maximumFractionDigits: 2,
+                            })}s
+                          </>
+                        )}
                       </Typography>
                     </Box>
                   ))}
@@ -218,7 +195,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                   </Typography>
                   {dist && (
                     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                      Q1–Q3: {toDps(sumRotationDmg(dist.q1)).toLocaleString('en-US', { maximumFractionDigits: 0 })} – {toDps(sumRotationDmg(dist.q3)).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                      Q1-Q3: {toDps(sumRotationDmg(dist.q1)).toLocaleString('en-US', { maximumFractionDigits: 0 })} - {toDps(sumRotationDmg(dist.q3)).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                     </Typography>
                   )}
                   {percentGain != null && (

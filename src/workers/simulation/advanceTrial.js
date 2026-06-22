@@ -1,41 +1,38 @@
+import { GI, HSR, WW, ZZZ } from '@/data';
 import { MISC } from '@/data';
-import { computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
-import { weightedLottery, matchPenalty } from './helpers';
-import { evaluateRotation } from './rotationSim';
-
-const DAILY_STAMINA = 240;
-const WEEKLY_STAMINA = 120;
-const COST_PER_RUN = 60;
-const DROPS_PER_RUN = 4.33;
+import { mergeObj, mergeEquipList, sumRotationDmg } from '@/utils';
+import { weightedLottery } from './helpers';
+import { evaluateRotation } from './rotation';
+import { getPenalty } from './penalty';
 
 const WW_ATKDEF = {
-  FLAT_ATK: [30, 40, 50, 60],
-  FLAT_DEF: [40, 50, 60, 70],
+  'atk': [30, 40, 50, 60],
+  'def': [40, 50, 60, 70],
 };
 
 const WW_CRIT = {
-  PERCENT_CR: [0.063, 0.069, 0.075, 0.081, 0.087, 0.093, 0.099, 0.105],
-  PERCENT_CD: [0.126, 0.138, 0.15, 0.162, 0.174, 0.186, 0.198, 0.21],
+  'critRate%': [0.063, 0.069, 0.075, 0.081, 0.087, 0.093, 0.099, 0.105],
+  'critDmg%': [0.126, 0.138, 0.15, 0.162, 0.174, 0.186, 0.198, 0.21],
 };
 
 const WW_OTHER = {
-  FLAT_HP: [320, 360, 390, 430, 470, 510, 540, 580],
-  PERCENT_HP: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_ATK: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_DEF: [0.081, 0.09, 0.1, 0.109, 0.118, 0.128, 0.138, 0.147],
-  PERCENT_ER: [0.068, 0.076, 0.084, 0.092, 0.1, 0.108, 0.116, 0.124],
-  PERCENT_BA: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_HA: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_RS: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
-  PERCENT_RL: [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'hp': [320, 360, 390, 430, 470, 510, 540, 580],
+  'hp%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'atk%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'def%': [0.081, 0.09, 0.1, 0.109, 0.118, 0.128, 0.138, 0.147],
+  'energyRegen%': [0.068, 0.076, 0.084, 0.092, 0.1, 0.108, 0.116, 0.124],
+  'basicAttackDmgBonus%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'heavyAttackDmgBonus%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'resonanceSkillDmgBonus%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
+  'resonanceLiberationDmgBonus%': [0.064, 0.071, 0.079, 0.086, 0.094, 0.101, 0.109, 0.116],
 };
 
-const randomRoll = (statId) => {
-  if (statId === 'FLAT_ATK' || statId === 'FLAT_DEF') {
+const randomRollWW = (statId) => {
+  if (statId === 'atk' || statId === 'def') {
     const winnerIndex = weightedLottery([4, 19, 14, 1]);
     return WW_ATKDEF[statId][winnerIndex];
   }
-  if (statId === 'PERCENT_CR' || statId === 'PERCENT_CD') {
+  if (statId === 'critRate%' || statId === 'critDmg%') {
     const winnerIndex = weightedLottery([6, 6, 6, 2, 2, 2, 1, 1]);
     return WW_CRIT[statId][winnerIndex];
   }
@@ -43,189 +40,223 @@ const randomRoll = (statId) => {
   return WW_OTHER[statId][winnerIndex];
 };
 
-function assignSubStats() {
-  const optionsMap = MISC["wuthering-waves"].SUB_STAT_TYPES;
-  const statPool = Object.entries(optionsMap)
-    .map(([id, { WEIGHT }]) => [id, WEIGHT]);
+function assignSubStats(options, lineCount, randomRoll, doUpgrade = false) {
+  const statPool = options.map(([id, { WEIGHT }]) => [id, WEIGHT]);
 
   const subStatList = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < lineCount; i++) {
     const winnerIndex = weightedLottery(statPool.map(item => item[1]));
     const [subStatId] = statPool[winnerIndex];
     subStatList.push({ subStatId, subStatValue: randomRoll(subStatId) });
     statPool.splice(winnerIndex, 1);
   }
 
+  if (doUpgrade) {
+    const upgradeTimes = Math.random() < 0.2 ? 5 : 4;
+
+    for (let i = 0; i < upgradeTimes; i++) {
+      const upgradeIndex = Math.floor(Math.random() * 4);
+      const prev = subStatList[upgradeIndex];
+      subStatList[upgradeIndex] = {
+        subStatId: prev.subStatId,
+        subStatValue: prev.subStatValue + randomRoll(prev.subStatId),
+      };
+    }
+  }
+
   return subStatList;
 }
 
-function assignMainStat(costIndex) {
-  const optionsMap = MISC["wuthering-waves"].MAIN_STAT_TYPES[costIndex];
-  const weightsList = Object.values(optionsMap).map(({ WEIGHT }) => WEIGHT);
-  const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)];
-  const mainStatValue = optionsMap[mainStatId].VALUE;
+function assignMainStat(options) {
+  const weightsList = Object.values(options).map(({ WEIGHT }) => WEIGHT);
+  const mainStatId = Object.keys(options)[weightedLottery(weightsList)];
+  const mainStatValue = options[mainStatId].VALUE;
+
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team, summary) {
-  const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
-  const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
+const generateEquip = (ctx, slot) => {
+  if (Math.random() < 0.5) return;
 
-  // Cartethyia sometimes prefers a 44111 build
-  const isCartethyia = characterId == "1409";
+  const { cache, preferredMainStats } = ctx;
+  const { gameId } = cache;
 
-  let latestBuild = trial.build;
-  let latestPenalty = trial.penalty;
-  let latestDamage = trial.scores.at(-1);
+  const mainOptions = MISC[gameId].MAIN_STAT_TYPES[slot];
+  const { mainStatId, mainStatValue } = assignMainStat(mainOptions);
+  if (!preferredMainStats[slot].includes(mainStatId)) return;
 
-  // Generate 20 4-costs per week
-  for (let i = 0; i < 20; i++) {
-    // Some 4-costs belong to 2 sets while some only have 1 set so we'll take the average
-    const coinFlip = Math.random() < 0.75 ? true : false;
-    if (!coinFlip) continue;
+  const subOptions = MISC[gameId].SUB_STAT_TYPES;
+  const filtered = Object.entries(subOptions).filter(([statId]) => statId !== mainStatId);
 
-    // Randomly assign main stat (according to weighted rules)
-    // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(4);
-    if (!preferredMainStats[4].includes(mainStatId)) continue;
-    
-    // Assign main stat flat values
-    // Assign sub stats
-    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[4];
-    const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats();
+  const randomRoll = {
+    [GI]: statId => {
+      const { VALUE } = subOptions[statId];
+      return VALUE * (1 - (Math.floor(Math.random() * 4) / 10));
+    },
+    [HSR]: statId => {
+      const { VALUE } = subOptions[statId];
+      return VALUE * (1 - (Math.floor(Math.random() * 3) / 10));
+    },
+    [ZZZ]: statId => subOptions[statId].VALUE,
+  };
 
-    const setId = setIdList[0];
-    const newEquipObj = { setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
-    const newEquipList = latestBuild.equipList.with(0, newEquipObj);
-    const newBuild = { ...latestBuild, equipList: newEquipList };
+  const subStatList = assignSubStats(filtered, 4, randomRoll[ctx.cache.gameId], true);
 
-    // Compute new match penalty and damage with new build
-    const newPenalty = match.reduce((acc, stat, index) => {
-      const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild));
-      const targetValue = matchTargets[index];
-      return acc * matchPenalty(currentValue, targetValue);
-    }, 1);
-    const newSummary = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
+  return {
+    mainStatId,
+    mainStatValue,
+    subStatList,
+  };
+};
 
-    // Compare with latest and replace if needed
-    if (sumRotationDmg(newSummary) * newPenalty > sumRotationDmg(latestDamage) * latestPenalty) {
-      latestBuild = newBuild;
-      latestPenalty = newPenalty;
-      latestDamage = newSummary;
+const FLATS = {
+  4: ["atk", 150],
+  3: ["atk", 100],
+  1: ["hp", 2280],
+};
+
+const generateEquipWW = (ctx, cost) => {
+  const wrongSetChance = cost === 4 ? 0.25 : 0.5;
+  if (Math.random() < wrongSetChance) return;
+
+  const { cache, preferredMainStats } = ctx;
+  const { gameId } = cache;
+
+  // Randomly assign main stat (according to weighted rules)
+  // Skip non preferred main stats
+  const options = MISC[gameId].MAIN_STAT_TYPES[cost];
+  const { mainStatId, mainStatValue } = assignMainStat(options);
+  if (!preferredMainStats[cost].includes(mainStatId)) return;
+
+  // Assign main stat flat values
+  // Assign sub stats
+  const [mainStatFlatId, mainStatFlatValue] = FLATS[cost];
+  const subOptions = MISC[gameId].SUB_STAT_TYPES;
+  const filtered = Object.entries(subOptions);
+  const subStatList = assignSubStats(filtered, 5, randomRollWW);
+
+  return {
+    mainStatId,
+    mainStatValue,
+    mainStatFlatId,
+    mainStatFlatValue,
+    subStatList,
+  };
+};
+
+const evaluateEquip = (ctx, spec, equip, latest) => {
+  const { cache, currId, matchMap, compiledRotation } = ctx;
+  const { baseMap } = cache.member[currId];
+
+  const buffer = { ...latest };
+
+  function compareAndReplace(slot) {
+    const newEquipList = latest.equipList.with(slot, equip);
+    const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
+    const newSummary = evaluateRotation(compiledRotation, combinedStatMap);
+    const newPenalty = getPenalty(combinedStatMap, matchMap);
+    const newScore = sumRotationDmg(newSummary) * newPenalty;
+
+    // Compare with buffer and replace if needed
+    if (newScore > buffer.score) {
+      buffer.equipList = newEquipList;
+      buffer.summary = newSummary;
+      buffer.penalty = newPenalty;
+      buffer.score = newScore;
     }
   }
 
-  // Generate 15 3-costs per week
-  for (let i = 0; i < 20; i++) {
-    // 3-costs can belong to 1-3 sets but on average 2
-    const coinFlip = Math.random() < 0.5 ? true : false;
-    if (!coinFlip) continue;
+  if ('cost' in spec) {
+    if (spec.cost === 4) {
+      compareAndReplace(0);
+    } else if (spec.cost === 3) {
+      compareAndReplace(1);
+      compareAndReplace(2);
+    } else {
+      compareAndReplace(3);
+      compareAndReplace(4);
+    }
+  } else {
+    compareAndReplace(spec.slot);
+  }
 
-    // Randomly assign main stat (according to weighted rules)
-    // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(3);
-    if (!preferredMainStats[3].includes(mainStatId)) continue;
-    
-    // Assign main stat flat values
-    // Assign sub stats
-    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[3];
-    const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats();
+  return buffer;
+};
 
-    // Construct newEquipObj (without setId)
-    const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
+const trialConfig = {
+  [GI]: {
+    weeklyRoutine: function (ctx, next) {
+      for (let i = 0; i < 66; i++) {
+        const slot = Math.floor(Math.random() * 5);
+        const newEquipObj = generateEquip(ctx, slot);
+        if (!newEquipObj) continue;
 
-    // Create a buffer
-    let bufferBuild = latestBuild;
-    let bufferPenalty = latestPenalty;
-    let bufferDamage = latestDamage;
-
-    for (let slotIndex = 1; slotIndex < 3; slotIndex++) {
-      // Add in setId and construct newBuild
-      const equip = { ...newEquipObj, setId: setIdList[slotIndex] };
-      const newEquipList = latestBuild.equipList.with(slotIndex, equip);
-      const newBuild = { ...latestBuild, equipList: newEquipList };
-
-      // Compute new match penalty and damage with new build
-      const newPenalty = match.reduce((acc, stat, index) => {
-        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild));
-        const targetValue = matchTargets[index];
-        return acc * matchPenalty(currentValue, targetValue);
-      }, 1);
-      const newDamage = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
-
-      // Compare new damage with buffer and replace if better
-      if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
-        bufferBuild = newBuild;
-        bufferPenalty = newPenalty;
-        bufferDamage = newDamage;
+        Object.assign(next, evaluateEquip(ctx, { slot }, newEquipObj, next));
       }
-    }
+    },
+  },
+  [HSR]: {
+    weeklyRoutine: function (ctx, next) {
+      for (let i = 0; i < 84; i++) {
+        const slot = Math.floor(Math.random() * 6);
+        const newEquipObj = generateEquip(ctx, slot);
+        if (!newEquipObj) continue;
 
-    // buffer will already be latest if neither result was better
-    latestBuild = bufferBuild;
-    latestPenalty = bufferPenalty;
-    latestDamage = bufferDamage;
-  }
-
-  // Generate 1 and 3 costs from tacet fields
-  for (let i = 0; i < totalDropsPerWeek; i++) {
-    // Randomly assign set and skip off-set artifacts
-    const coinFlip = Math.random() < 0.5 ? true : false;
-    if (!coinFlip) continue;
-
-    // Randomly assign cost
-    const costIndex = Math.random() < 0.5 ? 1 : 3;
-
-    // Randomly assign main stat (according to weighted rules)
-    // Skip non preferred main stats
-    const { mainStatId, mainStatValue } = assignMainStat(costIndex);
-    if (!preferredMainStats[costIndex].includes(mainStatId)) continue;
-
-    // Assign main stat flat values
-    // Randomly assign and upgrade sub stats
-    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[costIndex];
-    const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
-    const subStatList = assignSubStats();
-
-    // Construct newEquipObj (without setId)
-    const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
-
-    // Decide which slots to test and create a buffer
-    const startingSlot = costIndex === 1 ? 3 : 1;
-    let bufferBuild = latestBuild;
-    let bufferPenalty = latestPenalty;
-    let bufferDamage = latestDamage;
-    for (let slotIndex = startingSlot; slotIndex < (startingSlot + 2); slotIndex++) {
-      // Add in setId and construct newBuild
-      const equip = { ...newEquipObj, setId: setIdList[slotIndex] };
-      const newEquipList = latestBuild.equipList.with(slotIndex, equip);
-      const newBuild = { ...latestBuild, equipList: newEquipList };
-
-      // Compute new match penalty and damage with new build
-      const newPenalty = match.reduce((acc, stat, index) => {
-        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild));
-        const targetValue = matchTargets[index];
-        return acc * matchPenalty(currentValue, targetValue);
-      }, 1);
-      const newDamage = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
-
-      // Compare new damage with buffer and replace if better
-      if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
-        bufferBuild = newBuild;
-        bufferPenalty = newPenalty;
-        bufferDamage = newDamage;
+        Object.assign(next, evaluateEquip(ctx, { slot }, newEquipObj, next));
       }
-    }
+    },
+  },
+  [WW]: {
+    weeklyRoutine: function (ctx, next) {
+      for (let i = 0; i < 20; i++) {
+        const newEquipObj = generateEquipWW(ctx, 4);
+        if (!newEquipObj) continue;
 
-    // buffer will already be latest if neither result was better
-    latestBuild = bufferBuild;
-    latestPenalty = bufferPenalty;
-    latestDamage = bufferDamage;
-  }
+        Object.assign(next, evaluateEquip(ctx, { cost: 4 }, newEquipObj, next));
+      }
 
-  trial.build = latestBuild;
-  trial.penalty = latestPenalty;
-  trial.scores.push(latestDamage);
+      for (let i = 0; i < 75; i++) {
+        const newEquipObj = generateEquipWW(ctx, 3);
+        if (!newEquipObj) continue;
+
+        Object.assign(next, evaluateEquip(ctx, { cost: 3 }, newEquipObj, next));
+      }
+
+      for (let i = 0; i < 60; i++) {
+        const newEquipObj = generateEquipWW(ctx, 1);
+        if (!newEquipObj) continue;
+
+        Object.assign(next, evaluateEquip(ctx, { cost: 1 }, newEquipObj, next));
+      }
+    },
+  },
+  [ZZZ]: {
+    weeklyRoutine: function (ctx, next) {
+      for (let i = 0; i < 120; i++) {
+        const slot = Math.floor(Math.random() * 6);
+        const newEquipObj = generateEquip(ctx, slot);
+        if (!newEquipObj) continue;
+
+        Object.assign(next, evaluateEquip(ctx, { slot }, newEquipObj, next));
+      }
+    },
+  },
+};
+
+export function advanceTrial(ctx, trial) {
+  const { cache } = ctx;
+  const { weeklyRoutine } = trialConfig[cache.gameId];
+
+  const next = {
+    equipList: trial.equipList,
+    summary: trial.weeklySummary.at(-1),
+    penalty: trial.penalty,
+    score: sumRotationDmg(trial.weeklySummary.at(-1)) * trial.penalty,
+  };
+
+  weeklyRoutine(ctx, next);
+
+  trial.equipList = next.equipList;
+  trial.penalty = next.penalty;
+  trial.weeklySummary.push(next.summary);
 }

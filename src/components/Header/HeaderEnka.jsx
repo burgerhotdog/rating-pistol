@@ -4,7 +4,7 @@ import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, Fo
 import SyncIcon from '@mui/icons-material/Sync';
 import { useBuild, useUser } from '@/contexts';
 import { fetchEnka, parseEnkaObj } from './enkaHelpers';
-import { CHARACTER } from '@/data';
+import { GI, HSR, ZZZ, CHARACTER } from '@/data';
 
 const HeaderEnka = () => {
   const { gameId } = useParams();
@@ -22,19 +22,17 @@ const HeaderEnka = () => {
   }, [savedUids, gameId]);
 
   const isValidLength = (gameId, input) => {
-    if (gameId === 'genshin-impact' || gameId === 'honkai-star-rail') {
-      return /^\d{9,10}$/.test(input);
-    }
-    if (gameId === 'zenless-zone-zero') {
-      return /^\d{10,11}$/.test(input);
-    }
+    if (gameId === GI || gameId === HSR) return /^\d{9,10}$/.test(input);
+    if (gameId === ZZZ) return /^\d{10,11}$/.test(input);
     return false;
   };
 
   const handleSync = async () => {
     setIsSyncLoading(true);
     setError(null);
+
     const [status, result] = await fetchEnka(gameId, uid);
+
     if (status !== 200) {
       setError(result);
       setIsSyncLoading(false);
@@ -120,10 +118,8 @@ const HeaderEnka = () => {
             ),
           },
         }}
-        onChange={(e) => {
-          if (error) {
-            setError(null);
-          }
+        onChange={e => {
+          if (error) setError(null);
           setUid(e.target.value);
         }}
         error={!!error}
@@ -155,6 +151,7 @@ const HeaderEnka = () => {
         }}
       >
         <DialogTitle>Select Characters to Import</DialogTitle>
+
         <DialogContent>
           {enkaList.map((char, index) => (
             <FormControlLabel
@@ -173,8 +170,12 @@ const HeaderEnka = () => {
             />
           ))}
         </DialogContent>
+
         <DialogActions>
-          <Button onClick={closeDialog}>Cancel</Button>
+          <Button onClick={closeDialog}>
+            Cancel
+          </Button>
+
           <Button onClick={handleSave} variant="contained" color="primary">
             Save
           </Button>

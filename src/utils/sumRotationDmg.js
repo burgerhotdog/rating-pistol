@@ -1,18 +1,37 @@
-export function sumRotationDmg(summary, filters = {}) {
-  const { ownerId } = filters;
-  const { byMember, other } = summary;
-  const result = {};
+export const sumRotationDmg = (summary, filter = {}) => {
+  const { ownerId } = filter;
+  let sum = 0;
 
-  for (const [memberId, actionMap] of Object.entries(byMember)) {
-    if (ownerId && ownerId !== memberId) continue;
+  for (const key in summary) {
+    const footprintSummary = summary[key];
 
-    for (const [shortKey, actionSummary] of Object.entries(actionMap)) {
-      for (const [key, value] of Object.entries(actionSummary)) {
-        result[key] ??= 0;
-        result[key] += value;
-      }
+    if (ownerId && ownerId !== footprintSummary.ownerId) {
+      continue;
+    }
+
+    if ('damage' in footprintSummary) {
+      sum += footprintSummary.damage;
     }
   }
 
-  return result.damage ?? 0;
-}
+  return sum;
+};
+
+export const sumRotationHealing = (summary, filter = {}) => {
+  const { ownerId } = filter;
+  let sum = 0;
+
+  for (const actionKey in summary) {
+    const footprintSummary = summary[actionKey];
+
+    if (ownerId && ownerId !== footprintSummary.ownerId) {
+      continue;
+    }
+
+    if ('healing' in footprintSummary) {
+      sum += footprintSummary.healing;
+    }
+  }
+
+  return sum;
+};

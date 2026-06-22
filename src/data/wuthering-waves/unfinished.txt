@@ -1,0 +1,17 @@
+characters:
+
+actions:
+
+weapons:
+
+sets:
+incomplete:
+- Reel of Spliced Memories
+
+logic simplified:
+- Empyrean Anthem
+- Flamewing's Shadow
+- Pact of Neonlight Leap
+- Halo of Starry Radiance
+- Rite of Gilded Revelation
+- Wishes of Quiet Snowfall

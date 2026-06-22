@@ -38,8 +38,8 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTER, ACTION, WEAPON, SET, MISC } from '@/data';
-import { getMember, formatRotation, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
+import { CHARACTER, ACTION, WEAPON, SET } from '@/data';
+import { toArray, formatStr, getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
@@ -186,12 +186,14 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
 const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity }) => {
   const [search, setSearch] = useState('');
 
-  const allSetTiers = useMemo(() => {
+  const allTiers = useMemo(() => {
     const tiers = new Set();
 
-    for (const { setBonus = {} } of Object.values(SET[gameId])) {
-      for (const key of Object.keys(setBonus)) {
-        tiers.add(Number(key));
+    for (const setId in SET[gameId]) {
+      const set = SET[gameId][setId];
+
+      for (const tier in set.tieredEffects) {
+        tiers.add(Number(tier));
       }
     }
 
@@ -200,16 +202,16 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
 
   // Which tiers are possible given remaining capacity
   const enabledTiers = useMemo(() =>
-    new Set(allSetTiers.filter(t => t <= remainingCapacity))
-  , [allSetTiers, remainingCapacity]);
+    new Set(allTiers.filter(t => t <= remainingCapacity))
+  , [allTiers, remainingCapacity]);
 
-  const [tierFilter, setTierFilter] = useState(allSetTiers[0]);
+  const [tierFilter, setTierFilter] = useState(allTiers[0]);
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
     return Object.entries(SET[gameId])
       .filter(([_, setData]) => {
-        const bonusKeys = Object.keys(setData?.setBonus ?? {}).map(Number);
+        const bonusKeys = Object.keys(setData?.tieredEffects ?? {}).map(Number);
         // Must have at least one bonus tier matching the filter (if set) and within capacity
         const hasMatchingTier = tierFilter
           ? bonusKeys.includes(tierFilter) && enabledTiers.has(tierFilter)
@@ -236,7 +238,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
         transition: {
           onExited: () => {
             setSearch('');
-            setTierFilter(allSetTiers[0]);
+            setTierFilter(allTiers[0]);
           }
         }
       }}
@@ -269,7 +271,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
             value={tierFilter}
             onChange={(_, val) => { if (val !== null) setTierFilter(val); }}
           >
-            {allSetTiers.map(tier => (
+            {allTiers.map(tier => (
               <ToggleButton
                 key={tier}
                 value={tier}
@@ -327,9 +329,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
   );
 };
 
-// ─── SetIcon — single icon with hover-X and piece-count badge ───────────────
-
-function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
+function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false }) {
   const [hovered, setHovered] = useState(false);
   const name = SET[gameId]?.[setId]?.name ?? setId;
 
@@ -341,7 +341,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
     >
       <Box sx={{ position: 'relative' }}>
         <Card sx={{ width: 80 }}>
-          <CardActionArea onClick={onClick}>
+          <CardActionArea onClick={onClick} disabled={disabled}>
             <CardMedia
               image={`${gameId}/set/${setId}.webp`}
               title={name}
@@ -368,7 +368,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
         />
 
         {/* Remove X — top-right, visible on hover */}
-        {hovered && (
+        {hovered && !disabled && (
           <IconButton
             size="small"
             onClick={(e) => { e.stopPropagation(); onRemove(); }}
@@ -389,16 +389,19 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
         )}
       </Box>
 
-      <Typography variant="caption" noWrap sx={{ maxWidth: 80 }}>
+      <Typography
+        variant="caption"
+        color={disabled && "textDisabled"}
+        noWrap
+        sx={{ maxWidth: 80 }}
+      >
         {name}
       </Typography>
     </Box>
   );
 }
 
-// ─── SetCountsEditor ────────────────────────────────────────────────────────
-
-function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = false }) {
+function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) {
   const capacity = (gameId === 'genshin-impact' || gameId === 'wuthering-waves') ? 5 : 6;
   const [dialogOpen, setDialogOpen] = useState(false);
   // Index of the set being replaced; null means we're adding a new one
@@ -449,7 +452,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
   const currentRemainingCapacity =
     replacingIndex !== null ? remainingForReplace(replacingIndex) : remainingForAdd;
 
-  if (!memberId) {
+  if (!id) {
     return (
       <Typography variant="body2" color="text.secondary">
         Select a character to edit set bonuses.
@@ -459,7 +462,10 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
 
   return (
     <Stack spacing={0.5}>
-      <Typography variant="subtitle1">
+      <Typography
+        variant="subtitle1"
+        color={disabled && "textDisabled"}
+      >
         Set Bonuses
       </Typography>
 
@@ -470,6 +476,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
             gameId={gameId}
             setId={setId}
             pieces={pieces}
+            disabled={disabled}
             onRemove={disabled ? undefined : () => handleRemove(setId)}
             onClick={disabled ? undefined : () => openReplace(index)}
           />
@@ -508,7 +515,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
           size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(getMember(gameId, memberId).setCounts)}
+          onClick={() => onChange(getMember(gameId, id).setCounts)}
           disabled={disabled}
         >
           Reset Default
@@ -537,19 +544,30 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
 
 const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
-  const skillTree = ACTION[gameId][characterId];
+  const skillMap = ACTION[gameId][characterId];
 
   const filteredTree = useMemo(() => {
     const lower = search.toLowerCase();
-    const result = {};
+    const filtered = {};
 
-    for (const [skillId, skillActionMap] of Object.entries(skillTree)) {
-      const skillActions = Object.values(skillActionMap);
-      result[skillId] = skillActions.filter(({ name }) => name.toLowerCase().includes(lower));
+    for (const category in skillMap) {
+      const skill = skillMap[category];
+      const filteredSkill = [];
+
+      for (const actionId in skill) {
+        const action = { ...skill[actionId] };
+        action.key = `${category}.${actionId}`;
+
+        if (action.name.toLowerCase().includes(lower)) {
+          filteredSkill.push(action);
+        }
+      }
+
+      filtered[category] = filteredSkill;
     }
 
-    return result;
-  }, [skillTree, search]);
+    return filtered;
+  }, [search, skillMap]);
 
   const handleSelect = (actionKey) => {
     onSelect(actionKey);
@@ -559,27 +577,23 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
   const hasMatches = Object.values(filteredTree).some(arr => arr.length > 0);
 
-  const { SKILL } = MISC[gameId];
-
   const renderGroup = ([id, filtered]) => {
     if (filtered.length === 0) return null;
-
-    const label = SKILL[id].name;
 
     return (
       <Accordion key={id} disableGutters defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-            {label}
+            {formatStr(id)}
           </Typography>
-          <Typography variant="body2" sx={{ ml: 1, color: 'text.disabled' }}>
+          <Typography variant="body2" color="textDisabled" sx={{ ml: 1 }}>
             ({filtered.length})
           </Typography>
         </AccordionSummary>
 
         <AccordionDetails sx={{ pt: 0 }}>
           <Stack spacing={0.5}>
-            {filtered.map(({ key, name, cast = [] }) => (
+            {filtered.map(({ key, name, tagged = [], skillType = [] }) => (
               <ListItemButton
                 key={key}
                 onClick={() => handleSelect(key)}
@@ -587,11 +601,11 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 dense
                 sx={{ px: 0.5 }}
               >
-                {cast.map(type => (
+                {toArray(skillType).map(type => (
                   <Chip
                     key={type}
                     size="small"
-                    label={SKILL[type]?.short}
+                    label={formatStr(type)}
                     sx={{
                       height: 20,
                       fontSize: '0.65rem',
@@ -601,9 +615,27 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                     }}
                   />
                 ))}
-                <Typography variant="body2">
+                <Typography
+                  variant="body2"
+                  noWrap
+                  sx={{ flexGrow: 1, minWidth: 0 }}
+                >
                   {name}
                 </Typography>
+                {toArray(tagged).map(tag => (
+                  <Chip
+                    key={tag}
+                    size="small"
+                    label={tag}
+                    sx={{
+                      height: 20,
+                      fontSize: '0.65rem',
+                      flexShrink: 0,
+                      mr: 0.5,
+                      '& .MuiChip-label': { px: '5px' },
+                    }}
+                  />
+                ))}
               </ListItemButton>
             ))}
           </Stack>
@@ -633,11 +665,11 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
       <Box sx={{ px: 3, mb: 2 }}>
         <TextField
-          fullWidth
           size="small"
           placeholder="Search actions..."
           value={search}
           onChange={e => setSearch(e.target.value)}
+          fullWidth
         />
       </Box>
 
@@ -676,7 +708,10 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <Typography variant="subtitle1" color="text.secondary">
+      <Typography
+        variant="subtitle1"
+        color={disabled && "textDisabled"}
+      >
         {label}
       </Typography>
 
@@ -700,7 +735,11 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
                   bgcolor: 'action.hover',
                 }}
               >
-                <Typography variant="caption" color="text.secondary" sx={{ textAlign: 'center' }}>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ textAlign: 'center' }}
+                >
                   None
                 </Typography>
               </Box>
@@ -728,7 +767,12 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
           </IconButton>
         )}
       </Box>
-      <Typography variant="caption" noWrap sx={{ maxWidth: 80 }}>
+      <Typography
+        variant="caption"
+        color={disabled && "textDisabled"}
+        noWrap
+        sx={{ maxWidth: 80 }}
+      >
         {name ?? '—'}
       </Typography>
     </Box>
@@ -737,7 +781,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
 
 // ─── Rotation drag-and-drop helpers ────────────────────────────────────────
 
-function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove }) {
+function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
   const style = {
@@ -745,8 +789,8 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
     transition,
   };
 
-  const [ownerId, skillId, actionId] = actionKey.split('-');
-  const { cast, name, tagged } = ACTION[gameId][ownerId][skillId][actionId];
+  const [category, actionId] = actionKey.split('.');
+  const { name, tagged, skillType } = ACTION[gameId][characterId][category][actionId];
 
   return (
     <Box
@@ -783,11 +827,11 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
 
       {/* Cast type chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
-        {cast.map(castType => (
+        {toArray(skillType).map(type => (
           <Chip
-            key={castType}
+            key={type}
             size="small"
-            label={skillTypeLabels[castType]?.short ?? castType}
+            label={formatStr(type)}
             variant="outlined"
             sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
           />
@@ -801,7 +845,7 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
 
       {/* Tags chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
-        {tagged.map(tag => (
+        {toArray(tagged).map(tag => (
           <Chip
             key={tag}
             size="small"
@@ -827,7 +871,6 @@ function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove
 function RotationEditor({ gameId, characterId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
-  const skillTypeLabels = MISC[gameId]?.SKILL ?? {};
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -903,8 +946,8 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
                   key={sortableIds[index]}
                   id={sortableIds[index]}
                   actionKey={actionKey}
+                  characterId={characterId}
                   gameId={gameId}
-                  skillTypeLabels={skillTypeLabels}
                   onRemove={() => removeSkill(index)}
                 />
               ))}
@@ -949,7 +992,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         characterId={characterId}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
-        onSelect={(actionKey) => onChange([...rotation, actionKey])}
+        onSelect={actionKey => onChange([...rotation, actionKey])}
       />
     </Box>
   );
@@ -965,15 +1008,15 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   useEffect(() => setDraft(member), [member]);
 
-  const memberData = CHARACTER[gameId][draft.memberId];
+  const memberData = CHARACTER[gameId][draft.id];
   const weaponData = WEAPON[gameId]?.[draft.weaponId];
   const weaponType = memberData?.type ?? null;
 
   // Stored build for the current draft member (only meaningful for teammates)
-  const storedBuild = draft.memberId && draft.memberId !== characterId
-    ? allBuilds[draft.memberId] ?? null
+  const storedBuild = draft.id && draft.id !== characterId
+    ? allBuilds[draft.id] ?? null
     : null;
-  const isMainCharacter = draft.memberId === characterId;
+  const isMainCharacter = draft.id === characterId;
   const showToggle = storedBuild !== null;
   const buildLocked = !isMainCharacter && draft.useUserBuild === true;
 
@@ -1055,12 +1098,12 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 {/* Character */}
                 <PickerButton
                   label="Character"
-                  imageUrl={`${gameId}/character/${draft.memberId}.webp`}
+                  imageUrl={`${gameId}/character/${draft.id}.webp`}
                   name={memberData?.name ?? null}
                   onClick={() => setCharDialogOpen(true)}
                   onClear={() => setDraft(prev => ({
                     ...prev,
-                    memberId: null,
+                    id: null,
                     rank: null,
                     weaponId: null,
                     weaponRank: null,
@@ -1075,7 +1118,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   size="small"
                   value={draft.rank ?? ''}
                   onChange={(e) => setDraft(prev => ({ ...prev, rank: Number(e.target.value) }))}
-                  disabled={!draft.memberId || buildLocked}
+                  disabled={!draft.id || buildLocked}
                   sx={{ width: 120 }}
                 >
                   <MenuItem value="" disabled>
@@ -1096,7 +1139,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   imageUrl={`${gameId}/weapon/${draft.weaponId}.webp`}
                   name={weaponData?.name ?? null}
                   onClick={() => setWeaponDialogOpen(true)}
-                  disabled={!draft.memberId || buildLocked}
+                  disabled={!draft.id || buildLocked}
                   onClear={buildLocked ? undefined : () => setDraft(prev => ({
                     ...prev,
                     weaponId: null,
@@ -1127,7 +1170,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             <Box sx={{ flex: 1, minWidth: { xs: '100%', sm: 280 } }}>
               <SetCountsEditor
                 gameId={gameId}
-                memberId={draft.memberId}
+                id={draft.id}
                 setCounts={draft.setCounts}
                 onChange={(setCounts) => setDraft(prev => ({ ...prev, setCounts }))}
                 disabled={buildLocked}
@@ -1137,9 +1180,9 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
           <RotationEditor
             gameId={gameId}
-            characterId={draft.memberId}
+            characterId={draft.id}
             rotation={draft.rotation}
-            onChange={(rotation) => setDraft(prev => ({ ...prev, rotation: formatRotation(draft.memberId, rotation) }))}
+            onChange={(rotation) => setDraft(prev => ({ ...prev, rotation }))}
           />
         </DialogContent>
 
