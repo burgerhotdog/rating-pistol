@@ -174,14 +174,6 @@
     "critRate%",
     "critDmg%",
     "healingBonus%",
-    "energyRecharge%",
-    "pyroDmgBonus%",
-    "hydroDmgBonus%",
-    "dendroDmgBonus%",
-    "electroDmgBonus%",
-    "anemoDmgBonus%",
-    "cryoDmgBonus%",
-    "geoDmgBonus%",
-    "physicalDmgBonus%"
+    "energyRecharge%"
   ]
 }

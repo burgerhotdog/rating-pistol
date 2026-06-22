@@ -10397,7 +10397,7 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Abiogenesis: Solar Isotoma",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -10422,8 +10422,9 @@
         ]
       },
       "2": {
-        "name": "Transient Blossom DMG",
-        "skillType": "elementalSkill",
+        "name": "Transient Blossom",
+        "dmgType": "elementalSkill",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [

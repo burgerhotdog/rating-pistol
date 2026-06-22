@@ -185,23 +185,16 @@
     }
   },
   "MENU_STATS": [
-    "HP",
-    "ATK",
-    "DEF",
-    "SPD",
-    "CR",
-    "CD",
-    "BE",
-    "OHB",
-    "ERR",
-    "EHR",
-    "RES",
-    "PHYSICAL",
-    "FIRE",
-    "ICE",
-    "LIGHTNING",
-    "WIND",
-    "QUANTUM",
-    "IMAGINARY"
+    "hp",
+    "atk",
+    "def",
+    "spd",
+    "critRate%",
+    "critDmg%",
+    "breakEffect%",
+    "outgoingHealingBoost%",
+    "energyRegenerationRate%",
+    "effectHitRate%",
+    "effectRes%"
   ]
 }
