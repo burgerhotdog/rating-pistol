@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Box, Divider, Stack } from '@mui/material';
+import { WW } from '@/data';
 import HeaderEnka from './HeaderEnka';
 import HeaderNav from './HeaderNav';
 import HeaderOcr from './HeaderOcr';
@@ -7,6 +8,7 @@ import HeaderUser from './HeaderUser';
 
 export const Header = () => {
   const { gameId } = useParams();
+
   return (
     <Box
       sx={{
@@ -18,9 +20,11 @@ export const Header = () => {
     >
       <HeaderNav />
 
-      <Stack direction="row" sx={{ alignItems: 'center' }} spacing={1}>
-        {gameId === 'wuthering-waves' ? <HeaderOcr /> : <HeaderEnka />}
+      <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
+        {gameId === WW ? <HeaderOcr /> : <HeaderEnka />}
+
         <Divider orientation="vertical" flexItem />
+
         <HeaderUser />
       </Stack>
     </Box>
