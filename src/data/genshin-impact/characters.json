@@ -410,7 +410,41 @@
     },
     "ascensionStats": {
       "geoDmgBonus%": 0.288
-    }
+    },
+    "rankMods": {
+      "3": {
+        "elementalSkill": 3
+      },
+      "5": {
+        "elementalBurst": 3
+      }
+    },
+    "effects": [
+      {
+        "applyTo": "active",
+        "applyWhen": "hit",
+        "applyOnAction": "elementalSkill.1",
+        "useCooldown": 2000,
+        "followUpAction": "elementalSkill.2",
+        "duration": 30000
+      },
+      {
+        "chance": 0.5,
+        "useOnAction": "elementalSkill.2",
+        "statMap": {
+          "dmgBonus%": 0.25
+        }
+      },
+      {
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "elementalBurst.1",
+        "statMap": {
+          "elementalMastery": 125
+        },
+        "duration": 10000
+      }
+    ]
   },
   {
     "id": "10000026",

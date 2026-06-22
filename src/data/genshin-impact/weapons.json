@@ -1247,6 +1247,17 @@
     "stats": {
       "baseAtk": 454,
       "def%": 0.69
+    },
+    "effects": {
+      "useOnDmgType": "elementalSkill",
+      "useCooldown": 1500,
+      "variableStatMap": {
+        "flat": {
+          "attr": "def",
+          "step": 1,
+          "value": 0.4
+        }
+      }
     }
   },
   {

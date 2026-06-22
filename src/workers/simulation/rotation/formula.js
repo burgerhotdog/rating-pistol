@@ -12,7 +12,9 @@ const computeBase = (compressed, statMap) => {
     totalMvPart += attrValue * (mv + flatMv * compressed.hitCount);
   }
 
-  return totalMvPart * (1 + percentMv) + compressed.flat;
+  const flatBuff = getAttr('flat', statMap) * compressed.hitCount;
+
+  return totalMvPart * (1 + percentMv) + compressed.flat + flatBuff;
 };
 
 // Resistance and defence reduction multipliers applied to final damage.

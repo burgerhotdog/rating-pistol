@@ -80,7 +80,7 @@ const parseWeaponLevel = {
 };
 
 const parseWeaponRank = {
-  [GI]: obj => obj.equipList.at(-1).flat.rankLevel,
+  [GI]: obj => Object.values(obj.equipList.at(-1).weapon.affixMap)[0] + 1,
   [HSR]: obj => obj.equipment.rank,
   [ZZZ]: obj => obj.Weapon.UpgradeLevel,
 };

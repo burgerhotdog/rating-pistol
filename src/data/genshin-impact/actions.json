@@ -10157,8 +10157,9 @@
     "id": "10000038",
     "normalAttack": {
       "1": {
-        "name": "1-Hit DMG",
+        "name": "Normal Attack 1",
         "skillType": "normalAttack",
+        "element": "Physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10182,8 +10183,9 @@
         ]
       },
       "2": {
-        "name": "2-Hit DMG",
+        "name": "Normal Attack 2",
         "skillType": "normalAttack",
+        "element": "Physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10207,8 +10209,9 @@
         ]
       },
       "3": {
-        "name": "3-Hit DMG",
+        "name": "Normal Attack 3",
         "skillType": "normalAttack",
+        "element": "Physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10232,8 +10235,9 @@
         ]
       },
       "4": {
-        "name": "4-Hit DMG",
+        "name": "Normal Attack 4",
         "skillType": "normalAttack",
+        "element": "Physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10257,8 +10261,9 @@
         ]
       },
       "5": {
-        "name": "5-Hit DMG",
+        "name": "Normal Attack 5",
         "skillType": "normalAttack",
+        "element": "Physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10282,8 +10287,9 @@
         ]
       },
       "6": {
-        "name": "Charged Attack DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack",
+        "skillType": "chargedAttack",
+        "element": "Physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10325,9 +10331,10 @@
           }
         ]
       },
-      "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+      "7": {
+        "name": "Plunge Collision",
+        "skillType": "plungeAttack",
+        "element": "Physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10350,9 +10357,10 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+      "8": {
+        "name": "Plunge Attack: Low",
+        "skillType": "plungeAttack",
+        "element": "Physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10372,7 +10380,14 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "element": "Physical",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -10450,7 +10465,7 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Burst DMG",
+        "name": "Rite of Progeniture: Tectonic Tide",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -10475,8 +10490,8 @@
         ]
       },
       "2": {
-        "name": "Fatal Blossom DMG",
-        "skillType": "elementalBurst",
+        "name": "Fatal Blossom",
+        "dmgType": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
