@@ -2,8 +2,6 @@ import { GI, HSR, WW, ZZZ } from '@/data';
 import { MISC } from '@/data';
 import { mergeObj, mergeEquipList, sumRotationDmg } from '@/utils';
 import { weightedLottery } from './helpers';
-import { evaluateRotation } from './rotation';
-import { getPenalty } from './penalty';
 
 const WW_ATKDEF = {
   'atk': [30, 40, 50, 60],
@@ -145,7 +143,7 @@ const generateEquipWW = (ctx, cost) => {
 };
 
 const evaluateEquip = (ctx, spec, equip, latest) => {
-  const { cache, currId, matchMap, compiledRotation } = ctx;
+  const { cache, currId, simulateRotation, getPenalty } = ctx;
   const { baseMap } = cache.member[currId];
 
   const buffer = { ...latest };
@@ -153,8 +151,8 @@ const evaluateEquip = (ctx, spec, equip, latest) => {
   function compareAndReplace(slot) {
     const newEquipList = latest.equipList.with(slot, equip);
     const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
-    const newSummary = evaluateRotation(compiledRotation, combinedStatMap);
-    const newPenalty = getPenalty(combinedStatMap, matchMap);
+    const newSummary = simulateRotation(combinedStatMap);
+    const newPenalty = getPenalty(combinedStatMap);
     const newScore = sumRotationDmg(newSummary) * newPenalty;
 
     // Compare with buffer and replace if needed
@@ -251,7 +249,7 @@ export function advanceTrial(ctx, trial) {
     equipList: trial.equipList,
     summary: trial.weeklySummary.at(-1),
     penalty: trial.penalty,
-    score: sumRotationDmg(trial.weeklySummary.at(-1)) * trial.penalty,
+    score: trial.score,
   };
 
   weeklyRoutine(ctx, next);
@@ -259,4 +257,5 @@ export function advanceTrial(ctx, trial) {
   trial.equipList = next.equipList;
   trial.penalty = next.penalty;
   trial.weeklySummary.push(next.summary);
+  trial.score = next.score;
 }

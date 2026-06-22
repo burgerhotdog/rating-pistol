@@ -2,7 +2,6 @@ import { MISC } from '@/data';
 import { mergeEquipList, sumRotationDmg } from '@/utils';
 import { compileCache } from './cache';
 import { runTrials } from './runTrials';
-import { evaluateRotation } from './rotation';
 
 const getAvgStatMap = (trials) => {
   const avgStatMap = {};
@@ -25,23 +24,12 @@ self.onmessage = ({ data }) => {
   const cache = compileCache(gameId, team);
   const trialMaps = {};
 
-  self.postMessage({
-    type: 'progress',
-    statusMessage: 'Calibrating teammates',
-    currentMember: null,
-    completed: 0,
-  });
-
+  // Create trial builds for teammates if empty build
   for (let ti = team.length - 1; ti >= 0; ti--) {
     const member = team[ti];
     if (member.build) continue;
 
-    self.postMessage({
-      type: 'progress',
-      currentMember: member.id,
-      completed: 0,
-      diff: null,
-    });
+    self.postMessage({ type: 'progress', statusMessage: 'Creating trial builds' });
 
     const test = team.map(member => ({ ...member, equipMap: cache.member[member.id].equipMap }));
     const { trials } = runTrials(cache, member.id, test);
@@ -49,32 +37,20 @@ self.onmessage = ({ data }) => {
   }
 
   // Run farming simulation for current character
-  self.postMessage({
-    type: 'progress',
-    statusMessage: 'Running simulation',
-    currentMember: characterId,
-    completed: 0,
-    diff: null,
-  });
+  self.postMessage({ type: 'progress', statusMessage: 'Running simulation' });
 
   const trialsTeam = team.map(member => {
     if (member.build) return { ...member, equipMap: cache.member[member.id].equipMap };
     return { ...member, equipMap: trialMaps[member.id] };
   });
 
-  const {
-    trials,
-    preferredMainStats,
-    benchmarkWeek,
-    weeklyScores,
-    compiledRotation,
-  } = runTrials(cache, characterId, trialsTeam);
+  const { trials, weeklyScores, simulateRotation } = runTrials(cache, characterId, trialsTeam, true);
 
   const finalStats = getAvgStatMap(trials);
 
   // Per-week score percentiles for distribution bands
   const weeklyDistribution = [];
-  for (let week = 0; week <= benchmarkWeek; week++) {
+  for (let week = 0; week <= weeklyScores.length - 1; week++) {
     const values = trials.map(t => t.weeklySummary[week]).sort((a, b) => sumRotationDmg(a) - sumRotationDmg(b));
     const n = values.length;
     weeklyDistribution.push({
@@ -90,7 +66,7 @@ self.onmessage = ({ data }) => {
 
   // Build actionMap using the character's actual equipped build (same as what
   // normalizeTeam returned for the character — m.build is the top-level build).
-  const actionMap = evaluateRotation(compiledRotation, cache.member[characterId].statMap);
+  const actionMap = simulateRotation(cache.member[characterId].statMap);
   const actionMapsWithSub = {};
 
   for (const [statId, { VALUE }] of Object.entries(MISC[gameId].SUB_STAT_TYPES)) {
@@ -98,18 +74,16 @@ self.onmessage = ({ data }) => {
     adjustedStatMap[statId] ??= 0;
     adjustedStatMap[statId] += VALUE;
 
-    actionMapsWithSub[statId] = evaluateRotation(compiledRotation, adjustedStatMap);
+    actionMapsWithSub[statId] = simulateRotation(adjustedStatMap);
   }
 
   self.postMessage({
     type: 'done',
-    completed: benchmarkWeek,
-    weeklyScores,
-    finalStats,
-    preferredMainStats,
-    weeklyDistribution,
     actionMap,
     actionMapsWithSub,
     cache,
+    finalStats,
+    weeklyDistribution,
+    weeklyScores,
   });
 };

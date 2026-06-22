@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
 import {
   Bar,
@@ -11,25 +10,22 @@ import {
 import { useSimulation, useTeam } from '@/hooks';
 
 export const Content = () => {
-  const { characterId } = useParams();
   const { team, updateTeam } = useTeam();
 
   const {
-    error,
-    completed = 0,
-    weeklyScores,
-    finalStats,
-    weeklyDistribution,
-    isLoading,
-    diff,
-    simCharacter,
+    type,
+    statusMessage,
     actionMap,
     actionMapsWithSub,
-    currentMember,
-    trial,
-    statusMessage,
     cache,
+    diff,
+    finalStats,
+    week,
+    weeklyDistribution,
+    weeklyScores,
   } = useSimulation(team);
+
+  const isLoading = type !== 'done';
 
   return (
     <Box
@@ -46,47 +42,43 @@ export const Content = () => {
         updateTeam={updateTeam}
       />
 
-      {(!error && simCharacter === characterId) && (
-        isLoading ? (
-          <Bar
-            completed={completed}
-            diff={diff}
-            currentMember={currentMember}
-            trial={trial}
-            statusMessage={statusMessage}
-          />
-        ) : (
-          <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, gap: 1 }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 250 }}>
-              <BenchmarkProgress
-                weeklyScores={weeklyScores}
-                weeklyDistribution={weeklyDistribution}
-                isLoading={isLoading}
-                team={team}
-                actionMap={actionMap}
-                cache={cache}
-              />
-            </Box>
-
-            <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100, gap: 1 }}>
-              <CustomRadarChart
-                combinedSimEquips={finalStats}
-                isLoading={isLoading}
-              />
-              <DamageBreakdown
-                actionMap={actionMap}
-              />
-            </Box>
-
-            <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100 }}>
-              <SubstatPriority
-                isLoading={isLoading}
-                actionMap={actionMap}
-                actionMapsWithSub={actionMapsWithSub}
-              />
-            </Box>
+      {isLoading ? (
+        <Bar
+          statusMessage={statusMessage}
+          week={week}
+          diff={diff}
+        />
+      ) : (
+        <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, gap: 1 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 250 }}>
+            <BenchmarkProgress
+              weeklyScores={weeklyScores}
+              weeklyDistribution={weeklyDistribution}
+              isLoading={isLoading}
+              team={team}
+              actionMap={actionMap}
+              cache={cache}
+            />
           </Box>
-        )
+
+          <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100, gap: 1 }}>
+            <CustomRadarChart
+              combinedSimEquips={finalStats}
+              isLoading={isLoading}
+            />
+            <DamageBreakdown
+              actionMap={actionMap}
+            />
+          </Box>
+
+          <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100 }}>
+            <SubstatPriority
+              isLoading={isLoading}
+              actionMap={actionMap}
+              actionMapsWithSub={actionMapsWithSub}
+            />
+          </Box>
+        </Box>
       )}
     </Box>
   );

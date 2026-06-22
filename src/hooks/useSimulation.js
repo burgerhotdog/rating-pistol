@@ -1,79 +1,43 @@
-import { useEffect, useRef, useState } from 'react';
+import { useMemo, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CHARACTER } from '@/data';
+import { GI, WW, ZZZ } from '@/data';
 
-export function useSimulation(team) {
+const VALID = new Set([GI, WW, ZZZ]);
+
+export const useSimulation = (team) => {
   const { gameId, characterId } = useParams();
 
   const workerRef = useRef(null);
   const [result, setResult] = useState({});
-  
+
+  const payload = useMemo(() => {
+    const isValidGame = VALID.has(gameId);
+    const isValidTeam = team.every(member => !member.id || member.rotation.length > 0);
+    const isValid = isValidGame && isValidTeam;
+
+    return isValid ? { gameId, characterId, team } : null;
+  }, [gameId, characterId, team]);
+
   useEffect(() => {
-    const payload = { gameId, characterId, team };
-
-    if (!['genshin-impact', 'wuthering-waves', 'zenless-zone-zero'].includes(gameId)) {
-      console.log('simulation disabled for game');
-      workerRef.current?.terminate();
-      workerRef.current = null;
-      setResult({});
-      return;
-    }
-
-    for (const member of team) {
-      if (!member.id) continue;
-
-      if (!member.rotation.length) {
-        console.log('empty rotation');
-        workerRef.current?.terminate();
-        workerRef.current = null;
-        setResult({});
-        return;
-      }
-    }
-  
-    setResult({
-      simCharacter: characterId,
-      isLoading: true,
-    });
-  
     workerRef.current?.terminate();
+    workerRef.current = null;
+
+    if (!payload) return;
 
     const worker = new Worker(
       new URL('../workers/simulation/worker.js', import.meta.url),
       { type: 'module' },
     );
+
     workerRef.current = worker;
 
     worker.onmessage = ({ data }) => {
       if (data.type === 'progress') {
-        setResult(prev => ({
-          ...prev,
-          ...('currentMember' in data ? { currentMember: data.currentMember ? CHARACTER[gameId][data.currentMember].name : null } : {}),
-          ...('completed' in data ? { completed: data.completed } : {}),
-          ...('diff' in data ? { diff: data.diff } : {}),
-          ...('trial' in data ? { trial: data.trial } : {}),
-          ...('statusMessage' in data ? { statusMessage: data.statusMessage } : {}),
-        }));
-        return;
+        return setResult(prev => ({ ...prev, ...data }));
       }
 
       if (data.type === 'done') {
-        console.log(data);
-        setResult(prev => ({
-          ...prev,
-          isFarmingDone: true,
-          completed: data.completed,
-          weeklyScores: data.weeklyScores,
-          finalStats: data.finalStats,
-          preferredMainStats: data.preferredMainStats,
-          mainStatDist: data.mainStatDist,
-          weeklyDistribution: data.weeklyDistribution,
-          isLoading: false,
-          simCharacter: characterId,
-          actionMap: data.actionMap,
-          actionMapsWithSub: data.actionMapsWithSub,
-          cache: data.cache,
-        }));
+        setResult(prev => ({ ...prev, ...data }));
 
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;
@@ -86,7 +50,7 @@ export function useSimulation(team) {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
     };
-  }, [gameId, characterId, team]);
+  }, [payload]);
 
-  return result;
-}
+  return payload ? result : { statusMessage: 'Simulation disabled' };
+};

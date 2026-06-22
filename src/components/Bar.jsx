@@ -1,31 +1,21 @@
 import { useRef } from 'react';
 import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
 
-export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) => {
+export const Bar = ({ statusMessage, week, diff }) => {
   const initialDiffRef = useRef(null);
-  const prevMemberRef = useRef(currentMember);
 
-  if (prevMemberRef.current !== currentMember) {
-    prevMemberRef.current = currentMember;
-    initialDiffRef.current = null;
-  }
-
-  if (initialDiffRef.current === null && diff != null) {
-    initialDiffRef.current = diff;
-  }
-
-  const value = diff != null ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
+  // const value = diff != null ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
 
   return (
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Stack spacing={2} sx={{ width: '50%', maxWidth: 360 }}>
         <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
-          {statusMessage || 'Running simulation...'}
+          {statusMessage || 'Initializing...'}
         </Typography>
 
         <LinearProgress
           variant="determinate"
-          value={value}
+          value={0}
           sx={{
             height: 6,
             borderRadius: 3,
@@ -36,7 +26,7 @@ export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) =>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant="caption" color="text.secondary">
-            {currentMember ? (completed === 0 ? `${currentMember}: Constructing baseline scores...` : `${currentMember}: Week ${completed}: Trial ${trial}`) : ''}
+            {week ? `Week ${week}` : ''}
           </Typography>
         </Box>
       </Stack>
