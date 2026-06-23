@@ -1,4 +1,3 @@
-import { MISC } from '@/data';
 import { compileCache } from './cache';
 import { runTrials } from './runTrials';
 
@@ -27,28 +26,5 @@ self.onmessage = ({ data }) => {
     return { ...member, equipMap: trialMaps[member.id] };
   });
 
-  const { finalStatMap, weeklyDistribution, weeklySummaries, simulateRotation } = runTrials(cache, characterId, trialsTeam, true);
-
-  // Build actionMap using the character's actual equipped build (same as what
-  // normalizeTeam returned for the character — m.build is the top-level build).
-  const userSummary = simulateRotation(cache.member[characterId].statMap);
-  const actionMapsWithSub = {};
-
-  for (const [statId, { VALUE }] of Object.entries(MISC[gameId].SUB_STAT_TYPES)) {
-    const adjustedStatMap = { ...cache.member[characterId].statMap };
-    adjustedStatMap[statId] ??= 0;
-    adjustedStatMap[statId] += VALUE;
-
-    actionMapsWithSub[statId] = simulateRotation(adjustedStatMap);
-  }
-
-  self.postMessage({
-    type: 'done',
-    cache,
-    finalStatMap,
-    weeklyDistribution,
-    weeklySummaries,
-    userSummary,
-    actionMapsWithSub,
-  });
+  runTrials(cache, characterId, trialsTeam, true);
 };

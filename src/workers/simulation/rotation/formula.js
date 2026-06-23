@@ -41,16 +41,15 @@ const computeReductions = (config, statMap, element, enemyStatMap) => {
   return resMult * defMult;
 };
 
-const computeBonuses = (statMap, dmgType, element, enemyStatMap) => {
+const computeBonuses = (statMap, bonusTypes, enemyStatMap) => {
   const critRate = Math.max(Math.min(getAttr('critRate%', statMap), 1), 0);
   const critDamage = getAttr('critDmg%', statMap);
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
-  const dmgTypes = [...dmgType, ...(element ? [element]: [])];
   let dmgBonusMult = 1 + getAttr('dmgBonus%', statMap) + getAttr('dmgBonus%', enemyStatMap);
   let ampMult = 1 + getAttr('dmgAmp%', statMap) + getAttr('dmgAmp%', enemyStatMap);
 
-  for (const type of dmgTypes) {
+  for (const type of bonusTypes) {
     dmgBonusMult += getAttr(`${type}DmgBonus%`, statMap) + getAttr(`${type}DmgBonus%`, enemyStatMap);
     ampMult += getAttr(`${type}DmgAmp%`, statMap) + getAttr(`${type}DmgAmp%`, enemyStatMap);
   }
@@ -59,19 +58,21 @@ const computeBonuses = (statMap, dmgType, element, enemyStatMap) => {
 };
 
 export const damageFormula = (action, config, statMap) => {
-  const { dmgType, compressed } = action;
+  const { dmgType, extraDmgType, compressed } = action;
   const { enemyStatMap } = config;
   const timesRepeat = action.times * config.repeatCount;
   let sum = 0;
 
-  for (const element in action.compressed) {
+  for (const element in compressed) {
     const base = computeBase(compressed[element], statMap) * timesRepeat;
 
     switch (action.type) {
       case 'damage': {
-        const uppercase = element.toLowerCase();
-        const bonuses = computeBonuses(statMap, dmgType, uppercase, enemyStatMap);
-        const reductions = computeReductions(config, statMap, uppercase, enemyStatMap);
+        const lowercase = element.toLowerCase();
+        const bonusTypes = [lowercase, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
+
+        const bonuses = computeBonuses(statMap, bonusTypes, enemyStatMap);
+        const reductions = computeReductions(config, statMap, lowercase, enemyStatMap);
 
         sum += base * bonuses * reductions;
         break;

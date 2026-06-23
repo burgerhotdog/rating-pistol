@@ -110,7 +110,6 @@ export const normalizeAction = (ctx, memberId, action) => {
     ...action,
     ownerId: memberId,
     tagged: toArray(action.tagged),
-    skillType: toArray(action.skillType),
     times: action.times ?? 1,
   };
 
@@ -119,11 +118,11 @@ export const normalizeAction = (ctx, memberId, action) => {
     normalized.type ??= 'damage';
   }
 
-  if (normalized.type === 'damage') {
-    normalized.dmgType = toArray(normalized.dmgType ?? normalized.skillType);
+  if (normalized.type === 'damage' && normalized.skillType != null) {
+    normalized.dmgType ??= normalized.skillType;
   }
 
-  normalized.duration ??= DURATION_BY_CAST[ctx.gameId][normalized.skillType[0]] ?? 0;
+  normalized.duration ??= DURATION_BY_CAST[ctx.gameId][normalized.skillType] ?? 0;
   normalized.offset ??= Math.round(normalized.duration * 0.75);
 
   if (normalized.times === '$teamSize') {

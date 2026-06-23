@@ -16,7 +16,6 @@ export const Content = () => {
     type,
     statusMessage,
     userSummary,
-    actionMapsWithSub,
     cache,
     diff,
     week,
@@ -73,11 +72,6 @@ export const Content = () => {
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100 }}>
-            <SubstatPriority
-              isLoading={isLoading}
-              userSummary={userSummary}
-              actionMapsWithSub={actionMapsWithSub}
-            />
           </Box>
         </Box>
       )}

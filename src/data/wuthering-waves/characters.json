@@ -787,10 +787,7 @@
         "applyOnAction": "forteCircuit.2",
         "followUpAction": {
           "skillType": "coordinatedAttack",
-          "dmgType": [
-            "resonanceLiberation",
-            "coordinatedAttack"
-          ],
+          "dmgType": "resonanceLiberation",
           "fixedMultipliers": {
             "mv": 1
           }
@@ -1197,7 +1194,7 @@
         "useOnSkillType": [
           "basicAttack",
           "heavyAttack",
-          "midAirAttack",
+          "mid-airAttack",
           "dodgeCounter"
         ],
         "statMap": {
@@ -1235,7 +1232,7 @@
         "applyOnAction": "resonanceLiberation.1",
         "useOnSkillType": [
           "basicAttack",
-          "midAirAttack"
+          "mid-airAttack"
         ],
         "statMap": {
           "mv%": 1
@@ -1353,10 +1350,7 @@
         "useCooldown": 1000,
         "followUpAction": {
           "skillType": "coordinatedAttack",
-          "dmgType": [
-            "outroSkill",
-            "coordinatedAttack"
-          ],
+          "dmgType": "outroSkill",
           "fixedMultipliers": {
             "mv": 3.134
           }
@@ -2608,8 +2602,9 @@
         "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "useOnSkillType": "coordinatedAttack",
         "statMap": {
-          "coordinatedAttackDmgAmp%": 1
+          "dmgAmp%": 1
         },
         "duration": 28000
       },
@@ -3266,11 +3261,11 @@
         "duration": 12000
       },
       {
+        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
         "followUpAction": {
           "skillType": "echoSkill",
-          "dmgType": "echoSkill",
           "fixedMultipliers": {
             "flat": 100
           }
@@ -3474,7 +3469,7 @@
       },
       {
         "rank": 2,
-        "useOnSkillType": "midAirAttack",
+        "useOnSkillType": "mid-airAttack",
         "useOnAction": "forteCircuit.1",
         "statMap": {
           "critRate%": 0.3
@@ -3535,7 +3530,7 @@
       },
       {
         "rank": 6,
-        "useOnSkillType": "midAirAttack",
+        "useOnSkillType": "mid-airAttack",
         "useOnAction": "forteCircuit.1",
         "statMap": {
           "mv%": 0.3

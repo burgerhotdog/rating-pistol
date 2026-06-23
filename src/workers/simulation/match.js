@@ -26,21 +26,13 @@ const matchOnTagged = (onTagged, action) => {
 };
 
 const matchOnSkillType = (onSkillType, action) => {
-  for (const type of action.skillType) {
-    if (onSkillType.includes(type)) return true;
-  }
-
-  return false;
+  const { skillType, extraSkillType } = action;
+  return onSkillType.includes(skillType) || onSkillType.includes(extraSkillType);
 };
 
 const matchOnDmgType = (onDmgType, action) => {
-  if (!action.dmgType) return false;
-
-  for (const type of action.dmgType) {
-    if (onDmgType.includes(type)) return true;
-  }
-
-  return false;
+  const { dmgType, extraDmgType } = action;
+  return onDmgType.includes(dmgType) || onDmgType.includes(extraDmgType);
 };
 
 const matchOnElement = (onElement, elements) => {

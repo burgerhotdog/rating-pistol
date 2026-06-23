@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Box, Card, Paper, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
+import { alpha, darken, lighten } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
 import { CHARACTER, MISC } from '@/data';
 import { formatStr } from '@/utils';
@@ -11,17 +11,15 @@ const renderLabel = ({ percent }) => {
   return `${(percent * 100).toFixed(0)}%`;
 };
 
-const buildDmgTypeData = (actionMap, gameId, characterId) => {
+const buildDmgTypeData = (summary, charId) => {
   const totals = {};
 
-  for (const temp of Object.values(actionMap)) {
-    const { ownerId, dmgType, damage } = temp;
-    if (ownerId !== characterId) continue;
-    if (!dmgType) continue;
-    const label = dmgType[0];
+  for (const footprint of Object.values(summary)) {
+    const { ownerId, dmgType, damage } = footprint;
+    if (ownerId !== charId || !damage) continue;
 
-    totals[label] ??= 0;
-    totals[label] += damage;
+    totals[dmgType] ??= 0;
+    totals[dmgType] += damage;
   }
 
   return Object.entries(totals).map(([name, value]) => ({ name, value })).filter(d => d.value > 0);
@@ -29,14 +27,12 @@ const buildDmgTypeData = (actionMap, gameId, characterId) => {
 
 export const DamageBreakdown = ({ userSummary }) => {
   const { gameId, characterId } = useParams();
-  const theme = useTheme();
-
   if (!userSummary) return null;
 
-  const data = buildDmgTypeData(userSummary, gameId, characterId).sort((a, b) => b.value - a.value);
+  const data = buildDmgTypeData(userSummary, characterId).sort((a, b) => b.value - a.value);
 
   const element = CHARACTER[gameId][characterId].element;
-  const monoColor = MISC?.[gameId]?.COLORS?.[element] ?? theme.palette.primary.main;
+  const monoColor = MISC[gameId].COLORS[element];
 
   const getSliceFill = (index, count) => {
     if (count <= 1) return alpha(monoColor, 0.95);
@@ -84,7 +80,7 @@ export const DamageBreakdown = ({ userSummary }) => {
                   <Cell
                     key={entry.name}
                     fill={getSliceFill(index, data.length)}
-                    stroke={alpha(theme.palette.background.paper, 0.85)}
+                    stroke="none"
                     strokeWidth={2}
                   />
                 ))}

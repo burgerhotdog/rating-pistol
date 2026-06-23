@@ -21,7 +21,8 @@ const convertRotation = (ctx, member, actions) => {
 
     if (teamSize === 1) {
       const { skillType } = action;
-      if (['introSkill', 'outroSkill'].some(type => skillType.includes(type))) {
+
+      if (skillType === 'introSkill' || skillType === 'outroSkill') {
         continue;
       }
     }

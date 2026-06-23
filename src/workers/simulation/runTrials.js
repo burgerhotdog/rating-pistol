@@ -142,7 +142,16 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   }
 
   const finalStatMap = buildFinalStats(trials);
-
   if (!isPrimary) return { finalStatMap };
-  return { finalStatMap, weeklyDistribution, weeklySummaries, simulateRotation };
+
+  const userSummary = simulateRotation(cache.member[currId].statMap);
+  
+  self.postMessage({
+    type: 'done',
+    cache,
+    finalStatMap,
+    weeklyDistribution,
+    weeklySummaries,
+    userSummary,
+  });
 };
