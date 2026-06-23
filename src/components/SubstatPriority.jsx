@@ -13,10 +13,10 @@ import {
 import { MISC, CHARACTER } from '@/data';
 import { sumRotationDmg, formatStr } from '@/utils';
 
-export const SubstatPriority = ({ isLoading, actionMap, actionMapsWithSub }) => {
+export const SubstatPriority = ({ isLoading, userSummary, actionMapsWithSub }) => {
   const { gameId, characterId } = useParams();
   const { element } = CHARACTER[gameId][characterId];
-  const rating = sumRotationDmg(actionMap);
+  const rating = sumRotationDmg(userSummary);
   if (isLoading) return null;
 
   const newRatings = Object.entries(actionMapsWithSub)

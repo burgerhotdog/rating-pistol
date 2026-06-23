@@ -65,16 +65,17 @@ const getGrade = (pct) => {
   return { grade: 'E', color: '#ef4444' };
 };
 
-export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, team, actionMap, cache }) => {
+export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, userSummary, cache }) => {
   const theme = useTheme();
   const { gameId } = useParams();
   const disabledColor = theme.palette.action.disabled;
-  if (isLoading || !weeklyScores) return null;
+
+  if (!weeklySummaries) return null;
 
   const members = team.filter(m => m.id);
   const membersMisc = [
     ...members,
-    ...(Object.values(actionMap).some(result => result.ownerId === 'misc') ? [{ id: 'misc' }] : []),
+    ...(Object.values(weeklySummaries[0]).some(result => result.ownerId === 'misc') ? [{ id: 'misc' }] : []),
   ];
 
   const memberColors = membersMisc.map(m => {
@@ -89,29 +90,29 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
     members.map((m) => [m.id, cache.member[m.id]?.rotationTime])
   );
 
-  const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap)));
+  const activeScores = weeklySummaries.map(actionMap => toDps(sumRotationDmg(actionMap)));
   const benchmarkRating = activeScores[activeScores.length - 1];
-  const activeUserRating = toDps(sumRotationDmg(actionMap));
+  const activeUserRating = toDps(sumRotationDmg(userSummary ?? {}));
   const scaledBuildRating = activeUserRating / benchmarkRating * 100;
 
   const data = activeScores.map((dmg, index) => {
-    const dist = weeklyDistribution?.[index];
+    const dist = weeklyDistribution[index];
     const entry = {
       week: index,
       damage: dmg,
-      q1: toDps(sumRotationDmg(dist?.q1)) ?? dmg,
-      iqr: dist ? toDps(sumRotationDmg(dist.q3)) - toDps(sumRotationDmg(dist.q1)) : 0,
-      p10: toDps(sumRotationDmg(dist?.p10)) ?? dmg,
-      p90band: dist ? toDps(sumRotationDmg(dist.p90)) - toDps(sumRotationDmg(dist.p10)) : 0,
+      p10: toDps(dist.p10.damage) ?? dmg,
+      p90band: dist ? toDps(dist.p90.damage) - toDps(dist.p10.damage) : 0,
     };
+
     for (const m of membersMisc) {
-      entry[`dps_${m.id}`] = toDps(sumRotationDmg(weeklyScores[index], { ownerId: m.id }));
+      entry[`dps_${m.id}`] = toDps(sumRotationDmg(weeklySummaries[index], { ownerId: m.id }));
     }
+
     return entry;
   });
 
   const yMin = 0;
-  const distMax = weeklyDistribution ? Math.max(...weeklyDistribution.map(d => toDps(sumRotationDmg(d.p90)))) : 0;
+  const distMax = weeklyDistribution ? Math.max(...weeklyDistribution.map(d => toDps(d.p90.damage))) : 0;
   const yMax = Math.max(benchmarkRating, activeUserRating, distMax) * 1.08;
 
   const { grade, color: gradeColor } = getGrade(scaledBuildRating);
@@ -133,12 +134,15 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
               </linearGradient>
             ))}
           </defs>
+
           <CartesianGrid strokeDasharray="3 3" stroke={theme.palette.divider} />
+
           <XAxis
             dataKey="week"
             tick={{ fontSize: 12 }}
             label={{ value: 'Weeks', position: 'insideBottomRight', offset: -5, fontSize: 12 }}
           />
+
           <YAxis
             domain={[yMin, yMax]}
             tick={{ fontSize: 12 }}
@@ -155,10 +159,6 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
           <Area type="monotone" dataKey="p10" stackId="outer" stroke="none" fill="transparent" activeDot={false} />
           <Area type="monotone" dataKey="p90band" stackId="outer" stroke="none" fill={disabledColor} fillOpacity={0.2} activeDot={false} />
 
-          {/* IQR inner band */}
-          <Area type="monotone" dataKey="q1" stackId="band" stroke="none" fill="transparent" activeDot={false} />
-          <Area type="monotone" dataKey="iqr" stackId="band" stroke="none" fill={disabledColor} fillOpacity={0.4} activeDot={false} />
-
           {/* Stacked member DPS areas */}
           {membersMisc.map((m, i) => (
             <Area
@@ -169,8 +169,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
               stroke={memberColors[i]}
               strokeWidth={1.5}
               fill={`url(#gradientMember${i})`}
-              dot={false}
-              activeDot={{ r: 4, strokeWidth: 2, fill: theme.palette.background.paper }}
+              activeDot={false}
             />
           ))}
           
@@ -183,7 +182,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
               const percentGain = prevWeek && prevWeek.damage !== 0
                 ? ((damage - prevWeek.damage) / prevWeek.damage) * 100
                 : null;
-              const dist = weeklyDistribution?.[week];
+              const dist = weeklyDistribution[week];
 
               return (
                 <Paper
@@ -205,7 +204,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                       <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: memberColors[i], flexShrink: 0 }} />
                       <Typography variant="body2">
                         {CHARACTER[gameId][m.id]?.name ?? m.id}:{' '}
-                        {sumRotationDmg(weeklyScores[week], { ownerId: m.id }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                        {sumRotationDmg(weeklySummaries[week], { ownerId: m.id }).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                         {m.id !== 'misc' && (
                           <>
                             {' / '}
@@ -227,7 +226,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
 
                   {dist && (
                     <Typography variant="body2" color="textSecondary">
-                      Q1-Q3: {toDps(sumRotationDmg(dist.q1)).toLocaleString('en-US', { maximumFractionDigits: 0 })} - {toDps(sumRotationDmg(dist.q3)).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                      p10-p90: {toDps(dist.p10.damage).toLocaleString('en-US', { maximumFractionDigits: 0 })} - {toDps(dist.p90.damage).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                     </Typography>
                   )}
 

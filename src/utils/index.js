@@ -8,3 +8,4 @@ export * from './resolveRanked';
 export * from './getDefaultRanks';
 export * from './applyStoredBuild';
 export * from './formatStr';
+export * from './getTotals';

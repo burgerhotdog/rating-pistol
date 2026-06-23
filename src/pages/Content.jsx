@@ -15,14 +15,14 @@ export const Content = () => {
   const {
     type,
     statusMessage,
-    actionMap,
+    userSummary,
     actionMapsWithSub,
     cache,
     diff,
-    finalStats,
     week,
+    finalStatMap,
     weeklyDistribution,
-    weeklyScores,
+    weeklySummaries,
   } = useSimulation(team);
 
   const isLoading = type !== 'done';
@@ -52,29 +52,30 @@ export const Content = () => {
         <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, gap: 1 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 250 }}>
             <BenchmarkProgress
-              weeklyScores={weeklyScores}
-              weeklyDistribution={weeklyDistribution}
               isLoading={isLoading}
               team={team}
-              actionMap={actionMap}
+              weeklySummaries={weeklySummaries}
+              weeklyDistribution={weeklyDistribution}
+              userSummary={userSummary}
               cache={cache}
             />
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100, gap: 1 }}>
             <CustomRadarChart
-              combinedSimEquips={finalStats}
               isLoading={isLoading}
+              combinedSimEquips={finalStatMap}
             />
+
             <DamageBreakdown
-              actionMap={actionMap}
+              userSummary={userSummary}
             />
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100 }}>
             <SubstatPriority
               isLoading={isLoading}
-              actionMap={actionMap}
+              userSummary={userSummary}
               actionMapsWithSub={actionMapsWithSub}
             />
           </Box>

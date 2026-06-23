@@ -1,6 +1,6 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
 import { MISC } from '@/data';
-import { mergeObj, mergeEquipList, sumRotationDmg } from '@/utils';
+import { mergeObj, mergeEquipList, getTotals } from '@/utils';
 import { weightedLottery } from './helpers';
 
 const WW_ATKDEF = {
@@ -30,10 +30,12 @@ const randomRollWW = (statId) => {
     const winnerIndex = weightedLottery([4, 19, 14, 1]);
     return WW_ATKDEF[statId][winnerIndex];
   }
+
   if (statId === 'critRate%' || statId === 'critDmg%') {
     const winnerIndex = weightedLottery([6, 6, 6, 2, 2, 2, 1, 1]);
     return WW_CRIT[statId][winnerIndex];
   }
+
   const winnerIndex = weightedLottery([2, 2, 7, 8, 6, 5, 2, 1]);
   return WW_OTHER[statId][winnerIndex];
 };
@@ -152,13 +154,15 @@ const evaluateEquip = (ctx, spec, equip, latest) => {
     const newEquipList = latest.equipList.with(slot, equip);
     const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
     const newSummary = simulateRotation(combinedStatMap);
+    const newTotals = getTotals(newSummary);
     const newPenalty = getPenalty(combinedStatMap);
-    const newScore = sumRotationDmg(newSummary) * newPenalty;
+    const newScore = newTotals.damage * newPenalty;
 
     // Compare with buffer and replace if needed
     if (newScore > buffer.score) {
       buffer.equipList = newEquipList;
       buffer.summary = newSummary;
+      buffer.totals = newTotals;
       buffer.penalty = newPenalty;
       buffer.score = newScore;
     }
@@ -247,7 +251,8 @@ export function advanceTrial(ctx, trial) {
 
   const next = {
     equipList: trial.equipList,
-    summary: trial.weeklySummary.at(-1),
+    summary: trial.summary,
+    totals: trial.totals,
     penalty: trial.penalty,
     score: trial.score,
   };
@@ -255,7 +260,8 @@ export function advanceTrial(ctx, trial) {
   weeklyRoutine(ctx, next);
 
   trial.equipList = next.equipList;
+  trial.summary = next.summary;
+  trial.totals = next.totals;
   trial.penalty = next.penalty;
-  trial.weeklySummary.push(next.summary);
   trial.score = next.score;
 }

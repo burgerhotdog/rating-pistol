@@ -15,7 +15,7 @@ const wwLoop = () => {
   return result;
 };
 
-export const findPreferred = (cache, trial, currId, simulateRotation) => {
+export const findPreferred = (cache, baseDamage, currId, simulateRotation) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
   const { MAIN_STAT_TYPES } = MISC[gameId];
@@ -29,7 +29,7 @@ export const findPreferred = (cache, trial, currId, simulateRotation) => {
     for (const [id, data] of Object.entries(statOptions)) {
       const testSummary = simulateRotation(mergeObj(baseMap, { [id]: data.VALUE }));
 
-      if (sumRotationDmg(testSummary) > sumRotationDmg(trial.weeklySummary[0])) {
+      if (sumRotationDmg(testSummary) > baseDamage) {
         preferred.push(id);
       }
     }
