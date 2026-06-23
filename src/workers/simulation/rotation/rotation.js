@@ -408,10 +408,12 @@ export const compileRotation = (cache, currId, team) => {
 
   ctx.footprints = ctx.footprints.filter(footprint => !('fixed' in footprint));
 
-  return { currId, earlySummary, footprints: ctx.footprints, formulaConfig };
+  const compiledRotation = { currId, earlySummary, footprints: ctx.footprints, formulaConfig };
+
+  return statMap => evaluateRotation(compiledRotation, statMap);
 };
 
-export const evaluateRotation = (compiledRotation, statMap) => {
+const evaluateRotation = (compiledRotation, statMap) => {
   const { currId, earlySummary, footprints, formulaConfig } = compiledRotation;
   const ctx = { currId, formulaConfig };
   const summary = { ...earlySummary };

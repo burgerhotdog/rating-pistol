@@ -1,147 +1,148 @@
-import { GI, WW, CHARACTER } from '@/data';
-import { sumRotationDmg, getAttr } from '@/utils';
-import { findBenchmarkWeek, findRelativeError} from './helpers';
-import { compileRotation, evaluateRotation } from './rotation';
+import { GI, WW } from '@/data';
+import { mergeEquipList, getTotals } from '@/utils';
+import { compileRotation } from './rotation';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
-import { getPenalty } from './penalty';
+import { compilePenalty } from './penalty';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
-const createMatchMap = (cache, currId) => {
-  const { gameId, member } = cache;
-
-  const { matchList = [], tagged = [] } = CHARACTER[gameId][currId];
-  const { statMap } = member[currId];
-  const matchMap = {};
-
-  for (const attr of matchList) {
-    matchMap[attr] = getAttr(attr, statMap);
-  }
-
-  if (!tagged.includes('noEnergy')) {
-    matchMap.energyRegen = getAttr('energyRegen', statMap);
-  }
-
-  return matchMap;
+const createScoreTracker = () => {
+  let n = 0, mean = 0, M2 = 0;
+  return {
+    add(x) {
+      n++;
+      const delta = x - mean;
+      mean += delta / n;
+      M2 += delta * (x - mean);
+    },
+    get relativeError() {
+      if (n < 2) return Infinity;
+      const stdErr = Math.sqrt(M2 / (n - 1) / n);
+      return stdErr / Math.max(Math.abs(mean), 1e-8);
+    },
+    get mean() { return mean; },
+  };
 };
 
+function addSummaryToSums(sums, summary) {
+  for (const [key, footprint] of Object.entries(summary)) {
+    const { type } = footprint;
 
-function getAverageSummaries(trials, weekCount) {
-  const averages = [];
-
-  for (let week = 0; week <= weekCount; week++) {
-    const currentWeekRotMap = {};
-    const blueprintSummary = trials[0].weeklySummary[week];
-
-    for (const key in blueprintSummary) {
-      const footprint = blueprintSummary[key];
-      const { type } = footprint;
-
-      let sum = 0;
-
-      for (const trial of trials) {
-        const currentWeekSummary = trial.weeklySummary[week];
-
-        sum += currentWeekSummary[key][type] ?? 0;
-      }
-
-      currentWeekRotMap[key] = {
-        ...footprint,
-        [type]: sum / trials.length,
-      };
-    }
-
-    averages.push(currentWeekRotMap);
+    if (!sums[key]) sums[key] = { ...footprint, [type]: 0 };
+    sums[key][type] += footprint[type] ?? 0;
   }
-
-  return averages;
 }
 
-const createTrial = (cache, currId, matchMap, compiledRotation) => {
-  const { gameId, member } = cache;
-  const { baseMap } = member[currId];
-  const length = gameId === GI || gameId === WW ? 5 : 6
+const normalizeSummarySums = (sums, n) =>
+  Object.fromEntries(
+    Object.entries(sums).map(([key, footprint]) => {
+      const { type } = footprint;
+      return [key, { ...footprint, [type]: footprint[type] / n }];
+    })
+  );
+
+const getDistribution = (totalsArr) => {
+  const sorted = totalsArr.slice().sort((a, b) => a.damage - b.damage);
+  const n = sorted.length;
 
   return {
-    equipList: new Array(length).fill(null),
-    penalty: getPenalty(baseMap, matchMap),
-    weeklySummary: [evaluateRotation(compiledRotation, baseMap)],
+    p10: sorted[Math.floor(n * 0.1)],
+    median: sorted[Math.floor(n * 0.5)],
+    p90: sorted[Math.floor(n * 0.9)],
   };
 };
 
-export const runTrials = (cache, currId, team) => {
-  const matchMap = createMatchMap(cache, currId);
-  const compiledRotation = compileRotation(cache, currId, team);
+const buildFinalStats = (trials) => {
+  const n = trials.length;
+  const statSums = {};
+  for (const trial of trials) {
+    const merged = mergeEquipList(trial.equipList);
+    for (const stat in merged) {
+      statSums[stat] = (statSums[stat] ?? 0) + merged[stat] / n;
+    }
+  }
+  return statSums;
+};
+
+export const runTrials = (cache, currId, team, isPrimary = false) => {
+  const { gameId, baseMap } = cache.member[currId];
+  const simulateRotation = compileRotation(cache, currId, team);
+  const getPenalty = compilePenalty(cache, currId);
+  const equipListLength = gameId === GI || gameId === WW ? 5 : 6;
+  const baseSummary = simulateRotation(baseMap);
+  const baseTotals = getTotals(baseSummary);
+  const basePenalty = getPenalty(baseMap);
+  const baseScore = baseTotals.damage * basePenalty;
+
+  const createTrial = () => ({
+    equipList: new Array(equipListLength).fill(null),
+    summary: baseSummary,
+    totals: baseTotals,
+    penalty: basePenalty,
+    score: baseScore,
+  });
 
   const trials = [];
+  for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
-  for (let i = 0; i < MIN_TRIALS; i++) {
-    const trial = createTrial(cache, currId, matchMap, compiledRotation);
-    trials.push(trial);
-  }
+  const preferredMainStats = findPreferred(cache, baseTotals.damage, currId, simulateRotation);
+  const ctx = { cache, currId, preferredMainStats, simulateRotation, getPenalty };
 
-  const preferredMainStats = findPreferred(cache, trials[0], currId, compiledRotation);
+  const weeklySummaries = isPrimary ? [baseSummary] : null;
+  const weeklyDistribution = isPrimary ? [{ p10: baseTotals, median: baseTotals, p90: baseTotals }] : null;
 
-  const ctx = { cache, currId, matchMap, compiledRotation, preferredMainStats };
-
-  let lastBenchmarkWeek = null;
-  let lastDiff = null;
+  let prevAvgScore = baseScore;
 
   for (let week = 1; week <= MAX_WEEKS; week++) {
-    for (const [index, trial] of trials.entries()) {
+    const weekSummarySums = isPrimary ? {} : null;
+    const weekTotals = isPrimary ? [] : null;
+    const weekScores = createScoreTracker();
+
+    for (const trial of trials) {
       advanceTrial(ctx, trial);
-
-      self.postMessage({
-        type: 'progress',
-        trial: index + 1,
-      });
-    }
-
-    while (trials.length < MAX_TRIALS) {
-      const values = trials.map(trial => sumRotationDmg(trial.weeklySummary[week]));
-      if (findRelativeError(values) <= 0.005) break;
-
-      const trial = createTrial(cache, currId, matchMap, compiledRotation);
-
-      for (let w = 1; w <= week; w++) {
-        advanceTrial(ctx, trial);
+      weekScores.add(trial.score);
+      if (isPrimary) {
+        addSummaryToSums(weekSummarySums, trial.summary);
+        weekTotals.push(trial.totals);
       }
+    }
 
+    while (week === 1 && trials.length < MAX_TRIALS) {
+      if (weekScores.relativeError <= 0.005) break;
+
+      const trial = createTrial();
+      advanceTrial(ctx, trial);
       trials.push(trial);
+
+      weekScores.add(trial.score);
+      if (isPrimary) {
+        addSummaryToSums(weekSummarySums, trial.summary);
+        weekTotals.push(trial.totals);
+      }
     }
 
-    const weeklyScores = getAverageSummaries(trials, week);
-    const { benchmarkWeek, diff } = findBenchmarkWeek(weeklyScores);
-    lastDiff = diff;
+    const avgScore = weekScores.mean;
+    const diff = (avgScore - prevAvgScore) / prevAvgScore;
 
-    self.postMessage({
-      type: 'progress',
-      currentMember: currId,
-      completed: week,
-      diff,
-    });
+    if (isPrimary) {
+      const weeklySummary = normalizeSummarySums(weekSummarySums, trials.length);
+      const distribution = getDistribution(weekTotals);
 
-    if (benchmarkWeek !== -1 && benchmarkWeek <= week) {
-      lastBenchmarkWeek = benchmarkWeek;
-      break;
+      weeklySummaries.push(weeklySummary);
+      weeklyDistribution.push(distribution);
+
+      self.postMessage({ type: 'progress', week, diff });
     }
+
+    if (diff < 0.01) break;
+    prevAvgScore = avgScore;
   }
 
-  if (!lastBenchmarkWeek) {
-    lastBenchmarkWeek = MAX_WEEKS;
-  }
+  const finalStatMap = buildFinalStats(trials);
 
-  const weeklyScores = getAverageSummaries(trials, lastBenchmarkWeek);
-
-  return {
-    compiledRotation,
-    trials,
-    preferredMainStats,
-    benchmarkWeek: lastBenchmarkWeek,
-    weeklyScores,
-    diff: lastDiff,
-  };
+  if (!isPrimary) return { finalStatMap };
+  return { finalStatMap, weeklyDistribution, weeklySummaries, simulateRotation };
 };

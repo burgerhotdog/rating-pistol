@@ -1,9 +1,7 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
 import { MISC } from '@/data';
-import { mergeObj, mergeEquipList, sumRotationDmg } from '@/utils';
+import { mergeObj, mergeEquipList, getTotals } from '@/utils';
 import { weightedLottery } from './helpers';
-import { evaluateRotation } from './rotation';
-import { getPenalty } from './penalty';
 
 const WW_ATKDEF = {
   'atk': [30, 40, 50, 60],
@@ -32,10 +30,12 @@ const randomRollWW = (statId) => {
     const winnerIndex = weightedLottery([4, 19, 14, 1]);
     return WW_ATKDEF[statId][winnerIndex];
   }
+
   if (statId === 'critRate%' || statId === 'critDmg%') {
     const winnerIndex = weightedLottery([6, 6, 6, 2, 2, 2, 1, 1]);
     return WW_CRIT[statId][winnerIndex];
   }
+
   const winnerIndex = weightedLottery([2, 2, 7, 8, 6, 5, 2, 1]);
   return WW_OTHER[statId][winnerIndex];
 };
@@ -145,7 +145,7 @@ const generateEquipWW = (ctx, cost) => {
 };
 
 const evaluateEquip = (ctx, spec, equip, latest) => {
-  const { cache, currId, matchMap, compiledRotation } = ctx;
+  const { cache, currId, simulateRotation, getPenalty } = ctx;
   const { baseMap } = cache.member[currId];
 
   const buffer = { ...latest };
@@ -153,14 +153,16 @@ const evaluateEquip = (ctx, spec, equip, latest) => {
   function compareAndReplace(slot) {
     const newEquipList = latest.equipList.with(slot, equip);
     const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
-    const newSummary = evaluateRotation(compiledRotation, combinedStatMap);
-    const newPenalty = getPenalty(combinedStatMap, matchMap);
-    const newScore = sumRotationDmg(newSummary) * newPenalty;
+    const newSummary = simulateRotation(combinedStatMap);
+    const newTotals = getTotals(newSummary);
+    const newPenalty = getPenalty(combinedStatMap);
+    const newScore = newTotals.damage * newPenalty;
 
     // Compare with buffer and replace if needed
     if (newScore > buffer.score) {
       buffer.equipList = newEquipList;
       buffer.summary = newSummary;
+      buffer.totals = newTotals;
       buffer.penalty = newPenalty;
       buffer.score = newScore;
     }
@@ -249,14 +251,17 @@ export function advanceTrial(ctx, trial) {
 
   const next = {
     equipList: trial.equipList,
-    summary: trial.weeklySummary.at(-1),
+    summary: trial.summary,
+    totals: trial.totals,
     penalty: trial.penalty,
-    score: sumRotationDmg(trial.weeklySummary.at(-1)) * trial.penalty,
+    score: trial.score,
   };
 
   weeklyRoutine(ctx, next);
 
   trial.equipList = next.equipList;
+  trial.summary = next.summary;
+  trial.totals = next.totals;
   trial.penalty = next.penalty;
-  trial.weeklySummary.push(next.summary);
+  trial.score = next.score;
 }

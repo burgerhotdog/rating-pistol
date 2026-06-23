@@ -27,13 +27,13 @@ const buildDmgTypeData = (actionMap, gameId, characterId) => {
   return Object.entries(totals).map(([name, value]) => ({ name, value })).filter(d => d.value > 0);
 };
 
-export const DamageBreakdown = ({ actionMap }) => {
+export const DamageBreakdown = ({ userSummary }) => {
   const { gameId, characterId } = useParams();
   const theme = useTheme();
 
-  if (!actionMap) return null;
+  if (!userSummary) return null;
 
-  const data = buildDmgTypeData(actionMap, gameId, characterId).sort((a, b) => b.value - a.value);
+  const data = buildDmgTypeData(userSummary, gameId, characterId).sort((a, b) => b.value - a.value);
 
   const element = CHARACTER[gameId][characterId].element;
   const monoColor = MISC?.[gameId]?.COLORS?.[element] ?? theme.palette.primary.main;
