@@ -1,12 +1,12 @@
 {
   "COLORS": {
-    "Fire": "#ea7866",
-    "Ice": "#5ec7db",
-    "Imaginary": "#e8d85d",
-    "Lightning": "#eb77ea",
-    "Physical": "#bebebe",
-    "Quantum": "#9c96f4",
-    "Wind": "#62d3a2"
+    "Fire": "#EE473D",
+    "Ice": "#2692D3",
+    "Imaginary": "#E6D863",
+    "Lightning": "#C65ADE",
+    "Physical": "#979797",
+    "Quantum": "#7E74EB",
+    "Wind": "#61CF93"
   },
   "MAIN_STAT_TYPES": [
     {

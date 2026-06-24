@@ -1,11 +1,11 @@
 {
   "COLORS": {
-    "Glacio": "#4fb4cf",
-    "Fusion": "#d45772",
-    "Electro": "#c154c7",
-    "Aero": "#44c4a3",
-    "Spectro": "#b7a835",
-    "Havoc": "#be4981"
+    "Glacio": "#41AEFB",
+    "Fusion": "#F0744E",
+    "Electro": "#B45BFF",
+    "Aero": "#53F9B1",
+    "Spectro": "#F8E56C",
+    "Havoc": "#E649A6"
   },
   "MAIN_STAT_TYPES": [
     {},

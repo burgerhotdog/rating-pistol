@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { alpha } from '@mui/material/styles';
 import { Box, Card, Paper, Tooltip, Typography } from '@mui/material';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
@@ -7,131 +8,124 @@ import {
   Bar,
   XAxis,
   YAxis,
-  Tooltip as Tooltip2,
-  Cell,
+  Legend,
+  Tooltip as RechartsTooltip,
 } from 'recharts';
 import { MISC, CHARACTER } from '@/data';
-import { sumRotationDmg, formatStr } from '@/utils';
+import { formatStr } from '@/utils';
 
-export const SubstatPriority = ({ isLoading, userSummary, actionMapsWithSub }) => {
+const CustomTooltip = ({ active, payload, label }) => {
+  if (!active || !payload?.length) return null;
+  return (
+    <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider', minWidth: 160 }}>
+      <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+        {label}
+      </Typography>
+
+      {payload.map(p => (
+        <Box key={p.name} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1.5 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+            <Box sx={{ width: 8, height: 8, borderRadius: 0.5, bgcolor: p.fill }} />
+            <Typography variant="body2" color="text.secondary">{p.name}</Typography>
+          </Box>
+
+          <Typography variant="body2" sx={{ fontFamily: 'monospace' }}>
+            {Number(p.value).toFixed(1)} rolls
+          </Typography>
+        </Box>
+      ))}
+    </Paper>
+  );
+};
+
+export const SubstatPriority = ({ configMap, userConfigKey, userSubStats }) => {
   const { gameId, characterId } = useParams();
   const { element } = CHARACTER[gameId][characterId];
-  const rating = sumRotationDmg(userSummary);
-  if (isLoading) return null;
+  if (!configMap) return null;
 
-  const newRatings = Object.entries(actionMapsWithSub)
-    .map(([id, actionMap]) => {
-      const newRating = sumRotationDmg(actionMap);
-      return {
-        name: id,
-        diff: newRating / rating * 100 - 100,
-      };
-    })
-    .filter(({ diff }) => diff)
-    .sort(({ diff: a }, { diff: b }) => b - a);
+  const { subStatSums } = configMap[userConfigKey];
+  const subStatTypes = MISC[gameId].SUB_STAT_TYPES;
 
-  const maxDiff = newRatings.length ? newRatings[0].diff : 1;
+  const chartData = Object.keys(subStatTypes).map(statId => ({
+    name: formatStr(statId),
+    sim: subStatSums[statId] ?? 0,
+    user: userSubStats[statId] ?? 0,
+  })).sort((a, b) => b.sim - a.sim);
 
-  const chartData = newRatings.map(({ name, diff }) => ({
-    name: formatStr(name),
-    value: diff,
-  }));
-
-  const yAxisWidth = Math.min(
-    180,
-    Math.max(100, Math.max(...chartData.map(({ name }) => name.length), 0) * 7 + 16)
-  );
-  const chartViewportHeight = 220;
-  const itemCount = Math.max(chartData.length, 1);
-  const availableBarArea = chartViewportHeight - 44;
-  const barSize = Math.max(3, Math.min(18, Math.floor(availableBarArea / itemCount) - 2));
-  const barCategoryGap = Math.max(1, Math.min(10, Math.floor(barSize * 0.4)));
-
-  const renderYAxisTick = ({ x, y, payload }) => (
-    <foreignObject x={x - yAxisWidth + 6} y={y - 10} width={yAxisWidth - 12} height={20}>
-      <Box sx={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-        <Typography
-          noWrap
-          title={payload.value}
-          sx={{
-            maxWidth: '100%',
-            fontSize: 12,
-            lineHeight: 1,
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-            color: 'text.secondary',
-          }}
-        >
-          {payload.value}
-        </Typography>
-      </Box>
-    </foreignObject>
-  );
+  const elementColor = MISC[gameId].COLORS[element];
+  const maxValue = Math.max(...chartData.flatMap(d => [d.sim, d.user]));
 
   return (
-    <Card sx={{ flex: 1, overflow: 'hidden' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0.5 }}>
-        <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Substat Priority</Typography>
-        <Tooltip title="Chart shows the team damage increase from gaining one extra roll of a substat." placement="top" arrow>
+    <Card sx={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0.5, flexShrink: 0 }}>
+        <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
+          Substat distribution
+        </Typography>
+
+        <Tooltip
+          title="Shows the average distribution of substat rolls across final builds."
+          placement="top"
+          arrow
+        >
           <HelpOutlineOutlinedIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
         </Tooltip>
       </Box>
-      <Box sx={{ width: '100%', height: chartViewportHeight, px: 2, pb: 2 }}>
-        <ResponsiveContainer>
+
+      <Box sx={{ flex: 1, minHeight: 0, px: 1, pb: 1 }}>
+        <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={chartData}
-            layout="vertical"
-            margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
-            barCategoryGap={barCategoryGap}
+            margin={{ top: 4, right: 16, left: 0, bottom: 44 }}
           >
             <XAxis
-              type="number"
-              tickFormatter={(v) => `+${v.toFixed(1)}%`}
-            />
-            <YAxis
               type="category"
               dataKey="name"
-              width={yAxisWidth}
               interval={0}
-              tickMargin={6}
-              tick={renderYAxisTick}
+              angle={-35}
+              tickMargin={4}
+              tick={{ fontSize: 10, textAnchor: 'end' }}
+              axisLine={false}
+              tickLine={false}
             />
-            <Tooltip2
+
+            <YAxis
+              type="number"
+              domain={[0, maxValue * 1.1]}
+              tickFormatter={(v) => v.toFixed(1)}
+              tick={{ fontSize: 9 }}
+              axisLine={false}
+              tickLine={false}
+              width={28}
+            />
+
+            <RechartsTooltip
               allowEscapeViewBox={{ x: true, y: true }}
               wrapperStyle={{ pointerEvents: 'none', zIndex: 10 }}
-              content={({ active, payload, label }) => {
-                if (!active || !payload?.length) return null;
-                const value = payload[0].value;
-                return (
-                  <Paper
-                    elevation={4}
-                    sx={{
-                      p: 1.5,
-                      minWidth: 0,
-                      border: 1,
-                      borderColor: 'divider',
-                    }}
-                  >
-                    <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }} gutterBottom>
-                      {label}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Damage gain: +{Number(value).toFixed(2)}%
-                    </Typography>
-                  </Paper>
-                );
-              }}
+              content={CustomTooltip}
             />
-            <Bar dataKey="value" radius={[4, 4, 4, 4]} barSize={barSize}>
-              {chartData.map((entry, index) => (
-                <Cell
-                  key={index}
-                  fill={MISC[gameId].COLORS[element]}
-                  opacity={0.4 + 0.6 * (entry.value / maxDiff)}
-                />
-              ))}
-            </Bar>
+
+            <Legend
+              iconType="square"
+              iconSize={8}
+              verticalAlign="top"
+              wrapperStyle={{ fontSize: 11, paddingBottom: 4 }}
+            />
+
+            <Bar
+              dataKey="sim"
+              name="Sim avg"
+              fill={alpha(elementColor, 0.3)}
+              radius={[3, 3, 0, 0]}
+              maxBarSize={28}
+            />
+
+            <Bar
+              dataKey="user"
+              name="Your build"
+              fill={elementColor}
+              radius={[3, 3, 0, 0]}
+              maxBarSize={28}
+            />
           </BarChart>
         </ResponsiveContainer>
       </Box>

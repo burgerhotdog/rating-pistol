@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Box } from '@mui/material';
 import {
   Bar,
@@ -6,6 +7,7 @@ import {
   CustomRadarChart,
   SubstatPriority,
   DamageBreakdown,
+  MainStatConfigs,
 } from '@/components';
 import { useSimulation, useTeam } from '@/hooks';
 
@@ -22,7 +24,11 @@ export const Content = () => {
     finalStatMap,
     weeklyDistribution,
     weeklySummaries,
+    configMap,
+    userConfigKey,
+    userSubStats,
   } = useSimulation(team);
+  const [selectedKey, setSelectedKey] = useState(userConfigKey);
 
   const isLoading = type !== 'done';
 
@@ -61,9 +67,11 @@ export const Content = () => {
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100, gap: 1 }}>
-            <CustomRadarChart
-              isLoading={isLoading}
-              combinedSimEquips={finalStatMap}
+            <MainStatConfigs
+              configMap={configMap}
+              userConfigKey={userConfigKey}
+              selectedKey={selectedKey}
+              onSelect={setSelectedKey}
             />
 
             <DamageBreakdown
@@ -72,6 +80,11 @@ export const Content = () => {
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100 }}>
+            <SubstatPriority
+              configMap={configMap}
+              userConfigKey={userConfigKey}
+              userSubStats={userSubStats}
+            />
           </Box>
         </Box>
       )}

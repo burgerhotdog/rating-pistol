@@ -7,7 +7,6 @@ self.onmessage = ({ data }) => {
   const cache = compileCache(gameId, team);
   const trialMaps = {};
 
-  // Create trial builds for teammates if empty build
   for (let ti = team.length - 1; ti >= 0; ti--) {
     const member = team[ti];
     if (member.build) continue;

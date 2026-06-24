@@ -69,6 +69,7 @@ export const compileCache = (gameId, team) => {
 
     memberCache[member.id] = {
       ...member,
+      equipList: member?.build?.equipList ?? [],
       baseMap,
       equipMap,
       statMap,

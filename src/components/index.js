@@ -8,3 +8,4 @@ export * from './Bar';
 export * from './CustomAvatar';
 export * from './TeamMemberDialog';
 export * from './DamageBreakdown';
+export * from './Mainstats';

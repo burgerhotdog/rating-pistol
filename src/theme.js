@@ -4,11 +4,11 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     rarityColor: {
-      5: '#FFD700',
-      4: '#DA70D6',
-      3: '#6495ED',
-      2: '#32CD32',
-      1: '#708090',
+      5: '#FCD34D',
+      4: '#C4B5FD',
+      3: '#7DD3FC',
+      2: '#6EE7B7',
+      1: '#94A3B8',
     },
   },
 });
