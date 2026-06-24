@@ -120,17 +120,6 @@ const normalizeSummarySums = (sums, n) =>
     })
   );
 
-const getDistribution = (totalsArr) => {
-  const sorted = totalsArr.slice().sort((a, b) => a.damage - b.damage);
-  const n = sorted.length;
-
-  return {
-    p10: sorted[Math.floor(n * 0.1)],
-    median: sorted[Math.floor(n * 0.5)],
-    p90: sorted[Math.floor(n * 0.9)],
-  };
-};
-
 const buildFinalStats = (trials) => {
   const n = trials.length;
   const statSums = {};
@@ -177,7 +166,6 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   const preferredMainStats = findPreferred(cache, baseTotals.damage, currId, simulateRotation);
 
   const weeklySummaries = isPrimary ? [baseSummary] : null;
-  const weeklyDistribution = isPrimary ? [{ p10: baseTotals, median: baseTotals, p90: baseTotals }] : null;
 
   const advanceTrial = createTrialAdvancer(cache, currId, preferredMainStats, simulateRotation, getPenalty);
 
@@ -217,10 +205,8 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
 
     if (isPrimary) {
       const weeklySummary = normalizeSummarySums(weekSummarySums, trials.length);
-      const distribution = getDistribution(weekTotals);
 
       weeklySummaries.push(weeklySummary);
-      weeklyDistribution.push(distribution);
 
       self.postMessage({ type: 'progress', week, diff });
     }
@@ -244,13 +230,11 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
       userSubStats[subStatId] = (userSubStats[subStatId] ?? 0) + subStatValue / maxRoll;
     }
   }
-  console.log(userSubStats);
   
   self.postMessage({
     type: 'done',
     cache,
     finalStatMap,
-    weeklyDistribution,
     weeklySummaries,
     userSummary,
     configMap,

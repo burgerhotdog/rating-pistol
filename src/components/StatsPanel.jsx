@@ -78,7 +78,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
               size="small"
               sx={{
                 fontWeight: 'bold',
-                color: theme.accentColors[gameId][CHARACTER[gameId][characterId].element]
+                color: theme.accentColor[gameId][CHARACTER[gameId][characterId].element]
               }}
             />
 

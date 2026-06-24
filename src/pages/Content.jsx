@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Box, Grid } from '@mui/material';
 import {
+  FlexRow,
+  FlexCol,
   Bar,
   StatsPanel,
   BenchmarkProgress,
@@ -20,8 +21,6 @@ export const Content = () => {
     cache,
     diff,
     week,
-    finalStatMap,
-    weeklyDistribution,
     weeklySummaries,
     configMap,
     userConfigKey,
@@ -30,15 +29,7 @@ export const Content = () => {
   const [selectedKey, setSelectedKey] = useState(userConfigKey);
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flex: 1,
-        minHeight: 0,
-        overflow: 'hidden',
-        gap: 1,
-      }}
-    >
+    <FlexRow spacing={1}>
       <StatsPanel
         team={team}
         updateTeam={updateTeam}
@@ -51,41 +42,38 @@ export const Content = () => {
           diff={diff}
         />
       ) : (
-        <Grid container spacing={1}>
-          <Grid size={12}>
+        <FlexCol spacing={1}>
+          <FlexRow>
             <BenchmarkProgress
               team={team}
               weeklySummaries={weeklySummaries}
-              weeklyDistribution={weeklyDistribution}
               userSummary={userSummary}
               cache={cache}
             />
-          </Grid>
+          </FlexRow>
 
-          <Grid size={6}>
+          <FlexRow spacing={1}>
             <MainStatConfigs
               configMap={configMap}
               userConfigKey={userConfigKey}
               selectedKey={selectedKey}
               onSelect={setSelectedKey}
             />
-          </Grid>
 
-          <Grid size={6}>
             <DamageBreakdown
               userSummary={userSummary}
             />
-          </Grid>
+          </FlexRow>
 
-          <Grid size={12}>
+          <FlexRow>
             <SubstatPriority
               configMap={configMap}
               userConfigKey={userConfigKey}
               userSubStats={userSubStats}
             />
-          </Grid>
-        </Grid>
+          </FlexRow>
+        </FlexCol>
       )}
-    </Box>
+    </FlexRow>
   );
 };

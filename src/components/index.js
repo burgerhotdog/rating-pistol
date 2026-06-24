@@ -8,3 +8,4 @@ export * from './TeamMemberDialog';
 export * from './DamageBreakdown';
 export * from './MainStats';
 export * from './SubStats';
+export * from './Layout';

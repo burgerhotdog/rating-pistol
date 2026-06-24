@@ -1,9 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { Box, Card, Paper, Tooltip, Typography } from '@mui/material';
+import { Box, CardHeader, Stack, Paper, Tooltip, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
-  ResponsiveContainer,
   BarChart,
   Bar,
   XAxis,
@@ -11,6 +10,7 @@ import {
   Legend,
   Tooltip as RechartsTooltip,
 } from 'recharts';
+import { FlexCard, ChartFill } from '@/components';
 import { MISC, CHARACTER } from '@/data';
 import { formatStr } from '@/utils';
 
@@ -53,83 +53,89 @@ export const SubstatPriority = ({ configMap, userConfigKey, userSubStats }) => {
     user: userSubStats[statId] ?? 0,
   })).sort((a, b) => b.sim - a.sim);
 
-  const elementColor = theme.accentColors[gameId][element];
+  const elementColor = theme.accentColor[gameId][element];
   const maxValue = Math.max(...chartData.flatMap(d => [d.sim, d.user]));
 
   return (
-    <Card sx={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0.5, flexShrink: 0 }}>
-        <Typography variant="subtitle2">
-          Substat distribution
-        </Typography>
+    <FlexCard>
+      <CardHeader
+        title={
+          <Stack direction="row" spacing={0.5}>
+            <Typography variant="subtitle1">
+              Substat distribution
+            </Typography>
 
-        <Tooltip
-          title="Shows the average distribution of substat rolls across final builds."
-          placement="top"
-          arrow
+            <Tooltip
+              title="Shows the average distribution of substat rolls across final builds."
+              placement="top"
+              arrow
+            >
+              <HelpOutlineOutlinedIcon
+                fontSize="small"
+                color="disabled"
+              />
+            </Tooltip>
+          </Stack>
+        }
+        disableTypography
+      />
+
+      <ChartFill>
+        <BarChart
+          data={chartData}
+          margin={{ top: 4, right: 16, left: 0, bottom: 44 }}
         >
-          <HelpOutlineOutlinedIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
-        </Tooltip>
-      </Box>
+          <XAxis
+            type="category"
+            dataKey="name"
+            interval={0}
+            angle={-35}
+            tickMargin={4}
+            tick={{ fontSize: 10, textAnchor: 'end' }}
+            axisLine={false}
+            tickLine={false}
+          />
 
-      <Box sx={{ flex: 1, minHeight: 0, px: 1, pb: 1 }}>
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            data={chartData}
-            margin={{ top: 4, right: 16, left: 0, bottom: 44 }}
-          >
-            <XAxis
-              type="category"
-              dataKey="name"
-              interval={0}
-              angle={-35}
-              tickMargin={4}
-              tick={{ fontSize: 10, textAnchor: 'end' }}
-              axisLine={false}
-              tickLine={false}
-            />
+          <YAxis
+            type="number"
+            domain={[0, maxValue * 1.1]}
+            tickFormatter={(v) => v.toFixed(1)}
+            tick={{ fontSize: 9 }}
+            axisLine={false}
+            tickLine={false}
+            width={28}
+          />
 
-            <YAxis
-              type="number"
-              domain={[0, maxValue * 1.1]}
-              tickFormatter={(v) => v.toFixed(1)}
-              tick={{ fontSize: 9 }}
-              axisLine={false}
-              tickLine={false}
-              width={28}
-            />
+          <RechartsTooltip
+            allowEscapeViewBox={{ x: true, y: true }}
+            wrapperStyle={{ pointerEvents: 'none', zIndex: 10 }}
+            content={CustomTooltip}
+          />
 
-            <RechartsTooltip
-              allowEscapeViewBox={{ x: true, y: true }}
-              wrapperStyle={{ pointerEvents: 'none', zIndex: 10 }}
-              content={CustomTooltip}
-            />
+          <Legend
+            iconType="square"
+            iconSize={8}
+            verticalAlign="top"
+            wrapperStyle={{ fontSize: 11, paddingBottom: 4 }}
+          />
 
-            <Legend
-              iconType="square"
-              iconSize={8}
-              verticalAlign="top"
-              wrapperStyle={{ fontSize: 11, paddingBottom: 4 }}
-            />
+          <Bar
+            dataKey="sim"
+            name="Sim avg"
+            fill={alpha(elementColor, 0.3)}
+            radius={[3, 3, 0, 0]}
+            maxBarSize={28}
+          />
 
-            <Bar
-              dataKey="sim"
-              name="Sim avg"
-              fill={alpha(elementColor, 0.3)}
-              radius={[3, 3, 0, 0]}
-              maxBarSize={28}
-            />
-
-            <Bar
-              dataKey="user"
-              name="Your build"
-              fill={elementColor}
-              radius={[3, 3, 0, 0]}
-              maxBarSize={28}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </Box>
-    </Card>
+          <Bar
+            dataKey="user"
+            name="Your build"
+            fill={elementColor}
+            radius={[3, 3, 0, 0]}
+            maxBarSize={28}
+          />
+        </BarChart>
+      </ChartFill>
+    </FlexCard>
   );
 };

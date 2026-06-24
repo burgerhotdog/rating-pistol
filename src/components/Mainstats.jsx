@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { alpha } from '@mui/material/styles';
 import { Stack, Box, Card, CardHeader, Tooltip, Typography, CardMedia } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ATTR_ASSETS } from '@/assets';
 import { formatStr } from '@/utils';
@@ -115,7 +115,7 @@ export const MainStatConfigs = ({ configMap, userConfigKey, selectedKey, onSelec
         title={
           <Stack direction="row" spacing={0.5}>
             <Typography variant="subtitle1">
-              Reccomended Main Stats
+              Main stat distribution
             </Typography>
 
             <Tooltip
@@ -124,8 +124,8 @@ export const MainStatConfigs = ({ configMap, userConfigKey, selectedKey, onSelec
               arrow
             >
               <HelpOutlineOutlinedIcon
-                color="disabled"
                 fontSize="small"
+                color="disabled"
               />
             </Tooltip>
           </Stack>

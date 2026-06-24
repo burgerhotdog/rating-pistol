@@ -12,7 +12,7 @@ const theme = createTheme({
     2: '#6EE7B7',
     1: '#94A3B8',
   },
-  accentColors: {
+  accentColor: {
     [GI]: {
       anemo: '#80FFD7',
       cryo: '#99FFFF',
