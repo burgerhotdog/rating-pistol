@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import {
   Bar,
   StatsPanel,
   BenchmarkProgress,
-  CustomRadarChart,
   SubstatPriority,
   DamageBreakdown,
   MainStatConfigs,
@@ -30,8 +29,6 @@ export const Content = () => {
   } = useSimulation(team);
   const [selectedKey, setSelectedKey] = useState(userConfigKey);
 
-  const isLoading = type !== 'done';
-
   return (
     <Box
       sx={{
@@ -47,46 +44,47 @@ export const Content = () => {
         updateTeam={updateTeam}
       />
 
-      {isLoading ? (
+      {type !== 'done' ? (
         <Bar
           statusMessage={statusMessage}
           week={week}
           diff={diff}
         />
       ) : (
-        <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, gap: 1 }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 250 }}>
+        <Grid container spacing={1}>
+          <Grid size={12}>
             <BenchmarkProgress
-              isLoading={isLoading}
               team={team}
               weeklySummaries={weeklySummaries}
               weeklyDistribution={weeklyDistribution}
               userSummary={userSummary}
               cache={cache}
             />
-          </Box>
+          </Grid>
 
-          <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100, gap: 1 }}>
+          <Grid size={6}>
             <MainStatConfigs
               configMap={configMap}
               userConfigKey={userConfigKey}
               selectedKey={selectedKey}
               onSelect={setSelectedKey}
             />
+          </Grid>
 
+          <Grid size={6}>
             <DamageBreakdown
               userSummary={userSummary}
             />
-          </Box>
+          </Grid>
 
-          <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100 }}>
+          <Grid size={12}>
             <SubstatPriority
               configMap={configMap}
               userConfigKey={userConfigKey}
               userSubStats={userSubStats}
             />
-          </Box>
-        </Box>
+          </Grid>
+        </Grid>
       )}
     </Box>
   );

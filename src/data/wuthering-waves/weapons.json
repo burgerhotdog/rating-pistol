@@ -3098,7 +3098,7 @@
       {
         "applyWhen": "cast",
         "applyOnDmgType": "echoSkill",
-        "useOnElement": "Aero",
+        "useOnElement": "aero",
         "rankedStatMap": {
           "defIgnore%": [
             0.1,

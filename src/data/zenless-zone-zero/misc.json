@@ -1,12 +1,4 @@
 {
-  "COLORS": {
-    "Electric": "#2EB6FF",
-    "Ether": "#FE437E",
-    "Fire": "#FF5521",
-    "Ice": "#98EFF0",
-    "Physical": "#F0D12B",
-    "Wind": "#A6C5FD"
-  },
   "MAIN_STAT_TYPES": [
     {
       "hp": {

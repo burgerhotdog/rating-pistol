@@ -637,7 +637,7 @@
       },
       "4": [
         {
-          "useIfElement": "Ether",
+          "useIfElement": "ether",
           "statMap": {
             "critDmg%": 0.3
           }

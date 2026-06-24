@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { alpha } from '@mui/material/styles';
 import { Box, Card, Paper, Tooltip, Typography } from '@mui/material';
+import { alpha, useTheme } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   ResponsiveContainer,
@@ -18,7 +18,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
     <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider', minWidth: 160 }}>
-      <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+      <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
         {label}
       </Typography>
 
@@ -40,6 +40,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 export const SubstatPriority = ({ configMap, userConfigKey, userSubStats }) => {
   const { gameId, characterId } = useParams();
+  const theme = useTheme();
   const { element } = CHARACTER[gameId][characterId];
   if (!configMap) return null;
 
@@ -52,13 +53,13 @@ export const SubstatPriority = ({ configMap, userConfigKey, userSubStats }) => {
     user: userSubStats[statId] ?? 0,
   })).sort((a, b) => b.sim - a.sim);
 
-  const elementColor = MISC[gameId].COLORS[element];
+  const elementColor = theme.accentColors[gameId][element];
   const maxValue = Math.max(...chartData.flatMap(d => [d.sim, d.user]));
 
   return (
     <Card sx={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0.5, flexShrink: 0 }}>
-        <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
+        <Typography variant="subtitle2">
           Substat distribution
         </Typography>
 

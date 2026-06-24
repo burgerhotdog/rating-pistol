@@ -1,13 +1,4 @@
 {
-  "COLORS": {
-    "Anemo": "#80FFD7",
-    "Cryo": "#99FFFF",
-    "Dendro": "#99FF88",
-    "Electro": "#FFACFF",
-    "Geo": "#FFE699",
-    "Hydro": "#80C0FF",
-    "Pyro": "#FF9999"
-  },
   "MAIN_STAT_TYPES": [
     {
       "hp": {

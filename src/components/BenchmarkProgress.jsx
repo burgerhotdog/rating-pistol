@@ -1,9 +1,9 @@
-import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTER, MISC } from '@/data';
+import { CHARACTER } from '@/data';
 import { sumRotationDmg } from '@/utils';
 
 const InfoLabel = ({ label, tip }) => (
@@ -81,7 +81,8 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
   const memberColors = membersMisc.map(m => {
     if (m.id === 'misc') return '#ffffff';
     const el = CHARACTER[gameId][m.id].element;
-    return MISC[gameId]?.COLORS?.[el] ?? disabledColor;
+
+    return theme.accentColors[gameId][el] ?? disabledColor;
   });
 
   const rotationTime = cache.fullRotationTime;
@@ -195,7 +196,7 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
                     borderColor: 'divider',
                   }}
                 >
-                  <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 'bold' }}>
+                  <Typography variant="subtitle2" gutterBottom>
                     Week {week}
                   </Typography>
 

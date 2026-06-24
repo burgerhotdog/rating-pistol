@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { Box, Card, Paper, Tooltip as MuiTooltip, Typography } from '@mui/material';
+import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import { alpha, darken, lighten } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
-import { CHARACTER, MISC } from '@/data';
+import { CHARACTER } from '@/data';
 import { formatStr } from '@/utils';
 
 const renderLabel = ({ percent }) => {
@@ -27,12 +27,13 @@ const buildDmgTypeData = (summary, charId) => {
 
 export const DamageBreakdown = ({ userSummary }) => {
   const { gameId, characterId } = useParams();
+  const theme = useTheme();
   if (!userSummary) return null;
 
   const data = buildDmgTypeData(userSummary, characterId).sort((a, b) => b.value - a.value);
 
   const element = CHARACTER[gameId][characterId].element;
-  const monoColor = MISC[gameId].COLORS[element];
+  const monoColor = theme.accentColors[gameId][element];
 
   const getSliceFill = (index, count) => {
     if (count <= 1) return alpha(monoColor, 0.95);
@@ -48,7 +49,10 @@ export const DamageBreakdown = ({ userSummary }) => {
     <Card sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 0.5, px: 2, pt: 1.5, pb: 0 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Damage Breakdown</Typography>
+          <Typography variant="subtitle2">
+            Damage Breakdown
+          </Typography>
+
           <MuiTooltip
             title="How damage is distributed across your rotation."
             placement="top"
@@ -91,7 +95,10 @@ export const DamageBreakdown = ({ userSummary }) => {
                   const { name, value } = payload[0].payload;
                   return (
                     <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{formatStr(name)}</Typography>
+                      <Typography variant="subtitle2">
+                        {formatStr(name)}
+                      </Typography>
+
                       <Typography variant="body2" color="text.secondary">
                         {value.toLocaleString('en-US', { maximumFractionDigits: 0 })} damage
                       </Typography>
