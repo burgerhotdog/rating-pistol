@@ -145,7 +145,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   const baseSummary = simulateRotation(baseMap);
   const baseTotals = getTotals(baseSummary);
   const basePenalty = getPenalty(baseMap);
-  const baseScore = baseTotals.damage * basePenalty;
+  const baseScore = (baseTotals.damage + baseTotals.healing + baseTotals.shield) * basePenalty;
 
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),
@@ -158,7 +158,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
-  const preferredMainStats = findPreferred(cache, baseTotals.damage, currId, simulateRotation);
+  const preferredMainStats = findPreferred(cache, baseScore, currId, simulateRotation, getPenalty);
   const weeklySummaries = isPrimary ? [baseSummary] : null;
   const advanceTrial = createTrialAdvancer(cache, currId, preferredMainStats, simulateRotation, getPenalty);
 
@@ -207,6 +207,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   }
 
   if (!isPrimary) return buildFinalStats(trials);
+  console.log(buildFinalStats(trials));
   
   self.postMessage({
     type: 'done',
