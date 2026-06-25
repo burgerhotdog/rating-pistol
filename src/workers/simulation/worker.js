@@ -14,8 +14,7 @@ self.onmessage = ({ data }) => {
     self.postMessage({ type: 'progress', statusMessage: 'Creating trial builds' });
 
     const test = team.map(member => ({ ...member, equipMap: cache.member[member.id].equipMap }));
-    const { finalStatMap } = runTrials(cache, member.id, test);
-    trialMaps[member.id] = finalStatMap;
+    trialMaps[member.id] = runTrials(cache, member.id, test);
   }
 
   self.postMessage({ type: 'progress', statusMessage: 'Running simulation' });

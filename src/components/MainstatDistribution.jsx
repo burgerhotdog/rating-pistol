@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { Stack, Box, Card, CardHeader, Tooltip, Typography, CardMedia } from '@mui/material';
+import { Avatar, Stack, IconButton, Box, Card, CardHeader, Tooltip, Typography } from '@mui/material';
 import { alpha } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ATTR_ASSETS } from '@/assets';
+import { FlexCard } from '@/components';
 import { formatStr } from '@/utils';
 
 const getSlots = (config) => {
@@ -17,16 +18,22 @@ const getSlots = (config) => {
   return [];
 };
 
-const StatCard = ({ gameId, statId }) => {
+const IconRow = ({ gameId, slots }) => {
   return (
-    <Card>
-      <CardMedia
-        image={ATTR_ASSETS[gameId][statId.replace('%', '')]}
-        title={statId}
-        sx={{ width: 50, height: 50 }}
-      />
-    </Card>
-  );
+      <Card>
+        {slots.map((statId, i) =>
+          <Tooltip key={i} title={formatStr(statId)} arrow>
+            <IconButton>
+              <Avatar
+                src={ATTR_ASSETS[gameId][statId.replace('%', '')]}
+                alt={formatStr(statId)}
+                sx={{ width: 32, height: 32 }}
+              />
+            </IconButton>
+          </Tooltip>
+        )}
+      </Card>
+  )
 };
 
 const USER_COLOR = '#BA7517';
@@ -55,8 +62,8 @@ const ConfigRow = ({ gameId, configKey, config, isUser, isSelected, pct, onSelec
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
-        <Box sx={{ display: 'flex', gap: 0.5, flex: 1, flexWrap: 'wrap' }}>
-          {slots.map((statId, i) => <StatCard key={i} gameId={gameId} statId={statId} />)}
+        <Box sx={{ display: 'flex', flex: 1, flexWrap: 'wrap' }}>
+          <IconRow gameId={gameId} slots={slots} />
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, flexShrink: 0 }}>
@@ -75,28 +82,32 @@ const ConfigRow = ({ gameId, configKey, config, isUser, isSelected, pct, onSelec
               you
             </Box>
           )}
+
           <Typography
             variant="caption"
-            sx={{ color: 'text.secondary', fontFamily: 'monospace', minWidth: 30, textAlign: 'right' }}
+            color="textSecondary"
+            sx={{ minWidth: 30, textAlign: 'right' }}
           >
             {(pct * 100).toFixed(0)}%
           </Typography>
         </Box>
       </Box>
 
-      <Box sx={{ height: '3px', bgcolor: 'divider', borderRadius: 1, mx: 0.25 }}>
-        <Box sx={{
-          height: '100%',
-          width: `${pct * 100}%`,
-          bgcolor: isUser ? USER_COLOR : 'primary.main',
-          borderRadius: 1,
-        }} />
+      <Box sx={{ height: '5px', bgcolor: 'divider', borderRadius: 1, mx: 0.25 }}>
+        <Box
+          sx={{
+            height: '100%',
+            width: `${pct * 100}%`,
+            bgcolor: isUser ? USER_COLOR : 'primary.main',
+            borderRadius: 1,
+          }}
+        />
       </Box>
     </Box>
   );
 };
 
-export const MainStatConfigs = ({ configMap, userConfigKey, selectedKey, onSelect }) => {
+export const MainstatDistribution = ({ configMap, userConfigKey, selectedKey, onSelect }) => {
   const { gameId } = useParams();
   if (!configMap) return null;
 
@@ -110,7 +121,7 @@ export const MainStatConfigs = ({ configMap, userConfigKey, selectedKey, onSelec
     : sorted;
 
   return (
-    <Card>
+    <FlexCard>
       <CardHeader
         title={
           <Stack direction="row" spacing={0.5}>
@@ -119,7 +130,7 @@ export const MainStatConfigs = ({ configMap, userConfigKey, selectedKey, onSelec
             </Typography>
 
             <Tooltip
-              title="Most common main stat combinations in simulated builds. Click a row to inspect its substat distribution."
+              title="Top main stat combinations in simulated builds."
               placement="top"
               arrow
             >
@@ -147,6 +158,6 @@ export const MainStatConfigs = ({ configMap, userConfigKey, selectedKey, onSelec
           />
         ))}
       </Box>
-    </Card>
+    </FlexCard>
   );
 };

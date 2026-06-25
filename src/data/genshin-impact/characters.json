@@ -63,7 +63,7 @@
     "id": "10000016",
     "name": "Diluc",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Claymore",
     "baseStats": {
       "baseHp": 12981,
@@ -94,7 +94,7 @@
     "id": "10000021",
     "name": "Amber",
     "quality": 4,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Bow",
     "baseStats": {
       "baseHp": 9461,
@@ -125,7 +125,7 @@
     "id": "10000023",
     "name": "Xiangling",
     "quality": 4,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Polearm",
     "baseStats": {
       "baseHp": 10875,
@@ -186,7 +186,7 @@
     "id": "10000029",
     "name": "Klee",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Catalyst",
     "tagged": "Hexerei",
     "baseStats": {
@@ -218,7 +218,7 @@
     "id": "10000032",
     "name": "Bennett",
     "quality": 4,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Sword",
     "baseStats": {
       "baseHp": 12397,
@@ -370,7 +370,7 @@
     "id": "10000044",
     "name": "Xinyan",
     "quality": 4,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Claymore",
     "baseStats": {
       "baseHp": 11201,
@@ -465,7 +465,7 @@
     "id": "10000046",
     "name": "Hu Tao",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Polearm",
     "baseStats": {
       "baseHp": 15552,
@@ -496,7 +496,7 @@
     "id": "10000048",
     "name": "Yanfei",
     "quality": 4,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Catalyst",
     "baseStats": {
       "baseHp": 9352,
@@ -556,7 +556,7 @@
     "id": "10000049",
     "name": "Yoimiya",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Bow",
     "baseStats": {
       "baseHp": 10164,
@@ -633,7 +633,7 @@
     "id": "10000050",
     "name": "Thoma",
     "quality": 4,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Polearm",
     "baseStats": {
       "baseHp": 10331,
@@ -979,7 +979,7 @@
     "id": "10000079",
     "name": "Dehya",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Claymore",
     "baseStats": {
       "baseHp": 15675,
@@ -1069,7 +1069,7 @@
     "id": "10000084",
     "name": "Lyney",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Bow",
     "baseStats": {
       "baseHp": 11021,
@@ -1159,7 +1159,7 @@
     "id": "10000090",
     "name": "Chevreuse",
     "quality": 4,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Polearm",
     "baseStats": {
       "baseHp": 11962,
@@ -1189,7 +1189,7 @@
     "id": "10000092",
     "name": "Gaming",
     "quality": 4,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Claymore",
     "baseStats": {
       "baseHp": 11419,
@@ -1234,7 +1234,7 @@
     "id": "10000096",
     "name": "Arlecchino",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Polearm",
     "baseStats": {
       "baseHp": 13103,
@@ -1399,7 +1399,7 @@
     "id": "10000106",
     "name": "Mavuika",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Claymore",
     "baseStats": {
       "baseHp": 12552,
@@ -1626,7 +1626,7 @@
     "id": "10000123",
     "name": "Durin",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Sword",
     "tagged": "Hexerei",
     "baseStats": {
@@ -1749,7 +1749,7 @@
     "id": "10000131",
     "name": "Nicole",
     "quality": 5,
-    "element": "Pyro",
+    "element": "pyro",
     "type": "Catalyst",
     "tagged": "Hexerei",
     "baseStats": {

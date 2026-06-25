@@ -1,9 +1,10 @@
-import { GI, WW, MISC } from '@/data';
+import { GI, WW } from '@/data';
 import { mergeEquipList, getTotals } from '@/utils';
 import { compileRotation } from './rotation';
 import { createTrialAdvancer } from './advanceTrial';
 import { findPreferred } from './findPreferred';
 import { compilePenalty } from './penalty';
+import { getSubRollSums } from './utils';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
@@ -70,7 +71,7 @@ const buildConfigStats = (gameId, trials) => {
   const configMap = {};
 
   for (const trial of trials) {
-    const { key, four, three, one } = getConfigKey(gameId, trial.equipList);
+    const { key, four, three, one, sands, goblet, circlet } = getConfigKey(gameId, trial.equipList);
 
     if (!configMap[key]) {
       configMap[key] = {
@@ -78,34 +79,25 @@ const buildConfigStats = (gameId, trials) => {
         four,
         three,
         one,
-        subStatSums: {},
+        sands,
+        goblet,
+        circlet,
+        subRollSums: {},
       };
     }
 
     const entry = configMap[key];
     entry.count++;
 
-    const { subStatSums } = entry;
-    for (const equip of trial.equipList) {
-      if (!equip) continue;
-
-      const { subStatList = [] } = equip;
-      for (const line of subStatList) {
-        const { subStatId, subStatValue } = line;
-        if (!subStatId) continue;
-
-        subStatSums[subStatId] = (subStatSums[subStatId] ?? 0) + subStatValue;
-      }
+    const { subRollSums } = entry;
+    for (const [statId, rolls] of Object.entries(getSubRollSums(gameId, trial.equipList))) {
+      subRollSums[statId] = (subRollSums[statId] ?? 0) + rolls;
     }
   }
 
-  for (const key in configMap) {
-    const { count, subStatSums } = configMap[key];
-
-    for (const statId in subStatSums) {
-      const avg = subStatSums[statId] / count;
-      const maxRoll = MISC[gameId].SUB_STAT_TYPES[statId].VALUE;
-      subStatSums[statId] = avg / maxRoll;
+  for (const { count, subRollSums } of Object.values(configMap)) {
+    for (const [statId, rolls] of Object.entries(subRollSums)) {
+      subRollSums[statId] = rolls / count;
     }
   }
 
@@ -123,12 +115,15 @@ const normalizeSummarySums = (sums, n) =>
 const buildFinalStats = (trials) => {
   const n = trials.length;
   const statSums = {};
+
   for (const trial of trials) {
     const merged = mergeEquipList(trial.equipList);
+
     for (const stat in merged) {
       statSums[stat] = (statSums[stat] ?? 0) + merged[stat] / n;
     }
   }
+
   return statSums;
 };
 
@@ -164,13 +159,10 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
   const preferredMainStats = findPreferred(cache, baseTotals.damage, currId, simulateRotation);
-
   const weeklySummaries = isPrimary ? [baseSummary] : null;
-
   const advanceTrial = createTrialAdvancer(cache, currId, preferredMainStats, simulateRotation, getPenalty);
 
   let prevAvgScore = baseScore;
-
   for (let week = 1; week <= MAX_WEEKS; week++) {
     const weekSummarySums = isPrimary ? {} : null;
     const weekTotals = isPrimary ? [] : null;
@@ -205,7 +197,6 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
 
     if (isPrimary) {
       const weeklySummary = normalizeSummarySums(weekSummarySums, trials.length);
-
       weeklySummaries.push(weeklySummary);
 
       self.postMessage({ type: 'progress', week, diff });
@@ -215,30 +206,15 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
     prevAvgScore = avgScore;
   }
 
-  const finalStatMap = buildFinalStats(trials);
-  if (!isPrimary) return { finalStatMap };
-
-  const userSummary = simulateRotation(cache.member[currId].statMap);
-
-  const configMap = buildConfigStats(gameId, trials);
-  const { key: userConfigKey } = getConfigKey(gameId, cache.member[currId].equipList);
-  const userSubStats = {};
-  for (const equip of cache.member[currId].equipList) {
-    if (!equip) continue;
-    for (const { subStatId, subStatValue } of equip.subStatList) {
-      const maxRoll = MISC[gameId].SUB_STAT_TYPES[subStatId].VALUE;
-      userSubStats[subStatId] = (userSubStats[subStatId] ?? 0) + subStatValue / maxRoll;
-    }
-  }
+  if (!isPrimary) return buildFinalStats(trials);
   
   self.postMessage({
     type: 'done',
     cache,
-    finalStatMap,
     weeklySummaries,
-    userSummary,
-    configMap,
-    userConfigKey,
-    userSubStats,
+    userSummary: simulateRotation(cache.member[currId].statMap),
+    configMap: buildConfigStats(gameId, trials),
+    userConfigKey: getConfigKey(gameId, cache.member[currId].equipList).key,
+    userSubStats: getSubRollSums(gameId, cache.member[currId].equipList),
   });
 };

@@ -2,12 +2,12 @@ import { useState } from 'react';
 import {
   FlexRow,
   FlexCol,
-  Bar,
+  LoadingBar,
   StatsPanel,
   BenchmarkProgress,
-  SubstatPriority,
+  SubstatDistribution,
   DamageBreakdown,
-  MainStatConfigs,
+  MainstatDistribution,
 } from '@/components';
 import { useSimulation, useTeam } from '@/hooks';
 
@@ -36,7 +36,7 @@ export const Content = () => {
       />
 
       {type !== 'done' ? (
-        <Bar
+        <LoadingBar
           statusMessage={statusMessage}
           week={week}
           diff={diff}
@@ -53,7 +53,7 @@ export const Content = () => {
           </FlexRow>
 
           <FlexRow spacing={1}>
-            <MainStatConfigs
+            <MainstatDistribution
               configMap={configMap}
               userConfigKey={userConfigKey}
               selectedKey={selectedKey}
@@ -66,7 +66,7 @@ export const Content = () => {
           </FlexRow>
 
           <FlexRow>
-            <SubstatPriority
+            <SubstatDistribution
               configMap={configMap}
               userConfigKey={userConfigKey}
               userSubStats={userSubStats}

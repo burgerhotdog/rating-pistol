@@ -150,7 +150,7 @@ const createEquipEvaluator = (baseMap, simulateRotation, getPenalty) => (spec, e
     const newSummary = simulateRotation(combinedStatMap);
     const newTotals = getTotals(newSummary);
     const newPenalty = getPenalty(combinedStatMap);
-    const newScore = newTotals.damage * newPenalty;
+    const newScore = (newTotals.damage + newTotals.healing + newTotals.shield) * newPenalty;
 
     if (newScore > buffer.score) {
       Object.assign(buffer, {

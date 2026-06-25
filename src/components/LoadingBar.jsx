@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
 
-export const Bar = ({ statusMessage, week, diff }) => {
+export const LoadingBar = ({ statusMessage, week, diff }) => {
   const initialDiffRef = useRef(null);
 
   // const value = diff != null ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
@@ -9,7 +9,7 @@ export const Bar = ({ statusMessage, week, diff }) => {
   return (
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Stack spacing={2} sx={{ width: '50%', maxWidth: 360 }}>
-        <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
+        <Typography variant="body2" color="textSecondary" sx={{ textAlign: 'center' }}>
           {statusMessage || 'Initializing...'}
         </Typography>
 
@@ -25,8 +25,12 @@ export const Bar = ({ statusMessage, week, diff }) => {
         />
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="caption" color="text.secondary">
-            {week ? `Week ${week}` : ''}
+          <Typography
+            variant="caption"
+            color="textSecondary"
+            sx={{ visibility: week ? 'visible' : 'hidden' }}
+          >
+            {`Week ${week}`}
           </Typography>
         </Box>
       </Stack>
