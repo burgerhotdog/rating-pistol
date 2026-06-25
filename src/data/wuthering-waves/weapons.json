@@ -639,10 +639,9 @@
       "atk%": 0.243
     },
     "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "dodgeCounter",
-      "applyCooldown": 6000,
-      "intervalAction": {
+      "useOnSkillType": "dodgeCounter",
+      "useCooldown": 6000,
+      "followUpAction": {
         "type": "healing",
         "attr": "hp",
         "rankedMultipliers": {
@@ -651,8 +650,7 @@
             0.032
           ]
         }
-      },
-      "maxUses": 1
+      }
     }
   },
   {
@@ -922,21 +920,31 @@
     },
     "effects": [
       {
+        "applyWhen": "cast",
+        "applyOnSkillType": "dodgeCounter",
         "rankedStatMap": {
           "atk%": [
             0.08,
             0.16
-          ],
-          "dodgeCounterDmgBonus%": [
-            0.5,
-            1
           ]
-        }
+        },
+        "duration": 8000
       },
       {
         "applyWhen": "cast",
         "applyOnSkillType": "dodgeCounter",
-        "applyCooldown": 6000,
+        "useOnSkillType": "dodgeCounter",
+        "rankedStatMap": {
+          "dmgBonus%": [
+            0.5,
+            1
+          ]
+        },
+        "duration": 8000
+      },
+      {
+        "useOnSkillType": "dodgeCounter",
+        "useCooldown": 6000,
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -3090,7 +3098,7 @@
       {
         "applyWhen": "cast",
         "applyOnDmgType": "echoSkill",
-        "useOnElement": "Aero",
+        "useOnElement": "aero",
         "rankedStatMap": {
           "defIgnore%": [
             0.1,

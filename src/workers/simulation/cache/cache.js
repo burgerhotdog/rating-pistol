@@ -21,7 +21,8 @@ const convertRotation = (ctx, member, actions) => {
 
     if (teamSize === 1) {
       const { skillType } = action;
-      if (['introSkill', 'outroSkill'].some(type => skillType.includes(type))) {
+
+      if (skillType === 'introSkill' || skillType === 'outroSkill') {
         continue;
       }
     }
@@ -68,6 +69,7 @@ export const compileCache = (gameId, team) => {
 
     memberCache[member.id] = {
       ...member,
+      equipList: member?.build?.equipList ?? [],
       baseMap,
       equipMap,
       statMap,

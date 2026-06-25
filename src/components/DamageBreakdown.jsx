@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { Box, Card, Paper, Tooltip as MuiTooltip, Typography } from '@mui/material';
+import { CardHeader, Stack, Paper, Tooltip, Typography } from '@mui/material';
+import { alpha, darken, useTheme } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
-import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
-import { CHARACTER, MISC } from '@/data';
+import { PieChart, Pie, Tooltip as ChartTooltip, Cell, Legend } from 'recharts';
+import { FlexCard, ChartFill } from '@/components';
+import { CHARACTER } from '@/data';
 import { formatStr } from '@/utils';
 
 const renderLabel = ({ percent }) => {
@@ -11,109 +12,114 @@ const renderLabel = ({ percent }) => {
   return `${(percent * 100).toFixed(0)}%`;
 };
 
-const buildDmgTypeData = (actionMap, gameId, characterId) => {
-  const totals = {};
+const buildData = (summary, charId) => {
+  const dmgTypeSums = {};
 
-  for (const temp of Object.values(actionMap)) {
-    const { ownerId, dmgType, damage } = temp;
-    if (ownerId !== characterId) continue;
-    if (!dmgType) continue;
-    const label = dmgType[0];
-
-    totals[label] ??= 0;
-    totals[label] += damage;
+  for (const { ownerId, dmgType, damage } of Object.values(summary)) {
+    if (ownerId !== charId || !damage) continue;
+    dmgTypeSums[dmgType] = (dmgTypeSums[dmgType] ?? 0) + damage;
   }
 
-  return Object.entries(totals).map(([name, value]) => ({ name, value })).filter(d => d.value > 0);
+  const entries = Object.entries(dmgTypeSums)
+    .map(([dmgType, sum]) => ({
+      name: formatStr(dmgType),
+      value: Math.round(sum),
+    }))
+    .filter(entry => entry.value)
+    .sort((a, b) => b.value - a.value);
+
+  const total = entries.reduce((sum, e) => sum + e.value, 0);
+  let cumulative = 0;
+
+  return entries.map(entry => {
+    const rank = cumulative / total;
+    cumulative += entry.value;
+
+    return { ...entry, rank };
+  });
 };
 
 export const DamageBreakdown = ({ userSummary }) => {
   const { gameId, characterId } = useParams();
-  const theme = useTheme();
-
+  const { accentColor } = useTheme();
   if (!userSummary) return null;
 
-  const data = buildDmgTypeData(userSummary, gameId, characterId).sort((a, b) => b.value - a.value);
+  const data = buildData(userSummary, characterId);
 
-  const element = CHARACTER[gameId][characterId].element;
-  const monoColor = MISC?.[gameId]?.COLORS?.[element] ?? theme.palette.primary.main;
-
-  const getSliceFill = (index, count) => {
-    if (count <= 1) return alpha(monoColor, 0.95);
-    const rank = index / (count - 1);
-    const amount = 0.12 + rank * 0.32;
-    const toned = index % 2 === 0
-      ? lighten(monoColor, amount)
-      : darken(monoColor, amount * 0.7);
-    return alpha(toned, 0.94);
-  };
+  const { element } = CHARACTER[gameId][characterId];
+  const elementColor = accentColor[gameId][element];
+  const getSliceColor = rank => alpha(darken(elementColor, rank * 0.7), 0.9);
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 0.5, px: 2, pt: 1.5, pb: 0 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-          <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>Damage Breakdown</Typography>
-          <MuiTooltip
-            title="How damage is distributed across your rotation."
-            placement="top"
-            arrow
-          >
-            <HelpOutlineOutlinedIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
-          </MuiTooltip>
-        </Box>
-      </Box>
+    <FlexCard>
+      <CardHeader
+        title={
+          <Stack direction="row" spacing={0.5}>
+            <Typography variant="subtitle1">
+              Damage breakdown
+            </Typography>
 
-      <Box sx={{ flex: 1, minHeight: 0, position: 'relative' }}>
-        <Box sx={{ position: 'absolute', inset: 0 }}>
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={data}
-                dataKey="value"
-                cx="50%"
-                cy="50%"
-                innerRadius="40%"
-                outerRadius="70%"
-                paddingAngle={2}
-                label={renderLabel}
-                labelLine={false}
-                animationBegin={0}
-                animationDuration={600}
-              >
-                {data.map((entry, index) => (
-                  <Cell
-                    key={entry.name}
-                    fill={getSliceFill(index, data.length)}
-                    stroke={alpha(theme.palette.background.paper, 0.85)}
-                    strokeWidth={2}
-                  />
-                ))}
-              </Pie>
-              <Tooltip
-                content={({ active, payload }) => {
-                  if (!active || !payload?.length) return null;
-                  const { name, value } = payload[0].payload;
-                  return (
-                    <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{formatStr(name)}</Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {value.toLocaleString('en-US', { maximumFractionDigits: 0 })} damage
-                      </Typography>
-                    </Paper>
-                  );
-                }}
+            <Tooltip
+              title="How damage is distributed across your rotation."
+              placement="top"
+              arrow
+            >
+              <HelpOutlineOutlinedIcon
+                fontSize="small"
+                color="disabled"
               />
-              <Legend
-                verticalAlign="bottom"
-                iconType="circle"
-                iconSize={8}
-                wrapperStyle={{ fontSize: 12 }}
-                formatter={(value) => formatStr(value)}
+            </Tooltip>
+          </Stack>
+        }
+        disableTypography
+      />
+
+      <ChartFill>
+        <PieChart>
+          <Pie
+            data={data}
+            dataKey="value"
+            outerRadius="70%"
+            label={renderLabel}
+            labelLine={false}
+          >
+            {data.map(entry => (
+              <Cell
+                key={entry.name}
+                fill={getSliceColor(entry.rank)}
+                stroke="none"
               />
-            </PieChart>
-          </ResponsiveContainer>
-        </Box>
-      </Box>
-    </Card>
+            ))}
+          </Pie>
+
+          <ChartTooltip
+            content={({ active, payload }) => {
+              if (!active || !payload?.length) return null;
+              const { name, value } = payload[0].payload;
+
+              return (
+                <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
+                  <Typography variant="subtitle2">
+                    {formatStr(name)}
+                  </Typography>
+
+                  <Typography variant="body2" color="textSecondary">
+                    {value.toLocaleString('en-US', { maximumFractionDigits: 0 })} damage
+                  </Typography>
+                </Paper>
+              );
+            }}
+          />
+
+          <Legend
+            verticalAlign="bottom"
+            iconType="circle"
+            iconSize={8}
+            wrapperStyle={{ fontSize: 12 }}
+            formatter={value => formatStr(value)}
+          />
+        </PieChart>
+      </ChartFill>
+    </FlexCard>
   );
 };

@@ -270,7 +270,7 @@
           "applyWhen": "cast",
           "applyOnSkillType": "outroSkill",
           "intervalAction": {
-            "element": "Havoc",
+            "element": "havoc",
             "dmgType": "outroSkill",
             "fixedMultipliers": {
               "mv": 4.8
@@ -301,8 +301,9 @@
       },
       "5": [
         {
+          "useOnSkillType": "coordinatedAttack",
           "statMap": {
-            "coordinatedAttackDmgBonus%": 0.8
+            "dmgBonus%": 0.8
           }
         },
         {

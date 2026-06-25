@@ -1,12 +1,4 @@
 {
-  "COLORS": {
-    "Glacio": "#4fb4cf",
-    "Fusion": "#d45772",
-    "Electro": "#c154c7",
-    "Aero": "#44c4a3",
-    "Spectro": "#b7a835",
-    "Havoc": "#be4981"
-  },
   "MAIN_STAT_TYPES": [
     {},
     {
@@ -158,29 +150,29 @@
   "STATUSES": {
     "glacioChafe": {
       "id": "glacioChafe",
-      "element": "Glacio",
+      "element": "glacio",
       "maxStacks": 10
     },
     "fusionBurst": {
       "id": "fusionBurst",
-      "element": "Fusion",
+      "element": "fusion",
       "maxStacks": 10
     },
     "electroFlare": {
       "id": "electroFlare",
-      "element": "Electro",
+      "element": "electro",
       "maxStacks": 10
     },
     "aeroErosion": {
       "id": "aeroErosion",
-      "element": "Aero",
+      "element": "aero",
       "tickInterval": 3000,
       "duration": 15000,
       "maxStacks": 3
     },
     "spectroFrazzle": {
       "id": "spectroFrazzle",
-      "element": "Spectro",
+      "element": "spectro",
       "tickInterval": 3000,
       "duration": 3000,
       "maxStacks": 10,
@@ -188,7 +180,7 @@
     },
     "havocBane": {
       "id": "havocBane",
-      "element": "Havoc",
+      "element": "havoc",
       "maxStacks": 3
     }
   },

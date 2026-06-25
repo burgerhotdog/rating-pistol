@@ -187,11 +187,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -222,10 +219,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -639,11 +633,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -674,10 +665,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -797,10 +785,7 @@
       "1": {
         "name": "Remnant Entities",
         "skillType": "coordinatedAttack",
-        "dmgType": [
-          "resonanceLiberation",
-          "coordinatedAttack"
-        ],
+        "dmgType": "resonanceLiberation",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -1329,11 +1314,8 @@
       },
       "8": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1364,10 +1346,7 @@
       "9": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1702,11 +1681,8 @@
       "6": {
         "name": "Tail Strike",
         "tagged": "Striding Lion",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1966,11 +1942,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2001,10 +1974,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2446,11 +2416,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2481,10 +2448,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2773,10 +2737,7 @@
         "name": "Dodge Counter",
         "tagged": "Cosmos",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3148,11 +3109,8 @@
       },
       "7": {
         "name": "Mid-air Attack 1",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3182,11 +3140,8 @@
       },
       "8": {
         "name": "Mid-air Attack 2",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3217,10 +3172,7 @@
       "9": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3315,10 +3267,7 @@
       "2": {
         "name": "Marcato",
         "skillType": "coordinatedAttack",
-        "dmgType": [
-          "resonanceLiberation",
-          "coordinatedAttack"
-        ],
+        "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3625,11 +3574,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3660,10 +3606,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4141,10 +4084,7 @@
         "name": "Dodge Counter",
         "tagged": "Deathblade Gear",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "resonanceLiberation",
-          "dodgeCounter"
-        ],
+        "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4519,11 +4459,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4554,10 +4491,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4654,10 +4588,7 @@
         "name": "Electromagnetic Blast",
         "tagged": "Sinner's Mark",
         "skillType": "coordinatedAttack",
-        "dmgType": [
-          "resonanceSkill",
-          "coordinatedAttack"
-        ],
+        "dmgType": "resonanceSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4755,10 +4686,7 @@
         "name": "Judgment Strike",
         "tagged": "Punishment Mark",
         "skillType": "coordinatedAttack",
-        "dmgType": [
-          "resonanceSkill",
-          "coordinatedAttack"
-        ],
+        "dmgType": "resonanceSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5065,11 +4993,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5100,10 +5025,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5168,10 +5090,7 @@
       "2": {
         "name": "Thunder Wedge: Coordinated Attack",
         "skillType": "coordinatedAttack",
-        "dmgType": [
-          "resonanceSkill",
-          "coordinatedAttack"
-        ],
+        "dmgType": "resonanceSkill",
         "attr": "DEF",
         "indexedMultipliers": [
           {
@@ -5301,10 +5220,7 @@
       "1": {
         "name": "Thunder Uprising",
         "skillType": "coordinatedAttack",
-        "dmgType": [
-          "resonanceSkill",
-          "coordinatedAttack"
-        ],
+        "dmgType": "resonanceSkill",
         "attr": "DEF",
         "indexedMultipliers": [
           {
@@ -5639,10 +5555,7 @@
         "name": "Dodge Counter",
         "tagged": "Lightning Infused",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "attr": "DEF",
         "indexedMultipliers": [
           {
@@ -5919,11 +5832,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5984,10 +5894,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6163,11 +6070,8 @@
       },
       "2": {
         "name": "Feather Release",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6419,11 +6323,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6514,10 +6415,7 @@
       "9": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6965,11 +6863,8 @@
       },
       "9": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6999,11 +6894,8 @@
       },
       "10": {
         "name": "Banner Of Triumph",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7064,10 +6956,7 @@
       "12": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7515,11 +7404,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7549,10 +7435,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8420,11 +8303,8 @@
       },
       "7": {
         "name": "Mid-air Attack 1",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8454,11 +8334,8 @@
       },
       "8": {
         "name": "Mid-air Attack 2",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8488,11 +8365,8 @@
       },
       "9": {
         "name": "Mid-air Attack 3",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8523,11 +8397,8 @@
       },
       "10": {
         "name": "Mid-air Heavy Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "heavyAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8558,10 +8429,7 @@
       "11": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8735,10 +8603,7 @@
       "3": {
         "name": "Photosynthesis Mark",
         "skillType": "coordinatedAttack",
-        "dmgType": [
-          "resonanceLiberation",
-          "coordinatedAttack"
-        ],
+        "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8878,11 +8743,8 @@
       "2": {
         "name": "Mid-air Attack 1",
         "tagged": "Starflower Blooms",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "duration": 400,
         "indexedMultipliers": [
           {
@@ -8914,11 +8776,8 @@
       "3": {
         "name": "Mid-air Attack 2",
         "tagged": "Starflower Blooms",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "duration": 400,
         "indexedMultipliers": [
           {
@@ -8950,11 +8809,8 @@
       "4": {
         "name": "Mid-air Attack 3",
         "tagged": "Starflower Blooms",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "duration": 400,
         "indexedMultipliers": [
           {
@@ -9264,11 +9120,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9299,10 +9152,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9869,11 +9719,8 @@
       },
       "5": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9904,10 +9751,7 @@
       "6": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10500,11 +10344,8 @@
       },
       "5": {
         "name": "Mid-air Attack 1",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10533,11 +10374,8 @@
       },
       "6": {
         "name": "Mid-air Attack 2",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10567,11 +10405,8 @@
       },
       "7": {
         "name": "Mid-air Attack 3",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10601,11 +10436,8 @@
       },
       "8": {
         "name": "Mid-air Attack 4",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10711,11 +10543,8 @@
       },
       "10": {
         "name": "Mid-air Heavy Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "heavyAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10745,10 +10574,7 @@
       "11": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11382,11 +11208,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11462,10 +11285,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11978,10 +11798,7 @@
         "name": "Dodge Counter",
         "tagged": "Incarnation",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12386,11 +12203,8 @@
       },
       "5": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12444,10 +12258,7 @@
       "6": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12512,10 +12323,7 @@
       "1": {
         "name": "Inklit Spirit",
         "skillType": "coordinatedAttack",
-        "dmgType": [
-          "basicAttack",
-          "coordinatedAttack"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12892,11 +12700,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12927,10 +12732,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13173,10 +12975,7 @@
       "6": {
         "name": "Unfathomed",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "resonanceLiberation",
-          "dodgeCounter"
-        ],
+        "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13320,11 +13119,8 @@
       },
       "3": {
         "name": "Revamp",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "resonanceLiberation",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13623,11 +13419,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13658,10 +13451,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14410,11 +14200,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14445,10 +14232,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14690,11 +14474,8 @@
       },
       "3": {
         "name": "Transmutation",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14975,11 +14756,8 @@
       "3": {
         "name": "Mid Air Attack",
         "tagged": "Yellow Light",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15185,11 +14963,8 @@
       "8": {
         "name": "Mid Air Attack",
         "tagged": "Red Light",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15221,10 +14996,7 @@
         "name": "Dodge Counter",
         "tagged": "Red Light",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15908,11 +15680,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15944,10 +15713,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16238,10 +16004,7 @@
         "name": "Atonement",
         "tagged": "Blossom Mode",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16790,11 +16553,8 @@
       },
       "8": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16824,11 +16584,8 @@
       },
       "9": {
         "name": "Customary Greetings",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16883,10 +16640,7 @@
       "10": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -17502,11 +17256,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -17537,10 +17288,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18031,11 +17779,8 @@
       },
       "7": {
         "name": "Mid-air Attack 1",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18065,11 +17810,8 @@
       },
       "8": {
         "name": "Mid-air Attack 1: Charged Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18148,11 +17890,8 @@
       },
       "9": {
         "name": "Mid-air Attack 1: Flip",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18206,11 +17945,8 @@
       },
       "10": {
         "name": "Mid-air Attack 1: Slash",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18241,11 +17977,8 @@
       },
       "11": {
         "name": "Mid-air Attack 2",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18299,11 +18032,8 @@
       },
       "12": {
         "name": "Mid-air Attack 2: Charged Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18334,11 +18064,8 @@
       },
       "13": {
         "name": "Mid-air Attack 2: Flip",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18392,11 +18119,8 @@
       },
       "14": {
         "name": "Mid-air Attack 3",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18427,11 +18151,8 @@
       },
       "15": {
         "name": "Mid-air Attack 3: Flip",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18485,11 +18206,8 @@
       },
       "16": {
         "name": "Mid-air Attack 4",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18569,10 +18287,7 @@
       "17": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19252,11 +18967,8 @@
       },
       "5": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19288,10 +19000,7 @@
       "6": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19324,10 +19033,7 @@
         "name": "Dodge Counter",
         "tagged": "Chamuel's Star",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19910,11 +19616,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19969,10 +19672,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20037,11 +19737,8 @@
       "2": {
         "name": "Flickering Reverie",
         "tagged": "Mirage",
-        "skillType": [
-          "resonanceSkill",
-          "echoSkill"
-        ],
-        "dmgType": "resonanceSkill",
+        "skillType": "resonanceSkill",
+        "extraSkillType": "echoSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20103,10 +19800,8 @@
     "resonanceLiberation": {
       "1": {
         "name": "Flowing Suffocation",
-        "skillType": [
-          "resonanceLiberation",
-          "echoSkill"
-        ],
+        "skillType": "resonanceLiberation",
+        "extraSkillType": "echoSkill",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -20138,10 +19833,7 @@
       "2": {
         "name": "Diffusion",
         "skillType": "coordinatedAttack",
-        "dmgType": [
-          "basicAttack",
-          "coordinatedAttack"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20270,11 +19962,8 @@
       "4": {
         "name": "Abysmal Vortex",
         "tagged": "Mirage",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20329,10 +20018,8 @@
       "5": {
         "name": "Perception Drain",
         "tagged": "Mirage",
-        "skillType": [
-          "resonanceSkill",
-          "echoSkill"
-        ],
+        "skillType": "resonanceSkill",
+        "extraSkillType": "echoSkill",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -20366,10 +20053,7 @@
         "name": "Shadowy Sweep",
         "tagged": "Mirage",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20866,11 +20550,8 @@
       },
       "8": {
         "name": "Mid-air Attack 1",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20901,11 +20582,8 @@
       },
       "9": {
         "name": "Mid-air Attack 2",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20937,10 +20615,7 @@
       "10": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21374,11 +21049,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21409,10 +21081,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21530,10 +21199,8 @@
       "3": {
         "name": "Targeted Action",
         "skillType": "resonanceSkill",
-        "dmgType": [
-          "resonanceSkill",
-          "FRAZZLE"
-        ],
+        "dmgType": "resonanceSkill",
+        "specialType": "spectroFrazzle",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21612,10 +21279,7 @@
       "4": {
         "name": "Forcible Riposte",
         "skillType": "resonanceSkill",
-        "dmgType": [
-          "resonanceSkill",
-          "FRAZZLE"
-        ],
+        "specialType": "spectroFrazzle",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21783,10 +21447,8 @@
         "name": "Heavy Slash - Daybreak",
         "tagged": "Inferno Mode",
         "skillType": "basicAttack",
-        "dmgType": [
-          "heavyAttack",
-          "FRAZZLE"
-        ],
+        "dmgType": "heavyAttack",
+        "specialType": "spectroFrazzle",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21818,10 +21480,8 @@
         "name": "Heavy Slash - Dawning",
         "tagged": "Inferno Mode",
         "skillType": "basicAttack",
-        "dmgType": [
-          "heavyAttack",
-          "FRAZZLE"
-        ],
+        "dmgType": "heavyAttack",
+        "specialType": "spectroFrazzle",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21853,10 +21513,8 @@
         "name": "Heavy Slash - Nightfall",
         "tagged": "Inferno Mode",
         "skillType": "basicAttack",
-        "dmgType": [
-          "heavyAttack",
-          "FRAZZLE"
-        ],
+        "dmgType": "heavyAttack",
+        "specialType": "spectroFrazzle",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21910,10 +21568,8 @@
       },
       "4": {
         "name": "Additional Multiplier Per Blaze",
-        "dmgType": [
-          "heavyAttack",
-          "FRAZZLE"
-        ],
+        "dmgType": "heavyAttack",
+        "specialType": "spectroFrazzle",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21944,10 +21600,8 @@
       "5": {
         "name": "Heavy Slash - Lightsmash",
         "tagged": "Inferno Mode",
-        "dmgType": [
-          "heavyAttack",
-          "FRAZZLE"
-        ],
+        "dmgType": "heavyAttack",
+        "specialType": "spectroFrazzle",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22037,10 +21691,7 @@
       "1": {
         "name": "Beacon For the Future",
         "skillType": "outroSkill",
-        "dmgType": [
-          "outroSkill",
-          "FRAZZLE"
-        ],
+        "specialType": "spectroFrazzle",
         "fixedMultipliers": [
           {
             "mv": 1.5
@@ -22483,11 +22134,8 @@
       },
       "8": {
         "name": "Mid-air Attack 1",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22517,11 +22165,8 @@
       },
       "9": {
         "name": "Mid-air Attack 2",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22576,11 +22221,8 @@
       },
       "10": {
         "name": "Mid-air Attack 3",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22634,7 +22276,7 @@
       },
       "11": {
         "name": "Firestrike",
-        "skillType": "midAirAttack",
+        "skillType": "mid-airAttack",
         "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
@@ -22689,7 +22331,7 @@
       },
       "12": {
         "name": "Plunging Attack",
-        "skillType": "midAirAttack",
+        "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -22824,10 +22466,7 @@
       "14": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -23616,10 +23255,7 @@
       "5": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -23779,11 +23415,9 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "EROSION"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
+        "specialType": "aeroErosion",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -23814,11 +23448,9 @@
       },
       "8": {
         "name": "Mid-air Attack 1 Sword Shadow Recalled",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "EROSION"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
+        "specialType": "aeroErosion",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -23849,11 +23481,9 @@
       },
       "9": {
         "name": "Mid-air Attack 2 Sword Shadows Recalled",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "EROSION"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
+        "specialType": "aeroErosion",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -23885,11 +23515,9 @@
       },
       "10": {
         "name": "Mid-air Attack 3 Sword Shadows Recalled",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "EROSION"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
+        "specialType": "aeroErosion",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -24341,10 +23969,7 @@
       "6": {
         "name": "Fleurdelys: Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -24591,11 +24216,8 @@
       },
       "10": {
         "name": "Fleurdelys: Mid-air Attack 1",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -24674,11 +24296,8 @@
       },
       "11": {
         "name": "Fleurdelys: Mid-air Attack 2",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -24757,11 +24376,8 @@
       },
       "12": {
         "name": "Fleurdelys: Mid-air Attack 3",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "attr": "hp",
         "indexedMultipliers": [
           {
@@ -25152,10 +24768,8 @@
       },
       "5": {
         "name": "Scarlet Coda",
-        "skillType": [
-          "heavyAttack",
-          "echoSkill"
-        ],
+        "skillType": "heavyAttack",
+        "extraSkillType": "echoSkill",
         "dmgType": "resonanceSkill",
         "indexedMultipliers": [
           {
@@ -25236,11 +24850,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25271,10 +24882,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25991,11 +25599,8 @@
       },
       "6": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26027,10 +25632,7 @@
       "7": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26061,15 +25663,8 @@
       },
       "8": {
         "name": "Mid-air Dodge Counter",
-        "skillType": [
-          "midAirAttack",
-          "dodgeCounter"
-        ],
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack",
-          "dodgeCounter"
-        ],
+        "skillType": "dodgeCounter",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26193,10 +25788,7 @@
       "12": {
         "name": "Steelclash",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "heavyAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26228,10 +25820,7 @@
       "13": {
         "name": "Thunderoar - Backstep",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "heavyAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26873,11 +26462,8 @@
       },
       "4": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26909,10 +26495,7 @@
       "5": {
         "name": "Moonring: Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -28214,11 +27797,8 @@
       },
       "6": {
         "name": "Ashfall Barrage Plunging Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "heavyAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -28248,11 +27828,8 @@
       },
       "7": {
         "name": "Ashfall Barrage Sustained Fire",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "heavyAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29069,11 +28646,8 @@
       },
       "10": {
         "name": "Hellsent Barrage Plunging Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "heavyAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29103,11 +28677,8 @@
       },
       "11": {
         "name": "Hellsent Barrage Sustained Fire",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "heavyAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29454,11 +29025,8 @@
       },
       "4": {
         "name": "Mid-air Attack DMG",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -30447,11 +30015,8 @@
       },
       "5": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -30482,10 +30047,7 @@
       "6": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31350,11 +30912,8 @@
       },
       "9": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31495,10 +31054,7 @@
       "12": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31577,10 +31133,7 @@
       "13": {
         "name": "Eye of Unraveling - Retraction",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32024,10 +31577,7 @@
         "name": "Dodge Counter",
         "tagged": "Chainsaw Mode",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "resonanceLiberation",
-          "dodgeCounter"
-        ],
+        "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32060,10 +31610,7 @@
         "name": "Dodge Counter: Hold",
         "tagged": "Chainsaw Mode",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "resonanceLiberation",
-          "dodgeCounter"
-        ],
+        "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32692,11 +32239,8 @@
       },
       "9": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32727,10 +32271,7 @@
       "10": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32761,10 +32302,7 @@
       "11": {
         "name": "Wide Field Observation Mode: Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33384,10 +32922,7 @@
       "4": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33417,11 +32952,8 @@
       },
       "5": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33822,10 +33354,7 @@
       "14": {
         "name": "Kaleidoscopic Parade: Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33917,11 +33446,8 @@
       },
       "17": {
         "name": "Kaleidoscopic Parade: Mid-Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33975,11 +33501,8 @@
       },
       "18": {
         "name": "Kaleidoscopic Parade: Mid-air Heavy Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34189,11 +33712,8 @@
     "forteCircuit": {
       "1": {
         "name": "Kaleidoscopic Parade: Iridescent Splash",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34223,11 +33743,8 @@
       },
       "2": {
         "name": "Kaleidoscopic Parade: Visual Impact",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34781,11 +34298,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34816,10 +34330,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35313,11 +34824,8 @@
       },
       "9": {
         "name": "Mech: Mid-air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35373,10 +34881,7 @@
       "10": {
         "name": "Mech: Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36114,11 +35619,8 @@
       },
       "6": {
         "name": "Mid-air Attack 1",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36148,11 +35650,8 @@
       },
       "7": {
         "name": "Mid-air Attack 2 Scythe: Dissection",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36230,11 +35729,8 @@
       },
       "8": {
         "name": "Mid-air Attack 3 Scythe: Dissection",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36312,11 +35808,8 @@
       },
       "9": {
         "name": "Mid-air Attack 2 Scythe: Resection",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36370,11 +35863,8 @@
       },
       "10": {
         "name": "Mid-air Attack 3 Scythe: Resection",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36428,11 +35918,8 @@
       },
       "11": {
         "name": "Mid-air Attack 4",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36463,10 +35950,7 @@
       "12": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36821,11 +36305,8 @@
     "forteCircuit": {
       "1": {
         "name": "Gavel of Earthshaker",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -37253,11 +36734,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -37288,10 +36766,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -38246,11 +37721,8 @@
       },
       "5": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -38281,10 +37753,7 @@
       "6": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -38733,7 +38202,7 @@
       "14": {
         "name": "Mid-air Attack 1",
         "tagged": "Foreclaimed Self",
-        "skillType": "midAirAttack",
+        "skillType": "mid-airAttack",
         "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
@@ -38813,7 +38282,7 @@
       "15": {
         "name": "Mid-air Attack 2",
         "tagged": "Foreclaimed Self",
-        "skillType": "midAirAttack",
+        "skillType": "mid-airAttack",
         "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
@@ -38917,11 +38386,8 @@
       "16": {
         "name": "Mid-air Attack 3",
         "tagged": "Foreclaimed Self",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "resonanceLiberation",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
             "mv": [
@@ -38953,10 +38419,7 @@
         "name": "Dodge Counter",
         "tagged": "Foreclaimed Self",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "resonanceLiberation",
-          "dodgeCounter"
-        ],
+        "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39533,11 +38996,8 @@
       "6": {
         "name": "Mid Air Attack",
         "tagged": "Stagecraft Form",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39593,10 +39053,7 @@
         "name": "Dodge Counter",
         "tagged": "Stagecraft Form",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39832,11 +39289,8 @@
       "13": {
         "name": "Mid-air Attack 1",
         "tagged": "Breakdown Form",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39867,11 +39321,8 @@
       "14": {
         "name": "Mid-air Attack 2",
         "tagged": "Breakdown Form",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39927,11 +39378,8 @@
       "15": {
         "name": "Mid-air Attack 3",
         "tagged": "Breakdown Form",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39962,11 +39410,8 @@
       "16": {
         "name": "Mid-air Attack 4",
         "tagged": "Breakdown Form",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40021,11 +39466,8 @@
       "17": {
         "name": "Mid-air Heavy Attack",
         "tagged": "Breakdown Form",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "heavyAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40081,10 +39523,7 @@
         "name": "Dodge Counter",
         "tagged": "Breakdown Form",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40610,11 +40049,8 @@
       },
       "5": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40645,10 +40081,7 @@
       "6": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41098,11 +40531,8 @@
       "6": {
         "name": "Mid Air Attack",
         "tagged": "Reminiscence",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41134,10 +40564,7 @@
         "name": "Dodge Counter",
         "tagged": "Reminiscence",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41550,11 +40977,8 @@
       "6": {
         "name": "Mid Air Attack",
         "tagged": "Huntress",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41586,10 +41010,7 @@
         "name": "Dodge Counter",
         "tagged": "Huntress",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41903,11 +41324,8 @@
       "14": {
         "name": "Mid Air Attack",
         "tagged": "Guts",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41939,10 +41357,7 @@
         "name": "Dodge Counter",
         "tagged": "Guts",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43587,11 +43002,8 @@
       },
       "7": {
         "name": "Mid Air Attack",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43646,10 +43058,7 @@
       "8": {
         "name": "Dodge Counter",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43728,11 +43137,8 @@
       "9": {
         "name": "Mid Air Attack",
         "tagged": "Algorithm Compaction",
-        "skillType": "midAirAttack",
-        "dmgType": [
-          "basicAttack",
-          "midAirAttack"
-        ],
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43788,10 +43194,7 @@
         "name": "Dodge Counter",
         "tagged": "Algorithm Compaction",
         "skillType": "dodgeCounter",
-        "dmgType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [

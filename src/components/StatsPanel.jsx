@@ -1,11 +1,11 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { CustomAvatar, TeamMemberDialog } from '@/components';
+import { useBuild } from '@/contexts';
 import { MISC, CHARACTER } from '@/data';
 import { getAttr, formatStr, compileStatMap } from '@/utils';
-import { CustomAvatar } from '@/components';
-import { useBuild } from '@/contexts';
-import { TeamMemberDialog } from '@/components/TeamMemberDialog';
-import { useState } from 'react';
 
 function getRelativeTime(dateString) {
   if (!dateString) return 'Unknown';
@@ -46,6 +46,7 @@ function formatFullDate(dateString) {
 
 export const StatsPanel = ({ team, updateTeam }) => {
   const { gameId, characterId } = useParams();
+  const theme = useTheme();
   const build = useBuild().getBuilds(gameId)[characterId];
   const { MENU_STATS } = MISC[gameId];
   const [dialogIndex, setDialogIndex] = useState(null);
@@ -72,14 +73,15 @@ export const StatsPanel = ({ team, updateTeam }) => {
         subheader={
           <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
             <Chip
-              label={CHARACTER[gameId][characterId].element}
+              label={formatStr(CHARACTER[gameId][characterId].element)}
               variant="outlined"
               size="small"
               sx={{
                 fontWeight: 'bold',
-                color: MISC[gameId].COLORS[CHARACTER[gameId][characterId].element]
+                color: theme.accentColor[gameId][CHARACTER[gameId][characterId].element]
               }}
             />
+
             <Chip
               label={CHARACTER[gameId][characterId]?.type}
               variant="outlined"

@@ -1,9 +1,10 @@
 import { GI, WW } from '@/data';
 import { mergeEquipList, getTotals } from '@/utils';
 import { compileRotation } from './rotation';
-import { advanceTrial } from './advanceTrial';
+import { createTrialAdvancer } from './advanceTrial';
 import { findPreferred } from './findPreferred';
 import { compilePenalty } from './penalty';
+import { getSubRollSums } from './utils';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
@@ -27,14 +28,81 @@ const createScoreTracker = () => {
   };
 };
 
-function addSummaryToSums(sums, summary) {
-  for (const [key, footprint] of Object.entries(summary)) {
-    const { type } = footprint;
+const getConfigKey = (gameId, equipList) => {
+  if (gameId === GI) {
+    const sands = equipList[2]?.mainStatId ?? 'none';
+    const goblet = equipList[3]?.mainStatId ?? 'none';
+    const circlet = equipList[4]?.mainStatId ?? 'none';
 
-    if (!sums[key]) sums[key] = { ...footprint, [type]: 0 };
-    sums[key][type] += footprint[type] ?? 0;
+    return {
+      key: `${sands}|${goblet}|${circlet}`,
+      sands,
+      goblet,
+      circlet,
+    };
   }
-}
+
+  const result = {
+    4: [],
+    3: [],
+    1: [],
+  };
+
+  for (const equip of equipList) {
+    if (!equip) continue;
+
+    const { cost, mainStatId } = equip;
+    result[cost].push(mainStatId);
+  }
+
+  const four = result["4"][0];
+  const three = result["3"];
+  const one = result["1"];
+
+  return {
+    key: `${four}|${three.join('+')}|${one.join('+')}`,
+    four,
+    three,
+    one,
+  };
+};
+
+const buildConfigStats = (gameId, trials) => {
+  const configMap = {};
+
+  for (const trial of trials) {
+    const { key, four, three, one, sands, goblet, circlet } = getConfigKey(gameId, trial.equipList);
+
+    if (!configMap[key]) {
+      configMap[key] = {
+        count: 0,
+        four,
+        three,
+        one,
+        sands,
+        goblet,
+        circlet,
+        subRollSums: {},
+      };
+    }
+
+    const entry = configMap[key];
+    entry.count++;
+
+    const { subRollSums } = entry;
+    for (const [statId, rolls] of Object.entries(getSubRollSums(gameId, trial.equipList))) {
+      subRollSums[statId] = (subRollSums[statId] ?? 0) + rolls;
+    }
+  }
+
+  for (const { count, subRollSums } of Object.values(configMap)) {
+    for (const [statId, rolls] of Object.entries(subRollSums)) {
+      subRollSums[statId] = rolls / count;
+    }
+  }
+
+  return configMap;
+};
 
 const normalizeSummarySums = (sums, n) =>
   Object.fromEntries(
@@ -44,31 +112,33 @@ const normalizeSummarySums = (sums, n) =>
     })
   );
 
-const getDistribution = (totalsArr) => {
-  const sorted = totalsArr.slice().sort((a, b) => a.damage - b.damage);
-  const n = sorted.length;
-
-  return {
-    p10: sorted[Math.floor(n * 0.1)],
-    median: sorted[Math.floor(n * 0.5)],
-    p90: sorted[Math.floor(n * 0.9)],
-  };
-};
-
 const buildFinalStats = (trials) => {
   const n = trials.length;
   const statSums = {};
+
   for (const trial of trials) {
     const merged = mergeEquipList(trial.equipList);
+
     for (const stat in merged) {
       statSums[stat] = (statSums[stat] ?? 0) + merged[stat] / n;
     }
   }
+
   return statSums;
 };
 
+function addSummaryToSums(sums, summary) {
+  for (const [key, footprint] of Object.entries(summary)) {
+    const { type } = footprint;
+
+    if (!sums[key]) sums[key] = { ...footprint, [type]: 0 };
+    sums[key][type] += footprint[type] ?? 0;
+  }
+}
+
 export const runTrials = (cache, currId, team, isPrimary = false) => {
-  const { gameId, baseMap } = cache.member[currId];
+  const { gameId, member } = cache;
+  const { baseMap } = member[currId];
   const simulateRotation = compileRotation(cache, currId, team);
   const getPenalty = compilePenalty(cache, currId);
   const equipListLength = gameId === GI || gameId === WW ? 5 : 6;
@@ -89,21 +159,19 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
   const preferredMainStats = findPreferred(cache, baseTotals.damage, currId, simulateRotation);
-  const ctx = { cache, currId, preferredMainStats, simulateRotation, getPenalty };
-
   const weeklySummaries = isPrimary ? [baseSummary] : null;
-  const weeklyDistribution = isPrimary ? [{ p10: baseTotals, median: baseTotals, p90: baseTotals }] : null;
+  const advanceTrial = createTrialAdvancer(cache, currId, preferredMainStats, simulateRotation, getPenalty);
 
   let prevAvgScore = baseScore;
-
   for (let week = 1; week <= MAX_WEEKS; week++) {
     const weekSummarySums = isPrimary ? {} : null;
     const weekTotals = isPrimary ? [] : null;
     const weekScores = createScoreTracker();
 
     for (const trial of trials) {
-      advanceTrial(ctx, trial);
+      advanceTrial(trial);
       weekScores.add(trial.score);
+
       if (isPrimary) {
         addSummaryToSums(weekSummarySums, trial.summary);
         weekTotals.push(trial.totals);
@@ -114,7 +182,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
       if (weekScores.relativeError <= 0.005) break;
 
       const trial = createTrial();
-      advanceTrial(ctx, trial);
+      advanceTrial(trial);
       trials.push(trial);
 
       weekScores.add(trial.score);
@@ -129,10 +197,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
 
     if (isPrimary) {
       const weeklySummary = normalizeSummarySums(weekSummarySums, trials.length);
-      const distribution = getDistribution(weekTotals);
-
       weeklySummaries.push(weeklySummary);
-      weeklyDistribution.push(distribution);
 
       self.postMessage({ type: 'progress', week, diff });
     }
@@ -141,8 +206,15 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
     prevAvgScore = avgScore;
   }
 
-  const finalStatMap = buildFinalStats(trials);
-
-  if (!isPrimary) return { finalStatMap };
-  return { finalStatMap, weeklyDistribution, weeklySummaries, simulateRotation };
+  if (!isPrimary) return buildFinalStats(trials);
+  
+  self.postMessage({
+    type: 'done',
+    cache,
+    weeklySummaries,
+    userSummary: simulateRotation(cache.member[currId].statMap),
+    configMap: buildConfigStats(gameId, trials),
+    userConfigKey: getConfigKey(gameId, cache.member[currId].equipList).key,
+    userSubStats: getSubRollSums(gameId, cache.member[currId].equipList),
+  });
 };

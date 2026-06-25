@@ -1,9 +1,10 @@
-import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import { Box, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTER, MISC } from '@/data';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import { ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
+import { FlexCard, ChartFill } from '@/components';
+import { CHARACTER } from '@/data';
 import { sumRotationDmg } from '@/utils';
 
 const InfoLabel = ({ label, tip }) => (
@@ -65,7 +66,7 @@ const getGrade = (pct) => {
   return { grade: 'E', color: '#ef4444' };
 };
 
-export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, userSummary, cache }) => {
+export const BenchmarkProgress = ({ weeklySummaries, team, userSummary, cache }) => {
   const theme = useTheme();
   const { gameId } = useParams();
   const disabledColor = theme.palette.action.disabled;
@@ -81,7 +82,8 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
   const memberColors = membersMisc.map(m => {
     if (m.id === 'misc') return '#ffffff';
     const el = CHARACTER[gameId][m.id].element;
-    return MISC[gameId]?.COLORS?.[el] ?? disabledColor;
+
+    return theme.accentColor[gameId][el] ?? disabledColor;
   });
 
   const rotationTime = cache.fullRotationTime;
@@ -96,12 +98,9 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
   const scaledBuildRating = activeUserRating / benchmarkRating * 100;
 
   const data = activeScores.map((dmg, index) => {
-    const dist = weeklyDistribution[index];
     const entry = {
       week: index,
       damage: dmg,
-      p10: toDps(dist.p10.damage) ?? dmg,
-      p90band: dist ? toDps(dist.p90.damage) - toDps(dist.p10.damage) : 0,
     };
 
     for (const m of membersMisc) {
@@ -112,16 +111,13 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
   });
 
   const yMin = 0;
-  const distMax = weeklyDistribution ? Math.max(...weeklyDistribution.map(d => toDps(d.p90.damage))) : 0;
-  const yMax = Math.max(benchmarkRating, activeUserRating, distMax) * 1.08;
+  const yMax = Math.max(benchmarkRating, activeUserRating) * 1.05;
 
   const { grade, color: gradeColor } = getGrade(scaledBuildRating);
 
   return (
-    <Card sx={{ flex: 1, minHeight: 0, display: 'flex' }}>
-      <Box sx={{ flex: 3, minWidth: 0, position: 'relative' }}>
-        <Box sx={{ position: 'absolute', inset: 0 }}>
-        <ResponsiveContainer width="100%" height="100%">
+    <FlexCard direction="row">
+      <ChartFill flex={3}>
         <ComposedChart
           data={data}
           margin={{ top: 20, right: 50, left: 20, bottom: 5 }}
@@ -182,7 +178,6 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
               const percentGain = prevWeek && prevWeek.damage !== 0
                 ? ((damage - prevWeek.damage) / prevWeek.damage) * 100
                 : null;
-              const dist = weeklyDistribution[week];
 
               return (
                 <Paper
@@ -195,7 +190,7 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
                     borderColor: 'divider',
                   }}
                 >
-                  <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 'bold' }}>
+                  <Typography variant="subtitle2" gutterBottom>
                     Week {week}
                   </Typography>
 
@@ -224,12 +219,6 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
                     Total: {damage.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                   </Typography>
 
-                  {dist && (
-                    <Typography variant="body2" color="textSecondary">
-                      p10-p90: {toDps(dist.p10.damage).toLocaleString('en-US', { maximumFractionDigits: 0 })} - {toDps(dist.p90.damage).toLocaleString('en-US', { maximumFractionDigits: 0 })}
-                    </Typography>
-                  )}
-
                   {percentGain != null && (
                     <Typography variant="body2" sx={{ color: percentGain >= 0 ? 'success.main' : 'error.main' }}>
                       {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(1)}% vs prev
@@ -240,9 +229,7 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
             }}
           />
         </ComposedChart>
-        </ResponsiveContainer>
-        </Box>
-      </Box>
+      </ChartFill>
 
       <Divider orientation="vertical" flexItem />
 
@@ -291,6 +278,6 @@ export const BenchmarkProgress = ({ weeklySummaries, weeklyDistribution, team, u
           </Typography>
         </Box>
       </Stack>
-    </Card>
+    </FlexCard>
   );
 };

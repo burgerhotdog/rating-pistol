@@ -71,6 +71,7 @@ function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
           <CloseIcon fontSize="small" />
         </IconButton>
       </DialogTitle>
+
       <DialogContent>
         <TextField
           fullWidth
@@ -80,6 +81,7 @@ function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
           onChange={e => setSearch(e.target.value)}
           sx={{ mb: 2 }}
         />
+
         <Box
           sx={{
             display: 'flex',
@@ -906,6 +908,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
   return (
     <Box sx={{ mt: 2.5 }}>
       {dragging && <GlobalStyles styles={{ '*': { cursor: 'grabbing !important' } }} />}
+
       <Typography variant="subtitle2" sx={{ mb: 1 }}>
         Rotation
       </Typography>

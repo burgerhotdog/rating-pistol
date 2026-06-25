@@ -339,7 +339,7 @@ GAME_INFO = [
                     "CombatPowerAvatarRarityType4": 4,
                 },
                 "element": {
-                    "Thunder": "Lightning",
+                    "Thunder": "lightning",
                 },
                 "type": {
                     "Rogue": "HUNT",
@@ -405,12 +405,12 @@ GAME_INFO = [
             },
             "character": {
                 "element": {
-                    1: "Glacio",
-                    2: "Fusion",
-                    3: "Electro",
-                    4: "Aero",
-                    5: "Spectro",
-                    6: "Havoc",
+                    1: "glacio",
+                    2: "fusion",
+                    3: "electro",
+                    4: "aero",
+                    5: "spectro",
+                    6: "havoc",
                 },
                 "type": {
                     1: "BROADBLADE",

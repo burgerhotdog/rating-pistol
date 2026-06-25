@@ -1,11 +1,13 @@
-import { Box } from '@mui/material';
+import { useState } from 'react';
 import {
-  Bar,
+  FlexRow,
+  FlexCol,
+  LoadingBar,
   StatsPanel,
   BenchmarkProgress,
-  CustomRadarChart,
-  SubstatPriority,
+  SubstatDistribution,
   DamageBreakdown,
+  MainstatDistribution,
 } from '@/components';
 import { useSimulation, useTeam } from '@/hooks';
 
@@ -16,71 +18,62 @@ export const Content = () => {
     type,
     statusMessage,
     userSummary,
-    actionMapsWithSub,
     cache,
     diff,
     week,
-    finalStatMap,
-    weeklyDistribution,
     weeklySummaries,
+    configMap,
+    userConfigKey,
+    userSubStats,
   } = useSimulation(team);
-
-  const isLoading = type !== 'done';
+  const [selectedKey, setSelectedKey] = useState(userConfigKey);
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flex: 1,
-        minHeight: 0,
-        overflow: 'hidden',
-        gap: 1,
-      }}
-    >
+    <FlexRow spacing={1}>
       <StatsPanel
         team={team}
         updateTeam={updateTeam}
       />
 
-      {isLoading ? (
-        <Bar
+      {type !== 'done' ? (
+        <LoadingBar
           statusMessage={statusMessage}
           week={week}
           diff={diff}
         />
       ) : (
-        <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, gap: 1 }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 250 }}>
+        <FlexCol spacing={1}>
+          <FlexRow>
             <BenchmarkProgress
-              isLoading={isLoading}
               team={team}
               weeklySummaries={weeklySummaries}
-              weeklyDistribution={weeklyDistribution}
               userSummary={userSummary}
               cache={cache}
             />
-          </Box>
+          </FlexRow>
 
-          <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100, gap: 1 }}>
-            <CustomRadarChart
-              isLoading={isLoading}
-              combinedSimEquips={finalStatMap}
+          <FlexRow spacing={1}>
+            <MainstatDistribution
+              configMap={configMap}
+              userConfigKey={userConfigKey}
+              selectedKey={selectedKey}
+              onSelect={setSelectedKey}
             />
 
             <DamageBreakdown
               userSummary={userSummary}
             />
-          </Box>
+          </FlexRow>
 
-          <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1, minHeight: 100 }}>
-            <SubstatPriority
-              isLoading={isLoading}
-              userSummary={userSummary}
-              actionMapsWithSub={actionMapsWithSub}
+          <FlexRow>
+            <SubstatDistribution
+              configMap={configMap}
+              userConfigKey={userConfigKey}
+              userSubStats={userSubStats}
             />
-          </Box>
-        </Box>
+          </FlexRow>
+        </FlexCol>
       )}
-    </Box>
+    </FlexRow>
   );
 };
