@@ -31,7 +31,7 @@ export const Content = () => {
 
   useEffect(() => {
     setSelectedKey(userConfigKey);
-  }, [userConfigKey]);
+  }, [configMap, userConfigKey]);
 
   return (
     <FlexRow spacing={1}>

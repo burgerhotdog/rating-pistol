@@ -125,9 +125,6 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
   }
 }
 
-// Advances (and expires) all active effects by the action's timing window.
-// `offset` is used to check expiry (effects expiring before the action mid-point
-// are gone), while `duration` is the full advance applied to survivors.
 function advanceEffectStates(ctx, elapsed) {
   const { memberState, fieldState, enemyState } = ctx;
 
@@ -196,7 +193,6 @@ function tickStatuses(ctx, elapsed) {
   }
 }
 
-// Decrements `usesRemaining` for all effects that triggered and removes effects that have exhausted their remaining uses.
 function decayProcCounts(ctx, action) {
   for (const effectStates of [
     ...Object.values(ctx.memberState),
@@ -340,7 +336,6 @@ function processAction(ctx, action, depth, repeatCount = 1) {
 }
 
 export const compileRotation = (cache, currId, team) => {
-  // Setup context
   const equipMapByMember = {};
   const memberState = {};
 
@@ -365,8 +360,6 @@ export const compileRotation = (cache, currId, team) => {
     formulaConfig,
   };
 
-  // Main Processing loop
-  // Priming pass
   for (const member of team.toReversed()) {
     const { rotation } = cache.member[member.id];
     ctx.onFieldId = member.id;
@@ -376,7 +369,6 @@ export const compileRotation = (cache, currId, team) => {
     }
   }
 
-  // Damage pass
   ctx.recordFootprint = true;
 
   for (const member of team.toReversed()) {
@@ -388,7 +380,6 @@ export const compileRotation = (cache, currId, team) => {
     }
   }
 
-  // consolidate fixed footprints
   const earlySummary = {};
   for (const footprint of ctx.footprints) {
     if (!('fixed' in footprint)) continue;
