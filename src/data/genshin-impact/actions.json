@@ -860,7 +860,7 @@
       },
       "5": {
         "name": "Charged Attack",
-        "skillType": "normalAttack",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1007,6 +1007,7 @@
       "2": {
         "name": "Let the Show Begin: Continuous Healing",
         "type": "healing",
+        "attr": "HP",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1081,6 +1082,7 @@
         "name": "Shining Miracle: Healing",
         "type": "healing",
         "skillType": "elementalBurst",
+        "attr": "HP",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2907,7 +2909,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Skyward Sonnet: Hold",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -3240,8 +3242,8 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Flame DMG",
-        "skillType": "elementalSkill",
+        "name": "Flame",
+        "skillDmg": "elementalSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3263,11 +3265,15 @@
             ]
           }
         ]
+      },
+      "2": {
+        "name": "Guoba Attack",
+        "skillType": "elementalSkill"
       }
     },
     "elementalBurst": {
       "1": {
-        "name": "1-Hit Swing DMG",
+        "name": "Pyronado Swing 1",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -3292,7 +3298,7 @@
         ]
       },
       "2": {
-        "name": "2-Hit Swing DMG",
+        "name": "Pyronado Swing 2",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -3317,7 +3323,7 @@
         ]
       },
       "3": {
-        "name": "3-Hit Swing DMG",
+        "name": "Pyronado Swing 3",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -3342,8 +3348,8 @@
         ]
       },
       "4": {
-        "name": "Pyronado DMG",
-        "skillType": "elementalBurst",
+        "name": "Pyronado",
+        "skillDmg": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3497,8 +3503,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3522,8 +3528,8 @@
         ]
       },
       "7": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3546,7 +3552,7 @@
           }
         ]
       },
-      "10": {
+      "8": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -3571,8 +3577,8 @@
           }
         ]
       },
-      "11": {
-        "name": "Low/High Plunge DMG",
+      "9": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -3593,7 +3599,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -3618,8 +3630,9 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Shield DMG Absorption",
+        "name": "Shield Absorption",
         "skillType": "elementalSkill",
+        "attr": "hp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3638,31 +3651,29 @@
               0.306,
               0.324,
               0.342
-            ]
-          },
-          {
-            "mv": [
-              1386.3678,
-              1525.0239,
-              1675.2346,
+            ],
+            "flat": [
+              1386,
+              1525,
+              1675,
               1837,
-              2010.3201,
-              2195.1948,
-              2391.6243,
-              2599.6084,
-              2819.147,
-              3050.2405,
-              3292.8887,
-              3547.0913,
-              3812.8489,
-              4090.161,
-              4379.028
+              2010,
+              2195,
+              2392,
+              2600,
+              2819,
+              3050,
+              3293,
+              3547,
+              3813,
+              4090,
+              4379
             ]
           }
         ]
       },
       "2": {
-        "name": "Base DMG",
+        "name": "Tidecaller",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -3714,7 +3725,7 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Stormbreaker",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -3739,8 +3750,8 @@
         ]
       },
       "2": {
-        "name": "Lightning DMG",
-        "skillType": "elementalBurst",
+        "name": "Stormbreaker: Discharge",
+        "dmgType": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3765,7 +3776,7 @@
       },
       "3": {
         "name": "DMG Reduction",
-        "skillType": "elementalBurst",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4000,7 +4011,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -4025,8 +4036,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -4047,7 +4058,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -4072,7 +4089,7 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Guhua Sword: Fatal Rainscreen",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -4117,7 +4134,7 @@
       },
       "2": {
         "name": "Damage Reduction Ratio",
-        "skillType": "elementalSkill",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4143,8 +4160,8 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Sword Rain DMG",
-        "skillType": "elementalBurst",
+        "name": "Guhua Sword: Raincutter: Sword Rain",
+        "dmgType": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4166,6 +4183,10 @@
             ]
           }
         ]
+      },
+      "2": {
+        "name": "Guhua Sword: Raincutter",
+        "skillType": "elementalBurst"
       }
     }
   },
@@ -4224,7 +4245,7 @@
       },
       "3": {
         "name": "DMG per Star Jade",
-        "skillType": "normalAttack",
+        "dmgType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4247,7 +4268,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -4272,8 +4293,8 @@
           }
         ]
       },
-      "6": {
-        "name": "Low/High Plunge DMG",
+      "5": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -4294,7 +4315,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "6": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -4319,8 +4346,9 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Inherited HP",
-        "skillType": "elementalSkill",
+        "name": "Jade Screen: Inherited HP",
+        "type": "buff",
+        "attr": "hp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4344,7 +4372,7 @@
         ]
       },
       "2": {
-        "name": "Skill DMG",
+        "name": "Jade Screen",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -4372,7 +4400,7 @@
     "elementalBurst": {
       "1": {
         "name": "DMG Per Gem",
-        "skillType": "elementalBurst",
+        "dmgType": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4394,6 +4422,10 @@
             ]
           }
         ]
+      },
+      "2": {
+        "name": "Starshatter",
+        "skillType": "elementalBurst"
       }
     }
   },
@@ -4500,7 +4532,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -4525,8 +4557,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -4547,7 +4579,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -4572,7 +4610,7 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Jumpy Dumpty DMG",
+        "name": "Jumpy Dumpty",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -4597,8 +4635,8 @@
         ]
       },
       "2": {
-        "name": "Mine DMG",
-        "skillType": "elementalSkill",
+        "name": "Jumpy Dumpty: Mine",
+        "dmgType": "elementalSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4624,8 +4662,8 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Sparks 'n' Splash DMG",
-        "skillType": "elementalBurst",
+        "name": "Sparks 'n' Splash: Attack",
+        "dmgType": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4647,6 +4685,10 @@
             ]
           }
         ]
+      },
+      "2": {
+        "name": "Sparks 'n' Splash",
+        "skillType": "elementalBurst"
       }
     }
   },
@@ -4855,7 +4897,7 @@
         ]
       },
       "9": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -4876,7 +4918,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -4901,8 +4949,8 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Oz's ATK DMG",
-        "skillType": "elementalSkill",
+        "name": "Freikugel",
+        "dmgType": "elementalSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4926,7 +4974,7 @@
         ]
       },
       "2": {
-        "name": "Summoning DMG",
+        "name": "Nightrider",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -4953,7 +5001,7 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Falling Thunder DMG",
+        "name": "Midnight Phantasmagoria",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -5151,7 +5199,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -5176,8 +5224,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -5198,7 +5246,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -5223,7 +5277,7 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Passion Overload: Press",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -5248,7 +5302,7 @@
         ]
       },
       "2": {
-        "name": "Charge Level 1 DMG",
+        "name": "Passion Overload: Hold Level 1",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -5292,7 +5346,7 @@
         ]
       },
       "3": {
-        "name": "Charge Level 2 DMG",
+        "name": "Passion Overload: Hold Level 2",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -5336,8 +5390,8 @@
         ]
       },
       "4": {
-        "name": "Explosion DMG",
-        "skillType": "elementalSkill",
+        "name": "Passion Overload: Explosion",
+        "dmgType": "elementalSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5363,7 +5417,7 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Fantastic Voyage",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -5389,7 +5443,8 @@
       },
       "2": {
         "name": "Continuous Regeneration Per Sec",
-        "skillType": "elementalBurst",
+        "type": "healing",
+        "attr": "hp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5433,7 +5488,7 @@
       },
       "3": {
         "name": "ATK Bonus Ratio",
-        "skillType": "elementalBurst",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5562,8 +5617,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5587,8 +5642,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5611,7 +5666,7 @@
           }
         ]
       },
-      "9": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -5636,8 +5691,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -5658,7 +5713,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -6109,7 +6170,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -6134,8 +6195,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -6156,7 +6217,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -6495,8 +6562,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6520,8 +6587,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6544,7 +6611,7 @@
           }
         ]
       },
-      "9": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -6569,8 +6636,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -6591,7 +6658,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -6822,7 +6895,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -6847,8 +6920,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -6869,7 +6942,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -6945,7 +7024,7 @@
       }
     },
     "elementalBurst": {
-      "2": {
+      "1": {
         "name": "Illusory Bubble Explosion DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -6970,7 +7049,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "DMG Bonus",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -6995,7 +7074,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Omen Duration",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -7213,7 +7292,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -7238,8 +7317,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -7260,7 +7339,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -7566,7 +7651,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -7591,8 +7676,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -7613,7 +7698,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -7894,7 +7985,7 @@
           }
         ]
       },
-      "9": {
+      "8": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -7919,8 +8010,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "9": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -7941,7 +8032,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -8009,7 +8106,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Hold DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -8034,7 +8131,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Shield Base Absorption",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -8059,7 +8156,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Additional Shield Absorption",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -8392,7 +8489,7 @@
           }
         ]
       },
-      "12": {
+      "11": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -8417,8 +8514,8 @@
           }
         ]
       },
-      "13": {
-        "name": "Low/High Plunge DMG",
+      "12": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -8439,7 +8536,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "13": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -8701,7 +8804,7 @@
           }
         ]
       },
-      "10": {
+      "9": {
         "name": "Riptide Slash",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -9010,7 +9113,7 @@
         ]
       },
       "9": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -9031,7 +9134,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -9351,8 +9460,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9376,8 +9485,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9400,7 +9509,7 @@
           }
         ]
       },
-      "9": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -9425,8 +9534,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -9447,7 +9556,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -9986,7 +10101,7 @@
         ]
       },
       "12": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -10007,7 +10122,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "13": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -10680,7 +10801,7 @@
           }
         ]
       },
-      "9": {
+      "8": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -10705,8 +10826,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "9": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -10727,7 +10848,13 @@
               4.1479,
               4.3762
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               2.0439,
@@ -11004,7 +11131,7 @@
       },
       "7": {
         "name": "Charged Attack",
-        "skillType": "normalAttack",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11027,7 +11154,7 @@
           }
         ]
       },
-      "9": {
+      "8": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -11052,8 +11179,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "9": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -11074,7 +11201,13 @@
               2.8689,
               3.0027
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.6339,
@@ -11098,7 +11231,7 @@
       }
     },
     "elementalSkill": {
-      "2": {
+      "1": {
         "name": "ATK Increase",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -11123,7 +11256,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Blood Blossom DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -11424,7 +11557,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -11449,8 +11582,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -11471,7 +11604,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -11692,7 +11831,7 @@
       },
       "4": {
         "name": "Charged Attack",
-        "skillType": "normalAttack",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11791,7 +11930,7 @@
           }
         ]
       },
-      "8": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -11816,8 +11955,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -11838,7 +11977,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -11914,7 +12059,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Charged Attack DMG Bonus",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -12133,8 +12278,8 @@
         ]
       },
       "7": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12157,7 +12302,7 @@
           }
         ]
       },
-      "10": {
+      "8": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -12182,8 +12327,8 @@
           }
         ]
       },
-      "11": {
-        "name": "Low/High Plunge DMG",
+      "9": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -12204,7 +12349,13 @@
               4.0279,
               4.3338
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -12303,7 +12454,7 @@
           }
         ]
       },
-      "6": {
+      "4": {
         "name": "Physical RES Decrease",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -12328,7 +12479,7 @@
           }
         ]
       },
-      "7": {
+      "5": {
         "name": "Cryo RES Decrease",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -12623,7 +12774,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -12648,8 +12799,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -12670,7 +12821,13 @@
               4.1479,
               4.3762
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               2.0439,
@@ -12719,7 +12876,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Hold Skill DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -12976,7 +13133,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -13001,8 +13158,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -13023,7 +13180,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -13356,7 +13519,7 @@
         ]
       },
       "10": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -13377,7 +13540,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "11": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -13628,8 +13797,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13652,7 +13821,7 @@
           }
         ]
       },
-      "9": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -13677,8 +13846,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -13699,7 +13868,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -14162,7 +14337,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -14187,8 +14362,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -14209,7 +14384,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -14283,7 +14464,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Elemental Burst DMG Bonus",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -14592,7 +14773,7 @@
           }
         ]
       },
-      "11": {
+      "10": {
         "name": "Plunge DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -14617,8 +14798,8 @@
           }
         ]
       },
-      "12": {
-        "name": "Low/High Plunge DMG",
+      "11": {
+        "name": "Plunge Attack: Low",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -14639,7 +14820,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "12": {
+        "name": "Plunge Attack: High",
+        "skillType": "elementalBurst",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -14791,7 +14978,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -14816,8 +15003,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -14838,7 +15025,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -15284,7 +15477,7 @@
         ]
       },
       "9": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -15305,7 +15498,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -15561,7 +15760,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -15586,8 +15785,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -15608,7 +15807,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -15701,7 +15906,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Max Shield DMG Absorption",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -16042,7 +16247,7 @@
         ]
       },
       "8": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -16063,7 +16268,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -16162,7 +16373,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Coil Normal Attack DMG Bonus",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -16225,7 +16436,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Rushing Ice Normal Attack DMG Bonus",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -16459,7 +16670,7 @@
         ]
       },
       "8": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -16480,7 +16691,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -16761,7 +16978,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Saichimonji Slash DMG",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -16786,7 +17003,7 @@
           }
         ]
       },
-      "10": {
+      "8": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -16811,8 +17028,8 @@
           }
         ]
       },
-      "11": {
-        "name": "Low/High Plunge DMG",
+      "9": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -16833,7 +17050,13 @@
               4.1479,
               4.3762
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               2.0439,
@@ -17083,7 +17306,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -17108,8 +17331,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -17130,7 +17353,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -17476,7 +17705,7 @@
       },
       "6": {
         "name": "Charged Attack",
-        "skillType": "normalAttack",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -17499,7 +17728,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -17524,8 +17753,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -17546,7 +17775,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -17846,7 +18081,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -17871,8 +18106,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -17893,7 +18128,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -18224,7 +18465,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -18249,8 +18490,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -18271,7 +18512,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -18370,7 +18617,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Namisen DMG Bonus",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -18395,7 +18642,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Water Illusion DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -18698,7 +18945,7 @@
         ]
       },
       "9": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -18719,7 +18966,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "10": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -18969,7 +19222,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -18994,8 +19247,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -19016,7 +19269,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -19375,7 +19634,7 @@
       },
       "6": {
         "name": "Charged Attack",
-        "skillType": "normalAttack",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19398,7 +19657,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -19423,8 +19682,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -19445,7 +19704,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -19778,7 +20043,7 @@
         ]
       },
       "8": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -19799,7 +20064,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -20025,8 +20296,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20049,7 +20320,7 @@
           }
         ]
       },
-      "8": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -20074,8 +20345,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -20096,7 +20367,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -20497,7 +20774,7 @@
         ]
       },
       "10": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -20518,7 +20795,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "11": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -20743,7 +21026,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -20768,8 +21051,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -20790,7 +21073,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -21172,7 +21461,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -21197,8 +21486,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -21219,7 +21508,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -21464,7 +21759,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -21489,8 +21784,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -21511,7 +21806,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "elementalBurst",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -21682,7 +21983,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -21707,8 +22008,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -21729,7 +22030,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -21874,7 +22181,7 @@
           }
         ]
       },
-      "4": {
+      "2": {
         "name": "Wave Impact DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -22029,7 +22336,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -22054,8 +22361,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -22076,7 +22383,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -22470,7 +22783,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -22495,8 +22808,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -22517,7 +22830,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -22786,7 +23105,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -22811,8 +23130,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -22833,7 +23152,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -23141,7 +23466,7 @@
         ]
       },
       "8": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -23162,7 +23487,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -23437,7 +23768,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -23462,8 +23793,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -23484,7 +23815,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -23866,7 +24203,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -23891,8 +24228,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -23913,7 +24250,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -23981,7 +24324,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "1-Mirror Projection Attack DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -24025,7 +24368,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "2-Mirror Projection Attack DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -24069,7 +24412,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "3-Mirror Projection Attack DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -24265,8 +24608,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -24290,8 +24633,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -24314,7 +24657,7 @@
           }
         ]
       },
-      "9": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -24339,8 +24682,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -24361,7 +24704,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -24768,7 +25117,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -24793,8 +25142,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -24815,7 +25164,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -25135,8 +25490,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25160,8 +25515,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25184,7 +25539,7 @@
           }
         ]
       },
-      "9": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -25209,8 +25564,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -25231,7 +25586,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -25307,7 +25668,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Dendro Core Burst DMG Bonus",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -25462,7 +25823,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -25487,8 +25848,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -25509,7 +25870,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -25648,7 +26015,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Seamless Shield Healing",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -25692,7 +26059,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Spiritvein DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -25904,7 +26271,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -25929,8 +26296,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -25951,7 +26318,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -26088,7 +26461,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Urgent Neko Parcel Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -26113,7 +26486,7 @@
           }
         ]
       },
-      "7": {
+      "5": {
         "name": "Flipclaw Strike DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -26358,7 +26731,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -26383,8 +26756,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -26405,7 +26778,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -26706,7 +27085,7 @@
         ]
       },
       "6": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -26727,7 +27106,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -26749,7 +27134,7 @@
           }
         ]
       },
-      "7": {
+      "8": {
         "name": "Aimed Shot",
         "skillType": "chargedAttack",
         "indexedMultipliers": [
@@ -26774,7 +27159,7 @@
           }
         ]
       },
-      "8": {
+      "9": {
         "name": "Aimed Shot Charge Level 1",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -26799,7 +27184,7 @@
           }
         ]
       },
-      "9": {
+      "10": {
         "name": "Prop Arrow DMG",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -26849,7 +27234,7 @@
           }
         ]
       },
-      "13": {
+      "12": {
         "name": "Pyrotechnic Strike DMG",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -26874,7 +27259,7 @@
           }
         ]
       },
-      "14": {
+      "13": {
         "name": "Spiritbreath Thorn DMG",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -27109,8 +27494,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -27134,8 +27519,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -27158,7 +27543,7 @@
           }
         ]
       },
-      "9": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -27183,8 +27568,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -27205,7 +27590,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -27687,7 +28078,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -27712,8 +28103,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -27734,7 +28125,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -27940,7 +28337,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Charged Attack: Equitable Judgment",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -27965,7 +28362,7 @@
           }
         ]
       },
-      "9": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -27990,8 +28387,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -28012,7 +28409,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -28243,7 +28646,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -28268,8 +28671,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -28290,7 +28693,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -28414,7 +28823,7 @@
           }
         ]
       },
-      "6": {
+      "4": {
         "name": "\"Focused Impression\" Mark DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -28709,7 +29118,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -28734,8 +29143,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -28756,7 +29165,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -28830,7 +29245,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Gentilhomme Usher DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -28855,7 +29270,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Surintendante Chevalmarin DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -28880,7 +29295,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Mademoiselle Crabaletta DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -28905,7 +29320,7 @@
           }
         ]
       },
-      "9": {
+      "5": {
         "name": "Singer of Many Waters Healing",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -28976,7 +29391,7 @@
           }
         ]
       },
-      "4": {
+      "2": {
         "name": "Fanfare to DMG Increase Conversion Ratio",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -29001,7 +29416,7 @@
           }
         ]
       },
-      "5": {
+      "3": {
         "name": "Fanfare to Incoming Healing Bonus Conversion Ratio",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -29175,7 +29590,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -29200,8 +29615,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -29222,7 +29637,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -29365,7 +29786,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Surging Blade DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -29548,8 +29969,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29573,8 +29994,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29597,7 +30018,7 @@
           }
         ]
       },
-      "9": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -29622,8 +30043,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -29644,7 +30065,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -29693,7 +30120,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Surging Blade DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -29876,8 +30303,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Cyclic DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Cyclic",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29901,8 +30328,8 @@
         ]
       },
       "6": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29925,7 +30352,7 @@
           }
         ]
       },
-      "9": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -29950,8 +30377,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -29972,7 +30399,13 @@
               3.2513,
               3.4303
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.6021,
@@ -30178,7 +30611,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -30203,8 +30636,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -30225,7 +30658,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -30645,7 +31084,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -30670,8 +31109,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -30692,7 +31131,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -30760,7 +31205,7 @@
           }
         ]
       },
-      "4": {
+      "2": {
         "name": "Upward Sweep Attack DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -31074,7 +31519,7 @@
           }
         ]
       },
-      "11": {
+      "9": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -31099,8 +31544,8 @@
           }
         ]
       },
-      "12": {
-        "name": "Low/High Plunge DMG",
+      "10": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -31121,7 +31566,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "11": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -31429,7 +31880,7 @@
         ]
       },
       "8": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -31450,7 +31901,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -31543,7 +32000,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Surging Blade DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -31814,7 +32271,7 @@
         ]
       },
       "8": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -31835,7 +32292,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -32123,7 +32586,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -32148,8 +32611,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -32170,7 +32633,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -32238,7 +32707,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Impale the Night DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -32301,7 +32770,7 @@
           }
         ]
       },
-      "6": {
+      "3": {
         "name": "Surging Blade DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -32508,7 +32977,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -32533,8 +33002,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -32555,7 +33024,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -32654,7 +33129,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Spiritbreath Thorn DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -32855,7 +33330,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -32880,8 +33355,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -32902,7 +33377,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -33133,7 +33614,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -33158,8 +33639,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -33180,7 +33661,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -33411,7 +33898,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -33436,8 +33923,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -33458,7 +33945,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -33708,7 +34201,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -33733,8 +34226,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -33755,7 +34248,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -34000,7 +34499,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Follow-Up Beat DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -34207,7 +34706,7 @@
         ]
       },
       "8": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -34228,7 +34727,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -34586,7 +35091,7 @@
         ]
       },
       "7": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -34607,7 +35112,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -34838,7 +35349,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -34863,8 +35374,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -34885,7 +35396,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -34959,7 +35476,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Flamestrider Normal Attack 1-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -34984,7 +35501,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Flamestrider Normal Attack 2-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -35009,7 +35526,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Flamestrider Normal Attack 3-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -35034,7 +35551,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Flamestrider Normal Attack 4-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -35059,7 +35576,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Flamestrider Normal Attack 5-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -35084,7 +35601,7 @@
           }
         ]
       },
-      "9": {
+      "8": {
         "name": "Flamestrider Sprint DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -35109,7 +35626,7 @@
           }
         ]
       },
-      "10": {
+      "9": {
         "name": "Flamestrider Charged Attack Cyclic DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -35134,7 +35651,7 @@
           }
         ]
       },
-      "11": {
+      "10": {
         "name": "Flamestrider Charged Attack Final DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -35159,7 +35676,7 @@
           }
         ]
       },
-      "12": {
+      "11": {
         "name": "Flamestrider Plunge DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -35211,7 +35728,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Sunfell Slice DMG Bonus",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -35236,7 +35753,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Flamestrider Normal Attack DMG Bonus",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -35261,7 +35778,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Flamestrider Charged Attack DMG Bonus",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -35391,7 +35908,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -35416,8 +35933,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -35438,7 +35955,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -35531,7 +36054,7 @@
           }
         ]
       },
-      "6": {
+      "3": {
         "name": "Frostfall Storm DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -35583,7 +36106,7 @@
           }
         ]
       },
-      "3": {
+      "2": {
         "name": "Spiritvessel Skull DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -35776,7 +36299,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -35801,8 +36324,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -35823,7 +36346,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -36048,7 +36577,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -36073,8 +36602,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -36095,7 +36624,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -36169,7 +36704,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Elemental Mastery-Based Swirl DMG Increase",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -36420,7 +36955,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -36445,8 +36980,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -36467,7 +37002,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -36543,7 +37084,7 @@
           }
         ]
       },
-      "4": {
+      "2": {
         "name": "Max ATK Bonus",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -36673,7 +37214,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -36698,8 +37239,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -36720,7 +37261,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -36842,7 +37389,7 @@
           }
         ]
       },
-      "13": {
+      "12": {
         "name": "Fiery Passion Plunge DMG",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -36867,7 +37414,7 @@
           }
         ]
       },
-      "14": {
+      "13": {
         "name": "Fiery Passion Low/High Plunge DMG",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -37015,7 +37562,7 @@
           }
         ]
       },
-      "5": {
+      "3": {
         "name": "Volcano Kablam DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -37164,7 +37711,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -37189,8 +37736,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -37211,7 +37758,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -37285,7 +37838,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Surging Blade DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -37486,7 +38039,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -37511,8 +38064,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -37533,7 +38086,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -37852,7 +38411,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -37877,8 +38436,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -37899,7 +38458,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -38111,7 +38676,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -38136,8 +38701,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -38158,7 +38723,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "elementalSkill",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -38507,7 +39078,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -38532,8 +39103,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -38554,7 +39125,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -38823,7 +39400,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -38848,8 +39425,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -38870,7 +39447,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -38963,7 +39546,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Birgitta Discharge DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -39095,7 +39678,7 @@
           }
         ]
       },
-      "9": {
+      "4": {
         "name": "Spiritcall Prayer DMG",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -39120,7 +39703,7 @@
           }
         ]
       },
-      "10": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -39145,8 +39728,8 @@
           }
         ]
       },
-      "11": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -39167,7 +39750,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -39310,7 +39899,7 @@
           }
         ]
       },
-      "7": {
+      "5": {
         "name": "Elemental RES Decrease",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -39337,7 +39926,7 @@
       }
     },
     "elementalBurst": {
-      "3": {
+      "1": {
         "name": "Bloom, Hyperbloom, and Burgeon DMG Increase",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -39362,7 +39951,7 @@
           }
         ]
       },
-      "4": {
+      "2": {
         "name": "Lunar-Bloom DMG Increase",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -39542,7 +40131,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -39567,8 +40156,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -39589,7 +40178,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -39865,7 +40460,7 @@
           }
         ]
       },
-      "6": {
+      "4": {
         "name": "Thunderous Symphony DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -39890,7 +40485,7 @@
           }
         ]
       },
-      "7": {
+      "5": {
         "name": "Thunderous Symphony Additional DMG",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -40021,8 +40616,8 @@
         ]
       },
       "5": {
-        "name": "Charged Attack Final DMG",
-        "skillType": "normalAttack",
+        "name": "Charged Attack: Final",
+        "skillType": "chargedAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40045,7 +40640,7 @@
           }
         ]
       },
-      "8": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -40070,8 +40665,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -40092,7 +40687,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -40323,7 +40924,7 @@
           }
         ]
       },
-      "9": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -40348,8 +40949,8 @@
           }
         ]
       },
-      "10": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -40370,7 +40971,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -40865,7 +41472,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -40890,8 +41497,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -40912,7 +41519,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -41384,7 +41997,7 @@
         ]
       },
       "7": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -41405,7 +42018,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -41504,7 +42123,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Meowball DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -41581,7 +42200,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Purrsonal Coordinated Assistance Robot Healing",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -41625,7 +42244,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Lowest HP Character Additional Healing",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
@@ -41774,7 +42393,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Moondew Cleanse DMG",
         "skillType": "normalAttack",
         "indexedMultipliers": [
@@ -41799,7 +42418,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -41824,8 +42443,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -41846,7 +42465,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -42215,7 +42840,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -42240,8 +42865,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -42262,7 +42887,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -42725,7 +43356,7 @@
           }
         ]
       },
-      "7": {
+      "6": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -42750,8 +43381,8 @@
           }
         ]
       },
-      "8": {
-        "name": "Low/High Plunge DMG",
+      "7": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -42772,7 +43403,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -43230,7 +43867,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -43255,8 +43892,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -43277,7 +43914,13 @@
               3.7806,
               3.9887
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.8629,
@@ -43326,7 +43969,7 @@
           }
         ]
       },
-      "5": {
+      "2": {
         "name": "Sturm und Drang 1-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -43351,7 +43994,7 @@
           }
         ]
       },
-      "6": {
+      "3": {
         "name": "Sturm und Drang 2-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -43395,7 +44038,7 @@
           }
         ]
       },
-      "7": {
+      "4": {
         "name": "Sturm und Drang 3-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -43439,7 +44082,7 @@
           }
         ]
       },
-      "8": {
+      "5": {
         "name": "Sturm und Drang 4-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -43483,7 +44126,7 @@
           }
         ]
       },
-      "9": {
+      "6": {
         "name": "Sturm und Drang 5-Hit DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -43527,7 +44170,7 @@
           }
         ]
       },
-      "10": {
+      "7": {
         "name": "Sturm und Drang Charged Attack DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -43571,7 +44214,7 @@
           }
         ]
       },
-      "11": {
+      "8": {
         "name": "Four Winds' Ascension DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -43615,7 +44258,7 @@
           }
         ]
       },
-      "12": {
+      "9": {
         "name": "Azure Devour DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -43868,7 +44511,7 @@
         ]
       },
       "7": {
-        "name": "Low/High Plunge DMG",
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -43889,7 +44532,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "8": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -44252,7 +44901,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -44277,8 +44926,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -44299,7 +44948,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -44492,7 +45147,7 @@
           }
         ]
       },
-      "8": {
+      "7": {
         "name": "Plunge DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -44517,8 +45172,8 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
+      "8": {
+        "name": "Plunge Attack: Low",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -44539,7 +45194,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "elementalSkill",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -44561,7 +45222,7 @@
           }
         ]
       },
-      "11": {
+      "10": {
         "name": "Etched Into Bone and Soul DMG",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -44718,7 +45379,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -44743,8 +45404,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -44765,7 +45426,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
@@ -44858,7 +45525,7 @@
           }
         ]
       },
-      "4": {
+      "3": {
         "name": "Grace of Kenosis ATK Bonus Ratio",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -44883,7 +45550,7 @@
           }
         ]
       },
-      "5": {
+      "4": {
         "name": "Grace of Kenosis Max ATK Bonus",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
@@ -45065,7 +45732,7 @@
           }
         ]
       },
-      "6": {
+      "5": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
         "indexedMultipliers": [
@@ -45090,8 +45757,8 @@
           }
         ]
       },
-      "7": {
-        "name": "Low/High Plunge DMG",
+      "6": {
+        "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
@@ -45112,7 +45779,13 @@
               2.8805,
               3.039
             ]
-          },
+          }
+        ]
+      },
+      "7": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.4193,
