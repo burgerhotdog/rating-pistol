@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { CustomAvatar, TeamMemberDialog } from '@/components';
 import { useBuild } from '@/contexts';
 import { MISC, CHARACTER } from '@/data';
-import { getAttr, formatStr, compileStatMap } from '@/utils';
+import { getAttr, formatStr, compileMenuMap } from '@/utils';
 
 function getRelativeTime(dateString) {
   if (!dateString) return 'Unknown';
@@ -47,13 +47,17 @@ function formatFullDate(dateString) {
 export const StatsPanel = ({ team, updateTeam }) => {
   const { gameId, characterId } = useParams();
   const theme = useTheme();
-  const build = useBuild().getBuilds(gameId)[characterId];
   const { MENU_STATS } = MISC[gameId];
   const [dialogIndex, setDialogIndex] = useState(null);
 
-  const statMap = build ? compileStatMap(gameId, characterId, build) : {};
+  const member = team.reduce((acc, member) => {
+    if (member.id !== characterId) return acc;
+    return member;
+  }, null);
 
-  if (!build) {
+  const statMap = member ? compileMenuMap(gameId, characterId, member) : {};
+
+  if (!member) {
     return (
       <Card sx={{ width: 300 }}>
         <Skeleton
@@ -154,9 +158,9 @@ export const StatsPanel = ({ team, updateTeam }) => {
 
         <Divider sx={{ my: 2 }} />
 
-        <Tooltip title={formatFullDate(build?.lastUpdated)}>
+        <Tooltip title={formatFullDate(member.build?.lastUpdated)}>
           <Typography variant="caption" color="text.secondary">
-            Last updated {getRelativeTime(build?.lastUpdated)}
+            Last updated {getRelativeTime(member.build?.lastUpdated)}
           </Typography>
         </Tooltip>
       </CardContent>

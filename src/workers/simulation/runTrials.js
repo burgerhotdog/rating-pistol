@@ -2,9 +2,10 @@ import { GI, WW } from '@/data';
 import { mergeEquipList, getTotals } from '@/utils';
 import { compileRotation } from './rotation';
 import { createTrialAdvancer } from './advanceTrial';
-import { findPreferred } from './findPreferred';
+import { findGoodStats } from './findGoodStats';
 import { compilePenalty } from './penalty';
 import { getSubRollSums } from './utils';
+import { KURO_MAINSTAT_INDEX_ORDER } from './statWeights';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
@@ -34,54 +35,35 @@ const getConfigKey = (gameId, equipList) => {
     const goblet = equipList[3]?.mainStatId ?? 'none';
     const circlet = equipList[4]?.mainStatId ?? 'none';
 
-    return {
-      key: `${sands}|${goblet}|${circlet}`,
-      sands,
-      goblet,
-      circlet,
-    };
+    return `hp|atk|${sands}|${goblet}|${circlet}`;
   }
 
-  const result = {
-    4: [],
-    3: [],
-    1: [],
-  };
-
+  const result = {};
   for (const equip of equipList) {
     if (!equip) continue;
 
     const { cost, mainStatId } = equip;
-    result[cost].push(mainStatId);
+    (result[cost] ??= []).push(mainStatId);
   }
 
-  const four = result["4"][0];
-  const three = result["3"];
-  const one = result["1"];
-
-  return {
-    key: `${four}|${three.join('+')}|${one.join('+')}`,
-    four,
-    three,
-    one,
-  };
+  return Object.entries(result)
+    .reverse()
+    .map(([cost, list]) => {
+      const indexOrder = KURO_MAINSTAT_INDEX_ORDER[cost];
+      return list.sort((a, b) => indexOrder[a] - indexOrder[b]).join('|');
+    })
+    .join('|');
 };
 
 const buildConfigStats = (gameId, trials) => {
   const configMap = {};
 
   for (const trial of trials) {
-    const { key, four, three, one, sands, goblet, circlet } = getConfigKey(gameId, trial.equipList);
+    const key = getConfigKey(gameId, trial.equipList);
 
     if (!configMap[key]) {
       configMap[key] = {
         count: 0,
-        four,
-        three,
-        one,
-        sands,
-        goblet,
-        circlet,
         subRollSums: {},
       };
     }
@@ -145,7 +127,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   const baseSummary = simulateRotation(baseMap);
   const baseTotals = getTotals(baseSummary);
   const basePenalty = getPenalty(baseMap);
-  const baseScore = baseTotals.damage * basePenalty;
+  const baseScore = (baseTotals.damage + baseTotals.healing + baseTotals.shield) * basePenalty;
 
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),
@@ -158,9 +140,9 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
-  const preferredMainStats = findPreferred(cache, baseTotals.damage, currId, simulateRotation);
+  const goodStats = findGoodStats(cache, baseScore, currId, simulateRotation, getPenalty);
   const weeklySummaries = isPrimary ? [baseSummary] : null;
-  const advanceTrial = createTrialAdvancer(cache, currId, preferredMainStats, simulateRotation, getPenalty);
+  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, simulateRotation, getPenalty);
 
   let prevAvgScore = baseScore;
   for (let week = 1; week <= MAX_WEEKS; week++) {
@@ -207,6 +189,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   }
 
   if (!isPrimary) return buildFinalStats(trials);
+  console.log(buildFinalStats(trials));
   
   self.postMessage({
     type: 'done',
@@ -214,7 +197,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
     weeklySummaries,
     userSummary: simulateRotation(cache.member[currId].statMap),
     configMap: buildConfigStats(gameId, trials),
-    userConfigKey: getConfigKey(gameId, cache.member[currId].equipList).key,
+    userConfigKey: getConfigKey(gameId, cache.member[currId].equipList),
     userSubStats: getSubRollSums(gameId, cache.member[currId].equipList),
   });
 };

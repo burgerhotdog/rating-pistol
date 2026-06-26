@@ -6,40 +6,28 @@ import { ATTR_ASSETS } from '@/assets';
 import { FlexCard } from '@/components';
 import { formatStr } from '@/utils';
 
-const getSlots = (config) => {
-  if (config.sands != null) {
-    return [config.sands, config.goblet, config.circlet].filter(Boolean);
-  }
-
-  if (config.four != null) {
-    return [config.four, ...(config.three ?? []), ...(config.one ?? [])].filter(Boolean);
-  }
-
-  return [];
-};
-
 const IconRow = ({ gameId, slots }) => {
   return (
-      <Card>
-        {slots.map((statId, i) =>
-          <Tooltip key={i} title={formatStr(statId)} arrow>
-            <IconButton>
-              <Avatar
-                src={ATTR_ASSETS[gameId][statId.replace('%', '')]}
-                alt={formatStr(statId)}
-                sx={{ width: 32, height: 32 }}
-              />
-            </IconButton>
-          </Tooltip>
-        )}
-      </Card>
+    <Card>
+      {slots.map((statId, i) =>
+        <Tooltip key={i} title={formatStr(statId)} arrow>
+          <IconButton>
+            <Avatar
+              src={ATTR_ASSETS[gameId][statId.replace('%', '')]}
+              alt={formatStr(statId)}
+              sx={{ width: 32, height: 32 }}
+            />
+          </IconButton>
+        </Tooltip>
+      )}
+    </Card>
   )
 };
 
 const USER_COLOR = '#BA7517';
 
-const ConfigRow = ({ gameId, configKey, config, isUser, isSelected, pct, onSelect }) => {
-  const slots = getSlots(config);
+const ConfigRow = ({ gameId, configKey, isUser, isSelected, pct, onSelect }) => {
+  const slots = configKey.split('|');
 
   return (
     <Box
@@ -150,7 +138,6 @@ export const MainstatDistribution = ({ configMap, userConfigKey, selectedKey, on
             key={key}
             gameId={gameId}
             configKey={key}
-            config={config}
             isUser={key === userConfigKey}
             isSelected={key === selectedKey}
             pct={config.count / total}
