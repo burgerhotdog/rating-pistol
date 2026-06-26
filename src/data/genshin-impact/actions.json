@@ -5744,8 +5744,9 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Breastplate",
         "skillType": "elementalSkill",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5769,8 +5770,9 @@
         ]
       },
       "2": {
-        "name": "DMG Absorption",
-        "skillType": "elementalSkill",
+        "name": "Breastplate: Shield",
+        "type": "shield",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5789,32 +5791,31 @@
               3.4,
               3.6,
               3.8
-            ]
-          },
-          {
-            "mv": [
-              769.7851,
-              846.7743,
-              930.1793,
+            ],
+            "flat": [
+              770,
+              847,
+              930,
               1020,
-              1116.2365,
-              1218.8888,
-              1327.9568,
-              1443.4407,
-              1565.3402,
-              1693.6555,
-              1828.3867,
-              1969.5336,
-              2117.0962,
-              2271.0747,
-              2431.4688
+              1116,
+              1219,
+              1328,
+              1443,
+              1565,
+              1694,
+              1828,
+              1970,
+              2117,
+              2271,
+              2431
             ]
           }
         ]
       },
       "3": {
-        "name": "Healing",
-        "skillType": "elementalSkill",
+        "name": "Breastplate: Healing",
+        "type": "healing",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5833,32 +5834,30 @@
               0.4522,
               0.4788,
               0.5054
-            ]
-          },
-          {
-            "mv": [
-              102.718,
-              112.9912,
-              124.1206,
-              136.106,
-              148.9476,
-              162.6452,
-              177.1989,
-              192.6088,
-              208.8747,
-              225.9968,
-              243.9749,
-              262.8092,
-              282.4995,
-              303.046,
-              324.4486
+            ],
+            "flat": [
+              103,
+              113,
+              124,
+              136,
+              149,
+              163,
+              177,
+              193,
+              209,
+              226,
+              244,
+              263,
+              282,
+              303,
+              324
             ]
           }
         ]
       },
       "4": {
         "name": "Healing Triggering Chance",
-        "skillType": "elementalSkill",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5884,7 +5883,7 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Burst DMG",
+        "name": "Sweeping Time",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -5935,7 +5934,7 @@
       },
       "3": {
         "name": "ATK Bonus",
-        "skillType": "elementalBurst",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6248,7 +6247,7 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Adeptus Art: Herald of Frost",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -6274,7 +6273,7 @@
       },
       "2": {
         "name": "Regeneration on Hit",
-        "skillType": "elementalSkill",
+        "type": "healing",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6293,10 +6292,8 @@
               0.2244,
               0.2376,
               0.2508
-            ]
-          },
-          {
-            "mv": [
+            ],
+            "flat": [
               67.4079,
               74.1496,
               81.4531,
@@ -6318,7 +6315,7 @@
       },
       "3": {
         "name": "Continuous Regeneration",
-        "skillType": "elementalSkill",
+        "type": "healing",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6337,10 +6334,8 @@
               1.479,
               1.566,
               1.653
-            ]
-          },
-          {
-            "mv": [
+            ],
+            "flat": [
               450.5507,
               495.612,
               544.4285,
@@ -6361,8 +6356,8 @@
         ]
       },
       "4": {
-        "name": "Herald of Frost DMG",
-        "skillType": "elementalSkill",
+        "name": "Herald of Frost Contact",
+        "dmgType": "elementalSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6388,7 +6383,7 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Adeptus Art: Preserver of Fortune",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -6413,8 +6408,8 @@
         ]
       },
       "2": {
-        "name": "Healing",
-        "skillType": "elementalBurst",
+        "name": "Adeptus Art: Preserver of Fortune: Healing",
+        "type": "healing",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6433,25 +6428,23 @@
               1.9125,
               2.025,
               2.1375
-            ]
-          },
-          {
-            "mv": [
-              577.3388,
-              635.0807,
-              697.6345,
+            ],
+            "flat": [
+              577,
+              635,
+              698,
               765,
-              837.1774,
-              914.1666,
-              995.9677,
-              1082.5804,
-              1174.0051,
-              1270.2417,
-              1371.29,
-              1477.1501,
-              1587.8221,
-              1703.3059,
-              1823.6016
+              837,
+              914,
+              996,
+              1083,
+              1174,
+              1270,
+              1371,
+              1477,
+              1588,
+              1703,
+              1824
             ]
           }
         ]
@@ -6689,7 +6682,7 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Spirit Blade: Chonghua's Layered Frost",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -6715,7 +6708,7 @@
       },
       "2": {
         "name": "Infusion Duration",
-        "skillType": "elementalSkill",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6741,7 +6734,7 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Spirit Blade: Cloud-Parting Star",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -6974,7 +6967,7 @@
     "elementalSkill": {
       "1": {
         "name": "DoT",
-        "skillType": "elementalSkill",
+        "dmgType": "elementalSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6998,8 +6991,8 @@
         ]
       },
       "2": {
-        "name": "Explosion DMG",
-        "skillType": "elementalSkill",
+        "name": "Explosion",
+        "dmgType": "elementalSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7021,11 +7014,15 @@
             ]
           }
         ]
+      },
+      "3": {
+        "name": "Mirror Reflection of Doom",
+        "skillType": "elementalSkill"
       }
     },
     "elementalBurst": {
       "1": {
-        "name": "Illusory Bubble Explosion DMG",
+        "name": "Illusory Bubble Explosion",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -7051,7 +7048,7 @@
       },
       "2": {
         "name": "DMG Bonus",
-        "skillType": "elementalBurst",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7076,7 +7073,7 @@
       },
       "3": {
         "name": "Omen Duration",
-        "skillType": "elementalBurst",
+        "type": "buff",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7370,7 +7367,7 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Lightning Stiletto DMG",
+        "name": "Lightning Stiletto",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -7395,7 +7392,7 @@
         ]
       },
       "2": {
-        "name": "Slashing DMG",
+        "name": "Slashing",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -7420,7 +7417,7 @@
         ]
       },
       "3": {
-        "name": "Thunderclap Slash DMG",
+        "name": "Thunderclap Slash",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -7447,7 +7444,7 @@
     },
     "elementalBurst": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Starward Sword",
         "skillType": "elementalBurst",
         "indexedMultipliers": [
           {
@@ -7472,8 +7469,8 @@
         ]
       },
       "2": {
-        "name": "Consecutive Slash DMG",
-        "skillType": "elementalBurst",
+        "name": "Starward Sword: Consecutive Slash",
+        "dmgType": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7497,8 +7494,8 @@
         ]
       },
       "3": {
-        "name": "Last Attack DMG",
-        "skillType": "elementalBurst",
+        "name": "Starward Sword: Last Attack",
+        "dmgType": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7729,7 +7726,7 @@
     },
     "elementalSkill": {
       "1": {
-        "name": "Skill DMG",
+        "name": "Astable Anemohypostasis Creation - 6308",
         "skillType": "elementalSkill",
         "indexedMultipliers": [
           {
@@ -7757,7 +7754,7 @@
     "elementalBurst": {
       "1": {
         "name": "DoT",
-        "skillType": "elementalBurst",
+        "dmgType": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7782,7 +7779,7 @@
       },
       "2": {
         "name": "Additional Elemental DMG",
-        "skillType": "elementalBurst",
+        "dmgType": "elementalBurst",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7804,6 +7801,10 @@
             ]
           }
         ]
+      },
+      "3": {
+        "name": "Forbidden Creation - Isomer 75 / Type II",
+        "skillType": "elementalBurst"
       }
     }
   },
