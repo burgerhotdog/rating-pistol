@@ -5,7 +5,6 @@
       "1": {
         "name": "Normal Attack 1",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31,7 +30,6 @@
       "2": {
         "name": "Normal Attack 2",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -57,7 +55,6 @@
       "3": {
         "name": "Normal Attack 3",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -83,7 +80,6 @@
       "4": {
         "name": "Normal Attack 4",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -109,7 +105,6 @@
       "5": {
         "name": "Normal Attack 5",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -135,7 +130,6 @@
       "6": {
         "name": "Charged Attack",
         "skillType": "chargedAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -161,7 +155,6 @@
       "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -187,7 +180,6 @@
       "8": {
         "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -213,7 +205,6 @@
       "9": {
         "name": "Plunge Attack: High",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1138,7 +1129,6 @@
       "1": {
         "name": "Normal Attack 1",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1164,7 +1154,6 @@
       "2": {
         "name": "Normal Attack 2",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1190,7 +1179,6 @@
       "3": {
         "name": "Normal Attack 3",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1216,7 +1204,6 @@
       "4": {
         "name": "Normal Attack 4",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1242,7 +1229,6 @@
       "5": {
         "name": "Normal Attack 5",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1268,7 +1254,6 @@
       "6": {
         "name": "Charged Attack",
         "skillType": "chargedAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1313,7 +1298,6 @@
       "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1339,7 +1323,6 @@
       "8": {
         "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1365,7 +1348,6 @@
       "9": {
         "name": "Plunge Attack: High",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1454,7 +1436,6 @@
       "1": {
         "name": "Normal Attack 1",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1480,7 +1461,6 @@
       "2": {
         "name": "Normal Attack 2",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1506,7 +1486,6 @@
       "3": {
         "name": "Normal Attack 3",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1532,7 +1511,6 @@
       "4": {
         "name": "Normal Attack 4",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1558,7 +1536,6 @@
       "5": {
         "name": "Charged Attack: Cyclic",
         "skillType": "chargedAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1584,7 +1561,6 @@
       "6": {
         "name": "Charged Attack: Final",
         "skillType": "chargedAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1610,7 +1586,6 @@
       "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1636,7 +1611,6 @@
       "8": {
         "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1662,7 +1636,6 @@
       "9": {
         "name": "Plunge Attack: High",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1847,7 +1820,6 @@
       "1": {
         "name": "Normal Attack 1",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1873,7 +1845,6 @@
       "2": {
         "name": "Normal Attack 2",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1899,7 +1870,6 @@
       "3": {
         "name": "Normal Attack 3",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1925,7 +1895,6 @@
       "4": {
         "name": "Normal Attack 4",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1951,7 +1920,6 @@
       "5": {
         "name": "Charged Attack: Cyclic",
         "skillType": "chargedAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -1977,7 +1945,6 @@
       "6": {
         "name": "Charged Attack: Final",
         "skillType": "chargedAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2003,7 +1970,6 @@
       "7": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2029,7 +1995,6 @@
       "8": {
         "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2055,7 +2020,6 @@
       "9": {
         "name": "Plunge Attack: High",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2215,7 +2179,6 @@
       "1": {
         "name": "Normal Attack 1",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2241,7 +2204,6 @@
       "2": {
         "name": "Normal Attack 2",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2267,7 +2229,6 @@
       "3": {
         "name": "Normal Attack 3",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2293,7 +2254,6 @@
       "4": {
         "name": "Normal Attack 4",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2319,7 +2279,6 @@
       "5": {
         "name": "Normal Attack 5",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2345,7 +2304,6 @@
       "6": {
         "name": "Aimed Shot",
         "skillType": "chargedAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2396,7 +2354,6 @@
       "8": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2422,7 +2379,6 @@
       "9": {
         "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2448,7 +2404,6 @@
       "10": {
         "name": "Plunge Attack: High",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2587,7 +2542,6 @@
       "1": {
         "name": "Normal Attack 1",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2632,7 +2586,6 @@
       "2": {
         "name": "Normal Attack 2",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2658,7 +2611,6 @@
       "3": {
         "name": "Normal Attack 3",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2684,7 +2636,6 @@
       "4": {
         "name": "Normal Attack 4",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2729,7 +2680,6 @@
       "5": {
         "name": "Normal Attack 5",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2755,7 +2705,6 @@
       "6": {
         "name": "Normal Attack 6",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2781,7 +2730,6 @@
       "7": {
         "name": "Aimed Shot",
         "skillType": "chargedAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2832,7 +2780,6 @@
       "9": {
         "name": "Plunge Collision",
         "dmgType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2858,7 +2805,6 @@
       "10": {
         "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -2884,7 +2830,6 @@
       "11": {
         "name": "Plunge Attack: High",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3214,9 +3159,9 @@
           }
         ]
       },
-      "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+      "7": {
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3239,9 +3184,9 @@
           }
         ]
       },
-      "9": {
-        "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+      "8": {
+        "name": "Plunge Attack: Low",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3261,7 +3206,13 @@
               3.2405,
               3.4189
             ]
-          },
+          }
+        ]
+      },
+      "9": {
+        "name": "Plunge Attack: High",
+        "skillType": "plungeAttack",
+        "indexedMultipliers": [
           {
             "mv": [
               1.5968,
@@ -3593,8 +3544,8 @@
         ]
       },
       "10": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -3619,7 +3570,7 @@
       },
       "11": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4047,8 +3998,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4073,7 +4024,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4294,8 +4245,8 @@
         ]
       },
       "5": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4320,7 +4271,7 @@
       },
       "6": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4547,8 +4498,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4573,7 +4524,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4875,8 +4826,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -4901,7 +4852,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5197,8 +5148,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5223,7 +5174,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5657,8 +5608,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5683,7 +5634,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6155,8 +6106,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6181,7 +6132,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6590,8 +6541,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6616,7 +6567,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6868,8 +6819,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -6894,7 +6845,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7259,8 +7210,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7285,7 +7236,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7612,8 +7563,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7638,7 +7589,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7940,8 +7891,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -7966,7 +7917,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8437,8 +8388,8 @@
         ]
       },
       "12": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -8463,7 +8414,7 @@
       },
       "13": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9028,8 +8979,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9054,7 +9005,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9444,8 +9395,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9470,7 +9421,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10004,8 +9955,8 @@
         ]
       },
       "11": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10030,7 +9981,7 @@
       },
       "12": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10159,7 +10110,6 @@
       "1": {
         "name": "Normal Attack 1",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10185,7 +10135,6 @@
       "2": {
         "name": "Normal Attack 2",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10211,7 +10160,6 @@
       "3": {
         "name": "Normal Attack 3",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10237,7 +10185,6 @@
       "4": {
         "name": "Normal Attack 4",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10263,7 +10210,6 @@
       "5": {
         "name": "Normal Attack 5",
         "skillType": "normalAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10289,7 +10235,6 @@
       "6": {
         "name": "Charged Attack",
         "skillType": "chargedAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10334,7 +10279,6 @@
       "7": {
         "name": "Plunge Collision",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10360,7 +10304,6 @@
       "8": {
         "name": "Plunge Attack: Low",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10386,7 +10329,6 @@
       "9": {
         "name": "Plunge Attack: High",
         "skillType": "plungeAttack",
-        "element": "physical",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10733,8 +10675,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -10759,7 +10701,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11080,8 +11022,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11106,7 +11048,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11477,8 +11419,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11503,7 +11445,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11844,8 +11786,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -11870,7 +11812,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12210,8 +12152,8 @@
         ]
       },
       "10": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12236,7 +12178,7 @@
       },
       "11": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12676,8 +12618,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -12702,7 +12644,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13029,8 +12971,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13055,7 +12997,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13382,8 +13324,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13408,7 +13350,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13704,8 +13646,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -13730,7 +13672,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14214,8 +14156,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14240,7 +14182,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14843,8 +14785,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -14869,7 +14811,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15309,8 +15251,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15335,7 +15277,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15612,8 +15554,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -15638,7 +15580,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16066,8 +16008,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16092,7 +16034,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16482,8 +16424,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16508,7 +16450,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16835,8 +16777,8 @@
         ]
       },
       "10": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -16861,7 +16803,7 @@
       },
       "11": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -17132,8 +17074,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -17158,7 +17100,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -17548,8 +17490,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -17574,7 +17516,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -17895,8 +17837,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -17921,7 +17863,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18273,8 +18215,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18299,7 +18241,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18720,8 +18662,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -18746,7 +18688,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19017,8 +18959,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19043,7 +18985,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19446,8 +19388,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19472,7 +19414,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19799,8 +19741,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -19825,7 +19767,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20096,8 +20038,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20122,7 +20064,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20518,8 +20460,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20544,7 +20486,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20790,8 +20732,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -20816,7 +20758,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21219,8 +21161,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21245,7 +21187,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21729,8 +21671,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -21755,7 +21697,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22076,8 +22018,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22102,7 +22044,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22517,8 +22459,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22543,7 +22485,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22833,8 +22775,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -22859,7 +22801,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -23161,8 +23103,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -23187,7 +23129,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -23483,8 +23425,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -23509,7 +23451,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -23912,8 +23854,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -23938,7 +23880,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -24360,8 +24302,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -24386,7 +24328,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -24814,8 +24756,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -24840,7 +24782,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25230,8 +25172,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25256,7 +25198,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25508,8 +25450,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25534,7 +25476,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25950,8 +25892,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -25976,7 +25918,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26404,8 +26346,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26430,7 +26372,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26726,8 +26668,8 @@
         ]
       },
       "5": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -26752,7 +26694,7 @@
       },
       "6": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -27204,8 +27146,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -27230,7 +27172,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -27733,8 +27675,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -27759,7 +27701,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -28011,8 +27953,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -28037,7 +27979,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -28289,8 +28231,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -28315,7 +28257,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -28755,8 +28697,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -28781,7 +28723,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29221,8 +29163,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29247,7 +29189,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29643,8 +29585,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29669,7 +29611,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29971,8 +29913,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -29997,7 +29939,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -30224,8 +30166,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -30250,7 +30192,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -30691,8 +30633,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -30717,7 +30659,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31120,8 +31062,8 @@
         ]
       },
       "11": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31146,7 +31088,7 @@
       },
       "12": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31448,8 +31390,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31474,7 +31416,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31833,8 +31775,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -31859,7 +31801,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32168,8 +32110,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32194,7 +32136,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32553,8 +32495,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32579,7 +32521,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32900,8 +32842,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32926,7 +32868,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33178,8 +33120,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33204,7 +33146,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33456,8 +33398,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33482,7 +33424,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33753,8 +33695,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33779,7 +33721,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34225,8 +34167,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34251,7 +34193,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34603,8 +34545,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34629,7 +34571,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34881,8 +34823,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34907,7 +34849,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35434,8 +35376,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35460,7 +35402,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35819,8 +35761,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35845,7 +35787,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36091,8 +36033,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36117,7 +36059,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36463,8 +36405,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36489,7 +36431,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36716,8 +36658,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36742,7 +36684,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -37207,8 +37149,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -37233,7 +37175,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -37529,8 +37471,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -37555,7 +37497,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -37895,8 +37837,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -37921,7 +37863,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -38550,8 +38492,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -38576,7 +38518,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -38866,8 +38808,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -38892,7 +38834,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39163,8 +39105,8 @@
         ]
       },
       "10": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39189,7 +39131,7 @@
       },
       "11": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39585,8 +39527,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -39611,7 +39553,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40088,8 +40030,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40114,7 +40056,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40366,8 +40308,8 @@
         ]
       },
       "9": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40392,7 +40334,7 @@
       },
       "10": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40908,8 +40850,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40934,7 +40876,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41400,8 +41342,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41426,7 +41368,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41841,8 +41783,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41867,7 +41809,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42257,8 +42199,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42283,7 +42225,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42767,8 +42709,8 @@
         ]
       },
       "7": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42793,7 +42735,7 @@
       },
       "8": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43272,8 +43214,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43298,7 +43240,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43883,8 +43825,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43909,7 +43851,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44293,8 +44235,8 @@
         ]
       },
       "8": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44319,7 +44261,7 @@
       },
       "9": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44759,8 +44701,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44785,7 +44727,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45106,8 +45048,8 @@
         ]
       },
       "6": {
-        "name": "Plunge DMG",
-        "skillType": "normalAttack",
+        "name": "Plunge Collision",
+        "dmgType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45132,7 +45074,7 @@
       },
       "7": {
         "name": "Low/High Plunge DMG",
-        "skillType": "normalAttack",
+        "skillType": "plungeAttack",
         "indexedMultipliers": [
           {
             "mv": [

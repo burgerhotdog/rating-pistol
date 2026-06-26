@@ -133,7 +133,7 @@ export const normalizeAction = (ctx, memberId, action) => {
 }
 
 export const normalizeActions = (ctx, member) => {
-  const { element: charElement } = CHARACTER[ctx.gameId][member.id];
+  const { type: weapType, element: charElement } = CHARACTER[ctx.gameId][member.id];
   const actionData = ACTION[ctx.gameId][member.id];
   const normalized = {};
   const getIndex = makeGetIndex(ctx.gameId, member);
@@ -152,13 +152,22 @@ export const normalizeActions = (ctx, member) => {
         id: actionId,
       };
 
-      const spec = { element: resolved.element, attr: resolved.attr };
-
-      if (resolved.type === 'damage') {
-        spec.element ??= charElement;
-      } else {
-        spec.element = resolved.type;
+      if (ctx.gameId === GI && resolved.type === 'damage') {
+        if (category === 'normalAttack' && weapType !== 'catalyst') {
+          resolved.element ??= 'physical';
+        } else {
+          resolved.element ??= charElement;
+        }
       }
+
+      if (ctx.gameId !== GI && resolved.type === 'damage') {
+        resolved.element ??= charElement;
+      }
+
+      const spec = {
+        element: resolved.element ?? resolved.type,
+        attr: resolved.attr,
+      };
 
       if ('indexedMultipliers' in resolved) {
         spec.index = getIndex(category);
