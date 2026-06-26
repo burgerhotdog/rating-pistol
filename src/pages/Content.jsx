@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   FlexRow,
   FlexCol,
@@ -26,7 +26,12 @@ export const Content = () => {
     userConfigKey,
     userSubStats,
   } = useSimulation(team);
+
   const [selectedKey, setSelectedKey] = useState(userConfigKey);
+
+  useEffect(() => {
+    setSelectedKey(userConfigKey);
+  }, [userConfigKey]);
 
   return (
     <FlexRow spacing={1}>
@@ -68,6 +73,7 @@ export const Content = () => {
           <FlexRow>
             <SubstatDistribution
               configMap={configMap}
+              selectedKey={selectedKey}
               userConfigKey={userConfigKey}
               userSubStats={userSubStats}
             />

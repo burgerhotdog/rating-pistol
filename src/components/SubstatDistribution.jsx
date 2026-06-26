@@ -38,13 +38,13 @@ const CustomTooltip = ({ active, payload, label }) => {
   );
 };
 
-export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) => {
+export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) => {
   const { gameId, characterId } = useParams();
   const theme = useTheme();
   const { element } = CHARACTER[gameId][characterId];
   if (!configMap) return null;
 
-  const { subRollSums = {} } = configMap[userConfigKey] ?? {};
+  const { subRollSums = {} } = configMap[selectedKey] ?? {};
   const subStatTypes = MISC[gameId].SUB_STAT_TYPES;
 
   const chartData = Object.keys(subStatTypes).map(statId => ({
