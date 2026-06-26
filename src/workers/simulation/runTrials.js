@@ -5,6 +5,7 @@ import { createTrialAdvancer } from './advanceTrial';
 import { findGoodStats } from './findGoodStats';
 import { compilePenalty } from './penalty';
 import { getSubRollSums } from './utils';
+import { KURO_MAINSTAT_INDEX_ORDER } from './statWeights';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
@@ -34,54 +35,35 @@ const getConfigKey = (gameId, equipList) => {
     const goblet = equipList[3]?.mainStatId ?? 'none';
     const circlet = equipList[4]?.mainStatId ?? 'none';
 
-    return {
-      key: `${sands}|${goblet}|${circlet}`,
-      sands,
-      goblet,
-      circlet,
-    };
+    return `hp|atk|${sands}|${goblet}|${circlet}`;
   }
 
-  const result = {
-    4: [],
-    3: [],
-    1: [],
-  };
-
+  const result = {};
   for (const equip of equipList) {
     if (!equip) continue;
 
     const { cost, mainStatId } = equip;
-    result[cost].push(mainStatId);
+    (result[cost] ??= []).push(mainStatId);
   }
 
-  const four = result["4"][0];
-  const three = result["3"];
-  const one = result["1"];
-
-  return {
-    key: `${four}|${three.join('+')}|${one.join('+')}`,
-    four,
-    three,
-    one,
-  };
+  return Object.entries(result)
+    .reverse()
+    .map(([cost, list]) => {
+      const indexOrder = KURO_MAINSTAT_INDEX_ORDER[cost];
+      return list.sort((a, b) => indexOrder[a] - indexOrder[b]).join('|');
+    })
+    .join('|');
 };
 
 const buildConfigStats = (gameId, trials) => {
   const configMap = {};
 
   for (const trial of trials) {
-    const { key, four, three, one, sands, goblet, circlet } = getConfigKey(gameId, trial.equipList);
+    const key = getConfigKey(gameId, trial.equipList);
 
     if (!configMap[key]) {
       configMap[key] = {
         count: 0,
-        four,
-        three,
-        one,
-        sands,
-        goblet,
-        circlet,
         subRollSums: {},
       };
     }
@@ -215,7 +197,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
     weeklySummaries,
     userSummary: simulateRotation(cache.member[currId].statMap),
     configMap: buildConfigStats(gameId, trials),
-    userConfigKey: getConfigKey(gameId, cache.member[currId].equipList).key,
+    userConfigKey: getConfigKey(gameId, cache.member[currId].equipList),
     userSubStats: getSubRollSums(gameId, cache.member[currId].equipList),
   });
 };
