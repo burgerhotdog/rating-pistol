@@ -277,9 +277,23 @@ function processIntervalActions(ctx, elapsed, depth) {
   }
 }
 
+function getHitCount(action) {
+  const { compressed } = action;
+  if (!compressed) return 1;
+
+  let maxHits = 1;
+  for (const element in compressed) {
+    const { hits } = compressed[element];
+    if (hits > maxHits) maxHits = hits;
+  }
+  return maxHits;
+}
+
 function processTopLevelAction(ctx, action) {
   const { duration, offset } = action;
   const remaining = duration - offset;
+  const hitCount = getHitCount(action);
+  const hitInterval = remaining / hitCount;
 
   // ── Cast (t = 0) ───────────────────────────────────────────────────
   removeEffects(ctx, action);
@@ -291,23 +305,24 @@ function processTopLevelAction(ctx, action) {
   processIntervalActions(ctx, offset, 0);
   advanceCooldowns(ctx, offset);
 
-  // ── Contact (t = offset) ───────────────────────────────────────────
-  if (ctx.recordFootprint) {
-    const footprint = buildFootprint(ctx, action);
-    ctx.footprints.push(footprint);
+  // ── Hits (each spaced hitInterval apart) ────────────────────────────
+  for (let i = 0; i < hitCount; i++) {
+    // ── Contact ─────────────────────────────────────────────────────
+    if (ctx.recordFootprint) {
+      const footprint = buildFootprint(ctx, action);
+      ctx.footprints.push(footprint);
+    }
+
+    applyEffects(ctx, action, 'hit');
+    processFollowUpActions(ctx, action, 0);
+    decayProcCounts(ctx, action);
+
+    // ── Inter-hit window ─────────────────────────────────────────────
+    advanceEffectStates(ctx, hitInterval);
+    tickStatuses(ctx, hitInterval);
+    processIntervalActions(ctx, hitInterval, 0);
+    advanceCooldowns(ctx, hitInterval);
   }
-
-  applyEffects(ctx, action, 'hit');
-
-  // ── Post-hit window (t = offset → end) ─────────────────────────
-  advanceEffectStates(ctx, remaining);
-  tickStatuses(ctx, remaining);
-  processIntervalActions(ctx, remaining, 0);
-  advanceCooldowns(ctx, remaining);
-
-  // ── Follow-ups + cleanup ───────────────────────────────────────────
-  processFollowUpActions(ctx, action, 0);
-  decayProcCounts(ctx, action);
 }
 
 function processProcAction(ctx, action, depth, repeatCount) {
