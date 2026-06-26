@@ -2,7 +2,7 @@ import { GI, WW } from '@/data';
 import { mergeEquipList, getTotals } from '@/utils';
 import { compileRotation } from './rotation';
 import { createTrialAdvancer } from './advanceTrial';
-import { findPreferred } from './findPreferred';
+import { findGoodStats } from './findGoodStats';
 import { compilePenalty } from './penalty';
 import { getSubRollSums } from './utils';
 
@@ -158,9 +158,9 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
-  const preferredMainStats = findPreferred(cache, baseScore, currId, simulateRotation, getPenalty);
+  const goodStats = findGoodStats(cache, baseScore, currId, simulateRotation, getPenalty);
   const weeklySummaries = isPrimary ? [baseSummary] : null;
-  const advanceTrial = createTrialAdvancer(cache, currId, preferredMainStats, simulateRotation, getPenalty);
+  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, simulateRotation, getPenalty);
 
   let prevAvgScore = baseScore;
   for (let week = 1; week <= MAX_WEEKS; week++) {
