@@ -30,12 +30,10 @@ const createScoreTracker = () => {
 };
 
 const getConfigKey = (gameId, equipList) => {
-  if (gameId === GI) {
-    const sands = equipList[2]?.mainStatId ?? 'none';
-    const goblet = equipList[3]?.mainStatId ?? 'none';
-    const circlet = equipList[4]?.mainStatId ?? 'none';
-
-    return `hp|atk|${sands}|${goblet}|${circlet}`;
+  if (gameId !== WW) {
+    return equipList
+      .map(equip => equip.mainStatId ?? 'none')
+      .join('|');
   }
 
   const result = {};
@@ -189,7 +187,6 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   }
 
   if (!isPrimary) return buildFinalStats(trials);
-  console.log(buildFinalStats(trials));
   
   self.postMessage({
     type: 'done',

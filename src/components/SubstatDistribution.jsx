@@ -11,8 +11,9 @@ import {
   Tooltip as RechartsTooltip,
 } from 'recharts';
 import { FlexCard, ChartFill } from '@/components';
-import { MISC, CHARACTER } from '@/data';
+import { WW, MISC, CHARACTER } from '@/data';
 import { formatStr } from '@/utils';
+import { HOYO_SUBSTAT_WEIGHTS } from '@/workers/simulation/statWeights';
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
@@ -38,6 +39,56 @@ const CustomTooltip = ({ active, payload, label }) => {
   );
 };
 
+const chanceOfStat = (weights, statId) => {
+  const dfs = (pool, remainingDraws, prob) => {
+    if (pool.every(([name]) => name !== statId)) {
+      return 0;
+    }
+
+    if (remainingDraws === 0) {
+      return 0;
+    }
+
+    const total = pool.reduce((s, [, w]) => s + w, 0);
+    let result = 0;
+
+    for (let i = 0; i < pool.length; i++) {
+      const [name, weight] = pool[i];
+      const p = weight / total;
+
+      if (name === statId) {
+        result += prob * p;
+      } else {
+        const nextPool = pool.slice();
+        nextPool.splice(i, 1);
+        result += dfs(nextPool, remainingDraws - 1, prob * p);
+      }
+    }
+
+    return result;
+  };
+
+  return dfs(weights, 4, 1);
+};
+
+const isSignificant = (gameId, statId, percentOftotal, mainStatsList) => {
+  if (gameId === WW) {
+    return percentOftotal > (11899 / 128700);
+  } else {
+    const weights = Object.entries(HOYO_SUBSTAT_WEIGHTS[gameId]);
+    const baseChances = mainStatsList.map((mainStat) => {
+      const withoutMain = weights.filter(([key]) => key !== mainStat);
+      return chanceOfStat(withoutMain, statId);
+    });
+    const avgRolls = baseChances
+      .map(chance => chance * 2.05)
+      .reduce((acc, chance) => acc + chance, 0);
+    const defaultPercentOfTotal = avgRolls / 41;
+    
+    return percentOftotal > defaultPercentOfTotal;
+  }
+};
+
 export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) => {
   const { gameId, characterId } = useParams();
   const theme = useTheme();
@@ -47,11 +98,18 @@ export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) =>
   const { subRollSums = {} } = configMap[selectedKey] ?? {};
   const subStatTypes = MISC[gameId].SUB_STAT_TYPES;
 
-  const chartData = Object.keys(subStatTypes).map(statId => ({
-    name: formatStr(statId),
-    sim: subRollSums[statId] ?? 0,
-    user: userSubStats[statId] ?? 0,
-  })).sort((a, b) => b.sim - a.sim);
+  const totalRolls = Object.values(subRollSums)
+    .reduce((acc, rolls) => acc + rolls , 0);
+
+  const chartData = Object.keys(subStatTypes)
+    .map((statId) => ({
+      id: statId,
+      name: formatStr(statId),
+      sim: subRollSums[statId] ?? 0,
+      user: userSubStats[statId] ?? 0,
+    }))
+    .filter(({ id, sim }) => isSignificant(gameId, id, sim / totalRolls, (selectedKey ?? '').split('|')))
+    .sort((a, b) => b.sim - a.sim);
 
   const elementColor = theme.accentColor[gameId][element];
   const maxValue = Math.max(...chartData.flatMap(d => [d.sim, d.user]));
