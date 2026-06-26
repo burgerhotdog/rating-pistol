@@ -1,5 +1,5 @@
-import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON } from '@/data';
-import { mergeObj, mergeObjs, mergeEquipList } from '@/utils';
+import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET } from '@/data';
+import { toArray, mergeObj, mergeObjs, mergeEquipList, resolveRankedValue } from '@/utils';
 
 const DEFAULT = {
   [GI]: {
@@ -33,10 +33,52 @@ export const compileBaseMap = (gameId, charId, weapId) => {
   return mergeObjs(DEFAULT[gameId], charStats, weaponStats);
 };
 
-export const compileStatMap = (gameId, charId, build) => {
-  const { weaponId, equipList = [] } = build;
+export const compileMenuMap = (gameId, charId, member) => {
+  const { rank = 0, weaponId, weaponRank = 1, setCounts = {}, build = {}} = member;
 
   const baseMap = compileBaseMap(gameId, charId, weaponId);
 
-  return mergeObj(baseMap, mergeEquipList(equipList));
+  const statMap = mergeObj(baseMap, mergeEquipList(build.equipList ?? []));
+
+  const allEffects = [
+    ...toArray(CHARACTER[gameId][charId].effects),
+    ...toArray(WEAPON[gameId][weaponId].effects),
+  ];
+
+  for (const [setId, count] of Object.entries(setCounts)) {
+    const { tieredEffects = {} } = SET[gameId][setId];
+
+    for (const [tier, effects] of Object.entries(tieredEffects)) {
+      if (Number(tier) > count) continue;
+      allEffects.push(...toArray(effects));
+    }
+  }
+
+  const filtered = allEffects.filter(effect => {
+    if ('applyWhen' in effect) return false;
+    if (effect.applyTo && effect.applyTo !== 'team') return false;
+    if ('rank' in effect && effect.rank > rank) return false; 
+
+    for (const key in effect) {
+      if (key.startsWith('useOn')) return false;
+    }
+
+    return ('statMap' in effect || 'rankedStatMap' in effect);
+  });
+
+  const toMerge = [];
+
+  for (const effect of filtered) {
+    if ('statMap' in effect) {
+      toMerge.push(effect.statMap);
+    } else if ('rankedStatMap' in effect) {
+      const resolved = {};
+      for (const statId in effect.rankedStatMap) {
+        resolved[statId] = resolveRankedValue(effect.rankedStatMap[statId], weaponRank);
+      }
+      toMerge.push(resolved);
+    }
+  }
+
+  return mergeObjs(statMap, ...toMerge);
 };
