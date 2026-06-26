@@ -35,6 +35,14 @@
     "stats": {
       "baseAtk": 401,
       "critDmg%": 0.469
+    },
+    "effects": {
+      "variableStatMap": {
+        "critRate%": [
+          0.14,
+          0.28
+        ]
+      }
     }
   },
   {
