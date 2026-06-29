@@ -4611,6 +4611,17 @@
     },
     "effects": [
       {
+        "useOnType": "damage",
+        "useCooldown": 500,
+        "followUpAction": {
+          "type": "shield",
+          "fixedMultipliers": {
+            "flat": 350,
+            "mv": 0.025
+          }
+        }
+      },
+      {
         "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
@@ -4618,6 +4629,14 @@
           "dmgAmp%": 0.15
         },
         "duration": 14000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "removeAfterAction": "resonanceLiberation.3",
+        "statMap": {
+          "electroDmgBonus%": 0.15
+        }
       }
     ],
     "defaults": {

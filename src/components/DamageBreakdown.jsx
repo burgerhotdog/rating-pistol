@@ -5,7 +5,7 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { PieChart, Pie, Tooltip as ChartTooltip, Cell, Legend } from 'recharts';
 import { FlexCard, ChartFill } from '@/components';
 import { CHARACTER } from '@/data';
-import { formatStr } from '@/utils';
+import { formatStr, formatNum } from '@/utils';
 
 const renderLabel = ({ percent }) => {
   if (percent < 0.05) return null;
@@ -48,7 +48,6 @@ export const DamageBreakdown = ({ userSummary }) => {
 
   const { element } = CHARACTER[gameId][characterId];
   const elementColor = accentColors[gameId][element];
-  const getSliceColor = rank => alpha(darken(elementColor, rank * 0.7), 0.9);
 
   return (
     <FlexCard>
@@ -83,13 +82,18 @@ export const DamageBreakdown = ({ userSummary }) => {
             label={renderLabel}
             labelLine={false}
           >
-            {data.map(entry => (
-              <Cell
-                key={entry.name}
-                fill={getSliceColor(entry.rank)}
-                stroke="none"
-              />
-            ))}
+            {data.map(entry => {
+              const { name, rank } = entry;
+              const fill = alpha(darken(elementColor, rank * 0.7), 0.9);
+
+              return (
+                <Cell
+                  key={name}
+                  fill={fill}
+                  stroke="none"
+                />
+              );
+            })}
           </Pie>
 
           <ChartTooltip
@@ -104,7 +108,7 @@ export const DamageBreakdown = ({ userSummary }) => {
                   </Typography>
 
                   <Typography variant="body2" color="textSecondary">
-                    {value.toLocaleString('en-US', { maximumFractionDigits: 0 })} damage
+                    {formatNum(value)} damage
                   </Typography>
                 </Paper>
               );

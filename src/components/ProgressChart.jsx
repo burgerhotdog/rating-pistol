@@ -44,11 +44,8 @@ const InfoLabel = ({ label, tip }) => (
       arrow
     >
       <HelpOutlineOutlinedIcon
-        sx={{
-          fontSize: 13,
-          color: 'text.disabled',
-          cursor: 'help',
-        }}
+        fontSize="small"
+        color="disabled"
       />
     </Tooltip>
   </Box>
@@ -87,15 +84,23 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
     ...(Object.values(userSummary).some(result => result.ownerId === 'misc') ? [{ id: 'misc' }] : []),
   ];
 
-  const memberColors = membersMisc.map(member => {
+  const rotationTime = cache.fullRotationTime;
+  const toDps = dmg => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
+
+  const sortedMembers = [...membersMisc].sort((a, b) => {
+    const aDps = toDps(sumRotationDmg(userSummary ?? {}, { ownerId: a.id }));
+    const bDps = toDps(sumRotationDmg(userSummary ?? {}, { ownerId: b.id }));
+
+    return bDps - aDps;
+  });
+
+  const memberColors = sortedMembers.toReversed().map(member => {
     if (member.id === 'misc') return '#ffffff';
     const { element } = CHARACTER[gameId][member.id];
 
     return accentColors[gameId][element] ?? disabledColor;
   });
 
-  const rotationTime = cache.fullRotationTime;
-  const toDps = dmg => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
 
   const activeScores = weeklySummaries.map(actionMap => toDps(sumRotationDmg(actionMap)));
   const benchmarkDps = activeScores[activeScores.length - 1];
@@ -156,12 +161,8 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
             strokeWidth={2}
           />
 
-          {/* P10–P90 outer band */}
-          <Area type="monotone" dataKey="p10" stackId="outer" stroke="none" fill="transparent" activeDot={false} />
-          <Area type="monotone" dataKey="p90band" stackId="outer" stroke="none" fill={disabledColor} fillOpacity={0.2} activeDot={false} />
-
           {/* Stacked member DPS areas */}
-          {membersMisc.map((member, index) => (
+          {sortedMembers.toReversed().map((member, index) => (
             <Area
               key={member.id}
               type="monotone"
@@ -211,12 +212,12 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
                     Week {week}
                   </Typography>
 
-                  {membersMisc.map((member, index) => {
+                  {sortedMembers.map((member, index) => {
 
 
                     return (
                       <Box key={member.id} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
-                        <Dot bgcolor={memberColors[index]} />
+                        <Dot bgcolor={memberColors.toReversed()[index]} />
 
                         <Typography variant="body2">
                           {CHARACTER[gameId][member.id].name}:{' '}

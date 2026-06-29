@@ -159,7 +159,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
-      if (weekScores.relativeError <= 0.0005) break;
+      if (weekScores.relativeError <= 0.005) break;
 
       const trial = createTrial();
       advanceTrial(trial);
