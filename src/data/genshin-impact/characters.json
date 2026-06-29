@@ -444,7 +444,16 @@
         },
         "duration": 10000
       }
-    ]
+    ],
+    "defaults": {
+      "weaponId": "11415",
+      "setCounts": {
+        "15021": 5
+      },
+      "rotation": [
+        "elementalSkill.1"
+      ]
+    }
   },
   {
     "id": "10000026",
