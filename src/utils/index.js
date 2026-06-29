@@ -1,4 +1,5 @@
 export * from './statMap';
+export * from './format';
 export * from './getMember';
 export * from './sumRotationDmg';
 export * from './toArray';
@@ -7,5 +8,4 @@ export * from './getAttr';
 export * from './resolveRanked';
 export * from './getDefaultRanks';
 export * from './applyStoredBuild';
-export * from './formatStr';
 export * from './getTotals';
