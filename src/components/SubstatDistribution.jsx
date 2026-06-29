@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, CardHeader, Stack, Paper, Tooltip, Typography } from '@mui/material';
+import { Box, CardHeader, Stack, Paper, Tooltip, Typography, Switch, FormControlLabel } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
@@ -39,9 +40,9 @@ const CustomTooltip = ({ active, payload, label }) => {
   );
 };
 
-const chanceOfStat = (weights, statId) => {
+const chanceOfStat = (weights, stat) => {
   const dfs = (pool, remainingDraws, prob) => {
-    if (pool.every(([name]) => name !== statId)) {
+    if (pool.every(([name]) => name !== stat)) {
       return 0;
     }
 
@@ -56,7 +57,7 @@ const chanceOfStat = (weights, statId) => {
       const [name, weight] = pool[i];
       const p = weight / total;
 
-      if (name === statId) {
+      if (name === stat) {
         result += prob * p;
       } else {
         const nextPool = pool.slice();
@@ -71,28 +72,32 @@ const chanceOfStat = (weights, statId) => {
   return dfs(weights, 4, 1);
 };
 
-const isSignificant = (gameId, statId, percentOftotal, mainStatsList) => {
+const isSignificantStat = (gameId, statId, percentOftotal, mainStatsList) => {
   if (gameId === WW) {
     return percentOftotal > (11899 / 128700);
-  } else {
-    const weights = Object.entries(HOYO_SUBSTAT_WEIGHTS[gameId]);
-    const baseChances = mainStatsList.map((mainStat) => {
-      const withoutMain = weights.filter(([key]) => key !== mainStat);
-      return chanceOfStat(withoutMain, statId);
-    });
-    const avgRolls = baseChances
-      .map(chance => chance * 2.05)
-      .reduce((acc, chance) => acc + chance, 0);
-    const defaultPercentOfTotal = avgRolls / 41;
-    
-    return percentOftotal > defaultPercentOfTotal;
   }
+
+  const weights = Object.entries(HOYO_SUBSTAT_WEIGHTS[gameId]);
+
+  const baseChances = mainStatsList.map((mainStat) => {
+    const withoutMain = weights.filter(([key]) => key !== mainStat);
+    return chanceOfStat(withoutMain, statId);
+  });
+
+  const avgRolls = baseChances
+    .map(chance => chance * 2.05)
+    .reduce((acc, chance) => acc + chance, 0);
+
+  const unbiasedPercentOfTotal = avgRolls / 41;
+  
+  return percentOftotal > unbiasedPercentOfTotal;
 };
 
 export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) => {
   const { gameId, characterId } = useParams();
-  const theme = useTheme();
+  const { accentColors } = useTheme();
   const { element } = CHARACTER[gameId][characterId];
+  const [showAll, setShowAll] = useState(false);
   if (!configMap) return null;
 
   const { subRollSums = {} } = configMap[selectedKey] ?? {};
@@ -108,10 +113,10 @@ export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) =>
       sim: subRollSums[statId] ?? 0,
       user: userSubStats[statId] ?? 0,
     }))
-    .filter(({ id, sim }) => isSignificant(gameId, id, sim / totalRolls, (selectedKey ?? '').split('|')))
+    .filter(({ id, sim }) => showAll || isSignificantStat(gameId, id, sim / totalRolls, (selectedKey ?? '').split('|')))
     .sort((a, b) => b.sim - a.sim);
 
-  const elementColor = theme.accentColors[gameId][element];
+  const elementColor = accentColors[gameId][element];
   const maxValue = Math.max(...chartData.flatMap(d => [d.sim, d.user]));
 
   return (
@@ -123,16 +128,20 @@ export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) =>
               Substat distribution
             </Typography>
 
-            <Tooltip
-              title="Shows the average distribution of substat rolls across final builds."
-              placement="top"
-              arrow
-            >
-              <HelpOutlineOutlinedIcon
-                fontSize="small"
-                color="disabled"
-              />
+            <Tooltip title="Shows the average distribution of substat rolls across final builds.">
+              <HelpOutlineOutlinedIcon fontSize="small" color="disabled" />
             </Tooltip>
+
+            <FormControlLabel
+              control={
+                <Switch
+                  size="small"
+                  checked={showAll}
+                  onChange={(e) => setShowAll(e.target.checked)}
+                />
+              }
+              label="Show all stats"
+            />
           </Stack>
         }
         disableTypography
@@ -140,57 +149,37 @@ export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) =>
 
       <ChartFill>
         <BarChart
+          layout="vertical"
           data={chartData}
-          margin={{ top: 4, right: 16, left: 0, bottom: 44 }}
+          margin={{ left: 16, right: 16, top: 8, bottom: 8 }}
         >
           <XAxis
-            type="category"
-            dataKey="name"
-            interval={0}
-            angle={-35}
-            tickMargin={4}
-            tick={{ fontSize: 10, textAnchor: 'end' }}
-            axisLine={false}
-            tickLine={false}
-          />
-
-          <YAxis
             type="number"
             domain={[0, maxValue * 1.1]}
             tickFormatter={(v) => v.toFixed(1)}
-            tick={{ fontSize: 9 }}
-            axisLine={false}
-            tickLine={false}
-            width={28}
           />
 
-          <RechartsTooltip
-            allowEscapeViewBox={{ x: true, y: true }}
-            wrapperStyle={{ pointerEvents: 'none', zIndex: 10 }}
-            content={CustomTooltip}
+          <YAxis
+            type="category"
+            dataKey="name"
+            width="auto"
+            tick={{ fontSize: 11 }}
           />
 
-          <Legend
-            iconType="square"
-            iconSize={8}
-            verticalAlign="top"
-            wrapperStyle={{ fontSize: 11, paddingBottom: 4 }}
-          />
+          <RechartsTooltip content={CustomTooltip} />
+
+          <Legend />
 
           <Bar
             dataKey="sim"
-            name="Sim avg"
+            name="Benchmark"
             fill={alpha(elementColor, 0.3)}
-            radius={[3, 3, 0, 0]}
-            maxBarSize={28}
           />
 
           <Bar
             dataKey="user"
-            name="Your build"
+            name="You"
             fill={elementColor}
-            radius={[3, 3, 0, 0]}
-            maxBarSize={28}
           />
         </BarChart>
       </ChartFill>

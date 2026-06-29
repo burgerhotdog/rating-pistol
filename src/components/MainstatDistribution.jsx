@@ -10,7 +10,7 @@ const IconRow = ({ gameId, slots }) => {
   return (
     <Card>
       {slots.map((statId, i) =>
-        <Tooltip key={i} title={formatStr(statId)} arrow>
+        <Tooltip key={i} title={formatStr(statId)}>
           <IconButton>
             <Avatar
               src={ATTR_ASSETS[gameId][statId.replace('%', '')]}
@@ -119,8 +119,6 @@ export const MainstatDistribution = ({ configMap, userConfigKey, selectedKey, on
 
             <Tooltip
               title="Top main stat combinations in simulated builds."
-              placement="top"
-              arrow
             >
               <HelpOutlineOutlinedIcon
                 fontSize="small"

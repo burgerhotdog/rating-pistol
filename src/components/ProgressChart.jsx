@@ -40,8 +40,6 @@ const InfoLabel = ({ label, tip }) => (
 
     <Tooltip
       title={tip}
-      placement="top"
-      arrow
     >
       <HelpOutlineOutlinedIcon
         fontSize="small"
