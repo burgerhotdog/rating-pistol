@@ -82,12 +82,12 @@ export const StatsPanel = ({ team, updateTeam }) => {
               size="small"
               sx={{
                 fontWeight: 'bold',
-                color: theme.accentColor[gameId][CHARACTER[gameId][characterId].element]
+                color: theme.accentColors[gameId][CHARACTER[gameId][characterId].element]
               }}
             />
 
             <Chip
-              label={CHARACTER[gameId][characterId]?.type}
+              label={formatStr(CHARACTER[gameId][characterId]?.type)}
               variant="outlined"
               size="small"
               sx={{ fontWeight: 'bold' }}

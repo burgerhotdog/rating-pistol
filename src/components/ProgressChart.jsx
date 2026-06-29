@@ -66,24 +66,23 @@ const getGrade = (pct) => {
   return { grade: 'E', color: '#ef4444' };
 };
 
-export const BenchmarkProgress = ({ weeklySummaries, team, userSummary, cache }) => {
-  const theme = useTheme();
+export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => {
+  const { palette, accentColors } = useTheme();
   const { gameId } = useParams();
-  const disabledColor = theme.palette.action.disabled;
-
+  const disabledColor = palette.action.disabled;
   if (!weeklySummaries) return null;
 
-  const members = team.filter(m => m.id);
+  const members = team.filter(member => member.id);
   const membersMisc = [
     ...members,
     ...(Object.values(weeklySummaries[0]).some(result => result.ownerId === 'misc') ? [{ id: 'misc' }] : []),
   ];
 
-  const memberColors = membersMisc.map(m => {
-    if (m.id === 'misc') return '#ffffff';
-    const el = CHARACTER[gameId][m.id].element;
+  const memberColors = membersMisc.map(member => {
+    if (member.id === 'misc') return '#ffffff';
+    const { element } = CHARACTER[gameId][member.id];
 
-    return theme.accentColor[gameId][el] ?? disabledColor;
+    return accentColors[gameId][element] ?? disabledColor;
   });
 
   const rotationTime = cache.fullRotationTime;
@@ -131,7 +130,7 @@ export const BenchmarkProgress = ({ weeklySummaries, team, userSummary, cache })
             ))}
           </defs>
 
-          <CartesianGrid strokeDasharray="3 3" stroke={theme.palette.divider} />
+          <CartesianGrid strokeDasharray="3 3" stroke={palette.divider} />
 
           <XAxis
             dataKey="week"
@@ -249,7 +248,7 @@ export const BenchmarkProgress = ({ weeklySummaries, team, userSummary, cache })
             </Typography>
 
             <Typography variant="body1" fontWeight="medium" sx={{ color: gradeColor, opacity: 0.7 }}>
-              ({scaledBuildRating.toFixed(1)}%)
+              ({scaledBuildRating.toFixed()}%)
             </Typography>
           </Box>
         </Box>

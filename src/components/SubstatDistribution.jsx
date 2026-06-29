@@ -111,7 +111,7 @@ export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) =>
     .filter(({ id, sim }) => isSignificant(gameId, id, sim / totalRolls, (selectedKey ?? '').split('|')))
     .sort((a, b) => b.sim - a.sim);
 
-  const elementColor = theme.accentColor[gameId][element];
+  const elementColor = theme.accentColors[gameId][element];
   const maxValue = Math.max(...chartData.flatMap(d => [d.sim, d.user]));
 
   return (

@@ -4,7 +4,7 @@ import {
   FlexCol,
   LoadingBar,
   StatsPanel,
-  BenchmarkProgress,
+  ProgressChart,
   SubstatDistribution,
   DamageBreakdown,
   MainstatDistribution,
@@ -49,7 +49,7 @@ export const Content = () => {
       ) : (
         <FlexCol spacing={1}>
           <FlexRow>
-            <BenchmarkProgress
+            <ProgressChart
               team={team}
               weeklySummaries={weeklySummaries}
               userSummary={userSummary}

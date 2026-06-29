@@ -41,13 +41,13 @@ const buildData = (summary, charId) => {
 
 export const DamageBreakdown = ({ userSummary }) => {
   const { gameId, characterId } = useParams();
-  const { accentColor } = useTheme();
+  const { accentColors } = useTheme();
   if (!userSummary) return null;
 
   const data = buildData(userSummary, characterId);
 
   const { element } = CHARACTER[gameId][characterId];
-  const elementColor = accentColor[gameId][element];
+  const elementColor = accentColors[gameId][element];
   const getSliceColor = rank => alpha(darken(elementColor, rank * 0.7), 0.9);
 
   return (
