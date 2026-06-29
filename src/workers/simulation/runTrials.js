@@ -7,8 +7,8 @@ import { compilePenalty } from './penalty';
 import { getSubRollSums } from './utils';
 import { KURO_MAINSTAT_INDEX_ORDER } from './statWeights';
 
-const MIN_TRIALS = 50;
-const MAX_TRIALS = 500;
+const MIN_TRIALS = 100;
+const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
 
 const createScoreTracker = () => {
@@ -159,7 +159,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
-      if (weekScores.relativeError <= 0.005) break;
+      if (weekScores.relativeError <= 0.0005) break;
 
       const trial = createTrial();
       advanceTrial(trial);
@@ -171,6 +171,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
         weekTotals.push(trial.totals);
       }
     }
+    if (week === 1) console.log(trials.length);
 
     const avgScore = weekScores.mean;
     const diff = (avgScore - prevAvgScore) / prevAvgScore;
