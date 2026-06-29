@@ -211,15 +211,25 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
                   </Typography>
 
                   {sortedMembers.map((member, index) => {
-
-
                     return (
-                      <Box key={member.id} sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
-                        <Dot bgcolor={memberColors.toReversed()[index]} />
+                      <Box
+                        key={member.id}
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          gap: 1,
+                        }}
+                      >
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                          <Dot bgcolor={memberColors.toReversed()[index]} />
 
-                        <Typography variant="body2">
-                          {CHARACTER[gameId][member.id].name}:{' '}
+                          <Typography variant='body2'>
+                            {CHARACTER[gameId][member.id].name}:
+                          </Typography>
+                        </Box>
 
+                        <Typography variant='body2'>
                           {formatNum(toDps(sumRotationDmg(weeklySummaries[week], { ownerId: member.id })))}
                         </Typography>
                       </Box>
@@ -228,13 +238,26 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
 
                   <Divider sx={{ my: 0.5 }} />
 
-                  <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                    Total: {formatNum(damage)}
-                  </Typography>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: 1,
+                    }}
+                  >
+                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                      Total:
+                    </Typography>
+
+                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                      {formatNum(damage)}
+                    </Typography>
+                  </Box>
 
                   {percentGain != null && (
                     <Typography variant="body2" sx={{ color: percentGain >= 0 ? 'success.main' : 'error.main' }}>
-                      {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(1)}% vs prev
+                      {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(1)}%
                     </Typography>
                   )}
                 </Paper>
