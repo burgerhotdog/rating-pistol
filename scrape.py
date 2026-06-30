@@ -1,5 +1,5 @@
 import json, requests, sys
-from update import (
+from .scrape import (
     GAME_INFO,
     select_game_index,
     enter_ids,
