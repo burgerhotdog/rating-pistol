@@ -163,334 +163,46 @@ def parse_ascension_stats(game_id, data):
 
     return parsed
 
-def weapon_constant_stats_parser(game_id, data):
-    constant = {}
-
-    match game_id:
-        case "genshin-impact":
-            constant["baseAtk"] = round(data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"])
-
-            # Ascension stats
-            stat_map = {
-                "fight_prop_hp_percent": "hp%",
-                "fight_prop_attack_percent": "atk%",
-                "fight_prop_defense_percent": "def%",
-                "fight_prop_element_mastery": "elementalMastery",
-                "fight_prop_charge_efficiency": "energyRecharge%",
-                "fight_prop_wind_add_hurt": "anemoDmgBonus%",
-                "fight_prop_ice_add_hurt": "cryoDmgBonus%",
-                "fight_prop_grass_add_hurt": "dendroDmgBonus%",
-                "fight_prop_elec_add_hurt": "electroDmgBonus%",
-                "fight_prop_rock_add_hurt": "geoDmgBonus%",
-                "fight_prop_water_add_hurt": "hydroDmgBonus%",
-                "fight_prop_fire_add_hurt": "pyroDmgBonus%",
-                "fight_prop_physical_add_hurt": "physicalDmgBonus%",
-                "fight_prop_critical": "critRate%",
-                "fight_prop_critical_hurt": "critDmg%",
-                "fight_prop_heal_add": "healingBonus%",
-            }
-            raw_id, value_map = list(data["stats_modifier"].items())[1]
-            stat_id = stat_map[raw_id]
-            constant[stat_id] = value_map["base"] * value_map["levels"]["90"]
-
-        case "honkai-star-rail":
-            constant["baseHp"] = round(data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79)
-            constant["baseAtk"] = round(data["stats"][6]["base_attack"] + data["stats"][6]["base_attack_add"] * 79)
-            constant["baseDef"] = round(data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79)
-
-        case "wuthering-waves":
-            constant["baseAtk"] = math.floor(data["stats"]["6"]["90"][0]["value"])
-
-            # Ascension stats
-            stat_map = {
-                "HP": "hp%",
-                "ATK": "atk%",
-                "DEF": "def%",
-                "Crit. Rate": "critRate%",
-                "Crit. DMG": "critDmg%",
-                "Healing Bonus": "healingBonus%",
-                "Glacio DMG Bonus": "glacioDmgBonus%",
-                "Fusion DMG Bonus": "fusionDmgBonus%",
-                "Electro DMG Bonus": "electroDmgBonus%",
-                "Aero DMG Bonus": "aeroDmgBonus%",
-                "Spectro DMG Bonus": "spectroDmgBonus%",
-                "Havoc DMG Bonus": "havocDmgBonus%",
-                "Energy Regen": "energyRegen%",
-            }
-            stat_id = stat_map[data['stats']['6']['90'][1]['name']]
-            constant[stat_id] = data["stats"]["6"]["90"][1]["value"] / 10000 if data["stats"]["6"]["90"][1]["is_percent"] else data["stats"]["6"]["90"][1]["value"]
-
-        case "zenless-zone-zero":
-            constant["baseAtk"] = round(data["base_property"]["value"] * 104 / 7)
-
-            # Ascension stats
-            stat_map = {
-                "HP": "hp%",
-                "ATK": "atk%",
-                "DEF": "def%",
-                "Impact": "impact%",
-                "Anomaly Mastery": "anomalyMastery",
-                "Anomaly Proficiency": "anomalyProficiency",
-                "Energy Regen": "energyRegen%",
-                "CRIT Rate": "critRate%",
-                "CRIT DMG": "critDmg%",
-                "PEN Ratio": "penRatio%",
-            }
-
-            stat_id = stat_map[data["rand_property"]["name"]]
-            constant[stat_id] = (data["rand_property"]["value"] / 10000 if stat_id.endswith("%") else data["rand_property"]["value"]) * 2.5
-
-    return constant
-
-GAME_INFO = [
-    {
-        "name": "Genshin Impact",
-        "link": "gi",
-        "id": "genshin-impact",
-        "assets": {
-            "character": lambda data, ID: data["icon"],
-            "weapon": lambda data, ID: data["icon"],
-            "set": lambda data, ID: data["icon"],
-        },
-        "parsers": {
-            "character": {
-                "name": lambda data: data["name"],
-                "quality": lambda data: data["rarity"],
-                "element": lambda data: data["element"],
-                "type": lambda data: data["weapon"],
-                "baseStats": lambda data: parse_base_stats("genshin-impact", data),
-                "ascensionStats": lambda data: parse_ascension_stats("genshin-impact", data),
-            },
-            "weapon": {
-                "name": lambda data: data["name"],
-                "quality": lambda data: int(data["rarity"]),
-                "type": lambda data: data["weapon_type"],
-                "stats": lambda data: weapon_constant_stats_parser("genshin-impact", data),
-            },
-            "set": {
-                "name": lambda data: data["affix"][0]["name"],
-            },
-        },
-        "lang": {
-            "id_type": {
-                "set": "artifact",
-            },
-            "character": {
-                "quality": {
-                    "QUALITY_ORANGE_SP": 5,
-                    "QUALITY_ORANGE": 5,
-                    "QUALITY_PURPLE": 4,
-                },
-                "type": {
-                    "WEAPON_SWORD_ONE_HAND": "SWORD",
-                    "WEAPON_CLAYMORE": "CLAYMORE",
-                    "WEAPON_POLE": "POLEARM",
-                    "WEAPON_CATALYST": "CATALYST",
-                    "WEAPON_BOW": "BOW",
-                },
-            },
-            "weapon": {
-                "type": {
-                    "WEAPON_SWORD_ONE_HAND": "SWORD",
-                    "WEAPON_CLAYMORE": "CLAYMORE",
-                    "WEAPON_POLE": "POLEARM",
-                    "WEAPON_CATALYST": "CATALYST",
-                    "WEAPON_BOW": "BOW",
-                },
-            },
-        },
+FIELDS = {
+    "genshin-impact": {
+        "name": lambda data: data["name"],
+        "quality": lambda data: 4 if data["rarity"] == "QUALITY_PURPLE" else 5,
+        "element": lambda data: data["element"].lower(),
+        "type": lambda data: { "WEAPON_SWORD_ONE_HAND": "sword", "WEAPON_CLAYMORE": "claymore", "WEAPON_POLE": "polearm", "WEAPON_CATALYST": "catalyst", "WEAPON_BOW": "bow" }[data["weapon"]],
     },
-    {
-        "name": "Honkai Star Rail",
-        "link": "hsr",
-        "id": "honkai-star-rail",
-        "assets": {
-            "character": lambda data, ID: f"avatarshopicon/{ID}",
-            "weapon": lambda data, ID: f"lightconemediumicon/{ID}",
-            "set": lambda data, ID: f"itemfigures/{data["icon"][22:data["icon"].rindex(".")]}",
-        },
-        "parsers": {
-            "character": {
-                "name": lambda data: data["name"],
-                "quality": lambda data: data["rarity"],
-                "element": lambda data: data["damage_type"],
-                "type": lambda data: data["base_type"],
-                "baseStats": lambda data: parse_base_stats("honkai-star-rail", data),
-                "ascensionStats": lambda data: parse_ascension_stats("honkai-star-rail", data),
-            },
-            "weapon": {
-                "name": lambda data: data["name"],
-                "quality": lambda data: data["rarity"],
-                "type": lambda data: data["base_type"],
-                "stats": lambda data: weapon_constant_stats_parser("honkai-star-rail", data),
-            },
-            "set": {
-                "name": lambda data: data["name"],
-            },
-        },
-        "lang": {
-            "id_type": {
-                "weapon": "lightcone",
-                "set": "relicset",
-            },
-            "character": {
-                "quality": {
-                    "CombatPowerAvatarRarityType5": 5,
-                    "CombatPowerAvatarRarityType4": 4,
-                },
-                "element": {
-                    "Thunder": "lightning",
-                },
-                "type": {
-                    "Rogue": "HUNT",
-                    "Priest": "ABUNDANCE",
-                    "Warrior": "DESTRUCTION",
-                    "Knight": "PRESERVATION",
-                    "Warlock": "NIHILITY",
-                    "Shaman": "HARMONY",
-                    "Mage": "ERUDITION",
-                    "Memory": "REMEMBRANCE",
-                },
-            },
-            "weapon": {
-                "quality": {
-                    "CombatPowerLightconeRarity5": 5,
-                    "CombatPowerLightconeRarity4": 4,
-                    "CombatPowerLightconeRarity3": 3,
-                },
-                "type": {
-                    "Rogue": "HUNT",
-                    "Priest": "ABUNDANCE",
-                    "Warrior": "DESTRUCTION",
-                    "Knight": "PRESERVATION",
-                    "Warlock": "NIHILITY",
-                    "Shaman": "HARMONY",
-                    "Mage": "ERUDITION",
-                    "Memory": "REMEMBRANCE",
-                },
-            },
-        },
+    "honkai-star-rail": {
+        "name": lambda data: data["name"],
+        "quality": lambda data: int(data["rarity"][-1]),
+        "element": lambda data: "lightning" if data["damage_type"] == "Thunder" else data["damage_type"].lower(),
+        "type": lambda data: { "Rogue": "hunt", "Priest": "abundance", "Warrior": "destruction", "Knight": "preservation", "Warlock": "nihility", "Shaman": "harmony", "Mage": "erudition", "Memory": "remembrance", "Elation": "elation" }[data["base_type"]],
     },
-    {
-        "name": "Wuthering Waves",
-        "link": "ww",
-        "id": "wuthering-waves",
-        "assets": {
-            "character": lambda data, ID: data["icon"][13:data["icon"].rindex(".")],
-            "weapon": lambda data, ID: data["icon"][13:data["icon"].rindex(".")],
-            "set": lambda data, ID: data["icon"][13:data["icon"].rindex(".")],
-        },
-        "parsers": {
-            "character": {
-                "name": lambda data: data["name"],
-                "quality": lambda data: data["rarity"],
-                "element": lambda data: data["element"],
-                "type": lambda data: data["weapon"],
-                "baseStats": lambda data: parse_base_stats("wuthering-waves", data),
-                "ascensionStats": lambda data: parse_ascension_stats("wuthering-waves", data),
-            },
-            "weapon": {
-                "name": lambda data: data["name"],
-                "quality": lambda data: data["rarity"],
-                "type": lambda data: data["type"],
-                "stats": lambda data: weapon_constant_stats_parser("wuthering-waves", data),
-            },
-            "set": {
-                "name": lambda data: data["name"],
-            },
-        },
-        "lang": {
-            "id_type": {
-                "set": "echo",
-            },
-            "character": {
-                "element": {
-                    1: "glacio",
-                    2: "fusion",
-                    3: "electro",
-                    4: "aero",
-                    5: "spectro",
-                    6: "havoc",
-                },
-                "type": {
-                    1: "BROADBLADE",
-                    2: "SWORD",
-                    3: "PISTOLS",
-                    4: "GAUNTLETS",
-                    5: "RECTIFIER",
-                },
-            },
-            "weapon": {
-                "type": {
-                    1: "BROADBLADE",
-                    2: "SWORD",
-                    3: "PISTOLS",
-                    4: "GAUNTLETS",
-                    5: "RECTIFIER",
-                },
-            },
-        },
+    "wuthering-waves": {
+        "name": lambda data: data["name"],
+        "quality": lambda data: data["rarity"],
+        "element": lambda data: ["glacio", "fusion", "electro", "aero", "spectro", "havoc"][data["element"] + 1],
+        "type": lambda data: ["broadblade", "sword", "pistols", "gauntlets", "rectifier"][data["weapon"] + 1],
     },
-    {
-        "name": "Zenless Zone Zero",
-        "link": "zzz",
-        "id": "zenless-zone-zero",
-        "assets": {
-            "character": lambda data, ID: data["icon"],
-            "weapon": lambda data, ID: data["code_name"],
-            "set": lambda data, ID: data["icon"][41:data["icon"].rindex(".")],
-        },
-        "parsers": {
-            "character": {
-                "name": lambda data: data["name"],
-                "quality": lambda data: data["rarity"],
-                "element": lambda data: next(iter(data["element_type"].values())),
-                "type": lambda data: next(iter(data["weapon_type"].values())),
-                "baseStats": lambda data: parse_base_stats("zenless-zone-zero", data),
-                "ascensionStats": lambda data: parse_ascension_stats("zenless-zone-zero", data),
-            },
-            "weapon": {
-                "name": lambda data: data["name"],
-                "quality": lambda data: data["rarity"],
-                "type": lambda data: next(iter(data["weapon_type"].values())),
-                "stats": lambda data: weapon_constant_stats_parser("zenless-zone-zero", data),
-            },
-            "set": {
-                "name": lambda data: data["name"],
-            },
-        },
-        "lang": {
-            "id_type": {
-                "set": "equipment",
-            },
-            "character": {
-                "quality": {
-                    4: 5,
-                    3: 4,
-                    2: 3,
-                },
-            },
-            "weapon": {
-                "quality": {
-                    4: 5,
-                    3: 4,
-                    2: 3,
-                },
-            },
-        },
+    "zenless-zone-zero": {
+        "name": lambda data: data["name"],
+        "quality": lambda data: data["rarity"] + 1,
+        "element": lambda data: next(iter(data["element_type"].values())).lower(),
+        "type": lambda data: next(iter(data["weapon_type"].values())).lower(),
     },
-]
+}
 
-def parse_characters(GAME, data, ID, id_type):
-    result = {}
-    result["id"] = ID
+def parse_character(game_id, char_id, data):
+    result = { "id": char_id }
     lang_section = GAME["lang"].get(id_type, {})
 
-    for field, parser in GAME["parsers"][id_type].items():
+    for field, parser in FIELDS[game_id].items():
         parsed_value = parser(data)
+
         if isinstance(parsed_value, dict):
             result[field] = parsed_value
         else:
             result[field] = lang_section.get(field, {}).get(parsed_value, parsed_value)
+
+    result["baseStats"] = parse_base_stats(game_id, data)
+    result["ascensionStats"] = parse_ascension_stats(game_id, data)
 
     return result
