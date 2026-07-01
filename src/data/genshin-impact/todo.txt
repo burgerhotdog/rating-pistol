@@ -192,7 +192,7 @@ weapons:
         14501 Skyward Atlas
         14502 Lost Prayer to the Sacred Winds
         15101 Hunter's Bow
-        15201 
+        15201 Seasoned Hunter's Bow
         15301 Raven Bow
         15302 Sharpshooter's Oath
         15303 Recurve Bow
@@ -353,6 +353,7 @@ weapons:
         15516 Golden Frostbound Oath
         13517 Disaster and Remorse
         14523 Angelos' Heptades
+        12516 A Teaspoon of Transcendence
 
     incomplete:
     simplified:
