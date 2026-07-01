@@ -115,6 +115,7 @@ characters:
         10000129 Lohen
         10000131 Nicole
         10000132 Prune
+        10000133 Sandrone
 
     incomplete:
     simplified:

@@ -192,15 +192,9 @@ FIELDS = {
 
 def parse_character(game_id, char_id, data):
     result = { "id": char_id }
-    lang_section = GAME["lang"].get(id_type, {})
 
     for field, parser in FIELDS[game_id].items():
-        parsed_value = parser(data)
-
-        if isinstance(parsed_value, dict):
-            result[field] = parsed_value
-        else:
-            result[field] = lang_section.get(field, {}).get(parsed_value, parsed_value)
+        result[field] = parser(data)
 
     result["baseStats"] = parse_base_stats(game_id, data)
     result["ascensionStats"] = parse_ascension_stats(game_id, data)

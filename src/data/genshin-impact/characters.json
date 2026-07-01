@@ -1784,5 +1784,20 @@
     "ascensionStats": {
       "atk%": 0.24
     }
+  },
+  {
+    "id": "10000133",
+    "name": "Sandrone",
+    "quality": 5,
+    "element": "cryo",
+    "type": "claymore",
+    "baseStats": {
+      "baseHp": 13226,
+      "baseAtk": 342,
+      "baseDef": 752
+    },
+    "ascensionStats": {
+      "critRate%": 0.192
+    }
   }
 ]

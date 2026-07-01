@@ -2317,5 +2317,15 @@
       "baseAtk": 741,
       "atk%": 0.165
     }
+  },
+  {
+    "id": "12516",
+    "name": "A Teaspoon of Transcendence",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 674,
+      "critDmg%": 0.441
+    }
   }
 ]
