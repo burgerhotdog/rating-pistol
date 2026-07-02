@@ -9,6 +9,7 @@ export const useSimulation = (team) => {
 
   const workerRef = useRef(null);
   const [result, setResult] = useState({});
+  const prevPayloadRef = useRef(undefined);
 
   const payload = useMemo(() => {
     const isValidGame = VALID.has(gameId);
@@ -17,6 +18,11 @@ export const useSimulation = (team) => {
 
     return isValid ? { gameId, characterId, team } : null;
   }, [gameId, characterId, team]);
+
+  if (prevPayloadRef.current !== payload) {
+    prevPayloadRef.current = payload;
+    setResult({});
+  }
 
   useEffect(() => {
     workerRef.current?.terminate();

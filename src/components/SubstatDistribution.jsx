@@ -93,14 +93,14 @@ const isSignificantStat = (gameId, statId, percentOftotal, mainStatsList) => {
   return percentOftotal > unbiasedPercentOfTotal;
 };
 
-export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) => {
+export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) => {
   const { gameId, characterId } = useParams();
   const { accentColors } = useTheme();
   const { element } = CHARACTER[gameId][characterId];
   const [showAll, setShowAll] = useState(false);
   if (!configMap) return null;
 
-  const { subRollSums = {} } = configMap[selectedKey] ?? {};
+  const { subRollSums = {} } = configMap[userConfigKey] ?? {};
   const subStatTypes = MISC[gameId].SUB_STAT_TYPES;
 
   const totalRolls = Object.values(subRollSums)
@@ -113,7 +113,7 @@ export const SubstatDistribution = ({ configMap, selectedKey, userSubStats }) =>
       sim: subRollSums[statId] ?? 0,
       user: userSubStats[statId] ?? 0,
     }))
-    .filter(({ id, sim }) => showAll || isSignificantStat(gameId, id, sim / totalRolls, (selectedKey ?? '').split('|')))
+    .filter(({ id, sim }) => showAll || isSignificantStat(gameId, id, sim / totalRolls, (userConfigKey ?? '').split('|')))
     .sort((a, b) => b.sim - a.sim);
 
   const elementColor = accentColors[gameId][element];
