@@ -33,7 +33,7 @@ const HeaderUser = () => {
 
   return (
     <>
-      <IconButton onClick={handleOpen} size="small">
+      <IconButton onClick={handleOpen}>
         <Avatar
           src={user.photoURL}
           alt={user.displayName}

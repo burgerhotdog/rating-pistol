@@ -25,7 +25,7 @@ export const FlexCol = ({ spacing, sx, ...props }) => (
     {...props}
   />
 );
-console.log("COMPONENT LOAD");
+
 export const FlexCard = ({ direction = 'column', sx, ...props }) => (
   <Card
     sx={[{

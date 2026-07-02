@@ -72,7 +72,6 @@ const HeaderEnka = () => {
     <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
       <TextField
         label="Enter UID..."
-        size="small"
         value={uid}
         slotProps={{
           inputLabel: {
@@ -94,7 +93,6 @@ const HeaderEnka = () => {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton
-                  size="small"
                   onClick={() => handleSync()}
                   disabled={!isValidLength(gameId, uid) || isSyncLoading}
                 >

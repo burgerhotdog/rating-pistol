@@ -120,7 +120,6 @@ export const MainstatDistribution = ({ configMap, userConfigKey }) => {
               title="Top main stat combinations in simulated builds."
             >
               <HelpOutlineOutlinedIcon
-                fontSize="small"
                 color="disabled"
               />
             </Tooltip>

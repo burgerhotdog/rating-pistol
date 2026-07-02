@@ -129,13 +129,12 @@ export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) 
             </Typography>
 
             <Tooltip title="Shows the average distribution of substat rolls across final builds.">
-              <HelpOutlineOutlinedIcon fontSize="small" color="disabled" />
+              <HelpOutlineOutlinedIcon color="disabled" />
             </Tooltip>
 
             <FormControlLabel
               control={
                 <Switch
-                  size="small"
                   checked={showAll}
                   onChange={(e) => setShowAll(e.target.checked)}
                 />

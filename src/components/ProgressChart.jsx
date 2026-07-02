@@ -42,7 +42,6 @@ const InfoLabel = ({ label, tip }) => (
       title={tip}
     >
       <HelpOutlineOutlinedIcon
-        fontSize="small"
         color="disabled"
       />
     </Tooltip>

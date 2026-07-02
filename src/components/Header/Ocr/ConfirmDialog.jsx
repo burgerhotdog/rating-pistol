@@ -54,7 +54,6 @@ const ConfirmDialog = ({
                 isOptionEqualToValue={(option, value) => option.id === value.id}
                 value={CHARACTER[WW][characterId] ?? null}
                 onChange={(e, newValue) => onUpdateCharacterId(newValue?.id)}
-                size="small"
                 fullWidth
                 renderInput={(params) => (
                   <TextField {...params} label="Character" error={!characterId} />
@@ -68,7 +67,6 @@ const ConfirmDialog = ({
                 label="Rank"
                 value={build.rank ?? ''}
                 onChange={(e) => onUpdateTopField('rank', e.target.value)}
-                size="small"
                 fullWidth
               >
                 {[0, 1, 2, 3, 4, 5, 6].map((option) => (
@@ -85,7 +83,6 @@ const ConfirmDialog = ({
                 label="Weapon"
                 value={build.weaponId ?? ''}
                 onChange={(e) => onUpdateTopField('weaponId', e.target.value)}
-                size="small"
                 fullWidth
                 error={!build.weaponId}
               >

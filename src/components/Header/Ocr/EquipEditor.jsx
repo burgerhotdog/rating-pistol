@@ -48,7 +48,6 @@ const EquipEditor = ({ equip, index, onChange }) => {
               label="Cost"
               value={cost ?? ''}
               onChange={(e) => updateField('cost', e.target.value)}
-              size="small"
               fullWidth
               error={!cost}
             >
@@ -67,7 +66,6 @@ const EquipEditor = ({ equip, index, onChange }) => {
               isOptionEqualToValue={(option, value) => option.id === value.id}
               value={SET[WW][setId] ?? null}
               onChange={(e, newValue) => updateField('setId', newValue?.id)}
-              size="small"
               fullWidth
               renderInput={(params) => (
                 <TextField {...params} label="Set" error={!setId} />
@@ -81,7 +79,6 @@ const EquipEditor = ({ equip, index, onChange }) => {
               label="Main Stat"
               value={mainStatId ?? ''}
               onChange={(e) => updateField('mainStatId', e.target.value)}
-              size="small"
               fullWidth
               error={!mainStatId}
             >
@@ -100,9 +97,7 @@ const EquipEditor = ({ equip, index, onChange }) => {
               value={mainStatValue ?? ''}
               onChange={(e) => updateField('mainStatValue', e.target.value === '' ? null : Number(e.target.value))}
               fullWidth
-              size="small"
               error={mainStatValue == null || Number.isNaN(mainStatValue)}
-              inputProps={{ step: 0.1 }}
             />
           </Grid>
 
@@ -113,7 +108,6 @@ const EquipEditor = ({ equip, index, onChange }) => {
               value={mainStatFlatId ?? ''}
               onChange={(e) => updateField('mainStatFlatId', e.target.value)}
               fullWidth
-              size="small"
             >
               <MenuItem value="hp">hp</MenuItem>
               <MenuItem value="atk">atk</MenuItem>
@@ -126,9 +120,8 @@ const EquipEditor = ({ equip, index, onChange }) => {
               type="number"
               value={mainStatFlatValue ?? ''}
               onChange={(e) => updateField('mainStatFlatValue', e.target.value === '' ? null : Number(e.target.value))}
-              fullWidth
-              size="small"
               error={mainStatFlatValue == null || Number.isNaN(mainStatFlatValue)}
+              fullWidth
             />
           </Grid>
 
@@ -151,7 +144,6 @@ const EquipEditor = ({ equip, index, onChange }) => {
                       value={sub.subStatId ?? ''}
                       onChange={(e) => updateSubStat(subIndex, 'subStatId', e.target.value)}
                       fullWidth
-                      size="small"
                       error={!sub.subStatId}
                     >
                       {subStatIds.map((id) => (
@@ -175,7 +167,6 @@ const EquipEditor = ({ equip, index, onChange }) => {
                         )
                       }
                       fullWidth
-                      size="small"
                       error={sub.subStatValue == null || Number.isNaN(sub.subStatValue)}
                     >
                       {valueOptions.length > 0

@@ -68,14 +68,13 @@ function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
           onClick={onClose}
           sx={{ position: 'absolute', right: 8, top: 8 }}
         >
-          <CloseIcon fontSize="small" />
+          <CloseIcon />
         </IconButton>
       </DialogTitle>
 
       <DialogContent>
         <TextField
           fullWidth
-          size="small"
           placeholder="Search characters..."
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -142,13 +141,12 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
           onClick={onClose}
           sx={{ position: 'absolute', right: 8, top: 8 }}
         >
-          <CloseIcon fontSize="small" />
+          <CloseIcon />
         </IconButton>
       </DialogTitle>
       <DialogContent>
         <TextField
           fullWidth
-          size="small"
           placeholder="Search weapons..."
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -268,7 +266,6 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
             Piece bonus:
           </Typography>
           <ToggleButtonGroup
-            size="small"
             exclusive
             value={tierFilter}
             onChange={(_, val) => { if (val !== null) setTierFilter(val); }}
@@ -287,7 +284,6 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
 
         <TextField
           fullWidth
-          size="small"
           placeholder="Search sets..."
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -355,7 +351,6 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false })
         {/* Piece-count badge — bottom-left */}
         <Chip
           label={`${pieces}pc`}
-          size="small"
           sx={{
             position: 'absolute',
             bottom: 2,
@@ -372,7 +367,6 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false })
         {/* Remove X — top-right, visible on hover */}
         {hovered && !disabled && (
           <IconButton
-            size="small"
             onClick={(e) => { e.stopPropagation(); onRemove(); }}
             sx={{
               position: 'absolute',
@@ -514,7 +508,6 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
 
       <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap', mt: 1 }}>
         <Button
-          size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
           onClick={() => onChange(getMember(gameId, id).setCounts)}
@@ -523,7 +516,6 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
           Reset Default
         </Button>
         <Button
-          size="small"
           variant="outlined"
           startIcon={<ClearAllIcon />}
           onClick={() => onChange({})}
@@ -606,7 +598,6 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 {toArray(skillType).map(type => (
                   <Chip
                     key={type}
-                    size="small"
                     label={formatStr(type)}
                     sx={{
                       height: 20,
@@ -627,7 +618,6 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 {toArray(tagged).map(tag => (
                   <Chip
                     key={tag}
-                    size="small"
                     label={tag}
                     sx={{
                       height: 20,
@@ -667,7 +657,6 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
       <Box sx={{ px: 3, mb: 2 }}>
         <TextField
-          size="small"
           placeholder="Search actions..."
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -751,7 +740,6 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
 
         {hovered && onClear && !disabled && (name || imageUrl) && (
           <IconButton
-            size="small"
             onClick={(e) => { e.stopPropagation(); onClear(); }}
             sx={{
               position: 'absolute',
@@ -832,7 +820,6 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
         {toArray(skillType).map(type => (
           <Chip
             key={type}
-            size="small"
             label={formatStr(type)}
             variant="outlined"
             sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
@@ -850,7 +837,6 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
         {toArray(tagged).map(tag => (
           <Chip
             key={tag}
-            size="small"
             label={tag}
             sx={{
               height: 20,
@@ -863,8 +849,8 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
       </Box>
 
       {/* Delete — hover only */}
-      <IconButton className="rotation-delete" size="small" onClick={onRemove} sx={{ flexShrink: 0 }}>
-        <DeleteOutlineOutlinedIcon fontSize="small" />
+      <IconButton className="rotation-delete" onClick={onRemove} sx={{ flexShrink: 0 }}>
+        <DeleteOutlineOutlinedIcon />
       </IconButton>
     </Box>
   );
@@ -965,7 +951,6 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 
       <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
         <Button
-          size="small"
           variant="outlined"
           startIcon={<AddIcon />}
           onClick={() => setSkillDialogOpen(true)}
@@ -973,7 +958,6 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
           Add Action
         </Button>
         <Button
-          size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
           onClick={() => onChange(CHARACTER[gameId][characterId]?.defaults?.rotation ?? [])}
@@ -981,7 +965,6 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
           Reset Default
         </Button>
         <Button
-          size="small"
           variant="outlined"
           startIcon={<ClearAllIcon />}
           onClick={() => onChange([])}
@@ -1087,7 +1070,6 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 <Switch
                   checked={buildLocked}
                   onChange={(e) => handleToggleUserBuild(e.target.checked)}
-                  size="small"
                 />
               }
               label={buildLocked ? 'Using own build' : 'Using trial build'}
@@ -1118,7 +1100,6 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
                 <TextField
                   select
-                  size="small"
                   value={draft.rank ?? ''}
                   onChange={(e) => setDraft(prev => ({ ...prev, rank: Number(e.target.value) }))}
                   disabled={!draft.id || buildLocked}
@@ -1152,7 +1133,6 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
                 <TextField
                   select
-                  size="small"
                   value={draft.weaponRank ?? ''}
                   onChange={(e) => setDraft(prev => ({ ...prev, weaponRank: Number(e.target.value) }))}
                   disabled={!draft.weaponId || buildLocked}

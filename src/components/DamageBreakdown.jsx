@@ -62,7 +62,6 @@ export const DamageBreakdown = ({ userSummary }) => {
               title="How damage is distributed across your rotation."
             >
               <HelpOutlineOutlinedIcon
-                fontSize="small"
                 color="disabled"
               />
             </Tooltip>
