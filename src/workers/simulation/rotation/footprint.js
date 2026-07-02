@@ -21,8 +21,8 @@ const resolveVariableStatMap = (variableStatMap, sourceStatMap) => {
   return resolved;
 };
 
-const getCurrentStatMap = (memberId, memberState, fieldState, baseMap, onFieldId) => {
-  const currentMap = { ...baseMap };
+const getCurrentStatMap = (memberId, memberState, fieldState, initialStatMap, onFieldId) => {
+  const currentMap = { ...initialStatMap };
   const memberFieldState = memberId === onFieldId ? 'active' : 'inactive';
 
   for (const { stacks, effect } of [
@@ -113,7 +113,13 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
       if (effect.ownerId === currId) { // variableStatMaps that scale off currId's stats
         footprint.charVariableEffectSpecs.push({ variableStatMap, stacks, chance });
       } else { // variableStatMaps that scale off teammate stats
-        const ownerCurrentStatMap = getCurrentStatMap(effect.ownerId, memberState, fieldState, cache.member[effect.ownerId].baseMap, onFieldId);
+        const ownerCurrentStatMap = getCurrentStatMap(
+          effect.ownerId,
+          memberState,
+          fieldState,
+          mergeObj(cache.member[effect.ownerId].baseMap, ctx.equipMapByMember[effect.ownerId]),
+          onFieldId,
+        );
         const resolvedStatMap = resolveVariableStatMap(effect.variableStatMap, ownerCurrentStatMap);
 
         for (const statId in resolvedStatMap) {
@@ -146,9 +152,9 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   }
 
   // For teammate actions affected by charVariableEffectSpecs, store the owner's
-  // base statMap so evaluateRotationSummary can reconstruct statMapWithEffects.
+  // base + equip statMap so evaluateFootprint can reconstruct full owner stats.
   if (action.ownerId !== currId && footprint.charVariableEffectSpecs.length) {
-    footprint.ownerBaseStatMap = cache.member[action.ownerId].baseMap;
+    footprint.ownerBaseStatMap = mergeObj(cache.member[action.ownerId].baseMap, ctx.equipMapByMember[action.ownerId]);
   }
 
   // Compute fixed damage for teammate actions that aren't affected by variableStats
