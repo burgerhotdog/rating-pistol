@@ -8,7 +8,7 @@ export const LoadingBar = ({ statusMessage, week, diff }) => {
 
   return (
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <Stack spacing={2} sx={{ width: '50%', maxWidth: 360 }}>
+      <Stack spacing={2} sx={{ width: '50%' }}>
         <Typography variant="body2" color="textSecondary" sx={{ textAlign: 'center' }}>
           {statusMessage || 'Initializing...'}
         </Typography>

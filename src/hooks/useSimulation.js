@@ -2,7 +2,7 @@ import { useMemo, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { GI, WW, ZZZ } from '@/data';
 
-const VALID = new Set([GI, WW, ZZZ]);
+const VALID_GAMES = new Set([GI, WW, ZZZ]);
 
 export const useSimulation = (team) => {
   const { gameId, characterId } = useParams();
@@ -12,7 +12,7 @@ export const useSimulation = (team) => {
   const prevPayloadRef = useRef(undefined);
 
   const payload = useMemo(() => {
-    const isValidGame = VALID.has(gameId);
+    const isValidGame = VALID_GAMES.has(gameId);
     const isValidTeam = team.every(member => !member.id || member.rotation.length > 0);
     const isValid = isValidGame && isValidTeam;
 
