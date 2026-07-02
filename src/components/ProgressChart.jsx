@@ -72,7 +72,7 @@ const getGrade = (pct) => {
 
 export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => {
   const { palette, accentColors } = useTheme();
-  const { gameId } = useParams();
+  const { gameId, characterId } = useParams();
   const disabledColor = palette.action.disabled;
   if (!weeklySummaries) return null;
 
@@ -86,6 +86,14 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
   const toDps = dmg => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
 
   const sortedMembers = [...membersMisc].sort((a, b) => {
+    // Always put the selected character first
+    if (a.id === characterId) return -1;
+    if (b.id === characterId) return 1;
+
+    // Always put "misc" last
+    if (a.id === 'misc') return 1;
+    if (b.id === 'misc') return -1;
+
     const aDps = toDps(sumRotationDmg(userSummary ?? {}, { ownerId: a.id }));
     const bDps = toDps(sumRotationDmg(userSummary ?? {}, { ownerId: b.id }));
 

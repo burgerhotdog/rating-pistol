@@ -3,7 +3,7 @@ import { Box, Divider, Stack } from '@mui/material';
 import { WW } from '@/data';
 import HeaderEnka from './HeaderEnka';
 import HeaderNav from './HeaderNav';
-import HeaderOcr from './HeaderOcr';
+import HeaderOcr from './Ocr/HeaderOcr';
 import HeaderUser from './HeaderUser';
 
 export const Header = () => {

@@ -6,9 +6,10 @@ import { findGoodStats } from './findGoodStats';
 import { compilePenalty } from './penalty';
 import { getSubRollSums } from './utils';
 import { KURO_MAINSTAT_INDEX_ORDER } from './statWeights';
+import { getScore } from './utils';
 
 const MIN_TRIALS = 100;
-const MAX_TRIALS = 1000;
+const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
 const createScoreTracker = () => {
@@ -125,7 +126,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   const baseSummary = simulateRotation(baseMap);
   const baseTotals = getTotals(baseSummary);
   const basePenalty = getPenalty(baseMap);
-  const baseScore = (baseTotals.damage + baseTotals.healing + baseTotals.shield) * basePenalty;
+  const baseScore = getScore(baseTotals, basePenalty);
 
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),

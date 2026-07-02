@@ -2,6 +2,7 @@ import { GI, HSR, WW, ZZZ } from '@/data';
 import { mergeObj, mergeEquipList, getTotals } from '@/utils';
 import { assignMainStat } from './assignMainStat';
 import { revealSubStatKuro, revealSubStatsHoyo, upgradeSubStats } from './assignSubStat';
+import { getScore } from './utils';
 
 const createEquipGenerator = (gameId, goodStats) => {
   const isGoodMain = (equip) => {
@@ -48,7 +49,7 @@ const createEquipGenerator = (gameId, goodStats) => {
   };
 };
 
-const createEquipEvaluator = (baseMap, simulateRotation, getPenalty) => (equip, latest) => {
+const createEquipEvaluator = (baseMap, simulateRotation, getPenalty, currId) => (equip, latest) => {
   const buffer = { ...latest };
 
   const trySlot = index => {
@@ -57,7 +58,7 @@ const createEquipEvaluator = (baseMap, simulateRotation, getPenalty) => (equip, 
     const newSummary = simulateRotation(combinedStatMap);
     const newTotals = getTotals(newSummary);
     const newPenalty = getPenalty(combinedStatMap);
-    const newScore = (newTotals.damage + newTotals.healing + newTotals.shield) * newPenalty;
+    const newScore = getScore(newTotals, newPenalty);
 
     if (newScore > buffer.score) {
       Object.assign(buffer, {
@@ -92,7 +93,7 @@ export const createTrialAdvancer = (cache, currId, goodStats, simulateRotation, 
   const { baseMap } = cache.member[currId];
 
   const generateEquip = createEquipGenerator(gameId, goodStats);
-  const evaluateEquip = createEquipEvaluator(baseMap, simulateRotation, getPenalty);
+  const evaluateEquip = createEquipEvaluator(baseMap, simulateRotation, getPenalty, currId);
 
   const passes = {
     [GI]: [{ count: 66,  slotCount: 5 }],
