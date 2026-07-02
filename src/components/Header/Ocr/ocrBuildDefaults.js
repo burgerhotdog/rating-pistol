@@ -15,16 +15,9 @@ export const mainStatIdToNameByCost = Object.fromEntries(
   ])
 );
 
-export const costOptions = Object.keys(mainStatNameToIdByCost);
 export const subStatIds = Object.keys(subStatValueOptionsById);
 
 export const createBlankEquip = () => ({
-  cost: costOptions[0] ?? '',
-  setId: '',
-  mainStatId: '',
-  mainStatValue: null,
-  mainStatFlatId: 'hp',
-  mainStatFlatValue: null,
   subStatList: Array.from({ length: 5 }, () => ({ subStatId: '', subStatValue: null })),
 });
 

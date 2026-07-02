@@ -7,10 +7,12 @@ import {
   Grid,
   Typography,
   Divider,
+  Autocomplete,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { WW, SET } from '@/data';
 import { mainStatNameToIdByCost, subStatValueOptionsById } from '@/workers/ocr/helpers/maps';
-import { costOptions, subStatIds } from './ocrBuildDefaults';
+import { subStatIds } from './ocrBuildDefaults';
 
 const EquipEditor = ({ equip, index, onChange }) => {
   const { cost, setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList } = equip;
@@ -26,17 +28,15 @@ const EquipEditor = ({ equip, index, onChange }) => {
     onChange(index, { ...equip, subStatList: nextList });
   };
 
-  const missingCount =
-    (!mainStatId ? 1 : 0) +
-    (mainStatValue == null || Number.isNaN(mainStatValue) ? 1 : 0) +
-    subStatList.filter((s) => !s.subStatId || s.subStatValue == null || Number.isNaN(s.subStatValue)).length;
+  const hasError =
+    !mainStatId || mainStatValue == null || Number.isNaN(mainStatValue) ||
+    subStatList.some((line) => !line.subStatId || line.subStatValue == null || Number.isNaN(line.subStatValue));
 
   return (
-    <Accordion defaultExpanded={missingCount > 0}>
+    <Accordion defaultExpanded={hasError}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>
-          Echo {index + 1} (Cost {cost || '?'})
-          {missingCount > 0 ? ` — ${missingCount} field(s) need review` : ''}
+          Echo {index + 1}
         </Typography>
       </AccordionSummary>
 
@@ -48,24 +48,30 @@ const EquipEditor = ({ equip, index, onChange }) => {
               label="Cost"
               value={cost ?? ''}
               onChange={(e) => updateField('cost', e.target.value)}
-              fullWidth
               size="small"
+              fullWidth
+              error={!cost}
             >
-              {costOptions.map((c) => (
-                <MenuItem key={c} value={c}>
-                  {c}
+              {[4, 3, 1].map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
                 </MenuItem>
               ))}
             </TextField>
           </Grid>
 
           <Grid size={6}>
-            <TextField
-              label="Set ID"
-              value={setId ?? ''}
-              onChange={(e) => updateField('setId', e.target.value)}
-              fullWidth
+            <Autocomplete
+              options={Object.values(SET[WW])}
+              getOptionLabel={(option) => option.name ?? ''}
+              isOptionEqualToValue={(option, value) => option.id === value.id}
+              value={SET[WW][setId] ?? null}
+              onChange={(e, newValue) => updateField('setId', newValue?.id)}
               size="small"
+              fullWidth
+              renderInput={(params) => (
+                <TextField {...params} label="Set" error={!setId} />
+              )}
             />
           </Grid>
 
@@ -75,8 +81,8 @@ const EquipEditor = ({ equip, index, onChange }) => {
               label="Main Stat"
               value={mainStatId ?? ''}
               onChange={(e) => updateField('mainStatId', e.target.value)}
-              fullWidth
               size="small"
+              fullWidth
               error={!mainStatId}
             >
               {Object.entries(mainStatOptions).map(([name, id]) => (

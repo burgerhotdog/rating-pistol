@@ -183,12 +183,12 @@ const HeaderOcr = () => {
       {(showBatchScanProgress || error) && (
         <Box sx={{ position: 'absolute', top: '100%', mt: 1, textAlign: 'center' }}>
           {showBatchScanProgress && (
-            <Typography color="text.secondary" variant="body2">
+            <Typography variant="body2" color="textSecondary">
               Running OCR {batchScanIndex} of {batchScanTotal}...
             </Typography>
           )}
           {error && (
-            <Typography color="error" variant="body2">
+            <Typography variant="body2" color="error">
               {error}
             </Typography>
           )}

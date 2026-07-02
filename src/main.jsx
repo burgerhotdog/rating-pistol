@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react';
+import React from 'react';
 import { HashRouter } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider, CssBaseline } from '@mui/material';
@@ -18,15 +18,23 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <ErrorBoundary>
-        <HashRouter>
-          <App />
-        </HashRouter>
-      </ErrorBoundary>
-    </ThemeProvider>
-  </StrictMode>
+const container = document.getElementById('root');
+
+if (!container) {
+  throw new Error('Root container #root was not found');
+}
+
+const ROOT_KEY = '__ratingPistolReactRoot__';
+const root = globalThis[ROOT_KEY] ?? createRoot(container);
+globalThis[ROOT_KEY] = root;
+
+root.render(
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <ErrorBoundary>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </ErrorBoundary>
+  </ThemeProvider>
 );

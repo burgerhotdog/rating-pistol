@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, MenuItem, Grid, Typography } from '@mui/material';
+import { Autocomplete, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, MenuItem, Grid, Typography } from '@mui/material';
+import { WW, CHARACTER } from '@/data';
 import EquipEditor from './EquipEditor';
 import { weaponIdToName } from './ocrBuildDefaults';
 
@@ -47,26 +48,35 @@ const ConfirmDialog = ({
         {build && (
           <Grid container spacing={2} sx={{ mb: 2 }}>
             <Grid size={6}>
-              <TextField
-                label="Character ID"
-                value={characterId ?? ''}
-                onChange={(e) => onUpdateCharacterId(e.target.value)}
-                fullWidth
+              <Autocomplete
+                options={Object.values(CHARACTER[WW])}
+                getOptionLabel={(option) => option.name ?? ''}
+                isOptionEqualToValue={(option, value) => option.id === value.id}
+                value={CHARACTER[WW][characterId] ?? null}
+                onChange={(e, newValue) => onUpdateCharacterId(newValue?.id)}
                 size="small"
-                error={!characterId}
+                fullWidth
+                renderInput={(params) => (
+                  <TextField {...params} label="Character" error={!characterId} />
+                )}
               />
             </Grid>
 
             <Grid size={6}>
               <TextField
+                select
                 label="Rank"
-                type="number"
                 value={build.rank ?? ''}
-                onChange={(e) => onUpdateTopField('rank', e.target.value === '' ? null : Number(e.target.value))}
-                fullWidth
+                onChange={(e) => onUpdateTopField('rank', e.target.value)}
                 size="small"
-                inputProps={{ min: 0, max: 5 }}
-              />
+                fullWidth
+              >
+                {[0, 1, 2, 3, 4, 5, 6].map((option) => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </TextField>
             </Grid>
 
             <Grid size={12}>
@@ -75,8 +85,8 @@ const ConfirmDialog = ({
                 label="Weapon"
                 value={build.weaponId ?? ''}
                 onChange={(e) => onUpdateTopField('weaponId', e.target.value)}
-                fullWidth
                 size="small"
+                fullWidth
                 error={!build.weaponId}
               >
                 {Object.entries(weaponIdToName).map(([id, name]) => (

@@ -172,7 +172,6 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
         weekTotals.push(trial.totals);
       }
     }
-    if (week === 1) console.log(trials.length);
 
     const avgScore = weekScores.mean;
     const diff = (avgScore - prevAvgScore) / prevAvgScore;
