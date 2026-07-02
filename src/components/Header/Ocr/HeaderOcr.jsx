@@ -4,8 +4,9 @@ import { Button, Box, Typography } from '@mui/material';
 import { useBuild, useAuth } from '@/contexts';
 import { useOcrWorker } from './useOcrWorker';
 import ModeSelectDialog from './ModeSelectDialog';
-import ConfirmDialog from './ConfirmDialog';
+import { ConfirmDialog } from './ConfirmDialog';
 import { createBlankBuild } from './ocrBuildDefaults';
+import { WW } from '@/data';
 
 const HeaderOcr = () => {
   const navigate = useNavigate();
@@ -52,9 +53,7 @@ const HeaderOcr = () => {
   const showBatchScanProgress = isOcrLoading && batchScanTotal > 1;
 
   // --- Mode-select dialog handlers ---
-
   const handleSelectUpload = () => {
-    setMenuOpen(false);
     uploadInputRef.current?.click();
   };
 
@@ -65,7 +64,6 @@ const HeaderOcr = () => {
   };
 
   // --- File input handlers ---
-
   const handleUploadFilesChange = (e) => {
     const fileList = e.target.files ? Array.from(e.target.files) : [];
     e.target.value = '';
@@ -74,7 +72,6 @@ const HeaderOcr = () => {
   };
 
   // --- Confirm dialog field editors ---
-
   const updateTopField = (field, value) => {
     setPendingEntry(([characterId, build]) => [characterId, { ...build, [field]: value }]);
   };
@@ -113,7 +110,7 @@ const HeaderOcr = () => {
 
     setIsSaving(true);
     try {
-      await saveBuildEntries('wuthering-waves', entriesToSave);
+      await saveBuildEntries(WW, entriesToSave);
       advanceBatchConfirm();
     } catch (err) {
       console.log(err);
@@ -153,13 +150,12 @@ const HeaderOcr = () => {
 
     setIsSaving(true);
     try {
-      await saveBuildEntries('wuthering-waves', [pendingEntry]);
+      await saveBuildEntries(WW, [pendingEntry]);
       setPendingEntry(null);
       setDialogOpen(false);
       navigate(`/${gameId}/${characterId}`, { replace: true });
     } catch (err) {
       console.log(err);
-      // surfaced via `error` state below is OCR-specific; report save errors separately
     } finally {
       setIsSaving(false);
     }
@@ -167,7 +163,10 @@ const HeaderOcr = () => {
 
   return (
     <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-      <Button onClick={() => setMenuOpen(true)} loading={isLoading}>
+      <Button
+        onClick={() => setMenuOpen(true)}
+        loading={isLoading}
+      >
         Upload Image
       </Button>
 

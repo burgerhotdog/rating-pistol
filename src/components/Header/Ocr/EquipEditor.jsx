@@ -11,13 +11,25 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { WW, SET } from '@/data';
-import { mainStatNameToIdByCost, subStatValueOptionsById } from '@/workers/ocr/helpers/maps';
-import { subStatIds } from './ocrBuildDefaults';
+import { mainStatNameToIdByCost } from '@/workers/ocr/helpers/maps';
+import { mainStatRange, subStatRange } from './statValueRange';
+
+const isInRange = (value = 0, range = []) => {
+  const [min = 0, max = 0] = range;
+
+  return value >= min && value <= max;
+};
 
 const EquipEditor = ({ equip, index, onChange }) => {
   const { cost, setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList } = equip;
 
   const mainStatOptions = mainStatNameToIdByCost[cost] || {};
+
+  const updateCost = (newCost) => {
+    const mainStatFlatId = newCost === 1 ? 'hp' : 'atk';
+    const mainStatFlatValue = mainStatRange[newCost][mainStatFlatId][1];
+    onChange(index, { ...equip, cost: newCost, mainStatFlatId, mainStatFlatValue });
+  };
 
   const updateField = (field, value) => {
     onChange(index, { ...equip, [field]: value });
@@ -42,24 +54,7 @@ const EquipEditor = ({ equip, index, onChange }) => {
 
       <AccordionDetails>
         <Grid container spacing={2}>
-          <Grid size={6}>
-            <TextField
-              select
-              label="Cost"
-              value={cost ?? ''}
-              onChange={(e) => updateField('cost', e.target.value)}
-              fullWidth
-              error={!cost}
-            >
-              {[4, 3, 1].map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
-
-          <Grid size={6}>
+          <Grid size={8}>
             <Autocomplete
               options={Object.values(SET[WW])}
               getOptionLabel={(option) => option.name ?? ''}
@@ -73,7 +68,24 @@ const EquipEditor = ({ equip, index, onChange }) => {
             />
           </Grid>
 
-          <Grid size={6}>
+          <Grid size={4}>
+            <TextField
+              select
+              label="Cost"
+              value={cost ?? ''}
+              onChange={(e) => updateCost(e.target.value)}
+              fullWidth
+              error={!cost}
+            >
+              {[4, 3, 1].map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+
+          <Grid size={8}>
             <TextField
               select
               label="Main Stat"
@@ -90,7 +102,7 @@ const EquipEditor = ({ equip, index, onChange }) => {
             </TextField>
           </Grid>
 
-          <Grid size={6}>
+          <Grid size={4}>
             <TextField
               label="Main Stat Value (%)"
               type="number"
@@ -101,27 +113,20 @@ const EquipEditor = ({ equip, index, onChange }) => {
             />
           </Grid>
 
-          <Grid size={6}>
+          <Grid size={8}>
             <TextField
-              select
-              label="Flat Stat Type"
               value={mainStatFlatId ?? ''}
-              onChange={(e) => updateField('mainStatFlatId', e.target.value)}
               fullWidth
-            >
-              <MenuItem value="hp">hp</MenuItem>
-              <MenuItem value="atk">atk</MenuItem>
-            </TextField>
+              disabled
+            />
           </Grid>
 
-          <Grid size={6}>
+          <Grid size={4}>
             <TextField
-              label="Flat Stat Value"
-              type="number"
               value={mainStatFlatValue ?? ''}
-              onChange={(e) => updateField('mainStatFlatValue', e.target.value === '' ? null : Number(e.target.value))}
-              error={mainStatFlatValue == null || Number.isNaN(mainStatFlatValue)}
               fullWidth
+              error={!isInRange(mainStatFlatValue, mainStatRange[cost]?.[mainStatFlatId])}
+              disabled={!mainStatFlatId}
             />
           </Grid>
 
@@ -133,32 +138,33 @@ const EquipEditor = ({ equip, index, onChange }) => {
           </Grid>
 
           {subStatList.map((sub, subIndex) => {
-            const valueOptions = (subStatValueOptionsById[sub.subStatId] || []).map((value) => sub.subStatId.endsWith('%') ? value / 100 : value);
+            const { subStatId, subStatValue } = sub;
+            
             return (
               <Grid size={12} key={subIndex}>
                 <Grid container spacing={1}>
-                  <Grid size={7}>
+                  <Grid size={8}>
                     <TextField
                       select
                       label={`Sub Stat ${subIndex + 1}`}
-                      value={sub.subStatId ?? ''}
+                      value={subStatId ?? ''}
                       onChange={(e) => updateSubStat(subIndex, 'subStatId', e.target.value)}
                       fullWidth
-                      error={!sub.subStatId}
+                      error={!subStatId}
                     >
-                      {subStatIds.map((id) => (
+                      {Object.keys(subStatRange).map((id) => (
                         <MenuItem key={id} value={id}>
                           {id}
                         </MenuItem>
                       ))}
                     </TextField>
                   </Grid>
-                  <Grid size={5}>
+
+                  <Grid size={4}>
                     <TextField
-                      select={valueOptions.length > 0}
                       label="Value"
-                      type={valueOptions.length > 0 ? undefined : 'number'}
-                      value={sub.subStatValue ?? ''}
+                      type="number"
+                      value={subStatValue ?? ''}
                       onChange={(e) =>
                         updateSubStat(
                           subIndex,
@@ -167,16 +173,8 @@ const EquipEditor = ({ equip, index, onChange }) => {
                         )
                       }
                       fullWidth
-                      error={sub.subStatValue == null || Number.isNaN(sub.subStatValue)}
-                    >
-                      {valueOptions.length > 0
-                        ? valueOptions.map((val) => (
-                            <MenuItem key={val} value={val}>
-                              {val}
-                            </MenuItem>
-                          ))
-                        : null}
-                    </TextField>
+                      error={!isInRange(subStatValue, subStatRange[subStatId]) || Number.isNaN(subStatValue)}
+                    />
                   </Grid>
                 </Grid>
               </Grid>
