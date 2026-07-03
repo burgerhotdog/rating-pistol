@@ -232,7 +232,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
                           <Dot bgcolor={memberColors.toReversed()[index]} />
 
                           <Typography variant='body2'>
-                            {CHARACTER[gameId][member.id].name}:
+                            {CHARACTER[gameId][member.id]?.name ?? 'misc'}:
                           </Typography>
                         </Box>
 

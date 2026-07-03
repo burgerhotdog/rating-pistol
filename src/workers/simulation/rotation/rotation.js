@@ -4,6 +4,7 @@ import { createCdTracker, isOnCooldown, setCooldown, advanceCooldowns } from './
 import { buildFootprint, evaluateFootprint } from './footprint';
 import { formulaConfig as getFormulaConfig } from '../config';
 import { buildStatusFootprint } from './status';
+import { applyTune, advanceTune } from './offtune';
 
 const MAX_PROC_DEPTH = 5;
 
@@ -122,28 +123,6 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
     if ('applyCooldown' in effect) {
       setCooldown(ctx, 'apply', effect.key, effect.applyCooldown);
     }
-  }
-}
-
-function applyTune(ctx, action) {
-  const { offTuneState } = ctx;
-  if (offTuneState.cooldown) return;
-
-  if ('shiftTune' in action) {
-    offTuneState.shifted = action.shiftTune;
-  }
-
-  offTuneState.level++;
-}
-
-function advanceTune(ctx, elapsed) {
-  const { offTuneState } = ctx;
-  if (!offTuneState.cooldown) return;
-
-  offTuneState.cooldown -= elapsed;
-
-  if (offTuneState.cooldown <= 0) {
-    delete offTuneState.cooldown;
   }
 }
 
