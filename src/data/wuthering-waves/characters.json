@@ -4945,10 +4945,10 @@
     "baseStats": {
       "baseHp": 15375,
       "baseAtk": 287,
-      "baseDef": 1356
+      "baseDef": 1356,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "healingBonus%": 0.12,
       "def%": 0.152
     },
@@ -4994,10 +4994,10 @@
     "baseStats": {
       "baseHp": 12237,
       "baseAtk": 375,
-      "baseDef": 1197
+      "baseDef": 1197,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "critRate%": 0.08,
       "atk%": 0.12
     },
@@ -5045,10 +5045,10 @@
     "baseStats": {
       "baseHp": 11025,
       "baseAtk": 425,
-      "baseDef": 1148
+      "baseDef": 1148,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "critRate%": 0.08,
       "atk%": 0.12
     },
@@ -5101,10 +5101,10 @@
     "baseStats": {
       "baseHp": 10300,
       "baseAtk": 462,
-      "baseDef": 1112
+      "baseDef": 1112,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "critRate%": 0.08,
       "atk%": 0.12
     },
@@ -5268,10 +5268,10 @@
     "baseStats": {
       "baseHp": 11025,
       "baseAtk": 425,
-      "baseDef": 1148
+      "baseDef": 1148,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "critDmg%": 0.16,
       "atk%": 0.12
     },
@@ -5328,7 +5328,8 @@
     "baseStats": {
       "baseHp": 11600,
       "baseAtk": 400,
-      "baseDef": 1173
+      "baseDef": 1173,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critRate%": 0.08,
@@ -5357,7 +5358,8 @@
     "baseStats": {
       "baseHp": 11025,
       "baseAtk": 425,
-      "baseDef": 1148
+      "baseDef": 1148,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critRate%": 0.08,
@@ -5374,7 +5376,28 @@
         "32": 1,
         "26": 2,
         "24": 2
-      }
+      },
+      "rotation": [
+        "introSkill.1",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "resonanceSkill.4",
+        "normalAttack.11",
+        "normalAttack.12",
+        "normalAttack.13",
+        "normalAttack.14",
+        "normalAttack.16",
+        "normalAttack.17",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "resonanceLiberation.5",
+        "outroSkill.1"
+      ]
     }
   }
 ]

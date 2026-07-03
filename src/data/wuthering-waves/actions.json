@@ -33714,6 +33714,7 @@
         "name": "Kaleidoscopic Parade: Iridescent Splash",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33745,6 +33746,7 @@
         "name": "Kaleidoscopic Parade: Visual Impact",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33775,6 +33777,7 @@
       "3": {
         "name": "Kaleidoscopic Parade: Polychrome Leap 1",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33806,6 +33809,7 @@
       "4": {
         "name": "Kaleidoscopic Parade: Polychrome Leap 2",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33837,6 +33841,7 @@
       "5": {
         "name": "Kaleidoscopic Parade: Polychrome Leap 3",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33901,6 +33906,7 @@
       "1": {
         "name": "Time to Show Some Colors!",
         "skillType": "introSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34054,6 +34060,7 @@
       "3": {
         "name": "Basic Attack 3",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34133,6 +34140,7 @@
       "4": {
         "name": "Basic Attack 4",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34412,6 +34420,7 @@
       "1": {
         "name": "Sync Strike: Armament Merge",
         "skillType": "resonanceSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34490,6 +34499,7 @@
       "2": {
         "name": "Mech: Sync Strike: Call of Dawn",
         "skillType": "resonanceSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34630,6 +34640,7 @@
       "5": {
         "name": "Mech: Basic Attack 3",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34709,6 +34720,7 @@
       "6": {
         "name": "Mech: Basic Attack 4",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35301,6 +35313,7 @@
       "1": {
         "name": "Songs Across the Universe",
         "skillType": "introSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35356,6 +35369,7 @@
       "2": {
         "name": "Debut of Meteoric Radiance",
         "skillType": "introSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35810,6 +35824,7 @@
         "name": "Mid-air Attack 2 Scythe: Resection",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35865,6 +35880,7 @@
         "name": "Mid-air Attack 3 Scythe: Resection",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36037,6 +36053,7 @@
       "1": {
         "name": "Golden Reflux",
         "skillType": "resonanceSkill",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36068,6 +36085,7 @@
         "name": "Aureole of Execution: Ring",
         "skillType": "resonanceSkill",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36124,6 +36142,7 @@
         "name": "Aureole of Execution: Breach",
         "skillType": "resonanceSkill",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36156,6 +36175,7 @@
         "name": "Aureole of Execution: Glare",
         "skillType": "resonanceSkill",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43001,7 +43021,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -43135,7 +43155,7 @@
         ]
       },
       "9": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "tagged": "Algorithm Compaction",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
@@ -44064,6 +44084,7 @@
         "name": "Multithreading",
         "tagged": "Algorithm Compaction",
         "skillType": "heavyAttack",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44121,6 +44142,7 @@
       "1": {
         "name": "Payload: Charge",
         "skillType": "resonanceSkill",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44173,8 +44195,8 @@
         ]
       },
       "2": {
-        "name": "Payload: Follow-Up Attack",
-        "skillType": "resonanceSkill",
+        "name": "Payload: Follow-up Attack",
+        "dmgType": "resonanceSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44335,6 +44357,7 @@
         "tagged": "Algorithm Compaction",
         "skillType": "resonanceSkill",
         "dmgType": "heavyAttack",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44514,7 +44537,9 @@
       },
       "5": {
         "name": "Old Net Deep Dive: Override",
+        "tagged": "Algorithm Compaction",
         "skillType": "resonanceLiberation",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [

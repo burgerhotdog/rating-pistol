@@ -125,6 +125,28 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
   }
 }
 
+function applyTune(ctx, action) {
+  const { offTuneState } = ctx;
+  if (offTuneState.cooldown) return;
+
+  if ('shiftTune' in action) {
+    offTuneState.shifted = action.shiftTune;
+  }
+
+  offTuneState.level++;
+}
+
+function advanceTune(ctx, elapsed) {
+  const { offTuneState } = ctx;
+  if (!offTuneState.cooldown) return;
+
+  offTuneState.cooldown -= elapsed;
+
+  if (offTuneState.cooldown <= 0) {
+    delete offTuneState.cooldown;
+  }
+}
+
 function advanceEffectStates(ctx, elapsed) {
   const { memberState, fieldState, enemyState } = ctx;
 
@@ -313,11 +335,13 @@ function processTopLevelAction(ctx, action) {
       ctx.footprints.push(footprint);
     }
 
+    applyTune(ctx, action);
     applyEffects(ctx, action, 'hit');
     processFollowUpActions(ctx, action, 0);
     decayProcCounts(ctx, action);
 
     // ── Inter-hit window ─────────────────────────────────────────────
+    advanceTune(ctx, hitInterval);
     advanceEffectStates(ctx, hitInterval);
     tickStatuses(ctx, hitInterval);
     processIntervalActions(ctx, hitInterval, 0);
@@ -333,6 +357,7 @@ function processProcAction(ctx, action, depth, repeatCount) {
     ctx.footprints.push(footprint);
   }
 
+  applyTune(ctx, action);
   applyEffects(ctx, action, 'hit', repeatCount);
   processFollowUpActions(ctx, action, depth);
 }
@@ -369,6 +394,7 @@ export const compileRotation = (cache, currId, team) => {
     memberState,
     fieldState: { active: {}, inactive: {} },
     enemyState: { stat: {}, status: {} },
+    offTuneState: { level: 0 },
     cooldowns: createCdTracker(),
     recordFootprint: false,
     footprints: [],
