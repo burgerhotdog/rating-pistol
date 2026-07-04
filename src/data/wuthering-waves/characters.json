@@ -5346,7 +5346,20 @@
         "32": 1,
         "9": 2,
         "3": 2
-      }
+      },
+      "rotation": [
+        "introSkill.1",
+        "normalAttack.10",
+        "normalAttack.11",
+        "normalAttack.12",
+        "resonanceSkill.2",
+        "forteCircuit.2",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "outroSkill.1"
+      ]
     }
   },
   {

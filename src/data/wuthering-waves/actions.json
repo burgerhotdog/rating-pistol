@@ -42193,6 +42193,7 @@
     "introSkill": {
       "1": {
         "name": "Yo, It's Big Boomin' Time!",
+        "tagged": "Huntress",
         "skillType": "introSkill",
         "indexedMultipliers": [
           {
@@ -42391,6 +42392,7 @@
       },
       "2": {
         "name": "Hey, Leadhead, Come 'n' Get Me!",
+        "tagged": "Guts",
         "skillType": "introSkill",
         "indexedMultipliers": [
           {
