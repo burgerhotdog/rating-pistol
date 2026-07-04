@@ -205,7 +205,7 @@ function decayProcCounts(ctx, action) {
 
       if (effectState.usesRemaining === Infinity) continue;
       if ('followUpAction' in effectState.effect || 'intervalAction' in effectState.effect) continue;
-      if (!matchUseOn(action, effectState.effect) || !matchUseIf(action, effectState.effect, ctx)) continue;
+      if (!matchUseOn(effectState.effect, action) || !matchUseIf(effectState.effect, action.ownerId, ctx)) continue;
 
       effectState.usesRemaining -= 1;
 
@@ -231,7 +231,7 @@ function processFollowUpActions(ctx, action, depth) {
     for (const [effectKey, effectState] of Object.entries(effectStates)) {
       const { effect } = effectState;
       if (!('followUpAction' in effect) || isOnCooldown(ctx, 'use', effectKey)) continue;
-      if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
+      if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
 
       if ('useCooldown' in effect) {
         setCooldown(ctx, 'use', effectKey, effect.useCooldown);

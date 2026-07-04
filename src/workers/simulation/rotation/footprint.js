@@ -1,59 +1,9 @@
-import { getAttr, mergeObj, mergeObjs } from '@/utils';
+import { mergeObj, mergeObjs } from '@/utils';
 import { matchUseOn, matchUseIf } from '../match';
+import { resolveVariableStatMap } from '../utils';
 import { isOnCooldown, setCooldown } from './cooldowns';
 import { damageFormula } from './formula';
-
-const resolveVariableStatMap = (variableStatMap, sourceStatMap) => {
-  const resolved = {};
-
-  for (const statId in variableStatMap) {
-    resolved[statId] = 0;
-    const args = variableStatMap[statId];
-
-    for (const { attr, offset = 0, step, value, max = Infinity } of args) {
-      const attrValue = getAttr(attr, sourceStatMap);
-      const mult = Math.max((attrValue - offset) / step, 0);
-
-      resolved[statId] += Math.min(value * mult, max);
-    }
-  }
-
-  return resolved;
-};
-
-const getCurrentStatMap = (memberId, memberState, fieldState, initialStatMap, onFieldId) => {
-  const currentMap = { ...initialStatMap };
-  const memberFieldState = memberId === onFieldId ? 'active' : 'inactive';
-
-  for (const { stacks, effect } of [
-    ...Object.values(memberState[memberId]),
-    ...Object.values(fieldState[memberFieldState]),
-  ]) {
-    const { chance, statMap } = effect;
-    if (!statMap) continue;
-
-    for (const statId in statMap) {
-      currentMap[statId] ??= 0;
-      currentMap[statId] += statMap[statId] * stacks * chance;
-    }
-  }
-
-  for (const { stacks, effect } of [
-    ...Object.values(memberState[memberId]),
-    ...Object.values(fieldState[memberFieldState]),
-  ]) {
-    const { chance, variableStatMap } = effect;
-    if (!variableStatMap) continue;
-
-    const resolvedStatMap = resolveVariableStatMap(variableStatMap, currentMap);
-    for (const statId in resolvedStatMap) {
-      currentMap[statId] ??= 0;
-      currentMap[statId] += resolvedStatMap[statId] * stacks * chance;
-    }
-  }
-
-  return currentMap;
-};
+import { getCurrentStatMap } from './getCurrentStatMap';
 
 export const buildFootprint = (ctx, action, repeatCount = 1) => {
   const { cache, currId, onFieldId, memberState, fieldState, enemyState, formulaConfig } = ctx;
@@ -96,7 +46,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
     ...Object.values(memberState[action.ownerId]),
     ...Object.values(fieldState[actionOwnerFieldState]),
   ]) {
-    if (!matchUseOn(action, effect) || !matchUseIf(action, effect, ctx)) continue;
+    if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
     if ('followUpAction' in effect || 'intervalAction' in effect) continue;
     if (isOnCooldown(ctx, 'use', effect.key)) continue;
 
@@ -113,13 +63,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
       if (effect.ownerId === currId) { // variableStatMaps that scale off currId's stats
         footprint.charVariableEffectSpecs.push({ variableStatMap, stacks, chance });
       } else { // variableStatMaps that scale off teammate stats
-        const ownerCurrentStatMap = getCurrentStatMap(
-          effect.ownerId,
-          memberState,
-          fieldState,
-          mergeObj(cache.member[effect.ownerId].baseMap, ctx.equipMapByMember[effect.ownerId]),
-          onFieldId,
-        );
+        const ownerCurrentStatMap = getCurrentStatMap(ctx, effect.ownerId);
         const resolvedStatMap = resolveVariableStatMap(effect.variableStatMap, ownerCurrentStatMap);
 
         for (const statId in resolvedStatMap) {

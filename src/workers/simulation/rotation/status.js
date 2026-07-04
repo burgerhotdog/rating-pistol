@@ -1,8 +1,8 @@
 import { MISC } from '@/data';
 
 const STACK_MULTIPLIER = {
-  'FRAZZLE': [0.24, 0.4355, 0.6298, 0.8251, 1.02, 1.216, 1.409, 1.605, 1.8, 1.995],
-  'EROSION': [0.36, 0.899, 1.799, 2.698, 3.597, 4.497],
+  'spectroFrazzle': [0.24, 0.4355, 0.6298, 0.8251, 1.02, 1.216, 1.409, 1.605, 1.8, 1.995],
+  'aeroErosion': [0.36, 0.899, 1.799, 2.698, 3.597, 4.497],
 };
 
 export const buildStatusFootprint = (ctx, statusId, stacks) => {
@@ -25,9 +25,9 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
   }
 
   const baseDmg = 3674 * 1.25078 * (STACK_MULTIPLIER[statusId]?.[stacks - 1] ?? 0);
-  const bonuses = 1 + (enemyStatMap[`AMP_${statusId}`] ?? 0);
+  const bonuses = 1 + (enemyStatMap[`${statusId}DmgAmp%`] ?? 0);
 
-  const totalRes = 0.1 - (enemyStatMap[`SHRED_${status.element}_RES`] ?? 0);
+  const totalRes = 0.1 - (enemyStatMap[`${status.element}ResReduction%`] ?? 0);
 
   let resMult;
   if (totalRes < 0) {
@@ -39,8 +39,8 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
   }
 
   return {
-    key: `misc:${statusId}`,
-    ownerId: 'misc',
+    key: `other:${statusId}`,
+    ownerId: 'other',
     type: 'damage',
     dmgType: 'status',
     fixed: baseDmg * bonuses * resMult,

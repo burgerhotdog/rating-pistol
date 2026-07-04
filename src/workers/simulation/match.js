@@ -88,8 +88,8 @@ const matchIfAttr = (ifAttr, statMap) => {
   return false;
 };
 
-const matchIfField = (ifField, action, activeId) => {
-  const isActive = action.ownerId === activeId;
+const matchIfField = (ifField, memberId, activeId) => {
+  const isActive = memberId === activeId;
   return ifField === isActive;
 };
 
@@ -134,9 +134,18 @@ export const matchRemoveOn = (action, effect) => {
   return false;
 };
 
-export const matchUseOn = (action, effect) => {
+export const matchUseOn = (effect, action) => {
   const { useOnAction, useOnType, useOnTagged, useOnSkillType, useOnDmgType, useOnElement } = effect;
-  if (!(useOnAction || useOnType || useOnTagged || useOnSkillType || useOnDmgType || useOnElement)) return true;
+  if (!(
+    useOnAction ||
+    useOnType ||
+    useOnTagged ||
+    useOnSkillType ||
+    useOnDmgType ||
+    useOnElement
+  )) return true;
+
+  if (!action) return false;
 
   if (useOnAction && matchOnAction(useOnAction, action)) return true;
   if (useOnType && matchOnType(useOnType, action)) return true;
@@ -149,30 +158,42 @@ export const matchUseOn = (action, effect) => {
 };
 
 export const matchApplyIf = (action, effect, ctx) => {
-  if (!('applyIfWeapon' in effect || 'applyIfType' in effect || 'applyIfStatus' in effect || 'applyIfField' in effect)) return true;
+  if (!(
+    'applyIfWeapon' in effect ||
+    'applyIfType' in effect ||
+    'applyIfStatus' in effect ||
+    'applyIfField' in effect
+  )) return true;
 
   if ('applyIfWeapon' in effect && matchIfWeapon(effect.applyIfWeapon, CHARACTER[ctx.cache.gameId][effect.ownerId].type)) return true;
   if ('applyIfType' in effect && matchOnType(effect.applyIfType, action)) return true;
   if ('applyIfStatus' in effect && matchIfStatus(effect.applyIfStatus, ctx.enemyState.status)) return true;
-  if ('applyIfField' in effect && matchIfField(effect.applyIfField, action, ctx.activeId)) return true;
+  if ('applyIfField' in effect && matchIfField(effect.applyIfField, action.ownerId, ctx.activeId)) return true;
 
   return false;
 };
 
 export const matchRemoveIf = (action, effect, ctx) => {
   if ('removeIfStatus' in effect && matchIfStatus(effect.removeIfStatus, ctx.enemyState.status)) return true;
-  if ('removeIfField' in effect && matchIfField(effect.removeIfField, action, ctx.activeId)) return true;
+  if ('removeIfField' in effect && matchIfField(effect.removeIfField, action.ownerId, ctx.activeId)) return true;
 
   return false;
 };
 
-export const matchUseIf = (action, effect, ctx) => {
-  if (!('useIfWeapon' in effect || 'useIfTagged' in effect || 'useIfStatus' in effect || 'useIfAttr' in effect || 'useIfField' in effect || 'useIfElement' in effect)) return true;
+export const matchUseIf = (effect, memberId, ctx) => {
+  if (!(
+    'useIfWeapon' in effect ||
+    'useIfTagged' in effect ||
+    'useIfStatus' in effect ||
+    'useIfAttr' in effect ||
+    'useIfField' in effect ||
+    'useIfElement' in effect
+  )) return true;
 
   if ('useIfWeapon' in effect && matchIfWeapon(effect.useIfWeapon, CHARACTER[ctx.cache.gameId][effect.ownerId].type)) return true;
   if ('useIfTagged' in effect && matchIfTagged(effect.useIfTagged, toArray(CHARACTER[ctx.cache.gameId][effect.ownerId].tagged))) return true;
   if ('useIfStatus' in effect && matchIfStatus(effect.useIfStatus, ctx.enemyState.status)) return true;
-  if ('useIfField' in effect && matchIfField(effect.useIfField, action, ctx.activeId)) return true;
+  if ('useIfField' in effect && matchIfField(effect.useIfField, memberId, ctx.activeId)) return true;
   if ('useIfAttr' in effect && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.member[effect.ownerId].baseMap, ctx.equipMapByMember[effect.ownerId]))) return true;
   if ('useIfElement' in effect && matchIfElement(effect.useIfElement, CHARACTER[ctx.cache.gameId][effect.ownerId].element)) return true;
 

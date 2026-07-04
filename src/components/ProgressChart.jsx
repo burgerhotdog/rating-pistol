@@ -78,7 +78,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
   const members = team.filter(member => member.id);
   const membersMisc = [
     ...members,
-    ...(Object.values(userSummary).some(result => result.ownerId === 'misc') ? [{ id: 'misc' }] : []),
+    ...(Object.values(userSummary).some(result => result.ownerId === 'other') ? [{ id: 'other' }] : []),
   ];
 
   const rotationTime = cache.fullRotationTime;
@@ -89,9 +89,9 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
     if (a.id === characterId) return -1;
     if (b.id === characterId) return 1;
 
-    // Always put "misc" last
-    if (a.id === 'misc') return 1;
-    if (b.id === 'misc') return -1;
+    // Always put "other" last
+    if (a.id === 'other') return 1;
+    if (b.id === 'other') return -1;
 
     const aDps = toDps(sumRotationDmg(userSummary ?? {}, { ownerId: a.id }));
     const bDps = toDps(sumRotationDmg(userSummary ?? {}, { ownerId: b.id }));
@@ -100,7 +100,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
   });
 
   const memberColors = sortedMembers.toReversed().map(member => {
-    if (member.id === 'misc') return '#ffffff';
+    if (member.id === 'other') return '#ffffff';
     const { element } = CHARACTER[gameId][member.id];
 
     return accentColors[gameId][element] ?? disabledColor;
@@ -232,7 +232,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
                           <Dot bgcolor={memberColors.toReversed()[index]} />
 
                           <Typography variant='body2'>
-                            {CHARACTER[gameId][member.id]?.name ?? 'misc'}:
+                            {CHARACTER[gameId][member.id]?.name ?? 'Other'}:
                           </Typography>
                         </Box>
 

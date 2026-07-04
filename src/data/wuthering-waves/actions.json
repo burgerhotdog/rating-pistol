@@ -32708,9 +32708,10 @@
         ]
       },
       "5": {
-        "name": "Tune Rupture Response - Particle Jet",
-        "dmgType": "TR",
-        "attr": "TUNE",
+        "name": "Particle Jet",
+        "skillType": "tuneResponse",
+        "dmgType": "tuneRupture",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33871,9 +33872,10 @@
         ]
       },
       "6": {
-        "name": "Tune Rupture Response - Spectral Analysis",
-        "dmgType": "TB",
-        "attr": "TUNE",
+        "name": "Spectral Analysis",
+        "skillType": "tuneResponse",
+        "dmgType": "tuneRupture",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35247,9 +35249,10 @@
         ]
       },
       "3": {
-        "name": "Tune Rupture Response - Starburst",
-        "dmgType": "TB",
-        "attr": "TUNE",
+        "name": "Starburst",
+        "skillType": "tuneResponse",
+        "dmgType": "tuneRupture",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35280,7 +35283,7 @@
       "4": {
         "name": "Seraphic Duet Bonus DMG (Per Instance)",
         "dmgType": "buff",
-        "attr": "TUNE",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41995,10 +41998,10 @@
     },
     "forteCircuit": {
       "1": {
-        "name": "Hack Response - Meltdown",
-        "type": "break",
-        "dmgType": "HACK",
-        "attr": "TUNE",
+        "name": "Meltdown",
+        "type": "tuneResponse",
+        "dmgType": "hack",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44506,8 +44509,8 @@
       },
       "4": {
         "name": "Spoofing Program: Cripple Movement",
-        "dmgType": "HACK",
-        "attr": "TUNE",
+        "dmgType": "hack",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44570,10 +44573,10 @@
     },
     "forteCircuit": {
       "1": {
-        "name": "Hack Response - Data Crash",
-        "type": "break",
-        "dmgType": "HACK",
-        "attr": "TUNE",
+        "name": "Data Crash",
+        "skilltype": "tuneResponse",
+        "dmgType": "hack",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
