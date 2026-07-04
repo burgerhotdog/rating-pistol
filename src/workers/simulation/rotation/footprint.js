@@ -3,10 +3,10 @@ import { matchUseOn, matchUseIf } from '../match';
 import { resolveVariableStatMap } from '../utils';
 import { isOnCooldown, setCooldown } from './cooldowns';
 import { damageFormula } from './formula';
-import { getCurrentStatMap } from './getCurrentStatMap';
+import { getCurrentEnemyStatMap, getCurrentStatMap } from './getCurrentStatMap';
 
 export const buildFootprint = (ctx, action, repeatCount = 1) => {
-  const { cache, currId, onFieldId, memberState, fieldState, enemyState, formulaConfig } = ctx;
+  const { cache, currId, onFieldId, memberState, fieldState, formulaConfig } = ctx;
 
   const actionOwnerFieldState = action.ownerId === onFieldId ? 'active' : 'inactive';
   const characterIdFieldState = currId === onFieldId ? 'active' : 'inactive';
@@ -27,18 +27,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   }
 
   // Resolve enemyStatMap
-  for (const { stacks = 1, effect } of [
-    ...(cache.passive.enemy ?? []).map(effect => ({ effect })),
-    ...Object.values(enemyState.stat),
-  ]) {
-    const { chance = 1, statMap } = effect;
-    if (!statMap) continue;
-
-    for (const statId in statMap) {
-      footprint.enemyStatMap[statId] ??= 0;
-      footprint.enemyStatMap[statId] += statMap[statId] * stacks * chance;
-    }
-  }
+  footprint.enemyStatMap = getCurrentEnemyStatMap(ctx);
 
   for (const { stacks = 1, effect } of [
     ...(cache.passive[action.ownerId] ?? []).map(effect => ({ effect })),

@@ -22,7 +22,7 @@ export const getCurrentEnemyStatMap = (ctx) => {
   return currentMap;
 };
 
-export const getCurrentStatMap = (ctx, memberId, action) => {
+export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
   const { cache, memberState, fieldState } = ctx;
   const { baseMap } = cache.member[memberId];
   const equipMap = ctx.equipMapByMember[memberId];
@@ -54,13 +54,15 @@ export const getCurrentStatMap = (ctx, memberId, action) => {
     }
   }
 
+  if (ignoreVariable) return currentMap;
+
   for (const { stacks = 1, effect } of allEffectStates) {
     if (!isEnabled(effect)) continue;
   
     const { chance = 1, variableStatMap } = effect;
     if (!variableStatMap) continue;
 
-    const resolvedStatMap = resolveVariableStatMap(variableStatMap, currentMap);
+    const resolvedStatMap = resolveVariableStatMap(variableStatMap, getCurrentStatMap(ctx, effect.ownerId, null, true));
     for (const statId in resolvedStatMap) {
       currentMap[statId] ??= 0;
       currentMap[statId] += resolvedStatMap[statId] * stacks * chance;
