@@ -15,7 +15,8 @@ const DEFAULT = {
   [WW]: {
     "critRate%": 0.05,
     "critDmg%": 0.5,
-    "energyRegen%": 1
+    "energyRegen%": 1,
+    "offTuneBuildupRate%": 1,
   },
   [ZZZ]: {
     "baseEnergyRegen": 1.2,

@@ -4946,7 +4946,7 @@
       "baseHp": 15375,
       "baseAtk": 287,
       "baseDef": 1356,
-      "tuneBreakBoost%": 0.1
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "healingBonus%": 0.12,
@@ -4995,7 +4995,7 @@
       "baseHp": 12237,
       "baseAtk": 375,
       "baseDef": 1197,
-      "tuneBreakBoost%": 0.1
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critRate%": 0.08,
@@ -5046,7 +5046,7 @@
       "baseHp": 11025,
       "baseAtk": 425,
       "baseDef": 1148,
-      "tuneBreakBoost%": 0.1
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critRate%": 0.08,
@@ -5102,7 +5102,7 @@
       "baseHp": 10300,
       "baseAtk": 462,
       "baseDef": 1112,
-      "tuneBreakBoost%": 0.1
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critRate%": 0.08,
@@ -5269,7 +5269,7 @@
       "baseHp": 11025,
       "baseAtk": 425,
       "baseDef": 1148,
-      "tuneBreakBoost%": 0.1
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critDmg%": 0.16,
@@ -5329,7 +5329,7 @@
       "baseHp": 11600,
       "baseAtk": 400,
       "baseDef": 1173,
-      "tuneBreakBoost%": 0.1
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critRate%": 0.08,
@@ -5372,7 +5372,7 @@
       "baseHp": 11025,
       "baseAtk": 425,
       "baseDef": 1148,
-      "tuneBreakBoost%": 0.1
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critRate%": 0.08,

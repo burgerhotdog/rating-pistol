@@ -5,7 +5,7 @@ const levelModifier = 716.22;
 const enemyTypeModifier = 14;
 
 const tuneBreakDamage = (tuneAmp, enemyStatMap, statMap) => {
-  const tuneBreakBoostMult = 1 + getAttr('tuneBreakBoost%', statMap);
+  const tuneBreakBoostMult = 1 + getAttr('tuneBreakBoost', statMap) / 100;
   return levelModifier * tuneAmp * 0.5 * enemyTypeModifier * 0.9 * tuneBreakBoostMult;
 };
 
@@ -52,7 +52,7 @@ export function applyTune(ctx, action) {
   }
 
   const currStatMap = getCurrentStatMap(ctx, action.ownerId);
-  const buildupRateMult = 1 + getAttr('offtuneBuildupRate%', currStatMap);
+  const buildupRateMult = getAttr('offTuneBuildupRate%', currStatMap);
 
   offTuneState.level += 10 * buildupRateMult;
 
