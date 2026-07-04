@@ -355,6 +355,7 @@ function processAction(ctx, action, depth, repeatCount = 1) {
 }
 
 export const compileRotation = (cache, currId, team) => {
+  console.log('compilingRotation', currId);
   const equipMapByMember = {};
   const memberState = {};
 
@@ -379,6 +380,7 @@ export const compileRotation = (cache, currId, team) => {
     footprints: [],
     formulaConfig,
   };
+  console.log('prime pass start');
 
   for (const member of team.toReversed()) {
     const { rotation } = cache.member[member.id];
@@ -388,6 +390,8 @@ export const compileRotation = (cache, currId, team) => {
       processAction(ctx, action, 0);
     }
   }
+
+  console.log('prime pass done');
 
   ctx.recordFootprint = true;
 

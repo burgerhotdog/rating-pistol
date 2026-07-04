@@ -5378,6 +5378,130 @@
       "critRate%": 0.08,
       "atk%": 0.12
     },
+    "effects": [
+      {
+        "applyTo": "enemy",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.7",
+        "statMap": {
+          "dmgBonus%": 0.05
+        },
+        "duration": 30000
+      },
+      {
+        "applyTo": "enemy",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.8",
+        "statMap": {
+          "defReduction%": 0.05
+        },
+        "duration": 30000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceSkill.4",
+        "useOnAction": "normalAttack.17",
+        "statMap": {
+          "mv%": 2.7
+        },
+        "maxUses": 1,
+        "rankMods": {
+          "2": {
+            "statMap": {
+              "mv%": 2.9
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceSkill.4",
+        "statMap": {
+          "spectroDmgBonus%": 0.65
+        },
+        "duration": 8000
+      },
+      {
+        "applyTo": "next",
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "statMap": {
+          "basicAttackDmgAmp%": 0.25
+        },
+        "duration": 14000
+      },
+      {
+        "applyTo": "1308",
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "statMap": {
+          "dmgAmp%": 0.2
+        },
+        "duration": 25000
+      },
+      {
+        "rank": 1,
+        "applyWhen": "cast",
+        "applyOnAction": "introSkill.1",
+        "statMap": {
+          "atk%": 0.2
+        },
+        "duration": 14000
+      },
+      {
+        "rank": 2,
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceSkill.2",
+        "intervalAction": [
+          {
+            "dmgType": "heavyAttack",
+            "fixedMultipliers": {
+              "mv": 4.5
+            }
+          },
+          "resonanceLiberation.7",
+          "resonanceLiberation.8"
+        ],
+        "maxUses": 1
+      },
+      {
+        "rank": 3,
+        "useOnAction": [
+          "resonanceLiberation.1",
+          "resonanceLiberation.5"
+        ],
+        "statMap": {
+          "mv%": 0.5,
+          "critDmg%": 1
+        }
+      },
+      {
+        "rank": 3,
+        "useOnAction": [
+          "resonanceLiberation.4",
+          "forteCircuit.1"
+        ],
+        "statMap": {
+          "mv%": 0.65
+        }
+      },
+      {
+        "rank": 4,
+        "applyTo": "team",
+        "statMap": {
+          "dmgBonus%": 0.2
+        }
+      },
+      {
+        "rank": 6,
+        "useIfShifting": "hack",
+        "useIfInterfered": "hack",
+        "statMap": {
+          "heavyAttackDmgBonus%": 0.4,
+          "hackDmgBonus%": 0.6
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1511",
@@ -5405,6 +5529,7 @@
         "normalAttack.14",
         "normalAttack.16",
         "normalAttack.17",
+        "resonanceLiberation.6",
         "resonanceLiberation.2",
         "resonanceLiberation.3",
         "resonanceLiberation.4",

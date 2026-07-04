@@ -118,6 +118,7 @@ function addSummaryToSums(sums, summary) {
 }
 
 export const runTrials = (cache, currId, team, isPrimary = false) => {
+  console.log('runTrials start', currId);
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
   const simulateRotation = compileRotation(cache, currId, team);
@@ -145,6 +146,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
 
   let prevAvgScore = baseScore;
   for (let week = 1; week <= MAX_WEEKS; week++) {
+    console.log('week', week);
     const weekSummarySums = isPrimary ? {} : null;
     const weekTotals = isPrimary ? [] : null;
     const weekScores = createScoreTracker();
@@ -187,6 +189,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
     prevAvgScore = avgScore;
   }
 
+  console.log('runTrials done', currId);
   if (!isPrimary) return buildFinalStats(trials);
   
   self.postMessage({

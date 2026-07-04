@@ -49,10 +49,10 @@ characters:
         1211 Denia
         1109 Lucilla
         1308 Rebecca
-        1511 Lucy
 
     incomplete:
     simplified:
+        1511 Lucy (teammates inflicting hack: outro, rank 4)
 
 weapons:
     unchecked:

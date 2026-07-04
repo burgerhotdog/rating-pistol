@@ -15,6 +15,9 @@ const mergeVariableStatMaps = (...maps) => {
 
 const resolveApplyTo = (applyTo, ownerId, idList) => {
   switch (applyTo) {
+    case undefined:
+      return [ownerId];
+
     case 'team':
       return idList;
 
@@ -27,17 +30,8 @@ const resolveApplyTo = (applyTo, ownerId, idList) => {
     case 'next':
       return [idList.at(idList.indexOf(ownerId) - 1)];
 
-    case 'active':
-      return [applyTo];
-
-    case 'inactive':
-      return [applyTo];
-
-    case 'enemy':
-      return [applyTo];
-
     default:
-      return [ownerId];
+      return [applyTo];
   }
 };
 

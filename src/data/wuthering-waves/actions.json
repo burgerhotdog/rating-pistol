@@ -44418,7 +44418,6 @@
     "resonanceLiberation": {
       "1": {
         "name": "Netrunner: Override",
-        "skillType": "resonanceLiberation",
         "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
@@ -44449,7 +44448,6 @@
       },
       "2": {
         "name": "Spoofing Program: Ping",
-        "skillType": "resonanceLiberation",
         "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
@@ -44480,7 +44478,6 @@
       },
       "3": {
         "name": "Spoofing Program: Synapse Burnout",
-        "skillType": "resonanceLiberation",
         "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
@@ -44541,9 +44538,8 @@
         ]
       },
       "5": {
-        "name": "Old Net Deep Dive: Override",
+        "name": "Netrunner: Old Net Deep Dive",
         "tagged": "Algorithm Compaction",
-        "skillType": "resonanceLiberation",
         "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
@@ -44571,6 +44567,16 @@
             ]
           }
         ]
+      },
+      "6": {
+        "name": "Netrunner",
+        "skillType": "resonanceLiberation"
+      },
+      "7": {
+        "name": "Spoofing Program: Cyberware Malfunction"
+      },
+      "8": {
+        "name": "Spoofing Program: Breach Protocol"
       }
     },
     "forteCircuit": {
