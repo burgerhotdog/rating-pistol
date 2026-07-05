@@ -123,7 +123,7 @@ export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) 
     <FlexCard>
       <CardHeader
         title={
-          <Stack direction="row" spacing={0.5}>
+          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
             <Typography variant="subtitle1">
               Substat distribution
             </Typography>

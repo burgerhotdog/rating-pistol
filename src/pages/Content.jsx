@@ -58,6 +58,7 @@ export const Content = () => {
 
             <DamageBreakdown
               userSummary={userSummary}
+              teamIds={team.map(member => member.id).filter(Boolean)}
             />
           </FlexRow>
 

@@ -18,7 +18,7 @@ import {
   Tooltip as ChartTooltip,
   ReferenceLine,
 } from 'recharts';
-import { FlexCard, ChartFill } from '@/components';
+import { FlexCard, ChartFill, Dot } from '@/components';
 import { CHARACTER } from '@/data';
 import { sumRotationDmg, formatNum, formatDmg } from '@/utils';
 
@@ -189,18 +189,6 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
               const percentGain = prevWeek && prevWeek.damage !== 0
                 ? ((damage - prevWeek.damage) / prevWeek.damage) * 100
                 : null;
-              
-              const Dot = ({ bgcolor }) => (
-                <Box
-                  sx={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: '50%',
-                    bgcolor,
-                    flexShrink: 0,
-                  }}
-                />
-              );
 
               return (
                 <Paper
@@ -229,7 +217,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
                         }}
                       >
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                          <Dot bgcolor={memberColors.toReversed()[index]} />
+                          <Dot color={memberColors.toReversed()[index]} />
 
                           <Typography variant='body2'>
                             {CHARACTER[gameId][member.id]?.name ?? 'Other'}:

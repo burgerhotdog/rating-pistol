@@ -111,7 +111,7 @@ export const MainstatDistribution = ({ configMap, userConfigKey }) => {
     <FlexCard>
       <CardHeader
         title={
-          <Stack direction="row" spacing={0.5}>
+          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
             <Typography variant="subtitle1">
               Main stat distribution
             </Typography>

@@ -9,3 +9,4 @@ export * from './DamageBreakdown';
 export * from './MainstatDistribution';
 export * from './SubstatDistribution';
 export * from './Layout';
+export * from './Dot';
