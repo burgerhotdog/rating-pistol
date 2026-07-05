@@ -2753,7 +2753,7 @@
       {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfTune": "strain",
+        "applyIfInterfered": "tuneStrain",
         "rankedStatMap": {
           "resonanceLiberationDmgBonus%": [
             0.24,
@@ -2817,7 +2817,7 @@
       {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfTune": "strain",
+        "applyIfInterfered": "tuneStrain",
         "rankedStatMap": {
           "resonanceSkillDmgBonus%": [
             0.24,
@@ -2847,8 +2847,7 @@
         }
       },
       {
-        "applyWhen": "cast",
-        "applyOnType": "break",
+        "applyOnSpecial": "tuneBreak",
         "rankedStatMap": {
           "dmgBonus%": [
             0.2,
@@ -2929,7 +2928,7 @@
       {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfTune": "strain",
+        "applyIfInterfered": "tuneStrain",
         "applyCooldown": 500,
         "rankedStatMap": {
           "basicAttackDmgBonus%": [
@@ -2961,8 +2960,7 @@
         }
       },
       {
-        "applyWhen": "cast",
-        "applyOnType": "break",
+        "applyOnSpecial": "tuneBreak",
         "rankedStatMap": {
           "atk%": [
             0.12,
