@@ -8,15 +8,18 @@ import { Content } from '@/pages';
 
 export const GamePage = () => {
   const { gameId, characterId } = useParams();
+
   const builds = useBuild().getBuilds(gameId);
   const pinned = useUser().pinnedIds[gameId];
+
   const sorted = useMemo(() => Object.keys(builds).sort((a, b) => {
     if (a === pinned) return -1;
     if (b === pinned) return 1;
 
-    const aName = CHARACTER[gameId][a].name;
-    const bName = CHARACTER[gameId][b].name;
-    return aName.localeCompare(bName);
+    const aIndex = CHARACTER[gameId][a].index;
+    const bIndex = CHARACTER[gameId][b].index;
+
+    return bIndex - aIndex;
   }), [gameId, builds, pinned]);
 
   // Navigate guard against invalid characterIds
