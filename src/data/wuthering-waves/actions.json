@@ -41126,7 +41126,7 @@
       "9": {
         "name": "Tactical Dodge: Successful Dodge",
         "tagged": "Huntress",
-        "skillType": "basicAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41448,7 +41448,7 @@
       "17": {
         "name": "Tactical Dodge: Successful Dodge",
         "tagged": "Guts",
-        "skillType": "basicAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41856,7 +41856,6 @@
     "resonanceLiberation": {
       "1": {
         "name": "Mk. 31 HMG",
-        "skillType": "resonanceLiberation",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -41886,8 +41885,7 @@
         ]
       },
       "2": {
-        "name": "Mk. 31 HMG 1st Enhancement",
-        "skillType": "resonanceLiberation",
+        "name": "Mk. 31 HMG: 1st Enhancement",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -41917,8 +41915,7 @@
         ]
       },
       "3": {
-        "name": "Mk. 31 HMG 2nd Enhancement",
-        "skillType": "resonanceLiberation",
+        "name": "Mk. 31 HMG: 2nd Enhancement",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -41950,6 +41947,7 @@
       "4": {
         "name": "BOOM! Fireworks!",
         "skillType": "resonanceLiberation",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42000,12 +41998,16 @@
             ]
           }
         ]
+      },
+      "5": {
+        "name": "Party 'til Dawn!",
+        "skillType": "resonanceLiberation"
       }
     },
     "forteCircuit": {
       "1": {
         "name": "Meltdown",
-        "type": "tuneResponse",
+        "skillType": "tuneResponse",
         "dmgType": "hack",
         "attr": "tuneAmp",
         "indexedMultipliers": [
@@ -42040,6 +42042,7 @@
         "tagged": "Huntress",
         "skillType": "heavyAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42168,6 +42171,7 @@
         "tagged": "Guts",
         "skillType": "heavyAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42201,6 +42205,7 @@
         "name": "Yo, It's Big Boomin' Time!",
         "tagged": "Huntress",
         "skillType": "introSkill",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42400,6 +42405,7 @@
         "name": "Hey, Leadhead, Come 'n' Get Me!",
         "tagged": "Guts",
         "skillType": "introSkill",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [

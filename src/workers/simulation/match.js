@@ -157,18 +157,24 @@ export const matchUseOn = (effect, action) => {
   return false;
 };
 
+const matchIfShift = (ifShift, shiftTune) => {
+  return ifShift === shiftTune;
+};
+
 export const matchApplyIf = (action, effect, ctx) => {
   if (!(
     'applyIfWeapon' in effect ||
     'applyIfType' in effect ||
     'applyIfStatus' in effect ||
-    'applyIfField' in effect
+    'applyIfField' in effect ||
+    'applyIfShift' in effect
   )) return true;
 
   if ('applyIfWeapon' in effect && matchIfWeapon(effect.applyIfWeapon, CHARACTER[ctx.cache.gameId][effect.ownerId].type)) return true;
   if ('applyIfType' in effect && matchOnType(effect.applyIfType, action)) return true;
   if ('applyIfStatus' in effect && matchIfStatus(effect.applyIfStatus, ctx.enemyState.status)) return true;
   if ('applyIfField' in effect && matchIfField(effect.applyIfField, action.ownerId, ctx.activeId)) return true;
+  if ('applyIfShift' in effect && matchIfShift(effect.applyIfShift, action.shiftTune)) return true;
 
   return false;
 };

@@ -32,12 +32,14 @@ const buildTuneBreakFootprints = (ctx, currentStatMap, shifting) => {
       if (dmgType !== shifting) continue;
       const { mv } = Object.values(compressed)[0];
 
+      const responseStatMap = getCurrentStatMap(ctx, member.id);
+
       footprints.push({
         key: `${id}:tuneResponse`,
         ownerId: id,
         type: 'damage',
         dmgType,
-        fixed: tuneBreakDamage(mv['tuneAmp'], enemyStatMap, currentStatMap),
+        fixed: tuneBreakDamage(mv['tuneAmp'], enemyStatMap, responseStatMap),
       });
     }
   }

@@ -83,7 +83,7 @@ export const compileCache = (gameId, team) => {
       rotationTime,
     };
 
-    const tuneResponse = Object.values(actions)
+    const tuneResponse = Object.values(actions[member.id])
       .find(action => action.skillType === 'tuneResponse');
 
     if (tuneResponse) {

@@ -76,7 +76,9 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
     if (!matchApplyIf(action, effect, ctx)) continue;
 
     for (const target of effect.applyTo) {
-      if (target in cache.member) {
+      if (target === 'applier') {
+        applyEffect(memberState[action.ownerId], effect, repeat);
+      } else if (target in cache.member) {
         applyEffect(memberState[target], effect, repeat);
       } else if (target === 'active' || target === 'inactive') {
         applyEffect(fieldState[target], effect, repeat);

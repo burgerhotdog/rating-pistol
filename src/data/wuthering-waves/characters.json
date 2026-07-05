@@ -5425,6 +5425,66 @@
       "critRate%": 0.08,
       "atk%": 0.12
     },
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "critDmg%": 0.3,
+          "defIgnore%": 0.15,
+          "atk%": 0.1
+        },
+        "duration": 12000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "forteCircuit.2",
+          "forteCircuit.3"
+        ],
+        "statMap": {
+          "atk%": 0.1
+        },
+        "duration": 12000
+      },
+      {
+        "applyBy": "team",
+        "applyTo": "applier",
+        "applyWhen": "hit",
+        "applyIfShift": "hack",
+        "statMap": {
+          "tuneBreakBoost": 30
+        },
+        "duration": 30000
+      },
+      {
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.5",
+        "statMap": {
+          "atk%": 0.2
+        },
+        "duration": 30000
+      },
+      {
+        "applyTo": "next",
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "statMap": {
+          "dmgAmp%": 0.15
+        },
+        "duration": 14000
+      },
+      {
+        "applyTo": "1511",
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "statMap": {
+          "heavyAttackDmgAmp%": 0.35
+        },
+        "duration": 14000
+      }
+    ],
     "defaults": {
       "team": [
         "1511",
@@ -5444,8 +5504,30 @@
         "normalAttack.12",
         "resonanceSkill.2",
         "forteCircuit.2",
+        "resonanceLiberation.5",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
         "resonanceLiberation.1",
         "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
         "resonanceLiberation.3",
         "resonanceLiberation.4",
         "outroSkill.1"

@@ -1,5 +1,5 @@
 import { CHARACTER, WEAPON, SET } from '@/data';
-import { toArray, mergeObj, mergeObjs } from '@/utils';
+import { toArray, mergeObj } from '@/utils';
 import { matchApplyOn } from '../match';
 import { normalizeAction, compressMultipliers } from './actions';
 import { resolveRankedValue } from './resolveRanked';
@@ -222,13 +222,11 @@ export const normalizeEffects = (ctx, member, actions) => {
     }
 
     if ('applyWhen' in resolved) { // active
-
       const actionsList = resolved.applyBy === 'team'
-        ? mergeObjs(...Object.values(actions))
-        : actions[member.id];
+        ? Object.values(actions).flatMap((actionMap) => Object.values(actionMap))
+        : Object.values(actions[member.id]);
 
-      for (const actionShort in actionsList) {
-        const action = actionsList[actionShort];
+      for (const action of actionsList) {
         if (!matchApplyOn(action, resolved)) continue;
 
         effectsByAction[action.key] ??= [];

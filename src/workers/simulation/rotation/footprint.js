@@ -68,7 +68,6 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   }
 
   if (footprint.charVariableEffectSpecs.length) {
-    console.log('test');
     for (const { stacks = 1, effect } of [
       ...(cache.passive[currId] ?? []).map(effect => ({ effect })),
       ...(cache.passive[currIdFieldState] ?? []).map(effect => ({ effect })),
