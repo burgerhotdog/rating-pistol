@@ -3,7 +3,7 @@ export * from './Navbar';
 export * from './StatsPanel';
 export * from './ProgressChart';
 export * from './LoadingBar';
-export * from './CustomAvatar';
+export * from './CharAvatar';
 export * from './TeamMemberDialog';
 export * from './DamageBreakdown';
 export * from './MainstatDistribution';

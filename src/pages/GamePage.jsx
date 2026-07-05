@@ -40,6 +40,7 @@ export const GamePage = () => {
           flex: 1,
           minHeight: 0,
           overflow: 'hidden',
+          gap: 1,
           pb: 4,
         }}
       >

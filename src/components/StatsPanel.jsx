@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { CustomAvatar, TeamMemberDialog } from '@/components';
+import { CharAvatar, TeamMemberDialog } from '@/components';
 import { useBuild } from '@/contexts';
 import { MISC, CHARACTER } from '@/data';
 import { getAttr, formatStr, compileMenuMap } from '@/utils';
@@ -72,7 +72,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
-        avatar={<CustomAvatar gameId={gameId} characterId={characterId} />}
+        avatar={<CharAvatar gameId={gameId} charId={characterId} />}
         title={CHARACTER[gameId][characterId]?.name ?? ''}
         subheader={
           <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
@@ -132,9 +132,9 @@ export const StatsPanel = ({ team, updateTeam }) => {
         <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
           {team.map((member, index) => (
             <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
-              <CustomAvatar
+              <CharAvatar
                 gameId={gameId}
-                characterId={member?.id ?? null}
+                charId={member?.id ?? null}
               />
             </Box>
           ))}
