@@ -1,5 +1,5 @@
 import { CHARACTER, WEAPON, SET } from '@/data';
-import { toArray, mergeObj } from '@/utils';
+import { toArray, mergeObj, mergeObjs } from '@/utils';
 import { matchApplyOn } from '../match';
 import { normalizeAction, compressMultipliers } from './actions';
 import { resolveRankedValue } from './resolveRanked';
@@ -66,6 +66,14 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
 
   if (effect.useIfElement) {
     resolved.useIfElement = toArray(effect.useIfElement);
+  }
+
+  if (effect.useIfShifting) {
+    resolved.useIfShifting = toArray(effect.useIfShifting);
+  }
+
+  if (effect.useIfInterfered) {
+    resolved.useIfInterfered = toArray(effect.useIfInterfered);
   }
 
   if (effect.useIfWeapon) {
@@ -196,20 +204,31 @@ export const normalizeEffects = (ctx, member, actions) => {
 
   const passivesbyTarget = {};
   const effectsByAction = {};
+  const specialEffects = [];
 
   for (const [index, effect] of toNormalize.entries()) {
     const effectId = String(index + 1);
     const effectKey = `${member.id}:EFFECT_${effectId}`;
 
     const resolved = {
-      ...normalizeEffect(ctx, member, effectId, effect, actions),
+      ...normalizeEffect(ctx, member, effectId, effect, actions[member.id]),
       key: effectKey,
       id: effectId,
     };
 
+    if ('applyOnSpecial' in resolved) {
+      specialEffects.push(resolved);
+      continue;
+    }
+
     if ('applyWhen' in resolved) { // active
-      for (const actionShort in actions) {
-        const action = actions[actionShort];
+
+      const actionsList = resolved.applyBy === 'team'
+        ? mergeObjs(...Object.values(actions))
+        : actions[member.id];
+
+      for (const actionShort in actionsList) {
+        const action = actionsList[actionShort];
         if (!matchApplyOn(action, resolved)) continue;
 
         effectsByAction[action.key] ??= [];
@@ -225,5 +244,5 @@ export const normalizeEffects = (ctx, member, actions) => {
     }
   }
 
-  return { passivesbyTarget, effectsByAction };
+  return { passivesbyTarget, effectsByAction, specialEffects };
 };

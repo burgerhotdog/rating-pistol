@@ -601,7 +601,7 @@
     "effects": [
       {
         "applyTo": "active",
-        "applyWhen": "hit",
+        "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnSkillType": "basicAttack",
         "useCooldown": 350,
@@ -615,7 +615,7 @@
       },
       {
         "applyTo": "active",
-        "applyWhen": "hit",
+        "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnSkillType": "heavyAttack",
         "useCooldown": 350,
@@ -4954,6 +4954,95 @@
     },
     "effects": [
       {
+        "useOnAction": "resonanceLiberation.1",
+        "variableStatMap": {
+          "critRate%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "offset": 1,
+            "value": 0.005,
+            "max": 0.8
+          },
+          "critDmg%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "offset": 1,
+            "value": 0.01,
+            "max": 1.6
+          }
+        }
+      },
+      {
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "statMap": {
+          "def%": 0.2
+        },
+        "duration": 25000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "useOnAction": "forteCircuit.1",
+        "statMap": {
+          "mv%": 0.4
+        },
+        "duration": 25000
+      },
+      {
+        "useOnAction": [
+          "forteCircuit.3",
+          "introSkill.1"
+        ],
+        "followUpAction": "forteCircuit.2"
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "forteCircuit.3",
+          "introSkill.1"
+        ],
+        "intervalAction": "forteCircuit.1",
+        "intervalCooldown": 3000,
+        "duration": 25000
+      },
+      {
+        "applyTo": "team",
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "forteCircuit.3",
+          "introSkill.1"
+        ],
+        "statMap": {
+          "offTuneBuildupRate%": 0.5
+        },
+        "duration": 25000
+      },
+      {
+        "applyTo": "enemy",
+        "applyOnSpecial": "tuneBreak",
+        "useIfInterfered": [
+          "tuneRupture",
+          "tuneStrain"
+        ],
+        "variableStatMap": {
+          "dmgBonus%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "offset": 1,
+            "value": 0.0025,
+            "max": 0.4
+          }
+        },
+        "duration": 8000
+      },
+      {
+        "statMap": {
+          "energyRegen%": 0.1
+        }
+      },
+      {
         "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
@@ -4978,6 +5067,7 @@
         "normalAttack.5",
         "normalAttack.6",
         "normalAttack.7",
+        "resonanceSkill.4",
         "resonanceSkill.1",
         "forteCircuit.4",
         "resonanceLiberation.1",

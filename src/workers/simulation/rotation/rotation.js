@@ -27,7 +27,7 @@ function removeEffects(ctx, action) {
   }
 }
 
-function applyEffect(effectStates, effect, applyTimes) {
+export function applyEffect(effectStates, effect, applyTimes) {
   const { intervalOffset } = effect;
   const prev = effectStates[effect.key] ?? {};
   const existingStacks = prev.stacks ?? 0;
@@ -314,7 +314,9 @@ function processTopLevelAction(ctx, action) {
       ctx.footprints.push(footprint);
     }
 
-    applyTune(ctx, action);
+    if (action.type === 'damage') {
+      applyTune(ctx, action);
+    }
     applyEffects(ctx, action, 'hit');
     processFollowUpActions(ctx, action, 0);
     decayProcCounts(ctx, action);
@@ -336,14 +338,17 @@ function processProcAction(ctx, action, depth, repeatCount) {
     ctx.footprints.push(footprint);
   }
 
-  applyTune(ctx, action);
+  if (action.type === 'damage') {
+    applyTune(ctx, action);
+  }
+
   applyEffects(ctx, action, 'hit', repeatCount);
   processFollowUpActions(ctx, action, depth);
 }
 
 function processAction(ctx, action, depth, repeatCount = 1) {
   if (depth >= MAX_PROC_DEPTH) {
-    console.log("MAX_PROC_DEPTH hit");
+    console.error("MAX_PROC_DEPTH hit");
     return;
   }
 
@@ -355,7 +360,6 @@ function processAction(ctx, action, depth, repeatCount = 1) {
 }
 
 export const compileRotation = (cache, currId, team) => {
-  console.log('compilingRotation', currId);
   const equipMapByMember = {};
   const memberState = {};
 
@@ -380,7 +384,6 @@ export const compileRotation = (cache, currId, team) => {
     footprints: [],
     formulaConfig,
   };
-  console.log('prime pass start');
 
   for (const member of team.toReversed()) {
     const { rotation } = cache.member[member.id];
@@ -390,8 +393,6 @@ export const compileRotation = (cache, currId, team) => {
       processAction(ctx, action, 0);
     }
   }
-
-  console.log('prime pass done');
 
   ctx.recordFootprint = true;
 

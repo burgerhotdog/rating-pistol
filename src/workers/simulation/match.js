@@ -181,11 +181,11 @@ export const matchRemoveIf = (action, effect, ctx) => {
 };
 
 const matchIfShifting = (ifShifting, offTuneState) => {
-  return offTuneState.shifting === ifShifting;
+  return ifShifting.includes(offTuneState.shifting);
 };
 
 const matchIfInterfered = (ifInterfered, offTuneState) => {
-  return offTuneState.interfered === ifInterfered;
+  return ifInterfered.includes(offTuneState.interfered);
 };
 
 export const matchUseIf = (effect, memberId, ctx) => {

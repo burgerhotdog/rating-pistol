@@ -41,22 +41,28 @@ export const compileCache = (gameId, team) => {
     teamSize: team.length,
   };
 
+  const actions = {};
   const effect = {};
   const passive = {};
   const memberCache = {};
+  const special = [];
   let fullRotationTime = 0;
+
+  for (const member of team) {
+    actions[member.id] = normalizeActions(ctx, member);
+  }
 
   for (const member of team) {
     const baseMap = compileBaseMap(gameId, member.id, member.weaponId);
     const equipMap = createEquipMap(member);
     const statMap = mergeObj(baseMap, equipMap);
 
-    const actions = normalizeActions(ctx, member);
-
-    const { rotation, rotationTime } = convertRotation(ctx, member, actions);
+    const { rotation, rotationTime } = convertRotation(ctx, member, actions[member.id]);
     fullRotationTime += rotationTime;
 
-    const { passivesbyTarget, effectsByAction } = normalizeEffects(ctx, member, actions);
+    const { passivesbyTarget, effectsByAction, specialEffects } = normalizeEffects(ctx, member, actions);
+
+    special.push(...specialEffects);
 
     for (const actionKey in effectsByAction) {
       effect[actionKey] = effectsByAction[actionKey];
@@ -78,7 +84,7 @@ export const compileCache = (gameId, team) => {
     };
 
     const tuneResponse = Object.values(actions)
-      .find(action => action.skillType === "tuneResponse");
+      .find(action => action.skillType === 'tuneResponse');
 
     if (tuneResponse) {
       memberCache[member.id].tuneResponse = tuneResponse;
@@ -90,6 +96,7 @@ export const compileCache = (gameId, team) => {
     member: memberCache,
     effect,
     passive,
-    fullRotationTime
+    fullRotationTime,
+    special,
   };
 };

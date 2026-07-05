@@ -9,7 +9,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   const { cache, currId, onFieldId, memberState, fieldState, formulaConfig } = ctx;
 
   const actionOwnerFieldState = action.ownerId === onFieldId ? 'active' : 'inactive';
-  const characterIdFieldState = currId === onFieldId ? 'active' : 'inactive';
+  const currIdFieldState = currId === onFieldId ? 'active' : 'inactive';
 
   const footprint = {
     ...action,
@@ -52,7 +52,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
       if (effect.ownerId === currId) { // variableStatMaps that scale off currId's stats
         footprint.charVariableEffectSpecs.push({ variableStatMap, stacks, chance });
       } else { // variableStatMaps that scale off teammate stats
-        const ownerCurrentStatMap = getCurrentStatMap(ctx, effect.ownerId);
+        const ownerCurrentStatMap = getCurrentStatMap(ctx, effect.ownerId, null, true);
         const resolvedStatMap = resolveVariableStatMap(effect.variableStatMap, ownerCurrentStatMap);
 
         for (const statId in resolvedStatMap) {
@@ -68,11 +68,12 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   }
 
   if (footprint.charVariableEffectSpecs.length) {
+    console.log('test');
     for (const { stacks = 1, effect } of [
       ...(cache.passive[currId] ?? []).map(effect => ({ effect })),
-      ...(cache.passive[characterIdFieldState] ?? []).map(effect => ({ effect })),
+      ...(cache.passive[currIdFieldState] ?? []).map(effect => ({ effect })),
       ...Object.values(memberState[currId]),
-      ...Object.values(fieldState[characterIdFieldState]),
+      ...Object.values(fieldState[currIdFieldState]),
     ]) {
       const { chance, statMap } = effect;
       if (!statMap) continue;
@@ -115,49 +116,22 @@ export const evaluateFootprint = (ctx, footprint, statMap) => {
     return summary;
   }
 
-  // ── Determine the stat map to use as base for this action ────────────────
-  // For character actions: newCharCompiledStatMap
-  // For teammate actions affected by charVariableEffectSpecs: use teammate's
-  // pre-compiled statMap (stored in fixedEffectStatMap already accounts
-  // for the teammate's own base — we just need the owner's base to merge with).
-  // NOTE: fixedDamage === null only when owner === currId OR when
-  // charVariableEffectSpecs is non-empty. In the latter case owner may differ.
-  // For teammate actions with charVariableEffectSpecs, ownerBaseStatMap was
-  // stored in the footprint during compileRotation.
-
-  // ── Two-pass variable resolution (mirrors getCurrentStatMap logic) ────────
-
-  // Pass 1: resolve charVariableEffectSpecs using (newCharCompiledStatMap + charConstant)
-  // to get the character's "live" stat map at this moment.
-
-  let charCurrentStatMap = statMap;
-
+  const charVariableResolved = {};
   if (footprint.charVariableEffectSpecs.length) {
     const baseForSource = mergeObj(statMap, footprint.charConstantEffectContribsForSource);
-    const resolvedPass1 = {};
-    for (const { variableStatMap, stacks, chance } of footprint.charVariableEffectSpecs) {
-      const r = resolveVariableStatMap(variableStatMap, baseForSource);
-      for (const [statId, val] of Object.entries(r)) {
-        resolvedPass1[statId] = (resolvedPass1[statId] ?? 0) + val * stacks * chance;
-      }
-    }
-    charCurrentStatMap = mergeObjs(statMap, footprint.charConstantEffectContribsForSource, resolvedPass1);
-  }
 
-  // Pass 2: resolve charVariableEffectSpecs using charCurrentStatMap to get
-  // the contribution to the damage stat map.
-  const charVariableResolved = {};
-  if (footprint.charVariableEffectSpecs.length > 0) {
     for (const { variableStatMap, stacks, chance } of footprint.charVariableEffectSpecs) {
-      const r = resolveVariableStatMap(variableStatMap, charCurrentStatMap);
-      for (const [statId, val] of Object.entries(r)) {
-        charVariableResolved[statId] = (charVariableResolved[statId] ?? 0) + val * stacks * chance;
+      const resolvedStatMap = resolveVariableStatMap(variableStatMap, baseForSource);
+
+      for (const [statId, value] of Object.entries(resolvedStatMap)) {
+        charVariableResolved[statId] ??= 0
+        charVariableResolved[statId] += value * stacks * chance;
       }
     }
   }
 
   const ownerBaseStatMap = footprint.ownerId === currId ? statMap : footprint.ownerBaseStatMap ?? {};
-  const effectStatMap = mergeObjs(footprint.fixedEffectStatMap, charVariableResolved);
+  const effectStatMap = mergeObj(footprint.fixedEffectStatMap, charVariableResolved);
   const finalStatMap = mergeObj(ownerBaseStatMap, effectStatMap);
 
   const config = { ...formulaConfig, enemyStatMap: footprint.enemyStatMap, repeatCount: footprint.repeatCount };
