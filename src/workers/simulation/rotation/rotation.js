@@ -387,9 +387,11 @@ export const createRunRotation = (cache, currId, team) => {
     formulaConfig,
   };
 
-  for (const member of team.toReversed()) {
-    const { rotation } = cache.member[member.id];
-    ctx.onFieldId = member.id;
+  const memberOrder = cache.memberIds.toReversed();
+
+  for (const memberId of memberOrder) {
+    const { rotation } = cache.member[memberId];
+    ctx.onFieldId = memberId;
 
     for (const action of rotation) {
       processAction(ctx, action, 0);
@@ -398,9 +400,9 @@ export const createRunRotation = (cache, currId, team) => {
 
   ctx.recordFootprint = true;
 
-  for (const member of team.toReversed()) {
-    const { rotation } = cache.member[member.id];
-    ctx.onFieldId = member.id;
+  for (const memberId of memberOrder) {
+    const { rotation } = cache.member[memberId];
+    ctx.onFieldId = memberId;
 
     for (const action of rotation) {
       processAction(ctx, action, 0);

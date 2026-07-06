@@ -126,7 +126,7 @@ export const normalizeAction = (ctx, memberId, action) => {
   normalized.offset ??= Math.round(normalized.duration * 0.75);
 
   if (normalized.times === '$teamSize') {
-    normalized.times = ctx.teamSize;
+    normalized.times = ctx.memberIds.length;
   }
 
   return normalized;

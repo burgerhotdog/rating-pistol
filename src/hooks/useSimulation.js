@@ -2,7 +2,7 @@ import { useMemo, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { GI, WW } from '@/data';
 
-const VALID_GAMES = new Set([GI, WW]);
+const VALID_GAME_IDS = new Set([GI, WW]);
 
 export const useSimulation = (team) => {
   const { gameId, characterId } = useParams();
@@ -11,12 +11,16 @@ export const useSimulation = (team) => {
   const [result, setResult] = useState({});
 
   const payload = useMemo(() => {
-    if (!VALID_GAMES.has(gameId)) return null;
+    if (!VALID_GAME_IDS.has(gameId)) {
+      return null;
+    }
 
-    const filtered = team.filter((member) => member.id);
-    if (filtered.some((member) => !member.rotation.length)) return null;
+    const filteredTeam = team.filter((member) => member.id);
+    if (filteredTeam.some((member) => !member.rotation.length)) {
+      return null;
+    }
 
-    return { gameId, characterId, team: filtered };
+    return { gameId, characterId, team: filteredTeam };
   }, [gameId, characterId, team]);
 
   if (prevPayloadRef.current !== payload) {
@@ -27,22 +31,22 @@ export const useSimulation = (team) => {
   useEffect(() => {
     workerRef.current?.terminate();
     workerRef.current = null;
-
     if (!payload) return;
 
     const worker = new Worker(
       new URL('../workers/simulation/worker.js', import.meta.url),
       { type: 'module' },
     );
-
     workerRef.current = worker;
 
     worker.onmessage = ({ data }) => {
       setResult((prev) => ({ ...prev, ...data }));
 
-      if (data.type === 'done') {
+      if ('userSummary' in data) {
         worker.terminate();
-        if (workerRef.current === worker) workerRef.current = null;
+        if (workerRef.current === worker) {
+          workerRef.current = null;
+        }
       }
     };
 
@@ -50,9 +54,11 @@ export const useSimulation = (team) => {
 
     return () => {
       worker.terminate();
-      if (workerRef.current === worker) workerRef.current = null;
+      if (workerRef.current === worker) {
+        workerRef.current = null;
+      }
     };
   }, [payload]);
 
-  return payload ? result : { statusMessage: 'Simulation disabled' };
+  return payload ? result : { status: 'Simulation disabled' };
 };

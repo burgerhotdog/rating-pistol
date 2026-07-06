@@ -13,22 +13,22 @@ const mergeVariableStatMaps = (...maps) => {
   }, {});
 };
 
-const resolveApplyTo = (applyTo, ownerId, idList) => {
+const resolveApplyTo = (applyTo, ownerId, memberIds) => {
   switch (applyTo) {
     case undefined:
       return [ownerId];
 
     case 'team':
-      return idList;
+      return memberIds;
 
     case 'ally':
-      return idList.filter((id) => id !== ownerId);
+      return memberIds.filter((id) => id !== ownerId);
 
     case 'first':
-      return [idList[0]];
+      return [memberIds[0]];
 
     case 'next':
-      return [idList.at(idList.indexOf(ownerId) - 1)];
+      return [memberIds.at(memberIds.indexOf(ownerId) - 1)];
 
     default:
       return [applyTo];
@@ -36,12 +36,12 @@ const resolveApplyTo = (applyTo, ownerId, idList) => {
 };
 
 const normalizeEffect = (ctx, member, effectId, effect, actions) => {
-  const { gameId, idList } = ctx;
+  const { gameId, memberIds } = ctx;
 
   const resolved = {
     ...effect,
     ownerId: member.id,
-    applyTo: resolveApplyTo(effect.applyTo, member.id, idList),
+    applyTo: resolveApplyTo(effect.applyTo, member.id, memberIds),
   };
 
   resolved.rank ??= 0;

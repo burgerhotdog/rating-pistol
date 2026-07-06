@@ -5,34 +5,27 @@ self.onmessage = ({ data }) => {
   const { gameId, characterId, team } = data;
   const cache = compileCache(gameId, team);
 
-  self.postMessage({
-    type: 'progress',
-    statusMessage: 'Creating trial builds',
-  });
-
   const teamFilled = team.map((member) => {
+    // User build exists
     if ('build' in member) {
-      return {
-        ...member,
-        equipMap: cache.member[member.id].equipMap,
-      };
+      const { equipMap } = cache.member[member.id];
+      return { id: member.id, equipMap };
     }
 
+    self.postMessage({ status: `Generating trial build for ${member.id}` });
+
     const test = team.map((member) => ({
-      ...member,
+      id: member.id,
       equipMap: cache.member[member.id].equipMap,
     }));
 
     return {
-      ...member,
+      id: member.id,
       equipMap: runTrials(cache, member.id, test),
     };
   });
 
-  self.postMessage({
-    type: 'progress',
-    statusMessage: 'Running simulation',
-  });
+  self.postMessage({ status: 'Running simulation' });
 
   runTrials(cache, characterId, teamFilled, true);
 };

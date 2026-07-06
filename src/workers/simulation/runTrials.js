@@ -117,7 +117,7 @@ function addSummaryToSums(sums, summary) {
   }
 }
 
-export const runTrials = (cache, currId, team, isPrimary = false) => {
+export const runTrials = (cache, currId, team, isMain = false) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
   const runRotation = createRunRotation(cache, currId, team);
@@ -137,7 +137,9 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   });
 
   const trials = [];
-  for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
+  for (let i = 0; i < MIN_TRIALS; i++) {
+    trials.push(createTrial());
+  }
 
   const goodStats = findGoodStats(cache, baseScore, currId, runRotation, getPenalty);
   const weeklySummaries = [baseSummary];
@@ -153,7 +155,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
       advanceTrial(trial);
       weekScores.add(trial.score);
 
-      if (isPrimary) {
+      if (isMain) {
         addSummaryToSums(weekSummarySums, trial.summary);
         weekTotals.push(trial.totals);
       }
@@ -167,7 +169,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
       trials.push(trial);
 
       weekScores.add(trial.score);
-      if (isPrimary) {
+      if (isMain) {
         addSummaryToSums(weekSummarySums, trial.summary);
         weekTotals.push(trial.totals);
       }
@@ -176,21 +178,22 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
     const avgScore = weekScores.mean;
     const diff = (avgScore - prevAvgScore) / prevAvgScore;
 
-    if (isPrimary) {
+    if (isMain) {
       const weeklySummary = normalizeSummarySums(weekSummarySums, trials.length);
       weeklySummaries.push(weeklySummary);
 
-      self.postMessage({ type: 'progress', week, diff });
+      self.postMessage({ week, diff });
     }
 
     if (diff < 0.01) break;
     prevAvgScore = avgScore;
   }
 
-  if (!isPrimary) return buildFinalStats(trials);
+  if (!isMain) {
+    return buildFinalStats(trials);
+  }
   
   self.postMessage({
-    type: 'done',
     cache,
     weeklySummaries,
     userSummary: runRotation(cache.member[currId].statMap),

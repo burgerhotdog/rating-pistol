@@ -31,8 +31,7 @@ export const Content = () => {
   const { team, updateTeam } = useTeam();
 
   const {
-    type,
-    statusMessage,
+    status,
     userSummary,
     cache,
     diff,
@@ -43,6 +42,8 @@ export const Content = () => {
     userSubStats,
   } = useSimulation(team);
 
+  const isLoading = !userSummary;
+
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
@@ -52,9 +53,9 @@ export const Content = () => {
         updateTeam={updateTeam}
       />
 
-      {type !== 'done' ? (
+      {isLoading ? (
         <LoadingBar
-          statusMessage={statusMessage}
+          status={status}
           week={week}
           diff={diff}
         />

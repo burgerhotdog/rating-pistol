@@ -35,11 +35,8 @@ const convertRotation = (ctx, member, actions) => {
 };
 
 export const compileCache = (gameId, team) => {
-  const ctx = {
-    gameId,
-    idList: team.map((member) => member.id),
-    teamSize: team.length,
-  };
+  const memberIds = team.map((member) => member.id);
+  const ctx = { gameId, memberIds };
 
   const actions = {};
   const effect = {};
@@ -93,6 +90,7 @@ export const compileCache = (gameId, team) => {
 
   return {
     gameId,
+    memberIds,
     member: memberCache,
     effect,
     passive,
