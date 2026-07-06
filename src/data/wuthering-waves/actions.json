@@ -34505,7 +34505,8 @@
         ]
       },
       "2": {
-        "name": "Mech: Sync Strike: Call of Dawn",
+        "name": "Sync Strike: Call of Dawn",
+        "tagged": "Mech",
         "skillType": "resonanceSkill",
         "shiftTune": "tuneRupture",
         "indexedMultipliers": [
@@ -34561,7 +34562,8 @@
         ]
       },
       "3": {
-        "name": "Mech: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Mech",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -34592,7 +34594,8 @@
         ]
       },
       "4": {
-        "name": "Mech: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Mech",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -34646,7 +34649,8 @@
         ]
       },
       "5": {
-        "name": "Mech: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Mech",
         "skillType": "basicAttack",
         "shiftTune": "tuneRupture",
         "indexedMultipliers": [
@@ -34726,7 +34730,8 @@
         ]
       },
       "6": {
-        "name": "Mech: Basic Attack 4",
+        "name": "Basic Attack 4",
+        "tagged": "Mech",
         "skillType": "basicAttack",
         "shiftTune": "tuneRupture",
         "indexedMultipliers": [
@@ -34781,7 +34786,8 @@
         ]
       },
       "7": {
-        "name": "Mech: Heavy Attack Charged I",
+        "name": "Heavy Attack Charged I",
+        "tagged": "Mech",
         "skillType": "heavyAttack",
         "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
@@ -34812,7 +34818,8 @@
         ]
       },
       "8": {
-        "name": "Mech: Heavy Attack Charged II",
+        "name": "Heavy Attack Charged II",
+        "tagged": "Mech",
         "skillType": "heavyAttack",
         "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
@@ -34843,7 +34850,8 @@
         ]
       },
       "9": {
-        "name": "Mech: Mid-air Attack",
+        "name": "Mid-air Attack",
+        "tagged": "Mech",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -34899,7 +34907,8 @@
         ]
       },
       "10": {
-        "name": "Mech: Dodge Counter",
+        "name": "Dodge Counter",
+        "tagged": "Mech",
         "skillType": "dodgeCounter",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -35068,7 +35077,8 @@
     },
     "forteCircuit": {
       "1": {
-        "name": "Mech: Seraphic Duet: Encore",
+        "name": "Seraphic Duet: Encore",
+        "tagged": "Mech",
         "skillType": "resonanceSkill",
         "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
@@ -35377,6 +35387,7 @@
       },
       "2": {
         "name": "Debut of Meteoric Radiance",
+        "tagged": "Mech",
         "skillType": "introSkill",
         "shiftTune": "tuneRupture",
         "indexedMultipliers": [
