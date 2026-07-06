@@ -68,7 +68,7 @@ export const ConfirmDialog = ({
             <Grid size={12}>
               <Autocomplete
                 options={Object.values(WEAPON[WW]).filter((option) => option.type === CHARACTER[WW][characterId]?.type)}
-                getOptionLabel={option => option.name}
+                getOptionLabel={(option) => option.name}
                 isOptionEqualToValue={(option, value) => option.id === value.id}
                 value={WEAPON[WW][build.weaponId] ?? null}
                 onChange={(e, newValue) => onUpdateTopField('weaponId', newValue?.id)}

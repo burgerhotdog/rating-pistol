@@ -116,7 +116,7 @@ const HeaderEnka = () => {
             ),
           },
         }}
-        onChange={e => {
+        onChange={(e) => {
           if (error) setError(null);
           setUid(e.target.value);
         }}
@@ -157,7 +157,7 @@ const HeaderEnka = () => {
               control={
                 <Checkbox
                   checked={selectedList[index]}
-                  onChange={() => setSelectedList(prev => {
+                  onChange={() => setSelectedList((prev) => {
                     const newSelected = [...prev];
                     newSelected[index] = !newSelected[index];
                     return newSelected;

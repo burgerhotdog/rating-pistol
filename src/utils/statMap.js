@@ -55,7 +55,7 @@ export const compileMenuMap = (gameId, charId, member) => {
     }
   }
 
-  const filtered = allEffects.filter(effect => {
+  const filtered = allEffects.filter((effect) => {
     if ('applyWhen' in effect) return false;
     if (effect.applyTo && effect.applyTo !== 'team') return false;
     if ('rank' in effect && effect.rank > rank) return false; 

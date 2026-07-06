@@ -1,5 +1,5 @@
 export const getTotals = (summary, filter = {}) => {
-  const matchesFilter = ownerId => !filter.ownerId || ownerId === filter.ownerId;
+  const matchesFilter = (ownerId) => !filter.ownerId || ownerId === filter.ownerId;
   const totals = { damage: 0, healing: 0, shield: 0 };
 
   for (const footprintKey in summary) {

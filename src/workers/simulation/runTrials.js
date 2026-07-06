@@ -1,6 +1,6 @@
 import { GI, WW } from '@/data';
 import { mergeEquipList, getTotals } from '@/utils';
-import { compileRotation } from './rotation';
+import { createRunRotation } from './rotation';
 import { createTrialAdvancer } from './advanceTrial';
 import { findGoodStats } from './findGoodStats';
 import { compilePenalty } from './penalty';
@@ -33,7 +33,7 @@ const createScoreTracker = () => {
 const getConfigKey = (gameId, equipList) => {
   if (gameId !== WW) {
     return equipList
-      .map(equip => equip.mainStatId ?? 'none')
+      .map((equip) => equip.mainStatId ?? 'none')
       .join('|');
   }
 
@@ -120,10 +120,10 @@ function addSummaryToSums(sums, summary) {
 export const runTrials = (cache, currId, team, isPrimary = false) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
-  const simulateRotation = compileRotation(cache, currId, team);
+  const runRotation = createRunRotation(cache, currId, team);
   const getPenalty = compilePenalty(cache, currId);
   const equipListLength = gameId === GI || gameId === WW ? 5 : 6;
-  const baseSummary = simulateRotation(baseMap);
+  const baseSummary = runRotation(baseMap);
   const baseTotals = getTotals(baseSummary);
   const basePenalty = getPenalty(baseMap);
   const baseScore = getScore(baseTotals, basePenalty);
@@ -139,9 +139,9 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
-  const goodStats = findGoodStats(cache, baseScore, currId, simulateRotation, getPenalty);
+  const goodStats = findGoodStats(cache, baseScore, currId, runRotation, getPenalty);
   const weeklySummaries = [baseSummary];
-  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, simulateRotation, getPenalty);
+  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, runRotation, getPenalty);
 
   let prevAvgScore = baseScore;
   for (let week = 1; week <= MAX_WEEKS; week++) {
@@ -193,7 +193,7 @@ export const runTrials = (cache, currId, team, isPrimary = false) => {
     type: 'done',
     cache,
     weeklySummaries,
-    userSummary: simulateRotation(cache.member[currId].statMap),
+    userSummary: runRotation(cache.member[currId].statMap),
     configMap: buildConfigStats(gameId, trials),
     userConfigKey: getConfigKey(gameId, cache.member[currId].equipList),
     userSubStats: getSubRollSums(gameId, cache.member[currId].equipList),

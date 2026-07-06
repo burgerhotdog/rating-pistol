@@ -30,8 +30,8 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   footprint.enemyStatMap = getCurrentEnemyStatMap(ctx);
 
   for (const { stacks = 1, effect } of [
-    ...(cache.passive[action.ownerId] ?? []).map(effect => ({ effect })),
-    ...(cache.passive[actionOwnerFieldState] ?? []).map(effect => ({ effect })),
+    ...(cache.passive[action.ownerId] ?? []).map((effect) => ({ effect })),
+    ...(cache.passive[actionOwnerFieldState] ?? []).map((effect) => ({ effect })),
     ...Object.values(memberState[action.ownerId]),
     ...Object.values(fieldState[actionOwnerFieldState]),
   ]) {
@@ -69,8 +69,8 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
 
   if (footprint.charVariableEffectSpecs.length) {
     for (const { stacks = 1, effect } of [
-      ...(cache.passive[currId] ?? []).map(effect => ({ effect })),
-      ...(cache.passive[currIdFieldState] ?? []).map(effect => ({ effect })),
+      ...(cache.passive[currId] ?? []).map((effect) => ({ effect })),
+      ...(cache.passive[currIdFieldState] ?? []).map((effect) => ({ effect })),
       ...Object.values(memberState[currId]),
       ...Object.values(fieldState[currIdFieldState]),
     ]) {

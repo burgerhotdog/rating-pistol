@@ -25,7 +25,7 @@ const makeGetIndex = (gameId, member) => {
     }
   }
 
-  return category => defaultIndex + (addByCategory[category] ?? 0);
+  return (category) => defaultIndex + (addByCategory[category] ?? 0);
 };
 
 const DURATION_BY_CAST = {

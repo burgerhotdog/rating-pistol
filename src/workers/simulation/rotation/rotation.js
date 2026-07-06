@@ -67,7 +67,7 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 
   if (!(action.key in cache.effect)) return;
 
-  const triggered = cache.effect[action.key].filter(effect => effect.applyWhen === trigger);
+  const triggered = cache.effect[action.key].filter((effect) => effect.applyWhen === trigger);
   const inflictedStatuses = new Set();
 
   for (const effect of triggered) {
@@ -361,7 +361,7 @@ function processAction(ctx, action, depth, repeatCount = 1) {
   }
 }
 
-export const compileRotation = (cache, currId, team) => {
+export const createRunRotation = (cache, currId, team) => {
   const equipMapByMember = {};
   const memberState = {};
 
@@ -424,27 +424,22 @@ export const compileRotation = (cache, currId, team) => {
     }
   }
 
-  ctx.footprints = ctx.footprints.filter(footprint => !('fixed' in footprint));
+  ctx.footprints = ctx.footprints.filter((footprint) => !('fixed' in footprint));
 
-  const compiledRotation = { currId, earlySummary, footprints: ctx.footprints, formulaConfig };
+  return (statMap) => {
+    const ctx2 = { currId, formulaConfig };
+    const summary = { ...earlySummary };
 
-  return statMap => evaluateRotation(compiledRotation, statMap);
-};
+    for (const footprint of ctx.footprints) {
+      const result = evaluateFootprint(ctx2, footprint, statMap);
 
-const evaluateRotation = (compiledRotation, statMap) => {
-  const { currId, earlySummary, footprints, formulaConfig } = compiledRotation;
-  const ctx = { currId, formulaConfig };
-  const summary = { ...earlySummary };
-
-  for (const footprint of footprints) {
-    const result = evaluateFootprint(ctx, footprint, statMap);
-
-    if (result.key in summary) {
-      summary[result.key][result.type] += result[result.type];
-    } else {
-      summary[result.key] = result;
+      if (result.key in summary) {
+        summary[result.key][result.type] += result[result.type];
+      } else {
+        summary[result.key] = result;
+      }
     }
-  }
 
-  return summary;
+    return summary;
+  };
 };

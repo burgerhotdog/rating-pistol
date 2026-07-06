@@ -1,22 +1,22 @@
 import { useMemo, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { GI, WW, ZZZ } from '@/data';
+import { GI, WW } from '@/data';
 
-const VALID_GAMES = new Set([GI, WW, ZZZ]);
+const VALID_GAMES = new Set([GI, WW]);
 
 export const useSimulation = (team) => {
   const { gameId, characterId } = useParams();
-
   const workerRef = useRef(null);
-  const [result, setResult] = useState({});
   const prevPayloadRef = useRef(undefined);
+  const [result, setResult] = useState({});
 
   const payload = useMemo(() => {
-    const isValidGame = VALID_GAMES.has(gameId);
-    const isValidTeam = team.every(member => !member.id || member.rotation.length > 0);
-    const isValid = isValidGame && isValidTeam;
+    if (!VALID_GAMES.has(gameId)) return null;
 
-    return isValid ? { gameId, characterId, team } : null;
+    const filtered = team.filter((member) => member.id);
+    if (filtered.some((member) => !member.rotation.length)) return null;
+
+    return { gameId, characterId, team: filtered };
   }, [gameId, characterId, team]);
 
   if (prevPayloadRef.current !== payload) {
@@ -38,13 +38,9 @@ export const useSimulation = (team) => {
     workerRef.current = worker;
 
     worker.onmessage = ({ data }) => {
-      if (data.type === 'progress') {
-        return setResult(prev => ({ ...prev, ...data }));
-      }
+      setResult((prev) => ({ ...prev, ...data }));
 
       if (data.type === 'done') {
-        setResult(prev => ({ ...prev, ...data }));
-
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;
       }

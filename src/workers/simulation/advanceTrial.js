@@ -49,13 +49,13 @@ const createEquipGenerator = (gameId, goodStats) => {
   };
 };
 
-const createEquipEvaluator = (baseMap, simulateRotation, getPenalty, currId) => (equip, latest) => {
+const createEquipEvaluator = (baseMap, runRotation, getPenalty, currId) => (equip, latest) => {
   const buffer = { ...latest };
 
-  const trySlot = index => {
+  const trySlot = (index) => {
     const newEquipList = latest.equipList.with(index, equip);
     const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
-    const newSummary = simulateRotation(combinedStatMap);
+    const newSummary = runRotation(combinedStatMap);
     const newTotals = getTotals(newSummary);
     const newPenalty = getPenalty(combinedStatMap);
     const newScore = getScore(newTotals, newPenalty);
@@ -88,12 +88,12 @@ const createEquipEvaluator = (baseMap, simulateRotation, getPenalty, currId) => 
   return buffer;
 };
 
-export const createTrialAdvancer = (cache, currId, goodStats, simulateRotation, getPenalty) => {
+export const createTrialAdvancer = (cache, currId, goodStats, runRotation, getPenalty) => {
   const { gameId } = cache;
   const { baseMap } = cache.member[currId];
 
   const generateEquip = createEquipGenerator(gameId, goodStats);
-  const evaluateEquip = createEquipEvaluator(baseMap, simulateRotation, getPenalty, currId);
+  const evaluateEquip = createEquipEvaluator(baseMap, runRotation, getPenalty, currId);
 
   const passes = {
     [GI]: [{ count: 66,  slotCount: 5 }],
@@ -102,7 +102,7 @@ export const createTrialAdvancer = (cache, currId, goodStats, simulateRotation, 
     [WW]: [{ count: 20, cost: 4 }, { count: 15, cost: 3 }, { count: 60 }],
   };
 
-  return trial => {
+  return (trial) => {
     for (const pass of passes[gameId]) {
 
       const spec = {};

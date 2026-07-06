@@ -44,5 +44,5 @@ export const compilePenalty = (cache, currId) => {
     matchMap[energyStat] = getAttr(energyStat, statMap);
   }
 
-  return statMap => getPenalty(statMap, matchMap);
+  return (statMap) => getPenalty(statMap, matchMap);
 };

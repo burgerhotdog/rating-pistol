@@ -19,9 +19,9 @@ const ERROR_CODES = {
 };
 
 const parseAvatarList = {
-  [GI]: data => data.avatarInfoList ?? [],
-  [HSR]: data => data.detailInfo?.avatarDetailList ?? [],
-  [ZZZ]: data => (data.PlayerInfo?.ShowcaseDetail?.AvatarList ?? []).map(entry => ({
+  [GI]: (data) => data.avatarInfoList ?? [],
+  [HSR]: (data) => data.detailInfo?.avatarDetailList ?? [],
+  [ZZZ]: (data) => (data.PlayerInfo?.ShowcaseDetail?.AvatarList ?? []).map((entry) => ({
     ...entry,
     avatarId: entry.Id,
   })),
@@ -51,15 +51,15 @@ export const fetchEnka = async (gameId, uid) => {
 };
 
 const parseLevel = {
-  [GI]: obj => Number(obj.propMap['4001'].val),
-  [HSR]: obj => obj.level,
-  [ZZZ]: obj => obj.Level,
+  [GI]: (obj) => Number(obj.propMap['4001'].val),
+  [HSR]: (obj) => obj.level,
+  [ZZZ]: (obj) => obj.Level,
 };
 
 const parseRank = {
-  [GI]: obj => (obj.talentIdList ?? []).length,
-  [HSR]: obj => obj.rank ?? 0,
-  [ZZZ]: obj => obj.TalentLevel,
+  [GI]: (obj) => (obj.talentIdList ?? []).length,
+  [HSR]: (obj) => obj.rank ?? 0,
+  [ZZZ]: (obj) => obj.TalentLevel,
 };
 
 const parseChar = (gameId, charObj) => ({
@@ -68,21 +68,21 @@ const parseChar = (gameId, charObj) => ({
 });
 
 const parseWeaponId = {
-  [GI]: obj => obj.equipList.at(-1)?.itemId,
-  [HSR]: obj => obj.equipment?.tid,
-  [ZZZ]: obj => obj.Weapon?.Id,
+  [GI]: (obj) => obj.equipList.at(-1)?.itemId,
+  [HSR]: (obj) => obj.equipment?.tid,
+  [ZZZ]: (obj) => obj.Weapon?.Id,
 };
 
 const parseWeaponLevel = {
-  [GI]: obj => obj.equipList.at(-1).weapon.level,
-  [HSR]: obj => obj.equipment.level,
-  [ZZZ]: obj => obj.Weapon.Level,
+  [GI]: (obj) => obj.equipList.at(-1).weapon.level,
+  [HSR]: (obj) => obj.equipment.level,
+  [ZZZ]: (obj) => obj.Weapon.Level,
 };
 
 const parseWeaponRank = {
-  [GI]: obj => Object.values(obj.equipList.at(-1).weapon.affixMap)[0] + 1,
-  [HSR]: obj => obj.equipment.rank,
-  [ZZZ]: obj => obj.Weapon.UpgradeLevel,
+  [GI]: (obj) => Object.values(obj.equipList.at(-1).weapon.affixMap)[0] + 1,
+  [HSR]: (obj) => obj.equipment.rank,
+  [ZZZ]: (obj) => obj.Weapon.UpgradeLevel,
 };
 
 const parseWeapon = (gameId, charObj) => {
@@ -97,37 +97,37 @@ const parseWeapon = (gameId, charObj) => {
 };
 
 const PARSE_EQUIPLIST = {
-  [GI]: enka => enka.equipList.slice(0, -1),
-  [HSR]: enka => enka.relicList,
-  [ZZZ]: enka => enka.EquippedList,
+  [GI]: (enka) => enka.equipList.slice(0, -1),
+  [HSR]: (enka) => enka.relicList,
+  [ZZZ]: (enka) => enka.EquippedList,
 };
 
 const PARSE_MAIN_INDEX = {
-  [GI]: equip => [
+  [GI]: (equip) => [
     'EQUIP_BRACER',
     'EQUIP_NECKLACE',
     'EQUIP_SHOES',
     'EQUIP_RING',
     'EQUIP_DRESS',
   ].indexOf(equip.flat.equipType),
-  [HSR]: equip => equip.type - 1,
-  [ZZZ]: equip => equip.Slot - 1,
+  [HSR]: (equip) => equip.type - 1,
+  [ZZZ]: (equip) => equip.Slot - 1,
 };
 
 const PARSE_MAIN_STAT = {
-  [GI]: equip => equip.flat.reliquaryMainstat.mainPropId,
-  [HSR]: equip => equip._flat.props[0].type,
-  [ZZZ]: equip => equip.Equipment.MainPropertyList[0].PropertyId,
+  [GI]: (equip) => equip.flat.reliquaryMainstat.mainPropId,
+  [HSR]: (equip) => equip._flat.props[0].type,
+  [ZZZ]: (equip) => equip.Equipment.MainPropertyList[0].PropertyId,
 };
 
 const PARSE_MAIN_VALUE = {
-  [GI]: equip => {
+  [GI]: (equip) => {
     const key = equip.flat.reliquaryMainstat.mainPropId;
     const valueRatio = ENKA_LOOKUP[GI][key].endsWith('%') ? 0.01 : 1;
     return equip.flat.reliquaryMainstat.statValue * valueRatio;
   },
-  [HSR]: equip => equip._flat.props[0].value,
-  [ZZZ]: equip => {
+  [HSR]: (equip) => equip._flat.props[0].value,
+  [ZZZ]: (equip) => {
     const key = ENKA_LOOKUP[ZZZ][equip.Equipment.MainPropertyList[0].PropertyId];
     const valueRatio = key.endsWith('%') ? 0.0001 : 1;
     return equip.Equipment.MainPropertyList[0].PropertyValue * 4 * valueRatio;
@@ -135,31 +135,31 @@ const PARSE_MAIN_VALUE = {
 };
 
 const PARSE_SETID = {
-  [GI]: equip => String(equip.flat.setId),
-  [HSR]: equip => String(equip._flat.setID),
-  [ZZZ]: equip => `${String(equip.Equipment.Id).slice(0, 3)}00`,
+  [GI]: (equip) => String(equip.flat.setId),
+  [HSR]: (equip) => String(equip._flat.setID),
+  [ZZZ]: (equip) => `${String(equip.Equipment.Id).slice(0, 3)}00`,
 };
 
 const PARSE_SUBLIST = {
-  [GI]: equip => equip.flat.reliquarySubstats,
-  [HSR]: equip => equip._flat.props.slice(1),
-  [ZZZ]: equip => equip.Equipment.RandomPropertyList,
+  [GI]: (equip) => equip.flat.reliquarySubstats,
+  [HSR]: (equip) => equip._flat.props.slice(1),
+  [ZZZ]: (equip) => equip.Equipment.RandomPropertyList,
 };
 
 const PARSE_SUB_STAT = {
-  [GI]: sub => sub.appendPropId,
-  [HSR]: sub => sub.type,
-  [ZZZ]: sub => sub.PropertyId,
+  [GI]: (sub) => sub.appendPropId,
+  [HSR]: (sub) => sub.type,
+  [ZZZ]: (sub) => sub.PropertyId,
 };
 
 const PARSE_SUB_VALUE = {
-  [GI]: sub => {
+  [GI]: (sub) => {
     const key = sub.appendPropId;
     const valueRatio = ENKA_LOOKUP[GI][key].endsWith('%') ? 0.01 : 1;
     return sub.statValue * valueRatio;
   },
-  [HSR]: sub => sub.value,
-  [ZZZ]: sub => {
+  [HSR]: (sub) => sub.value,
+  [ZZZ]: (sub) => {
     const key = ENKA_LOOKUP[ZZZ][sub.PropertyId];
     const value = sub.PropertyValue;
     const valueRatio = key.endsWith('%') ? 0.0001 : 1;
@@ -168,7 +168,7 @@ const PARSE_SUB_VALUE = {
   },
 };
 
-const template = gameId => ({
+const template = (gameId) => ({
   lastUpdated: null,
   weaponId: null,
   equipList: Array(gameId === GI ? 5 : 6).fill().map(() => ({

@@ -7,7 +7,7 @@ export const getCurrentEnemyStatMap = (ctx) => {
   const currentMap = {};
 
   for (const { stacks = 1, effect } of [
-    ...(cache.passive.enemy ?? []).map(effect => ({ effect })),
+    ...(cache.passive.enemy ?? []).map((effect) => ({ effect })),
     ...Object.values(enemyState.stat),
   ]) {
     const { chance = 1, statMap } = effect;
@@ -36,8 +36,8 @@ export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
   };
 
   const allEffectStates = [
-    ...(cache.passive[memberId] ?? []).map(effect => ({ effect })),
-    ...(cache.passive[isOnField ? 'active' : 'inactive'] ?? []).map(effect => ({ effect })),
+    ...(cache.passive[memberId] ?? []).map((effect) => ({ effect })),
+    ...(cache.passive[isOnField ? 'active' : 'inactive'] ?? []).map((effect) => ({ effect })),
     ...Object.values(memberState[memberId]),
     ...Object.values(fieldEffectStates),
   ];

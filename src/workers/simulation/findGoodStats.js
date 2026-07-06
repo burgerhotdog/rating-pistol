@@ -3,7 +3,7 @@ import { mergeObj, getTotals } from '@/utils';
 import { HOYO_MAINSTAT_WEIGHTS } from './statWeights';
 import { HOYO_MAINSTAT_VALUES, KURO_MAINSTAT_VALUES, SUBSTAT_VALUES } from './statValues';
 
-const findGoodMainStatsKuro = (baseMap, baseScore, simulateRotation, getPenalty) => {
+const findGoodMainStatsKuro = (baseMap, baseScore, runRotation, getPenalty) => {
   const goodMainStats = {};
 
   for (const [cost, mainStats] of Object.entries(KURO_MAINSTAT_VALUES)) {
@@ -11,7 +11,7 @@ const findGoodMainStatsKuro = (baseMap, baseScore, simulateRotation, getPenalty)
 
     for (const [statId, value] of Object.entries(mainStats)) {
       const testMap = mergeObj(baseMap, { [statId]: value });
-      const testSummary = simulateRotation(testMap);
+      const testSummary = runRotation(testMap);
       const testTotals = getTotals(testSummary);
       const testScore = (testTotals.damage + testTotals.healing + testTotals.shield) * getPenalty(testMap);
 
@@ -30,7 +30,7 @@ const findGoodMainStatsKuro = (baseMap, baseScore, simulateRotation, getPenalty)
   return goodMainStats;
 };
 
-const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, simulateRotation, getPenalty) => {
+const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, runRotation, getPenalty) => {
   const goodMainStats = [];
 
   for (const mainStats of HOYO_MAINSTAT_WEIGHTS[gameId]) {
@@ -39,7 +39,7 @@ const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, simulateRotation, get
     for (const statId of Object.keys(mainStats)) {
       const value = HOYO_MAINSTAT_VALUES[gameId][statId];
       const testMap = mergeObj(baseMap, { [statId]: value });
-      const testSummary = simulateRotation(testMap);
+      const testSummary = runRotation(testMap);
       const testTotals = getTotals(testSummary);
       const testScore = (testTotals.damage + testTotals.healing + testTotals.shield) * getPenalty(testMap);
 
@@ -58,12 +58,12 @@ const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, simulateRotation, get
   return goodMainStats;
 };
 
-const findGoodSubStats = (gameId, baseMap, baseScore, simulateRotation, getPenalty) => {
+const findGoodSubStats = (gameId, baseMap, baseScore, runRotation, getPenalty) => {
   const goodSubStats = [];
 
   for (const [statId, value] of Object.entries(SUBSTAT_VALUES[gameId])) {
     const testMap = mergeObj(baseMap, { [statId]: value });
-    const testSummary = simulateRotation(testMap);
+    const testSummary = runRotation(testMap);
     const testTotals = getTotals(testSummary);
     const testScore = (testTotals.damage + testTotals.healing + testTotals.shield) * getPenalty(testMap);
 
@@ -76,15 +76,15 @@ const findGoodSubStats = (gameId, baseMap, baseScore, simulateRotation, getPenal
   return goodSubStats;
 };
 
-export const findGoodStats = (cache, baseScore, currId, simulateRotation, getPenalty) => {
+export const findGoodStats = (cache, baseScore, currId, runRotation, getPenalty) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
 
   const main = gameId === WW
-    ? findGoodMainStatsKuro(baseMap, baseScore, simulateRotation, getPenalty)
-    : findGoodMainStatsHoyo(gameId, baseMap, baseScore, simulateRotation, getPenalty);
+    ? findGoodMainStatsKuro(baseMap, baseScore, runRotation, getPenalty)
+    : findGoodMainStatsHoyo(gameId, baseMap, baseScore, runRotation, getPenalty);
 
-  const sub = findGoodSubStats(gameId, baseMap, baseScore, simulateRotation, getPenalty);
+  const sub = findGoodSubStats(gameId, baseMap, baseScore, runRotation, getPenalty);
 
   return { main, sub };
 };

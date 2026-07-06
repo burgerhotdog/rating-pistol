@@ -22,7 +22,7 @@ const resolveApplyTo = (applyTo, ownerId, idList) => {
       return idList;
 
     case 'ally':
-      return idList.filter(id => id !== ownerId);
+      return idList.filter((id) => id !== ownerId);
 
     case 'first':
       return [idList[0]];
@@ -189,7 +189,7 @@ export const normalizeEffects = (ctx, member, actions) => {
   const setData = SET[gameId];
 
   const toNormalize = [
-    ...toArray(charData.effects).filter(effect => (effect.rank ?? 0) <= member.rank),
+    ...toArray(charData.effects).filter((effect) => (effect.rank ?? 0) <= member.rank),
     ...toArray(weapData.effects),
   ];
 

@@ -149,7 +149,7 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
           fullWidth
           placeholder="Search weapons..."
           value={search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           sx={{ mb: 2 }}
         />
         <Box
@@ -202,7 +202,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
 
   // Which tiers are possible given remaining capacity
   const enabledTiers = useMemo(() =>
-    new Set(allTiers.filter(t => t <= remainingCapacity))
+    new Set(allTiers.filter((t) => t <= remainingCapacity))
   , [allTiers, remainingCapacity]);
 
   const [tierFilter, setTierFilter] = useState(allTiers[0]);
@@ -215,7 +215,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
         // Must have at least one bonus tier matching the filter (if set) and within capacity
         const hasMatchingTier = tierFilter
           ? bonusKeys.includes(tierFilter) && enabledTiers.has(tierFilter)
-          : bonusKeys.some(k => enabledTiers.has(k));
+          : bonusKeys.some((k) => enabledTiers.has(k));
         return hasMatchingTier && setData.name.toLowerCase().includes(lower);
       })
       .map(([id, setData]) => ({ id, name: setData.name }))
@@ -270,7 +270,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
             value={tierFilter}
             onChange={(_, val) => { if (val !== null) setTierFilter(val); }}
           >
-            {allTiers.map(tier => (
+            {allTiers.map((tier) => (
               <ToggleButton
                 key={tier}
                 value={tier}
@@ -286,7 +286,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
           fullWidth
           placeholder="Search sets..."
           value={search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           sx={{ mb: 2 }}
         />
 
@@ -595,7 +595,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 dense
                 sx={{ px: 0.5 }}
               >
-                {toArray(skillType).map(type => (
+                {toArray(skillType).map((type) => (
                   <Chip
                     key={type}
                     label={formatStr(type)}
@@ -615,7 +615,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 >
                   {name}
                 </Typography>
-                {toArray(tagged).map(tag => (
+                {toArray(tagged).map((tag) => (
                   <Chip
                     key={tag}
                     label={tag}
@@ -659,7 +659,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
         <TextField
           placeholder="Search actions..."
           value={search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           fullWidth
         />
       </Box>
@@ -817,7 +817,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
 
       {/* Cast type chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
-        {toArray(skillType).map(type => (
+        {toArray(skillType).map((type) => (
           <Chip
             key={type}
             label={formatStr(type)}
@@ -834,7 +834,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
 
       {/* Tags chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
-        {toArray(tagged).map(tag => (
+        {toArray(tagged).map((tag) => (
           <Chip
             key={tag}
             label={tag}
@@ -978,7 +978,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         characterId={characterId}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
-        onSelect={actionKey => onChange([...rotation, actionKey])}
+        onSelect={(actionKey) => onChange([...rotation, actionKey])}
       />
     </Box>
   );
@@ -1017,9 +1017,9 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   const handleToggleUserBuild = (useUserBuild) => {
     if (useUserBuild && storedBuild) {
-      setDraft(prev => applyStoredBuild(gameId, prev, storedBuild));
+      setDraft((prev) => applyStoredBuild(gameId, prev, storedBuild));
     } else {
-      setDraft(prev => {
+      setDraft((prev) => {
         const { build: _, ...rest } = prev;
         return { ...rest, useUserBuild: false };
       });
@@ -1086,7 +1086,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   imageUrl={`${gameId}/character/${draft.id}.webp`}
                   name={memberData?.name ?? null}
                   onClick={() => setCharDialogOpen(true)}
-                  onClear={() => setDraft(prev => ({
+                  onClear={() => setDraft((prev) => ({
                     ...prev,
                     id: null,
                     rank: null,
@@ -1101,14 +1101,14 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 <TextField
                   select
                   value={draft.rank ?? ''}
-                  onChange={(e) => setDraft(prev => ({ ...prev, rank: Number(e.target.value) }))}
+                  onChange={(e) => setDraft((prev) => ({ ...prev, rank: Number(e.target.value) }))}
                   disabled={!draft.id || buildLocked}
                   sx={{ width: 120 }}
                 >
                   <MenuItem value="" disabled>
                     
                   </MenuItem>
-                  {[0, 1, 2, 3, 4, 5, 6].map(rank => (
+                  {[0, 1, 2, 3, 4, 5, 6].map((rank) => (
                     <MenuItem key={rank} value={rank}>
                       {`S${rank}`}
                     </MenuItem>
@@ -1124,7 +1124,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   name={weaponData?.name ?? null}
                   onClick={() => setWeaponDialogOpen(true)}
                   disabled={!draft.id || buildLocked}
-                  onClear={buildLocked ? undefined : () => setDraft(prev => ({
+                  onClear={buildLocked ? undefined : () => setDraft((prev) => ({
                     ...prev,
                     weaponId: null,
                     weaponRank: null,
@@ -1134,14 +1134,14 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 <TextField
                   select
                   value={draft.weaponRank ?? ''}
-                  onChange={(e) => setDraft(prev => ({ ...prev, weaponRank: Number(e.target.value) }))}
+                  onChange={(e) => setDraft((prev) => ({ ...prev, weaponRank: Number(e.target.value) }))}
                   disabled={!draft.weaponId || buildLocked}
                   sx={{ width: 120 }}
                 >
                   <MenuItem value="" disabled>
                     
                   </MenuItem>
-                  {[1, 2, 3, 4, 5].map(rank => (
+                  {[1, 2, 3, 4, 5].map((rank) => (
                     <MenuItem key={`weapon-rank-${rank}`} value={rank}>
                       {`S${rank}`}
                     </MenuItem>
@@ -1155,7 +1155,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 gameId={gameId}
                 id={draft.id}
                 setCounts={draft.setCounts}
-                onChange={(setCounts) => setDraft(prev => ({ ...prev, setCounts }))}
+                onChange={(setCounts) => setDraft((prev) => ({ ...prev, setCounts }))}
                 disabled={buildLocked}
               />
             </Box>
@@ -1165,7 +1165,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             gameId={gameId}
             characterId={draft.id}
             rotation={draft.rotation}
-            onChange={(rotation) => setDraft(prev => ({ ...prev, rotation }))}
+            onChange={(rotation) => setDraft((prev) => ({ ...prev, rotation }))}
           />
         </DialogContent>
 
@@ -1187,7 +1187,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
         weaponType={weaponType}
         open={weaponDialogOpen}
         onClose={() => setWeaponDialogOpen(false)}
-        onSelect={(weaponId) => setDraft(prev => ({
+        onSelect={(weaponId) => setDraft((prev) => ({
           ...prev,
           weaponId,
           weaponRank: getDefaultWeaponRank(gameId, weaponId),

@@ -75,14 +75,14 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
   const disabledColor = palette.action.disabled;
   if (!weeklySummaries) return null;
 
-  const members = team.filter(member => member.id);
+  const members = team.filter((member) => member.id);
   const membersMisc = [
     ...members,
-    ...(Object.values(userSummary).some(result => result.ownerId === 'other') ? [{ id: 'other' }] : []),
+    ...(Object.values(userSummary).some((result) => result.ownerId === 'other') ? [{ id: 'other' }] : []),
   ];
 
   const rotationTime = cache.fullRotationTime;
-  const toDps = dmg => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
+  const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
 
   const sortedMembers = [...membersMisc].sort((a, b) => {
     // Always put the selected character first
@@ -99,7 +99,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
     return bDps - aDps;
   });
 
-  const memberColors = sortedMembers.toReversed().map(member => {
+  const memberColors = sortedMembers.toReversed().map((member) => {
     if (member.id === 'other') return '#ffffff';
     const { element } = CHARACTER[gameId][member.id];
 
@@ -107,7 +107,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
   });
 
 
-  const activeScores = weeklySummaries.map(actionMap => toDps(sumRotationDmg(actionMap)));
+  const activeScores = weeklySummaries.map((actionMap) => toDps(sumRotationDmg(actionMap)));
   const benchmarkDps = activeScores[activeScores.length - 1];
   const userDps = toDps(sumRotationDmg(userSummary ?? {}));
   const scaledBuildRating = userDps / benchmarkDps * 100;

@@ -39,13 +39,13 @@ const buildData = (summary, charId, breakdownMode) => {
       name: formatStr(key),
       value: Math.round(sum),
     }))
-    .filter(entry => entry.value)
+    .filter((entry) => entry.value)
     .sort((a, b) => b.value - a.value);
 
   const total = entries.reduce((sum, e) => sum + e.value, 0);
   let cumulative = 0;
 
-  return entries.map(entry => {
+  return entries.map((entry) => {
     const rank = cumulative / total;
     const percent = entry.value / total;
     cumulative += entry.value;

@@ -85,7 +85,7 @@ export const Content = () => {
             <TabPanel isActive={tabIndex === 0}>
               <DamageBreakdown
                 userSummary={userSummary}
-                teamIds={team.map(m => m.id).filter(Boolean)}
+                teamIds={team.map((m) => m.id).filter(Boolean)}
               />
             </TabPanel>
 

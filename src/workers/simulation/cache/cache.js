@@ -37,7 +37,7 @@ const convertRotation = (ctx, member, actions) => {
 export const compileCache = (gameId, team) => {
   const ctx = {
     gameId,
-    idList: team.map(member => member.id),
+    idList: team.map((member) => member.id),
     teamSize: team.length,
   };
 
@@ -84,7 +84,7 @@ export const compileCache = (gameId, team) => {
     };
 
     const tuneResponse = Object.values(actions[member.id])
-      .find(action => action.skillType === 'tuneResponse');
+      .find((action) => action.skillType === 'tuneResponse');
 
     if (tuneResponse) {
       memberCache[member.id].tuneResponse = tuneResponse;

@@ -12,7 +12,7 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
   const enemyStatMap = {};
 
   for (const { stacks = 1, effect } of [
-    ...(cache.passive.enemy ?? []).map(effect => ({ effect })),
+    ...(cache.passive.enemy ?? []).map((effect) => ({ effect })),
     ...Object.values(enemyState.stat),
   ]) {
     const { chance = 1, statMap } = effect;

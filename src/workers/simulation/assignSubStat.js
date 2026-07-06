@@ -20,7 +20,7 @@ const WW_TABLE = {
 };
 
 export function revealSubStatKuro(subStatList) {
-  const existingStatIds = subStatList.map(line => line.subStatId);
+  const existingStatIds = subStatList.map((line) => line.subStatId);
   const statPool = Object.entries(WW_TABLE)
     .filter(([statId]) => !existingStatIds.includes(statId));
 
@@ -50,7 +50,7 @@ export function revealSubStatsHoyo(subStatList, gameId, mainStatId) {
     .filter(([statId]) => statId !== mainStatId);
 
   for (let i = 0; i < 4; i++) {
-    const winnerIndex = weightedLottery(statPool.map(keyValue => keyValue[1]));
+    const winnerIndex = weightedLottery(statPool.map((keyValue) => keyValue[1]));
     const [subStatId] = statPool[winnerIndex];
 
     subStatList.push({ subStatId, subStatValue: randomRoll(gameId, subStatId) });

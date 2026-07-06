@@ -15,7 +15,7 @@ export const formatStr = (str) => {
   return str
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .split(' ')
-    .map(word => {
+    .map((word) => {
       const hasPercent = word.endsWith('%');
       if (hasPercent) word = word.slice(0, -1);
 

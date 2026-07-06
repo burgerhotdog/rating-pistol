@@ -24,7 +24,7 @@ const CustomTooltip = ({ active, payload, label }) => {
         {label}
       </Typography>
 
-      {payload.map(p => (
+      {payload.map((p) => (
         <Box key={p.name} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1.5 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
             <Box sx={{ width: 8, height: 8, borderRadius: 0.5, bgcolor: p.fill }} />
@@ -85,7 +85,7 @@ const isSignificantStat = (gameId, statId, percentOftotal, mainStatsList) => {
   });
 
   const avgRolls = baseChances
-    .map(chance => chance * 2.05)
+    .map((chance) => chance * 2.05)
     .reduce((acc, chance) => acc + chance, 0);
 
   const unbiasedPercentOfTotal = avgRolls / 41;
@@ -117,7 +117,7 @@ export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) 
     .sort((a, b) => b.sim - a.sim);
 
   const elementColor = accentColors[gameId][element];
-  const maxValue = Math.max(...chartData.flatMap(d => [d.sim, d.user]));
+  const maxValue = Math.max(...chartData.flatMap((d) => [d.sim, d.user]));
 
   return (
     <FlexCard>
