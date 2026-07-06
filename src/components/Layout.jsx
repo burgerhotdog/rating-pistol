@@ -32,7 +32,7 @@ export const FlexCard = ({ direction = 'column', sx, ...props }) => (
       display: 'flex',
       flexDirection: direction,
       flex: 1,
-    },sx]}
+    }, sx]}
     {...props}
   />
 );
