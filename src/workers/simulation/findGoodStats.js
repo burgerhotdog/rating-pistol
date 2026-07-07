@@ -1,7 +1,7 @@
 import { WW } from '@/data';
 import { mergeObj, getTotals } from '@/utils';
-import { HOYO_MAINSTAT_WEIGHTS } from './statWeights';
-import { HOYO_MAINSTAT_VALUES, KURO_MAINSTAT_VALUES, SUBSTAT_VALUES } from './statValues';
+import { HOYO_MAINSTAT_WEIGHTS } from './stats/weights';
+import { HOYO_MAINSTAT_VALUES, KURO_MAINSTAT_VALUES, SUBSTAT_VALUES } from './stats/values';
 
 const findGoodMainStatsKuro = (baseMap, baseScore, runRotation, getPenalty) => {
   const goodMainStats = {};
@@ -58,22 +58,24 @@ const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, runRotation, getPenal
   return goodMainStats;
 };
 
-const findGoodSubStats = (gameId, baseMap, baseScore, runRotation, getPenalty) => {
+const findGoodSubs = (substatValues, baseMap, baseScore, runRotation, getPenalty) => {
   const goodSubStats = [];
 
-  for (const [statId, value] of Object.entries(SUBSTAT_VALUES[gameId])) {
+  for (const [statId, value] of Object.entries(substatValues)) {
     const testMap = mergeObj(baseMap, { [statId]: value });
     const testSummary = runRotation(testMap);
+    const testPenalty = getPenalty(testMap);
     const testTotals = getTotals(testSummary);
-    const testScore = (testTotals.damage + testTotals.healing + testTotals.shield) * getPenalty(testMap);
+    const testScore = (testTotals.damage + testTotals.healing + testTotals.shield) * testPenalty;
 
     if (testScore > baseScore) {
       goodSubStats.push(statId);
     }
   }
 
-  if (!goodSubStats.length) return Object.keys(SUBSTAT_VALUES[gameId]);
-  return goodSubStats;
+  return goodSubStats.length
+    ? goodSubStats
+    : Object.keys(substatValues);
 };
 
 export const findGoodStats = (cache, baseScore, currId, runRotation, getPenalty) => {
@@ -84,7 +86,8 @@ export const findGoodStats = (cache, baseScore, currId, runRotation, getPenalty)
     ? findGoodMainStatsKuro(baseMap, baseScore, runRotation, getPenalty)
     : findGoodMainStatsHoyo(gameId, baseMap, baseScore, runRotation, getPenalty);
 
-  const sub = findGoodSubStats(gameId, baseMap, baseScore, runRotation, getPenalty);
+  const substatValues = SUBSTAT_VALUES[gameId];
+  const sub = findGoodSubs(substatValues, baseMap, baseScore, runRotation, getPenalty);
 
   return { main, sub };
 };

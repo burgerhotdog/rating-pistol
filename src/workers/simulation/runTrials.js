@@ -5,7 +5,7 @@ import { createTrialAdvancer } from './advanceTrial';
 import { findGoodStats } from './findGoodStats';
 import { createGetPenalty } from './penalty';
 import { getSubRollSums } from './utils';
-import { KURO_MAINSTAT_INDEX_ORDER } from './statWeights';
+import { KURO_MAINSTAT_INDEX_ORDER } from './stats/weights';
 import { getScore } from './utils';
 
 const MIN_TRIALS = 100;

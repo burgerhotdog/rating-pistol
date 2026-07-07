@@ -1,7 +1,7 @@
 import { GI, ZZZ } from '@/data';
 import { weightedLottery } from './utils';
-import { HOYO_SUBSTAT_WEIGHTS } from './statWeights';
-import { SUBSTAT_VALUES } from './statValues';
+import { HOYO_SUBSTAT_WEIGHTS } from './stats/weights';
+import { SUBSTAT_VALUES } from './stats/values';
 
 const WW_TABLE = {
   'atk': [30, 40, 50, 60],

@@ -1,7 +1,7 @@
 import { GI, HSR, WW } from '@/data';
 import { weightedLottery } from './utils';
-import { HOYO_MAINSTAT_WEIGHTS, KURO_MAINSTAT_WEIGHTS } from './statWeights';
-import { HOYO_MAINSTAT_VALUES, KURO_MAINSTAT_VALUES, KURO_MAINSTAT_FLATS } from './statValues';
+import { HOYO_MAINSTAT_WEIGHTS, KURO_MAINSTAT_WEIGHTS } from './stats/weights';
+import { HOYO_MAINSTAT_VALUES, KURO_MAINSTAT_VALUES, KURO_MAINSTAT_FLATS } from './stats/values';
 
 const assignHoyo = (gameId, index) => {
   const options = HOYO_MAINSTAT_WEIGHTS[gameId][index];
