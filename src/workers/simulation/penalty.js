@@ -30,7 +30,7 @@ const getPenalty = (statMap, matchMap) => {
   return penalty;
 };
 
-export const compilePenalty = (cache, currId) => {
+export const createGetPenalty = (cache, currId) => {
   const { matchList = [], tagged = [] } = CHARACTER[cache.gameId][currId];
   const { statMap } = cache.member[currId];
   const matchMap = {};

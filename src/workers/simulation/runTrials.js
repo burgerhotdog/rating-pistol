@@ -3,7 +3,7 @@ import { mergeEquipList, getTotals } from '@/utils';
 import { createRunRotation } from './rotation';
 import { createTrialAdvancer } from './advanceTrial';
 import { findGoodStats } from './findGoodStats';
-import { compilePenalty } from './penalty';
+import { createGetPenalty } from './penalty';
 import { getSubRollSums } from './utils';
 import { KURO_MAINSTAT_INDEX_ORDER } from './statWeights';
 import { getScore } from './utils';
@@ -93,21 +93,6 @@ const normalizeSummarySums = (sums, n) =>
     })
   );
 
-const buildFinalStats = (trials) => {
-  const n = trials.length;
-  const statSums = {};
-
-  for (const trial of trials) {
-    const merged = mergeEquipList(trial.equipList);
-
-    for (const stat in merged) {
-      statSums[stat] = (statSums[stat] ?? 0) + merged[stat] / n;
-    }
-  }
-
-  return statSums;
-};
-
 function addSummaryToSums(sums, summary) {
   for (const [key, footprint] of Object.entries(summary)) {
     const { type } = footprint;
@@ -121,18 +106,18 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
   const runRotation = createRunRotation(cache, equipMaps, currId);
-  const getPenalty = compilePenalty(cache, currId);
-  const equipListLength = (gameId === GI || gameId === WW) ? 5 : 6;
+  const getPenalty = createGetPenalty(cache, currId);
   const baseSummary = runRotation(baseMap);
-  const baseTotals = getTotals(baseSummary);
   const basePenalty = getPenalty(baseMap);
+  const baseTotals = getTotals(baseSummary);
   const baseScore = getScore(baseTotals, basePenalty);
 
+  const equipListLength = (gameId === GI || gameId === WW) ? 5 : 6;
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),
     summary: baseSummary,
-    totals: baseTotals,
     penalty: basePenalty,
+    totals: baseTotals,
     score: baseScore,
   });
 
@@ -185,12 +170,23 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
       self.postMessage({ week, diff });
     }
 
-    if (diff < 0.01) break;
+    if (diff < 0.01) {
+      break;
+    }
+
     prevAvgScore = avgScore;
   }
 
   if (!isMain) {
-    return buildFinalStats(trials);
+    const avgEquipMap = {};
+    for (const { equipList } of trials) {
+      const equipMap = mergeEquipList(equipList);
+      for (const [stat, value] of Object.entries(equipMap)) {
+        avgEquipMap[stat] ??= 0;
+        avgEquipMap[stat] += value / trials.length;
+      }
+    }
+    return avgEquipMap;
   }
   
   self.postMessage({

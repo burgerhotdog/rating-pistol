@@ -56,16 +56,16 @@ const createEquipEvaluator = (baseMap, runRotation, getPenalty, currId) => (equi
     const newEquipList = latest.equipList.with(index, equip);
     const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
     const newSummary = runRotation(combinedStatMap);
-    const newTotals = getTotals(newSummary);
     const newPenalty = getPenalty(combinedStatMap);
+    const newTotals = getTotals(newSummary);
     const newScore = getScore(newTotals, newPenalty);
 
     if (newScore > buffer.score) {
       Object.assign(buffer, {
         equipList: newEquipList,
         summary: newSummary,
-        totals: newTotals,
         penalty: newPenalty,
+        totals: newTotals,
         score: newScore,
       });
     }

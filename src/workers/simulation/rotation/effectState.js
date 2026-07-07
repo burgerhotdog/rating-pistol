@@ -10,24 +10,22 @@ export const createEffectStateMaps = (memberIds) => {
   return stateMaps;
 };
 
-export function applyEffect(effectStates, effect, applyTimes) {
-  const { intervalOffset } = effect;
-  const prev = effectStates[effect.key] ?? {};
-  const existingStacks = prev.stacks ?? 0;
+export function applyEffect(stateMap, effect, applyTimes) {
+  const prev = stateMap[effect.key] ?? {};
+  const prevStacks = prev.stacks ?? 0;
 
   const next = {
-    stacks: Math.min(existingStacks + applyTimes, effect.maxStacks),
+    stacks: Math.min(prevStacks + applyTimes, effect.maxStacks),
     timeRemaining: effect.duration,
     usesRemaining: effect.maxUses,
     effect,
   };
 
   if ('intervalCooldown' in effect) {
-    const existingEffectTimer = prev.intervalTimer;
-    next.intervalTimer ??= existingEffectTimer ?? intervalOffset;
+    next.intervalTimer = effect.intervalOffset ?? 0;
   }
 
-  effectStates[effect.key] = next;
+  stateMap[effect.key] = next;
 }
 
 export function removeEffects(ctx, action) {
@@ -39,12 +37,11 @@ export function removeEffects(ctx, action) {
   ];
 
   for (const stateMap of stateMaps) {
-    for (const effectKey in stateMap) {
-      const { effect } = stateMap[effectKey];
+    for (const [key, { effect }] of Object.entries(stateMap)) {
       if (effect.ownerId !== action.ownerId) continue;
 
       if (matchRemoveOn(action, effect) || matchRemoveIf(action, effect, ctx)) {
-        delete stateMap[effectKey];
+        delete stateMap[key];
       }
     }
   }

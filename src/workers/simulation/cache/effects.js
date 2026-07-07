@@ -144,7 +144,6 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
 
       if (actionType === 'intervalAction') {
         resolved.intervalCooldown ??= 1000;
-        resolved.intervalOffset ??= 0;
       }
 
       resolved.times ??= 1;
