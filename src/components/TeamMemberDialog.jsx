@@ -262,7 +262,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
       <DialogContent>
         {/* Piece-count filter */}
         <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 2 }}>
-          <Typography variant="body2" color="text.secondary" sx={{ flexShrink: 0 }}>
+          <Typography variant="body2" color="textSecondary" sx={{ flexShrink: 0 }}>
             Piece bonus:
           </Typography>
           <ToggleButtonGroup
@@ -309,6 +309,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
                   title={name}
                   sx={{ width: 100, height: 100 }}
                 />
+
                 <Typography variant="body2" sx={{ textAlign: 'center', px: 0.5 }} noWrap>
                   {name}
                 </Typography>
@@ -317,7 +318,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
           ))}
 
           {options.length === 0 && (
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="textSecondary">
               No sets available.
             </Typography>
           )}
@@ -446,11 +447,13 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
   };
 
   const currentRemainingCapacity =
-    replacingIndex !== null ? remainingForReplace(replacingIndex) : remainingForAdd;
+    replacingIndex !== null
+      ? remainingForReplace(replacingIndex)
+      : remainingForAdd;
 
   if (!id) {
     return (
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body2" color="textSecondary">
         Select a character to edit set bonuses.
       </Typography>
     );
@@ -501,7 +504,9 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
                 <AddIcon color="action" />
               </CardActionArea>
             </Card>
-            <Typography variant="caption" color="text.secondary">Add set</Typography>
+            <Typography variant="caption" color="textSecondary">
+              Add set
+            </Typography>
           </Box>
         )}
       </Stack>
@@ -515,6 +520,7 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
         >
           Reset Default
         </Button>
+
         <Button
           variant="outlined"
           startIcon={<ClearAllIcon />}
@@ -608,6 +614,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                     }}
                   />
                 ))}
+
                 <Typography
                   variant="body2"
                   noWrap
@@ -615,6 +622,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 >
                   {name}
                 </Typography>
+
                 {toArray(tagged).map((tag) => (
                   <Chip
                     key={tag}
@@ -664,24 +672,27 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
         />
       </Box>
 
-      <DialogContent dividers sx={{
-        scrollbarColor: 'rgba(255,255,255,0.18) transparent',
-        '&::-webkit-scrollbar': { width: 5 },
-        '&::-webkit-scrollbar-track': { background: 'transparent' },
-        '&::-webkit-scrollbar-thumb': {
-          background: 'rgba(255,255,255,0.18)',
-          borderRadius: 3,
-        },
-        '&::-webkit-scrollbar-thumb:hover': {
-          background: 'rgba(255,255,255,0.32)',
-        },
-      }}>
+      <DialogContent
+        dividers
+        sx={{
+          scrollbarColor: 'rgba(255,255,255,0.18) transparent',
+          '&::-webkit-scrollbar': { width: 5 },
+          '&::-webkit-scrollbar-track': { background: 'transparent' },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'rgba(255,255,255,0.18)',
+            borderRadius: 3,
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: 'rgba(255,255,255,0.32)',
+          },
+        }}
+      >
         {hasMatches ? (
           <Stack spacing={1}>
             {Object.entries(filteredTree).map(renderGroup)}
           </Stack>
         ) : (
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          <Typography variant="body2" color="textSecondary">
             No skills available for this character.
           </Typography>
         )}
@@ -728,7 +739,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
               >
                 <Typography
                   variant="caption"
-                  color="text.secondary"
+                  color="textSecondary"
                   sx={{ textAlign: 'center' }}
                 >
                   None
@@ -885,7 +896,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 
   if (!characterId) {
     return (
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body2" color="textSecondary">
         Select a character to edit rotation.
       </Typography>
     );
@@ -943,7 +954,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
             </SortableContext>
           </DndContext>
         ) : (
-          <Typography variant="body2" color="text.secondary" sx={{ p: 2, textAlign: 'center' }}>
+          <Typography variant="body2" color="textSecondary" sx={{ p: 2, textAlign: 'center' }}>
             Rotation is empty.
           </Typography>
         )}

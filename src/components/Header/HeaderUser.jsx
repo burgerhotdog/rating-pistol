@@ -22,7 +22,7 @@ const HeaderUser = () => {
     return (
       <Typography
         variant="body2"
-        color="text.secondary"
+        color="textSecondary"
         sx={{ cursor: 'pointer' }}
         onClick={signIn}
       >
@@ -61,7 +61,7 @@ const HeaderUser = () => {
             {user.displayName}
           </Typography>
 
-          <Typography variant="caption" color="text.secondary">
+          <Typography variant="caption" color="textSecondary">
             {user.email}
           </Typography>
         </Box>

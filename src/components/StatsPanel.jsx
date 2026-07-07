@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { CharAvatar, TeamMemberDialog } from '@/components';
-import { useBuild } from '@/contexts';
 import { MISC, CHARACTER } from '@/data';
 import { getAttr, formatStr, compileMenuMap } from '@/utils';
 
@@ -113,7 +112,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
                   alignItems: 'center',
                 }}
               >
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                <Typography variant="body2" color="textSecondary">
                   {formatStr(id)}
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
@@ -126,7 +125,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
 
         <Divider sx={{ my: 2 }} />
 
-        <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1.5, display: 'block' }}>
+        <Typography variant="caption" color="textSecondary" sx={{ mb: 1.5, display: 'block' }}>
           Team Configuration
         </Typography>
         <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
@@ -157,7 +156,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
         <Divider sx={{ my: 2 }} />
 
         <Tooltip title={formatFullDate(member.build?.lastUpdated)}>
-          <Typography variant="caption" color="text.secondary">
+          <Typography variant="caption" color="textSecondary">
             Last updated {getRelativeTime(member.build?.lastUpdated)}
           </Typography>
         </Tooltip>

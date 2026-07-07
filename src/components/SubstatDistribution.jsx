@@ -28,7 +28,10 @@ const CustomTooltip = ({ active, payload, label }) => {
         <Box key={p.name} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1.5 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
             <Box sx={{ width: 8, height: 8, borderRadius: 0.5, bgcolor: p.fill }} />
-            <Typography variant="body2" color="text.secondary">{p.name}</Typography>
+
+            <Typography variant="body2" color="textSecondary">
+              {p.name}
+            </Typography>
           </Box>
 
           <Typography variant="body2" sx={{ fontFamily: 'monospace' }}>
