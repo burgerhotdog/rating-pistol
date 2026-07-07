@@ -97,7 +97,7 @@ function addSummaryToSums(sums, summary) {
   for (const [key, footprint] of Object.entries(summary)) {
     const { type } = footprint;
 
-    if (!sums[key]) sums[key] = { ...footprint, [type]: 0 };
+    sums[key] ??= { ...footprint, [type]: 0 };
     sums[key][type] += footprint[type] ?? 0;
   }
 }
@@ -107,11 +107,17 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
   const { baseMap } = member[currId];
   const runRotation = createRunRotation(cache, equipMaps, currId);
   const getPenalty = createGetPenalty(cache, currId);
+
   const baseSummary = runRotation(baseMap);
   const basePenalty = getPenalty(baseMap);
   const baseTotals = getTotals(baseSummary);
   const baseScore = getScore(baseTotals, basePenalty);
 
+  const weeklySummaries = [baseSummary];
+  const goodStats = findGoodStats(cache, baseScore, currId, runRotation, getPenalty);
+  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, runRotation, getPenalty);
+
+  // Init trials
   const equipListLength = (gameId === GI || gameId === WW) ? 5 : 6;
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),
@@ -120,16 +126,12 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
     totals: baseTotals,
     score: baseScore,
   });
-
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) {
     trials.push(createTrial());
   }
 
-  const goodStats = findGoodStats(cache, baseScore, currId, runRotation, getPenalty);
-  const weeklySummaries = [baseSummary];
-  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, runRotation, getPenalty);
-
+  // Main trial loop
   let prevAvgScore = baseScore;
   for (let week = 1; week <= MAX_WEEKS; week++) {
     const weekSummarySums = {};
@@ -147,7 +149,9 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
-      if (weekScores.relativeError <= 0.005) break;
+      if (weekScores.relativeError <= 0.005) {
+        break;
+      }
 
       const trial = createTrial();
       advanceTrial(trial);
@@ -164,10 +168,9 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
     const diff = (avgScore - prevAvgScore) / prevAvgScore;
 
     if (isMain) {
+      self.postMessage({ week, diff });
       const weeklySummary = normalizeSummarySums(weekSummarySums, trials.length);
       weeklySummaries.push(weeklySummary);
-
-      self.postMessage({ week, diff });
     }
 
     if (diff < 0.01) {

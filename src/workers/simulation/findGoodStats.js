@@ -1,5 +1,6 @@
 import { WW } from '@/data';
 import { mergeObj, getTotals } from '@/utils';
+import { getScore } from './utils';
 import { HOYO_MAINSTAT_WEIGHTS } from './stats/weights';
 import { HOYO_MAINSTAT_VALUES, KURO_MAINSTAT_VALUES, SUBSTAT_VALUES } from './stats/values';
 
@@ -66,7 +67,7 @@ const findGoodSubs = (substatValues, baseMap, baseScore, runRotation, getPenalty
     const testSummary = runRotation(testMap);
     const testPenalty = getPenalty(testMap);
     const testTotals = getTotals(testSummary);
-    const testScore = (testTotals.damage + testTotals.healing + testTotals.shield) * testPenalty;
+    const testScore = getScore(testTotals, testPenalty);
 
     if (testScore > baseScore) {
       goodSubStats.push(statId);
