@@ -14,7 +14,7 @@ import {
 import { FlexCard, ChartFill } from '@/components';
 import { WW, MISC, CHARACTER } from '@/data';
 import { formatStr } from '@/utils';
-import { HOYO_SUBSTAT_WEIGHTS } from '@/workers/simulation/statWeights';
+import { HOYO_SUBSTAT_WEIGHTS } from '@/workers/simulation/stats/weights';
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
