@@ -1,7 +1,7 @@
 import { getAttr } from '@/utils';
 import { getCurrentStatMap, getCurrentEnemyMap } from './getCurrentStatMap';
-import { isOnCooldown, setCooldown } from './cooldownState';
-import { applyEffect } from './effectState';
+import { isOnCooldown, setCooldown } from './cooldowns';
+import { applyEffect } from './effects';
 
 const levelModifier = 716.22;
 const enemyTypeModifier = 14;

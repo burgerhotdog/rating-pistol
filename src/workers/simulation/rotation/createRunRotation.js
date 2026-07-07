@@ -1,11 +1,11 @@
 import { MISC } from '@/data';
 import { matchIfInflict, matchUseOn, matchUseIf, matchApplyIf } from '../match';
-import { isOnCooldown, setCooldown, advanceCooldowns } from './cooldownState';
+import { isOnCooldown, setCooldown, advanceCooldowns } from './cooldowns';
 import { buildFootprint, evaluateFootprint } from './footprint';
 import { formulaConfig as getFormulaConfig } from '../config';
-import { applyTune, advanceTune } from './offtuneState';
-import { createEffectStateMaps, applyEffect, removeEffects, advanceEffects } from './effectState';
-import { buildStatusFootprint, applyStatus } from './status';
+import { applyTune, advanceTune } from './offtune';
+import { createEffectStateMaps, applyEffect, removeEffects, advanceEffects } from './effects';
+import { buildStatusFootprint, applyStatus } from './negativeStatuses';
 
 const MAX_PROC_DEPTH = 5;
 
