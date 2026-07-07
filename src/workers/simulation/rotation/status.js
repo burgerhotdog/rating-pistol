@@ -6,14 +6,14 @@ const STACK_MULTIPLIER = {
 };
 
 export const buildStatusFootprint = (ctx, statusId, stacks) => {
-  const { cache, enemyState } = ctx;
+  const { cache, state } = ctx;
   const status = MISC[cache.gameId].STATUSES[statusId];
 
   const enemyStatMap = {};
 
   for (const { stacks = 1, effect } of [
     ...(cache.passive.enemy ?? []).map((effect) => ({ effect })),
-    ...Object.values(enemyState.stat),
+    ...Object.values(state.debuffs),
   ]) {
     const { chance = 1, statMap } = effect;
     if (!statMap) continue;
@@ -46,3 +46,18 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
     fixed: baseDmg * bonuses * resMult,
   };
 };
+
+export function applyStatus(negativeStatuses, status, stacks) {
+  const tracker = negativeStatuses[status.id];
+
+  if (!tracker) {
+    negativeStatuses[status.id] = {
+      stacks: Math.min(stacks, status.maxStacks),
+      tickTimer: status.tickInterval,
+      duration: status.duration,
+    };
+  } else {
+    tracker.stacks = Math.min(tracker.stacks + stacks, status.maxStacks);
+    tracker.duration = status.duration;
+  }
+}

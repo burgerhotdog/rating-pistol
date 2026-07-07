@@ -117,12 +117,12 @@ function addSummaryToSums(sums, summary) {
   }
 }
 
-export const runTrials = (cache, currId, team, isMain = false) => {
+export const runTrials = (cache, equipMaps, currId, isMain = false) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
-  const runRotation = createRunRotation(cache, currId, team);
+  const runRotation = createRunRotation(cache, equipMaps, currId);
   const getPenalty = compilePenalty(cache, currId);
-  const equipListLength = gameId === GI || gameId === WW ? 5 : 6;
+  const equipListLength = (gameId === GI || gameId === WW) ? 5 : 6;
   const baseSummary = runRotation(baseMap);
   const baseTotals = getTotals(baseSummary);
   const basePenalty = getPenalty(baseMap);

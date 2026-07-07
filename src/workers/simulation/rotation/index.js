@@ -1,1 +1,1 @@
-export * from './rotation';
+export * from './createRunRotation';

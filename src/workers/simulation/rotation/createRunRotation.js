@@ -1,69 +1,16 @@
 import { MISC } from '@/data';
-import { matchIfInflict, matchUseOn, matchRemoveOn, matchUseIf, matchRemoveIf, matchApplyIf } from '../match';
-import { createCdTracker, isOnCooldown, setCooldown, advanceCooldowns } from './cooldowns';
+import { matchIfInflict, matchUseOn, matchUseIf, matchApplyIf } from '../match';
+import { isOnCooldown, setCooldown, advanceCooldowns } from './cooldownState';
 import { buildFootprint, evaluateFootprint } from './footprint';
 import { formulaConfig as getFormulaConfig } from '../config';
-import { buildStatusFootprint } from './status';
-import { applyTune, advanceTune } from './offtune';
+import { applyTune, advanceTune } from './offtuneState';
+import { createEffectStateMaps, applyEffect, removeEffects, advanceEffects } from './effectState';
+import { buildStatusFootprint, applyStatus } from './status';
 
 const MAX_PROC_DEPTH = 5;
 
-function removeEffects(ctx, action) {
-  const { memberState, fieldState } = ctx;
-
-  for (const effectStates of [
-    ...Object.values(memberState),
-    fieldState.active,
-    fieldState.inactive,
-  ]) {
-    for (const effectKey in effectStates) {
-      const { effect } = effectStates[effectKey];
-      if (effect.ownerId !== action.ownerId) continue;
-
-      if (matchRemoveOn(action, effect) || matchRemoveIf(action, effect, ctx)) {
-        delete effectStates[effectKey];
-      }
-    }
-  }
-}
-
-export function applyEffect(effectStates, effect, applyTimes) {
-  const { intervalOffset } = effect;
-  const prev = effectStates[effect.key] ?? {};
-  const existingStacks = prev.stacks ?? 0;
-
-  const next = {
-    stacks: Math.min(existingStacks + applyTimes, effect.maxStacks),
-    timeRemaining: effect.duration,
-    usesRemaining: effect.maxUses,
-    effect,
-  };
-
-  if ('intervalCooldown' in effect) {
-    const existingEffectTimer = prev.intervalTimer;
-    next.intervalTimer ??= existingEffectTimer ?? intervalOffset;
-  }
-
-  effectStates[effect.key] = next;
-}
-
-function applyStatus(statusStates, status, stacks) {
-  const tracker = statusStates[status.id];
-
-  if (!tracker) {
-    statusStates[status.id] = {
-      stacks: Math.min(stacks, status.maxStacks),
-      tickTimer: status.tickInterval,
-      duration: status.duration,
-    };
-  } else {
-    tracker.stacks = Math.min(tracker.stacks + stacks, status.maxStacks);
-    tracker.duration = status.duration;
-  }
-}
-
 function applyEffects(ctx, action, trigger, repeat = 1) {
-  const { cache, memberState, fieldState, enemyState } = ctx;
+  const { cache, state } = ctx;
 
   if (!(action.key in cache.effect)) return;
 
@@ -77,14 +24,14 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 
     for (const target of effect.applyTo) {
       if (target === 'applier') {
-        applyEffect(memberState[action.ownerId], effect, repeat);
+        applyEffect(state.effects[action.ownerId], effect, repeat);
       } else if (target in cache.member) {
-        applyEffect(memberState[target], effect, repeat);
+        applyEffect(state.effects[target], effect, repeat);
       } else if (target === 'active' || target === 'inactive') {
-        applyEffect(fieldState[target], effect, repeat);
+        applyEffect(state.fieldEffects[target], effect, repeat);
       } else {
         if ('statMap' in effect) {
-          applyEffect(enemyState.stat, effect, repeat);
+          applyEffect(state.debuffs, effect, repeat);
         }
 
         if ('statusMap' in effect) {
@@ -94,7 +41,7 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
             const status = STATUSES[statusId];
             const stacks = effect.statusMap[statusId] * repeat;
 
-            applyStatus(enemyState.status, status, stacks)
+            applyStatus(state.negativeStatuses, status, stacks)
 
             inflictedStatuses.add(statusId);
           }
@@ -114,11 +61,11 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 
     for (const target of effect.applyTo) {
       if (target === 'active' || target === 'inactive') {
-        applyEffect(fieldState[target], effect, repeat);
+        applyEffect(state.fieldEffects[target], effect, repeat);
       } else if (target === 'enemy' && 'statMap' in effect) {
-        applyEffect(enemyState.stat, effect, repeat);
+        applyEffect(state.debuffs, effect, repeat);
       } else {
-        applyEffect(memberState[target], effect, repeat);
+        applyEffect(state.effects[target], effect, repeat);
       }
     }
 
@@ -128,32 +75,9 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
   }
 }
 
-function advanceEffectStates(ctx, elapsed) {
-  const { memberState, fieldState, enemyState } = ctx;
-
-  const effectStores = [
-    ...Object.values(memberState),
-    fieldState.active,
-    fieldState.inactive,
-    enemyState.stat,
-  ];
-
-  for (const effectStates of effectStores) {
-    for (const effectKey in effectStates) {
-      const effectState = effectStates[effectKey];
-
-      effectState.timeRemaining -= elapsed;
-
-      if (effectState.timeRemaining <= 0) {
-        delete effectStates[effectKey];
-      }
-    }
-  }
-}
-
 function tickStatuses(ctx, elapsed) {
-  const { cache, enemyState } = ctx;
-  const { status: statusStates } = enemyState;
+  const { cache, state } = ctx;
+  const { negativeStatuses: statusStates } = state;
 
   const { STATUSES = {} } = MISC[cache.gameId];
 
@@ -198,9 +122,9 @@ function tickStatuses(ctx, elapsed) {
 
 function decayProcCounts(ctx, action) {
   for (const effectStates of [
-    ...Object.values(ctx.memberState),
-    ...Object.values(ctx.fieldState),
-    ctx.enemyState.stat,
+    ...Object.values(ctx.state.effects),
+    ...Object.values(ctx.state.fieldEffects),
+    ctx.state.debuffs,
   ]) {
     for (const effectKey in effectStates) {
       const effectState = effectStates[effectKey];
@@ -221,12 +145,12 @@ function decayProcCounts(ctx, action) {
 function processFollowUpActions(ctx, action, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
 
-  const { onFieldId, memberState, fieldState } = ctx;
+  const { onFieldId, state } = ctx;
   const actionOwnerState = onFieldId === action.ownerId ? 'active' : 'inactive';
 
   const effectStores = [
-    memberState[action.ownerId],
-    fieldState[actionOwnerState],
+    state.effects[action.ownerId],
+    state.fieldEffects[actionOwnerState],
   ];
 
   for (const effectStates of effectStores) {
@@ -253,10 +177,10 @@ function processFollowUpActions(ctx, action, depth) {
 
 function processIntervalActions(ctx, elapsed, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
-  const { memberState } = ctx;
+  const { state } = ctx;
 
-  for (const memberId in memberState) {
-    const effectStates = memberState[memberId];
+  for (const memberId in state.effects) {
+    const effectStates = state.effects[memberId];
 
     for (const [effectKey, effectState] of Object.entries(effectStates)) {
       const { effect } = effectState;
@@ -298,19 +222,19 @@ function processTopLevelAction(ctx, action) {
   const hitCount = getHitCount(action);
   const hitInterval = remaining / hitCount;
 
-  // ── Cast (t = 0) ───────────────────────────────────────────────────
+  // Cast (t = 0)
   removeEffects(ctx, action);
   applyEffects(ctx, action, 'cast');
 
-  // ── Pre-hit window (t = 0 → offset) ───────────────────────────
-  advanceEffectStates(ctx, offset);
+  // Pre-hit window (t = 0 → offset)
+  advanceEffects(ctx, offset);
   tickStatuses(ctx, offset);
   processIntervalActions(ctx, offset, 0);
   advanceCooldowns(ctx, offset);
 
-  // ── Hits (each spaced hitInterval apart) ────────────────────────────
+  // Hits (each spaced hitInterval apart)
   for (let i = 0; i < hitCount; i++) {
-    // ── Contact ─────────────────────────────────────────────────────
+    // Contact
     if (ctx.recordFootprint) {
       const footprint = buildFootprint(ctx, action);
       ctx.footprints.push(footprint);
@@ -323,9 +247,9 @@ function processTopLevelAction(ctx, action) {
     processFollowUpActions(ctx, action, 0);
     decayProcCounts(ctx, action);
 
-    // ── Inter-hit window ─────────────────────────────────────────────
+    // Inter-hit window
     advanceTune(ctx, hitInterval);
-    advanceEffectStates(ctx, hitInterval);
+    advanceEffects(ctx, hitInterval);
     tickStatuses(ctx, hitInterval);
     processIntervalActions(ctx, hitInterval, 0);
     advanceCooldowns(ctx, hitInterval);
@@ -361,28 +285,24 @@ function processAction(ctx, action, depth, repeatCount = 1) {
   }
 }
 
-export const createRunRotation = (cache, currId, team) => {
-  const equipMapByMember = {};
-  const memberState = {};
-
-  for (const member of team) {
-    equipMapByMember[member.id] = member.equipMap;
-    memberState[member.id] = {};
-  }
-
+export const createRunRotation = (cache, equipMaps, currId) => {
   const formulaConfig = getFormulaConfig[cache.gameId];
+
+  // Runtime state
+  const state = {
+    cooldowns: { apply: {}, use: {} },
+    effects: createEffectStateMaps(cache.memberIds),
+    fieldEffects: { active: {}, inactive: {} },
+    debuffs: {},
+    negativeStatuses: {},
+    offTune: { level: 0 },
+  };
 
   const ctx = {
     cache,
     currId,
-    onFieldId: null,
-    equipMapByMember,
-    memberState,
-    fieldState: { active: {}, inactive: {} },
-    enemyState: { stat: {}, status: {} },
-    offTuneState: { level: 0 },
-    cooldowns: createCdTracker(),
-    recordFootprint: false,
+    equipMaps,
+    state,
     footprints: [],
     formulaConfig,
   };

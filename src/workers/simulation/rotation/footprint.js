@@ -1,12 +1,12 @@
 import { mergeObj, mergeObjs } from '@/utils';
 import { matchUseOn, matchUseIf } from '../match';
 import { resolveVariableStatMap } from '../utils';
-import { isOnCooldown, setCooldown } from './cooldowns';
+import { isOnCooldown, setCooldown } from './cooldownState';
 import { damageFormula } from './formula';
-import { getCurrentEnemyStatMap, getCurrentStatMap } from './getCurrentStatMap';
+import { getCurrentEnemyMap, getCurrentStatMap } from './getCurrentStatMap';
 
 export const buildFootprint = (ctx, action, repeatCount = 1) => {
-  const { cache, currId, onFieldId, memberState, fieldState, formulaConfig } = ctx;
+  const { cache, currId, onFieldId, state, formulaConfig } = ctx;
 
   const actionOwnerFieldState = action.ownerId === onFieldId ? 'active' : 'inactive';
   const currIdFieldState = currId === onFieldId ? 'active' : 'inactive';
@@ -27,13 +27,13 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   }
 
   // Resolve enemyStatMap
-  footprint.enemyStatMap = getCurrentEnemyStatMap(ctx);
+  footprint.enemyStatMap = getCurrentEnemyMap(ctx);
 
   for (const { stacks = 1, effect } of [
     ...(cache.passive[action.ownerId] ?? []).map((effect) => ({ effect })),
     ...(cache.passive[actionOwnerFieldState] ?? []).map((effect) => ({ effect })),
-    ...Object.values(memberState[action.ownerId]),
-    ...Object.values(fieldState[actionOwnerFieldState]),
+    ...Object.values(state.effects[action.ownerId]),
+    ...Object.values(state.fieldEffects[actionOwnerFieldState]),
   ]) {
     if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
     if ('followUpAction' in effect || 'intervalAction' in effect) continue;
@@ -71,8 +71,8 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
     for (const { stacks = 1, effect } of [
       ...(cache.passive[currId] ?? []).map((effect) => ({ effect })),
       ...(cache.passive[currIdFieldState] ?? []).map((effect) => ({ effect })),
-      ...Object.values(memberState[currId]),
-      ...Object.values(fieldState[currIdFieldState]),
+      ...Object.values(state.effects[currId]),
+      ...Object.values(state.fieldEffects[currIdFieldState]),
     ]) {
       const { chance, statMap } = effect;
       if (!statMap) continue;
@@ -87,12 +87,12 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   // For teammate actions affected by charVariableEffectSpecs, store the owner's
   // base + equip statMap so evaluateFootprint can reconstruct full owner stats.
   if (action.ownerId !== currId && footprint.charVariableEffectSpecs.length) {
-    footprint.ownerBaseStatMap = mergeObj(cache.member[action.ownerId].baseMap, ctx.equipMapByMember[action.ownerId]);
+    footprint.ownerBaseStatMap = mergeObj(cache.member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId]);
   }
 
   // Compute fixed damage for teammate actions that aren't affected by variableStats
   if (action.ownerId !== currId && !footprint.charVariableEffectSpecs.length) {
-    const statMap = mergeObjs(cache.member[action.ownerId].baseMap, ctx.equipMapByMember[action.ownerId], footprint.fixedEffectStatMap);
+    const statMap = mergeObjs(cache.member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId], footprint.fixedEffectStatMap);
 
     const config = { ...formulaConfig, enemyStatMap: footprint.enemyStatMap, repeatCount };
     footprint.fixed = damageFormula(action, config, statMap);

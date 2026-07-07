@@ -1,24 +1,20 @@
-export const createCdTracker = () => {
-  return { apply: {}, use: {} };
-};
-
 export const isOnCooldown = (ctx, type, effectKey) => {
-  const { cooldowns } = ctx;
+  const { state } = ctx;
 
-  return (cooldowns[type][effectKey] ?? 0) > 0;
+  return (state.cooldowns[type][effectKey] ?? 0) > 0;
 };
 
 export function setCooldown(ctx, type, effectKey, duration) {
-  const { cooldowns } = ctx;
+  const { state } = ctx;
 
-  cooldowns[type][effectKey] = duration;
+  state.cooldowns[type][effectKey] = duration;
 }
 
 export function advanceCooldowns(ctx, elapsed) {
-  const { cooldowns } = ctx;
+  const { state } = ctx;
 
   for (const type of ['apply', 'use']) {
-    const entries = cooldowns[type];
+    const entries = state.cooldowns[type];
 
     for (const effectKey in entries) {
       entries[effectKey] -= elapsed;

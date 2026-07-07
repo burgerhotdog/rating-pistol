@@ -1,7 +1,7 @@
 import { getAttr } from '@/utils';
-import { getCurrentStatMap, getCurrentEnemyStatMap } from './getCurrentStatMap';
-import { isOnCooldown, setCooldown } from './cooldowns';
-import { applyEffect } from './effect';
+import { getCurrentStatMap, getCurrentEnemyMap } from './getCurrentStatMap';
+import { isOnCooldown, setCooldown } from './cooldownState';
+import { applyEffect } from './effectState';
 
 const levelModifier = 716.22;
 const enemyTypeModifier = 14;
@@ -12,7 +12,7 @@ const tuneBreakDamage = (tuneAmp, enemyStatMap, statMap) => {
 };
 
 const buildTuneBreakFootprints = (ctx, currentStatMap, shifting) => {
-  const enemyStatMap = getCurrentEnemyStatMap(ctx);
+  const enemyStatMap = getCurrentEnemyMap(ctx);
 
   const footprints = [{
     key: `other:tuneBreak`,
@@ -48,37 +48,38 @@ const buildTuneBreakFootprints = (ctx, currentStatMap, shifting) => {
 }; 
 
 export function applyTune(ctx, action) {
-  const { offTuneState, onFieldId } = ctx;
+  const { state, onFieldId } = ctx;
+  const { offTune } = state;
 
   if ('shiftTune' in action) {
-    offTuneState.shifting = action.shiftTune;
+    offTune.shifting = action.shiftTune;
   }
 
-  if ('cooldown' in offTuneState) return;
+  if ('cooldown' in offTune) return;
 
   const currStatMap = getCurrentStatMap(ctx, onFieldId);
   const buildupRateMult = getAttr('offTuneBuildupRate%', currStatMap);
-  offTuneState.level += 10 * buildupRateMult;
+  offTune.level += 10 * buildupRateMult;
 
-  if (offTuneState.level >= 150) {
-    offTuneState.cooldown = 4000;
-    offTuneState.level = 0;
+  if (offTune.level >= 150) {
+    offTune.cooldown = 4000;
+    offTune.level = 0;
     
     if (ctx.recordFootprint) {
-      const footprints = buildTuneBreakFootprints(ctx, currStatMap, offTuneState.shifting);
+      const footprints = buildTuneBreakFootprints(ctx, currStatMap, offTune.shifting);
       ctx.footprints.push(...footprints);
     }
 
-    if (offTuneState.shifting) {
-      offTuneState.interfered = offTuneState.shifting;
-      offTuneState.duration = 8000;
+    if (offTune.shifting) {
+      offTune.interfered = offTune.shifting;
+      offTune.duration = 8000;
     }
 
     for (const effect of ctx.cache.special) {
       if (effect.applyOnSpecial !== 'tuneBreak') continue;
       if (isOnCooldown(ctx, 'apply', effect.key)) continue;
 
-      applyEffect(ctx.enemyState.stat, effect);
+      applyEffect(ctx.state.debuffs, effect);
 
       if (effect.applyCooldown) {
         setCooldown(ctx, 'apply', effect.key, effect.applyCooldown);
@@ -88,22 +89,23 @@ export function applyTune(ctx, action) {
 }
 
 export function advanceTune(ctx, elapsed) {
-  const { offTuneState } = ctx;
+  const { state } = ctx;
+  const { offTune } = state;
 
-  if (offTuneState.cooldown) {
-    offTuneState.cooldown -= elapsed;
+  if (offTune.cooldown) {
+    offTune.cooldown -= elapsed;
 
-    if (offTuneState.cooldown <= 0) {
-      delete offTuneState.cooldown;
+    if (offTune.cooldown <= 0) {
+      delete offTune.cooldown;
     }
   }
 
-  if (offTuneState.duration) {
-    offTuneState.duration -= elapsed;
+  if (offTune.duration) {
+    offTune.duration -= elapsed;
 
-    if (offTuneState.duration <= 0) {
-      delete offTuneState.interfered;
-      delete offTuneState.duration;
+    if (offTune.duration <= 0) {
+      delete offTune.interfered;
+      delete offTune.duration;
     }
   }
 }

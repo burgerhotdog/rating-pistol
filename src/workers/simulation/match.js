@@ -172,7 +172,7 @@ export const matchApplyIf = (action, effect, ctx) => {
 
   if ('applyIfWeapon' in effect && matchIfWeapon(effect.applyIfWeapon, CHARACTER[ctx.cache.gameId][effect.ownerId].type)) return true;
   if ('applyIfType' in effect && matchOnType(effect.applyIfType, action)) return true;
-  if ('applyIfStatus' in effect && matchIfStatus(effect.applyIfStatus, ctx.enemyState.status)) return true;
+  if ('applyIfStatus' in effect && matchIfStatus(effect.applyIfStatus, ctx.state.negativeStatuses)) return true;
   if ('applyIfField' in effect && matchIfField(effect.applyIfField, action.ownerId, ctx.activeId)) return true;
   if ('applyIfShift' in effect && matchIfShift(effect.applyIfShift, action.shiftTune)) return true;
 
@@ -180,7 +180,7 @@ export const matchApplyIf = (action, effect, ctx) => {
 };
 
 export const matchRemoveIf = (action, effect, ctx) => {
-  if ('removeIfStatus' in effect && matchIfStatus(effect.removeIfStatus, ctx.enemyState.status)) return true;
+  if ('removeIfStatus' in effect && matchIfStatus(effect.removeIfStatus, ctx.state.negativeStatuses)) return true;
   if ('removeIfField' in effect && matchIfField(effect.removeIfField, action.ownerId, ctx.activeId)) return true;
 
   return false;
@@ -208,9 +208,9 @@ export const matchUseIf = (effect, memberId, ctx) => {
 
   if ('useIfWeapon' in effect && matchIfWeapon(effect.useIfWeapon, CHARACTER[ctx.cache.gameId][effect.ownerId].type)) return true;
   if ('useIfTagged' in effect && matchIfTagged(effect.useIfTagged, toArray(CHARACTER[ctx.cache.gameId][effect.ownerId].tagged))) return true;
-  if ('useIfStatus' in effect && matchIfStatus(effect.useIfStatus, ctx.enemyState.status)) return true;
+  if ('useIfStatus' in effect && matchIfStatus(effect.useIfStatus, ctx.state.negativeStatuses)) return true;
   if ('useIfField' in effect && matchIfField(effect.useIfField, memberId, ctx.activeId)) return true;
-  if ('useIfAttr' in effect && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.member[effect.ownerId].baseMap, ctx.equipMapByMember[effect.ownerId]))) return true;
+  if ('useIfAttr' in effect && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.member[effect.ownerId].baseMap, ctx.equipMaps[effect.ownerId]))) return true;
   if ('useIfElement' in effect && matchIfElement(effect.useIfElement, CHARACTER[ctx.cache.gameId][effect.ownerId].element)) return true;
   if ('useIfShifting' in effect && matchIfShifting(effect.useIfShifting, ctx.offTuneState)) return true;
   if ('useIfInterfered' in effect && matchIfInterfered(effect.useIfInterfered, ctx.offTuneState)) return true;
