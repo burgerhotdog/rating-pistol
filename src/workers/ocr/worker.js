@@ -105,7 +105,7 @@ self.onmessage = async ({ data }) => {
       const mainStatValue = Number(mainStatValueString) / 100;
 
       // mainStatFlatId
-      const mainStatFlatId = cost === '1' ? 'hp' : 'atk';
+      const mainStatFlatId = cost === 1 ? 'hp' : 'atk';
 
       // mainStatFlatValue
       const mainStatFlatRegion = { 
@@ -150,11 +150,13 @@ self.onmessage = async ({ data }) => {
 
         subStatList.push({ subStatId, subStatValue });
       }
+
       equipList.push({ cost, setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList });
     }
+
     const build = { rank, weaponId, equipList };
     self.postMessage({ success: true, entry: [characterId, build] });
-  } catch (err) {
-    self.postMessage({ error: err.message });
+  } catch (error) {
+    console.error(error);
   }
 };

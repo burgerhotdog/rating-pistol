@@ -8,38 +8,26 @@ export function useOcrWorker({ onSuccess, onBatchSuccess }) {
 
   const workerRef = useRef(null);
 
-  const getWorker = () => {
+  const runOcr = async (file) => {
+    const imageBitmap = await createImageBitmap(file);
+
     if (!workerRef.current) {
       workerRef.current = new Worker(
         new URL('../../../workers/ocr/worker.js', import.meta.url),
         { type: 'module' }
       );
     }
-    return workerRef.current;
-  };
 
-  const runOcr = async (file) => {
-    const ocrWorker = getWorker();
+    const worker = workerRef.current;
 
-    const imageBitmap = await createImageBitmap(file).catch(() => {
-      throw new Error('Selected file could not be read as an image.');
+    const { success, entry } = await new Promise((resolve, reject) => {
+      worker.onmessage = ({ data }) => resolve(data);
+      worker.onerror = () => reject(new Error('OCR failed.'));
+      worker.postMessage({ imageBitmap }, [imageBitmap]);
     });
 
-    const result = await new Promise((resolve, reject) => {
-      ocrWorker.onmessage = ({ data }) => {
-        resolve(data);
-      };
-
-      ocrWorker.onerror = () => {
-        reject(new Error('Failed to process image. Please try again.'));
-      };
-
-      ocrWorker.postMessage({ imageBitmap }, [imageBitmap]);
-    });
-
-    const { success, entry, error: workerError } = result;
     if (!success) {
-      throw new Error(workerError || 'Failed to process image. Please try again.');
+      throw new Error('Failed to process image. Please try again.');
     }
 
     return entry;
@@ -63,6 +51,7 @@ export function useOcrWorker({ onSuccess, onBatchSuccess }) {
       } finally {
         setIsLoading(false);
       }
+
       return;
     }
 

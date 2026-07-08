@@ -27,7 +27,7 @@ export const getCost = (imageBitmap, index) => {
 
     if (score > bestScore) {
       bestScore = score;
-      bestMatch = option;
+      bestMatch = Number(option);
     }
   }
 
