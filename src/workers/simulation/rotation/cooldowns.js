@@ -1,26 +1,20 @@
-export const isOnCooldown = (ctx, type, effectKey) => {
-  const { state } = ctx;
-
-  return (state.cooldowns[type][effectKey] ?? 0) > 0;
+export const isOnCooldown = (cooldowns, type, effectKey) => {
+  return (cooldowns[type][effectKey] ?? 0) > 0;
 };
 
-export function setCooldown(ctx, type, effectKey, duration) {
-  const { state } = ctx;
-
-  state.cooldowns[type][effectKey] = duration;
+export function setCooldown(cooldowns, type, effectKey, duration) {
+  cooldowns[type][effectKey] = duration;
 }
 
-export function advanceCooldowns(ctx, elapsed) {
-  const { state } = ctx;
-
+export function advanceCooldowns(cooldowns, elapsed) {
   for (const type of ['apply', 'use']) {
-    const entries = state.cooldowns[type];
+    const typeCooldowns = cooldowns[type];
 
-    for (const effectKey in entries) {
-      entries[effectKey] -= elapsed;
+    for (const key in typeCooldowns) {
+      typeCooldowns[key] -= elapsed;
 
-      if (entries[effectKey] <= 0) {
-        delete entries[effectKey];
+      if (typeCooldowns[key] <= 0) {
+        delete typeCooldowns[key];
       }
     }
   }

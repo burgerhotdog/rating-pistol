@@ -18,7 +18,7 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 
   for (const effect of triggered) {
     if ('applyIfInflict' in effect) continue;
-    if (isOnCooldown(ctx, 'apply', effect.key)) continue;
+    if (isOnCooldown(state.cooldowns, 'apply', effect.key)) continue;
     if (!matchApplyIf(action, effect, ctx)) continue;
 
     for (const target of effect.applyTo) {
@@ -49,13 +49,13 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
     }
 
     if (effect.applyCooldown) {
-      setCooldown(ctx, 'apply', effect.key, effect.applyCooldown);
+      setCooldown(state.cooldowns, 'apply', effect.key, effect.applyCooldown);
     }
   }
 
   for (const effect of triggered) {
     if (!('applyIfInflict' in effect)) continue;
-    if (isOnCooldown(ctx, 'apply', effect.key)) continue;
+    if (isOnCooldown(state.cooldowns, 'apply', effect.key)) continue;
     if (!matchIfInflict(effect.applyIfInflict, inflictedStatuses)) continue;
 
     for (const target of effect.applyTo) {
@@ -69,7 +69,7 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
     }
 
     if ('applyCooldown' in effect) {
-      setCooldown(ctx, 'apply', effect.key, effect.applyCooldown);
+      setCooldown(state.cooldowns, 'apply', effect.key, effect.applyCooldown);
     }
   }
 }
@@ -155,11 +155,11 @@ function processFollowUpActions(ctx, action, depth) {
   for (const effectStates of effectStores) {
     for (const [effectKey, effectState] of Object.entries(effectStates)) {
       const { effect } = effectState;
-      if (!('followUpAction' in effect) || isOnCooldown(ctx, 'use', effectKey)) continue;
+      if (!('followUpAction' in effect) || isOnCooldown(state.cooldowns, 'use', effectKey)) continue;
       if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
 
       if ('useCooldown' in effect) {
-        setCooldown(ctx, 'use', effectKey, effect.useCooldown);
+        setCooldown(state.cooldowns, 'use', effectKey, effect.useCooldown);
       }
 
       effectState.usesRemaining--;
@@ -216,6 +216,7 @@ function getHitCount(action) {
 }
 
 function processTopLevelAction(ctx, action) {
+  const { state } = ctx;
   const { duration, offset } = action;
   const remaining = duration - offset;
   const hitCount = getHitCount(action);
@@ -229,7 +230,7 @@ function processTopLevelAction(ctx, action) {
   advanceEffects(ctx, offset);
   tickStatuses(ctx, offset);
   processIntervalActions(ctx, offset, 0);
-  advanceCooldowns(ctx, offset);
+  advanceCooldowns(state.cooldowns, offset);
 
   // Hits (each spaced hitInterval apart)
   for (let i = 0; i < hitCount; i++) {
@@ -251,7 +252,7 @@ function processTopLevelAction(ctx, action) {
     advanceEffects(ctx, hitInterval);
     tickStatuses(ctx, hitInterval);
     processIntervalActions(ctx, hitInterval, 0);
-    advanceCooldowns(ctx, hitInterval);
+    advanceCooldowns(state.cooldowns, hitInterval);
   }
 }
 

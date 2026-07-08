@@ -77,12 +77,12 @@ export function applyTune(ctx, action) {
 
     for (const effect of ctx.cache.special) {
       if (effect.applyOnSpecial !== 'tuneBreak') continue;
-      if (isOnCooldown(ctx, 'apply', effect.key)) continue;
+      if (isOnCooldown(state.cooldowns, 'apply', effect.key)) continue;
 
       applyEffect(ctx.state.debuffs, effect);
 
       if (effect.applyCooldown) {
-        setCooldown(ctx, 'apply', effect.key, effect.applyCooldown);
+        setCooldown(state.cooldowns, 'apply', effect.key, effect.applyCooldown);
       }
     }
   }

@@ -37,7 +37,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   ]) {
     if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
     if ('followUpAction' in effect || 'intervalAction' in effect) continue;
-    if (isOnCooldown(ctx, 'use', effect.key)) continue;
+    if (isOnCooldown(state.cooldowns, 'use', effect.key)) continue;
 
     const { chance, statMap, variableStatMap } = effect;
 
@@ -63,7 +63,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
     }
 
     if ('useCooldown' in effect) {
-      setCooldown(ctx, 'use', effect.key, effect.useCooldown);
+      setCooldown(state.cooldowns, 'use', effect.key, effect.useCooldown);
     }
   }
 
