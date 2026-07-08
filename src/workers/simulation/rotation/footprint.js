@@ -2,7 +2,7 @@ import { mergeObj, mergeObjs } from '@/utils';
 import { matchUseOn, matchUseIf } from '../match';
 import { resolveVariableStatMap } from '../utils';
 import { isOnCooldown, setCooldown } from './cooldowns';
-import { damageFormula } from './formula';
+import { runDamageFormula } from './damageFormula';
 import { getCurrentEnemyMap, getCurrentStatMap } from './getCurrent';
 
 export const buildFootprint = (ctx, action, repeatCount = 1) => {
@@ -95,7 +95,7 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
     const statMap = mergeObjs(cache.member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId], footprint.fixedEffectStatMap);
 
     const config = { enemyStatMap: footprint.enemyStatMap, repeatCount };
-    footprint.fixed = damageFormula(helpers, action, config, statMap);
+    footprint.fixed = runDamageFormula(helpers, action, config, statMap);
   }
 
   return footprint;
@@ -134,7 +134,7 @@ export const evaluateFootprint = (helpers, ctx, footprint, statMap) => {
   const finalStatMap = mergeObj(ownerBaseStatMap, effectStatMap);
 
   const config = { enemyStatMap: footprint.enemyStatMap, repeatCount: footprint.repeatCount };
-  const sum = damageFormula(helpers, footprint, config, finalStatMap);
+  const sum = runDamageFormula(helpers, footprint, config, finalStatMap);
 
   return { ...summary, [footprint.type]: sum };
 };

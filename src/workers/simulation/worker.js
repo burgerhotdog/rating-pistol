@@ -1,11 +1,10 @@
 import { compileCache } from './cache';
-import { createGetResMult } from './rotation/damageFormula/enemyRes';
-import { createGetDefMult } from './rotation/damageFormula/enemyDef';
+import { createGetDefMult, createGetResMult } from './rotation/damageFormula';
 import { runTrials } from './runTrials';
 
 const compileHelpers = (gameId) => ({
-  getResMult: createGetResMult(gameId),
   getDefMult: createGetDefMult(gameId),
+  getResMult: createGetResMult(gameId),
 });
 
 self.onmessage = ({ data }) => {

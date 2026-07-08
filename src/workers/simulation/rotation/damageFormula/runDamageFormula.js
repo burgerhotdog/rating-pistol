@@ -1,5 +1,7 @@
 import { getAttr } from '@/utils';
-import { getCritMult, getDmgBonusMult, getDmgAmpMult } from './damageFormula';
+import { getCritMult } from './crit';
+import { getDmgBonusMult } from './dmgBonus';
+import { getDmgAmpMult } from './dmgAmp';
 
 const computeBase = (compressed, statMap) => {
   const percentMv = getAttr('mv%', statMap);
@@ -18,7 +20,7 @@ const computeBase = (compressed, statMap) => {
   return totalMvPart * (1 + percentMv) + compressed.flat + flatBuff;
 };
 
-export const damageFormula = (helpers, action, config, statMap) => {
+export const runDamageFormula = (helpers, action, config, statMap) => {
   const { getResMult, getDefMult } = helpers;
   const { dmgType, extraDmgType, compressed } = action;
   const { enemyStatMap } = config;
