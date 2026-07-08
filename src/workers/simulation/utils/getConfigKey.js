@@ -1,24 +1,20 @@
 import { WW } from '@/data';
 
-const STAT_ORDER = [
-  'healingBonus%',
-  'critRate%',
-  'critDmg%',
-  'glacioDmgBonus%',
-  'fusionDmgBonus%',
-  'electroDmgBonus%',
-  'aeroDmgBonus%',
-  'spectroDmgBonus%',
-  'havocDmgBonus%',
-  'energyRegen%',
-  'atk%',
-  'hp%',
-  'def%',
-];
-
-const STAT_INDEX = Object.fromEntries(
-  STAT_ORDER.map((id, index) => [id, index])
-);
+const ORDER = {
+  'healingBonus%': 1,
+  'critRate%': 2,
+  'critDmg%': 3,
+  'glacioDmgBonus%': 4,
+  'fusionDmgBonus%': 5,
+  'electroDmgBonus%': 6,
+  'aeroDmgBonus%': 7,
+  'spectroDmgBonus%': 8,
+  'havocDmgBonus%': 9,
+  'energyRegen%': 10,
+  'atk%': 11,
+  'hp%': 12,
+  'def%': 13,
+};
 
 export const getMainConfig = (gameId, equipList) => {
   // Hoyo mainstats have fixed slots
@@ -28,21 +24,17 @@ export const getMainConfig = (gameId, equipList) => {
   }
 
   // Wuwa mainstats can have multiple orders due to cost system
-  const mainStatCounts = { 4: {}, 3: {}, 1: {} };
+  const mainStatCounts = {};
   for (const equip of equipList) {
     if (!equip) continue;
     const { cost, mainStatId } = equip;
 
-    mainStatCounts[cost][mainStatId] ??= 0;
-    mainStatCounts[cost][mainStatId]++;
+    mainStatCounts[cost] ??= [];
+    mainStatCounts[cost].push(mainStatId);
   }
 
   return Object.values(mainStatCounts)
     .reverse()
-    .flatMap((countMap) =>
-      Object.entries(countMap)
-        .sort(([aId], [bId]) => STAT_INDEX[aId] - STAT_INDEX[bId])
-        .map(([, count]) => count)
-    )
+    .flatMap((statIds) => statIds.sort((a, b) => ORDER[a] - ORDER[b]))
     .join('|');
 };
