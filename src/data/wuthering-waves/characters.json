@@ -5423,7 +5423,64 @@
     "resonanceModes": [
       "Glacio Chafe",
       "Echo"
-    ]
+    ],
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "useOnInflict": "glacioChafe",
+        "useCooldown": 0.5,
+        "followUpAction": {
+          "inflict": {
+            "glacioChafe": 2
+          }
+        },
+        "duration": 30000,
+        "maxUses": 4
+      },
+      {
+        "applyTo": "enemy",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceSkill.3",
+        "statMap": {
+          "glacioResReduction%": 0.08
+        },
+        "duration": 30000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "statMap": {
+          "basicAttackDmgBonus%": 0.3
+        },
+        "duration": 10000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1108",
+        "1109",
+        "1508"
+      ],
+      "weaponId": "21050086",
+      "setCounts": {
+        "30": 5
+      },
+      "rotation": [
+        "introSkill.1",
+        "resonanceSkill.1",
+        "resonanceSkill.3",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "resonanceLiberation.5",
+        "outroSkill.1"
+      ]
+    }
   },
   {
     "id": "1308",

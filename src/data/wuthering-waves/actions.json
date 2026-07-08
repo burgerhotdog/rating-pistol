@@ -40239,6 +40239,9 @@
       "3": {
         "name": "Spotlight",
         "skillType": "resonanceSkill",
+        "inflict": {
+          "glacioChafe": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -40343,6 +40346,7 @@
       "1": {
         "name": "Clear As Day",
         "skillType": "resonanceLiberation",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40516,6 +40520,7 @@
         "name": "Letting It Go",
         "tagged": "Reminiscence",
         "skillType": "resonanceLiberation",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40660,7 +40665,7 @@
     "forteCircuit": {
       "1": {
         "name": "Oblivion",
-        "skillType": "basicAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40693,6 +40698,9 @@
       "1": {
         "name": "Clip It",
         "skillType": "introSkill",
+        "inflict": {
+          "glacioChafe": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -40722,7 +40730,11 @@
       },
       "2": {
         "name": "Clip It: Hard Cut",
+        "tagged": "Reminiscence",
         "skillType": "introSkill",
+        "inflict": {
+          "glacioChafe": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [

@@ -2,7 +2,6 @@ import { MISC } from '@/data';
 import { matchIfInflict, matchUseOn, matchUseIf, matchApplyIf } from '../match';
 import { isOnCooldown, setCooldown, advanceCooldowns } from './cooldowns';
 import { buildFootprint, evaluateFootprint } from './footprint';
-import { formulaConfig as getFormulaConfig } from '../config';
 import { applyTune, advanceTune } from './offtune';
 import { createEffectStateMaps, applyEffect, removeEffects, advanceEffects } from './effects';
 import { buildStatusFootprint, applyStatus } from './negativeStatuses';
@@ -285,9 +284,7 @@ function processAction(ctx, action, depth, repeatCount = 1) {
   }
 }
 
-export const createRunRotation = (cache, equipMaps, currId) => {
-  const formulaConfig = getFormulaConfig[cache.gameId];
-
+export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   // Runtime state
   const state = {
     cooldowns: { apply: {}, use: {} },
@@ -299,12 +296,12 @@ export const createRunRotation = (cache, equipMaps, currId) => {
   };
 
   const ctx = {
+    helpers,
     cache,
     currId,
     equipMaps,
     state,
     footprints: [],
-    formulaConfig,
   };
 
   const memberOrder = cache.memberIds.toReversed();
@@ -349,11 +346,11 @@ export const createRunRotation = (cache, equipMaps, currId) => {
   ctx.footprints = ctx.footprints.filter((footprint) => !('fixed' in footprint));
 
   return (statMap) => {
-    const ctx2 = { currId, formulaConfig };
+    const ctx2 = { currId };
     const summary = { ...earlySummary };
 
     for (const footprint of ctx.footprints) {
-      const result = evaluateFootprint(ctx2, footprint, statMap);
+      const result = evaluateFootprint(helpers, ctx2, footprint, statMap);
 
       if (result.key in summary) {
         summary[result.key][result.type] += result[result.type];

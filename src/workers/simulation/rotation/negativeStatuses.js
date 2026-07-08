@@ -1,12 +1,18 @@
 import { MISC } from '@/data';
 
-const STACK_MULTIPLIER = {
-  'spectroFrazzle': [0.24, 0.4355, 0.6298, 0.8251, 1.02, 1.216, 1.409, 1.605, 1.8, 1.995],
-  'aeroErosion': [0.36, 0.899, 1.799, 2.698, 3.597, 4.497],
+const LEVEL_MODIFIER = 3674;
+
+const STATUS_MV = {
+  'spectroFrazzle': [3000, 5439, 7878, 10317, 12756, 15195, 17634, 20073, 22512, 24951, 33268, 41585, 49902],
+  'aeroErosion': [4500, 11250, 22500, 33750, 45000, 56250, 67500, 78750, 90000, 101250, 112500, 123750],
+  'fusionBurst': [8400, 15229, 22058, 28888, 35717, 42546, 49375, 56204, 63034, 69863, 93150, 116438, 139726],
+  'electroFlare': [5000, 9065, 13130, 17195, 21260, 25325, 29390, 33455, 37520, 41585, 55447, 69308, 83170],
+  'glacioChafe': [2450, 4442, 6434, 8426, 10417, 12409, 14401, 16393, 18385, 20377, 27169, 33961, 40753],
 };
 
 export const buildStatusFootprint = (ctx, statusId, stacks) => {
-  const { cache, state } = ctx;
+  const { helpers, cache, state } = ctx;
+  const { getResMult, getDefMult } = helpers;
   const status = MISC[cache.gameId].STATUSES[statusId];
 
   const enemyStatMap = {};
@@ -24,26 +30,18 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
     }
   }
 
-  const baseDmg = 3674 * 1.25078 * (STACK_MULTIPLIER[statusId]?.[stacks - 1] ?? 0);
+  const baseDmg = LEVEL_MODIFIER * (STATUS_MV[statusId]?.[stacks - 1] ?? 0);
   const bonuses = 1 + (enemyStatMap[`${statusId}DmgAmp%`] ?? 0);
 
-  const totalRes = 0.1 - (enemyStatMap[`${status.element}ResReduction%`] ?? 0);
-
-  let resMult;
-  if (totalRes < 0) {
-    resMult = 1 - totalRes / 2;
-  } else if (totalRes < 0.8) {
-    resMult = 1 - totalRes;
-  } else {
-    resMult = 1 / (5 * totalRes + 1);
-  }
+  const resMult = getResMult(status.element, enemyStatMap);
+  const defMult = getDefMult(enemyStatMap);
 
   return {
     key: `other:${statusId}`,
     ownerId: 'other',
     type: 'damage',
     dmgType: 'status',
-    fixed: baseDmg * bonuses * resMult,
+    fixed: baseDmg * bonuses * resMult * defMult,
   };
 };
 

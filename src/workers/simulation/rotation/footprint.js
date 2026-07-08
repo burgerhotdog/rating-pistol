@@ -3,10 +3,10 @@ import { matchUseOn, matchUseIf } from '../match';
 import { resolveVariableStatMap } from '../utils';
 import { isOnCooldown, setCooldown } from './cooldowns';
 import { damageFormula } from './formula';
-import { getCurrentEnemyMap, getCurrentStatMap } from './getCurrentStatMap';
+import { getCurrentEnemyMap, getCurrentStatMap } from './getCurrent';
 
 export const buildFootprint = (ctx, action, repeatCount = 1) => {
-  const { cache, currId, onFieldId, state, formulaConfig } = ctx;
+  const { helpers, cache, currId, onFieldId, state } = ctx;
 
   const actionOwnerFieldState = action.ownerId === onFieldId ? 'active' : 'inactive';
   const currIdFieldState = currId === onFieldId ? 'active' : 'inactive';
@@ -94,15 +94,15 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   if (action.ownerId !== currId && !footprint.charVariableEffectSpecs.length) {
     const statMap = mergeObjs(cache.member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId], footprint.fixedEffectStatMap);
 
-    const config = { ...formulaConfig, enemyStatMap: footprint.enemyStatMap, repeatCount };
-    footprint.fixed = damageFormula(action, config, statMap);
+    const config = { enemyStatMap: footprint.enemyStatMap, repeatCount };
+    footprint.fixed = damageFormula(helpers, action, config, statMap);
   }
 
   return footprint;
 };
 
-export const evaluateFootprint = (ctx, footprint, statMap) => {
-  const { currId, formulaConfig } = ctx;
+export const evaluateFootprint = (helpers, ctx, footprint, statMap) => {
+  const { currId } = ctx;
 
   const summary = {
     key: footprint.key,
@@ -133,8 +133,8 @@ export const evaluateFootprint = (ctx, footprint, statMap) => {
   const effectStatMap = mergeObj(footprint.fixedEffectStatMap, charVariableResolved);
   const finalStatMap = mergeObj(ownerBaseStatMap, effectStatMap);
 
-  const config = { ...formulaConfig, enemyStatMap: footprint.enemyStatMap, repeatCount: footprint.repeatCount };
-  const sum = damageFormula(footprint, config, finalStatMap);
+  const config = { enemyStatMap: footprint.enemyStatMap, repeatCount: footprint.repeatCount };
+  const sum = damageFormula(helpers, footprint, config, finalStatMap);
 
   return { ...summary, [footprint.type]: sum };
 };

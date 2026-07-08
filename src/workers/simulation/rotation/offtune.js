@@ -1,5 +1,5 @@
 import { getAttr } from '@/utils';
-import { getCurrentStatMap, getCurrentEnemyMap } from './getCurrentStatMap';
+import { getCurrentStatMap, getCurrentEnemyMap } from './getCurrent';
 import { isOnCooldown, setCooldown } from './cooldowns';
 import { applyEffect } from './effects';
 

@@ -17,30 +17,6 @@ const computeBase = (compressed, statMap) => {
   return totalMvPart * (1 + percentMv) + compressed.flat + flatBuff;
 };
 
-// Resistance and defence reduction multipliers applied to final damage.
-// Uses the game's standard resistance brackets and the character-level def formula.
-const computeReductions = (config, statMap, element, enemyStatMap) => {
-  const { ENEMY_RES, getDefMult } = config;
-
-  const resIgnore = getAttr(`${element}ResIgnore%`, statMap) + getAttr(`${element}ResReduction%`, enemyStatMap);
-  const totalRes = ENEMY_RES - resIgnore;
-  let resMult;
-  if (totalRes < 0) {
-    resMult = 1 - totalRes / 2;
-  } else if (totalRes < 0.8) {
-    resMult = 1 - totalRes;
-  } else {
-    resMult = 1 / (5 * totalRes + 1);
-  }
-
-  const defRed = getAttr('defReduction%', enemyStatMap);
-  const defIgn = getAttr('defIgnore%', statMap);
-  const pen = getAttr('pen', statMap);
-  const defMult = getDefMult(defRed, defIgn, pen);
-
-  return resMult * defMult;
-};
-
 const computeBonuses = (statMap, bonusTypes, enemyStatMap) => {
   const critRate = Math.max(Math.min(getAttr('critRate%', statMap), 1), 0);
   const critDamage = getAttr('critDmg%', statMap);
@@ -57,7 +33,8 @@ const computeBonuses = (statMap, bonusTypes, enemyStatMap) => {
   return critMult * dmgBonusMult * ampMult;
 };
 
-export const damageFormula = (action, config, statMap) => {
+export const damageFormula = (helpers, action, config, statMap) => {
+  const { getResMult, getDefMult } = helpers;
   const { dmgType, extraDmgType, compressed } = action;
   const { enemyStatMap } = config;
   const timesRepeat = action.times * config.repeatCount;
@@ -68,13 +45,13 @@ export const damageFormula = (action, config, statMap) => {
 
     switch (action.type) {
       case 'damage': {
-        const lowercase = element.toLowerCase();
-        const bonusTypes = [lowercase, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
+        const bonusTypes = [element, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
 
         const bonuses = computeBonuses(statMap, bonusTypes, enemyStatMap);
-        const reductions = computeReductions(config, statMap, lowercase, enemyStatMap);
+        const resMult = getResMult(element, enemyStatMap, statMap);
+        const defMult = getDefMult(enemyStatMap, statMap);
 
-        sum += base * bonuses * reductions;
+        sum += base * bonuses * resMult * defMult;
         break;
       }
 
@@ -87,7 +64,7 @@ export const damageFormula = (action, config, statMap) => {
       }
 
       case 'shield': {
-        const shieldBonus = 1 + getAttr('shieldBonus', statMap);
+        const shieldBonus = 1 + getAttr('shieldBonus%', statMap);
 
         sum += base * shieldBonus;
         break;

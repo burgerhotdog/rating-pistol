@@ -97,16 +97,5 @@
       "element": "havoc",
       "maxStacks": 3
     }
-  },
-  "TUNES": {
-    "RUPTURE": {
-      "id": "RUPTURE"
-    },
-    "STRAIN": {
-      "id": "STRAIN"
-    },
-    "HACK": {
-      "id": "HACK"
-    }
   }
 }
