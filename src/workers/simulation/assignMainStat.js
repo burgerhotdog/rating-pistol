@@ -1,7 +1,7 @@
 import { GI, HSR, WW } from '@/data';
 import { weightedLottery } from './utils';
-import { HOYO_MAINSTAT_WEIGHTS, KURO_MAINSTAT_WEIGHTS } from './stats/weights';
-import { HOYO_MAINSTAT_VALUES, KURO_MAINSTAT_VALUES, KURO_MAINSTAT_FLATS } from './stats/values';
+import { HOYO_MAINSTAT_WEIGHTS, WUWA_MAINSTAT_WEIGHTS } from './stats/weights';
+import { HOYO_MAINSTAT_VALUES, WUWA_MAINSTAT_VALUES, WUWA_MAINSTAT_FLATS } from './stats/values';
 
 const assignHoyo = (gameId, index) => {
   const options = HOYO_MAINSTAT_WEIGHTS[gameId][index];
@@ -12,10 +12,10 @@ const assignHoyo = (gameId, index) => {
   return { index, mainStatId, mainStatValue };
 };
 
-const assignKuro = (cost) => {
-  const weightMap = KURO_MAINSTAT_WEIGHTS[cost];
-  const valueMap = KURO_MAINSTAT_VALUES[cost];
-  const [mainStatFlatId, mainStatFlatValue] = KURO_MAINSTAT_FLATS[cost];
+const assignWuwa = (cost) => {
+  const weightMap = WUWA_MAINSTAT_WEIGHTS[cost];
+  const valueMap = WUWA_MAINSTAT_VALUES[cost];
+  const [mainStatFlatId, mainStatFlatValue] = WUWA_MAINSTAT_FLATS[cost];
 
   const winnerIndex = weightedLottery(Object.values(weightMap));
   const mainStatId = Object.keys(weightMap)[winnerIndex];
@@ -28,7 +28,7 @@ export const assignMainStat = (gameId, spec = {}) => {
   if (gameId === WW) {
     const cost = spec.cost ?? (Math.random() < 0.5 ? 3 : 1);
 
-    return assignKuro(cost);
+    return assignWuwa(cost);
   } else {
     if (gameId === HSR) {
       const randomIndex = spec.type === 'relic'

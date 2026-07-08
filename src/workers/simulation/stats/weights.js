@@ -122,7 +122,7 @@ export const HOYO_MAINSTAT_WEIGHTS = {
   ],
 };
 
-export const KURO_MAINSTAT_WEIGHTS = {
+export const WUWA_MAINSTAT_WEIGHTS = {
   4: {
     'critRate%': 4,
     'critDmg%': 4,
@@ -147,34 +147,6 @@ export const KURO_MAINSTAT_WEIGHTS = {
     'hp%': 1,
     'atk%': 1,
     'def%': 1,
-  },
-};
-
-export const KURO_MAINSTAT_INDEX_ORDER = {
-  4: {
-    'critRate%': 1,
-    'critDmg%': 2,
-    'healingBonus%': 3,
-    'hp%': 4,
-    'atk%': 5,
-    'def%': 6,
-  },
-  3: {
-    'glacioDmgBonus%': 1,
-    'fusionDmgBonus%': 2,
-    'electroDmgBonus%': 3,
-    'aeroDmgBonus%': 4,
-    'spectroDmgBonus%': 5,
-    'havocDmgBonus%': 6,
-    'energyRegen%': 7,
-    'hp%': 8,
-    'atk%': 9,
-    'def%': 10,
-  },
-  1: {
-    'hp%': 1,
-    'atk%': 2,
-    'def%': 3,
   },
 };
 

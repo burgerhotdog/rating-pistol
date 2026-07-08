@@ -19,7 +19,7 @@ const WW_TABLE = {
   'critDmg%': [0.126, 0.138, 0.15, 0.162, 0.174, 0.186, 0.198, 0.21],
 };
 
-export function revealSubStatKuro(subStatList) {
+export function revealSubStatWuwa(subStatList) {
   const existingStatIds = subStatList.map((line) => line.subStatId);
   const statPool = Object.entries(WW_TABLE)
     .filter(([statId]) => !existingStatIds.includes(statId));

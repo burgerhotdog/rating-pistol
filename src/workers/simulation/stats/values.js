@@ -65,7 +65,7 @@ export const HOYO_MAINSTAT_VALUES = {
   },
 };
 
-export const KURO_MAINSTAT_VALUES = {
+export const WUWA_MAINSTAT_VALUES = {
   4: {
     'hp%': 0.33,
     'atk%': 0.33,
@@ -93,7 +93,7 @@ export const KURO_MAINSTAT_VALUES = {
   },
 };
 
-export const KURO_MAINSTAT_FLATS = {
+export const WUWA_MAINSTAT_FLATS = {
   4: ["atk", 150],
   3: ["atk", 100],
   1: ["hp", 2280],

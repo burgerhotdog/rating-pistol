@@ -1,8 +1,8 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
-import { mergeObj, mergeEquipList, getTotals } from '@/utils';
+import { mergeObj, mergeEquipList } from '@/utils';
 import { assignMainStat } from './assignMainStat';
-import { revealSubStatKuro, revealSubStatsHoyo, upgradeSubStats } from './assignSubStat';
-import { getScore } from './utils';
+import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './assignSubStat';
+import { getWeightedScore } from './utils';
 
 const createEquipGenerator = (gameId, goodStats) => {
   const isGoodMain = (equip) => {
@@ -29,15 +29,15 @@ const createEquipGenerator = (gameId, goodStats) => {
 
     const subStatList = [];
     if (gameId === WW) {
-      revealSubStatKuro(subStatList);
+      revealSubStatWuwa(subStatList);
       if (!hasGoodSubs(subStatList, 1)) return; // Sub 1 is bad
 
-      revealSubStatKuro(subStatList);
-      revealSubStatKuro(subStatList);
+      revealSubStatWuwa(subStatList);
+      revealSubStatWuwa(subStatList);
       if (!hasGoodSubs(subStatList, 2)) return; // Sub 2 and 3 are both bad
 
-      revealSubStatKuro(subStatList);
-      revealSubStatKuro(subStatList);
+      revealSubStatWuwa(subStatList);
+      revealSubStatWuwa(subStatList);
     } else {
       revealSubStatsHoyo(subStatList, gameId, equip.mainStatId);
       if (!hasGoodSubs(subStatList, 2)) return; // Bad starting 4 stats
@@ -57,15 +57,13 @@ const createEquipEvaluator = (baseMap, runRotation, getPenalty, currId) => (equi
     const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
     const newSummary = runRotation(combinedStatMap);
     const newPenalty = getPenalty(combinedStatMap);
-    const newTotals = getTotals(newSummary);
-    const newScore = getScore(newTotals, newPenalty);
+    const newScore = getWeightedScore(newSummary, currId, newPenalty);
 
     if (newScore > buffer.score) {
       Object.assign(buffer, {
         equipList: newEquipList,
         summary: newSummary,
         penalty: newPenalty,
-        totals: newTotals,
         score: newScore,
       });
     }

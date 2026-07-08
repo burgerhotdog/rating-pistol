@@ -79,8 +79,8 @@ export const damageFormula = (action, config, statMap) => {
       }
 
       case 'healing': {
-        const healingBonus = 1 + getAttr('healingBonus', statMap);
-        const healingReceived = 1 + getAttr('healingReceived', statMap);
+        const healingBonus = 1 + getAttr('healingBonus%', statMap);
+        const healingReceived = 1 + getAttr('healingReceived%', statMap);
 
         sum += base * healingBonus * healingReceived;
         break;

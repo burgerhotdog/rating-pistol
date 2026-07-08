@@ -1,12 +1,10 @@
 import { GI, WW } from '@/data';
-import { mergeEquipList, getTotals } from '@/utils';
+import { mergeEquipList } from '@/utils';
 import { createRunRotation } from './rotation';
 import { createTrialAdvancer } from './advanceTrial';
 import { findGoodStats } from './findGoodStats';
 import { createGetPenalty } from './penalty';
-import { getSubRollSums } from './utils';
-import { KURO_MAINSTAT_INDEX_ORDER } from './stats/weights';
-import { getScore } from './utils';
+import { getSubRollSums, getWeightedScore, getMainConfig } from './utils';
 
 const MIN_TRIALS = 100;
 const MAX_TRIALS = 500;
@@ -30,35 +28,11 @@ const createScoreTracker = () => {
   };
 };
 
-const getConfigKey = (gameId, equipList) => {
-  if (gameId !== WW) {
-    return equipList
-      .map((equip) => equip.mainStatId ?? 'none')
-      .join('|');
-  }
-
-  const result = {};
-  for (const equip of equipList) {
-    if (!equip) continue;
-
-    const { cost, mainStatId } = equip;
-    (result[cost] ??= []).push(mainStatId);
-  }
-
-  return Object.entries(result)
-    .reverse()
-    .map(([cost, list]) => {
-      const indexOrder = KURO_MAINSTAT_INDEX_ORDER[cost];
-      return list.sort((a, b) => indexOrder[a] - indexOrder[b]).join('|');
-    })
-    .join('|');
-};
-
 const buildConfigStats = (gameId, trials) => {
   const configMap = {};
 
   for (const trial of trials) {
-    const key = getConfigKey(gameId, trial.equipList);
+    const key = getMainConfig(gameId, trial.equipList);
 
     if (!configMap[key]) {
       configMap[key] = {
@@ -110,8 +84,7 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
 
   const baseSummary = runRotation(baseMap);
   const basePenalty = getPenalty(baseMap);
-  const baseTotals = getTotals(baseSummary);
-  const baseScore = getScore(baseTotals, basePenalty);
+  const baseScore = getWeightedScore(baseSummary, currId, basePenalty);
 
   const weeklySummaries = [baseSummary];
   const goodStats = findGoodStats(cache, baseScore, currId, runRotation, getPenalty);
@@ -123,7 +96,6 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
     equipList: new Array(equipListLength).fill(null),
     summary: baseSummary,
     penalty: basePenalty,
-    totals: baseTotals,
     score: baseScore,
   });
   const trials = [];
@@ -135,7 +107,6 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
   let prevAvgScore = baseScore;
   for (let week = 1; week <= MAX_WEEKS; week++) {
     const weekSummarySums = {};
-    const weekTotals = [];
     const weekScores = createScoreTracker();
 
     for (const trial of trials) {
@@ -144,7 +115,6 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
 
       if (isMain) {
         addSummaryToSums(weekSummarySums, trial.summary);
-        weekTotals.push(trial.totals);
       }
     }
 
@@ -160,7 +130,6 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
       weekScores.add(trial.score);
       if (isMain) {
         addSummaryToSums(weekSummarySums, trial.summary);
-        weekTotals.push(trial.totals);
       }
     }
 
@@ -197,7 +166,7 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
     weeklySummaries,
     userSummary: runRotation(cache.member[currId].statMap),
     configMap: buildConfigStats(gameId, trials),
-    userConfigKey: getConfigKey(gameId, cache.member[currId].equipList),
+    userConfigKey: getMainConfig(gameId, cache.member[currId].equipList),
     userSubStats: getSubRollSums(gameId, cache.member[currId].equipList),
   });
 };
