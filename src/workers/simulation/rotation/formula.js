@@ -1,4 +1,5 @@
 import { getAttr } from '@/utils';
+import { getCritMult, getDmgBonusMult, getDmgAmpMult } from './damageFormula';
 
 const computeBase = (compressed, statMap) => {
   const percentMv = getAttr('mv%', statMap);
@@ -17,41 +18,33 @@ const computeBase = (compressed, statMap) => {
   return totalMvPart * (1 + percentMv) + compressed.flat + flatBuff;
 };
 
-const computeBonuses = (statMap, bonusTypes, enemyStatMap) => {
-  const critRate = Math.max(Math.min(getAttr('critRate%', statMap), 1), 0);
-  const critDamage = getAttr('critDmg%', statMap);
-  const critMult = critRate * (1 + critDamage) + (1 - critRate);
-
-  let dmgBonusMult = 1 + getAttr('dmgBonus%', statMap) + getAttr('dmgBonus%', enemyStatMap);
-  let ampMult = 1 + getAttr('dmgAmp%', statMap) + getAttr('dmgAmp%', enemyStatMap);
-
-  for (const type of bonusTypes) {
-    dmgBonusMult += getAttr(`${type}DmgBonus%`, statMap) + getAttr(`${type}DmgBonus%`, enemyStatMap);
-    ampMult += getAttr(`${type}DmgAmp%`, statMap) + getAttr(`${type}DmgAmp%`, enemyStatMap);
-  }
-
-  return critMult * dmgBonusMult * ampMult;
-};
-
 export const damageFormula = (helpers, action, config, statMap) => {
   const { getResMult, getDefMult } = helpers;
   const { dmgType, extraDmgType, compressed } = action;
   const { enemyStatMap } = config;
   const timesRepeat = action.times * config.repeatCount;
-  let sum = 0;
 
-  for (const element in compressed) {
-    const base = computeBase(compressed[element], statMap) * timesRepeat;
+  let sum = 0;
+  for (const [element, params] of Object.entries(compressed)) {
+    const baseValue = computeBase(params, statMap) * timesRepeat;
 
     switch (action.type) {
       case 'damage': {
-        const bonusTypes = [element, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
+        const critMult = getCritMult(statMap);
 
-        const bonuses = computeBonuses(statMap, bonusTypes, enemyStatMap);
+        const bonusTypes = [element, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
+        const dmgBonusMult = getDmgBonusMult(enemyStatMap, statMap, bonusTypes);
+        const dmgAmpMult = getDmgAmpMult(enemyStatMap, statMap, bonusTypes);
+
         const resMult = getResMult(element, enemyStatMap, statMap);
         const defMult = getDefMult(enemyStatMap, statMap);
 
-        sum += base * bonuses * resMult * defMult;
+        const damageValue =
+          baseValue *
+          critMult * dmgBonusMult * dmgAmpMult *
+          resMult * defMult;
+
+        sum += damageValue;
         break;
       }
 
@@ -59,14 +52,22 @@ export const damageFormula = (helpers, action, config, statMap) => {
         const healingBonus = 1 + getAttr('healingBonus%', statMap);
         const healingReceived = 1 + getAttr('healingReceived%', statMap);
 
-        sum += base * healingBonus * healingReceived;
+        const healingValue =
+          baseValue *
+          healingBonus * healingReceived;
+
+        sum += healingValue;
         break;
       }
 
       case 'shield': {
         const shieldBonus = 1 + getAttr('shieldBonus%', statMap);
 
-        sum += base * shieldBonus;
+        const shieldValue =
+          baseValue *
+          shieldBonus;
+
+        sum += shieldValue;
         break;
       }
     }
