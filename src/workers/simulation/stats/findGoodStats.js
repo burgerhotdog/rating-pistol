@@ -1,8 +1,8 @@
 import { WW } from '@/data';
 import { mergeObj } from '@/utils';
-import { getWeightedScore } from './utils';
-import { HOYO_MAINSTAT_WEIGHTS } from './stats/weights';
-import { HOYO_MAINSTAT_VALUES, WUWA_MAINSTAT_VALUES, SUBSTAT_VALUES } from './stats/values';
+import { getWeightedScore } from '../utils';
+import { HOYO_MAINSTAT_WEIGHTS } from './weights';
+import { HOYO_MAINSTAT_VALUES, WUWA_MAINSTAT_VALUES, SUBSTAT_VALUES } from './values';
 
 const findGoodMainStatsWuwa = (baseMap, baseScore, currId, runRotation, getPenalty) => {
   const goodMainStats = {};

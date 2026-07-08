@@ -93,12 +93,6 @@ export const WUWA_MAINSTAT_VALUES = {
   },
 };
 
-export const WUWA_MAINSTAT_FLATS = {
-  4: ["atk", 150],
-  3: ["atk", 100],
-  1: ["hp", 2280],
-};
-
 export const SUBSTAT_VALUES = {
   [GI]: {
     'hp': 298.8,

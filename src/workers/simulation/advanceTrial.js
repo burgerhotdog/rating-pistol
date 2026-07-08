@@ -1,7 +1,7 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
 import { mergeObj, mergeEquipList } from '@/utils';
-import { assignMainStat } from './assignMainStat';
-import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './assignSubStat';
+import { createAssignMain } from './stats/assignMain';
+import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './stats/assignSub';
 import { getWeightedScore } from './utils';
 
 const createEquipGenerator = (gameId, goodStats) => {
@@ -20,11 +20,13 @@ const createEquipGenerator = (gameId, goodStats) => {
     return count >= numGood;
   };
 
+  const assignMain = createAssignMain(gameId);
+
   // Return early on certain conditions
   return (spec) => {
     if (Math.random() < 0.5) return; // Wrong set
 
-    const equip = assignMainStat(gameId, spec);
+    const equip = assignMain(spec);
     if (!isGoodMain(equip)) return; // Bad main stat
 
     const subStatList = [];
@@ -102,13 +104,13 @@ export const createTrialAdvancer = (cache, currId, goodStats, runRotation, getPe
   return (trial) => {
     for (const pass of passes[gameId]) {
 
-      const spec = {};
+      let spec;
       if (gameId === WW) {
         if ('cost' in pass) {
-          spec.cost = pass.cost;
+          spec = pass.cost;
         }
       } else if (gameId === HSR) {
-        spec.type = pass.type;
+        spec = pass.type;
       }
 
       for (let i = 0; i < pass.count; i++) {

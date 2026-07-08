@@ -1,5 +1,33 @@
 import { GI, HSR, ZZZ } from '@/data';
 
+export const WUWA_MAINSTAT_WEIGHTS = {
+  4: {
+    'critRate%': 4,
+    'critDmg%': 4,
+    'hp%': 3,
+    'atk%': 3,
+    'def%': 3,
+    'healingBonus%': 2,
+  },
+  3: {
+    'glacioDmgBonus%': 2,
+    'fusionDmgBonus%': 2,
+    'electroDmgBonus%': 2,
+    'aeroDmgBonus%': 2,
+    'spectroDmgBonus%': 2,
+    'havocDmgBonus%': 2,
+    'energyRegen%': 1,
+    'hp%': 1,
+    'atk%': 1,
+    'def%': 1,
+  },
+  1: {
+    'hp%': 1,
+    'atk%': 1,
+    'def%': 1,
+  },
+};
+
 export const HOYO_MAINSTAT_WEIGHTS = {
   [GI]: [
     {
@@ -120,34 +148,6 @@ export const HOYO_MAINSTAT_WEIGHTS = {
       "energyRegen%": 3,
     }
   ],
-};
-
-export const WUWA_MAINSTAT_WEIGHTS = {
-  4: {
-    'critRate%': 4,
-    'critDmg%': 4,
-    'hp%': 3,
-    'atk%': 3,
-    'def%': 3,
-    'healingBonus%': 2,
-  },
-  3: {
-    'glacioDmgBonus%': 2,
-    'fusionDmgBonus%': 2,
-    'electroDmgBonus%': 2,
-    'aeroDmgBonus%': 2,
-    'spectroDmgBonus%': 2,
-    'havocDmgBonus%': 2,
-    'energyRegen%': 1,
-    'hp%': 1,
-    'atk%': 1,
-    'def%': 1,
-  },
-  1: {
-    'hp%': 1,
-    'atk%': 1,
-    'def%': 1,
-  },
 };
 
 export const HOYO_SUBSTAT_WEIGHTS = {

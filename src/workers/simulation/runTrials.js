@@ -2,7 +2,7 @@ import { GI, WW } from '@/data';
 import { mergeEquipList } from '@/utils';
 import { createRunRotation } from './rotation';
 import { createTrialAdvancer } from './advanceTrial';
-import { findGoodStats } from './findGoodStats';
+import { findGoodStats } from './stats/findGoodStats';
 import { createGetPenalty } from './penalty';
 import { getSubRollSums, getWeightedScore, getMainConfig } from './utils';
 
