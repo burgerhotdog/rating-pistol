@@ -19,6 +19,23 @@ const WW_TABLE = {
   'critDmg%': [0.126, 0.138, 0.15, 0.162, 0.174, 0.186, 0.198, 0.21],
 };
 
+const getWeightsList = (statId) => {
+  switch (statId) {
+    case 'critRate%':
+    case 'critDmg%':
+      return [70, 70, 70, 24, 24, 24, 9, 9];
+    
+    case 'atk':
+      return [7, 54, 39, 3];
+
+    case 'def':
+      return [15, 46, 33, 9];
+    
+    default:
+      return [7, 8, 21, 25, 18, 15, 6, 3];
+  }
+};
+
 export function revealSubStatWuwa(subStatList) {
   const existingStatIds = subStatList.map((line) => line.subStatId);
   const statPool = Object.entries(WW_TABLE)
@@ -27,11 +44,7 @@ export function revealSubStatWuwa(subStatList) {
   const randomIndex = Math.floor(Math.random() * statPool.length);
   const [subStatId, valuesList] = statPool[randomIndex];
 
-  const index = (subStatId === 'atk' || subStatId === 'def')
-    ? weightedLottery([4, 19, 14, 1])
-    : (subStatId === 'critRate%' || subStatId === 'critDmg%')
-      ? weightedLottery([6, 6, 6, 2, 2, 2, 1, 1])
-      : weightedLottery([2, 2, 7, 8, 6, 5, 2, 1]);
+  const index = weightedLottery(getWeightsList(subStatId));
 
   subStatList.push({ subStatId, subStatValue: valuesList[index] });
 }
