@@ -63,7 +63,6 @@ const createEquipEvaluator = (baseMap, runRotation, getPenalty, currId) => (equi
       Object.assign(buffer, {
         equipList: newEquipList,
         summary: newSummary,
-        penalty: newPenalty,
         score: newScore,
       });
     }

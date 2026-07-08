@@ -95,7 +95,6 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),
     summary: baseSummary,
-    penalty: basePenalty,
     score: baseScore,
   });
   const trials = [];
