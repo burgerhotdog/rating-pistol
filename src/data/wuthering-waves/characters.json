@@ -3599,26 +3599,15 @@
         "applyTo": "enemy",
         "applyWhen": "hit",
         "applyOnAction": "resonanceLiberation.2",
-        "statusMap": {
+        "inflict": {
           "spectroFrazzle": 8
         },
         "rankMods": {
           "1": {
-            "statusMap": {
+            "inflict": {
               "spectroFrazzle": 2
             }
           }
-        }
-      },
-      {
-        "applyTo": "enemy",
-        "applyWhen": "hit",
-        "applyOnAction": [
-          "forteCircuit.1",
-          "forteCircuit.2"
-        ],
-        "statusMap": {
-          "spectroFrazzle": 1
         }
       },
       {
@@ -3628,14 +3617,6 @@
         },
         "statMap": {
           "dmgAmp%": 2.56
-        }
-      },
-      {
-        "applyTo": "enemy",
-        "applyWhen": "hit",
-        "applyOnAction": "forteCircuit.4",
-        "statusMap": {
-          "spectroFrazzle": 5
         }
       },
       {
@@ -3959,19 +3940,6 @@
       "atk%": 0.12
     },
     "effects": [
-      {
-        "applyTo": "enemy",
-        "applyWhen": "hit",
-        "applyOnAction": [
-          "normalAttack.4",
-          "resonanceSkill.1",
-          "resonanceLiberation.2",
-          "introSkill.1"
-        ],
-        "statusMap": {
-          "aeroErosion": 1
-        }
-      },
       {
         "applyTo": "team",
         "statMap": {

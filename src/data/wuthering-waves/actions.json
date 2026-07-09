@@ -19290,6 +19290,9 @@
       "1": {
         "name": "Absolution Litany",
         "skillType": "heavyAttack",
+        "inflict": {
+          "spectroFrazzle": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -19320,6 +19323,9 @@
       "2": {
         "name": "Utter Confession",
         "skillType": "resonanceSkill",
+        "inflict": {
+          "spectroFrazzle": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -19383,6 +19389,9 @@
         "name": "Starflash",
         "tagged": "Confession",
         "skillType": "heavyAttack",
+        "inflict": {
+          "spectroFrazzle": 5
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -20430,6 +20439,9 @@
       "4": {
         "name": "Basic Attack 4",
         "skillType": "basicAttack",
+        "inflict": {
+          "aeroErosion": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -20649,6 +20661,9 @@
       "1": {
         "name": "Harmonic Allegro",
         "skillType": "resonanceSkill",
+        "inflict": {
+          "aeroErosion": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -20712,6 +20727,9 @@
       "2": {
         "name": "Symphonic Poem: Tonic",
         "dmgType": "resonanceLiberation",
+        "inflict": {
+          "aeroErosion": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -20801,6 +20819,9 @@
       "1": {
         "name": "Roaming with the Wind",
         "skillType": "introSkill",
+        "inflict": {
+          "aeroErosion": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [

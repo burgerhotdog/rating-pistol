@@ -14,6 +14,10 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 
   const triggered = cache.effect[action.key].filter((effect) => effect.applyWhen === trigger);
   const inflictedStatuses = {};
+  if ('inflict' in action && trigger === 'hit') {
+    inflictNegativeStatuses(ctx, action.inflict);
+    Object.assign(inflictedStatuses, action.inflict);
+  }
 
   for (const effect of triggered) {
     if ('applyIfInflict' in effect) continue;
@@ -32,9 +36,9 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
           applyEffect(state.debuffs, effect, repeat);
         }
 
-        if ('statusMap' in effect) {
-          inflictNegativeStatuses(ctx, effect.statusMap);
-          Object.assign(inflictedStatuses, effect.statusMap);
+        if ('inflict' in effect) {
+          inflictNegativeStatuses(ctx, effect.inflict);
+          Object.assign(inflictedStatuses, effect.inflict);
         }
       }
     }
@@ -66,14 +70,16 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 }
 
 function decayProcCounts(ctx, action) {
-  for (const effectStates of [
-    ...Object.values(ctx.state.effects),
-    ...Object.values(ctx.state.fieldEffects),
-    ctx.state.debuffs,
-  ]) {
-    for (const effectKey in effectStates) {
-      const effectState = effectStates[effectKey];
+  const { effects, fieldEffects, debuffs } = ctx.state;
 
+  const stateMaps = [
+    ...Object.values(effects),
+    ...Object.values(fieldEffects),
+    debuffs,
+  ];
+
+  for (const stateMap of stateMaps) {
+    for (const [key, effectState] of Object.entries(stateMap)) {
       if (effectState.usesRemaining === Infinity) continue;
       if ('followUpAction' in effectState.effect || 'intervalAction' in effectState.effect) continue;
       if (!matchUseOn(effectState.effect, action) || !matchUseIf(effectState.effect, action.ownerId, ctx)) continue;
@@ -81,7 +87,7 @@ function decayProcCounts(ctx, action) {
       effectState.usesRemaining -= 1;
 
       if (effectState.usesRemaining <= 0) {
-        delete effectStates[effectKey];
+        delete stateMap[key];
       }
     }
   }
@@ -90,27 +96,27 @@ function decayProcCounts(ctx, action) {
 function processFollowUpActions(ctx, action, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
 
-  const { onFieldId, state } = ctx;
-  const actionOwnerState = onFieldId === action.ownerId ? 'active' : 'inactive';
+  const { effects, fieldEffects, cooldowns } = ctx.state;
+  const actionOwnerField = ctx.onFieldId === action.ownerId ? 'active' : 'inactive';
 
-  const effectStores = [
-    state.effects[action.ownerId],
-    state.fieldEffects[actionOwnerState],
+  const stateMaps = [
+    effects[action.ownerId],
+    fieldEffects[actionOwnerField],
   ];
 
-  for (const effectStates of effectStores) {
-    for (const [effectKey, effectState] of Object.entries(effectStates)) {
+  for (const stateMap of stateMaps) {
+    for (const [effectKey, effectState] of Object.entries(stateMap)) {
       const { effect } = effectState;
-      if (!('followUpAction' in effect) || isOnCooldown(state.cooldowns, 'use', effectKey)) continue;
+      if (!('followUpAction' in effect) || isOnCooldown(cooldowns, 'use', effectKey)) continue;
       if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
 
       if ('useCooldown' in effect) {
-        setCooldown(state.cooldowns, 'use', effectKey, effect.useCooldown);
+        setCooldown(cooldowns, 'use', effectKey, effect.useCooldown);
       }
 
       effectState.usesRemaining--;
       if (effectState.usesRemaining <= 0) {
-        delete effectStates[effectKey];
+        delete stateMap[effectKey];
       }
 
       for (const action of effect.followUpAction) {
@@ -122,12 +128,10 @@ function processFollowUpActions(ctx, action, depth) {
 
 function processIntervalActions(ctx, elapsed, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
-  const { state } = ctx;
+  const { effects } = ctx.state;
 
-  for (const memberId in state.effects) {
-    const effectStates = state.effects[memberId];
-
-    for (const [effectKey, effectState] of Object.entries(effectStates)) {
+  for (const stateMap of Object.values(effects)) {
+    for (const [key, effectState] of Object.entries(stateMap)) {
       const { effect } = effectState;
       if (!('intervalAction' in effect)) continue;
 
@@ -136,7 +140,7 @@ function processIntervalActions(ctx, elapsed, depth) {
         effectState.usesRemaining--;
 
         if (effectState.usesRemaining <= 0) {
-          delete effectStates[effectKey];
+          delete stateMap[key];
         }
 
         for (const action of effect.intervalAction) {
