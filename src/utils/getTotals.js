@@ -1,12 +1,12 @@
 export const getTotals = (summary, filter = {}) => {
-  const matchesFilter = (ownerId) => !filter.ownerId || ownerId === filter.ownerId;
   const totals = { damage: 0, healing: 0, shield: 0 };
+  const matchesFilter = (ownerId) => {
+    return !filter.ownerId || ownerId === filter.ownerId;
+  }
 
-  for (const footprintKey in summary) {
-    const footprint = summary[footprintKey];
-    if (!matchesFilter(footprint.ownerId)) continue;
-
-    totals[footprint.type] += footprint[footprint.type];
+  for (const { ownerId, type, value } of Object.values(summary)) {
+    if (!matchesFilter(ownerId)) continue;
+    totals[type] += value;
   }
 
   return totals;

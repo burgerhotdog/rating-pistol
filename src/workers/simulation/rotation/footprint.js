@@ -135,7 +135,7 @@ export const evaluateFootprint = (helpers, ctx, footprint, statMap) => {
   const finalStatMap = mergeObj(ownerBaseStatMap, effectStatMap);
 
   const config = { enemyStatMap: footprint.enemyStatMap, repeatCount: footprint.repeatCount };
-  const sum = runDamageFormula(helpers, footprint, config, finalStatMap);
+  const value = runDamageFormula(helpers, footprint, config, finalStatMap);
 
-  return { ...summary, [footprint.type]: sum };
+  return { ...summary, value };
 };

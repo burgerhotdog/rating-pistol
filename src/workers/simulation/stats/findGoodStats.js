@@ -1,6 +1,6 @@
 import { WW } from '@/data';
 import { mergeObj } from '@/utils';
-import { getWeightedScore } from '../utils';
+import { getScore } from '../utils';
 import { HOYO_MAINSTAT_WEIGHTS } from './weights';
 import { HOYO_MAINSTAT_VALUES, WUWA_MAINSTAT_VALUES, SUBSTAT_VALUES } from './values';
 
@@ -14,7 +14,7 @@ const findGoodMainStatsWuwa = (baseMap, baseScore, currId, runRotation, getPenal
       const testMap = mergeObj(baseMap, { [statId]: value });
       const testSummary = runRotation(testMap);
       const testPenalty = getPenalty(testMap);
-      const testScore = getWeightedScore(testSummary, currId, testPenalty);
+      const testScore = getScore(testSummary, currId, testPenalty);
 
       if (testScore > baseScore) {
         preferred.push(statId);
@@ -42,7 +42,7 @@ const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, currId, runRotation, 
       const testMap = mergeObj(baseMap, { [statId]: value });
       const testSummary = runRotation(testMap);
       const testPenalty = getPenalty(testMap);
-      const testScore = getWeightedScore(testSummary, currId, testPenalty);
+      const testScore = getScore(testSummary, currId, testPenalty);
 
       if (testScore > baseScore) {
         preferred.push(statId);
@@ -66,7 +66,7 @@ const findGoodSubs = (substatValues, baseMap, baseScore, currId, runRotation, ge
     const testMap = mergeObj(baseMap, { [statId]: value });
     const testSummary = runRotation(testMap);
     const testPenalty = getPenalty(testMap);
-    const testScore = getWeightedScore(testSummary, currId, testPenalty);
+    const testScore = getScore(testSummary, currId, testPenalty);
 
     if (testScore > baseScore) {
       goodSubStats.push(statId);

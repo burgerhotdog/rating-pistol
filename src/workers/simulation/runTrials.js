@@ -4,7 +4,7 @@ import { createRunRotation } from './rotation';
 import { createTrialAdvancer } from './advanceTrial';
 import { findGoodStats } from './stats/findGoodStats';
 import { createGetPenalty } from './penalty';
-import { getSubRollSums, getWeightedScore, getMainConfig } from './utils';
+import { getSubRollSums, getScore, getMainConfig } from './utils';
 
 const MIN_TRIALS = 100;
 const MAX_TRIALS = 500;
@@ -61,18 +61,15 @@ const buildConfigStats = (gameId, trials) => {
 
 const normalizeSummarySums = (sums, n) =>
   Object.fromEntries(
-    Object.entries(sums).map(([key, footprint]) => {
-      const { type } = footprint;
-      return [key, { ...footprint, [type]: footprint[type] / n }];
+    Object.entries(sums).map(([key, result]) => {
+      return [key, { ...result, value: result.value / n }];
     })
   );
 
 function addSummaryToSums(sums, summary) {
-  for (const [key, footprint] of Object.entries(summary)) {
-    const { type } = footprint;
-
-    sums[key] ??= { ...footprint, [type]: 0 };
-    sums[key][type] += footprint[type] ?? 0;
+  for (const [key, result] of Object.entries(summary)) {
+    sums[key] ??= { ...result, value: 0 };
+    sums[key].value += result.value ?? 0;
   }
 }
 
@@ -84,7 +81,7 @@ export const runTrials = (helpers, cache, equipMaps, currId, isMain = false) => 
 
   const baseSummary = runRotation(baseMap);
   const basePenalty = getPenalty(baseMap);
-  const baseScore = getWeightedScore(baseSummary, currId, basePenalty);
+  const baseScore = getScore(baseSummary, currId, basePenalty);
 
   const weeklySummaries = [baseSummary];
   const goodStats = findGoodStats(cache, baseScore, currId, runRotation, getPenalty);

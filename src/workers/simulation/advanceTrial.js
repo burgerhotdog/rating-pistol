@@ -2,7 +2,7 @@ import { GI, HSR, WW, ZZZ } from '@/data';
 import { mergeObj, mergeEquipList } from '@/utils';
 import { createAssignMain } from './stats/assignMain';
 import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './stats/assignSub';
-import { getWeightedScore } from './utils';
+import { getScore } from './utils';
 
 const createEquipGenerator = (gameId, goodStats) => {
   const isGoodMain = (equip) => {
@@ -59,7 +59,7 @@ const createEquipEvaluator = (baseMap, runRotation, getPenalty, currId) => (equi
     const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
     const newSummary = runRotation(combinedStatMap);
     const newPenalty = getPenalty(combinedStatMap);
-    const newScore = getWeightedScore(newSummary, currId, newPenalty);
+    const newScore = getScore(newSummary, currId, newPenalty);
 
     if (newScore > buffer.score) {
       Object.assign(buffer, {

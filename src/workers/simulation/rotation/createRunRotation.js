@@ -2,7 +2,7 @@ import { matchIfInflict, matchUseOn, matchUseIf, matchApplyIf } from '../match';
 import { isOnCooldown, setCooldown, advanceCooldowns } from './cooldowns';
 import { buildFootprint, evaluateFootprint } from './footprint';
 import { applyTune, advanceTune } from './offtune';
-import { createEffectStateMaps, applyEffect, removeEffects, advanceEffects } from './effects';
+import { applyEffect, removeEffects, advanceEffects } from './effects';
 import { inflictNegativeStatuses, advanceNegativeStatuses } from './negativeStatuses';
 
 const MAX_PROC_DEPTH = 5;
@@ -92,9 +92,7 @@ function decayProcCounts(ctx, action) {
   }
 }
 
-function processFollowUpActions(ctx, action, depth) {
-  if (depth >= MAX_PROC_DEPTH) return;
-
+function executeFollowUpActions(ctx, action, depth) {
   const { effects, fieldEffects, cooldowns } = ctx.state;
   const actionOwnerField = ctx.onFieldId === action.ownerId ? 'active' : 'inactive';
 
@@ -113,7 +111,7 @@ function processFollowUpActions(ctx, action, depth) {
       effectState.executing = true;
       for (const action of effect.followUpAction) {
         for (let i = 0; i < effect.times; i ++) {
-          processAction(ctx, action, depth + 1);
+          executeAction(ctx, action, depth + 1);
         }
       }
       effectState.executing = false;
@@ -131,8 +129,7 @@ function processFollowUpActions(ctx, action, depth) {
   }
 }
 
-function processIntervalActions(ctx, elapsed, depth) {
-  if (depth >= MAX_PROC_DEPTH) return;
+function executeIntervalActions(ctx, elapsed, depth) {
   const { effects } = ctx.state;
 
   for (const stateMap of Object.values(effects)) {
@@ -144,7 +141,7 @@ function processIntervalActions(ctx, elapsed, depth) {
       while (effectState.intervalTimer <= 0) {
         for (const action of effect.intervalAction) {
           for (let i = 0; i < effect.times; i ++) {
-            processAction(ctx, action, depth + 1);
+            executeAction(ctx, action, depth + 1);
           }
         }
 
@@ -171,131 +168,144 @@ function getHitCount(action) {
   return maxHits;
 }
 
-function processAction(ctx, action, depth = 0) {
+function executeAction(ctx, action, depth = 0) {
   if (depth >= MAX_PROC_DEPTH) {
-    console.error("MAX_PROC_DEPTH hit");
+    console.error('MAX_PROC_DEPTH');
     return;
   }
 
-  const { state } = ctx;
+  const { cooldowns } = ctx.state;
   const { duration, offset } = action;
-  const remaining = duration - offset;
-  const hitCount = getHitCount(action);
-  const hitInterval = remaining / hitCount;
 
-  // Cast (t = 0)
+  // Triggered on cast
   removeEffects(ctx, action);
   applyEffects(ctx, action, 'cast');
 
-  // Pre-hit window (t = 0 → offset)
+  // Advance time forwards to hit
   if (offset) {
-    advanceEffects(ctx, offset);
+    executeIntervalActions(ctx, offset, depth);
     advanceNegativeStatuses(ctx, offset);
-    processIntervalActions(ctx, offset, depth);
-    advanceCooldowns(state.cooldowns, offset);
+
+    advanceEffects(ctx, offset);
+    advanceTune(ctx, offset);
+    advanceCooldowns(cooldowns, offset);
   }
 
-  // Hits (each spaced hitInterval apart)
+  // Hits (spaced hitInterval apart)
+  const hitCount = getHitCount(action);
+  const hitInterval = (duration - offset) / hitCount;
   for (let i = 0; i < hitCount; i++) {
-    // Contact
+    // Hit
     if (ctx.recordFootprint) {
       const footprint = buildFootprint(ctx, action);
       ctx.footprints.push(footprint);
     }
+    decayProcCounts(ctx, action);
 
+    // Apply tune if damage
     if (action.type === 'damage') {
       applyTune(ctx, action);
     }
 
+    // Triggered on hit
     applyEffects(ctx, action, 'hit');
-    processFollowUpActions(ctx, action, depth);
-    decayProcCounts(ctx, action);
+    executeFollowUpActions(ctx, action, depth);
 
-    // Inter-hit window
+    // Advance time after hit
     if (hitInterval) {
-      advanceTune(ctx, hitInterval);
-      advanceEffects(ctx, hitInterval);
+      executeIntervalActions(ctx, hitInterval, depth);
       advanceNegativeStatuses(ctx, hitInterval);
-      processIntervalActions(ctx, hitInterval, depth);
-      advanceCooldowns(state.cooldowns, hitInterval);
+
+      advanceEffects(ctx, hitInterval);
+      advanceTune(ctx, hitInterval);
+      advanceCooldowns(cooldowns, hitInterval);
     }
   }
 }
 
 export const createRunRotation = (helpers, cache, equipMaps, currId) => {
-  // Runtime state
-  const state = {
-    cooldowns: { apply: {}, use: {} },
-    effects: createEffectStateMaps(cache.memberIds),
-    fieldEffects: { active: {}, inactive: {} },
-    debuffs: {},
-    negativeStatuses: {},
-    offTune: { level: 0 },
-  };
-
   const ctx = {
     helpers,
     cache,
-    currId,
     equipMaps,
-    state,
+    currId,
+    state: {
+      cooldowns: {
+        apply: {},
+        use: {},
+      },
+      effects: Object.fromEntries(
+        cache.memberIds.map((memberId) => [memberId, {}])
+      ),
+      fieldEffects: {
+        active: {},
+        inactive: {},
+      },
+      debuffs: {},
+      negativeStatuses: {},
+      offTune: { level: 0 },
+    },
     footprints: [],
   };
 
+  // Rotation loop
   const memberOrder = cache.memberIds.toReversed();
-
   for (const memberId of memberOrder) {
     const { rotation } = cache.member[memberId];
     ctx.onFieldId = memberId;
 
     for (const action of rotation) {
-      processAction(ctx, action);
+      executeAction(ctx, action);
     }
   }
-
   ctx.recordFootprint = true;
-
   for (const memberId of memberOrder) {
     const { rotation } = cache.member[memberId];
     ctx.onFieldId = memberId;
 
     for (const action of rotation) {
-      processAction(ctx, action);
+      executeAction(ctx, action);
     }
   }
 
-  const earlySummary = {};
+  // Resolve fixed footprints
+  const fixedSummary = {};
+  const remaining = [];
+
   for (const footprint of ctx.footprints) {
-    if (!('fixed' in footprint)) continue;
-
-    if (footprint.key in earlySummary) {
-      earlySummary[footprint.key][footprint.type] += footprint.fixed;
-    } else {
-      earlySummary[footprint.key] = {
-        key: footprint.key,
-        ownerId: footprint.ownerId,
-        type: footprint.type,
-        dmgType: footprint.dmgType,
-        [footprint.type]: footprint.fixed,
-      };
+    if (!footprint.fixed) {
+      remaining.push(footprint);
+      continue;
     }
+
+    addToSummary(fixedSummary, {
+      key: footprint.key,
+      ownerId: footprint.ownerId,
+      type: footprint.type,
+      dmgType: footprint.dmgType,
+      value: footprint.fixed,
+    });
   }
 
-  ctx.footprints = ctx.footprints.filter((footprint) => !('fixed' in footprint));
-
+  // Return function to resolve remaining footprints
   return (statMap) => {
-    const summary = { ...earlySummary };
+    const summary = { ...fixedSummary };
 
-    for (const footprint of ctx.footprints) {
+    for (const footprint of remaining) {
       const result = evaluateFootprint(helpers, { currId }, footprint, statMap);
-
-      if (result.key in summary) {
-        summary[result.key][result.type] += result[result.type];
-      } else {
-        summary[result.key] = result;
-      }
+      addToSummary(summary, result);
     }
 
     return summary;
   };
 };
+
+function addToSummary(summary, result) {
+  const prev = summary[result.key];
+
+  if (prev) {
+    prev.value += result.value;
+  } else {
+    summary[result.key] = { ...result };
+  }
+}

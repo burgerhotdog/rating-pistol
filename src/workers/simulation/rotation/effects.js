@@ -1,15 +1,5 @@
 import { matchRemoveOn, matchRemoveIf } from '../match';
 
-export const createEffectStateMaps = (memberIds) => {
-  const stateMaps = {};
-
-  for (const memberId of memberIds) {
-    stateMaps[memberId] = {};
-  }
-
-  return stateMaps;
-};
-
 export function applyEffect(stateMap, effect) {
   const prev = stateMap[effect.key] ?? {};
   const prevStacks = prev.stacks ?? 0;

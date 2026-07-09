@@ -25,24 +25,28 @@ const BREAKDOWN_MODES = [
 ];
 
 const buildData = (summary, charId, breakdownMode) => {
-  const sums = {};
+  const damageByType = {};
 
   // TODO: branch on breakdownMode once fieldStatus grouping is implemented.
   // For now this always groups by dmgType regardless of the selected mode.
-  for (const { ownerId, dmgType, damage } of Object.values(summary)) {
-    if (ownerId !== charId || !damage) continue;
-    sums[dmgType] = (sums[dmgType] ?? 0) + damage;
+  for (const { ownerId, type, dmgType, value } of Object.values(summary)) {
+    if (ownerId !== charId || type !== 'damage') {
+      continue;
+    }
+
+    damageByType[dmgType] ??= 0;
+    damageByType[dmgType] += value;
   }
 
-  const entries = Object.entries(sums)
-    .map(([key, sum]) => ({
-      name: formatStr(key),
-      value: Math.round(sum),
+  const entries = Object.entries(damageByType)
+    .map(([dmgType, damage]) => ({
+      name: formatStr(dmgType),
+      value: Math.round(damage),
     }))
     .filter((entry) => entry.value)
     .sort((a, b) => b.value - a.value);
 
-  const total = entries.reduce((sum, e) => sum + e.value, 0);
+  const total = entries.reduce((acc, entry) => acc + entry.value, 0);
   let cumulative = 0;
 
   return entries.map((entry) => {
