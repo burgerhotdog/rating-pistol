@@ -69,7 +69,7 @@ const getGrade = (pct) => {
   return { grade: 'E', color: '#ef4444' };
 };
 
-export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => {
+export const ProgressChart = ({ weeklySummaries, team, userSummary, rotationTime }) => {
   const { palette, accentColors } = useTheme();
   const { gameId, characterId } = useParams();
   const disabledColor = palette.action.disabled;
@@ -81,8 +81,9 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, cache }) => 
     ...(Object.values(userSummary).some((result) => result.ownerId === 'other') ? [{ id: 'other' }] : []),
   ];
 
-  const rotationTime = cache.fullRotationTime;
-  const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
+  const toDps = (dmg) => rotationTime > 0
+    ? dmg / rotationTime * 1000
+    : 0;
 
   const sortedMembers = [...membersMisc].sort((a, b) => {
     // Always put the selected character first

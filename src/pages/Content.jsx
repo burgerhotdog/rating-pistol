@@ -66,7 +66,7 @@ export const Content = () => {
               team={team}
               weeklySummaries={weeklySummaries}
               userSummary={userSummary}
-              cache={cache}
+              rotationTime={cache.fullRotationTime}
             />
           </FlexRow>
 
