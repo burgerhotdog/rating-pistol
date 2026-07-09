@@ -10,12 +10,12 @@ export const createEffectStateMaps = (memberIds) => {
   return stateMaps;
 };
 
-export function applyEffect(stateMap, effect, applyTimes) {
+export function applyEffect(stateMap, effect) {
   const prev = stateMap[effect.key] ?? {};
   const prevStacks = prev.stacks ?? 0;
 
   const next = {
-    stacks: Math.min(prevStacks + applyTimes, effect.maxStacks),
+    stacks: Math.min(prevStacks + 1, effect.maxStacks),
     timeRemaining: effect.duration,
     usesRemaining: effect.maxUses,
     effect,

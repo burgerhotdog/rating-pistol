@@ -7,7 +7,7 @@ import { inflictNegativeStatuses, advanceNegativeStatuses } from './negativeStat
 
 const MAX_PROC_DEPTH = 5;
 
-function applyEffects(ctx, action, trigger, repeat = 1) {
+function applyEffects(ctx, action, trigger) {
   const { cache, state } = ctx;
 
   if (!(action.key in cache.effect)) return;
@@ -26,14 +26,14 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 
     for (const target of effect.applyTo) {
       if (target === 'applier') {
-        applyEffect(state.effects[action.ownerId], effect, repeat);
+        applyEffect(state.effects[action.ownerId], effect);
       } else if (target in cache.member) {
-        applyEffect(state.effects[target], effect, repeat);
+        applyEffect(state.effects[target], effect);
       } else if (target === 'active' || target === 'inactive') {
-        applyEffect(state.fieldEffects[target], effect, repeat);
+        applyEffect(state.fieldEffects[target], effect);
       } else {
         if ('statMap' in effect) {
-          applyEffect(state.debuffs, effect, repeat);
+          applyEffect(state.debuffs, effect);
         }
 
         if ('inflict' in effect) {
@@ -55,11 +55,11 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 
     for (const target of effect.applyTo) {
       if (target === 'active' || target === 'inactive') {
-        applyEffect(state.fieldEffects[target], effect, repeat);
+        applyEffect(state.fieldEffects[target], effect);
       } else if (target === 'enemy' && 'statMap' in effect) {
-        applyEffect(state.debuffs, effect, repeat);
+        applyEffect(state.debuffs, effect);
       } else {
-        applyEffect(state.effects[target], effect, repeat);
+        applyEffect(state.effects[target], effect);
       }
     }
 
@@ -92,7 +92,7 @@ function decayProcCounts(ctx, action) {
   }
 }
 
-function processFollowUpActions(ctx, action, depth, repeatCount) {
+function processFollowUpActions(ctx, action, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
 
   const { effects, fieldEffects, cooldowns } = ctx.state;
@@ -105,9 +105,18 @@ function processFollowUpActions(ctx, action, depth, repeatCount) {
 
   for (const stateMap of stateMaps) {
     for (const [effectKey, effectState] of Object.entries(stateMap)) {
+      if (effectState.executing) continue;
       const { effect } = effectState;
       if (!('followUpAction' in effect) || isOnCooldown(cooldowns, 'use', effectKey)) continue;
       if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
+
+      effectState.executing = true;
+      for (const action of effect.followUpAction) {
+        for (let i = 0; i < effect.times; i ++) {
+          processAction(ctx, action, depth + 1);
+        }
+      }
+      effectState.executing = false;
 
       if ('useCooldown' in effect) {
         setCooldown(cooldowns, 'use', effectKey, effect.useCooldown);
@@ -116,16 +125,13 @@ function processFollowUpActions(ctx, action, depth, repeatCount) {
       effectState.usesRemaining--;
       if (effectState.usesRemaining <= 0) {
         delete stateMap[effectKey];
-      }
-
-      for (const action of effect.followUpAction) {
-        processAction(ctx, action, depth + 1, effect.times * repeatCount);
+        delete cooldowns.use[effectKey];
       }
     }
   }
 }
 
-function processIntervalActions(ctx, elapsed, depth, repeatCount) {
+function processIntervalActions(ctx, elapsed, depth) {
   if (depth >= MAX_PROC_DEPTH) return;
   const { effects } = ctx.state;
 
@@ -136,17 +142,18 @@ function processIntervalActions(ctx, elapsed, depth, repeatCount) {
 
       effectState.intervalTimer -= elapsed;
       while (effectState.intervalTimer <= 0) {
-        effectState.usesRemaining--;
-
-        if (effectState.usesRemaining <= 0) {
-          delete stateMap[key];
-        }
-
         for (const action of effect.intervalAction) {
-          processAction(ctx, action, depth + 1, effect.times * repeatCount);
+          for (let i = 0; i < effect.times; i ++) {
+            processAction(ctx, action, depth + 1);
+          }
         }
 
         effectState.intervalTimer += effect.intervalCooldown;
+
+        effectState.usesRemaining--;
+        if (effectState.usesRemaining <= 0) {
+          delete stateMap[key];
+        }
       }
     }
   }
@@ -164,7 +171,7 @@ function getHitCount(action) {
   return maxHits;
 }
 
-function processAction(ctx, action, depth = 0, repeatCount = 1) {
+function processAction(ctx, action, depth = 0) {
   if (depth >= MAX_PROC_DEPTH) {
     console.error("MAX_PROC_DEPTH hit");
     return;
@@ -178,13 +185,13 @@ function processAction(ctx, action, depth = 0, repeatCount = 1) {
 
   // Cast (t = 0)
   removeEffects(ctx, action);
-  applyEffects(ctx, action, 'cast', repeatCount);
+  applyEffects(ctx, action, 'cast');
 
   // Pre-hit window (t = 0 → offset)
   if (offset) {
     advanceEffects(ctx, offset);
     advanceNegativeStatuses(ctx, offset);
-    processIntervalActions(ctx, offset, depth, repeatCount);
+    processIntervalActions(ctx, offset, depth);
     advanceCooldowns(state.cooldowns, offset);
   }
 
@@ -192,7 +199,7 @@ function processAction(ctx, action, depth = 0, repeatCount = 1) {
   for (let i = 0; i < hitCount; i++) {
     // Contact
     if (ctx.recordFootprint) {
-      const footprint = buildFootprint(ctx, action, repeatCount);
+      const footprint = buildFootprint(ctx, action);
       ctx.footprints.push(footprint);
     }
 
@@ -200,8 +207,8 @@ function processAction(ctx, action, depth = 0, repeatCount = 1) {
       applyTune(ctx, action);
     }
 
-    applyEffects(ctx, action, 'hit', repeatCount);
-    processFollowUpActions(ctx, action, depth, repeatCount);
+    applyEffects(ctx, action, 'hit');
+    processFollowUpActions(ctx, action, depth);
     decayProcCounts(ctx, action);
 
     // Inter-hit window
@@ -209,7 +216,7 @@ function processAction(ctx, action, depth = 0, repeatCount = 1) {
       advanceTune(ctx, hitInterval);
       advanceEffects(ctx, hitInterval);
       advanceNegativeStatuses(ctx, hitInterval);
-      processIntervalActions(ctx, hitInterval, depth, repeatCount);
+      processIntervalActions(ctx, hitInterval, depth);
       advanceCooldowns(state.cooldowns, hitInterval);
     }
   }
