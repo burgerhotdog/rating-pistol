@@ -4,7 +4,7 @@ import { resolveVariableStatMap } from '../utils';
 
 export const getCurrentEnemyMap = (ctx) => {
   const { passive } = ctx.cache;
-  const { debuffs } = ctx.state;
+  const { debuffs, negativeStatuses } = ctx.state;
 
   const effectStates = [
     ...(passive.enemy ?? []).map((effect) => ({ effect })),
@@ -21,6 +21,15 @@ export const getCurrentEnemyMap = (ctx) => {
       enemyMap[statId] ??= 0;
       enemyMap[statId] += value * stacks * chance;
     }
+  }
+
+  for (const [statusId, { stacks }] of Object.entries(negativeStatuses)) {
+    if (statusId !== 'havocBane') {
+      continue;
+    }
+
+    enemyMap['defReduction%'] ??= 0;
+    enemyMap['defReduction%'] += 0.02 * stacks;
   }
 
   return enemyMap;

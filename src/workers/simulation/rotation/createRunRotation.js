@@ -33,7 +33,7 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
         }
 
         if ('statusMap' in effect) {
-          inflictNegativeStatuses(state.negativeStatuses, effect.statusMap);
+          inflictNegativeStatuses(ctx, effect.statusMap);
           Object.assign(inflictedStatuses, effect.statusMap);
         }
       }
