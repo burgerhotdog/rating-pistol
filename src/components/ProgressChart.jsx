@@ -78,11 +78,13 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, rotationTime
   const members = team.filter((member) => member.id);
   const membersMisc = [
     ...members,
-    ...(Object.values(userSummary).some((result) => result.ownerId === 'other') ? [{ id: 'other' }] : []),
+    ...(Object.values(userSummary).some((result) => result.ownerId === 'other')
+      ? [{ id: 'other' }]
+      : []),
   ];
 
-  const toDps = (dmg) => rotationTime > 0
-    ? dmg / rotationTime * 1000
+  const toDps = (damage) => rotationTime
+    ? (damage / rotationTime) * 1000
     : 0;
 
   const sortedMembers = [...membersMisc].sort((a, b) => {
