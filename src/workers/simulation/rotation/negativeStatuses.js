@@ -69,18 +69,18 @@ const buildStatusFootprint = (ctx, status, stacks) => {
 export function inflictNegativeStatuses(negativeStatuses, statusMap) {
   for (const [statusId, stacks] of Object.entries(statusMap)) {
     const status = STATUSES[statusId];
-    const tracker = negativeStatuses[statusId];
+    const prev = negativeStatuses[statusId];
 
-    if (!tracker) {
+    if (prev) {
+      prev.stacks = Math.min(prev.stacks + stacks, status.maxStacks);
+      prev.duration = status.duration;
+    } else {
       negativeStatuses[statusId] = {
         stacks: Math.min(stacks, status.maxStacks),
         tickTimer: status.tickInterval,
         duration: status.duration,
         status,
       };
-    } else {
-      tracker.stacks = Math.min(tracker.stacks + stacks, status.maxStacks);
-      tracker.duration = status.duration;
     }
   }
 }
