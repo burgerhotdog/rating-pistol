@@ -2,7 +2,7 @@ import { MISC } from '@/data';
 
 const LEVEL_MODIFIER = 3674;
 
-const STATUS_MV = {
+const STATUS_MVS = {
   'spectroFrazzle': [3000, 5439, 7878, 10317, 12756, 15195, 17634, 20073, 22512, 24951, 33268, 41585, 49902],
   'aeroErosion': [4500, 11250, 22500, 33750, 45000, 56250, 67500, 78750, 90000, 101250, 112500, 123750],
   'fusionBurst': [8400, 15229, 22058, 28888, 35717, 42546, 49375, 56204, 63034, 69863, 93150, 116438, 139726],
@@ -30,7 +30,7 @@ export const buildStatusFootprint = (ctx, statusId, stacks) => {
     }
   }
 
-  const baseDmg = LEVEL_MODIFIER * (STATUS_MV[statusId]?.[stacks - 1] ?? 0);
+  const baseDmg = LEVEL_MODIFIER * (STATUS_MVS[statusId]?.[stacks - 1] ?? 0);
   const bonuses = 1 + (enemyStatMap[`${statusId}DmgAmp%`] ?? 0);
 
   const resMult = getResMult(status.element, enemyStatMap);
