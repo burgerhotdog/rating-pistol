@@ -1,10 +1,9 @@
-import { MISC } from '@/data';
 import { matchIfInflict, matchUseOn, matchUseIf, matchApplyIf } from '../match';
 import { isOnCooldown, setCooldown, advanceCooldowns } from './cooldowns';
 import { buildFootprint, evaluateFootprint } from './footprint';
 import { applyTune, advanceTune } from './offtune';
 import { createEffectStateMaps, applyEffect, removeEffects, advanceEffects } from './effects';
-import { buildStatusFootprint, applyStatus } from './negativeStatuses';
+import { inflictNegativeStatuses, advanceNegativeStatuses } from './negativeStatuses';
 
 const MAX_PROC_DEPTH = 5;
 
@@ -14,7 +13,7 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
   if (!(action.key in cache.effect)) return;
 
   const triggered = cache.effect[action.key].filter((effect) => effect.applyWhen === trigger);
-  const inflictedStatuses = new Set();
+  const inflictedStatuses = {};
 
   for (const effect of triggered) {
     if ('applyIfInflict' in effect) continue;
@@ -34,16 +33,8 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
         }
 
         if ('statusMap' in effect) {
-          const { STATUSES = {} } = MISC[cache.gameId];
-
-          for (const statusId in effect.statusMap) {
-            const status = STATUSES[statusId];
-            const stacks = effect.statusMap[statusId] * repeat;
-
-            applyStatus(state.negativeStatuses, status, stacks)
-
-            inflictedStatuses.add(statusId);
-          }
+          inflictNegativeStatuses(state.negativeStatuses, effect.statusMap);
+          Object.assign(inflictedStatuses, effect.statusMap);
         }
       }
     }
@@ -56,7 +47,7 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
   for (const effect of triggered) {
     if (!('applyIfInflict' in effect)) continue;
     if (isOnCooldown(state.cooldowns, 'apply', effect.key)) continue;
-    if (!matchIfInflict(effect.applyIfInflict, inflictedStatuses)) continue;
+    if (!matchIfInflict(effect.applyIfInflict, Object.keys(inflictedStatuses))) continue;
 
     for (const target of effect.applyTo) {
       if (target === 'active' || target === 'inactive') {
@@ -70,51 +61,6 @@ function applyEffects(ctx, action, trigger, repeat = 1) {
 
     if ('applyCooldown' in effect) {
       setCooldown(state.cooldowns, 'apply', effect.key, effect.applyCooldown);
-    }
-  }
-}
-
-function tickStatuses(ctx, elapsed) {
-  const { cache, state } = ctx;
-  const { negativeStatuses: statusStates } = state;
-
-  const { STATUSES = {} } = MISC[cache.gameId];
-
-  for (const statusId in statusStates) {
-    const statusState = statusStates[statusId];
-    const status = STATUSES[statusId];
-    let timer = elapsed;
-
-    while (timer > 0) {
-      const decrease = Math.min(statusState.duration, statusState.tickTimer, timer);
-
-      statusState.duration -= decrease;
-      statusState.tickTimer -= decrease;
-      timer -= decrease;
-
-      if (statusState.duration <= 0) {
-        if ('reapply' in status) {
-          statusState.duration = status.duration;
-          statusState.stacks--;
-
-          if (statusState.stacks <= 0) {
-            delete statusStates[statusId];
-            break;
-          }
-        } else {
-          delete statusStates[statusId];
-          break;
-        }
-      }
-
-      if (statusState.tickTimer <= 0) {
-        if (ctx.recordFootprint) {
-          const footprint = buildStatusFootprint(ctx, statusId, statusState.stacks);
-          ctx.footprints.push(footprint);
-        }
-
-        statusState.tickTimer = status.tickInterval;
-      }
     }
   }
 }
@@ -228,7 +174,7 @@ function processTopLevelAction(ctx, action) {
 
   // Pre-hit window (t = 0 → offset)
   advanceEffects(ctx, offset);
-  tickStatuses(ctx, offset);
+  advanceNegativeStatuses(ctx, offset);
   processIntervalActions(ctx, offset, 0);
   advanceCooldowns(state.cooldowns, offset);
 
@@ -250,7 +196,7 @@ function processTopLevelAction(ctx, action) {
     // Inter-hit window
     advanceTune(ctx, hitInterval);
     advanceEffects(ctx, hitInterval);
-    tickStatuses(ctx, hitInterval);
+    advanceNegativeStatuses(ctx, hitInterval);
     processIntervalActions(ctx, hitInterval, 0);
     advanceCooldowns(state.cooldowns, hitInterval);
   }

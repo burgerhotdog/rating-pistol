@@ -99,11 +99,13 @@ const matchIfElement = (ifElement, element) => {
 
 export const matchIfInflict = (ifInflict, inflictedStatuses) => {
   if (ifInflict === '*') {
-    return Boolean(inflictedStatuses.size);
+    return inflictedStatuses.length;
   }
 
   for (const statusId of ifInflict) {
-    if (inflictedStatuses.has(statusId)) return true;
+    if (inflictedStatuses.includes(statusId)) {
+      return true;
+    }
   }
 
   return false;

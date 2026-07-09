@@ -60,42 +60,5 @@
     "energyRegen%",
     "critRate%",
     "critDmg%"
-  ],
-  "STATUSES": {
-    "glacioChafe": {
-      "id": "glacioChafe",
-      "element": "glacio",
-      "maxStacks": 10
-    },
-    "fusionBurst": {
-      "id": "fusionBurst",
-      "element": "fusion",
-      "maxStacks": 10
-    },
-    "electroFlare": {
-      "id": "electroFlare",
-      "element": "electro",
-      "maxStacks": 10
-    },
-    "aeroErosion": {
-      "id": "aeroErosion",
-      "element": "aero",
-      "tickInterval": 3000,
-      "duration": 15000,
-      "maxStacks": 3
-    },
-    "spectroFrazzle": {
-      "id": "spectroFrazzle",
-      "element": "spectro",
-      "tickInterval": 3000,
-      "duration": 3000,
-      "maxStacks": 10,
-      "reapply": true
-    },
-    "havocBane": {
-      "id": "havocBane",
-      "element": "havoc",
-      "maxStacks": 3
-    }
-  }
+  ]
 }
