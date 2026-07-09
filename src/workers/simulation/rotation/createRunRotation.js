@@ -80,7 +80,6 @@ function decayProcCounts(ctx, action) {
 
   for (const stateMap of stateMaps) {
     for (const [key, effectState] of Object.entries(stateMap)) {
-      if (effectState.usesRemaining === Infinity) continue;
       if ('followUpAction' in effectState.effect || 'intervalAction' in effectState.effect) continue;
       if (!matchUseOn(effectState.effect, action) || !matchUseIf(effectState.effect, action.ownerId, ctx)) continue;
 
@@ -93,7 +92,7 @@ function decayProcCounts(ctx, action) {
   }
 }
 
-function processFollowUpActions(ctx, action, depth) {
+function processFollowUpActions(ctx, action, depth, repeatCount) {
   if (depth >= MAX_PROC_DEPTH) return;
 
   const { effects, fieldEffects, cooldowns } = ctx.state;
@@ -120,13 +119,13 @@ function processFollowUpActions(ctx, action, depth) {
       }
 
       for (const action of effect.followUpAction) {
-        processAction(ctx, action, depth + 1, effect.times);
+        processAction(ctx, action, depth + 1, effect.times * repeatCount);
       }
     }
   }
 }
 
-function processIntervalActions(ctx, elapsed, depth) {
+function processIntervalActions(ctx, elapsed, depth, repeatCount) {
   if (depth >= MAX_PROC_DEPTH) return;
   const { effects } = ctx.state;
 
@@ -144,7 +143,7 @@ function processIntervalActions(ctx, elapsed, depth) {
         }
 
         for (const action of effect.intervalAction) {
-          processAction(ctx, action, depth + 1, effect.times);
+          processAction(ctx, action, depth + 1, effect.times * repeatCount);
         }
 
         effectState.intervalTimer += effect.intervalCooldown;
@@ -165,7 +164,12 @@ function getHitCount(action) {
   return maxHits;
 }
 
-function processTopLevelAction(ctx, action) {
+function processAction(ctx, action, depth = 0, repeatCount = 1) {
+  if (depth >= MAX_PROC_DEPTH) {
+    console.error("MAX_PROC_DEPTH hit");
+    return;
+  }
+
   const { state } = ctx;
   const { duration, offset } = action;
   const remaining = duration - offset;
@@ -174,64 +178,40 @@ function processTopLevelAction(ctx, action) {
 
   // Cast (t = 0)
   removeEffects(ctx, action);
-  applyEffects(ctx, action, 'cast');
+  applyEffects(ctx, action, 'cast', repeatCount);
 
   // Pre-hit window (t = 0 → offset)
-  advanceEffects(ctx, offset);
-  advanceNegativeStatuses(ctx, offset);
-  processIntervalActions(ctx, offset, 0);
-  advanceCooldowns(state.cooldowns, offset);
+  if (offset) {
+    advanceEffects(ctx, offset);
+    advanceNegativeStatuses(ctx, offset);
+    processIntervalActions(ctx, offset, depth, repeatCount);
+    advanceCooldowns(state.cooldowns, offset);
+  }
 
   // Hits (each spaced hitInterval apart)
   for (let i = 0; i < hitCount; i++) {
     // Contact
     if (ctx.recordFootprint) {
-      const footprint = buildFootprint(ctx, action);
+      const footprint = buildFootprint(ctx, action, repeatCount);
       ctx.footprints.push(footprint);
     }
 
     if (action.type === 'damage') {
       applyTune(ctx, action);
     }
-    applyEffects(ctx, action, 'hit');
-    processFollowUpActions(ctx, action, 0);
+
+    applyEffects(ctx, action, 'hit', repeatCount);
+    processFollowUpActions(ctx, action, depth, repeatCount);
     decayProcCounts(ctx, action);
 
     // Inter-hit window
-    advanceTune(ctx, hitInterval);
-    advanceEffects(ctx, hitInterval);
-    advanceNegativeStatuses(ctx, hitInterval);
-    processIntervalActions(ctx, hitInterval, 0);
-    advanceCooldowns(state.cooldowns, hitInterval);
-  }
-}
-
-function processProcAction(ctx, action, depth, repeatCount) {
-  applyEffects(ctx, action, 'cast', repeatCount);
-
-  if (ctx.recordFootprint) {
-    const footprint = buildFootprint(ctx, action, repeatCount);
-    ctx.footprints.push(footprint);
-  }
-
-  if (action.type === 'damage') {
-    applyTune(ctx, action);
-  }
-
-  applyEffects(ctx, action, 'hit', repeatCount);
-  processFollowUpActions(ctx, action, depth);
-}
-
-function processAction(ctx, action, depth, repeatCount = 1) {
-  if (depth >= MAX_PROC_DEPTH) {
-    console.error("MAX_PROC_DEPTH hit");
-    return;
-  }
-
-  if (depth === 0) {
-    processTopLevelAction(ctx, action);
-  } else {
-    processProcAction(ctx, action, depth, repeatCount);
+    if (hitInterval) {
+      advanceTune(ctx, hitInterval);
+      advanceEffects(ctx, hitInterval);
+      advanceNegativeStatuses(ctx, hitInterval);
+      processIntervalActions(ctx, hitInterval, depth, repeatCount);
+      advanceCooldowns(state.cooldowns, hitInterval);
+    }
   }
 }
 
@@ -262,7 +242,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     ctx.onFieldId = memberId;
 
     for (const action of rotation) {
-      processAction(ctx, action, 0);
+      processAction(ctx, action);
     }
   }
 
@@ -273,7 +253,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     ctx.onFieldId = memberId;
 
     for (const action of rotation) {
-      processAction(ctx, action, 0);
+      processAction(ctx, action);
     }
   }
 
@@ -297,11 +277,10 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   ctx.footprints = ctx.footprints.filter((footprint) => !('fixed' in footprint));
 
   return (statMap) => {
-    const ctx2 = { currId };
     const summary = { ...earlySummary };
 
     for (const footprint of ctx.footprints) {
-      const result = evaluateFootprint(helpers, ctx2, footprint, statMap);
+      const result = evaluateFootprint(helpers, { currId }, footprint, statMap);
 
       if (result.key in summary) {
         summary[result.key][result.type] += result[result.type];

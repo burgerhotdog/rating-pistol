@@ -6,10 +6,11 @@ import { runDamageFormula } from './damageFormula';
 import { getCurrentEnemyMap, getCurrentStatMap } from './getCurrent';
 
 export const buildFootprint = (ctx, action, repeatCount = 1) => {
-  const { helpers, cache, currId, onFieldId, state } = ctx;
+  const { passive, member } = ctx.cache;
+  const { cooldowns, effects, fieldEffects } = ctx.state;
 
-  const actionOwnerFieldState = action.ownerId === onFieldId ? 'active' : 'inactive';
-  const currIdFieldState = currId === onFieldId ? 'active' : 'inactive';
+  const actionOwnerFieldState = action.ownerId === ctx.onFieldId ? 'active' : 'inactive';
+  const currIdFieldState = ctx.currId === ctx.onFieldId ? 'active' : 'inactive';
 
   const footprint = {
     ...action,
@@ -30,49 +31,49 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   footprint.enemyStatMap = getCurrentEnemyMap(ctx);
 
   for (const { stacks = 1, effect } of [
-    ...(cache.passive[action.ownerId] ?? []).map((effect) => ({ effect })),
-    ...(cache.passive[actionOwnerFieldState] ?? []).map((effect) => ({ effect })),
-    ...Object.values(state.effects[action.ownerId]),
-    ...Object.values(state.fieldEffects[actionOwnerFieldState]),
+    ...(passive[action.ownerId] ?? []).map((effect) => ({ effect })),
+    ...(passive[actionOwnerFieldState] ?? []).map((effect) => ({ effect })),
+    ...Object.values(effects[action.ownerId]),
+    ...Object.values(fieldEffects[actionOwnerFieldState]),
   ]) {
     if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
     if ('followUpAction' in effect || 'intervalAction' in effect) continue;
-    if (isOnCooldown(state.cooldowns, 'use', effect.key)) continue;
+    if (isOnCooldown(cooldowns, 'use', effect.key)) continue;
 
     const { chance, statMap, variableStatMap } = effect;
 
     if ('statMap' in effect) { // Fixed statMap bonuses
-      for (const statId in statMap) {
+      for (const [statId, value] of Object.entries(statMap)) {
         footprint.fixedEffectStatMap[statId] ??= 0;
-        footprint.fixedEffectStatMap[statId] += statMap[statId] * chance * stacks;
+        footprint.fixedEffectStatMap[statId] += value * chance * stacks;
       }
     }
 
     if ('variableStatMap' in effect) {
-      if (effect.ownerId === currId) { // variableStatMaps that scale off currId's stats
+      if (effect.ownerId === ctx.currId) { // variableStatMaps that scale off currId's stats
         footprint.charVariableEffectSpecs.push({ variableStatMap, stacks, chance });
       } else { // variableStatMaps that scale off teammate stats
         const ownerCurrentStatMap = getCurrentStatMap(ctx, effect.ownerId, null, true);
         const resolvedStatMap = resolveVariableStatMap(effect.variableStatMap, ownerCurrentStatMap);
 
-        for (const statId in resolvedStatMap) {
+        for (const [statId, value] of Object.entries(resolvedStatMap)) {
           footprint.fixedEffectStatMap[statId] ??= 0;
-          footprint.fixedEffectStatMap[statId] += resolvedStatMap[statId] * chance * stacks;
+          footprint.fixedEffectStatMap[statId] += value * chance * stacks;
         }
       }
     }
 
     if ('useCooldown' in effect) {
-      setCooldown(state.cooldowns, 'use', effect.key, effect.useCooldown);
+      setCooldown(cooldowns, 'use', effect.key, effect.useCooldown);
     }
   }
 
   if (footprint.charVariableEffectSpecs.length) {
     for (const { stacks = 1, effect } of [
-      ...(cache.passive[currId] ?? []).map((effect) => ({ effect })),
-      ...(cache.passive[currIdFieldState] ?? []).map((effect) => ({ effect })),
-      ...Object.values(state.effects[currId]),
-      ...Object.values(state.fieldEffects[currIdFieldState]),
+      ...(passive[ctx.currId] ?? []).map((effect) => ({ effect })),
+      ...(passive[currIdFieldState] ?? []).map((effect) => ({ effect })),
+      ...Object.values(effects[ctx.currId]),
+      ...Object.values(fieldEffects[currIdFieldState]),
     ]) {
       const { chance, statMap } = effect;
       if (!statMap) continue;
@@ -86,16 +87,16 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
 
   // For teammate actions affected by charVariableEffectSpecs, store the owner's
   // base + equip statMap so evaluateFootprint can reconstruct full owner stats.
-  if (action.ownerId !== currId && footprint.charVariableEffectSpecs.length) {
-    footprint.ownerBaseStatMap = mergeObj(cache.member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId]);
+  if (action.ownerId !== ctx.currId && footprint.charVariableEffectSpecs.length) {
+    footprint.ownerBaseStatMap = mergeObj(member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId]);
   }
 
   // Compute fixed damage for teammate actions that aren't affected by variableStats
-  if (action.ownerId !== currId && !footprint.charVariableEffectSpecs.length) {
-    const statMap = mergeObjs(cache.member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId], footprint.fixedEffectStatMap);
+  if (action.ownerId !== ctx.currId && !footprint.charVariableEffectSpecs.length) {
+    const statMap = mergeObjs(member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId], footprint.fixedEffectStatMap);
 
     const config = { enemyStatMap: footprint.enemyStatMap, repeatCount };
-    footprint.fixed = runDamageFormula(helpers, action, config, statMap);
+    footprint.fixed = runDamageFormula(ctx.helpers, action, config, statMap);
   }
 
   return footprint;

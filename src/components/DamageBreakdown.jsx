@@ -55,6 +55,7 @@ const buildData = (summary, charId, breakdownMode) => {
 };
 
 export const DamageBreakdown = ({ userSummary, teamIds }) => {
+  console.log(userSummary);
   const { gameId, characterId } = useParams();
   const { accentColors } = useTheme();
 
