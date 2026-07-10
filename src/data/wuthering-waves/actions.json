@@ -186,7 +186,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -632,7 +632,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -1313,7 +1313,7 @@
         ]
       },
       "8": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -1941,7 +1941,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -2415,7 +2415,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -3573,7 +3573,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -4458,7 +4458,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -4992,7 +4992,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -5059,7 +5059,7 @@
       "1": {
         "name": "Leihuang Master",
         "skillType": "resonanceSkill",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5091,7 +5091,7 @@
         "name": "Thunder Wedge: Coordinated Attack",
         "skillType": "coordinatedAttack",
         "dmgType": "resonanceSkill",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5122,7 +5122,7 @@
       "3": {
         "name": "Thunder Wedge: Detonation",
         "dmgType": "resonanceSkill",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5153,7 +5153,7 @@
       "4": {
         "name": "Rumbling Spark",
         "skillType": "resonanceSkill",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5186,7 +5186,7 @@
       "1": {
         "name": "Blazing Might",
         "skillType": "resonanceLiberation",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5221,7 +5221,7 @@
         "name": "Thunder Uprising",
         "skillType": "coordinatedAttack",
         "dmgType": "resonanceSkill",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5253,7 +5253,7 @@
         "name": "Basic Attack 1",
         "tagged": "Lightning Infused",
         "skillType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5285,7 +5285,7 @@
         "name": "Basic Attack 2",
         "tagged": "Lightning Infused",
         "skillType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5318,7 +5318,7 @@
         "name": "Basic Attack 3",
         "tagged": "Lightning Infused",
         "skillType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5376,7 +5376,7 @@
         "name": "Basic Attack 4",
         "tagged": "Lightning Infused",
         "skillType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5409,7 +5409,7 @@
         "name": "Basic Attack 5",
         "tagged": "Lightning Infused",
         "skillType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5466,7 +5466,7 @@
         "name": "Heavy Attack",
         "tagged": "Lightning Infused",
         "skillType": "heavyAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5498,7 +5498,7 @@
         "name": "Thunderweaver",
         "tagged": "Lightning Infused",
         "skillType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5556,7 +5556,7 @@
         "tagged": "Lightning Infused",
         "skillType": "dodgeCounter",
         "dmgType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5614,7 +5614,7 @@
       "1": {
         "name": "Thunder Bombardment",
         "skillType": "introSkill",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -5831,7 +5831,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -6322,7 +6322,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -6862,7 +6862,7 @@
         ]
       },
       "9": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -7403,7 +7403,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -9090,7 +9090,7 @@
       "6": {
         "name": "Strategic Parry",
         "dmgType": "heavyAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9119,7 +9119,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -9185,7 +9185,7 @@
       "1": {
         "name": "Fortified Defense",
         "skillType": "resonanceSkill",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9216,7 +9216,7 @@
       "2": {
         "name": "Fortified Defense: Healing",
         "type": "healing",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "flat": [
@@ -9271,7 +9271,7 @@
       "1": {
         "name": "Unmovable",
         "skillType": "resonanceLiberation",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9304,7 +9304,7 @@
       "1": {
         "name": "Timed Counters 1",
         "skillType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9335,7 +9335,7 @@
       "2": {
         "name": "Timed Counters 2",
         "skillType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9366,7 +9366,7 @@
       "3": {
         "name": "Timed Counters 3",
         "skillType": "basicAttack",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -9397,7 +9397,7 @@
       "4": {
         "name": "Timed Counters 1: Shield",
         "type": "shield",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "flat": [
@@ -9450,7 +9450,7 @@
       "5": {
         "name": "Timed Counters 2: Shield",
         "type": "shield",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "flat": [
@@ -9503,7 +9503,7 @@
       "6": {
         "name": "Timed Counters 3: Shield",
         "type": "shield",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "flat": [
@@ -9718,7 +9718,7 @@
         ]
       },
       "5": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -11207,7 +11207,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -12202,7 +12202,7 @@
         ]
       },
       "5": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -12699,7 +12699,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -13418,7 +13418,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -14199,7 +14199,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -14754,7 +14754,7 @@
         ]
       },
       "3": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "tagged": "Yellow Light",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
@@ -14961,7 +14961,7 @@
         ]
       },
       "8": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "tagged": "Red Light",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
@@ -15679,7 +15679,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -16552,7 +16552,7 @@
         ]
       },
       "8": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -17255,7 +17255,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -18966,7 +18966,7 @@
         ]
       },
       "5": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -19290,6 +19290,9 @@
       "1": {
         "name": "Absolution Litany",
         "skillType": "heavyAttack",
+        "inflict": {
+          "spectroFrazzle": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -19320,6 +19323,9 @@
       "2": {
         "name": "Utter Confession",
         "skillType": "resonanceSkill",
+        "inflict": {
+          "spectroFrazzle": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -19383,6 +19389,9 @@
         "name": "Starflash",
         "tagged": "Confession",
         "skillType": "heavyAttack",
+        "inflict": {
+          "spectroFrazzle": 5
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -19615,7 +19624,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -20430,6 +20439,9 @@
       "4": {
         "name": "Basic Attack 4",
         "skillType": "basicAttack",
+        "inflict": {
+          "aeroErosion": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -20649,6 +20661,9 @@
       "1": {
         "name": "Harmonic Allegro",
         "skillType": "resonanceSkill",
+        "inflict": {
+          "aeroErosion": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -20712,6 +20727,9 @@
       "2": {
         "name": "Symphonic Poem: Tonic",
         "dmgType": "resonanceLiberation",
+        "inflict": {
+          "aeroErosion": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -20801,6 +20819,9 @@
       "1": {
         "name": "Roaming with the Wind",
         "skillType": "introSkill",
+        "inflict": {
+          "aeroErosion": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -21048,7 +21069,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -23414,7 +23435,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "specialType": "aeroErosion",
@@ -24849,7 +24870,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -25598,7 +25619,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -25990,7 +26011,7 @@
         ]
       },
       "2": {
-        "name": "Sublime is the Sun - Sunborne",
+        "name": "Sublime is the Sun - Sunborne (x9)",
         "skillType": "resonanceLiberation",
         "dmgType": "heavyAttack",
         "duration": 0,
@@ -26461,7 +26482,7 @@
         ]
       },
       "4": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -30014,7 +30035,7 @@
         ]
       },
       "5": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -30911,7 +30932,7 @@
         ]
       },
       "9": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -32042,7 +32063,8 @@
         ]
       },
       "5": {
-        "name": "Wide Field Observation Mode: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Wide Field Observation Mode",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -32073,7 +32095,8 @@
         ]
       },
       "6": {
-        "name": "Wide Field Observation Mode: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Wide Field Observation Mode",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -32104,7 +32127,8 @@
         ]
       },
       "7": {
-        "name": "Wide Field Observation Mode: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Wide Field Observation Mode",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -32238,7 +32262,7 @@
         ]
       },
       "9": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -32300,7 +32324,8 @@
         ]
       },
       "11": {
-        "name": "Wide Field Observation Mode: Dodge Counter",
+        "name": "Dodge Counter",
+        "tagged": "Wide Field Observation Mode",
         "skillType": "dodgeCounter",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -32334,10 +32359,10 @@
     },
     "resonanceSkill": {
       "1": {
-        "name": "Wide Field Observation Mode: Distributed Array Team Healing",
+        "name": "Distributed Array: Team Healing",
+        "tagged": "Wide Field Observation Mode",
         "type": "healing",
-        "skillType": "resonanceSkill",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "flat": [
@@ -32392,7 +32417,7 @@
         "name": "Expectation Error: Team Healing",
         "type": "healing",
         "skillType": "resonanceSkill",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "flat": [
@@ -32445,7 +32470,7 @@
       },
       "3": {
         "name": "Optimal Solution",
-        "dmgType": "resonanceSkill",
+        "skillType": "resonanceSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32474,8 +32499,9 @@
         ]
       },
       "4": {
-        "name": "Wide Field Observation Mode: Distributed Array",
-        "dmgType": "resonanceSkill",
+        "name": "Distributed Array",
+        "tagged": "Wide Field Observation Mode",
+        "skillType": "resonanceSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32509,7 +32535,7 @@
       "1": {
         "name": "Critical Protocol",
         "skillType": "resonanceLiberation",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32542,7 +32568,7 @@
       "1": {
         "name": "Syntony Field: Healing",
         "type": "healing",
-        "attr": "DEF",
+        "attr": "def",
         "indexedMultipliers": [
           {
             "flat": [
@@ -32678,7 +32704,8 @@
         ]
       },
       "4": {
-        "name": "Wide Field Observation Mode: Inversion",
+        "name": "Inversion",
+        "tagged": "Wide Field Observation Mode",
         "skillType": "heavyAttack",
         "indexedMultipliers": [
           {
@@ -32708,9 +32735,10 @@
         ]
       },
       "5": {
-        "name": "Tune Rupture Response - Particle Jet",
-        "dmgType": "TR",
-        "attr": "TUNE",
+        "name": "Particle Jet",
+        "skillType": "tuneResponse",
+        "dmgType": "tuneRupture",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -32951,7 +32979,7 @@
         ]
       },
       "5": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -33714,6 +33742,7 @@
         "name": "Kaleidoscopic Parade: Iridescent Splash",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33745,6 +33774,7 @@
         "name": "Kaleidoscopic Parade: Visual Impact",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33775,6 +33805,7 @@
       "3": {
         "name": "Kaleidoscopic Parade: Polychrome Leap 1",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33806,6 +33837,7 @@
       "4": {
         "name": "Kaleidoscopic Parade: Polychrome Leap 2",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33837,6 +33869,7 @@
       "5": {
         "name": "Kaleidoscopic Parade: Polychrome Leap 3",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33866,9 +33899,10 @@
         ]
       },
       "6": {
-        "name": "Tune Rupture Response - Spectral Analysis",
-        "dmgType": "TB",
-        "attr": "TUNE",
+        "name": "Spectral Analysis",
+        "skillType": "tuneResponse",
+        "dmgType": "tuneRupture",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -33901,6 +33935,7 @@
       "1": {
         "name": "Time to Show Some Colors!",
         "skillType": "introSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34054,6 +34089,7 @@
       "3": {
         "name": "Basic Attack 3",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34133,6 +34169,7 @@
       "4": {
         "name": "Basic Attack 4",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34297,7 +34334,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -34412,6 +34449,7 @@
       "1": {
         "name": "Sync Strike: Armament Merge",
         "skillType": "resonanceSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34488,8 +34526,10 @@
         ]
       },
       "2": {
-        "name": "Mech: Sync Strike: Call of Dawn",
+        "name": "Sync Strike: Call of Dawn",
+        "tagged": "Mech",
         "skillType": "resonanceSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34543,7 +34583,8 @@
         ]
       },
       "3": {
-        "name": "Mech: Basic Attack 1",
+        "name": "Basic Attack 1",
+        "tagged": "Mech",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -34574,7 +34615,8 @@
         ]
       },
       "4": {
-        "name": "Mech: Basic Attack 2",
+        "name": "Basic Attack 2",
+        "tagged": "Mech",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -34628,8 +34670,10 @@
         ]
       },
       "5": {
-        "name": "Mech: Basic Attack 3",
+        "name": "Basic Attack 3",
+        "tagged": "Mech",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34707,8 +34751,10 @@
         ]
       },
       "6": {
-        "name": "Mech: Basic Attack 4",
+        "name": "Basic Attack 4",
+        "tagged": "Mech",
         "skillType": "basicAttack",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -34761,7 +34807,8 @@
         ]
       },
       "7": {
-        "name": "Mech: Heavy Attack Charged I",
+        "name": "Heavy Attack Charged I",
+        "tagged": "Mech",
         "skillType": "heavyAttack",
         "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
@@ -34792,7 +34839,8 @@
         ]
       },
       "8": {
-        "name": "Mech: Heavy Attack Charged II",
+        "name": "Heavy Attack Charged II",
+        "tagged": "Mech",
         "skillType": "heavyAttack",
         "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
@@ -34823,7 +34871,8 @@
         ]
       },
       "9": {
-        "name": "Mech: Mid-air Attack",
+        "name": "Mid-air Attack",
+        "tagged": "Mech",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -34879,7 +34928,8 @@
         ]
       },
       "10": {
-        "name": "Mech: Dodge Counter",
+        "name": "Dodge Counter",
+        "tagged": "Mech",
         "skillType": "dodgeCounter",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -35048,7 +35098,8 @@
     },
     "forteCircuit": {
       "1": {
-        "name": "Mech: Seraphic Duet: Encore",
+        "name": "Seraphic Duet: Encore",
+        "tagged": "Mech",
         "skillType": "resonanceSkill",
         "dmgType": "resonanceLiberation",
         "indexedMultipliers": [
@@ -35235,9 +35286,10 @@
         ]
       },
       "3": {
-        "name": "Tune Rupture Response - Starburst",
-        "dmgType": "TB",
-        "attr": "TUNE",
+        "name": "Starburst",
+        "skillType": "tuneResponse",
+        "dmgType": "tuneRupture",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35268,7 +35320,7 @@
       "4": {
         "name": "Seraphic Duet Bonus DMG (Per Instance)",
         "dmgType": "buff",
-        "attr": "TUNE",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35301,6 +35353,7 @@
       "1": {
         "name": "Songs Across the Universe",
         "skillType": "introSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35355,7 +35408,9 @@
       },
       "2": {
         "name": "Debut of Meteoric Radiance",
+        "tagged": "Mech",
         "skillType": "introSkill",
+        "shiftTune": "tuneRupture",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35810,6 +35865,7 @@
         "name": "Mid-air Attack 2 Scythe: Resection",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -35865,6 +35921,7 @@
         "name": "Mid-air Attack 3 Scythe: Resection",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36037,6 +36094,7 @@
       "1": {
         "name": "Golden Reflux",
         "skillType": "resonanceSkill",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36068,6 +36126,7 @@
         "name": "Aureole of Execution: Ring",
         "skillType": "resonanceSkill",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36124,6 +36183,7 @@
         "name": "Aureole of Execution: Breach",
         "skillType": "resonanceSkill",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36156,6 +36216,7 @@
         "name": "Aureole of Execution: Glare",
         "skillType": "resonanceSkill",
         "dmgType": "basicAttack",
+        "shiftTune": "tuneStrain",
         "indexedMultipliers": [
           {
             "mv": [
@@ -36733,7 +36794,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -37720,7 +37781,7 @@
         ]
       },
       "5": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -38994,7 +39055,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "tagged": "Stagecraft Form",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
@@ -40048,7 +40109,7 @@
         ]
       },
       "5": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -40199,6 +40260,9 @@
       "3": {
         "name": "Spotlight",
         "skillType": "resonanceSkill",
+        "inflict": {
+          "glacioChafe": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -40303,6 +40367,7 @@
       "1": {
         "name": "Clear As Day",
         "skillType": "resonanceLiberation",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40476,6 +40541,7 @@
         "name": "Letting It Go",
         "tagged": "Reminiscence",
         "skillType": "resonanceLiberation",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40529,7 +40595,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "tagged": "Reminiscence",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
@@ -40620,7 +40686,7 @@
     "forteCircuit": {
       "1": {
         "name": "Oblivion",
-        "skillType": "basicAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -40653,6 +40719,9 @@
       "1": {
         "name": "Clip It",
         "skillType": "introSkill",
+        "inflict": {
+          "glacioChafe": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -40682,7 +40751,11 @@
       },
       "2": {
         "name": "Clip It: Hard Cut",
+        "tagged": "Reminiscence",
         "skillType": "introSkill",
+        "inflict": {
+          "glacioChafe": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -40975,7 +41048,7 @@
         ]
       },
       "6": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "tagged": "Huntress",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
@@ -41097,7 +41170,7 @@
       "9": {
         "name": "Tactical Dodge: Successful Dodge",
         "tagged": "Huntress",
-        "skillType": "basicAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41322,7 +41395,7 @@
         ]
       },
       "14": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "tagged": "Guts",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
@@ -41419,7 +41492,7 @@
       "17": {
         "name": "Tactical Dodge: Successful Dodge",
         "tagged": "Guts",
-        "skillType": "basicAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41827,7 +41900,6 @@
     "resonanceLiberation": {
       "1": {
         "name": "Mk. 31 HMG",
-        "skillType": "resonanceLiberation",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -41857,8 +41929,7 @@
         ]
       },
       "2": {
-        "name": "Mk. 31 HMG 1st Enhancement",
-        "skillType": "resonanceLiberation",
+        "name": "Mk. 31 HMG: 1st Enhancement",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -41888,8 +41959,7 @@
         ]
       },
       "3": {
-        "name": "Mk. 31 HMG 2nd Enhancement",
-        "skillType": "resonanceLiberation",
+        "name": "Mk. 31 HMG: 2nd Enhancement",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -41921,6 +41991,8 @@
       "4": {
         "name": "BOOM! Fireworks!",
         "skillType": "resonanceLiberation",
+        "dmgType": "basicAttack",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -41971,14 +42043,18 @@
             ]
           }
         ]
+      },
+      "5": {
+        "name": "Party 'til Dawn!",
+        "skillType": "resonanceLiberation"
       }
     },
     "forteCircuit": {
       "1": {
-        "name": "Hack Response - Meltdown",
-        "type": "break",
-        "dmgType": "HACK",
-        "attr": "TUNE",
+        "name": "Meltdown",
+        "skillType": "tuneResponse",
+        "dmgType": "hack",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42011,6 +42087,7 @@
         "tagged": "Huntress",
         "skillType": "heavyAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42139,6 +42216,7 @@
         "tagged": "Guts",
         "skillType": "heavyAttack",
         "dmgType": "basicAttack",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42170,7 +42248,9 @@
     "introSkill": {
       "1": {
         "name": "Yo, It's Big Boomin' Time!",
+        "tagged": "Huntress",
         "skillType": "introSkill",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -42368,7 +42448,9 @@
       },
       "2": {
         "name": "Hey, Leadhead, Come 'n' Get Me!",
+        "tagged": "Guts",
         "skillType": "introSkill",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -43001,7 +43083,7 @@
         ]
       },
       "7": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
         "indexedMultipliers": [
@@ -43135,7 +43217,7 @@
         ]
       },
       "9": {
-        "name": "Mid Air Attack",
+        "name": "Mid-air Attack",
         "tagged": "Algorithm Compaction",
         "skillType": "mid-airAttack",
         "dmgType": "basicAttack",
@@ -44064,6 +44146,7 @@
         "name": "Multithreading",
         "tagged": "Algorithm Compaction",
         "skillType": "heavyAttack",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44121,6 +44204,7 @@
       "1": {
         "name": "Payload: Charge",
         "skillType": "resonanceSkill",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44173,8 +44257,8 @@
         ]
       },
       "2": {
-        "name": "Payload: Follow-Up Attack",
-        "skillType": "resonanceSkill",
+        "name": "Payload: Follow-up Attack",
+        "dmgType": "resonanceSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44335,6 +44419,7 @@
         "tagged": "Algorithm Compaction",
         "skillType": "resonanceSkill",
         "dmgType": "heavyAttack",
+        "shiftTune": "hack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44390,7 +44475,6 @@
     "resonanceLiberation": {
       "1": {
         "name": "Netrunner: Override",
-        "skillType": "resonanceLiberation",
         "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
@@ -44421,7 +44505,6 @@
       },
       "2": {
         "name": "Spoofing Program: Ping",
-        "skillType": "resonanceLiberation",
         "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
@@ -44452,7 +44535,6 @@
       },
       "3": {
         "name": "Spoofing Program: Synapse Burnout",
-        "skillType": "resonanceLiberation",
         "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
@@ -44483,8 +44565,8 @@
       },
       "4": {
         "name": "Spoofing Program: Cripple Movement",
-        "dmgType": "HACK",
-        "attr": "TUNE",
+        "dmgType": "hack",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44513,8 +44595,9 @@
         ]
       },
       "5": {
-        "name": "Old Net Deep Dive: Override",
-        "skillType": "resonanceLiberation",
+        "name": "Netrunner: Old Net Deep Dive",
+        "tagged": "Algorithm Compaction",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44541,14 +44624,24 @@
             ]
           }
         ]
+      },
+      "6": {
+        "name": "Netrunner",
+        "skillType": "resonanceLiberation"
+      },
+      "7": {
+        "name": "Spoofing Program: Cyberware Malfunction"
+      },
+      "8": {
+        "name": "Spoofing Program: Breach Protocol"
       }
     },
     "forteCircuit": {
       "1": {
-        "name": "Hack Response - Data Crash",
-        "type": "break",
-        "dmgType": "HACK",
-        "attr": "TUNE",
+        "name": "Data Crash",
+        "skillType": "tuneResponse",
+        "dmgType": "hack",
+        "attr": "tuneAmp",
         "indexedMultipliers": [
           {
             "mv": [

@@ -3,7 +3,7 @@
     "id": "12001",
     "name": "[Lunar] Pleniluna",
     "quality": 3,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 475,
       "atk%": 0.2
@@ -13,7 +13,7 @@
     "id": "12002",
     "name": "[Lunar] Decrescent",
     "quality": 3,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 475,
       "atk%": 0.2
@@ -23,7 +23,7 @@
     "id": "12003",
     "name": "[Lunar] Noviluna",
     "quality": 3,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 475,
       "critRate%": 0.16
@@ -33,7 +33,7 @@
     "id": "12004",
     "name": "[Reverb] Mark I",
     "quality": 3,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 475,
       "atk%": 0.2
@@ -43,7 +43,7 @@
     "id": "12005",
     "name": "[Reverb] Mark II",
     "quality": 3,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 475,
       "energyRegen%": 0.4
@@ -53,7 +53,7 @@
     "id": "12006",
     "name": "[Reverb] Mark III",
     "quality": 3,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 475,
       "hp%": 0.2
@@ -63,7 +63,7 @@
     "id": "12007",
     "name": "[Vortex] Revolver",
     "quality": 3,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 475,
       "atk%": 0.2
@@ -73,7 +73,7 @@
     "id": "12008",
     "name": "[Vortex] Arrow",
     "quality": 3,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 475,
       "impact%": 0.12
@@ -83,7 +83,7 @@
     "id": "12009",
     "name": "[Vortex] Hatchet",
     "quality": 3,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 475,
       "energyRegen%": 0.4
@@ -93,7 +93,7 @@
     "id": "12010",
     "name": "[Magnetic Storm] Alpha",
     "quality": 3,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 475,
       "atk%": 0.2
@@ -103,7 +103,7 @@
     "id": "12011",
     "name": "[Magnetic Storm] Bravo",
     "quality": 3,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 475,
       "anomalyProficiency": 60
@@ -113,7 +113,7 @@
     "id": "12012",
     "name": "[Magnetic Storm] Charlie",
     "quality": 3,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 475,
       "penRatio%": 0.16
@@ -123,7 +123,7 @@
     "id": "12013",
     "name": "[Identity] Base",
     "quality": 3,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 475,
       "def%": 0.32
@@ -133,7 +133,7 @@
     "id": "12014",
     "name": "[Identity] Inflection",
     "quality": 3,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 475,
       "def%": 0.32
@@ -143,7 +143,7 @@
     "id": "13001",
     "name": "Street Superstar",
     "quality": 4,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 594,
       "atk%": 0.25
@@ -153,7 +153,7 @@
     "id": "13002",
     "name": "Slice of Time",
     "quality": 4,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 594,
       "penRatio%": 0.2
@@ -163,7 +163,7 @@
     "id": "13003",
     "name": "Rainforest Gourmet",
     "quality": 4,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 594,
       "anomalyProficiency": 75
@@ -173,7 +173,7 @@
     "id": "13004",
     "name": "Starlight Engine",
     "quality": 4,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 594,
       "atk%": 0.25
@@ -183,7 +183,7 @@
     "id": "13005",
     "name": "Steam Oven",
     "quality": 4,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 594,
       "energyRegen%": 0.5
@@ -193,7 +193,7 @@
     "id": "13006",
     "name": "Precious Fossilized Core",
     "quality": 4,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 594,
       "impact%": 0.15
@@ -203,7 +203,7 @@
     "id": "13007",
     "name": "Original Transmorpher",
     "quality": 4,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 594,
       "hp%": 0.25
@@ -213,7 +213,7 @@
     "id": "13008",
     "name": "Weeping Gemini",
     "quality": 4,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 594,
       "atk%": 0.25
@@ -223,7 +223,7 @@
     "id": "13009",
     "name": "Electro-Lip Gloss",
     "quality": 4,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 594,
       "anomalyProficiency": 75
@@ -233,7 +233,7 @@
     "id": "13010",
     "name": "Bunny Band",
     "quality": 4,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 594,
       "def%": 0.4
@@ -243,7 +243,7 @@
     "id": "13011",
     "name": "Spring Embrace",
     "quality": 4,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 594,
       "atk%": 0.25
@@ -253,7 +253,7 @@
     "id": "13101",
     "name": "Demara Battery Mark II",
     "quality": 4,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 624,
       "impact%": 0.15
@@ -263,7 +263,7 @@
     "id": "13103",
     "name": "The Vault",
     "quality": 4,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 624,
       "energyRegen%": 0.5
@@ -273,7 +273,7 @@
     "id": "13106",
     "name": "Housekeeper",
     "quality": 4,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 624,
       "atk%": 0.25
@@ -283,7 +283,7 @@
     "id": "13108",
     "name": "Starlight Engine Replica",
     "quality": 4,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 624,
       "atk%": 0.25
@@ -293,7 +293,7 @@
     "id": "13111",
     "name": "Drill Rig - Red Axis",
     "quality": 4,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 624,
       "energyRegen%": 0.5
@@ -303,7 +303,7 @@
     "id": "13112",
     "name": "Big Cylinder",
     "quality": 4,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 624,
       "def%": 0.4
@@ -313,7 +313,7 @@
     "id": "13113",
     "name": "Bashful Demon",
     "quality": 4,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 624,
       "atk%": 0.25
@@ -323,7 +323,7 @@
     "id": "13115",
     "name": "Kaboom the Cannon",
     "quality": 4,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 624,
       "energyRegen%": 0.5
@@ -333,7 +333,7 @@
     "id": "13128",
     "name": "Roaring Ride",
     "quality": 4,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 624,
       "atk%": 0.25
@@ -343,7 +343,7 @@
     "id": "14001",
     "name": "Cannon Rotor",
     "quality": 4,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 594,
       "critRate%": 0.2
@@ -353,7 +353,7 @@
     "id": "14002",
     "name": "Unfettered Game Ball",
     "quality": 4,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 594,
       "energyRegen%": 0.5
@@ -363,7 +363,7 @@
     "id": "14003",
     "name": "Six Shooter",
     "quality": 4,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 594,
       "impact%": 0.15
@@ -373,7 +373,7 @@
     "id": "14102",
     "name": "Steel Cushion",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 683,
       "critRate%": 0.24
@@ -383,7 +383,7 @@
     "id": "14104",
     "name": "The Brimstone",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 683,
       "atk%": 0.3
@@ -393,7 +393,7 @@
     "id": "14110",
     "name": "Hellfire Gears",
     "quality": 5,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 683,
       "impact%": 0.18
@@ -403,7 +403,7 @@
     "id": "14114",
     "name": "The Restrained",
     "quality": 5,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 683,
       "impact%": 0.18
@@ -413,7 +413,7 @@
     "id": "14118",
     "name": "Fusion Compiler",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 683,
       "penRatio%": 0.24
@@ -423,7 +423,7 @@
     "id": "14119",
     "name": "Deep Sea Visitor",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "critRate%": 0.24
@@ -433,7 +433,7 @@
     "id": "14121",
     "name": "Weeping Cradle",
     "quality": 5,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 683,
       "penRatio%": 0.24
@@ -443,7 +443,7 @@
     "id": "14124",
     "name": "Riot Suppressor Mark VI",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "critDmg%": 0.48
@@ -453,7 +453,7 @@
     "id": "13013",
     "name": "Gilded Blossom",
     "quality": 4,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 594,
       "atk%": 0.25
@@ -463,7 +463,7 @@
     "id": "13127",
     "name": "Peacekeeper - Specialized",
     "quality": 4,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 624,
       "atk%": 0.25
@@ -473,7 +473,7 @@
     "id": "14125",
     "name": "Ice-Jade Teapot",
     "quality": 5,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 713,
       "impact%": 0.18
@@ -483,7 +483,7 @@
     "id": "14126",
     "name": "Sharpened Stinger",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 713,
       "anomalyProficiency": 90
@@ -493,7 +493,7 @@
     "id": "14107",
     "name": "Tusks of Fury",
     "quality": 5,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 713,
       "impact%": 0.18
@@ -503,7 +503,7 @@
     "id": "14117",
     "name": "Flamemaker Shaker",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 713,
       "atk%": 0.3
@@ -513,7 +513,7 @@
     "id": "14116",
     "name": "Blazing Laurel",
     "quality": 5,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 713,
       "impact%": 0.18
@@ -523,7 +523,7 @@
     "id": "14122",
     "name": "Timeweaver",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 713,
       "atk%": 0.3
@@ -533,7 +533,7 @@
     "id": "13015",
     "name": "Marcato Desire",
     "quality": 4,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 594,
       "critRate%": 0.2
@@ -543,7 +543,7 @@
     "id": "14109",
     "name": "Hailstorm Shrine",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 743,
       "critRate%": 0.24
@@ -553,7 +553,7 @@
     "id": "14120",
     "name": "Zanshin Herb Case",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "critDmg%": 0.48
@@ -563,7 +563,7 @@
     "id": "14131",
     "name": "Elegant Vanity",
     "quality": 5,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 713,
       "atk%": 0.3
@@ -573,7 +573,7 @@
     "id": "14132",
     "name": "Heartstring Nocturne",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "critRate%": 0.24
@@ -583,7 +583,7 @@
     "id": "13135",
     "name": "Box Cutter",
     "quality": 4,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 624,
       "impact%": 0.15
@@ -593,7 +593,7 @@
     "id": "14136",
     "name": "Spectral Gaze",
     "quality": 5,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 713,
       "critRate%": 0.24
@@ -603,7 +603,7 @@
     "id": "14138",
     "name": "Severed Innocence",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "critDmg%": 0.48
@@ -613,7 +613,7 @@
     "id": "14129",
     "name": "Myriad Eclipse",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "critRate%": 0.24
@@ -623,7 +623,7 @@
     "id": "14133",
     "name": "Flight of Fancy",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 713,
       "anomalyProficiency": 90
@@ -633,7 +633,7 @@
     "id": "12015",
     "name": "[Cinder] Cobalt",
     "quality": 3,
-    "type": "Rupture",
+    "type": "rupture",
     "stats": {
       "baseAtk": 475,
       "hp%": 0.2
@@ -643,7 +643,7 @@
     "id": "13012",
     "name": "Puzzle Sphere",
     "quality": 4,
-    "type": "Rupture",
+    "type": "rupture",
     "stats": {
       "baseAtk": 594,
       "atk%": 0.25
@@ -653,7 +653,7 @@
     "id": "13014",
     "name": "Radiowave Journey",
     "quality": 4,
-    "type": "Rupture",
+    "type": "rupture",
     "stats": {
       "baseAtk": 594,
       "hp%": 0.25
@@ -663,7 +663,7 @@
     "id": "13016",
     "name": "Reel Projector",
     "quality": 4,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 594,
       "impact%": 0.15
@@ -673,7 +673,7 @@
     "id": "13142",
     "name": "Tremor Trigram Vessel",
     "quality": 4,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 624,
       "atk%": 0.25
@@ -683,7 +683,7 @@
     "id": "14137",
     "name": "Qingming Birdcage",
     "quality": 5,
-    "type": "Rupture",
+    "type": "rupture",
     "stats": {
       "baseAtk": 743,
       "hp%": 0.3
@@ -693,7 +693,7 @@
     "id": "14139",
     "name": "Roaring Fur-nace",
     "quality": 5,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 713,
       "atk%": 0.3
@@ -703,7 +703,7 @@
     "id": "14140",
     "name": "Practiced Perfection",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 713,
       "atk%": 0.3
@@ -713,7 +713,7 @@
     "id": "14141",
     "name": "Metanukimorphosis",
     "quality": 5,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 713,
       "energyRegen%": 0.6
@@ -723,7 +723,7 @@
     "id": "14130",
     "name": "Bellicose Blaze",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "energyRegen%": 0.6
@@ -733,7 +733,7 @@
     "id": "14146",
     "name": "Cordis Germina",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "critRate%": 0.24
@@ -743,7 +743,7 @@
     "id": "13144",
     "name": "Grill O'Wisp",
     "quality": 4,
-    "type": "Rupture",
+    "type": "rupture",
     "stats": {
       "baseAtk": 624,
       "hp%": 0.25
@@ -753,7 +753,7 @@
     "id": "14105",
     "name": "Kraken's Cradle",
     "quality": 5,
-    "type": "Rupture",
+    "type": "rupture",
     "stats": {
       "baseAtk": 713,
       "hp%": 0.3
@@ -763,7 +763,7 @@
     "id": "14145",
     "name": "Dreamlit Hearth",
     "quality": 5,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 713,
       "hp%": 0.3
@@ -773,7 +773,7 @@
     "id": "14147",
     "name": "Wrathful Vajra",
     "quality": 5,
-    "type": "Rupture",
+    "type": "rupture",
     "stats": {
       "baseAtk": 713,
       "hp%": 0.3
@@ -783,7 +783,7 @@
     "id": "14148",
     "name": "Yesterday Calls",
     "quality": 5,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 713,
       "critRate%": 0.24
@@ -793,7 +793,7 @@
     "id": "13019",
     "name": "Cauldron of Clarity",
     "quality": 4,
-    "type": "Rupture",
+    "type": "rupture",
     "stats": {
       "baseAtk": 594,
       "hp%": 0.25
@@ -803,7 +803,7 @@
     "id": "14134",
     "name": "Half-Sugar Bunny",
     "quality": 5,
-    "type": "Defense",
+    "type": "defense",
     "stats": {
       "baseAtk": 713,
       "hp%": 0.3
@@ -813,7 +813,7 @@
     "id": "14143",
     "name": "Cloudcleave Radiance",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 743,
       "critDmg%": 0.48
@@ -823,7 +823,7 @@
     "id": "14149",
     "name": "Thoughtbop",
     "quality": 5,
-    "type": "Support",
+    "type": "support",
     "stats": {
       "baseAtk": 713,
       "energyRegen%": 0.6
@@ -833,7 +833,7 @@
     "id": "14150",
     "name": "Angel in the Shell",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 713,
       "anomalyMastery%": 0.3
@@ -843,7 +843,7 @@
     "id": "13020",
     "name": "The Simmering Pot",
     "quality": 4,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 594,
       "impact%": 0.15
@@ -853,7 +853,7 @@
     "id": "14151",
     "name": "Neon Fantasies",
     "quality": 5,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 713,
       "anomalyMastery%": 0.3
@@ -863,7 +863,7 @@
     "id": "14152",
     "name": "Serpentine Seeker",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "energyRegen%": 0.6
@@ -873,7 +873,7 @@
     "id": "14153",
     "name": "Starlight Rider Faceplate",
     "quality": 5,
-    "type": "Rupture",
+    "type": "rupture",
     "stats": {
       "baseAtk": 713,
       "hp%": 0.3
@@ -883,7 +883,7 @@
     "id": "14154",
     "name": "Frostfall Sickle",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 713,
       "anomalyMastery%": 0.3
@@ -893,7 +893,7 @@
     "id": "14155",
     "name": "Sol Exuvia",
     "quality": 5,
-    "type": "Attack",
+    "type": "attack",
     "stats": {
       "baseAtk": 713,
       "atk%": 0.3
@@ -903,7 +903,7 @@
     "id": "14156",
     "name": "Joyau Dore",
     "quality": 5,
-    "type": "Anomaly",
+    "type": "anomaly",
     "stats": {
       "baseAtk": 713,
       "energyRegen%": 0.6
@@ -913,7 +913,7 @@
     "id": "14157",
     "name": "Chief Sidekick",
     "quality": 5,
-    "type": "Stun",
+    "type": "stun",
     "stats": {
       "baseAtk": 713,
       "critRate%": 0.24

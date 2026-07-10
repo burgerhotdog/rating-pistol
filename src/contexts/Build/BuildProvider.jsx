@@ -21,12 +21,12 @@ export const BuildProvider = ({ children }) => {
       return;
     }
 
-    const unsubscribes = Object.keys(VERSION).map(gameId => {
+    const unsubscribes = Object.keys(VERSION).map((gameId) => {
       const ref = collection(db, 'users', user.uid, gameId);
-      return onSnapshot(ref, snapshot => {
-        setBuildsByGameId(prev => ({
+      return onSnapshot(ref, (snapshot) => {
+        setBuildsByGameId((prev) => ({
           ...prev,
-          [gameId]: Object.fromEntries(snapshot.docs.map(doc => [
+          [gameId]: Object.fromEntries(snapshot.docs.map((doc) => [
             doc.id,
             doc.data(),
           ])),
@@ -34,7 +34,7 @@ export const BuildProvider = ({ children }) => {
       });
     });
 
-    return () => unsubscribes.forEach(fn => fn());
+    return () => unsubscribes.forEach((fn) => fn());
   }, [user]);
 
 
@@ -48,17 +48,17 @@ export const BuildProvider = ({ children }) => {
       if (entriesWithTimes.length === 1) {
         const [id, data] = entriesWithTimes[0];
         const ref = doc(db, 'users', user.uid, gameId, String(id));
-        setDoc(ref, data).catch(err => console.error(err));
+        setDoc(ref, data).catch((err) => console.error(err));
       } else {
         const batch = writeBatch(db);
         entriesWithTimes.forEach(([id, data]) => {
           const ref = doc(db, 'users', user.uid, gameId, String(id));
           batch.set(ref, data);
         });
-        batch.commit().catch(err => console.error(err));
+        batch.commit().catch((err) => console.error(err));
       }
     } else {
-      setBuildsByGameId(prev => ({
+      setBuildsByGameId((prev) => ({
         ...prev,
         [gameId]: {
           ...prev[gameId],
@@ -71,9 +71,9 @@ export const BuildProvider = ({ children }) => {
   const deleteBuildId = async (gameId, id) => {
     if (user) {
       const ref = doc(db, 'users', user.uid, gameId, String(id));
-      deleteDoc(ref).catch(err => console.error(err));
+      deleteDoc(ref).catch((err) => console.error(err));
     } else {
-      setBuildsByGameId(prev => {
+      setBuildsByGameId((prev) => {
         const newCollection = { ...prev[gameId] };
         delete newCollection[id];
         return { ...prev, [gameId]: newCollection };

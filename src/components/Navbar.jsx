@@ -1,5 +1,6 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { Avatar, Tab, Tabs } from '@mui/material';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Tabs, Tab } from '@mui/material';
+import { CharAvatar } from '@/components';
 
 export const Navbar = ({ sorted }) => {
   const { gameId, characterId } = useParams();
@@ -12,32 +13,28 @@ export const Navbar = ({ sorted }) => {
 
   return (
       <Tabs
-        orientation="vertical"
         variant="scrollable"
+        orientation="vertical"
         value={characterId ?? false}
         onChange={handleChange}
+        slotProps={{
+          indicator: {
+            style: { display: 'none' },
+          },
+        }}
       >
         {sorted.map((id) => (
           <Tab
             key={id}
             value={id}
-            icon={
-              <Avatar
-                src={`${import.meta.env.BASE_URL}${gameId}/character/${id}.webp`}
-                sx={{
-                  width: 48,
-                  height: 48,
-                  '& .MuiAvatar-img': {
-                    objectFit: 'cover',
-                    objectPosition: 'top center',
-                  },
-                }}
-              />
-            }
+            icon={<CharAvatar gameId={gameId} charId={id} />}
             sx={{
               minWidth: 0,
               '&:hover': {
                 backgroundColor: 'action.hover',
+              },
+              '&.Mui-selected': {
+                backgroundColor: 'action.selected',
               },
             }}
           />

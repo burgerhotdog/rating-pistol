@@ -444,7 +444,7 @@
             "exSpecialAttack",
             "chainAttack"
           ],
-          "applyIfWeapon": "Stun",
+          "applyIfWeapon": "stun",
           "statMap": {
             "critDmg%": 0.15
           },
@@ -457,7 +457,7 @@
             "exSpecialAttack",
             "chainAttack"
           ],
-          "applyIfWeapon": "Stun",
+          "applyIfWeapon": "stun",
           "useIfAttr": {
             "critRate%": 0.5
           },
@@ -490,7 +490,7 @@
             "exSpecialAttack",
             "ultimate"
           ],
-          "applyIfWeapon": "Attack",
+          "applyIfWeapon": "attack",
           "statMap": {
             "basicAttackDmgBonus%": 0.2
           },
@@ -515,7 +515,7 @@
           "exSpecialAttack",
           "ultimate"
         ],
-        "applyIfWeapon": "Support",
+        "applyIfWeapon": "support",
         "statMap": {
           "dmgBonus%": 0.18
         },

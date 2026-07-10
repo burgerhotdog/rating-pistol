@@ -72,7 +72,6 @@ const HeaderEnka = () => {
     <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
       <TextField
         label="Enter UID..."
-        size="small"
         value={uid}
         slotProps={{
           inputLabel: {
@@ -94,7 +93,6 @@ const HeaderEnka = () => {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton
-                  size="small"
                   onClick={() => handleSync()}
                   disabled={!isValidLength(gameId, uid) || isSyncLoading}
                 >
@@ -118,7 +116,7 @@ const HeaderEnka = () => {
             ),
           },
         }}
-        onChange={e => {
+        onChange={(e) => {
           if (error) setError(null);
           setUid(e.target.value);
         }}
@@ -159,7 +157,7 @@ const HeaderEnka = () => {
               control={
                 <Checkbox
                   checked={selectedList[index]}
-                  onChange={() => setSelectedList(prev => {
+                  onChange={() => setSelectedList((prev) => {
                     const newSelected = [...prev];
                     newSelected[index] = !newSelected[index];
                     return newSelected;

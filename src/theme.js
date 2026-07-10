@@ -12,7 +12,7 @@ const theme = createTheme({
     2: '#6EE7B7',
     1: '#94A3B8',
   },
-  accentColor: {
+  accentColors: {
     [GI]: {
       anemo: '#80FFD7',
       cryo: '#99FFFF',
@@ -56,8 +56,47 @@ const theme = createTheme({
       fontWeight: 'bold',
     },
   },
-  stack: {
-    useFlexGap: true,
+  components: {
+    MuiButton: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+    MuiChip: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+    MuiIconButton: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+    MuiSvgIcon: {
+      defaultProps: {
+        fontSize: 'small',
+      },
+    },
+    MuiSwitch: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+    MuiToggleButtonGroup: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
+      },
+    },
   },
 });
 

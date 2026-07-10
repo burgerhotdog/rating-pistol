@@ -1,22 +1,37 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { Box, Tabs, Tab, Divider } from '@mui/material';
 import {
   FlexRow,
   FlexCol,
+  FlexCard,
   LoadingBar,
   StatsPanel,
-  BenchmarkProgress,
-  SubstatDistribution,
+  ProgressChart,
   DamageBreakdown,
   MainstatDistribution,
+  SubstatDistribution,
 } from '@/components';
 import { useSimulation, useTeam } from '@/hooks';
+
+const TabPanel = ({ isActive, children }) => (
+  isActive && (
+    <Box
+      sx={{
+        display: 'flex',
+        minHeight: 0,
+        flex: 1,
+      }}
+    >
+      {children}
+    </Box>
+  )
+);
 
 export const Content = () => {
   const { team, updateTeam } = useTeam();
 
   const {
-    type,
-    statusMessage,
+    status,
     userSummary,
     cache,
     diff,
@@ -27,11 +42,9 @@ export const Content = () => {
     userSubStats,
   } = useSimulation(team);
 
-  const [selectedKey, setSelectedKey] = useState(userConfigKey);
+  const isLoading = !userSummary;
 
-  useEffect(() => {
-    setSelectedKey(userConfigKey);
-  }, [userConfigKey]);
+  const [tabIndex, setTabIndex] = useState(0);
 
   return (
     <FlexRow spacing={1}>
@@ -40,44 +53,58 @@ export const Content = () => {
         updateTeam={updateTeam}
       />
 
-      {type !== 'done' ? (
+      {isLoading ? (
         <LoadingBar
-          statusMessage={statusMessage}
+          status={status}
           week={week}
           diff={diff}
         />
       ) : (
         <FlexCol spacing={1}>
           <FlexRow>
-            <BenchmarkProgress
+            <ProgressChart
               team={team}
               weeklySummaries={weeklySummaries}
               userSummary={userSummary}
-              cache={cache}
+              rotationTime={cache.fullRotationTime}
             />
           </FlexRow>
 
-          <FlexRow spacing={1}>
-            <MainstatDistribution
-              configMap={configMap}
-              userConfigKey={userConfigKey}
-              selectedKey={selectedKey}
-              onSelect={setSelectedKey}
-            />
+          <FlexCard>
+            <Tabs
+              value={tabIndex}
+              onChange={(_, newIndex) => setTabIndex(newIndex)}
+              centered
+            >
+              <Tab label="Damage Profile" />
+              <Tab label="Mainstats" />
+              <Tab label="Substats" />
+            </Tabs>
 
-            <DamageBreakdown
-              userSummary={userSummary}
-            />
-          </FlexRow>
+            <Divider />
 
-          <FlexRow>
-            <SubstatDistribution
-              configMap={configMap}
-              selectedKey={selectedKey}
-              userConfigKey={userConfigKey}
-              userSubStats={userSubStats}
-            />
-          </FlexRow>
+            <TabPanel isActive={tabIndex === 0}>
+              <DamageBreakdown
+                userSummary={userSummary}
+                teamIds={team.map((m) => m.id).filter(Boolean)}
+              />
+            </TabPanel>
+
+            <TabPanel isActive={tabIndex === 1}>
+              <MainstatDistribution
+                configMap={configMap}
+                userConfigKey={userConfigKey}
+              />
+            </TabPanel>
+
+            <TabPanel isActive={tabIndex === 2}>
+              <SubstatDistribution
+                configMap={configMap}
+                userConfigKey={userConfigKey}
+                userSubStats={userSubStats}
+              />
+            </TabPanel>
+          </FlexCard>
         </FlexCol>
       )}
     </FlexRow>

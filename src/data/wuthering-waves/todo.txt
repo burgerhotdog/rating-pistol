@@ -1,0 +1,197 @@
+characters:
+    unchecked:
+        1102 Sanhua
+        1103 Baizhi
+        1104 Lingyang
+        1202 Chixia
+        1203 Encore
+        1204 Mortefi
+        1301 Calcharo
+        1302 Yinlin
+        1303 Yuanwu
+        1402 Yangyang
+        1403 Aalto
+        1404 Jiyan
+        1405 Jianxin
+        1503 Verina
+        1601 Taoqi
+        1602 Danjin
+        1205 Changli
+        1304 Jinhsi
+        1105 Zhezhi
+        1305 Xiangli Yao
+        1106 Youhu
+        1505 Shorekeeper
+        1504 Lumi
+        1603 Camellya
+        1107 Carlotta
+        1606 Roccia
+        1206 Brant
+        1506 Phoebe
+        1607 Cantarella
+        1407 Ciaccona
+        1507 Zani
+        1207 Lupa
+        1409 Cartethyia
+        1608 Phrolova
+        1306 Augusta
+        1410 Iuno
+        1208 Galbrena
+        1411 Qiuyuan
+        1307 Buling
+        1508 Chisa
+        1209 Mornye
+        1509 Lynae
+        1210 Aemeath
+        1510 Luuk Herssen
+        1412 Sigrika
+        1108 Hiyuki
+        1211 Denia
+        1109 Lucilla
+        1308 Rebecca
+
+    incomplete:
+    simplified:
+        1511 Lucy (teammates inflicting hack: outro, rank 4)
+
+weapons:
+    unchecked:
+        21010015 Lustrous Razor
+        21010016 Verdant Summit
+        21010023 Originite: Type I
+        21010034 Broadblade#41
+        21010043 Broadblade of Voyager
+        21010044 Dauntless Evernight
+        21010053 Guardian Broadblade
+        21010064 Helios Cleaver
+        21010074 Autumntrace
+        21020015 Emerald of Genesis
+        21020023 Originite: Type II
+        21020034 Sword#18
+        21020043 Sword of Voyager
+        21020044 Commando of Conviction
+        21020053 Guardian Sword
+        21020064 Lunar Cutter
+        21020074 Lumingloss
+        21030015 Static Mist
+        21030023 Originite: Type III
+        21030034 Pistols#26
+        21030043 Pistols of Voyager
+        21030044 Undying Flame
+        21030053 Guardian Pistols
+        21030064 Novaburst
+        21030074 Thunderbolt
+        21040015 Abyss Surges
+        21040023 Originite: Type IV
+        21040034 Gauntlets#21D
+        21040043 Gauntlets of Voyager
+        21040044 Amity Accord
+        21040053 Guardian Gauntlets
+        21040064 Hollow Mirage
+        21040074 Stonard
+        21050015 Cosmic Ripples
+        21050016 Stringmaster
+        21050023 Originite: Type V
+        21050034 Rectifier#25
+        21050043 Rectifier of Voyager
+        21050044 Jinzhou Keeper
+        21050053 Guardian Rectifier
+        21050064 Comet Flare
+        21050074 Augment
+        21010026 Ages of Harvest
+        21010063 Beguiling Melody
+        21020016 Blazing Brilliance
+        21040016 Verity's Handle
+        21050026 Rime-Draped Sprouts
+        21010084 Waning Redshift
+        21020084 Endless Collapse
+        21030084 Relativistic Jet
+        21040084 Celestial Spiral
+        21050036 Stellar Symphony
+        21050084 Fusion Accretion
+        21020017 Somnoire Anchor
+        21020026 Red Spring
+        21010094 Meditations on Mercy
+        21020094 Fables of Wisdom
+        21030016 The Last Dance
+        21030094 Romance in Farewell
+        21040026 Tragicomedy
+        21040094 Legend of Drunken Hero
+        21050017 Call of the Abyss
+        21050094 Waltz in Masquerade
+        21020036 Unflickering Valor
+        21050027 Ocean's Gift
+        21050046 Luminous Hymn
+        21020046 Bloodpact's Pledge
+        21050056 Whispers of Sirens
+        21030026 Woodland Aria
+        21040036 Blazing Justice
+        21010036 Wildfire Mark
+        21020056 Defier's Thorn
+        21050066 Lethean Elegy
+        21010046 Thunderflare Dominion
+        21010104 Aureate Zenith
+        21020104 Feather Edge
+        21030104 Solar Flame
+        21040046 Moongazer's Sigil
+        21040104 Aether Strike
+        21050104 Radiant Dawn
+        21020066 Emerald Sentence
+        21030036 Lux & Umbra
+        21010056 Kumokiri
+        21010045 Radiance Cleaver
+        21010066 Starfield Calibrator
+        21020045 Laser Shearer
+        21030045 Phasic Homogenizer
+        21030046 Spectrum Blaster
+        21040045 Pulsation Bracer
+        21050045 Boson Astrolabe
+        21020076 Everbright Polestar
+        21040056 Daybreaker's Spine
+        21040066 Solsworn Ciphers
+        21020086 Frostburn
+        21050076 Forged Dwarf Star
+        21030056 Spectral Trigger
+        21030066 Skull Thrasher
+        21050086 Freeze Frame
+
+    incomplete:
+    simplified:
+
+sets:
+    unchecked:
+        1 Freezing Frost
+        2 Molten Rift
+        3 Void Thunder
+        4 Sierra Gale
+        5 Celestial Light
+        6 Havoc Eclipse
+        7 Rejuvenating Glow
+        8 Moonlit Clouds
+        9 Lingering Tunes
+        10 Frosty Resolve
+        11 Eternal Radiance
+        12 Midnight Veil
+        14 Tidebreaking Courage
+        16 Gusts of Welkin
+        17 Windward Pilgrimage
+        18 Flaming Clawprint
+        19 Dream of the Lost
+        20 Crown of Valor
+        21 Law of Harmony
+        23 Thread of Severed Fate
+        27 Trailblazing Star
+        28 Chromatic Foam
+        29 Sound of True Name
+        32 Shadow of Shattered Dreams
+
+    incomplete:
+        31 Reel of Spliced Memories
+
+    simplified:
+        13 Empyrean Anthem
+        22 Flamewing's Shadow
+        24 Pact of Neonlight Leap
+        25 Halo of Starry Radiance
+        26 Rite of Gilded Revelation
+        30 Wishes of Quiet Snowfall

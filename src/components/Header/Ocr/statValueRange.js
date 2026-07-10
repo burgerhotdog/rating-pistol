@@ -1,0 +1,46 @@
+export const mainStatRange = {
+  4: {
+    'hp%': [0.041, 0.33],
+    'atk%': [0.041, 0.33],
+    'def%': [0.052, 0.415],
+    'critRate%': [0.027, 0.22],
+    'critDmg%': [0.054, 0.44],
+    'healingBonus%': [0.033, 0.26],
+    'atk': [18, 150],
+  },
+  3: {
+    'hp%': [0.037, 0.3],
+    'atk%': [0.037, 0.3],
+    'def%': [0.047, 0.38],
+    'glacioDmgBonus%': [0.037, 0.3],
+    'fusionDmgBonus%': [0.037, 0.3],
+    'electroDmgBonus%': [0.037, 0.3],
+    'aeroDmgBonus%': [0.037, 0.3],
+    'spectroDmgBonus%': [0.037, 0.3],
+    'havocDmgBonus%': [0.037, 0.32],
+    'energyRegen%': [0.04, 0.3],
+    'atk': [12, 100],
+  },
+  1: {
+    'hp%': [0.028, 0.228],
+    'atk%': [0.022, 0.18],
+    'def%': [0.022, 0.18],
+    'hp': [114, 2280],
+  },
+};
+
+export const subStatRange = {
+  'hp': [320, 580],
+  'atk': [30, 60],
+  'def': [40, 70],
+  'hp%': [0.064, 0.116],
+  'atk%': [0.064, 0.116],
+  'def%': [0.081, 0.147],
+  'energyRegen%': [0.068, 0.124],
+  'critRate%': [0.063, 0.105],
+  'critDmg%': [0.126, 0.21],
+  'basicAttackDmgBonus%': [0.064, 0.116],
+  'heavyAttackDmgBonus%': [0.064, 0.116],
+  'resonanceSkillDmgBonus%': [0.064, 0.116],
+  'resonanceLiberationDmgBonus%': [0.064, 0.116],
+};

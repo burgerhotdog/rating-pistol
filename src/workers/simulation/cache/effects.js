@@ -13,41 +13,35 @@ const mergeVariableStatMaps = (...maps) => {
   }, {});
 };
 
-const resolveApplyTo = (applyTo, ownerId, idList) => {
+const resolveApplyTo = (applyTo, ownerId, memberIds) => {
   switch (applyTo) {
+    case undefined:
+      return [ownerId];
+
     case 'team':
-      return idList;
+      return memberIds;
 
     case 'ally':
-      return idList.filter(id => id !== ownerId);
+      return memberIds.filter((id) => id !== ownerId);
 
     case 'first':
-      return [idList[0]];
+      return [memberIds[0]];
 
     case 'next':
-      return [idList.at(idList.indexOf(ownerId) - 1)];
-
-    case 'active':
-      return [applyTo];
-
-    case 'inactive':
-      return [applyTo];
-
-    case 'enemy':
-      return [applyTo];
+      return [memberIds.at(memberIds.indexOf(ownerId) - 1)];
 
     default:
-      return [ownerId];
+      return [applyTo];
   }
 };
 
 const normalizeEffect = (ctx, member, effectId, effect, actions) => {
-  const { gameId, idList } = ctx;
+  const { gameId, memberIds } = ctx;
 
   const resolved = {
     ...effect,
     ownerId: member.id,
-    applyTo: resolveApplyTo(effect.applyTo, member.id, idList),
+    applyTo: resolveApplyTo(effect.applyTo, member.id, memberIds),
   };
 
   resolved.rank ??= 0;
@@ -72,6 +66,14 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
 
   if (effect.useIfElement) {
     resolved.useIfElement = toArray(effect.useIfElement);
+  }
+
+  if (effect.useIfShifting) {
+    resolved.useIfShifting = toArray(effect.useIfShifting);
+  }
+
+  if (effect.useIfInterfered) {
+    resolved.useIfInterfered = toArray(effect.useIfInterfered);
   }
 
   if (effect.useIfWeapon) {
@@ -142,7 +144,6 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
 
       if (actionType === 'intervalAction') {
         resolved.intervalCooldown ??= 1000;
-        resolved.intervalOffset ??= 0;
       }
 
       resolved.times ??= 1;
@@ -187,7 +188,7 @@ export const normalizeEffects = (ctx, member, actions) => {
   const setData = SET[gameId];
 
   const toNormalize = [
-    ...toArray(charData.effects).filter(effect => (effect.rank ?? 0) <= member.rank),
+    ...toArray(charData.effects).filter((effect) => (effect.rank ?? 0) <= member.rank),
     ...toArray(weapData.effects),
   ];
 
@@ -202,20 +203,29 @@ export const normalizeEffects = (ctx, member, actions) => {
 
   const passivesbyTarget = {};
   const effectsByAction = {};
+  const specialEffects = [];
 
   for (const [index, effect] of toNormalize.entries()) {
     const effectId = String(index + 1);
     const effectKey = `${member.id}:EFFECT_${effectId}`;
 
     const resolved = {
-      ...normalizeEffect(ctx, member, effectId, effect, actions),
+      ...normalizeEffect(ctx, member, effectId, effect, actions[member.id]),
       key: effectKey,
       id: effectId,
     };
 
+    if ('applyOnSpecial' in resolved) {
+      specialEffects.push(resolved);
+      continue;
+    }
+
     if ('applyWhen' in resolved) { // active
-      for (const actionShort in actions) {
-        const action = actions[actionShort];
+      const actionsList = resolved.applyBy === 'team'
+        ? Object.values(actions).flatMap((actionMap) => Object.values(actionMap))
+        : Object.values(actions[member.id]);
+
+      for (const action of actionsList) {
         if (!matchApplyOn(action, resolved)) continue;
 
         effectsByAction[action.key] ??= [];
@@ -231,5 +241,5 @@ export const normalizeEffects = (ctx, member, actions) => {
     }
   }
 
-  return { passivesbyTarget, effectsByAction };
+  return { passivesbyTarget, effectsByAction, specialEffects };
 };

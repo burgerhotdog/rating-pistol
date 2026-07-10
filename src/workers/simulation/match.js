@@ -88,8 +88,8 @@ const matchIfAttr = (ifAttr, statMap) => {
   return false;
 };
 
-const matchIfField = (ifField, action, activeId) => {
-  const isActive = action.ownerId === activeId;
+const matchIfField = (ifField, memberId, activeId) => {
+  const isActive = memberId === activeId;
   return ifField === isActive;
 };
 
@@ -99,11 +99,13 @@ const matchIfElement = (ifElement, element) => {
 
 export const matchIfInflict = (ifInflict, inflictedStatuses) => {
   if (ifInflict === '*') {
-    return Boolean(inflictedStatuses.size);
+    return inflictedStatuses.length;
   }
 
   for (const statusId of ifInflict) {
-    if (inflictedStatuses.has(statusId)) return true;
+    if (inflictedStatuses.includes(statusId)) {
+      return true;
+    }
   }
 
   return false;
@@ -134,9 +136,18 @@ export const matchRemoveOn = (action, effect) => {
   return false;
 };
 
-export const matchUseOn = (action, effect) => {
+export const matchUseOn = (effect, action) => {
   const { useOnAction, useOnType, useOnTagged, useOnSkillType, useOnDmgType, useOnElement } = effect;
-  if (!(useOnAction || useOnType || useOnTagged || useOnSkillType || useOnDmgType || useOnElement)) return true;
+  if (!(
+    useOnAction ||
+    useOnType ||
+    useOnTagged ||
+    useOnSkillType ||
+    useOnDmgType ||
+    useOnElement
+  )) return true;
+
+  if (!action) return false;
 
   if (useOnAction && matchOnAction(useOnAction, action)) return true;
   if (useOnType && matchOnType(useOnType, action)) return true;
@@ -148,33 +159,63 @@ export const matchUseOn = (action, effect) => {
   return false;
 };
 
+const matchIfShift = (ifShift, shiftTune) => {
+  return ifShift === shiftTune;
+};
+
 export const matchApplyIf = (action, effect, ctx) => {
-  if (!('applyIfWeapon' in effect || 'applyIfType' in effect || 'applyIfStatus' in effect || 'applyIfField' in effect)) return true;
+  if (!(
+    'applyIfWeapon' in effect ||
+    'applyIfType' in effect ||
+    'applyIfStatus' in effect ||
+    'applyIfField' in effect ||
+    'applyIfShift' in effect
+  )) return true;
 
   if ('applyIfWeapon' in effect && matchIfWeapon(effect.applyIfWeapon, CHARACTER[ctx.cache.gameId][effect.ownerId].type)) return true;
   if ('applyIfType' in effect && matchOnType(effect.applyIfType, action)) return true;
-  if ('applyIfStatus' in effect && matchIfStatus(effect.applyIfStatus, ctx.enemyState.status)) return true;
-  if ('applyIfField' in effect && matchIfField(effect.applyIfField, action, ctx.activeId)) return true;
+  if ('applyIfStatus' in effect && matchIfStatus(effect.applyIfStatus, ctx.state.negativeStatuses)) return true;
+  if ('applyIfField' in effect && matchIfField(effect.applyIfField, action.ownerId, ctx.activeId)) return true;
+  if ('applyIfShift' in effect && matchIfShift(effect.applyIfShift, action.shiftTune)) return true;
 
   return false;
 };
 
 export const matchRemoveIf = (action, effect, ctx) => {
-  if ('removeIfStatus' in effect && matchIfStatus(effect.removeIfStatus, ctx.enemyState.status)) return true;
-  if ('removeIfField' in effect && matchIfField(effect.removeIfField, action, ctx.activeId)) return true;
+  if ('removeIfStatus' in effect && matchIfStatus(effect.removeIfStatus, ctx.state.negativeStatuses)) return true;
+  if ('removeIfField' in effect && matchIfField(effect.removeIfField, action.ownerId, ctx.activeId)) return true;
 
   return false;
 };
 
-export const matchUseIf = (action, effect, ctx) => {
-  if (!('useIfWeapon' in effect || 'useIfTagged' in effect || 'useIfStatus' in effect || 'useIfAttr' in effect || 'useIfField' in effect || 'useIfElement' in effect)) return true;
+const matchIfShifting = (ifShifting, offTuneState) => {
+  return ifShifting.includes(offTuneState.shifting);
+};
+
+const matchIfInterfered = (ifInterfered, offTuneState) => {
+  return ifInterfered.includes(offTuneState.interfered);
+};
+
+export const matchUseIf = (effect, memberId, ctx) => {
+  if (!(
+    'useIfWeapon' in effect ||
+    'useIfTagged' in effect ||
+    'useIfStatus' in effect ||
+    'useIfAttr' in effect ||
+    'useIfField' in effect ||
+    'useIfElement' in effect ||
+    'useIfShifting' in effect ||
+    'useIfInterfered' in effect
+  )) return true;
 
   if ('useIfWeapon' in effect && matchIfWeapon(effect.useIfWeapon, CHARACTER[ctx.cache.gameId][effect.ownerId].type)) return true;
   if ('useIfTagged' in effect && matchIfTagged(effect.useIfTagged, toArray(CHARACTER[ctx.cache.gameId][effect.ownerId].tagged))) return true;
-  if ('useIfStatus' in effect && matchIfStatus(effect.useIfStatus, ctx.enemyState.status)) return true;
-  if ('useIfField' in effect && matchIfField(effect.useIfField, action, ctx.activeId)) return true;
-  if ('useIfAttr' in effect && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.member[effect.ownerId].baseMap, ctx.equipMapByMember[effect.ownerId]))) return true;
+  if ('useIfStatus' in effect && matchIfStatus(effect.useIfStatus, ctx.state.negativeStatuses)) return true;
+  if ('useIfField' in effect && matchIfField(effect.useIfField, memberId, ctx.activeId)) return true;
+  if ('useIfAttr' in effect && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.member[effect.ownerId].baseMap, ctx.equipMaps[effect.ownerId]))) return true;
   if ('useIfElement' in effect && matchIfElement(effect.useIfElement, CHARACTER[ctx.cache.gameId][effect.ownerId].element)) return true;
+  if ('useIfShifting' in effect && matchIfShifting(effect.useIfShifting, ctx.state.offTune)) return true;
+  if ('useIfInterfered' in effect && matchIfInterfered(effect.useIfInterfered, ctx.state.offTune)) return true;
 
   return false;
 };

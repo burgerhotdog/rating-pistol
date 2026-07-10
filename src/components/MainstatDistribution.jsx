@@ -10,7 +10,7 @@ const IconRow = ({ gameId, slots }) => {
   return (
     <Card>
       {slots.map((statId, i) =>
-        <Tooltip key={i} title={formatStr(statId)} arrow>
+        <Tooltip key={i} title={formatStr(statId)}>
           <IconButton>
             <Avatar
               src={ATTR_ASSETS[gameId][statId.replace('%', '')]}
@@ -26,12 +26,11 @@ const IconRow = ({ gameId, slots }) => {
 
 const USER_COLOR = '#BA7517';
 
-const ConfigRow = ({ gameId, configKey, isUser, isSelected, pct, onSelect }) => {
+const ConfigRow = ({ gameId, configKey, isUser, pct }) => {
   const slots = configKey.split('|');
 
   return (
     <Box
-      onClick={() => onSelect(configKey)}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -40,8 +39,8 @@ const ConfigRow = ({ gameId, configKey, isUser, isSelected, pct, onSelect }) => 
         py: 0.5,
         borderRadius: 1.5,
         border: '0.5px solid',
-        borderColor: isUser ? alpha(USER_COLOR, 0.35) : isSelected ? 'divider' : 'transparent',
-        bgcolor: isUser ? alpha(USER_COLOR, 0.06) : isSelected ? 'action.hover' : 'transparent',
+        borderColor: isUser ? alpha(USER_COLOR, 0.35) : isUser ? 'divider' : 'transparent',
+        bgcolor: isUser ? alpha(USER_COLOR, 0.06) : isUser ? 'action.hover' : 'transparent',
         cursor: 'pointer',
         transition: 'background-color 0.15s',
         '&:hover': {
@@ -95,7 +94,7 @@ const ConfigRow = ({ gameId, configKey, isUser, isSelected, pct, onSelect }) => 
   );
 };
 
-export const MainstatDistribution = ({ configMap, userConfigKey, selectedKey, onSelect }) => {
+export const MainstatDistribution = ({ configMap, userConfigKey }) => {
   const { gameId } = useParams();
   if (!configMap) return null;
 
@@ -112,18 +111,15 @@ export const MainstatDistribution = ({ configMap, userConfigKey, selectedKey, on
     <FlexCard>
       <CardHeader
         title={
-          <Stack direction="row" spacing={0.5}>
+          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
             <Typography variant="subtitle1">
               Main stat distribution
             </Typography>
 
             <Tooltip
               title="Top main stat combinations in simulated builds."
-              placement="top"
-              arrow
             >
               <HelpOutlineOutlinedIcon
-                fontSize="small"
                 color="disabled"
               />
             </Tooltip>
@@ -139,9 +135,7 @@ export const MainstatDistribution = ({ configMap, userConfigKey, selectedKey, on
             gameId={gameId}
             configKey={key}
             isUser={key === userConfigKey}
-            isSelected={key === selectedKey}
             pct={config.count / total}
-            onSelect={onSelect}
           />
         ))}
       </Box>

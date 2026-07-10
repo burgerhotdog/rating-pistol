@@ -58,7 +58,7 @@ const initTeam = (gameId, characterId, builds) => {
     CHARACTER[gameId][characterId].defaults?.team ??
     [characterId, ...Array(teamSize - 1).fill(null)];
   
-  return teamPreset.map(rawMemberPreset => {
+  return teamPreset.map((rawMemberPreset) => {
     if (rawMemberPreset == null) return createBlankMember();
 
     const memberPreset = normalizeMemberPreset(gameId, rawMemberPreset);
@@ -79,7 +79,7 @@ export const useTeam = () => {
 
   function updateTeam(index, member) {
     if (index < 0 || index >= team.length) return;
-    setTeam(prev => prev.with(index, member));
+    setTeam((prev) => prev.with(index, member));
   }
 
   function replaceTeam(newTeam) {

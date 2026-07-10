@@ -1,13 +1,12 @@
 import { GI, WW } from '@/data';
-import { mergeEquipList, getTotals } from '@/utils';
-import { compileRotation } from './rotation';
+import { mergeEquipList } from '@/utils';
+import { createRunRotation } from './rotation';
 import { createTrialAdvancer } from './advanceTrial';
-import { findGoodStats } from './findGoodStats';
-import { compilePenalty } from './penalty';
-import { getSubRollSums } from './utils';
-import { KURO_MAINSTAT_INDEX_ORDER } from './statWeights';
+import { findGoodStats } from './stats/findGoodStats';
+import { createGetPenalty } from './penalty';
+import { getSubRollSums, getScore, getMainConfig } from './utils';
 
-const MIN_TRIALS = 50;
+const MIN_TRIALS = 100;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
@@ -29,37 +28,11 @@ const createScoreTracker = () => {
   };
 };
 
-const getConfigKey = (gameId, equipList) => {
-  if (gameId === GI) {
-    const sands = equipList[2]?.mainStatId ?? 'none';
-    const goblet = equipList[3]?.mainStatId ?? 'none';
-    const circlet = equipList[4]?.mainStatId ?? 'none';
-
-    return `hp|atk|${sands}|${goblet}|${circlet}`;
-  }
-
-  const result = {};
-  for (const equip of equipList) {
-    if (!equip) continue;
-
-    const { cost, mainStatId } = equip;
-    (result[cost] ??= []).push(mainStatId);
-  }
-
-  return Object.entries(result)
-    .reverse()
-    .map(([cost, list]) => {
-      const indexOrder = KURO_MAINSTAT_INDEX_ORDER[cost];
-      return list.sort((a, b) => indexOrder[a] - indexOrder[b]).join('|');
-    })
-    .join('|');
-};
-
 const buildConfigStats = (gameId, trials) => {
   const configMap = {};
 
   for (const trial of trials) {
-    const key = getConfigKey(gameId, trial.equipList);
+    const key = getMainConfig(gameId, trial.equipList);
 
     if (!configMap[key]) {
       configMap[key] = {
@@ -72,8 +45,10 @@ const buildConfigStats = (gameId, trials) => {
     entry.count++;
 
     const { subRollSums } = entry;
-    for (const [statId, rolls] of Object.entries(getSubRollSums(gameId, trial.equipList))) {
-      subRollSums[statId] = (subRollSums[statId] ?? 0) + rolls;
+    const rollMap = getSubRollSums(gameId, trial.equipList);
+    for (const [statId, rolls] of Object.entries(rollMap)) {
+      subRollSums[statId] ??= 0;
+      subRollSums[statId] += rolls;
     }
   }
 
@@ -88,116 +63,108 @@ const buildConfigStats = (gameId, trials) => {
 
 const normalizeSummarySums = (sums, n) =>
   Object.fromEntries(
-    Object.entries(sums).map(([key, footprint]) => {
-      const { type } = footprint;
-      return [key, { ...footprint, [type]: footprint[type] / n }];
+    Object.entries(sums).map(([key, result]) => {
+      return [key, { ...result, value: result.value / n }];
     })
   );
 
-const buildFinalStats = (trials) => {
-  const n = trials.length;
-  const statSums = {};
-
-  for (const trial of trials) {
-    const merged = mergeEquipList(trial.equipList);
-
-    for (const stat in merged) {
-      statSums[stat] = (statSums[stat] ?? 0) + merged[stat] / n;
-    }
-  }
-
-  return statSums;
-};
-
 function addSummaryToSums(sums, summary) {
-  for (const [key, footprint] of Object.entries(summary)) {
-    const { type } = footprint;
-
-    if (!sums[key]) sums[key] = { ...footprint, [type]: 0 };
-    sums[key][type] += footprint[type] ?? 0;
+  for (const [key, result] of Object.entries(summary)) {
+    sums[key] ??= { ...result, value: 0 };
+    sums[key].value += result.value ?? 0;
   }
 }
 
-export const runTrials = (cache, currId, team, isPrimary = false) => {
+export const runTrials = (helpers, cache, equipMaps, currId, isMain = false) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
-  const simulateRotation = compileRotation(cache, currId, team);
-  const getPenalty = compilePenalty(cache, currId);
-  const equipListLength = gameId === GI || gameId === WW ? 5 : 6;
-  const baseSummary = simulateRotation(baseMap);
-  const baseTotals = getTotals(baseSummary);
-  const basePenalty = getPenalty(baseMap);
-  const baseScore = (baseTotals.damage + baseTotals.healing + baseTotals.shield) * basePenalty;
+  const runRotation = createRunRotation(helpers, cache, equipMaps, currId);
+  const getPenalty = createGetPenalty(cache, currId);
 
+  const baseSummary = runRotation(baseMap);
+  const basePenalty = getPenalty(baseMap);
+  const baseScore = getScore(baseSummary, currId, basePenalty);
+
+  const weeklySummaries = [baseSummary];
+  const goodStats = findGoodStats(cache, baseScore, currId, runRotation, getPenalty);
+  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, runRotation, getPenalty);
+
+  // Init trials
+  const equipListLength = (gameId === GI || gameId === WW) ? 5 : 6;
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),
     summary: baseSummary,
-    totals: baseTotals,
-    penalty: basePenalty,
     score: baseScore,
   });
-
   const trials = [];
-  for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
+  for (let i = 0; i < MIN_TRIALS; i++) {
+    trials.push(createTrial());
+  }
 
-  const goodStats = findGoodStats(cache, baseScore, currId, simulateRotation, getPenalty);
-  const weeklySummaries = isPrimary ? [baseSummary] : null;
-  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, simulateRotation, getPenalty);
-
+  // Main trial loop
   let prevAvgScore = baseScore;
   for (let week = 1; week <= MAX_WEEKS; week++) {
-    const weekSummarySums = isPrimary ? {} : null;
-    const weekTotals = isPrimary ? [] : null;
     const weekScores = createScoreTracker();
+    const weekSummarySums = {};
 
     for (const trial of trials) {
       advanceTrial(trial);
       weekScores.add(trial.score);
 
-      if (isPrimary) {
+      if (isMain) {
         addSummaryToSums(weekSummarySums, trial.summary);
-        weekTotals.push(trial.totals);
       }
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
-      if (weekScores.relativeError <= 0.005) break;
+      if (weekScores.relativeError <= 0.005) {
+        break;
+      }
 
       const trial = createTrial();
       advanceTrial(trial);
       trials.push(trial);
 
       weekScores.add(trial.score);
-      if (isPrimary) {
+      if (isMain) {
         addSummaryToSums(weekSummarySums, trial.summary);
-        weekTotals.push(trial.totals);
       }
     }
 
     const avgScore = weekScores.mean;
     const diff = (avgScore - prevAvgScore) / prevAvgScore;
 
-    if (isPrimary) {
+    if (isMain) {
+      self.postMessage({ week, diff });
       const weeklySummary = normalizeSummarySums(weekSummarySums, trials.length);
       weeklySummaries.push(weeklySummary);
-
-      self.postMessage({ type: 'progress', week, diff });
     }
 
-    if (diff < 0.01) break;
+    if (diff < 0.01) {
+      break;
+    }
+
     prevAvgScore = avgScore;
   }
 
-  if (!isPrimary) return buildFinalStats(trials);
-  console.log(buildFinalStats(trials));
+  if (!isMain) {
+    const avgEquipMap = {};
+    for (const { equipList } of trials) {
+      const equipMap = mergeEquipList(equipList);
+      for (const [stat, value] of Object.entries(equipMap)) {
+        avgEquipMap[stat] ??= 0;
+        avgEquipMap[stat] += value / trials.length;
+      }
+    }
+    return avgEquipMap;
+  }
   
   self.postMessage({
-    type: 'done',
     cache,
     weeklySummaries,
-    userSummary: simulateRotation(cache.member[currId].statMap),
+    userSummary: runRotation(cache.member[currId].statMap),
     configMap: buildConfigStats(gameId, trials),
-    userConfigKey: getConfigKey(gameId, cache.member[currId].equipList),
+    userConfigKey: getMainConfig(gameId, cache.member[currId].equipList),
     userSubStats: getSubRollSums(gameId, cache.member[currId].equipList),
   });
 };

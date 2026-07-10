@@ -4,7 +4,7 @@
     "name": "March 7th",
     "quality": 4,
     "element": "ice",
-    "type": "Preservation",
+    "type": "preservation",
     "baseStats": {
       "baseHp": 1058,
       "baseAtk": 512,
@@ -22,7 +22,7 @@
     "name": "Dan Heng",
     "quality": 4,
     "element": "wind",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 882,
       "baseAtk": 547,
@@ -40,7 +40,7 @@
     "name": "Himeko",
     "quality": 5,
     "element": "fire",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 757,
@@ -58,7 +58,7 @@
     "name": "Welt",
     "quality": 5,
     "element": "imaginary",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1125,
       "baseAtk": 621,
@@ -76,7 +76,7 @@
     "name": "Arlan",
     "quality": 4,
     "element": "lightning",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1200,
       "baseAtk": 600,
@@ -94,7 +94,7 @@
     "name": "Asta",
     "quality": 4,
     "element": "fire",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 1023,
       "baseAtk": 512,
@@ -112,7 +112,7 @@
     "name": "Herta",
     "quality": 4,
     "element": "ice",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 953,
       "baseAtk": 582,
@@ -130,7 +130,7 @@
     "name": "Bronya",
     "quality": 5,
     "element": "wind",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 1242,
       "baseAtk": 582,
@@ -148,7 +148,7 @@
     "name": "Seele",
     "quality": 5,
     "element": "quantum",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 931,
       "baseAtk": 640,
@@ -166,7 +166,7 @@
     "name": "Serval",
     "quality": 4,
     "element": "lightning",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 917,
       "baseAtk": 653,
@@ -184,7 +184,7 @@
     "name": "Gepard",
     "quality": 5,
     "element": "ice",
-    "type": "Preservation",
+    "type": "preservation",
     "baseStats": {
       "baseHp": 1397,
       "baseAtk": 543,
@@ -202,7 +202,7 @@
     "name": "Natasha",
     "quality": 4,
     "element": "physical",
-    "type": "Abundance",
+    "type": "abundance",
     "baseStats": {
       "baseHp": 1164,
       "baseAtk": 476,
@@ -220,7 +220,7 @@
     "name": "Pela",
     "quality": 4,
     "element": "ice",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 988,
       "baseAtk": 547,
@@ -238,7 +238,7 @@
     "name": "Clara",
     "quality": 5,
     "element": "physical",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1242,
       "baseAtk": 737,
@@ -256,7 +256,7 @@
     "name": "Sampo",
     "quality": 4,
     "element": "wind",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1023,
       "baseAtk": 617,
@@ -274,7 +274,7 @@
     "name": "Hook",
     "quality": 4,
     "element": "fire",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1341,
       "baseAtk": 617,
@@ -292,7 +292,7 @@
     "name": "Qingque",
     "quality": 4,
     "element": "quantum",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 1023,
       "baseAtk": 653,
@@ -310,7 +310,7 @@
     "name": "Tingyun",
     "quality": 4,
     "element": "lightning",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 847,
       "baseAtk": 529,
@@ -328,7 +328,7 @@
     "name": "Jing Yuan",
     "quality": 5,
     "element": "lightning",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 1164,
       "baseAtk": 699,
@@ -346,7 +346,7 @@
     "name": "Sushang",
     "quality": 4,
     "element": "physical",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 917,
       "baseAtk": 564,
@@ -364,7 +364,7 @@
     "name": "Yanqing",
     "quality": 5,
     "element": "ice",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 893,
       "baseAtk": 679,
@@ -382,7 +382,7 @@
     "name": "Bailu",
     "quality": 5,
     "element": "lightning",
-    "type": "Abundance",
+    "type": "abundance",
     "baseStats": {
       "baseHp": 1319,
       "baseAtk": 563,
@@ -400,7 +400,7 @@
     "name": "Silver Wolf",
     "quality": 5,
     "element": "quantum",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 640,
@@ -418,7 +418,7 @@
     "name": "Luocha",
     "quality": 5,
     "element": "imaginary",
-    "type": "Abundance",
+    "type": "abundance",
     "baseStats": {
       "baseHp": 1281,
       "baseAtk": 757,
@@ -436,7 +436,7 @@
     "name": "Yukong",
     "quality": 4,
     "element": "imaginary",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 917,
       "baseAtk": 600,
@@ -454,7 +454,7 @@
     "name": "Kafka",
     "quality": 5,
     "element": "lightning",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1087,
       "baseAtk": 679,
@@ -472,7 +472,7 @@
     "name": "Luka",
     "quality": 4,
     "element": "physical",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 917,
       "baseAtk": 582,
@@ -490,7 +490,7 @@
     "name": "Blade",
     "quality": 5,
     "element": "wind",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1358,
       "baseAtk": 543,
@@ -508,7 +508,7 @@
     "name": "Lynx",
     "quality": 4,
     "element": "quantum",
-    "type": "Abundance",
+    "type": "abundance",
     "baseStats": {
       "baseHp": 1058,
       "baseAtk": 494,
@@ -526,7 +526,7 @@
     "name": "Fu Xuan",
     "quality": 5,
     "element": "quantum",
-    "type": "Preservation",
+    "type": "preservation",
     "baseStats": {
       "baseHp": 1475,
       "baseAtk": 466,
@@ -544,7 +544,7 @@
     "name": "Dan Heng: Imbibitor Lunae",
     "quality": 5,
     "element": "imaginary",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1242,
       "baseAtk": 699,
@@ -562,7 +562,7 @@
     "name": "Topaz & Numby",
     "quality": 5,
     "element": "fire",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 931,
       "baseAtk": 621,
@@ -580,7 +580,7 @@
     "name": "Guinaifen",
     "quality": 4,
     "element": "fire",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 882,
       "baseAtk": 582,
@@ -598,7 +598,7 @@
     "name": "Jingliu",
     "quality": 5,
     "element": "ice",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1436,
       "baseAtk": 679,
@@ -616,7 +616,7 @@
     "name": "Hanya",
     "quality": 4,
     "element": "physical",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 917,
       "baseAtk": 564,
@@ -634,7 +634,7 @@
     "name": "Huohuo",
     "quality": 5,
     "element": "wind",
-    "type": "Abundance",
+    "type": "abundance",
     "baseStats": {
       "baseHp": 1358,
       "baseAtk": 602,
@@ -652,7 +652,7 @@
     "name": "Argenti",
     "quality": 5,
     "element": "physical",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 737,
@@ -670,7 +670,7 @@
     "name": "Xueyi",
     "quality": 4,
     "element": "quantum",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1058,
       "baseAtk": 600,
@@ -688,7 +688,7 @@
     "name": "Ruan Mei",
     "quality": 5,
     "element": "ice",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 1087,
       "baseAtk": 660,
@@ -706,7 +706,7 @@
     "name": "Dr. Ratio",
     "quality": 5,
     "element": "imaginary",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 776,
@@ -724,7 +724,7 @@
     "name": "Sparkle",
     "quality": 5,
     "element": "quantum",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 1397,
       "baseAtk": 524,
@@ -742,7 +742,7 @@
     "name": "Black Swan",
     "quality": 5,
     "element": "wind",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1087,
       "baseAtk": 660,
@@ -760,7 +760,7 @@
     "name": "Misha",
     "quality": 4,
     "element": "ice",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1270,
       "baseAtk": 600,
@@ -778,7 +778,7 @@
     "name": "Gallagher",
     "quality": 4,
     "element": "fire",
-    "type": "Abundance",
+    "type": "abundance",
     "baseStats": {
       "baseHp": 1305,
       "baseAtk": 529,
@@ -796,7 +796,7 @@
     "name": "Aventurine",
     "quality": 5,
     "element": "imaginary",
-    "type": "Preservation",
+    "type": "preservation",
     "baseStats": {
       "baseHp": 1203,
       "baseAtk": 446,
@@ -814,7 +814,7 @@
     "name": "Acheron",
     "quality": 5,
     "element": "lightning",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1125,
       "baseAtk": 699,
@@ -832,7 +832,7 @@
     "name": "Robin",
     "quality": 5,
     "element": "physical",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 1281,
       "baseAtk": 640,
@@ -850,7 +850,7 @@
     "name": "Boothill",
     "quality": 5,
     "element": "physical",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 1203,
       "baseAtk": 621,
@@ -868,7 +868,7 @@
     "name": "Firefly",
     "quality": 5,
     "element": "fire",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 815,
       "baseAtk": 524,
@@ -886,7 +886,7 @@
     "name": "Jade",
     "quality": 5,
     "element": "quantum",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 1087,
       "baseAtk": 660,
@@ -904,7 +904,7 @@
     "name": "Jiaoqiu",
     "quality": 5,
     "element": "fire",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1358,
       "baseAtk": 602,
@@ -922,7 +922,7 @@
     "name": "Yunli",
     "quality": 5,
     "element": "physical",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1358,
       "baseAtk": 679,
@@ -940,7 +940,7 @@
     "name": "March 7th",
     "quality": 4,
     "element": "imaginary",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 1058,
       "baseAtk": 564,
@@ -958,7 +958,7 @@
     "name": "Feixiao",
     "quality": 5,
     "element": "wind",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 602,
@@ -976,7 +976,7 @@
     "name": "Lingsha",
     "quality": 5,
     "element": "fire",
-    "type": "Abundance",
+    "type": "abundance",
     "baseStats": {
       "baseHp": 1358,
       "baseAtk": 679,
@@ -994,7 +994,7 @@
     "name": "Moze",
     "quality": 4,
     "element": "lightning",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 811,
       "baseAtk": 600,
@@ -1012,7 +1012,7 @@
     "name": "Rappa",
     "quality": 5,
     "element": "imaginary",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 1087,
       "baseAtk": 718,
@@ -1030,7 +1030,7 @@
     "name": "Fugue",
     "quality": 5,
     "element": "fire",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1125,
       "baseAtk": 582,
@@ -1048,7 +1048,7 @@
     "name": "Sunday",
     "quality": 5,
     "element": "imaginary",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 1242,
       "baseAtk": 640,
@@ -1066,7 +1066,7 @@
     "name": "The Herta",
     "quality": 5,
     "element": "ice",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 1164,
       "baseAtk": 679,
@@ -1084,7 +1084,7 @@
     "name": "Aglaea",
     "quality": 5,
     "element": "lightning",
-    "type": "Remembrance",
+    "type": "remembrance",
     "baseStats": {
       "baseHp": 1242,
       "baseAtk": 699,
@@ -1102,7 +1102,7 @@
     "name": "Tribbie",
     "quality": 5,
     "element": "quantum",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 524,
@@ -1120,7 +1120,7 @@
     "name": "Mydei",
     "quality": 5,
     "element": "imaginary",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1552,
       "baseAtk": 427,
@@ -1138,7 +1138,7 @@
     "name": "Anaxa",
     "quality": 5,
     "element": "wind",
-    "type": "Erudition",
+    "type": "erudition",
     "baseStats": {
       "baseHp": 970,
       "baseAtk": 757,
@@ -1156,7 +1156,7 @@
     "name": "Castorice",
     "quality": 5,
     "element": "quantum",
-    "type": "Remembrance",
+    "type": "remembrance",
     "baseStats": {
       "baseHp": 1630,
       "baseAtk": 524,
@@ -1174,7 +1174,7 @@
     "name": "Cipher",
     "quality": 5,
     "element": "quantum",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 931,
       "baseAtk": 640,
@@ -1192,7 +1192,7 @@
     "name": "Hyacine",
     "quality": 5,
     "element": "wind",
-    "type": "Remembrance",
+    "type": "remembrance",
     "baseStats": {
       "baseHp": 1087,
       "baseAtk": 388,
@@ -1210,7 +1210,7 @@
     "name": "Saber",
     "quality": 5,
     "element": "wind",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1242,
       "baseAtk": 602,
@@ -1228,7 +1228,7 @@
     "name": "Archer",
     "quality": 5,
     "element": "quantum",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 1164,
       "baseAtk": 621,
@@ -1246,7 +1246,7 @@
     "name": "Phainon",
     "quality": 5,
     "element": "physical",
-    "type": "Destruction",
+    "type": "destruction",
     "baseStats": {
       "baseHp": 1436,
       "baseAtk": 582,
@@ -1264,7 +1264,7 @@
     "name": "Hysilens",
     "quality": 5,
     "element": "physical",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1203,
       "baseAtk": 602,
@@ -1282,7 +1282,7 @@
     "name": "Cerydra",
     "quality": 5,
     "element": "wind",
-    "type": "Harmony",
+    "type": "harmony",
     "baseStats": {
       "baseHp": 1358,
       "baseAtk": 621,
@@ -1300,7 +1300,7 @@
     "name": "Evernight",
     "quality": 5,
     "element": "ice",
-    "type": "Remembrance",
+    "type": "remembrance",
     "baseStats": {
       "baseHp": 1319,
       "baseAtk": 543,
@@ -1315,10 +1315,10 @@
   },
   {
     "id": "1414",
-    "name": "Dan Heng \u00e2\u20ac\u00a2 Permansor Terrae",
+    "name": "Dan Heng: Permansor Terrae",
     "quality": 5,
     "element": "physical",
-    "type": "Preservation",
+    "type": "preservation",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 582,
@@ -1336,7 +1336,7 @@
     "name": "Cyrene",
     "quality": 5,
     "element": "ice",
-    "type": "Remembrance",
+    "type": "remembrance",
     "baseStats": {
       "baseHp": 1397,
       "baseAtk": 446,
@@ -1354,7 +1354,7 @@
     "name": "The Dahlia",
     "quality": 5,
     "element": "fire",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1087,
       "baseAtk": 679,
@@ -1372,7 +1372,7 @@
     "name": "Sparxie",
     "quality": 5,
     "element": "fire",
-    "type": "Elation",
+    "type": "elation",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 640,
@@ -1390,7 +1390,7 @@
     "name": "Yao Guang",
     "quality": 5,
     "element": "physical",
-    "type": "Elation",
+    "type": "elation",
     "baseStats": {
       "baseHp": 1242,
       "baseAtk": 466,
@@ -1408,7 +1408,7 @@
     "name": "Ashveil",
     "quality": 5,
     "element": "lightning",
-    "type": "Hunt",
+    "type": "hunt",
     "baseStats": {
       "baseHp": 854,
       "baseAtk": 776,
@@ -1426,7 +1426,7 @@
     "name": "Evanescia",
     "quality": 5,
     "element": "physical",
-    "type": "Elation",
+    "type": "elation",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 737,
@@ -1444,7 +1444,7 @@
     "name": "Silver Wolf LV.<unbreak>999</unbreak>",
     "quality": 5,
     "element": "imaginary",
-    "type": "Elation",
+    "type": "elation",
     "baseStats": {
       "baseHp": 1048,
       "baseAtk": 388,
@@ -1462,7 +1462,7 @@
     "name": "Mortenax Blade",
     "quality": 5,
     "element": "fire",
-    "type": "Nihility",
+    "type": "nihility",
     "baseStats": {
       "baseHp": 1358,
       "baseAtk": 543,

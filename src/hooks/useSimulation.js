@@ -1,46 +1,52 @@
 import { useMemo, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { GI, WW, ZZZ } from '@/data';
+import { GI, WW } from '@/data';
 
-const VALID = new Set([GI, WW, ZZZ]);
+const VALID_GAME_IDS = new Set([GI, WW]);
 
 export const useSimulation = (team) => {
   const { gameId, characterId } = useParams();
-
   const workerRef = useRef(null);
+  const prevPayloadRef = useRef(undefined);
   const [result, setResult] = useState({});
 
   const payload = useMemo(() => {
-    const isValidGame = VALID.has(gameId);
-    const isValidTeam = team.every(member => !member.id || member.rotation.length > 0);
-    const isValid = isValidGame && isValidTeam;
+    if (!VALID_GAME_IDS.has(gameId)) {
+      return null;
+    }
 
-    return isValid ? { gameId, characterId, team } : null;
+    const filteredTeam = team.filter((member) => member.id);
+    if (filteredTeam.some((member) => !member.rotation.length)) {
+      return null;
+    }
+
+    return { gameId, characterId, team: filteredTeam };
   }, [gameId, characterId, team]);
+
+  if (prevPayloadRef.current !== payload) {
+    prevPayloadRef.current = payload;
+    setResult({});
+  }
 
   useEffect(() => {
     workerRef.current?.terminate();
     workerRef.current = null;
-
     if (!payload) return;
 
     const worker = new Worker(
       new URL('../workers/simulation/worker.js', import.meta.url),
       { type: 'module' },
     );
-
     workerRef.current = worker;
 
     worker.onmessage = ({ data }) => {
-      if (data.type === 'progress') {
-        return setResult(prev => ({ ...prev, ...data }));
-      }
+      setResult((prev) => ({ ...prev, ...data }));
 
-      if (data.type === 'done') {
-        setResult(prev => ({ ...prev, ...data }));
-
+      if ('userSummary' in data) {
         worker.terminate();
-        if (workerRef.current === worker) workerRef.current = null;
+        if (workerRef.current === worker) {
+          workerRef.current = null;
+        }
       }
     };
 
@@ -48,9 +54,11 @@ export const useSimulation = (team) => {
 
     return () => {
       worker.terminate();
-      if (workerRef.current === worker) workerRef.current = null;
+      if (workerRef.current === worker) {
+        workerRef.current = null;
+      }
     };
   }, [payload]);
 
-  return payload ? result : { statusMessage: 'Simulation disabled' };
+  return payload ? result : { status: 'Simulation disabled' };
 };

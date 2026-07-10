@@ -1,48 +1,40 @@
 import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
-import { getAttr } from '@/utils';
+import { toArray, getAttr } from '@/utils';
 
-const ENERGY_STAT = {
+const ENERGY_ATTR = {
   [GI]: 'energyRecharge%',
   [HSR]: 'energyRegenerationRate%',
   [WW]: 'energyRegen%',
   [ZZZ]: 'energyRegen%',
 };
 
-const matchPenalty = (current, target) => {
+const penaltyMult = (current, target) => {
   if (!target) return 1;
 
   const relativeDeficit = (target - current) / target;
   if (relativeDeficit <= 0) return 1;
 
-  return Math.exp(-1 * relativeDeficit);
+  return Math.exp(-relativeDeficit);
 };
 
-const getPenalty = (statMap, matchMap) => {
-  let penalty = 1;
-
-  for (const attr in matchMap) {
-    const current = getAttr(attr, statMap);
-    const target = matchMap[attr];
-
-    penalty *= matchPenalty(current, target)
-  }
-
-  return penalty;
-};
-
-export const compilePenalty = (cache, currId) => {
-  const { matchList = [], tagged = [] } = CHARACTER[cache.gameId][currId];
-  const { statMap } = cache.member[currId];
+export const createGetPenalty = (cache, currId) => {
+  const { gameId, member } = cache;
+  const { tagged, matchAttr } = CHARACTER[gameId][currId];
+  const { statMap } = member[currId];
   const matchMap = {};
 
-  for (const attr of matchList) {
+  for (const attr of toArray(matchAttr)) {
     matchMap[attr] = getAttr(attr, statMap);
   }
 
-  if (!tagged.includes('noEnergy')) {
-    const energyStat = ENERGY_STAT[cache.gameId];
-    matchMap[energyStat] = getAttr(energyStat, statMap);
+  if (!toArray(tagged).includes('noEnergy')) {
+    const energyAttr = ENERGY_ATTR[gameId];
+    matchMap[energyAttr] = getAttr(energyAttr, statMap);
   }
 
-  return statMap => getPenalty(statMap, matchMap);
+  return (statMap) => (
+    Object.entries(matchMap).reduce((acc, [attr, target]) => (
+      acc * penaltyMult(getAttr(attr, statMap), target)
+    ), 1)
+  );
 };

@@ -4,7 +4,7 @@
     "name": "Anby",
     "quality": 4,
     "element": "electric",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 7501,
       "baseAtk": 584,
@@ -23,7 +23,7 @@
     "name": "Nekomata",
     "quality": 5,
     "element": "physical",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7560,
       "baseAtk": 836,
@@ -42,7 +42,7 @@
     "name": "Nicole",
     "quality": 4,
     "element": "ether",
-    "type": "Support",
+    "type": "support",
     "baseStats": {
       "baseHp": 8146,
       "baseAtk": 574,
@@ -61,7 +61,7 @@
     "name": "Soldier 11",
     "quality": 5,
     "element": "fire",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 814,
@@ -80,7 +80,7 @@
     "name": "Corin",
     "quality": 4,
     "element": "physical",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 6977,
       "baseAtk": 732,
@@ -99,7 +99,7 @@
     "name": "Billy",
     "quality": 4,
     "element": "physical",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 6907,
       "baseAtk": 712,
@@ -118,7 +118,7 @@
     "name": "Koleda",
     "quality": 5,
     "element": "fire",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 8127,
       "baseAtk": 661,
@@ -137,7 +137,7 @@
     "name": "Anton",
     "quality": 4,
     "element": "electric",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7219,
       "baseAtk": 717,
@@ -156,7 +156,7 @@
     "name": "Ben",
     "quality": 4,
     "element": "fire",
-    "type": "Defense",
+    "type": "defense",
     "baseStats": {
       "baseHp": 8578,
       "baseAtk": 578,
@@ -175,7 +175,7 @@
     "name": "Soukaku",
     "quality": 4,
     "element": "ice",
-    "type": "Support",
+    "type": "support",
     "baseStats": {
       "baseHp": 8026,
       "baseAtk": 591,
@@ -194,7 +194,7 @@
     "name": "Lycaon",
     "quality": 5,
     "element": "ice",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 8416,
       "baseAtk": 654,
@@ -213,7 +213,7 @@
     "name": "Lucy",
     "quality": 4,
     "element": "fire",
-    "type": "Support",
+    "type": "support",
     "baseStats": {
       "baseHp": 8026,
       "baseAtk": 584,
@@ -232,7 +232,7 @@
     "name": "Grace",
     "quality": 5,
     "element": "electric",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7483,
       "baseAtk": 751,
@@ -251,7 +251,7 @@
     "name": "Ellen",
     "quality": 5,
     "element": "ice",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 863,
@@ -270,7 +270,7 @@
     "name": "Rina",
     "quality": 5,
     "element": "electric",
-    "type": "Support",
+    "type": "support",
     "baseStats": {
       "baseHp": 8609,
       "baseAtk": 642,
@@ -289,7 +289,7 @@
     "name": "Zhu Yuan",
     "quality": 5,
     "element": "ether",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7483,
       "baseAtk": 844,
@@ -308,7 +308,7 @@
     "name": "Piper",
     "quality": 4,
     "element": "physical",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 6977,
       "baseAtk": 683,
@@ -327,7 +327,7 @@
     "name": "Qingyi",
     "quality": 5,
     "element": "electric",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 8251,
       "baseAtk": 683,
@@ -346,7 +346,7 @@
     "name": "Jane",
     "quality": 5,
     "element": "physical",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7789,
       "baseAtk": 806,
@@ -365,7 +365,7 @@
     "name": "Seth",
     "quality": 4,
     "element": "electric",
-    "type": "Defense",
+    "type": "defense",
     "baseStats": {
       "baseHp": 8701,
       "baseAtk": 568,
@@ -384,7 +384,7 @@
     "name": "Caesar",
     "quality": 5,
     "element": "physical",
-    "type": "Defense",
+    "type": "defense",
     "baseStats": {
       "baseHp": 9526,
       "baseAtk": 637,
@@ -403,7 +403,7 @@
     "name": "Burnice",
     "quality": 5,
     "element": "fire",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7368,
       "baseAtk": 788,
@@ -422,7 +422,7 @@
     "name": "Lighter",
     "quality": 5,
     "element": "fire",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 8253,
       "baseAtk": 723,
@@ -441,7 +441,7 @@
     "name": "Yanagi",
     "quality": 5,
     "element": "electric",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7789,
       "baseAtk": 798,
@@ -460,7 +460,7 @@
     "name": "Miyabi",
     "quality": 5,
     "element": "ice",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 806,
@@ -479,7 +479,7 @@
     "name": "Harumasa",
     "quality": 5,
     "element": "electric",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7406,
       "baseAtk": 841,
@@ -498,7 +498,7 @@
     "name": "Astra Yao",
     "quality": 5,
     "element": "ether",
-    "type": "Support",
+    "type": "support",
     "baseStats": {
       "baseHp": 8609,
       "baseAtk": 641,
@@ -517,7 +517,7 @@
     "name": "Evelyn",
     "quality": 5,
     "element": "fire",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7789,
       "baseAtk": 855,
@@ -536,7 +536,7 @@
     "name": "Pulchra",
     "quality": 4,
     "element": "physical",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 7613,
       "baseAtk": 591,
@@ -555,7 +555,7 @@
     "name": "Trigger",
     "quality": 5,
     "element": "electric",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 7923,
       "baseAtk": 676,
@@ -574,7 +574,7 @@
     "name": "Soldier 0 - Anby",
     "quality": 5,
     "element": "electric",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 855,
@@ -593,7 +593,7 @@
     "name": "Hugo",
     "quality": 5,
     "element": "ice",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7941,
       "baseAtk": 844,
@@ -612,7 +612,7 @@
     "name": "Vivian",
     "quality": 5,
     "element": "ether",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 806,
@@ -631,7 +631,7 @@
     "name": "Yixuan",
     "quality": 5,
     "element": "ether",
-    "type": "Rupture",
+    "type": "rupture",
     "baseStats": {
       "baseHp": 7954,
       "baseAtk": 873,
@@ -650,7 +650,7 @@
     "name": "Ju Fufu",
     "quality": 5,
     "element": "fire",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 8251,
       "baseAtk": 691,
@@ -669,7 +669,7 @@
     "name": "Pan Yinhu",
     "quality": 4,
     "element": "physical",
-    "type": "Defense",
+    "type": "defense",
     "baseStats": {
       "baseHp": 8454,
       "baseAtk": 587,
@@ -688,7 +688,7 @@
     "name": "Alice",
     "quality": 5,
     "element": "physical",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 806,
@@ -707,7 +707,7 @@
     "name": "Yuzuha",
     "quality": 5,
     "element": "physical",
-    "type": "Support",
+    "type": "support",
     "baseStats": {
       "baseHp": 8829,
       "baseAtk": 683,
@@ -726,7 +726,7 @@
     "name": "Orphie & Magus",
     "quality": 5,
     "element": "fire",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7789,
       "baseAtk": 855,
@@ -745,7 +745,7 @@
     "name": "Seed",
     "quality": 5,
     "element": "electric",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 855,
@@ -764,7 +764,7 @@
     "name": "Yidhari",
     "quality": 5,
     "element": "ice",
-    "type": "Rupture",
+    "type": "rupture",
     "baseStats": {
       "baseHp": 8497,
       "baseAtk": 785,
@@ -783,7 +783,7 @@
     "name": "Manato",
     "quality": 4,
     "element": "fire",
-    "type": "Rupture",
+    "type": "rupture",
     "baseStats": {
       "baseHp": 7725,
       "baseAtk": 680,
@@ -802,7 +802,7 @@
     "name": "Lucia",
     "quality": 5,
     "element": "ether",
-    "type": "Support",
+    "type": "support",
     "baseStats": {
       "baseHp": 8477,
       "baseAtk": 683,
@@ -821,7 +821,7 @@
     "name": "Banyue",
     "quality": 5,
     "element": "fire",
-    "type": "Rupture",
+    "type": "rupture",
     "baseStats": {
       "baseHp": 8497,
       "baseAtk": 785,
@@ -840,7 +840,7 @@
     "name": "Dialyn",
     "quality": 5,
     "element": "physical",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 8251,
       "baseAtk": 683,
@@ -859,7 +859,7 @@
     "name": "Zhao",
     "quality": 5,
     "element": "ice",
-    "type": "Defense",
+    "type": "defense",
     "baseStats": {
       "baseHp": 9117,
       "baseAtk": 691,
@@ -878,7 +878,7 @@
     "name": "Ye Shunguang",
     "quality": 5,
     "element": "physical",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 863,
@@ -897,7 +897,7 @@
     "name": "Sunna",
     "quality": 5,
     "element": "physical",
-    "type": "Support",
+    "type": "support",
     "baseStats": {
       "baseHp": 8477,
       "baseAtk": 676,
@@ -916,7 +916,7 @@
     "name": "Aria",
     "quality": 5,
     "element": "ether",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7750,
       "baseAtk": 788,
@@ -935,7 +935,7 @@
     "name": "Nangong Yu",
     "quality": 5,
     "element": "ether",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 8374,
       "baseAtk": 672,
@@ -954,7 +954,7 @@
     "name": "Cissia",
     "quality": 5,
     "element": "electric",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 863,
@@ -973,7 +973,7 @@
     "name": "Starlight - Billy",
     "quality": 5,
     "element": "physical",
-    "type": "Rupture",
+    "type": "rupture",
     "baseStats": {
       "baseHp": 8497,
       "baseAtk": 785,
@@ -992,7 +992,7 @@
     "name": "Promeia",
     "quality": 5,
     "element": "ice",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7789,
       "baseAtk": 798,
@@ -1011,7 +1011,7 @@
     "name": "Pyrois",
     "quality": 5,
     "element": "ether",
-    "type": "Attack",
+    "type": "attack",
     "baseStats": {
       "baseHp": 7674,
       "baseAtk": 849,
@@ -1030,7 +1030,7 @@
     "name": "Velina",
     "quality": 5,
     "element": "wind",
-    "type": "Anomaly",
+    "type": "anomaly",
     "baseStats": {
       "baseHp": 7789,
       "baseAtk": 798,
@@ -1049,7 +1049,7 @@
     "name": "Norma",
     "quality": 5,
     "element": "fire",
-    "type": "Stun",
+    "type": "stun",
     "baseStats": {
       "baseHp": 7800,
       "baseAtk": 687,

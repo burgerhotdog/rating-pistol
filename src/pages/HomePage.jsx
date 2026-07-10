@@ -3,9 +3,9 @@ import { Stack, Box, Tooltip } from '@mui/material';
 import { ICON_ASSETS } from '@/assets';
 import { GI, HSR, WW, ZZZ } from '@/data';
 
-const formatId = gameId => gameId
+const formatId = (gameId) => gameId
   .split('-')
-  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
   .join(' ');
 
 const GameLink = ({ gameId }) => {

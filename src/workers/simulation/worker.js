@@ -1,28 +1,40 @@
 import { compileCache } from './cache';
+import { createGetDefMult, createGetResMult } from './rotation/damageFormula';
 import { runTrials } from './runTrials';
 
+const compileHelpers = (gameId) => ({
+  getDefMult: createGetDefMult(gameId),
+  getResMult: createGetResMult(gameId),
+});
+
 self.onmessage = ({ data }) => {
-  const { gameId, characterId, team: rawTeam } = data;
-  const team = rawTeam.filter(member => member.id);
+  const { gameId, characterId, team } = data;
+  const helpers = compileHelpers(gameId);
   const cache = compileCache(gameId, team);
-  const trialMaps = {};
 
-  for (let ti = team.length - 1; ti >= 0; ti--) {
-    const member = team[ti];
-    if (member.build) continue;
+  const equipMaps = Object.fromEntries(
+    team.map((member) => {
+      // User build exists
+      if ('build' in member) {
+        const { equipMap } = cache.member[member.id];
+        return [member.id, equipMap];
+      }
 
-    self.postMessage({ type: 'progress', statusMessage: 'Creating trial builds' });
+      // User build doesn't exist
+      self.postMessage({ status: `Generating trial build for ${member.id}` });
 
-    const test = team.map(member => ({ ...member, equipMap: cache.member[member.id].equipMap }));
-    trialMaps[member.id] = runTrials(cache, member.id, test);
-  }
+      const trialEquipMaps = Object.fromEntries(
+        team.map(({ id }) => {
+          const { equipMap } = cache.member[id];
+          return [id, equipMap];
+        })
+      );
 
-  self.postMessage({ type: 'progress', statusMessage: 'Running simulation' });
+      return [member.id, runTrials(helpers, cache, trialEquipMaps, member.id)];
+    })
+  );
 
-  const trialsTeam = team.map(member => {
-    if (member.build) return { ...member, equipMap: cache.member[member.id].equipMap };
-    return { ...member, equipMap: trialMaps[member.id] };
-  });
+  self.postMessage({ status: 'Running simulation' });
 
-  runTrials(cache, characterId, trialsTeam, true);
+  runTrials(helpers, cache, equipMaps, characterId, true);
 };

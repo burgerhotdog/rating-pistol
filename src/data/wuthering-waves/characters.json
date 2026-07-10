@@ -4,7 +4,7 @@
     "name": "Sanhua",
     "quality": 4,
     "element": "glacio",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 10062,
       "baseAtk": 275,
@@ -118,7 +118,7 @@
     "name": "Baizhi",
     "quality": 4,
     "element": "glacio",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 12812,
       "baseAtk": 212,
@@ -265,7 +265,7 @@
     "name": "Lingyang",
     "quality": 5,
     "element": "glacio",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 10387,
       "baseAtk": 437,
@@ -375,7 +375,7 @@
     "name": "Chixia",
     "quality": 4,
     "element": "fusion",
-    "type": "Pistols",
+    "type": "pistols",
     "baseStats": {
       "baseHp": 9087,
       "baseAtk": 300,
@@ -467,7 +467,7 @@
     "name": "Encore",
     "quality": 5,
     "element": "fusion",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 10512,
       "baseAtk": 425,
@@ -588,7 +588,7 @@
     "name": "Mortefi",
     "quality": 4,
     "element": "fusion",
-    "type": "Pistols",
+    "type": "pistols",
     "baseStats": {
       "baseHp": 10025,
       "baseAtk": 250,
@@ -601,7 +601,7 @@
     "effects": [
       {
         "applyTo": "active",
-        "applyWhen": "hit",
+        "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnSkillType": "basicAttack",
         "useCooldown": 350,
@@ -615,7 +615,7 @@
       },
       {
         "applyTo": "active",
-        "applyWhen": "hit",
+        "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnSkillType": "heavyAttack",
         "useCooldown": 350,
@@ -723,7 +723,7 @@
     "name": "Calcharo",
     "quality": 5,
     "element": "electro",
-    "type": "Broadblade",
+    "type": "broadblade",
     "baseStats": {
       "baseHp": 10500,
       "baseAtk": 437,
@@ -835,7 +835,7 @@
     "name": "Yinlin",
     "quality": 5,
     "element": "electro",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 11000,
       "baseAtk": 400,
@@ -975,7 +975,7 @@
     "name": "Yuanwu",
     "quality": 4,
     "element": "electro",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 8525,
       "baseAtk": 225,
@@ -1088,7 +1088,7 @@
     "name": "Yangyang",
     "quality": 4,
     "element": "aero",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 10200,
       "baseAtk": 250,
@@ -1177,7 +1177,7 @@
     "name": "Aalto",
     "quality": 4,
     "element": "aero",
-    "type": "Pistols",
+    "type": "pistols",
     "baseStats": {
       "baseHp": 9850,
       "baseAtk": 262,
@@ -1309,7 +1309,7 @@
     "name": "Jiyan",
     "quality": 5,
     "element": "aero",
-    "type": "Broadblade",
+    "type": "broadblade",
     "baseStats": {
       "baseHp": 10487,
       "baseAtk": 437,
@@ -1458,7 +1458,7 @@
     "name": "Jianxin",
     "quality": 5,
     "element": "aero",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 14112,
       "baseAtk": 337,
@@ -1597,7 +1597,7 @@
     "name": "Verina",
     "quality": 5,
     "element": "spectro",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 14237,
       "baseAtk": 337,
@@ -1758,7 +1758,7 @@
     "name": "Taoqi",
     "quality": 4,
     "element": "havoc",
-    "type": "Broadblade",
+    "type": "broadblade",
     "baseStats": {
       "baseHp": 8950,
       "baseAtk": 225,
@@ -1892,7 +1892,7 @@
     "name": "Danjin",
     "quality": 4,
     "element": "havoc",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 9437,
       "baseAtk": 262,
@@ -2033,7 +2033,7 @@
     "name": "Changli",
     "quality": 5,
     "element": "fusion",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 10387,
       "baseAtk": 462,
@@ -2180,7 +2180,7 @@
     "name": "Jinhsi",
     "quality": 5,
     "element": "spectro",
-    "type": "Broadblade",
+    "type": "broadblade",
     "baseStats": {
       "baseHp": 10825,
       "baseAtk": 412,
@@ -2296,7 +2296,7 @@
     "name": "Zhezhi",
     "quality": 5,
     "element": "glacio",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 12250,
       "baseAtk": 375,
@@ -2433,7 +2433,7 @@
     "name": "Xiangli Yao",
     "quality": 5,
     "element": "electro",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 10625,
       "baseAtk": 425,
@@ -2566,7 +2566,7 @@
     "name": "Youhu",
     "quality": 4,
     "element": "glacio",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 9975,
       "baseAtk": 262,
@@ -2661,7 +2661,7 @@
     "name": "Shorekeeper",
     "quality": 5,
     "element": "spectro",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 16712,
       "baseAtk": 287,
@@ -2803,7 +2803,7 @@
     "name": "Lumi",
     "quality": 4,
     "element": "electro",
-    "type": "Broadblade",
+    "type": "broadblade",
     "baseStats": {
       "baseHp": 8500,
       "baseAtk": 337,
@@ -2926,7 +2926,7 @@
     "name": "Camellya",
     "quality": 5,
     "element": "havoc",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 10325,
       "baseAtk": 450,
@@ -3092,7 +3092,7 @@
     "name": "Carlotta",
     "quality": 5,
     "element": "glacio",
-    "type": "Pistols",
+    "type": "pistols",
     "baseStats": {
       "baseHp": 12450,
       "baseAtk": 462,
@@ -3223,7 +3223,7 @@
     "name": "Roccia",
     "quality": 5,
     "element": "havoc",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 12250,
       "baseAtk": 375,
@@ -3395,7 +3395,7 @@
     "name": "Brant",
     "quality": 5,
     "element": "fusion",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 11675,
       "baseAtk": 375,
@@ -3571,7 +3571,7 @@
     "name": "Phoebe",
     "quality": 5,
     "element": "spectro",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 10825,
       "baseAtk": 412,
@@ -3599,26 +3599,15 @@
         "applyTo": "enemy",
         "applyWhen": "hit",
         "applyOnAction": "resonanceLiberation.2",
-        "statusMap": {
+        "inflict": {
           "spectroFrazzle": 8
         },
         "rankMods": {
           "1": {
-            "statusMap": {
+            "inflict": {
               "spectroFrazzle": 2
             }
           }
-        }
-      },
-      {
-        "applyTo": "enemy",
-        "applyWhen": "hit",
-        "applyOnAction": [
-          "forteCircuit.1",
-          "forteCircuit.2"
-        ],
-        "statusMap": {
-          "spectroFrazzle": 1
         }
       },
       {
@@ -3628,14 +3617,6 @@
         },
         "statMap": {
           "dmgAmp%": 2.56
-        }
-      },
-      {
-        "applyTo": "enemy",
-        "applyWhen": "hit",
-        "applyOnAction": "forteCircuit.4",
-        "statusMap": {
-          "spectroFrazzle": 5
         }
       },
       {
@@ -3803,7 +3784,7 @@
     "name": "Cantarella",
     "quality": 5,
     "element": "havoc",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 11600,
       "baseAtk": 400,
@@ -3948,7 +3929,7 @@
     "name": "Ciaccona",
     "quality": 5,
     "element": "aero",
-    "type": "Pistols",
+    "type": "pistols",
     "baseStats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -3959,19 +3940,6 @@
       "atk%": 0.12
     },
     "effects": [
-      {
-        "applyTo": "enemy",
-        "applyWhen": "hit",
-        "applyOnAction": [
-          "normalAttack.4",
-          "resonanceSkill.1",
-          "resonanceLiberation.2",
-          "introSkill.1"
-        ],
-        "statusMap": {
-          "aeroErosion": 1
-        }
-      },
       {
         "applyTo": "team",
         "statMap": {
@@ -4081,7 +4049,7 @@
     "name": "Zani",
     "quality": 5,
     "element": "spectro",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -4233,7 +4201,7 @@
     "name": "Lupa",
     "quality": 5,
     "element": "fusion",
-    "type": "Broadblade",
+    "type": "broadblade",
     "baseStats": {
       "baseHp": 11912,
       "baseAtk": 387,
@@ -4387,7 +4355,7 @@
     "name": "Cartethyia",
     "quality": 5,
     "element": "aero",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 14800,
       "baseAtk": 312,
@@ -4532,7 +4500,7 @@
     "name": "Phrolova",
     "quality": 5,
     "element": "havoc",
-    "type": "Rectifier",
+    "type": "rectifier",
     "tagged": "noEnergy",
     "baseStats": {
       "baseHp": 10775,
@@ -4599,7 +4567,7 @@
     "name": "Augusta",
     "quality": 5,
     "element": "electro",
-    "type": "Broadblade",
+    "type": "broadblade",
     "baseStats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -4611,6 +4579,17 @@
     },
     "effects": [
       {
+        "useOnType": "damage",
+        "useCooldown": 500,
+        "followUpAction": {
+          "type": "shield",
+          "fixedMultipliers": {
+            "flat": 350,
+            "mv": 0.025
+          }
+        }
+      },
+      {
         "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
@@ -4618,6 +4597,14 @@
           "dmgAmp%": 0.15
         },
         "duration": 14000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "removeAfterAction": "resonanceLiberation.3",
+        "statMap": {
+          "electroDmgBonus%": 0.15
+        }
       }
     ],
     "defaults": {
@@ -4661,7 +4648,7 @@
     "name": "Iuno",
     "quality": 5,
     "element": "aero",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 10525,
       "baseAtk": 450,
@@ -4712,7 +4699,7 @@
     "name": "Galbrena",
     "quality": 5,
     "element": "fusion",
-    "type": "Pistols",
+    "type": "pistols",
     "baseStats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -4769,7 +4756,7 @@
     "name": "Qiuyuan",
     "quality": 5,
     "element": "aero",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -4819,7 +4806,7 @@
     "name": "Buling",
     "quality": 4,
     "element": "electro",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 10625,
       "baseAtk": 225,
@@ -4881,7 +4868,7 @@
     "name": "Chisa",
     "quality": 5,
     "element": "havoc",
-    "type": "Broadblade",
+    "type": "broadblade",
     "baseStats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -4922,18 +4909,107 @@
     "name": "Mornye",
     "quality": 5,
     "element": "fusion",
-    "type": "Broadblade",
+    "type": "broadblade",
     "baseStats": {
       "baseHp": 15375,
       "baseAtk": 287,
-      "baseDef": 1356
+      "baseDef": 1356,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "healingBonus%": 0.12,
       "def%": 0.152
     },
     "effects": [
+      {
+        "useOnAction": "resonanceLiberation.1",
+        "variableStatMap": {
+          "critRate%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "offset": 1,
+            "value": 0.005,
+            "max": 0.8
+          },
+          "critDmg%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "offset": 1,
+            "value": 0.01,
+            "max": 1.6
+          }
+        }
+      },
+      {
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "statMap": {
+          "def%": 0.2
+        },
+        "duration": 25000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "useOnAction": "forteCircuit.1",
+        "statMap": {
+          "mv%": 0.4
+        },
+        "duration": 25000
+      },
+      {
+        "useOnAction": [
+          "forteCircuit.3",
+          "introSkill.1"
+        ],
+        "followUpAction": "forteCircuit.2"
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "forteCircuit.3",
+          "introSkill.1"
+        ],
+        "intervalAction": "forteCircuit.1",
+        "intervalCooldown": 3000,
+        "duration": 25000
+      },
+      {
+        "applyTo": "team",
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "forteCircuit.3",
+          "introSkill.1"
+        ],
+        "statMap": {
+          "offTuneBuildupRate%": 0.5
+        },
+        "duration": 25000
+      },
+      {
+        "applyTo": "enemy",
+        "applyOnSpecial": "tuneBreak",
+        "useIfInterfered": [
+          "tuneRupture",
+          "tuneStrain"
+        ],
+        "variableStatMap": {
+          "dmgBonus%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "offset": 1,
+            "value": 0.0025,
+            "max": 0.4
+          }
+        },
+        "duration": 8000
+      },
+      {
+        "statMap": {
+          "energyRegen%": 0.1
+        }
+      },
       {
         "applyTo": "team",
         "applyWhen": "cast",
@@ -4959,6 +5035,7 @@
         "normalAttack.5",
         "normalAttack.6",
         "normalAttack.7",
+        "resonanceSkill.4",
         "resonanceSkill.1",
         "forteCircuit.4",
         "resonanceLiberation.1",
@@ -4971,17 +5048,21 @@
     "name": "Lynae",
     "quality": 5,
     "element": "spectro",
-    "type": "Pistols",
+    "type": "pistols",
     "baseStats": {
       "baseHp": 12237,
       "baseAtk": 375,
-      "baseDef": 1197
+      "baseDef": 1197,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "critRate%": 0.08,
       "atk%": 0.12
     },
+    "resonanceModes": [
+      "Tune Rupture",
+      "Tune Strain"
+    ],
     "effects": [
       {
         "applyTo": "next",
@@ -5022,17 +5103,21 @@
     "name": "Aemeath",
     "quality": 5,
     "element": "fusion",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 11025,
       "baseAtk": 425,
-      "baseDef": 1148
+      "baseDef": 1148,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "critRate%": 0.08,
       "atk%": 0.12
     },
+    "resonanceModes": [
+      "Tune Rupture",
+      "Fusion Burst"
+    ],
     "effects": [
       {
         "applyTo": "ally",
@@ -5078,14 +5163,14 @@
     "name": "Luuk Herssen",
     "quality": 5,
     "element": "spectro",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 10300,
       "baseAtk": 462,
-      "baseDef": 1112
+      "baseDef": 1112,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "critRate%": 0.08,
       "atk%": 0.12
     },
@@ -5133,7 +5218,7 @@
     "name": "Sigrika",
     "quality": 5,
     "element": "aero",
-    "type": "Gauntlets",
+    "type": "gauntlets",
     "baseStats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -5184,7 +5269,7 @@
     "name": "Hiyuki",
     "quality": 5,
     "element": "glacio",
-    "type": "Sword",
+    "type": "sword",
     "baseStats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -5245,17 +5330,21 @@
     "name": "Denia",
     "quality": 5,
     "element": "fusion",
-    "type": "Rectifier",
+    "type": "rectifier",
     "baseStats": {
       "baseHp": 11025,
       "baseAtk": 425,
-      "baseDef": 1148
+      "baseDef": 1148,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
-      "tuneBreakBoost%": 10,
       "critDmg%": 0.16,
       "atk%": 0.12
     },
+    "resonanceModes": [
+      "Fusion Burst",
+      "Tune Strain"
+    ],
     "effects": [
       {
         "applyTo": "next",
@@ -5288,7 +5377,7 @@
     "name": "Lucilla",
     "quality": 5,
     "element": "glacio",
-    "type": "Rectifier",
+    "type": "rectifier",
     "tagged": "noEnergy",
     "baseStats": {
       "baseHp": 12237,
@@ -5298,6 +5387,67 @@
     "ascensionStats": {
       "critRate%": 0.08,
       "atk%": 0.12
+    },
+    "resonanceModes": [
+      "Glacio Chafe",
+      "Echo"
+    ],
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "useOnInflict": "glacioChafe",
+        "useCooldown": 0.5,
+        "followUpAction": {
+          "inflict": {
+            "glacioChafe": 2
+          }
+        },
+        "duration": 30000,
+        "maxUses": 4
+      },
+      {
+        "applyTo": "enemy",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceSkill.3",
+        "statMap": {
+          "glacioResReduction%": 0.08
+        },
+        "duration": 30000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "statMap": {
+          "basicAttackDmgBonus%": 0.3
+        },
+        "duration": 10000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1108",
+        "1109",
+        "1508"
+      ],
+      "weaponId": "21050086",
+      "setCounts": {
+        "30": 5
+      },
+      "rotation": [
+        "introSkill.1",
+        "resonanceSkill.1",
+        "resonanceSkill.3",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "resonanceLiberation.5",
+        "outroSkill.1"
+      ]
     }
   },
   {
@@ -5305,15 +5455,119 @@
     "name": "Rebecca",
     "quality": 5,
     "element": "electro",
-    "type": "Pistols",
+    "type": "pistols",
     "baseStats": {
       "baseHp": 11600,
       "baseAtk": 400,
-      "baseDef": 1173
+      "baseDef": 1173,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critRate%": 0.08,
       "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "critDmg%": 0.3,
+          "defIgnore%": 0.15,
+          "atk%": 0.1
+        },
+        "duration": 12000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": [
+          "forteCircuit.2",
+          "forteCircuit.3"
+        ],
+        "statMap": {
+          "atk%": 0.1
+        },
+        "duration": 12000
+      },
+      {
+        "applyBy": "team",
+        "applyTo": "applier",
+        "applyWhen": "hit",
+        "applyIfShift": "hack",
+        "statMap": {
+          "tuneBreakBoost": 30
+        },
+        "duration": 30000
+      },
+      {
+        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.5",
+        "statMap": {
+          "atk%": 0.2
+        },
+        "duration": 30000
+      },
+      {
+        "applyTo": "next",
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "statMap": {
+          "dmgAmp%": 0.15
+        },
+        "duration": 14000
+      },
+      {
+        "applyTo": "1511",
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "statMap": {
+          "heavyAttackDmgAmp%": 0.35
+        },
+        "duration": 14000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1511",
+        "1308",
+        "1209"
+      ],
+      "weaponId": "21030066",
+      "setCounts": {
+        "32": 1,
+        "9": 2,
+        "3": 2
+      },
+      "rotation": [
+        "introSkill.1",
+        "normalAttack.10",
+        "normalAttack.11",
+        "normalAttack.12",
+        "resonanceSkill.2",
+        "forteCircuit.2",
+        "resonanceLiberation.5",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "outroSkill.1"
+      ]
     }
   },
   {
@@ -5321,15 +5575,175 @@
     "name": "Lucy",
     "quality": 5,
     "element": "spectro",
-    "type": "Pistols",
+    "type": "pistols",
     "baseStats": {
       "baseHp": 11025,
       "baseAtk": 425,
-      "baseDef": 1148
+      "baseDef": 1148,
+      "tuneBreakBoost": 10
     },
     "ascensionStats": {
       "critRate%": 0.08,
       "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyTo": "enemy",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.7",
+        "statMap": {
+          "dmgBonus%": 0.05
+        },
+        "duration": 30000
+      },
+      {
+        "applyTo": "enemy",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.8",
+        "statMap": {
+          "defReduction%": 0.05
+        },
+        "duration": 30000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceSkill.4",
+        "useOnAction": "normalAttack.17",
+        "statMap": {
+          "mv%": 2.7
+        },
+        "maxUses": 1,
+        "rankMods": {
+          "2": {
+            "statMap": {
+              "mv%": 2.9
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceSkill.4",
+        "statMap": {
+          "spectroDmgBonus%": 0.65
+        },
+        "duration": 8000
+      },
+      {
+        "applyTo": "next",
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "statMap": {
+          "basicAttackDmgAmp%": 0.25
+        },
+        "duration": 14000
+      },
+      {
+        "applyTo": "1308",
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "statMap": {
+          "dmgAmp%": 0.2
+        },
+        "duration": 25000
+      },
+      {
+        "rank": 1,
+        "applyWhen": "cast",
+        "applyOnAction": "introSkill.1",
+        "statMap": {
+          "atk%": 0.2
+        },
+        "duration": 14000
+      },
+      {
+        "rank": 2,
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceSkill.2",
+        "intervalAction": [
+          {
+            "dmgType": "heavyAttack",
+            "fixedMultipliers": {
+              "mv": 4.5
+            }
+          },
+          "resonanceLiberation.7",
+          "resonanceLiberation.8"
+        ],
+        "maxUses": 1
+      },
+      {
+        "rank": 3,
+        "useOnAction": [
+          "resonanceLiberation.1",
+          "resonanceLiberation.5"
+        ],
+        "statMap": {
+          "mv%": 0.5,
+          "critDmg%": 1
+        }
+      },
+      {
+        "rank": 3,
+        "useOnAction": [
+          "resonanceLiberation.4",
+          "forteCircuit.1"
+        ],
+        "statMap": {
+          "mv%": 0.65
+        }
+      },
+      {
+        "rank": 4,
+        "applyTo": "team",
+        "statMap": {
+          "dmgBonus%": 0.2
+        }
+      },
+      {
+        "rank": 6,
+        "useIfShifting": "hack",
+        "useIfInterfered": "hack",
+        "statMap": {
+          "heavyAttackDmgBonus%": 0.4,
+          "hackDmgBonus%": 0.6
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1511",
+        "1308",
+        "1209"
+      ],
+      "weaponId": "21030056",
+      "setCounts": {
+        "32": 1,
+        "26": 2,
+        "24": 2
+      },
+      "rotation": [
+        "introSkill.1",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "resonanceSkill.4",
+        "normalAttack.11",
+        "normalAttack.12",
+        "normalAttack.13",
+        "normalAttack.14",
+        "normalAttack.16",
+        "normalAttack.17",
+        "resonanceLiberation.6",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "resonanceLiberation.5",
+        "outroSkill.1"
+      ]
     }
   }
 ]

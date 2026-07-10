@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { CustomAvatar, TeamMemberDialog } from '@/components';
-import { useBuild } from '@/contexts';
+import { CharAvatar, TeamMemberDialog } from '@/components';
 import { MISC, CHARACTER } from '@/data';
 import { getAttr, formatStr, compileMenuMap } from '@/utils';
 
@@ -72,24 +71,22 @@ export const StatsPanel = ({ team, updateTeam }) => {
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
-        avatar={<CustomAvatar gameId={gameId} characterId={characterId} />}
+        avatar={<CharAvatar gameId={gameId} charId={characterId} />}
         title={CHARACTER[gameId][characterId]?.name ?? ''}
         subheader={
           <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
             <Chip
               label={formatStr(CHARACTER[gameId][characterId].element)}
               variant="outlined"
-              size="small"
               sx={{
                 fontWeight: 'bold',
-                color: theme.accentColor[gameId][CHARACTER[gameId][characterId].element]
+                color: theme.accentColors[gameId][CHARACTER[gameId][characterId].element]
               }}
             />
 
             <Chip
-              label={CHARACTER[gameId][characterId]?.type}
+              label={formatStr(CHARACTER[gameId][characterId]?.type)}
               variant="outlined"
-              size="small"
               sx={{ fontWeight: 'bold' }}
             />
           </Stack>
@@ -115,7 +112,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
                   alignItems: 'center',
                 }}
               >
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                <Typography variant="body2" color="textSecondary">
                   {formatStr(id)}
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
@@ -128,15 +125,15 @@ export const StatsPanel = ({ team, updateTeam }) => {
 
         <Divider sx={{ my: 2 }} />
 
-        <Typography variant="caption" sx={{ color: 'text.secondary', mb: 1.5, display: 'block' }}>
+        <Typography variant="caption" color="textSecondary" sx={{ mb: 1.5, display: 'block' }}>
           Team Configuration
         </Typography>
         <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
           {team.map((member, index) => (
             <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
-              <CustomAvatar
+              <CharAvatar
                 gameId={gameId}
-                characterId={member?.id ?? null}
+                charId={member?.id ?? null}
               />
             </Box>
           ))}
@@ -159,7 +156,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
         <Divider sx={{ my: 2 }} />
 
         <Tooltip title={formatFullDate(member.build?.lastUpdated)}>
-          <Typography variant="caption" color="text.secondary">
+          <Typography variant="caption" color="textSecondary">
             Last updated {getRelativeTime(member.build?.lastUpdated)}
           </Typography>
         </Tooltip>

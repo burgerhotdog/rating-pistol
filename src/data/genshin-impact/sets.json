@@ -49,9 +49,9 @@
       },
       "4": {
         "useIfWeapon": [
-          "Sword",
-          "Claymore",
-          "Polearm"
+          "sword",
+          "claymore",
+          "polearm"
         ],
         "statMap": {
           "normalAttackDmgBonus%": 0.35
@@ -82,8 +82,8 @@
       },
       "4": {
         "useIfWeapon": [
-          "Catalyst",
-          "Bow"
+          "catalyst",
+          "bow"
         ],
         "statMap": {
           "chargedAttackDmgBonus%": 0.35

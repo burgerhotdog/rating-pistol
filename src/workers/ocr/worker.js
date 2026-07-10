@@ -9,6 +9,7 @@ import {
 } from './helpers/maps';
 import { compareStrings } from './helpers';
 import { validateBitmap } from './validateBitmap';
+import { getRank } from './getRank';
 import { getSetId } from './getSetId';
 import { getCost } from './getCost';
 import { getId } from './getId';
@@ -62,6 +63,7 @@ self.onmessage = async ({ data }) => {
 
     // characterId
     const characterId = await getId(imageBitmap, ocrWorker);
+    const rank = getRank(imageBitmap);
 
     // weaponId
     const weaponRegion = { x: 1600, y: 450, w: 250, h: 30};
@@ -76,7 +78,7 @@ self.onmessage = async ({ data }) => {
       const valueOffset = equipIndex === 4 ? 4 : 0;
 
       // cost
-      const cost = await getCost(imageBitmap, equipIndex);
+      const cost = getCost(imageBitmap, equipIndex);
 
       // setId
       const setId = await getSetId(imageBitmap, equipIndex);
@@ -103,7 +105,7 @@ self.onmessage = async ({ data }) => {
       const mainStatValue = Number(mainStatValueString) / 100;
 
       // mainStatFlatId
-      const mainStatFlatId = cost === '1' ? 'hp' : 'atk';
+      const mainStatFlatId = cost === 1 ? 'hp' : 'atk';
 
       // mainStatFlatValue
       const mainStatFlatRegion = { 
@@ -148,11 +150,13 @@ self.onmessage = async ({ data }) => {
 
         subStatList.push({ subStatId, subStatValue });
       }
+
       equipList.push({ cost, setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList });
     }
-    const build = { weaponId, equipList };
+
+    const build = { rank, weaponId, equipList };
     self.postMessage({ success: true, entry: [characterId, build] });
-  } catch (err) {
-    self.postMessage({ error: err.message });
+  } catch (error) {
+    console.error(error);
   }
 };

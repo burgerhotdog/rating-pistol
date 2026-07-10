@@ -30,7 +30,7 @@ export const UserProvider = ({ children }) => {
 
       if (Object.keys(missing).length) {
         setDoc(ref, missing, { merge: true })
-          .catch(err => console.error(err));
+          .catch((err) => console.error(err));
       }
     });
 
@@ -42,9 +42,9 @@ export const UserProvider = ({ children }) => {
 
     if (user) {
       updateDoc(ref, { [`saved-uids.${gameId}`]: String(uid) })
-        .catch(err => console.error(err));
+        .catch((err) => console.error(err));
     } else {
-      setSavedUids(prev => ({
+      setSavedUids((prev) => ({
         ...prev,
         [gameId]: uid,
       }));
@@ -57,9 +57,9 @@ export const UserProvider = ({ children }) => {
 
     if (user) {
       updateDoc(ref, { [`pinned-ids.${gameId}`]: op })
-        .catch(err => console.error(err));
+        .catch((err) => console.error(err));
     } else {
-      setPinnedIds(prev => {
+      setPinnedIds((prev) => {
         const newState = { ...prev };
         if (isPinned) delete newState[gameId];
         else newState[gameId] = id;

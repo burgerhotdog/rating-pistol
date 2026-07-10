@@ -553,7 +553,15 @@
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
         "statMap": {
-          "atk%": 0.3
+          "atk%": 0.15
+        },
+        "variableStatMap": {
+          "atk%": {
+            "attr": "tuneBreakBoost",
+            "step": 1,
+            "value": 0.003,
+            "max": 0.15
+          }
         },
         "duration": 15000
       }
@@ -572,8 +580,13 @@
         "applyTo": "team",
         "applyWhen": "hit",
         "applyOnType": "healing",
-        "statMap": {
-          "atk%": 0.25
+        "variableStatMap": {
+          "atk%": {
+            "attr": "offTuneBuildupRate%",
+            "step": 0.01,
+            "value": 0.002,
+            "max": 0.25
+          }
         },
         "duration": 4000
       }

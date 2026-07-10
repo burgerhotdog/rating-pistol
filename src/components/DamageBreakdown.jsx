@@ -1,125 +1,182 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CardHeader, Stack, Paper, Tooltip, Typography } from '@mui/material';
+import {
+  CardHeader,
+  Stack,
+  Divider,
+  Paper,
+  Tooltip,
+  Typography,
+  MenuItem,
+  ToggleButtonGroup,
+  ToggleButton,
+  TextField,
+} from '@mui/material';
 import { alpha, darken, useTheme } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import { PieChart, Pie, Tooltip as ChartTooltip, Cell, Legend } from 'recharts';
-import { FlexCard, ChartFill } from '@/components';
+import { PieChart, Pie, Tooltip as ChartTooltip, Cell } from 'recharts';
+import { FlexRow, FlexCol, FlexCard, ChartFill, Dot } from '@/components';
 import { CHARACTER } from '@/data';
-import { formatStr } from '@/utils';
+import { formatStr, formatNum } from '@/utils';
 
-const renderLabel = ({ percent }) => {
-  if (percent < 0.05) return null;
-  return `${(percent * 100).toFixed(0)}%`;
-};
+const BREAKDOWN_MODES = [
+  { value: 'dmgType', label: 'Dmg type' },
+  { value: 'fieldStatus', label: 'Field' },
+];
 
-const buildData = (summary, charId) => {
-  const dmgTypeSums = {};
+const buildData = (summary, charId, breakdownMode) => {
+  const damageByType = {};
 
-  for (const { ownerId, dmgType, damage } of Object.values(summary)) {
-    if (ownerId !== charId || !damage) continue;
-    dmgTypeSums[dmgType] = (dmgTypeSums[dmgType] ?? 0) + damage;
+  // TODO: branch on breakdownMode once fieldStatus grouping is implemented.
+  // For now this always groups by dmgType regardless of the selected mode.
+  for (const { ownerId, type, dmgType, value } of Object.values(summary)) {
+    if (ownerId !== charId || type !== 'damage') {
+      continue;
+    }
+
+    damageByType[dmgType] ??= 0;
+    damageByType[dmgType] += value;
   }
 
-  const entries = Object.entries(dmgTypeSums)
-    .map(([dmgType, sum]) => ({
+  const entries = Object.entries(damageByType)
+    .map(([dmgType, damage]) => ({
       name: formatStr(dmgType),
-      value: Math.round(sum),
+      value: Math.round(damage),
     }))
-    .filter(entry => entry.value)
+    .filter((entry) => entry.value)
     .sort((a, b) => b.value - a.value);
 
-  const total = entries.reduce((sum, e) => sum + e.value, 0);
+  const total = entries.reduce((acc, entry) => acc + entry.value, 0);
   let cumulative = 0;
 
-  return entries.map(entry => {
+  return entries.map((entry) => {
     const rank = cumulative / total;
+    const percent = entry.value / total;
     cumulative += entry.value;
 
-    return { ...entry, rank };
+    return { ...entry, rank, percent };
   });
 };
 
-export const DamageBreakdown = ({ userSummary }) => {
+export const DamageBreakdown = ({ userSummary, teamIds }) => {
   const { gameId, characterId } = useParams();
-  const { accentColor } = useTheme();
+  const { accentColors } = useTheme();
+
+  const [selectedCharId, setSelectedCharId] = useState(characterId);
+  const [breakdownMode, setBreakdownMode] = useState('dmgType');
+
   if (!userSummary) return null;
 
-  const data = buildData(userSummary, characterId);
+  const data = buildData(userSummary, selectedCharId, breakdownMode);
 
-  const { element } = CHARACTER[gameId][characterId];
-  const elementColor = accentColor[gameId][element];
-  const getSliceColor = rank => alpha(darken(elementColor, rank * 0.7), 0.9);
+  const { element } = CHARACTER[gameId][selectedCharId];
+  const elementColor = accentColors[gameId][element];
 
   return (
     <FlexCard>
       <CardHeader
         title={
-          <Stack direction="row" spacing={0.5}>
+          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
             <Typography variant="subtitle1">
               Damage breakdown
             </Typography>
 
             <Tooltip
               title="How damage is distributed across your rotation."
-              placement="top"
-              arrow
             >
               <HelpOutlineOutlinedIcon
-                fontSize="small"
                 color="disabled"
               />
             </Tooltip>
           </Stack>
         }
+        action={
+          <ToggleButtonGroup
+            value={breakdownMode}
+            onChange={(_, value) => value && setBreakdownMode(value)}
+            exclusive
+          >
+            {BREAKDOWN_MODES.map(({ value, label }) => (
+              <ToggleButton key={value} value={value} sx={{ px: 1.5, textTransform: 'none' }}>
+                {label}
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
+        }
         disableTypography
       />
 
-      <ChartFill>
-        <PieChart>
-          <Pie
-            data={data}
-            dataKey="value"
-            outerRadius="70%"
-            label={renderLabel}
-            labelLine={false}
-          >
-            {data.map(entry => (
-              <Cell
-                key={entry.name}
-                fill={getSliceColor(entry.rank)}
-                stroke="none"
-              />
-            ))}
-          </Pie>
+      <FlexRow>
+        <ChartFill>
+          <PieChart>
+            <Pie data={data} dataKey="value">
+              {data.map(({ name, rank }) => {
+                const fill = alpha(darken(elementColor, rank * 0.7), 0.9);
+                return (<Cell key={name} fill={fill} stroke="none" />);
+              })}
+            </Pie>
 
-          <ChartTooltip
-            content={({ active, payload }) => {
-              if (!active || !payload?.length) return null;
-              const { name, value } = payload[0].payload;
+            <ChartTooltip
+              content={({ active, payload }) => {
+                if (!active || !payload?.length) return null;
+                const { name, value } = payload[0].payload;
+
+                return (
+                  <Paper sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
+                    <Typography variant="subtitle2">
+                      {formatStr(name)}
+                    </Typography>
+
+                    <Typography variant="body2" color="textSecondary">
+                      {formatNum(value)} damage
+                    </Typography>
+                  </Paper>
+                );
+              }}
+            />
+          </PieChart>
+        </ChartFill>
+
+        <FlexCol spacing={1}>
+          <TextField
+            select
+            value={selectedCharId}
+            onChange={(e) => setSelectedCharId(e.target.value)}
+            fullWidth
+          >
+            {teamIds.map((id) => (
+              <MenuItem key={id} value={id}>
+                {CHARACTER[gameId][id].name}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          <Stack spacing={0.5} sx={{ flexGrow: 1, justifyContent: 'center' }}>
+            {data.map(({ name, value, rank, percent }) => {
+              const fill = alpha(darken(elementColor, rank * 0.7), 0.9);
 
               return (
-                <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
-                  <Typography variant="subtitle2">
-                    {formatStr(name)}
+                <Stack
+                  key={name}
+                  direction="row"
+                  spacing={0.5}
+                  sx={{ alignItems: 'center' }}
+                >
+                  <Dot color={fill} />
+
+                  <Typography variant="body2" sx={{ flexGrow: 1 }}>
+                    {name}
                   </Typography>
 
                   <Typography variant="body2" color="textSecondary">
-                    {value.toLocaleString('en-US', { maximumFractionDigits: 0 })} damage
+                    {(percent * 100).toFixed()}%
                   </Typography>
-                </Paper>
+                </Stack>
               );
-            }}
-          />
-
-          <Legend
-            verticalAlign="bottom"
-            iconType="circle"
-            iconSize={8}
-            wrapperStyle={{ fontSize: 12 }}
-            formatter={value => formatStr(value)}
-          />
-        </PieChart>
-      </ChartFill>
+            })}
+          </Stack>
+        </FlexCol>
+      </FlexRow>
     </FlexCard>
   );
 };

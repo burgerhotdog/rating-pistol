@@ -15,7 +15,7 @@ const CROPS = [
   { x: 1819, y: 664, w: 47, h: 47},
 ];
 
-export async function getCost(imageBitmap, index) {
+export const getCost = (imageBitmap, index) => {
   const templates = costPixelDataOptions[index];
   const cropPixels = bitmapToPixels(imageBitmap, CROPS[index]);
 
@@ -27,9 +27,9 @@ export async function getCost(imageBitmap, index) {
 
     if (score > bestScore) {
       bestScore = score;
-      bestMatch = option;
+      bestMatch = Number(option);
     }
   }
 
   return bestMatch;
-}
+};

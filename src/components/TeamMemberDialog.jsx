@@ -68,14 +68,13 @@ function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
           onClick={onClose}
           sx={{ position: 'absolute', right: 8, top: 8 }}
         >
-          <CloseIcon fontSize="small" />
+          <CloseIcon />
         </IconButton>
       </DialogTitle>
 
       <DialogContent>
         <TextField
           fullWidth
-          size="small"
           placeholder="Search characters..."
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -142,16 +141,15 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
           onClick={onClose}
           sx={{ position: 'absolute', right: 8, top: 8 }}
         >
-          <CloseIcon fontSize="small" />
+          <CloseIcon />
         </IconButton>
       </DialogTitle>
       <DialogContent>
         <TextField
           fullWidth
-          size="small"
           placeholder="Search weapons..."
           value={search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           sx={{ mb: 2 }}
         />
         <Box
@@ -204,7 +202,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
 
   // Which tiers are possible given remaining capacity
   const enabledTiers = useMemo(() =>
-    new Set(allTiers.filter(t => t <= remainingCapacity))
+    new Set(allTiers.filter((t) => t <= remainingCapacity))
   , [allTiers, remainingCapacity]);
 
   const [tierFilter, setTierFilter] = useState(allTiers[0]);
@@ -217,7 +215,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
         // Must have at least one bonus tier matching the filter (if set) and within capacity
         const hasMatchingTier = tierFilter
           ? bonusKeys.includes(tierFilter) && enabledTiers.has(tierFilter)
-          : bonusKeys.some(k => enabledTiers.has(k));
+          : bonusKeys.some((k) => enabledTiers.has(k));
         return hasMatchingTier && setData.name.toLowerCase().includes(lower);
       })
       .map(([id, setData]) => ({ id, name: setData.name }))
@@ -264,16 +262,15 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
       <DialogContent>
         {/* Piece-count filter */}
         <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 2 }}>
-          <Typography variant="body2" color="text.secondary" sx={{ flexShrink: 0 }}>
+          <Typography variant="body2" color="textSecondary" sx={{ flexShrink: 0 }}>
             Piece bonus:
           </Typography>
           <ToggleButtonGroup
-            size="small"
             exclusive
             value={tierFilter}
             onChange={(_, val) => { if (val !== null) setTierFilter(val); }}
           >
-            {allTiers.map(tier => (
+            {allTiers.map((tier) => (
               <ToggleButton
                 key={tier}
                 value={tier}
@@ -287,10 +284,9 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
 
         <TextField
           fullWidth
-          size="small"
           placeholder="Search sets..."
           value={search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           sx={{ mb: 2 }}
         />
 
@@ -313,6 +309,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
                   title={name}
                   sx={{ width: 100, height: 100 }}
                 />
+
                 <Typography variant="body2" sx={{ textAlign: 'center', px: 0.5 }} noWrap>
                   {name}
                 </Typography>
@@ -321,7 +318,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
           ))}
 
           {options.length === 0 && (
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="textSecondary">
               No sets available.
             </Typography>
           )}
@@ -355,7 +352,6 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false })
         {/* Piece-count badge — bottom-left */}
         <Chip
           label={`${pieces}pc`}
-          size="small"
           sx={{
             position: 'absolute',
             bottom: 2,
@@ -372,7 +368,6 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false })
         {/* Remove X — top-right, visible on hover */}
         {hovered && !disabled && (
           <IconButton
-            size="small"
             onClick={(e) => { e.stopPropagation(); onRemove(); }}
             sx={{
               position: 'absolute',
@@ -452,11 +447,13 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
   };
 
   const currentRemainingCapacity =
-    replacingIndex !== null ? remainingForReplace(replacingIndex) : remainingForAdd;
+    replacingIndex !== null
+      ? remainingForReplace(replacingIndex)
+      : remainingForAdd;
 
   if (!id) {
     return (
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body2" color="textSecondary">
         Select a character to edit set bonuses.
       </Typography>
     );
@@ -507,14 +504,15 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
                 <AddIcon color="action" />
               </CardActionArea>
             </Card>
-            <Typography variant="caption" color="text.secondary">Add set</Typography>
+            <Typography variant="caption" color="textSecondary">
+              Add set
+            </Typography>
           </Box>
         )}
       </Stack>
 
       <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap', mt: 1 }}>
         <Button
-          size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
           onClick={() => onChange(getMember(gameId, id).setCounts)}
@@ -522,8 +520,8 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
         >
           Reset Default
         </Button>
+
         <Button
-          size="small"
           variant="outlined"
           startIcon={<ClearAllIcon />}
           onClick={() => onChange({})}
@@ -603,10 +601,9 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 dense
                 sx={{ px: 0.5 }}
               >
-                {toArray(skillType).map(type => (
+                {toArray(skillType).map((type) => (
                   <Chip
                     key={type}
-                    size="small"
                     label={formatStr(type)}
                     sx={{
                       height: 20,
@@ -617,6 +614,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                     }}
                   />
                 ))}
+
                 <Typography
                   variant="body2"
                   noWrap
@@ -624,10 +622,10 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                 >
                   {name}
                 </Typography>
-                {toArray(tagged).map(tag => (
+
+                {toArray(tagged).map((tag) => (
                   <Chip
                     key={tag}
-                    size="small"
                     label={tag}
                     sx={{
                       height: 20,
@@ -667,32 +665,34 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
       <Box sx={{ px: 3, mb: 2 }}>
         <TextField
-          size="small"
           placeholder="Search actions..."
           value={search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           fullWidth
         />
       </Box>
 
-      <DialogContent dividers sx={{
-        scrollbarColor: 'rgba(255,255,255,0.18) transparent',
-        '&::-webkit-scrollbar': { width: 5 },
-        '&::-webkit-scrollbar-track': { background: 'transparent' },
-        '&::-webkit-scrollbar-thumb': {
-          background: 'rgba(255,255,255,0.18)',
-          borderRadius: 3,
-        },
-        '&::-webkit-scrollbar-thumb:hover': {
-          background: 'rgba(255,255,255,0.32)',
-        },
-      }}>
+      <DialogContent
+        dividers
+        sx={{
+          scrollbarColor: 'rgba(255,255,255,0.18) transparent',
+          '&::-webkit-scrollbar': { width: 5 },
+          '&::-webkit-scrollbar-track': { background: 'transparent' },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'rgba(255,255,255,0.18)',
+            borderRadius: 3,
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: 'rgba(255,255,255,0.32)',
+          },
+        }}
+      >
         {hasMatches ? (
           <Stack spacing={1}>
             {Object.entries(filteredTree).map(renderGroup)}
           </Stack>
         ) : (
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          <Typography variant="body2" color="textSecondary">
             No skills available for this character.
           </Typography>
         )}
@@ -739,7 +739,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
               >
                 <Typography
                   variant="caption"
-                  color="text.secondary"
+                  color="textSecondary"
                   sx={{ textAlign: 'center' }}
                 >
                   None
@@ -751,7 +751,6 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
 
         {hovered && onClear && !disabled && (name || imageUrl) && (
           <IconButton
-            size="small"
             onClick={(e) => { e.stopPropagation(); onClear(); }}
             sx={{
               position: 'absolute',
@@ -829,10 +828,9 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
 
       {/* Cast type chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
-        {toArray(skillType).map(type => (
+        {toArray(skillType).map((type) => (
           <Chip
             key={type}
-            size="small"
             label={formatStr(type)}
             variant="outlined"
             sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
@@ -847,10 +845,9 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
 
       {/* Tags chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
-        {toArray(tagged).map(tag => (
+        {toArray(tagged).map((tag) => (
           <Chip
             key={tag}
-            size="small"
             label={tag}
             sx={{
               height: 20,
@@ -863,8 +860,8 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
       </Box>
 
       {/* Delete — hover only */}
-      <IconButton className="rotation-delete" size="small" onClick={onRemove} sx={{ flexShrink: 0 }}>
-        <DeleteOutlineOutlinedIcon fontSize="small" />
+      <IconButton className="rotation-delete" onClick={onRemove} sx={{ flexShrink: 0 }}>
+        <DeleteOutlineOutlinedIcon />
       </IconButton>
     </Box>
   );
@@ -899,7 +896,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 
   if (!characterId) {
     return (
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body2" color="textSecondary">
         Select a character to edit rotation.
       </Typography>
     );
@@ -957,7 +954,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
             </SortableContext>
           </DndContext>
         ) : (
-          <Typography variant="body2" color="text.secondary" sx={{ p: 2, textAlign: 'center' }}>
+          <Typography variant="body2" color="textSecondary" sx={{ p: 2, textAlign: 'center' }}>
             Rotation is empty.
           </Typography>
         )}
@@ -965,7 +962,6 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 
       <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
         <Button
-          size="small"
           variant="outlined"
           startIcon={<AddIcon />}
           onClick={() => setSkillDialogOpen(true)}
@@ -973,7 +969,6 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
           Add Action
         </Button>
         <Button
-          size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
           onClick={() => onChange(CHARACTER[gameId][characterId]?.defaults?.rotation ?? [])}
@@ -981,7 +976,6 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
           Reset Default
         </Button>
         <Button
-          size="small"
           variant="outlined"
           startIcon={<ClearAllIcon />}
           onClick={() => onChange([])}
@@ -995,7 +989,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         characterId={characterId}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
-        onSelect={actionKey => onChange([...rotation, actionKey])}
+        onSelect={(actionKey) => onChange([...rotation, actionKey])}
       />
     </Box>
   );
@@ -1034,9 +1028,9 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   const handleToggleUserBuild = (useUserBuild) => {
     if (useUserBuild && storedBuild) {
-      setDraft(prev => applyStoredBuild(gameId, prev, storedBuild));
+      setDraft((prev) => applyStoredBuild(gameId, prev, storedBuild));
     } else {
-      setDraft(prev => {
+      setDraft((prev) => {
         const { build: _, ...rest } = prev;
         return { ...rest, useUserBuild: false };
       });
@@ -1087,7 +1081,6 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 <Switch
                   checked={buildLocked}
                   onChange={(e) => handleToggleUserBuild(e.target.checked)}
-                  size="small"
                 />
               }
               label={buildLocked ? 'Using own build' : 'Using trial build'}
@@ -1104,7 +1097,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   imageUrl={`${gameId}/character/${draft.id}.webp`}
                   name={memberData?.name ?? null}
                   onClick={() => setCharDialogOpen(true)}
-                  onClear={() => setDraft(prev => ({
+                  onClear={() => setDraft((prev) => ({
                     ...prev,
                     id: null,
                     rank: null,
@@ -1118,16 +1111,15 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
                 <TextField
                   select
-                  size="small"
                   value={draft.rank ?? ''}
-                  onChange={(e) => setDraft(prev => ({ ...prev, rank: Number(e.target.value) }))}
+                  onChange={(e) => setDraft((prev) => ({ ...prev, rank: Number(e.target.value) }))}
                   disabled={!draft.id || buildLocked}
                   sx={{ width: 120 }}
                 >
                   <MenuItem value="" disabled>
                     
                   </MenuItem>
-                  {[0, 1, 2, 3, 4, 5, 6].map(rank => (
+                  {[0, 1, 2, 3, 4, 5, 6].map((rank) => (
                     <MenuItem key={rank} value={rank}>
                       {`S${rank}`}
                     </MenuItem>
@@ -1143,7 +1135,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   name={weaponData?.name ?? null}
                   onClick={() => setWeaponDialogOpen(true)}
                   disabled={!draft.id || buildLocked}
-                  onClear={buildLocked ? undefined : () => setDraft(prev => ({
+                  onClear={buildLocked ? undefined : () => setDraft((prev) => ({
                     ...prev,
                     weaponId: null,
                     weaponRank: null,
@@ -1152,16 +1144,15 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
                 <TextField
                   select
-                  size="small"
                   value={draft.weaponRank ?? ''}
-                  onChange={(e) => setDraft(prev => ({ ...prev, weaponRank: Number(e.target.value) }))}
+                  onChange={(e) => setDraft((prev) => ({ ...prev, weaponRank: Number(e.target.value) }))}
                   disabled={!draft.weaponId || buildLocked}
                   sx={{ width: 120 }}
                 >
                   <MenuItem value="" disabled>
                     
                   </MenuItem>
-                  {[1, 2, 3, 4, 5].map(rank => (
+                  {[1, 2, 3, 4, 5].map((rank) => (
                     <MenuItem key={`weapon-rank-${rank}`} value={rank}>
                       {`S${rank}`}
                     </MenuItem>
@@ -1175,7 +1166,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 gameId={gameId}
                 id={draft.id}
                 setCounts={draft.setCounts}
-                onChange={(setCounts) => setDraft(prev => ({ ...prev, setCounts }))}
+                onChange={(setCounts) => setDraft((prev) => ({ ...prev, setCounts }))}
                 disabled={buildLocked}
               />
             </Box>
@@ -1185,7 +1176,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             gameId={gameId}
             characterId={draft.id}
             rotation={draft.rotation}
-            onChange={(rotation) => setDraft(prev => ({ ...prev, rotation }))}
+            onChange={(rotation) => setDraft((prev) => ({ ...prev, rotation }))}
           />
         </DialogContent>
 
@@ -1207,7 +1198,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
         weaponType={weaponType}
         open={weaponDialogOpen}
         onClose={() => setWeaponDialogOpen(false)}
-        onSelect={(weaponId) => setDraft(prev => ({
+        onSelect={(weaponId) => setDraft((prev) => ({
           ...prev,
           weaponId,
           weaponRank: getDefaultWeaponRank(gameId, weaponId),

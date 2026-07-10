@@ -15,7 +15,7 @@ async function loadTemplates() {
 
   const templates = [];
   for (const path of paths) {
-    const blob = await fetch(path).then(r => r.blob());
+    const blob = await fetch(path).then((r) => r.blob());
     const bitmap = await createImageBitmap(blob);
     const pixels = bitmapToPixels(bitmap, null, { w: 50, h: 50 });
     templates.push({ name: path.split('/').pop().split('.')[0], pixels });

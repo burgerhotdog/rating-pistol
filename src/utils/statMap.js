@@ -15,7 +15,8 @@ const DEFAULT = {
   [WW]: {
     "critRate%": 0.05,
     "critDmg%": 0.5,
-    "energyRegen%": 1
+    "energyRegen%": 1,
+    "offTuneBuildupRate%": 1,
   },
   [ZZZ]: {
     "baseEnergyRegen": 1.2,
@@ -54,7 +55,7 @@ export const compileMenuMap = (gameId, charId, member) => {
     }
   }
 
-  const filtered = allEffects.filter(effect => {
+  const filtered = allEffects.filter((effect) => {
     if ('applyWhen' in effect) return false;
     if (effect.applyTo && effect.applyTo !== 'team') return false;
     if ('rank' in effect && effect.rank > rank) return false; 

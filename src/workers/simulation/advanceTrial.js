@@ -1,7 +1,8 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
-import { mergeObj, mergeEquipList, getTotals } from '@/utils';
-import { assignMainStat } from './assignMainStat';
-import { revealSubStatKuro, revealSubStatsHoyo, upgradeSubStats } from './assignSubStat';
+import { mergeObj, mergeEquipList } from '@/utils';
+import { createAssignMain } from './stats/assignMain';
+import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './stats/assignSub';
+import { getScore } from './utils';
 
 const createEquipGenerator = (gameId, goodStats) => {
   const isGoodMain = (equip) => {
@@ -19,24 +20,26 @@ const createEquipGenerator = (gameId, goodStats) => {
     return count >= numGood;
   };
 
+  const assignMain = createAssignMain(gameId);
+
   // Return early on certain conditions
   return (spec) => {
     if (Math.random() < 0.5) return; // Wrong set
 
-    const equip = assignMainStat(gameId, spec);
+    const equip = assignMain(spec);
     if (!isGoodMain(equip)) return; // Bad main stat
 
     const subStatList = [];
     if (gameId === WW) {
-      revealSubStatKuro(subStatList);
+      revealSubStatWuwa(subStatList);
       if (!hasGoodSubs(subStatList, 1)) return; // Sub 1 is bad
 
-      revealSubStatKuro(subStatList);
-      revealSubStatKuro(subStatList);
+      revealSubStatWuwa(subStatList);
+      revealSubStatWuwa(subStatList);
       if (!hasGoodSubs(subStatList, 2)) return; // Sub 2 and 3 are both bad
 
-      revealSubStatKuro(subStatList);
-      revealSubStatKuro(subStatList);
+      revealSubStatWuwa(subStatList);
+      revealSubStatWuwa(subStatList);
     } else {
       revealSubStatsHoyo(subStatList, gameId, equip.mainStatId);
       if (!hasGoodSubs(subStatList, 2)) return; // Bad starting 4 stats
@@ -48,23 +51,20 @@ const createEquipGenerator = (gameId, goodStats) => {
   };
 };
 
-const createEquipEvaluator = (baseMap, simulateRotation, getPenalty) => (equip, latest) => {
+const createEquipEvaluator = (baseMap, runRotation, getPenalty, currId) => (equip, latest) => {
   const buffer = { ...latest };
 
-  const trySlot = index => {
+  const trySlot = (index) => {
     const newEquipList = latest.equipList.with(index, equip);
     const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
-    const newSummary = simulateRotation(combinedStatMap);
-    const newTotals = getTotals(newSummary);
+    const newSummary = runRotation(combinedStatMap);
     const newPenalty = getPenalty(combinedStatMap);
-    const newScore = (newTotals.damage + newTotals.healing + newTotals.shield) * newPenalty;
+    const newScore = getScore(newSummary, currId, newPenalty);
 
     if (newScore > buffer.score) {
       Object.assign(buffer, {
         equipList: newEquipList,
         summary: newSummary,
-        totals: newTotals,
-        penalty: newPenalty,
         score: newScore,
       });
     }
@@ -87,12 +87,12 @@ const createEquipEvaluator = (baseMap, simulateRotation, getPenalty) => (equip, 
   return buffer;
 };
 
-export const createTrialAdvancer = (cache, currId, goodStats, simulateRotation, getPenalty) => {
+export const createTrialAdvancer = (cache, currId, goodStats, runRotation, getPenalty) => {
   const { gameId } = cache;
   const { baseMap } = cache.member[currId];
 
   const generateEquip = createEquipGenerator(gameId, goodStats);
-  const evaluateEquip = createEquipEvaluator(baseMap, simulateRotation, getPenalty);
+  const evaluateEquip = createEquipEvaluator(baseMap, runRotation, getPenalty, currId);
 
   const passes = {
     [GI]: [{ count: 66,  slotCount: 5 }],
@@ -101,16 +101,16 @@ export const createTrialAdvancer = (cache, currId, goodStats, simulateRotation, 
     [WW]: [{ count: 20, cost: 4 }, { count: 15, cost: 3 }, { count: 60 }],
   };
 
-  return trial => {
+  return (trial) => {
     for (const pass of passes[gameId]) {
 
-      const spec = {};
+      let spec;
       if (gameId === WW) {
         if ('cost' in pass) {
-          spec.cost = pass.cost;
+          spec = pass.cost;
         }
       } else if (gameId === HSR) {
-        spec.type = pass.type;
+        spec = pass.type;
       }
 
       for (let i = 0; i < pass.count; i++) {
