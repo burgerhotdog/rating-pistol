@@ -11,7 +11,7 @@ const createEquipMap = (member) => {
 };
 
 const convertRotation = (ctx, member, actions) => {
-  const { teamSize } = ctx;
+  const teamSize = ctx.memberIds.length;
 
   const rotation = [];
   let rotationTime = 0;
@@ -29,6 +29,21 @@ const convertRotation = (ctx, member, actions) => {
 
     rotationTime += action.duration;
     rotation.push(action);
+  }
+
+  // Insert tune break action for first character
+  if (member.id === ctx.memberIds[0]) {
+    // Ensure no more than 8000 ms remain after tune break
+    let timeLeft = rotationTime;
+    let insertAfterIndex = 0;
+    for (const action of rotation) {
+      if (timeLeft <= 8000) break;
+
+      timeLeft -= action.duration;
+      insertAfterIndex++;
+    }
+
+    rotation.splice(insertAfterIndex, 0, { key: 'other:tuneBreak' });
   }
 
   return { rotation, rotationTime };

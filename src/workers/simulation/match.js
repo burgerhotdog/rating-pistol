@@ -188,12 +188,12 @@ export const matchRemoveIf = (action, effect, ctx) => {
   return false;
 };
 
-const matchIfShifting = (ifShifting, offTuneState) => {
-  return ifShifting.includes(offTuneState.shifting);
+const matchIfShifting = (ifShifting, tuneState) => {
+  return ifShifting.includes(tuneState.shifting);
 };
 
-const matchIfInterfered = (ifInterfered, offTuneState) => {
-  return ifInterfered.includes(offTuneState.interfered);
+const matchIfInterfered = (ifInterfered, tuneState) => {
+  return ifInterfered.includes(tuneState.interfered);
 };
 
 export const matchUseIf = (effect, memberId, ctx) => {
@@ -214,8 +214,8 @@ export const matchUseIf = (effect, memberId, ctx) => {
   if ('useIfField' in effect && matchIfField(effect.useIfField, memberId, ctx.activeId)) return true;
   if ('useIfAttr' in effect && matchIfAttr(effect.useIfAttr, mergeObj(ctx.cache.member[effect.ownerId].baseMap, ctx.equipMaps[effect.ownerId]))) return true;
   if ('useIfElement' in effect && matchIfElement(effect.useIfElement, CHARACTER[ctx.cache.gameId][effect.ownerId].element)) return true;
-  if ('useIfShifting' in effect && matchIfShifting(effect.useIfShifting, ctx.state.offTune)) return true;
-  if ('useIfInterfered' in effect && matchIfInterfered(effect.useIfInterfered, ctx.state.offTune)) return true;
+  if ('useIfShifting' in effect && matchIfShifting(effect.useIfShifting, ctx.state.tune)) return true;
+  if ('useIfInterfered' in effect && matchIfInterfered(effect.useIfInterfered, ctx.state.tune)) return true;
 
   return false;
 };

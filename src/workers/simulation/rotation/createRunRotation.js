@@ -1,7 +1,7 @@
 import { matchIfInflict, matchUseOn, matchUseIf, matchApplyIf } from '../match';
 import { isOnCooldown, setCooldown, advanceCooldowns } from './cooldowns';
 import { buildFootprint, evaluateFootprint } from './footprint';
-import { applyTune, advanceTune } from './offtune';
+import { applyTune, advanceTune, runTuneBreak } from './tune';
 import { applyEffect, removeEffects, advanceEffects } from './effects';
 import { inflictNegativeStatuses, advanceNegativeStatuses } from './negativeStatuses';
 
@@ -69,7 +69,7 @@ function applyEffects(ctx, action, trigger) {
   }
 }
 
-function decayProcCounts(ctx, action) {
+function decayUseCounts(ctx, action) {
   const { effects, fieldEffects, debuffs } = ctx.state;
 
   const stateMaps = [
@@ -92,7 +92,7 @@ function decayProcCounts(ctx, action) {
   }
 }
 
-function executeFollowUpActions(ctx, action, depth) {
+function runFollowUpActions(ctx, action, depth) {
   const { effects, fieldEffects, cooldowns } = ctx.state;
   const actionOwnerField = ctx.onFieldId === action.ownerId ? 'active' : 'inactive';
 
@@ -111,7 +111,7 @@ function executeFollowUpActions(ctx, action, depth) {
       effectState.executing = true;
       for (const action of effect.followUpAction) {
         for (let i = 0; i < effect.times; i ++) {
-          executeAction(ctx, action, depth + 1);
+          runAction(ctx, action, depth + 1);
         }
       }
       effectState.executing = false;
@@ -129,7 +129,7 @@ function executeFollowUpActions(ctx, action, depth) {
   }
 }
 
-function executeIntervalActions(ctx, elapsed, depth) {
+function runIntervalActions(ctx, elapsed, depth) {
   const { effects } = ctx.state;
 
   for (const stateMap of Object.values(effects)) {
@@ -141,7 +141,7 @@ function executeIntervalActions(ctx, elapsed, depth) {
       while (effectState.intervalTimer <= 0) {
         for (const action of effect.intervalAction) {
           for (let i = 0; i < effect.times; i ++) {
-            executeAction(ctx, action, depth + 1);
+            runAction(ctx, action, depth + 1);
           }
         }
 
@@ -168,13 +168,13 @@ function getHitCount(action) {
   return maxHits;
 }
 
-function executeAction(ctx, action, depth = 0) {
+function runAction(ctx, action, depth = 0) {
   if (depth >= MAX_PROC_DEPTH) {
     console.error('MAX_PROC_DEPTH');
     return;
   }
 
-  const { cooldowns } = ctx.state;
+  const { cooldowns, tune } = ctx.state;
   const { duration, offset } = action;
 
   // Triggered on cast
@@ -183,11 +183,11 @@ function executeAction(ctx, action, depth = 0) {
 
   // Advance time forwards to hit
   if (offset) {
-    executeIntervalActions(ctx, offset, depth);
+    runIntervalActions(ctx, offset, depth);
     advanceNegativeStatuses(ctx, offset);
 
     advanceEffects(ctx, offset);
-    advanceTune(ctx, offset);
+    advanceTune(tune, offset);
     advanceCooldowns(cooldowns, offset);
   }
 
@@ -200,7 +200,7 @@ function executeAction(ctx, action, depth = 0) {
       const footprint = buildFootprint(ctx, action);
       ctx.footprints.push(footprint);
     }
-    decayProcCounts(ctx, action);
+    decayUseCounts(ctx, action);
 
     // Apply tune if damage
     if (action.type === 'damage') {
@@ -209,15 +209,15 @@ function executeAction(ctx, action, depth = 0) {
 
     // Triggered on hit
     applyEffects(ctx, action, 'hit');
-    executeFollowUpActions(ctx, action, depth);
+    runFollowUpActions(ctx, action, depth);
 
     // Advance time after hit
     if (hitInterval) {
-      executeIntervalActions(ctx, hitInterval, depth);
+      runIntervalActions(ctx, hitInterval, depth);
       advanceNegativeStatuses(ctx, hitInterval);
 
       advanceEffects(ctx, hitInterval);
-      advanceTune(ctx, hitInterval);
+      advanceTune(tune, hitInterval);
       advanceCooldowns(cooldowns, hitInterval);
     }
   }
@@ -235,7 +235,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
         use: {},
       },
       effects: Object.fromEntries(
-        cache.memberIds.map((memberId) => [memberId, {}])
+        cache.memberIds.map((id) => [id, {}])
       ),
       fieldEffects: {
         active: {},
@@ -243,9 +243,11 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
       },
       debuffs: {},
       negativeStatuses: {},
-      offTune: { level: 0 },
+      tune: { offTune: 0 },
     },
     footprints: [],
+    tuneBuildup: [],
+    tuneFootprints: [],
   };
 
   // Rotation loop
@@ -255,7 +257,11 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     ctx.onFieldId = memberId;
 
     for (const action of rotation) {
-      executeAction(ctx, action);
+      if (action.key === 'other:tuneBreak') {
+        runTuneBreak(ctx);
+      } else {
+        runAction(ctx, action);
+      }
     }
   }
   ctx.recordFootprint = true;
@@ -264,7 +270,11 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     ctx.onFieldId = memberId;
 
     for (const action of rotation) {
-      executeAction(ctx, action);
+      if (action.key === 'other:tuneBreak') {
+        runTuneBreak(ctx);
+      } else {
+        runAction(ctx, action);
+      }
     }
   }
 
@@ -287,15 +297,31 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     });
   }
 
+  // Resolve tune break/response footprints
+  const numBreaksMult =
+    ctx.tuneBuildup[0] === 300
+      ? 1
+      : ctx.tuneBuildup[1] === 300
+        ? 0.5
+        : 1 / Math.ceil(300 / (ctx.tuneBuildup[1] - ctx.tuneBuildup[0]));
+  
+  for (const footprint of ctx.tuneFootprints) {
+    addToSummary(fixedSummary, {
+      key: footprint.key,
+      ownerId: footprint.ownerId,
+      type: footprint.type,
+      dmgType: footprint.dmgType,
+      value: footprint.fixed * numBreaksMult,
+    });
+  }
+
   // Return function to resolve remaining footprints
   return (statMap) => {
     const summary = { ...fixedSummary };
-
     for (const footprint of remaining) {
       const result = evaluateFootprint(helpers, { currId }, footprint, statMap);
       addToSummary(summary, result);
     }
-
     return summary;
   };
 };
