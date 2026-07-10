@@ -2156,7 +2156,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": "EROSION",
+        "applyIfInflict": "aeroErosion",
         "rankedStatMap": {
           "aeroDmgBonus%": [
             0.24,
@@ -2170,7 +2170,7 @@
         "applyWhen": "hit",
         "applyOnType": "damage",
         "applyIfStatus": {
-          "EROSION": 1
+          "aeroErosion": 1
         },
         "rankedStatMap": {
           "aeroResReduction%": [
@@ -2297,7 +2297,7 @@
       },
       {
         "useIfStatus": {
-          "EROSION": 1
+          "aeroErosion": 1
         },
         "rankedStatMap": {
           "dmgAmp%": [
@@ -2892,9 +2892,9 @@
         "applyTo": "team",
         "applyWhen": "hit",
         "applyOnSkillType": "basicAttack",
-        "applyIfInflict": [
-          "RUPTURE",
-          "STRAIN"
+        "applyIfShift": [
+          "tuneRupture",
+          "tuneStrain"
         ],
         "rankedStatMap": {
           "dmgBonus%": [
@@ -2995,10 +2995,8 @@
       },
       {
         "applyWhen": "cast",
-        "applyifInflict": {
-          "RUPTURE": 1,
-          "BURST": 1
-        },
+        "applyifInflict": "fusionBurst",
+        "applyIfShift": "tuneRupture",
         "useOnDmgType": "resonanceLiberation",
         "rankedStatMap": {
           "defIgnore%": [
@@ -3045,7 +3043,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": "STRAIN",
+        "applyIfShift": "tuneStrain",
         "useOnDmgType": "basicAttack",
         "rankedStatMap": {
           "basicAttackDmgAmp%": [
@@ -3127,7 +3125,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": "CHAFE",
+        "applyIfInflict": "glacioChafe",
         "rankedStatMap": {
           "glacioDmgAmp%": [
             0.28,
@@ -3138,7 +3136,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": "CHAFE",
+        "applyIfInflict": "glacioChafe",
         "useOnDmgType": "resonanceLiberation",
         "rankedStatMap": {
           "defIgnore%": [
@@ -3183,10 +3181,8 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": [
-          "BURST",
-          "STRAIN"
-        ],
+        "applyIfInflict": "fusionBurst",
+        "applyIfShift": "tuneStrain",
         "rankedStatMap": {
           "resonanceLiberationDmgBonus%": [
             0.36,
@@ -3238,7 +3234,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": "HACK",
+        "applyIfShift": "hack",
         "useOnDmgType": "heavyAttack",
         "rankedStatMap": {
           "heavyAttackDmgAmp%": [
@@ -3285,7 +3281,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": "HACK",
+        "applyIfShift": "hack",
         "rankedStatMap": {
           "basicAttackDmgBonus%": [
             0.12,
@@ -3297,7 +3293,7 @@
       {
         "applyTo": "team",
         "applyWhen": "hit",
-        "applyIfInflict": "HACK",
+        "applyIfShift": "hack",
         "rankedStatMap": {
           "atk%": [
             0.24,
@@ -3328,7 +3324,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfInflict": "CHAFE",
+        "applyIfInflict": "glacioChafe",
         "rankedStatMap": {
           "glacioDmgBonus%": [
             0.3,
@@ -3340,7 +3336,7 @@
       {
         "applyTo": "team",
         "applyWhen": "hit",
-        "applyIfInflict": "CHAFE",
+        "applyIfInflict": "glacioChafe",
         "rankedStatMap": {
           "atk%": [
             0.24,

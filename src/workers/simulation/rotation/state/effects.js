@@ -1,4 +1,4 @@
-import { matchRemoveOn, matchRemoveIf } from '../match';
+import { matchRemoveOn, matchRemoveIf } from '../../match';
 
 export function applyEffect(stateMap, effect) {
   const prev = stateMap[effect.key] ?? {};

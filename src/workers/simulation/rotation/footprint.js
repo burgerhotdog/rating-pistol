@@ -1,9 +1,46 @@
 import { mergeObj, mergeObjs } from '@/utils';
 import { matchUseOn, matchUseIf } from '../match';
 import { resolveVariableStatMap } from '../utils';
-import { isOnCooldown, setCooldown } from './cooldowns';
+import { isOnCooldown, setCooldown } from './state/cooldowns';
 import { runDamageFormula } from './damageFormula';
+import { runTuneFormula } from './damageFormula/runTuneFormula';
 import { getCurrentEnemyMap, getCurrentStatMap } from './getCurrent';
+
+export const buildTuneFootprints = (ctx) => {
+  const enemyStatMap = getCurrentEnemyMap(ctx);
+  const tuneBreakStatMap = getCurrentStatMap(ctx, ctx.onFieldId);
+  const tuneBreakFootprint = {
+    key: `other:tuneBreak`,
+    ownerId: 'other',
+    type: 'damage',
+    dmgType: 'tuneBreak',
+    fixed: runTuneFormula(ctx, enemyStatMap, tuneBreakStatMap),
+  };
+
+  const footprints = [tuneBreakFootprint];
+  const shifting = ctx.state.tune.shifting;
+
+  // Tune response
+  for (const member of Object.values(ctx.cache.member)) {
+    if (!('tuneResponse' in member)) continue;
+    const { dmgType, element, compressed } = member.tuneResponse;
+
+    if (dmgType !== shifting) continue;
+    const { mv } = Object.values(compressed)[0];
+
+    const responseStatMap = getCurrentStatMap(ctx, member.id);
+
+    footprints.push({
+      key: `${member.id}:tuneResponse`,
+      ownerId: member.id,
+      type: 'damage',
+      dmgType,
+      fixed: runTuneFormula(ctx, enemyStatMap, responseStatMap, mv['tuneAmp'], element),
+    });
+  }
+
+  return footprints;
+};
 
 export const buildFootprint = (ctx, action, repeatCount = 1) => {
   const { passive, member } = ctx.cache;

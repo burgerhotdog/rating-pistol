@@ -183,17 +183,14 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
 export const normalizeEffects = (ctx, member, actions) => {
   const { gameId } = ctx;
 
-  const charData = CHARACTER[gameId][member.id];
-  const weapData = WEAPON[gameId][member.weaponId];
-  const setData = SET[gameId];
-
   const toNormalize = [
-    ...toArray(charData.effects).filter((effect) => (effect.rank ?? 0) <= member.rank),
-    ...toArray(weapData.effects),
+    ...toArray(CHARACTER[gameId][member.id].effects)
+      .filter((effect) => (effect.rank ?? 0) <= member.rank),
+    ...toArray(WEAPON[gameId][member.weaponId].effects),
   ];
 
   for (const [setId, count] of Object.entries(member.setCounts)) {
-    const { tieredEffects = {} } = setData[setId];
+    const { tieredEffects = {} } = SET[gameId][setId];
 
     for (const [tier, effects] of Object.entries(tieredEffects)) {
       if (Number(tier) > count) continue;

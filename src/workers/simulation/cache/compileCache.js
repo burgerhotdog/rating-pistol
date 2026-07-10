@@ -76,13 +76,14 @@ export const compileCache = (gameId, team) => {
 
     special.push(...specialEffects);
 
-    for (const actionKey in effectsByAction) {
-      effect[actionKey] = effectsByAction[actionKey];
+    for (const [actionKey, effects] of Object.entries(effectsByAction)) {
+      effect[actionKey] ??= [];
+      effect[actionKey].push(...effects);
     }
 
-    for (const target in passivesbyTarget) {
-      passive[target] ??= [];
-      passive[target].push(...passivesbyTarget[target]);
+    for (const [applyTo, passives] of Object.entries(passivesbyTarget)) {
+      passive[applyTo] ??= [];
+      passive[applyTo].push(...passives);
     }
 
     memberCache[member.id] = {

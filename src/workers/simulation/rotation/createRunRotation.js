@@ -1,9 +1,9 @@
 import { matchIfInflict, matchUseOn, matchUseIf, matchApplyIf } from '../match';
-import { isOnCooldown, setCooldown, advanceCooldowns } from './cooldowns';
+import { isOnCooldown, setCooldown, advanceCooldowns } from './state/cooldowns';
+import { applyEffect, removeEffects, advanceEffects } from './state/effects';
+import { inflictNegativeStatuses, advanceNegativeStatuses } from './state/negativeStatuses';
+import { applyTune, advanceTune, runTuneBreak } from './state/tune';
 import { buildFootprint, evaluateFootprint } from './footprint';
-import { applyTune, advanceTune, runTuneBreak } from './tune';
-import { applyEffect, removeEffects, advanceEffects } from './effects';
-import { inflictNegativeStatuses, advanceNegativeStatuses } from './negativeStatuses';
 
 const MAX_PROC_DEPTH = 5;
 
