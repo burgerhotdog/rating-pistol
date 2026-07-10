@@ -70,7 +70,7 @@ export function applyTune(ctx, action) {
   const buildupRateMult = getAttr('offTuneBuildupRate%', currStatMap);
   offTune.level += 10 * buildupRateMult;
 
-  if (offTune.level >= 150) {
+  if (offTune.level >= 300) {
     offTune.cooldown = 4000;
     offTune.level = 0;
     
