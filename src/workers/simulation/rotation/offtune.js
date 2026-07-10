@@ -6,9 +6,20 @@ import { applyEffect } from './effects';
 const levelModifier = 716.22;
 const enemyTypeModifier = 14;
 
-const tuneBreakDamage = (tuneAmp, enemyStatMap, statMap) => {
-  const tuneBreakBoostMult = 1 + getAttr('tuneBreakBoost', statMap) / 100;
-  return levelModifier * tuneAmp * 0.5 * enemyTypeModifier * 0.9 * tuneBreakBoostMult;
+const tuneBreakDamage = (ctx, tuneAmpMv, enemyStatMap, statMap, element = 'physical') => {
+  const { getDefMult, getResMult } = ctx.helpers;
+  const baseDmg = levelModifier * tuneAmpMv;
+  const defMult = getDefMult(enemyStatMap, statMap);
+  const resMult = getResMult(element, enemyStatMap, statMap);
+
+  const tuneBreakBoostMult = 1 + (getAttr('tuneBreakBoost', statMap) / 100);
+
+  const damageValue =
+    baseDmg *
+    defMult * enemyTypeModifier * resMult *
+    tuneBreakBoostMult;
+
+  return damageValue;
 };
 
 const buildTuneBreakFootprints = (ctx, currentStatMap, shifting) => {
@@ -19,27 +30,25 @@ const buildTuneBreakFootprints = (ctx, currentStatMap, shifting) => {
     ownerId: 'other',
     type: 'damage',
     dmgType: 'tuneBreak',
-    fixed: tuneBreakDamage(16, enemyStatMap, currentStatMap),
+    fixed: tuneBreakDamage(ctx, 16, enemyStatMap, currentStatMap),
   }];
 
   if (shifting) {
     for (const member of Object.values(ctx.cache.member)) {
       if (!('tuneResponse' in member)) continue;
-      const { id, tuneResponse } = member;
-      if (!('compressed' in tuneResponse)) continue;
+      const { dmgType, element, compressed } = member.tuneResponse;
 
-      const { dmgType, compressed } = tuneResponse;
       if (dmgType !== shifting) continue;
       const { mv } = Object.values(compressed)[0];
 
       const responseStatMap = getCurrentStatMap(ctx, member.id);
 
       footprints.push({
-        key: `${id}:tuneResponse`,
-        ownerId: id,
+        key: `${member.id}:tuneResponse`,
+        ownerId: member.id,
         type: 'damage',
         dmgType,
-        fixed: tuneBreakDamage(mv['tuneAmp'], enemyStatMap, responseStatMap),
+        fixed: tuneBreakDamage(ctx, mv['tuneAmp'], enemyStatMap, responseStatMap, element),
       });
     }
   }

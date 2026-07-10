@@ -45,8 +45,10 @@ const buildConfigStats = (gameId, trials) => {
     entry.count++;
 
     const { subRollSums } = entry;
-    for (const [statId, rolls] of Object.entries(getSubRollSums(gameId, trial.equipList))) {
-      subRollSums[statId] = (subRollSums[statId] ?? 0) + rolls;
+    const rollMap = getSubRollSums(gameId, trial.equipList);
+    for (const [statId, rolls] of Object.entries(rollMap)) {
+      subRollSums[statId] ??= 0;
+      subRollSums[statId] += rolls;
     }
   }
 
@@ -102,8 +104,8 @@ export const runTrials = (helpers, cache, equipMaps, currId, isMain = false) => 
   // Main trial loop
   let prevAvgScore = baseScore;
   for (let week = 1; week <= MAX_WEEKS; week++) {
-    const weekSummarySums = {};
     const weekScores = createScoreTracker();
+    const weekSummarySums = {};
 
     for (const trial of trials) {
       advanceTrial(trial);

@@ -9,7 +9,8 @@ export const getSubRollSums = (gameId, equipList) => {
 
     for (const { subStatId, subStatValue } of equip.subStatList) {
       const maxRoll = SUB_STAT_TYPES[subStatId].VALUE;
-      subStatSums[subStatId] = (subStatSums[subStatId] ?? 0) + subStatValue / maxRoll;
+      subStatSums[subStatId] ??= 0
+      subStatSums[subStatId] += subStatValue / maxRoll;
     }
   }
 
