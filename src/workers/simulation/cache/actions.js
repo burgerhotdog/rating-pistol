@@ -68,32 +68,27 @@ export const compressMultipliers = (multipliers, spec = {}) => {
     }
   };
 
-  const compressed = {};
+  const compressed = { flat: 0, mvs: {}, hitCount: 0 };
 
-  for (const hit of multipliers) {
-    const element = hit.element ?? spec.element ?? 'Physical';
-    const times = hit.times ?? 1;
-    compressed[element] ??= { flat: 0, mv: {}, hitCount: 0 };
-    const compiled = compressed[element];
-
-    if ('flat' in hit) {
-      compiled.flat += resolveScaling(hit.flat) * times;
+  for (const { flat, mv, times = 1 } of multipliers) {
+    if (flat) {
+      compressed.flat += resolveScaling(flat) * times;
     }
 
-    if ('mv' in hit) {
-      if (typeof hit.mv === 'object' && !Array.isArray(hit.mv)) {
-        for (const [attr, scaling] of Object.entries(hit.mv)) { // dual attr scaling
-          compiled.mv[attr] ??= 0;
-          compiled.mv[attr] += resolveScaling(scaling) * times;
+    if (mv) {
+      if (typeof mv === 'object' && !Array.isArray(mv)) {
+        for (const [attr, scaling] of Object.entries(mv)) { // dual attr scaling
+          compressed.mvs[attr] ??= 0;
+          compressed.mvs[attr] += resolveScaling(scaling) * times;
         }
       } else { // single attr scaling
         const attr = spec.attr ?? 'atk';
-        compiled.mv[attr] ??= 0;
-        compiled.mv[attr] += resolveScaling(hit.mv) * times;
+        compressed.mvs[attr] ??= 0;
+        compressed.mvs[attr] += resolveScaling(mv) * times;
       }
     }
 
-    compiled.hitCount += times;
+    compressed.hitCount += times;
   }
 
   return compressed;
@@ -147,28 +142,18 @@ export const normalizeActions = (ctx, member) => {
         id: actionId,
       };
 
-      if (ctx.gameId === GI && resolved.type === 'damage') {
-        if (category === 'normalAttack' && char.type !== 'catalyst') {
+      if (resolved.type === 'damage') {
+        if (ctx.gameId === GI && category === 'normalAttack' && char.type !== 'catalyst') {
           resolved.element ??= 'physical';
         } else {
           resolved.element ??= char.element;
         }
       }
 
-      if (ctx.gameId !== GI && resolved.type === 'damage') {
-        resolved.element ??= char.element;
-      }
-
-      const spec = {
-        element: resolved.element ?? resolved.type,
-        attr: resolved.attr,
-      };
-
       if ('indexedMultipliers' in resolved) {
-        spec.index = getIndex(category);
-        resolved.compressed = compressMultipliers(resolved.indexedMultipliers, spec)
+        resolved.compressed = compressMultipliers(resolved.indexedMultipliers, { attr: resolved.attr, index: getIndex(category) })
       } else if ('fixedMultipliers' in resolved) {
-        resolved.compressed = compressMultipliers(toArray(resolved.fixedMultipliers), spec);
+        resolved.compressed = compressMultipliers(toArray(resolved.fixedMultipliers), { attr: resolved.attr });
       }
 
       normalized[actionShort] = resolved;

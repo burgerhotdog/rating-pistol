@@ -123,19 +123,14 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
             id: inlineId,
           };
 
-          const spec = { element: inline.element, attr: inline.attr };
-
           if (inline.type === 'damage') {
-            spec.element ??= CHARACTER[gameId][member.id].element;
-          } else {
-            spec.element = inline.type;
+            inline.element ??= CHARACTER[gameId][member.id].element;
           }
 
           if ('rankedMultipliers' in inline) {
-            spec.weaponId = member.weaponId;
-            inline.compressed = compressMultipliers(inline.indexedMultipliers, spec)
+            inline.compressed = compressMultipliers(inline.indexedMultipliers, { attr: inline.attr, weaponId: member.weaponId })
           } else {
-            inline.compressed = compressMultipliers(toArray(inline.fixedMultipliers), spec);
+            inline.compressed = compressMultipliers(toArray(inline.fixedMultipliers), { attr: inline.attr });
           }
 
           resolved[actionType].push(inline);

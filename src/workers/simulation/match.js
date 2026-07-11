@@ -35,12 +35,8 @@ const matchOnDmgType = (onDmgType, action) => {
   return onDmgType.includes(dmgType) || onDmgType.includes(extraDmgType);
 };
 
-const matchOnElement = (onElement, elements) => {
-  for (const element of elements) {
-    if (onElement.includes(element)) return true;
-  }
-
-  return false;
+const matchOnElement = (onElement, element) => {
+  return onElement.includes(element);
 };
 
 const matchIfWeapon = (ifWeapon, weaponType) => {
@@ -154,7 +150,7 @@ export const matchUseOn = (effect, action) => {
   if (useOnTagged && matchOnTagged(useOnTagged, action)) return true;
   if (useOnSkillType && matchOnSkillType(useOnSkillType, action)) return true;
   if (useOnDmgType && matchOnDmgType(useOnDmgType, action)) return true;
-  if (useOnElement && matchOnElement(useOnElement, action.compressed.keys()))
+  if (useOnElement && matchOnElement(useOnElement, action.element))
 
   return false;
 };

@@ -155,19 +155,6 @@ function runIntervalActions(ctx, elapsed, depth) {
   }
 }
 
-function getHitCount(action) {
-  const { compressed } = action;
-  if (!compressed) return 1;
-
-  let maxHits = 1;
-  for (const { hits } of Object.values(compressed)) {
-    if (hits > maxHits) {
-      maxHits = hits;
-    }
-  }
-  return maxHits;
-}
-
 function runAction(ctx, action, depth = 0) {
   if (depth >= MAX_PROC_DEPTH) {
     console.error('MAX_PROC_DEPTH');
@@ -191,19 +178,19 @@ function runAction(ctx, action, depth = 0) {
     advanceCooldowns(cooldowns, offset);
   }
 
-  // Hits (spaced hitInterval apart)
-  const hitCount = getHitCount(action);
+  // Hit
+  if (ctx.recordFootprint) {
+    const footprint = buildFootprint(ctx, action);
+    if (footprint) {
+      ctx.footprints.push(footprint);
+    }
+  }
+  decayUseCounts(ctx, action);
+
+  // Trigger follow ups (spaced hitInterval apart)
+  const { hitCount = 1 } = action.compressed ?? {};
   const hitInterval = (duration - offset) / hitCount;
   for (let i = 0; i < hitCount; i++) {
-    // Hit
-    if (ctx.recordFootprint) {
-      const footprint = buildFootprint(ctx, action);
-      if (footprint) {
-        ctx.footprints.push(footprint);
-      }
-    }
-    decayUseCounts(ctx, action);
-
     // Apply tune if damage
     if (action.type === 'damage') {
       applyTune(ctx, action);

@@ -22,9 +22,7 @@ export const buildTuneFootprints = (ctx) => {
   for (const member of Object.values(ctx.cache.member)) {
     if (!('tuneResponse' in member)) continue;
     const { dmgType, element, compressed } = member.tuneResponse;
-
     if (dmgType !== shifting) continue;
-    const { mv } = Object.values(compressed)[0];
 
     const responseStatMap = getCurrentStatMap(ctx, member.id);
 
@@ -33,7 +31,7 @@ export const buildTuneFootprints = (ctx) => {
       ownerId: member.id,
       type: 'damage',
       dmgType,
-      fixed: runTuneFormula(ctx.helpers, enemyStatMap, responseStatMap, mv['tuneAmp'], element),
+      fixed: runTuneFormula(ctx.helpers, enemyStatMap, responseStatMap, compressed.mvs['tuneAmp'], element),
     });
   }
 
@@ -41,8 +39,7 @@ export const buildTuneFootprints = (ctx) => {
 };
 
 export const buildFootprint = (ctx, action) => {
-  if (!('compressed' in action)) return;
-
+  if (!action.compressed) return;
   const { passive, member } = ctx.cache;
   const { memberEffects, fieldEffects } = ctx.state;
 
@@ -108,7 +105,7 @@ export const buildFootprint = (ctx, action) => {
       ...Object.values(memberEffects[ctx.currId]),
       ...Object.values(fieldEffects[currIdFieldKey]),
     ]) {
-      const { chance, statMap } = effect;
+      const { chance = 1, statMap } = effect;
       if (!statMap) continue;
 
       for (const [statId, value] of Object.entries(statMap)) {
@@ -129,7 +126,7 @@ export const buildFootprint = (ctx, action) => {
     const statMap = mergeObjs(member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId], footprint.fixedEffectStatMap);
 
     footprint.fixed = action.attr === 'tuneAmp'
-      ? runTuneFormula(ctx.helpers, footprint.enemyStatMap, statMap, Object.values(action.compressed)[0].mv['tuneAmp'], Object.keys(action.compressed)[0])
+      ? runTuneFormula(ctx.helpers, footprint.enemyStatMap, statMap, action.compressed.mvs['tuneAmp'], action.element)
       : runDamageFormula(ctx.helpers, action, footprint.enemyStatMap, statMap);
   }
 
@@ -163,7 +160,7 @@ export const evaluateFootprint = (helpers, currId, footprint, statMap) => {
   const finalStatMap = mergeObj(ownerBaseStatMap, effectStatMap);
 
   const value = footprint.attr === 'tuneAmp'
-    ? runTuneFormula(helpers, footprint.enemyStatMap, finalStatMap, Object.values(footprint.compressed)[0].mv['tuneAmp'], Object.keys(footprint.compressed)[0])
+    ? runTuneFormula(helpers, footprint.enemyStatMap, finalStatMap, footprint.compressed.mvs['tuneAmp'], footprint.element)
     : runDamageFormula(helpers, footprint, footprint.enemyStatMap, finalStatMap);
 
   return { ...summary, value };

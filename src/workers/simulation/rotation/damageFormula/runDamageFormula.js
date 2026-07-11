@@ -4,72 +4,65 @@ import { getDmgBonusMult } from './dmgBonus';
 import { getDmgAmpMult } from './dmgAmp';
 
 const computeBase = (compressed, statMap) => {
+  const { flat, mvs, hitCount } = compressed;
   const percentMv = getAttr('mv%', statMap);
   const flatMv = getAttr('mv', statMap);
   let totalMvPart = 0;
 
-  for (const [attr, mv] of Object.entries(compressed.mv)) {
+  for (const [attr, mv] of Object.entries(mvs)) {
     const attrValue = getAttr(attr, statMap);
-    totalMvPart += attrValue * (mv + flatMv * compressed.hitCount);
+    totalMvPart += attrValue * (mv + flatMv * hitCount);
   }
 
-  const flatBuff = getAttr('flat', statMap) * compressed.hitCount;
+  const flatBuff = getAttr('flat', statMap) * hitCount;
 
-  return totalMvPart * (1 + percentMv) + compressed.flat + flatBuff;
+  return totalMvPart * (1 + percentMv) + flat + flatBuff;
 };
 
 export const runDamageFormula = (helpers, action, enemyStatMap, statMap) => {
   const { getResMult, getDefMult } = helpers;
-  const { dmgType, extraDmgType, compressed } = action;
+  const { dmgType, extraDmgType, element, compressed } = action;
 
-  let sum = 0;
-  for (const [element, params] of Object.entries(compressed)) {
-    const baseValue = computeBase(params, statMap) * action.times;
+  const baseValue = computeBase(compressed, statMap) * action.times;
 
-    switch (action.type) {
-      case 'damage': {
-        const critMult = getCritMult(statMap);
+  switch (action.type) {
+    case 'damage': {
+      const critMult = getCritMult(statMap);
 
-        const bonusTypes = [element, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
-        const dmgBonusMult = getDmgBonusMult(enemyStatMap, statMap, bonusTypes);
-        const dmgAmpMult = getDmgAmpMult(enemyStatMap, statMap, bonusTypes);
+      const bonusTypes = [element, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
+      const dmgBonusMult = getDmgBonusMult(enemyStatMap, statMap, bonusTypes);
+      const dmgAmpMult = getDmgAmpMult(enemyStatMap, statMap, bonusTypes);
 
-        const resMult = getResMult(element, enemyStatMap, statMap);
-        const defMult = getDefMult(enemyStatMap, statMap);
+      const resMult = getResMult(element, enemyStatMap, statMap);
+      const defMult = getDefMult(enemyStatMap, statMap);
 
-        const damageValue =
-          baseValue *
-          critMult * dmgBonusMult * dmgAmpMult *
-          resMult * defMult;
+      const damageValue =
+        baseValue *
+        critMult * dmgBonusMult * dmgAmpMult *
+        resMult * defMult;
 
-        sum += damageValue;
-        break;
-      }
+      return damageValue;
+    }
 
-      case 'healing': {
-        const healingBonus = 1 + getAttr('healingBonus%', statMap);
-        const healingReceived = 1 + getAttr('healingReceived%', statMap);
+    case 'healing': {
+      const healingBonus = 1 + getAttr('healingBonus%', statMap);
+      const healingReceived = 1 + getAttr('healingReceived%', statMap);
 
-        const healingValue =
-          baseValue *
-          healingBonus * healingReceived;
+      const healingValue =
+        baseValue *
+        healingBonus * healingReceived;
 
-        sum += healingValue;
-        break;
-      }
+      return healingValue;
+    }
 
-      case 'shield': {
-        const shieldBonus = 1 + getAttr('shieldBonus%', statMap);
+    case 'shield': {
+      const shieldBonus = 1 + getAttr('shieldBonus%', statMap);
 
-        const shieldValue =
-          baseValue *
-          shieldBonus;
+      const shieldValue =
+        baseValue *
+        shieldBonus;
 
-        sum += shieldValue;
-        break;
-      }
+      return shieldValue;
     }
   }
-
-  return sum;
 };
