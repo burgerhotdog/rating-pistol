@@ -161,9 +161,10 @@ function getHitCount(action) {
   if (!compressed) return 1;
 
   let maxHits = 1;
-  for (const element in compressed) {
-    const { hits } = compressed[element];
-    if (hits > maxHits) maxHits = hits;
+  for (const { hits } of Object.values(compressed)) {
+    if (hits > maxHits) {
+      maxHits = hits;
+    }
   }
   return maxHits;
 }

@@ -114,9 +114,9 @@ export const buildFootprint = (ctx, action) => {
       const { chance, statMap } = effect;
       if (!statMap) continue;
 
-      for (const statId in statMap) {
+      for (const [statId, value] of Object.entries(statMap)) {
         footprint.charConstantEffectContribsForSource[statId] ??= 0;
-        footprint.charConstantEffectContribsForSource[statId] += statMap[statId] * stacks * chance;
+        footprint.charConstantEffectContribsForSource[statId] += value * stacks * chance;
       }
     }
   }

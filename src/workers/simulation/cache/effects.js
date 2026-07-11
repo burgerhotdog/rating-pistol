@@ -92,8 +92,8 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
     const { rankedStatMap } = effect;
     const statMap = {};
   
-    for (const statId in rankedStatMap) {
-      statMap[statId] = resolveRankedValue(rankedStatMap[statId], member.weaponRank);
+    for (const [statId, valueParams] of Object.entries(rankedStatMap)) {
+      statMap[statId] = resolveRankedValue(valueParams, member.weaponRank);
     }
   
     resolved.statMap = mergeObj(effect.statMap ?? {}, statMap);
@@ -151,27 +151,26 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
   }
 
   if ('rankMods' in effect) {
-    for (const rank in effect.rankMods) {
-      if (Number(rank) > member.rank) continue;
+    for (const [rank, mod] of Object.entries(effect.rankMods)) {
+      if (Number(rank) > member.rank) {
+        continue;
+      }
 
-      const mod = effect.rankMods[rank];
+      for (const [key, add] of Object.entries(mod)) {
+        const prev = resolved[key];
 
-      for (const key in mod) {
-        const oldValue = resolved[key];
-        const newValue = mod[key];
-
-        if (oldValue == null) {
-          resolved[key] = newValue;
+        if (prev == null) {
+          resolved[key] = add;
         } else if (key === 'variableStatMap') {
-          resolved.variableStatMap = mergeVariableStatMaps(oldValue, newValue);
-        } else if (typeof oldValue === 'object' && !Array.isArray(oldValue)) {
-          resolved[key] = mergeObj(oldValue, newValue);
-        } else if (typeof newValue === 'number') {
-          resolved[key] += newValue;
-        } else if (typeof newValue === 'string') {
-          resolved[key].push(newValue);
+          resolved.variableStatMap = mergeVariableStatMaps(prev, add);
+        } else if (typeof prev === 'object' && !Array.isArray(prev)) {
+          resolved[key] = mergeObj(prev, add);
+        } else if (typeof add === 'number') {
+          resolved[key] += add;
+        } else if (typeof add === 'string') {
+          resolved[key].push(add);
         } else {
-          resolved[key].push(...newValue);
+          resolved[key].push(...add);
         }
       }
     }
@@ -181,16 +180,14 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
 };
 
 export const normalizeEffects = (ctx, member, actions) => {
-  const { gameId } = ctx;
-
   const toNormalize = [
-    ...toArray(CHARACTER[gameId][member.id].effects)
+    ...toArray(CHARACTER[ctx.gameId][member.id].effects)
       .filter((effect) => (effect.rank ?? 0) <= member.rank),
-    ...toArray(WEAPON[gameId][member.weaponId].effects),
+    ...toArray(WEAPON[ctx.gameId][member.weaponId].effects),
   ];
 
   for (const [setId, count] of Object.entries(member.setCounts)) {
-    const { tieredEffects = {} } = SET[gameId][setId];
+    const { tieredEffects = {} } = SET[ctx.gameId][setId];
 
     for (const [tier, effects] of Object.entries(tieredEffects)) {
       if (Number(tier) > count) continue;
@@ -223,7 +220,9 @@ export const normalizeEffects = (ctx, member, actions) => {
         : Object.values(actions[member.id]);
 
       for (const action of actionsList) {
-        if (!matchApplyOn(action, resolved)) continue;
+        if (!matchApplyOn(action, resolved)) {
+          continue;
+        }
 
         effectsByAction[action.key] ??= [];
         effectsByAction[action.key].push(resolved);

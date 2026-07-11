@@ -82,9 +82,9 @@ export const compressMultipliers = (multipliers, spec = {}) => {
 
     if ('mv' in hit) {
       if (typeof hit.mv === 'object' && !Array.isArray(hit.mv)) {
-        for (const attr in hit.mv) { // dual attr scaling
+        for (const [attr, scaling] of Object.entries(hit.mv)) { // dual attr scaling
           compiled.mv[attr] ??= 0;
-          compiled.mv[attr] += resolveScaling(hit.mv[attr]) * times;
+          compiled.mv[attr] += resolveScaling(scaling) * times;
         }
       } else { // single attr scaling
         const attr = spec.attr ?? 'atk';
@@ -107,7 +107,11 @@ export const normalizeAction = (ctx, memberId, action) => {
     times: action.times ?? 1,
   };
 
-  const hasMultipliers = 'fixedMultipliers' in action || 'indexedMultipliers' in action || 'rankedMultipliers' in action;
+  const hasMultipliers =
+    'fixedMultipliers' in action ||
+    'indexedMultipliers' in action ||
+    'rankedMultipliers' in action;
+
   if (hasMultipliers) {
     normalized.type ??= 'damage';
   }

@@ -8,10 +8,8 @@ const computeBase = (compressed, statMap) => {
   const flatMv = getAttr('mv', statMap);
   let totalMvPart = 0;
 
-  for (const attr in compressed.mv) {
+  for (const [attr, mv] of Object.entries(compressed.mv)) {
     const attrValue = getAttr(attr, statMap);
-    const mv = compressed.mv[attr] ?? 0;
-
     totalMvPart += attrValue * (mv + flatMv * compressed.hitCount);
   }
 
