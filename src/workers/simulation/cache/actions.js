@@ -3,29 +3,23 @@ import { CHARACTER, ACTION } from '@/data';
 import { toArray } from '@/utils';
 import { resolveRankedValue } from './resolveRanked';
 
-const MV_INDEX = {
-  [GI]: 9,
-  [HSR]: 9,
-  [WW]: 9,
-  [ZZZ]: 11,
-};
-
-const makeGetIndex = (gameId, member) => {
+const createIndexGetter = (gameId, member) => {
   const { rankMods = {} } = CHARACTER[gameId][member.id];
-  const defaultIndex = MV_INDEX[gameId];
+  const index = gameId === ZZZ ? 11 : 9;
   const addByCategory = {};
 
-  for (const rank in rankMods) {
-    if (Number(rank) > member.rank) continue;
+  for (const [rank, mod] of Object.entries(rankMods)) {
+    if (Number(rank) > member.rank) {
+      continue;
+    }
 
-    const mod = rankMods[rank];
-    for (const category in mod) {
+    for (const [category, offset] of Object.entries(mod)) {
       addByCategory[category] ??= 0;
-      addByCategory[category] += mod[category];
+      addByCategory[category] += offset;
     }
   }
 
-  return (category) => defaultIndex + (addByCategory[category] ?? 0);
+  return (category) => index + (addByCategory[category] ?? 0);
 };
 
 const DURATION_BY_CAST = {
@@ -133,35 +127,32 @@ export const normalizeAction = (ctx, memberId, action) => {
 }
 
 export const normalizeActions = (ctx, member) => {
-  const { type: weapType, element: charElement } = CHARACTER[ctx.gameId][member.id];
-  const actionData = ACTION[ctx.gameId][member.id];
+  const char = CHARACTER[ctx.gameId][member.id];
+  const getIndex = createIndexGetter(ctx.gameId, member);
   const normalized = {};
-  const getIndex = makeGetIndex(ctx.gameId, member);
 
-  for (const category in actionData) {
-    const skill = actionData[category];
-
-    for (const actionId in skill) {
+  for (const [category, skill] of Object.entries(ACTION[ctx.gameId][member.id])) {
+    for (const [actionId, action] of Object.entries(skill)) {
       const actionShort = `${category}.${actionId}`;
       const actionKey = `${member.id}:${actionShort}`;
 
       const resolved = {
-        ...normalizeAction(ctx, member.id, skill[actionId]),
+        ...normalizeAction(ctx, member.id, action),
         key: actionKey,
         short: actionShort,
         id: actionId,
       };
 
       if (ctx.gameId === GI && resolved.type === 'damage') {
-        if (category === 'normalAttack' && weapType !== 'catalyst') {
+        if (category === 'normalAttack' && char.type !== 'catalyst') {
           resolved.element ??= 'physical';
         } else {
-          resolved.element ??= charElement;
+          resolved.element ??= char.element;
         }
       }
 
       if (ctx.gameId !== GI && resolved.type === 'damage') {
-        resolved.element ??= charElement;
+        resolved.element ??= char.element;
       }
 
       const spec = {
