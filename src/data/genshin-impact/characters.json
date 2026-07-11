@@ -421,7 +421,7 @@
     },
     "effects": [
       {
-        "applyTo": "active",
+        "applyTo": "onField",
         "applyWhen": "hit",
         "applyOnAction": "elementalSkill.1",
         "useCooldown": 2000,

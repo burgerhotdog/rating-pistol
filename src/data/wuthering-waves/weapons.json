@@ -2083,7 +2083,7 @@
         "duration": 6000
       },
       {
-        "applyTo": "active",
+        "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": [
           "1406:forteCircuit.4",

@@ -43,35 +43,32 @@ export const buildTuneFootprints = (ctx) => {
 };
 
 export const buildFootprint = (ctx, action) => {
+  if (!('compressed' in action)) return;
+
   const { passive, member } = ctx.cache;
   const { cooldowns, effects, fieldEffects } = ctx.state;
 
-  const actionOwnerFieldState = action.ownerId === ctx.onFieldId ? 'active' : 'inactive';
-  const currIdFieldState = ctx.currId === ctx.onFieldId ? 'active' : 'inactive';
-
   const footprint = {
     ...action,
-    // Set below
-    enemyStatMap: {},
+    enemyStatMap: getCurrentEnemyMap(ctx),
     fixedEffectStatMap: {},
     charVariableEffectSpecs: [],
     charConstantEffectContribsForSource: {},
     ownerBaseStatMap: null,  // only set for teammate actions with charVariableEffectSpecs
   };
 
-  if (!('compressed' in action)) {
-    return footprint;
-  }
+  const actionOwnerFieldKey = action.ownerId === ctx.onFieldId ? 'onField' : 'offField';
 
-  // Resolve enemyStatMap
-  footprint.enemyStatMap = getCurrentEnemyMap(ctx);
-
-  for (const { stacks = 1, effect } of [
+  const effectStates = [
     ...(passive[action.ownerId] ?? []).map((effect) => ({ effect })),
-    ...(passive[actionOwnerFieldState] ?? []).map((effect) => ({ effect })),
+    ...(passive[actionOwnerFieldKey] ?? []).map((effect) => ({ effect })),
     ...Object.values(effects[action.ownerId]),
-    ...Object.values(fieldEffects[actionOwnerFieldState]),
-  ]) {
+    ...Object.values(fieldEffects[actionOwnerFieldKey]),
+  ];
+
+  for (const effectState of effectStates) {
+    const { stacks = 1, effect } = effectState;
+
     if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
     if ('followUpAction' in effect || 'intervalAction' in effect) continue;
     if (isOnCooldown(cooldowns, 'use', effect.key)) continue;
@@ -105,11 +102,13 @@ export const buildFootprint = (ctx, action) => {
   }
 
   if (footprint.charVariableEffectSpecs.length) {
+    const currIdFieldKey = ctx.currId === ctx.onFieldId ? 'onField' : 'offField';
+
     for (const { stacks = 1, effect } of [
       ...(passive[ctx.currId] ?? []).map((effect) => ({ effect })),
-      ...(passive[currIdFieldState] ?? []).map((effect) => ({ effect })),
+      ...(passive[currIdFieldKey] ?? []).map((effect) => ({ effect })),
       ...Object.values(effects[ctx.currId]),
-      ...Object.values(fieldEffects[currIdFieldState]),
+      ...Object.values(fieldEffects[currIdFieldKey]),
     ]) {
       const { chance, statMap } = effect;
       if (!statMap) continue;
@@ -139,19 +138,13 @@ export const buildFootprint = (ctx, action) => {
   return footprint;
 };
 
-export const evaluateFootprint = (helpers, ctx, footprint, statMap) => {
-  const { currId } = ctx;
-
+export const evaluateFootprint = (helpers, currId, footprint, statMap) => {
   const summary = {
     key: footprint.key,
     ownerId: footprint.ownerId,
     type: footprint.type,
     dmgType: footprint.dmgType,
   };
-
-  if (!('compressed' in footprint)) {
-    return summary;
-  }
 
   const charVariableResolved = {};
   if (footprint.charVariableEffectSpecs.length) {

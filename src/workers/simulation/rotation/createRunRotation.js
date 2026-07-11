@@ -29,7 +29,7 @@ function applyEffects(ctx, action, trigger) {
         applyEffect(state.effects[action.ownerId], effect);
       } else if (target in cache.member) {
         applyEffect(state.effects[target], effect);
-      } else if (target === 'active' || target === 'inactive') {
+      } else if (target === 'onField' || target === 'offField') {
         applyEffect(state.fieldEffects[target], effect);
       } else {
         if ('statMap' in effect) {
@@ -54,7 +54,7 @@ function applyEffects(ctx, action, trigger) {
     if (!matchIfInflict(effect.applyIfInflict, Object.keys(inflictedStatuses))) continue;
 
     for (const target of effect.applyTo) {
-      if (target === 'active' || target === 'inactive') {
+      if (target === 'onField' || target === 'offField') {
         applyEffect(state.fieldEffects[target], effect);
       } else if (target === 'enemy' && 'statMap' in effect) {
         applyEffect(state.debuffs, effect);
@@ -94,7 +94,7 @@ function decayUseCounts(ctx, action) {
 
 function runFollowUpActions(ctx, action, depth) {
   const { effects, fieldEffects, cooldowns } = ctx.state;
-  const actionOwnerField = ctx.onFieldId === action.ownerId ? 'active' : 'inactive';
+  const actionOwnerField = ctx.onFieldId === action.ownerId ? 'onField' : 'offField';
 
   const stateMaps = [
     effects[action.ownerId],
@@ -198,7 +198,10 @@ function runAction(ctx, action, depth = 0) {
   for (let i = 0; i < hitCount; i++) {
     // Hit
     if (ctx.recordFootprint) {
-      ctx.footprints.push(buildFootprint(ctx, action));
+      const footprint = buildFootprint(ctx, action);
+      if (footprint) {
+        ctx.footprints.push(footprint);
+      }
     }
     decayUseCounts(ctx, action);
 
@@ -238,8 +241,8 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
         cache.memberIds.map((id) => [id, {}])
       ),
       fieldEffects: {
-        active: {},
-        inactive: {},
+        onField: {},
+        offField: {},
       },
       debuffs: {},
       negativeStatuses: {},
@@ -319,7 +322,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   return (statMap) => {
     const summary = { ...fixedSummary };
     for (const footprint of remaining) {
-      const result = evaluateFootprint(helpers, { currId }, footprint, statMap);
+      const result = evaluateFootprint(helpers, currId, footprint, statMap);
       addToSummary(summary, result);
     }
     return summary;
