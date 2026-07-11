@@ -307,7 +307,7 @@
           }
         },
         {
-          "applyTo": "active",
+          "applyTo": "onField",
           "applyWhen": "hit",
           "applyOnSkillType": "coordinatedAttack",
           "statMap": {

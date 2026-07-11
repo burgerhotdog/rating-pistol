@@ -1,18 +1,18 @@
 import { mergeObj } from '@/utils';
-import { matchUseOn, matchUseIf } from '../match';
 import { resolveVariableStatMap } from '../utils';
+import { matchUseOn, matchUseIf } from '../match';
 
 export const getCurrentEnemyMap = (ctx) => {
-  const { passive } = ctx.cache;
+  const { passive: { enemy = [] } } = ctx.cache;
   const { debuffs, negativeStatuses } = ctx.state;
+  const enemyMap = {};
 
   const effectStates = [
-    ...(passive.enemy ?? []).map((effect) => ({ effect })),
+    ...enemy.map((effect) => ({ effect })),
     ...Object.values(debuffs),
   ];
 
-  const enemyMap = {};
-
+  // Debuffs on enemy
   for (const { effect, stacks = 1 } of effectStates) {
     const { statMap, chance = 1 } = effect;
     if (!statMap) continue;
@@ -23,6 +23,7 @@ export const getCurrentEnemyMap = (ctx) => {
     }
   }
 
+  // Havoc bane on enemy
   for (const [statusId, { stacks }] of Object.entries(negativeStatuses)) {
     if (statusId !== 'havocBane') {
       continue;
@@ -37,11 +38,11 @@ export const getCurrentEnemyMap = (ctx) => {
 
 export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
   const { member, passive } = ctx.cache;
-  const { effects, fieldEffects } = ctx.state;
+  const { memberEffects, fieldEffects } = ctx.state;
   const { baseMap } = member[memberId];
   const equipMap = ctx.equipMaps[memberId];
   const currentMap = mergeObj(baseMap, equipMap);
-  const fieldKey = memberId === ctx.onFieldId ? 'active' : 'inactive';
+  const fieldKey = memberId === ctx.onFieldId ? 'onField' : 'offField';
 
   const isEnabled = (effect) => {
     return matchUseOn(effect, action) && matchUseIf(effect, memberId, ctx);
@@ -50,13 +51,13 @@ export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
   const effectStates = [
     ...(passive[memberId] ?? []).map((effect) => ({ effect })),
     ...(passive[fieldKey] ?? []).map((effect) => ({ effect })),
-    ...Object.values(effects[memberId]),
+    ...Object.values(memberEffects[memberId]),
     ...Object.values(fieldEffects[fieldKey]),
   ];
 
   for (const { effect, stacks = 1 } of effectStates) {
     if (!isEnabled(effect)) continue;
-  
+
     const { statMap, chance = 1 } = effect;
     if (!statMap) continue;
 
@@ -74,7 +75,8 @@ export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
     const { variableStatMap, chance = 1 } = effect;
     if (!variableStatMap) continue;
 
-    const resolvedStatMap = resolveVariableStatMap(variableStatMap, getCurrentStatMap(ctx, effect.ownerId, null, true));
+    const sourceMap = getCurrentStatMap(ctx, effect.ownerId, null, true);
+    const resolvedStatMap = resolveVariableStatMap(variableStatMap, sourceMap);
     for (const [statId, value] of Object.entries(resolvedStatMap)) {
       currentMap[statId] ??= 0;
       currentMap[statId] += value * stacks * chance;

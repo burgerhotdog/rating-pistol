@@ -1,4 +1,4 @@
-import { matchRemoveOn, matchRemoveIf } from '../match';
+import { matchRemoveOn, matchRemoveIf } from '../../match';
 
 export function applyEffect(stateMap, effect) {
   const prev = stateMap[effect.key] ?? {};
@@ -19,10 +19,10 @@ export function applyEffect(stateMap, effect) {
 }
 
 export function removeEffects(ctx, action) {
-  const { effects, fieldEffects } = ctx.state;
+  const { memberEffects, fieldEffects } = ctx.state;
 
   const stateMaps = [
-    ...Object.values(effects),
+    ...Object.values(memberEffects),
     ...Object.values(fieldEffects),
   ];
 
@@ -38,18 +38,24 @@ export function removeEffects(ctx, action) {
 }
 
 export function advanceEffects(ctx, elapsed) {
-  const { effects, fieldEffects, debuffs } = ctx.state;
+  const { memberEffects, fieldEffects, debuffs } = ctx.state;
 
   const stateMaps = [
-    ...Object.values(effects),
+    ...Object.values(memberEffects),
     ...Object.values(fieldEffects),
     debuffs,
   ];
 
   for (const stateMap of stateMaps) {
     for (const [key, effectState] of Object.entries(stateMap)) {
-      effectState.timeRemaining -= elapsed;
+      if ('cooldown' in effectState) {
+        effectState.cooldown -= elapsed;
+        if (effectState.cooldown <= 0) {
+          delete effectState.cooldown;
+        }
+      }
 
+      effectState.timeRemaining -= elapsed;
       if (effectState.timeRemaining <= 0) {
         delete stateMap[key];
       }
