@@ -1,6 +1,5 @@
 import { getAttr } from '@/utils';
 import { getCurrentStatMap } from '../getCurrent';
-import { isOnCooldown, setCooldown } from './cooldowns';
 import { applyEffect } from './effects';
 import { buildTuneFootprints } from '../footprint';
 
@@ -66,12 +65,12 @@ export function runTuneBreak(ctx) {
 
     for (const effect of ctx.cache.special) {
       if (effect.applyOnSpecial !== 'tuneBreak') continue;
-      if (isOnCooldown(cooldowns, 'apply', effect.key)) continue;
+      if (cooldowns[effect.key]) continue;
 
       applyEffect(debuffs, effect);
 
       if ('applyCooldown' in effect) {
-        setCooldown(cooldowns, 'apply', effect.key, effect.applyCooldown);
+        cooldowns[effect.key] = effect.applyCooldown;
       }
     }
   }

@@ -1,9 +1,7 @@
 import { mergeObj, mergeObjs } from '@/utils';
-import { matchUseOn, matchUseIf } from '../match';
 import { resolveVariableStatMap } from '../utils';
-import { isOnCooldown, setCooldown } from './state/cooldowns';
-import { runDamageFormula } from './damageFormula';
-import { runTuneFormula } from './damageFormula/runTuneFormula';
+import { matchUseOn, matchUseIf } from '../match';
+import { runDamageFormula, runTuneFormula } from './damageFormula';
 import { getCurrentEnemyMap, getCurrentStatMap } from './getCurrent';
 
 export const buildTuneFootprints = (ctx) => {
@@ -46,7 +44,7 @@ export const buildFootprint = (ctx, action) => {
   if (!('compressed' in action)) return;
 
   const { passive, member } = ctx.cache;
-  const { cooldowns, effects, fieldEffects } = ctx.state;
+  const { memberEffects, fieldEffects } = ctx.state;
 
   const footprint = {
     ...action,
@@ -62,7 +60,7 @@ export const buildFootprint = (ctx, action) => {
   const effectStates = [
     ...(passive[action.ownerId] ?? []).map((effect) => ({ effect })),
     ...(passive[actionOwnerFieldKey] ?? []).map((effect) => ({ effect })),
-    ...Object.values(effects[action.ownerId]),
+    ...Object.values(memberEffects[action.ownerId]),
     ...Object.values(fieldEffects[actionOwnerFieldKey]),
   ];
 
@@ -71,7 +69,7 @@ export const buildFootprint = (ctx, action) => {
 
     if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
     if ('followUpAction' in effect || 'intervalAction' in effect) continue;
-    if (isOnCooldown(cooldowns, 'use', effect.key)) continue;
+    if (effectState.cooldown) continue;
 
     const { chance, statMap, variableStatMap } = effect;
 
@@ -97,7 +95,7 @@ export const buildFootprint = (ctx, action) => {
     }
 
     if ('useCooldown' in effect) {
-      setCooldown(cooldowns, 'use', effect.key, effect.useCooldown);
+      effectState.cooldown = effect.useCooldown;
     }
   }
 
@@ -107,7 +105,7 @@ export const buildFootprint = (ctx, action) => {
     for (const { stacks = 1, effect } of [
       ...(passive[ctx.currId] ?? []).map((effect) => ({ effect })),
       ...(passive[currIdFieldKey] ?? []).map((effect) => ({ effect })),
-      ...Object.values(effects[ctx.currId]),
+      ...Object.values(memberEffects[ctx.currId]),
       ...Object.values(fieldEffects[currIdFieldKey]),
     ]) {
       const { chance, statMap } = effect;

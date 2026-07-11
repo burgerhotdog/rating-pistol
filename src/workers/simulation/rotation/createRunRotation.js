@@ -1,5 +1,5 @@
 import { matchIfInflict, matchUseOn, matchUseIf, matchApplyIf } from '../match';
-import { isOnCooldown, setCooldown, advanceCooldowns } from './state/cooldowns';
+import { advanceCooldowns } from './state/cooldowns';
 import { applyEffect, removeEffects, advanceEffects } from './state/effects';
 import { inflictNegativeStatuses, advanceNegativeStatuses } from './state/negativeStatuses';
 import { applyTune, advanceTune, runTuneBreak } from './state/tune';
@@ -8,11 +8,11 @@ import { buildFootprint, evaluateFootprint } from './footprint';
 const MAX_PROC_DEPTH = 5;
 
 function applyEffects(ctx, action, trigger) {
-  const { cache, state } = ctx;
+  const { cooldowns, memberEffects, fieldEffects, debuffs } = ctx.state;
 
-  if (!(action.key in cache.effect)) return;
+  if (!(action.key in ctx.cache.effect)) return;
 
-  const triggered = cache.effect[action.key].filter((effect) => effect.applyWhen === trigger);
+  const triggered = ctx.cache.effect[action.key].filter((effect) => effect.applyWhen === trigger);
   const inflictedStatuses = {};
   if ('inflict' in action && trigger === 'hit') {
     inflictNegativeStatuses(ctx, action.inflict);
@@ -21,19 +21,19 @@ function applyEffects(ctx, action, trigger) {
 
   for (const effect of triggered) {
     if ('applyIfInflict' in effect) continue;
-    if (isOnCooldown(state.cooldowns, 'apply', effect.key)) continue;
+    if (cooldowns[effect.key]) continue;
     if (!matchApplyIf(action, effect, ctx)) continue;
 
     for (const target of effect.applyTo) {
       if (target === 'applier') {
-        applyEffect(state.effects[action.ownerId], effect);
-      } else if (target in cache.member) {
-        applyEffect(state.effects[target], effect);
+        applyEffect(memberEffects[action.ownerId], effect);
+      } else if (target in ctx.cache.member) {
+        applyEffect(memberEffects[target], effect);
       } else if (target === 'onField' || target === 'offField') {
-        applyEffect(state.fieldEffects[target], effect);
+        applyEffect(fieldEffects[target], effect);
       } else {
         if ('statMap' in effect) {
-          applyEffect(state.debuffs, effect);
+          applyEffect(debuffs, effect);
         }
 
         if ('inflict' in effect) {
@@ -43,37 +43,37 @@ function applyEffects(ctx, action, trigger) {
       }
     }
 
-    if (effect.applyCooldown) {
-      setCooldown(state.cooldowns, 'apply', effect.key, effect.applyCooldown);
+    if ('applyCooldown' in effect) {
+      cooldowns[effect.key] = effect.applyCooldown;
     }
   }
 
   for (const effect of triggered) {
     if (!('applyIfInflict' in effect)) continue;
-    if (isOnCooldown(state.cooldowns, 'apply', effect.key)) continue;
+    if (cooldowns[effect.key]) continue;
     if (!matchIfInflict(effect.applyIfInflict, Object.keys(inflictedStatuses))) continue;
 
     for (const target of effect.applyTo) {
       if (target === 'onField' || target === 'offField') {
-        applyEffect(state.fieldEffects[target], effect);
+        applyEffect(fieldEffects[target], effect);
       } else if (target === 'enemy' && 'statMap' in effect) {
-        applyEffect(state.debuffs, effect);
+        applyEffect(debuffs, effect);
       } else {
-        applyEffect(state.effects[target], effect);
+        applyEffect(memberEffects[target], effect);
       }
     }
 
     if ('applyCooldown' in effect) {
-      setCooldown(state.cooldowns, 'apply', effect.key, effect.applyCooldown);
+      cooldowns[effect.key] = effect.applyCooldown;
     }
   }
 }
 
 function decayUseCounts(ctx, action) {
-  const { effects, fieldEffects, debuffs } = ctx.state;
+  const { memberEffects, fieldEffects, debuffs } = ctx.state;
 
   const stateMaps = [
-    ...Object.values(effects),
+    ...Object.values(memberEffects),
     ...Object.values(fieldEffects),
     debuffs,
   ];
@@ -93,19 +93,19 @@ function decayUseCounts(ctx, action) {
 }
 
 function runFollowUpActions(ctx, action, depth) {
-  const { effects, fieldEffects, cooldowns } = ctx.state;
-  const actionOwnerField = ctx.onFieldId === action.ownerId ? 'onField' : 'offField';
+  const { memberEffects, fieldEffects } = ctx.state;
+  const actionOwnerFieldKey = ctx.onFieldId === action.ownerId ? 'onField' : 'offField';
 
   const stateMaps = [
-    effects[action.ownerId],
-    fieldEffects[actionOwnerField],
+    memberEffects[action.ownerId],
+    fieldEffects[actionOwnerFieldKey],
   ];
 
   for (const stateMap of stateMaps) {
     for (const [effectKey, effectState] of Object.entries(stateMap)) {
       if (effectState.executing) continue;
       const { effect } = effectState;
-      if (!('followUpAction' in effect) || isOnCooldown(cooldowns, 'use', effectKey)) continue;
+      if (!('followUpAction' in effect) || effectState.cooldown) continue;
       if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
 
       effectState.executing = true;
@@ -117,22 +117,21 @@ function runFollowUpActions(ctx, action, depth) {
       effectState.executing = false;
 
       if ('useCooldown' in effect) {
-        setCooldown(cooldowns, 'use', effectKey, effect.useCooldown);
+        effectState.cooldown = effect.useCooldown;
       }
 
       effectState.usesRemaining--;
       if (effectState.usesRemaining <= 0) {
         delete stateMap[effectKey];
-        delete cooldowns.use[effectKey];
       }
     }
   }
 }
 
 function runIntervalActions(ctx, elapsed, depth) {
-  const { effects } = ctx.state;
+  const { memberEffects } = ctx.state;
 
-  for (const stateMap of Object.values(effects)) {
+  for (const stateMap of Object.values(memberEffects)) {
     for (const [key, effectState] of Object.entries(stateMap)) {
       const { effect } = effectState;
       if (!('intervalAction' in effect)) continue;
@@ -187,8 +186,8 @@ function runAction(ctx, action, depth = 0) {
     runIntervalActions(ctx, offset, depth);
     advanceNegativeStatuses(ctx, offset);
 
-    advanceEffects(ctx, offset);
     advanceTune(tune, offset);
+    advanceEffects(ctx, offset);
     advanceCooldowns(cooldowns, offset);
   }
 
@@ -219,8 +218,8 @@ function runAction(ctx, action, depth = 0) {
       runIntervalActions(ctx, hitInterval, depth);
       advanceNegativeStatuses(ctx, hitInterval);
 
-      advanceEffects(ctx, hitInterval);
       advanceTune(tune, hitInterval);
+      advanceEffects(ctx, hitInterval);
       advanceCooldowns(cooldowns, hitInterval);
     }
   }
@@ -233,11 +232,8 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     equipMaps,
     currId,
     state: {
-      cooldowns: {
-        apply: {},
-        use: {},
-      },
-      effects: Object.fromEntries(
+      cooldowns: {},
+      memberEffects: Object.fromEntries(
         cache.memberIds.map((id) => [id, {}])
       ),
       fieldEffects: {

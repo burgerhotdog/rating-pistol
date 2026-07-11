@@ -1,6 +1,6 @@
 import { mergeObj } from '@/utils';
-import { matchUseOn, matchUseIf } from '../match';
 import { resolveVariableStatMap } from '../utils';
+import { matchUseOn, matchUseIf } from '../match';
 
 export const getCurrentEnemyMap = (ctx) => {
   const { passive: { enemy = [] } } = ctx.cache;
@@ -38,7 +38,7 @@ export const getCurrentEnemyMap = (ctx) => {
 
 export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
   const { member, passive } = ctx.cache;
-  const { effects, fieldEffects } = ctx.state;
+  const { memberEffects, fieldEffects } = ctx.state;
   const { baseMap } = member[memberId];
   const equipMap = ctx.equipMaps[memberId];
   const currentMap = mergeObj(baseMap, equipMap);
@@ -51,7 +51,7 @@ export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
   const effectStates = [
     ...(passive[memberId] ?? []).map((effect) => ({ effect })),
     ...(passive[fieldKey] ?? []).map((effect) => ({ effect })),
-    ...Object.values(effects[memberId]),
+    ...Object.values(memberEffects[memberId]),
     ...Object.values(fieldEffects[fieldKey]),
   ];
 
