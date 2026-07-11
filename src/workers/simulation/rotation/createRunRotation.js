@@ -197,8 +197,7 @@ function runAction(ctx, action, depth = 0) {
   for (let i = 0; i < hitCount; i++) {
     // Hit
     if (ctx.recordFootprint) {
-      const footprint = buildFootprint(ctx, action);
-      ctx.footprints.push(footprint);
+      ctx.footprints.push(buildFootprint(ctx, action));
     }
     decayUseCounts(ctx, action);
 

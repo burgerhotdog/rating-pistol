@@ -20,15 +20,13 @@ const computeBase = (compressed, statMap) => {
   return totalMvPart * (1 + percentMv) + compressed.flat + flatBuff;
 };
 
-export const runDamageFormula = (helpers, action, config, statMap) => {
+export const runDamageFormula = (helpers, action, enemyStatMap, statMap) => {
   const { getResMult, getDefMult } = helpers;
   const { dmgType, extraDmgType, compressed } = action;
-  const { enemyStatMap } = config;
-  const timesRepeat = action.times * config.repeatCount;
 
   let sum = 0;
   for (const [element, params] of Object.entries(compressed)) {
-    const baseValue = computeBase(params, statMap) * timesRepeat;
+    const baseValue = computeBase(params, statMap) * action.times;
 
     switch (action.type) {
       case 'damage': {

@@ -14,7 +14,7 @@ export const buildTuneFootprints = (ctx) => {
     ownerId: 'other',
     type: 'damage',
     dmgType: 'tuneBreak',
-    fixed: runTuneFormula(ctx, enemyStatMap, tuneBreakStatMap),
+    fixed: runTuneFormula(ctx.helpers, enemyStatMap, tuneBreakStatMap),
   };
 
   const footprints = [tuneBreakFootprint];
@@ -35,14 +35,14 @@ export const buildTuneFootprints = (ctx) => {
       ownerId: member.id,
       type: 'damage',
       dmgType,
-      fixed: runTuneFormula(ctx, enemyStatMap, responseStatMap, mv['tuneAmp'], element),
+      fixed: runTuneFormula(ctx.helpers, enemyStatMap, responseStatMap, mv['tuneAmp'], element),
     });
   }
 
   return footprints;
 };
 
-export const buildFootprint = (ctx, action, repeatCount = 1) => {
+export const buildFootprint = (ctx, action) => {
   const { passive, member } = ctx.cache;
   const { cooldowns, effects, fieldEffects } = ctx.state;
 
@@ -51,7 +51,6 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
 
   const footprint = {
     ...action,
-    repeatCount,
     // Set below
     enemyStatMap: {},
     fixedEffectStatMap: {},
@@ -132,8 +131,9 @@ export const buildFootprint = (ctx, action, repeatCount = 1) => {
   if (action.ownerId !== ctx.currId && !footprint.charVariableEffectSpecs.length) {
     const statMap = mergeObjs(member[action.ownerId].baseMap, ctx.equipMaps[action.ownerId], footprint.fixedEffectStatMap);
 
-    const config = { enemyStatMap: footprint.enemyStatMap, repeatCount };
-    footprint.fixed = runDamageFormula(ctx.helpers, action, config, statMap);
+    footprint.fixed = action.attr === 'tuneAmp'
+      ? runTuneFormula(ctx.helpers, footprint.enemyStatMap, statMap, Object.values(action.compressed)[0].mv['tuneAmp'], Object.keys(action.compressed)[0])
+      : runDamageFormula(ctx.helpers, action, footprint.enemyStatMap, statMap);
   }
 
   return footprint;
@@ -171,8 +171,9 @@ export const evaluateFootprint = (helpers, ctx, footprint, statMap) => {
   const effectStatMap = mergeObj(footprint.fixedEffectStatMap, charVariableResolved);
   const finalStatMap = mergeObj(ownerBaseStatMap, effectStatMap);
 
-  const config = { enemyStatMap: footprint.enemyStatMap, repeatCount: footprint.repeatCount };
-  const value = runDamageFormula(helpers, footprint, config, finalStatMap);
+  const value = footprint.attr === 'tuneAmp'
+    ? runTuneFormula(helpers, footprint.enemyStatMap, finalStatMap, Object.values(footprint.compressed)[0].mv['tuneAmp'], Object.keys(footprint.compressed)[0])
+    : runDamageFormula(helpers, footprint, footprint.enemyStatMap, finalStatMap);
 
   return { ...summary, value };
 };
