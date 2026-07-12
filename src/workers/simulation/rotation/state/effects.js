@@ -1,4 +1,15 @@
-import { onAction, onSkillType, ifField } from '../../match';
+import { onAction, onSkillType, ifField, ifNegativeStatus } from '../../match';
+import { inflictNegativeStatuses } from './negativeStatuses';
+
+const matchApplyIf = (effect, action, ctx) => {
+  const hasApplyIf =
+    'applyIfField' in effect ||
+    'applyIfNegativeStatus' in effect
+
+  return !hasApplyIf ||
+    ifField(effect.applyIfField, action.ownerId, ctx.onFieldId) ||
+    ifNegativeStatus(effect.applyIfNegativeStatus, ctx.state)
+};
 
 export function applyEffect(stateMap, effect) {
   const prev = stateMap[effect.key] ?? {};
@@ -16,6 +27,48 @@ export function applyEffect(stateMap, effect) {
   }
 
   stateMap[effect.key] = next;
+}
+
+export function applyEffects(ctx, action, trigger) {
+  const { cooldowns, memberEffects, fieldEffects, debuffs } = ctx.state;
+
+  if (!(action.key in ctx.cache.effect)) {
+    return;
+  }
+
+  if ('inflict' in action && trigger === 'hit') {
+    inflictNegativeStatuses(ctx, action.inflict);
+  }
+
+  const triggered = ctx.cache.effect[action.key]
+    .filter((effect) => effect.applyWhen === trigger);
+
+  for (const effect of triggered) {
+    if (
+      cooldowns[effect.key] ||
+      !matchApplyIf(effect, action, ctx)
+    ) {
+      continue;
+    }
+
+    for (const target of effect.applyTo) {
+      if (target === 'applier') {
+        applyEffect(memberEffects[action.ownerId], effect);
+      } else if (target in ctx.cache.member) {
+        applyEffect(memberEffects[target], effect);
+      } else if (target === 'onField' || target === 'offField') {
+        applyEffect(fieldEffects[target], effect);
+      } else {
+        if ('statMap' in effect) {
+          applyEffect(debuffs, effect);
+        }
+      }
+    }
+
+    if ('applyCooldown' in effect) {
+      cooldowns[effect.key] = effect.applyCooldown;
+    }
+  }
 }
 
 export function removeEffects(ctx, action) {
