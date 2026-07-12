@@ -47,7 +47,7 @@ const convertRotation = (ctx, member, actions) => {
       insertAfterIndex++;
     }
 
-    rotation.splice(insertAfterIndex, 0, { key: 'other:tuneBreak' });
+    rotation.splice(insertAfterIndex, 0, { key: 'other:tuneBreak', ownerId: member.id });
   }
 
   return { rotation, rotationTime };

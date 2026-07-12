@@ -214,6 +214,17 @@ function runAction(ctx, action, depth = 0) {
   }
 }
 
+function oneRotationPass(ctx, actionOrder) {
+  for (const action of actionOrder) {
+    ctx.onFieldId = action.ownerId;
+    if (action.key === 'other:tuneBreak') {
+      runTuneBreak(ctx);
+    } else {
+      runAction(ctx, action);
+    }
+  }
+}
+
 export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   const ctx = {
     helpers,
@@ -239,32 +250,14 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   };
 
   // Rotation loop
-  const memberOrder = cache.memberIds.toReversed();
-  for (const memberId of memberOrder) {
-    const { rotation } = cache.member[memberId];
-    ctx.onFieldId = memberId;
+  const actionOrder = cache.memberIds
+    .toReversed()
+    .flatMap((memberId) =>
+      cache.member[memberId].rotation);
 
-    for (const action of rotation) {
-      if (action.key === 'other:tuneBreak') {
-        runTuneBreak(ctx);
-      } else {
-        runAction(ctx, action);
-      }
-    }
-  }
+  oneRotationPass(ctx, actionOrder);
   ctx.recordFootprint = true;
-  for (const memberId of memberOrder) {
-    const { rotation } = cache.member[memberId];
-    ctx.onFieldId = memberId;
-
-    for (const action of rotation) {
-      if (action.key === 'other:tuneBreak') {
-        runTuneBreak(ctx);
-      } else {
-        runAction(ctx, action);
-      }
-    }
-  }
+  oneRotationPass(ctx, actionOrder);
 
   // Resolve fixed footprints
   const fixedSummary = {};
