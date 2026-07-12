@@ -64,8 +64,12 @@ export function runTuneBreak(ctx) {
     tune.offTuneCooldown = 4000;
 
     for (const effect of ctx.cache.special) {
-      if (effect.applyOnSpecial !== 'tuneBreak') continue;
-      if (cooldowns[effect.key]) continue;
+      if (
+        effect.applyOnSpecial !== 'tuneBreak' ||
+        cooldowns[effect.key]
+      ) {
+        continue;
+      }
 
       applyEffect(debuffs, effect);
 

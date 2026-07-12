@@ -623,9 +623,22 @@
         "times": 2,
         "duration": 10000,
         "rankMods": {
-          "1": {
-            "useOnSkillType": "resonanceSkill"
-          },
+          "4": {
+            "duration": 7000
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "applyTo": "onField",
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "useOnSkillType": "resonanceSkill",
+        "useCooldown": 350,
+        "followUpAction": "resonanceLiberation.2",
+        "times": 2,
+        "duration": 10000,
+        "rankMods": {
           "4": {
             "duration": 7000
           }
@@ -2940,7 +2953,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
-        "removeIfField": false,
+        "removeIfField": "offField",
         "useOnAction": [
           "normalAttack.1",
           "normalAttack.2",
@@ -3127,7 +3140,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
-        "removeIfField": false,
+        "removeIfField": "offField",
         "useOnAction": [
           "resonanceLiberation.1",
           "resonanceLiberation.2",
@@ -3612,7 +3625,7 @@
       },
       {
         "useOnAction": "forteCircuit.3",
-        "useIfStatus": {
+        "useIfNegativeStatus": {
           "spectroFrazzle": 1
         },
         "statMap": {
@@ -3685,7 +3698,7 @@
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
         "useOnDmgType": "outroSkill",
-        "useIfStatus": {
+        "useIfNegativeStatus": {
           "spectroFrazzle": 1
         },
         "statMap": {
@@ -5284,7 +5297,9 @@
         "applyTo": "ally",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
-        "useIfStatus": "CHAFE",
+        "useIfNegativeStatus": {
+          "glacioChafe": 1
+        },
         "statMap": {
           "glacioDmgAmp%": 0.2
         },
@@ -5492,7 +5507,7 @@
         "applyBy": "team",
         "applyTo": "applier",
         "applyWhen": "hit",
-        "applyIfShift": "hack",
+        "applyOnShiftTune": "hack",
         "statMap": {
           "tuneBreakBoost": 30
         },

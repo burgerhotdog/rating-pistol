@@ -106,7 +106,7 @@
       },
       "4": {
         "applyWhen": "cast",
-        "applyIfField": true,
+        "applyIfField": "onField",
         "applyCooldown": 20000,
         "statMap": {
           "combatAtk%": 0.25
@@ -162,7 +162,7 @@
       "4": {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfStatus": "burning",
+        "applyIfAnomaly": "burning",
         "statMap": {
           "critRate%": 0.28
         },
@@ -203,7 +203,7 @@
         }
       },
       "4": {
-        "useIfStatus": "shocked",
+        "useIfAnomaly": "shocked",
         "statMap": {
           "combatAtk%": 0.28
         }
@@ -268,7 +268,7 @@
           }
         },
         {
-          "useIfField": false,
+          "useIfField": "offField",
           "statMap": {
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
@@ -276,9 +276,9 @@
         },
         {
           "applyWhen": "cast",
-          "applyIfField": true,
+          "applyIfField": "onField",
           "applyCooldown": 7500,
-          "useIfField": true,
+          "useIfField": "onField",
           "statMap": {
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
@@ -438,26 +438,26 @@
       },
       "4": [
         {
+          "enableIfWeaponType": "stun",
           "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
           ],
-          "applyIfWeapon": "stun",
           "statMap": {
             "critDmg%": 0.15
           },
           "duration": 15000
         },
         {
+          "enableIfWeaponType": "stun",
           "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
           ],
-          "applyIfWeapon": "stun",
           "useIfAttr": {
             "critRate%": 0.5
           },
@@ -485,12 +485,12 @@
           }
         },
         {
+          "enableIfWeaponType": "attack",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "ultimate"
           ],
-          "applyIfWeapon": "attack",
           "statMap": {
             "basicAttackDmgBonus%": 0.2
           },
@@ -509,13 +509,13 @@
         }
       },
       "4": {
+        "enableIfWeaponType": "support",
         "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": [
           "exSpecialAttack",
           "ultimate"
         ],
-        "applyIfWeapon": "support",
         "statMap": {
           "dmgBonus%": 0.18
         },
@@ -637,7 +637,7 @@
       },
       "4": [
         {
-          "useIfElement": "ether",
+          "enableIfElement": "ether",
           "statMap": {
             "critDmg%": 0.3
           }

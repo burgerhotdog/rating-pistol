@@ -1,6 +1,6 @@
 import { mergeObj, mergeObjs } from '@/utils';
 import { resolveVariableStatMap } from '../utils';
-import { matchUseOn, matchUseIf } from '../match';
+import { matchUse } from '../match';
 import { runDamageFormula, runTuneFormula } from './damageFormula';
 import { getCurrentEnemyMap, getCurrentStatMap } from './getCurrent';
 
@@ -64,7 +64,7 @@ export const buildFootprint = (ctx, action) => {
   for (const effectState of effectStates) {
     const { stacks = 1, effect } = effectState;
 
-    if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
+    if (!matchUse(effect, action, action.ownerId, ctx)) continue;
     if ('followUpAction' in effect || 'intervalAction' in effect) continue;
     if (effectState.cooldown) continue;
 
@@ -81,7 +81,7 @@ export const buildFootprint = (ctx, action) => {
       if (effect.ownerId === ctx.currId) { // variableStatMaps that scale off currId's stats
         footprint.charVariableEffectSpecs.push({ variableStatMap, stacks, chance });
       } else { // variableStatMaps that scale off teammate stats
-        const ownerCurrentStatMap = getCurrentStatMap(ctx, effect.ownerId, null, true);
+        const ownerCurrentStatMap = getCurrentStatMap(ctx, effect.ownerId, undefined, true);
         const resolvedStatMap = resolveVariableStatMap(effect.variableStatMap, ownerCurrentStatMap);
 
         for (const [statId, value] of Object.entries(resolvedStatMap)) {

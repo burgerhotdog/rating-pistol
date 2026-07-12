@@ -1,4 +1,4 @@
-import { matchRemoveOn, matchRemoveIf } from '../../match';
+import { onAction, onSkillType, ifField } from '../../match';
 
 export function applyEffect(stateMap, effect) {
   const prev = stateMap[effect.key] ?? {};
@@ -28,9 +28,15 @@ export function removeEffects(ctx, action) {
 
   for (const stateMap of stateMaps) {
     for (const [key, { effect }] of Object.entries(stateMap)) {
-      if (effect.ownerId !== action.ownerId) continue;
+      if (effect.ownerId !== action.ownerId) {
+        continue;
+      }
 
-      if (matchRemoveOn(action, effect) || matchRemoveIf(action, effect, ctx)) {
+      if (
+        onAction(effect.removeOnAction, action) ||
+        onSkillType(effect.removeOnSkillType, action) ||
+        ifField(effect.removeIfField, action.ownerId, ctx.onFieldId)
+      ) {
         delete stateMap[key];
       }
     }

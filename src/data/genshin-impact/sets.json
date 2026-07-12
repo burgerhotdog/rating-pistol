@@ -48,7 +48,7 @@
         }
       },
       "4": {
-        "useIfWeapon": [
+        "enableIfWeaponType": [
           "sword",
           "claymore",
           "polearm"
@@ -81,7 +81,7 @@
         }
       },
       "4": {
-        "useIfWeapon": [
+        "enableIfWeaponType": [
           "catalyst",
           "bow"
         ],
@@ -339,7 +339,7 @@
         {
           "applyWhen": "cast",
           "applyOnSkillType": "elementalBurst",
-          "removeIfField": false,
+          "removeIfField": "offField",
           "statMap": {
             "atk%": 0.48
           },
@@ -516,7 +516,7 @@
           }
         },
         {
-          "useIfField": false,
+          "useIfField": "offField",
           "statMap": {
             "elementalSkillDmgBonus%": 0.25
           }
@@ -597,7 +597,7 @@
     "name": "Obsidian Codex",
     "tieredEffects": {
       "2": {
-        "useIfField": true,
+        "useIfField": "onField",
         "statMap": {
           "dmgBonus%": 0.15
         }
@@ -635,7 +635,7 @@
         }
       },
       "4": {
-        "useIfTagged": "noEnergy",
+        "enableIfTagged": "noEnergy",
         "statMap": {
           "normalAttackDmgBonus%": 0.6,
           "elementalBurstDmgBonus%": 0.6
@@ -653,7 +653,7 @@
         }
       },
       "4": {
-        "useIfField": true,
+        "useIfField": "onField",
         "statMap": {
           "critRate%": 0.3
         }
@@ -716,6 +716,7 @@
           "duration": 6000
         },
         {
+          "enableIfTagged": "Hexerei",
           "applyWhen": "hit",
           "applyOnDmgType": [
             "normalAttack",
@@ -723,7 +724,6 @@
             "elementalSkill",
             "elementalBurst"
           ],
-          "useIfTagged": "Hexerei",
           "statMap": {
             "critRate%": 0.2
           },

@@ -1,4 +1,4 @@
-import { matchIfInflict, matchUseOn, matchUseIf, matchApplyIf } from '../match';
+import { ifField, ifNegativeStatus, matchUse } from '../match';
 import { advanceCooldowns } from './state/cooldowns';
 import { applyEffect, removeEffects, advanceEffects } from './state/effects';
 import { inflictNegativeStatuses, advanceNegativeStatuses } from './state/negativeStatuses';
@@ -7,22 +7,37 @@ import { buildFootprint, evaluateFootprint } from './footprint';
 
 const MAX_PROC_DEPTH = 5;
 
+const matchApplyIf = (effect, action, ctx) => {
+  const hasApplyIf =
+    'applyIfField' in effect ||
+    'applyIfNegativeStatus' in effect
+
+  return !hasApplyIf ||
+    ifField(effect.applyIfField, action.ownerId, ctx.onFieldId) ||
+    ifNegativeStatus(effect.applyIfNegativeStatus, ctx.state)
+};
+
 function applyEffects(ctx, action, trigger) {
   const { cooldowns, memberEffects, fieldEffects, debuffs } = ctx.state;
 
-  if (!(action.key in ctx.cache.effect)) return;
-
-  const triggered = ctx.cache.effect[action.key].filter((effect) => effect.applyWhen === trigger);
-  const inflictedStatuses = {};
-  if ('inflict' in action && trigger === 'hit') {
-    inflictNegativeStatuses(ctx, action.inflict);
-    Object.assign(inflictedStatuses, action.inflict);
+  if (!(action.key in ctx.cache.effect)) {
+    return;
   }
 
+  if ('inflict' in action && trigger === 'hit') {
+    inflictNegativeStatuses(ctx, action.inflict);
+  }
+
+  const triggered = ctx.cache.effect[action.key]
+    .filter((effect) => effect.applyWhen === trigger);
+
   for (const effect of triggered) {
-    if ('applyIfInflict' in effect) continue;
-    if (cooldowns[effect.key]) continue;
-    if (!matchApplyIf(action, effect, ctx)) continue;
+    if (
+      cooldowns[effect.key] ||
+      !matchApplyIf(effect, action, ctx)
+    ) {
+      continue;
+    }
 
     for (const target of effect.applyTo) {
       if (target === 'applier') {
@@ -35,31 +50,6 @@ function applyEffects(ctx, action, trigger) {
         if ('statMap' in effect) {
           applyEffect(debuffs, effect);
         }
-
-        if ('inflict' in effect) {
-          inflictNegativeStatuses(ctx, effect.inflict);
-          Object.assign(inflictedStatuses, effect.inflict);
-        }
-      }
-    }
-
-    if ('applyCooldown' in effect) {
-      cooldowns[effect.key] = effect.applyCooldown;
-    }
-  }
-
-  for (const effect of triggered) {
-    if (!('applyIfInflict' in effect)) continue;
-    if (cooldowns[effect.key]) continue;
-    if (!matchIfInflict(effect.applyIfInflict, Object.keys(inflictedStatuses))) continue;
-
-    for (const target of effect.applyTo) {
-      if (target === 'onField' || target === 'offField') {
-        applyEffect(fieldEffects[target], effect);
-      } else if (target === 'enemy' && 'statMap' in effect) {
-        applyEffect(debuffs, effect);
-      } else {
-        applyEffect(memberEffects[target], effect);
       }
     }
 
@@ -81,7 +71,7 @@ function decayUseCounts(ctx, action) {
   for (const stateMap of stateMaps) {
     for (const [key, effectState] of Object.entries(stateMap)) {
       if ('followUpAction' in effectState.effect || 'intervalAction' in effectState.effect) continue;
-      if (!matchUseOn(effectState.effect, action) || !matchUseIf(effectState.effect, action.ownerId, ctx)) continue;
+      if (!matchUse(effectState.effect, action, action.ownerId, ctx)) continue;
 
       effectState.usesRemaining -= 1;
 
@@ -94,7 +84,10 @@ function decayUseCounts(ctx, action) {
 
 function runFollowUpActions(ctx, action, depth) {
   const { memberEffects, fieldEffects } = ctx.state;
-  const actionOwnerFieldKey = ctx.onFieldId === action.ownerId ? 'onField' : 'offField';
+  const actionOwnerFieldKey =
+    ctx.onFieldId === action.ownerId
+      ? 'onField'
+      : 'offField';
 
   const stateMaps = [
     memberEffects[action.ownerId],
@@ -103,10 +96,16 @@ function runFollowUpActions(ctx, action, depth) {
 
   for (const stateMap of stateMaps) {
     for (const [effectKey, effectState] of Object.entries(stateMap)) {
-      if (effectState.executing) continue;
       const { effect } = effectState;
-      if (!('followUpAction' in effect) || effectState.cooldown) continue;
-      if (!matchUseOn(effect, action) || !matchUseIf(effect, action.ownerId, ctx)) continue;
+
+      if (
+        effectState.executing ||
+        effectState.cooldown ||
+        !('followUpAction' in effect) ||
+        !matchUse(effect, action, action.ownerId, ctx)
+      ) {
+        continue;
+      }
 
       effectState.executing = true;
       for (const action of effect.followUpAction) {
@@ -134,7 +133,10 @@ function runIntervalActions(ctx, elapsed, depth) {
   for (const stateMap of Object.values(memberEffects)) {
     for (const [key, effectState] of Object.entries(stateMap)) {
       const { effect } = effectState;
-      if (!('intervalAction' in effect)) continue;
+
+      if (!('intervalAction' in effect)) {
+        continue;
+      }
 
       effectState.intervalTimer -= elapsed;
       while (effectState.intervalTimer <= 0) {

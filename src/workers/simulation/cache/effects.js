@@ -1,6 +1,7 @@
 import { CHARACTER, WEAPON, SET } from '@/data';
 import { toArray, mergeObj } from '@/utils';
-import { matchApplyOn } from '../match';
+import { enableIf } from './enableIf';
+import { applyOn } from './applyOn';
 import { normalizeAction, compressMultipliers } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
@@ -50,44 +51,6 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
   resolved.maxUses ??= Infinity;
   resolved.maxStacks ??= 1;
 
-  for (const TRIGGER of ['apply', 'use', 'remove']) {
-    for (const FILTER of ['Action', 'Type', 'Tagged', 'SkillType', 'DmgType']) {
-      const key = `${TRIGGER}On${FILTER}`;
-      const value = effect[key];
-      if (value == null) continue;
-
-      resolved[key] = toArray(value);
-    }
-  }
-
-  if (effect.useOnElement) {
-    resolved.useOnElement = toArray(effect.useOnElement);
-  }
-
-  if (effect.useIfElement) {
-    resolved.useIfElement = toArray(effect.useIfElement);
-  }
-
-  if (effect.useIfShifting) {
-    resolved.useIfShifting = toArray(effect.useIfShifting);
-  }
-
-  if (effect.useIfInterfered) {
-    resolved.useIfInterfered = toArray(effect.useIfInterfered);
-  }
-
-  if (effect.useIfWeapon) {
-    resolved.useIfWeapon = toArray(effect.useIfWeapon);
-  }
-
-  if (effect.useIfTagged) {
-    resolved.useIfTagged = toArray(effect.useIfTagged);
-  }
-
-  if (effect.applyIfInflict) {
-    resolved.applyIfInflict = toArray(effect.applyIfInflict);
-  }
-
   if ('rankedStatMap' in effect) {
     const { rankedStatMap } = effect;
     const statMap = {};
@@ -128,7 +91,7 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
           }
 
           if ('rankedMultipliers' in inline) {
-            inline.compressed = compressMultipliers(inline.indexedMultipliers, { attr: inline.attr, weaponId: member.weaponId })
+            inline.compressed = compressMultipliers(inline.rankedMultipliers, { attr: inline.attr, weaponId: member.weaponId })
           } else {
             inline.compressed = compressMultipliers(toArray(inline.fixedMultipliers), { attr: inline.attr });
           }
@@ -198,6 +161,10 @@ export const normalizeEffects = (ctx, member, actions) => {
     const effectId = String(index + 1);
     const effectKey = `${member.id}:EFFECT_${effectId}`;
 
+    if (!enableIf(effect, CHARACTER[ctx.gameId][member.id])) {
+      continue;
+    }
+
     const resolved = {
       ...normalizeEffect(ctx, member, effectId, effect, actions[member.id]),
       key: effectKey,
@@ -215,7 +182,7 @@ export const normalizeEffects = (ctx, member, actions) => {
         : Object.values(actions[member.id]);
 
       for (const action of actionsList) {
-        if (!matchApplyOn(action, resolved)) {
+        if (!applyOn(resolved, action)) {
           continue;
         }
 

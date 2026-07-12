@@ -177,9 +177,9 @@
       "5": [
         {
           "applyWhen": "cast",
-          "applyIfField": true,
+          "applyIfField": "onField",
           "applyCooldown": 1500,
-          "removeIfField": false,
+          "removeIfField": "offField",
           "statMap": {
             "atk%": 0.05
           },
@@ -236,7 +236,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyIfInflict": "FRAZZLE",
+          "applyOnInflictNegativeStatus": "spectroFrazzle",
           "statMap": {
             "critRate%": 0.2
           },
@@ -245,8 +245,8 @@
         {
           "applyWhen": "hit",
           "applyOnType": "damage",
-          "applyIfStatus": {
-            "FRAZZLE": 10
+          "applyIfNegativeStatus": {
+            "spectroFrazzle": 10
           },
           "statMap": {
             "spectroDmgBonus%": 0.15
@@ -357,7 +357,7 @@
         {
           "applyTo": "team",
           "applyWhen": "hit",
-          "applyIfInflict": "EROSION",
+          "applyOnInflictNegativeStatus": "aeroErosion",
           "statMap": {
             "aeroDmgBonus%": 0.15
           },
@@ -365,7 +365,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyIfInflict": "EROSION",
+          "applyOnInflictNegativeStatus": "aeroErosion",
           "statMap": {
             "aeroDmgBonus%": 0.15
           },
@@ -385,8 +385,8 @@
       },
       "5": {
         "applyWhen": "hit",
-        "applyIfStatus": {
-          "EROSION": 1
+        "applyIfNegativeStatus": {
+          "aeroErosion": 1
         },
         "statMap": {
           "critRate%": 0.1,
@@ -431,7 +431,7 @@
     "name": "Dream of the Lost",
     "tieredEffects": {
       "3": {
-        "useIfTagged": "noEnergy",
+        "enableIfTagged": "noEnergy",
         "statMap": {
           "critRate%": 0.2,
           "echoSkillDmgBonus%": 0.35
@@ -530,7 +530,7 @@
     "tieredEffects": {
       "3": {
         "applyWhen": "hit",
-        "applyIfInflict": "havocBane",
+        "applyOnInflictNegativeStatus": "havocBane",
         "statMap": {
           "atk%": 0.2,
           "resonanceLiberationDmgBonus%": 0.3
@@ -631,10 +631,8 @@
       },
       "5": {
         "applyWhen": "hit",
-        "applyIfInflict": [
-          "BURST",
-          "RUPTURE"
-        ],
+        "applyOnInflictNegativeStatus": "fusionBurst",
+        "applyOnShiftTune": "tuneRupture",
         "statMap": {
           "critRate%": 0.2,
           "fusionDmgBonus%": 0.2
@@ -655,7 +653,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyIfInflict": "BURST",
+          "applyOnInflictNegativeStatus": "fusionBurst",
           "statMap": {
             "fusionDmgBonus%": 0.1
           },
@@ -715,7 +713,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyIfInflict": "CHAFE",
+          "applyOnInflictNegativeStatus": "glacioChafe",
           "statMap": {
             "glacioDmgBonus%": 0.1
           },
@@ -759,7 +757,7 @@
     "tieredEffects": {
       "1": {
         "applyWhen": "hit",
-        "applyIfInflict": "HACK",
+        "applyOnShiftTune": "hack",
         "statMap": {
           "basicAttackDmgBonus%": 0.35,
           "heavyAttackDmgBonus%": 0.35

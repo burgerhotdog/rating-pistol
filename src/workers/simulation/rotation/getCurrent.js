@@ -1,6 +1,6 @@
 import { mergeObj } from '@/utils';
 import { resolveVariableStatMap } from '../utils';
-import { matchUseOn, matchUseIf } from '../match';
+import { matchUse } from '../match';
 
 export const getCurrentEnemyMap = (ctx) => {
   const { passive: { enemy = [] } } = ctx.cache;
@@ -44,10 +44,6 @@ export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
   const currentMap = mergeObj(baseMap, equipMap);
   const fieldKey = memberId === ctx.onFieldId ? 'onField' : 'offField';
 
-  const isEnabled = (effect) => {
-    return matchUseOn(effect, action) && matchUseIf(effect, memberId, ctx);
-  };
-
   const effectStates = [
     ...(passive[memberId] ?? []).map((effect) => ({ effect })),
     ...(passive[fieldKey] ?? []).map((effect) => ({ effect })),
@@ -56,7 +52,7 @@ export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
   ];
 
   for (const { effect, stacks = 1 } of effectStates) {
-    if (!isEnabled(effect)) continue;
+    if (!matchUse(effect, action, memberId, ctx)) continue;
 
     const { statMap, chance = 1 } = effect;
     if (!statMap) continue;
@@ -70,12 +66,12 @@ export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
   if (ignoreVariable) return currentMap;
 
   for (const { effect, stacks = 1 } of effectStates) {
-    if (!isEnabled(effect)) continue;
+    if (!matchUse(effect, action, memberId, ctx)) continue;
   
     const { variableStatMap, chance = 1 } = effect;
     if (!variableStatMap) continue;
 
-    const sourceMap = getCurrentStatMap(ctx, effect.ownerId, null, true);
+    const sourceMap = getCurrentStatMap(ctx, effect.ownerId, undefined, true);
     const resolvedStatMap = resolveVariableStatMap(variableStatMap, sourceMap);
     for (const [statId, value] of Object.entries(resolvedStatMap)) {
       currentMap[statId] ??= 0;
