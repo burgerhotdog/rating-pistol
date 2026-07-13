@@ -47,9 +47,7 @@ const normalizeEffect = (ctx, member, effectId, effect, actions) => {
 
   resolved.rank ??= 0;
   resolved.chance ??= 1;
-  resolved.duration ??= Infinity;
   resolved.maxUses ??= Infinity;
-  resolved.maxStacks ??= 1;
 
   if ('rankedStatMap' in effect) {
     const { rankedStatMap } = effect;
@@ -153,7 +151,7 @@ export const normalizeEffects = (ctx, member, actions) => {
     }
   }
 
-  const passivesbyTarget = {};
+  const passives = [];
   const effectsByAction = {};
   const specialEffects = [];
 
@@ -190,14 +188,9 @@ export const normalizeEffects = (ctx, member, actions) => {
         effectsByAction[action.key].push(resolved);
       }
     } else { // passive
-      const targets = resolved.applyTo;
-
-      for (const target of targets) {
-        passivesbyTarget[target] ??= []
-        passivesbyTarget[target].push(resolved);
-      }
+      passives.push(resolved);
     }
   }
 
-  return { passivesbyTarget, effectsByAction, specialEffects };
+  return { passives, effectsByAction, specialEffects };
 };

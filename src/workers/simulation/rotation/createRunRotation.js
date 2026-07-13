@@ -1,6 +1,7 @@
+import { mergeObj } from '@/utils';
 import { matchUse } from '../match';
 import { advanceCooldowns } from './state/cooldowns';
-import { applyEffects, removeEffects, advanceEffects } from './state/effects';
+import { applyEffects, applyPassives, removeEffects, advanceEffects } from './state/effects';
 import { advanceNegativeStatuses } from './state/negativeStatuses';
 import { applyTune, advanceTune, runTuneBreak } from './state/tune';
 import { buildFootprint, evaluateFootprint } from './footprint';
@@ -171,10 +172,16 @@ function runAction(ctx, action, depth = 0) {
 }
 
 export const createRunRotation = (helpers, cache, equipMaps, currId) => {
+  const buildMaps = {};
+  for (const [memberId, equipMap] of Object.entries(equipMaps)) {
+    buildMaps[memberId] = mergeObj(cache.member[memberId].baseMap, equipMap);
+  }
+
   const ctx = {
     helpers,
     cache,
     equipMaps,
+    buildMaps,
     currId,
     state: {
       cooldowns: {},
@@ -193,6 +200,9 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     tuneBuildup: [],
     tuneFootprints: [],
   };
+
+  // Init passives into effect states
+  applyPassives(ctx, cache.passive);
 
   // Rotation loop
   const actionOrder = cache.memberIds

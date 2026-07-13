@@ -16,8 +16,8 @@ export function applyEffect(stateMap, effect) {
   const prevStacks = prev.stacks ?? 0;
 
   const next = {
-    stacks: Math.min(prevStacks + 1, effect.maxStacks),
-    timeRemaining: effect.duration,
+    stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
+    timeRemaining: effect.duration ?? Infinity,
     usesRemaining: effect.maxUses,
     effect,
   };
@@ -67,6 +67,24 @@ export function applyEffects(ctx, action, trigger) {
 
     if ('applyCooldown' in effect) {
       cooldowns[effect.key] = effect.applyCooldown;
+    }
+  }
+}
+
+export function applyPassives(ctx, passives) {
+  const { memberEffects, fieldEffects, debuffs } = ctx.state;
+
+  for (const passive of passives) {
+    for (const target of passive.applyTo) {
+      if (target === 'enemy') {
+        if ('statMap' in passive) {
+          applyEffect(debuffs, passive);
+        }
+      } else if (target === 'onField' || target === 'offField') {
+        applyEffect(fieldEffects[target], passive);
+      } else {
+        applyEffect(memberEffects[target], passive);
+      }
     }
   }
 }

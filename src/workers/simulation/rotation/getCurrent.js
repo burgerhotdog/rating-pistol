@@ -1,19 +1,12 @@
-import { mergeObj } from '@/utils';
 import { resolveVariableStatMap } from '../utils';
 import { matchUse } from '../match';
 
 export const getCurrentEnemyMap = (ctx) => {
-  const { passive: { enemy = [] } } = ctx.cache;
   const { debuffs, negativeStatuses } = ctx.state;
   const enemyMap = {};
 
-  const effectStates = [
-    ...enemy.map((effect) => ({ effect })),
-    ...Object.values(debuffs),
-  ];
-
   // Debuffs on enemy
-  for (const { effect, stacks = 1 } of effectStates) {
+  for (const { effect, stacks = 1 } of Object.values(debuffs)) {
     const { statMap, chance = 1 } = effect;
     if (!statMap) continue;
 
@@ -37,16 +30,15 @@ export const getCurrentEnemyMap = (ctx) => {
 };
 
 export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
-  const { member, passive } = ctx.cache;
   const { memberEffects, fieldEffects } = ctx.state;
-  const { baseMap } = member[memberId];
-  const equipMap = ctx.equipMaps[memberId];
-  const currentMap = mergeObj(baseMap, equipMap);
-  const fieldKey = memberId === ctx.onFieldId ? 'onField' : 'offField';
+  const currentMap = { ...ctx.buildMaps[memberId] };
+
+  const fieldKey =
+    memberId === ctx.onFieldId
+      ? 'onField'
+      : 'offField';
 
   const effectStates = [
-    ...(passive[memberId] ?? []).map((effect) => ({ effect })),
-    ...(passive[fieldKey] ?? []).map((effect) => ({ effect })),
     ...Object.values(memberEffects[memberId]),
     ...Object.values(fieldEffects[fieldKey]),
   ];

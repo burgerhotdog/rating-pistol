@@ -7,7 +7,6 @@ const STATUSES = {
   glacioChafe: {
     id: 'glacioChafe',
     element: 'glacio',
-    maxStacks: 10,
     mv: [2450, 4442, 6434, 8426, 10417, 12409, 14401, 16393, 18385, 20377, 27169, 33961, 40753],
     inflict: (ctx, status, stacks) => {
       const { negativeStatuses } = ctx.state;

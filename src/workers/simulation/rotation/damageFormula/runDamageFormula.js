@@ -19,7 +19,7 @@ const computeBase = (compressed, statMap) => {
   return totalMvPart * (1 + percentMv) + flat + flatBuff;
 };
 
-export const runDamageFormula = (helpers, action, enemyStatMap, statMap) => {
+export const runDamageFormula = (helpers, action, enemyMap, statMap) => {
   const { getResMult, getDefMult } = helpers;
   const { dmgType, extraDmgType, element, compressed } = action;
 
@@ -30,11 +30,11 @@ export const runDamageFormula = (helpers, action, enemyStatMap, statMap) => {
       const critMult = getCritMult(statMap);
 
       const bonusTypes = [element, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
-      const dmgBonusMult = getDmgBonusMult(enemyStatMap, statMap, bonusTypes);
-      const dmgAmpMult = getDmgAmpMult(enemyStatMap, statMap, bonusTypes);
+      const dmgBonusMult = getDmgBonusMult(enemyMap, statMap, bonusTypes);
+      const dmgAmpMult = getDmgAmpMult(enemyMap, statMap, bonusTypes);
 
-      const resMult = getResMult(element, enemyStatMap, statMap);
-      const defMult = getDefMult(enemyStatMap, statMap);
+      const resMult = getResMult(element, enemyMap, statMap);
+      const defMult = getDefMult(enemyMap, statMap);
 
       const damageValue =
         baseValue *
