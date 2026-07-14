@@ -1,18 +1,21 @@
-import { mergeObj, mergeObjs } from '@/utils';
-import { resolveVariableStatMap } from '../utils';
-import { matchUse } from '../match';
+import { mergeObj, mergeObjs, getAttr } from '@/utils';
+import { resolveVariableStatMap, mergeStatMap } from '../utils';
 import { runDamageFormula, runTuneFormula } from './damageFormula';
-import { getCurrentEnemyMap, getCurrentStatMap } from './getCurrent';
+import { getEnemyMap, getUsedBuffStates, resolveBuffMap } from './getCurrent';
 
 export const buildTuneFootprints = (ctx) => {
-  const enemyMap = getCurrentEnemyMap(ctx);
-  const tuneBreakStatMap = getCurrentStatMap(ctx, ctx.onFieldId);
+  const enemyMap = getEnemyMap(ctx);
+  const onFieldBuildMap = ctx.buildMaps[ctx.onFieldId];
+  const onFieldUsedBuffStates = getUsedBuffStates(ctx, ctx.onFieldId);
+  const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, onFieldUsedBuffStates);
+  const onFieldStatMap = mergeObj(onFieldBuildMap, fixedBuffMap);
+
   const tuneBreakFootprint = {
     key: `other:tuneBreak`,
     ownerId: 'other',
     type: 'damage',
     dmgType: 'tuneBreak',
-    fixed: runTuneFormula(ctx.helpers, enemyMap, tuneBreakStatMap),
+    fixed: runTuneFormula(ctx.helpers, enemyMap, onFieldStatMap),
   };
 
   const footprints = [tuneBreakFootprint];
@@ -24,7 +27,11 @@ export const buildTuneFootprints = (ctx) => {
     const { dmgType, element, compressed } = member.tuneResponse;
     if (dmgType !== shifting) continue;
 
-    const responseStatMap = getCurrentStatMap(ctx, member.id);
+    const responseBuildMap = ctx.buildMaps[member.id];
+    const responseUsedBuffStates = getUsedBuffStates(ctx, member.id);
+    const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, responseUsedBuffStates);
+
+    const responseStatMap = mergeObj(responseBuildMap, fixedBuffMap);
 
     footprints.push({
       key: `${member.id}:tuneResponse`,
@@ -38,89 +45,40 @@ export const buildTuneFootprints = (ctx) => {
   return footprints;
 };
 
-export const buildFootprint = (ctx, action) => {
+const getTuneStrainBuff = (ctx, memberId, statMap) => {
+  const { tune } = ctx.state;
+
+  if (tune.interfered !== 'tuneStrain') return {};
+
+  const stacks = tune.interferedStacks;
+  const tuneBreakBoost = getAttr('tuneBreakBoost', statMap);
+  console.log('tbb', tuneBreakBoost, stacks * tuneBreakBoost * 0.0012);
+  return { ['totalDmg%']: stacks * tuneBreakBoost * 0.0012 };
+};
+
+export const buildFootprint = (ctx, action, fixedBuffMap, variableBuffSpecs) => {
   if (!action.compressed) return;
-  const { memberEffects, fieldEffects } = ctx.state;
 
-  const enemyMap = getCurrentEnemyMap(ctx);
+  const enemyMap = getEnemyMap(ctx);
   const ctxBuildMap = ctx.buildMaps[action.ownerId];
-  const fixedEffectMap = {};
-  const variableEffectSpecs = [];
-  const charConstantEffectContribsForSource = {};
+  const tuneStrainBuff = getTuneStrainBuff(ctx, action.ownerId, mergeObj(ctxBuildMap, fixedBuffMap));
+  mergeStatMap(fixedBuffMap, tuneStrainBuff);
 
-  const actionOwnerFieldKey = action.ownerId === ctx.onFieldId ? 'onField' : 'offField';
-
-  const effectStates = [
-    ...Object.values(memberEffects[action.ownerId]),
-    ...Object.values(fieldEffects[actionOwnerFieldKey]),
-  ];
-
-  for (const effectState of effectStates) {
-    const { stacks = 1, effect } = effectState;
-
-    if (
-      !matchUse(effect, action, action.ownerId, ctx) ||
-      'followUpAction' in effect ||
-      'intervalAction' in effect ||
-      effectState.cooldown
-    ) {
-      continue;
-    }
-
-    const { chance, statMap, variableStatMap } = effect;
-
-    if ('statMap' in effect) { // Fixed statMap bonuses
-      for (const [statId, value] of Object.entries(statMap)) {
-        fixedEffectMap[statId] ??= 0;
-        fixedEffectMap[statId] += value * chance * stacks;
-      }
-    }
-
-    if ('variableStatMap' in effect) {
-      if (effect.ownerId === ctx.currId) { // variableStatMaps that scale off currId's stats
-        variableEffectSpecs.push({ variableStatMap, stacks, chance });
-      } else { // variableStatMaps that scale off teammate stats
-        const ownerCurrentStatMap = getCurrentStatMap(ctx, effect.ownerId, undefined, true);
-        const resolvedStatMap = resolveVariableStatMap(effect.variableStatMap, ownerCurrentStatMap);
-
-        for (const [statId, value] of Object.entries(resolvedStatMap)) {
-          fixedEffectMap[statId] ??= 0;
-          fixedEffectMap[statId] += value * chance * stacks;
-        }
-      }
-    }
-
-    if ('useCooldown' in effect) {
-      effectState.cooldown = effect.useCooldown;
-    }
-  }
-
-  if (variableEffectSpecs.length) {
-    const currIdFieldKey =
-      ctx.currId === ctx.onFieldId
-        ? 'onField'
-        : 'offField';
-
-    for (const { effect, stacks = 1 } of [
-      ...Object.values(memberEffects[ctx.currId]),
-      ...Object.values(fieldEffects[currIdFieldKey]),
-    ]) {
+  const currBuffMap = {};
+  if (variableBuffSpecs.length) {
+    for (const [,, { effect, stacks }] of getUsedBuffStates(ctx, ctx.currId)) {
       const { statMap, chance = 1 } = effect;
       if (!statMap) continue;
-
-      for (const [statId, value] of Object.entries(statMap)) {
-        charConstantEffectContribsForSource[statId] ??= 0;
-        charConstantEffectContribsForSource[statId] += value * stacks * chance;
-      }
+      mergeStatMap(currBuffMap, statMap, stacks * chance);
     }
   }
 
   // Compute fixed damage for teammate actions that aren't affected by variableStats
   if (
     action.ownerId !== ctx.currId &&
-    !variableEffectSpecs.length
+    !variableBuffSpecs.length
   ) {
-    const statMap = mergeObj(ctxBuildMap, fixedEffectMap);
+    const statMap = mergeObj(ctxBuildMap, fixedBuffMap);
 
     const fixed = action.attr === 'tuneAmp'
       ? runTuneFormula(ctx.helpers, enemyMap, statMap, action.compressed.mvs['tuneAmp'], action.element)
@@ -136,17 +94,19 @@ export const buildFootprint = (ctx, action) => {
     ...action,
     enemyMap,
     ctxBuildMap,
-    fixedEffectMap,
-    variableEffectSpecs,
-    charConstantEffectContribsForSource,
+    fixedBuffMap,
+    variableBuffSpecs,
+    currBuffMap,
   };
 };
 
 export const evaluateFootprint = (helpers, currId, footprint, buildMap) => {
   const {
     key, ownerId, type, dmgType, element, attr, compressed,
-    enemyMap, ctxBuildMap, fixedEffectMap,
-    variableEffectSpecs, charConstantEffectContribsForSource,
+    enemyMap,
+    ctxBuildMap,
+    fixedBuffMap,
+    variableBuffSpecs, currBuffMap,
   } = footprint;
 
   const ownerBuildMap =
@@ -154,19 +114,16 @@ export const evaluateFootprint = (helpers, currId, footprint, buildMap) => {
       ? buildMap
       : ctxBuildMap;
 
-  const variableEffectMap = {};
-  if (variableEffectSpecs.length) {
-    const baseForSource = mergeObj(buildMap, charConstantEffectContribsForSource);
-    for (const { variableStatMap, stacks, chance } of variableEffectSpecs) {
+  const variableBuffMap = {};
+  if (variableBuffSpecs.length) {
+    const baseForSource = mergeObj(buildMap, currBuffMap);
+    for (const { variableStatMap, mult } of variableBuffSpecs) {
       const resolvedStatMap = resolveVariableStatMap(variableStatMap, baseForSource);
-      for (const [statId, value] of Object.entries(resolvedStatMap)) {
-        variableEffectMap[statId] ??= 0
-        variableEffectMap[statId] += value * stacks * chance;
-      }
+      mergeStatMap(variableBuffMap, resolvedStatMap, mult);
     }
   }
 
-  const ownerStatMap = mergeObjs(ownerBuildMap, fixedEffectMap, variableEffectMap);
+  const ownerStatMap = mergeObjs(ownerBuildMap, fixedBuffMap, variableBuffMap);
 
   const value = attr === 'tuneAmp'
     ? runTuneFormula(helpers, enemyMap, ownerStatMap, compressed.mvs['tuneAmp'], element)

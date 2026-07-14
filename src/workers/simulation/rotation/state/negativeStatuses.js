@@ -1,4 +1,4 @@
-import { getCurrentEnemyMap } from '../getCurrent';
+import { getEnemyMap } from '../getCurrent';
 import { getDmgAmpMult } from '../damageFormula/dmgAmp';
 
 const LEVEL_MODIFIER = 3674;
@@ -250,7 +250,7 @@ const buildStatusFootprint = (ctx, statusState) => {
   const { getDefMult, getResMult } = ctx.helpers;
   const { stacks, rage, status } = statusState;
 
-  const enemyMap = getCurrentEnemyMap(ctx);
+  const enemyMap = getEnemyMap(ctx);
 
   const mv = status.mv[stacks - 1];
   const rageMv = rage ? status.mv[rage - 1] : 0;

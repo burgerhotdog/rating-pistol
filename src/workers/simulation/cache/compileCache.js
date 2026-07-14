@@ -1,3 +1,5 @@
+import { CHARACTER } from '@/data';
+import { toArray } from '@/utils';
 import { mergeObj, mergeEquipList, compileBaseMap } from '@/utils';
 import { normalizeActions } from './actions';
 import { normalizeEffects } from './effects';
@@ -103,7 +105,12 @@ export const compileCache = (gameId, team) => {
     if (tuneResponse) {
       memberCache[member.id].tuneResponse = tuneResponse;
     }
+
+    memberCache[member.id].isTuneStrain = toArray(CHARACTER[gameId][member.id].tagged)
+      .some((tag) => tag === 'tuneStrain');
   }
+
+  const tuneStrainMaxStacks = 1 + Object.values(memberCache).filter(({ isTuneStrain }) => isTuneStrain).length
 
   return {
     gameId,
@@ -113,5 +120,6 @@ export const compileCache = (gameId, team) => {
     passive,
     fullRotationTime,
     special,
+    tuneStrainMaxStacks,
   };
 };

@@ -51,10 +51,10 @@ export const ifNegativeStatus = (filter = {}, { negativeStatuses }) =>
     : Object.entries(filter).some(([statusId, threshold]) =>
       negativeStatuses[statusId]?.stacks >= threshold);
 
-const ifShifting = (filter, { tune }) =>
+export const ifShifting = (filter, { tune }) =>
   toArray(filter).includes(tune.shifting);
 
-const ifInterfered = (filter, { tune }) =>
+export const ifInterfered = (filter, { tune }) =>
   toArray(filter).includes(tune.interfered);
 
 const matchUseOn = (effect, action = {}) => {

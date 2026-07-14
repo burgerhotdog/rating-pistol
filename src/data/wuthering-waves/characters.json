@@ -4923,6 +4923,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
+    "tagged": "tuneStrain",
     "baseStats": {
       "baseHp": 15375,
       "baseAtk": 287,
@@ -5062,6 +5063,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "pistols",
+    "tagged": "tuneStrain",
     "baseStats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -5177,6 +5179,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "gauntlets",
+    "tagged": "tuneStrain",
     "baseStats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -5346,6 +5349,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "rectifier",
+    "tagged": "tuneStrain",
     "baseStats": {
       "baseHp": 11025,
       "baseAtk": 425,

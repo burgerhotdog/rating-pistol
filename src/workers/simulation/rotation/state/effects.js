@@ -32,9 +32,7 @@ export function applyEffect(stateMap, effect) {
 export function applyEffects(ctx, action, trigger) {
   const { cooldowns, memberEffects, fieldEffects, debuffs } = ctx.state;
 
-  if (!(action.key in ctx.cache.effect)) {
-    return;
-  }
+  if (!(action.key in ctx.cache.effect)) return;
 
   if ('inflict' in action && trigger === 'hit') {
     inflictNegativeStatuses(ctx, action.inflict);
@@ -47,9 +45,7 @@ export function applyEffects(ctx, action, trigger) {
     if (
       cooldowns[effect.key] ||
       !matchApplyIf(effect, action, ctx)
-    ) {
-      continue;
-    }
+    ) continue;
 
     for (const target of effect.applyTo) {
       if (target === 'applier') {
@@ -99,9 +95,7 @@ export function removeEffects(ctx, action) {
 
   for (const stateMap of stateMaps) {
     for (const [key, { effect }] of Object.entries(stateMap)) {
-      if (effect.ownerId !== action.ownerId) {
-        continue;
-      }
+      if (effect.ownerId !== action.ownerId) continue;
 
       if (
         onAction(effect.removeOnAction, action) ||

@@ -36,10 +36,13 @@ export const runDamageFormula = (helpers, action, enemyMap, statMap) => {
       const resMult = getResMult(element, enemyMap, statMap);
       const defMult = getDefMult(enemyMap, statMap);
 
+      const totalDmgMult = 1 + getAttr('totalDmg%', statMap);
+
       const damageValue =
         baseValue *
         critMult * dmgBonusMult * dmgAmpMult *
-        resMult * defMult;
+        resMult * defMult *
+        totalDmgMult;
 
       return damageValue;
     }
