@@ -142,6 +142,7 @@ export const normalizeActions = (ctx, member) => {
         id: actionId,
       };
 
+      // Element
       if (resolved.type === 'damage') {
         if (ctx.gameId === GI && category === 'normalAttack' && char.type !== 'catalyst') {
           resolved.element ??= 'physical';
@@ -150,10 +151,14 @@ export const normalizeActions = (ctx, member) => {
         }
       }
 
-      if ('indexedMultipliers' in resolved) {
-        resolved.compressed = compressMultipliers(resolved.indexedMultipliers, { attr: resolved.attr, index: getIndex(category) })
-      } else if ('fixedMultipliers' in resolved) {
-        resolved.compressed = compressMultipliers(toArray(resolved.fixedMultipliers), { attr: resolved.attr });
+      // Compress multipliers
+      const { indexedMultipliers, fixedMultipliers } = resolved;
+      if (indexedMultipliers) {
+        const spec = { attr: resolved.attr, index: getIndex(category) };
+        resolved.compressed = compressMultipliers(indexedMultipliers, spec)
+      } else if (fixedMultipliers) {
+        const spec = { attr: resolved.attr };
+        resolved.compressed = compressMultipliers(toArray(fixedMultipliers), spec);
       }
 
       normalized[actionShort] = resolved;

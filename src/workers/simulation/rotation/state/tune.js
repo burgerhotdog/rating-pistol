@@ -3,6 +3,7 @@ import { applyEffect } from './effects';
 import { buildTuneFootprint } from '../footprint';
 
 export function applyTune(ctx, action, statMap) {
+  const { tuneStrainMaxStacks } = ctx.cache;
   const { tune } = ctx.state;
 
   if ('shiftTune' in action) {
@@ -12,8 +13,7 @@ export function applyTune(ctx, action, statMap) {
     if (action.shiftTune === 'tuneStrain') {
       tune.shiftingStacks ??= 0;
 
-      console.log(ctx.cache.tuneStrainMaxStacks);
-      if (tune.shiftingStacks < ctx.cache.tuneStrainMaxStacks) {
+      if (tune.shiftingStacks < tuneStrainMaxStacks) {
         tune.shiftingStacks++;
       }
     }

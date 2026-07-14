@@ -1,8 +1,7 @@
-import { CHARACTER } from '@/data';
-import { toArray } from '@/utils';
 import { mergeObj, mergeEquipList, compileBaseMap } from '@/utils';
 import { normalizeActions } from './actions';
 import { normalizeEffects } from './effects';
+import { cacheTuneResponses } from './tuneResponse';
 
 const createEquipMap = (member) => {
   if ('build' in member) {
@@ -98,28 +97,9 @@ export const compileCache = (gameId, team) => {
       rotation,
       rotationTime,
     };
-
-    const tuneRuptureResponse = Object.values(actions[member.id])
-      .find((action) => action.skillType === 'tuneRuptureResponse');
-
-    if (tuneRuptureResponse) {
-      memberCache[member.id].tuneRuptureResponse = tuneRuptureResponse;
-    }
-
-    memberCache[member.id].isTuneStrain = toArray(CHARACTER[gameId][member.id].tagged)
-      .some((tag) => tag === 'tuneStrain');
-    
-    const hackResponse = Object.values(actions[member.id])
-      .find((action) => action.skillType === 'hackResponse');
-
-    if (hackResponse) {
-      memberCache[member.id].hackResponse = hackResponse;
-    }
   }
 
-  const tuneStrainMaxStacks = 1 + Object.values(memberCache).filter(({ isTuneStrain }) => isTuneStrain).length
-
-  return {
+  const cache = {
     gameId,
     memberIds,
     member: memberCache,
@@ -127,6 +107,9 @@ export const compileCache = (gameId, team) => {
     passive,
     fullRotationTime,
     special,
-    tuneStrainMaxStacks,
   };
+
+  cacheTuneResponses(cache, actions);
+
+  return cache;
 };
