@@ -3,51 +3,41 @@ import { resolveVariableStatMap, mergeStatMap } from '../utils';
 import { runDamageFormula, runTuneFormula } from './damageFormula';
 import { getEnemyMap, getUsedBuffStates, resolveBuffMap } from './getCurrent';
 
-export const buildTuneFootprints = (ctx) => {
+export const buildTuneFootprint = (ctx, footprintType, memberId, action = {}) => {
   const enemyMap = getEnemyMap(ctx);
-  const onFieldBuildMap = ctx.buildMaps[ctx.onFieldId];
-  const onFieldUsedBuffStates = getUsedBuffStates(ctx, ctx.onFieldId);
-  const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, onFieldUsedBuffStates);
-  const onFieldStatMap = mergeObj(onFieldBuildMap, fixedBuffMap);
+  const key = footprintType === 'tuneBreak'
+    ? 'other:tuneBreak'
+    : footprintType === 'tuneResponse'
+      ? `${memberId}:tuneResponse`
+      : action.key;
 
-  const tuneBreakFootprint = {
-    key: `other:tuneBreak`,
-    ownerId: 'other',
+  const ownerId = footprintType === 'tuneBreak'
+    ? 'other'
+    : memberId;
+
+  const dmgType = footprintType === 'tuneBreak'
+    ? 'tuneBreak'
+    : action.dmgType;
+
+  const buildMap = ctx.buildMaps[memberId];
+  const usedBuffStates = getUsedBuffStates(ctx, memberId);
+  const { fixedBuffMap } = resolveBuffMap(ctx, usedBuffStates);
+  const tuneStatMap = mergeObj(buildMap, fixedBuffMap);
+  const fixed = footprintType === 'tuneBreak'
+    ? runTuneFormula(ctx.helpers, enemyMap, tuneStatMap)
+    : runTuneFormula(ctx.helpers, enemyMap, tuneStatMap, action.compressed.mvs['tuneAmp'], action.element);
+
+  return {
+    key,
+    ownerId,
     type: 'damage',
-    dmgType: 'tuneBreak',
-    fixed: runTuneFormula(ctx.helpers, enemyMap, onFieldStatMap),
+    dmgType,
+    fixed,
   };
-
-  const footprints = [tuneBreakFootprint];
-  const shifting = ctx.state.tune.shifting;
-
-  // Tune response
-  for (const member of Object.values(ctx.cache.member)) {
-    if (!('tuneResponse' in member)) continue;
-    const { dmgType, element, compressed } = member.tuneResponse;
-    if (dmgType !== shifting) continue;
-
-    const responseBuildMap = ctx.buildMaps[member.id];
-    const responseUsedBuffStates = getUsedBuffStates(ctx, member.id);
-    const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, responseUsedBuffStates);
-
-    const responseStatMap = mergeObj(responseBuildMap, fixedBuffMap);
-
-    footprints.push({
-      key: `${member.id}:tuneResponse`,
-      ownerId: member.id,
-      type: 'damage',
-      dmgType,
-      fixed: runTuneFormula(ctx.helpers, enemyMap, responseStatMap, compressed.mvs['tuneAmp'], element),
-    });
-  }
-
-  return footprints;
 };
 
 const getTuneStrainBuff = (ctx, memberId, statMap) => {
   const { tune } = ctx.state;
-
   if (tune.interfered !== 'tuneStrain') return {};
 
   const stacks = tune.interferedStacks;

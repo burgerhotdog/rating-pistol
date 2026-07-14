@@ -1,11 +1,10 @@
 import { mergeObj } from '@/utils';
-import { matchUse } from '../match';
 import { advanceCooldowns } from './state/cooldowns';
-import { applyEffect, applyEffects, applyPassives, removeEffects, advanceEffects } from './state/effects';
+import { applyEffects, applyPassives, removeEffects, advanceEffects } from './state/effects';
 import { advanceNegativeStatuses } from './state/negativeStatuses';
-import { applyTune, advanceTune } from './state/tune';
-import { buildTuneFootprints, buildFootprint, evaluateFootprint } from './footprint';
-import { getUsedBuffStates, resolveBuffMap } from './getCurrent';
+import { applyTune, advanceTune, runTuneBreak } from './state/tune';
+import { buildFootprint, evaluateFootprint } from './footprint';
+import { getUsedBuffStates, getUsedFollowUpStates, resolveBuffMap } from './getCurrent';
 
 const MAX_PROC_DEPTH = 5;
 
@@ -32,43 +31,31 @@ function decayUsedBuffs(ctx, usedBuffStates) {
 
 function runFollowUpActions(ctx, action, depth) {
   const { memberEffects, fieldEffects } = ctx.state;
+  const usedFollowUpStates = getUsedFollowUpStates(ctx, action.ownerId, action);
 
-  const actionOwnerFieldKey =
-    ctx.onFieldId === action.ownerId
-      ? 'onField'
-      : 'offField';
+  for (const [stateMapType, stateMapKey, effectState] of usedFollowUpStates) {
+    const { effect } = effectState;
 
-  const stateMaps = [
-    memberEffects[action.ownerId],
-    fieldEffects[actionOwnerFieldKey],
-  ];
+    if (effectState.executing) continue;
 
-  for (const stateMap of stateMaps) {
-    for (const [effectKey, effectState] of Object.entries(stateMap)) {
-      const { effect } = effectState;
-
-      if (
-        effectState.executing ||
-        effectState.cooldown ||
-        !('followUpAction' in effect) ||
-        !matchUse(effect, action, action.ownerId, ctx)
-      ) continue;
-
-      effectState.executing = true;
-      for (const action of effect.followUpAction) {
-        for (let i = 0; i < effect.times; i ++) {
-          runAction(ctx, action, depth + 1);
-        }
+    effectState.executing = true;
+    for (const action of effect.followUpAction) {
+      for (let i = 0; i < effect.times; i ++) {
+        runAction(ctx, action, depth + 1);
       }
-      effectState.executing = false;
+    }
+    effectState.executing = false;
 
-      if ('useCooldown' in effect) {
-        effectState.cooldown = effect.useCooldown;
-      }
+    if ('useCooldown' in effect) {
+      effectState.cooldown = effect.useCooldown;
+    }
 
-      effectState.usesRemaining--;
-      if (effectState.usesRemaining <= 0) {
-        delete stateMap[effectKey];
+    effectState.usesRemaining--;
+    if (effectState.usesRemaining <= 0) {
+      if (stateMapType === 'member') {
+        delete memberEffects[stateMapKey][effect.key];
+      } else {
+        delete fieldEffects[stateMapKey][effect.key];
       }
     }
   }
@@ -163,49 +150,6 @@ function runAction(ctx, action, depth = 0) {
   }
 }
 
-export function runTuneBreak(ctx) {
-  const { cooldowns, tune, debuffs } = ctx.state;
-
-  // Record offTune on 1st pass, footprint on 2nd pass
-  if (!ctx.recordFootprint) { 
-    ctx.tuneBuildup.push(tune.offTune);
-  } else {
-    ctx.tuneFootprints = buildTuneFootprints(ctx);
-  }
-
-  if (!tune.misTuned) return;
-
-  if (tune.shifting) {
-    console.log(tune.shifting);
-    tune.interfered = tune.shifting;
-    if (tune.shiftingStacks) {
-      tune.interferedStacks = tune.shiftingStacks;
-      delete tune.shiftingStacks;
-    }
-    tune.interferedDuration =
-      tune.interfered === 'tuneStrain'
-        ? 30000
-        : 8000;
-  }
-
-  tune.misTuned = false;
-  tune.offTune = 0;
-  tune.offTuneCooldown = 4000;
-
-  for (const effect of ctx.cache.special) {
-    if (
-      effect.applyOnSpecial !== 'tuneBreak' ||
-      cooldowns[effect.key]
-    ) continue;
-
-    applyEffect(debuffs, effect);
-
-    if ('applyCooldown' in effect) {
-      cooldowns[effect.key] = effect.applyCooldown;
-    }
-  }
-}
-
 export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
@@ -232,8 +176,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
       tune: { offTune: 0 },
     },
     footprints: [],
-    tuneBuildup: [],
-    tuneFootprints: [],
+    offTuneBuildup: [],
   };
 
   // Init passives into effect states
@@ -246,7 +189,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
       cache.member[memberId].rotation);
 
   oneRotationPass(ctx, actionOrder);
-  ctx.tuneBuildup.push(ctx.state.tune.offTune);
+  ctx.offTuneBuildup.push(ctx.state.tune.offTune);
   ctx.recordFootprint = true;
   oneRotationPass(ctx, actionOrder);
 
@@ -269,19 +212,6 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     });
   }
 
-  // Resolve tune break/response footprints
-  const numBreaksMult = getNumBreaksMult(...ctx.tuneBuildup);
-  
-  for (const footprint of ctx.tuneFootprints) {
-    addToSummary(fixedSummary, {
-      key: footprint.key,
-      ownerId: footprint.ownerId,
-      type: footprint.type,
-      dmgType: footprint.dmgType,
-      value: footprint.fixed * numBreaksMult,
-    });
-  }
-
   // Return function to resolve remaining footprints
   return (statMap) => {
     const summary = { ...fixedSummary };
@@ -292,14 +222,6 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     return summary;
   };
 };
-
-function getNumBreaksMult(firstTuneBreak, midpoint) {
-  if (firstTuneBreak === 300) {
-    return 1;
-  }
-
-  return 1 / Math.ceil(300 / midpoint);
-}
 
 function oneRotationPass(ctx, actionOrder) {
   for (const action of actionOrder) {

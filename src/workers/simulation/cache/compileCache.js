@@ -99,15 +99,22 @@ export const compileCache = (gameId, team) => {
       rotationTime,
     };
 
-    const tuneResponse = Object.values(actions[member.id])
-      .find((action) => action.skillType === 'tuneResponse');
+    const tuneRuptureResponse = Object.values(actions[member.id])
+      .find((action) => action.skillType === 'tuneRuptureResponse');
 
-    if (tuneResponse) {
-      memberCache[member.id].tuneResponse = tuneResponse;
+    if (tuneRuptureResponse) {
+      memberCache[member.id].tuneRuptureResponse = tuneRuptureResponse;
     }
 
     memberCache[member.id].isTuneStrain = toArray(CHARACTER[gameId][member.id].tagged)
       .some((tag) => tag === 'tuneStrain');
+    
+    const hackResponse = Object.values(actions[member.id])
+      .find((action) => action.skillType === 'hackResponse');
+
+    if (hackResponse) {
+      memberCache[member.id].hackResponse = hackResponse;
+    }
   }
 
   const tuneStrainMaxStacks = 1 + Object.values(memberCache).filter(({ isTuneStrain }) => isTuneStrain).length

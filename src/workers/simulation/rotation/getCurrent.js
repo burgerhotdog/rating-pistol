@@ -1,21 +1,23 @@
 import { mergeObj } from '@/utils';
 import { mergeStatMap, resolveVariableStatMap } from '../utils';
-import { matchUse, onAction, onType, onTagged, onSkillType, onDmgType, onElement, ifAttr, ifField, ifNegativeStatus, ifShifting, ifInterfered } from '../match';
+import { onAction, onType, onTagged, onSkillType, onDmgType, onElement, ifAttr, ifField, ifNegativeStatus, ifShifting, ifInterfered } from '../match';
 
-const getAllBuffStates = (ctx, memberId) => {
+const getAllStates = (ctx, memberId, effectTypes) => {
   const { memberEffects, fieldEffects } = ctx.state;
   const fieldId = memberId === ctx.onFieldId ? 'onField' : 'offField';
 
-  return [
+  const stateMaps = [
     ...Object.values(memberEffects[memberId])
       .map((effectState) => ['member', memberId, effectState]),
     ...Object.values(fieldEffects[fieldId])
       .map((effectState) => ['field', fieldId, effectState]),
-  ].filter(([,, { effect }]) =>
-    'statMap' in effect || 'variableStatMap' in effect);
+  ]
+
+  return stateMaps.filter(([,, { effect }]) =>
+    effectTypes.some((type) => type in effect));
 };
 
-export const getUsedBuffStates = (ctx, memberId, action = {}) => {
+const getUsedStates = (allStates, ctx, memberId, action) => {
   const matchUseOn = (effect) => 
     onAction(effect.useOnAction, action) ||
     onType(effect.useOnType, action) ||
@@ -31,7 +33,7 @@ export const getUsedBuffStates = (ctx, memberId, action = {}) => {
     ifShifting(effect.useIfShifting, ctx.state) ||
     ifInterfered(effect.useIfInterfered, ctx.state);
 
-  return getAllBuffStates(ctx, memberId)
+  return allStates
     .filter(([,, { cooldown, effect }]) => {
       const hasUseOn = Object.keys(effect)
         .some((key) => key.startsWith('useOn'));
@@ -43,6 +45,16 @@ export const getUsedBuffStates = (ctx, memberId, action = {}) => {
         (!hasUseOn || matchUseOn(effect)) &&
         (!hasUseIf || matchUseIf(effect));
     });
+};
+
+export const getUsedBuffStates = (ctx, memberId, action = {}) => {
+  const buffStates = getAllStates(ctx, memberId, ['statMap', 'variableStatMap']);
+  return getUsedStates(buffStates, ctx, memberId, action);
+};
+
+export const getUsedFollowUpStates = (ctx, memberId, action = {}) => {
+  const followUpStates = getAllStates(ctx, memberId, ['followUpAction']);
+  return getUsedStates(followUpStates, ctx, memberId, action);
 };
 
 export const resolveBuffMap = (ctx, usedBuffStates) => {
@@ -102,51 +114,4 @@ export const getEnemyMap = (ctx) => {
   }
 
   return enemyMap;
-};
-
-export const getCurrentStatMap = (ctx, memberId, action, ignoreVariable) => {
-  const { memberEffects, fieldEffects } = ctx.state;
-  const currentMap = { ...ctx.buildMaps[memberId] };
-
-  const fieldKey =
-    memberId === ctx.onFieldId
-      ? 'onField'
-      : 'offField';
-
-  const effectStates = [
-    ...Object.values(memberEffects[memberId]),
-    ...Object.values(fieldEffects[fieldKey]),
-  ];
-
-  for (const { effect, stacks = 1 } of effectStates) {
-    if (!matchUse(effect, action, memberId, ctx)) continue;
-
-    const { statMap, chance = 1 } = effect;
-    if (!statMap) continue;
-
-    for (const [statId, value] of Object.entries(statMap)) {
-      currentMap[statId] ??= 0;
-      currentMap[statId] += value * stacks * chance;
-    }
-  }
-
-  if (ignoreVariable) {
-    return currentMap;
-  }
-
-  for (const { effect, stacks = 1 } of effectStates) {
-    if (!matchUse(effect, action, memberId, ctx)) continue;
-  
-    const { variableStatMap, chance = 1 } = effect;
-    if (!variableStatMap) continue;
-
-    const sourceMap = getCurrentStatMap(ctx, effect.ownerId, undefined, true);
-    const resolvedStatMap = resolveVariableStatMap(variableStatMap, sourceMap);
-    for (const [statId, value] of Object.entries(resolvedStatMap)) {
-      currentMap[statId] ??= 0;
-      currentMap[statId] += value * stacks * chance;
-    }
-  }
-
-  return currentMap;
 };

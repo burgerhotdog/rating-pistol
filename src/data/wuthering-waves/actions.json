@@ -32736,7 +32736,7 @@
       },
       "5": {
         "name": "Particle Jet",
-        "skillType": "tuneResponse",
+        "skillType": "tuneRuptureResponse",
         "dmgType": "tuneRupture",
         "attr": "tuneAmp",
         "indexedMultipliers": [
@@ -33900,7 +33900,7 @@
       },
       "6": {
         "name": "Spectral Analysis",
-        "skillType": "tuneResponse",
+        "skillType": "tuneRuptureResponse",
         "dmgType": "tuneRupture",
         "attr": "tuneAmp",
         "indexedMultipliers": [
@@ -35287,7 +35287,7 @@
       },
       "3": {
         "name": "Starburst",
-        "skillType": "tuneResponse",
+        "skillType": "tuneRuptureResponse",
         "dmgType": "tuneRupture",
         "attr": "tuneAmp",
         "indexedMultipliers": [
@@ -42052,7 +42052,7 @@
     "forteCircuit": {
       "1": {
         "name": "Meltdown",
-        "skillType": "tuneResponse",
+        "skillType": "hackResponse",
         "dmgType": "hack",
         "attr": "tuneAmp",
         "indexedMultipliers": [
@@ -44639,7 +44639,7 @@
     "forteCircuit": {
       "1": {
         "name": "Data Crash",
-        "skillType": "tuneResponse",
+        "skillType": "hackResponse",
         "dmgType": "hack",
         "attr": "tuneAmp",
         "indexedMultipliers": [
