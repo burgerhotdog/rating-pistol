@@ -270,7 +270,6 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   }
 
   // Resolve tune break/response footprints
-  console.log(...ctx.tuneBuildup);
   const numBreaksMult = getNumBreaksMult(...ctx.tuneBuildup);
   
   for (const footprint of ctx.tuneFootprints) {

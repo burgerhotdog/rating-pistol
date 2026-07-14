@@ -52,7 +52,6 @@ const getTuneStrainBuff = (ctx, memberId, statMap) => {
 
   const stacks = tune.interferedStacks;
   const tuneBreakBoost = getAttr('tuneBreakBoost', statMap);
-  console.log('tbb', tuneBreakBoost, stacks * tuneBreakBoost * 0.0012);
   return { ['totalDmg%']: stacks * tuneBreakBoost * 0.0012 };
 };
 
