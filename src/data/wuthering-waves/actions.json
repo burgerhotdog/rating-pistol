@@ -1,6 +1,5 @@
-[
-  {
-    "id": "1102",
+{
+  "1102": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -477,8 +476,7 @@
       }
     }
   },
-  {
-    "id": "1103",
+  "1103": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -1072,8 +1070,7 @@
       }
     }
   },
-  {
-    "id": "1104",
+  "1104": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -1755,8 +1752,7 @@
       }
     }
   },
-  {
-    "id": "1202",
+  "1202": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -2229,8 +2225,7 @@
       }
     }
   },
-  {
-    "id": "1203",
+  "1203": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -2898,8 +2893,7 @@
       }
     }
   },
-  {
-    "id": "1204",
+  "1204": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -3367,8 +3361,7 @@
       }
     }
   },
-  {
-    "id": "1301",
+  "1301": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -4301,8 +4294,7 @@
       }
     }
   },
-  {
-    "id": "1302",
+  "1302": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -4755,8 +4747,7 @@
       }
     }
   },
-  {
-    "id": "1303",
+  "1303": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -5650,8 +5641,7 @@
       }
     }
   },
-  {
-    "id": "1402",
+  "1402": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -6166,8 +6156,7 @@
       }
     }
   },
-  {
-    "id": "1403",
+  "1403": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -6589,8 +6578,7 @@
       }
     }
   },
-  {
-    "id": "1404",
+  "1404": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -7224,8 +7212,7 @@
       }
     }
   },
-  {
-    "id": "1405",
+  "1405": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -8117,8 +8104,7 @@
       }
     }
   },
-  {
-    "id": "1503",
+  "1503": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -8934,8 +8920,7 @@
       }
     }
   },
-  {
-    "id": "1601",
+  "1601": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -9593,8 +9578,7 @@
       }
     }
   },
-  {
-    "id": "1602",
+  "1602": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -10196,8 +10180,7 @@
       }
     }
   },
-  {
-    "id": "1205",
+  "1205": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -10940,8 +10923,7 @@
       }
     }
   },
-  {
-    "id": "1304",
+  "1304": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -12080,8 +12062,7 @@
       }
     }
   },
-  {
-    "id": "1105",
+  "1105": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -12487,8 +12468,7 @@
       }
     }
   },
-  {
-    "id": "1305",
+  "1305": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -13215,8 +13195,7 @@
       }
     }
   },
-  {
-    "id": "1106",
+  "1106": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -14043,8 +14022,7 @@
       }
     }
   },
-  {
-    "id": "1505",
+  "1505": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -14686,8 +14664,7 @@
       }
     }
   },
-  {
-    "id": "1504",
+  "1504": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack",
@@ -15489,8 +15466,7 @@
       }
     }
   },
-  {
-    "id": "1603",
+  "1603": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -16141,8 +16117,7 @@
       }
     }
   },
-  {
-    "id": "1107",
+  "1107": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -17074,8 +17049,7 @@
       }
     }
   },
-  {
-    "id": "1606",
+  "1606": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -17519,8 +17493,7 @@
       }
     }
   },
-  {
-    "id": "1206",
+  "1206": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -18816,8 +18789,7 @@
       }
     }
   },
-  {
-    "id": "1506",
+  "1506": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -19466,8 +19438,7 @@
       }
     }
   },
-  {
-    "id": "1607",
+  "1607": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -20293,8 +20264,7 @@
       }
     }
   },
-  {
-    "id": "1407",
+  "1407": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -20857,8 +20827,7 @@
       }
     }
   },
-  {
-    "id": "1507",
+  "1507": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -21721,8 +21690,7 @@
       }
     }
   },
-  {
-    "id": "1207",
+  "1207": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -23001,8 +22969,7 @@
       }
     }
   },
-  {
-    "id": "1409",
+  "1409": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -24661,8 +24628,7 @@
       }
     }
   },
-  {
-    "id": "1608",
+  "1608": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -25461,8 +25427,7 @@
       }
     }
   },
-  {
-    "id": "1306",
+  "1306": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -26338,8 +26303,7 @@
       }
     }
   },
-  {
-    "id": "1410",
+  "1410": {
     "normalAttack": {
       "1": {
         "name": "Moonring: Basic Attack 1",
@@ -27466,8 +27430,7 @@
       }
     }
   },
-  {
-    "id": "1208",
+  "1208": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -28831,8 +28794,7 @@
       }
     }
   },
-  {
-    "id": "1411",
+  "1411": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -29908,8 +29870,7 @@
       }
     }
   },
-  {
-    "id": "1307",
+  "1307": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -30515,8 +30476,7 @@
       }
     }
   },
-  {
-    "id": "1508",
+  "1508": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -31840,8 +31800,7 @@
       }
     }
   },
-  {
-    "id": "1209",
+  "1209": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -32806,8 +32765,7 @@
       }
     }
   },
-  {
-    "id": "1509",
+  "1509": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -33975,8 +33933,7 @@
       }
     }
   },
-  {
-    "id": "1210",
+  "1210": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -35470,8 +35427,7 @@
       }
     }
   },
-  {
-    "id": "1510",
+  "1510": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -36439,8 +36395,7 @@
       }
     }
   },
-  {
-    "id": "1412",
+  "1412": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -37582,8 +37537,7 @@
       }
     }
   },
-  {
-    "id": "1108",
+  "1108": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -38893,8 +38847,7 @@
       }
     }
   },
-  {
-    "id": "1211",
+  "1211": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -39961,8 +39914,7 @@
       }
     }
   },
-  {
-    "id": "1109",
+  "1109": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -40791,8 +40743,7 @@
       }
     }
   },
-  {
-    "id": "1308",
+  "1308": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -42606,8 +42557,7 @@
       }
     }
   },
-  {
-    "id": "1511",
+  "1511": {
     "normalAttack": {
       "1": {
         "name": "Basic Attack 1",
@@ -44758,4 +44708,4 @@
       }
     }
   }
-]
+}

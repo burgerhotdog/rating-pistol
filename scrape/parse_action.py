@@ -270,9 +270,8 @@ def parse_zzz(data, resolved):
 
         resolved[skill_id] = skill
 
-def parse_action(game_id, char_id, data):
+def parse_action(game_id, data):
     resolved = {}
-    resolved["id"] = char_id
 
     match game_id:
         case "genshin-impact":

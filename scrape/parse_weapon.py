@@ -103,8 +103,8 @@ FIELDS = {
     },
 }
 
-def parse_weapon(game_id, weap_id, data):
-    result = { "id": weap_id }
+def parse_weapon(game_id, version, data):
+    result = { "version": version }
 
     for field, parser in FIELDS[game_id].items():
         result[field] = parser(data)

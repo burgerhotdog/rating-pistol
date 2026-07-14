@@ -1,7 +1,7 @@
-[
-  {
-    "id": "1102",
+{
+  "1102": {
     "name": "Sanhua",
+    "version": 1,
     "quality": 4,
     "element": "glacio",
     "type": "sword",
@@ -113,9 +113,9 @@
       ]
     }
   },
-  {
-    "id": "1103",
+  "1103": {
     "name": "Baizhi",
+    "version": 1,
     "quality": 4,
     "element": "glacio",
     "type": "rectifier",
@@ -260,9 +260,9 @@
       ]
     }
   },
-  {
-    "id": "1104",
+  "1104": {
     "name": "Lingyang",
+    "version": 1,
     "quality": 5,
     "element": "glacio",
     "type": "gauntlets",
@@ -370,9 +370,9 @@
       ]
     }
   },
-  {
-    "id": "1202",
+  "1202": {
     "name": "Chixia",
+    "version": 1,
     "quality": 4,
     "element": "fusion",
     "type": "pistols",
@@ -462,9 +462,9 @@
       ]
     }
   },
-  {
-    "id": "1203",
+  "1203": {
     "name": "Encore",
+    "version": 1,
     "quality": 5,
     "element": "fusion",
     "type": "rectifier",
@@ -583,9 +583,9 @@
       ]
     }
   },
-  {
-    "id": "1204",
+  "1204": {
     "name": "Mortefi",
+    "version": 1,
     "quality": 4,
     "element": "fusion",
     "type": "pistols",
@@ -731,9 +731,9 @@
       ]
     }
   },
-  {
-    "id": "1301",
+  "1301": {
     "name": "Calcharo",
+    "version": 1,
     "quality": 5,
     "element": "electro",
     "type": "broadblade",
@@ -843,9 +843,9 @@
       ]
     }
   },
-  {
-    "id": "1302",
+  "1302": {
     "name": "Yinlin",
+    "version": 1,
     "quality": 5,
     "element": "electro",
     "type": "rectifier",
@@ -983,9 +983,9 @@
       ]
     }
   },
-  {
-    "id": "1303",
+  "1303": {
     "name": "Yuanwu",
+    "version": 1,
     "quality": 4,
     "element": "electro",
     "type": "gauntlets",
@@ -1096,9 +1096,9 @@
       ]
     }
   },
-  {
-    "id": "1402",
+  "1402": {
     "name": "Yangyang",
+    "version": 1,
     "quality": 4,
     "element": "aero",
     "type": "sword",
@@ -1185,9 +1185,9 @@
       ]
     }
   },
-  {
-    "id": "1403",
+  "1403": {
     "name": "Aalto",
+    "version": 1,
     "quality": 4,
     "element": "aero",
     "type": "pistols",
@@ -1317,9 +1317,9 @@
       ]
     }
   },
-  {
-    "id": "1404",
+  "1404": {
     "name": "Jiyan",
+    "version": 1,
     "quality": 5,
     "element": "aero",
     "type": "broadblade",
@@ -1466,9 +1466,9 @@
       ]
     }
   },
-  {
-    "id": "1405",
+  "1405": {
     "name": "Jianxin",
+    "version": 1,
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
@@ -1605,9 +1605,9 @@
       ]
     }
   },
-  {
-    "id": "1503",
+  "1503": {
     "name": "Verina",
+    "version": 1,
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
@@ -1766,9 +1766,9 @@
       ]
     }
   },
-  {
-    "id": "1601",
+  "1601": {
     "name": "Taoqi",
+    "version": 1,
     "quality": 4,
     "element": "havoc",
     "type": "broadblade",
@@ -1900,9 +1900,9 @@
       ]
     }
   },
-  {
-    "id": "1602",
+  "1602": {
     "name": "Danjin",
+    "version": 1,
     "quality": 4,
     "element": "havoc",
     "type": "sword",
@@ -2041,9 +2041,9 @@
       ]
     }
   },
-  {
-    "id": "1205",
+  "1205": {
     "name": "Changli",
+    "version": 1.1,
     "quality": 5,
     "element": "fusion",
     "type": "sword",
@@ -2188,9 +2188,9 @@
       ]
     }
   },
-  {
-    "id": "1304",
+  "1304": {
     "name": "Jinhsi",
+    "version": 1.1,
     "quality": 5,
     "element": "spectro",
     "type": "broadblade",
@@ -2304,9 +2304,9 @@
       ]
     }
   },
-  {
-    "id": "1105",
+  "1105": {
     "name": "Zhezhi",
+    "version": 1.2,
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
@@ -2441,9 +2441,9 @@
       ]
     }
   },
-  {
-    "id": "1305",
+  "1305": {
     "name": "Xiangli Yao",
+    "version": 1.2,
     "quality": 5,
     "element": "electro",
     "type": "gauntlets",
@@ -2574,9 +2574,9 @@
       ]
     }
   },
-  {
-    "id": "1106",
+  "1106": {
     "name": "Youhu",
+    "version": 1.3,
     "quality": 4,
     "element": "glacio",
     "type": "gauntlets",
@@ -2669,9 +2669,9 @@
       ]
     }
   },
-  {
-    "id": "1505",
+  "1505": {
     "name": "Shorekeeper",
+    "version": 1.3,
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
@@ -2811,9 +2811,9 @@
       ]
     }
   },
-  {
-    "id": "1504",
+  "1504": {
     "name": "Lumi",
+    "version": 1.4,
     "quality": 4,
     "element": "electro",
     "type": "broadblade",
@@ -2934,9 +2934,9 @@
       ]
     }
   },
-  {
-    "id": "1603",
+  "1603": {
     "name": "Camellya",
+    "version": 1.4,
     "quality": 5,
     "element": "havoc",
     "type": "sword",
@@ -3100,9 +3100,9 @@
       ]
     }
   },
-  {
-    "id": "1107",
+  "1107": {
     "name": "Carlotta",
+    "version": 2,
     "quality": 5,
     "element": "glacio",
     "type": "pistols",
@@ -3231,9 +3231,9 @@
       ]
     }
   },
-  {
-    "id": "1606",
+  "1606": {
     "name": "Roccia",
+    "version": 2,
     "quality": 5,
     "element": "havoc",
     "type": "gauntlets",
@@ -3403,9 +3403,9 @@
       ]
     }
   },
-  {
-    "id": "1206",
+  "1206": {
     "name": "Brant",
+    "version": 2.1,
     "quality": 5,
     "element": "fusion",
     "type": "sword",
@@ -3579,9 +3579,9 @@
       ]
     }
   },
-  {
-    "id": "1506",
+  "1506": {
     "name": "Phoebe",
+    "version": 2.1,
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
@@ -3792,9 +3792,9 @@
       ]
     }
   },
-  {
-    "id": "1607",
+  "1607": {
     "name": "Cantarella",
+    "version": 2.2,
     "quality": 5,
     "element": "havoc",
     "type": "rectifier",
@@ -3937,9 +3937,9 @@
       ]
     }
   },
-  {
-    "id": "1407",
+  "1407": {
     "name": "Ciaccona",
+    "version": 2.3,
     "quality": 5,
     "element": "aero",
     "type": "pistols",
@@ -4057,9 +4057,9 @@
       ]
     }
   },
-  {
-    "id": "1507",
+  "1507": {
     "name": "Zani",
+    "version": 2.3,
     "quality": 5,
     "element": "spectro",
     "type": "gauntlets",
@@ -4209,9 +4209,9 @@
       ]
     }
   },
-  {
-    "id": "1207",
+  "1207": {
     "name": "Lupa",
+    "version": 2.4,
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
@@ -4363,9 +4363,9 @@
       ]
     }
   },
-  {
-    "id": "1409",
+  "1409": {
     "name": "Cartethyia",
+    "version": 2.4,
     "quality": 5,
     "element": "aero",
     "type": "sword",
@@ -4508,9 +4508,9 @@
       ]
     }
   },
-  {
-    "id": "1608",
+  "1608": {
     "name": "Phrolova",
+    "version": 2.5,
     "quality": 5,
     "element": "havoc",
     "type": "rectifier",
@@ -4575,9 +4575,9 @@
       ]
     }
   },
-  {
-    "id": "1306",
+  "1306": {
     "name": "Augusta",
+    "version": 2.6,
     "quality": 5,
     "element": "electro",
     "type": "broadblade",
@@ -4656,9 +4656,9 @@
       ]
     }
   },
-  {
-    "id": "1410",
+  "1410": {
     "name": "Iuno",
+    "version": 2.6,
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
@@ -4707,9 +4707,9 @@
       ]
     }
   },
-  {
-    "id": "1208",
+  "1208": {
     "name": "Galbrena",
+    "version": 2.7,
     "quality": 5,
     "element": "fusion",
     "type": "pistols",
@@ -4764,9 +4764,9 @@
       ]
     }
   },
-  {
-    "id": "1411",
+  "1411": {
     "name": "Qiuyuan",
+    "version": 2.7,
     "quality": 5,
     "element": "aero",
     "type": "sword",
@@ -4814,9 +4814,9 @@
       ]
     }
   },
-  {
-    "id": "1307",
+  "1307": {
     "name": "Buling",
+    "version": 2.8,
     "quality": 4,
     "element": "electro",
     "type": "rectifier",
@@ -4876,9 +4876,9 @@
       ]
     }
   },
-  {
-    "id": "1508",
+  "1508": {
     "name": "Chisa",
+    "version": 2.8,
     "quality": 5,
     "element": "havoc",
     "type": "broadblade",
@@ -4917,9 +4917,9 @@
       ]
     }
   },
-  {
-    "id": "1209",
+  "1209": {
     "name": "Mornye",
+    "version": 3,
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
@@ -5057,9 +5057,9 @@
       ]
     }
   },
-  {
-    "id": "1509",
+  "1509": {
     "name": "Lynae",
+    "version": 3,
     "quality": 5,
     "element": "spectro",
     "type": "pistols",
@@ -5113,9 +5113,9 @@
       ]
     }
   },
-  {
-    "id": "1210",
+  "1210": {
     "name": "Aemeath",
+    "version": 3.1,
     "quality": 5,
     "element": "fusion",
     "type": "sword",
@@ -5173,9 +5173,9 @@
       ]
     }
   },
-  {
-    "id": "1510",
+  "1510": {
     "name": "Luuk Herssen",
+    "version": 3.1,
     "quality": 5,
     "element": "spectro",
     "type": "gauntlets",
@@ -5229,9 +5229,9 @@
       ]
     }
   },
-  {
-    "id": "1412",
+  "1412": {
     "name": "Sigrika",
+    "version": 3.2,
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
@@ -5280,9 +5280,9 @@
       ]
     }
   },
-  {
-    "id": "1108",
+  "1108": {
     "name": "Hiyuki",
+    "version": 3.3,
     "quality": 5,
     "element": "glacio",
     "type": "sword",
@@ -5343,9 +5343,9 @@
       ]
     }
   },
-  {
-    "id": "1211",
+  "1211": {
     "name": "Denia",
+    "version": 3.3,
     "quality": 5,
     "element": "fusion",
     "type": "rectifier",
@@ -5391,9 +5391,9 @@
       ]
     }
   },
-  {
-    "id": "1109",
+  "1109": {
     "name": "Lucilla",
+    "version": 3.4,
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
@@ -5469,9 +5469,9 @@
       ]
     }
   },
-  {
-    "id": "1308",
+  "1308": {
     "name": "Rebecca",
+    "version": 3.4,
     "quality": 5,
     "element": "electro",
     "type": "pistols",
@@ -5589,9 +5589,9 @@
       ]
     }
   },
-  {
-    "id": "1511",
+  "1511": {
     "name": "Lucy",
+    "version": 3.4,
     "quality": 5,
     "element": "spectro",
     "type": "pistols",
@@ -5765,4 +5765,4 @@
       ]
     }
   }
-]
+}

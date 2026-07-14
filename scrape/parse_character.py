@@ -190,8 +190,8 @@ FIELDS = {
     },
 }
 
-def parse_character(game_id, char_id, data):
-    result = { "id": char_id }
+def parse_character(game_id, version, data):
+    result = { "version": version }
 
     for field, parser in FIELDS[game_id].items():
         result[field] = parser(data)

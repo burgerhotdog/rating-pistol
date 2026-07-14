@@ -1,6 +1,5 @@
-[
-  {
-    "id": "1001",
+{
+  "1001": {
     "basicAttack": {
       "1": {
         "name": "Frigid Cold Arrow",
@@ -143,8 +142,7 @@
       }
     }
   },
-  {
-    "id": "1002",
+  "1002": {
     "basicAttack": {
       "1": {
         "name": "Cloudlancer Art: North Wind",
@@ -268,8 +266,7 @@
       }
     }
   },
-  {
-    "id": "1003",
+  "1003": {
     "basicAttack": {
       "1": {
         "name": "Sawblade Tuning",
@@ -393,8 +390,7 @@
       }
     }
   },
-  {
-    "id": "1004",
+  "1004": {
     "basicAttack": {
       "1": {
         "name": "Gravity Suppression",
@@ -537,8 +533,7 @@
       }
     }
   },
-  {
-    "id": "1008",
+  "1008": {
     "basicAttack": {
       "1": {
         "name": "Lightning Rush",
@@ -662,8 +657,7 @@
       }
     }
   },
-  {
-    "id": "1009",
+  "1009": {
     "basicAttack": {
       "1": {
         "name": "Spectrum Beam",
@@ -768,8 +762,7 @@
       }
     }
   },
-  {
-    "id": "1013",
+  "1013": {
     "basicAttack": {
       "1": {
         "name": "What Are You Looking At?",
@@ -874,8 +867,7 @@
       }
     }
   },
-  {
-    "id": "1101",
+  "1101": {
     "basicAttack": {
       "1": {
         "name": "Windrider Bullet",
@@ -1018,8 +1010,7 @@
       }
     }
   },
-  {
-    "id": "1102",
+  "1102": {
     "basicAttack": {
       "1": {
         "name": "Thwack",
@@ -1124,8 +1115,7 @@
       }
     }
   },
-  {
-    "id": "1103",
+  "1103": {
     "basicAttack": {
       "1": {
         "name": "Roaring Thunderclap",
@@ -1268,8 +1258,7 @@
       }
     }
   },
-  {
-    "id": "1104",
+  "1104": {
     "basicAttack": {
       "1": {
         "name": "Fist of Conviction",
@@ -1412,8 +1401,7 @@
       }
     }
   },
-  {
-    "id": "1105",
+  "1105": {
     "basicAttack": {
       "1": {
         "name": "Behind the Kindness",
@@ -1594,8 +1582,7 @@
       }
     }
   },
-  {
-    "id": "1106",
+  "1106": {
     "basicAttack": {
       "1": {
         "name": "Frost Shot",
@@ -1719,8 +1706,7 @@
       }
     }
   },
-  {
-    "id": "1107",
+  "1107": {
     "basicAttack": {
       "1": {
         "name": "I Want to Help",
@@ -1863,8 +1849,7 @@
       }
     }
   },
-  {
-    "id": "1108",
+  "1108": {
     "basicAttack": {
       "1": {
         "name": "Dazzling Blades",
@@ -1988,8 +1973,7 @@
       }
     }
   },
-  {
-    "id": "1109",
+  "1109": {
     "basicAttack": {
       "1": {
         "name": "Hehe! Don't Get Burned!",
@@ -2176,8 +2160,7 @@
       }
     }
   },
-  {
-    "id": "1201",
+  "1201": {
     "basicAttack": {
       "1": {
         "name": "Flower Pick",
@@ -2316,8 +2299,7 @@
       }
     }
   },
-  {
-    "id": "1202",
+  "1202": {
     "basicAttack": {
       "1": {
         "name": "Dislodged",
@@ -2460,8 +2442,7 @@
       }
     }
   },
-  {
-    "id": "1204",
+  "1204": {
     "basicAttack": {
       "1": {
         "name": "Glistening Light",
@@ -2566,8 +2547,7 @@
       }
     }
   },
-  {
-    "id": "1206",
+  "1206": {
     "basicAttack": {
       "1": {
         "name": "Cloudfencer Art: Starshine",
@@ -2710,8 +2690,7 @@
       }
     }
   },
-  {
-    "id": "1209",
+  "1209": {
     "basicAttack": {
       "1": {
         "name": "Frost Thorn",
@@ -2911,8 +2890,7 @@
       }
     }
   },
-  {
-    "id": "1211",
+  "1211": {
     "basicAttack": {
       "1": {
         "name": "Diagnostic Kick",
@@ -3112,8 +3090,7 @@
       }
     }
   },
-  {
-    "id": "1006",
+  "1006": {
     "basicAttack": {
       "1": {
         "name": "System Warning",
@@ -3351,8 +3328,7 @@
       }
     }
   },
-  {
-    "id": "1203",
+  "1203": {
     "basicAttack": {
       "1": {
         "name": "Thorns of the Abyss",
@@ -3495,8 +3471,7 @@
       }
     }
   },
-  {
-    "id": "1207",
+  "1207": {
     "basicAttack": {
       "1": {
         "name": "Arrowslinger",
@@ -3639,8 +3614,7 @@
       }
     }
   },
-  {
-    "id": "1005",
+  "1005": {
     "basicAttack": {
       "1": {
         "name": "Midnight Tumult",
@@ -3821,8 +3795,7 @@
       }
     }
   },
-  {
-    "id": "1111",
+  "1111": {
     "basicAttack": {
       "1": {
         "name": "Direct Punch",
@@ -3927,7 +3900,7 @@
     },
     "ultimate": {
       "1": {
-        "name": "Coup de Gr\u00e2ce",
+        "name": "Coup de Grâce",
         "skillType": "ultimate",
         "indexedMultipliers": [
           {
@@ -3999,8 +3972,7 @@
       }
     }
   },
-  {
-    "id": "1205",
+  "1205": {
     "basicAttack": {
       "1": {
         "name": "Shard Sword",
@@ -4281,8 +4253,7 @@
       }
     }
   },
-  {
-    "id": "1110",
+  "1110": {
     "basicAttack": {
       "1": {
         "name": "Ice Crampon Technique",
@@ -4520,8 +4491,7 @@
       }
     }
   },
-  {
-    "id": "1208",
+  "1208": {
     "basicAttack": {
       "1": {
         "name": "Novaburst",
@@ -4664,8 +4634,7 @@
       }
     }
   },
-  {
-    "id": "1213",
+  "1213": {
     "basicAttack": {
       "1": {
         "name": "Beneficent Lotus",
@@ -4882,8 +4851,7 @@
       }
     }
   },
-  {
-    "id": "1112",
+  "1112": {
     "basicAttack": {
       "1": {
         "name": "Deficit...",
@@ -5026,8 +4994,7 @@
       }
     }
   },
-  {
-    "id": "1210",
+  "1210": {
     "basicAttack": {
       "1": {
         "name": "Standing Ovation",
@@ -5189,8 +5156,7 @@
       }
     }
   },
-  {
-    "id": "1212",
+  "1212": {
     "basicAttack": {
       "1": {
         "name": "Lucent Moonglow",
@@ -5377,8 +5343,7 @@
       }
     }
   },
-  {
-    "id": "1215",
+  "1215": {
     "basicAttack": {
       "1": {
         "name": "Oracle Brush",
@@ -5502,8 +5467,7 @@
       }
     }
   },
-  {
-    "id": "1217",
+  "1217": {
     "basicAttack": {
       "1": {
         "name": "Banner: Stormcaller",
@@ -5703,8 +5667,7 @@
       }
     }
   },
-  {
-    "id": "1302",
+  "1302": {
     "basicAttack": {
       "1": {
         "name": "Fleeting Fragrance",
@@ -5853,8 +5816,7 @@
       }
     }
   },
-  {
-    "id": "1214",
+  "1214": {
     "basicAttack": {
       "1": {
         "name": "Mara-Sunder Awl",
@@ -6016,8 +5978,7 @@
       }
     }
   },
-  {
-    "id": "1303",
+  "1303": {
     "basicAttack": {
       "1": {
         "name": "Threading Fragrance",
@@ -6160,8 +6121,7 @@
       }
     }
   },
-  {
-    "id": "1305",
+  "1305": {
     "basicAttack": {
       "1": {
         "name": "Mind is Might",
@@ -6266,8 +6226,7 @@
       }
     }
   },
-  {
-    "id": "1306",
+  "1306": {
     "basicAttack": {
       "1": {
         "name": "Monodrama",
@@ -6391,8 +6350,7 @@
       }
     }
   },
-  {
-    "id": "1307",
+  "1307": {
     "basicAttack": {
       "1": {
         "name": "Percipience, Silent Dawn",
@@ -6620,11 +6578,10 @@
       }
     }
   },
-  {
-    "id": "1312",
+  "1312": {
     "basicAttack": {
       "1": {
-        "name": "E\u2014Excuse Me, Please!",
+        "name": "E—Excuse Me, Please!",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -6646,7 +6603,7 @@
     },
     "skill": {
       "1": {
-        "name": "R\u2014Room Service!",
+        "name": "R—Room Service!",
         "skillType": "skill",
         "indexedMultipliers": [
           {
@@ -6692,7 +6649,7 @@
     },
     "ultimate": {
       "1": {
-        "name": "G\u2014Gonna Be Late!",
+        "name": "G—Gonna Be Late!",
         "skillType": "ultimate",
         "indexedMultipliers": [
           {
@@ -6783,8 +6740,7 @@
       }
     }
   },
-  {
-    "id": "1301",
+  "1301": {
     "basicAttack": {
       "1": {
         "name": "Corkage Fee",
@@ -6942,8 +6898,7 @@
       }
     }
   },
-  {
-    "id": "1304",
+  "1304": {
     "basicAttack": {
       "1": {
         "name": "Straight Bet",
@@ -7105,8 +7060,7 @@
       }
     }
   },
-  {
-    "id": "1308",
+  "1308": {
     "basicAttack": {
       "1": {
         "name": "Trilateral Wiltcross",
@@ -7539,8 +7493,7 @@
       }
     }
   },
-  {
-    "id": "1309",
+  "1309": {
     "basicAttack": {
       "1": {
         "name": "Wingflip White Noise",
@@ -7683,8 +7636,7 @@
       }
     }
   },
-  {
-    "id": "1315",
+  "1315": {
     "basicAttack": {
       "1": {
         "name": "Skullcrush Spurs",
@@ -7866,8 +7818,7 @@
       }
     }
   },
-  {
-    "id": "1310",
+  "1310": {
     "basicAttack": {
       "1": {
         "name": "Order: Flare Propulsion",
@@ -8093,8 +8044,7 @@
       }
     }
   },
-  {
-    "id": "1314",
+  "1314": {
     "basicAttack": {
       "1": {
         "name": "Lash of Riches",
@@ -8251,8 +8201,7 @@
       }
     }
   },
-  {
-    "id": "1218",
+  "1218": {
     "basicAttack": {
       "1": {
         "name": "Heart Afire",
@@ -8452,8 +8401,7 @@
       }
     }
   },
-  {
-    "id": "1221",
+  "1221": {
     "basicAttack": {
       "1": {
         "name": "Galespin Summersault",
@@ -8691,8 +8639,7 @@
       }
     }
   },
-  {
-    "id": "1224",
+  "1224": {
     "basicAttack": {
       "1": {
         "name": "My Sword Zaps Demons",
@@ -8836,8 +8783,7 @@
       }
     }
   },
-  {
-    "id": "1220",
+  "1220": {
     "basicAttack": {
       "1": {
         "name": "Boltsunder",
@@ -9112,8 +9058,7 @@
       }
     }
   },
-  {
-    "id": "1222",
+  "1222": {
     "basicAttack": {
       "1": {
         "name": "Votive Incense",
@@ -9370,8 +9315,7 @@
       }
     }
   },
-  {
-    "id": "1223",
+  "1223": {
     "basicAttack": {
       "1": {
         "name": "Hurlthorn",
@@ -9495,8 +9439,7 @@
       }
     }
   },
-  {
-    "id": "1317",
+  "1317": {
     "basicAttack": {
       "1": {
         "name": "Ninjutsu: Rise Above Tumbles",
@@ -9698,7 +9641,7 @@
     },
     "ultimate": {
       "1": {
-        "name": "Nind\u014d Supreme: Aishiteru",
+        "name": "Nindō Supreme: Aishiteru",
         "skillType": "ultimate",
         "indexedMultipliers": [
           {
@@ -9770,8 +9713,7 @@
       }
     }
   },
-  {
-    "id": "1225",
+  "1225": {
     "basicAttack": {
       "1": {
         "name": "Radiant Streak",
@@ -9929,8 +9871,7 @@
       }
     }
   },
-  {
-    "id": "1313",
+  "1313": {
     "basicAttack": {
       "1": {
         "name": "Gleaming Admonition",
@@ -10073,8 +10014,7 @@
       }
     }
   },
-  {
-    "id": "1401",
+  "1401": {
     "basicAttack": {
       "1": {
         "name": "Did You Get It",
@@ -10261,8 +10201,7 @@
       }
     }
   },
-  {
-    "id": "1402",
+  "1402": {
     "basicAttack": {
       "1": {
         "name": "Thorned Nectar",
@@ -10564,8 +10503,7 @@
       }
     }
   },
-  {
-    "id": "1403",
+  "1403": {
     "basicAttack": {
       "1": {
         "name": "Hundred Rockets",
@@ -10722,8 +10660,7 @@
       }
     }
   },
-  {
-    "id": "1404",
+  "1404": {
     "basicAttack": {
       "1": {
         "name": "Vow of Voyage",
@@ -10973,8 +10910,7 @@
       }
     }
   },
-  {
-    "id": "1405",
+  "1405": {
     "basicAttack": {
       "1": {
         "name": "Pain, Brews Truth",
@@ -11079,8 +11015,7 @@
       }
     }
   },
-  {
-    "id": "1407",
+  "1407": {
     "basicAttack": {
       "1": {
         "name": "Lament, Nethersea's Ripple",
@@ -11444,8 +11379,7 @@
       }
     }
   },
-  {
-    "id": "1406",
+  "1406": {
     "basicAttack": {
       "1": {
         "name": "Oops, a Missed Catch",
@@ -11588,8 +11522,7 @@
       }
     }
   },
-  {
-    "id": "1409",
+  "1409": {
     "basicAttack": {
       "1": {
         "name": "When Breeze Kisses Cirrus",
@@ -11946,8 +11879,7 @@
       }
     }
   },
-  {
-    "id": "1014",
+  "1014": {
     "basicAttack": {
       "1": {
         "name": "Invisible Air: Barrier of the Wind King",
@@ -12176,8 +12108,7 @@
       }
     }
   },
-  {
-    "id": "1015",
+  "1015": {
     "basicAttack": {
       "1": {
         "name": "Kanshou and Bakuya",
@@ -12305,8 +12236,7 @@
       }
     }
   },
-  {
-    "id": "1408",
+  "1408": {
     "basicAttack": {
       "1": {
         "name": "Stride to Deliverance",
@@ -12615,8 +12545,7 @@
       }
     }
   },
-  {
-    "id": "1410",
+  "1410": {
     "basicAttack": {
       "1": {
         "name": "Aeolian Mode: Echoes in Still Waters",
@@ -12797,8 +12726,7 @@
       }
     }
   },
-  {
-    "id": "1412",
+  "1412": {
     "basicAttack": {
       "1": {
         "name": "King's Castling",
@@ -12941,8 +12869,7 @@
       }
     }
   },
-  {
-    "id": "1413",
+  "1413": {
     "basicAttack": {
       "1": {
         "name": "Time Thence Blurs",
@@ -13217,8 +13144,7 @@
       }
     }
   },
-  {
-    "id": "1414",
+  "1414": {
     "basicAttack": {
       "1": {
         "name": "Aegis Vitae",
@@ -13437,8 +13363,7 @@
       }
     }
   },
-  {
-    "id": "1415",
+  "1415": {
     "basicAttack": {
       "1": {
         "name": "Lo, Hope Takes Flight!",
@@ -13461,7 +13386,7 @@
         ]
       },
       "2": {
-        "name": "To Love and Tomorrow \u266a",
+        "name": "To Love and Tomorrow ♪",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -13524,7 +13449,7 @@
     },
     "ultimate": {
       "1": {
-        "name": "Verse \u25e6 Vow \u221e",
+        "name": "Verse ◦ Vow ∞",
         "skillType": "ultimate",
         "indexedMultipliers": [
           {
@@ -14138,15 +14063,14 @@
         ]
       },
       "2": {
-        "name": "\"Hello, World \u266a\"",
+        "name": "\"Hello, World ♪\"",
         "skillType": "MT",
         "dmgType": "MT",
         "indexedMultipliers": []
       }
     }
   },
-  {
-    "id": "1321",
+  "1321": {
     "basicAttack": {
       "1": {
         "name": "Fiddle... Fissured Memory",
@@ -14308,8 +14232,7 @@
       }
     }
   },
-  {
-    "id": "1501",
+  "1501": {
     "basicAttack": {
       "1": {
         "name": "Cat Got Your Flametongue?",
@@ -14610,8 +14533,7 @@
       }
     }
   },
-  {
-    "id": "1502",
+  "1502": {
     "basicAttack": {
       "1": {
         "name": "Whistlebolt Sings Joy",
@@ -14777,8 +14699,7 @@
       }
     }
   },
-  {
-    "id": "1504",
+  "1504": {
     "basicAttack": {
       "1": {
         "name": "Talons: Inculcate Decorum",
@@ -14940,8 +14861,7 @@
       }
     }
   },
-  {
-    "id": "1505",
+  "1505": {
     "basicAttack": {
       "1": {
         "name": "Syllabus: Pop Quiz",
@@ -15188,8 +15108,7 @@
       }
     }
   },
-  {
-    "id": "1506",
+  "1506": {
     "basicAttack": {
       "1": {
         "name": "One Punch!",
@@ -15212,7 +15131,7 @@
         ]
       },
       "2": {
-        "name": "Bonus Stage: \u03b1Wolf Instant",
+        "name": "Bonus Stage: αWolf Instant",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -15415,8 +15334,7 @@
       }
     }
   },
-  {
-    "id": "1507",
+  "1507": {
     "basicAttack": {
       "1": {
         "name": "A Broken Blade Still Slays",
@@ -15628,4 +15546,4 @@
       }
     }
   }
-]
+}

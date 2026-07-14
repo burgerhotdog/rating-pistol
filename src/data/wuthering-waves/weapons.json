@@ -1,7 +1,7 @@
-[
-  {
-    "id": "21010011",
+{
+  "21010011": {
     "name": "Training Broadblade",
+    "version": 1,
     "quality": 1,
     "type": "broadblade",
     "stats": {
@@ -17,9 +17,9 @@
       }
     }
   },
-  {
-    "id": "21010012",
+  "21010012": {
     "name": "Tyro Broadblade",
+    "version": 1,
     "quality": 2,
     "type": "broadblade",
     "stats": {
@@ -35,9 +35,9 @@
       }
     }
   },
-  {
-    "id": "21010013",
+  "21010013": {
     "name": "Broadblade of Night",
+    "version": 1,
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -56,9 +56,9 @@
       "duration": 10000
     }
   },
-  {
-    "id": "21010015",
+  "21010015": {
     "name": "Lustrous Razor",
+    "version": 1,
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -88,9 +88,9 @@
       }
     ]
   },
-  {
-    "id": "21010016",
+  "21010016": {
     "name": "Verdant Summit",
+    "version": 1,
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -123,9 +123,9 @@
       }
     ]
   },
-  {
-    "id": "21010023",
+  "21010023": {
     "name": "Originite: Type I",
+    "version": 1,
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -149,9 +149,9 @@
       "maxUses": 1
     }
   },
-  {
-    "id": "21010024",
+  "21010024": {
     "name": "Discord",
+    "version": 1,
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -159,9 +159,9 @@
       "energyRegen%": 0.518
     }
   },
-  {
-    "id": "21010034",
+  "21010034": {
     "name": "Broadblade#41",
+    "version": 1,
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -177,9 +177,9 @@
       }
     }
   },
-  {
-    "id": "21010043",
+  "21010043": {
     "name": "Broadblade of Voyager",
+    "version": 1,
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -187,9 +187,9 @@
       "energyRegen%": 0.324
     }
   },
-  {
-    "id": "21010044",
+  "21010044": {
     "name": "Dauntless Evernight",
+    "version": 1,
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -212,9 +212,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21010053",
+  "21010053": {
     "name": "Guardian Broadblade",
+    "version": 1,
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -234,9 +234,9 @@
       }
     }
   },
-  {
-    "id": "21010064",
+  "21010064": {
     "name": "Helios Cleaver",
+    "version": 1,
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -256,9 +256,9 @@
       "duration": 12000
     }
   },
-  {
-    "id": "21010074",
+  "21010074": {
     "name": "Autumntrace",
+    "version": 1,
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -282,9 +282,9 @@
       "maxStacks": 5
     }
   },
-  {
-    "id": "21020011",
+  "21020011": {
     "name": "Training Sword",
+    "version": 1,
     "quality": 1,
     "type": "sword",
     "stats": {
@@ -300,9 +300,9 @@
       }
     }
   },
-  {
-    "id": "21020012",
+  "21020012": {
     "name": "Tyro Sword",
+    "version": 1,
     "quality": 2,
     "type": "sword",
     "stats": {
@@ -318,9 +318,9 @@
       }
     }
   },
-  {
-    "id": "21020013",
+  "21020013": {
     "name": "Sword of Night",
+    "version": 1,
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -339,9 +339,9 @@
       "duration": 10000
     }
   },
-  {
-    "id": "21020015",
+  "21020015": {
     "name": "Emerald of Genesis",
+    "version": 1,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -371,9 +371,9 @@
       }
     ]
   },
-  {
-    "id": "21020023",
+  "21020023": {
     "name": "Originite: Type II",
+    "version": 1,
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -397,9 +397,9 @@
       "maxUses": 1
     }
   },
-  {
-    "id": "21020024",
+  "21020024": {
     "name": "Overture",
+    "version": 1,
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -407,9 +407,9 @@
       "energyRegen%": 0.518
     }
   },
-  {
-    "id": "21020034",
+  "21020034": {
     "name": "Sword#18",
+    "version": 1,
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -443,9 +443,9 @@
       }
     ]
   },
-  {
-    "id": "21020043",
+  "21020043": {
     "name": "Sword of Voyager",
+    "version": 1,
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -453,9 +453,9 @@
       "energyRegen%": 0.324
     }
   },
-  {
-    "id": "21020044",
+  "21020044": {
     "name": "Commando of Conviction",
+    "version": 1,
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -474,9 +474,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21020053",
+  "21020053": {
     "name": "Guardian Sword",
+    "version": 1,
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -492,9 +492,9 @@
       }
     }
   },
-  {
-    "id": "21020064",
+  "21020064": {
     "name": "Lunar Cutter",
+    "version": 1,
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -514,9 +514,9 @@
       "duration": 12000
     }
   },
-  {
-    "id": "21020074",
+  "21020074": {
     "name": "Lumingloss",
+    "version": 1,
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -540,9 +540,9 @@
       "duration": 10000
     }
   },
-  {
-    "id": "21030011",
+  "21030011": {
     "name": "Training Pistols",
+    "version": 1,
     "quality": 1,
     "type": "pistols",
     "stats": {
@@ -558,9 +558,9 @@
       }
     }
   },
-  {
-    "id": "21030012",
+  "21030012": {
     "name": "Tyro Pistols",
+    "version": 1,
     "quality": 2,
     "type": "pistols",
     "stats": {
@@ -576,9 +576,9 @@
       }
     }
   },
-  {
-    "id": "21030013",
+  "21030013": {
     "name": "Pistols of Night",
+    "version": 1,
     "quality": 3,
     "type": "pistols",
     "stats": {
@@ -597,9 +597,9 @@
       "duration": 10000
     }
   },
-  {
-    "id": "21030015",
+  "21030015": {
     "name": "Static Mist",
+    "version": 1,
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -629,9 +629,9 @@
       }
     ]
   },
-  {
-    "id": "21030023",
+  "21030023": {
     "name": "Originite: Type III",
+    "version": 1,
     "quality": 3,
     "type": "pistols",
     "stats": {
@@ -653,9 +653,9 @@
       }
     }
   },
-  {
-    "id": "21030024",
+  "21030024": {
     "name": "Cadenza",
+    "version": 1,
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -663,9 +663,9 @@
       "energyRegen%": 0.518
     }
   },
-  {
-    "id": "21030034",
+  "21030034": {
     "name": "Pistols#26",
+    "version": 1,
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -681,9 +681,9 @@
       }
     }
   },
-  {
-    "id": "21030043",
+  "21030043": {
     "name": "Pistols of Voyager",
+    "version": 1,
     "quality": 3,
     "type": "pistols",
     "stats": {
@@ -691,9 +691,9 @@
       "atk%": 0.303
     }
   },
-  {
-    "id": "21030044",
+  "21030044": {
     "name": "Undying Flame",
+    "version": 1,
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -712,9 +712,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21030053",
+  "21030053": {
     "name": "Guardian Pistols",
+    "version": 1,
     "quality": 3,
     "type": "pistols",
     "stats": {
@@ -730,9 +730,9 @@
       }
     }
   },
-  {
-    "id": "21030064",
+  "21030064": {
     "name": "Novaburst",
+    "version": 1,
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -748,9 +748,9 @@
       }
     }
   },
-  {
-    "id": "21030074",
+  "21030074": {
     "name": "Thunderbolt",
+    "version": 1,
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -774,9 +774,9 @@
       "maxStacks": 3
     }
   },
-  {
-    "id": "21040011",
+  "21040011": {
     "name": "Training Gauntlets",
+    "version": 1,
     "quality": 1,
     "type": "gauntlets",
     "stats": {
@@ -792,9 +792,9 @@
       }
     }
   },
-  {
-    "id": "21040012",
+  "21040012": {
     "name": "Tyro Gauntlets",
+    "version": 1,
     "quality": 2,
     "type": "gauntlets",
     "stats": {
@@ -810,9 +810,9 @@
       }
     }
   },
-  {
-    "id": "21040013",
+  "21040013": {
     "name": "Gauntlets of Night",
+    "version": 1,
     "quality": 3,
     "type": "gauntlets",
     "stats": {
@@ -831,9 +831,9 @@
       "duration": 10000
     }
   },
-  {
-    "id": "21040015",
+  "21040015": {
     "name": "Abyss Surges",
+    "version": 1,
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -873,9 +873,9 @@
       }
     ]
   },
-  {
-    "id": "21040023",
+  "21040023": {
     "name": "Originite: Type IV",
+    "version": 1,
     "quality": 3,
     "type": "gauntlets",
     "stats": {
@@ -899,9 +899,9 @@
       "maxUses": 1
     }
   },
-  {
-    "id": "21040024",
+  "21040024": {
     "name": "Marcato",
+    "version": 1,
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -909,9 +909,9 @@
       "energyRegen%": 0.518
     }
   },
-  {
-    "id": "21040034",
+  "21040034": {
     "name": "Gauntlets#21D",
+    "version": 1,
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -958,9 +958,9 @@
       }
     ]
   },
-  {
-    "id": "21040043",
+  "21040043": {
     "name": "Gauntlets of Voyager",
+    "version": 1,
     "quality": 3,
     "type": "gauntlets",
     "stats": {
@@ -968,9 +968,9 @@
       "def%": 0.307
     }
   },
-  {
-    "id": "21040044",
+  "21040044": {
     "name": "Amity Accord",
+    "version": 1,
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -989,9 +989,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21040053",
+  "21040053": {
     "name": "Guardian Gauntlets",
+    "version": 1,
     "quality": 3,
     "type": "gauntlets",
     "stats": {
@@ -1007,9 +1007,9 @@
       }
     }
   },
-  {
-    "id": "21040064",
+  "21040064": {
     "name": "Hollow Mirage",
+    "version": 1,
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -1031,9 +1031,9 @@
       }
     }
   },
-  {
-    "id": "21040074",
+  "21040074": {
     "name": "Stonard",
+    "version": 1,
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -1052,9 +1052,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21050011",
+  "21050011": {
     "name": "Training Rectifier",
+    "version": 1,
     "quality": 1,
     "type": "rectifier",
     "stats": {
@@ -1070,9 +1070,9 @@
       }
     }
   },
-  {
-    "id": "21050012",
+  "21050012": {
     "name": "Tyro Rectifier",
+    "version": 1,
     "quality": 2,
     "type": "rectifier",
     "stats": {
@@ -1088,9 +1088,9 @@
       }
     }
   },
-  {
-    "id": "21050013",
+  "21050013": {
     "name": "Rectifier of Night",
+    "version": 1,
     "quality": 3,
     "type": "rectifier",
     "stats": {
@@ -1109,9 +1109,9 @@
       "duration": 10000
     }
   },
-  {
-    "id": "21050015",
+  "21050015": {
     "name": "Cosmic Ripples",
+    "version": 1,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -1142,9 +1142,9 @@
       }
     ]
   },
-  {
-    "id": "21050016",
+  "21050016": {
     "name": "Stringmaster",
+    "version": 1,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -1183,9 +1183,9 @@
       }
     ]
   },
-  {
-    "id": "21050023",
+  "21050023": {
     "name": "Originite: Type V",
+    "version": 1,
     "quality": 3,
     "type": "rectifier",
     "stats": {
@@ -1209,9 +1209,9 @@
       "maxUses": 1
     }
   },
-  {
-    "id": "21050024",
+  "21050024": {
     "name": "Variation",
+    "version": 1,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1219,9 +1219,9 @@
       "energyRegen%": 0.518
     }
   },
-  {
-    "id": "21050034",
+  "21050034": {
     "name": "Rectifier#25",
+    "version": 1,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1240,9 +1240,9 @@
       "duration": 10000
     }
   },
-  {
-    "id": "21050043",
+  "21050043": {
     "name": "Rectifier of Voyager",
+    "version": 1,
     "quality": 3,
     "type": "rectifier",
     "stats": {
@@ -1250,9 +1250,9 @@
       "energyRegen%": 0.324
     }
   },
-  {
-    "id": "21050044",
+  "21050044": {
     "name": "Jinzhou Keeper",
+    "version": 1,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1275,9 +1275,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21050053",
+  "21050053": {
     "name": "Guardian Rectifier",
+    "version": 1,
     "quality": 3,
     "type": "rectifier",
     "stats": {
@@ -1297,9 +1297,9 @@
       }
     }
   },
-  {
-    "id": "21050064",
+  "21050064": {
     "name": "Comet Flare",
+    "version": 1,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1323,9 +1323,9 @@
       "maxStacks": 3
     }
   },
-  {
-    "id": "21050074",
+  "21050074": {
     "name": "Augment",
+    "version": 1,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1344,9 +1344,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21010026",
+  "21010026": {
     "name": "Ages of Harvest",
+    "version": 1.1,
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -1386,9 +1386,9 @@
       }
     ]
   },
-  {
-    "id": "21010063",
+  "21010063": {
     "name": "Beguiling Melody",
+    "version": 1.1,
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -1396,9 +1396,9 @@
       "atk%": 0.303
     }
   },
-  {
-    "id": "21020016",
+  "21020016": {
     "name": "Blazing Brilliance",
+    "version": 1.1,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -1440,9 +1440,9 @@
       }
     ]
   },
-  {
-    "id": "21040016",
+  "21040016": {
     "name": "Verity's Handle",
+    "version": 1.2,
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -1471,9 +1471,9 @@
       }
     ]
   },
-  {
-    "id": "21050026",
+  "21050026": {
     "name": "Rime-Draped Sprouts",
+    "version": 1.2,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -1517,9 +1517,9 @@
       }
     ]
   },
-  {
-    "id": "21010084",
+  "21010084": {
     "name": "Waning Redshift",
+    "version": 1.3,
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -1539,9 +1539,9 @@
       "duration": 16000
     }
   },
-  {
-    "id": "21020084",
+  "21020084": {
     "name": "Endless Collapse",
+    "version": 1.3,
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -1561,9 +1561,9 @@
       "duration": 16000
     }
   },
-  {
-    "id": "21030084",
+  "21030084": {
     "name": "Relativistic Jet",
+    "version": 1.3,
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -1583,9 +1583,9 @@
       "duration": 16000
     }
   },
-  {
-    "id": "21040084",
+  "21040084": {
     "name": "Celestial Spiral",
+    "version": 1.3,
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -1605,9 +1605,9 @@
       "duration": 16000
     }
   },
-  {
-    "id": "21050036",
+  "21050036": {
     "name": "Stellar Symphony",
+    "version": 1.3,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -1637,9 +1637,9 @@
       }
     ]
   },
-  {
-    "id": "21050084",
+  "21050084": {
     "name": "Fusion Accretion",
+    "version": 1.3,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1659,9 +1659,9 @@
       "duration": 16000
     }
   },
-  {
-    "id": "21020017",
+  "21020017": {
     "name": "Somnoire Anchor",
+    "version": 1.4,
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -1687,9 +1687,9 @@
       "maxStacks": 10
     }
   },
-  {
-    "id": "21020026",
+  "21020026": {
     "name": "Red Spring",
+    "version": 1.4,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -1733,9 +1733,9 @@
       }
     ]
   },
-  {
-    "id": "21010094",
+  "21010094": {
     "name": "Meditations on Mercy",
+    "version": 2,
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -1757,9 +1757,9 @@
       "maxStacks": 4
     }
   },
-  {
-    "id": "21020094",
+  "21020094": {
     "name": "Fables of Wisdom",
+    "version": 2,
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -1781,9 +1781,9 @@
       "maxStacks": 4
     }
   },
-  {
-    "id": "21030016",
+  "21030016": {
     "name": "The Last Dance",
+    "version": 2,
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -1815,9 +1815,9 @@
       }
     ]
   },
-  {
-    "id": "21030094",
+  "21030094": {
     "name": "Romance in Farewell",
+    "version": 2,
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -1839,9 +1839,9 @@
       "maxStacks": 4
     }
   },
-  {
-    "id": "21040026",
+  "21040026": {
     "name": "Tragicomedy",
+    "version": 2,
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -1873,9 +1873,9 @@
       }
     ]
   },
-  {
-    "id": "21040094",
+  "21040094": {
     "name": "Legend of Drunken Hero",
+    "version": 2,
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -1897,9 +1897,9 @@
       "maxStacks": 4
     }
   },
-  {
-    "id": "21050017",
+  "21050017": {
     "name": "Call of the Abyss",
+    "version": 2,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1918,9 +1918,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21050094",
+  "21050094": {
     "name": "Waltz in Masquerade",
+    "version": 2,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1942,9 +1942,9 @@
       "maxStacks": 4
     }
   },
-  {
-    "id": "21020036",
+  "21020036": {
     "name": "Unflickering Valor",
+    "version": 2.1,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -1984,9 +1984,9 @@
       }
     ]
   },
-  {
-    "id": "21050027",
+  "21050027": {
     "name": "Ocean's Gift",
+    "version": 2.1,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -2010,9 +2010,9 @@
       "maxStacks": 4
     }
   },
-  {
-    "id": "21050046",
+  "21050046": {
     "name": "Luminous Hymn",
+    "version": 2.1,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -2061,9 +2061,9 @@
       }
     ]
   },
-  {
-    "id": "21020046",
+  "21020046": {
     "name": "Bloodpact's Pledge",
+    "version": 2.2,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -2099,9 +2099,9 @@
       }
     ]
   },
-  {
-    "id": "21050056",
+  "21050056": {
     "name": "Whispers of Sirens",
+    "version": 2.2,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -2136,9 +2136,9 @@
       }
     ]
   },
-  {
-    "id": "21030026",
+  "21030026": {
     "name": "Woodland Aria",
+    "version": 2.3,
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -2182,9 +2182,9 @@
       }
     ]
   },
-  {
-    "id": "21040036",
+  "21040036": {
     "name": "Blazing Justice",
+    "version": 2.3,
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -2217,9 +2217,9 @@
       }
     ]
   },
-  {
-    "id": "21010036",
+  "21010036": {
     "name": "Wildfire Mark",
+    "version": 2.4,
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2263,9 +2263,9 @@
       }
     ]
   },
-  {
-    "id": "21020056",
+  "21020056": {
     "name": "Defier's Thorn",
+    "version": 2.4,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -2308,9 +2308,9 @@
       }
     ]
   },
-  {
-    "id": "21050066",
+  "21050066": {
     "name": "Lethean Elegy",
+    "version": 2.5,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -2347,9 +2347,9 @@
       }
     ]
   },
-  {
-    "id": "21010046",
+  "21010046": {
     "name": "Thunderflare Dominion",
+    "version": 2.6,
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2395,9 +2395,9 @@
       }
     ]
   },
-  {
-    "id": "21010104",
+  "21010104": {
     "name": "Aureate Zenith",
+    "version": 2.6,
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -2420,9 +2420,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21020104",
+  "21020104": {
     "name": "Feather Edge",
+    "version": 2.6,
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -2445,9 +2445,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21030104",
+  "21030104": {
     "name": "Solar Flame",
+    "version": 2.6,
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -2475,9 +2475,9 @@
       "maxStacks": 4
     }
   },
-  {
-    "id": "21040046",
+  "21040046": {
     "name": "Moongazer's Sigil",
+    "version": 2.6,
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -2535,9 +2535,9 @@
       }
     ]
   },
-  {
-    "id": "21040104",
+  "21040104": {
     "name": "Aether Strike",
+    "version": 2.6,
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -2560,9 +2560,9 @@
       "duration": 15000
     }
   },
-  {
-    "id": "21050104",
+  "21050104": {
     "name": "Radiant Dawn",
+    "version": 2.6,
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -2585,9 +2585,9 @@
       "duration": 10000
     }
   },
-  {
-    "id": "21020066",
+  "21020066": {
     "name": "Emerald Sentence",
+    "version": 2.7,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -2630,9 +2630,9 @@
       }
     ]
   },
-  {
-    "id": "21030036",
+  "21030036": {
     "name": "Lux & Umbra",
+    "version": 2.7,
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -2680,9 +2680,9 @@
       }
     ]
   },
-  {
-    "id": "21010056",
+  "21010056": {
     "name": "Kumokiri",
+    "version": 2.8,
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2732,9 +2732,9 @@
       }
     ]
   },
-  {
-    "id": "21010045",
+  "21010045": {
     "name": "Radiance Cleaver",
+    "version": 3,
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2764,9 +2764,9 @@
       }
     ]
   },
-  {
-    "id": "21010066",
+  "21010066": {
     "name": "Starfield Calibrator",
+    "version": 3,
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2796,9 +2796,9 @@
       }
     ]
   },
-  {
-    "id": "21020045",
+  "21020045": {
     "name": "Laser Shearer",
+    "version": 3,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -2828,9 +2828,9 @@
       }
     ]
   },
-  {
-    "id": "21030045",
+  "21030045": {
     "name": "Phasic Homogenizer",
+    "version": 3,
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -2858,9 +2858,9 @@
       }
     ]
   },
-  {
-    "id": "21030046",
+  "21030046": {
     "name": "Spectrum Blaster",
+    "version": 3,
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -2907,9 +2907,9 @@
       }
     ]
   },
-  {
-    "id": "21040045",
+  "21040045": {
     "name": "Pulsation Bracer",
+    "version": 3,
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -2941,9 +2941,9 @@
       }
     ]
   },
-  {
-    "id": "21050045",
+  "21050045": {
     "name": "Boson Astrolabe",
+    "version": 3,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -2975,9 +2975,9 @@
       }
     ]
   },
-  {
-    "id": "21020076",
+  "21020076": {
     "name": "Everbright Polestar",
+    "version": 3.1,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -3012,9 +3012,9 @@
       }
     ]
   },
-  {
-    "id": "21040056",
+  "21040056": {
     "name": "Daybreaker's Spine",
+    "version": 3.1,
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -3059,9 +3059,9 @@
       }
     ]
   },
-  {
-    "id": "21040066",
+  "21040066": {
     "name": "Solsworn Ciphers",
+    "version": 3.2,
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -3105,9 +3105,9 @@
       }
     ]
   },
-  {
-    "id": "21020086",
+  "21020086": {
     "name": "Frostburn",
+    "version": 3.3,
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -3161,9 +3161,9 @@
       }
     ]
   },
-  {
-    "id": "21050076",
+  "21050076": {
     "name": "Forged Dwarf Star",
+    "version": 3.3,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -3202,9 +3202,9 @@
       }
     ]
   },
-  {
-    "id": "21030056",
+  "21030056": {
     "name": "Spectral Trigger",
+    "version": 3.4,
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -3250,9 +3250,9 @@
       }
     ]
   },
-  {
-    "id": "21030066",
+  "21030066": {
     "name": "Skull Thrasher",
+    "version": 3.4,
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -3304,9 +3304,9 @@
       }
     ]
   },
-  {
-    "id": "21050086",
+  "21050086": {
     "name": "Freeze Frame",
+    "version": 3.4,
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -3347,4 +3347,4 @@
       }
     ]
   }
-]
+}

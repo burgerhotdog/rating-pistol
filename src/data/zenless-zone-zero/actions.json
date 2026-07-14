@@ -1,6 +1,5 @@
-[
-  {
-    "id": "1011",
+{
+  "1011": {
     "basic": {
       "1": {
         "name": "Basic Attack: Turbo Volt 1st-Hit DMG Multiplier",
@@ -773,8 +772,7 @@
       }
     }
   },
-  {
-    "id": "1021",
+  "1021": {
     "basic": {
       "1": {
         "name": "Basic Attack: Kitty Slash 1st-Hit DMG Multiplier",
@@ -1604,8 +1602,7 @@
       }
     }
   },
-  {
-    "id": "1031",
+  "1031": {
     "basic": {
       "1": {
         "name": "Basic Attack: Cunning Combo 1st-Hit DMG Multiplier",
@@ -2745,8 +2742,7 @@
       }
     }
   },
-  {
-    "id": "1041",
+  "1041": {
     "basic": {
       "1": {
         "name": "Basic Attack: Warmup Sparks 1st-Hit DMG Multiplier",
@@ -3914,8 +3910,7 @@
       }
     }
   },
-  {
-    "id": "1061",
+  "1061": {
     "basic": {
       "1": {
         "name": "Basic Attack: Wipeout 1st-Hit DMG Multiplier",
@@ -4345,7 +4340,7 @@
         ]
       },
       "3": {
-        "name": "Defensive Assist: P\u2014Please Allow Me! Light Defensive Daze Multiplier",
+        "name": "Defensive Assist: P—Please Allow Me! Light Defensive Daze Multiplier",
         "skillType": "A",
         "indexedMultipliers": [
           {
@@ -4371,7 +4366,7 @@
         ]
       },
       "4": {
-        "name": "Defensive Assist: P\u2014Please Allow Me! Heavy Defensive Daze Multiplier",
+        "name": "Defensive Assist: P—Please Allow Me! Heavy Defensive Daze Multiplier",
         "skillType": "A",
         "indexedMultipliers": [
           {
@@ -4397,7 +4392,7 @@
         ]
       },
       "5": {
-        "name": "Defensive Assist: P\u2014Please Allow Me! Chain Defensive Daze Multiplier",
+        "name": "Defensive Assist: P—Please Allow Me! Chain Defensive Daze Multiplier",
         "skillType": "A",
         "indexedMultipliers": [
           {
@@ -4902,8 +4897,7 @@
       }
     }
   },
-  {
-    "id": "1081",
+  "1081": {
     "basic": {
       "1": {
         "name": "Basic Attack: Full Firepower Standing Fire DMG Multiplier",
@@ -5811,8 +5805,7 @@
       }
     }
   },
-  {
-    "id": "1101",
+  "1101": {
     "basic": {
       "1": {
         "name": "Basic Attack: Smash 'n' Bash 1st-Hit DMG Multiplier",
@@ -6953,8 +6946,7 @@
       }
     }
   },
-  {
-    "id": "1111",
+  "1111": {
     "basic": {
       "1": {
         "name": "Basic Attack: Enthusiastic Drills 1st-Hit DMG Multiplier",
@@ -7989,8 +7981,7 @@
       }
     }
   },
-  {
-    "id": "1121",
+  "1121": {
     "basic": {
       "1": {
         "name": "Basic Attack: Debt Reconciliation 1st-Hit DMG Multiplier",
@@ -8868,8 +8859,7 @@
       }
     }
   },
-  {
-    "id": "1131",
+  "1131": {
     "basic": {
       "1": {
         "name": "Basic Attack: Making Rice Cakes 1st-Hit DMG Multiplier",
@@ -10010,8 +10000,7 @@
       }
     }
   },
-  {
-    "id": "1141",
+  "1141": {
     "basic": {
       "1": {
         "name": "Basic Attack: Moon Hunter 1st-Hit DMG Multiplier",
@@ -11258,8 +11247,7 @@
       }
     }
   },
-  {
-    "id": "1151",
+  "1151": {
     "basic": {
       "1": {
         "name": "Basic Attack: Lady's Bat 1st-Hit DMG Multiplier",
@@ -12369,8 +12357,7 @@
       }
     }
   },
-  {
-    "id": "1181",
+  "1181": {
     "basic": {
       "1": {
         "name": "Basic Attack: High-Pressure Spike 1st-Hit DMG Multiplier",
@@ -13169,8 +13156,7 @@
       }
     }
   },
-  {
-    "id": "1191",
+  "1191": {
     "basic": {
       "1": {
         "name": "Basic Attack: Saw Teeth Trimming 1st-Hit DMG Multiplier",
@@ -14525,8 +14511,7 @@
       }
     }
   },
-  {
-    "id": "1211",
+  "1211": {
     "basic": {
       "1": {
         "name": "Basic Attack: Whack the Dimwit 1st-Hit DMG Multiplier",
@@ -15220,8 +15205,7 @@
       }
     }
   },
-  {
-    "id": "1241",
+  "1241": {
     "basic": {
       "1": {
         "name": "Basic Attack: Don't Move! 1st-Hit DMG Multiplier",
@@ -16338,8 +16322,7 @@
       }
     }
   },
-  {
-    "id": "1281",
+  "1281": {
     "basic": {
       "1": {
         "name": "Basic Attack: Load Up and Roll Out 1st-Hit DMG Multiplier",
@@ -17110,7 +17093,7 @@
         ]
       },
       "11": {
-        "name": "EX Special Attack:\u00a0Really Heavy DMG Multiplier",
+        "name": "EX Special Attack: Really Heavy DMG Multiplier",
         "skillType": "specialAttack",
         "indexedMultipliers": [
           {
@@ -17137,7 +17120,7 @@
         ]
       },
       "12": {
-        "name": "EX Special Attack:\u00a0Really Heavy Daze Multiplier",
+        "name": "EX Special Attack: Really Heavy Daze Multiplier",
         "skillType": "specialAttack",
         "indexedMultipliers": [
           {
@@ -17165,7 +17148,7 @@
     },
     "chain": {
       "1": {
-        "name": "Chain Attack:\u00a0Buckle Up DMG Multiplier",
+        "name": "Chain Attack: Buckle Up DMG Multiplier",
         "skillType": "chainAttack",
         "indexedMultipliers": [
           {
@@ -17192,7 +17175,7 @@
         ]
       },
       "2": {
-        "name": "Chain Attack:\u00a0Buckle Up Daze Multiplier",
+        "name": "Chain Attack: Buckle Up Daze Multiplier",
         "skillType": "chainAttack",
         "indexedMultipliers": [
           {
@@ -17272,8 +17255,7 @@
       }
     }
   },
-  {
-    "id": "1251",
+  "1251": {
     "basic": {
       "1": {
         "name": "Basic Attack: Penultimate 1st-Hit DMG Multiplier",
@@ -18257,8 +18239,7 @@
       }
     }
   },
-  {
-    "id": "1261",
+  "1261": {
     "basic": {
       "1": {
         "name": "Basic Attack: Dancing Blades 1st-Hit DMG Multiplier",
@@ -19007,7 +18988,7 @@
     },
     "assist": {
       "1": {
-        "name": "Quick Assist:\u00a0Dark Thorn DMG Multiplier",
+        "name": "Quick Assist: Dark Thorn DMG Multiplier",
         "skillType": "A",
         "indexedMultipliers": [
           {
@@ -19033,7 +19014,7 @@
         ]
       },
       "2": {
-        "name": "Quick Assist:\u00a0Dark Thorn Daze Multiplier",
+        "name": "Quick Assist: Dark Thorn Daze Multiplier",
         "skillType": "A",
         "indexedMultipliers": [
           {
@@ -19458,8 +19439,7 @@
       }
     }
   },
-  {
-    "id": "1271",
+  "1271": {
     "basic": {
       "1": {
         "name": "Basic Attack: Lightning Strike 1st-Hit DMG Multiplier",
@@ -20338,8 +20318,7 @@
       }
     }
   },
-  {
-    "id": "1071",
+  "1071": {
     "basic": {
       "1": {
         "name": "Basic Attack: Rampaging Slash 1st-Hit DMG Multiplier",
@@ -21561,8 +21540,7 @@
       }
     }
   },
-  {
-    "id": "1171",
+  "1171": {
     "basic": {
       "1": {
         "name": "Basic Attack: Direct Flame Blend 1st-Hit DMG Multiplier",
@@ -22707,8 +22685,7 @@
       }
     }
   },
-  {
-    "id": "1161",
+  "1161": {
     "basic": {
       "1": {
         "name": "Basic Attack: L-Form Thundering Fist 1st-Hit DMG Multiplier",
@@ -24112,8 +24089,7 @@
       }
     }
   },
-  {
-    "id": "1221",
+  "1221": {
     "basic": {
       "1": {
         "name": "Stance: Jougen 1st-Hit DMG Multiplier",
@@ -25253,8 +25229,7 @@
       }
     }
   },
-  {
-    "id": "1091",
+  "1091": {
     "basic": {
       "1": {
         "name": "Basic Attack: Kazahana 1st-Hit DMG Multiplier",
@@ -26240,8 +26215,7 @@
       }
     }
   },
-  {
-    "id": "1201",
+  "1201": {
     "basic": {
       "1": {
         "name": "Basic Attack: Cloud Piercer 1st-Hit DMG Multiplier",
@@ -27436,8 +27410,7 @@
       }
     }
   },
-  {
-    "id": "1311",
+  "1311": {
     "basic": {
       "1": {
         "name": "Basic Attack: \"Capriccio\" 1st-Hit DMG Multiplier",
@@ -28582,8 +28555,7 @@
       }
     }
   },
-  {
-    "id": "1321",
+  "1321": {
     "basic": {
       "1": {
         "name": "Basic Attack: Razor Wire 1st-Hit DMG Multiplier",
@@ -29671,8 +29643,7 @@
       }
     }
   },
-  {
-    "id": "1351",
+  "1351": {
     "basic": {
       "1": {
         "name": "Basic Attack: Swift Strike 1st-Hit DMG Multiplier",
@@ -30425,8 +30396,7 @@
       }
     }
   },
-  {
-    "id": "1361",
+  "1361": {
     "basic": {
       "1": {
         "name": "Basic Attack: Cold-Bore Shot 1st-Hit DMG Multiplier",
@@ -31464,8 +31434,7 @@
       }
     }
   },
-  {
-    "id": "1381",
+  "1381": {
     "basic": {
       "1": {
         "name": "Basic Attack: Penetrating Shock 1st-Hit DMG Multiplier",
@@ -32506,8 +32475,7 @@
       }
     }
   },
-  {
-    "id": "1291",
+  "1291": {
     "basic": {
       "1": {
         "name": "Basic Attack: Dark Abyss Quartet 1st-Hit DMG Multiplier",
@@ -33705,8 +33673,7 @@
       }
     }
   },
-  {
-    "id": "1331",
+  "1331": {
     "basic": {
       "1": {
         "name": "Basic Attack: Feathered Strike 1st-Hit DMG Multiplier",
@@ -34560,8 +34527,7 @@
       }
     }
   },
-  {
-    "id": "1371",
+  "1371": {
     "basic": {
       "1": {
         "name": "Basic Attack: Cirrus Strike 1st-Hit DMG Multiplier",
@@ -34829,7 +34795,7 @@
         ]
       },
       "11": {
-        "name": "Basic Attack: Ink\u2010Veil Cloud Coalescence Ink\u2010Veil Cloud Coalescence Total DMG Multiplier",
+        "name": "Basic Attack: Ink‐Veil Cloud Coalescence Ink‐Veil Cloud Coalescence Total DMG Multiplier",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -34856,7 +34822,7 @@
         ]
       },
       "12": {
-        "name": "Basic Attack: Ink\u2010Veil Cloud Coalescence Ink\u2010Veil Cloud Coalescence Total Daze Multiplier",
+        "name": "Basic Attack: Ink‐Veil Cloud Coalescence Ink‐Veil Cloud Coalescence Total Daze Multiplier",
         "skillType": "basicAttack",
         "indexedMultipliers": [
           {
@@ -35817,8 +35783,7 @@
       }
     }
   },
-  {
-    "id": "1391",
+  "1391": {
     "basic": {
       "1": {
         "name": "Basic Attack: Tiger Seven Forms - Flaming Claw 1st-Hit DMG Multiplier",
@@ -36801,8 +36766,7 @@
       }
     }
   },
-  {
-    "id": "1421",
+  "1421": {
     "basic": {
       "1": {
         "name": "Basic Attack: Unyielding Strikes 1st-Hit DMG Multiplier",
@@ -37734,8 +37698,7 @@
       }
     }
   },
-  {
-    "id": "1401",
+  "1401": {
     "basic": {
       "1": {
         "name": "Basic Attack: Celestial Overture 1st-Hit DMG Multiplier",
@@ -38779,8 +38742,7 @@
       }
     }
   },
-  {
-    "id": "1411",
+  "1411": {
     "basic": {
       "1": {
         "name": "Basic Attack: Tanuki Claws 1st-Hit DMG Multiplier",
@@ -39942,8 +39904,7 @@
       }
     }
   },
-  {
-    "id": "1301",
+  "1301": {
     "basic": {
       "1": {
         "name": "Basic Attack: High-Pressure Flamethrower 1st-Hit DMG Multiplier",
@@ -41035,8 +40996,7 @@
       }
     }
   },
-  {
-    "id": "1461",
+  "1461": {
     "basic": {
       "1": {
         "name": "Basic Attack: Chrysanthemum Wheel Dance 1st-Hit DMG Multiplier",
@@ -41970,8 +41930,7 @@
       }
     }
   },
-  {
-    "id": "1051",
+  "1051": {
     "basic": {
       "1": {
         "name": "Basic Attack: Crushing Strike 1st-Hit DMG Multiplier",
@@ -43147,8 +43106,7 @@
       }
     }
   },
-  {
-    "id": "1441",
+  "1441": {
     "basic": {
       "1": {
         "name": "Basic Attack: Blazing Wind Slash 1st-Hit DMG Multiplier",
@@ -44317,8 +44275,7 @@
       }
     }
   },
-  {
-    "id": "1451",
+  "1451": {
     "basic": {
       "1": {
         "name": "Basic Attack: Orbital Combo 1st-Hit DMG Multiplier",
@@ -45514,8 +45471,7 @@
       }
     }
   },
-  {
-    "id": "1471",
+  "1471": {
     "basic": {
       "1": {
         "name": "Basic Attack: Towering Peaks 1st-Hit DMG Multiplier",
@@ -46903,8 +46859,7 @@
       }
     }
   },
-  {
-    "id": "1481",
+  "1481": {
     "basic": {
       "1": {
         "name": "Basic Attack: Happy to Be of Service 1st-Hit DMG Multiplier",
@@ -47999,8 +47954,7 @@
       }
     }
   },
-  {
-    "id": "1341",
+  "1341": {
     "basic": {
       "1": {
         "name": "Basic Attack: Glacial Judgment 1st-Hit DMG Multiplier",
@@ -48955,8 +48909,7 @@
       }
     }
   },
-  {
-    "id": "1431",
+  "1431": {
     "basic": {
       "1": {
         "name": "Basic Attack: Swiftedge 1st-Hit DMG Multiplier",
@@ -50729,8 +50682,7 @@
       }
     }
   },
-  {
-    "id": "1491",
+  "1491": {
     "basic": {
       "1": {
         "name": "Basic Attack: Mischief Meteor Hammer 1st-Hit DMG Multiplier",
@@ -51663,8 +51615,7 @@
       }
     }
   },
-  {
-    "id": "1501",
+  "1501": {
     "basic": {
       "1": {
         "name": "Basic Attack: Sweet Melody 1st-Hit DMG Multiplier",
@@ -52813,8 +52764,7 @@
       }
     }
   },
-  {
-    "id": "1511",
+  "1511": {
     "basic": {
       "1": {
         "name": "Basic Attack: Shooting Star Step 1st-Hit DMG Multiplier",
@@ -53699,8 +53649,7 @@
       }
     }
   },
-  {
-    "id": "1521",
+  "1521": {
     "basic": {
       "1": {
         "name": "Basic Attack: Tongue Flick 1st-Hit DMG Multiplier",
@@ -54584,8 +54533,7 @@
       }
     }
   },
-  {
-    "id": "1531",
+  "1531": {
     "basic": {
       "1": {
         "name": "Basic Attack: Knight's Technique 1st-Hit DMG Multiplier",
@@ -55576,8 +55524,7 @@
       }
     }
   },
-  {
-    "id": "1541",
+  "1541": {
     "basic": {
       "1": {
         "name": "Basic Attack: Sweeping Edge 1st-Hit DMG Multiplier",
@@ -56594,8 +56541,7 @@
       }
     }
   },
-  {
-    "id": "1551",
+  "1551": {
     "basic": {
       "1": {
         "name": "Basic Attack: Emberglow 1st-Hit DMG Multiplier",
@@ -57665,8 +57611,7 @@
       }
     }
   },
-  {
-    "id": "1561",
+  "1561": {
     "basic": {
       "1": {
         "name": "Basic Attack: Dancing Fans 1st-Hit DMG Multiplier",
@@ -58684,8 +58629,7 @@
       }
     }
   },
-  {
-    "id": "1571",
+  "1571": {
     "basic": {
       "1": {
         "name": "Basic Attack: Engineering Insurance 1st-Hit DMG Multiplier",
@@ -59888,4 +59832,4 @@
       }
     }
   }
-]
+}

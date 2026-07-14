@@ -405,7 +405,7 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
   const [replacingIndex, setReplacingIndex] = useState(null);
 
   const entries = Object.entries(setCounts)
-    .toSorted((a, b) => SET[gameId][b[0]].index - SET[gameId][a[0]].index);
+    .toSorted((a, b) => SET[gameId][b[0]].version - SET[gameId][a[0]].version);
 
   const usedPieces = entries.reduce((sum, [, n]) => sum + n, 0);
 
