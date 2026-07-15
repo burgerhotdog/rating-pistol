@@ -106,7 +106,7 @@ def main():
             data = scrape_data("character", char_id)
 
             parse_image("character", data, char_id)
-            characters_json[char_id] = parse_character(game_id, version, data)
+            characters_json[char_id] = parse_character(game_id, float(version), data)
             actions_json[char_id] = parse_action(game_id, data)
 
         write_json(characters_path, characters_json)
@@ -120,7 +120,7 @@ def main():
             data = scrape_data("weapon", weap_id)
 
             parse_image("weapon", data, weap_id)
-            weapons_json[weap_id] = parse_weapon(game_id, version, data)
+            weapons_json[weap_id] = parse_weapon(game_id, float(version), data)
 
         write_json(weapons_path, weapons_json)
 
@@ -132,7 +132,7 @@ def main():
             data = scrape_data("set", set_id)
 
             parse_image("set", data, set_id)
-            sets_json[set_id] = parse_set(game_id, version, data)
+            sets_json[set_id] = parse_set(game_id, float(version), data)
 
         write_json(sets_path, sets_json)
 

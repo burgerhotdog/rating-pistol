@@ -165,25 +165,21 @@ def parse_ascension_stats(game_id, data):
 
 FIELDS = {
     "genshin-impact": {
-        "name": lambda data: data["name"],
         "quality": lambda data: 4 if data["rarity"] == "QUALITY_PURPLE" else 5,
         "element": lambda data: data["element"].lower(),
         "type": lambda data: { "WEAPON_SWORD_ONE_HAND": "sword", "WEAPON_CLAYMORE": "claymore", "WEAPON_POLE": "polearm", "WEAPON_CATALYST": "catalyst", "WEAPON_BOW": "bow" }[data["weapon"]],
     },
     "honkai-star-rail": {
-        "name": lambda data: data["name"],
         "quality": lambda data: int(data["rarity"][-1]),
         "element": lambda data: "lightning" if data["damage_type"] == "Thunder" else data["damage_type"].lower(),
         "type": lambda data: { "Rogue": "hunt", "Priest": "abundance", "Warrior": "destruction", "Knight": "preservation", "Warlock": "nihility", "Shaman": "harmony", "Mage": "erudition", "Memory": "remembrance", "Elation": "elation" }[data["base_type"]],
     },
     "wuthering-waves": {
-        "name": lambda data: data["name"],
         "quality": lambda data: data["rarity"],
-        "element": lambda data: ["glacio", "fusion", "electro", "aero", "spectro", "havoc"][data["element"] + 1],
-        "type": lambda data: ["broadblade", "sword", "pistols", "gauntlets", "rectifier"][data["weapon"] + 1],
+        "element": lambda data: ["glacio", "fusion", "electro", "aero", "spectro", "havoc"][data["element"] - 1],
+        "type": lambda data: ["broadblade", "sword", "pistols", "gauntlets", "rectifier"][data["weapon"] - 1],
     },
     "zenless-zone-zero": {
-        "name": lambda data: data["name"],
         "quality": lambda data: data["rarity"] + 1,
         "element": lambda data: next(iter(data["element_type"].values())).lower(),
         "type": lambda data: next(iter(data["weapon_type"].values())).lower(),
@@ -191,7 +187,9 @@ FIELDS = {
 }
 
 def parse_character(game_id, version, data):
-    result = { "version": version }
+    result = {}
+    result["name"] = data["name"]
+    result["version"] = version
 
     for field, parser in FIELDS[game_id].items():
         result[field] = parser(data)

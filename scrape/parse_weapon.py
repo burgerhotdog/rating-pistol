@@ -82,29 +82,27 @@ def parse_stats(game_id, data):
 
 FIELDS = {
     "genshin-impact": {
-        "name": lambda data: data["name"],
         "quality": lambda data: int(data["rarity"]),
         "type": lambda data: { "WEAPON_SWORD_ONE_HAND": "sword", "WEAPON_CLAYMORE": "claymore", "WEAPON_POLE": "polearm", "WEAPON_CATALYST": "catalyst", "WEAPON_BOW": "bow" }[data["weapon_type"]],
     },
     "honkai-star-rail": {
-        "name": lambda data: data["name"],
         "quality": lambda data: int(data["rarity"][-1]),
         "type": lambda data: { "Rogue": "hunt", "Priest": "abundance", "Warrior": "destruction", "Knight": "preservation", "Warlock": "nihility", "Shaman": "harmony", "Mage": "erudition", "Memory": "remembrance", "Elation": "elation" }[data["base_type"]],
     },
     "wuthering-waves": {
-        "name": lambda data: data["name"],
         "quality": lambda data: data["rarity"],
-        "type": lambda data: ["broadblade", "sword", "pistols", "gauntlets", "rectifier"][data["weapon"] + 1],
+        "type": lambda data: ["broadblade", "sword", "pistols", "gauntlets", "rectifier"][data["type"] - 1],
     },
     "zenless-zone-zero": {
-        "name": lambda data: data["name"],
         "quality": lambda data: data["rarity"] + 1,
         "type": lambda data: next(iter(data["weapon_type"].values())).lower(),
     },
 }
 
 def parse_weapon(game_id, version, data):
-    result = { "version": version }
+    result = {}
+    result["name"] = data["name"]
+    result["version"] = version
 
     for field, parser in FIELDS[game_id].items():
         result[field] = parser(data)

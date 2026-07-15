@@ -765,5 +765,20 @@
         "duration": 15000
       }
     }
+  },
+  "33": {
+    "name": "Song of Feathered Trace",
+    "version": 3.5,
+    "tieredEffects": {}
+  },
+  "34": {
+    "name": "Heart of Evil's Purge",
+    "version": 3.5,
+    "tieredEffects": {}
+  },
+  "35": {
+    "name": "Lamp of Nether Road",
+    "version": 3.5,
+    "tieredEffects": {}
   }
 }

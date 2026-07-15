@@ -3346,5 +3346,25 @@
         "duration": 30000
       }
     ]
+  },
+  "21020096": {
+    "name": "Azure Oath",
+    "version": 3.5,
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    }
+  },
+  "21050096": {
+    "name": "Firstlight's Herald",
+    "version": 3.5,
+    "quality": 5,
+    "type": "rectifier",
+    "stats": {
+      "baseAtk": 412,
+      "energyRegen%": 0.7704
+    }
   }
 }

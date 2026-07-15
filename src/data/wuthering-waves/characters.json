@@ -5764,5 +5764,37 @@
         "outroSkill.1"
       ]
     }
+  },
+  "1110": {
+    "name": "Suisui",
+    "version": 3.5,
+    "quality": 5,
+    "element": "glacio",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 16712,
+      "baseAtk": 287,
+      "baseDef": 1099
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.12,
+      "hp%": 0.12
+    }
+  },
+  "1610": {
+    "name": "Yangyang: Xuanling",
+    "version": 3.5,
+    "quality": 5,
+    "element": "havoc",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 11025,
+      "baseAtk": 425,
+      "baseDef": 1148
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    }
   }
 }
