@@ -62,10 +62,17 @@ export const resolveBuffMap = (ctx, usedBuffStates) => {
   const variableBuffSpecs = [];
 
   for (const [,, { effect, stacks }] of usedBuffStates) {
-    const { statMap, variableStatMap, chance = 1 } = effect;
+    const {
+      statMap, maxStatMap, variableStatMap,
+      maxStacks = 1, chance = 1,
+    } = effect;
 
     if ('statMap' in effect) {
       mergeStatMap(fixedBuffMap, statMap, stacks * chance);
+    }
+
+    if ('maxStatMap' in effect && stacks === maxStacks) {
+      mergeStatMap(fixedBuffMap, maxStatMap, chance);
     }
 
     if ('variableStatMap' in effect) {

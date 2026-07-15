@@ -49,6 +49,8 @@ characters:
         1211 Denia
         1109 Lucilla
         1308 Rebecca
+        1110 Suisui
+        1610 Yangyang: Xuanling
 
     incomplete:
     simplified:
@@ -154,6 +156,8 @@ weapons:
         21030056 Spectral Trigger
         21030066 Skull Thrasher
         21050086 Freeze Frame
+        21020096 Azure Oath
+        21050096 Firstlight's Herald
 
     incomplete:
     simplified:
