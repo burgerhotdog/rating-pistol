@@ -3355,7 +3355,33 @@
     "stats": {
       "baseAtk": 587,
       "critRate%": 0.243
-    }
+    },
+    "effects": [
+      {
+        "rankedStatMap": {
+          "dmgBonus%": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnInflictNegativeStatus": "havocBane",
+        "useOnDmgType": "heavyAttack",
+        "rankedStatMap": {
+          "heavyAttackDmgAmp%": [
+            0.36,
+            0.72
+          ],
+          "defIgnore%": [
+            0.12,
+            0.24
+          ]
+        },
+        "duration": 8000
+      }
+    ]
   },
   "21050096": {
     "name": "Firstlight's Herald",
@@ -3365,6 +3391,16 @@
     "stats": {
       "baseAtk": 412,
       "energyRegen%": 0.7704
-    }
+    },
+    "effects": [
+      {
+        "rankedStatMap": {
+          "hp%": [
+            0.12,
+            0.24
+          ]
+        }
+      }
+    ]
   }
 }

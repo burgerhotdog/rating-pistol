@@ -19262,7 +19262,7 @@
       "1": {
         "name": "Absolution Litany",
         "skillType": "heavyAttack",
-        "inflict": {
+        "inflictNegativeStatus": {
           "spectroFrazzle": 1
         },
         "indexedMultipliers": [
@@ -19295,7 +19295,7 @@
       "2": {
         "name": "Utter Confession",
         "skillType": "resonanceSkill",
-        "inflict": {
+        "inflictNegativeStatus": {
           "spectroFrazzle": 1
         },
         "indexedMultipliers": [
@@ -19361,7 +19361,7 @@
         "name": "Starflash",
         "tagged": "Confession",
         "skillType": "heavyAttack",
-        "inflict": {
+        "inflictNegativeStatus": {
           "spectroFrazzle": 5
         },
         "indexedMultipliers": [
@@ -20409,7 +20409,7 @@
       "4": {
         "name": "Basic Attack 4",
         "skillType": "basicAttack",
-        "inflict": {
+        "inflictNegativeStatus": {
           "aeroErosion": 1
         },
         "indexedMultipliers": [
@@ -20631,7 +20631,7 @@
       "1": {
         "name": "Harmonic Allegro",
         "skillType": "resonanceSkill",
-        "inflict": {
+        "inflictNegativeStatus": {
           "aeroErosion": 1
         },
         "indexedMultipliers": [
@@ -20697,7 +20697,7 @@
       "2": {
         "name": "Symphonic Poem: Tonic",
         "dmgType": "resonanceLiberation",
-        "inflict": {
+        "inflictNegativeStatus": {
           "aeroErosion": 1
         },
         "indexedMultipliers": [
@@ -20789,7 +20789,7 @@
       "1": {
         "name": "Roaming with the Wind",
         "skillType": "introSkill",
-        "inflict": {
+        "inflictNegativeStatus": {
           "aeroErosion": 1
         },
         "indexedMultipliers": [
@@ -40212,7 +40212,7 @@
       "3": {
         "name": "Spotlight",
         "skillType": "resonanceSkill",
-        "inflict": {
+        "inflictNegativeStatus": {
           "glacioChafe": 1
         },
         "indexedMultipliers": [
@@ -40671,7 +40671,7 @@
       "1": {
         "name": "Clip It",
         "skillType": "introSkill",
-        "inflict": {
+        "inflictNegativeStatus": {
           "glacioChafe": 1
         },
         "indexedMultipliers": [
@@ -40705,7 +40705,7 @@
         "name": "Clip It: Hard Cut",
         "tagged": "Reminiscence",
         "skillType": "introSkill",
-        "inflict": {
+        "inflictNegativeStatus": {
           "glacioChafe": 1
         },
         "indexedMultipliers": [
@@ -44709,10 +44709,11 @@
     }
   },
   "1110": {
-    "NA": {
+    "normalAttack": {
       "1": {
-        "name": "Basic Attack - Zephyr Stance Stage 1 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 1",
+        "tagged": "Zepher Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44741,8 +44742,9 @@
         ]
       },
       "2": {
-        "name": "Basic Attack - Zephyr StanceStage 2 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 2",
+        "tagged": "Zepher Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44795,8 +44797,9 @@
         ]
       },
       "3": {
-        "name": "Basic Attack - Zephyr Stance Stage 3 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 3",
+        "tagged": "Zepher Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44873,8 +44876,9 @@
         ]
       },
       "4": {
-        "name": "Basic Attack - Zephyr Stance Stage 4 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 4",
+        "tagged": "Zepher Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44928,8 +44932,10 @@
         ]
       },
       "5": {
-        "name": "Mid-air Attack - Zephyr Stance DMG",
-        "skillType": "BA",
+        "name": "Mid-air Attack",
+        "tagged": "Zepher Stance",
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -44958,8 +44964,10 @@
         ]
       },
       "6": {
-        "name": "Dodge Counter - Zephyr Stance DMG",
-        "skillType": "BA",
+        "name": "Dodge Counter",
+        "tagged": "Zepher Stance",
+        "skillType": "dodgeCounter",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45036,10 +45044,10 @@
         ]
       }
     },
-    "RS": {
+    "resonanceSkill": {
       "1": {
-        "name": "Resonance Skill - Zephyr Stance DMG",
-        "skillType": "RS",
+        "name": "Zephyr Stance",
+        "skillType": "resonanceSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45069,8 +45077,11 @@
         ]
       },
       "2": {
-        "name": "Awakening Spring DMG",
-        "skillType": "RS",
+        "name": "Awakening Spring",
+        "skillType": "resonanceSkill",
+        "inflictNegativeStatus": {
+          "glacioChafe": 1
+        },
         "attr": "HP",
         "indexedMultipliers": [
           {
@@ -45100,8 +45111,9 @@
         ]
       },
       "3": {
-        "name": "Resonance Skill - Drizzle Stance DMG",
-        "skillType": "RS",
+        "name": "Resonance Skill",
+        "tagged": "Drizzle Stance",
+        "skillType": "resonanceSkill",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45156,7 +45168,7 @@
       },
       "4": {
         "name": "Enrichment Healing",
-        "skillType": "RS",
+        "type": "healing",
         "attr": "HP",
         "indexedMultipliers": [
           {
@@ -45213,7 +45225,7 @@
     "resonanceLiberation": {
       "1": {
         "name": "Healing per Plume Step",
-        "skillType": "resonanceLiberation",
+        "type": "healing",
         "attr": "HP",
         "indexedMultipliers": [
           {
@@ -45265,12 +45277,17 @@
             ]
           }
         ]
+      },
+      "2": {
+        "name": "Song of Thoroughfare",
+        "skillType": "resonanceLiberation"
       }
     },
-    "FC": {
+    "forteCircuit": {
       "1": {
-        "name": "Basic Attack - Drizzle Stance Stage 1 DMG",
-        "skillType": "FC",
+        "name": "Basic Attack 1",
+        "tagged": "Drizzle Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45325,8 +45342,9 @@
         ]
       },
       "2": {
-        "name": "Basic Attack - Drizzle Stance Stage 2 DMG",
-        "skillType": "FC",
+        "name": "Basic Attack 2",
+        "tagged": "Drizzle Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45453,8 +45471,9 @@
         ]
       },
       "3": {
-        "name": "Basic Attack - Drizzle Stance Stage 3 DMG",
-        "skillType": "FC",
+        "name": "Basic Attack 3",
+        "tagged": "Drizzle Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45559,8 +45578,12 @@
         ]
       },
       "4": {
-        "name": "Basic Attack - Drizzle Stance Stage 4 DMG",
-        "skillType": "FC",
+        "name": "Basic Attack 4",
+        "tagged": "Drizzle Stance",
+        "skillType": "basicAttack",
+        "inflictNegativeStatus": {
+          "glacioChafe": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -45589,8 +45612,9 @@
         ]
       },
       "5": {
-        "name": "Heavy Attack - Drizzle Stance",
-        "skillType": "FC",
+        "name": "Heavy Attack",
+        "tagged": "Drizzle Stance",
+        "skillType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45644,8 +45668,9 @@
         ]
       },
       "6": {
-        "name": "Illuminating Dew DMG",
-        "skillType": "FC",
+        "name": "Illuminating Dew",
+        "skillType": "mid-airAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45674,8 +45699,9 @@
         ]
       },
       "7": {
-        "name": "Swallow's Cut DMG",
-        "skillType": "FC",
+        "name": "Swallow's Cut",
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45704,10 +45730,13 @@
         ]
       }
     },
-    "IS": {
+    "introSkill": {
       "1": {
-        "name": "Skill DMG",
-        "skillType": "IS",
+        "name": "Tinkling Jade",
+        "skillType": "introSkill",
+        "inflictNegativeStatus": {
+          "glacioChafe": 1
+        },
         "attr": "HP",
         "indexedMultipliers": [
           {
@@ -45737,18 +45766,19 @@
         ]
       }
     },
-    "OS": {
+    "outroSkill": {
       "1": {
         "name": "Rippling Waters",
-        "skillType": "OS"
+        "skillType": "outroSkill"
       }
     }
   },
   "1610": {
-    "NA": {
+    "normalAttack": {
       "1": {
-        "name": "Basic Attack - Azure Sword Stance Stage 1 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 1",
+        "tagged": "Azure Sword Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45777,8 +45807,9 @@
         ]
       },
       "2": {
-        "name": "Basic Attack - Azure Sword Stance Stage 2 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 2",
+        "tagged": "Azure Sword Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45855,8 +45886,9 @@
         ]
       },
       "3": {
-        "name": "Basic Attack - Azure Sword Stance Stage 3 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 3",
+        "tagged": "Azure Sword Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -45909,8 +45941,12 @@
         ]
       },
       "4": {
-        "name": "Basic Attack - Azure Sword Stance Stage 4 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 4",
+        "tagged": "Azure Sword Stance",
+        "skillType": "basicAttack",
+        "inflictNegativeStatus": {
+          "havocBane": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -45987,8 +46023,9 @@
         ]
       },
       "5": {
-        "name": "Basic Attack - Feather Sword Stance Stage 1 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 1",
+        "tagged": "Feather Sword Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46041,8 +46078,9 @@
         ]
       },
       "6": {
-        "name": "Basic Attack - Feather Sword Stance Stage 2 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 2",
+        "tagged": "Feather Sword Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46072,8 +46110,9 @@
         ]
       },
       "7": {
-        "name": "Basic Attack - Feather Sword Stance Stage 3 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 3",
+        "tagged": "Feather Sword Stance",
+        "skillType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46151,8 +46190,12 @@
         ]
       },
       "8": {
-        "name": "Basic Attack - Feather Sword Stance Stage 4 DMG",
-        "skillType": "BA",
+        "name": "Basic Attack 4",
+        "tagged": "Feather Sword Stance",
+        "skillType": "basicAttack",
+        "inflictNegativeStatus": {
+          "havocBane": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -46229,8 +46272,10 @@
         ]
       },
       "9": {
-        "name": "Mid-air Attack - Azure Sword Stance DMG",
-        "skillType": "BA",
+        "name": "Mid-air Attack",
+        "tagged": "Azure Sword Stance",
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46259,8 +46304,10 @@
         ]
       },
       "10": {
-        "name": "Mid-air Attack - Feather Sword Stance DMG",
-        "skillType": "BA",
+        "name": "Mid-air Attack",
+        "tagged": "Feather Sword Stance",
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46289,8 +46336,10 @@
         ]
       },
       "11": {
-        "name": "Dodge Counter - Azure Sword Stance DMG",
-        "skillType": "BA",
+        "name": "Dodge Counter",
+        "tagged": "Azure Sword Stance",
+        "skillType": "dodgeCounter",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46367,8 +46416,10 @@
         ]
       },
       "12": {
-        "name": "Dodge Counter - Feather Sword Stance DMG",
-        "skillType": "BA",
+        "name": "Dodge Counter",
+        "tagged": "Feather Sword Stance",
+        "skillType": "dodgeCounter",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46398,10 +46449,12 @@
         ]
       }
     },
-    "RS": {
+    "resonanceSkill": {
       "1": {
-        "name": "Sword Stance Switch: Azure DMG",
-        "skillType": "RS",
+        "name": "Sword Stance Switch: Azure",
+        "tagged": "Feather Sword Stance",
+        "skillType": "resonanceSkill",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46455,8 +46508,10 @@
         ]
       },
       "2": {
-        "name": "Sword Stance Switch: Feather DMG",
-        "skillType": "RS",
+        "name": "Sword Stance Switch: Feather",
+        "tagged": "Azure Sword Stance",
+        "skillType": "resonanceSkill",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46488,8 +46543,9 @@
     },
     "resonanceLiberation": {
       "1": {
-        "name": "Hush of a Thousand Voices DMG",
+        "name": "Hush of a Thousand Voices",
         "skillType": "resonanceLiberation",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46518,8 +46574,8 @@
         ]
       },
       "2": {
-        "name": "Shadow of Xuanling DMG",
-        "skillType": "resonanceLiberation",
+        "name": "Shadow of Xuanling",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46548,10 +46604,15 @@
         ]
       }
     },
-    "FC": {
+    "forteCircuit": {
       "1": {
-        "name": "Resonance Skill - Sword Stance Flow: Azure DMG",
-        "skillType": "FC",
+        "name": "Sword Stance Flow: Azure",
+        "tagged": "Feather Sword Stance",
+        "skillType": "resonanceSkill",
+        "dmgType": "heavyAttack",
+        "consumeNegativeStatus": {
+          "havocBane": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -46605,8 +46666,13 @@
         ]
       },
       "2": {
-        "name": "Resonance Skill - Sword Stance Flow: Feather DMG",
-        "skillType": "FC",
+        "name": "Sword Stance Flow: Feather",
+        "tagged": "Azure Sword Stance",
+        "skillType": "resonanceSkill",
+        "dmgType": "heavyAttack",
+        "consumeNegativeStatus": {
+          "havocBane": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -46636,8 +46702,12 @@
         ]
       },
       "3": {
-        "name": "Heavy Attack - Azure Sword Stance DMG",
-        "skillType": "FC",
+        "name": "Heavy Attack",
+        "tagged": "Azure Sword Stance",
+        "skillType": "heavyAttack",
+        "inflictNegativeStatus": {
+          "havocBane": 2
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -46714,8 +46784,12 @@
         ]
       },
       "4": {
-        "name": "Heavy Attack - Feather Sword Stance DMG",
-        "skillType": "FC",
+        "name": "Heavy Attack",
+        "tagged": "Feather Sword Stance",
+        "skillType": "heavyAttack",
+        "inflictNegativeStatus": {
+          "havocBane": 2
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -46768,8 +46842,10 @@
         ]
       },
       "5": {
-        "name": "Mid-air Attack - Feather Sword Stance: Feather Fall DMG",
-        "skillType": "FC",
+        "name": "Feather Fall",
+        "tagged": "Feather Sword Stance",
+        "skillType": "mid-airAttack",
+        "dmgType": "basicAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46823,8 +46899,10 @@
         ]
       },
       "6": {
-        "name": "Basic Attack - Havoc in Bloom Stage 1 DMG",
-        "skillType": "FC",
+        "name": "Basic Attack 1",
+        "tagged": "Havoc in Bloom",
+        "skillType": "basicAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46854,8 +46932,10 @@
         ]
       },
       "7": {
-        "name": "Basic Attack - Havoc in Bloom Stage 2 DMG",
-        "skillType": "FC",
+        "name": "Basic Attack 2",
+        "tagged": "Havoc in Bloom",
+        "skillType": "basicAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46932,8 +47012,10 @@
         ]
       },
       "8": {
-        "name": "Basic Attack - Havoc in Bloom Stage 3 DMG",
-        "skillType": "FC",
+        "name": "Basic Attack 3",
+        "tagged": "Havoc in Bloom",
+        "skillType": "basicAttack",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -46987,8 +47069,10 @@
         ]
       },
       "9": {
-        "name": "Dodge Counter - Havoc in Bloom Stage 1 DMG",
-        "skillType": "FC",
+        "name": "Dodge Counter 1",
+        "tagged": "Havoc in Bloom",
+        "skillType": "dodgeCounter",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -47018,8 +47102,10 @@
         ]
       },
       "10": {
-        "name": "Dodge Counter - Havoc in Bloom Stage 2 DMG",
-        "skillType": "FC",
+        "name": "Dodge Counter 2",
+        "tagged": "Havoc in Bloom",
+        "skillType": "dodgeCounter",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -47096,8 +47182,10 @@
         ]
       },
       "11": {
-        "name": "Dodge Counter - Havoc in Bloom Stage 3 DMG",
-        "skillType": "FC",
+        "name": "Dodge Counter 3",
+        "tagged": "Havoc in Bloom",
+        "skillType": "dodgeCounter",
+        "dmgType": "heavyAttack",
         "indexedMultipliers": [
           {
             "mv": [
@@ -47151,10 +47239,13 @@
         ]
       }
     },
-    "IS": {
+    "introSkill": {
       "1": {
-        "name": "Skybound Feather DMG",
-        "skillType": "IS",
+        "name": "Skybound Feather",
+        "skillType": "introSkill",
+        "inflictNegativeStatus": {
+          "havocBane": 1
+        },
         "indexedMultipliers": [
           {
             "mv": [
@@ -47183,10 +47274,13 @@
         ]
       }
     },
-    "OS": {
+    "outroSkill": {
       "1": {
         "name": "As the Wind Wills",
-        "skillType": "OS"
+        "skillType": "outroSkill",
+        "fixedMultipliers": {
+          "mv": 3
+        }
       }
     }
   }

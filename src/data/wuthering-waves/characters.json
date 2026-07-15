@@ -5795,6 +5795,41 @@
     "ascensionStats": {
       "critRate%": 0.08,
       "atk%": 0.12
-    }
+    },
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "resonanceLiberation.1",
+        "useOnAction": [
+          "resonanceSkill.1",
+          "resonanceSkill.2"
+        ],
+        "followUpAction": "resonanceLiberation.2",
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "forteCircuit.3",
+        "applyIfField": "onField",
+        "applyCooldown": 25000,
+        "statMap": {
+          "critDmg%": 1.6
+        },
+        "maxUses": 1
+      },
+      {
+        "applyTo": "ally",
+        "applyWhen": "cast",
+        "applyOnSkillType": "outroSkill",
+        "subEffect": {
+          "applyWhen": "hit",
+          "applyOnInflictNegativeStatus": "havocBane",
+          "statMap": {
+            "havocDmgAmp%": 0.2
+          }
+        },
+        "duration": 20000
+      }
+    ]
   }
 }

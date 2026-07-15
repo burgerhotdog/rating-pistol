@@ -151,11 +151,11 @@ def parse_hsr(data, resolved):
 
 def parse_ww(data, resolved):
     key_to_id = {
-        "1": "NA",
-        "2": "RS",
+        "1": "normalAttack",
+        "2": "resonanceSkill",
         "3": "resonanceLiberation",
-        "6": "IS",
-        "7": "FC",
+        "6": "introSkill",
+        "7": "forteCircuit",
     }
     
     for group_id in ["1", "2", "3", "7", "6"]:
@@ -178,7 +178,7 @@ def parse_ww(data, resolved):
             elif "DEF" in fmt:
                 attr = "DEF"
             elif "Tune AMP" in fmt:
-                attr = "TUNE"
+                attr = "tuneAmp"
             else:
                 raise ValueError(f"Unknown skill format: {fmt}")
 
@@ -187,7 +187,7 @@ def parse_ww(data, resolved):
 
             skills[str(action_id)] = {
                 "name": skill_data["name"],
-                "skillType": "BA" if group_id == "1" else key_to_id[group_id],
+                "skillType": "basicAttack" if group_id == "1" else key_to_id[group_id],
                 **({"attr": attr} if attr else {}),
                 "indexedMultipliers": multipliers,
             }
@@ -196,10 +196,10 @@ def parse_ww(data, resolved):
 
         resolved[key_to_id[group_id]] = skills
 
-    resolved["OS"] = {
+    resolved["outroSkill"] = {
         "1": {
             "name": data["skill_trees"]["8"]["skill"]["name"],
-            "skillType": "OS",
+            "skillType": "outroSkill",
         }
     }
 
