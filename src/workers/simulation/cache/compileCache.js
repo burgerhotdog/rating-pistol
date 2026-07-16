@@ -66,11 +66,12 @@ export const compileCache = (gameId, team) => {
     });
   }
 
-  const effect = {};
   const passive = [];
   const memberCache = {};
   const special = [];
   let fullRotationTime = 0;
+
+  const appliedByTeam = [];
 
   for (const member of team) {
     const {
@@ -95,18 +96,16 @@ export const compileCache = (gameId, team) => {
 
     const {
       passives: currPassives,
-      effectsByAction,
       specialEffects,
+      appliedByAny,
+      appliedBySelf,
     } = normalizeEffects(member, {
       gameId,
       memberIds,
       teamActions,
     });
 
-    for (const [actionKey, effects] of Object.entries(effectsByAction)) {
-      effect[actionKey] ??= [];
-      effect[actionKey].push(...effects);
-    }
+    appliedByTeam.push(...appliedByAny);
 
     passive.push(...currPassives);
     special.push(...specialEffects);
@@ -119,6 +118,7 @@ export const compileCache = (gameId, team) => {
       statMap,
       rotation,
       rotationTime,
+      appliedBySelf,
     };
   }
 
@@ -126,10 +126,10 @@ export const compileCache = (gameId, team) => {
     gameId,
     memberIds,
     member: memberCache,
-    effect,
     passive,
     fullRotationTime,
     special,
+    appliedByTeam,
   };
 
   cacheTuneResponses(cache, teamActions);

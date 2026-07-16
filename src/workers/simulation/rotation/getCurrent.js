@@ -1,9 +1,6 @@
 import { mergeObj } from '@/utils';
 import { mergeStatMap, resolveVariableStatMap } from '../utils';
-import {
-  onAction, onType, onTagged, onSkillType, onDmgType, onElement,
-  ifAttr, ifField, ifNegativeStatus, ifShifting, ifInterfered,
-} from '../match';
+import { matchUse } from '../filter/matchUse';
 
 const getAllStates = (ctx, memberId, effectTypes) => {
   const { memberEffects, fieldEffects } = ctx.state;
@@ -20,35 +17,9 @@ const getAllStates = (ctx, memberId, effectTypes) => {
     effectTypes.some((type) => type in effect));
 };
 
-const getUsedStates = (allStates, ctx, memberId, action) => {
-  const matchUseOn = (effect) =>
-    onAction(effect.useOnAction, action) ||
-    onType(effect.useOnType, action) ||
-    onTagged(effect.useOnTagged, action) ||
-    onSkillType(effect.useOnSkillType, action) ||
-    onDmgType(effect.useOnDmgType, action) ||
-    onElement(effect.useOnElement, action.element);
-
-  const matchUseIf = (effect) =>
-    ifAttr(effect.useIfAttr, ctx.buildMaps[effect.ownerId]) ||
-    ifField(effect.useIfField, ctx.getField(action.ownerId)) ||
-    ifNegativeStatus(effect.useIfNegativeStatus, ctx.state) ||
-    ifShifting(effect.useIfShifting, ctx.state) ||
-    ifInterfered(effect.useIfInterfered, ctx.state);
-
-  return allStates
-    .filter(([,, { cooldown, effect }]) => {
-      const hasUseOn = Object.keys(effect)
-        .some((key) => key.startsWith('useOn'));
-
-      const hasUseIf = Object.keys(effect)
-        .some((key) => key.startsWith('useIf'));
-
-      return !cooldown &&
-        (!hasUseOn || matchUseOn(effect)) &&
-        (!hasUseIf || matchUseIf(effect));
-    });
-};
+const getUsedStates = (allStates, ctx, memberId, action) =>
+  allStates.filter(([,, { cooldown, effect }]) =>
+    !cooldown && matchUse(effect, action, ctx));
 
 export const getUsedBuffStates = (ctx, memberId, action = {}) => {
   const buffStates = getAllStates(ctx, memberId, ['statMap', 'variableStatMap']);

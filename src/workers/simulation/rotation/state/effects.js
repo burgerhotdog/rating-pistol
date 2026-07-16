@@ -1,22 +1,6 @@
-import {
-  onAction, onSkillType,
-  ifField, ifNegativeStatus, ifEffectStacksMin, ifEffectStacksMax,
-} from '../../match';
+import { matchRemove } from '../../filter/matchRemove';
+import { matchApply } from '../../filter/matchApply';
 import { inflictNegativeStatuses } from './negativeStatuses';
-
-const matchApplyIf = (effect, action, ctx) => {
-  const hasApplyIf =
-    'applyIfField' in effect ||
-    'applyIfNegativeStatus' in effect ||
-    'applyIfEffectStacksMin' in effect ||
-    'applyIfEffectStacksMax' in effect;
-
-  return !hasApplyIf ||
-    ifField(effect.applyIfField, ctx.getField(action.ownerId)) ||
-    ifNegativeStatus(effect.applyIfNegativeStatus, ctx.state) ||
-    ifEffectStacksMin(effect.applyIfEffectStacksMin, ctx.state) ||
-    ifEffectStacksMax(effect.applyIfEffectStacksMax, ctx.state);
-};
 
 export function applyEffect(stateMap, effect) {
   const prev = stateMap[effect.key] ?? {};
@@ -39,19 +23,19 @@ export function applyEffect(stateMap, effect) {
 export function applyEffects(ctx, action, trigger) {
   const { cooldowns, memberEffects, fieldEffects, debuffs } = ctx.state;
 
-  if (!(action.key in ctx.cache.effect)) return;
-
   if ('inflict' in action && trigger === 'hit') {
     inflictNegativeStatuses(ctx, action.inflict);
   }
 
-  const triggered = ctx.cache.effect[action.key]
-    .filter((effect) => effect.applyWhen === trigger);
+  const toTest = [
+    ...ctx.cache.appliedByTeam,
+    ...ctx.cache.member[action.ownerId].appliedBySelf,
+  ].filter((effect) => effect.applyWhen === trigger);
 
-  for (const effect of triggered) {
+  for (const effect of toTest) {
     if (
       cooldowns[effect.key] ||
-      !matchApplyIf(effect, action, ctx)
+      !matchApply(effect, action, ctx)
     ) continue;
 
     for (const target of effect.applyTo) {
@@ -105,11 +89,7 @@ export function removeEffects(ctx, action) {
     for (const [key, { effect }] of Object.entries(stateMap)) {
       if (effect.ownerId !== action.ownerId) continue;
 
-      if (
-        onAction(effect.removeOnAction, action) ||
-        onSkillType(effect.removeOnSkillType, action) ||
-        ifField(effect.removeIfField, ctx.getField(action.ownerId))
-      ) {
+      if (matchRemove(effect, action, ctx)) {
         delete stateMap[key];
       }
     }

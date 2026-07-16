@@ -1,7 +1,6 @@
 import { CHARACTER, WEAPON, SET } from '@/data';
 import { toArray, mergeObj } from '@/utils';
 import { enableIf } from './enableIf';
-import { applyOn } from './applyOn';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
@@ -173,8 +172,9 @@ export const normalizeEffects = (member, spec) => {
   ];
 
   const passives = [];
-  const effectsByAction = {};
   const specialEffects = [];
+  const appliedByAny = [];
+  const appliedBySelf = [];
 
   for (const [index, rawEffect] of toNormalize.entries()) {
     if (!enableIf(rawEffect, CHARACTER[gameId][memberId])) continue;
@@ -199,17 +199,12 @@ export const normalizeEffects = (member, spec) => {
       continue;
     }
 
-    // active
-    const actionsList = effect.applyBy === 'team'
-      ? Object.values(teamActions).flatMap((actionMap) => Object.values(actionMap))
-      : Object.values(teamActions[memberId]);
-
-    for (const action of actionsList) {
-      if (!applyOn(effect, action)) continue;
-      effectsByAction[action.key] ??= [];
-      effectsByAction[action.key].push(effect);
+    if (effect.applyBy === 'team') {
+      appliedByAny.push(effect);
+    } else {
+      appliedBySelf.push(effect);
     }
   }
 
-  return { passives, effectsByAction, specialEffects };
+  return { passives, specialEffects, appliedBySelf, appliedByAny };
 };
