@@ -20,7 +20,7 @@ const matchRemoveIf = (effect, ctx, action) => {
   });
 };
 
-export const matchRemove = (effect, action, ctx) =>
+export const matchRemoveFilter = (effect, action, ctx) =>
   matchRemoveOnPrimary(effect, action) ||
   matchRemoveOnSecondary(effect, action) ||
   matchRemoveIf(effect, ctx, action);

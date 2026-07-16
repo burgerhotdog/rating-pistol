@@ -33,7 +33,7 @@ const matchUseIf = (effect, ctx, action) => {
   });
 };
 
-export const matchUse = (effect, action, ctx) =>
+export const matchUseFilter = (effect, action, ctx) =>
   matchUseOnPrimary(effect, action) &&
   matchUseOnSecondary(effect, action) &&
   matchUseIf(effect, ctx, action);

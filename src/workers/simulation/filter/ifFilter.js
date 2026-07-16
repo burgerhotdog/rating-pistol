@@ -13,7 +13,7 @@ const ifField = (filter, spec) => {
   return filter != null && filter === field;
 };
 
-const ifEffectStacks = (filter = {}, state, op) =>
+const ifEffectStacks = (filter, state, op) =>
   Object.entries(filter).every(([key, stacks]) =>
     [
       ...Object.values(state.memberEffects),
@@ -22,14 +22,14 @@ const ifEffectStacks = (filter = {}, state, op) =>
     ].some((stateMap) =>
       op(stateMap[key]?.stacks, stacks)));
 
-const ifEffectStacksMin = (filter, spec) => {
+const ifEffectStacksMin = (filter = {}, spec) => {
   const { state } = spec.ctx;
   return ifEffectStacks(filter, state, (a, b) => a >= b);
 };
 
-const ifEffectStacksMax = (filter, spec) => {
+const ifEffectStacksMax = (filter = {}, spec) => {
   const { state } = spec.ctx;
-  ifEffectStacks(filter, state, (a, b) => a <= b);
+  return ifEffectStacks(filter, state, (a, b) => a <= b);
 };
 
 const ifNegativeStatus = (filter = {}, spec) => {

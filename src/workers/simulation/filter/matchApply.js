@@ -32,7 +32,7 @@ const matchApplyIf = (effect, ctx, action) => {
   return !hasAny || someMatch;
 };
 
-export const matchApply = (effect, action, ctx) =>
+export const matchApplyFilter = (effect, action, ctx) =>
   matchApplyOnPrimary(effect, action) &&
   matchApplyOnSecondary(effect, action) &&
   matchApplyIf(effect, ctx, action);

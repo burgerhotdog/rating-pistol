@@ -1,6 +1,6 @@
 import { mergeObj } from '@/utils';
 import { mergeStatMap, resolveVariableStatMap } from '../utils';
-import { matchUse } from '../filter/matchUse';
+import { matchUseFilter } from '../filter';
 
 const getAllStates = (ctx, memberId, effectTypes) => {
   const { memberEffects, fieldEffects } = ctx.state;
@@ -19,7 +19,7 @@ const getAllStates = (ctx, memberId, effectTypes) => {
 
 const getUsedStates = (allStates, ctx, memberId, action) =>
   allStates.filter(([,, { cooldown, effect }]) =>
-    !cooldown && matchUse(effect, action, ctx));
+    !cooldown && matchUseFilter({ effect, action, ctx }));
 
 export const getUsedBuffStates = (ctx, memberId, action = {}) => {
   const buffStates = getAllStates(ctx, memberId, ['statMap', 'variableStatMap']);

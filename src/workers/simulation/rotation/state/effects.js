@@ -1,5 +1,5 @@
-import { matchRemove } from '../../filter/matchRemove';
-import { matchApply } from '../../filter/matchApply';
+import { matchRemoveFilter } from '../../filter';
+import { matchApplyFilter } from '../../filter';
 import { inflictNegativeStatuses } from './negativeStatuses';
 
 export function applyEffect(stateMap, effect) {
@@ -35,7 +35,7 @@ export function applyEffects(ctx, action, trigger) {
   for (const effect of toTest) {
     if (
       cooldowns[effect.key] ||
-      !matchApply(effect, action, ctx)
+      !matchApplyFilter({ effect, action, ctx })
     ) continue;
 
     for (const target of effect.applyTo) {
@@ -89,7 +89,7 @@ export function removeEffects(ctx, action) {
     for (const [key, { effect }] of Object.entries(stateMap)) {
       if (effect.ownerId !== action.ownerId) continue;
 
-      if (matchRemove(effect, action, ctx)) {
+      if (matchRemoveFilter({ effect, action, ctx })) {
         delete stateMap[key];
       }
     }
