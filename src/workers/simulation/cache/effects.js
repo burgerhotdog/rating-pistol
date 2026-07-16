@@ -56,18 +56,24 @@ function resolveRankMods(effect, memberRank) {
   }
 }
 
-const toNormalizedEffect = (rawEffect, ctx, member, effectId, memberActions) => {
-  const { gameId, memberIds } = ctx;
-  const { id: memberId, rank: memberRank, weaponRank } = member;
+const toNormalizedEffect = (rawEffect, spec) => {
+  const {
+    gameId, ownerId, effectId,
+    memberRank, weaponRank, memberIds, memberActions,
+  } = spec;
 
   const resolveStatValue = (value) =>
     typeof value === 'number'
       ? value
       : resolveRankedValue(value, weaponRank);
 
-  const effect = { ...rawEffect };
+  const effect = {
+    ...rawEffect,
+    ownerId,
+    key: `${ownerId}:effect${effectId}`,
+    id: effectId,
+  };
 
-  effect.ownerId = memberId;
   resolveApplyTo(effect, memberIds);
 
   // Resolve ranked statMaps
@@ -105,7 +111,7 @@ const toNormalizedEffect = (rawEffect, ctx, member, effectId, memberActions) => 
         } else {
           effect[actionType].push(toNormalizedAction(rawlinkedAction, {
             gameId,
-            ownerId: memberId,
+            ownerId,
             category: `effect${effectId}`,
             actionId: String(index + 1),
             teamSize: memberIds.length,
@@ -128,59 +134,56 @@ const toNormalizedEffect = (rawEffect, ctx, member, effectId, memberActions) => 
 };
 
 export const normalizeEffects = (ctx, member, actions) => {
+  const { gameId, memberIds } = ctx;
+  const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts } = member;
+
   const toNormalize = [
-    ...toArray(CHARACTER[ctx.gameId][member.id].effects)
-      .filter((effect) => (effect.rank ?? 0) <= member.rank),
-    ...toArray(WEAPON[ctx.gameId][member.weaponId].effects),
+    ...toArray(CHARACTER[gameId][memberId].effects)
+      .filter((effect) => (effect.rank ?? 0) <= memberRank),
+    ...toArray(WEAPON[gameId][weaponId].effects),
+    ...Object.entries(setCounts)
+      .flatMap(([setId, count]) =>
+        Object.entries(SET[gameId][setId].tieredEffects ?? {})
+          .filter(([tier]) => Number(tier) <= count)
+          .flatMap(([, effects]) => toArray(effects))),
   ];
-
-  for (const [setId, count] of Object.entries(member.setCounts)) {
-    const { tieredEffects = {} } = SET[ctx.gameId][setId];
-
-    for (const [tier, effects] of Object.entries(tieredEffects)) {
-      if (Number(tier) > count) continue;
-      toNormalize.push(...toArray(effects));
-    }
-  }
 
   const passives = [];
   const effectsByAction = {};
   const specialEffects = [];
 
   for (const [index, rawEffect] of toNormalize.entries()) {
-    const effectId = String(index + 1);
-    const effectKey = `${member.id}:EFFECT_${effectId}`;
+    if (!enableIf(rawEffect, CHARACTER[gameId][memberId])) continue;
 
-    if (!enableIf(rawEffect, CHARACTER[ctx.gameId][member.id])) {
+    const effect = toNormalizedEffect(rawEffect, {
+      gameId,
+      ownerId: memberId,
+      effectId: String(index + 1),
+      memberRank,
+      weaponRank,
+      memberIds,
+      memberActions: actions[memberId],
+    });
+
+    if (effect.applyOnSpecial) { // special
+      specialEffects.push(effect);
       continue;
     }
 
-    const resolved = {
-      ...toNormalizedEffect(rawEffect, ctx, member, effectId, actions[member.id]),
-      key: effectKey,
-      id: effectId,
-    };
-
-    if ('applyOnSpecial' in resolved) {
-      specialEffects.push(resolved);
+    if (!effect.applyWhen) { // passive
+      passives.push(effect);
       continue;
     }
 
-    if ('applyWhen' in resolved) { // active
-      const actionsList = resolved.applyBy === 'team'
-        ? Object.values(actions).flatMap((actionMap) => Object.values(actionMap))
-        : Object.values(actions[member.id]);
+    // active
+    const actionsList = effect.applyBy === 'team'
+      ? Object.values(actions).flatMap((actionMap) => Object.values(actionMap))
+      : Object.values(actions[memberId]);
 
-      for (const action of actionsList) {
-        if (!applyOn(resolved, action)) {
-          continue;
-        }
-
-        effectsByAction[action.key] ??= [];
-        effectsByAction[action.key].push(resolved);
-      }
-    } else { // passive
-      passives.push(resolved);
+    for (const action of actionsList) {
+      if (!applyOn(effect, action)) continue;
+      effectsByAction[action.key] ??= [];
+      effectsByAction[action.key].push(effect);
     }
   }
 

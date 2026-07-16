@@ -79,10 +79,7 @@ export const toNormalizedAction = (rawAction, spec) => {
   }
 
   // Init default dmgType
-  if (
-    action.type === 'damage' &&
-    action.skillType
-  ) {
+  if (action.type === 'damage' && action.skillType) {
     action.dmgType ??= action.skillType;
   }
 

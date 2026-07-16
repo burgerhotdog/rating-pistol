@@ -58,10 +58,13 @@ export const compileCache = (gameId, team) => {
   const memberIds = team.map((member) => member.id);
   const ctx = { gameId, memberIds };
 
-  // normalize actions
+  // Normalize actions
   const teamActions = {};
   for (const member of team) {
-    teamActions[member.id] = getMemberActions(member, { gameId, teamSize: memberIds.length });
+    teamActions[member.id] = getMemberActions(member, {
+      gameId,
+      teamSize: memberIds.length,
+    });
   }
 
   const effect = {};
@@ -71,16 +74,20 @@ export const compileCache = (gameId, team) => {
   let fullRotationTime = 0;
 
   for (const member of team) {
-    const baseMap = compileBaseMap(gameId, member.id, member.weaponId);
+    const { id: memberId, weaponId } = member;
+
+    const baseMap = compileBaseMap(gameId, memberId, weaponId);
     const equipMap = createEquipMap(member);
     const statMap = mergeObj(baseMap, equipMap);
 
-    const { rotation, rotationTime } = convertRotation(ctx, member, teamActions[member.id]);
+    const { rotation, rotationTime } = convertRotation(ctx, member, teamActions[memberId]);
     fullRotationTime += rotationTime;
 
-    const { passives: currPassives, effectsByAction, specialEffects } = normalizeEffects(ctx, member, teamActions);
-
-    special.push(...specialEffects);
+    const {
+      passives: currPassives,
+      effectsByAction,
+      specialEffects,
+    } = normalizeEffects(ctx, member, teamActions);
 
     for (const [actionKey, effects] of Object.entries(effectsByAction)) {
       effect[actionKey] ??= [];
@@ -88,6 +95,7 @@ export const compileCache = (gameId, team) => {
     }
 
     passive.push(...currPassives);
+    special.push(...specialEffects);
 
     memberCache[member.id] = {
       ...member,
