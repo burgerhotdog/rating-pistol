@@ -85,6 +85,15 @@ const toNormalizedEffect = (rawEffect, spec) => {
     }
   }
 
+  // Resolve ranked maxStatMaps
+  if (effect.maxStatMap) {
+    effect.maxStatMap = { ...effect.maxStatMap };
+
+    for (const [statId, value] of Object.entries(effect.maxStatMap)) {
+      effect.maxStatMap[statId] = resolveStatValue(value);
+    }
+  }
+
   // Resolve ranked variableStatMaps
   if (effect.variableStatMap) {
     effect.variableStatMap = { ...effect.variableStatMap };

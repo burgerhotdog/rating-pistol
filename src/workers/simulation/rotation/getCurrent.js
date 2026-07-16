@@ -1,6 +1,9 @@
 import { mergeObj } from '@/utils';
 import { mergeStatMap, resolveVariableStatMap } from '../utils';
-import { onAction, onType, onTagged, onSkillType, onDmgType, onElement, ifAttr, ifField, ifNegativeStatus, ifShifting, ifInterfered } from '../match';
+import {
+  onAction, onType, onTagged, onSkillType, onDmgType, onElement,
+  ifAttr, ifField, ifNegativeStatus, ifShifting, ifInterfered,
+} from '../match';
 
 const getAllStates = (ctx, memberId, effectTypes) => {
   const { memberEffects, fieldEffects } = ctx.state;
