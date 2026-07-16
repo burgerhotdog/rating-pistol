@@ -7,13 +7,13 @@ import {
 
 const getAllStates = (ctx, memberId, effectTypes) => {
   const { memberEffects, fieldEffects } = ctx.state;
-  const fieldId = memberId === ctx.onFieldId ? 'onField' : 'offField';
+  const field = ctx.getField(memberId);
 
   const stateMaps = [
     ...Object.values(memberEffects[memberId])
       .map((effectState) => ['member', memberId, effectState]),
-    ...Object.values(fieldEffects[fieldId])
-      .map((effectState) => ['field', fieldId, effectState]),
+    ...Object.values(fieldEffects[field])
+      .map((effectState) => ['field', field, effectState]),
   ]
 
   return stateMaps.filter(([,, { effect }]) =>
@@ -21,7 +21,7 @@ const getAllStates = (ctx, memberId, effectTypes) => {
 };
 
 const getUsedStates = (allStates, ctx, memberId, action) => {
-  const matchUseOn = (effect) => 
+  const matchUseOn = (effect) =>
     onAction(effect.useOnAction, action) ||
     onType(effect.useOnType, action) ||
     onTagged(effect.useOnTagged, action) ||
@@ -29,9 +29,9 @@ const getUsedStates = (allStates, ctx, memberId, action) => {
     onDmgType(effect.useOnDmgType, action) ||
     onElement(effect.useOnElement, action.element);
 
-  const matchUseIf = (effect) => 
+  const matchUseIf = (effect) =>
     ifAttr(effect.useIfAttr, ctx.buildMaps[effect.ownerId]) ||
-    ifField(effect.useIfField, action.ownerId, ctx.onFieldId) ||
+    ifField(effect.useIfField, ctx.getField(action.ownerId)) ||
     ifNegativeStatus(effect.useIfNegativeStatus, ctx.state) ||
     ifShifting(effect.useIfShifting, ctx.state) ||
     ifInterfered(effect.useIfInterfered, ctx.state);
@@ -65,17 +65,10 @@ export const resolveBuffMap = (ctx, usedBuffStates) => {
   const variableBuffSpecs = [];
 
   for (const [,, { effect, stacks }] of usedBuffStates) {
-    const {
-      statMap, maxStatMap, variableStatMap,
-      maxStacks = 1, chance = 1,
-    } = effect;
+    const { statMap, variableStatMap, chance = 1 } = effect;
 
     if ('statMap' in effect) {
       mergeStatMap(fixedBuffMap, statMap, stacks * chance);
-    }
-
-    if ('maxStatMap' in effect && stacks === maxStacks) {
-      mergeStatMap(fixedBuffMap, maxStatMap, chance);
     }
 
     if ('variableStatMap' in effect) {

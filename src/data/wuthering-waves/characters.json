@@ -623,22 +623,9 @@
         "times": 2,
         "duration": 10000,
         "rankMods": {
-          "4": {
-            "duration": 7000
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "applyTo": "onField",
-        "applyWhen": "cast",
-        "applyOnAction": "resonanceLiberation.1",
-        "useOnSkillType": "resonanceSkill",
-        "useCooldown": 350,
-        "followUpAction": "resonanceLiberation.2",
-        "times": 2,
-        "duration": 10000,
-        "rankMods": {
+          "1": {
+            "useOnSkillType": "resonanceSkill"
+          },
           "4": {
             "duration": 7000
           }
@@ -5821,14 +5808,22 @@
         "applyTo": "ally",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
-        "subEffect": {
-          "applyWhen": "hit",
-          "applyOnInflictNegativeStatus": "havocBane",
-          "statMap": {
-            "havocDmgAmp%": 0.2
-          }
-        },
         "duration": 20000
+      },
+      {
+        "applyBy": "team",
+        "applyTo": "applier",
+        "applyWhen": "hit",
+        "applyOnInflictNegativeStatus": "havocBane",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "removeIfEffectStacksMax": {
+          "$prev.1": 0
+        },
+        "statMap": {
+          "havocDmgAmp%": 0.2
+        }
       }
     ]
   }

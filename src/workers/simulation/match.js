@@ -1,4 +1,4 @@
-import { toArray, mergeObj, getAttr } from '@/utils';
+import { toArray, getAttr } from '@/utils';
 
 export const onAction = (filter, action) =>
   toArray(filter).some((key) => key.includes(':')
@@ -39,11 +39,23 @@ export const ifAttr = (filter = {}, statMap) =>
   Object.entries(filter).some(([attr, threshold]) =>
     getAttr(attr, statMap) >= threshold);
 
-export const ifField = (fieldKey, memberId, onFieldId) =>
-  fieldKey != null &&
-  (fieldKey === 'onField'
-    ? memberId === onFieldId
-    : memberId !== onFieldId);
+export const ifField = (filter, field) =>
+  filter != null && filter === field;
+
+const ifEffectStacks = (filter, state, op) =>
+  Object.entries(filter).every(([key, stacks]) =>
+    [
+      ...Object.values(state.memberEffects),
+      ...Object.values(state.fieldEffects),
+      state.debuffs,
+    ].some((stateMap) =>
+      op(stateMap[key]?.stacks, stacks)));
+
+export const ifEffectStacksMin = (filter, state) =>
+  ifEffectStacks(filter, state, (a, b) => a >= b);
+
+export const ifEffectStacksMax = (filter, state) =>
+  ifEffectStacks(filter, state, (a, b) => a <= b);
 
 export const ifNegativeStatus = (filter = {}, { negativeStatuses }) =>
   filter === 'any'
@@ -56,41 +68,3 @@ export const ifShifting = (filter, { tune }) =>
 
 export const ifInterfered = (filter, { tune }) =>
   toArray(filter).includes(tune.interfered);
-
-const matchUseOn = (effect, action = {}) => {
-  const hasUseOn =
-    'useOnAction' in effect ||
-    'useOnType' in effect ||
-    'useOnTagged' in effect ||
-    'useOnSkillType' in effect ||
-    'useOnDmgType' in effect ||
-    'useOnElement' in effect;
-
-  return !hasUseOn ||
-    onAction(effect.useOnAction, action) ||
-    onType(effect.useOnType, action) ||
-    onTagged(effect.useOnTagged, action) ||
-    onSkillType(effect.useOnSkillType, action) ||
-    onDmgType(effect.useOnDmgType, action) ||
-    onElement(effect.useOnElement, action.element);
-};
-
-const matchUseIf = (effect, memberId, ctx) => {
-  const hasUseIf =
-    'useIfAttr' in effect ||
-    'useIfField' in effect ||
-    'useIfNegativeStatus' in effect ||
-    'useIfShifting' in effect ||
-    'useIfInterfered' in effect;
-
-  return !hasUseIf ||
-    ifAttr(effect.useIfAttr, mergeObj(ctx.cache.member[effect.ownerId].baseMap, ctx.equipMaps[effect.ownerId])) ||
-    ifField(effect.useIfField, memberId, ctx.onFieldId) ||
-    ifNegativeStatus(effect.useIfNegativeStatus, ctx.state) ||
-    ifShifting(effect.useIfShifting, ctx.state) ||
-    ifInterfered(effect.useIfInterfered, ctx.state);
-};
-
-export const matchUse = (effect, action, memberId, ctx) => {
-  return matchUseOn(effect, action) && matchUseIf(effect, memberId, ctx);
-};

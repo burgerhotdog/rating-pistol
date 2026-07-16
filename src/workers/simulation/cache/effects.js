@@ -36,21 +36,44 @@ function resolveRankMods(effect, memberRank) {
     if (Number(rank) > memberRank) continue;
 
     for (const [key, add] of Object.entries(modSpec)) {
-      if (!(key in effect)) {
+      if (!(key in effect)) { // no previous existing field
         effect[key] = add;
         continue;
       }
 
       const prev = effect[key];
-      if (typeof prev === 'object' && !Array.isArray(prev)) {
+      if (typeof prev === 'object' && !Array.isArray(prev)) { // merge objects
         effect[key] = mergeObj(prev, add);
-      } else if (typeof add === 'number') {
+      } else if (typeof add === 'number') { // combine numbers
         effect[key] += add;
-      } else {
+      } else { // merge string arrays
         effect[key] = [
           ...toArray(effect[key]),
           ...toArray(add),
         ];
+      }
+    }
+  }
+}
+
+function resolvePrev(effect) {
+  function resolveKey(prevKey, fieldData) {
+    const id = Number(effect.id) - Number(prevKey.slice(6));
+    const key = `${effect.ownerId}:effect${id}`;
+
+    fieldData[key] = fieldData[prevKey];
+    delete fieldData[prevKey];
+  }
+
+  for (const prefix of ['apply', 'remove', 'use']) {
+    for (const suffix of ['Min', 'Max']) {
+      const field = `${prefix}IfEffectStacks${suffix}`;
+      if (!(field in effect)) continue;
+
+      effect[field] = { ...effect[field] };
+      for (const key of Object.keys(effect[field])) {
+        if (!key.startsWith('$prev.')) continue;
+        resolveKey(key, effect[field]);
       }
     }
   }
@@ -75,6 +98,7 @@ const toNormalizedEffect = (rawEffect, spec) => {
   };
 
   resolveApplyTo(effect, memberIds);
+  resolvePrev(effect);
 
   // Resolve ranked statMaps
   if (effect.statMap) {
@@ -82,15 +106,6 @@ const toNormalizedEffect = (rawEffect, spec) => {
 
     for (const [statId, value] of Object.entries(effect.statMap)) {
       effect.statMap[statId] = resolveStatValue(value);
-    }
-  }
-
-  // Resolve ranked maxStatMaps
-  if (effect.maxStatMap) {
-    effect.maxStatMap = { ...effect.maxStatMap };
-
-    for (const [statId, value] of Object.entries(effect.maxStatMap)) {
-      effect.maxStatMap[statId] = resolveStatValue(value);
     }
   }
 
@@ -115,9 +130,9 @@ const toNormalizedEffect = (rawEffect, spec) => {
 
       effect[actionType] = [];
       for (const [index, rawlinkedAction] of effectActions.entries()) {
-        if (typeof rawlinkedAction === 'string') {
+        if (typeof rawlinkedAction === 'string') { // shortKey referencing actions.json
           effect[actionType].push(memberActions[rawlinkedAction]);
-        } else {
+        } else { // inline action object
           effect[actionType].push(toNormalizedAction(rawlinkedAction, {
             gameId,
             ownerId,
@@ -142,8 +157,8 @@ const toNormalizedEffect = (rawEffect, spec) => {
   return effect;
 };
 
-export const normalizeEffects = (ctx, member, actions) => {
-  const { gameId, memberIds } = ctx;
+export const normalizeEffects = (member, spec) => {
+  const { gameId, memberIds, teamActions } = spec;
   const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts } = member;
 
   const toNormalize = [
@@ -171,7 +186,7 @@ export const normalizeEffects = (ctx, member, actions) => {
       memberRank,
       weaponRank,
       memberIds,
-      memberActions: actions[memberId],
+      memberActions: teamActions[memberId],
     });
 
     if (effect.applyOnSpecial) { // special
@@ -186,8 +201,8 @@ export const normalizeEffects = (ctx, member, actions) => {
 
     // active
     const actionsList = effect.applyBy === 'team'
-      ? Object.values(actions).flatMap((actionMap) => Object.values(actionMap))
-      : Object.values(actions[memberId]);
+      ? Object.values(teamActions).flatMap((actionMap) => Object.values(actionMap))
+      : Object.values(teamActions[memberId]);
 
     for (const action of actionsList) {
       if (!applyOn(effect, action)) continue;

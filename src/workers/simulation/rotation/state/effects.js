@@ -1,14 +1,21 @@
-import { onAction, onSkillType, ifField, ifNegativeStatus } from '../../match';
+import {
+  onAction, onSkillType,
+  ifField, ifNegativeStatus, ifEffectStacksMin, ifEffectStacksMax,
+} from '../../match';
 import { inflictNegativeStatuses } from './negativeStatuses';
 
 const matchApplyIf = (effect, action, ctx) => {
   const hasApplyIf =
     'applyIfField' in effect ||
-    'applyIfNegativeStatus' in effect
+    'applyIfNegativeStatus' in effect ||
+    'applyIfEffectStacksMin' in effect ||
+    'applyIfEffectStacksMax' in effect;
 
   return !hasApplyIf ||
-    ifField(effect.applyIfField, action.ownerId, ctx.onFieldId) ||
-    ifNegativeStatus(effect.applyIfNegativeStatus, ctx.state)
+    ifField(effect.applyIfField, ctx.getField(action.ownerId)) ||
+    ifNegativeStatus(effect.applyIfNegativeStatus, ctx.state) ||
+    ifEffectStacksMin(effect.applyIfEffectStacksMin, ctx.state) ||
+    ifEffectStacksMax(effect.applyIfEffectStacksMax, ctx.state);
 };
 
 export function applyEffect(stateMap, effect) {
@@ -86,11 +93,12 @@ export function applyPassives(ctx, passives) {
 }
 
 export function removeEffects(ctx, action) {
-  const { memberEffects, fieldEffects } = ctx.state;
+  const { memberEffects, fieldEffects, debuffs } = ctx.state;
 
   const stateMaps = [
     ...Object.values(memberEffects),
     ...Object.values(fieldEffects),
+    debuffs,
   ];
 
   for (const stateMap of stateMaps) {
@@ -100,7 +108,7 @@ export function removeEffects(ctx, action) {
       if (
         onAction(effect.removeOnAction, action) ||
         onSkillType(effect.removeOnSkillType, action) ||
-        ifField(effect.removeIfField, action.ownerId, ctx.onFieldId)
+        ifField(effect.removeIfField, ctx.getField(action.ownerId))
       ) {
         delete stateMap[key];
       }

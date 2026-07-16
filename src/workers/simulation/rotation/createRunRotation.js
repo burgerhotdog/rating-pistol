@@ -164,6 +164,12 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     equipMaps,
     buildMaps,
     currId,
+    onFieldId: null,
+    getField(id) {
+      return id === this.onFieldId
+        ? 'onField'
+        : 'offField';
+    },
     state: {
       cooldowns: {},
       memberEffects: Object.fromEntries(
