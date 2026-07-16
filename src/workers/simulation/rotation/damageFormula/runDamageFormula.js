@@ -21,9 +21,9 @@ const computeBase = (compressed, statMap) => {
 
 export const runDamageFormula = (helpers, action, enemyMap, statMap) => {
   const { getResMult, getDefMult } = helpers;
-  const { dmgType, extraDmgType, element, compressed } = action;
+  const { dmgType, extraDmgType, element, compressed, times = 1 } = action;
 
-  const baseValue = computeBase(compressed, statMap) * action.times;
+  const baseValue = computeBase(compressed, statMap) * times;
 
   switch (action.type) {
     case 'damage': {

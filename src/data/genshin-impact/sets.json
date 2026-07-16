@@ -317,7 +317,7 @@
         "applyCooldown": 3500,
         "intervalAction": {
           "element": "physical",
-          "fixedMultipliers": {
+          "multipliers": {
             "flat": 27000
           }
         },

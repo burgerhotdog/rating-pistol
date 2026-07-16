@@ -18,7 +18,7 @@ export function applyEffect(stateMap, effect) {
   const next = {
     stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
     timeRemaining: effect.duration ?? Infinity,
-    usesRemaining: effect.maxUses,
+    usesRemaining: effect.maxUses ?? Infinity,
     effect,
   };
 

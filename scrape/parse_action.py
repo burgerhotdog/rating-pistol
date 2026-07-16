@@ -40,10 +40,10 @@ def format_multipliers(raw_list):
 
 def parse_gi(data, resolved):
     index_to_id = {
-        0: "NA",
-        1: "ES",
-        2: "EB",
-        3: "EB", # backup in case index 2 is occupied by an alt sprint
+        0: "normalAttack",
+        1: "elementalSkill",
+        2: "elementalBurst",
+        3: "elementalBurst", # backup in case index 2 is occupied by an alt sprint
     }
 
     for index, value in enumerate(data["skills"]):
@@ -77,7 +77,7 @@ def parse_gi(data, resolved):
             skill[str(action_id)] = {
                 "name": desc_string.split('|')[0],
                 "skillType": skill_id,
-                "indexedMultipliers": indexed_multipliers,
+                "multipliers": indexed_multipliers,
             }
 
             action_id += 1
@@ -86,13 +86,13 @@ def parse_gi(data, resolved):
 
 def parse_hsr(data, resolved):
     key_to_id = {
-        "Basic ATK": "BA",
-        "Skill": "S",
-        "Ultimate": "U",
-        "Talent": "T",
-        "Memosprite Skill": "MS",
-        "Memosprite Talent": "MT",
-        "Elation Skill": "ES",
+        "Basic ATK": "basicAtk",
+        "Skill": "skill",
+        "Ultimate": "ultimate",
+        "Talent": "talent",
+        "Memosprite Skill": "memospriteSkill",
+        "Memosprite Talent": "memospriteTalent",
+        "Elation Skill": "elationSkill",
     }
 
     to_eval = list(data["skills"].items())
@@ -137,7 +137,7 @@ def parse_hsr(data, resolved):
                 "1": {
                     "name": raw_skill["name"],
                     "skillType": skill_id,
-                    "indexedMultipliers": indexed_multipliers,
+                    "multipliers": indexed_multipliers,
                 }
             }
         else:
@@ -146,7 +146,7 @@ def parse_hsr(data, resolved):
             resolved[skill_id][str(count)] = {
                 "name": raw_skill["name"],
                 "skillType": skill_id,
-                "indexedMultipliers": indexed_multipliers,
+                "multipliers": indexed_multipliers,
             }
 
 def parse_ww(data, resolved):
@@ -189,7 +189,7 @@ def parse_ww(data, resolved):
                 "name": skill_data["name"],
                 "skillType": "basicAttack" if group_id == "1" else key_to_id[group_id],
                 **({"attr": attr} if attr else {}),
-                "indexedMultipliers": multipliers,
+                "multipliers": multipliers,
             }
 
             action_id += 1
@@ -205,11 +205,11 @@ def parse_ww(data, resolved):
 
 def parse_zzz(data, resolved):
     key_to_id = {
-        "basic": "BA",
-        "dodge": "D",
-        "assist": "A",
-        "special": "S",
-        "chain": "CA",
+        "basic": "basic",
+        "dodge": "dodge",
+        "assist": "assist",
+        "special": "special",
+        "chain": "chain",
     }
 
     for skill_key in ["basic", "dodge", "assist", "special", "chain"]:
@@ -241,7 +241,7 @@ def parse_zzz(data, resolved):
                     skill[str(index)] = {
                         "name": skill_name + " " + action_data["name"],
                         "skillType": skill_id,
-                        "indexedMultipliers": [mult],
+                        "multipliers": [mult],
                     }
 
                     index += 1
@@ -263,7 +263,7 @@ def parse_zzz(data, resolved):
                 skill[str(index)] = {
                     "name": skill_name + " " + action_data["name"],
                     "skillType": skill_id,
-                    "indexedMultipliers": [mult],
+                    "multipliers": [mult],
                 }
 
                 index += 1

@@ -1,5 +1,5 @@
-export function mergeStatMap(original, statMap, mult = 1) {
+export function mergeStatMap(acc, statMap, mult = 1) {
   for (const key in statMap) {
-    original[key] = (original[key] ?? 0) + statMap[key] * mult;
+    acc[key] = (acc[key] ?? 0) + statMap[key] * mult;
   }
 };

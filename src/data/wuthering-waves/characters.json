@@ -164,7 +164,7 @@
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 0.0025
           }
         },
@@ -176,7 +176,7 @@
         "intervalAction": {
           "type": "healing",
           "attr": "hp",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 0.0154
           }
         },
@@ -500,7 +500,7 @@
         "applyOnSkillType": "outroSkill",
         "intervalAction": {
           "dmgType": "outroSkill",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 1.7676
           }
         },
@@ -801,7 +801,7 @@
         "followUpAction": {
           "skillType": "coordinatedAttack",
           "dmgType": "resonanceLiberation",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 1
           }
         },
@@ -952,7 +952,7 @@
         "useOnSkillType": "basicAttack",
         "followUpAction": {
           "dmgType": "resonanceSkill",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 4.1959
           }
         },
@@ -1050,7 +1050,7 @@
         "followUpAction": {
           "type": "shield",
           "attr": "def",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 2
           }
         },
@@ -1364,7 +1364,7 @@
         "followUpAction": {
           "skillType": "coordinatedAttack",
           "dmgType": "outroSkill",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 3.134
           }
         },
@@ -1552,7 +1552,7 @@
           {
             "skillType": "resonanceSkill",
             "dmgType": "heavyAttack",
-            "fixedMultipliers": {
+            "multipliers": {
               "mv": 5.5667
             }
           },
@@ -1653,7 +1653,7 @@
         "applyOnSkillType": "outroSkill",
         "intervalAction": {
           "type": "healing",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 0.19
           }
         },
@@ -1675,7 +1675,7 @@
         "applyOnAction": "outroSkill.1",
         "intervalAction": {
           "type": "healing",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 0.2
           }
         },
@@ -1833,7 +1833,7 @@
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 0.25
           }
         },
@@ -2474,7 +2474,7 @@
         "useCooldown": 2000,
         "followUpAction": {
           "dmgType": "outroSkill",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 2.3763
           }
         },
@@ -3279,7 +3279,7 @@
         "applyOnSkillType": "outroSkill",
         "followUpAction": {
           "skillType": "echoSkill",
-          "fixedMultipliers": {
+          "multipliers": {
             "flat": 100
           }
         },
@@ -3497,7 +3497,7 @@
         "useCooldown": 1000,
         "followUpAction": {
           "dmgType": "basicAttack",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 4.4
           }
         },
@@ -3525,7 +3525,7 @@
         "followUpAction": {
           "type": "healing",
           "attr": "energyRegen",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 660
           },
           "times": 3
@@ -3647,7 +3647,7 @@
         "applyOnSkillType": "outroSkill",
         "followUpAction": {
           "dmgType": "outroSkill",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 5.2841
           }
         },
@@ -4026,7 +4026,7 @@
         "applyOnAction": "normalAttack.4",
         "intervalAction": {
           "dmgType": "resonanceLiberation",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 2.2
           }
         },
@@ -4596,7 +4596,7 @@
         "useCooldown": 500,
         "followUpAction": {
           "type": "shield",
-          "fixedMultipliers": {
+          "multipliers": {
             "flat": 350,
             "mv": 0.025
           }
@@ -4835,7 +4835,7 @@
         "applyOnAction": "outroSkill.1",
         "intervalAction": {
           "type": "healing",
-          "fixedMultipliers": {
+          "multipliers": {
             "mv": 0.18
           }
         },
@@ -5682,7 +5682,7 @@
         "intervalAction": [
           {
             "dmgType": "heavyAttack",
-            "fixedMultipliers": {
+            "multipliers": {
               "mv": 4.5
             }
           },

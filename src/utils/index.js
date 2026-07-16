@@ -9,3 +9,4 @@ export * from './resolveRanked';
 export * from './getDefaultRanks';
 export * from './applyStoredBuild';
 export * from './getTotals';
+export * from './mapValues';

@@ -35,12 +35,13 @@ function runFollowUpActions(ctx, action, depth) {
 
   for (const [stateMapType, stateMapKey, effectState] of usedFollowUpStates) {
     const { effect } = effectState;
+    const { times = 1 } = effect;
 
     if (effectState.executing) continue;
 
     effectState.executing = true;
     for (const action of effect.followUpAction) {
-      for (let i = 0; i < effect.times; i ++) {
+      for (let i = 0; i < times; i ++) {
         runAction(ctx, action, depth + 1);
       }
     }
@@ -67,13 +68,14 @@ function runIntervalActions(ctx, elapsed, depth) {
   for (const stateMap of Object.values(memberEffects)) {
     for (const [key, effectState] of Object.entries(stateMap)) {
       const { effect } = effectState;
+      const { times = 1 } = effect;
 
       if (!('intervalAction' in effect)) continue;
 
       effectState.intervalTimer -= elapsed;
       while (effectState.intervalTimer <= 0) {
         for (const action of effect.intervalAction) {
-          for (let i = 0; i < effect.times; i ++) {
+          for (let i = 0; i < times; i ++) {
             runAction(ctx, action, depth + 1);
           }
         }
@@ -96,7 +98,7 @@ function runAction(ctx, action, depth = 0) {
   }
 
   const { cooldowns, tune } = ctx.state;
-  const { duration, offset } = action;
+  const { duration = 0, offset = 0 } = action;
 
   // Triggered on cast
   removeEffects(ctx, action);

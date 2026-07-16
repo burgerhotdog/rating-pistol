@@ -272,7 +272,7 @@
           "intervalAction": {
             "element": "havoc",
             "dmgType": "outroSkill",
-            "fixedMultipliers": {
+            "multipliers": {
               "mv": 4.8
             }
           },

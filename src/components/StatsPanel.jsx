@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { CharAvatar, TeamMemberDialog } from '@/components';
-import { MISC, CHARACTER } from '@/data';
+import { WW, MISC, CHARACTER } from '@/data';
 import { getAttr, formatStr, compileMenuMap } from '@/utils';
 
 function getRelativeTime(dateString) {
@@ -96,9 +96,8 @@ export const StatsPanel = ({ team, updateTeam }) => {
       <CardContent sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
         <Stack spacing={1}>
           {MENU_STATS.map((id) => {
-            // cd for ww visual change
-            const cdww = (gameId === 'wuthering-waves' && id === 'critDmg%') ? 1 : 0;
-            const totalValue = getAttr(id, statMap) + cdww;
+            const totalValue = getAttr(id, statMap) +
+              ((gameId === WW && id === 'critDmg%') ? 1 : 0);
             const isPercent = id.endsWith('%');
             const displayValue = isPercent ? totalValue * 100 : totalValue;
             const toFixedValue = isPercent ? 1 : 0;

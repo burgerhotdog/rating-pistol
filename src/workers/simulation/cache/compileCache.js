@@ -1,5 +1,5 @@
 import { mergeObj, mergeEquipList, compileBaseMap } from '@/utils';
-import { normalizeActions } from './actions';
+import { getMemberActions } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
 
@@ -28,7 +28,7 @@ const convertRotation = (ctx, member, actions) => {
       }
     }
 
-    rotationTime += action.duration;
+    rotationTime += action.duration ?? 0;
     rotation.push(action);
   }
 
@@ -58,7 +58,12 @@ export const compileCache = (gameId, team) => {
   const memberIds = team.map((member) => member.id);
   const ctx = { gameId, memberIds };
 
-  const actions = {};
+  // normalize actions
+  const teamActions = {};
+  for (const member of team) {
+    teamActions[member.id] = getMemberActions(member, { gameId, teamSize: memberIds.length });
+  }
+
   const effect = {};
   const passive = [];
   const memberCache = {};
@@ -66,18 +71,14 @@ export const compileCache = (gameId, team) => {
   let fullRotationTime = 0;
 
   for (const member of team) {
-    actions[member.id] = normalizeActions(ctx, member);
-  }
-
-  for (const member of team) {
     const baseMap = compileBaseMap(gameId, member.id, member.weaponId);
     const equipMap = createEquipMap(member);
     const statMap = mergeObj(baseMap, equipMap);
 
-    const { rotation, rotationTime } = convertRotation(ctx, member, actions[member.id]);
+    const { rotation, rotationTime } = convertRotation(ctx, member, teamActions[member.id]);
     fullRotationTime += rotationTime;
 
-    const { passives: currPassives, effectsByAction, specialEffects } = normalizeEffects(ctx, member, actions);
+    const { passives: currPassives, effectsByAction, specialEffects } = normalizeEffects(ctx, member, teamActions);
 
     special.push(...specialEffects);
 
@@ -109,7 +110,7 @@ export const compileCache = (gameId, team) => {
     special,
   };
 
-  cacheTuneResponses(cache, actions);
+  cacheTuneResponses(cache, teamActions);
 
   return cache;
 };

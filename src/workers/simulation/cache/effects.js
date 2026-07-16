@@ -2,137 +2,129 @@ import { CHARACTER, WEAPON, SET } from '@/data';
 import { toArray, mergeObj } from '@/utils';
 import { enableIf } from './enableIf';
 import { applyOn } from './applyOn';
-import { normalizeAction, compressMultipliers } from './actions';
+import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
-const mergeVariableStatMaps = (...maps) => {
-  return maps.reduce((acc, map = {}) => {
-    for (const [statId, details] of Object.entries(map)) {
-      (acc[statId] ??= []).push(details);
-    }
-    return acc;
-  }, {});
-};
+function resolveApplyTo(effect, memberIds) {
+  const { applyTo, ownerId } = effect;
 
-const resolveApplyTo = (applyTo, ownerId, memberIds) => {
   switch (applyTo) {
     case undefined:
-      return [ownerId];
-
+      effect.applyTo = [ownerId];
+      break;
     case 'team':
-      return memberIds;
-
+      effect.applyTo = memberIds;
+      break;
     case 'ally':
-      return memberIds.filter((id) => id !== ownerId);
-
+      effect.applyTo = memberIds.filter((id) => id !== ownerId);
+      break;
     case 'first':
-      return [memberIds[0]];
-
+      effect.applyTo = [memberIds[0]];
+      break;
     case 'next':
-      return [memberIds.at(memberIds.indexOf(ownerId) - 1)];
-
+      effect.applyTo = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
+      break;
     default:
-      return [applyTo];
+      effect.applyTo = [applyTo];
   }
 };
 
-const normalizeEffect = (ctx, member, effectId, effect, actions) => {
-  const { gameId, memberIds } = ctx;
+function resolveRankMods(effect, memberRank) {
+  const { rankMods } = effect;
 
-  const resolved = {
-    ...effect,
-    ownerId: member.id,
-    applyTo: resolveApplyTo(effect.applyTo, member.id, memberIds),
-  };
+  for (const [rank, modSpec] of Object.entries(rankMods)) {
+    if (Number(rank) > memberRank) continue;
 
-  resolved.rank ??= 0;
-  resolved.chance ??= 1;
-  resolved.maxUses ??= Infinity;
+    for (const [key, add] of Object.entries(modSpec)) {
+      if (!(key in effect)) {
+        effect[key] = add;
+        continue;
+      }
 
-  if ('rankedStatMap' in effect) {
-    const { rankedStatMap } = effect;
-    const statMap = {};
-  
-    for (const [statId, valueParams] of Object.entries(rankedStatMap)) {
-      statMap[statId] = resolveRankedValue(valueParams, member.weaponRank);
+      const prev = effect[key];
+      if (typeof prev === 'object' && !Array.isArray(prev)) {
+        effect[key] = mergeObj(prev, add);
+      } else if (typeof add === 'number') {
+        effect[key] += add;
+      } else {
+        effect[key] = [
+          ...toArray(effect[key]),
+          ...toArray(add),
+        ];
+      }
     }
-  
-    resolved.statMap = mergeObj(effect.statMap ?? {}, statMap);
+  }
+}
+
+const toNormalizedEffect = (rawEffect, ctx, member, effectId, memberActions) => {
+  const { gameId, memberIds } = ctx;
+  const { id: memberId, rank: memberRank, weaponRank } = member;
+
+  const resolveStatValue = (value) =>
+    typeof value === 'number'
+      ? value
+      : resolveRankedValue(value, weaponRank);
+
+  const effect = { ...rawEffect };
+
+  effect.ownerId = memberId;
+  resolveApplyTo(effect, memberIds);
+
+  // Resolve ranked statMaps
+  if (effect.statMap) {
+    effect.statMap = { ...effect.statMap };
+
+    for (const [statId, value] of Object.entries(effect.statMap)) {
+      effect.statMap[statId] = resolveStatValue(value);
+    }
   }
 
-  if ('variableStatMap' in effect) {
-    resolved.variableStatMap = mergeVariableStatMaps(effect.variableStatMap);
+  // Resolve ranked variableStatMaps
+  if (effect.variableStatMap) {
+    effect.variableStatMap = { ...effect.variableStatMap };
+
+    for (const [statId, spec] of Object.entries(effect.variableStatMap)) {
+      const resolvedSpec = { ...spec };
+      effect.variableStatMap[statId] = resolvedSpec;
+
+      for (const [field, value] of Object.entries(resolvedSpec)) {
+        if (typeof value === 'string') continue;
+        resolvedSpec[field] = resolveStatValue(value);
+      }
+    }
   }
 
   for (const actionType of ['followUpAction', 'intervalAction']) {
     if (actionType in effect) {
       const effectActions = toArray(effect[actionType]);
-      resolved[actionType] = [];
 
-      for (const [index, linkedAction] of effectActions.entries()) {
-        if (typeof linkedAction === 'string') {
-          resolved[actionType].push(actions[linkedAction]);
+      effect[actionType] = [];
+      for (const [index, rawlinkedAction] of effectActions.entries()) {
+        if (typeof rawlinkedAction === 'string') {
+          effect[actionType].push(memberActions[rawlinkedAction]);
         } else {
-          const inlineId = String(index + 1);
-          const inlineShort = `effect${effectId}.${inlineId}`;
-          const inlineKey = `${member.id}:${inlineShort}`;
-
-          const inline = {
-            ...normalizeAction(ctx, member.id, linkedAction),
-            key: inlineKey,
-            short: inlineShort,
-            id: inlineId,
-          };
-
-          if (inline.type === 'damage') {
-            inline.element ??= CHARACTER[gameId][member.id].element;
-          }
-
-          if ('rankedMultipliers' in inline) {
-            inline.compressed = compressMultipliers(inline.rankedMultipliers, { attr: inline.attr, weaponId: member.weaponId })
-          } else {
-            inline.compressed = compressMultipliers(toArray(inline.fixedMultipliers), { attr: inline.attr });
-          }
-
-          resolved[actionType].push(inline);
+          effect[actionType].push(toNormalizedAction(rawlinkedAction, {
+            gameId,
+            ownerId: memberId,
+            category: `effect${effectId}`,
+            actionId: String(index + 1),
+            teamSize: memberIds.length,
+            weaponRank,
+          }));
         }
       }
 
       if (actionType === 'intervalAction') {
-        resolved.intervalCooldown ??= 1000;
-      }
-
-      resolved.times ??= 1;
-    }
-  }
-
-  if ('rankMods' in effect) {
-    for (const [rank, mod] of Object.entries(effect.rankMods)) {
-      if (Number(rank) > member.rank) {
-        continue;
-      }
-
-      for (const [key, add] of Object.entries(mod)) {
-        const prev = resolved[key];
-
-        if (prev == null) {
-          resolved[key] = add;
-        } else if (key === 'variableStatMap') {
-          resolved.variableStatMap = mergeVariableStatMaps(prev, add);
-        } else if (typeof prev === 'object' && !Array.isArray(prev)) {
-          resolved[key] = mergeObj(prev, add);
-        } else if (typeof add === 'number') {
-          resolved[key] += add;
-        } else if (typeof add === 'string') {
-          resolved[key].push(add);
-        } else {
-          resolved[key].push(...add);
-        }
+        effect.intervalCooldown ??= 1000;
       }
     }
   }
 
-  return resolved;
+  if (effect.rankMods) {
+    resolveRankMods(effect, memberRank);
+  }
+
+  return effect;
 };
 
 export const normalizeEffects = (ctx, member, actions) => {
@@ -155,16 +147,16 @@ export const normalizeEffects = (ctx, member, actions) => {
   const effectsByAction = {};
   const specialEffects = [];
 
-  for (const [index, effect] of toNormalize.entries()) {
+  for (const [index, rawEffect] of toNormalize.entries()) {
     const effectId = String(index + 1);
     const effectKey = `${member.id}:EFFECT_${effectId}`;
 
-    if (!enableIf(effect, CHARACTER[ctx.gameId][member.id])) {
+    if (!enableIf(rawEffect, CHARACTER[ctx.gameId][member.id])) {
       continue;
     }
 
     const resolved = {
-      ...normalizeEffect(ctx, member, effectId, effect, actions[member.id]),
+      ...toNormalizedEffect(rawEffect, ctx, member, effectId, actions[member.id]),
       key: effectKey,
       id: effectId,
     };
