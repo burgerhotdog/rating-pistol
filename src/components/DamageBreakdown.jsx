@@ -24,16 +24,13 @@ const BREAKDOWN_MODES = [
   { value: 'fieldStatus', label: 'Field' },
 ];
 
-const buildData = (summary, charId, breakdownMode) => {
+const buildData = (summary, currId, breakdownMode) => {
   const damageByType = {};
 
   // TODO: branch on breakdownMode once fieldStatus grouping is implemented.
   // For now this always groups by dmgType regardless of the selected mode.
   for (const { ownerId, type, dmgType, value } of Object.values(summary)) {
-    if (ownerId !== charId || type !== 'damage') {
-      continue;
-    }
-
+    if (ownerId !== currId || type !== 'damage') continue;
     damageByType[dmgType] ??= 0;
     damageByType[dmgType] += value;
   }
@@ -47,14 +44,9 @@ const buildData = (summary, charId, breakdownMode) => {
     .sort((a, b) => b.value - a.value);
 
   const total = entries.reduce((acc, entry) => acc + entry.value, 0);
-  let cumulative = 0;
-
   return entries.map((entry) => {
-    const rank = cumulative / total;
     const percent = entry.value / total;
-    cumulative += entry.value;
-
-    return { ...entry, rank, percent };
+    return { ...entry, percent };
   });
 };
 
@@ -110,8 +102,8 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
         <ChartFill>
           <PieChart>
             <Pie data={data} dataKey="value">
-              {data.map(({ name, rank }) => {
-                const fill = alpha(darken(elementColor, rank * 0.7), 0.9);
+              {data.map(({ name, percent }) => {
+                const fill = alpha(darken(elementColor, (1 - percent) * 0.7), 0.9);
                 return (<Cell key={name} fill={fill} stroke="none" />);
               })}
             </Pie>
@@ -152,8 +144,8 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
           </TextField>
 
           <Stack spacing={0.5} sx={{ flexGrow: 1, justifyContent: 'center' }}>
-            {data.map(({ name, value, rank, percent }) => {
-              const fill = alpha(darken(elementColor, rank * 0.7), 0.9);
+            {data.map(({ name, percent }) => {
+              const fill = alpha(darken(elementColor, (1 - percent) * 0.7), 0.9);
 
               return (
                 <Stack

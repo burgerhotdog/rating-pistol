@@ -1,236 +1,191 @@
 import { CHARACTER, WEAPON, SET } from '@/data';
 import { toArray, mergeObj } from '@/utils';
-import { matchApplyOn } from '../match';
-import { normalizeAction, compressMultipliers } from './actions';
+import { enableIf } from './enableIf';
+import { applyOn } from './applyOn';
+import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
-const mergeVariableStatMaps = (...maps) => {
-  return maps.reduce((acc, map = {}) => {
-    for (const [statId, details] of Object.entries(map)) {
-      (acc[statId] ??= []).push(details);
-    }
-    return acc;
-  }, {});
-};
+function resolveApplyTo(effect, memberIds) {
+  const { applyTo, ownerId } = effect;
 
-const resolveApplyTo = (applyTo, ownerId, memberIds) => {
   switch (applyTo) {
     case undefined:
-      return [ownerId];
-
+      effect.applyTo = [ownerId];
+      break;
     case 'team':
-      return memberIds;
-
+      effect.applyTo = memberIds;
+      break;
     case 'ally':
-      return memberIds.filter((id) => id !== ownerId);
-
+      effect.applyTo = memberIds.filter((id) => id !== ownerId);
+      break;
     case 'first':
-      return [memberIds[0]];
-
+      effect.applyTo = [memberIds[0]];
+      break;
     case 'next':
-      return [memberIds.at(memberIds.indexOf(ownerId) - 1)];
-
+      effect.applyTo = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
+      break;
     default:
-      return [applyTo];
+      effect.applyTo = [applyTo];
   }
 };
 
-const normalizeEffect = (ctx, member, effectId, effect, actions) => {
-  const { gameId, memberIds } = ctx;
+function resolveRankMods(effect, memberRank) {
+  const { rankMods } = effect;
 
-  const resolved = {
-    ...effect,
-    ownerId: member.id,
-    applyTo: resolveApplyTo(effect.applyTo, member.id, memberIds),
+  for (const [rank, modSpec] of Object.entries(rankMods)) {
+    if (Number(rank) > memberRank) continue;
+
+    for (const [key, add] of Object.entries(modSpec)) {
+      if (!(key in effect)) {
+        effect[key] = add;
+        continue;
+      }
+
+      const prev = effect[key];
+      if (typeof prev === 'object' && !Array.isArray(prev)) {
+        effect[key] = mergeObj(prev, add);
+      } else if (typeof add === 'number') {
+        effect[key] += add;
+      } else {
+        effect[key] = [
+          ...toArray(effect[key]),
+          ...toArray(add),
+        ];
+      }
+    }
+  }
+}
+
+const toNormalizedEffect = (rawEffect, spec) => {
+  const {
+    gameId, ownerId, effectId,
+    memberRank, weaponRank, memberIds, memberActions,
+  } = spec;
+
+  const resolveStatValue = (value) =>
+    typeof value === 'number'
+      ? value
+      : resolveRankedValue(value, weaponRank);
+
+  const effect = {
+    ...rawEffect,
+    ownerId,
+    key: `${ownerId}:effect${effectId}`,
+    id: effectId,
   };
 
-  resolved.rank ??= 0;
-  resolved.chance ??= 1;
-  resolved.duration ??= Infinity;
-  resolved.maxUses ??= Infinity;
-  resolved.maxStacks ??= 1;
+  resolveApplyTo(effect, memberIds);
 
-  for (const TRIGGER of ['apply', 'use', 'remove']) {
-    for (const FILTER of ['Action', 'Type', 'Tagged', 'SkillType', 'DmgType']) {
-      const key = `${TRIGGER}On${FILTER}`;
-      const value = effect[key];
-      if (value == null) continue;
+  // Resolve ranked statMaps
+  if (effect.statMap) {
+    effect.statMap = { ...effect.statMap };
 
-      resolved[key] = toArray(value);
+    for (const [statId, value] of Object.entries(effect.statMap)) {
+      effect.statMap[statId] = resolveStatValue(value);
     }
   }
 
-  if (effect.useOnElement) {
-    resolved.useOnElement = toArray(effect.useOnElement);
-  }
+  // Resolve ranked variableStatMaps
+  if (effect.variableStatMap) {
+    effect.variableStatMap = { ...effect.variableStatMap };
 
-  if (effect.useIfElement) {
-    resolved.useIfElement = toArray(effect.useIfElement);
-  }
+    for (const [statId, spec] of Object.entries(effect.variableStatMap)) {
+      const resolvedSpec = { ...spec };
+      effect.variableStatMap[statId] = resolvedSpec;
 
-  if (effect.useIfShifting) {
-    resolved.useIfShifting = toArray(effect.useIfShifting);
-  }
-
-  if (effect.useIfInterfered) {
-    resolved.useIfInterfered = toArray(effect.useIfInterfered);
-  }
-
-  if (effect.useIfWeapon) {
-    resolved.useIfWeapon = toArray(effect.useIfWeapon);
-  }
-
-  if (effect.useIfTagged) {
-    resolved.useIfTagged = toArray(effect.useIfTagged);
-  }
-
-  if (effect.applyIfInflict) {
-    resolved.applyIfInflict = toArray(effect.applyIfInflict);
-  }
-
-  if ('rankedStatMap' in effect) {
-    const { rankedStatMap } = effect;
-    const statMap = {};
-  
-    for (const [statId, valueParams] of Object.entries(rankedStatMap)) {
-      statMap[statId] = resolveRankedValue(valueParams, member.weaponRank);
+      for (const [field, value] of Object.entries(resolvedSpec)) {
+        if (typeof value === 'string') continue;
+        resolvedSpec[field] = resolveStatValue(value);
+      }
     }
-  
-    resolved.statMap = mergeObj(effect.statMap ?? {}, statMap);
-  }
-
-  if ('variableStatMap' in effect) {
-    resolved.variableStatMap = mergeVariableStatMaps(effect.variableStatMap);
   }
 
   for (const actionType of ['followUpAction', 'intervalAction']) {
     if (actionType in effect) {
       const effectActions = toArray(effect[actionType]);
-      resolved[actionType] = [];
 
-      for (const [index, linkedAction] of effectActions.entries()) {
-        if (typeof linkedAction === 'string') {
-          resolved[actionType].push(actions[linkedAction]);
+      effect[actionType] = [];
+      for (const [index, rawlinkedAction] of effectActions.entries()) {
+        if (typeof rawlinkedAction === 'string') {
+          effect[actionType].push(memberActions[rawlinkedAction]);
         } else {
-          const inlineId = String(index + 1);
-          const inlineShort = `effect${effectId}.${inlineId}`;
-          const inlineKey = `${member.id}:${inlineShort}`;
-
-          const inline = {
-            ...normalizeAction(ctx, member.id, linkedAction),
-            key: inlineKey,
-            short: inlineShort,
-            id: inlineId,
-          };
-
-          if (inline.type === 'damage') {
-            inline.element ??= CHARACTER[gameId][member.id].element;
-          }
-
-          if ('rankedMultipliers' in inline) {
-            inline.compressed = compressMultipliers(inline.indexedMultipliers, { attr: inline.attr, weaponId: member.weaponId })
-          } else {
-            inline.compressed = compressMultipliers(toArray(inline.fixedMultipliers), { attr: inline.attr });
-          }
-
-          resolved[actionType].push(inline);
+          effect[actionType].push(toNormalizedAction(rawlinkedAction, {
+            gameId,
+            ownerId,
+            category: `effect${effectId}`,
+            actionId: String(index + 1),
+            teamSize: memberIds.length,
+            weaponRank,
+          }));
         }
       }
 
       if (actionType === 'intervalAction') {
-        resolved.intervalCooldown ??= 1000;
-      }
-
-      resolved.times ??= 1;
-    }
-  }
-
-  if ('rankMods' in effect) {
-    for (const [rank, mod] of Object.entries(effect.rankMods)) {
-      if (Number(rank) > member.rank) {
-        continue;
-      }
-
-      for (const [key, add] of Object.entries(mod)) {
-        const prev = resolved[key];
-
-        if (prev == null) {
-          resolved[key] = add;
-        } else if (key === 'variableStatMap') {
-          resolved.variableStatMap = mergeVariableStatMaps(prev, add);
-        } else if (typeof prev === 'object' && !Array.isArray(prev)) {
-          resolved[key] = mergeObj(prev, add);
-        } else if (typeof add === 'number') {
-          resolved[key] += add;
-        } else if (typeof add === 'string') {
-          resolved[key].push(add);
-        } else {
-          resolved[key].push(...add);
-        }
+        effect.intervalCooldown ??= 1000;
       }
     }
   }
 
-  return resolved;
+  if (effect.rankMods) {
+    resolveRankMods(effect, memberRank);
+  }
+
+  return effect;
 };
 
 export const normalizeEffects = (ctx, member, actions) => {
+  const { gameId, memberIds } = ctx;
+  const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts } = member;
+
   const toNormalize = [
-    ...toArray(CHARACTER[ctx.gameId][member.id].effects)
-      .filter((effect) => (effect.rank ?? 0) <= member.rank),
-    ...toArray(WEAPON[ctx.gameId][member.weaponId].effects),
+    ...toArray(CHARACTER[gameId][memberId].effects)
+      .filter((effect) => (effect.rank ?? 0) <= memberRank),
+    ...toArray(WEAPON[gameId][weaponId].effects),
+    ...Object.entries(setCounts)
+      .flatMap(([setId, count]) =>
+        Object.entries(SET[gameId][setId].tieredEffects ?? {})
+          .filter(([tier]) => Number(tier) <= count)
+          .flatMap(([, effects]) => toArray(effects))),
   ];
 
-  for (const [setId, count] of Object.entries(member.setCounts)) {
-    const { tieredEffects = {} } = SET[ctx.gameId][setId];
-
-    for (const [tier, effects] of Object.entries(tieredEffects)) {
-      if (Number(tier) > count) continue;
-      toNormalize.push(...toArray(effects));
-    }
-  }
-
-  const passivesbyTarget = {};
+  const passives = [];
   const effectsByAction = {};
   const specialEffects = [];
 
-  for (const [index, effect] of toNormalize.entries()) {
-    const effectId = String(index + 1);
-    const effectKey = `${member.id}:EFFECT_${effectId}`;
+  for (const [index, rawEffect] of toNormalize.entries()) {
+    if (!enableIf(rawEffect, CHARACTER[gameId][memberId])) continue;
 
-    const resolved = {
-      ...normalizeEffect(ctx, member, effectId, effect, actions[member.id]),
-      key: effectKey,
-      id: effectId,
-    };
+    const effect = toNormalizedEffect(rawEffect, {
+      gameId,
+      ownerId: memberId,
+      effectId: String(index + 1),
+      memberRank,
+      weaponRank,
+      memberIds,
+      memberActions: actions[memberId],
+    });
 
-    if ('applyOnSpecial' in resolved) {
-      specialEffects.push(resolved);
+    if (effect.applyOnSpecial) { // special
+      specialEffects.push(effect);
       continue;
     }
 
-    if ('applyWhen' in resolved) { // active
-      const actionsList = resolved.applyBy === 'team'
-        ? Object.values(actions).flatMap((actionMap) => Object.values(actionMap))
-        : Object.values(actions[member.id]);
+    if (!effect.applyWhen) { // passive
+      passives.push(effect);
+      continue;
+    }
 
-      for (const action of actionsList) {
-        if (!matchApplyOn(action, resolved)) {
-          continue;
-        }
+    // active
+    const actionsList = effect.applyBy === 'team'
+      ? Object.values(actions).flatMap((actionMap) => Object.values(actionMap))
+      : Object.values(actions[memberId]);
 
-        effectsByAction[action.key] ??= [];
-        effectsByAction[action.key].push(resolved);
-      }
-    } else { // passive
-      const targets = resolved.applyTo;
-
-      for (const target of targets) {
-        passivesbyTarget[target] ??= []
-        passivesbyTarget[target].push(resolved);
-      }
+    for (const action of actionsList) {
+      if (!applyOn(effect, action)) continue;
+      effectsByAction[action.key] ??= [];
+      effectsByAction[action.key].push(effect);
     }
   }
 
-  return { passivesbyTarget, effectsByAction, specialEffects };
+  return { passives, effectsByAction, specialEffects };
 };

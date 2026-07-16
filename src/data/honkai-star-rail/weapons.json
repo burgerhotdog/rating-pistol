@@ -1,7 +1,7 @@
-[
-  {
-    "id": "20000",
+{
+  "20000": {
     "name": "Arrows",
+    "version": 1,
     "quality": 3,
     "type": "hunt",
     "stats": {
@@ -10,9 +10,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20001",
+  "20001": {
     "name": "Cornucopia",
+    "version": 1,
     "quality": 3,
     "type": "abundance",
     "stats": {
@@ -21,9 +21,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20002",
+  "20002": {
     "name": "Collapsing Sky",
+    "version": 1,
     "quality": 3,
     "type": "destruction",
     "stats": {
@@ -32,9 +32,9 @@
       "baseDef": 198
     }
   },
-  {
-    "id": "20003",
+  "20003": {
     "name": "Amber",
+    "version": 1,
     "quality": 3,
     "type": "preservation",
     "stats": {
@@ -43,9 +43,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "20004",
+  "20004": {
     "name": "Void",
+    "version": 1,
     "quality": 3,
     "type": "nihility",
     "stats": {
@@ -54,9 +54,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20005",
+  "20005": {
     "name": "Chorus",
+    "version": 1,
     "quality": 3,
     "type": "harmony",
     "stats": {
@@ -65,9 +65,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20006",
+  "20006": {
     "name": "Data Bank",
+    "version": 1,
     "quality": 3,
     "type": "erudition",
     "stats": {
@@ -76,9 +76,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20007",
+  "20007": {
     "name": "Darting Arrow",
+    "version": 1,
     "quality": 3,
     "type": "hunt",
     "stats": {
@@ -87,9 +87,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20008",
+  "20008": {
     "name": "Fine Fruit",
+    "version": 1,
     "quality": 3,
     "type": "abundance",
     "stats": {
@@ -98,9 +98,9 @@
       "baseDef": 198
     }
   },
-  {
-    "id": "20009",
+  "20009": {
     "name": "Shattered Home",
+    "version": 1,
     "quality": 3,
     "type": "destruction",
     "stats": {
@@ -109,9 +109,9 @@
       "baseDef": 198
     }
   },
-  {
-    "id": "20010",
-    "name": "DEFENSE",
+  "20010": {
+    "name": "Defense",
+    "version": 1,
     "quality": 3,
     "type": "preservation",
     "stats": {
@@ -120,9 +120,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20011",
+  "20011": {
     "name": "Loop",
+    "version": 1,
     "quality": 3,
     "type": "nihility",
     "stats": {
@@ -131,9 +131,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20012",
+  "20012": {
     "name": "Meshing Cogs",
+    "version": 1,
     "quality": 3,
     "type": "harmony",
     "stats": {
@@ -142,9 +142,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20013",
+  "20013": {
     "name": "Passkey",
+    "version": 1,
     "quality": 3,
     "type": "erudition",
     "stats": {
@@ -153,9 +153,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20014",
+  "20014": {
     "name": "Adversarial",
+    "version": 1,
     "quality": 3,
     "type": "hunt",
     "stats": {
@@ -164,9 +164,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20015",
+  "20015": {
     "name": "Multiplication",
+    "version": 1,
     "quality": 3,
     "type": "abundance",
     "stats": {
@@ -175,9 +175,9 @@
       "baseDef": 198
     }
   },
-  {
-    "id": "20016",
+  "20016": {
     "name": "Mutual Demise",
+    "version": 1,
     "quality": 3,
     "type": "destruction",
     "stats": {
@@ -186,9 +186,9 @@
       "baseDef": 198
     }
   },
-  {
-    "id": "20017",
+  "20017": {
     "name": "Pioneering",
+    "version": 1,
     "quality": 3,
     "type": "preservation",
     "stats": {
@@ -197,9 +197,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20018",
+  "20018": {
     "name": "Hidden Shadow",
+    "version": 1,
     "quality": 3,
     "type": "nihility",
     "stats": {
@@ -208,9 +208,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20019",
+  "20019": {
     "name": "Mediation",
+    "version": 1,
     "quality": 3,
     "type": "harmony",
     "stats": {
@@ -219,9 +219,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20020",
+  "20020": {
     "name": "Sagacity",
+    "version": 1,
     "quality": 3,
     "type": "erudition",
     "stats": {
@@ -230,9 +230,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "21000",
+  "21000": {
     "name": "Post-Op Conversation",
+    "version": 1,
     "quality": 4,
     "type": "abundance",
     "stats": {
@@ -241,9 +241,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21001",
+  "21001": {
     "name": "Good Night and Sleep Well",
+    "version": 1,
     "quality": 4,
     "type": "nihility",
     "stats": {
@@ -252,9 +252,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21002",
+  "21002": {
     "name": "Day One of My New Life",
+    "version": 1,
     "quality": 4,
     "type": "preservation",
     "stats": {
@@ -263,9 +263,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "21003",
+  "21003": {
     "name": "Only Silence Remains",
+    "version": 1,
     "quality": 4,
     "type": "hunt",
     "stats": {
@@ -274,9 +274,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21004",
+  "21004": {
     "name": "Memories of the Past",
+    "version": 1,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -285,9 +285,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21005",
+  "21005": {
     "name": "The Moles Welcome You",
+    "version": 1,
     "quality": 4,
     "type": "destruction",
     "stats": {
@@ -296,9 +296,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "21006",
+  "21006": {
     "name": "The Birth of the Self",
+    "version": 1,
     "quality": 4,
     "type": "erudition",
     "stats": {
@@ -307,9 +307,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21007",
+  "21007": {
     "name": "Shared Feeling",
+    "version": 1,
     "quality": 4,
     "type": "abundance",
     "stats": {
@@ -318,9 +318,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21008",
+  "21008": {
     "name": "Eyes of the Prey",
+    "version": 1,
     "quality": 4,
     "type": "nihility",
     "stats": {
@@ -329,9 +329,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21009",
+  "21009": {
     "name": "Landau's Choice",
+    "version": 1,
     "quality": 4,
     "type": "preservation",
     "stats": {
@@ -340,9 +340,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21010",
+  "21010": {
     "name": "Swordplay",
+    "version": 1,
     "quality": 4,
     "type": "hunt",
     "stats": {
@@ -351,9 +351,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21011",
+  "21011": {
     "name": "Planetary Rendezvous",
+    "version": 1,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -362,9 +362,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21012",
+  "21012": {
     "name": "A Secret Vow",
+    "version": 1,
     "quality": 4,
     "type": "destruction",
     "stats": {
@@ -373,9 +373,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "21013",
+  "21013": {
     "name": "Make the World Clamor",
+    "version": 1,
     "quality": 4,
     "type": "erudition",
     "stats": {
@@ -384,9 +384,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21014",
+  "21014": {
     "name": "Perfect Timing",
+    "version": 1,
     "quality": 4,
     "type": "abundance",
     "stats": {
@@ -395,9 +395,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21015",
+  "21015": {
     "name": "Resolution Shines As Pearls of Sweat",
+    "version": 1,
     "quality": 4,
     "type": "nihility",
     "stats": {
@@ -406,9 +406,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21016",
+  "21016": {
     "name": "Trend of the Universal Market",
+    "version": 1,
     "quality": 4,
     "type": "preservation",
     "stats": {
@@ -417,9 +417,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21017",
+  "21017": {
     "name": "Subscribe for More!",
+    "version": 1,
     "quality": 4,
     "type": "hunt",
     "stats": {
@@ -428,9 +428,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21018",
+  "21018": {
     "name": "Dance! Dance! Dance!",
+    "version": 1,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -439,9 +439,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21019",
+  "21019": {
     "name": "Under the Blue Sky",
+    "version": 1,
     "quality": 4,
     "type": "destruction",
     "stats": {
@@ -450,9 +450,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21020",
+  "21020": {
     "name": "Geniuses' Repose",
+    "version": 1,
     "quality": 4,
     "type": "erudition",
     "stats": {
@@ -461,9 +461,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21021",
+  "21021": {
     "name": "Quid Pro Quo",
+    "version": 1,
     "quality": 4,
     "type": "abundance",
     "stats": {
@@ -472,9 +472,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21022",
+  "21022": {
     "name": "Fermata",
+    "version": 1,
     "quality": 4,
     "type": "nihility",
     "stats": {
@@ -483,9 +483,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21023",
+  "21023": {
     "name": "We Are Wildfire",
+    "version": 1,
     "quality": 4,
     "type": "preservation",
     "stats": {
@@ -494,9 +494,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "21024",
+  "21024": {
     "name": "River Flows in Spring",
+    "version": 1,
     "quality": 4,
     "type": "hunt",
     "stats": {
@@ -505,9 +505,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21025",
+  "21025": {
     "name": "Past and Future",
+    "version": 1,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -516,9 +516,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21026",
+  "21026": {
     "name": "Woof! Walk Time!",
+    "version": 1,
     "quality": 4,
     "type": "destruction",
     "stats": {
@@ -527,9 +527,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21027",
+  "21027": {
     "name": "The Seriousness of Breakfast",
+    "version": 1,
     "quality": 4,
     "type": "erudition",
     "stats": {
@@ -538,9 +538,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21028",
+  "21028": {
     "name": "Warmth Shortens Cold Nights",
+    "version": 1,
     "quality": 4,
     "type": "abundance",
     "stats": {
@@ -549,9 +549,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21029",
+  "21029": {
     "name": "We Will Meet Again",
+    "version": 1,
     "quality": 4,
     "type": "nihility",
     "stats": {
@@ -560,9 +560,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21030",
+  "21030": {
     "name": "This Is Me!",
+    "version": 1,
     "quality": 4,
     "type": "preservation",
     "stats": {
@@ -571,9 +571,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "21031",
+  "21031": {
     "name": "Return to Darkness",
+    "version": 1,
     "quality": 4,
     "type": "hunt",
     "stats": {
@@ -582,9 +582,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21032",
+  "21032": {
     "name": "Carve the Moon, Weave the Clouds",
+    "version": 1,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -593,9 +593,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21033",
+  "21033": {
     "name": "Nowhere to Run",
+    "version": 1,
     "quality": 4,
     "type": "destruction",
     "stats": {
@@ -604,9 +604,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "21034",
+  "21034": {
     "name": "Today Is Another Peaceful Day",
+    "version": 1,
     "quality": 4,
     "type": "erudition",
     "stats": {
@@ -615,9 +615,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "23000",
+  "23000": {
     "name": "Night on the Milky Way",
+    "version": 1,
     "quality": 5,
     "type": "erudition",
     "stats": {
@@ -626,9 +626,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23001",
+  "23001": {
     "name": "In the Night",
+    "version": 1,
     "quality": 5,
     "type": "hunt",
     "stats": {
@@ -637,9 +637,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23002",
+  "23002": {
     "name": "Something Irreplaceable",
+    "version": 1,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -648,9 +648,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23003",
+  "23003": {
     "name": "But the Battle Isn't Over",
+    "version": 1,
     "quality": 5,
     "type": "harmony",
     "stats": {
@@ -659,9 +659,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23004",
+  "23004": {
     "name": "In the Name of the World",
+    "version": 1,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -670,9 +670,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23005",
+  "23005": {
     "name": "Moment of Victory",
+    "version": 1,
     "quality": 5,
     "type": "preservation",
     "stats": {
@@ -681,9 +681,9 @@
       "baseDef": 595
     }
   },
-  {
-    "id": "23010",
+  "23010": {
     "name": "Before Dawn",
+    "version": 1,
     "quality": 5,
     "type": "erudition",
     "stats": {
@@ -692,9 +692,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23012",
+  "23012": {
     "name": "Sleep Like the Dead",
+    "version": 1,
     "quality": 5,
     "type": "hunt",
     "stats": {
@@ -703,9 +703,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23013",
+  "23013": {
     "name": "Time Waits for No One",
+    "version": 1,
     "quality": 5,
     "type": "abundance",
     "stats": {
@@ -714,9 +714,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "24000",
+  "24000": {
     "name": "On the Fall of an Aeon",
+    "version": 1,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -725,9 +725,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "24001",
+  "24001": {
     "name": "Cruising in the Stellar Sea",
+    "version": 1,
     "quality": 5,
     "type": "hunt",
     "stats": {
@@ -736,9 +736,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "24002",
+  "24002": {
     "name": "Texture of Memories",
+    "version": 1,
     "quality": 5,
     "type": "preservation",
     "stats": {
@@ -747,9 +747,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "22000",
+  "22000": {
     "name": "Before the Tutorial Mission Starts",
+    "version": 1.1,
     "quality": 4,
     "type": "nihility",
     "stats": {
@@ -758,9 +758,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "23007",
+  "23007": {
     "name": "Incessant Rain",
+    "version": 1.1,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -769,9 +769,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23008",
+  "23008": {
     "name": "Echoes of the Coffin",
+    "version": 1.1,
     "quality": 5,
     "type": "abundance",
     "stats": {
@@ -780,9 +780,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23006",
+  "23006": {
     "name": "Patience Is All You Need",
+    "version": 1.2,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -791,9 +791,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23009",
+  "23009": {
     "name": "The Unreachable Side",
+    "version": 1.2,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -802,9 +802,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "23011",
+  "23011": {
     "name": "She Already Shut Her Eyes",
+    "version": 1.3,
     "quality": 5,
     "type": "preservation",
     "stats": {
@@ -813,9 +813,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23015",
+  "23015": {
     "name": "Brighter Than the Sun",
+    "version": 1.3,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -824,9 +824,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "24003",
+  "24003": {
     "name": "Solitary Healing",
+    "version": 1.3,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -835,9 +835,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23014",
+  "23014": {
     "name": "I Shall Be My Own Sword",
+    "version": 1.4,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -846,9 +846,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23016",
+  "23016": {
     "name": "Worrisome, Blissful",
+    "version": 1.4,
     "quality": 5,
     "type": "hunt",
     "stats": {
@@ -857,9 +857,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "22001",
+  "22001": {
     "name": "Hey, Over Here",
+    "version": 1.5,
     "quality": 4,
     "type": "abundance",
     "stats": {
@@ -868,9 +868,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23017",
+  "23017": {
     "name": "Night of Fright",
+    "version": 1.5,
     "quality": 5,
     "type": "abundance",
     "stats": {
@@ -879,9 +879,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23018",
+  "23018": {
     "name": "An Instant Before A Gaze",
+    "version": 1.5,
     "quality": 5,
     "type": "erudition",
     "stats": {
@@ -890,9 +890,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23019",
+  "23019": {
     "name": "Past Self in Mirror",
+    "version": 1.6,
     "quality": 5,
     "type": "harmony",
     "stats": {
@@ -901,9 +901,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23020",
+  "23020": {
     "name": "Baptism of Pure Thought",
+    "version": 1.6,
     "quality": 5,
     "type": "hunt",
     "stats": {
@@ -912,9 +912,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "21035",
+  "21035": {
     "name": "What Is Real?",
+    "version": 2,
     "quality": 4,
     "type": "abundance",
     "stats": {
@@ -923,9 +923,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21036",
+  "21036": {
     "name": "Dreamville Adventure",
+    "version": 2,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -934,9 +934,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21037",
+  "21037": {
     "name": "Final Victor",
+    "version": 2,
     "quality": 4,
     "type": "hunt",
     "stats": {
@@ -945,9 +945,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21038",
+  "21038": {
     "name": "Flames Afar",
+    "version": 2,
     "quality": 4,
     "type": "destruction",
     "stats": {
@@ -956,9 +956,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "21039",
+  "21039": {
     "name": "Destiny's Threads Forewoven",
+    "version": 2,
     "quality": 4,
     "type": "preservation",
     "stats": {
@@ -967,9 +967,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "21040",
+  "21040": {
     "name": "The Day The Cosmos Fell",
+    "version": 2,
     "quality": 4,
     "type": "erudition",
     "stats": {
@@ -978,9 +978,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21041",
+  "21041": {
     "name": "It's Showtime",
+    "version": 2,
     "quality": 4,
     "type": "nihility",
     "stats": {
@@ -989,9 +989,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "21042",
+  "21042": {
     "name": "Indelible Promise",
+    "version": 2,
     "quality": 4,
     "type": "destruction",
     "stats": {
@@ -1000,9 +1000,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "23021",
+  "23021": {
     "name": "Earthly Escapade",
+    "version": 2,
     "quality": 5,
     "type": "harmony",
     "stats": {
@@ -1011,9 +1011,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23022",
+  "23022": {
     "name": "Reforged Remembrance",
+    "version": 2,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -1022,9 +1022,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "21043",
+  "21043": {
     "name": "Concert for Two",
+    "version": 2.1,
     "quality": 4,
     "type": "preservation",
     "stats": {
@@ -1033,9 +1033,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23023",
+  "23023": {
     "name": "Inherently Unjust Destiny",
+    "version": 2.1,
     "quality": 5,
     "type": "preservation",
     "stats": {
@@ -1044,9 +1044,9 @@
       "baseDef": 662
     }
   },
-  {
-    "id": "23024",
+  "23024": {
     "name": "Along the Passing Shore",
+    "version": 2.1,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -1055,9 +1055,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21044",
+  "21044": {
     "name": "Boundless Choreo",
+    "version": 2.2,
     "quality": 4,
     "type": "nihility",
     "stats": {
@@ -1066,9 +1066,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "22002",
+  "22002": {
     "name": "For Tomorrow's Journey",
+    "version": 2.2,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -1077,9 +1077,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "23026",
+  "23026": {
     "name": "Flowing Nightglow",
+    "version": 2.2,
     "quality": 5,
     "type": "harmony",
     "stats": {
@@ -1088,9 +1088,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23027",
+  "23027": {
     "name": "Sailing Towards a Second Life",
+    "version": 2.2,
     "quality": 5,
     "type": "hunt",
     "stats": {
@@ -1099,9 +1099,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "21045",
+  "21045": {
     "name": "After the Charmony Fall",
+    "version": 2.3,
     "quality": 4,
     "type": "erudition",
     "stats": {
@@ -1110,9 +1110,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23025",
+  "23025": {
     "name": "Whereabouts Should Dreams Rest",
+    "version": 2.3,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -1121,9 +1121,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23028",
+  "23028": {
     "name": "Yet Hope Is Priceless",
+    "version": 2.3,
     "quality": 5,
     "type": "erudition",
     "stats": {
@@ -1132,9 +1132,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "24004",
+  "24004": {
     "name": "Eternal Calculus",
+    "version": 2.3,
     "quality": 5,
     "type": "erudition",
     "stats": {
@@ -1143,9 +1143,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21046",
+  "21046": {
     "name": "Poised to Bloom",
+    "version": 2.4,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -1154,9 +1154,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23029",
+  "23029": {
     "name": "Those Many Springs",
+    "version": 2.4,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -1165,9 +1165,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23030",
+  "23030": {
     "name": "Dance at Sunset",
+    "version": 2.4,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -1176,9 +1176,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "21047",
+  "21047": {
     "name": "Shadowed by Night",
+    "version": 2.5,
     "quality": 4,
     "type": "hunt",
     "stats": {
@@ -1187,9 +1187,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23031",
+  "23031": {
     "name": "I Venture Forth to Hunt",
+    "version": 2.5,
     "quality": 5,
     "type": "hunt",
     "stats": {
@@ -1198,9 +1198,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23032",
+  "23032": {
     "name": "Scent Alone Stays True",
+    "version": 2.5,
     "quality": 5,
     "type": "abundance",
     "stats": {
@@ -1209,9 +1209,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "21048",
+  "21048": {
     "name": "Dream's Montage",
+    "version": 2.6,
     "quality": 4,
     "type": "abundance",
     "stats": {
@@ -1220,9 +1220,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "22003",
+  "22003": {
     "name": "Ninja Record: Sound Hunt",
+    "version": 2.6,
     "quality": 4,
     "type": "destruction",
     "stats": {
@@ -1231,9 +1231,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "23033",
+  "23033": {
     "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
+    "version": 2.6,
     "quality": 5,
     "type": "erudition",
     "stats": {
@@ -1242,9 +1242,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23034",
+  "23034": {
     "name": "A Grounded Ascent",
+    "version": 2.7,
     "quality": 5,
     "type": "harmony",
     "stats": {
@@ -1253,9 +1253,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23035",
+  "23035": {
     "name": "Long Road Leads Home",
+    "version": 2.7,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -1264,9 +1264,9 @@
       "baseDef": 662
     }
   },
-  {
-    "id": "20021",
+  "20021": {
     "name": "Shadowburn",
+    "version": 3,
     "quality": 3,
     "type": "remembrance",
     "stats": {
@@ -1275,9 +1275,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20022",
+  "20022": {
     "name": "Reminiscence",
+    "version": 3,
     "quality": 3,
     "type": "remembrance",
     "stats": {
@@ -1286,9 +1286,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "21050",
+  "21050": {
     "name": "Victory In a Blink",
+    "version": 3,
     "quality": 4,
     "type": "remembrance",
     "stats": {
@@ -1297,9 +1297,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21051",
+  "21051": {
     "name": "Geniuses' Greetings",
+    "version": 3,
     "quality": 4,
     "type": "remembrance",
     "stats": {
@@ -1308,9 +1308,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21052",
+  "21052": {
     "name": "Sweat Now, Cry Less",
+    "version": 3,
     "quality": 4,
     "type": "remembrance",
     "stats": {
@@ -1319,9 +1319,9 @@
       "baseDef": 198
     }
   },
-  {
-    "id": "23036",
+  "23036": {
     "name": "Time Woven Into Gold",
+    "version": 3,
     "quality": 5,
     "type": "remembrance",
     "stats": {
@@ -1330,9 +1330,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23037",
+  "23037": {
     "name": "Into the Unreachable Veil",
+    "version": 3,
     "quality": 5,
     "type": "erudition",
     "stats": {
@@ -1341,9 +1341,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23038",
+  "23038": {
     "name": "If Time Were a Flower",
+    "version": 3.1,
     "quality": 5,
     "type": "harmony",
     "stats": {
@@ -1352,9 +1352,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23039",
+  "23039": {
     "name": "Flame of Blood, Blaze My Path",
+    "version": 3.1,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -1363,9 +1363,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "24005",
+  "24005": {
     "name": "Memory's Curtain Never Falls",
+    "version": 3.1,
     "quality": 5,
     "type": "remembrance",
     "stats": {
@@ -1374,9 +1374,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "22004",
+  "22004": {
     "name": "The Great Cosmic Enterprise",
+    "version": 3.2,
     "quality": 4,
     "type": "erudition",
     "stats": {
@@ -1385,9 +1385,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "23040",
+  "23040": {
     "name": "Make Farewells More Beautiful",
+    "version": 3.2,
     "quality": 5,
     "type": "remembrance",
     "stats": {
@@ -1396,9 +1396,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23041",
+  "23041": {
     "name": "Life Should Be Cast to Flames",
+    "version": 3.2,
     "quality": 5,
     "type": "erudition",
     "stats": {
@@ -1407,9 +1407,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23042",
+  "23042": {
     "name": "Long May Rainbows Adorn the Sky",
+    "version": 3.3,
     "quality": 5,
     "type": "remembrance",
     "stats": {
@@ -1418,9 +1418,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23043",
+  "23043": {
     "name": "Lies Dance on the Breeze",
+    "version": 3.3,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -1429,9 +1429,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "21053",
+  "21053": {
     "name": "Journey, Forever Peaceful",
+    "version": 3.4,
     "quality": 4,
     "type": "preservation",
     "stats": {
@@ -1440,9 +1440,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "21054",
+  "21054": {
     "name": "The Story's Next Page",
+    "version": 3.4,
     "quality": 4,
     "type": "remembrance",
     "stats": {
@@ -1451,9 +1451,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21055",
+  "21055": {
     "name": "Unto Tomorrow's Morrow",
+    "version": 3.4,
     "quality": 4,
     "type": "abundance",
     "stats": {
@@ -1462,9 +1462,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21056",
+  "21056": {
     "name": "In Pursuit of the Wind",
+    "version": 3.4,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -1473,9 +1473,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21057",
+  "21057": {
     "name": "The Flower Remembers",
+    "version": 3.4,
     "quality": 4,
     "type": "remembrance",
     "stats": {
@@ -1484,9 +1484,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21058",
+  "21058": {
     "name": "A Trail of Bygone Blood",
+    "version": 3.4,
     "quality": 4,
     "type": "destruction",
     "stats": {
@@ -1495,9 +1495,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21060",
+  "21060": {
     "name": "A Dream Scented in Wheat",
+    "version": 3.4,
     "quality": 4,
     "type": "erudition",
     "stats": {
@@ -1506,9 +1506,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21061",
+  "21061": {
     "name": "Holiday Thermae Escapade",
+    "version": 3.4,
     "quality": 4,
     "type": "nihility",
     "stats": {
@@ -1517,9 +1517,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "21062",
+  "21062": {
     "name": "See You at the End",
+    "version": 3.4,
     "quality": 4,
     "type": "hunt",
     "stats": {
@@ -1528,9 +1528,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23044",
+  "23044": {
     "name": "Thus Burns the Dawn",
+    "version": 3.4,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -1539,9 +1539,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23045",
+  "23045": {
     "name": "A Thankless Coronation",
+    "version": 3.4,
     "quality": 5,
     "type": "destruction",
     "stats": {
@@ -1550,9 +1550,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23046",
+  "23046": {
     "name": "The Hell Where Ideals Burn",
+    "version": 3.4,
     "quality": 5,
     "type": "hunt",
     "stats": {
@@ -1561,9 +1561,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "22005",
+  "22005": {
     "name": "The Forever Victual",
+    "version": 3.5,
     "quality": 4,
     "type": "harmony",
     "stats": {
@@ -1572,9 +1572,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "23047",
+  "23047": {
     "name": "Why Does the Ocean Sing",
+    "version": 3.5,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -1583,9 +1583,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23048",
+  "23048": {
     "name": "Epoch Etched in Golden Blood",
+    "version": 3.5,
     "quality": 5,
     "type": "harmony",
     "stats": {
@@ -1594,9 +1594,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23049",
+  "23049": {
     "name": "To Evernight's Stars",
+    "version": 3.6,
     "quality": 5,
     "type": "remembrance",
     "stats": {
@@ -1605,9 +1605,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23051",
+  "23051": {
     "name": "Though Worlds Apart",
+    "version": 3.6,
     "quality": 5,
     "type": "preservation",
     "stats": {
@@ -1616,9 +1616,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "22006",
+  "22006": {
     "name": "Fly Into a Pink Tomorrow",
+    "version": 3.7,
     "quality": 4,
     "type": "remembrance",
     "stats": {
@@ -1627,9 +1627,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23052",
+  "23052": {
     "name": "This Love, Forever",
+    "version": 3.7,
     "quality": 5,
     "type": "remembrance",
     "stats": {
@@ -1638,9 +1638,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23050",
+  "23050": {
     "name": "Never Forget Her Flame",
+    "version": 3.8,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -1649,9 +1649,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "20023",
+  "20023": {
     "name": "Sneering",
+    "version": 4,
     "quality": 3,
     "type": "elation",
     "stats": {
@@ -1660,9 +1660,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "20024",
+  "20024": {
     "name": "Lingering Tear",
+    "version": 4,
     "quality": 3,
     "type": "elation",
     "stats": {
@@ -1671,9 +1671,9 @@
       "baseDef": 265
     }
   },
-  {
-    "id": "21064",
+  "21064": {
     "name": "Mushy Shroomy's Adventures",
+    "version": 4,
     "quality": 4,
     "type": "elation",
     "stats": {
@@ -1682,9 +1682,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "21065",
+  "21065": {
     "name": "Today's Good Luck",
+    "version": 4,
     "quality": 4,
     "type": "elation",
     "stats": {
@@ -1693,9 +1693,9 @@
       "baseDef": 397
     }
   },
-  {
-    "id": "23053",
+  "23053": {
     "name": "Dazzled by a Flowery World",
+    "version": 4,
     "quality": 5,
     "type": "elation",
     "stats": {
@@ -1704,9 +1704,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23054",
+  "23054": {
     "name": "When She Decided to See",
+    "version": 4,
     "quality": 5,
     "type": "elation",
     "stats": {
@@ -1715,9 +1715,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23056",
+  "23056": {
     "name": "The Finale of a Lie",
+    "version": 4.1,
     "quality": 5,
     "type": "hunt",
     "stats": {
@@ -1726,9 +1726,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "24006",
+  "24006": {
     "name": "Elation Brimming With Blessings",
+    "version": 4.1,
     "quality": 5,
     "type": "elation",
     "stats": {
@@ -1737,9 +1737,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "22007",
+  "22007": {
     "name": "Tomorrow, Together",
+    "version": 4.2,
     "quality": 4,
     "type": "elation",
     "stats": {
@@ -1748,9 +1748,9 @@
       "baseDef": 331
     }
   },
-  {
-    "id": "23057",
+  "23057": {
     "name": "Welcome to the Cosmic City",
+    "version": 4.2,
     "quality": 5,
     "type": "elation",
     "stats": {
@@ -1759,9 +1759,9 @@
       "baseDef": 529
     }
   },
-  {
-    "id": "23058",
+  "23058": {
     "name": "Until the Flowers Bloom Again",
+    "version": 4.2,
     "quality": 5,
     "type": "elation",
     "stats": {
@@ -1770,9 +1770,9 @@
       "baseDef": 463
     }
   },
-  {
-    "id": "23059",
+  "23059": {
     "name": "Reforged in Hellfire",
+    "version": 4.3,
     "quality": 5,
     "type": "nihility",
     "stats": {
@@ -1781,4 +1781,4 @@
       "baseDef": 463
     }
   }
-]
+}

@@ -1,7 +1,7 @@
-[
-  {
-    "id": "10000003",
+{
+  "10000003": {
     "name": "Jean",
+    "version": 1,
     "quality": 5,
     "element": "anemo",
     "type": "sword",
@@ -14,9 +14,9 @@
       "healingBonus%": 0.222
     }
   },
-  {
-    "id": "10000006",
+  "10000006": {
     "name": "Lisa",
+    "version": 1,
     "quality": 4,
     "element": "electro",
     "type": "catalyst",
@@ -29,9 +29,9 @@
       "elementalMastery": 96
     }
   },
-  {
-    "id": "10000014",
+  "10000014": {
     "name": "Barbara",
+    "version": 1,
     "quality": 4,
     "element": "hydro",
     "type": "catalyst",
@@ -44,9 +44,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000015",
+  "10000015": {
     "name": "Kaeya",
+    "version": 1,
     "quality": 4,
     "element": "cryo",
     "type": "sword",
@@ -59,9 +59,9 @@
       "energyRecharge%": 0.267
     }
   },
-  {
-    "id": "10000016",
+  "10000016": {
     "name": "Diluc",
+    "version": 1,
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
@@ -74,9 +74,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000020",
+  "10000020": {
     "name": "Razor",
+    "version": 1,
     "quality": 4,
     "element": "electro",
     "type": "claymore",
@@ -90,9 +90,9 @@
       "physicalDmgBonus%": 0.3
     }
   },
-  {
-    "id": "10000021",
+  "10000021": {
     "name": "Amber",
+    "version": 1,
     "quality": 4,
     "element": "pyro",
     "type": "bow",
@@ -105,9 +105,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000022",
+  "10000022": {
     "name": "Venti",
+    "version": 1,
     "quality": 5,
     "element": "anemo",
     "type": "bow",
@@ -121,9 +121,9 @@
       "energyRecharge%": 0.32
     }
   },
-  {
-    "id": "10000023",
+  "10000023": {
     "name": "Xiangling",
+    "version": 1,
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
@@ -136,9 +136,9 @@
       "elementalMastery": 96
     }
   },
-  {
-    "id": "10000024",
+  "10000024": {
     "name": "Beidou",
+    "version": 1,
     "quality": 4,
     "element": "electro",
     "type": "claymore",
@@ -151,9 +151,9 @@
       "electroDmgBonus%": 0.24
     }
   },
-  {
-    "id": "10000025",
+  "10000025": {
     "name": "Xingqiu",
+    "version": 1,
     "quality": 4,
     "element": "hydro",
     "type": "sword",
@@ -167,9 +167,9 @@
       "hydroDmgBonus%": 0.2
     }
   },
-  {
-    "id": "10000027",
+  "10000027": {
     "name": "Ningguang",
+    "version": 1,
     "quality": 4,
     "element": "geo",
     "type": "catalyst",
@@ -182,9 +182,9 @@
       "geoDmgBonus%": 0.24
     }
   },
-  {
-    "id": "10000029",
+  "10000029": {
     "name": "Klee",
+    "version": 1,
     "quality": 5,
     "element": "pyro",
     "type": "catalyst",
@@ -198,9 +198,9 @@
       "pyroDmgBonus%": 0.288
     }
   },
-  {
-    "id": "10000031",
+  "10000031": {
     "name": "Fischl",
+    "version": 1,
     "quality": 4,
     "element": "electro",
     "type": "bow",
@@ -214,9 +214,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000032",
+  "10000032": {
     "name": "Bennett",
+    "version": 1,
     "quality": 4,
     "element": "pyro",
     "type": "sword",
@@ -229,9 +229,9 @@
       "energyRecharge%": 0.267
     }
   },
-  {
-    "id": "10000034",
+  "10000034": {
     "name": "Noelle",
+    "version": 1,
     "quality": 4,
     "element": "geo",
     "type": "claymore",
@@ -244,9 +244,9 @@
       "def%": 0.3
     }
   },
-  {
-    "id": "10000035",
+  "10000035": {
     "name": "Qiqi",
+    "version": 1,
     "quality": 5,
     "element": "cryo",
     "type": "sword",
@@ -259,9 +259,9 @@
       "healingBonus%": 0.222
     }
   },
-  {
-    "id": "10000036",
+  "10000036": {
     "name": "Chongyun",
+    "version": 1,
     "quality": 4,
     "element": "cryo",
     "type": "claymore",
@@ -274,9 +274,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000041",
+  "10000041": {
     "name": "Mona",
+    "version": 1,
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
@@ -290,9 +290,9 @@
       "energyRecharge%": 0.32
     }
   },
-  {
-    "id": "10000042",
+  "10000042": {
     "name": "Keqing",
+    "version": 1,
     "quality": 5,
     "element": "electro",
     "type": "sword",
@@ -305,9 +305,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000043",
+  "10000043": {
     "name": "Sucrose",
+    "version": 1,
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
@@ -321,9 +321,9 @@
       "anemoDmgBonus%": 0.24
     }
   },
-  {
-    "id": "10000030",
+  "10000030": {
     "name": "Zhongli",
+    "version": 1.1,
     "quality": 5,
     "element": "geo",
     "type": "polearm",
@@ -336,9 +336,9 @@
       "geoDmgBonus%": 0.288
     }
   },
-  {
-    "id": "10000033",
+  "10000033": {
     "name": "Tartaglia",
+    "version": 1.1,
     "quality": 5,
     "element": "hydro",
     "type": "bow",
@@ -351,9 +351,9 @@
       "hydroDmgBonus%": 0.288
     }
   },
-  {
-    "id": "10000039",
+  "10000039": {
     "name": "Diona",
+    "version": 1.1,
     "quality": 4,
     "element": "cryo",
     "type": "bow",
@@ -366,9 +366,9 @@
       "cryoDmgBonus%": 0.24
     }
   },
-  {
-    "id": "10000044",
+  "10000044": {
     "name": "Xinyan",
+    "version": 1.1,
     "quality": 4,
     "element": "pyro",
     "type": "claymore",
@@ -381,9 +381,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000037",
+  "10000037": {
     "name": "Ganyu",
+    "version": 1.2,
     "quality": 5,
     "element": "cryo",
     "type": "bow",
@@ -396,9 +396,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000038",
+  "10000038": {
     "name": "Albedo",
+    "version": 1.2,
     "quality": 5,
     "element": "geo",
     "type": "sword",
@@ -455,9 +455,9 @@
       ]
     }
   },
-  {
-    "id": "10000026",
+  "10000026": {
     "name": "Xiao",
+    "version": 1.3,
     "quality": 5,
     "element": "anemo",
     "type": "polearm",
@@ -470,9 +470,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000046",
+  "10000046": {
     "name": "Hu Tao",
+    "version": 1.3,
     "quality": 5,
     "element": "pyro",
     "type": "polearm",
@@ -486,9 +486,9 @@
       "pyroDmgBonus%": 0.33
     }
   },
-  {
-    "id": "10000045",
+  "10000045": {
     "name": "Rosaria",
+    "version": 1.4,
     "quality": 4,
     "element": "cryo",
     "type": "polearm",
@@ -501,9 +501,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000048",
+  "10000048": {
     "name": "Yanfei",
+    "version": 1.5,
     "quality": 4,
     "element": "pyro",
     "type": "catalyst",
@@ -516,9 +516,9 @@
       "pyroDmgBonus%": 0.24
     }
   },
-  {
-    "id": "10000051",
+  "10000051": {
     "name": "Eula",
+    "version": 1.5,
     "quality": 5,
     "element": "cryo",
     "type": "claymore",
@@ -531,9 +531,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000047",
+  "10000047": {
     "name": "Kaedehara Kazuha",
+    "version": 1.6,
     "quality": 5,
     "element": "anemo",
     "type": "sword",
@@ -546,9 +546,9 @@
       "elementalMastery": 115
     }
   },
-  {
-    "id": "10000002",
+  "10000002": {
     "name": "Kamisato Ayaka",
+    "version": 2,
     "quality": 5,
     "element": "cryo",
     "type": "sword",
@@ -561,9 +561,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000049",
+  "10000049": {
     "name": "Yoimiya",
+    "version": 2,
     "quality": 5,
     "element": "pyro",
     "type": "bow",
@@ -576,9 +576,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000053",
+  "10000053": {
     "name": "Sayu",
+    "version": 2,
     "quality": 4,
     "element": "anemo",
     "type": "claymore",
@@ -591,9 +591,9 @@
       "elementalMastery": 96
     }
   },
-  {
-    "id": "10000052",
+  "10000052": {
     "name": "Raiden Shogun",
+    "version": 2.1,
     "quality": 5,
     "element": "electro",
     "type": "polearm",
@@ -606,9 +606,9 @@
       "energyRecharge%": 0.32
     }
   },
-  {
-    "id": "10000054",
+  "10000054": {
     "name": "Sangonomiya Kokomi",
+    "version": 2.1,
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
@@ -623,9 +623,9 @@
       "critRate%": -1.0
     }
   },
-  {
-    "id": "10000056",
+  "10000056": {
     "name": "Kujou Sara",
+    "version": 2.1,
     "quality": 4,
     "element": "electro",
     "type": "bow",
@@ -638,9 +638,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000050",
+  "10000050": {
     "name": "Thoma",
+    "version": 2.2,
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
@@ -653,9 +653,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000062",
+  "10000062": {
     "name": "Aloy",
+    "version": 2.2,
     "quality": 5,
     "element": "cryo",
     "type": "bow",
@@ -668,9 +668,9 @@
       "cryoDmgBonus%": 0.288
     }
   },
-  {
-    "id": "10000055",
+  "10000055": {
     "name": "Gorou",
+    "version": 2.3,
     "quality": 4,
     "element": "geo",
     "type": "bow",
@@ -683,9 +683,9 @@
       "geoDmgBonus%": 0.24
     }
   },
-  {
-    "id": "10000057",
+  "10000057": {
     "name": "Arataki Itto",
+    "version": 2.3,
     "quality": 5,
     "element": "geo",
     "type": "claymore",
@@ -698,9 +698,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000063",
+  "10000063": {
     "name": "Shenhe",
+    "version": 2.4,
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
@@ -713,9 +713,9 @@
       "atk%": 0.288
     }
   },
-  {
-    "id": "10000064",
+  "10000064": {
     "name": "Yun Jin",
+    "version": 2.4,
     "quality": 4,
     "element": "geo",
     "type": "polearm",
@@ -728,9 +728,9 @@
       "energyRecharge%": 0.267
     }
   },
-  {
-    "id": "10000058",
+  "10000058": {
     "name": "Yae Miko",
+    "version": 2.5,
     "quality": 5,
     "element": "electro",
     "type": "catalyst",
@@ -743,9 +743,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000066",
+  "10000066": {
     "name": "Kamisato Ayato",
+    "version": 2.6,
     "quality": 5,
     "element": "hydro",
     "type": "sword",
@@ -758,9 +758,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000060",
+  "10000060": {
     "name": "Yelan",
+    "version": 2.7,
     "quality": 5,
     "element": "hydro",
     "type": "bow",
@@ -773,9 +773,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000065",
+  "10000065": {
     "name": "Kuki Shinobu",
+    "version": 2.7,
     "quality": 4,
     "element": "electro",
     "type": "sword",
@@ -788,9 +788,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000059",
+  "10000059": {
     "name": "Shikanoin Heizou",
+    "version": 2.8,
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
@@ -803,9 +803,9 @@
       "anemoDmgBonus%": 0.24
     }
   },
-  {
-    "id": "10000067",
+  "10000067": {
     "name": "Collei",
+    "version": 3,
     "quality": 4,
     "element": "dendro",
     "type": "bow",
@@ -818,9 +818,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000068",
+  "10000068": {
     "name": "Dori",
+    "version": 3,
     "quality": 4,
     "element": "electro",
     "type": "claymore",
@@ -833,9 +833,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000069",
+  "10000069": {
     "name": "Tighnari",
+    "version": 3,
     "quality": 5,
     "element": "dendro",
     "type": "bow",
@@ -848,9 +848,9 @@
       "dendroDmgBonus%": 0.288
     }
   },
-  {
-    "id": "10000070",
+  "10000070": {
     "name": "Nilou",
+    "version": 3.1,
     "quality": 5,
     "element": "hydro",
     "type": "sword",
@@ -863,9 +863,9 @@
       "hp%": 0.288
     }
   },
-  {
-    "id": "10000071",
+  "10000071": {
     "name": "Cyno",
+    "version": 3.1,
     "quality": 5,
     "element": "electro",
     "type": "polearm",
@@ -879,9 +879,9 @@
       "elementalMastery": 100
     }
   },
-  {
-    "id": "10000072",
+  "10000072": {
     "name": "Candace",
+    "version": 3.1,
     "quality": 4,
     "element": "hydro",
     "type": "polearm",
@@ -894,9 +894,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000073",
+  "10000073": {
     "name": "Nahida",
+    "version": 3.2,
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
@@ -909,9 +909,9 @@
       "elementalMastery": 115
     }
   },
-  {
-    "id": "10000074",
+  "10000074": {
     "name": "Layla",
+    "version": 3.2,
     "quality": 4,
     "element": "cryo",
     "type": "sword",
@@ -924,9 +924,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000075",
+  "10000075": {
     "name": "Wanderer",
+    "version": 3.3,
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
@@ -939,9 +939,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000076",
+  "10000076": {
     "name": "Faruzan",
+    "version": 3.3,
     "quality": 4,
     "element": "anemo",
     "type": "bow",
@@ -954,9 +954,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000077",
+  "10000077": {
     "name": "Yaoyao",
+    "version": 3.4,
     "quality": 4,
     "element": "dendro",
     "type": "polearm",
@@ -969,9 +969,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000078",
+  "10000078": {
     "name": "Alhaitham",
+    "version": 3.4,
     "quality": 5,
     "element": "dendro",
     "type": "sword",
@@ -984,9 +984,9 @@
       "dendroDmgBonus%": 0.288
     }
   },
-  {
-    "id": "10000079",
+  "10000079": {
     "name": "Dehya",
+    "version": 3.5,
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
@@ -999,9 +999,9 @@
       "hp%": 0.288
     }
   },
-  {
-    "id": "10000080",
+  "10000080": {
     "name": "Mika",
+    "version": 3.5,
     "quality": 4,
     "element": "cryo",
     "type": "polearm",
@@ -1014,9 +1014,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000081",
+  "10000081": {
     "name": "Kaveh",
+    "version": 3.6,
     "quality": 4,
     "element": "dendro",
     "type": "claymore",
@@ -1029,9 +1029,9 @@
       "elementalMastery": 96
     }
   },
-  {
-    "id": "10000082",
+  "10000082": {
     "name": "Baizhu",
+    "version": 3.6,
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
@@ -1044,9 +1044,9 @@
       "hp%": 0.288
     }
   },
-  {
-    "id": "10000061",
+  "10000061": {
     "name": "Kirara",
+    "version": 3.7,
     "quality": 4,
     "element": "dendro",
     "type": "sword",
@@ -1059,9 +1059,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000083",
+  "10000083": {
     "name": "Lynette",
+    "version": 4,
     "quality": 4,
     "element": "anemo",
     "type": "sword",
@@ -1074,9 +1074,9 @@
       "anemoDmgBonus%": 0.24
     }
   },
-  {
-    "id": "10000084",
+  "10000084": {
     "name": "Lyney",
+    "version": 4,
     "quality": 5,
     "element": "pyro",
     "type": "bow",
@@ -1089,9 +1089,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000085",
+  "10000085": {
     "name": "Freminet",
+    "version": 4,
     "quality": 4,
     "element": "cryo",
     "type": "claymore",
@@ -1104,9 +1104,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000086",
+  "10000086": {
     "name": "Wriothesley",
+    "version": 4.1,
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
@@ -1119,9 +1119,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000087",
+  "10000087": {
     "name": "Neuvillette",
+    "version": 4.1,
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
@@ -1134,9 +1134,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000088",
+  "10000088": {
     "name": "Charlotte",
+    "version": 4.2,
     "quality": 4,
     "element": "cryo",
     "type": "catalyst",
@@ -1149,9 +1149,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000089",
+  "10000089": {
     "name": "Furina",
+    "version": 4.2,
     "quality": 5,
     "element": "hydro",
     "type": "sword",
@@ -1164,9 +1164,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000090",
+  "10000090": {
     "name": "Chevreuse",
+    "version": 4.3,
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
@@ -1179,9 +1179,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000091",
+  "10000091": {
     "name": "Navia",
+    "version": 4.3,
     "quality": 5,
     "element": "geo",
     "type": "claymore",
@@ -1194,9 +1194,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000092",
+  "10000092": {
     "name": "Gaming",
+    "version": 4.4,
     "quality": 4,
     "element": "pyro",
     "type": "claymore",
@@ -1209,9 +1209,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000093",
+  "10000093": {
     "name": "Xianyun",
+    "version": 4.4,
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
@@ -1224,9 +1224,9 @@
       "atk%": 0.288
     }
   },
-  {
-    "id": "10000094",
+  "10000094": {
     "name": "Chiori",
+    "version": 4.5,
     "quality": 5,
     "element": "geo",
     "type": "sword",
@@ -1239,9 +1239,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000096",
+  "10000096": {
     "name": "Arlecchino",
+    "version": 4.6,
     "quality": 5,
     "element": "pyro",
     "type": "polearm",
@@ -1254,9 +1254,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000095",
+  "10000095": {
     "name": "Sigewinne",
+    "version": 4.7,
     "quality": 5,
     "element": "hydro",
     "type": "bow",
@@ -1269,9 +1269,9 @@
       "hp%": 0.288
     }
   },
-  {
-    "id": "10000097",
+  "10000097": {
     "name": "Sethos",
+    "version": 4.7,
     "quality": 4,
     "element": "electro",
     "type": "bow",
@@ -1284,9 +1284,9 @@
       "elementalMastery": 96
     }
   },
-  {
-    "id": "10000098",
+  "10000098": {
     "name": "Clorinde",
+    "version": 4.7,
     "quality": 5,
     "element": "electro",
     "type": "sword",
@@ -1299,9 +1299,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000099",
+  "10000099": {
     "name": "Emilie",
+    "version": 4.8,
     "quality": 5,
     "element": "dendro",
     "type": "polearm",
@@ -1314,9 +1314,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000100",
+  "10000100": {
     "name": "Kachina",
+    "version": 5,
     "quality": 4,
     "element": "geo",
     "type": "polearm",
@@ -1329,9 +1329,9 @@
       "geoDmgBonus%": 0.24
     }
   },
-  {
-    "id": "10000101",
+  "10000101": {
     "name": "Kinich",
+    "version": 5,
     "quality": 5,
     "element": "dendro",
     "type": "claymore",
@@ -1344,9 +1344,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000102",
+  "10000102": {
     "name": "Mualani",
+    "version": 5,
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
@@ -1359,9 +1359,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000103",
+  "10000103": {
     "name": "Xilonen",
+    "version": 5.1,
     "quality": 5,
     "element": "geo",
     "type": "sword",
@@ -1374,9 +1374,9 @@
       "def%": 0.36
     }
   },
-  {
-    "id": "10000104",
+  "10000104": {
     "name": "Chasca",
+    "version": 5.2,
     "quality": 5,
     "element": "anemo",
     "type": "bow",
@@ -1389,9 +1389,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000105",
+  "10000105": {
     "name": "Ororon",
+    "version": 5.2,
     "quality": 4,
     "element": "electro",
     "type": "bow",
@@ -1404,9 +1404,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000106",
+  "10000106": {
     "name": "Mavuika",
+    "version": 5.3,
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
@@ -1419,9 +1419,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000107",
+  "10000107": {
     "name": "Citlali",
+    "version": 5.3,
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
@@ -1434,9 +1434,9 @@
       "elementalMastery": 115
     }
   },
-  {
-    "id": "10000108",
+  "10000108": {
     "name": "Lan Yan",
+    "version": 5.3,
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
@@ -1449,9 +1449,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000109",
+  "10000109": {
     "name": "Yumemizuki Mizuki",
+    "version": 5.4,
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
@@ -1464,9 +1464,9 @@
       "elementalMastery": 115
     }
   },
-  {
-    "id": "10000110",
+  "10000110": {
     "name": "Iansan",
+    "version": 5.5,
     "quality": 4,
     "element": "electro",
     "type": "polearm",
@@ -1479,9 +1479,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000111",
+  "10000111": {
     "name": "Varesa",
+    "version": 5.5,
     "quality": 5,
     "element": "electro",
     "type": "catalyst",
@@ -1494,9 +1494,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000112",
+  "10000112": {
     "name": "Escoffier",
+    "version": 5.6,
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
@@ -1509,9 +1509,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000113",
+  "10000113": {
     "name": "Ifa",
+    "version": 5.6,
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
@@ -1524,9 +1524,9 @@
       "elementalMastery": 96
     }
   },
-  {
-    "id": "10000114",
+  "10000114": {
     "name": "Skirk",
+    "version": 5.7,
     "quality": 5,
     "element": "cryo",
     "type": "sword",
@@ -1539,9 +1539,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000115",
+  "10000115": {
     "name": "Dahlia",
+    "version": 5.7,
     "quality": 4,
     "element": "hydro",
     "type": "sword",
@@ -1554,9 +1554,9 @@
       "hp%": 0.24
     }
   },
-  {
-    "id": "10000116",
+  "10000116": {
     "name": "Ineffa",
+    "version": 5.8,
     "quality": 5,
     "element": "electro",
     "type": "polearm",
@@ -1569,9 +1569,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000119",
+  "10000119": {
     "name": "Lauma",
+    "version": 6,
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
@@ -1585,9 +1585,9 @@
       "elementalMastery": 115
     }
   },
-  {
-    "id": "10000120",
+  "10000120": {
     "name": "Flins",
+    "version": 6,
     "quality": 5,
     "element": "electro",
     "type": "polearm",
@@ -1600,9 +1600,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000121",
+  "10000121": {
     "name": "Aino",
+    "version": 6,
     "quality": 4,
     "element": "hydro",
     "type": "claymore",
@@ -1615,9 +1615,9 @@
       "elementalMastery": 96
     }
   },
-  {
-    "id": "10000122",
+  "10000122": {
     "name": "Nefer",
+    "version": 6.1,
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
@@ -1631,9 +1631,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000123",
+  "10000123": {
     "name": "Durin",
+    "version": 6.2,
     "quality": 5,
     "element": "pyro",
     "type": "sword",
@@ -1647,9 +1647,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000124",
+  "10000124": {
     "name": "Jahoda",
+    "version": 6.2,
     "quality": 4,
     "element": "anemo",
     "type": "bow",
@@ -1662,9 +1662,9 @@
       "healingBonus%": 0.185
     }
   },
-  {
-    "id": "10000125",
+  "10000125": {
     "name": "Columbina",
+    "version": 6.3,
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
@@ -1677,9 +1677,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000126",
+  "10000126": {
     "name": "Zibai",
+    "version": 6.3,
     "quality": 5,
     "element": "geo",
     "type": "sword",
@@ -1692,9 +1692,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000127",
+  "10000127": {
     "name": "Illuga",
+    "version": 6.3,
     "quality": 4,
     "element": "geo",
     "type": "polearm",
@@ -1707,9 +1707,9 @@
       "elementalMastery": 96
     }
   },
-  {
-    "id": "10000128",
+  "10000128": {
     "name": "Varka",
+    "version": 6.4,
     "quality": 5,
     "element": "anemo",
     "type": "claymore",
@@ -1723,9 +1723,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000130",
+  "10000130": {
     "name": "Linnea",
+    "version": 6.5,
     "quality": 5,
     "element": "geo",
     "type": "bow",
@@ -1738,9 +1738,9 @@
       "critRate%": 0.192
     }
   },
-  {
-    "id": "10000129",
+  "10000129": {
     "name": "Lohen",
+    "version": 6.6,
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
@@ -1754,9 +1754,9 @@
       "critDmg%": 0.384
     }
   },
-  {
-    "id": "10000131",
+  "10000131": {
     "name": "Nicole",
+    "version": 6.6,
     "quality": 5,
     "element": "pyro",
     "type": "catalyst",
@@ -1770,9 +1770,9 @@
       "atk%": 0.288
     }
   },
-  {
-    "id": "10000132",
+  "10000132": {
     "name": "Prune",
+    "version": 6.6,
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
@@ -1785,9 +1785,9 @@
       "atk%": 0.24
     }
   },
-  {
-    "id": "10000133",
+  "10000133": {
     "name": "Sandrone",
+    "version": 6.7,
     "quality": 5,
     "element": "cryo",
     "type": "claymore",
@@ -1800,4 +1800,4 @@
       "critRate%": 0.192
     }
   }
-]
+}

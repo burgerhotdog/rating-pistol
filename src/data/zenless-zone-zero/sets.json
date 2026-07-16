@@ -1,7 +1,7 @@
-[
-  {
-    "id": "31000",
+{
+  "31000": {
     "name": "Woodpecker Electro",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -36,9 +36,9 @@
       ]
     }
   },
-  {
-    "id": "31100",
+  "31100": {
     "name": "Puffer Electro",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -62,9 +62,9 @@
       ]
     }
   },
-  {
-    "id": "31200",
+  "31200": {
     "name": "Shockstar Disco",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -83,9 +83,9 @@
       }
     }
   },
-  {
-    "id": "31300",
+  "31300": {
     "name": "Freedom Blues",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -95,9 +95,9 @@
       "4": {}
     }
   },
-  {
-    "id": "31400",
+  "31400": {
     "name": "Hormone Punk",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -106,7 +106,7 @@
       },
       "4": {
         "applyWhen": "cast",
-        "applyIfField": true,
+        "applyIfField": "onField",
         "applyCooldown": 20000,
         "statMap": {
           "combatAtk%": 0.25
@@ -115,9 +115,9 @@
       }
     }
   },
-  {
-    "id": "31500",
+  "31500": {
     "name": "Soul Rock",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -127,9 +127,9 @@
       "4": {}
     }
   },
-  {
-    "id": "31600",
+  "31600": {
     "name": "Swing Jazz",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -150,9 +150,9 @@
       }
     }
   },
-  {
-    "id": "32200",
+  "32200": {
     "name": "Inferno Metal",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -162,7 +162,7 @@
       "4": {
         "applyWhen": "hit",
         "applyOnType": "damage",
-        "applyIfStatus": "burning",
+        "applyIfAnomaly": "burning",
         "statMap": {
           "critRate%": 0.28
         },
@@ -170,9 +170,9 @@
       }
     }
   },
-  {
-    "id": "32300",
+  "32300": {
     "name": "Chaotic Metal",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -193,9 +193,9 @@
       ]
     }
   },
-  {
-    "id": "32400",
+  "32400": {
     "name": "Thunder Metal",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -203,16 +203,16 @@
         }
       },
       "4": {
-        "useIfStatus": "shocked",
+        "useIfAnomaly": "shocked",
         "statMap": {
           "combatAtk%": 0.28
         }
       }
     }
   },
-  {
-    "id": "32500",
+  "32500": {
     "name": "Polar Metal",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -235,9 +235,9 @@
       ]
     }
   },
-  {
-    "id": "32600",
+  "32600": {
     "name": "Fanged Metal",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -251,9 +251,9 @@
       }
     }
   },
-  {
-    "id": "31800",
+  "31800": {
     "name": "Chaos Jazz",
+    "version": 1.2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -268,7 +268,7 @@
           }
         },
         {
-          "useIfField": false,
+          "useIfField": "offField",
           "statMap": {
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
@@ -276,9 +276,9 @@
         },
         {
           "applyWhen": "cast",
-          "applyIfField": true,
+          "applyIfField": "onField",
           "applyCooldown": 7500,
-          "useIfField": true,
+          "useIfField": "onField",
           "statMap": {
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
@@ -288,9 +288,9 @@
       ]
     }
   },
-  {
-    "id": "31900",
+  "31900": {
     "name": "Proto Punk",
+    "version": 1.2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -311,9 +311,9 @@
       }
     }
   },
-  {
-    "id": "32700",
+  "32700": {
     "name": "Branch & Blade Song",
+    "version": 1.4,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -337,9 +337,9 @@
       ]
     }
   },
-  {
-    "id": "32800",
+  "32800": {
     "name": "Astral Voice",
+    "version": 1.4,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -354,9 +354,9 @@
       }
     }
   },
-  {
-    "id": "32900",
+  "32900": {
     "name": "Shadow Harmony",
+    "version": 1.6,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -379,9 +379,9 @@
       }
     }
   },
-  {
-    "id": "33000",
+  "33000": {
     "name": "Phaethon's Melody",
+    "version": 1.6,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -396,9 +396,9 @@
       }
     }
   },
-  {
-    "id": "33100",
+  "33100": {
     "name": "Yunkui Tales",
+    "version": 2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -427,9 +427,9 @@
       ]
     }
   },
-  {
-    "id": "33200",
+  "33200": {
     "name": "King of the Summit",
+    "version": 2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -438,26 +438,26 @@
       },
       "4": [
         {
+          "enableIfWeaponType": "stun",
           "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
           ],
-          "applyIfWeapon": "stun",
           "statMap": {
             "critDmg%": 0.15
           },
           "duration": 15000
         },
         {
+          "enableIfWeaponType": "stun",
           "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
           ],
-          "applyIfWeapon": "stun",
           "useIfAttr": {
             "critRate%": 0.5
           },
@@ -469,9 +469,9 @@
       ]
     }
   },
-  {
-    "id": "33300",
+  "33300": {
     "name": "Dawn's Bloom",
+    "version": 2.2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -485,12 +485,12 @@
           }
         },
         {
+          "enableIfWeaponType": "attack",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "ultimate"
           ],
-          "applyIfWeapon": "attack",
           "statMap": {
             "basicAttackDmgBonus%": 0.2
           },
@@ -499,9 +499,9 @@
       ]
     }
   },
-  {
-    "id": "33400",
+  "33400": {
     "name": "Moonlight Lullaby",
+    "version": 2.2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -509,13 +509,13 @@
         }
       },
       "4": {
+        "enableIfWeaponType": "support",
         "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": [
           "exSpecialAttack",
           "ultimate"
         ],
-        "applyIfWeapon": "support",
         "statMap": {
           "dmgBonus%": 0.18
         },
@@ -523,9 +523,9 @@
       }
     }
   },
-  {
-    "id": "33500",
+  "33500": {
     "name": "White Water Ballad",
+    "version": 2.5,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -540,9 +540,9 @@
       }
     }
   },
-  {
-    "id": "33600",
+  "33600": {
     "name": "Shining Aria",
+    "version": 2.5,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -566,9 +566,9 @@
       ]
     }
   },
-  {
-    "id": "33700",
+  "33700": {
     "name": "Bunny in Wonderland",
+    "version": 2.7,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -587,9 +587,9 @@
       }
     }
   },
-  {
-    "id": "33800",
+  "33800": {
     "name": "Notes From the Chained",
+    "version": 2.7,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -599,9 +599,9 @@
       "4": {}
     }
   },
-  {
-    "id": "33900",
+  "33900": {
     "name": "Wuthering Salon",
+    "version": 3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -626,9 +626,9 @@
       ]
     }
   },
-  {
-    "id": "34000",
+  "34000": {
     "name": "The Sky Ablaze",
+    "version": 3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -637,7 +637,7 @@
       },
       "4": [
         {
-          "useIfElement": "ether",
+          "enableIfElement": "ether",
           "statMap": {
             "critDmg%": 0.3
           }
@@ -656,4 +656,4 @@
       ]
     }
   }
-]
+}

@@ -35,7 +35,7 @@ export const compileBaseMap = (gameId, charId, weapId) => {
 };
 
 export const compileMenuMap = (gameId, charId, member) => {
-  const { rank = 0, weaponId, weaponRank = 1, setCounts = {}, build = {}} = member;
+  const { rank: memberRank = 0, weaponId, weaponRank = 1, setCounts = {}, build = {}} = member;
 
   const baseMap = compileBaseMap(gameId, charId, weaponId);
 
@@ -44,38 +44,32 @@ export const compileMenuMap = (gameId, charId, member) => {
   const allEffects = [
     ...toArray(CHARACTER[gameId][charId].effects),
     ...toArray(WEAPON[gameId][weaponId].effects),
+    ...Object.entries(setCounts)
+      .flatMap(([setId, count]) =>
+        Object.entries(SET[gameId][setId].tieredEffects ?? {})
+          .filter(([tier]) => Number(tier) <= count)
+          .flatMap(([, effects]) => toArray(effects))),
   ];
 
-  for (const [setId, count] of Object.entries(setCounts)) {
-    const { tieredEffects = {} } = SET[gameId][setId];
-
-    for (const [tier, effects] of Object.entries(tieredEffects)) {
-      if (Number(tier) > count) continue;
-      allEffects.push(...toArray(effects));
-    }
-  }
-
   const filtered = allEffects.filter((effect) => {
-    if ('applyWhen' in effect) return false;
-    if (effect.applyTo && effect.applyTo !== 'team') return false;
-    if ('rank' in effect && effect.rank > rank) return false; 
+    if (
+      effect.rank > memberRank ||
+      effect.applyWhen ||
+      (effect.applyTo && effect.applyTo !== 'team') ||
+      Object.keys(effect).some((key) => key.startsWith('useOn'))
+    ) return false;
 
-    for (const key in effect) {
-      if (key.startsWith('useOn')) return false;
-    }
-
-    return ('statMap' in effect || 'rankedStatMap' in effect);
+    return effect.statMap;
   });
 
   const toMerge = [];
-
-  for (const effect of filtered) {
-    if ('statMap' in effect) {
-      toMerge.push(effect.statMap);
-    } else if ('rankedStatMap' in effect) {
+  for (const { statMap } of filtered) {
+    if (statMap) {
       const resolved = {};
-      for (const statId in effect.rankedStatMap) {
-        resolved[statId] = resolveRankedValue(effect.rankedStatMap[statId], weaponRank);
+      for (const [statId, value] of Object.entries(statMap)) {
+        resolved[statId] = typeof value === 'number'
+          ? value
+          : resolveRankedValue(value, weaponRank);
       }
       toMerge.push(resolved);
     }

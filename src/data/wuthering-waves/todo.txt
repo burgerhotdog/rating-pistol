@@ -51,6 +51,9 @@ characters:
         1308 Rebecca
 
     incomplete:
+        1610 Yangyang: Xuanling
+        1110 Suisui
+
     simplified:
         1511 Lucy (teammates inflicting hack: outro, rank 4)
 
@@ -156,6 +159,8 @@ weapons:
         21050086 Freeze Frame
 
     incomplete:
+        21050096 Firstlight's Herald
+
     simplified:
 
 sets:

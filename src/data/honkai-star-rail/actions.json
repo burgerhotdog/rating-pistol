@@ -1,11 +1,10 @@
-[
-  {
-    "id": "1001",
+{
+  "1001": {
     "basicAttack": {
       "1": {
         "name": "Frigid Cold Arrow",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -27,7 +26,7 @@
       "1": {
         "name": "The Power of Cuteness",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.38,
@@ -73,7 +72,7 @@
       "1": {
         "name": "Glacial Cascade",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.9,
@@ -119,7 +118,7 @@
       "1": {
         "name": "Girl Power",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -143,13 +142,12 @@
       }
     }
   },
-  {
-    "id": "1002",
+  "1002": {
     "basicAttack": {
       "1": {
         "name": "Cloudlancer Art: North Wind",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -171,7 +169,7 @@
       "1": {
         "name": "Cloudlancer Art: Torrent",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.3,
@@ -198,7 +196,7 @@
       "1": {
         "name": "Ethereal Dream",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2.4,
@@ -244,7 +242,7 @@
       "1": {
         "name": "Superiority of Reach",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.18,
@@ -268,13 +266,12 @@
       }
     }
   },
-  {
-    "id": "1003",
+  "1003": {
     "basicAttack": {
       "1": {
         "name": "Sawblade Tuning",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -296,7 +293,7 @@
       "1": {
         "name": "Molten Detonation",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -342,7 +339,7 @@
       "1": {
         "name": "Heavenly Flare",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.38,
@@ -369,7 +366,7 @@
       "1": {
         "name": "Victory Rush",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.7,
@@ -393,13 +390,12 @@
       }
     }
   },
-  {
-    "id": "1004",
+  "1004": {
     "basicAttack": {
       "1": {
         "name": "Gravity Suppression",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -421,7 +417,7 @@
       "1": {
         "name": "Edge of the Void",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -467,7 +463,7 @@
       "1": {
         "name": "Synthetic <unbreak>Black Hole</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.9,
@@ -513,7 +509,7 @@
       "1": {
         "name": "Time Distortion",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -537,13 +533,12 @@
       }
     }
   },
-  {
-    "id": "1008",
+  "1008": {
     "basicAttack": {
       "1": {
         "name": "Lightning Rush",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -565,7 +560,7 @@
       "1": {
         "name": "Shackle Breaker",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -592,7 +587,7 @@
       "1": {
         "name": "Frenzied Punishment",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.92,
@@ -638,7 +633,7 @@
       "1": {
         "name": "Pain and Anger",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -662,13 +657,12 @@
       }
     }
   },
-  {
-    "id": "1009",
+  "1009": {
     "basicAttack": {
       "1": {
         "name": "Spectrum Beam",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -690,7 +684,7 @@
       "1": {
         "name": "Meteor Storm",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -717,7 +711,7 @@
       "1": {
         "name": "Astral Blessing",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               36,
@@ -744,7 +738,7 @@
       "1": {
         "name": "Astrometry",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.07,
@@ -768,13 +762,12 @@
       }
     }
   },
-  {
-    "id": "1013",
+  "1013": {
     "basicAttack": {
       "1": {
         "name": "What Are You Looking At?",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -796,7 +789,7 @@
       "1": {
         "name": "One-Time Offer",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -823,7 +816,7 @@
       "1": {
         "name": "<unbreak>It's Magic,</unbreak> <unbreak>I Added Some Magic</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -850,7 +843,7 @@
       "1": {
         "name": "Fine, I'll Do It Myself",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -874,13 +867,12 @@
       }
     }
   },
-  {
-    "id": "1101",
+  "1101": {
     "basicAttack": {
       "1": {
         "name": "Windrider Bullet",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -902,7 +894,7 @@
       "1": {
         "name": "Combat Redeployment",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.33,
@@ -929,7 +921,7 @@
       "1": {
         "name": "The <unbreak>Belobog March</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.33,
@@ -994,7 +986,7 @@
       "1": {
         "name": "Leading the Way",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -1018,13 +1010,12 @@
       }
     }
   },
-  {
-    "id": "1102",
+  "1102": {
     "basicAttack": {
       "1": {
         "name": "Thwack",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -1046,7 +1037,7 @@
       "1": {
         "name": "Sheathed Blade",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.1,
@@ -1073,7 +1064,7 @@
       "1": {
         "name": "Butterfly Flurry",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2.55,
@@ -1100,7 +1091,7 @@
       "1": {
         "name": "Resurgence",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -1124,13 +1115,12 @@
       }
     }
   },
-  {
-    "id": "1103",
+  "1103": {
     "basicAttack": {
       "1": {
         "name": "Roaring Thunderclap",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -1152,7 +1142,7 @@
       "1": {
         "name": "Lightning Flash",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.7,
@@ -1217,7 +1207,7 @@
       "1": {
         "name": "Here Comes the Mechanical Fever",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.08,
@@ -1244,7 +1234,7 @@
       "1": {
         "name": "Galvanic Chords",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -1268,13 +1258,12 @@
       }
     }
   },
-  {
-    "id": "1104",
+  "1104": {
     "basicAttack": {
       "1": {
         "name": "Fist of Conviction",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -1296,7 +1285,7 @@
       "1": {
         "name": "Daunting Smite",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -1342,7 +1331,7 @@
       "1": {
         "name": "Enduring Bulwark",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -1388,7 +1377,7 @@
       "1": {
         "name": "Unyielding Will",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -1412,13 +1401,12 @@
       }
     }
   },
-  {
-    "id": "1105",
+  "1105": {
     "basicAttack": {
       "1": {
         "name": "Behind the Kindness",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -1440,7 +1428,7 @@
       "1": {
         "name": "Love, Heal, and Choose",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.07,
@@ -1524,7 +1512,7 @@
       "1": {
         "name": "Gift of Rebirth",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.092,
@@ -1570,7 +1558,7 @@
       "1": {
         "name": "Innervation",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -1594,13 +1582,12 @@
       }
     }
   },
-  {
-    "id": "1106",
+  "1106": {
     "basicAttack": {
       "1": {
         "name": "Frost Shot",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -1622,7 +1609,7 @@
       "1": {
         "name": "Frostbite",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.05,
@@ -1649,7 +1636,7 @@
       "1": {
         "name": "Zone Suppression",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -1695,7 +1682,7 @@
       "1": {
         "name": "Data Collecting",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               5,
@@ -1719,13 +1706,12 @@
       }
     }
   },
-  {
-    "id": "1107",
+  "1107": {
     "basicAttack": {
       "1": {
         "name": "I Want to Help",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -1747,7 +1733,7 @@
       "1": {
         "name": "Svarog Watches Over You",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -1793,7 +1779,7 @@
       "1": {
         "name": "Promise, <unbreak>Not Command</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.96,
@@ -1839,7 +1825,7 @@
       "1": {
         "name": "Because We're Family",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.8,
@@ -1863,13 +1849,12 @@
       }
     }
   },
-  {
-    "id": "1108",
+  "1108": {
     "basicAttack": {
       "1": {
         "name": "Dazzling Blades",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -1891,7 +1876,7 @@
       "1": {
         "name": "Ricochet Love",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.28,
@@ -1918,7 +1903,7 @@
       "1": {
         "name": "Surprise Present",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.96,
@@ -1964,7 +1949,7 @@
       "1": {
         "name": "Windtorn Dagger",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -1988,13 +1973,12 @@
       }
     }
   },
-  {
-    "id": "1109",
+  "1109": {
     "basicAttack": {
       "1": {
         "name": "Hehe! Don't Get Burned!",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -2016,7 +2000,7 @@
       "1": {
         "name": "Hey! Remember Hook?",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -2060,7 +2044,7 @@
       "2": {
         "name": "Hey! Remember Hook?",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.4,
@@ -2125,7 +2109,7 @@
       "1": {
         "name": "Boom! <unbreak>Here Comes the Fire!</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2.4,
@@ -2152,7 +2136,7 @@
       "1": {
         "name": "Ha! Oil to the Flames!",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -2176,13 +2160,12 @@
       }
     }
   },
-  {
-    "id": "1201",
+  "1201": {
     "basicAttack": {
       "1": {
         "name": "Flower Pick",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -2202,7 +2185,7 @@
       "2": {
         "name": "Cherry on Top!",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -2238,7 +2221,7 @@
       "1": {
         "name": "A Scoop of Moon",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.14,
@@ -2265,7 +2248,7 @@
       "1": {
         "name": "A Quartet? Woo-hoo!",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -2292,7 +2275,7 @@
       "1": {
         "name": "Celestial Jade",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -2316,13 +2299,12 @@
       }
     }
   },
-  {
-    "id": "1202",
+  "1202": {
     "basicAttack": {
       "1": {
         "name": "Dislodged",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -2344,7 +2326,7 @@
       "1": {
         "name": "Soothing Melody",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -2409,7 +2391,7 @@
       "1": {
         "name": "Amidst the Rejoicing Clouds",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -2436,7 +2418,7 @@
       "1": {
         "name": "Violet Sparknado",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -2460,13 +2442,12 @@
       }
     }
   },
-  {
-    "id": "1204",
+  "1204": {
     "basicAttack": {
       "1": {
         "name": "Glistening Light",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -2488,7 +2469,7 @@
       "1": {
         "name": "Rifting Zenith",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -2515,7 +2496,7 @@
       "1": {
         "name": "Lightbringer",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -2542,7 +2523,7 @@
       "1": {
         "name": "Prana Extirpated",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.33,
@@ -2566,13 +2547,12 @@
       }
     }
   },
-  {
-    "id": "1206",
+  "1206": {
     "basicAttack": {
       "1": {
         "name": "Cloudfencer Art: Starshine",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -2594,7 +2574,7 @@
       "1": {
         "name": "Cloudfencer Art: Mountainfall",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.05,
@@ -2640,7 +2620,7 @@
       "1": {
         "name": "Shape of Taixu: Dawn Herald",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.92,
@@ -2686,7 +2666,7 @@
       "1": {
         "name": "Dancing Blade",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -2710,13 +2690,12 @@
       }
     }
   },
-  {
-    "id": "1209",
+  "1209": {
     "basicAttack": {
       "1": {
         "name": "Frost Thorn",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -2738,7 +2717,7 @@
       "1": {
         "name": "Darting Ironthorn",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.1,
@@ -2765,7 +2744,7 @@
       "1": {
         "name": "Amidst the Raining Bliss",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -2811,7 +2790,7 @@
       "1": {
         "name": "One With the Sword",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -2911,13 +2890,12 @@
       }
     }
   },
-  {
-    "id": "1211",
+  "1211": {
     "basicAttack": {
       "1": {
         "name": "Diagnostic Kick",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -2939,7 +2917,7 @@
       "1": {
         "name": "Singing Among Clouds",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.078,
@@ -2985,7 +2963,7 @@
       "1": {
         "name": "Felicitous Thunderleap",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.09,
@@ -3031,7 +3009,7 @@
       "1": {
         "name": "Gourdful of Elixir",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.036,
@@ -3112,13 +3090,12 @@
       }
     }
   },
-  {
-    "id": "1006",
+  "1006": {
     "basicAttack": {
       "1": {
         "name": "System Warning",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -3140,7 +3117,7 @@
       "1": {
         "name": "Allow Changes?",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.98,
@@ -3205,7 +3182,7 @@
       "1": {
         "name": "User Banned",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2.28,
@@ -3270,7 +3247,7 @@
       "1": {
         "name": "Awaiting System Response...",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.05,
@@ -3351,13 +3328,12 @@
       }
     }
   },
-  {
-    "id": "1203",
+  "1203": {
     "basicAttack": {
       "1": {
         "name": "Thorns of the Abyss",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -3379,7 +3355,7 @@
       "1": {
         "name": "Prayer of Abyss Flower",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -3425,7 +3401,7 @@
       "1": {
         "name": "Death Wish",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -3452,7 +3428,7 @@
       "1": {
         "name": "Cycle of Life",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -3495,13 +3471,12 @@
       }
     }
   },
-  {
-    "id": "1207",
+  "1207": {
     "basicAttack": {
       "1": {
         "name": "Arrowslinger",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -3523,7 +3498,7 @@
       "1": {
         "name": "Emboldening Salvo",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -3550,7 +3525,7 @@
       "1": {
         "name": "Diving Kestrel",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2.28,
@@ -3615,7 +3590,7 @@
       "1": {
         "name": "Seven Layers, One Arrow",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -3639,13 +3614,12 @@
       }
     }
   },
-  {
-    "id": "1005",
+  "1005": {
     "basicAttack": {
       "1": {
         "name": "Midnight Tumult",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -3667,7 +3641,7 @@
       "1": {
         "name": "Caressing Moonlight",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.8,
@@ -3732,7 +3706,7 @@
       "1": {
         "name": "Twilight Trill",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.48,
@@ -3797,7 +3771,7 @@
       "1": {
         "name": "Gentle but Cruel",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.42,
@@ -3821,13 +3795,12 @@
       }
     }
   },
-  {
-    "id": "1111",
+  "1111": {
     "basicAttack": {
       "1": {
         "name": "Direct Punch",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -3847,7 +3820,7 @@
       "2": {
         "name": "Sky-Shatter Fist",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -3883,7 +3856,7 @@
       "1": {
         "name": "Lacerating Fist",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -3927,9 +3900,9 @@
     },
     "ultimate": {
       "1": {
-        "name": "Coup de Gr\u00e2ce",
+        "name": "Coup de Grâce",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.98,
@@ -3975,7 +3948,7 @@
       "1": {
         "name": "Flying Sparks",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.68,
@@ -3999,13 +3972,12 @@
       }
     }
   },
-  {
-    "id": "1205",
+  "1205": {
     "basicAttack": {
       "1": {
         "name": "Shard Sword",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -4025,7 +3997,7 @@
       "2": {
         "name": "Forest of Swords",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -4089,7 +4061,7 @@
       "1": {
         "name": "Hellscape",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -4116,7 +4088,7 @@
       "1": {
         "name": "Death Sentence",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.24,
@@ -4238,7 +4210,7 @@
       "1": {
         "name": "Shuhu's Gift",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.22,
@@ -4281,13 +4253,12 @@
       }
     }
   },
-  {
-    "id": "1110",
+  "1110": {
     "basicAttack": {
       "1": {
         "name": "Ice Crampon Technique",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -4309,7 +4280,7 @@
       "1": {
         "name": "Salted Camping Cans",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.05,
@@ -4393,7 +4364,7 @@
       "1": {
         "name": "Snowfield <unbreak>First Aid</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.09,
@@ -4439,7 +4410,7 @@
       "1": {
         "name": "Outdoor Survival Experience",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.024,
@@ -4520,13 +4491,12 @@
       }
     }
   },
-  {
-    "id": "1208",
+  "1208": {
     "basicAttack": {
       "1": {
         "name": "Novaburst",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -4548,7 +4518,7 @@
       "1": {
         "name": "Known by Stars, Shown by Hearts",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.03,
@@ -4594,7 +4564,7 @@
       "1": {
         "name": "Woes of Many Morphed to One",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -4621,7 +4591,7 @@
       "1": {
         "name": "Bleak Breeds Bliss",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -4664,13 +4634,12 @@
       }
     }
   },
-  {
-    "id": "1213",
+  "1213": {
     "basicAttack": {
       "1": {
         "name": "Beneficent Lotus",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -4690,7 +4659,7 @@
       "2": {
         "name": "Transcendence",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.3,
@@ -4710,7 +4679,7 @@
       "3": {
         "name": "Divine Spear",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.9,
@@ -4744,7 +4713,7 @@
       "4": {
         "name": "Fulgurant Leap",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2.5,
@@ -4780,7 +4749,7 @@
       "1": {
         "name": "Dracore Libre",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.06,
@@ -4805,14 +4774,14 @@
       "2": {
         "name": "Cancel",
         "skillType": "skill",
-        "indexedMultipliers": []
+        "multipliers": []
       }
     },
     "ultimate": {
       "1": {
         "name": "Azure's Aqua Ablutes All",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.8,
@@ -4858,7 +4827,7 @@
       "1": {
         "name": "Righteous Heart",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.05,
@@ -4882,13 +4851,12 @@
       }
     }
   },
-  {
-    "id": "1112",
+  "1112": {
     "basicAttack": {
       "1": {
         "name": "Deficit...",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -4910,7 +4878,7 @@
       "1": {
         "name": "Difficulty Paying?",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -4956,7 +4924,7 @@
       "1": {
         "name": "Turn a Profit!",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -5002,7 +4970,7 @@
       "1": {
         "name": "Trotter Market!?",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -5026,13 +4994,12 @@
       }
     }
   },
-  {
-    "id": "1210",
+  "1210": {
     "basicAttack": {
       "1": {
         "name": "Standing Ovation",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -5054,7 +5021,7 @@
       "1": {
         "name": "Blazing Welcome",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -5119,7 +5086,7 @@
       "1": {
         "name": "Watch This Showstopper",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.72,
@@ -5165,7 +5132,7 @@
       "1": {
         "name": "PatrAeon Benefits",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.04,
@@ -5189,13 +5156,12 @@
       }
     }
   },
-  {
-    "id": "1212",
+  "1212": {
     "basicAttack": {
       "1": {
         "name": "Lucent Moonglow",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -5217,7 +5183,7 @@
       "1": {
         "name": "Transcendent Flash",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -5242,7 +5208,7 @@
       "2": {
         "name": "Moon On Glacial River",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.25,
@@ -5288,7 +5254,7 @@
       "1": {
         "name": "Florephemeral Dreamflux",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.8,
@@ -5334,7 +5300,7 @@
       "1": {
         "name": "Crescent Transmigration",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.9,
@@ -5377,13 +5343,12 @@
       }
     }
   },
-  {
-    "id": "1215",
+  "1215": {
     "basicAttack": {
       "1": {
         "name": "Oracle Brush",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -5405,7 +5370,7 @@
       "1": {
         "name": "Samsara, Locked",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -5432,7 +5397,7 @@
       "1": {
         "name": "Ten-Lords' Decree, All Shall Obey",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -5478,7 +5443,7 @@
       "1": {
         "name": "Sanction",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -5502,13 +5467,12 @@
       }
     }
   },
-  {
-    "id": "1217",
+  "1217": {
     "basicAttack": {
       "1": {
         "name": "Banner: Stormcaller",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -5530,7 +5494,7 @@
       "1": {
         "name": "Talisman: Protection",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.14,
@@ -5614,7 +5578,7 @@
       "1": {
         "name": "Tail: <unbreak>Spiritual Domination</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -5660,7 +5624,7 @@
       "1": {
         "name": "Possession: Ethereal Metaflow",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.03,
@@ -5703,13 +5667,12 @@
       }
     }
   },
-  {
-    "id": "1302",
+  "1302": {
     "basicAttack": {
       "1": {
         "name": "Fleeting Fragrance",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -5731,7 +5694,7 @@
       "1": {
         "name": "Justice, Hereby Blooms",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -5758,7 +5721,7 @@
       "1": {
         "name": "For In This Garden, Supreme Beauty Bestows",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.96,
@@ -5783,7 +5746,7 @@
       "2": {
         "name": "Merit Bestowed in \"My\" Garden",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.68,
@@ -5829,7 +5792,7 @@
       "1": {
         "name": "Sublime Object",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.01,
@@ -5853,13 +5816,12 @@
       }
     }
   },
-  {
-    "id": "1214",
+  "1214": {
     "basicAttack": {
       "1": {
         "name": "Mara-Sunder Awl",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -5881,7 +5843,7 @@
       "1": {
         "name": "Iniquity Obliteration",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.7,
@@ -5927,7 +5889,7 @@
       "1": {
         "name": "Divine Castigation",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.5,
@@ -5992,7 +5954,7 @@
       "1": {
         "name": "Karmic Perpetuation",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.45,
@@ -6016,13 +5978,12 @@
       }
     }
   },
-  {
-    "id": "1303",
+  "1303": {
     "basicAttack": {
       "1": {
         "name": "Threading Fragrance",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -6044,7 +6005,7 @@
       "1": {
         "name": "String Sings Slow Swirls",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.16,
@@ -6071,7 +6032,7 @@
       "1": {
         "name": "Petals to Stream, Repose in Dream",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -6117,7 +6078,7 @@
       "1": {
         "name": "Somatotypical Helix",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.08,
@@ -6160,13 +6121,12 @@
       }
     }
   },
-  {
-    "id": "1305",
+  "1305": {
     "basicAttack": {
       "1": {
         "name": "Mind is Might",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -6188,7 +6148,7 @@
       "1": {
         "name": "Intellectual Midwifery",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -6215,7 +6175,7 @@
       "1": {
         "name": "Syllogistic Paradox",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.44,
@@ -6242,7 +6202,7 @@
       "1": {
         "name": "Cogito, Ergo Sum",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.35,
@@ -6266,13 +6226,12 @@
       }
     }
   },
-  {
-    "id": "1306",
+  "1306": {
     "basicAttack": {
       "1": {
         "name": "Monodrama",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -6294,7 +6253,7 @@
       "1": {
         "name": "Dreamdiver",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -6340,7 +6299,7 @@
       "1": {
         "name": "The Hero with a Thousand Faces",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.06,
@@ -6367,7 +6326,7 @@
       "1": {
         "name": "Red Herring",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.03,
@@ -6391,13 +6350,12 @@
       }
     }
   },
-  {
-    "id": "1307",
+  "1307": {
     "basicAttack": {
       "1": {
         "name": "Percipience, Silent Dawn",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -6447,7 +6405,7 @@
       "1": {
         "name": "Decadence, False Twilight",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.45,
@@ -6493,7 +6451,7 @@
       "1": {
         "name": "Bliss of <unbreak>Otherworld's Embrace</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.72,
@@ -6539,7 +6497,7 @@
       "1": {
         "name": "Loom of Fate's Caprice",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.96,
@@ -6620,13 +6578,12 @@
       }
     }
   },
-  {
-    "id": "1312",
+  "1312": {
     "basicAttack": {
       "1": {
-        "name": "E\u2014Excuse Me, Please!",
+        "name": "E—Excuse Me, Please!",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -6646,9 +6603,9 @@
     },
     "skill": {
       "1": {
-        "name": "R\u2014Room Service!",
+        "name": "R—Room Service!",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -6692,9 +6649,9 @@
     },
     "ultimate": {
       "1": {
-        "name": "G\u2014Gonna Be Late!",
+        "name": "G—Gonna Be Late!",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -6759,7 +6716,7 @@
       "1": {
         "name": "Horological Escapement",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -6783,13 +6740,12 @@
       }
     }
   },
-  {
-    "id": "1301",
+  "1301": {
     "basicAttack": {
       "1": {
         "name": "Corkage Fee",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -6809,7 +6765,7 @@
       "2": {
         "name": "Nectar Blitz",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.25,
@@ -6845,7 +6801,7 @@
       "1": {
         "name": "Special Brew",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               200,
@@ -6872,7 +6828,7 @@
       "1": {
         "name": "Champagne Etiquette",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -6899,7 +6855,7 @@
       "1": {
         "name": "Tipsy Tussle",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.06,
@@ -6942,13 +6898,12 @@
       }
     }
   },
-  {
-    "id": "1304",
+  "1304": {
     "basicAttack": {
       "1": {
         "name": "Straight Bet",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -6970,7 +6925,7 @@
       "1": {
         "name": "Cornerstone Deluxe",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.16,
@@ -7016,7 +6971,7 @@
       "1": {
         "name": "Roulette Shark",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.62,
@@ -7062,7 +7017,7 @@
       "1": {
         "name": "Shot Loaded Right",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.125,
@@ -7105,13 +7060,12 @@
       }
     }
   },
-  {
-    "id": "1308",
+  "1308": {
     "basicAttack": {
       "1": {
         "name": "Trilateral Wiltcross",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -7133,7 +7087,7 @@
       "1": {
         "name": "Octobolt Flash",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.8,
@@ -7179,7 +7133,7 @@
       "1": {
         "name": "Slashed Dream Cries in Red",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.144,
@@ -7299,7 +7253,7 @@
       "2": {
         "name": "Rainblade",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.144,
@@ -7362,7 +7316,7 @@
       "3": {
         "name": "Rainblade",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.144,
@@ -7425,7 +7379,7 @@
       "4": {
         "name": "Rainblade",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.144,
@@ -7488,7 +7442,7 @@
       "5": {
         "name": "Stygian Resurge",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.72,
@@ -7515,7 +7469,7 @@
       "1": {
         "name": "Atop Rainleaf Hangs Oneness",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -7539,13 +7493,12 @@
       }
     }
   },
-  {
-    "id": "1309",
+  "1309": {
     "basicAttack": {
       "1": {
         "name": "Wingflip White Noise",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -7567,7 +7520,7 @@
       "1": {
         "name": "Pinion's Aria",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -7594,7 +7547,7 @@
       "1": {
         "name": "Vox Harmonique, Opus Cosmique",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.152,
@@ -7659,7 +7612,7 @@
       "1": {
         "name": "Tonal Resonance",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.05,
@@ -7683,13 +7636,12 @@
       }
     }
   },
-  {
-    "id": "1315",
+  "1315": {
     "basicAttack": {
       "1": {
         "name": "Skullcrush Spurs",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -7709,7 +7661,7 @@
       "2": {
         "name": "Fanning the Hammer",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.1,
@@ -7731,7 +7683,7 @@
       "1": {
         "name": "Sizzlin' Tango",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -7758,7 +7710,7 @@
       "1": {
         "name": "Dust Devil's Sunset Rodeo",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2.4,
@@ -7804,7 +7756,7 @@
       "1": {
         "name": "Five Peas in a Pod",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.35,
@@ -7866,13 +7818,12 @@
       }
     }
   },
-  {
-    "id": "1310",
+  "1310": {
     "basicAttack": {
       "1": {
         "name": "Order: Flare Propulsion",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -7892,7 +7843,7 @@
       "2": {
         "name": "Fyrefly Type-IV: Pyrogenic Decimation",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -7914,7 +7865,7 @@
       "1": {
         "name": "Order: Aerial Bombardment",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -7958,7 +7909,7 @@
       "2": {
         "name": "Fyrefly Type-IV: Deathstar Overload",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -8004,7 +7955,7 @@
       "1": {
         "name": "Fyrefly Type-IV: Complete Combustion",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -8050,7 +8001,7 @@
       "1": {
         "name": "Chrysalid Pyronexus",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -8093,13 +8044,12 @@
       }
     }
   },
-  {
-    "id": "1314",
+  "1314": {
     "basicAttack": {
       "1": {
         "name": "Lash of Riches",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.45,
@@ -8135,7 +8085,7 @@
       "1": {
         "name": "Acquisition Surety",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -8162,7 +8112,7 @@
       "1": {
         "name": "Vow of the Deep",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -8208,7 +8158,7 @@
       "1": {
         "name": "Fang of Flare Flaying",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.012,
@@ -8251,13 +8201,12 @@
       }
     }
   },
-  {
-    "id": "1218",
+  "1218": {
     "basicAttack": {
       "1": {
         "name": "Heart Afire",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -8279,7 +8228,7 @@
       "1": {
         "name": "Scorch Onslaught",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -8325,7 +8274,7 @@
       "1": {
         "name": "Pyrograph Arcanum",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -8390,7 +8339,7 @@
       "1": {
         "name": "Quartet Finesse, Octave Finery",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.075,
@@ -8452,13 +8401,12 @@
       }
     }
   },
-  {
-    "id": "1221",
+  "1221": {
     "basicAttack": {
       "1": {
         "name": "Galespin Summersault",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -8480,7 +8428,7 @@
       "1": {
         "name": "Bladeborne Quake",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -8564,7 +8512,7 @@
       "1": {
         "name": "Earthbind, Etherbreak",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.32,
@@ -8648,7 +8596,7 @@
       "1": {
         "name": "Flashforge",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -8691,13 +8639,12 @@
       }
     }
   },
-  {
-    "id": "1224",
+  "1224": {
     "basicAttack": {
       "1": {
         "name": "My Sword Zaps Demons",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -8717,7 +8664,7 @@
       "2": {
         "name": "Brows Be Smitten, Heart Be Bitten",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -8739,7 +8686,7 @@
       "1": {
         "name": "Master, It's Tea Time!",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.06,
@@ -8785,7 +8732,7 @@
       "1": {
         "name": "<unbreak>March 7th,</unbreak> <unbreak>the Apex Heroine</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.44,
@@ -8812,7 +8759,7 @@
       "1": {
         "name": "Master, I've Ascended!",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -8836,13 +8783,12 @@
       }
     }
   },
-  {
-    "id": "1220",
+  "1220": {
     "basicAttack": {
       "1": {
         "name": "Boltsunder",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -8864,7 +8810,7 @@
       "1": {
         "name": "Waraxe",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -8891,7 +8837,7 @@
       "1": {
         "name": "Terrasplit",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.96,
@@ -8935,7 +8881,7 @@
       "2": {
         "name": "Boltsunder Blitz",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -8979,7 +8925,7 @@
       "3": {
         "name": "Waraxe Skyward",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -9023,7 +8969,7 @@
       "4": {
         "name": "Terrasplit",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.96,
@@ -9069,7 +9015,7 @@
       "1": {
         "name": "Thunderhunt",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.55,
@@ -9112,13 +9058,12 @@
       }
     }
   },
-  {
-    "id": "1222",
+  "1222": {
     "basicAttack": {
       "1": {
         "name": "Votive Incense",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -9140,7 +9085,7 @@
       "1": {
         "name": "Smoke and Splendor",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -9205,7 +9150,7 @@
       "1": {
         "name": "Dripping Mistscape",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.9,
@@ -9289,7 +9234,7 @@
       "1": {
         "name": "Mistdance Manifest",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.375,
@@ -9370,13 +9315,12 @@
       }
     }
   },
-  {
-    "id": "1223",
+  "1223": {
     "basicAttack": {
       "1": {
         "name": "Hurlthorn",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -9398,7 +9342,7 @@
       "1": {
         "name": "Fleetwinged Raid",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -9425,7 +9369,7 @@
       "1": {
         "name": "<unbreak>Dash In,</unbreak> <unbreak>Gash Out</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.62,
@@ -9452,7 +9396,7 @@
       "1": {
         "name": "Cascading Featherblade",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -9495,13 +9439,12 @@
       }
     }
   },
-  {
-    "id": "1317",
+  "1317": {
     "basicAttack": {
       "1": {
         "name": "Ninjutsu: Rise Above Tumbles",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -9521,7 +9464,7 @@
       "2": {
         "name": "Ningu: Demonbane Petalblade",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -9569,7 +9512,7 @@
       "3": {
         "name": "Ningu: Demonbane Petalblade",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -9603,7 +9546,7 @@
       "4": {
         "name": "Ningu: Demonbane Petalblade",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -9623,7 +9566,7 @@
       "5": {
         "name": "Ningu: Demonbane Petalblade",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -9673,7 +9616,7 @@
       "1": {
         "name": "Ninja Strike: Rooted Resolute",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -9698,9 +9641,9 @@
     },
     "ultimate": {
       "1": {
-        "name": "Nind\u014d Supreme: Aishiteru",
+        "name": "Nindō Supreme: Aishiteru",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -9727,7 +9670,7 @@
       "1": {
         "name": "Ninja Tech: Endurance Gauge",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -9770,13 +9713,12 @@
       }
     }
   },
-  {
-    "id": "1225",
+  "1225": {
     "basicAttack": {
       "1": {
         "name": "Radiant Streak",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -9796,7 +9738,7 @@
       "2": {
         "name": "Fiery Caress",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -9832,7 +9774,7 @@
       "1": {
         "name": "Virtue Beckons Bliss",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -9878,7 +9820,7 @@
       "1": {
         "name": "Solar Splendor Shines Upon All",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -9905,7 +9847,7 @@
       "1": {
         "name": "Fortune Follows Where Virtue Spreads",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -9929,13 +9871,12 @@
       }
     }
   },
-  {
-    "id": "1313",
+  "1313": {
     "basicAttack": {
       "1": {
         "name": "Gleaming Admonition",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -9957,7 +9898,7 @@
       "1": {
         "name": "Benison of Paper and Rites",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -10003,7 +9944,7 @@
       "1": {
         "name": "Ode to <unbreak>Caress and Cicatrix</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -10049,7 +9990,7 @@
       "1": {
         "name": "The Sorrowing Body",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -10073,13 +10014,12 @@
       }
     }
   },
-  {
-    "id": "1401",
+  "1401": {
     "basicAttack": {
       "1": {
         "name": "Did You Get It",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -10101,7 +10041,7 @@
       "1": {
         "name": "Big Brain Energy",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.35,
@@ -10126,7 +10066,7 @@
       "2": {
         "name": "Hear Me Out",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -10172,7 +10112,7 @@
       "1": {
         "name": "<unbreak>Told Ya!</unbreak> <unbreak>Magic Happens</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -10218,7 +10158,7 @@
       "1": {
         "name": "Hand Them Over",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.04,
@@ -10261,13 +10201,12 @@
       }
     }
   },
-  {
-    "id": "1402",
+  "1402": {
     "basicAttack": {
       "1": {
         "name": "Thorned Nectar",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -10287,7 +10226,7 @@
       "2": {
         "name": "Slash by a Thousandfold Kiss",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -10351,7 +10290,7 @@
       "1": {
         "name": "Rise, Exalted Renown",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -10376,7 +10315,7 @@
       "2": {
         "name": "Rise, Exalted Renown",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -10403,7 +10342,7 @@
       "1": {
         "name": "Dance, <unbreak>Destined Weaveress</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -10430,7 +10369,7 @@
       "1": {
         "name": "Rosy-Fingered",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -10496,7 +10435,7 @@
         "name": "Thorned Snare",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.55,
@@ -10533,7 +10472,7 @@
         "name": "A Body Brewed by Tears",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               44,
@@ -10554,23 +10493,22 @@
         "name": "The Speeding Summer",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "3": {
         "name": "Bloom of Drying Grass",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": []
+        "multipliers": []
       }
     }
   },
-  {
-    "id": "1403",
+  "1403": {
     "basicAttack": {
       "1": {
         "name": "Hundred Rockets",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -10606,7 +10544,7 @@
       "1": {
         "name": "Where'd the Gifts Go",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -10633,7 +10571,7 @@
       "1": {
         "name": "Guess Who Lives Here",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -10698,7 +10636,7 @@
       "1": {
         "name": "Busy as Tribbie",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.09,
@@ -10722,13 +10660,12 @@
       }
     }
   },
-  {
-    "id": "1404",
+  "1404": {
     "basicAttack": {
       "1": {
         "name": "Vow of Voyage",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -10750,7 +10687,7 @@
       "1": {
         "name": "Deaths are Legion, Regrets are None",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.45,
@@ -10794,7 +10731,7 @@
       "2": {
         "name": "Kingslayer Be King",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.55,
@@ -10838,7 +10775,7 @@
       "3": {
         "name": "Godslayer Be God",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.4,
@@ -10884,7 +10821,7 @@
       "1": {
         "name": "Throne of Bones",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.96,
@@ -10949,7 +10886,7 @@
       "1": {
         "name": "Blood for Blood",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -10973,13 +10910,12 @@
       }
     }
   },
-  {
-    "id": "1405",
+  "1405": {
     "basicAttack": {
       "1": {
         "name": "Pain, Brews Truth",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -11001,7 +10937,7 @@
       "1": {
         "name": "Fractal, Exiles Fallacy",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.35,
@@ -11028,7 +10964,7 @@
       "1": {
         "name": "Sprouting Life Sculpts Earth",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.8,
@@ -11055,7 +10991,7 @@
       "1": {
         "name": "Tetrad Wisdom Reigns Thrice",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.18,
@@ -11079,13 +11015,12 @@
       }
     }
   },
-  {
-    "id": "1407",
+  "1407": {
     "basicAttack": {
       "1": {
         "name": "Lament, Nethersea's Ripple",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -11107,7 +11042,7 @@
       "1": {
         "name": "Silence, Wraithfly's Caress",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -11151,7 +11086,7 @@
       "2": {
         "name": "Boneclaw, Doomdrake's Embrace",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -11197,7 +11132,7 @@
       "1": {
         "name": "Doomshriek, Dawn's Chime",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -11224,7 +11159,7 @@
       "1": {
         "name": "Desolation Across Palms",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -11252,7 +11187,7 @@
         "name": "Claw Splits the Veil",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -11273,7 +11208,7 @@
         "name": "Breath Scorches the Shadow",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -11322,19 +11257,19 @@
         "name": "Breath Scorches the Shadow",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "4": {
         "name": "Breath Scorches the Shadow",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "5": {
         "name": "Wings Sweep the Ruins",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -11385,19 +11320,19 @@
         "name": "Mooncocoon Shrouds the Form",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "2": {
         "name": "Roar Rumbles the Realm",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "3": {
         "name": "Wings Sweep the Ruins",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -11444,13 +11379,12 @@
       }
     }
   },
-  {
-    "id": "1406",
+  "1406": {
     "basicAttack": {
       "1": {
         "name": "Oops, a Missed Catch",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -11472,7 +11406,7 @@
       "1": {
         "name": "Hey, Jackpot for the Taking",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -11518,7 +11452,7 @@
       "1": {
         "name": "Yours Truly, <unbreak>Kitty Phantom Thief!</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -11564,7 +11498,7 @@
       "1": {
         "name": "The Hospitable Dolosian",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -11588,13 +11522,12 @@
       }
     }
   },
-  {
-    "id": "1409",
+  "1409": {
     "basicAttack": {
       "1": {
         "name": "When Breeze Kisses Cirrus",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -11616,7 +11549,7 @@
       "1": {
         "name": "Love Over the Rainbow",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.04,
@@ -11700,7 +11633,7 @@
       "1": {
         "name": "We Who Fly <unbreak>Into Twilight</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.05,
@@ -11822,7 +11755,7 @@
       "1": {
         "name": "First Light Heals the World",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -11850,7 +11783,7 @@
         "name": "Rainclouds, Time to Go!",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -11873,7 +11806,7 @@
         "name": "Take Sky in Hand",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.01,
@@ -11936,23 +11869,22 @@
         "name": "Soar, Unto the Sunlight",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "3": {
         "name": "Fall, Then Take Wing",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": []
+        "multipliers": []
       }
     }
   },
-  {
-    "id": "1014",
+  "1014": {
     "basicAttack": {
       "1": {
         "name": "Invisible Air: Barrier of the Wind King",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -11972,7 +11904,7 @@
       "2": {
         "name": "Release, the Golden Scepter",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -12022,7 +11954,7 @@
       "1": {
         "name": "Strike Air: Hammer of the Wind King",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.75,
@@ -12087,7 +12019,7 @@
       "1": {
         "name": "Excalibur",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.4,
@@ -12133,7 +12065,7 @@
       "1": {
         "name": "Dragon Reactor Core",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -12176,13 +12108,12 @@
       }
     }
   },
-  {
-    "id": "1015",
+  "1015": {
     "basicAttack": {
       "1": {
         "name": "Kanshou and Bakuya",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -12203,7 +12134,7 @@
       "1": {
         "name": "Caladbolg II: Fake Spiral Sword",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.8,
@@ -12247,14 +12178,14 @@
       "2": {
         "name": "End",
         "skillType": "skill",
-        "indexedMultipliers": []
+        "multipliers": []
       }
     },
     "ultimate": {
       "1": {
         "name": "Unlimited Blade Works",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               6,
@@ -12281,7 +12212,7 @@
       "1": {
         "name": "Mind's Eye (True)",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -12305,13 +12236,12 @@
       }
     }
   },
-  {
-    "id": "1408",
+  "1408": {
     "basicAttack": {
       "1": {
         "name": "Stride to Deliverance",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -12331,7 +12261,7 @@
       "2": {
         "name": "Creation: Bloodthorn Ferry",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.25,
@@ -12367,7 +12297,7 @@
       "1": {
         "name": "Let There Be Light",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.5,
@@ -12411,7 +12341,7 @@
       "2": {
         "name": "Calamity: Soulscorch Edict",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -12455,7 +12385,7 @@
       "3": {
         "name": "Foundation: Stardeath Verdict",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2.25,
@@ -12520,7 +12450,7 @@
       "1": {
         "name": "He Who Bears the World Must Burn",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               4.8,
@@ -12547,7 +12477,7 @@
       "1": {
         "name": "Pyric Corpus",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -12572,7 +12502,7 @@
       "2": {
         "name": "Fate: Divine Vessel",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.4,
@@ -12615,13 +12545,12 @@
       }
     }
   },
-  {
-    "id": "1410",
+  "1410": {
     "basicAttack": {
       "1": {
         "name": "Aeolian Mode: Echoes in Still Waters",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -12643,7 +12572,7 @@
       "1": {
         "name": "Overtone Hum: Chorus After Dark Tides",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.7,
@@ -12689,7 +12618,7 @@
       "1": {
         "name": "Maelstrom Rhapsody",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -12754,7 +12683,7 @@
       "1": {
         "name": "Sirenic Serenade",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -12797,13 +12726,12 @@
       }
     }
   },
-  {
-    "id": "1412",
+  "1412": {
     "basicAttack": {
       "1": {
         "name": "King's Castling",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -12825,7 +12753,7 @@
       "1": {
         "name": "Pawn's Promotion",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -12871,7 +12799,7 @@
       "1": {
         "name": "Scholar's Mate",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.44,
@@ -12898,7 +12826,7 @@
       "1": {
         "name": "Ave Imperator",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.18,
@@ -12941,13 +12869,12 @@
       }
     }
   },
-  {
-    "id": "1413",
+  "1413": {
     "basicAttack": {
       "1": {
         "name": "Time Thence Blurs",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -12969,7 +12896,7 @@
       "1": {
         "name": "Day Gently Slips",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -12994,7 +12921,7 @@
       "2": {
         "name": "Day Gently Slips",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -13021,7 +12948,7 @@
       "1": {
         "name": "O Wakeful World, Goodnight",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -13086,7 +13013,7 @@
       "1": {
         "name": "With Me, This Night",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -13114,7 +13041,7 @@
         "name": "Remembrance, Whirling, Like Rain",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -13149,7 +13076,7 @@
         "name": "Dream, Dissolving, as Dew",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.06,
@@ -13186,7 +13113,7 @@
         "name": "Solitude, Drifting, In Murk",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -13207,23 +13134,22 @@
         "name": "Night, Trailing, In Step",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "3": {
         "name": "You, Parting, Beyond Reach",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": []
+        "multipliers": []
       }
     }
   },
-  {
-    "id": "1414",
+  "1414": {
     "basicAttack": {
       "1": {
         "name": "Aegis Vitae",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -13245,7 +13171,7 @@
       "1": {
         "name": "Terra Omnibus",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.14,
@@ -13291,7 +13217,7 @@
       "1": {
         "name": "A Dragon's Zenith Knows No Rue",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.5,
@@ -13394,7 +13320,7 @@
       "1": {
         "name": "Of Virtue, Forms Unfold",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.07,
@@ -13437,13 +13363,12 @@
       }
     }
   },
-  {
-    "id": "1415",
+  "1415": {
     "basicAttack": {
       "1": {
         "name": "Lo, Hope Takes Flight!",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -13461,9 +13386,9 @@
         ]
       },
       "2": {
-        "name": "To Love and Tomorrow \u266a",
+        "name": "To Love and Tomorrow ♪",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -13499,7 +13424,7 @@
       "1": {
         "name": "Bloom, Elysium of Beyond",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -13524,9 +13449,9 @@
     },
     "ultimate": {
       "1": {
-        "name": "Verse \u25e6 Vow \u221e",
+        "name": "Verse ◦ Vow ∞",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -13551,14 +13476,14 @@
       "2": {
         "name": "<unbreak>Reunion at</unbreak> <unbreak>First Sight</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": []
+        "multipliers": []
       }
     },
     "talent": {
       "1": {
         "name": "Hearts Gather as One",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -13586,7 +13511,7 @@
         "name": "Minuet of Blooms and Plumes",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -13607,7 +13532,7 @@
         "name": "This Ode, to All Lives",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -13628,7 +13553,7 @@
         "name": "Ode to Genesis",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.08,
@@ -13663,7 +13588,7 @@
         "name": "Ode to Romance",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -13698,7 +13623,7 @@
         "name": "Ode to Passage",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.06,
@@ -13719,7 +13644,7 @@
         "name": "Ode to Strife",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -13740,7 +13665,7 @@
         "name": "Ode to Life and Death",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.0012,
@@ -13775,7 +13700,7 @@
         "name": "Ode to Reason",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -13810,7 +13735,7 @@
         "name": "Ode to Sky",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -13845,7 +13770,7 @@
         "name": "Ode to Trickery",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.18,
@@ -13894,7 +13819,7 @@
         "name": "Ode to Worldbearing",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.08,
@@ -13957,7 +13882,7 @@
         "name": "Ode to Ocean",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.6,
@@ -14006,7 +13931,7 @@
         "name": "Ode to Law",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -14027,7 +13952,7 @@
         "name": "Ode to Time",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.09,
@@ -14062,7 +13987,7 @@
         "name": "Ode to Earth",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -14097,7 +14022,7 @@
         "name": "Ode to Ego",
         "skillType": "MS",
         "dmgType": "MS",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -14120,7 +14045,7 @@
         "name": "Waiting, In Every Past",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.12,
@@ -14138,20 +14063,19 @@
         ]
       },
       "2": {
-        "name": "\"Hello, World \u266a\"",
+        "name": "\"Hello, World ♪\"",
         "skillType": "MT",
         "dmgType": "MT",
-        "indexedMultipliers": []
+        "multipliers": []
       }
     }
   },
-  {
-    "id": "1321",
+  "1321": {
     "basicAttack": {
       "1": {
         "name": "Fiddle... Fissured Memory",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -14173,7 +14097,7 @@
       "1": {
         "name": "Lick... Enkindled Betrayal",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.8,
@@ -14200,7 +14124,7 @@
       "1": {
         "name": "Wallow... <unbreak>Entombed Ash</unbreak>",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.8,
@@ -14246,7 +14170,7 @@
       "1": {
         "name": "Who's Afraid of Constance?",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.15,
@@ -14308,13 +14232,12 @@
       }
     }
   },
-  {
-    "id": "1501",
+  "1501": {
     "basicAttack": {
       "1": {
         "name": "Cat Got Your Flametongue?",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -14334,7 +14257,7 @@
       "2": {
         "name": "Bloom! Winner Takes All",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -14368,7 +14291,7 @@
       "3": {
         "name": "Bloom! Winner Takes All",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -14404,12 +14327,12 @@
       "1": {
         "name": "Boom! Sparxicle's Poppin'",
         "skillType": "skill",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "2": {
         "name": "Engagement Farming",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -14455,7 +14378,7 @@
       "1": {
         "name": "Party's Wildin' and Camera's Rollin'",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -14482,7 +14405,7 @@
       "1": {
         "name": "Sleight of Sparx Hand",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -14567,7 +14490,7 @@
         "name": "Signal Overflow: The Great Encore!",
         "skillType": "ES",
         "dmgType": "ES",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.125,
@@ -14610,13 +14533,12 @@
       }
     }
   },
-  {
-    "id": "1502",
+  "1502": {
     "basicAttack": {
       "1": {
         "name": "Whistlebolt Sings Joy",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.45,
@@ -14652,7 +14574,7 @@
       "1": {
         "name": "Decalight Unveils All",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -14679,7 +14601,7 @@
       "1": {
         "name": "Hexagram of Feathered Fortune",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -14706,7 +14628,7 @@
       "1": {
         "name": "Behold Wherever Light Unfolds",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.1,
@@ -14734,7 +14656,7 @@
         "name": "Let Thy Fortune Burst in Flames",
         "skillType": "ES",
         "dmgType": "ES",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -14777,13 +14699,12 @@
       }
     }
   },
-  {
-    "id": "1504",
+  "1504": {
     "basicAttack": {
       "1": {
         "name": "Talons: Inculcate Decorum",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -14805,7 +14726,7 @@
       "1": {
         "name": "Flog: Smite Evil",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -14870,7 +14791,7 @@
       "1": {
         "name": "Banquet: Insatiable Appetite",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2,
@@ -14916,7 +14837,7 @@
       "1": {
         "name": "Rancor: Enmity Reprisal",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1,
@@ -14940,13 +14861,12 @@
       }
     }
   },
-  {
-    "id": "1505",
+  "1505": {
     "basicAttack": {
       "1": {
         "name": "Syllabus: Pop Quiz",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -14968,7 +14888,7 @@
       "1": {
         "name": "Discipline: Final Verdict",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.5,
@@ -15014,7 +14934,7 @@
       "1": {
         "name": "Swordsong: Absolution Denied",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.8,
@@ -15060,7 +14980,7 @@
       "1": {
         "name": "Youth: Halcyon Evermore",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -15164,7 +15084,7 @@
         "name": "Scarlet: Elation or Execution",
         "skillType": "ES",
         "dmgType": "ES",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.55,
@@ -15188,13 +15108,12 @@
       }
     }
   },
-  {
-    "id": "1506",
+  "1506": {
     "basicAttack": {
       "1": {
         "name": "One Punch!",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -15212,9 +15131,9 @@
         ]
       },
       "2": {
-        "name": "Bonus Stage: \u03b1Wolf Instant",
+        "name": "Bonus Stage: αWolf Instant",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               1.2,
@@ -15248,24 +15167,24 @@
       "3": {
         "name": "Big Flipping Sword",
         "skillType": "basicAttack",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "4": {
         "name": "Kaboom Eggsplosion",
         "skillType": "basicAttack",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "5": {
         "name": "Funky Munch Bean",
         "skillType": "basicAttack",
-        "indexedMultipliers": []
+        "multipliers": []
       }
     },
     "skill": {
       "1": {
         "name": "Trigger Happy",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.8,
@@ -15292,7 +15211,7 @@
       "1": {
         "name": "God Mode: ON!",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.45,
@@ -15319,7 +15238,7 @@
       "1": {
         "name": "I Carry, We Win",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.2,
@@ -15385,13 +15304,13 @@
         "name": "Pro-Gamer Move",
         "skillType": "ES",
         "dmgType": "ES",
-        "indexedMultipliers": []
+        "multipliers": []
       },
       "2": {
         "name": "Honkai-DMG Demo",
         "skillType": "ES",
         "dmgType": "ES",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.45,
@@ -15415,13 +15334,12 @@
       }
     }
   },
-  {
-    "id": "1507",
+  "1507": {
     "basicAttack": {
       "1": {
         "name": "A Broken Blade Still Slays",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.25,
@@ -15441,7 +15359,7 @@
       "2": {
         "name": "A Tempered Blade Severs Souls",
         "skillType": "basicAttack",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.5,
@@ -15463,7 +15381,7 @@
       "1": {
         "name": "A Rain of Blades Seals Fate",
         "skillType": "skill",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.36,
@@ -15507,14 +15425,14 @@
       "2": {
         "name": "A Rain of Blades Seals Fate",
         "skillType": "skill",
-        "indexedMultipliers": []
+        "multipliers": []
       }
     },
     "ultimate": {
       "1": {
         "name": "Fornax Ex Corpore",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               0.3,
@@ -15577,7 +15495,7 @@
       "2": {
         "name": "Tenax Per Ignem",
         "skillType": "ultimate",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               2.1,
@@ -15604,7 +15522,7 @@
       "1": {
         "name": "All Karma Comes Due",
         "skillType": "talent",
-        "indexedMultipliers": [
+        "multipliers": [
           {
             "mv": [
               15,
@@ -15628,4 +15546,4 @@
       }
     }
   }
-]
+}

@@ -16,8 +16,8 @@ export const GamePage = () => {
     if (a === pinned) return -1;
     if (b === pinned) return 1;
 
-    const aIndex = CHARACTER[gameId][a].index;
-    const bIndex = CHARACTER[gameId][b].index;
+    const aIndex = CHARACTER[gameId][a].version;
+    const bIndex = CHARACTER[gameId][b].version;
 
     return bIndex - aIndex;
   }), [gameId, builds, pinned]);

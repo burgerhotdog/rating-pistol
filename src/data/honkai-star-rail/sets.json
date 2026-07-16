@@ -1,7 +1,7 @@
-[
-  {
-    "id": "101",
+{
+  "101": {
     "name": "Passerby of Wandering Cloud",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -11,9 +11,9 @@
       "4": {}
     }
   },
-  {
-    "id": "102",
+  "102": {
     "name": "Musketeer of Wild Wheat",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -28,9 +28,9 @@
       }
     }
   },
-  {
-    "id": "103",
+  "103": {
     "name": "Knight of Purity Palace",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -44,9 +44,9 @@
       }
     }
   },
-  {
-    "id": "104",
+  "104": {
     "name": "Hunter of Glacial Forest",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -62,9 +62,9 @@
       }
     }
   },
-  {
-    "id": "105",
+  "105": {
     "name": "Champion of Streetwise Boxing",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -81,17 +81,17 @@
       }
     }
   },
-  {
-    "id": "106",
+  "106": {
     "name": "Guard of Wuthering Snow",
+    "version": 1,
     "tieredEffects": {
       "2": {},
       "4": {}
     }
   },
-  {
-    "id": "107",
+  "107": {
     "name": "Firesmith of Lava-Forging",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -116,9 +116,9 @@
       ]
     }
   },
-  {
-    "id": "108",
+  "108": {
     "name": "Genius of Brilliant Stars",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -132,9 +132,9 @@
       }
     }
   },
-  {
-    "id": "109",
+  "109": {
     "name": "Band of Sizzling Thunder",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -151,9 +151,9 @@
       }
     }
   },
-  {
-    "id": "110",
+  "110": {
     "name": "Eagle of Twilight Line",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -163,9 +163,9 @@
       "4": {}
     }
   },
-  {
-    "id": "111",
+  "111": {
     "name": "Thief of Shooting Meteor",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -179,9 +179,9 @@
       }
     }
   },
-  {
-    "id": "112",
+  "112": {
     "name": "Wastelander of Banditry Desert",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -196,9 +196,9 @@
       }
     }
   },
-  {
-    "id": "301",
+  "301": {
     "name": "Space Sealing Station",
+    "version": 1,
     "tieredEffects": {
       "2": [
         {
@@ -217,9 +217,9 @@
       ]
     }
   },
-  {
-    "id": "302",
+  "302": {
     "name": "Fleet of the Ageless",
+    "version": 1,
     "tieredEffects": {
       "2": [
         {
@@ -239,9 +239,9 @@
       ]
     }
   },
-  {
-    "id": "303",
+  "303": {
     "name": "Pan-Cosmic Commercial Enterprise",
+    "version": 1,
     "tieredEffects": {
       "2": [
         {
@@ -262,9 +262,9 @@
       ]
     }
   },
-  {
-    "id": "304",
+  "304": {
     "name": "Belobog of the Architects",
+    "version": 1,
     "tieredEffects": {
       "2": [
         {
@@ -283,9 +283,9 @@
       ]
     }
   },
-  {
-    "id": "305",
+  "305": {
     "name": "Celestial Differentiator",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -294,9 +294,9 @@
       }
     }
   },
-  {
-    "id": "306",
+  "306": {
     "name": "Inert Salsotto",
+    "version": 1,
     "tieredEffects": {
       "2": [
         {
@@ -316,9 +316,9 @@
       ]
     }
   },
-  {
-    "id": "307",
+  "307": {
     "name": "Talia: Kingdom of Banditry",
+    "version": 1,
     "tieredEffects": {
       "2": [
         {
@@ -337,9 +337,9 @@
       ]
     }
   },
-  {
-    "id": "308",
+  "308": {
     "name": "Sprightly Vonwacq",
+    "version": 1,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -348,9 +348,9 @@
       }
     }
   },
-  {
-    "id": "113",
+  "113": {
     "name": "Longevous Disciple",
+    "version": 1.2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -364,9 +364,9 @@
       }
     }
   },
-  {
-    "id": "114",
+  "114": {
     "name": "Messenger Traversing Hackerspace",
+    "version": 1.2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -376,9 +376,9 @@
       "4": {}
     }
   },
-  {
-    "id": "309",
+  "309": {
     "name": "Rutilant Arena",
+    "version": 1.2,
     "tieredEffects": {
       "2": [
         {
@@ -398,9 +398,9 @@
       ]
     }
   },
-  {
-    "id": "310",
+  "310": {
     "name": "Broken Keel",
+    "version": 1.2,
     "tieredEffects": {
       "2": [
         {
@@ -420,9 +420,9 @@
       ]
     }
   },
-  {
-    "id": "115",
+  "115": {
     "name": "The Ashblazing Grand Duke",
+    "version": 1.5,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -436,9 +436,9 @@
       }
     }
   },
-  {
-    "id": "116",
+  "116": {
     "name": "Prisoner in Deep Confinement",
+    "version": 1.5,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -452,9 +452,9 @@
       }
     }
   },
-  {
-    "id": "311",
+  "311": {
     "name": "Firmament Frontline: Glamoth",
+    "version": 1.5,
     "tieredEffects": {
       "2": [
         {
@@ -481,9 +481,9 @@
       ]
     }
   },
-  {
-    "id": "312",
+  "312": {
     "name": "Penacony, Land of the Dreams",
+    "version": 1.5,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -492,9 +492,9 @@
       }
     }
   },
-  {
-    "id": "117",
+  "117": {
     "name": "Pioneer Diver of Dead Waters",
+    "version": 2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -516,9 +516,9 @@
       ]
     }
   },
-  {
-    "id": "118",
+  "118": {
     "name": "Watchmaker, Master of Dream Machinations",
+    "version": 2,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -533,9 +533,9 @@
       }
     }
   },
-  {
-    "id": "313",
+  "313": {
     "name": "Sigonia, the Unclaimed Desolation",
+    "version": 2.1,
     "tieredEffects": {
       "2": [
         {
@@ -551,9 +551,9 @@
       ]
     }
   },
-  {
-    "id": "314",
+  "314": {
     "name": "Izumo Gensei and Takama Divine Realm",
+    "version": 2.1,
     "tieredEffects": {
       "2": [
         {
@@ -569,9 +569,9 @@
       ]
     }
   },
-  {
-    "id": "119",
+  "119": {
     "name": "Iron Cavalry Against the Scourge",
+    "version": 2.3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -585,9 +585,9 @@
       }
     }
   },
-  {
-    "id": "120",
+  "120": {
     "name": "The Wind-Soaring Valorous",
+    "version": 2.3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -610,9 +610,9 @@
       ]
     }
   },
-  {
-    "id": "315",
+  "315": {
     "name": "Duran, Dynasty of Running Wolves",
+    "version": 2.3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -622,9 +622,9 @@
       }
     }
   },
-  {
-    "id": "316",
+  "316": {
     "name": "Forge of the Kalpagni Lantern",
+    "version": 2.3,
     "tieredEffects": {
       "2": [
         {
@@ -640,9 +640,9 @@
       ]
     }
   },
-  {
-    "id": "317",
+  "317": {
     "name": "Lushaka, the Sunken Seas",
+    "version": 2.5,
     "tieredEffects": {
       "2": [
         {
@@ -659,9 +659,9 @@
       ]
     }
   },
-  {
-    "id": "318",
+  "318": {
     "name": "The Wondrous BananAmusement Park",
+    "version": 2.5,
     "tieredEffects": {
       "2": [
         {
@@ -677,9 +677,9 @@
       ]
     }
   },
-  {
-    "id": "121",
+  "121": {
     "name": "Sacerdos' Relived Ordeal",
+    "version": 2.6,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -689,9 +689,9 @@
       "4": {}
     }
   },
-  {
-    "id": "122",
+  "122": {
     "name": "Scholar Lost in Erudition",
+    "version": 2.6,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -716,9 +716,9 @@
       ]
     }
   },
-  {
-    "id": "123",
+  "123": {
     "name": "Hero of Triumphant Song",
+    "version": 3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -733,9 +733,9 @@
       }
     }
   },
-  {
-    "id": "124",
+  "124": {
     "name": "Poet of Mourning Collapse",
+    "version": 3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -750,9 +750,9 @@
       }
     }
   },
-  {
-    "id": "319",
+  "319": {
     "name": "Bone Collection's Serene Demesne",
+    "version": 3.1,
     "tieredEffects": {
       "2": [
         {
@@ -771,9 +771,9 @@
       ]
     }
   },
-  {
-    "id": "320",
+  "320": {
     "name": "Giant Tree of Rapt Brooding",
+    "version": 3.1,
     "tieredEffects": {
       "2": [
         {
@@ -800,9 +800,9 @@
       ]
     }
   },
-  {
-    "id": "125",
+  "125": {
     "name": "Warrior Goddess of Sun and Thunder",
+    "version": 3.3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -828,9 +828,9 @@
       ]
     }
   },
-  {
-    "id": "126",
+  "126": {
     "name": "Wavestrider Captain",
+    "version": 3.3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -844,9 +844,9 @@
       }
     }
   },
-  {
-    "id": "321",
+  "321": {
     "name": "Arcadia of Woven Dreams",
+    "version": 3.4,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -855,9 +855,9 @@
       }
     }
   },
-  {
-    "id": "322",
+  "322": {
     "name": "Revelry by the Sea",
+    "version": 3.4,
     "tieredEffects": {
       "2": [
         {
@@ -884,9 +884,9 @@
       ]
     }
   },
-  {
-    "id": "127",
+  "127": {
     "name": "World-Remaking Deliverer",
+    "version": 3.6,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -908,9 +908,9 @@
       ]
     }
   },
-  {
-    "id": "128",
+  "128": {
     "name": "Self-Enshrouded Recluse",
+    "version": 3.6,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -932,9 +932,9 @@
       ]
     }
   },
-  {
-    "id": "323",
+  "323": {
     "name": "Amphoreus, The Eternal Land",
+    "version": 3.7,
     "tieredEffects": {
       "2": [
         {
@@ -951,9 +951,9 @@
       ]
     }
   },
-  {
-    "id": "324",
+  "324": {
     "name": "Tengoku@Livestream",
+    "version": 3.7,
     "tieredEffects": {
       "2": [
         {
@@ -969,9 +969,9 @@
       ]
     }
   },
-  {
-    "id": "129",
+  "129": {
     "name": "Ever-Glorious Magical Girl",
+    "version": 4,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -985,9 +985,9 @@
       }
     }
   },
-  {
-    "id": "130",
+  "130": {
     "name": "Diviner of Distant Reach",
+    "version": 4,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -1020,9 +1020,9 @@
       ]
     }
   },
-  {
-    "id": "325",
+  "325": {
     "name": "Punklorde Stage Zero",
+    "version": 4.1,
     "tieredEffects": {
       "2": [
         {
@@ -1038,9 +1038,9 @@
       ]
     }
   },
-  {
-    "id": "326",
+  "326": {
     "name": "City of Converging Stars",
+    "version": 4.1,
     "tieredEffects": {
       "2": [
         {
@@ -1059,9 +1059,9 @@
       ]
     }
   },
-  {
-    "id": "131",
+  "131": {
     "name": "As Navigator Isee Sees It",
+    "version": 4.3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -1076,9 +1076,9 @@
       }
     }
   },
-  {
-    "id": "132",
+  "132": {
     "name": "Divine-Querying Master Smith",
+    "version": 4.3,
     "tieredEffects": {
       "2": {
         "statMap": {
@@ -1100,4 +1100,4 @@
       ]
     }
   }
-]
+}

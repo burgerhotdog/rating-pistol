@@ -32,9 +32,9 @@ export const createGetPenalty = (cache, currId) => {
     matchMap[energyAttr] = getAttr(energyAttr, statMap);
   }
 
-  return (statMap) => (
-    Object.entries(matchMap).reduce((acc, [attr, target]) => (
-      acc * penaltyMult(getAttr(attr, statMap), target)
-    ), 1)
-  );
+  return (statMap) => Object.entries(matchMap)
+    .reduce((acc, [attr, target]) => {
+      const attrValue = getAttr(attr, statMap);
+      return acc * penaltyMult(attrValue, target);
+    }, 1);
 };
