@@ -1,1 +1,2 @@
-subEffect
+multi stack
+switchable chars

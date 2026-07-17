@@ -2,12 +2,12 @@ import { matchRemoveFilter } from '../../filter';
 import { matchApplyFilter } from '../../filter';
 import { inflictNegativeStatuses } from './negativeStatuses';
 
-export function applyEffect(stateMap, effect) {
+export function applyEffect(stateMap, effect, stacks = 1) {
   const prev = stateMap[effect.key] ?? {};
   const prevStacks = prev.stacks ?? 0;
 
   const next = {
-    stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
+    stacks: Math.min(prevStacks + stacks, effect.maxStacks ?? 1),
     timeRemaining: effect.duration ?? Infinity,
     usesRemaining: effect.maxUses ?? Infinity,
     effect,
@@ -38,15 +38,17 @@ export function applyEffects(ctx, action, trigger) {
       !matchApplyFilter({ effect, action, ctx })
     ) continue;
 
+    const stacks = 1 + (effect.applyExtraStacks?.[action.skillType] ?? 0);
+
     for (const target of effect.applyTo) {
       if (target === 'applier') {
-        applyEffect(memberEffects[action.ownerId], effect);
+        applyEffect(memberEffects[action.ownerId], effect, stacks);
       } else if (target in ctx.cache.member) {
-        applyEffect(memberEffects[target], effect);
+        applyEffect(memberEffects[target], effect, stacks);
       } else if (target === 'onField' || target === 'offField') {
-        applyEffect(fieldEffects[target], effect);
+        applyEffect(fieldEffects[target], effect, stacks);
       } else {
-        applyEffect(debuffs, effect);
+        applyEffect(debuffs, effect, stacks);
       }
     }
 

@@ -1,54 +1,52 @@
 import { toArray, getAttr } from '@/utils';
 
-const ifAttr = (filter = {}, spec) => {
-  const statMap = spec.ctx.buildMaps[spec.effect.ownerId]
-
-  return Object.entries(filter)
-    .some(([attr, threshold]) =>
-      getAttr(attr, statMap) >= threshold);
+const ifAttr = (rawFilter = {}, { effect, ctx }) => {
+  const filter = Object.entries(rawFilter);
+  const statMap = ctx.buildMaps[effect.ownerId];
+  return filter.some(([attr, value]) => getAttr(attr, statMap) >= value);
 };
 
-const ifField = (filter, spec) => {
-  const field = spec.ctx.getField(spec.action.ownerId)
+const ifField = (filter, { action, ctx }) => {
+  const field = ctx.getField(action.ownerId)
   return filter != null && filter === field;
 };
 
-const ifEffectStacks = (filter, state, op) =>
-  Object.entries(filter).every(([key, stacks]) =>
-    [
-      ...Object.values(state.memberEffects),
-      ...Object.values(state.fieldEffects),
-      state.debuffs,
-    ].some((stateMap) =>
-      op(stateMap[key]?.stacks, stacks)));
-
-const ifEffectStacksMin = (filter = {}, spec) => {
-  const { state } = spec.ctx;
-  return ifEffectStacks(filter, state, (a, b) => a >= b);
+const ifEffectStacks = (rawFilter = {}, state, op) => { // helper
+  const filter = Object.entries(rawFilter);
+  const stateMaps = [
+    ...Object.values(state.memberEffects),
+    ...Object.values(state.fieldEffects),
+    state.debuffs,
+  ];
+  return filter.every(([key, stacks]) =>
+    stateMaps.some((stateMap) => op(stateMap[key]?.stacks, stacks)));
 };
 
-const ifEffectStacksMax = (filter = {}, spec) => {
-  const { state } = spec.ctx;
-  return ifEffectStacks(filter, state, (a, b) => a <= b);
+const ifEffectStacksMin = (rawFilter, { ctx }) =>
+  ifEffectStacks(rawFilter, ctx.state, (a, b) => a >= b);
+
+const ifEffectStacksMax = (rawFilter, { ctx }) => 
+  ifEffectStacks(rawFilter, ctx.state, (a, b) => a <= b);
+
+const ifNegativeStatus = (rawFilter = {}, { ctx }) => {
+  const { negativeStatuses } = ctx.state;
+  if (rawFilter === 'any') {
+    return Object.keys(negativeStatuses).length;
+  }
+  const filter = Object.entries(rawFilter);
+  return filter.some(([statusId, stacks]) => negativeStatuses[statusId]?.stacks >= stacks);
 };
 
-const ifNegativeStatus = (filter = {}, spec) => {
-  const { negativeStatuses } = spec.ctx.state;
-
-  return filter === 'any'
-    ? Object.keys(negativeStatuses).length
-    : Object.entries(filter).some(([statusId, threshold]) =>
-      negativeStatuses[statusId]?.stacks >= threshold);
+const ifShifting = (rawFilter, { ctx }) => {
+  const filter = toArray(rawFilter);
+  const { tune } = ctx.state;
+  return filter.includes(tune.shifting);
 };
 
-const ifShifting = (filter, spec) => {
-  const { tune } = spec.ctx.state;
-  return toArray(filter).includes(tune.shifting);
-};
-
-const ifInterfered = (filter, spec) => {
-  const { tune } = spec.ctx.state;
-  return toArray(filter).includes(tune.interfered);
+const ifInterfered = (rawFilter, { ctx }) => {
+  const filter = toArray(rawFilter);
+  const { tune } = ctx.state;
+  return filter.includes(tune.interfered);
 };
 
 export const ifFilters = {

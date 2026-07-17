@@ -1,29 +1,46 @@
 import { toArray } from '@/utils';
 
-const onAction = (filter, { action }) =>
-  toArray(filter).some((key) => key.includes(':')
-    ? key === action.key
-    : key === action.short);
+// Filter based on what action is
+const onAction = (rawFilter, { action }) => {
+  const filter = toArray(rawFilter);
+  const isMatch = (key) =>
+    key.includes(':')
+      ? key === action.key
+      : key === action.short;
+  return filter.some((key) => isMatch(key));
+};
 
-const onType = (filter, { action }) =>
-  toArray(filter).includes(action.type);
+const onType = (rawFilter, { action }) => {
+  const filter = toArray(rawFilter);
+  return filter.includes(action.type);
+};
 
-const onTagged = (filter, { action }) =>
-  toArray(filter).some((tag) =>
-    toArray(action.tagged).includes(tag));
+const onTagged = (rawFilter, { action }) => {
+  const filter = toArray(rawFilter);
+  const actionTags = toArray(action.tagged);
+  return filter.some((tag) => actionTags.includes(tag));
+};
 
-const onSkillType = (filter, { action }) =>
-  toArray(filter).some((skillType) =>
-    skillType === action.skillType ||
-    skillType === action.extraSkillType);
+const onSkillType = (rawFilter, { action }) => {
+  const filter = toArray(rawFilter);
+  const isMatch = (type) =>
+    type === action.skillType ||
+    type === action.extraSkillType;
+  return filter.some((skillType) => isMatch(skillType));
+};
 
-const onDmgType = (filter, { action }) =>
-  toArray(filter).some((dmgType) =>
-    dmgType === action.dmgType ||
-    dmgType === action.extraDmgType);
+const onDmgType = (rawFilter, { action }) => {
+  const filter = toArray(rawFilter);
+  const isMatch = (type) =>
+    type === action.dmgType ||
+    type === action.extraDmgType;
+  return filter.some((dmgType) => isMatch(dmgType));
+};
 
-const onElement = (filter, { action }) =>
-  toArray(filter).includes(action.element);
+const onElement = (rawFilter, { action }) => {
+  const filter = toArray(rawFilter);
+  return filter.includes(action.element);
+};
 
 export const onFilters1 = {
   'OnAction': onAction,
@@ -34,15 +51,20 @@ export const onFilters1 = {
   'OnElement': onElement,
 };
 
-const onInflictNegativeStatus = (filter, { action }) =>
-  filter === 'any'
-    ? Object.keys(action.inflictNegativeStatus ?? {}).length
-    : toArray(filter).some((statusId) =>
-      (action.inflictNegativeStatus ?? {})[statusId]);
+// Filter based on what action does
+const onInflictNegativeStatus = (rawFilter, { action }) => {
+  const inflicted = action.inflictNegativeStatus ?? {};
+  if (rawFilter === 'any') {
+    return Object.keys(inflicted).length;
+  }
+  const filter = toArray(rawFilter);
+  return filter.some((statusId) => statusId in inflicted);
+};
 
-const onShiftTune = (filter, { action }) =>
-  toArray(filter).some((shifting) =>
-    shifting === action.shiftTune);
+const onShiftTune = (rawFilter, { action }) => {
+  const filter = toArray(rawFilter);
+  return filter.some((shifting) => shifting === action.shiftTune);
+};
 
 export const onFilters2 = {
   'OnInflictNegativeStatus': onInflictNegativeStatus,

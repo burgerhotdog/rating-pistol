@@ -1,16 +1,16 @@
 import { onFilters1, onFilters2 } from './onFilter';
 import { ifFilters } from './ifFilter';
 
-const createMatcher = (prefix, filterType, emptyResult = true) => {
+const createMatcher = (prefix, filterFunctions, isMatchWhenNoFilters = true) => {
   const filters =
     Object.fromEntries(
-      Object.entries(filterType)
+      Object.entries(filterFunctions)
         .map(([suffix, fn]) => [`${prefix}${suffix}`, fn]));
 
   return ({ effect, action, ctx }) => {
     const hasNoFilters = !Object.keys(effect).some((key) => key in filters);
     return hasNoFilters
-      ? emptyResult
+      ? isMatchWhenNoFilters
       : Object.entries(filters)
         .some(([field, fn]) =>
           field in effect &&
