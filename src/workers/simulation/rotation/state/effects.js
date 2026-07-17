@@ -1,15 +1,6 @@
-import { onAction, onSkillType, ifField, ifNegativeStatus } from '../../match';
+import { matchRemoveFilter } from '../../filter';
+import { matchApplyFilter } from '../../filter';
 import { inflictNegativeStatuses } from './negativeStatuses';
-
-const matchApplyIf = (effect, action, ctx) => {
-  const hasApplyIf =
-    'applyIfField' in effect ||
-    'applyIfNegativeStatus' in effect
-
-  return !hasApplyIf ||
-    ifField(effect.applyIfField, action.ownerId, ctx.onFieldId) ||
-    ifNegativeStatus(effect.applyIfNegativeStatus, ctx.state)
-};
 
 export function applyEffect(stateMap, effect) {
   const prev = stateMap[effect.key] ?? {};
@@ -32,19 +23,19 @@ export function applyEffect(stateMap, effect) {
 export function applyEffects(ctx, action, trigger) {
   const { cooldowns, memberEffects, fieldEffects, debuffs } = ctx.state;
 
-  if (!(action.key in ctx.cache.effect)) return;
-
   if ('inflict' in action && trigger === 'hit') {
     inflictNegativeStatuses(ctx, action.inflict);
   }
 
-  const triggered = ctx.cache.effect[action.key]
-    .filter((effect) => effect.applyWhen === trigger);
+  const toTest = [
+    ...ctx.cache.appliedByTeam,
+    ...ctx.cache.member[action.ownerId].appliedBySelf,
+  ].filter((effect) => effect.applyWhen === trigger);
 
-  for (const effect of triggered) {
+  for (const effect of toTest) {
     if (
       cooldowns[effect.key] ||
-      !matchApplyIf(effect, action, ctx)
+      !matchApplyFilter({ effect, action, ctx })
     ) continue;
 
     for (const target of effect.applyTo) {
@@ -55,9 +46,7 @@ export function applyEffects(ctx, action, trigger) {
       } else if (target === 'onField' || target === 'offField') {
         applyEffect(fieldEffects[target], effect);
       } else {
-        if ('statMap' in effect) {
-          applyEffect(debuffs, effect);
-        }
+        applyEffect(debuffs, effect);
       }
     }
 
@@ -86,22 +75,19 @@ export function applyPassives(ctx, passives) {
 }
 
 export function removeEffects(ctx, action) {
-  const { memberEffects, fieldEffects } = ctx.state;
+  const { memberEffects, fieldEffects, debuffs } = ctx.state;
 
   const stateMaps = [
     ...Object.values(memberEffects),
     ...Object.values(fieldEffects),
+    debuffs,
   ];
 
   for (const stateMap of stateMaps) {
     for (const [key, { effect }] of Object.entries(stateMap)) {
       if (effect.ownerId !== action.ownerId) continue;
 
-      if (
-        onAction(effect.removeOnAction, action) ||
-        onSkillType(effect.removeOnSkillType, action) ||
-        ifField(effect.removeIfField, action.ownerId, ctx.onFieldId)
-      ) {
+      if (matchRemoveFilter({ effect, action, ctx })) {
         delete stateMap[key];
       }
     }

@@ -831,19 +831,26 @@
           "hp%": 0.1
         }
       },
-      "5": {
-        "applyWhen": "hit",
-        "applyOnType": "shield",
-        "applyCooldown": 500,
-        "statMap": {
-          "critRate%": 0.05
+      "5": [
+        {
+          "applyWhen": "hit",
+          "applyOnType": "shield",
+          "applyCooldown": 500,
+          "statMap": {
+            "critRate%": 0.05
+          },
+          "duration": 5000,
+          "maxStacks": 4
         },
-        "duration": 5000,
-        "maxStacks": 4,
-        "maxStatMap": {
-          "fusionDmgBonus%": 0.15
+        {
+          "useIfEffectStacksMin": {
+            "$prev.1": 4
+          },
+          "statMap": {
+            "fusionDmgBonus%": 0.15
+          }
         }
-      }
+      ]
     }
   }
 }

@@ -9,9 +9,7 @@ import { getUsedBuffStates, getUsedFollowUpStates, resolveBuffMap } from './getC
 const MAX_PROC_DEPTH = 5;
 
 function decayUsedBuffs(ctx, usedBuffStates) {
-  const { memberEffects, fieldEffects } = ctx.state;
-
-  for (const [stateMapType, stateMapKey, effectState] of usedBuffStates) {
+  for (const [stateMap, effectState] of usedBuffStates) {
     const { effect } = effectState;
 
     if ('useCooldown' in effect) {
@@ -20,20 +18,15 @@ function decayUsedBuffs(ctx, usedBuffStates) {
 
     effectState.usesRemaining--;
     if (!effectState.usesRemaining) {
-      if (stateMapType === 'member') {
-        delete memberEffects[stateMapKey][effect.key];
-      } else {
-        delete fieldEffects[stateMapKey][effect.key];
-      }
+      delete stateMap[effect.key];
     }
   }
 }
 
 function runFollowUpActions(ctx, action, depth) {
-  const { memberEffects, fieldEffects } = ctx.state;
   const usedFollowUpStates = getUsedFollowUpStates(ctx, action.ownerId, action);
 
-  for (const [stateMapType, stateMapKey, effectState] of usedFollowUpStates) {
+  for (const [stateMap, effectState] of usedFollowUpStates) {
     const { effect } = effectState;
     const { times = 1 } = effect;
 
@@ -53,11 +46,7 @@ function runFollowUpActions(ctx, action, depth) {
 
     effectState.usesRemaining--;
     if (effectState.usesRemaining <= 0) {
-      if (stateMapType === 'member') {
-        delete memberEffects[stateMapKey][effect.key];
-      } else {
-        delete fieldEffects[stateMapKey][effect.key];
-      }
+      delete stateMap[effect.key];
     }
   }
 }
@@ -164,6 +153,12 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     equipMaps,
     buildMaps,
     currId,
+    onFieldId: null,
+    getField(id) {
+      return id === this.onFieldId
+        ? 'onField'
+        : 'offField';
+    },
     state: {
       cooldowns: {},
       memberEffects: Object.fromEntries(

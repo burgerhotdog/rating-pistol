@@ -1,8 +1,8 @@
 import { useMemo, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { GI, WW } from '@/data';
+import { WW } from '@/data';
 
-const VALID_GAME_IDS = new Set([GI, WW]);
+const VALID_GAME_IDS = new Set([WW]);
 
 export const useSimulation = (team) => {
   const { gameId, characterId } = useParams();
@@ -11,9 +11,7 @@ export const useSimulation = (team) => {
   const [result, setResult] = useState({});
 
   const payload = useMemo(() => {
-    if (!VALID_GAME_IDS.has(gameId)) {
-      return null;
-    }
+    if (!VALID_GAME_IDS.has(gameId)) return null;
 
     const filteredTeam = team.filter((member) => member.id);
     if (filteredTeam.some((member) => !member.rotation.length)) {

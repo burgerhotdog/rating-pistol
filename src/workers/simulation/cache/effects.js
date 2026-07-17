@@ -1,7 +1,6 @@
 import { CHARACTER, WEAPON, SET } from '@/data';
 import { toArray, mergeObj } from '@/utils';
 import { enableIf } from './enableIf';
-import { applyOn } from './applyOn';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
@@ -36,21 +35,44 @@ function resolveRankMods(effect, memberRank) {
     if (Number(rank) > memberRank) continue;
 
     for (const [key, add] of Object.entries(modSpec)) {
-      if (!(key in effect)) {
+      if (!(key in effect)) { // no previous existing field
         effect[key] = add;
         continue;
       }
 
       const prev = effect[key];
-      if (typeof prev === 'object' && !Array.isArray(prev)) {
+      if (typeof prev === 'object' && !Array.isArray(prev)) { // merge objects
         effect[key] = mergeObj(prev, add);
-      } else if (typeof add === 'number') {
+      } else if (typeof add === 'number') { // combine numbers
         effect[key] += add;
-      } else {
+      } else { // merge string arrays
         effect[key] = [
           ...toArray(effect[key]),
           ...toArray(add),
         ];
+      }
+    }
+  }
+}
+
+function resolvePrev(effect) {
+  function resolveKey(prevKey, fieldData) {
+    const id = Number(effect.id) - Number(prevKey.slice(6));
+    const key = `${effect.ownerId}:effect${id}`;
+
+    fieldData[key] = fieldData[prevKey];
+    delete fieldData[prevKey];
+  }
+
+  for (const prefix of ['apply', 'remove', 'use']) {
+    for (const suffix of ['Min', 'Max']) {
+      const field = `${prefix}IfEffectStacks${suffix}`;
+      if (!(field in effect)) continue;
+
+      effect[field] = { ...effect[field] };
+      for (const key of Object.keys(effect[field])) {
+        if (!key.startsWith('$prev.')) continue;
+        resolveKey(key, effect[field]);
       }
     }
   }
@@ -75,6 +97,7 @@ const toNormalizedEffect = (rawEffect, spec) => {
   };
 
   resolveApplyTo(effect, memberIds);
+  resolvePrev(effect);
 
   // Resolve ranked statMaps
   if (effect.statMap) {
@@ -106,9 +129,9 @@ const toNormalizedEffect = (rawEffect, spec) => {
 
       effect[actionType] = [];
       for (const [index, rawlinkedAction] of effectActions.entries()) {
-        if (typeof rawlinkedAction === 'string') {
+        if (typeof rawlinkedAction === 'string') { // shortKey referencing actions.json
           effect[actionType].push(memberActions[rawlinkedAction]);
-        } else {
+        } else { // inline action object
           effect[actionType].push(toNormalizedAction(rawlinkedAction, {
             gameId,
             ownerId,
@@ -133,8 +156,8 @@ const toNormalizedEffect = (rawEffect, spec) => {
   return effect;
 };
 
-export const normalizeEffects = (ctx, member, actions) => {
-  const { gameId, memberIds } = ctx;
+export const normalizeEffects = (member, spec) => {
+  const { gameId, memberIds, teamActions } = spec;
   const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts } = member;
 
   const toNormalize = [
@@ -149,8 +172,9 @@ export const normalizeEffects = (ctx, member, actions) => {
   ];
 
   const passives = [];
-  const effectsByAction = {};
   const specialEffects = [];
+  const appliedByAny = [];
+  const appliedBySelf = [];
 
   for (const [index, rawEffect] of toNormalize.entries()) {
     if (!enableIf(rawEffect, CHARACTER[gameId][memberId])) continue;
@@ -162,7 +186,7 @@ export const normalizeEffects = (ctx, member, actions) => {
       memberRank,
       weaponRank,
       memberIds,
-      memberActions: actions[memberId],
+      memberActions: teamActions[memberId],
     });
 
     if (effect.applyOnSpecial) { // special
@@ -175,17 +199,12 @@ export const normalizeEffects = (ctx, member, actions) => {
       continue;
     }
 
-    // active
-    const actionsList = effect.applyBy === 'team'
-      ? Object.values(actions).flatMap((actionMap) => Object.values(actionMap))
-      : Object.values(actions[memberId]);
-
-    for (const action of actionsList) {
-      if (!applyOn(effect, action)) continue;
-      effectsByAction[action.key] ??= [];
-      effectsByAction[action.key].push(effect);
+    if (effect.applyBy === 'team') {
+      appliedByAny.push(effect);
+    } else {
+      appliedBySelf.push(effect);
     }
   }
 
-  return { passives, effectsByAction, specialEffects };
+  return { passives, specialEffects, appliedBySelf, appliedByAny };
 };

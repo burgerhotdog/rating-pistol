@@ -55,7 +55,7 @@ export const buildFootprint = (ctx, action, fixedBuffMap, variableBuffSpecs) => 
 
   const currBuffMap = {};
   if (variableBuffSpecs.length) {
-    for (const [,, { effect, stacks }] of getUsedBuffStates(ctx, ctx.currId)) {
+    for (const [, { effect, stacks }] of getUsedBuffStates(ctx, ctx.currId)) {
       const { statMap, chance = 1 } = effect;
       if (!statMap) continue;
       mergeStatMap(currBuffMap, statMap, stacks * chance);
