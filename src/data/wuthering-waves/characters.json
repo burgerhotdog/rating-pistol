@@ -3596,21 +3596,6 @@
         }
       },
       {
-        "applyTo": "enemy",
-        "applyWhen": "hit",
-        "applyOnAction": "resonanceLiberation.2",
-        "inflict": {
-          "spectroFrazzle": 8
-        },
-        "rankMods": {
-          "1": {
-            "inflict": {
-              "spectroFrazzle": 2
-            }
-          }
-        }
-      },
-      {
         "useOnAction": "forteCircuit.3",
         "useIfNegativeStatus": {
           "spectroFrazzle": 1
@@ -3678,6 +3663,15 @@
         "useOnAction": "resonanceLiberation.2",
         "statMap": {
           "mv%": 0.9
+        }
+      },
+      {
+        "rank": 1,
+        "useOnAction": "resonanceLiberation.2",
+        "followUpAction": {
+          "inflictNegativeStatus": {
+            "spectroFrazzle": 2
+          }
         }
       },
       {
@@ -5405,7 +5399,7 @@
         "useOnInflict": "glacioChafe",
         "useCooldown": 0.5,
         "followUpAction": {
-          "inflict": {
+          "inflictNegativeStatus": {
             "glacioChafe": 2
           }
         },

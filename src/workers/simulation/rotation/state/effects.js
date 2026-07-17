@@ -46,9 +46,7 @@ export function applyEffects(ctx, action, trigger) {
       } else if (target === 'onField' || target === 'offField') {
         applyEffect(fieldEffects[target], effect);
       } else {
-        if ('statMap' in effect) {
-          applyEffect(debuffs, effect);
-        }
+        applyEffect(debuffs, effect);
       }
     }
 

@@ -19230,6 +19230,9 @@
         "name": "Dawn of Enlightenment",
         "tagged": "Confession",
         "skillType": "resonanceLiberation",
+        "inflictNegativeStatus": {
+          "spectroFrazzle": 8
+        },
         "multipliers": [
           {
             "mv": [
