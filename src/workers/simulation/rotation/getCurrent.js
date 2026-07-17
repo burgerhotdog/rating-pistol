@@ -8,17 +8,17 @@ const getAllStates = (ctx, memberId, effectTypes) => {
 
   const stateMaps = [
     ...Object.values(memberEffects[memberId])
-      .map((effectState) => ['member', memberId, effectState]),
+      .map((effectState) => [memberEffects[memberId], effectState]),
     ...Object.values(fieldEffects[field])
-      .map((effectState) => ['field', field, effectState]),
+      .map((effectState) => [fieldEffects[field], effectState]),
   ]
 
-  return stateMaps.filter(([,, { effect }]) =>
+  return stateMaps.filter(([, { effect }]) =>
     effectTypes.some((type) => type in effect));
 };
 
 const getUsedStates = (allStates, ctx, memberId, action) =>
-  allStates.filter(([,, { cooldown, effect }]) =>
+  allStates.filter(([, { cooldown, effect }]) =>
     !cooldown && matchUseFilter({ effect, action, ctx }));
 
 export const getUsedBuffStates = (ctx, memberId, action = {}) => {
@@ -28,14 +28,24 @@ export const getUsedBuffStates = (ctx, memberId, action = {}) => {
 
 export const getUsedFollowUpStates = (ctx, memberId, action = {}) => {
   const followUpStates = getAllStates(ctx, memberId, ['followUpAction']);
-  return getUsedStates(followUpStates, ctx, memberId, action);
+  return getUsedStates(
+    [
+      ...followUpStates,
+      ...Object.values(ctx.state.debuffs)
+        .map((effectState) => [ctx.state.debuffs, effectState])
+        .filter(([, { effect }]) => 'followUpAction' in effect),
+    ],
+    ctx,
+    memberId,
+    action
+  );
 };
 
 export const resolveBuffMap = (ctx, usedBuffStates) => {
   const fixedBuffMap = {};
   const variableBuffSpecs = [];
 
-  for (const [,, { effect, stacks }] of usedBuffStates) {
+  for (const [, { effect, stacks }] of usedBuffStates) {
     const { statMap, variableStatMap, chance = 1 } = effect;
 
     if ('statMap' in effect) {
@@ -54,7 +64,7 @@ export const resolveBuffMap = (ctx, usedBuffStates) => {
       // Otherwise, resolve now
       const sourceBuildMap = ctx.buildMaps[sourceId];
       const sourceBuffMap = {};
-      for (const [,, { effect, stacks }] of getUsedBuffStates(ctx, sourceId)) {
+      for (const [, { effect, stacks }] of getUsedBuffStates(ctx, sourceId)) {
         const { statMap, chance = 1 } = effect;
         if (!statMap) continue;
         mergeStatMap(sourceBuffMap, statMap, stacks * chance);

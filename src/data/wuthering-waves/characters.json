@@ -858,7 +858,7 @@
         "maxUses": 4
       },
       {
-        "applyTo": "team",
+        "applyTo": "enemy",
         "applyWhen": "hit",
         "applyOnAction": "forteCircuit.1",
         "useOnType": "damage",
