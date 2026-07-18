@@ -452,7 +452,7 @@
         "applyOnAction": "elementalSkill.1",
         "useCooldown": 2000,
         "followUpAction": "elementalSkill.2",
-        "duration": 30000
+        "maxDuration": 30000
       },
       {
         "chance": 0.5,
@@ -468,7 +468,7 @@
         "statMap": {
           "elementalMastery": 125
         },
-        "duration": 10000
+        "maxDuration": 10000
       }
     ],
     "defaults": {

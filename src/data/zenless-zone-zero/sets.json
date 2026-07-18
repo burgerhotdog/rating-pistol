@@ -17,7 +17,7 @@
           "statMap": {
             "combatAtk%": 0.09
           },
-          "duration": 6000
+          "maxDuration": 6000
         },
         {
           "applyWhen": "hit",
@@ -25,7 +25,7 @@
           "statMap": {
             "combatAtk%": 0.09
           },
-          "duration": 6000
+          "maxDuration": 6000
         },
         {
           "applyWhen": "hit",
@@ -33,7 +33,7 @@
           "statMap": {
             "combatAtk%": 0.09
           },
-          "duration": 6000
+          "maxDuration": 6000
         }
       ]
     }
@@ -61,7 +61,7 @@
           "statMap": {
             "combatAtk%": 0.15
           },
-          "duration": 12000
+          "maxDuration": 12000
         }
       ]
     }
@@ -126,7 +126,7 @@
           "statMap": {
             "combatAtk%": 0.25
           },
-          "duration": 10000
+          "maxDuration": 10000
         }
       ]
     }
@@ -169,7 +169,7 @@
           "statMap": {
             "dmgBonus%": 0.15
           },
-          "duration": 12000
+          "maxDuration": 12000
         }
       ]
     }
@@ -193,7 +193,7 @@
           "statMap": {
             "critRate%": 0.28
           },
-          "duration": 8000
+          "maxDuration": 8000
         }
       ]
     }
@@ -325,7 +325,7 @@
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
           },
-          "duration": 5000
+          "maxDuration": 5000
         }
       ]
     }
@@ -352,7 +352,7 @@
           "statMap": {
             "dmgBonus%": 0.15
           },
-          "duration": 10000
+          "maxDuration": 10000
         }
       ]
     }
@@ -429,7 +429,7 @@
             "combatAtk%": 0.04,
             "critRate%": 0.04
           },
-          "duration": 15000,
+          "maxDuration": 15000,
           "maxStacks": 3
         }
       ]
@@ -478,7 +478,7 @@
           "statMap": {
             "critRate%": 0.04
           },
-          "duration": 15000,
+          "maxDuration": 15000,
           "maxStacks": 3
         },
         {
@@ -512,7 +512,7 @@
           "statMap": {
             "critDmg%": 0.15
           },
-          "duration": 15000
+          "maxDuration": 15000
         },
         {
           "enableIfWeaponType": "stun",
@@ -528,7 +528,7 @@
           "statMap": {
             "critDmg%": 0.15
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -560,7 +560,7 @@
           "statMap": {
             "basicAttackDmgBonus%": 0.2
           },
-          "duration": 25000
+          "maxDuration": 25000
         }
       ]
     }
@@ -588,7 +588,7 @@
           "statMap": {
             "dmgBonus%": 0.18
           },
-          "duration": 25000
+          "maxDuration": 25000
         }
       ]
     }
@@ -632,7 +632,7 @@
           "statMap": {
             "anomalyProficiency": 36
           },
-          "duration": 8000
+          "maxDuration": 8000
         },
         {
           "statMap": {
@@ -661,7 +661,7 @@
           "statMap": {
             "dmgBonus%": 0.06
           },
-          "duration": 25000,
+          "maxDuration": 25000,
           "maxStacks": 3
         }
       ]
@@ -701,7 +701,7 @@
           "statMap": {
             "anomalyProficiency": 25
           },
-          "duration": 40000,
+          "maxDuration": 40000,
           "maxStacks": 2
         },
         {
@@ -739,7 +739,7 @@
           "statMap": {
             "combatAtk%": 0.1
           },
-          "duration": 30000
+          "maxDuration": 30000
         }
       ]
     }

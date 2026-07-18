@@ -20,7 +20,7 @@
           "statMap": {
             "glacioDmgBonus%": 0.1
           },
-          "duration": 15000,
+          "maxDuration": 15000,
           "maxStacks": 3
         }
       ]
@@ -44,7 +44,7 @@
           "statMap": {
             "fusionDmgBonus%": 0.3
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -70,7 +70,7 @@
           "statMap": {
             "electroDmgBonus%": 0.15
           },
-          "duration": 15000,
+          "maxDuration": 15000,
           "maxStacks": 2
         }
       ]
@@ -94,7 +94,7 @@
           "statMap": {
             "aeroDmgBonus%": 0.3
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -117,7 +117,7 @@
           "statMap": {
             "spectroDmgBonus%": 0.3
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -143,7 +143,7 @@
           "statMap": {
             "havocDmgBonus%": 0.075
           },
-          "duration": 15000,
+          "maxDuration": 15000,
           "maxStacks": 4
         }
       ]
@@ -168,7 +168,7 @@
           "statMap": {
             "atk%": 0.15
           },
-          "duration": 30000
+          "maxDuration": 30000
         }
       ]
     }
@@ -192,7 +192,7 @@
           "statMap": {
             "atk%": 0.225
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -246,7 +246,7 @@
           "statMap": {
             "glacioDmgBonus%": 0.225
           },
-          "duration": 15000,
+          "maxDuration": 15000,
           "maxStacks": 2
         },
         {
@@ -255,7 +255,7 @@
           "statMap": {
             "resonanceSkillDmgBonus%": 0.18
           },
-          "duration": 5000,
+          "maxDuration": 5000,
           "maxStacks": 2
         }
       ]
@@ -279,7 +279,7 @@
           "statMap": {
             "critRate%": 0.2
           },
-          "duration": 15000
+          "maxDuration": 15000
         },
         {
           "applyWhen": "hit",
@@ -290,7 +290,7 @@
           "statMap": {
             "spectroDmgBonus%": 0.15
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -326,7 +326,7 @@
           "statMap": {
             "havocDmgBonus%": 0.15
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -356,7 +356,7 @@
           "statMap": {
             "atk%": 0.2
           },
-          "duration": 4000
+          "maxDuration": 4000
         }
       ]
     }
@@ -408,7 +408,7 @@
           "statMap": {
             "aeroDmgBonus%": 0.15
           },
-          "duration": 20000
+          "maxDuration": 20000
         },
         {
           "applyWhen": "hit",
@@ -416,7 +416,7 @@
           "statMap": {
             "aeroDmgBonus%": 0.15
           },
-          "duration": 20000
+          "maxDuration": 20000
         }
       ]
     }
@@ -442,7 +442,7 @@
             "critRate%": 0.1,
             "aeroDmgBonus%": 0.3
           },
-          "duration": 10000
+          "maxDuration": 10000
         }
       ]
     }
@@ -466,7 +466,7 @@
           "statMap": {
             "fusionDmgBonus%": 0.15
           },
-          "duration": 35000
+          "maxDuration": 35000
         },
         {
           "applyWhen": "cast",
@@ -474,7 +474,7 @@
           "statMap": {
             "resonanceLiberationDmgBonus%": 0.2
           },
-          "duration": 35000
+          "maxDuration": 35000
         }
       ]
     }
@@ -507,7 +507,7 @@
             "atk%": 0.06,
             "critDmg%": 0.04
           },
-          "duration": 4000,
+          "maxDuration": 4000,
           "maxStacks": 5
         }
       ]
@@ -524,7 +524,7 @@
           "statMap": {
             "heavyAttackDmgBonus%": 0.3
           },
-          "duration": 4000
+          "maxDuration": 4000
         },
         {
           "applyTo": "team",
@@ -533,7 +533,7 @@
           "statMap": {
             "echoSkillDmgBonus%": 0.04
           },
-          "duration": 30000,
+          "maxDuration": 30000,
           "maxStacks": 4
         }
       ]
@@ -551,7 +551,7 @@
           "statMap": {
             "critRate%": 0.2
           },
-          "duration": 6000
+          "maxDuration": 6000
         },
         {
           "applyWhen": "hit",
@@ -560,7 +560,7 @@
           "statMap": {
             "critRate%": 0.2
           },
-          "duration": 6000
+          "maxDuration": 6000
         },
         {
           "applyWhen": "hit",
@@ -568,7 +568,7 @@
           "statMap": {
             "fusionDmgBonus%": 0.08
           },
-          "duration": 6000
+          "maxDuration": 6000
         },
         {
           "applyWhen": "hit",
@@ -576,7 +576,7 @@
           "statMap": {
             "fusionDmgBonus%": 0.08
           },
-          "duration": 6000
+          "maxDuration": 6000
         }
       ]
     }
@@ -593,7 +593,7 @@
             "atk%": 0.2,
             "resonanceLiberationDmgBonus%": 0.3
           },
-          "duration": 5000
+          "maxDuration": 5000
         }
       ]
     }
@@ -625,7 +625,7 @@
               "max": 0.15
             }
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -654,7 +654,7 @@
               "max": 0.25
             }
           },
-          "duration": 4000
+          "maxDuration": 4000
         }
       ]
     }
@@ -677,7 +677,7 @@
           "statMap": {
             "spectroDmgBonus%": 0.1
           },
-          "duration": 5000,
+          "maxDuration": 5000,
           "maxStacks": 3
         },
         {
@@ -709,7 +709,7 @@
             "critRate%": 0.2,
             "fusionDmgBonus%": 0.2
           },
-          "duration": 8000
+          "maxDuration": 8000
         }
       ]
     }
@@ -732,7 +732,7 @@
           "statMap": {
             "fusionDmgBonus%": 0.1
           },
-          "duration": 15000
+          "maxDuration": 15000
         },
         {
           "applyTo": "next",
@@ -741,7 +741,7 @@
           "statMap": {
             "fusionDmgBonus%": 0.25
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -765,7 +765,7 @@
           "statMap": {
             "critRate%": 0.2
           },
-          "duration": 5000
+          "maxDuration": 5000
         },
         {
           "applyWhen": "hit",
@@ -773,7 +773,7 @@
           "statMap": {
             "aeroDmgBonus%": 0.15
           },
-          "duration": 5000
+          "maxDuration": 5000
         }
       ]
     }
@@ -796,7 +796,7 @@
           "statMap": {
             "glacioDmgBonus%": 0.1
           },
-          "duration": 15000
+          "maxDuration": 15000
         },
         {
           "applyWhen": "hit",
@@ -804,7 +804,7 @@
           "statMap": {
             "critRate%": 0.25
           },
-          "duration": 30000
+          "maxDuration": 30000
         },
         {
           "applyTo": "next",
@@ -813,7 +813,7 @@
           "statMap": {
             "glacioDmgBonus%": 0.25
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -846,7 +846,7 @@
             "basicAttackDmgBonus%": 0.35,
             "heavyAttackDmgBonus%": 0.35
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -870,7 +870,7 @@
             "critRate%": 0.2,
             "heavyAttackDmgBonus%": 0.35
           },
-          "duration": 15000
+          "maxDuration": 15000
         },
         {
           "applyTo": "team",
@@ -884,7 +884,7 @@
               "max": 0.25
             }
           },
-          "duration": 10000
+          "maxDuration": 10000
         }
       ]
     }
@@ -908,7 +908,7 @@
             "critDmg%": 0.2,
             "aeroDmgBonus%": 0.3
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -932,7 +932,7 @@
           "statMap": {
             "critRate%": 0.05
           },
-          "duration": 5000,
+          "maxDuration": 5000,
           "maxStacks": 4
         },
         {

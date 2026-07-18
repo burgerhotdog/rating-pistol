@@ -16,8 +16,8 @@ function decayUsedBuffs(ctx, usedBuffStates) {
       effectState.cooldown = effect.useCooldown;
     }
 
-    effectState.usesRemaining--;
-    if (!effectState.usesRemaining) {
+    effectState.usesLeft--;
+    if (!effectState.usesLeft) {
       delete stateMap[effect.key];
     }
   }
@@ -44,8 +44,8 @@ function runFollowUpActions(ctx, action, depth) {
       effectState.cooldown = effect.useCooldown;
     }
 
-    effectState.usesRemaining--;
-    if (effectState.usesRemaining <= 0) {
+    effectState.usesLeft--;
+    if (effectState.usesLeft <= 0) {
       delete stateMap[effect.key];
     }
   }
@@ -71,8 +71,8 @@ function runIntervalActions(ctx, elapsed, depth) {
 
         effectState.intervalTimer += effect.intervalCooldown;
 
-        effectState.usesRemaining--;
-        if (!effectState.usesRemaining) {
+        effectState.usesLeft--;
+        if (!effectState.usesLeft) {
           delete stateMap[key];
           break;
         }

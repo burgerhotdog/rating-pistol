@@ -37,7 +37,7 @@
           "statMap": {
             "healingReceived%": 0.2
           },
-          "duration": 10000
+          "maxDuration": 10000
         }
       ]
     }
@@ -152,7 +152,7 @@
           "statMap": {
             "atk%": 0.2
           },
-          "duration": 12000
+          "maxDuration": 12000
         }
       ]
     }
@@ -226,7 +226,7 @@
             "normalAttackDmgBonus%": 0.3,
             "chargedAttackDmgBonus%": 0.3
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -251,7 +251,7 @@
           "statMap": {
             "atk%": 0.2
           },
-          "duration": 3000
+          "maxDuration": 3000
         }
       ]
     }
@@ -276,7 +276,7 @@
             "atk%": 0.9,
             "physicalDmgBonus%": 0.125
           },
-          "duration": 7000,
+          "maxDuration": 7000,
           "maxStacks": 2
         }
       ]
@@ -303,7 +303,7 @@
             "chargedAttackDmgBonus%": 0.5,
             "plungeAttackDmgBonus%": 0.5
           },
-          "duration": 10000
+          "maxDuration": 10000
         }
       ]
     }
@@ -402,7 +402,7 @@
           "statMap": {
             "atk%": 0.48
           },
-          "duration": 16000
+          "maxDuration": 16000
         }
       ]
     }
@@ -442,7 +442,7 @@
           "statMap": {
             "dendroResReduction%": 0.3
           },
-          "duration": 8000
+          "maxDuration": 8000
         }
       ]
     }
@@ -488,7 +488,7 @@
             "chargedAttackDmgBonus%": 0.4,
             "plungeAttackDmgBonus%": 0.4
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -532,7 +532,7 @@
             "atk%": 0.0833,
             "hydroDmgBonus%": 0.05
           },
-          "duration": 8000
+          "maxDuration": 8000
         }
       ]
     }
@@ -796,7 +796,7 @@
           "statMap": {
             "elementalMastery": 120
           },
-          "duration": 8000
+          "maxDuration": 8000
         }
       ]
     }
@@ -838,7 +838,7 @@
           "statMap": {
             "atk%": 0.25
           },
-          "duration": 6000
+          "maxDuration": 6000
         },
         {
           "enableIfTagged": "Hexerei",
@@ -852,7 +852,7 @@
           "statMap": {
             "critRate%": 0.2
           },
-          "duration": 6000
+          "maxDuration": 6000
         }
       ]
     }
@@ -877,7 +877,7 @@
           "statMap": {
             "dmgBonus%": 0.4
           },
-          "duration": 20000
+          "maxDuration": 20000
         }
       ]
     }

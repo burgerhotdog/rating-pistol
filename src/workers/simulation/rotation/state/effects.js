@@ -9,8 +9,8 @@ export function applyEffect(ctx, effect, action = {}) {
 
     const next = {
       stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
-      timeRemaining: effect.duration ?? Infinity,
-      usesRemaining: effect.maxUses ?? Infinity,
+      timeLeft: effect.maxDuration ?? Infinity,
+      usesLeft: effect.maxUses ?? Infinity,
       effect,
     };
 
@@ -130,8 +130,8 @@ export function advanceEffects(ctx, elapsed) {
         }
       }
 
-      effectState.timeRemaining -= elapsed;
-      if (effectState.timeRemaining <= 0) {
+      effectState.timeLeft -= elapsed;
+      if (effectState.timeLeft <= 0) {
         delete stateMap[key];
         continue;
       }
