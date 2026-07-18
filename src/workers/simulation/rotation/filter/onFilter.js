@@ -52,8 +52,8 @@ export const onFilters1 = {
 };
 
 // Filter based on what action does
-const onInflictNegativeStatus = (rawFilter, { action }) => {
-  const inflicted = action.inflictNegativeStatus ?? {};
+const onInflictStatus = (rawFilter, { action }) => {
+  const inflicted = action.inflictStatus ?? {};
   if (rawFilter === 'any') {
     return Object.keys(inflicted).length;
   }
@@ -61,12 +61,12 @@ const onInflictNegativeStatus = (rawFilter, { action }) => {
   return filter.some((statusId) => statusId in inflicted);
 };
 
-const onShiftTune = (rawFilter, { action }) => {
+const onInflictShifting = (rawFilter, { action }) => {
   const filter = toArray(rawFilter);
-  return filter.some((shifting) => shifting === action.shiftTune);
+  return filter.some((shifting) => shifting === action.inflictShifting);
 };
 
 export const onFilters2 = {
-  'OnInflictNegativeStatus': onInflictNegativeStatus,
-  'OnShiftTune': onShiftTune,
+  'OnInflictStatus': onInflictStatus,
+  'OnInflictShifting': onInflictShifting,
 };

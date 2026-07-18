@@ -272,8 +272,9 @@ const buildStatusFootprint = (ctx, statusState) => {
   };
 };
 
-export function inflictNegativeStatuses(ctx, statuses) {
-  for (const [statusId, stacks] of Object.entries(statuses)) {
+export function inflictNegativeStatuses(ctx, action) {
+  if (!action.inflictStatus) return;
+  for (const [statusId, stacks] of Object.entries(action.inflictStatus)) {
     const status = STATUSES[statusId];
     status.inflict(ctx, status, stacks);
   }

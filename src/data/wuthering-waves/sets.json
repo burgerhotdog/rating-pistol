@@ -179,6 +179,7 @@
           "applyWhen": "cast",
           "applyIfField": "onField",
           "applyCooldown": 1500,
+          "removeWhen": "before",
           "removeIfField": "offField",
           "statMap": {
             "atk%": 0.05
@@ -236,7 +237,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyOnInflictNegativeStatus": "spectroFrazzle",
+          "applyOnInflictStatus": "spectroFrazzle",
           "statMap": {
             "critRate%": 0.2
           },
@@ -357,7 +358,7 @@
         {
           "applyTo": "team",
           "applyWhen": "hit",
-          "applyOnInflictNegativeStatus": "aeroErosion",
+          "applyOnInflictStatus": "aeroErosion",
           "statMap": {
             "aeroDmgBonus%": 0.15
           },
@@ -365,7 +366,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnInflictNegativeStatus": "aeroErosion",
+          "applyOnInflictStatus": "aeroErosion",
           "statMap": {
             "aeroDmgBonus%": 0.15
           },
@@ -530,7 +531,7 @@
     "tieredEffects": {
       "3": {
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "havocBane",
+        "applyOnInflictStatus": "havocBane",
         "statMap": {
           "atk%": 0.2,
           "resonanceLiberationDmgBonus%": 0.3
@@ -631,8 +632,8 @@
       },
       "5": {
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "fusionBurst",
-        "applyOnShiftTune": "tuneRupture",
+        "applyOnInflictStatus": "fusionBurst",
+        "applyOnInflictShifting": "tuneRupture",
         "statMap": {
           "critRate%": 0.2,
           "fusionDmgBonus%": 0.2
@@ -653,7 +654,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyOnInflictNegativeStatus": "fusionBurst",
+          "applyOnInflictStatus": "fusionBurst",
           "statMap": {
             "fusionDmgBonus%": 0.1
           },
@@ -713,7 +714,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyOnInflictNegativeStatus": "glacioChafe",
+          "applyOnInflictStatus": "glacioChafe",
           "statMap": {
             "glacioDmgBonus%": 0.1
           },
@@ -757,7 +758,7 @@
     "tieredEffects": {
       "1": {
         "applyWhen": "hit",
-        "applyOnShiftTune": "hack",
+        "applyOnInflictShifting": "hack",
         "statMap": {
           "basicAttackDmgBonus%": 0.35,
           "heavyAttackDmgBonus%": 0.35
@@ -778,7 +779,7 @@
       "5": [
         {
           "applyWhen": "hit",
-          "applyOnInflictNegativeStatus": "havocBane",
+          "applyOnInflictStatus": "havocBane",
           "statMap": {
             "critRate%": 0.2,
             "heavyAttackDmgBonus%": 0.35
@@ -788,7 +789,7 @@
         {
           "applyTo": "team",
           "applyWhen": "hit",
-          "applyOnInflictNegativeStatus": "glacioChafe",
+          "applyOnInflictStatus": "glacioChafe",
           "variableStatMap": {
             "atk%": {
               "attr": "energyRegen%",
@@ -813,7 +814,7 @@
       },
       "5": {
         "applyWhen": "hit",
-        "applyOnShiftTune": "tuneStrain",
+        "applyOnInflictShifting": "tuneStrain",
         "statMap": {
           "critDmg%": 0.2,
           "aeroDmgBonus%": 0.3

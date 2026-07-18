@@ -1,2 +1,5 @@
 multi stack
 switchable chars
+removeAfter
+triggerEffect
+different sourceId

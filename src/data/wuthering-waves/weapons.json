@@ -1493,6 +1493,7 @@
         "applyWhen": "cast",
         "applyOnSkillType": "resonanceSkill",
         "applyIfField": "onField",
+        "removeWhen": "before",
         "removeOnSkillType": "outroSkill",
         "statMap": {
           "basicAttackDmgBonus%": [
@@ -1672,6 +1673,7 @@
       "applyWhen": "hit",
       "applyOnType": "damage",
       "applyCooldown": 1000,
+      "removeWhen": "before",
       "removeIfField": "offField",
       "statMap": {
         "atk%": [
@@ -1722,6 +1724,7 @@
         "applyWhen": "cast",
         "applyOnAction": "1603:forteCircuit.1",
         "applyCooldown": 1000,
+        "removeWhen": "before",
         "removeIfField": "offField",
         "statMap": {
           "basicAttackDmgBonus%": [
@@ -2120,7 +2123,8 @@
       {
         "applyWhen": "cast",
         "applyOnSkillType": "echoSkill",
-        "removeIfState": false,
+        "removeWhen": "before",
+        "removeIfField": "offField",
         "statMap": {
           "basicAttackDmgBonus%": [
             0.2,
@@ -2156,7 +2160,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "aeroErosion",
+        "applyOnInflictStatus": "aeroErosion",
         "statMap": {
           "aeroDmgBonus%": [
             0.24,
@@ -2606,6 +2610,7 @@
       {
         "applyWhen": "cast",
         "applyOnSkillType": "echoSkill",
+        "removeWhen": "before",
         "removeIfField": "offField",
         "statMap": {
           "heavyAttackDmgBonus%": [
@@ -2711,7 +2716,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "any",
+        "applyOnInflictStatus": "any",
         "statMap": {
           "resonanceLiberationDmgBonus%": [
             0.08,
@@ -2847,7 +2852,7 @@
         }
       },
       {
-        "applyOnSpecial": "tuneBreak",
+        "applyWhen": "tuneBreak",
         "statMap": {
           "dmgBonus%": [
             0.2,
@@ -2892,7 +2897,7 @@
         "applyTo": "team",
         "applyWhen": "hit",
         "applyOnSkillType": "basicAttack",
-        "applyOnShiftTune": [
+        "applyOnInflictShifting": [
           "tuneRupture",
           "tuneStrain"
         ],
@@ -2960,7 +2965,7 @@
         }
       },
       {
-        "applyOnSpecial": "tuneBreak",
+        "applyWhen": "tuneBreak",
         "statMap": {
           "atk%": [
             0.12,
@@ -2995,8 +3000,8 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnInflictNegativeStatus": "fusionBurst",
-        "applyOnShiftTune": "tuneRupture",
+        "applyOnInflictStatus": "fusionBurst",
+        "applyOnInflictShifting": "tuneRupture",
         "useOnDmgType": "resonanceLiberation",
         "statMap": {
           "defIgnore%": [
@@ -3043,7 +3048,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnShiftTune": "tuneStrain",
+        "applyOnInflictShifting": "tuneStrain",
         "useOnDmgType": "basicAttack",
         "statMap": {
           "basicAttackDmgAmp%": [
@@ -3125,7 +3130,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "glacioChafe",
+        "applyOnInflictStatus": "glacioChafe",
         "statMap": {
           "glacioDmgAmp%": [
             0.28,
@@ -3136,7 +3141,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "glacioChafe",
+        "applyOnInflictStatus": "glacioChafe",
         "useOnDmgType": "resonanceLiberation",
         "statMap": {
           "defIgnore%": [
@@ -3181,8 +3186,8 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "fusionBurst",
-        "applyOnShiftTune": "tuneStrain",
+        "applyOnInflictStatus": "fusionBurst",
+        "applyOnInflictShifting": "tuneStrain",
         "statMap": {
           "resonanceLiberationDmgBonus%": [
             0.36,
@@ -3234,7 +3239,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnShiftTune": "hack",
+        "applyOnInflictShifting": "hack",
         "useOnDmgType": "heavyAttack",
         "statMap": {
           "heavyAttackDmgAmp%": [
@@ -3281,7 +3286,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnShiftTune": "hack",
+        "applyOnInflictShifting": "hack",
         "statMap": {
           "basicAttackDmgBonus%": [
             0.12,
@@ -3293,7 +3298,7 @@
       {
         "applyTo": "team",
         "applyWhen": "hit",
-        "applyOnShiftTune": "hack",
+        "applyOnInflictShifting": "hack",
         "statMap": {
           "atk%": [
             0.24,
@@ -3324,7 +3329,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "glacioChafe",
+        "applyOnInflictStatus": "glacioChafe",
         "statMap": {
           "glacioDmgBonus%": [
             0.3,
@@ -3336,7 +3341,7 @@
       {
         "applyTo": "team",
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "glacioChafe",
+        "applyOnInflictStatus": "glacioChafe",
         "statMap": {
           "atk%": [
             0.24,
@@ -3367,7 +3372,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "havocBane",
+        "applyOnInflictStatus": "havocBane",
         "useOnDmgType": "heavyAttack",
         "statMap": {
           "heavyAttackDmgAmp%": [

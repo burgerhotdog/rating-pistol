@@ -17,15 +17,14 @@ const getConvertedRotation = (rawRotation, spec) => {
 
     if (teamSize === 1) {
       const { skillType } = action;
-
-      if (skillType === 'introSkill' || skillType === 'outroSkill') {
-        continue;
-      }
+      if (skillType === 'introSkill' || skillType === 'outroSkill') continue;
     }
 
     rotationTime += action.duration ?? 0;
+    console.log(action.ownerId, rotationTime, action.duration, action.key);
     rotation.push(action);
   }
+  console.log('TOTAL', rotationTime);
 
   // Insert tune break action for first character
   if (gameId === WW) {
@@ -66,12 +65,18 @@ export const compileCache = (gameId, team) => {
     });
   }
 
-  const passive = [];
-  const memberCache = {};
-  const special = [];
-  let fullRotationTime = 0;
-
-  const appliedByTeam = [];
+  const cache = {
+    gameId,
+    memberIds,
+    member: {},
+    fullRotationTime: 0,
+    effects: {
+      member: {},
+      passive: [],
+      global: [],
+      tuneBreak: [],
+    },
+  };
 
   for (const member of team) {
     const {
@@ -92,25 +97,20 @@ export const compileCache = (gameId, team) => {
       memberIds,
     });
 
-    fullRotationTime += rotationTime;
+    cache.fullRotationTime += rotationTime;
 
     const {
-      passives: currPassives,
-      specialEffects,
-      appliedByAny,
-      appliedBySelf,
-    } = normalizeEffects(member, {
-      gameId,
-      memberIds,
-      teamActions,
-    });
+      memberEffects,
+      passiveEffects,
+      globalEffects,
+      tuneBreakEffects,
+    } = normalizeEffects(member, { gameId, memberIds, teamActions });
+    cache.effects.member[memberId] = memberEffects;
+    cache.effects.passive.push(...passiveEffects);
+    cache.effects.global.push(...globalEffects);
+    cache.effects.tuneBreak.push(...tuneBreakEffects);
 
-    appliedByTeam.push(...appliedByAny);
-
-    passive.push(...currPassives);
-    special.push(...specialEffects);
-
-    memberCache[memberId] = {
+    cache.member[memberId] = {
       ...member,
       equipList,
       baseMap,
@@ -118,19 +118,8 @@ export const compileCache = (gameId, team) => {
       statMap,
       rotation,
       rotationTime,
-      appliedBySelf,
     };
   }
-
-  const cache = {
-    gameId,
-    memberIds,
-    member: memberCache,
-    passive,
-    fullRotationTime,
-    special,
-    appliedByTeam,
-  };
 
   cacheTuneResponses(cache, teamActions);
 

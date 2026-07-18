@@ -339,6 +339,7 @@
         {
           "applyWhen": "cast",
           "applyOnSkillType": "elementalBurst",
+          "removeWhen": "before",
           "removeIfField": "offField",
           "statMap": {
             "atk%": 0.48

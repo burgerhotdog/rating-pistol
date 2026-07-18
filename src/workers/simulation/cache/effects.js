@@ -171,10 +171,10 @@ export const normalizeEffects = (member, spec) => {
           .flatMap(([, effects]) => toArray(effects))),
   ];
 
-  const passives = [];
-  const specialEffects = [];
-  const appliedByAny = [];
-  const appliedBySelf = [];
+  const memberEffects = [];
+  const passiveEffects = [];
+  const globalEffects = [];
+  const tuneBreakEffects = [];
 
   for (const [index, rawEffect] of toNormalize.entries()) {
     if (!enableIf(rawEffect, CHARACTER[gameId][memberId])) continue;
@@ -189,22 +189,16 @@ export const normalizeEffects = (member, spec) => {
       memberActions: teamActions[memberId],
     });
 
-    if (effect.applyOnSpecial) { // special
-      specialEffects.push(effect);
-      continue;
-    }
-
-    if (!effect.applyWhen) { // passive
-      passives.push(effect);
-      continue;
-    }
-
-    if (effect.applyBy === 'team') {
-      appliedByAny.push(effect);
+    if (!effect.applyWhen) { // Passive effects
+      passiveEffects.push(effect);
+    } else if (effect.applyWhen === 'tuneBreak') { // Tune break effects
+      tuneBreakEffects.push(effect);
+    } else if (effect.applyBy === 'any') { // Global effects
+      globalEffects.push(effect);
     } else {
-      appliedBySelf.push(effect);
+      memberEffects.push(effect);
     }
   }
 
-  return { passives, specialEffects, appliedBySelf, appliedByAny };
+  return { memberEffects, passiveEffects, globalEffects, tuneBreakEffects };
 };

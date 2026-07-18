@@ -808,23 +808,19 @@
       },
       "rotation": [
         "resonanceLiberation.2",
-        "resonanceSkill.1",
-        "resonanceSkill.2",
-        "resonanceSkill.3",
-        "forteCircuit.1",
         "resonanceLiberation.1",
         "forteCircuit.2",
         "resonanceLiberation.3",
         "resonanceLiberation.4",
-        "resonanceLiberation.5",
-        "resonanceLiberation.6",
-        "resonanceLiberation.7",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "resonanceLiberation.3",
         "forteCircuit.2",
         "resonanceLiberation.3",
         "resonanceLiberation.4",
-        "resonanceLiberation.5",
-        "resonanceLiberation.6",
-        "resonanceLiberation.7",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "resonanceLiberation.3",
         "forteCircuit.2",
         "outroSkill.1"
       ]
@@ -1773,6 +1769,7 @@
         "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.1",
+        "removeWhen": "before",
         "removeOnAction": "normalAttack.4",
         "statMap": {
           "def%": 0.15
@@ -2940,6 +2937,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
+        "removeWhen": "before",
         "removeIfField": "offField",
         "useOnAction": [
           "normalAttack.1",
@@ -3127,6 +3125,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
+        "removeWhen": "before",
         "removeIfField": "offField",
         "useOnAction": [
           "resonanceLiberation.1",
@@ -3669,7 +3668,7 @@
         "rank": 1,
         "useOnAction": "resonanceLiberation.2",
         "followUpAction": {
-          "inflictNegativeStatus": {
+          "inflictStatus": {
             "spectroFrazzle": 2
           }
         }
@@ -4595,7 +4594,8 @@
       {
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
-        "removeAfterAction": "resonanceLiberation.3",
+        "removeWhen": "after",
+        "removeOnAction": "resonanceLiberation.3",
         "statMap": {
           "electroDmgBonus%": 0.15
         }
@@ -4984,7 +4984,7 @@
       },
       {
         "applyTo": "enemy",
-        "applyOnSpecial": "tuneBreak",
+        "applyWhen": "tuneBreak",
         "useIfInterfered": [
           "tuneRupture",
           "tuneStrain"
@@ -5399,7 +5399,7 @@
         "useOnInflict": "glacioChafe",
         "useCooldown": 0.5,
         "followUpAction": {
-          "inflictNegativeStatus": {
+          "inflictStatus": {
             "glacioChafe": 2
           }
         },
@@ -5489,10 +5489,10 @@
         "duration": 12000
       },
       {
-        "applyBy": "team",
+        "applyBy": "any",
         "applyTo": "applier",
         "applyWhen": "hit",
-        "applyOnShiftTune": "hack",
+        "applyOnInflictShifting": "hack",
         "statMap": {
           "tuneBreakBoost": 30
         },
@@ -5805,13 +5805,14 @@
         "duration": 20000
       },
       {
-        "applyBy": "team",
+        "applyBy": "any",
         "applyTo": "applier",
         "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "havocBane",
+        "applyOnInflictStatus": "havocBane",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
+        "removeWhen": "before",
         "removeIfEffectStacksMax": {
           "$prev.1": 0
         },

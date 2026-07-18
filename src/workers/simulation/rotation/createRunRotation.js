@@ -1,8 +1,8 @@
 import { mergeObj } from '@/utils';
 import { advanceCooldowns } from './state/cooldowns';
 import { applyEffects, applyPassives, removeEffects, advanceEffects } from './state/effects';
-import { advanceNegativeStatuses } from './state/negativeStatuses';
-import { applyTune, advanceTune, runTuneBreak } from './state/tune';
+import { inflictNegativeStatuses, advanceNegativeStatuses } from './state/negativeStatuses';
+import { applyOffTuneBuildup, inflictTuneShifting, advanceTune, runTuneBreak } from './state/tune';
 import { buildFootprint, evaluateFootprint } from './footprint';
 import { getUsedBuffStates, getUsedFollowUpStates, resolveBuffMap } from './getCurrent';
 
@@ -64,7 +64,7 @@ function runIntervalActions(ctx, elapsed, depth) {
       effectState.intervalTimer -= elapsed;
       while (effectState.intervalTimer <= 0) {
         for (const action of effect.intervalAction) {
-          for (let i = 0; i < times; i ++) {
+          for (let i = 0; i < times; i++) {
             runAction(ctx, action, depth + 1);
           }
         }
@@ -74,10 +74,20 @@ function runIntervalActions(ctx, elapsed, depth) {
         effectState.usesRemaining--;
         if (!effectState.usesRemaining) {
           delete stateMap[key];
+          break;
         }
       }
     }
   }
+}
+
+function advanceTime(ctx, elapsed, depth) {
+  runIntervalActions(ctx, elapsed, depth);
+  advanceNegativeStatuses(ctx, elapsed);
+
+  advanceTune(ctx.state.tune, elapsed);
+  advanceEffects(ctx, elapsed);
+  advanceCooldowns(ctx.state.cooldowns, elapsed);
 }
 
 function runAction(ctx, action, depth = 0) {
@@ -86,59 +96,70 @@ function runAction(ctx, action, depth = 0) {
     return;
   }
 
-  const { cooldowns, tune } = ctx.state;
-  const { duration = 0, offset = 0 } = action;
+  let currentTime = 0;
 
-  // Triggered on cast
-  removeEffects(ctx, action);
+  // Action is cast
+  removeEffects(ctx, action, 'before');
   applyEffects(ctx, action, 'cast');
 
-  // Advance time forwards to hit
-  if (offset) {
-    runIntervalActions(ctx, offset, depth);
-    advanceNegativeStatuses(ctx, offset);
-
-    advanceTune(tune, offset);
-    advanceEffects(ctx, offset);
-    advanceCooldowns(cooldowns, offset);
-  }
-
-  // Hit
-  const usedBuffStates = getUsedBuffStates(ctx, action.ownerId, action);
-  const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, usedBuffStates);
-
-  if (ctx.recordFootprint) {
-    const footprint = buildFootprint(ctx, action, fixedBuffMap, variableBuffSpecs);
-    if (footprint) {
-      ctx.footprints.push(footprint);
+  // Advance time to initial hit
+  if (action.hitOffsets) {
+    const initialOffset = action.hitOffsets[0];
+    if (initialOffset > 0) {
+      currentTime += initialOffset;
+      advanceTime(ctx, initialOffset, depth);
     }
   }
 
-  decayUsedBuffs(ctx, usedBuffStates);
+  // Initial hit
+  if (action.compressed) {
+    const usedBuffStates = getUsedBuffStates(ctx, action.ownerId, action);
+    const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, usedBuffStates);
 
-  // Trigger follow ups (spaced hitInterval apart)
-  const { hitCount = 1 } = action.compressed ?? {};
-  const hitInterval = (duration - offset) / hitCount;
-  for (let i = 0; i < hitCount; i++) {
-    // Apply tune if damage
-    if (action.type === 'damage') {
-      applyTune(ctx, action, mergeObj(ctx.buildMaps[action.ownerId], fixedBuffMap));
+    if (ctx.recordFootprint) {
+      const footprint = buildFootprint(ctx, action, fixedBuffMap, variableBuffSpecs);
+      if (footprint) {
+        ctx.footprints.push(footprint);
+      }
     }
 
-    // Triggered on hit
-    applyEffects(ctx, action, 'hit');
-    runFollowUpActions(ctx, action, depth);
+    applyOffTuneBuildup(ctx, action, fixedBuffMap);
+    decayUsedBuffs(ctx, usedBuffStates);
+  }
 
-    // Advance time after hit
-    if (hitInterval) {
-      runIntervalActions(ctx, hitInterval, depth);
-      advanceNegativeStatuses(ctx, hitInterval);
+  // Should only happen once regardless of hits
+  inflictNegativeStatuses(ctx, action);
+  inflictTuneShifting(ctx, action);
 
-      advanceTune(tune, hitInterval);
-      advanceEffects(ctx, hitInterval);
-      advanceCooldowns(cooldowns, hitInterval);
+  // Triggered on hit
+  applyEffects(ctx, action, 'hit');
+  runFollowUpActions(ctx, action, depth);
+
+  if (action.hitOffsets) {
+    const [, ...remainingOffsets] = action.hitOffsets;
+
+    for (const hitOffset of remainingOffsets) {
+      // Advance time to hitOffset
+      const elapsed = hitOffset - currentTime;
+      if (elapsed > 0) {
+        currentTime += elapsed;
+        advanceTime(ctx, elapsed, depth);
+      }
+
+      // Triggered on hit
+      applyEffects(ctx, action, 'hit');
+      runFollowUpActions(ctx, action, depth);
     }
   }
+
+  // Advance time after last hit
+  const postHits = action.duration - currentTime;
+  if (postHits > 0) {
+    advanceTime(ctx, postHits, depth);
+  }
+
+  // End of action
+  removeEffects(ctx, action, 'after');
 }
 
 export const createRunRotation = (helpers, cache, equipMaps, currId) => {
@@ -177,7 +198,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   };
 
   // Init passives into effect states
-  applyPassives(ctx, cache.passive);
+  applyPassives(ctx);
 
   // Rotation loop
   const actionOrder = cache.memberIds
