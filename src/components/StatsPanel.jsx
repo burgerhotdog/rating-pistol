@@ -3,8 +3,54 @@ import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { CharAvatar, TeamMemberDialog } from '@/components';
-import { WW, MISC, CHARACTER } from '@/data';
+import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
 import { getAttr, formatStr, compileMenuMap } from '@/utils';
+
+const MENU_STATS = {
+  [GI]: [
+    "hp",
+    "atk",
+    "def",
+    "elementalMastery",
+    "critRate%",
+    "critDmg%",
+    "healingBonus%",
+    "energyRecharge%"
+  ],
+  [HSR]: [
+    "hp",
+    "atk",
+    "def",
+    "spd",
+    "critRate%",
+    "critDmg%",
+    "breakEffect%",
+    "outgoingHealingBoost%",
+    "energyRegenerationRate%",
+    "effectHitRate%",
+    "effectRes%"
+  ],
+  [WW]: [
+    "hp",
+    "atk",
+    "def",
+    "energyRegen%",
+    "critRate%",
+    "critDmg%"
+  ],
+  [ZZZ]: [
+    "hp",
+    "atk",
+    "def",
+    "impact",
+    "critRate%",
+    "critDmg%",
+    "anomalyMastery",
+    "anomalyProficiency",
+    "penRatio%",
+    "energyRegen"
+  ],
+};
 
 function getRelativeTime(dateString) {
   if (!dateString) return 'Unknown';
@@ -46,7 +92,6 @@ function formatFullDate(dateString) {
 export const StatsPanel = ({ team, updateTeam }) => {
   const { gameId, characterId } = useParams();
   const theme = useTheme();
-  const { MENU_STATS } = MISC[gameId];
   const [dialogIndex, setDialogIndex] = useState(null);
 
   const member = team.reduce((acc, member) => {
@@ -95,7 +140,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
 
       <CardContent sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
         <Stack spacing={1}>
-          {MENU_STATS.map((id) => {
+          {MENU_STATS[gameId].map((id) => {
             const totalValue = getAttr(id, statMap) +
               ((gameId === WW && id === 'critDmg%') ? 1 : 0);
             const isPercent = id.endsWith('%');

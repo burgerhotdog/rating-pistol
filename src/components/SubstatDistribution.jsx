@@ -12,9 +12,10 @@ import {
   Tooltip as RechartsTooltip,
 } from 'recharts';
 import { FlexCard, ChartFill } from '@/components';
-import { WW, MISC, CHARACTER } from '@/data';
+import { WW, CHARACTER } from '@/data';
 import { formatStr } from '@/utils';
 import { HOYO_SUBSTAT_WEIGHTS } from '@/workers/simulation/stats/weights';
+import { SUBSTAT_VALUES } from '@/workers/simulation/stats/values';
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
@@ -104,12 +105,11 @@ export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) 
   if (!configMap) return null;
 
   const { subRollSums = {} } = configMap[userConfigKey] ?? {};
-  const subStatTypes = MISC[gameId].SUB_STAT_TYPES;
 
   const totalRolls = Object.values(subRollSums)
     .reduce((acc, rolls) => acc + rolls , 0);
 
-  const chartData = Object.keys(subStatTypes)
+  const chartData = Object.keys(SUBSTAT_VALUES[gameId])
     .map((statId) => ({
       id: statId,
       name: formatStr(statId),
