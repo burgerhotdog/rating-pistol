@@ -17,9 +17,9 @@ const getSetCounts = (gameId, equipList) => {
   const resolved = {};
 
   for (const [setId, count] of Object.entries(setCounts)) {
-    const { tieredEffects = {} } = setData[setId];
+    const { bonusEffects = {} } = setData[setId];
 
-    for (const tier in tieredEffects) {
+    for (const tier in bonusEffects) {
       if (Number(tier) > count) continue;
 
       resolved[setId] = Number(tier);

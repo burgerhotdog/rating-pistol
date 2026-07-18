@@ -15,7 +15,8 @@
       "iceDmgBonus%": 0.224,
       "def%": 0.225,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1002": {
     "name": "Dan Heng",
@@ -33,7 +34,8 @@
       "windDmgBonus%": 0.224,
       "atk%": 0.18,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1003": {
     "name": "Himeko",
@@ -51,7 +53,8 @@
       "fireDmgBonus%": 0.224,
       "atk%": 0.18,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1004": {
     "name": "Welt",
@@ -69,7 +72,8 @@
       "atk%": 0.28,
       "imaginaryDmgBonus%": 0.144,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1008": {
     "name": "Arlan",
@@ -87,7 +91,8 @@
       "atk%": 0.28,
       "effectRes%": 0.18,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1009": {
     "name": "Asta",
@@ -105,7 +110,8 @@
       "fireDmgBonus%": 0.224,
       "def%": 0.225,
       "critRate%": 0.067
-    }
+    },
+    "effects": []
   },
   "1013": {
     "name": "Herta",
@@ -123,7 +129,8 @@
       "iceDmgBonus%": 0.224,
       "def%": 0.225,
       "critRate%": 0.067
-    }
+    },
+    "effects": []
   },
   "1101": {
     "name": "Bronya",
@@ -141,7 +148,8 @@
       "windDmgBonus%": 0.224,
       "critDmg%": 0.24,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1102": {
     "name": "Seele",
@@ -159,7 +167,8 @@
       "atk%": 0.28,
       "critDmg%": 0.24,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1103": {
     "name": "Serval",
@@ -177,7 +186,8 @@
       "critRate%": 0.187,
       "effectHitRate%": 0.18,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1104": {
     "name": "Gepard",
@@ -195,7 +205,8 @@
       "iceDmgBonus%": 0.224,
       "effectRes%": 0.18,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1105": {
     "name": "Natasha",
@@ -213,7 +224,8 @@
       "hp%": 0.28,
       "effectRes%": 0.18,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1106": {
     "name": "Pela",
@@ -231,7 +243,8 @@
       "iceDmgBonus%": 0.224,
       "atk%": 0.18,
       "effectHitRate%": 0.1
-    }
+    },
+    "effects": []
   },
   "1107": {
     "name": "Clara",
@@ -249,7 +262,8 @@
       "atk%": 0.28,
       "physicalDmgBonus%": 0.144,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1108": {
     "name": "Sampo",
@@ -267,7 +281,8 @@
       "atk%": 0.28,
       "effectHitRate%": 0.18,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1109": {
     "name": "Hook",
@@ -285,7 +300,8 @@
       "atk%": 0.28,
       "hp%": 0.18,
       "critDmg%": 0.133
-    }
+    },
+    "effects": []
   },
   "1201": {
     "name": "Qingque",
@@ -303,7 +319,8 @@
       "atk%": 0.28,
       "quantumDmgBonus%": 0.144,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1202": {
     "name": "Tingyun",
@@ -321,7 +338,8 @@
       "atk%": 0.28,
       "def%": 0.225,
       "lightningDmgBonus%": 0.08
-    }
+    },
+    "effects": []
   },
   "1204": {
     "name": "Jing Yuan",
@@ -339,7 +357,8 @@
       "atk%": 0.28,
       "critRate%": 0.12,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1206": {
     "name": "Sushang",
@@ -357,7 +376,8 @@
       "atk%": 0.28,
       "hp%": 0.18,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1209": {
     "name": "Yanqing",
@@ -375,7 +395,8 @@
       "atk%": 0.28,
       "iceDmgBonus%": 0.144,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1211": {
     "name": "Bailu",
@@ -393,7 +414,8 @@
       "hp%": 0.28,
       "def%": 0.225,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1006": {
     "name": "Silver Wolf",
@@ -411,7 +433,8 @@
       "atk%": 0.28,
       "effectHitRate%": 0.18,
       "quantumDmgBonus%": 0.08
-    }
+    },
+    "effects": []
   },
   "1203": {
     "name": "Luocha",
@@ -429,7 +452,8 @@
       "atk%": 0.28,
       "hp%": 0.18,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1207": {
     "name": "Yukong",
@@ -447,7 +471,8 @@
       "imaginaryDmgBonus%": 0.224,
       "hp%": 0.18,
       "atk%": 0.1
-    }
+    },
+    "effects": []
   },
   "1005": {
     "name": "Kafka",
@@ -465,7 +490,8 @@
       "atk%": 0.28,
       "effectHitRate%": 0.18,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1111": {
     "name": "Luka",
@@ -483,7 +509,8 @@
       "atk%": 0.28,
       "effectHitRate%": 0.18,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1205": {
     "name": "Blade",
@@ -501,7 +528,8 @@
       "hp%": 0.28,
       "critRate%": 0.12,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1110": {
     "name": "Lynx",
@@ -519,7 +547,8 @@
       "hp%": 0.28,
       "def%": 0.225,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1208": {
     "name": "Fu Xuan",
@@ -537,7 +566,8 @@
       "critRate%": 0.187,
       "hp%": 0.18,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1213": {
     "name": "Dan Heng: Imbibitor Lunae",
@@ -555,7 +585,8 @@
       "imaginaryDmgBonus%": 0.224,
       "critRate%": 0.12,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1112": {
     "name": "Topaz & Numby",
@@ -573,7 +604,8 @@
       "fireDmgBonus%": 0.224,
       "critRate%": 0.12,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1210": {
     "name": "Guinaifen",
@@ -591,7 +623,8 @@
       "fireDmgBonus%": 0.224,
       "breakEffect%": 0.24,
       "effectHitRate%": 0.1
-    }
+    },
+    "effects": []
   },
   "1212": {
     "name": "Jingliu",
@@ -609,7 +642,8 @@
       "critDmg%": 0.373,
       "spd": 9,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1215": {
     "name": "Hanya",
@@ -627,7 +661,8 @@
       "atk%": 0.28,
       "spd": 9,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1217": {
     "name": "Huohuo",
@@ -645,7 +680,8 @@
       "hp%": 0.28,
       "effectRes%": 0.18,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1302": {
     "name": "Argenti",
@@ -663,7 +699,8 @@
       "atk%": 0.28,
       "physicalDmgBonus%": 0.144,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1214": {
     "name": "Xueyi",
@@ -681,7 +718,8 @@
       "breakEffect%": 0.373,
       "hp%": 0.18,
       "quantumDmgBonus%": 0.08
-    }
+    },
+    "effects": []
   },
   "1303": {
     "name": "Ruan Mei",
@@ -699,7 +737,8 @@
       "breakEffect%": 0.373,
       "def%": 0.225,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1305": {
     "name": "Dr. Ratio",
@@ -717,7 +756,8 @@
       "atk%": 0.28,
       "critRate%": 0.12,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1306": {
     "name": "Sparkle",
@@ -735,7 +775,8 @@
       "hp%": 0.28,
       "critDmg%": 0.24,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1307": {
     "name": "Black Swan",
@@ -753,7 +794,8 @@
       "atk%": 0.28,
       "windDmgBonus%": 0.144,
       "effectHitRate%": 0.1
-    }
+    },
+    "effects": []
   },
   "1312": {
     "name": "Misha",
@@ -771,7 +813,8 @@
       "iceDmgBonus%": 0.224,
       "def%": 0.225,
       "critRate%": 0.067
-    }
+    },
+    "effects": []
   },
   "1301": {
     "name": "Gallagher",
@@ -789,7 +832,8 @@
       "effectRes%": 0.28,
       "breakEffect%": 0.133,
       "hp%": 0.18
-    }
+    },
+    "effects": []
   },
   "1304": {
     "name": "Aventurine",
@@ -807,7 +851,8 @@
       "def%": 0.35,
       "imaginaryDmgBonus%": 0.144,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1308": {
     "name": "Acheron",
@@ -825,7 +870,8 @@
       "atk%": 0.28,
       "critDmg%": 0.24,
       "lightningDmgBonus%": 0.08
-    }
+    },
+    "effects": []
   },
   "1309": {
     "name": "Robin",
@@ -843,7 +889,8 @@
       "atk%": 0.28,
       "hp%": 0.18,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1315": {
     "name": "Boothill",
@@ -861,7 +908,8 @@
       "breakEffect%": 0.373,
       "atk%": 0.18,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1310": {
     "name": "Firefly",
@@ -879,7 +927,8 @@
       "breakEffect%": 0.373,
       "effectRes%": 0.18,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1314": {
     "name": "Jade",
@@ -897,7 +946,8 @@
       "quantumDmgBonus%": 0.224,
       "atk%": 0.18,
       "effectRes%": 0.1
-    }
+    },
+    "effects": []
   },
   "1218": {
     "name": "Jiaoqiu",
@@ -915,7 +965,8 @@
       "effectHitRate%": 0.28,
       "fireDmgBonus%": 0.144,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1221": {
     "name": "Yunli",
@@ -933,7 +984,8 @@
       "atk%": 0.28,
       "hp%": 0.18,
       "critRate%": 0.067
-    }
+    },
+    "effects": []
   },
   "1224": {
     "name": "March 7th",
@@ -951,7 +1003,8 @@
       "atk%": 0.28,
       "critDmg%": 0.24,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1220": {
     "name": "Feixiao",
@@ -969,7 +1022,8 @@
       "atk%": 0.28,
       "critRate%": 0.12,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1222": {
     "name": "Lingsha",
@@ -987,7 +1041,8 @@
       "breakEffect%": 0.373,
       "hp%": 0.18,
       "atk%": 0.1
-    }
+    },
+    "effects": []
   },
   "1223": {
     "name": "Moze",
@@ -1005,7 +1060,8 @@
       "critDmg%": 0.373,
       "atk%": 0.18,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1317": {
     "name": "Rappa",
@@ -1023,7 +1079,8 @@
       "atk%": 0.28,
       "spd": 9,
       "breakEffect%": 0.133
-    }
+    },
+    "effects": []
   },
   "1225": {
     "name": "Fugue",
@@ -1041,7 +1098,8 @@
       "spd": 14,
       "breakEffect%": 0.24,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1313": {
     "name": "Sunday",
@@ -1059,7 +1117,8 @@
       "critDmg%": 0.373,
       "effectRes%": 0.18,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1401": {
     "name": "The Herta",
@@ -1077,7 +1136,8 @@
       "iceDmgBonus%": 0.224,
       "atk%": 0.18,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1402": {
     "name": "Aglaea",
@@ -1095,7 +1155,8 @@
       "lightningDmgBonus%": 0.224,
       "critRate%": 0.12,
       "def%": 0.125
-    }
+    },
+    "effects": []
   },
   "1403": {
     "name": "Tribbie",
@@ -1113,7 +1174,8 @@
       "critDmg%": 0.373,
       "critRate%": 0.12,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1404": {
     "name": "Mydei",
@@ -1131,7 +1193,8 @@
       "critDmg%": 0.373,
       "hp%": 0.18,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1405": {
     "name": "Anaxa",
@@ -1149,7 +1212,8 @@
       "windDmgBonus%": 0.224,
       "critRate%": 0.12,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1407": {
     "name": "Castorice",
@@ -1167,7 +1231,8 @@
       "critRate%": 0.187,
       "quantumDmgBonus%": 0.144,
       "critDmg%": 0.133
-    }
+    },
+    "effects": []
   },
   "1406": {
     "name": "Cipher",
@@ -1185,7 +1250,8 @@
       "spd": 14,
       "quantumDmgBonus%": 0.144,
       "effectHitRate%": 0.1
-    }
+    },
+    "effects": []
   },
   "1409": {
     "name": "Hyacine",
@@ -1203,7 +1269,8 @@
       "spd": 14,
       "effectRes%": 0.18,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1014": {
     "name": "Saber",
@@ -1221,7 +1288,8 @@
       "windDmgBonus%": 0.224,
       "critRate%": 0.12,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1015": {
     "name": "Archer",
@@ -1239,7 +1307,8 @@
       "quantumDmgBonus%": 0.224,
       "atk%": 0.18,
       "critRate%": 0.067
-    }
+    },
+    "effects": []
   },
   "1408": {
     "name": "Phainon",
@@ -1257,7 +1326,8 @@
       "critDmg%": 0.373,
       "critRate%": 0.12,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1410": {
     "name": "Hysilens",
@@ -1275,7 +1345,8 @@
       "spd": 14,
       "atk%": 0.18,
       "effectHitRate%": 0.1
-    }
+    },
+    "effects": []
   },
   "1412": {
     "name": "Cerydra",
@@ -1293,7 +1364,8 @@
       "windDmgBonus%": 0.224,
       "atk%": 0.18,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1413": {
     "name": "Evernight",
@@ -1311,7 +1383,8 @@
       "critRate%": 0.187,
       "hp%": 0.18,
       "critDmg%": 0.133
-    }
+    },
+    "effects": []
   },
   "1414": {
     "name": "Dan Heng: Permansor Terrae",
@@ -1329,7 +1402,8 @@
       "atk%": 0.28,
       "def%": 0.225,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1415": {
     "name": "Cyrene",
@@ -1347,7 +1421,8 @@
       "critDmg%": 0.373,
       "spd": 9,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   },
   "1321": {
     "name": "The Dahlia",
@@ -1365,7 +1440,8 @@
       "breakEffect%": 0.373,
       "effectRes%": 0.18,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1501": {
     "name": "Sparxie",
@@ -1383,7 +1459,8 @@
       "elation%": 0.28,
       "critRate%": 0.12,
       "critDmg%": 0.133
-    }
+    },
+    "effects": []
   },
   "1502": {
     "name": "Yao Guang",
@@ -1401,7 +1478,8 @@
       "critRate%": 0.187,
       "spd": 9,
       "elation%": 0.1
-    }
+    },
+    "effects": []
   },
   "1504": {
     "name": "Ashveil",
@@ -1419,7 +1497,8 @@
       "critDmg%": 0.373,
       "lightningDmgBonus%": 0.144,
       "atk%": 0.1
-    }
+    },
+    "effects": []
   },
   "1505": {
     "name": "Evanescia",
@@ -1437,7 +1516,8 @@
       "critRate%": 0.187,
       "elation%": 0.18,
       "spd": 5
-    }
+    },
+    "effects": []
   },
   "1506": {
     "name": "Silver Wolf LV.999",
@@ -1455,7 +1535,8 @@
       "critRate%": 0.187,
       "spd": 9,
       "elation%": 0.1
-    }
+    },
+    "effects": []
   },
   "1507": {
     "name": "Mortenax Blade",
@@ -1473,6 +1554,7 @@
       "fireDmgBonus%": 0.224,
       "critRate%": 0.12,
       "hp%": 0.1
-    }
+    },
+    "effects": []
   }
 }

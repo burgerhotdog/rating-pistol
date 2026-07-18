@@ -12,7 +12,8 @@
     },
     "ascensionStats": {
       "healingBonus%": 0.222
-    }
+    },
+    "effects": []
   },
   "10000006": {
     "name": "Lisa",
@@ -27,7 +28,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 96
-    }
+    },
+    "effects": []
   },
   "10000014": {
     "name": "Barbara",
@@ -42,7 +44,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000015": {
     "name": "Kaeya",
@@ -57,7 +60,8 @@
     },
     "ascensionStats": {
       "energyRecharge%": 0.267
-    }
+    },
+    "effects": []
   },
   "10000016": {
     "name": "Diluc",
@@ -72,7 +76,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000020": {
     "name": "Razor",
@@ -88,7 +93,8 @@
     },
     "ascensionStats": {
       "physicalDmgBonus%": 0.3
-    }
+    },
+    "effects": []
   },
   "10000021": {
     "name": "Amber",
@@ -103,7 +109,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000022": {
     "name": "Venti",
@@ -119,7 +126,8 @@
     },
     "ascensionStats": {
       "energyRecharge%": 0.32
-    }
+    },
+    "effects": []
   },
   "10000023": {
     "name": "Xiangling",
@@ -134,7 +142,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 96
-    }
+    },
+    "effects": []
   },
   "10000024": {
     "name": "Beidou",
@@ -149,7 +158,8 @@
     },
     "ascensionStats": {
       "electroDmgBonus%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000025": {
     "name": "Xingqiu",
@@ -165,7 +175,8 @@
     "ascensionStats": {
       "atk%": 0.24,
       "hydroDmgBonus%": 0.2
-    }
+    },
+    "effects": []
   },
   "10000027": {
     "name": "Ningguang",
@@ -180,7 +191,8 @@
     },
     "ascensionStats": {
       "geoDmgBonus%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000029": {
     "name": "Klee",
@@ -196,7 +208,8 @@
     },
     "ascensionStats": {
       "pyroDmgBonus%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000031": {
     "name": "Fischl",
@@ -212,7 +225,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000032": {
     "name": "Bennett",
@@ -227,7 +241,8 @@
     },
     "ascensionStats": {
       "energyRecharge%": 0.267
-    }
+    },
+    "effects": []
   },
   "10000034": {
     "name": "Noelle",
@@ -242,7 +257,8 @@
     },
     "ascensionStats": {
       "def%": 0.3
-    }
+    },
+    "effects": []
   },
   "10000035": {
     "name": "Qiqi",
@@ -257,7 +273,8 @@
     },
     "ascensionStats": {
       "healingBonus%": 0.222
-    }
+    },
+    "effects": []
   },
   "10000036": {
     "name": "Chongyun",
@@ -272,7 +289,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000041": {
     "name": "Mona",
@@ -288,7 +306,8 @@
     },
     "ascensionStats": {
       "energyRecharge%": 0.32
-    }
+    },
+    "effects": []
   },
   "10000042": {
     "name": "Keqing",
@@ -303,7 +322,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000043": {
     "name": "Sucrose",
@@ -319,7 +339,8 @@
     },
     "ascensionStats": {
       "anemoDmgBonus%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000030": {
     "name": "Zhongli",
@@ -334,7 +355,8 @@
     },
     "ascensionStats": {
       "geoDmgBonus%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000033": {
     "name": "Tartaglia",
@@ -349,7 +371,8 @@
     },
     "ascensionStats": {
       "hydroDmgBonus%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000039": {
     "name": "Diona",
@@ -364,7 +387,8 @@
     },
     "ascensionStats": {
       "cryoDmgBonus%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000044": {
     "name": "Xinyan",
@@ -379,7 +403,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000037": {
     "name": "Ganyu",
@@ -394,7 +419,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000038": {
     "name": "Albedo",
@@ -468,7 +494,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000046": {
     "name": "Hu Tao",
@@ -484,7 +511,8 @@
     "ascensionStats": {
       "critDmg%": 0.384,
       "pyroDmgBonus%": 0.33
-    }
+    },
+    "effects": []
   },
   "10000045": {
     "name": "Rosaria",
@@ -499,7 +527,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000048": {
     "name": "Yanfei",
@@ -514,7 +543,8 @@
     },
     "ascensionStats": {
       "pyroDmgBonus%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000051": {
     "name": "Eula",
@@ -529,7 +559,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000047": {
     "name": "Kaedehara Kazuha",
@@ -544,7 +575,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 115
-    }
+    },
+    "effects": []
   },
   "10000002": {
     "name": "Kamisato Ayaka",
@@ -559,7 +591,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000049": {
     "name": "Yoimiya",
@@ -574,7 +607,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000053": {
     "name": "Sayu",
@@ -589,7 +623,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 96
-    }
+    },
+    "effects": []
   },
   "10000052": {
     "name": "Raiden Shogun",
@@ -604,7 +639,8 @@
     },
     "ascensionStats": {
       "energyRecharge%": 0.32
-    }
+    },
+    "effects": []
   },
   "10000054": {
     "name": "Sangonomiya Kokomi",
@@ -621,7 +657,8 @@
       "hydroDmgBonus%": 0.288,
       "healingBonus%": 0.25,
       "critRate%": -1.0
-    }
+    },
+    "effects": []
   },
   "10000056": {
     "name": "Kujou Sara",
@@ -636,7 +673,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000050": {
     "name": "Thoma",
@@ -651,7 +689,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000062": {
     "name": "Aloy",
@@ -666,7 +705,8 @@
     },
     "ascensionStats": {
       "cryoDmgBonus%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000055": {
     "name": "Gorou",
@@ -681,7 +721,8 @@
     },
     "ascensionStats": {
       "geoDmgBonus%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000057": {
     "name": "Arataki Itto",
@@ -696,7 +737,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000063": {
     "name": "Shenhe",
@@ -711,7 +753,8 @@
     },
     "ascensionStats": {
       "atk%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000064": {
     "name": "Yun Jin",
@@ -726,7 +769,8 @@
     },
     "ascensionStats": {
       "energyRecharge%": 0.267
-    }
+    },
+    "effects": []
   },
   "10000058": {
     "name": "Yae Miko",
@@ -741,7 +785,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000066": {
     "name": "Kamisato Ayato",
@@ -756,7 +801,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000060": {
     "name": "Yelan",
@@ -771,7 +817,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000065": {
     "name": "Kuki Shinobu",
@@ -786,7 +833,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000059": {
     "name": "Shikanoin Heizou",
@@ -801,7 +849,8 @@
     },
     "ascensionStats": {
       "anemoDmgBonus%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000067": {
     "name": "Collei",
@@ -816,7 +865,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000068": {
     "name": "Dori",
@@ -831,7 +881,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000069": {
     "name": "Tighnari",
@@ -846,7 +897,8 @@
     },
     "ascensionStats": {
       "dendroDmgBonus%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000070": {
     "name": "Nilou",
@@ -861,7 +913,8 @@
     },
     "ascensionStats": {
       "hp%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000071": {
     "name": "Cyno",
@@ -877,7 +930,8 @@
     "ascensionStats": {
       "critDmg%": 0.384,
       "elementalMastery": 100
-    }
+    },
+    "effects": []
   },
   "10000072": {
     "name": "Candace",
@@ -892,7 +946,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000073": {
     "name": "Nahida",
@@ -907,7 +962,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 115
-    }
+    },
+    "effects": []
   },
   "10000074": {
     "name": "Layla",
@@ -922,7 +978,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000075": {
     "name": "Wanderer",
@@ -937,7 +994,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000076": {
     "name": "Faruzan",
@@ -952,7 +1010,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000077": {
     "name": "Yaoyao",
@@ -967,7 +1026,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000078": {
     "name": "Alhaitham",
@@ -982,7 +1042,8 @@
     },
     "ascensionStats": {
       "dendroDmgBonus%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000079": {
     "name": "Dehya",
@@ -997,7 +1058,8 @@
     },
     "ascensionStats": {
       "hp%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000080": {
     "name": "Mika",
@@ -1012,7 +1074,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000081": {
     "name": "Kaveh",
@@ -1027,7 +1090,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 96
-    }
+    },
+    "effects": []
   },
   "10000082": {
     "name": "Baizhu",
@@ -1042,7 +1106,8 @@
     },
     "ascensionStats": {
       "hp%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000061": {
     "name": "Kirara",
@@ -1057,7 +1122,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000083": {
     "name": "Lynette",
@@ -1072,7 +1138,8 @@
     },
     "ascensionStats": {
       "anemoDmgBonus%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000084": {
     "name": "Lyney",
@@ -1087,7 +1154,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000085": {
     "name": "Freminet",
@@ -1102,7 +1170,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000086": {
     "name": "Wriothesley",
@@ -1117,7 +1186,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000087": {
     "name": "Neuvillette",
@@ -1132,7 +1202,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000088": {
     "name": "Charlotte",
@@ -1147,7 +1218,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000089": {
     "name": "Furina",
@@ -1162,7 +1234,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000090": {
     "name": "Chevreuse",
@@ -1177,7 +1250,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000091": {
     "name": "Navia",
@@ -1192,7 +1266,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000092": {
     "name": "Gaming",
@@ -1207,7 +1282,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000093": {
     "name": "Xianyun",
@@ -1222,7 +1298,8 @@
     },
     "ascensionStats": {
       "atk%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000094": {
     "name": "Chiori",
@@ -1237,7 +1314,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000096": {
     "name": "Arlecchino",
@@ -1252,7 +1330,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000095": {
     "name": "Sigewinne",
@@ -1267,7 +1346,8 @@
     },
     "ascensionStats": {
       "hp%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000097": {
     "name": "Sethos",
@@ -1282,7 +1362,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 96
-    }
+    },
+    "effects": []
   },
   "10000098": {
     "name": "Clorinde",
@@ -1297,7 +1378,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000099": {
     "name": "Emilie",
@@ -1312,7 +1394,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000100": {
     "name": "Kachina",
@@ -1327,7 +1410,8 @@
     },
     "ascensionStats": {
       "geoDmgBonus%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000101": {
     "name": "Kinich",
@@ -1342,7 +1426,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000102": {
     "name": "Mualani",
@@ -1357,7 +1442,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000103": {
     "name": "Xilonen",
@@ -1372,7 +1458,8 @@
     },
     "ascensionStats": {
       "def%": 0.36
-    }
+    },
+    "effects": []
   },
   "10000104": {
     "name": "Chasca",
@@ -1387,7 +1474,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000105": {
     "name": "Ororon",
@@ -1402,7 +1490,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000106": {
     "name": "Mavuika",
@@ -1417,7 +1506,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000107": {
     "name": "Citlali",
@@ -1432,7 +1522,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 115
-    }
+    },
+    "effects": []
   },
   "10000108": {
     "name": "Lan Yan",
@@ -1447,7 +1538,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000109": {
     "name": "Yumemizuki Mizuki",
@@ -1462,7 +1554,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 115
-    }
+    },
+    "effects": []
   },
   "10000110": {
     "name": "Iansan",
@@ -1477,7 +1570,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000111": {
     "name": "Varesa",
@@ -1492,7 +1586,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000112": {
     "name": "Escoffier",
@@ -1507,7 +1602,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000113": {
     "name": "Ifa",
@@ -1522,7 +1618,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 96
-    }
+    },
+    "effects": []
   },
   "10000114": {
     "name": "Skirk",
@@ -1537,7 +1634,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000115": {
     "name": "Dahlia",
@@ -1552,7 +1650,8 @@
     },
     "ascensionStats": {
       "hp%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000116": {
     "name": "Ineffa",
@@ -1567,7 +1666,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000119": {
     "name": "Lauma",
@@ -1583,7 +1683,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 115
-    }
+    },
+    "effects": []
   },
   "10000120": {
     "name": "Flins",
@@ -1598,7 +1699,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000121": {
     "name": "Aino",
@@ -1613,7 +1715,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 96
-    }
+    },
+    "effects": []
   },
   "10000122": {
     "name": "Nefer",
@@ -1629,7 +1732,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000123": {
     "name": "Durin",
@@ -1645,7 +1749,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000124": {
     "name": "Jahoda",
@@ -1660,7 +1765,8 @@
     },
     "ascensionStats": {
       "healingBonus%": 0.185
-    }
+    },
+    "effects": []
   },
   "10000125": {
     "name": "Columbina",
@@ -1675,7 +1781,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000126": {
     "name": "Zibai",
@@ -1690,7 +1797,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000127": {
     "name": "Illuga",
@@ -1705,7 +1813,8 @@
     },
     "ascensionStats": {
       "elementalMastery": 96
-    }
+    },
+    "effects": []
   },
   "10000128": {
     "name": "Varka",
@@ -1721,7 +1830,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000130": {
     "name": "Linnea",
@@ -1736,7 +1846,8 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   },
   "10000129": {
     "name": "Lohen",
@@ -1752,7 +1863,8 @@
     },
     "ascensionStats": {
       "critDmg%": 0.384
-    }
+    },
+    "effects": []
   },
   "10000131": {
     "name": "Nicole",
@@ -1768,7 +1880,8 @@
     },
     "ascensionStats": {
       "atk%": 0.288
-    }
+    },
+    "effects": []
   },
   "10000132": {
     "name": "Prune",
@@ -1783,7 +1896,8 @@
     },
     "ascensionStats": {
       "atk%": 0.24
-    }
+    },
+    "effects": []
   },
   "10000133": {
     "name": "Sandrone",
@@ -1798,6 +1912,7 @@
     },
     "ascensionStats": {
       "critRate%": 0.192
-    }
+    },
+    "effects": []
   }
 }

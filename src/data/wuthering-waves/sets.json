@@ -2,178 +2,212 @@
   "1": {
     "name": "Freezing Frost",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "glacioDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "glacioDmgBonus%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyWhen": "cast",
-        "applyOnSkillType": [
-          "basicAttack",
-          "heavyAttack"
-        ],
-        "statMap": {
-          "glacioDmgBonus%": 0.1
-        },
-        "duration": 15000,
-        "maxStacks": 3
-      }
+      ],
+      "5": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": [
+            "basicAttack",
+            "heavyAttack"
+          ],
+          "statMap": {
+            "glacioDmgBonus%": 0.1
+          },
+          "duration": 15000,
+          "maxStacks": 3
+        }
+      ]
     }
   },
   "2": {
     "name": "Molten Rift",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "fusionDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "fusionDmgBonus%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyWhen": "cast",
-        "applyOnSkillType": "resonanceSkill",
-        "statMap": {
-          "fusionDmgBonus%": 0.3
-        },
-        "duration": 15000
-      }
+      ],
+      "5": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "resonanceSkill",
+          "statMap": {
+            "fusionDmgBonus%": 0.3
+          },
+          "duration": 15000
+        }
+      ]
     }
   },
   "3": {
     "name": "Void Thunder",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "electroDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "electroDmgBonus%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyWhen": "cast",
-        "applyOnSkillType": [
-          "heavyAttack",
-          "resonanceSkill"
-        ],
-        "statMap": {
-          "electroDmgBonus%": 0.15
-        },
-        "duration": 15000,
-        "maxStacks": 2
-      }
+      ],
+      "5": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": [
+            "heavyAttack",
+            "resonanceSkill"
+          ],
+          "statMap": {
+            "electroDmgBonus%": 0.15
+          },
+          "duration": 15000,
+          "maxStacks": 2
+        }
+      ]
     }
   },
   "4": {
     "name": "Sierra Gale",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "aeroDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "aeroDmgBonus%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyWhen": "cast",
-        "applyOnSkillType": "introSkill",
-        "statMap": {
-          "aeroDmgBonus%": 0.3
-        },
-        "duration": 15000
-      }
+      ],
+      "5": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "introSkill",
+          "statMap": {
+            "aeroDmgBonus%": 0.3
+          },
+          "duration": 15000
+        }
+      ]
     }
   },
   "5": {
     "name": "Celestial Light",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "spectroDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spectroDmgBonus%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyWhen": "cast",
-        "applyOnSkillType": "introSkill",
-        "statMap": {
-          "spectroDmgBonus%": 0.3
-        },
-        "duration": 15000
-      }
+      ],
+      "5": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "introSkill",
+          "statMap": {
+            "spectroDmgBonus%": 0.3
+          },
+          "duration": 15000
+        }
+      ]
     }
   },
   "6": {
     "name": "Havoc Eclipse",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "havocDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "havocDmgBonus%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyWhen": "cast",
-        "applyOnSkillType": [
-          "basicAttack",
-          "heavyAttack"
-        ],
-        "statMap": {
-          "havocDmgBonus%": 0.075
-        },
-        "duration": 15000,
-        "maxStacks": 4
-      }
+      ],
+      "5": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": [
+            "basicAttack",
+            "heavyAttack"
+          ],
+          "statMap": {
+            "havocDmgBonus%": 0.075
+          },
+          "duration": 15000,
+          "maxStacks": 4
+        }
+      ]
     }
   },
   "7": {
     "name": "Rejuvenating Glow",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "healingBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "healingBonus%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyTo": "team",
-        "applyWhen": "hit",
-        "applyOnType": "healing",
-        "statMap": {
-          "atk%": 0.15
-        },
-        "duration": 30000
-      }
+      ],
+      "5": [
+        {
+          "applyTo": "team",
+          "applyWhen": "hit",
+          "applyOnType": "healing",
+          "statMap": {
+            "atk%": 0.15
+          },
+          "duration": 30000
+        }
+      ]
     }
   },
   "8": {
     "name": "Moonlit Clouds",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRegen%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRegen%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyTo": "next",
-        "applyWhen": "cast",
-        "applyOnSkillType": "outroSkill",
-        "statMap": {
-          "atk%": 0.225
-        },
-        "duration": 15000
-      }
+      ],
+      "5": [
+        {
+          "applyTo": "next",
+          "applyWhen": "cast",
+          "applyOnSkillType": "outroSkill",
+          "statMap": {
+            "atk%": 0.225
+          },
+          "duration": 15000
+        }
+      ]
     }
   },
   "9": {
     "name": "Lingering Tunes",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "cast",
@@ -197,12 +231,14 @@
   "10": {
     "name": "Frosty Resolve",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "resonanceSkillDmgBonus%": 0.12
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "resonanceSkillDmgBonus%": 0.12
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "cast",
@@ -228,12 +264,14 @@
   "11": {
     "name": "Eternal Radiance",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "spectroDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spectroDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "hit",
@@ -260,12 +298,14 @@
   "12": {
     "name": "Midnight Veil",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "havocDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "havocDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "cast",
@@ -294,12 +334,14 @@
   "13": {
     "name": "Empyrean Anthem",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRegen%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRegen%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "useOnSkillType": "coordinatedAttack",
@@ -322,12 +364,14 @@
   "14": {
     "name": "Tidebreaking Courage",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRegen%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRegen%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "statMap": {
@@ -348,12 +392,14 @@
   "16": {
     "name": "Gusts of Welkin",
     "version": 2.2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "aeroDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "aeroDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyTo": "team",
@@ -378,34 +424,40 @@
   "17": {
     "name": "Windward Pilgrimage",
     "version": 2.4,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "aeroDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "aeroDmgBonus%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyWhen": "hit",
-        "applyIfNegativeStatus": {
-          "aeroErosion": 1
-        },
-        "statMap": {
-          "critRate%": 0.1,
-          "aeroDmgBonus%": 0.3
-        },
-        "duration": 10000
-      }
+      ],
+      "5": [
+        {
+          "applyWhen": "hit",
+          "applyIfNegativeStatus": {
+            "aeroErosion": 1
+          },
+          "statMap": {
+            "critRate%": 0.1,
+            "aeroDmgBonus%": 0.3
+          },
+          "duration": 10000
+        }
+      ]
     }
   },
   "18": {
     "name": "Flaming Clawprint",
     "version": 2.4,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "fusionDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "fusionDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyTo": "team",
@@ -430,37 +482,41 @@
   "19": {
     "name": "Dream of the Lost",
     "version": 2.5,
-    "tieredEffects": {
-      "3": {
-        "enableIfTagged": "noEnergy",
-        "statMap": {
-          "critRate%": 0.2,
-          "echoSkillDmgBonus%": 0.35
+    "bonusEffects": {
+      "3": [
+        {
+          "enableIfTagged": "noEnergy",
+          "statMap": {
+            "critRate%": 0.2,
+            "echoSkillDmgBonus%": 0.35
+          }
         }
-      }
+      ]
     }
   },
   "20": {
     "name": "Crown of Valor",
     "version": 2.6,
-    "tieredEffects": {
-      "3": {
-        "applyWhen": "hit",
-        "applyOnType": "shield",
-        "applyCooldown": 500,
-        "statMap": {
-          "atk%": 0.06,
-          "critDmg%": 0.04
-        },
-        "duration": 4000,
-        "maxStacks": 5
-      }
+    "bonusEffects": {
+      "3": [
+        {
+          "applyWhen": "hit",
+          "applyOnType": "shield",
+          "applyCooldown": 500,
+          "statMap": {
+            "atk%": 0.06,
+            "critDmg%": 0.04
+          },
+          "duration": 4000,
+          "maxStacks": 5
+        }
+      ]
     }
   },
   "21": {
     "name": "Law of Harmony",
     "version": 2.6,
-    "tieredEffects": {
+    "bonusEffects": {
       "3": [
         {
           "applyWhen": "cast",
@@ -486,7 +542,7 @@
   "22": {
     "name": "Flamewing's Shadow",
     "version": 2.7,
-    "tieredEffects": {
+    "bonusEffects": {
       "3": [
         {
           "applyWhen": "hit",
@@ -528,80 +584,92 @@
   "23": {
     "name": "Thread of Severed Fate",
     "version": 2.8,
-    "tieredEffects": {
-      "3": {
-        "applyWhen": "hit",
-        "applyOnInflictStatus": "havocBane",
-        "statMap": {
-          "atk%": 0.2,
-          "resonanceLiberationDmgBonus%": 0.3
-        },
-        "duration": 5000
-      }
+    "bonusEffects": {
+      "3": [
+        {
+          "applyWhen": "hit",
+          "applyOnInflictStatus": "havocBane",
+          "statMap": {
+            "atk%": 0.2,
+            "resonanceLiberationDmgBonus%": 0.3
+          },
+          "duration": 5000
+        }
+      ]
     }
   },
   "24": {
     "name": "Pact of Neonlight Leap",
     "version": 3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "spectroDmgBonus%": 0.1
-        }
-      },
-      "5": {
-        "applyTo": "next",
-        "applyWhen": "cast",
-        "applyOnSkillType": "outroSkill",
-        "statMap": {
-          "atk%": 0.15
-        },
-        "variableStatMap": {
-          "atk%": {
-            "attr": "tuneBreakBoost",
-            "step": 1,
-            "value": 0.003,
-            "max": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spectroDmgBonus%": 0.1
           }
-        },
-        "duration": 15000
-      }
+        }
+      ],
+      "5": [
+        {
+          "applyTo": "next",
+          "applyWhen": "cast",
+          "applyOnSkillType": "outroSkill",
+          "statMap": {
+            "atk%": 0.15
+          },
+          "variableStatMap": {
+            "atk%": {
+              "attr": "tuneBreakBoost",
+              "step": 1,
+              "value": 0.003,
+              "max": 0.15
+            }
+          },
+          "duration": 15000
+        }
+      ]
     }
   },
   "25": {
     "name": "Halo of Starry Radiance",
     "version": 3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "healingBonus%": 0.1
-        }
-      },
-      "5": {
-        "applyTo": "team",
-        "applyWhen": "hit",
-        "applyOnType": "healing",
-        "variableStatMap": {
-          "atk%": {
-            "attr": "offTuneBuildupRate%",
-            "step": 0.01,
-            "value": 0.002,
-            "max": 0.25
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "healingBonus%": 0.1
           }
-        },
-        "duration": 4000
-      }
+        }
+      ],
+      "5": [
+        {
+          "applyTo": "team",
+          "applyWhen": "hit",
+          "applyOnType": "healing",
+          "variableStatMap": {
+            "atk%": {
+              "attr": "offTuneBuildupRate%",
+              "step": 0.01,
+              "value": 0.002,
+              "max": 0.25
+            }
+          },
+          "duration": 4000
+        }
+      ]
     }
   },
   "26": {
     "name": "Rite of Gilded Revelation",
     "version": 3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "spectroDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spectroDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "hit",
@@ -624,33 +692,39 @@
   "27": {
     "name": "Trailblazing Star",
     "version": 3.1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "fusionDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "fusionDmgBonus%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyWhen": "hit",
-        "applyOnInflictStatus": "fusionBurst",
-        "applyOnInflictShifting": "tuneRupture",
-        "statMap": {
-          "critRate%": 0.2,
-          "fusionDmgBonus%": 0.2
-        },
-        "duration": 8000
-      }
+      ],
+      "5": [
+        {
+          "applyWhen": "hit",
+          "applyOnInflictStatus": "fusionBurst",
+          "applyOnInflictShifting": "tuneRupture",
+          "statMap": {
+            "critRate%": 0.2,
+            "fusionDmgBonus%": 0.2
+          },
+          "duration": 8000
+        }
+      ]
     }
   },
   "28": {
     "name": "Chromatic Foam",
     "version": 3.1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "fusionDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "fusionDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "hit",
@@ -675,12 +749,14 @@
   "29": {
     "name": "Sound of True Name",
     "version": 3.1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "aeroDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "aeroDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "hit",
@@ -705,12 +781,14 @@
   "30": {
     "name": "Wishes of Quiet Snowfall",
     "version": 3.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "glacioDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "glacioDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "hit",
@@ -743,39 +821,47 @@
   "31": {
     "name": "Reel of Spliced Memories",
     "version": 3.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.1
+          }
         }
-      },
-      "5": {}
+      ],
+      "5": [
+        {}
+      ]
     }
   },
   "32": {
     "name": "Shadow of Shattered Dreams",
     "version": 3.4,
-    "tieredEffects": {
-      "1": {
-        "applyWhen": "hit",
-        "applyOnInflictShifting": "hack",
-        "statMap": {
-          "basicAttackDmgBonus%": 0.35,
-          "heavyAttackDmgBonus%": 0.35
-        },
-        "duration": 15000
-      }
+    "bonusEffects": {
+      "1": [
+        {
+          "applyWhen": "hit",
+          "applyOnInflictShifting": "hack",
+          "statMap": {
+            "basicAttackDmgBonus%": 0.35,
+            "heavyAttackDmgBonus%": 0.35
+          },
+          "duration": 15000
+        }
+      ]
     }
   },
   "33": {
     "name": "Song of Feathered Trace",
     "version": 3.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRegen%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRegen%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "hit",
@@ -806,32 +892,38 @@
   "34": {
     "name": "Heart of Evil's Purge",
     "version": 3.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "aeroDmg%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "aeroDmg%": 0.1
+          }
         }
-      },
-      "5": {
-        "applyWhen": "hit",
-        "applyOnInflictShifting": "tuneStrain",
-        "statMap": {
-          "critDmg%": 0.2,
-          "aeroDmgBonus%": 0.3
-        },
-        "duration": 15000
-      }
+      ],
+      "5": [
+        {
+          "applyWhen": "hit",
+          "applyOnInflictShifting": "tuneStrain",
+          "statMap": {
+            "critDmg%": 0.2,
+            "aeroDmgBonus%": 0.3
+          },
+          "duration": 15000
+        }
+      ]
     }
   },
   "35": {
     "name": "Lamp of Nether Road",
     "version": 3.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "hp%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hp%": 0.1
+          }
         }
-      },
+      ],
       "5": [
         {
           "applyWhen": "hit",

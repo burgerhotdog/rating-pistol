@@ -2,102 +2,128 @@
   "101": {
     "name": "Passerby of Wandering Cloud",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "outgoingHealingBoost%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "outgoingHealingBoost%": 0.1
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": [
+        {}
+      ]
     }
   },
   "102": {
     "name": "Musketeer of Wild Wheat",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.12
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.12
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "spd%": 0.06,
-          "basicAtkDmgBonus%": 0.1
+      ],
+      "4": [
+        {
+          "statMap": {
+            "spd%": 0.06,
+            "basicAtkDmgBonus%": 0.1
+          }
         }
-      }
+      ]
     }
   },
   "103": {
     "name": "Knight of Purity Palace",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "def%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "def%": 0.15
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "shieldBonus%": 0.2
+      ],
+      "4": [
+        {
+          "statMap": {
+            "shieldBonus%": 0.2
+          }
         }
-      }
+      ]
     }
   },
   "104": {
     "name": "Hunter of Glacial Forest",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "iceDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "iceDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "applyWhen": "cast",
-        "applyOnSkillType": "ultimate",
-        "statMap": {
-          "critDmg%": 0.25
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "ultimate",
+          "statMap": {
+            "critDmg%": 0.25
+          }
         }
-      }
+      ]
     }
   },
   "105": {
     "name": "Champion of Streetwise Boxing",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "physicalDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "physicalDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "applyWhen": "hit",
-        "applyOnType": "damage",
-        "statMap": {
-          "atk%": 0.05
-        },
-        "maxStacks": 5
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnType": "damage",
+          "statMap": {
+            "atk%": 0.05
+          },
+          "maxStacks": 5
+        }
+      ]
     }
   },
   "106": {
     "name": "Guard of Wuthering Snow",
     "version": 1,
-    "tieredEffects": {
-      "2": {},
-      "4": {}
+    "bonusEffects": {
+      "2": [
+        {}
+      ],
+      "4": [
+        {}
+      ]
     }
   },
   "107": {
     "name": "Firesmith of Lava-Forging",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "fireDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "fireDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -119,87 +145,107 @@
   "108": {
     "name": "Genius of Brilliant Stars",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "quantumDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "quantumDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "defIgnore%": 0.2
+      ],
+      "4": [
+        {
+          "statMap": {
+            "defIgnore%": 0.2
+          }
         }
-      }
+      ]
     }
   },
   "109": {
     "name": "Band of Sizzling Thunder",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "lightningDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "lightningDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "applyWhen": "cast",
-        "applyOnSkillType": "skill",
-        "statMap": {
-          "atk%": 0.2
-        },
-        "maxUses": 1
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "skill",
+          "statMap": {
+            "atk%": 0.2
+          },
+          "maxUses": 1
+        }
+      ]
     }
   },
   "110": {
     "name": "Eagle of Twilight Line",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "windDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "windDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": [
+        {}
+      ]
     }
   },
   "111": {
     "name": "Thief of Shooting Meteor",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "breakEffect%": 0.16
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "breakEffect%": 0.16
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "breakEffect%": 0.16
+      ],
+      "4": [
+        {
+          "statMap": {
+            "breakEffect%": 0.16
+          }
         }
-      }
+      ]
     }
   },
   "112": {
     "name": "Wastelander of Banditry Desert",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "imaginaryDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "imaginaryDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "critRate%": 0.1,
-          "critDmg%": 0.2
+      ],
+      "4": [
+        {
+          "statMap": {
+            "critRate%": 0.1,
+            "critDmg%": 0.2
+          }
         }
-      }
+      ]
     }
   },
   "301": {
     "name": "Space Sealing Station",
     "version": 1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -220,7 +266,7 @@
   "302": {
     "name": "Fleet of the Ageless",
     "version": 1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -242,7 +288,7 @@
   "303": {
     "name": "Pan-Cosmic Commercial Enterprise",
     "version": 1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -265,7 +311,7 @@
   "304": {
     "name": "Belobog of the Architects",
     "version": 1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -286,18 +332,20 @@
   "305": {
     "name": "Celestial Differentiator",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "critDmg%": 0.16
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critDmg%": 0.16
+          }
         }
-      }
+      ]
     }
   },
   "306": {
     "name": "Inert Salsotto",
     "version": 1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -319,7 +367,7 @@
   "307": {
     "name": "Talia: Kingdom of Banditry",
     "version": 1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -340,46 +388,56 @@
   "308": {
     "name": "Sprightly Vonwacq",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRegenerationRate%": 0.05
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRegenerationRate%": 0.05
+          }
         }
-      }
+      ]
     }
   },
   "113": {
     "name": "Longevous Disciple",
     "version": 1.2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "hp%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hp%": 0.2
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "critRate%": 0.16
+      ],
+      "4": [
+        {
+          "statMap": {
+            "critRate%": 0.16
+          }
         }
-      }
+      ]
     }
   },
   "114": {
     "name": "Messenger Traversing Hackerspace",
     "version": 1.2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "spd%": 0.06
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spd%": 0.06
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": [
+        {}
+      ]
     }
   },
   "309": {
     "name": "Rutilant Arena",
     "version": 1.2,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -401,7 +459,7 @@
   "310": {
     "name": "Broken Keel",
     "version": 1.2,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -423,39 +481,47 @@
   "115": {
     "name": "The Ashblazing Grand Duke",
     "version": 1.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "follow-upAttackDmgBonus%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "follow-upAttackDmgBonus%": 0.2
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "atk%": 0.48
+      ],
+      "4": [
+        {
+          "statMap": {
+            "atk%": 0.48
+          }
         }
-      }
+      ]
     }
   },
   "116": {
     "name": "Prisoner in Deep Confinement",
     "version": 1.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.12
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.12
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "defIgnore%": 0.18
+      ],
+      "4": [
+        {
+          "statMap": {
+            "defIgnore%": 0.18
+          }
         }
-      }
+      ]
     }
   },
   "311": {
     "name": "Firmament Frontline: Glamoth",
     "version": 1.5,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -484,23 +550,27 @@
   "312": {
     "name": "Penacony, Land of the Dreams",
     "version": 1.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRegenerationRate%": 0.05
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRegenerationRate%": 0.05
+          }
         }
-      }
+      ]
     }
   },
   "117": {
     "name": "Pioneer Diver of Dead Waters",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "dmgBonus%": 0.12
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "dmgBonus%": 0.12
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -519,24 +589,28 @@
   "118": {
     "name": "Watchmaker, Master of Dream Machinations",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "breakEffect%": 0.16
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "breakEffect%": 0.16
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "statMap": {
-          "breakEffect%": 0.3
+      ],
+      "4": [
+        {
+          "applyTo": "team",
+          "statMap": {
+            "breakEffect%": 0.3
+          }
         }
-      }
+      ]
     }
   },
   "313": {
     "name": "Sigonia, the Unclaimed Desolation",
     "version": 2.1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -554,7 +628,7 @@
   "314": {
     "name": "Izumo Gensei and Takama Divine Realm",
     "version": 2.1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -572,28 +646,34 @@
   "119": {
     "name": "Iron Cavalry Against the Scourge",
     "version": 2.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "breakEffect%": 0.16
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "breakEffect%": 0.16
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "defIgnore%": 0.25
+      ],
+      "4": [
+        {
+          "statMap": {
+            "defIgnore%": 0.25
+          }
         }
-      }
+      ]
     }
   },
   "120": {
     "name": "The Wind-Soaring Valorous",
     "version": 2.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.12
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.12
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -613,19 +693,21 @@
   "315": {
     "name": "Duran, Dynasty of Running Wolves",
     "version": 2.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "follow-upAttackDmgBonus%": 0.25,
-          "critDmg%": 0.25
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "follow-upAttackDmgBonus%": 0.25,
+            "critDmg%": 0.25
+          }
         }
-      }
+      ]
     }
   },
   "316": {
     "name": "Forge of the Kalpagni Lantern",
     "version": 2.3,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -643,7 +725,7 @@
   "317": {
     "name": "Lushaka, the Sunken Seas",
     "version": 2.5,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -662,7 +744,7 @@
   "318": {
     "name": "The Wondrous BananAmusement Park",
     "version": 2.5,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -680,24 +762,30 @@
   "121": {
     "name": "Sacerdos' Relived Ordeal",
     "version": 2.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "spd%": 0.06
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spd%": 0.06
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": [
+        {}
+      ]
     }
   },
   "122": {
     "name": "Scholar Lost in Erudition",
     "version": 2.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "critRate%": 0.08
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critRate%": 0.08
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -719,41 +807,49 @@
   "123": {
     "name": "Hero of Triumphant Song",
     "version": 3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.12
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.12
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "spd%": 0.06,
-          "critDmg%": 0.3
+      ],
+      "4": [
+        {
+          "statMap": {
+            "spd%": 0.06,
+            "critDmg%": 0.3
+          }
         }
-      }
+      ]
     }
   },
   "124": {
     "name": "Poet of Mourning Collapse",
     "version": 3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "quantumDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "quantumDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "spd%": -0.08,
-          "critRate%": 0.32
+      ],
+      "4": [
+        {
+          "statMap": {
+            "spd%": -0.08,
+            "critRate%": 0.32
+          }
         }
-      }
+      ]
     }
   },
   "319": {
     "name": "Bone Collection's Serene Demesne",
     "version": 3.1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -774,7 +870,7 @@
   "320": {
     "name": "Giant Tree of Rapt Brooding",
     "version": 3.1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -803,12 +899,14 @@
   "125": {
     "name": "Warrior Goddess of Sun and Thunder",
     "version": 3.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "spd%": 0.06
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spd%": 0.06
+          }
         }
-      },
+      ],
       "4": [
         {
           "applyWhen": "hit",
@@ -831,34 +929,40 @@
   "126": {
     "name": "Wavestrider Captain",
     "version": 3.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "critDmg%": 0.16
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critDmg%": 0.16
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "atk%": 0.48
+      ],
+      "4": [
+        {
+          "statMap": {
+            "atk%": 0.48
+          }
         }
-      }
+      ]
     }
   },
   "321": {
     "name": "Arcadia of Woven Dreams",
     "version": 3.4,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "dmgBonus%": 0.36
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "dmgBonus%": 0.36
+          }
         }
-      }
+      ]
     }
   },
   "322": {
     "name": "Revelry by the Sea",
     "version": 3.4,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -887,12 +991,14 @@
   "127": {
     "name": "World-Remaking Deliverer",
     "version": 3.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "critRate%": 0.08
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critRate%": 0.08
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -911,12 +1017,14 @@
   "128": {
     "name": "Self-Enshrouded Recluse",
     "version": 3.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "shieldBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "shieldBonus%": 0.1
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -935,7 +1043,7 @@
   "323": {
     "name": "Amphoreus, The Eternal Land",
     "version": 3.7,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -954,7 +1062,7 @@
   "324": {
     "name": "Tengoku@Livestream",
     "version": 3.7,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -972,28 +1080,34 @@
   "129": {
     "name": "Ever-Glorious Magical Girl",
     "version": 4,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "critDmg%": 0.16
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critDmg%": 0.16
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "defIgnore%": 0.2
+      ],
+      "4": [
+        {
+          "statMap": {
+            "defIgnore%": 0.2
+          }
         }
-      }
+      ]
     }
   },
   "130": {
     "name": "Diviner of Distant Reach",
     "version": 4,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "spd%": 0.06
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "spd%": 0.06
+          }
         }
-      },
+      ],
       "4": [
         {
           "useIfAttr": {
@@ -1023,7 +1137,7 @@
   "325": {
     "name": "Punklorde Stage Zero",
     "version": 4.1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "statMap": {
@@ -1041,7 +1155,7 @@
   "326": {
     "name": "City of Converging Stars",
     "version": 4.1,
-    "tieredEffects": {
+    "bonusEffects": {
       "2": [
         {
           "applyWhen": "cast",
@@ -1062,29 +1176,35 @@
   "131": {
     "name": "As Navigator Isee Sees It",
     "version": 4.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.12
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.12
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "skillDmgBonus%": 0.54,
-          "ultimateDmgBonus%": 0.54
+      ],
+      "4": [
+        {
+          "statMap": {
+            "skillDmgBonus%": 0.54,
+            "ultimateDmgBonus%": 0.54
+          }
         }
-      }
+      ]
     }
   },
   "132": {
     "name": "Divine-Querying Master Smith",
     "version": 4.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "hp%": 0.12
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hp%": 0.12
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {

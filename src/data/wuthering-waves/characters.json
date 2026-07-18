@@ -4896,7 +4896,8 @@
         "forteCircuit.10",
         "outroSkill.1"
       ]
-    }
+    },
+    "effects": []
   },
   "1209": {
     "name": "Mornye",
@@ -5760,7 +5761,8 @@
     "ascensionStats": {
       "healingBonus%": 0.12,
       "hp%": 0.12
-    }
+    },
+    "effects": []
   },
   "1610": {
     "name": "Yangyang: Xuanling",

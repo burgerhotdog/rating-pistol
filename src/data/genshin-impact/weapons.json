@@ -6,7 +6,8 @@
     "type": "sword",
     "stats": {
       "baseAtk": 185
-    }
+    },
+    "effects": []
   },
   "11201": {
     "name": "Silver Sword",
@@ -15,7 +16,8 @@
     "type": "sword",
     "stats": {
       "baseAtk": 243
-    }
+    },
+    "effects": []
   },
   "11301": {
     "name": "Cool Steel",
@@ -25,7 +27,8 @@
     "stats": {
       "baseAtk": 401,
       "atk%": 0.352
-    }
+    },
+    "effects": []
   },
   "11302": {
     "name": "Harbinger of Dawn",
@@ -36,14 +39,16 @@
       "baseAtk": 401,
       "critDmg%": 0.469
     },
-    "effects": {
-      "variableStatMap": {
-        "critRate%": [
-          0.14,
-          0.28
-        ]
+    "effects": [
+      {
+        "variableStatMap": {
+          "critRate%": [
+            0.14,
+            0.28
+          ]
+        }
       }
-    }
+    ]
   },
   "11303": {
     "name": "Traveler's Handy Sword",
@@ -53,7 +58,8 @@
     "stats": {
       "baseAtk": 448,
       "def%": 0.293
-    }
+    },
+    "effects": []
   },
   "11304": {
     "name": "Dark Iron Sword",
@@ -63,7 +69,8 @@
     "stats": {
       "baseAtk": 401,
       "elementalMastery": 141
-    }
+    },
+    "effects": []
   },
   "11305": {
     "name": "Fillet Blade",
@@ -73,7 +80,8 @@
     "stats": {
       "baseAtk": 401,
       "atk%": 0.352
-    }
+    },
+    "effects": []
   },
   "11306": {
     "name": "Skyrider Sword",
@@ -83,7 +91,8 @@
     "stats": {
       "baseAtk": 354,
       "energyRecharge%": 0.521
-    }
+    },
+    "effects": []
   },
   "11401": {
     "name": "Favonius Sword",
@@ -93,7 +102,8 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    }
+    },
+    "effects": []
   },
   "11402": {
     "name": "The Flute",
@@ -103,7 +113,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "11403": {
     "name": "Sacrificial Sword",
@@ -113,7 +124,8 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    }
+    },
+    "effects": []
   },
   "11404": {
     "name": "Royal Longsword",
@@ -123,7 +135,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "11405": {
     "name": "Lion's Roar",
@@ -133,7 +146,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "11406": {
     "name": "Prototype Rancour",
@@ -143,7 +157,8 @@
     "stats": {
       "baseAtk": 565,
       "physicalDmgBonus%": 0.345
-    }
+    },
+    "effects": []
   },
   "11407": {
     "name": "Iron Sting",
@@ -153,7 +168,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "11408": {
     "name": "Blackcliff Longsword",
@@ -163,7 +179,8 @@
     "stats": {
       "baseAtk": 565,
       "critDmg%": 0.368
-    }
+    },
+    "effects": []
   },
   "11409": {
     "name": "The Black Sword",
@@ -173,7 +190,8 @@
     "stats": {
       "baseAtk": 510,
       "critRate%": 0.276
-    }
+    },
+    "effects": []
   },
   "11412": {
     "name": "Sword of Descension",
@@ -183,7 +201,8 @@
     "stats": {
       "baseAtk": 440,
       "atk%": 0.352
-    }
+    },
+    "effects": []
   },
   "11501": {
     "name": "Aquila Favonia",
@@ -193,7 +212,8 @@
     "stats": {
       "baseAtk": 674,
       "physicalDmgBonus%": 0.413
-    }
+    },
+    "effects": []
   },
   "11502": {
     "name": "Skyward Blade",
@@ -203,7 +223,8 @@
     "stats": {
       "baseAtk": 608,
       "energyRecharge%": 0.551
-    }
+    },
+    "effects": []
   },
   "12101": {
     "name": "Waster Greatsword",
@@ -212,7 +233,8 @@
     "type": "claymore",
     "stats": {
       "baseAtk": 185
-    }
+    },
+    "effects": []
   },
   "12201": {
     "name": "Old Merc's Pal",
@@ -221,7 +243,8 @@
     "type": "claymore",
     "stats": {
       "baseAtk": 243
-    }
+    },
+    "effects": []
   },
   "12301": {
     "name": "Ferrous Shadow",
@@ -231,7 +254,8 @@
     "stats": {
       "baseAtk": 401,
       "hp%": 0.352
-    }
+    },
+    "effects": []
   },
   "12302": {
     "name": "Bloodtainted Greatsword",
@@ -241,7 +265,8 @@
     "stats": {
       "baseAtk": 354,
       "elementalMastery": 187
-    }
+    },
+    "effects": []
   },
   "12303": {
     "name": "White Iron Greatsword",
@@ -251,7 +276,8 @@
     "stats": {
       "baseAtk": 401,
       "def%": 0.439
-    }
+    },
+    "effects": []
   },
   "12305": {
     "name": "Debate Club",
@@ -261,7 +287,8 @@
     "stats": {
       "baseAtk": 401,
       "atk%": 0.352
-    }
+    },
+    "effects": []
   },
   "12306": {
     "name": "Skyrider Greatsword",
@@ -271,7 +298,8 @@
     "stats": {
       "baseAtk": 401,
       "physicalDmgBonus%": 0.439
-    }
+    },
+    "effects": []
   },
   "12401": {
     "name": "Favonius Greatsword",
@@ -281,7 +309,8 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    }
+    },
+    "effects": []
   },
   "12402": {
     "name": "The Bell",
@@ -291,7 +320,8 @@
     "stats": {
       "baseAtk": 510,
       "hp%": 0.413
-    }
+    },
+    "effects": []
   },
   "12403": {
     "name": "Sacrificial Greatsword",
@@ -301,7 +331,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "12404": {
     "name": "Royal Greatsword",
@@ -311,7 +342,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "12405": {
     "name": "Rainslasher",
@@ -321,7 +353,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "12406": {
     "name": "Prototype Archaic",
@@ -331,7 +364,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "12407": {
     "name": "Whiteblind",
@@ -341,7 +375,8 @@
     "stats": {
       "baseAtk": 510,
       "def%": 0.517
-    }
+    },
+    "effects": []
   },
   "12408": {
     "name": "Blackcliff Slasher",
@@ -351,7 +386,8 @@
     "stats": {
       "baseAtk": 510,
       "critDmg%": 0.551
-    }
+    },
+    "effects": []
   },
   "12409": {
     "name": "Serpent Spine",
@@ -361,7 +397,8 @@
     "stats": {
       "baseAtk": 510,
       "critRate%": 0.276
-    }
+    },
+    "effects": []
   },
   "12501": {
     "name": "Skyward Pride",
@@ -371,7 +408,8 @@
     "stats": {
       "baseAtk": 674,
       "energyRecharge%": 0.368
-    }
+    },
+    "effects": []
   },
   "12502": {
     "name": "Wolf's Gravestone",
@@ -381,7 +419,8 @@
     "stats": {
       "baseAtk": 608,
       "atk%": 0.496
-    }
+    },
+    "effects": []
   },
   "13101": {
     "name": "Beginner's Protector",
@@ -390,7 +429,8 @@
     "type": "polearm",
     "stats": {
       "baseAtk": 185
-    }
+    },
+    "effects": []
   },
   "13201": {
     "name": "Iron Point",
@@ -399,7 +439,8 @@
     "type": "polearm",
     "stats": {
       "baseAtk": 243
-    }
+    },
+    "effects": []
   },
   "13301": {
     "name": "White Tassel",
@@ -409,7 +450,8 @@
     "stats": {
       "baseAtk": 401,
       "critRate%": 0.234
-    }
+    },
+    "effects": []
   },
   "13302": {
     "name": "Halberd",
@@ -419,7 +461,8 @@
     "stats": {
       "baseAtk": 448,
       "atk%": 0.235
-    }
+    },
+    "effects": []
   },
   "13303": {
     "name": "Black Tassel",
@@ -429,7 +472,8 @@
     "stats": {
       "baseAtk": 354,
       "hp%": 0.469
-    }
+    },
+    "effects": []
   },
   "13401": {
     "name": "Dragon's Bane",
@@ -439,7 +483,8 @@
     "stats": {
       "baseAtk": 454,
       "elementalMastery": 221
-    }
+    },
+    "effects": []
   },
   "13402": {
     "name": "Prototype Starglitter",
@@ -449,7 +494,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "13403": {
     "name": "Crescent Pike",
@@ -459,7 +505,8 @@
     "stats": {
       "baseAtk": 565,
       "physicalDmgBonus%": 0.345
-    }
+    },
+    "effects": []
   },
   "13404": {
     "name": "Blackcliff Pole",
@@ -469,7 +516,8 @@
     "stats": {
       "baseAtk": 510,
       "critDmg%": 0.551
-    }
+    },
+    "effects": []
   },
   "13405": {
     "name": "Deathmatch",
@@ -479,7 +527,8 @@
     "stats": {
       "baseAtk": 454,
       "critRate%": 0.368
-    }
+    },
+    "effects": []
   },
   "13407": {
     "name": "Favonius Lance",
@@ -489,7 +538,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "13502": {
     "name": "Skyward Spine",
@@ -499,7 +549,8 @@
     "stats": {
       "baseAtk": 674,
       "energyRecharge%": 0.368
-    }
+    },
+    "effects": []
   },
   "13505": {
     "name": "Primordial Jade Winged-Spear",
@@ -509,7 +560,8 @@
     "stats": {
       "baseAtk": 674,
       "critRate%": 0.221
-    }
+    },
+    "effects": []
   },
   "14101": {
     "name": "Apprentice's Notes",
@@ -518,7 +570,8 @@
     "type": "catalyst",
     "stats": {
       "baseAtk": 185
-    }
+    },
+    "effects": []
   },
   "14201": {
     "name": "Pocket Grimoire",
@@ -527,7 +580,8 @@
     "type": "catalyst",
     "stats": {
       "baseAtk": 243
-    }
+    },
+    "effects": []
   },
   "14301": {
     "name": "Magic Guide",
@@ -537,7 +591,8 @@
     "stats": {
       "baseAtk": 354,
       "elementalMastery": 187
-    }
+    },
+    "effects": []
   },
   "14302": {
     "name": "Thrilling Tales of Dragon Slayers",
@@ -547,7 +602,8 @@
     "stats": {
       "baseAtk": 401,
       "hp%": 0.352
-    }
+    },
+    "effects": []
   },
   "14303": {
     "name": "Otherworldly Story",
@@ -557,7 +613,8 @@
     "stats": {
       "baseAtk": 401,
       "energyRecharge%": 0.39
-    }
+    },
+    "effects": []
   },
   "14304": {
     "name": "Emerald Orb",
@@ -567,7 +624,8 @@
     "stats": {
       "baseAtk": 448,
       "elementalMastery": 94
-    }
+    },
+    "effects": []
   },
   "14305": {
     "name": "Twin Nephrite",
@@ -577,7 +635,8 @@
     "stats": {
       "baseAtk": 448,
       "critRate%": 0.156
-    }
+    },
+    "effects": []
   },
   "14401": {
     "name": "Favonius Codex",
@@ -587,7 +646,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "14402": {
     "name": "The Widsith",
@@ -597,7 +657,8 @@
     "stats": {
       "baseAtk": 510,
       "critDmg%": 0.551
-    }
+    },
+    "effects": []
   },
   "14403": {
     "name": "Sacrificial Fragments",
@@ -607,7 +668,8 @@
     "stats": {
       "baseAtk": 454,
       "elementalMastery": 221
-    }
+    },
+    "effects": []
   },
   "14404": {
     "name": "Royal Grimoire",
@@ -617,7 +679,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "14405": {
     "name": "Solar Pearl",
@@ -627,7 +690,8 @@
     "stats": {
       "baseAtk": 510,
       "critRate%": 0.276
-    }
+    },
+    "effects": []
   },
   "14406": {
     "name": "Prototype Amber",
@@ -637,7 +701,8 @@
     "stats": {
       "baseAtk": 510,
       "hp%": 0.413
-    }
+    },
+    "effects": []
   },
   "14407": {
     "name": "Mappa Mare",
@@ -647,7 +712,8 @@
     "stats": {
       "baseAtk": 565,
       "elementalMastery": 110
-    }
+    },
+    "effects": []
   },
   "14408": {
     "name": "Blackcliff Agate",
@@ -657,7 +723,8 @@
     "stats": {
       "baseAtk": 510,
       "critDmg%": 0.551
-    }
+    },
+    "effects": []
   },
   "14409": {
     "name": "Eye of Perception",
@@ -667,7 +734,8 @@
     "stats": {
       "baseAtk": 454,
       "atk%": 0.551
-    }
+    },
+    "effects": []
   },
   "14501": {
     "name": "Skyward Atlas",
@@ -677,7 +745,8 @@
     "stats": {
       "baseAtk": 674,
       "atk%": 0.331
-    }
+    },
+    "effects": []
   },
   "14502": {
     "name": "Lost Prayer to the Sacred Winds",
@@ -687,7 +756,8 @@
     "stats": {
       "baseAtk": 608,
       "critRate%": 0.331
-    }
+    },
+    "effects": []
   },
   "15101": {
     "name": "Hunter's Bow",
@@ -696,7 +766,8 @@
     "type": "bow",
     "stats": {
       "baseAtk": 185
-    }
+    },
+    "effects": []
   },
   "15201": {
     "name": "Seasoned Hunter's Bow",
@@ -705,7 +776,8 @@
     "type": "bow",
     "stats": {
       "baseAtk": 243
-    }
+    },
+    "effects": []
   },
   "15301": {
     "name": "Raven Bow",
@@ -715,7 +787,8 @@
     "stats": {
       "baseAtk": 448,
       "elementalMastery": 94
-    }
+    },
+    "effects": []
   },
   "15302": {
     "name": "Sharpshooter's Oath",
@@ -725,7 +798,8 @@
     "stats": {
       "baseAtk": 401,
       "critDmg%": 0.469
-    }
+    },
+    "effects": []
   },
   "15303": {
     "name": "Recurve Bow",
@@ -735,7 +809,8 @@
     "stats": {
       "baseAtk": 354,
       "hp%": 0.469
-    }
+    },
+    "effects": []
   },
   "15304": {
     "name": "Slingshot",
@@ -745,7 +820,8 @@
     "stats": {
       "baseAtk": 354,
       "critRate%": 0.312
-    }
+    },
+    "effects": []
   },
   "15305": {
     "name": "Messenger",
@@ -755,7 +831,8 @@
     "stats": {
       "baseAtk": 448,
       "critDmg%": 0.312
-    }
+    },
+    "effects": []
   },
   "15401": {
     "name": "Favonius Warbow",
@@ -765,7 +842,8 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    }
+    },
+    "effects": []
   },
   "15402": {
     "name": "The Stringless",
@@ -775,7 +853,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "15403": {
     "name": "Sacrificial Bow",
@@ -785,7 +864,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "15404": {
     "name": "Royal Bow",
@@ -795,7 +875,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "15405": {
     "name": "Rust",
@@ -805,7 +886,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "15406": {
     "name": "Prototype Crescent",
@@ -815,7 +897,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "15407": {
     "name": "Compound Bow",
@@ -825,7 +908,8 @@
     "stats": {
       "baseAtk": 454,
       "physicalDmgBonus%": 0.69
-    }
+    },
+    "effects": []
   },
   "15408": {
     "name": "Blackcliff Warbow",
@@ -835,7 +919,8 @@
     "stats": {
       "baseAtk": 565,
       "critDmg%": 0.368
-    }
+    },
+    "effects": []
   },
   "15409": {
     "name": "The Viridescent Hunt",
@@ -845,7 +930,8 @@
     "stats": {
       "baseAtk": 510,
       "critRate%": 0.276
-    }
+    },
+    "effects": []
   },
   "15501": {
     "name": "Skyward Harp",
@@ -855,7 +941,8 @@
     "stats": {
       "baseAtk": 674,
       "critRate%": 0.221
-    }
+    },
+    "effects": []
   },
   "15502": {
     "name": "Amos' Bow",
@@ -865,7 +952,8 @@
     "stats": {
       "baseAtk": 608,
       "atk%": 0.496
-    }
+    },
+    "effects": []
   },
   "12504": {
     "name": "The Unforged",
@@ -875,7 +963,8 @@
     "stats": {
       "baseAtk": 608,
       "atk%": 0.496
-    }
+    },
+    "effects": []
   },
   "13408": {
     "name": "Royal Spear",
@@ -885,7 +974,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "13504": {
     "name": "Vortex Vanquisher",
@@ -895,7 +985,8 @@
     "stats": {
       "baseAtk": 608,
       "atk%": 0.496
-    }
+    },
+    "effects": []
   },
   "14504": {
     "name": "Memory of Dust",
@@ -905,7 +996,8 @@
     "stats": {
       "baseAtk": 608,
       "atk%": 0.496
-    }
+    },
+    "effects": []
   },
   "11413": {
     "name": "Festering Desire",
@@ -915,7 +1007,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "11504": {
     "name": "Summit Shaper",
@@ -925,7 +1018,8 @@
     "stats": {
       "baseAtk": 608,
       "atk%": 0.496
-    }
+    },
+    "effects": []
   },
   "12411": {
     "name": "Snow-Tombed Starsilver",
@@ -935,7 +1029,8 @@
     "stats": {
       "baseAtk": 565,
       "physicalDmgBonus%": 0.345
-    }
+    },
+    "effects": []
   },
   "13409": {
     "name": "Dragonspine Spear",
@@ -945,7 +1040,8 @@
     "stats": {
       "baseAtk": 454,
       "physicalDmgBonus%": 0.69
-    }
+    },
+    "effects": []
   },
   "14412": {
     "name": "Frostbearer",
@@ -955,7 +1051,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "11505": {
     "name": "Primordial Jade Cutter",
@@ -965,7 +1062,8 @@
     "stats": {
       "baseAtk": 542,
       "critRate%": 0.441
-    }
+    },
+    "effects": []
   },
   "12410": {
     "name": "Lithic Blade",
@@ -975,7 +1073,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "13406": {
     "name": "Lithic Spear",
@@ -985,7 +1084,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "13501": {
     "name": "Staff of Homa",
@@ -995,7 +1095,8 @@
     "stats": {
       "baseAtk": 608,
       "critDmg%": 0.662
-    }
+    },
+    "effects": []
   },
   "11410": {
     "name": "The Alley Flash",
@@ -1005,7 +1106,8 @@
     "stats": {
       "baseAtk": 620,
       "elementalMastery": 55
-    }
+    },
+    "effects": []
   },
   "14410": {
     "name": "Wine and Song",
@@ -1015,7 +1117,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "15410": {
     "name": "Alley Hunter",
@@ -1025,7 +1128,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "15413": {
     "name": "Windblume Ode",
@@ -1035,7 +1139,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "15503": {
     "name": "Elegy for the End",
@@ -1045,7 +1150,8 @@
     "stats": {
       "baseAtk": 608,
       "energyRecharge%": 0.551
-    }
+    },
+    "effects": []
   },
   "12503": {
     "name": "Song of Broken Pines",
@@ -1055,7 +1161,8 @@
     "stats": {
       "baseAtk": 741,
       "physicalDmgBonus%": 0.207
-    }
+    },
+    "effects": []
   },
   "11503": {
     "name": "Freedom-Sworn",
@@ -1065,7 +1172,8 @@
     "stats": {
       "baseAtk": 608,
       "elementalMastery": 198
-    }
+    },
+    "effects": []
   },
   "14413": {
     "name": "Dodoco Tales",
@@ -1075,7 +1183,8 @@
     "stats": {
       "baseAtk": 454,
       "atk%": 0.551
-    }
+    },
+    "effects": []
   },
   "15412": {
     "name": "Mitternachts Waltz",
@@ -1085,7 +1194,8 @@
     "stats": {
       "baseAtk": 510,
       "physicalDmgBonus%": 0.517
-    }
+    },
+    "effects": []
   },
   "11414": {
     "name": "Amenoma Kageuchi",
@@ -1095,7 +1205,8 @@
     "stats": {
       "baseAtk": 454,
       "atk%": 0.551
-    }
+    },
+    "effects": []
   },
   "11509": {
     "name": "Mistsplitter Reforged",
@@ -1105,7 +1216,8 @@
     "stats": {
       "baseAtk": 674,
       "critDmg%": 0.441
-    }
+    },
+    "effects": []
   },
   "12414": {
     "name": "Katsuragikiri Nagamasa",
@@ -1115,7 +1227,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "13414": {
     "name": "Kitain Cross Spear",
@@ -1125,7 +1238,8 @@
     "stats": {
       "baseAtk": 565,
       "elementalMastery": 110
-    }
+    },
+    "effects": []
   },
   "14414": {
     "name": "Hakushin Ring",
@@ -1135,7 +1249,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "15414": {
     "name": "Hamayumi",
@@ -1145,7 +1260,8 @@
     "stats": {
       "baseAtk": 454,
       "atk%": 0.551
-    }
+    },
+    "effects": []
   },
   "15509": {
     "name": "Thundering Pulse",
@@ -1155,7 +1271,8 @@
     "stats": {
       "baseAtk": 608,
       "critDmg%": 0.662
-    }
+    },
+    "effects": []
   },
   "12412": {
     "name": "Luxurious Sea-Lord",
@@ -1165,7 +1282,8 @@
     "stats": {
       "baseAtk": 454,
       "atk%": 0.551
-    }
+    },
+    "effects": []
   },
   "13415": {
     "name": "\"The Catch\"",
@@ -1175,7 +1293,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "13509": {
     "name": "Engulfing Lightning",
@@ -1185,7 +1304,8 @@
     "stats": {
       "baseAtk": 608,
       "energyRecharge%": 0.551
-    }
+    },
+    "effects": []
   },
   "14506": {
     "name": "Everlasting Moonglow",
@@ -1195,7 +1315,8 @@
     "stats": {
       "baseAtk": 608,
       "hp%": 0.496
-    }
+    },
+    "effects": []
   },
   "15415": {
     "name": "Predator",
@@ -1205,7 +1326,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "12416": {
     "name": "Akuoumaru",
@@ -1215,7 +1337,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "13416": {
     "name": "Wavebreaker's Fin",
@@ -1225,7 +1348,8 @@
     "stats": {
       "baseAtk": 620,
       "atk%": 0.138
-    }
+    },
+    "effects": []
   },
   "15416": {
     "name": "Mouun's Moon",
@@ -1235,7 +1359,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "15507": {
     "name": "Polar Star",
@@ -1245,7 +1370,8 @@
     "stats": {
       "baseAtk": 608,
       "critRate%": 0.331
-    }
+    },
+    "effects": []
   },
   "11415": {
     "name": "Cinnabar Spindle",
@@ -1256,17 +1382,19 @@
       "baseAtk": 454,
       "def%": 0.69
     },
-    "effects": {
-      "useOnDmgType": "elementalSkill",
-      "useCooldown": 1500,
-      "variableStatMap": {
-        "flat": {
-          "attr": "def",
-          "step": 1,
-          "value": 0.4
+    "effects": [
+      {
+        "useOnDmgType": "elementalSkill",
+        "useCooldown": 1500,
+        "variableStatMap": {
+          "flat": {
+            "attr": "def",
+            "step": 1,
+            "value": 0.4
+          }
         }
       }
-    }
+    ]
   },
   "12510": {
     "name": "Redhorn Stonethresher",
@@ -1276,7 +1404,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "13507": {
     "name": "Calamity Queller",
@@ -1286,7 +1415,8 @@
     "stats": {
       "baseAtk": 741,
       "atk%": 0.165
-    }
+    },
+    "effects": []
   },
   "14415": {
     "name": "Oathsworn Eye",
@@ -1296,7 +1426,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "14509": {
     "name": "Kagura's Verity",
@@ -1306,7 +1437,8 @@
     "stats": {
       "baseAtk": 608,
       "critDmg%": 0.662
-    }
+    },
+    "effects": []
   },
   "11510": {
     "name": "Haran Geppaku Futsu",
@@ -1316,7 +1448,8 @@
     "stats": {
       "baseAtk": 608,
       "critRate%": 0.331
-    }
+    },
+    "effects": []
   },
   "15411": {
     "name": "Fading Twilight",
@@ -1326,7 +1459,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "15508": {
     "name": "Aqua Simulacra",
@@ -1336,7 +1470,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "11416": {
     "name": "Kagotsurube Isshin",
@@ -1346,7 +1481,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "11417": {
     "name": "Sapwood Blade",
@@ -1356,7 +1492,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "12417": {
     "name": "Forest Regalia",
@@ -1366,7 +1503,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "13417": {
     "name": "Moonpiercer",
@@ -1376,7 +1514,8 @@
     "stats": {
       "baseAtk": 565,
       "elementalMastery": 110
-    }
+    },
+    "effects": []
   },
   "14417": {
     "name": "Fruit of Fulfillment",
@@ -1386,7 +1525,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "15417": {
     "name": "King's Squire",
@@ -1396,7 +1536,8 @@
     "stats": {
       "baseAtk": 454,
       "atk%": 0.551
-    }
+    },
+    "effects": []
   },
   "15418": {
     "name": "End of the Line",
@@ -1406,7 +1547,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "15511": {
     "name": "Hunter's Path",
@@ -1416,7 +1558,8 @@
     "stats": {
       "baseAtk": 542,
       "critRate%": 0.441
-    }
+    },
+    "effects": []
   },
   "11418": {
     "name": "Xiphos' Moonlight",
@@ -1426,7 +1569,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "11511": {
     "name": "Key of Khaj-Nisut",
@@ -1436,7 +1580,8 @@
     "stats": {
       "baseAtk": 542,
       "hp%": 0.662
-    }
+    },
+    "effects": []
   },
   "12415": {
     "name": "Makhaira Aquamarine",
@@ -1446,7 +1591,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "13419": {
     "name": "Missive Windspear",
@@ -1456,7 +1602,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "13511": {
     "name": "Staff of the Scarlet Sands",
@@ -1466,7 +1613,8 @@
     "stats": {
       "baseAtk": 542,
       "critRate%": 0.441
-    }
+    },
+    "effects": []
   },
   "14416": {
     "name": "Wandering Evenstar",
@@ -1476,7 +1624,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "14511": {
     "name": "A Thousand Floating Dreams",
@@ -1486,7 +1635,8 @@
     "stats": {
       "baseAtk": 542,
       "elementalMastery": 265
-    }
+    },
+    "effects": []
   },
   "11422": {
     "name": "Toukabou Shigure",
@@ -1496,7 +1646,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "14512": {
     "name": "Tulaytullah's Remembrance",
@@ -1506,7 +1657,8 @@
     "stats": {
       "baseAtk": 674,
       "critDmg%": 0.441
-    }
+    },
+    "effects": []
   },
   "11512": {
     "name": "Light of Foliar Incision",
@@ -1516,7 +1668,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "12418": {
     "name": "Mailed Flower",
@@ -1526,7 +1679,8 @@
     "stats": {
       "baseAtk": 565,
       "elementalMastery": 110
-    }
+    },
+    "effects": []
   },
   "12511": {
     "name": "Beacon of the Reed Sea",
@@ -1536,7 +1690,8 @@
     "stats": {
       "baseAtk": 608,
       "critRate%": 0.331
-    }
+    },
+    "effects": []
   },
   "14505": {
     "name": "Jadefall's Splendor",
@@ -1546,7 +1701,8 @@
     "stats": {
       "baseAtk": 608,
       "hp%": 0.496
-    }
+    },
+    "effects": []
   },
   "15419": {
     "name": "Ibis Piercer",
@@ -1556,7 +1712,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "11424": {
     "name": "Wolf-Fang",
@@ -1566,7 +1723,8 @@
     "stats": {
       "baseAtk": 510,
       "critRate%": 0.276
-    }
+    },
+    "effects": []
   },
   "11425": {
     "name": "Finale of the Deep",
@@ -1576,7 +1734,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "11426": {
     "name": "Fleuve Cendre Ferryman",
@@ -1586,7 +1745,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "12424": {
     "name": "Talking Stick",
@@ -1596,7 +1756,8 @@
     "stats": {
       "baseAtk": 565,
       "critRate%": 0.184
-    }
+    },
+    "effects": []
   },
   "12425": {
     "name": "Tidal Shadow",
@@ -1606,7 +1767,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "13424": {
     "name": "Ballad of the Fjords",
@@ -1616,7 +1778,8 @@
     "stats": {
       "baseAtk": 510,
       "critRate%": 0.276
-    }
+    },
+    "effects": []
   },
   "13425": {
     "name": "Rightful Reward",
@@ -1626,7 +1789,8 @@
     "stats": {
       "baseAtk": 565,
       "hp%": 0.276
-    }
+    },
+    "effects": []
   },
   "14424": {
     "name": "Sacrificial Jade",
@@ -1636,7 +1800,8 @@
     "stats": {
       "baseAtk": 454,
       "critRate%": 0.368
-    }
+    },
+    "effects": []
   },
   "14425": {
     "name": "Flowing Purity",
@@ -1646,7 +1811,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "15424": {
     "name": "Scion of the Blazing Sun",
@@ -1656,7 +1822,8 @@
     "stats": {
       "baseAtk": 565,
       "critRate%": 0.184
-    }
+    },
+    "effects": []
   },
   "15425": {
     "name": "Song of Stillness",
@@ -1666,7 +1833,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "15512": {
     "name": "The First Great Magic",
@@ -1676,7 +1844,8 @@
     "stats": {
       "baseAtk": 608,
       "critDmg%": 0.662
-    }
+    },
+    "effects": []
   },
   "11427": {
     "name": "The Dockhand's Assistant",
@@ -1686,7 +1855,8 @@
     "stats": {
       "baseAtk": 510,
       "hp%": 0.413
-    }
+    },
+    "effects": []
   },
   "12427": {
     "name": "Portable Power Saw",
@@ -1696,7 +1866,8 @@
     "stats": {
       "baseAtk": 454,
       "hp%": 0.551
-    }
+    },
+    "effects": []
   },
   "13427": {
     "name": "Prospector's Drill",
@@ -1706,7 +1877,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "14426": {
     "name": "Ballad of the Boundless Blue",
@@ -1716,7 +1888,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "14513": {
     "name": "Cashflow Supervision",
@@ -1726,7 +1899,8 @@
     "stats": {
       "baseAtk": 674,
       "critRate%": 0.221
-    }
+    },
+    "effects": []
   },
   "14514": {
     "name": "Tome of the Eternal Flow",
@@ -1736,7 +1910,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "15427": {
     "name": "Range Gauge",
@@ -1746,7 +1921,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "11428": {
     "name": "Sword of Narzissenkreuz",
@@ -1756,7 +1932,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "11513": {
     "name": "Splendor of Tranquil Waters",
@@ -1766,7 +1943,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "12426": {
     "name": "\"Ultimate Overlord's Mega Magic Sword\"",
@@ -1776,7 +1954,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "12512": {
     "name": "Verdict",
@@ -1786,7 +1965,8 @@
     "stats": {
       "baseAtk": 674,
       "critRate%": 0.221
-    }
+    },
+    "effects": []
   },
   "14515": {
     "name": "Crane's Echoing Call",
@@ -1796,7 +1976,8 @@
     "stats": {
       "baseAtk": 741,
       "atk%": 0.165
-    }
+    },
+    "effects": []
   },
   "11514": {
     "name": "Uraku Misugiri",
@@ -1806,7 +1987,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "13426": {
     "name": "Dialogues of the Desert Sages",
@@ -1816,7 +1998,8 @@
     "stats": {
       "baseAtk": 510,
       "hp%": 0.413
-    }
+    },
+    "effects": []
   },
   "13512": {
     "name": "Crimson Moon's Semblance",
@@ -1826,7 +2009,8 @@
     "stats": {
       "baseAtk": 674,
       "critRate%": 0.221
-    }
+    },
+    "effects": []
   },
   "11515": {
     "name": "Absolution",
@@ -1836,7 +2020,8 @@
     "stats": {
       "baseAtk": 674,
       "critDmg%": 0.441
-    }
+    },
+    "effects": []
   },
   "15426": {
     "name": "Cloudforged",
@@ -1846,7 +2031,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "15513": {
     "name": "Silvershower Heartstrings",
@@ -1856,7 +2042,8 @@
     "stats": {
       "baseAtk": 542,
       "hp%": 0.662
-    }
+    },
+    "effects": []
   },
   "13513": {
     "name": "Lumidouce Elegy",
@@ -1866,7 +2053,8 @@
     "stats": {
       "baseAtk": 608,
       "critRate%": 0.331
-    }
+    },
+    "effects": []
   },
   "11431": {
     "name": "Flute of Ezpitzal",
@@ -1876,7 +2064,8 @@
     "stats": {
       "baseAtk": 454,
       "def%": 0.69
-    }
+    },
+    "effects": []
   },
   "12431": {
     "name": "Earth Shaker",
@@ -1886,7 +2075,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "12513": {
     "name": "Fang of the Mountain King",
@@ -1896,7 +2086,8 @@
     "stats": {
       "baseAtk": 741,
       "critRate%": 0.11
-    }
+    },
+    "effects": []
   },
   "13431": {
     "name": "Footprint of the Rainbow",
@@ -1906,7 +2097,8 @@
     "stats": {
       "baseAtk": 510,
       "def%": 0.517
-    }
+    },
+    "effects": []
   },
   "14427": {
     "name": "Ash-Graven Drinking Horn",
@@ -1916,7 +2108,8 @@
     "stats": {
       "baseAtk": 510,
       "hp%": 0.413
-    }
+    },
+    "effects": []
   },
   "14431": {
     "name": "Ring of Yaxche",
@@ -1926,7 +2119,8 @@
     "stats": {
       "baseAtk": 510,
       "hp%": 0.413
-    }
+    },
+    "effects": []
   },
   "14516": {
     "name": "Surf's Up",
@@ -1936,7 +2130,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "15431": {
     "name": "Chain Breaker",
@@ -1946,7 +2141,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "11430": {
     "name": "Sturdy Bone",
@@ -1956,7 +2152,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "11516": {
     "name": "Peak Patrol Song",
@@ -1966,7 +2163,8 @@
     "stats": {
       "baseAtk": 542,
       "def%": 0.827
-    }
+    },
+    "effects": []
   },
   "12430": {
     "name": "Fruitful Hook",
@@ -1976,7 +2174,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "13430": {
     "name": "Mountain-Bracing Bolt",
@@ -1986,7 +2185,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "11432": {
     "name": "Calamity of Eshu",
@@ -1996,7 +2196,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "14430": {
     "name": "Waveriding Whirl",
@@ -2006,7 +2207,8 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    }
+    },
+    "effects": []
   },
   "15430": {
     "name": "Flower-Wreathed Feathers",
@@ -2016,7 +2218,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "15514": {
     "name": "Astral Vulture's Crimson Plumage",
@@ -2026,7 +2229,8 @@
     "stats": {
       "baseAtk": 608,
       "critDmg%": 0.662
-    }
+    },
+    "effects": []
   },
   "12514": {
     "name": "A Thousand Blazing Suns",
@@ -2036,7 +2240,8 @@
     "stats": {
       "baseAtk": 741,
       "critRate%": 0.11
-    }
+    },
+    "effects": []
   },
   "14517": {
     "name": "Starcaller's Watch",
@@ -2046,7 +2251,8 @@
     "stats": {
       "baseAtk": 542,
       "elementalMastery": 265
-    }
+    },
+    "effects": []
   },
   "13432": {
     "name": "Tamayuratei no Ohanashi",
@@ -2056,7 +2262,8 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    }
+    },
+    "effects": []
   },
   "14518": {
     "name": "Sunny Morning Sleep-In",
@@ -2066,7 +2273,8 @@
     "stats": {
       "baseAtk": 542,
       "elementalMastery": 265
-    }
+    },
+    "effects": []
   },
   "14519": {
     "name": "Vivid Notions",
@@ -2076,7 +2284,8 @@
     "stats": {
       "baseAtk": 674,
       "critDmg%": 0.441
-    }
+    },
+    "effects": []
   },
   "13514": {
     "name": "Symphonist of Scents",
@@ -2086,7 +2295,8 @@
     "stats": {
       "baseAtk": 608,
       "critDmg%": 0.662
-    }
+    },
+    "effects": []
   },
   "15432": {
     "name": "Sequence of Solitude",
@@ -2096,7 +2306,8 @@
     "stats": {
       "baseAtk": 510,
       "hp%": 0.413
-    }
+    },
+    "effects": []
   },
   "11517": {
     "name": "Azurelight",
@@ -2106,7 +2317,8 @@
     "stats": {
       "baseAtk": 674,
       "critRate%": 0.221
-    }
+    },
+    "effects": []
   },
   "12432": {
     "name": "Flame-Forged Insight",
@@ -2116,7 +2328,8 @@
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
-    }
+    },
+    "effects": []
   },
   "13515": {
     "name": "Fractured Halo",
@@ -2126,7 +2339,8 @@
     "stats": {
       "baseAtk": 608,
       "critDmg%": 0.662
-    }
+    },
+    "effects": []
   },
   "11433": {
     "name": "Serenity's Call",
@@ -2136,7 +2350,8 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    }
+    },
+    "effects": []
   },
   "11434": {
     "name": "Moonweaver's Dawn",
@@ -2146,7 +2361,8 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    }
+    },
+    "effects": []
   },
   "12433": {
     "name": "Master Key",
@@ -2156,7 +2372,8 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    }
+    },
+    "effects": []
   },
   "13433": {
     "name": "Prospector's Shovel",
@@ -2166,7 +2383,8 @@
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    }
+    },
+    "effects": []
   },
   "13516": {
     "name": "Bloodsoaked Ruins",
@@ -2176,7 +2394,8 @@
     "stats": {
       "baseAtk": 674,
       "critRate%": 0.221
-    }
+    },
+    "effects": []
   },
   "14432": {
     "name": "Etherlight Spindlelute",
@@ -2186,7 +2405,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "14433": {
     "name": "Blackmarrow Lantern",
@@ -2196,7 +2416,8 @@
     "stats": {
       "baseAtk": 454,
       "elementalMastery": 221
-    }
+    },
+    "effects": []
   },
   "14520": {
     "name": "Nightweaver's Looking Glass",
@@ -2206,7 +2427,8 @@
     "stats": {
       "baseAtk": 542,
       "elementalMastery": 265
-    }
+    },
+    "effects": []
   },
   "15433": {
     "name": "Snare Hook",
@@ -2216,7 +2438,8 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    }
+    },
+    "effects": []
   },
   "13434": {
     "name": "Sacrificer's Staff",
@@ -2226,7 +2449,8 @@
     "stats": {
       "baseAtk": 620,
       "critRate%": 0.092
-    }
+    },
+    "effects": []
   },
   "14434": {
     "name": "Dawning Frost",
@@ -2236,7 +2460,8 @@
     "stats": {
       "baseAtk": 510,
       "critDmg%": 0.551
-    }
+    },
+    "effects": []
   },
   "14521": {
     "name": "Reliquary of Truth",
@@ -2246,7 +2471,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "11518": {
     "name": "Athame Artis",
@@ -2256,7 +2482,8 @@
     "stats": {
       "baseAtk": 608,
       "critRate%": 0.331
-    }
+    },
+    "effects": []
   },
   "15434": {
     "name": "Rainbow Serpent's Rain Bow",
@@ -2266,7 +2493,8 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
-    }
+    },
+    "effects": []
   },
   "15515": {
     "name": "The Daybreak Chronicles",
@@ -2276,7 +2504,8 @@
     "stats": {
       "baseAtk": 674,
       "critDmg%": 0.441
-    }
+    },
+    "effects": []
   },
   "11519": {
     "name": "Lightbearing Moonshard",
@@ -2286,7 +2515,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "14522": {
     "name": "Nocturne's Curtain Call",
@@ -2296,7 +2526,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "12515": {
     "name": "Gest of the Mighty Wolf",
@@ -2306,7 +2537,8 @@
     "stats": {
       "baseAtk": 608,
       "critRate%": 0.331
-    }
+    },
+    "effects": []
   },
   "15516": {
     "name": "Golden Frostbound Oath",
@@ -2316,7 +2548,8 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    }
+    },
+    "effects": []
   },
   "13517": {
     "name": "Disaster and Remorse",
@@ -2326,7 +2559,8 @@
     "stats": {
       "baseAtk": 674,
       "critRate%": 0.221
-    }
+    },
+    "effects": []
   },
   "14523": {
     "name": "Angelos' Heptades",
@@ -2336,7 +2570,8 @@
     "stats": {
       "baseAtk": 741,
       "atk%": 0.165
-    }
+    },
+    "effects": []
   },
   "12516": {
     "name": "A Teaspoon of Transcendence",
@@ -2346,6 +2581,7 @@
     "stats": {
       "baseAtk": 674,
       "critDmg%": 0.441
-    }
+    },
+    "effects": []
   }
 }
