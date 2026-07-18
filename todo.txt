@@ -1,3 +1,2 @@
 switchable chars resonanace modes
-triggerEffect
 different sourceId for char,weap,set effects

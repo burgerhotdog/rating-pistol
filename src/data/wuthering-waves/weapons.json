@@ -1418,6 +1418,11 @@
         "applyWhen": "hit",
         "applyOnType": "damage",
         "applyCooldown": 500,
+        "removeWhen": "after",
+        "removeIfEffectStacksMin": {
+          "$prev.0": 14
+        },
+        "removeOffset": 12000,
         "statMap": {
           "resonanceSkillDmgBonus%": [
             0.04,

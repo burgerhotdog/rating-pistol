@@ -61,9 +61,10 @@ export function applyEffects(ctx, action, applyWhen) {
           applyEffect(ctx, linkedEffect, action);
         }
       }
-    } else {
-      applyEffect(ctx, effect, action);
+      continue;
     }
+
+    applyEffect(ctx, effect, action);
   }
 }
 
@@ -83,12 +84,20 @@ export function removeEffects(ctx, action, removeWhen) {
   ];
 
   for (const stateMap of stateMaps) {
-    for (const [key, { effect }] of Object.entries(stateMap)) {
+    for (const [key, effectState] of Object.entries(stateMap)) {
+      const { effect } = effectState;
       if (
         effect.removeWhen !== removeWhen ||
         effect.ownerId !== action.ownerId ||
         !matchRemoveFilter({ effect, action, ctx })
       ) continue;
+
+      if (effect.removeOffset) {
+        if (!('removeTimer' in effectState)) {
+          effectState.removeTimer = effect.removeOffset;
+        }
+        continue;
+      }
 
       delete stateMap[key];
     }
@@ -113,9 +122,18 @@ export function advanceEffects(ctx, elapsed) {
         }
       }
 
+      if (effectState.removeTimer) {
+        effectState.removeTimer -= elapsed;
+        if (effectState.removeTimer <= 0) {
+          delete stateMap[key];
+          continue;
+        }
+      }
+
       effectState.timeRemaining -= elapsed;
       if (effectState.timeRemaining <= 0) {
         delete stateMap[key];
+        continue;
       }
     }
   }
