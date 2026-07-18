@@ -1,6 +1,6 @@
 import { mergeObj } from '@/utils';
 import { advanceCooldowns } from './state/cooldowns';
-import { extendEffects, applyEffect, applyEffects, removeEffects, advanceEffects } from './state/effects';
+import { applyEffect, runEffectPhase, advanceEffects } from './state/effects';
 import { inflictNegativeStatuses, advanceNegativeStatuses } from './state/negativeStatuses';
 import { applyOffTuneBuildup, inflictTuneShifting, advanceTune, runTuneBreak } from './state/tune';
 import { buildFootprint, evaluateFootprint } from './footprint';
@@ -96,34 +96,30 @@ function runAction(ctx, action, depth = 0) {
     return;
   }
 
+  // Resolve timings
+  const hitOffsets = action.hitOffsets ?? [0];
+  const initialOffset = hitOffsets[0];
   let currentTime = 0;
 
   // Action is cast
-  removeEffects(ctx, action, 'before');
-  extendEffects(ctx, action, 'cast');
-  applyEffects(ctx, action, 'cast');
+  runEffectPhase(ctx, action, 'cast');
 
   // Advance time to initial hit
-  if (action.hitOffsets) {
-    const initialOffset = action.hitOffsets[0];
-    if (initialOffset > 0) {
-      currentTime += initialOffset;
-      advanceTime(ctx, initialOffset, depth);
-    }
+  if (initialOffset > 0) {
+    advanceTime(ctx, initialOffset, depth);
+    currentTime += initialOffset;
   }
 
   // Initial hit
   if (action.compressed) {
     const usedBuffStates = getUsedBuffStates(ctx, action.ownerId, action);
     const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, usedBuffStates);
-
     if (ctx.recordFootprint) {
       const footprint = buildFootprint(ctx, action, fixedBuffMap, variableBuffSpecs);
       if (footprint) {
         ctx.footprints.push(footprint);
       }
     }
-
     applyOffTuneBuildup(ctx, action, fixedBuffMap);
     decayUsedBuffs(ctx, usedBuffStates);
   }
@@ -131,31 +127,17 @@ function runAction(ctx, action, depth = 0) {
   // Should only happen once regardless of hits
   inflictNegativeStatuses(ctx, action);
   inflictTuneShifting(ctx, action);
+  runEffectPhase(ctx, action, 'inflict');
 
-  applyEffects(ctx, action, 'inflict');
-
-  // Triggered on hit
-  removeEffects(ctx, action, 'hit');
-  extendEffects(ctx, action, 'hit');
-  applyEffects(ctx, action, 'hit');
-  runFollowUpActions(ctx, action, depth);
-
-  if (action.hitOffsets) {
-    const [, ...remainingOffsets] = action.hitOffsets;
-
-    for (const hitOffset of remainingOffsets) {
-      // Advance time to hitOffset
-      const elapsed = hitOffset - currentTime;
-      if (elapsed > 0) {
-        currentTime += elapsed;
-        advanceTime(ctx, elapsed, depth);
-      }
-
-      // Triggered on hit
-      extendEffects(ctx, action, 'hit');
-      applyEffects(ctx, action, 'hit');
-      runFollowUpActions(ctx, action, depth);
+  // Triggered per hit
+  for (const offset of hitOffsets) {
+    const elapsed = offset - currentTime;
+    if (elapsed > 0) {
+      currentTime += elapsed;
+      advanceTime(ctx, elapsed, depth);
     }
+    runEffectPhase(ctx, action, 'hit');
+    runFollowUpActions(ctx, action, depth);
   }
 
   // Advance time after last hit
@@ -164,9 +146,8 @@ function runAction(ctx, action, depth = 0) {
     advanceTime(ctx, postHits, depth);
   }
 
-  // End of action
-  removeEffects(ctx, action, 'after');
-  extendEffects(ctx, action, 'after');
+  // After action
+  runEffectPhase(ctx, action, 'after');
 }
 
 export const createRunRotation = (helpers, cache, equipMaps, currId) => {

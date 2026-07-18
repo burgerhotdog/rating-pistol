@@ -1591,7 +1591,7 @@
         "applyWhen": "cast",
         "applyOnSkillType": "resonanceSkill",
         "applyIfField": "onField",
-        "removeWhen": "before",
+        "removeWhen": "cast",
         "removeOnSkillType": "outroSkill",
         "statMap": {
           "basicAttackDmgBonus%": [
@@ -1782,7 +1782,7 @@
         "applyWhen": "hit",
         "applyOnType": "damage",
         "applyCooldown": 1000,
-        "removeWhen": "before",
+        "removeWhen": "cast",
         "removeIfField": "offField",
         "statMap": {
           "atk%": [
@@ -1834,7 +1834,7 @@
         "applyWhen": "cast",
         "applyOnAction": "1603:forteCircuit.1",
         "applyCooldown": 1000,
-        "removeWhen": "before",
+        "removeWhen": "cast",
         "removeIfField": "offField",
         "statMap": {
           "basicAttackDmgBonus%": [
@@ -2247,7 +2247,7 @@
       {
         "applyWhen": "cast",
         "applyOnSkillType": "echoSkill",
-        "removeWhen": "before",
+        "removeWhen": "cast",
         "removeIfField": "offField",
         "statMap": {
           "basicAttackDmgBonus%": [
@@ -2744,7 +2744,7 @@
       {
         "applyWhen": "cast",
         "applyOnSkillType": "echoSkill",
-        "removeWhen": "before",
+        "removeWhen": "cast",
         "removeIfField": "offField",
         "statMap": {
           "heavyAttackDmgBonus%": [

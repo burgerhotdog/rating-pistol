@@ -1,48 +1,51 @@
 import { matchApplyFilter, matchRemoveFilter, matchExtendFilter } from '../filter';
 
+const getAllStateMaps = (ctx) => {
+  const { memberEffects, fieldEffects, debuffs } = ctx.state;
+
+  return [
+    ...Object.values(memberEffects),
+    ...Object.values(fieldEffects),
+    debuffs,
+  ];
+};
+
 export function applyEffect(ctx, effect, action = {}) {
   const { cooldowns, memberEffects, fieldEffects, debuffs } = ctx.state;
 
-  function apply(stateMap) {
-    const prev = stateMap[effect.key] ?? {};
-    const prevStacks = prev.stacks ?? 0;
-
-    const next = {
+  function updateState(stateMap) {
+    const prevState = stateMap[effect.key] ?? {};
+    const prevStacks = prevState.stacks ?? 0;
+    stateMap[effect.key] = {
+      effect,
       stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
       timeLeft: effect.maxDuration ?? Infinity,
       usesLeft: effect.maxUses ?? Infinity,
-      effect,
+      ...('maxExtensions' in effect &&
+        { extensionsLeft: effect.maxExtensions }),
+      ...('intervalCooldown' in effect &&
+        { intervalTimer: effect.intervalOffset ?? 0 }),
     };
-
-    if (effect.intervalCooldown) {
-      next.intervalTimer = effect.intervalOffset ?? 0;
-    }
-
-    if (effect.maxExtensions) {
-      next.extensionsLeft = effect.maxExtensions;
-    }
-
-    stateMap[effect.key] = next;
   }
 
   for (const target of effect.applyTo) {
     if (target === 'applier') {
-      apply(memberEffects[action.ownerId]);
+      updateState(memberEffects[action.ownerId]);
     } else if (target === 'enemy') {
-      apply(debuffs);
+      updateState(debuffs);
     } else if (target === 'onField' || target === 'offField') {
-      apply(fieldEffects[target]);
+      updateState(fieldEffects[target]);
     } else {
-      apply(memberEffects[target]);
+      updateState(memberEffects[target]);
     }
   }
 
-  if (effect.applyCooldown) {
+  if ('applyCooldown' in effect) {
     cooldowns[effect.key] = effect.applyCooldown;
   }
 }
 
-export function applyEffects(ctx, action, when) {
+function applyEffects(ctx, action, when) {
   const { cooldowns } = ctx.state;
 
   const toApply = [
@@ -75,16 +78,8 @@ export function applyEffects(ctx, action, when) {
   }
 }
 
-export function extendEffects(ctx, action, when) {
-  const { memberEffects, fieldEffects, debuffs } = ctx.state;
-
-  const stateMaps = [
-    ...Object.values(memberEffects),
-    ...Object.values(fieldEffects),
-    debuffs,
-  ];
-
-  for (const stateMap of stateMaps) {
+function extendEffects(ctx, action, when) {
+  for (const stateMap of getAllStateMaps(ctx)) {
     for (const effectState of Object.values(stateMap)) {
       const { effect } = effectState;
 
@@ -110,16 +105,8 @@ function removeEffect(effectKey, stateMap) {
   }
 }
 
-export function removeEffects(ctx, action, when) {
-  const { memberEffects, fieldEffects, debuffs } = ctx.state;
-
-  const stateMaps = [
-    ...Object.values(memberEffects),
-    ...Object.values(fieldEffects),
-    debuffs,
-  ];
-
-  for (const stateMap of stateMaps) {
+function removeEffects(ctx, action, when) {
+  for (const stateMap of getAllStateMaps(ctx)) {
     for (const [key, effectState] of Object.entries(stateMap)) {
       const { effect } = effectState;
       if (
@@ -140,16 +127,14 @@ export function removeEffects(ctx, action, when) {
   }
 }
 
+export function runEffectPhase(ctx, action, phase) {
+  removeEffects(ctx, action, phase);
+  extendEffects(ctx, action, phase);
+  applyEffects(ctx, action, phase);
+}
+
 export function advanceEffects(ctx, elapsed) {
-  const { memberEffects, fieldEffects, debuffs } = ctx.state;
-
-  const stateMaps = [
-    ...Object.values(memberEffects),
-    ...Object.values(fieldEffects),
-    debuffs,
-  ];
-
-  for (const stateMap of stateMaps) {
+  for (const stateMap of getAllStateMaps(ctx)) {
     for (const [key, effectState] of Object.entries(stateMap)) {
       if (effectState.cooldown) {
         effectState.cooldown -= elapsed;

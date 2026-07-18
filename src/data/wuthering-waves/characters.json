@@ -1769,7 +1769,7 @@
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.1",
         "applyTo": "onField",
-        "removeWhen": "before",
+        "removeWhen": "cast",
         "removeOnAction": "normalAttack.4",
         "statMap": {
           "def%": 0.15
@@ -2937,7 +2937,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
-        "removeWhen": "before",
+        "removeWhen": "cast",
         "removeIfField": "offField",
         "useOnAction": [
           "normalAttack.1",
@@ -3125,7 +3125,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
-        "removeWhen": "before",
+        "removeWhen": "cast",
         "removeIfField": "offField",
         "useOnAction": [
           "resonanceLiberation.1",
@@ -5814,7 +5814,7 @@
           "$prev.1": 1
         },
         "applyTo": "applier",
-        "removeWhen": "before",
+        "removeWhen": "cast",
         "removeIfEffectStacksMax": {
           "$prev.1": 0
         },
