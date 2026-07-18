@@ -1424,19 +1424,14 @@
             0.08
           ]
         },
-        "maxStacks": 4
+        "maxStacks": 14
       },
       {
         "applyWhen": "cast",
         "applyOnSkillType": "resonanceSkill",
-        "applyCooldown": 500,
-        "statMap": {
-          "resonanceSkillDmgBonus%": [
-            0.2,
-            0.4
-          ]
-        },
-        "maxStacks": 2
+        "applyEffect": {
+          "$prev.1": 5
+        }
       }
     ]
   },

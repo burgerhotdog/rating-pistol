@@ -21,10 +21,8 @@ const getConvertedRotation = (rawRotation, spec) => {
     }
 
     rotationTime += action.duration ?? 0;
-    console.log(action.ownerId, rotationTime, action.duration, action.key);
     rotation.push(action);
   }
-  console.log('TOTAL', rotationTime);
 
   // Insert tune break action for first character
   if (gameId === WW) {

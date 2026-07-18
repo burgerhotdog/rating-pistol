@@ -1,5 +1,3 @@
-multi stack
-switchable chars
-removeAfter
+switchable chars resonanace modes
 triggerEffect
-different sourceId
+different sourceId for char,weap,set effects

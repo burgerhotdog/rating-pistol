@@ -53,7 +53,17 @@ export function applyEffects(ctx, action, applyWhen) {
       !matchApplyFilter({ effect, action, ctx })
     ) continue;
 
-    applyEffect(ctx, effect, action);
+    if (effect.applyEffect) { // Apply a different effect instead
+      for (const [subKey, stacks] of Object.entries(effect.applyEffect)) {
+        // if (cooldowns[subKey]) continue;
+        const linkedEffect = toApply.find((effect) => effect.key === subKey);
+        for (let i = 0; i < stacks; i++) {
+          applyEffect(ctx, linkedEffect, action);
+        }
+      }
+    } else {
+      applyEffect(ctx, effect, action);
+    }
   }
 }
 

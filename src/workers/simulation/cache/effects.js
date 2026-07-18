@@ -76,6 +76,14 @@ function resolvePrev(effect) {
       }
     }
   }
+
+  if (effect.applyEffect) {
+    effect.applyEffect = { ...effect.applyEffect };
+    for (const key of Object.keys(effect.applyEffect)) {
+      if (!key.startsWith('$prev.')) continue;
+      resolveKey(key, effect.applyEffect);
+    }
+  }
 }
 
 const toNormalizedEffect = (rawEffect, spec) => {

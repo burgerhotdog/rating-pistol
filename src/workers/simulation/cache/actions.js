@@ -14,7 +14,7 @@ const DEFAULT_DURATIONS = {
   [WW]: {
     basicAttack: 500,
     heavyAttack: 1500,
-    midAirAttack: 1000,
+    'mid-airAttack': 1000,
     dodgeCounter: 1500,
     resonanceSkill: 1000,
     introSkill: 1000,
