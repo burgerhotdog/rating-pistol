@@ -28,12 +28,12 @@
       ],
       "4": [
         {
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "elementalSkill",
             "elementalBurst"
           ],
+          "applyTo": "team",
           "statMap": {
             "healingReceived%": 0.2
           },
@@ -146,9 +146,9 @@
       ],
       "4": [
         {
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": "elementalBurst",
+          "applyTo": "team",
           "statMap": {
             "atk%": 0.2
           },
@@ -244,10 +244,10 @@
       ],
       "4": [
         {
-          "applyTo": "team",
           "applyWhen": "hit",
           "applyOnDmgType": "elementalSkill",
           "applyCooldown": 500,
+          "applyTo": "team",
           "statMap": {
             "atk%": 0.2
           },
@@ -326,7 +326,7 @@
               "attr": "ER",
               "step": 0.01,
               "value": 0.0025,
-              "max": 0.75
+              "maxValue": 0.75
             }
           }
         }
@@ -790,9 +790,9 @@
       ],
       "4": [
         {
-          "applyTo": "team",
           "applyWhen": "hit",
           "applyOnType": "damage",
+          "applyTo": "team",
           "statMap": {
             "elementalMastery": 120
           },
@@ -870,10 +870,10 @@
       ],
       "4": [
         {
-          "applyTo": "team",
+          "enableIfTagged": "Hexerei",
           "applyWhen": "cast",
           "applyOnSkillType": "elementalSkill",
-          "applyIfTagged": "Hexerei",
+          "applyTo": "team",
           "statMap": {
             "dmgBonus%": 0.4
           },

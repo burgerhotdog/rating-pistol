@@ -1,6 +1,6 @@
 import { mergeObj } from '@/utils';
 import { advanceCooldowns } from './state/cooldowns';
-import { applyEffects, applyPassives, removeEffects, advanceEffects } from './state/effects';
+import { extendEffects, applyEffect, applyEffects, removeEffects, advanceEffects } from './state/effects';
 import { inflictNegativeStatuses, advanceNegativeStatuses } from './state/negativeStatuses';
 import { applyOffTuneBuildup, inflictTuneShifting, advanceTune, runTuneBreak } from './state/tune';
 import { buildFootprint, evaluateFootprint } from './footprint';
@@ -100,6 +100,7 @@ function runAction(ctx, action, depth = 0) {
 
   // Action is cast
   removeEffects(ctx, action, 'before');
+  extendEffects(ctx, action, 'cast');
   applyEffects(ctx, action, 'cast');
 
   // Advance time to initial hit
@@ -131,7 +132,11 @@ function runAction(ctx, action, depth = 0) {
   inflictNegativeStatuses(ctx, action);
   inflictTuneShifting(ctx, action);
 
+  applyEffects(ctx, action, 'inflict');
+
   // Triggered on hit
+  removeEffects(ctx, action, 'hit');
+  extendEffects(ctx, action, 'hit');
   applyEffects(ctx, action, 'hit');
   runFollowUpActions(ctx, action, depth);
 
@@ -147,6 +152,7 @@ function runAction(ctx, action, depth = 0) {
       }
 
       // Triggered on hit
+      extendEffects(ctx, action, 'hit');
       applyEffects(ctx, action, 'hit');
       runFollowUpActions(ctx, action, depth);
     }
@@ -160,6 +166,7 @@ function runAction(ctx, action, depth = 0) {
 
   // End of action
   removeEffects(ctx, action, 'after');
+  extendEffects(ctx, action, 'after');
 }
 
 export const createRunRotation = (helpers, cache, equipMaps, currId) => {
@@ -198,7 +205,9 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   };
 
   // Init passives into effect states
-  applyPassives(ctx);
+  for (const effect of cache.effects.passive) {
+    applyEffect(ctx, effect);
+  }
 
   // Rotation loop
   const actionOrder = cache.memberIds

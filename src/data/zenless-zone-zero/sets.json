@@ -160,12 +160,12 @@
       ],
       "4": [
         {
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "chainAttack",
             "ultimate"
           ],
+          "applyTo": "team",
           "statMap": {
             "dmgBonus%": 0.15
           },
@@ -343,12 +343,12 @@
       ],
       "4": [
         {
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "defensiveAssist",
             "evasiveAssist"
           ],
+          "applyTo": "team",
           "statMap": {
             "dmgBonus%": 0.15
           },
@@ -503,12 +503,12 @@
       "4": [
         {
           "enableIfWeaponType": "stun",
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
           ],
+          "applyTo": "team",
           "statMap": {
             "critDmg%": 0.15
           },
@@ -516,12 +516,12 @@
         },
         {
           "enableIfWeaponType": "stun",
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
           ],
+          "applyTo": "team",
           "useIfAttr": {
             "critRate%": 0.5
           },
@@ -579,12 +579,12 @@
       "4": [
         {
           "enableIfWeaponType": "support",
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "ultimate"
           ],
+          "applyTo": "team",
           "statMap": {
             "dmgBonus%": 0.18
           },
@@ -655,9 +655,9 @@
       ],
       "4": [
         {
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": "exSpecialAttack",
+          "applyTo": "team",
           "statMap": {
             "dmgBonus%": 0.06
           },

@@ -41,7 +41,7 @@
     },
     "effects": [
       {
-        "variableStatMap": {
+        "statMap": {
           "critRate%": [
             0.14,
             0.28

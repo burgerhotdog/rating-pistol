@@ -56,33 +56,34 @@ function resolveRankMods(effect, memberRank) {
 }
 
 function resolvePrev(effect) {
-  function resolveKey(prevKey, fieldData) {
-    const id = Number(effect.id) - Number(prevKey.slice(6));
-    const key = `${effect.ownerId}:effect${id}`;
+  const toResolvedKey = (rawKey) => {
+    if (!rawKey.startsWith('$prev.')) return rawKey;
+    const id = Number(effect.id) - Number(rawKey.slice(6));
+    return `${effect.ownerId}:effect${id}`;
+  }
 
-    fieldData[key] = fieldData[prevKey];
-    delete fieldData[prevKey];
+  const toResolvedMap = (rawMap) => {
+    const resolved = {};
+    for (const [rawKey, stacks] of Object.entries(rawMap)) {
+      resolved[toResolvedKey(rawKey)] = stacks;
+    }
+    return resolved;
   }
 
   for (const prefix of ['apply', 'remove', 'use']) {
     for (const suffix of ['Min', 'Max']) {
       const field = `${prefix}IfEffectStacks${suffix}`;
-      if (!(field in effect)) continue;
-
-      effect[field] = { ...effect[field] };
-      for (const key of Object.keys(effect[field])) {
-        if (!key.startsWith('$prev.')) continue;
-        resolveKey(key, effect[field]);
-      }
+      if (!effect[field]) continue;
+      effect[field] = toResolvedMap(effect[field]);
     }
   }
 
-  if (effect.applyEffect) {
-    effect.applyEffect = { ...effect.applyEffect };
-    for (const key of Object.keys(effect.applyEffect)) {
-      if (!key.startsWith('$prev.')) continue;
-      resolveKey(key, effect.applyEffect);
-    }
+  if (effect.onApplyDoApplyEffect) {
+    effect.onApplyDoApplyEffect = toResolvedMap(effect.onApplyDoApplyEffect);
+  }
+
+  if (effect.onApplyDoRemoveEffect) {
+    effect.onApplyDoRemoveEffect = toResolvedKey(effect.onApplyDoRemoveEffect);
   }
 }
 
@@ -208,5 +209,10 @@ export const normalizeEffects = (member, spec) => {
     }
   }
 
-  return { memberEffects, passiveEffects, globalEffects, tuneBreakEffects };
+  return {
+    memberEffects,
+    passiveEffects,
+    globalEffects,
+    tuneBreakEffects,
+  };
 };

@@ -34,9 +34,9 @@
         "maxDuration": 8000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "basicAttackDmgAmp%": 0.38
         },
@@ -78,12 +78,12 @@
       },
       {
         "rank": 6,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.2",
           "forteCircuit.4"
         ],
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.1
         },
@@ -184,9 +184,9 @@
         "maxDuration": 30000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "dmgAmp%": 0.15
         },
@@ -227,9 +227,9 @@
       },
       {
         "rank": 6,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.1",
+        "applyTo": "team",
         "statMap": {
           "glacioDmgBonus%": 0.12
         },
@@ -314,9 +314,9 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "outroSkill.1",
+        "applyTo": "team",
         "statMap": {
           "glacioDmgBonus%": 0.2
         },
@@ -432,9 +432,9 @@
       },
       {
         "rank": 6,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
+        "applyTo": "team",
         "statMap": {
           "basicAttackDmgBonus%": 0.25
         },
@@ -529,9 +529,9 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
+        "applyTo": "team",
         "statMap": {
           "fusionDmgBonus%": 0.2
         },
@@ -600,9 +600,9 @@
     },
     "effects": [
       {
-        "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "onField",
         "useOnSkillType": "basicAttack",
         "useCooldown": 350,
         "followUpAction": "resonanceLiberation.2",
@@ -614,9 +614,9 @@
         }
       },
       {
-        "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "onField",
         "useOnSkillType": "heavyAttack",
         "useCooldown": 350,
         "followUpAction": "resonanceLiberation.2",
@@ -657,9 +657,9 @@
         }
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "heavyAttackDmgAmp%": 0.38
         },
@@ -685,9 +685,9 @@
       },
       {
         "rank": 6,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.2
         },
@@ -763,9 +763,9 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "outroSkill.1",
+        "applyTo": "team",
         "statMap": {
           "electroDmgBonus%": 0.2
         },
@@ -854,9 +854,9 @@
         "maxUses": 4
       },
       {
-        "applyTo": "enemy",
         "applyWhen": "hit",
         "applyOnAction": "forteCircuit.1",
+        "applyTo": "enemy",
         "useOnType": "damage",
         "useCooldown": 1000,
         "followUpAction": "forteCircuit.2",
@@ -885,9 +885,9 @@
         "maxDuration": 4000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "electroDmgAmp%": 0.2,
           "resonanceLiberationDmgAmp%": 0.25
@@ -913,9 +913,9 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "hit",
         "applyOnAction": "forteCircuit.2",
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.2
         },
@@ -983,9 +983,9 @@
     },
     "effects": [
       {
-        "applyTo": "onField",
         "applyWhen": "hit",
         "applyOnAction": "resonanceSkill.1",
+        "applyTo": "onField",
         "useOnType": "damage",
         "useCooldown": 1200,
         "followUpAction": "resonanceSkill.2",
@@ -1050,9 +1050,9 @@
       },
       {
         "rank": 6,
-        "applyTo": "team",
         "applyWhen": "hit",
         "applyOnAction": "resonanceSkill.1",
+        "applyTo": "team",
         "statMap": {
           "def%": 0.32
         },
@@ -1132,9 +1132,9 @@
       },
       {
         "rank": 6,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.2
         },
@@ -1205,9 +1205,9 @@
         }
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "aeroDmgAmp%": 0.23
         },
@@ -1339,9 +1339,9 @@
         "maxDuration": 8000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "useOnSkillType": "heavyAttack",
         "useCooldown": 1000,
         "followUpAction": {
@@ -1381,12 +1381,12 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceLiberation.1",
           "forteCircuit.1"
         ],
+        "applyTo": "team",
         "statMap": {
           "heavyAttackDmgBonus%": 0.25
         },
@@ -1506,9 +1506,9 @@
         }
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "resonanceLiberationDmgAmp%": 0.38
         },
@@ -1605,9 +1605,9 @@
     },
     "effects": [
       {
-        "applyTo": "team",
         "applyWhen": "hit",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "team",
         "useCooldown": 1000,
         "followUpAction": [
           "resonanceLiberation.3",
@@ -1616,7 +1616,6 @@
         "maxDuration": 12000
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.1",
@@ -1626,6 +1625,7 @@
           "resonanceLiberation.1",
           "outroSkill.1"
         ],
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.2
         },
@@ -1644,9 +1644,9 @@
         "maxDuration": 6000
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "team",
         "statMap": {
           "dmgAmp%": 0.15
         },
@@ -1674,7 +1674,6 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.1",
@@ -1684,6 +1683,7 @@
           "resonanceLiberation.1",
           "outroSkill.1"
         ],
+        "applyTo": "team",
         "statMap": {
           "spectroDmgBonus%": 0.15
         },
@@ -1766,9 +1766,9 @@
     },
     "effects": [
       {
-        "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.1",
+        "applyTo": "onField",
         "removeWhen": "before",
         "removeOnAction": "normalAttack.4",
         "statMap": {
@@ -1782,9 +1782,9 @@
         }
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "resonanceSkillDmgAmp%": 0.38
         },
@@ -1941,9 +1941,9 @@
         "maxDuration": 5000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "havocDmgAmp%": 0.23
         },
@@ -1985,12 +1985,12 @@
       },
       {
         "rank": 6,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.1",
           "forteCircuit.3"
         ],
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.2
         },
@@ -2071,9 +2071,9 @@
         }
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "fusionDmgAmp%": 0.2,
           "resonanceLiberationDmgAmp%": 0.25
@@ -2114,9 +2114,9 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": "introSkill",
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.2
         },
@@ -2232,12 +2232,12 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceLiberation.1",
           "forteCircuit.8"
         ],
+        "applyTo": "team",
         "statMap": {
           "dmgBonus%": 0.2
         },
@@ -2305,9 +2305,9 @@
     },
     "effects": [
       {
-        "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.2",
+        "applyTo": "onField",
         "useOnType": "damage",
         "useCooldown": 1000,
         "followUpAction": "resonanceLiberation.1",
@@ -2340,9 +2340,9 @@
         "maxStacks": 3
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "glacioDmgAmp%": 0.2,
           "resonanceSkillDmgAmp%": 0.25
@@ -2374,9 +2374,9 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.2",
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.2
         },
@@ -2451,9 +2451,9 @@
         "maxStacks": 4
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "useOnSkillType": "basicAttack",
         "useCooldown": 2000,
         "followUpAction": {
@@ -2500,9 +2500,9 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "team",
         "statMap": {
           "resonanceLiberationDmgBonus%": 0.25
         },
@@ -2596,9 +2596,9 @@
         }
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "useOnSkillType": "coordinatedAttack",
         "statMap": {
           "dmgAmp%": 1
@@ -2670,9 +2670,9 @@
     },
     "effects": [
       {
-        "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.2",
+        "applyTo": "onField",
         "intervalAction": "resonanceLiberation.1",
         "intervalCooldown": 3000,
         "maxDuration": 30000,
@@ -2683,15 +2683,15 @@
         }
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.2",
+        "applyTo": "team",
         "variableStatMap": {
           "critRate%": {
             "attr": "energyRegen%",
             "step": 0.002,
             "value": 0.0001,
-            "max": 0.125
+            "maxValue": 0.125
           }
         },
         "maxDuration": 30000,
@@ -2707,15 +2707,15 @@
         }
       },
       {
-        "applyTo": "first",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.2",
+        "applyTo": "first",
         "variableStatMap": {
           "critDmg%": {
             "attr": "energyRegen%",
             "step": 0.001,
             "value": 0.0001,
-            "max": 0.25
+            "maxValue": 0.25
           }
         },
         "maxDuration": 30000,
@@ -2753,9 +2753,9 @@
         }
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "team",
         "statMap": {
           "dmgAmp%": 0.15
         },
@@ -2839,9 +2839,9 @@
         "maxDuration": 5000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "resonanceSkillDmgAmp%": 0.38
         },
@@ -2879,9 +2879,9 @@
       },
       {
         "rank": 6,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.2
         },
@@ -3023,9 +3023,9 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
+        "applyTo": "team",
         "statMap": {
           "basicAttackDmgBonus%": 0.25
         },
@@ -3162,13 +3162,13 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": [
           "normalAttack.6",
           "normalAttack.7",
           "forteCircuit.1"
         ],
+        "applyTo": "team",
         "statMap": {
           "resonanceSkillDmgBonus%": 0.25
         },
@@ -3234,16 +3234,16 @@
     },
     "effects": [
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "team",
         "variableStatMap": {
           "atk": {
             "attr": "critRate%",
             "step": 0.001,
             "offset": 0.5,
             "value": 1,
-            "max": 200
+            "maxValue": 200
           }
         },
         "maxDuration": 30000
@@ -3260,9 +3260,9 @@
         "maxDuration": 12000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "followUpAction": {
           "skillType": "echoSkill",
           "multipliers": {
@@ -3272,9 +3272,9 @@
         "maxUses": 1
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "havocDmgAmp%": 0.2,
           "basicAttackDmgAmp%": 0.25
@@ -3414,7 +3414,7 @@
             "step": 0.01,
             "offset": 1.5,
             "value": 8,
-            "max": 1040
+            "maxValue": 1040
           }
         },
         "maxDuration": 12000
@@ -3426,7 +3426,7 @@
             "step": 0.01,
             "offset": 1.5,
             "value": 12,
-            "max": 1560
+            "maxValue": 1560
           }
         }
       },
@@ -3442,9 +3442,9 @@
         }
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "fusionDmgAmp%": 0.2,
           "resonanceSkillDmgAmp%": 0.25
@@ -3476,9 +3476,9 @@
       },
       {
         "rank": 2,
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "useOnSkillType": "resonanceSkill",
         "useCooldown": 1000,
         "followUpAction": {
@@ -3633,18 +3633,18 @@
         }
       },
       {
-        "applyTo": "enemy",
         "applyWhen": "cast",
         "applyOnAction": "outroSkill.2",
+        "applyTo": "enemy",
         "statMap": {
           "spectroResReduction%": 0.1
         },
         "maxDuration": 30000
       },
       {
-        "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": "outroSkill.2",
+        "applyTo": "onField",
         "statMap": {
           "spectroFrazzleDmgAmp%": 1
         },
@@ -3701,12 +3701,12 @@
       },
       {
         "rank": 4,
-        "applyTo": "enemy",
         "applyWhen": "hit",
         "applyOnSkillType": [
           "basicAttack",
           "dodgeCounter"
         ],
+        "applyTo": "enemy",
         "statMap": {
           "spectroResReduction%": 0.1
         },
@@ -3789,9 +3789,9 @@
     },
     "effects": [
       {
-        "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "onField",
         "useCooldown": 1000,
         "followUpAction": "resonanceLiberation.2",
         "maxDuration": 30000,
@@ -3824,9 +3824,9 @@
         "maxStacks": 2
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "havocDmgAmp%": 0.2,
           "resonanceSkillDmgAmp%": 0.25
@@ -3960,9 +3960,9 @@
         }
       },
       {
-        "applyTo": "enemy",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "enemy",
         "statMap": {
           "aeroErosionDmgAmp%": 1
         },
@@ -3979,9 +3979,9 @@
       },
       {
         "rank": 2,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "team",
         "statMap": {
           "aeroDmgBonus%": 0.4
         },
@@ -4106,9 +4106,9 @@
         "maxDuration": 14000
       },
       {
-        "applyTo": "ally",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
         "statMap": {
           "spectroDmgAmp%": 0.2
         },
@@ -4139,9 +4139,9 @@
       },
       {
         "rank": 4,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
+        "applyTo": "team",
         "maxDuration": 30000,
         "statMap": {
           "atk%": 0.2
@@ -4212,9 +4212,9 @@
         }
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.18,
           "fusionDmgBonus%": 0.2,
@@ -4239,19 +4239,19 @@
         "maxDuration": 8000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.1",
           "forteCircuit.2"
         ],
+        "applyTo": "next",
         "followUpAction": "forteCircuit.3",
         "maxUses": 1
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "fusionDmgAmp%": 0.2,
           "basicAttackDmgAmp%": 0.25
@@ -4268,7 +4268,6 @@
       },
       {
         "rank": 2,
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceLiberation.1",
@@ -4276,6 +4275,7 @@
           "normalAttack.7",
           "normalAttack.11"
         ],
+        "applyTo": "team",
         "statMap": {
           "fusionDmgBonus%": 0.2
         },
@@ -4389,9 +4389,9 @@
         }
       },
       {
-        "applyTo": "ally",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
         "statMap": {
           "aeroDmgAmp%": 0.175
         },
@@ -4518,9 +4518,9 @@
         "maxStacks": 24
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "havocDmgAmp%": 0.2,
           "heavyAttackDmgAmp%": 0.25
@@ -4583,9 +4583,9 @@
         }
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "dmgAmp%": 0.15
         },
@@ -4654,9 +4654,9 @@
     },
     "effects": [
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "heavyAttackDmgAmp%": 0.5
         },
@@ -4762,9 +4762,9 @@
     },
     "effects": [
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "echoSkillDmgAmp%": 0.5
         },
@@ -4824,9 +4824,9 @@
         "maxDuration": 16000
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "outroSkill.1",
+        "applyTo": "team",
         "statMap": {
           "dmgAmp%": 0.15
         },
@@ -4925,21 +4925,21 @@
             "step": 0.01,
             "offset": 1,
             "value": 0.005,
-            "max": 0.8
+            "maxValue": 0.8
           },
           "critDmg%": {
             "attr": "energyRegen%",
             "step": 0.01,
             "offset": 1,
             "value": 0.01,
-            "max": 1.6
+            "maxValue": 1.6
           }
         }
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "team",
         "statMap": {
           "def%": 0.2
         },
@@ -4972,20 +4972,20 @@
         "maxDuration": 25000
       },
       {
-        "applyTo": "team",
         "applyWhen": "hit",
         "applyOnAction": [
           "forteCircuit.3",
           "introSkill.1"
         ],
+        "applyTo": "team",
         "statMap": {
           "offTuneBuildupRate%": 0.5
         },
         "maxDuration": 25000
       },
       {
-        "applyTo": "enemy",
         "applyWhen": "tuneBreak",
+        "applyTo": "enemy",
         "useIfInterfered": [
           "tuneRupture",
           "tuneStrain"
@@ -4996,7 +4996,7 @@
             "step": 0.01,
             "offset": 1,
             "value": 0.0025,
-            "max": 0.4
+            "maxValue": 0.4
           }
         },
         "maxDuration": 8000
@@ -5007,9 +5007,9 @@
         }
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "team",
         "statMap": {
           "dmgAmp%": 0.25
         },
@@ -5062,9 +5062,9 @@
     ],
     "effects": [
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "dmgAmp%": 0.15,
           "resonanceLiberationDmgAmp%": 0.25
@@ -5117,9 +5117,9 @@
     ],
     "effects": [
       {
-        "applyTo": "ally",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
         "statMap": {
           "dmgAmp%": 0.2
         },
@@ -5279,9 +5279,9 @@
     },
     "effects": [
       {
-        "applyTo": "ally",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
         "useIfNegativeStatus": {
           "glacioChafe": 1
         },
@@ -5348,9 +5348,9 @@
     ],
     "effects": [
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "dmgAmp%": 0.4
         },
@@ -5408,9 +5408,9 @@
         "maxUses": 4
       },
       {
-        "applyTo": "enemy",
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.3",
+        "applyTo": "enemy",
         "statMap": {
           "glacioResReduction%": 0.08
         },
@@ -5491,36 +5491,36 @@
       },
       {
         "applyBy": "any",
+        "applyWhen": "inflict",
+        "applyForInflictShifting": "hack",
         "applyTo": "applier",
-        "applyWhen": "hit",
-        "applyOnInflictShifting": "hack",
         "statMap": {
           "tuneBreakBoost": 30
         },
         "maxDuration": 30000
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.5",
+        "applyTo": "team",
         "statMap": {
           "atk%": 0.2
         },
         "maxDuration": 30000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "dmgAmp%": 0.15
         },
         "maxDuration": 14000
       },
       {
-        "applyTo": "1511",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "1511",
         "statMap": {
           "heavyAttackDmgAmp%": 0.35
         },
@@ -5589,18 +5589,18 @@
     },
     "effects": [
       {
-        "applyTo": "enemy",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.7",
+        "applyTo": "enemy",
         "statMap": {
           "dmgBonus%": 0.05
         },
         "maxDuration": 30000
       },
       {
-        "applyTo": "enemy",
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.8",
+        "applyTo": "enemy",
         "statMap": {
           "defReduction%": 0.05
         },
@@ -5631,18 +5631,18 @@
         "maxDuration": 8000
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "basicAttackDmgAmp%": 0.25
         },
         "maxDuration": 14000
       },
       {
-        "applyTo": "1308",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "1308",
         "statMap": {
           "dmgAmp%": 0.2
         },
@@ -5801,19 +5801,19 @@
         "maxUses": 1
       },
       {
-        "applyTo": "ally",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
         "maxDuration": 20000
       },
       {
         "applyBy": "any",
-        "applyTo": "applier",
-        "applyWhen": "hit",
-        "applyOnInflictStatus": "havocBane",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "havocBane",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
+        "applyTo": "applier",
         "removeWhen": "before",
         "removeIfEffectStacksMax": {
           "$prev.1": 0

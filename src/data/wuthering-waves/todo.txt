@@ -165,38 +165,13 @@ weapons:
 
 sets:
     unchecked:
-        1 Freezing Frost
-        2 Molten Rift
-        3 Void Thunder
-        4 Sierra Gale
-        5 Celestial Light
-        6 Havoc Eclipse
-        7 Rejuvenating Glow
-        8 Moonlit Clouds
-        9 Lingering Tunes
-        10 Frosty Resolve
-        11 Eternal Radiance
-        12 Midnight Veil
-        14 Tidebreaking Courage
-        16 Gusts of Welkin
-        17 Windward Pilgrimage
-        18 Flaming Clawprint
-        19 Dream of the Lost
-        20 Crown of Valor
-        21 Law of Harmony
-        23 Thread of Severed Fate
-        27 Trailblazing Star
-        28 Chromatic Foam
-        29 Sound of True Name
-        32 Shadow of Shattered Dreams
 
     incomplete:
-        31 Reel of Spliced Memories
 
     simplified:
         13 Empyrean Anthem
-        22 Flamewing's Shadow
-        24 Pact of Neonlight Leap
-        25 Halo of Starry Radiance
-        26 Rite of Gilded Revelation
-        30 Wishes of Quiet Snowfall
+            no crit needed
+        20 Crown of Valor
+            applies when creating shield instead of receiving
+        21 Law of Harmony
+            same echo can trigger multiple times

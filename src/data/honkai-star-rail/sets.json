@@ -916,9 +916,9 @@
           }
         },
         {
-          "applyTo": "team",
           "applyWhen": "hit",
           "applyOnType": "healing",
+          "applyTo": "team",
           "statMap": {
             "critDmg%": 0.15
           }

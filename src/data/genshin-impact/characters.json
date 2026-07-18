@@ -447,9 +447,9 @@
     },
     "effects": [
       {
-        "applyTo": "onField",
         "applyWhen": "hit",
         "applyOnAction": "elementalSkill.1",
+        "applyTo": "onField",
         "useCooldown": 2000,
         "followUpAction": "elementalSkill.2",
         "maxDuration": 30000
@@ -462,9 +462,9 @@
         }
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnAction": "elementalBurst.1",
+        "applyTo": "team",
         "statMap": {
           "elementalMastery": 125
         },

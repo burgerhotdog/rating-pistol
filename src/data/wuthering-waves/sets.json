@@ -63,15 +63,19 @@
       "5": [
         {
           "applyWhen": "cast",
-          "applyOnSkillType": [
-            "heavyAttack",
-            "resonanceSkill"
-          ],
+          "applyOnSkillType": "heavyAttack",
           "statMap": {
             "electroDmgBonus%": 0.15
           },
-          "maxDuration": 15000,
-          "maxStacks": 2
+          "maxDuration": 15000
+        },
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "resonanceSkill",
+          "statMap": {
+            "electroDmgBonus%": 0.15
+          },
+          "maxDuration": 15000
         }
       ]
     }
@@ -162,9 +166,9 @@
       ],
       "5": [
         {
-          "applyTo": "team",
           "applyWhen": "hit",
           "applyOnType": "healing",
+          "applyTo": "team",
           "statMap": {
             "atk%": 0.15
           },
@@ -186,9 +190,9 @@
       ],
       "5": [
         {
-          "applyTo": "next",
           "applyWhen": "cast",
           "applyOnSkillType": "outroSkill",
+          "applyTo": "next",
           "statMap": {
             "atk%": 0.225
           },
@@ -221,8 +225,9 @@
           "maxStacks": 4
         },
         {
+          "useIfDmgType": "outroSkill",
           "statMap": {
-            "outroSkillDmgBonus%": 0.6
+            "dmgBonus%": 0.6
           }
         }
       ]
@@ -274,8 +279,8 @@
       ],
       "5": [
         {
-          "applyWhen": "hit",
-          "applyOnInflictStatus": "spectroFrazzle",
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "spectroFrazzle",
           "statMap": {
             "critRate%": 0.2
           },
@@ -308,21 +313,19 @@
       ],
       "5": [
         {
-          "applyWhen": "cast",
-          "applyOnSkillType": "outroSkill",
-          "intervalAction": {
+          "useOnSkillType": "outroSkill",
+          "followUpAction": {
             "element": "havoc",
             "dmgType": "outroSkill",
             "multipliers": {
               "mv": 4.8
             }
-          },
-          "maxUses": 1
+          }
         },
         {
-          "applyTo": "next",
           "applyWhen": "cast",
           "applyOnSkillType": "outroSkill",
+          "applyTo": "next",
           "statMap": {
             "havocDmgBonus%": 0.15
           },
@@ -350,9 +353,9 @@
           }
         },
         {
-          "applyTo": "onField",
           "applyWhen": "hit",
           "applyOnSkillType": "coordinatedAttack",
+          "applyTo": "onField",
           "statMap": {
             "atk%": 0.2
           },
@@ -402,17 +405,17 @@
       ],
       "5": [
         {
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "aeroErosion",
           "applyTo": "team",
-          "applyWhen": "hit",
-          "applyOnInflictStatus": "aeroErosion",
           "statMap": {
             "aeroDmgBonus%": 0.15
           },
           "maxDuration": 20000
         },
         {
-          "applyWhen": "hit",
-          "applyOnInflictStatus": "aeroErosion",
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "aeroErosion",
           "statMap": {
             "aeroDmgBonus%": 0.15
           },
@@ -435,6 +438,7 @@
       "5": [
         {
           "applyWhen": "hit",
+          "applyOnType": "damage",
           "applyIfNegativeStatus": {
             "aeroErosion": 1
           },
@@ -460,9 +464,9 @@
       ],
       "5": [
         {
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": "resonanceLiberation",
+          "applyTo": "team",
           "statMap": {
             "fusionDmgBonus%": 0.15
           },
@@ -527,9 +531,9 @@
           "maxDuration": 4000
         },
         {
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": "echoSkill",
+          "applyTo": "team",
           "statMap": {
             "echoSkillDmgBonus%": 0.04
           },
@@ -563,20 +567,13 @@
           "maxDuration": 6000
         },
         {
-          "applyWhen": "hit",
-          "applyOnDmgType": "echoSkill",
-          "statMap": {
-            "fusionDmgBonus%": 0.08
+          "useIfEffectStacksMin": {
+            "$prev.1": 1,
+            "$prev.2": 1
           },
-          "maxDuration": 6000
-        },
-        {
-          "applyWhen": "hit",
-          "applyOnDmgType": "heavyAttack",
           "statMap": {
-            "fusionDmgBonus%": 0.08
-          },
-          "maxDuration": 6000
+            "fusionDmgBonus%": 0.16
+          }
         }
       ]
     }
@@ -587,8 +584,8 @@
     "bonusEffects": {
       "3": [
         {
-          "applyWhen": "hit",
-          "applyOnInflictStatus": "havocBane",
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "havocBane",
           "statMap": {
             "atk%": 0.2,
             "resonanceLiberationDmgBonus%": 0.3
@@ -611,18 +608,28 @@
       ],
       "5": [
         {
-          "applyTo": "next",
           "applyWhen": "cast",
           "applyOnSkillType": "outroSkill",
+          "applyTo": "next",
+          "removeWhen": "before",
+          "removeIfField": "offField",
           "statMap": {
             "atk%": 0.15
           },
+          "maxDuration": 15000
+        },
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "outroSkill",
+          "applyTo": "next",
+          "removeWhen": "before",
+          "removeIfField": "offField",
           "variableStatMap": {
             "atk%": {
               "attr": "tuneBreakBoost",
               "step": 1,
               "value": 0.003,
-              "max": 0.15
+              "maxValue": 0.15
             }
           },
           "maxDuration": 15000
@@ -643,15 +650,15 @@
       ],
       "5": [
         {
-          "applyTo": "team",
           "applyWhen": "hit",
           "applyOnType": "healing",
+          "applyTo": "team",
           "variableStatMap": {
             "atk%": {
               "attr": "offTuneBuildupRate%",
               "step": 0.01,
               "value": 0.002,
-              "max": 0.25
+              "maxValue": 0.25
             }
           },
           "maxDuration": 4000
@@ -682,6 +689,9 @@
         },
         {
           "useOnSkillType": "resonanceLiberation",
+          "useIfEffectStacksMin": {
+            "$prev.1": 3
+          },
           "statMap": {
             "basicAttackDmgBonus%": 0.4
           }
@@ -702,9 +712,9 @@
       ],
       "5": [
         {
-          "applyWhen": "hit",
-          "applyOnInflictStatus": "fusionBurst",
-          "applyOnInflictShifting": "tuneRupture",
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "fusionBurst",
+          "applyForInflictShifting": "tuneRupture",
           "statMap": {
             "critRate%": 0.2,
             "fusionDmgBonus%": 0.2
@@ -727,17 +737,20 @@
       ],
       "5": [
         {
-          "applyWhen": "hit",
-          "applyOnInflictStatus": "fusionBurst",
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "fusionBurst",
           "statMap": {
             "fusionDmgBonus%": 0.1
           },
           "maxDuration": 15000
         },
         {
-          "applyTo": "next",
           "applyWhen": "cast",
           "applyOnSkillType": "outroSkill",
+          "applyIfEffectStacks": {
+            "$prev.1": 1
+          },
+          "applyTo": "next",
           "statMap": {
             "fusionDmgBonus%": 0.25
           },
@@ -791,25 +804,43 @@
       ],
       "5": [
         {
-          "applyWhen": "hit",
-          "applyOnInflictStatus": "glacioChafe",
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "glacioChafe",
           "statMap": {
             "glacioDmgBonus%": 0.1
           },
           "maxDuration": 15000
         },
         {
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "glacioChafe",
+          "applyCooldown": 25000
+        },
+        {
           "applyWhen": "hit",
           "applyOnDmgType": "resonanceLiberation",
+          "applyIfEffectStacksMin": {
+            "$prev.1": 1
+          },
+          "onApplyDoRemoveEffect": "$prev.1",
           "statMap": {
             "critRate%": 0.25
           },
-          "maxDuration": 30000
+          "maxDuration": 6000,
+          "extendWhen": "hit",
+          "extendOnDmgType": "resonanceLiberation",
+          "extendCooldown": 500,
+          "extendDuration": 4000,
+          "maxExtensions": 6
         },
         {
-          "applyTo": "next",
           "applyWhen": "cast",
           "applyOnSkillType": "outroSkill",
+          "applyIfEffectStacksMin": {
+            "$prev.2": 1
+          },
+          "onApplyDoRemoveEffect": "$prev.2",
+          "applyTo": "next",
           "statMap": {
             "glacioDmgBonus%": 0.25
           },
@@ -830,7 +861,18 @@
         }
       ],
       "5": [
-        {}
+        {
+          "applyWhen": "inflict",
+          "applyForInflictShifting": [
+            "tuneRupture",
+            "tuneStrain"
+          ],
+          "applyTo": "team",
+          "statMap": {
+            "tuneBreakBoost": 20
+          },
+          "maxDuration": 30000
+        }
       ]
     }
   },
@@ -840,8 +882,8 @@
     "bonusEffects": {
       "1": [
         {
-          "applyWhen": "hit",
-          "applyOnInflictShifting": "hack",
+          "applyWhen": "inflict",
+          "applyForInflictShifting": "hack",
           "statMap": {
             "basicAttackDmgBonus%": 0.35,
             "heavyAttackDmgBonus%": 0.35
@@ -864,8 +906,8 @@
       ],
       "5": [
         {
-          "applyWhen": "hit",
-          "applyOnInflictStatus": "havocBane",
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "havocBane",
           "statMap": {
             "critRate%": 0.2,
             "heavyAttackDmgBonus%": 0.35
@@ -873,15 +915,15 @@
           "maxDuration": 15000
         },
         {
+          "applyWhen": "inflict",
+          "applyForInflictStatus": "glacioChafe",
           "applyTo": "team",
-          "applyWhen": "hit",
-          "applyOnInflictStatus": "glacioChafe",
           "variableStatMap": {
             "atk%": {
               "attr": "energyRegen%",
               "step": 0.01,
               "value": 0.001,
-              "max": 0.25
+              "maxValue": 0.25
             }
           },
           "maxDuration": 10000
@@ -902,8 +944,8 @@
       ],
       "5": [
         {
-          "applyWhen": "hit",
-          "applyOnInflictShifting": "tuneStrain",
+          "applyWhen": "inflict",
+          "applyForInflictShifting": "tuneStrain",
           "statMap": {
             "critDmg%": 0.2,
             "aeroDmgBonus%": 0.3

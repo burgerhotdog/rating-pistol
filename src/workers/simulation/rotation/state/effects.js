@@ -1,4 +1,4 @@
-import { matchApplyFilter, matchRemoveFilter } from '../filter';
+import { matchApplyFilter, matchRemoveFilter, matchExtendFilter } from '../filter';
 
 export function applyEffect(ctx, effect, action = {}) {
   const { cooldowns, memberEffects, fieldEffects, debuffs } = ctx.state;
@@ -16,6 +16,10 @@ export function applyEffect(ctx, effect, action = {}) {
 
     if (effect.intervalCooldown) {
       next.intervalTimer = effect.intervalOffset ?? 0;
+    }
+
+    if (effect.maxExtensions) {
+      next.extensionsLeft = effect.maxExtensions;
     }
 
     stateMap[effect.key] = next;
@@ -38,7 +42,7 @@ export function applyEffect(ctx, effect, action = {}) {
   }
 }
 
-export function applyEffects(ctx, action, applyWhen) {
+export function applyEffects(ctx, action, when) {
   const { cooldowns } = ctx.state;
 
   const toApply = [
@@ -48,33 +52,65 @@ export function applyEffects(ctx, action, applyWhen) {
 
   for (const effect of toApply) {
     if (
-      effect.applyWhen !== applyWhen ||
+      effect.applyWhen !== when ||
       cooldowns[effect.key] ||
       !matchApplyFilter({ effect, action, ctx })
     ) continue;
 
-    if (effect.applyEffect) { // Apply a different effect instead
-      for (const [subKey, stacks] of Object.entries(effect.applyEffect)) {
-        // if (cooldowns[subKey]) continue;
+    if (effect.onApplyDoRemoveEffect) {
+      removeEffect(effect.onApplyDoRemoveEffect);
+    }
+
+    if (effect.onApplyDoApplyEffect) {
+      for (const [subKey, stacks] of Object.entries(effect.onApplyDoApplyEffect)) {
         const linkedEffect = toApply.find((effect) => effect.key === subKey);
         for (let i = 0; i < stacks; i++) {
           applyEffect(ctx, linkedEffect, action);
         }
       }
-      continue;
     }
 
+    if (effect.stateless) continue;
     applyEffect(ctx, effect, action);
   }
 }
 
-export function applyPassives(ctx) {
-  for (const effect of ctx.cache.effects.passive) {
-    applyEffect(ctx, effect);
+export function extendEffects(ctx, action, when) {
+  const { memberEffects, fieldEffects, debuffs } = ctx.state;
+
+  const stateMaps = [
+    ...Object.values(memberEffects),
+    ...Object.values(fieldEffects),
+    debuffs,
+  ];
+
+  for (const stateMap of stateMaps) {
+    for (const effectState of Object.values(stateMap)) {
+      const { effect } = effectState;
+
+      if (
+        effect.extendWhen !== when ||
+        effect.ownerId !== action.ownerId ||
+        !matchExtendFilter({ effect, action, ctx })
+      ) continue;
+
+      if (effectState.extensionsLeft && !effectState.extendCooldown) {
+        effectState.timeLeft += effect.extendDuration;
+        effectState.extendCooldown = effect.extendCooldown;
+        effectState.extensionsLeft--;
+      }
+    }
   }
 }
 
-export function removeEffects(ctx, action, removeWhen) {
+function removeEffect(effectKey, stateMap) {
+  if (stateMap) {
+    delete stateMap[effectKey];
+    return
+  }
+}
+
+export function removeEffects(ctx, action, when) {
   const { memberEffects, fieldEffects, debuffs } = ctx.state;
 
   const stateMaps = [
@@ -87,7 +123,7 @@ export function removeEffects(ctx, action, removeWhen) {
     for (const [key, effectState] of Object.entries(stateMap)) {
       const { effect } = effectState;
       if (
-        effect.removeWhen !== removeWhen ||
+        effect.removeWhen !== when ||
         effect.ownerId !== action.ownerId ||
         !matchRemoveFilter({ effect, action, ctx })
       ) continue;
@@ -119,6 +155,13 @@ export function advanceEffects(ctx, elapsed) {
         effectState.cooldown -= elapsed;
         if (effectState.cooldown <= 0) {
           delete effectState.cooldown;
+        }
+      }
+
+      if (effectState.extendCooldown) {
+        effectState.extendCooldown -= elapsed;
+        if (effectState.extendCooldown <= 0) {
+          delete effectState.extendCooldown;
         }
       }
 
