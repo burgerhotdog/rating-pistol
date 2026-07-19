@@ -59,61 +59,10 @@ characters:
 
 weapons:
     unchecked:
-        21050026 Rime-Draped Sprouts
-        21010084 Waning Redshift
-        21020084 Endless Collapse
-        21030084 Relativistic Jet
-        21040084 Celestial Spiral
-        21050036 Stellar Symphony
-        21050084 Fusion Accretion
-        21020017 Somnoire Anchor
-        21020026 Red Spring
-        21010094 Meditations on Mercy
-        21020094 Fables of Wisdom
-        21030016 The Last Dance
-        21030094 Romance in Farewell
-        21040026 Tragicomedy
-        21040094 Legend of Drunken Hero
-        21050017 Call of the Abyss
-        21050094 Waltz in Masquerade
-        21020036 Unflickering Valor
-        21050027 Ocean's Gift
-        21050046 Luminous Hymn
-        21020046 Bloodpact's Pledge
-        21050056 Whispers of Sirens
-        21030026 Woodland Aria
-        21040036 Blazing Justice
-        21010036 Wildfire Mark
-        21020056 Defier's Thorn
-        21050066 Lethean Elegy
-        21010046 Thunderflare Dominion
-        21010104 Aureate Zenith
-        21020104 Feather Edge
-        21030104 Solar Flame
-        21040046 Moongazer's Sigil
-        21040104 Aether Strike
-        21050104 Radiant Dawn
-        21020066 Emerald Sentence
-        21030036 Lux & Umbra
-        21010056 Kumokiri
-        21010045 Radiance Cleaver
-        21010066 Starfield Calibrator
-        21020045 Laser Shearer
-        21030045 Phasic Homogenizer
-        21030046 Spectrum Blaster
-        21040045 Pulsation Bracer
-        21050045 Boson Astrolabe
-        21020076 Everbright Polestar
-        21040056 Daybreaker's Spine
-        21040066 Solsworn Ciphers
-        21020086 Frostburn
-        21050076 Forged Dwarf Star
-        21030056 Spectral Trigger
-        21030066 Skull Thrasher
-        21050086 Freeze Frame
 
     incomplete:
         21050096 Firstlight's Herald
+            duration not complete
 
     simplified:
         21010034 Broadblade#41
@@ -132,19 +81,42 @@ weapons:
             assume resonator never takes damage
         21050034 Rectifier#25
             assume resonator hp always above 60%
+        21050036 Stellar Symphony
+            casting resonance skill doesnt check heal
+        21020026 Red Spring
+            concerto energy consumed is changed to action: "1603:forteCircuit.1"
+        21050056 Whispers of Sirens
+            some limitations removed
+        21010036 Wildfire Mark
+            unsure about extension rules
+        21010046 Thunderflare Dominion
+            calculates when creating shield, not receiving
+        21040046 Moongazer's Sigil
+            calculates when creating shield, not receiving, intro skill stacks last regular time
+        21020066 Emerald Sentence
+            some stacking rules are loosened
+        21020086 Frostburn
+            unsure if this is done correctly
 
     energy not counted:
         21010024 Discord
         21010043 Broadblade of Voyager
         21010063 Beguiling Melody
+        21010084 Waning Redshift
+        21010066 Starfield Calibrator
         21020024 Overture
         21020043 Sword of Voyager
+        21020084 Endless Collapse
         21030024 Cadenza
         21030043 Pistols of Voyager
+        21030084 Relativistic Jet
         21040024 Marcato
         21040043 Gauntlets of Voyager
+        21040084 Celestial Spiral
         21050024 Variation
         21050043 Rectifier of Voyager
+        21050084 Fusion Accretion
+        21050096 Firstlight's Herald
 
 
 sets:
