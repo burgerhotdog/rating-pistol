@@ -1,121 +1,204 @@
-import { matchRemoveFilter } from '../../filter';
-import { matchApplyFilter } from '../../filter';
-import { inflictNegativeStatuses } from './negativeStatuses';
+import { matchApplyFilter, matchRemoveFilter, matchExtendFilter } from '../filter';
 
-export function applyEffect(stateMap, effect) {
-  const prev = stateMap[effect.key] ?? {};
-  const prevStacks = prev.stacks ?? 0;
+const getAllStateMaps = (ctx) => {
+  const { memberEffects, fieldEffects, debuffs } = ctx.state;
 
-  const next = {
-    stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
-    timeRemaining: effect.duration ?? Infinity,
-    usesRemaining: effect.maxUses ?? Infinity,
-    effect,
-  };
+  return [
+    ...Object.values(memberEffects),
+    ...Object.values(fieldEffects),
+    debuffs,
+  ];
+};
 
-  if ('intervalCooldown' in effect) {
-    next.intervalTimer = effect.intervalOffset ?? 0;
-  }
-
-  stateMap[effect.key] = next;
-}
-
-export function applyEffects(ctx, action, trigger) {
+export function applyEffect(ctx, effect, action = {}) {
   const { cooldowns, memberEffects, fieldEffects, debuffs } = ctx.state;
 
-  if ('inflict' in action && trigger === 'hit') {
-    inflictNegativeStatuses(ctx, action.inflict);
+  function updateState(stateMap) {
+    const prevState = stateMap[effect.key] ?? {};
+    const prevStacks = prevState.stacks ?? 0;
+    stateMap[effect.key] = {
+      effect,
+      stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
+      timeLeft: effect.maxDuration ?? Infinity,
+      usesLeft: effect.maxUses ?? Infinity,
+      ...('maxExtensions' in effect &&
+        { extensionsLeft: effect.maxExtensions }),
+      ...('intervalCooldown' in effect &&
+        { intervalTimer: effect.intervalOffset ?? 0 }),
+      ...('rampingInterval' in effect &&
+        { rampingTimer: effect.rampingOffset ?? 0 }),
+    };
+
+    if ( // If effect should be removed when reaching max stacks
+      effect.removeWhen === 'maxStacks' &&
+      stateMap[effect.key].stacks === (effect.maxStacks ?? 1)
+    ) {
+      removeEffect(ctx, stateMap, effect.key);
+    }
   }
 
-  const toTest = [
-    ...ctx.cache.appliedByTeam,
-    ...ctx.cache.member[action.ownerId].appliedBySelf,
-  ].filter((effect) => effect.applyWhen === trigger);
+  for (const target of effect.applyTo) {
+    if (target === 'applier') {
+      updateState(memberEffects[action.ownerId]);
+    } else if (target === 'enemy') {
+      updateState(debuffs);
+    } else if (target === 'onField' || target === 'offField') {
+      updateState(fieldEffects[target]);
+    } else {
+      updateState(memberEffects[target]);
+    }
+  }
 
-  for (const effect of toTest) {
+  if (effect.applyCooldown) {
+    cooldowns[effect.key] = effect.applyCooldown;
+  }
+
+}
+
+function applyEffects(ctx, action, when) {
+  const toApply = [
+    ...ctx.cache.effects.global,
+    ...ctx.cache.effects.member[action.ownerId],
+  ];
+
+  for (const effect of toApply) {
     if (
-      cooldowns[effect.key] ||
+      effect.applyWhen !== when ||
+      ctx.state.cooldowns[effect.key] ||
       !matchApplyFilter({ effect, action, ctx })
     ) continue;
 
-    for (const target of effect.applyTo) {
-      if (target === 'applier') {
-        applyEffect(memberEffects[action.ownerId], effect);
-      } else if (target in ctx.cache.member) {
-        applyEffect(memberEffects[target], effect);
-      } else if (target === 'onField' || target === 'offField') {
-        applyEffect(fieldEffects[target], effect);
-      } else {
-        applyEffect(debuffs, effect);
-      }
+    if (effect.onApplyDoRemoveEffect) {
+      onApplyDoRemoveEffect(ctx, effect.onApplyDoRemoveEffect);
+    }
+    if (effect.onApplyDoApplyEffect) {
+      onApplyDoApplyEffect(ctx, effect.onApplyDoApplyEffect);
     }
 
-    if ('applyCooldown' in effect) {
-      cooldowns[effect.key] = effect.applyCooldown;
+    if (effect.stateless) continue;
+    applyEffect(ctx, effect, action);
+  }
+}
+
+function extendEffects(ctx, action, when) {
+  for (const stateMap of getAllStateMaps(ctx)) {
+    for (const [effectKey, effectState] of Object.entries(stateMap)) {
+      const effect = ctx.cache.effects.lookup[effectKey];
+      if (
+        effect.extendWhen !== when ||
+        effect.ownerId !== action.ownerId ||
+        !matchExtendFilter({ effect, action, ctx }) ||
+        !effectState.extensionsLeft ||
+        effectState.extendCooldown
+      ) continue;
+
+      effectState.timeLeft += effect.extendDuration;
+      effectState.extendCooldown = effect.extendCooldown;
+      effectState.extensionsLeft--;
     }
   }
 }
 
-export function applyPassives(ctx, passives) {
-  const { memberEffects, fieldEffects, debuffs } = ctx.state;
+function removeEffect(ctx, stateMap, effectKey) {
+  const effect = ctx.cache.effects.lookup[effectKey];
+  const effectState = stateMap[effectKey];
 
-  for (const passive of passives) {
-    for (const target of passive.applyTo) {
-      if (target === 'enemy') {
-        if ('statMap' in passive) {
-          applyEffect(debuffs, passive);
-        }
-      } else if (target === 'onField' || target === 'offField') {
-        applyEffect(fieldEffects[target], passive);
-      } else {
-        applyEffect(memberEffects[target], passive);
-      }
+  if (!effect.removeOffset) {
+    delete stateMap[effectKey];
+    return;
+  }
+
+  effectState.removeTimer ??= effect.removeOffset;
+}
+
+function removeEffects(ctx, action, when) {
+  for (const stateMap of getAllStateMaps(ctx)) {
+    for (const effectKey in stateMap) {
+      const effect = ctx.cache.effects.lookup[effectKey];
+      if (
+        effect.removeWhen !== when ||
+        effect.ownerId !== action.ownerId ||
+        !matchRemoveFilter({ effect, action, ctx })
+      ) continue;
+
+      removeEffect(ctx, stateMap, effectKey);
     }
   }
 }
 
-export function removeEffects(ctx, action) {
-  const { memberEffects, fieldEffects, debuffs } = ctx.state;
-
-  const stateMaps = [
-    ...Object.values(memberEffects),
-    ...Object.values(fieldEffects),
-    debuffs,
-  ];
-
-  for (const stateMap of stateMaps) {
-    for (const [key, { effect }] of Object.entries(stateMap)) {
-      if (effect.ownerId !== action.ownerId) continue;
-
-      if (matchRemoveFilter({ effect, action, ctx })) {
-        delete stateMap[key];
-      }
-    }
-  }
+export function runEffectPhase(ctx, action, phase) {
+  removeEffects(ctx, action, phase);
+  extendEffects(ctx, action, phase);
+  applyEffects(ctx, action, phase);
 }
 
 export function advanceEffects(ctx, elapsed) {
-  const { memberEffects, fieldEffects, debuffs } = ctx.state;
-
-  const stateMaps = [
-    ...Object.values(memberEffects),
-    ...Object.values(fieldEffects),
-    debuffs,
-  ];
-
-  for (const stateMap of stateMaps) {
-    for (const [key, effectState] of Object.entries(stateMap)) {
-      if ('cooldown' in effectState) {
+  for (const stateMap of getAllStateMaps(ctx)) {
+    for (const [effectKey, effectState] of Object.entries(stateMap)) {
+      if (effectState.cooldown) {
         effectState.cooldown -= elapsed;
         if (effectState.cooldown <= 0) {
           delete effectState.cooldown;
         }
       }
 
-      effectState.timeRemaining -= elapsed;
-      if (effectState.timeRemaining <= 0) {
-        delete stateMap[key];
+      if (effectState.extendCooldown) {
+        effectState.extendCooldown -= elapsed;
+        if (effectState.extendCooldown <= 0) {
+          delete effectState.extendCooldown;
+        }
       }
+
+      if (effectState.rampingTimer) {
+        const { rampingInterval, maxStacks } = effectState.effect;
+        effectState.rampingTimer -= elapsed;
+        while (effectState.rampingTimer <= 0) {
+          if (effectState.stacks >= maxStacks) {
+            delete effectState.rampingTimer;
+            break;
+          }
+          effectState.stacks++;
+          effectState.rampingTimer += rampingInterval;
+        }
+      }
+
+      if (effectState.removeTimer) {
+        effectState.removeTimer -= elapsed;
+        if (effectState.removeTimer <= 0) {
+          delete stateMap[effectKey];
+          continue;
+        }
+      }
+
+      effectState.timeLeft -= elapsed;
+      if (effectState.timeLeft <= 0) {
+        delete stateMap[effectKey];
+        continue;
+      }
+    }
+  }
+}
+
+function onApplyDoRemoveEffect(ctx, effectKey) {
+  const { memberEffects, fieldEffects, debuffs } = ctx.state;
+  const effect = ctx.cache.effects.lookup[effectKey];
+
+  for (const target of effect.applyTo) {
+    if (target === 'enemy') {
+      removeEffect(ctx, debuffs, effectKey);
+    } else if (target === 'onField' || target === 'offField') {
+      removeEffect(ctx, fieldEffects[target], effectKey);
+    } else {
+      removeEffect(ctx, memberEffects[target], effectKey);
+    }
+  }
+}
+
+function onApplyDoApplyEffect(ctx, effectsToApply) {
+  for (const [effectKey, stacks] of Object.entries(effectsToApply)) {
+    const effect = ctx.cache.effects.lookup[effectKey];
+    for (let i = 0; i < stacks; i++) {
+      applyEffect(ctx, effect);
     }
   }
 }

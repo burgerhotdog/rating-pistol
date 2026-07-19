@@ -2,12 +2,14 @@
   "31000": {
     "name": "Woodpecker Electro",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "critRate%": 0.08
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critRate%": 0.08
+          }
         }
-      },
+      ],
       "4": [
         {
           "applyWhen": "hit",
@@ -15,7 +17,7 @@
           "statMap": {
             "combatAtk%": 0.09
           },
-          "duration": 6000
+          "maxDuration": 6000
         },
         {
           "applyWhen": "hit",
@@ -23,7 +25,7 @@
           "statMap": {
             "combatAtk%": 0.09
           },
-          "duration": 6000
+          "maxDuration": 6000
         },
         {
           "applyWhen": "hit",
@@ -31,7 +33,7 @@
           "statMap": {
             "combatAtk%": 0.09
           },
-          "duration": 6000
+          "maxDuration": 6000
         }
       ]
     }
@@ -39,12 +41,14 @@
   "31100": {
     "name": "Puffer Electro",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "penRatio%": 0.08
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "penRatio%": 0.08
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -57,7 +61,7 @@
           "statMap": {
             "combatAtk%": 0.15
           },
-          "duration": 12000
+          "maxDuration": 12000
         }
       ]
     }
@@ -65,120 +69,146 @@
   "31200": {
     "name": "Shockstar Disco",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "impact%": 0.06
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "impact%": 0.06
+          }
         }
-      },
-      "4": {
-        "useOnDmgType": [
-          "basicAttack",
-          "dashAttack",
-          "dodgeCounter"
-        ],
-        "statMap": {
-          "daze%": 0.2
+      ],
+      "4": [
+        {
+          "useOnDmgType": [
+            "basicAttack",
+            "dashAttack",
+            "dodgeCounter"
+          ],
+          "statMap": {
+            "daze%": 0.2
+          }
         }
-      }
+      ]
     }
   },
   "31300": {
     "name": "Freedom Blues",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "anomalyProficiency": 30
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "anomalyProficiency": 30
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": [
+        {}
+      ]
     }
   },
   "31400": {
     "name": "Hormone Punk",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.1
+          }
         }
-      },
-      "4": {
-        "applyWhen": "cast",
-        "applyIfField": "onField",
-        "applyCooldown": 20000,
-        "statMap": {
-          "combatAtk%": 0.25
-        },
-        "duration": 10000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyIfField": "onField",
+          "applyCooldown": 20000,
+          "statMap": {
+            "combatAtk%": 0.25
+          },
+          "maxDuration": 10000
+        }
+      ]
     }
   },
   "31500": {
     "name": "Soul Rock",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "def%": 0.16
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "def%": 0.16
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": [
+        {}
+      ]
     }
   },
   "31600": {
     "name": "Swing Jazz",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRegen%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRegen%": 0.2
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "applyWhen": "cast",
-        "applyOnSkillType": [
-          "chainAttack",
-          "ultimate"
-        ],
-        "statMap": {
-          "dmgBonus%": 0.15
-        },
-        "duration": 12000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": [
+            "chainAttack",
+            "ultimate"
+          ],
+          "applyTo": "team",
+          "statMap": {
+            "dmgBonus%": 0.15
+          },
+          "maxDuration": 12000
+        }
+      ]
     }
   },
   "32200": {
     "name": "Inferno Metal",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "fireDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "fireDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "applyWhen": "hit",
-        "applyOnType": "damage",
-        "applyIfAnomaly": "burning",
-        "statMap": {
-          "critRate%": 0.28
-        },
-        "duration": 8000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnType": "damage",
+          "applyIfAnomaly": "burning",
+          "statMap": {
+            "critRate%": 0.28
+          },
+          "maxDuration": 8000
+        }
+      ]
     }
   },
   "32300": {
     "name": "Chaotic Metal",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "etherDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "etherDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -196,29 +226,35 @@
   "32400": {
     "name": "Thunder Metal",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "electricDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "electricDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "useIfAnomaly": "shocked",
-        "statMap": {
-          "combatAtk%": 0.28
+      ],
+      "4": [
+        {
+          "useIfAnomaly": "shocked",
+          "statMap": {
+            "combatAtk%": 0.28
+          }
         }
-      }
+      ]
     }
   },
   "32500": {
     "name": "Polar Metal",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "iceDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "iceDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -238,28 +274,34 @@
   "32600": {
     "name": "Fanged Metal",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "physicalDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "physicalDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "dmgBonus%": 0.35
+      ],
+      "4": [
+        {
+          "statMap": {
+            "dmgBonus%": 0.35
+          }
         }
-      }
+      ]
     }
   },
   "31800": {
     "name": "Chaos Jazz",
     "version": 1.2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "anomalyProficiency": 30
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "anomalyProficiency": 30
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -283,7 +325,7 @@
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
           },
-          "duration": 5000
+          "maxDuration": 5000
         }
       ]
     }
@@ -291,35 +333,41 @@
   "31900": {
     "name": "Proto Punk",
     "version": 1.2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "shieldBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "shieldBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "applyWhen": "cast",
-        "applyOnSkillType": [
-          "defensiveAssist",
-          "evasiveAssist"
-        ],
-        "statMap": {
-          "dmgBonus%": 0.15
-        },
-        "duration": 10000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": [
+            "defensiveAssist",
+            "evasiveAssist"
+          ],
+          "applyTo": "team",
+          "statMap": {
+            "dmgBonus%": 0.15
+          },
+          "maxDuration": 10000
+        }
+      ]
     }
   },
   "32700": {
     "name": "Branch & Blade Song",
     "version": 1.4,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "critDmg%": 0.16
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "critDmg%": 0.16
+          }
         }
-      },
+      ],
       "4": [
         {
           "useIfAttr": {
@@ -340,71 +388,85 @@
   "32800": {
     "name": "Astral Voice",
     "version": 1.4,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.1
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "statMap": {
-          "dmgBonus%": 0.24
+      ],
+      "4": [
+        {
+          "applyTo": "team",
+          "statMap": {
+            "dmgBonus%": 0.24
+          }
         }
-      }
+      ]
     }
   },
   "32900": {
     "name": "Shadow Harmony",
     "version": 1.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "aftershockDmgBonus%": 0.15,
-          "dashAttackDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "aftershockDmgBonus%": 0.15,
+            "dashAttackDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "applyWhen": "hit",
-        "applyOnDmgType": [
-          "aftershock",
-          "dashAttack"
-        ],
-        "statMap": {
-          "combatAtk%": 0.04,
-          "critRate%": 0.04
-        },
-        "duration": 15000,
-        "maxStacks": 3
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnDmgType": [
+            "aftershock",
+            "dashAttack"
+          ],
+          "statMap": {
+            "combatAtk%": 0.04,
+            "critRate%": 0.04
+          },
+          "maxDuration": 15000,
+          "maxStacks": 3
+        }
+      ]
     }
   },
   "33000": {
     "name": "Phaethon's Melody",
     "version": 1.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "anomalyMastery%": 0.08
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "anomalyMastery%": 0.08
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "anomalyProficiency": 45,
-          "etherDmgBonus%": 0.25
+      ],
+      "4": [
+        {
+          "statMap": {
+            "anomalyProficiency": 45,
+            "etherDmgBonus%": 0.25
+          }
         }
-      }
+      ]
     }
   },
   "33100": {
     "name": "Yunkui Tales",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "hp%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hp%": 0.1
+          }
         }
-      },
+      ],
       "4": [
         {
           "applyWhen": "cast",
@@ -416,7 +478,7 @@
           "statMap": {
             "critRate%": 0.04
           },
-          "duration": 15000,
+          "maxDuration": 15000,
           "maxStacks": 3
         },
         {
@@ -430,41 +492,43 @@
   "33200": {
     "name": "King of the Summit",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "daze%": 0.06
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "daze%": 0.06
+          }
         }
-      },
+      ],
       "4": [
         {
           "enableIfWeaponType": "stun",
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
           ],
+          "applyTo": "team",
           "statMap": {
             "critDmg%": 0.15
           },
-          "duration": 15000
+          "maxDuration": 15000
         },
         {
           "enableIfWeaponType": "stun",
-          "applyTo": "team",
           "applyWhen": "cast",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
           ],
+          "applyTo": "team",
           "useIfAttr": {
             "critRate%": 0.5
           },
           "statMap": {
             "critDmg%": 0.15
           },
-          "duration": 15000
+          "maxDuration": 15000
         }
       ]
     }
@@ -472,12 +536,14 @@
   "33300": {
     "name": "Dawn's Bloom",
     "version": 2.2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "basicAttackDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "basicAttackDmgBonus%": 0.15
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -494,7 +560,7 @@
           "statMap": {
             "basicAttackDmgBonus%": 0.2
           },
-          "duration": 25000
+          "maxDuration": 25000
         }
       ]
     }
@@ -502,53 +568,63 @@
   "33400": {
     "name": "Moonlight Lullaby",
     "version": 2.2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRegen%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRegen%": 0.2
+          }
         }
-      },
-      "4": {
-        "enableIfWeaponType": "support",
-        "applyTo": "team",
-        "applyWhen": "cast",
-        "applyOnSkillType": [
-          "exSpecialAttack",
-          "ultimate"
-        ],
-        "statMap": {
-          "dmgBonus%": 0.18
-        },
-        "duration": 25000
-      }
+      ],
+      "4": [
+        {
+          "enableIfWeaponType": "support",
+          "applyWhen": "cast",
+          "applyOnSkillType": [
+            "exSpecialAttack",
+            "ultimate"
+          ],
+          "applyTo": "team",
+          "statMap": {
+            "dmgBonus%": 0.18
+          },
+          "maxDuration": 25000
+        }
+      ]
     }
   },
   "33500": {
     "name": "White Water Ballad",
     "version": 2.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "physicalDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "physicalDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "critRate%": 0.2,
-          "combatAtk%": 0.1
+      ],
+      "4": [
+        {
+          "statMap": {
+            "critRate%": 0.2,
+            "combatAtk%": 0.1
+          }
         }
-      }
+      ]
     }
   },
   "33600": {
     "name": "Shining Aria",
     "version": 2.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "etherDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "etherDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "4": [
         {
           "applyWhen": "hit",
@@ -556,7 +632,7 @@
           "statMap": {
             "anomalyProficiency": 36
           },
-          "duration": 8000
+          "maxDuration": 8000
         },
         {
           "statMap": {
@@ -569,45 +645,55 @@
   "33700": {
     "name": "Bunny in Wonderland",
     "version": 2.7,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "hp%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hp%": 0.1
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "applyWhen": "cast",
-        "applyOnSkillType": "exSpecialAttack",
-        "statMap": {
-          "dmgBonus%": 0.06
-        },
-        "duration": 25000,
-        "maxStacks": 3
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "exSpecialAttack",
+          "applyTo": "team",
+          "statMap": {
+            "dmgBonus%": 0.06
+          },
+          "maxDuration": 25000,
+          "maxStacks": 3
+        }
+      ]
     }
   },
   "33800": {
     "name": "Notes From the Chained",
     "version": 2.7,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "iceDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "iceDmgBonus%": 0.1
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": [
+        {}
+      ]
     }
   },
   "33900": {
     "name": "Wuthering Salon",
     "version": 3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "windDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "windDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "4": [
         {
           "applyWhen": "cast",
@@ -615,7 +701,7 @@
           "statMap": {
             "anomalyProficiency": 25
           },
-          "duration": 40000,
+          "maxDuration": 40000,
           "maxStacks": 2
         },
         {
@@ -629,12 +715,14 @@
   "34000": {
     "name": "The Sky Ablaze",
     "version": 3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "etherDmgBonus%": 0.1
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "etherDmgBonus%": 0.1
+          }
         }
-      },
+      ],
       "4": [
         {
           "enableIfElement": "ether",
@@ -651,7 +739,7 @@
           "statMap": {
             "combatAtk%": 0.1
           },
-          "duration": 30000
+          "maxDuration": 30000
         }
       ]
     }

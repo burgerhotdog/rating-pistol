@@ -2,98 +2,93 @@ import { getAttr } from '@/utils';
 import { applyEffect } from './effects';
 import { buildTuneFootprint } from '../footprint';
 
-export function applyTune(ctx, action, statMap) {
-  const { tuneStrainMaxStacks } = ctx.cache;
+export function applyOffTuneBuildup(ctx, action, fixedBuffMap) {
+  if (action.type !== 'damage') return;
   const { tune } = ctx.state;
+  if (tune.isMistune || tune.offTuneCooldown) return;
 
-  if ('shiftTune' in action) {
-    tune.shifting = action.shiftTune;
-    tune.shiftingTimeRemaining = 25000;
+  const hitCount = action.compressed.hitCount;
+  const offTuneBuildupRate = (
+    getAttr('offTuneBuildupRate%', ctx.buildMaps[action.ownerId]) +
+    getAttr('offTuneBuildupRate%', fixedBuffMap)
+  );
 
-    if (action.shiftTune === 'tuneStrain') {
-      tune.shiftingStacks ??= 0;
-
-      if (tune.shiftingStacks < tuneStrainMaxStacks) {
-        tune.shiftingStacks++;
-      }
-    }
-  }
-
-  if (tune.misTuned || tune.offTuneCooldown > 0) return;
-
-  tune.offTune += 10 * getAttr('offTuneBuildupRate%', statMap);
-
+  tune.offTune += 10 * offTuneBuildupRate * hitCount;
   if (tune.offTune >= 300) {
     tune.offTune = 300;
-    tune.misTuned = true;
+    tune.isMistune = true;
+  }
+}
+
+export function inflictTuneShifting(ctx, action) {
+  if (!action.inflictShifting) return;
+  const { tune } = ctx.state;
+
+  tune.shifting = action.inflictShifting;
+  tune.shiftingTimeRemaining = 25000;
+
+  if (action.inflictShifting === 'tuneStrain') {
+    tune.strainAppliers ??= new Set();
+    tune.strainAppliers.add(action.ownerId);
   }
 }
 
 export function advanceTune(tune, elapsed) {
-  if (tune.shiftingTimeRemaining) {
-    tune.shiftingTimeRemaining -= elapsed;
-
-    if (tune.shiftingTimeRemaining <= 0) {
-      delete tune.shiftingTimeRemaining;
-      delete tune.shifting;
-    }
-  }
-
   if (tune.offTuneCooldown) {
     tune.offTuneCooldown -= elapsed;
-
     if (tune.offTuneCooldown <= 0) {
       delete tune.offTuneCooldown;
     }
   }
 
+  if (tune.shiftingTimeRemaining) {
+    tune.shiftingTimeRemaining -= elapsed;
+    if (tune.shiftingTimeRemaining <= 0) {
+      delete tune.shifting;
+      delete tune.shiftingTimeRemaining;
+      delete tune.strainAppliers;
+    }
+  }
+
   if (tune.interferedTimeRemaining) {
     tune.interferedTimeRemaining -= elapsed;
-
     if (tune.interferedTimeRemaining <= 0) {
-      delete tune.interferedTimeRemaining;
       delete tune.interfered;
+      delete tune.interferedTimeRemaining;
+      delete tune.interferedStacks;
     }
   }
 }
 
 export function runTuneBreak(ctx) {
-  const { cooldowns, tune, debuffs } = ctx.state;
+  const { cooldowns, tune } = ctx.state;
   recordTuneData(ctx, tune);
+  if (!tune.isMistune || !tune.shifting) return;
 
-  if (!tune.misTuned) return;
-
-  if (tune.shifting) {
-    tune.interfered = tune.shifting;
-    delete tune.shifting;
-
-    tune.interferedTimeRemaining =
-      tune.interfered === 'tuneStrain'
-        ? 30000
-        : 8000;
-    delete tune.shiftingTimeRemaining;
-
-    if (tune.shiftingStacks) {
-      tune.interferedStacks = tune.shiftingStacks;
-      delete tune.shiftingStacks;
-    }
-  }
-
-  tune.misTuned = false;
   tune.offTune = 0;
-  tune.offTuneCooldown = 4000;
+  tune.offTuneCooldown = 6000;
+  delete tune.isMistune;
 
-  for (const effect of ctx.cache.special) {
-    if (
-      effect.applyOnSpecial !== 'tuneBreak' ||
-      cooldowns[effect.key]
-    ) continue;
+  tune.interfered = tune.shifting;
+  switch (tune.interfered) {
+    case 'tuneRupture':
+      tune.interferedTimeRemaining = 8000;
+      break;
+    case 'tuneStrain':
+      tune.interferedTimeRemaining = 30000;
+      tune.interferedStacks = tune.strainAppliers.size;
+      delete tune.strainAppliers;
+      break;
+    case 'hack':
+      tune.interferedTimeRemaining = 8000;
+      break;
+  }
+  delete tune.shifting;
+  delete tune.shiftingTimeRemaining;
 
-    applyEffect(debuffs, effect);
-
-    if ('applyCooldown' in effect) {
-      cooldowns[effect.key] = effect.applyCooldown;
-    }
+  for (const effect of ctx.cache.effects.tuneBreak) {
+    if (cooldowns[effect.key]) continue;
+    applyEffect(ctx, effect);
   }
 }
 

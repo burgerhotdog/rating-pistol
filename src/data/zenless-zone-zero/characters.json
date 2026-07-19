@@ -16,7 +16,8 @@
     "ascensionStats": {
       "baseImpact": 18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1021": {
     "name": "Nekomata",
@@ -35,7 +36,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1031": {
     "name": "Nicole",
@@ -54,7 +56,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1041": {
     "name": "Soldier 11",
@@ -73,7 +76,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1061": {
     "name": "Corin",
@@ -92,7 +96,8 @@
     "ascensionStats": {
       "critDmg%": 0.288,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1081": {
     "name": "Billy",
@@ -111,7 +116,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1101": {
     "name": "Koleda",
@@ -130,7 +136,8 @@
     "ascensionStats": {
       "baseImpact": 18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1111": {
     "name": "Anton",
@@ -149,7 +156,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1121": {
     "name": "Ben",
@@ -168,7 +176,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1131": {
     "name": "Soukaku",
@@ -187,7 +196,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1141": {
     "name": "Lycaon",
@@ -206,7 +216,8 @@
     "ascensionStats": {
       "baseImpact": 18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1151": {
     "name": "Lucy",
@@ -225,7 +236,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1181": {
     "name": "Grace",
@@ -244,7 +256,8 @@
     "ascensionStats": {
       "baseAnomalyMastery": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1191": {
     "name": "Ellen",
@@ -263,7 +276,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1211": {
     "name": "Rina",
@@ -282,7 +296,8 @@
     "ascensionStats": {
       "penRatio%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1241": {
     "name": "Zhu Yuan",
@@ -301,7 +316,8 @@
     "ascensionStats": {
       "critDmg%": 0.288,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1281": {
     "name": "Piper",
@@ -320,7 +336,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1251": {
     "name": "Qingyi",
@@ -339,7 +356,8 @@
     "ascensionStats": {
       "baseImpact": 18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1261": {
     "name": "Jane",
@@ -358,7 +376,8 @@
     "ascensionStats": {
       "baseAnomalyMastery": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1271": {
     "name": "Seth",
@@ -377,7 +396,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1071": {
     "name": "Caesar",
@@ -396,7 +416,8 @@
     "ascensionStats": {
       "baseImpact": 18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1171": {
     "name": "Burnice",
@@ -415,7 +436,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1161": {
     "name": "Lighter",
@@ -434,7 +456,8 @@
     "ascensionStats": {
       "baseImpact": 18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1221": {
     "name": "Yanagi",
@@ -453,7 +476,8 @@
     "ascensionStats": {
       "baseAnomalyMastery": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1091": {
     "name": "Miyabi",
@@ -472,7 +496,8 @@
     "ascensionStats": {
       "baseAnomalyProficiency": 90,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1201": {
     "name": "Harumasa",
@@ -491,7 +516,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1311": {
     "name": "Astra Yao",
@@ -510,7 +536,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1321": {
     "name": "Evelyn",
@@ -529,7 +556,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1351": {
     "name": "Pulchra",
@@ -548,7 +576,8 @@
     "ascensionStats": {
       "baseImpact": 18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1361": {
     "name": "Trigger",
@@ -567,7 +596,8 @@
     "ascensionStats": {
       "baseImpact": 18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1381": {
     "name": "Soldier 0 - Anby",
@@ -586,7 +616,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1291": {
     "name": "Hugo",
@@ -605,7 +636,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1331": {
     "name": "Vivian",
@@ -624,7 +656,8 @@
     "ascensionStats": {
       "baseAnomalyMastery": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1371": {
     "name": "Yixuan",
@@ -643,7 +676,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseHp": 420
-    }
+    },
+    "effects": []
   },
   "1391": {
     "name": "Ju Fufu",
@@ -662,7 +696,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1421": {
     "name": "Pan Yinhu",
@@ -681,7 +716,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1401": {
     "name": "Alice",
@@ -700,7 +736,8 @@
     "ascensionStats": {
       "baseAnomalyMastery": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1411": {
     "name": "Yuzuha",
@@ -719,7 +756,8 @@
     "ascensionStats": {
       "baseAnomalyMastery": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1301": {
     "name": "Orphie & Magus",
@@ -738,7 +776,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1461": {
     "name": "Seed",
@@ -757,7 +796,8 @@
     "ascensionStats": {
       "critDmg%": 0.288,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1051": {
     "name": "Yidhari",
@@ -776,7 +816,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1441": {
     "name": "Manato",
@@ -795,7 +836,8 @@
     "ascensionStats": {
       "hp%": 0.18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1451": {
     "name": "Lucia",
@@ -814,7 +856,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1471": {
     "name": "Banyue",
@@ -833,7 +876,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1481": {
     "name": "Dialyn",
@@ -852,7 +896,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1341": {
     "name": "Zhao",
@@ -871,7 +916,8 @@
     "ascensionStats": {
       "hp%": 0.18,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1431": {
     "name": "Ye Shunguang",
@@ -890,7 +936,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1491": {
     "name": "Sunna",
@@ -909,7 +956,8 @@
     "ascensionStats": {
       "atk%": 0.21,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1501": {
     "name": "Aria",
@@ -928,7 +976,8 @@
     "ascensionStats": {
       "baseAnomalyMastery": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1511": {
     "name": "Nangong Yu",
@@ -947,7 +996,8 @@
     "ascensionStats": {
       "baseAnomalyMastery": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1521": {
     "name": "Cissia",
@@ -966,7 +1016,8 @@
     "ascensionStats": {
       "baseEnergyRegen": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1531": {
     "name": "Starlight - Billy",
@@ -985,7 +1036,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1541": {
     "name": "Promeia",
@@ -1004,7 +1056,8 @@
     "ascensionStats": {
       "baseAnomalyMastery": 36,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1551": {
     "name": "Pyrois",
@@ -1023,7 +1076,8 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1561": {
     "name": "Velina",
@@ -1042,7 +1096,8 @@
     "ascensionStats": {
       "baseAnomalyProficiency": 54,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   },
   "1571": {
     "name": "Norma",
@@ -1061,6 +1116,7 @@
     "ascensionStats": {
       "critRate%": 0.144,
       "baseAtk": 75
-    }
+    },
+    "effects": []
   }
 }

@@ -192,7 +192,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
     for (const setId in SET[gameId]) {
       const set = SET[gameId][setId];
 
-      for (const tier in set.tieredEffects) {
+      for (const tier in set.bonusEffects) {
         tiers.add(Number(tier));
       }
     }
@@ -211,7 +211,7 @@ const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity })
     const lower = search.toLowerCase();
     return Object.entries(SET[gameId])
       .filter(([_, setData]) => {
-        const bonusKeys = Object.keys(setData?.tieredEffects ?? {}).map(Number);
+        const bonusKeys = Object.keys(setData?.bonusEffects ?? {}).map(Number);
         // Must have at least one bonus tier matching the filter (if set) and within capacity
         const hasMatchingTier = tierFilter
           ? bonusKeys.includes(tierFilter) && enabledTiers.has(tierFilter)

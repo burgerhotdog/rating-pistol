@@ -46,7 +46,7 @@ export const compileMenuMap = (gameId, charId, member) => {
     ...toArray(WEAPON[gameId][weaponId].effects),
     ...Object.entries(setCounts)
       .flatMap(([setId, count]) =>
-        Object.entries(SET[gameId][setId].tieredEffects ?? {})
+        Object.entries(SET[gameId][setId].bonusEffects ?? {})
           .filter(([tier]) => Number(tier) <= count)
           .flatMap(([, effects]) => toArray(effects))),
   ];

@@ -56,25 +56,34 @@ function resolveRankMods(effect, memberRank) {
 }
 
 function resolvePrev(effect) {
-  function resolveKey(prevKey, fieldData) {
-    const id = Number(effect.id) - Number(prevKey.slice(6));
-    const key = `${effect.ownerId}:effect${id}`;
+  const toResolvedKey = (rawKey) => {
+    if (!rawKey.startsWith('$prev.')) return rawKey;
+    const id = Number(effect.id) - Number(rawKey.slice(6));
+    return `${effect.ownerId}:effect${id}`;
+  }
 
-    fieldData[key] = fieldData[prevKey];
-    delete fieldData[prevKey];
+  const toResolvedMap = (rawMap) => {
+    const resolved = {};
+    for (const [rawKey, stacks] of Object.entries(rawMap)) {
+      resolved[toResolvedKey(rawKey)] = stacks;
+    }
+    return resolved;
   }
 
   for (const prefix of ['apply', 'remove', 'use']) {
     for (const suffix of ['Min', 'Max']) {
       const field = `${prefix}IfEffectStacks${suffix}`;
-      if (!(field in effect)) continue;
-
-      effect[field] = { ...effect[field] };
-      for (const key of Object.keys(effect[field])) {
-        if (!key.startsWith('$prev.')) continue;
-        resolveKey(key, effect[field]);
-      }
+      if (!effect[field]) continue;
+      effect[field] = toResolvedMap(effect[field]);
     }
+  }
+
+  if (effect.onApplyDoApplyEffect) {
+    effect.onApplyDoApplyEffect = toResolvedMap(effect.onApplyDoApplyEffect);
+  }
+
+  if (effect.onApplyDoRemoveEffect) {
+    effect.onApplyDoRemoveEffect = toResolvedKey(effect.onApplyDoRemoveEffect);
   }
 }
 
@@ -166,15 +175,16 @@ export const normalizeEffects = (member, spec) => {
     ...toArray(WEAPON[gameId][weaponId].effects),
     ...Object.entries(setCounts)
       .flatMap(([setId, count]) =>
-        Object.entries(SET[gameId][setId].tieredEffects ?? {})
+        Object.entries(SET[gameId][setId].bonusEffects ?? {})
           .filter(([tier]) => Number(tier) <= count)
           .flatMap(([, effects]) => toArray(effects))),
   ];
 
-  const passives = [];
-  const specialEffects = [];
-  const appliedByAny = [];
-  const appliedBySelf = [];
+  const effectLookup = {};
+  const memberEffects = [];
+  const passiveEffects = [];
+  const globalEffects = [];
+  const tuneBreakEffects = [];
 
   for (const [index, rawEffect] of toNormalize.entries()) {
     if (!enableIf(rawEffect, CHARACTER[gameId][memberId])) continue;
@@ -189,22 +199,24 @@ export const normalizeEffects = (member, spec) => {
       memberActions: teamActions[memberId],
     });
 
-    if (effect.applyOnSpecial) { // special
-      specialEffects.push(effect);
-      continue;
-    }
+    effectLookup[effect.key] = effect;
 
-    if (!effect.applyWhen) { // passive
-      passives.push(effect);
-      continue;
-    }
-
-    if (effect.applyBy === 'team') {
-      appliedByAny.push(effect);
+    if (!effect.applyWhen) { // Passive effects
+      passiveEffects.push(effect);
+    } else if (effect.applyWhen === 'tuneBreak') { // Tune break effects
+      tuneBreakEffects.push(effect);
+    } else if (effect.applyBy === 'any') { // Global effects
+      globalEffects.push(effect);
     } else {
-      appliedBySelf.push(effect);
+      memberEffects.push(effect);
     }
   }
 
-  return { passives, specialEffects, appliedBySelf, appliedByAny };
+  return {
+    effectLookup,
+    memberEffects,
+    passiveEffects,
+    globalEffects,
+    tuneBreakEffects,
+  };
 };

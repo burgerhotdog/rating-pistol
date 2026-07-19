@@ -2,348 +2,407 @@
   "14002": {
     "name": "Thundersoother",
     "version": 1,
-    "tieredEffects": {
-      "2": {},
-      "4": {}
+    "bonusEffects": {
+      "2": [],
+      "4": []
     }
   },
   "14003": {
     "name": "Lavawalker",
     "version": 1,
-    "tieredEffects": {
-      "2": {},
-      "4": {}
+    "bonusEffects": {
+      "2": [],
+      "4": []
     }
   },
   "14004": {
     "name": "Maiden Beloved",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "healingBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "healingBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "applyWhen": "cast",
-        "applyOnSkillType": [
-          "elementalSkill",
-          "elementalBurst"
-        ],
-        "statMap": {
-          "healingReceived%": 0.2
-        },
-        "duration": 10000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": [
+            "elementalSkill",
+            "elementalBurst"
+          ],
+          "applyTo": "team",
+          "statMap": {
+            "healingReceived%": 0.2
+          },
+          "maxDuration": 10000
+        }
+      ]
     }
   },
   "15001": {
     "name": "Gladiator's Finale",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.18
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.18
+          }
         }
-      },
-      "4": {
-        "enableIfWeaponType": [
-          "sword",
-          "claymore",
-          "polearm"
-        ],
-        "statMap": {
-          "normalAttackDmgBonus%": 0.35
+      ],
+      "4": [
+        {
+          "enableIfWeaponType": [
+            "sword",
+            "claymore",
+            "polearm"
+          ],
+          "statMap": {
+            "normalAttackDmgBonus%": 0.35
+          }
         }
-      }
+      ]
     }
   },
   "15002": {
     "name": "Viridescent Venerer",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "anemoDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "anemoDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15003": {
     "name": "Wanderer's Troupe",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "elementalMastery": 80
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "elementalMastery": 80
+          }
         }
-      },
-      "4": {
-        "enableIfWeaponType": [
-          "catalyst",
-          "bow"
-        ],
-        "statMap": {
-          "chargedAttackDmgBonus%": 0.35
+      ],
+      "4": [
+        {
+          "enableIfWeaponType": [
+            "catalyst",
+            "bow"
+          ],
+          "statMap": {
+            "chargedAttackDmgBonus%": 0.35
+          }
         }
-      }
+      ]
     }
   },
   "15005": {
     "name": "Thundering Fury",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "electroDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "electroDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15006": {
     "name": "Crimson Witch of Flames",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "pyroDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "pyroDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15007": {
     "name": "Noblesse Oblige",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "elementalBurstDmgBonus%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "elementalBurstDmgBonus%": 0.2
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "applyWhen": "cast",
-        "applyOnSkillType": "elementalBurst",
-        "statMap": {
-          "atk%": 0.2
-        },
-        "duration": 12000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "elementalBurst",
+          "applyTo": "team",
+          "statMap": {
+            "atk%": 0.2
+          },
+          "maxDuration": 12000
+        }
+      ]
     }
   },
   "15008": {
     "name": "Bloodstained Chivalry",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "physicalDmgBonus%": 0.25
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "physicalDmgBonus%": 0.25
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15014": {
     "name": "Archaic Petra",
     "version": 1,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "geoDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "geoDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15015": {
     "name": "Retracing Bolide",
     "version": 1,
-    "tieredEffects": {
-      "2": {},
-      "4": {}
+    "bonusEffects": {
+      "2": [],
+      "4": []
     }
   },
   "14001": {
     "name": "Blizzard Strayer",
     "version": 1.2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "cryoDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "cryoDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15016": {
     "name": "Heart of Depth",
     "version": 1.2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "hydroDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hydroDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "applyWhen": "cast",
-        "applyOnSkillType": "elementalSkill",
-        "statMap": {
-          "normalAttackDmgBonus%": 0.3,
-          "chargedAttackDmgBonus%": 0.3
-        },
-        "duration": 15000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "elementalSkill",
+          "statMap": {
+            "normalAttackDmgBonus%": 0.3,
+            "chargedAttackDmgBonus%": 0.3
+          },
+          "maxDuration": 15000
+        }
+      ]
     }
   },
   "15017": {
     "name": "Tenacity of the Millelith",
     "version": 1.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "hp%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hp%": 0.2
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "applyWhen": "hit",
-        "applyOnDmgType": "elementalSkill",
-        "applyCooldown": 500,
-        "statMap": {
-          "atk%": 0.2
-        },
-        "duration": 3000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnDmgType": "elementalSkill",
+          "applyCooldown": 500,
+          "applyTo": "team",
+          "statMap": {
+            "atk%": 0.2
+          },
+          "maxDuration": 3000
+        }
+      ]
     }
   },
   "15018": {
     "name": "Pale Flame",
     "version": 1.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "physicalDmgBonus%": 0.25
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "physicalDmgBonus%": 0.25
+          }
         }
-      },
-      "4": {
-        "applyWhen": "hit",
-        "applyOnDmgType": "elementalSkill",
-        "applyCooldown": 300,
-        "statMap": {
-          "atk%": 0.9,
-          "physicalDmgBonus%": 0.125
-        },
-        "duration": 7000,
-        "maxStacks": 2
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnDmgType": "elementalSkill",
+          "applyCooldown": 300,
+          "statMap": {
+            "atk%": 0.9,
+            "physicalDmgBonus%": 0.125
+          },
+          "maxDuration": 7000,
+          "maxStacks": 2
+        }
+      ]
     }
   },
   "15019": {
     "name": "Shimenawa's Reminiscence",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.18
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.18
+          }
         }
-      },
-      "4": {
-        "applyWhen": "cast",
-        "applyOnSkillType": "elementalSkill",
-        "applyCooldown": 10000,
-        "statMap": {
-          "normalAttackDmgBonus%": 0.5,
-          "chargedAttackDmgBonus%": 0.5,
-          "plungeAttackDmgBonus%": 0.5
-        },
-        "duration": 10000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "cast",
+          "applyOnSkillType": "elementalSkill",
+          "applyCooldown": 10000,
+          "statMap": {
+            "normalAttackDmgBonus%": 0.5,
+            "chargedAttackDmgBonus%": 0.5,
+            "plungeAttackDmgBonus%": 0.5
+          },
+          "maxDuration": 10000
+        }
+      ]
     }
   },
   "15020": {
     "name": "Emblem of Severed Fate",
     "version": 2,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRecharge%": 0.2
-        }
-      },
-      "4": {
-        "variableStatMap": {
-          "elementalBurstDmgBonus%": {
-            "attr": "ER",
-            "step": 0.01,
-            "value": 0.0025,
-            "max": 0.75
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRecharge%": 0.2
           }
         }
-      }
+      ],
+      "4": [
+        {
+          "variableStatMap": {
+            "elementalBurstDmgBonus%": {
+              "attr": "ER",
+              "step": 0.01,
+              "value": 0.0025,
+              "maxValue": 0.75
+            }
+          }
+        }
+      ]
     }
   },
   "15021": {
     "name": "Husk of Opulent Dreams",
     "version": 2.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "def%": 0.3
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "def%": 0.3
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "def%": 0.24,
-          "geoDmgBonus%": 0.24
+      ],
+      "4": [
+        {
+          "statMap": {
+            "def%": 0.24,
+            "geoDmgBonus%": 0.24
+          }
         }
-      }
+      ]
     }
   },
   "15022": {
     "name": "Ocean-Hued Clam",
     "version": 2.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "healingBonus%": 0.15
-        }
-      },
-      "4": {
-        "applyWhen": "hit",
-        "applyOnType": "healing",
-        "applyCooldown": 3500,
-        "intervalAction": {
-          "element": "physical",
-          "multipliers": {
-            "flat": 27000
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "healingBonus%": 0.15
           }
-        },
-        "intervalOffset": 3000,
-        "maxUses": 1
-      }
+        }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnType": "healing",
+          "applyCooldown": 3500,
+          "intervalAction": {
+            "element": "physical",
+            "multipliers": {
+              "flat": 27000
+            }
+          },
+          "intervalOffset": 3000,
+          "maxUses": 1
+        }
+      ]
     }
   },
   "15023": {
     "name": "Vermillion Hereafter",
     "version": 2.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.18
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.18
+          }
         }
-      },
+      ],
       "4": [
         {
           "applyWhen": "cast",
           "applyOnSkillType": "elementalBurst",
+          "removeWhen": "cast",
           "removeIfField": "offField",
           "statMap": {
             "atk%": 0.48
           },
-          "duration": 16000
+          "maxDuration": 16000
         }
       ]
     }
@@ -351,122 +410,144 @@
   "15024": {
     "name": "Echoes of an Offering",
     "version": 2.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.18
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.18
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15025": {
     "name": "Deepwood Memories",
     "version": 3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "dendroDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "dendroDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "applyWhen": "hit",
-        "applyOnDmgType": [
-          "elementalSkill",
-          "elementalBurst"
-        ],
-        "statMap": {
-          "dendroResReduction%": 0.3
-        },
-        "duration": 8000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnDmgType": [
+            "elementalSkill",
+            "elementalBurst"
+          ],
+          "statMap": {
+            "dendroResReduction%": 0.3
+          },
+          "maxDuration": 8000
+        }
+      ]
     }
   },
   "15026": {
     "name": "Gilded Dreams",
     "version": 3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "elementalMastery": 80
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "elementalMastery": 80
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "elementalMastery": 150
+      ],
+      "4": [
+        {
+          "statMap": {
+            "elementalMastery": 150
+          }
         }
-      }
+      ]
     }
   },
   "15027": {
     "name": "Desert Pavilion Chronicle",
     "version": 3.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "anemoDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "anemoDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "applyWhen": "hit",
-        "applyOnDmgType": "chargedAttack",
-        "statMap": {
-          "attackSpd%": 0.1,
-          "normalAttackDmgBonus%": 0.4,
-          "chargedAttackDmgBonus%": 0.4,
-          "plungeAttackDmgBonus%": 0.4
-        },
-        "duration": 15000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnDmgType": "chargedAttack",
+          "statMap": {
+            "attackSpd%": 0.1,
+            "normalAttackDmgBonus%": 0.4,
+            "chargedAttackDmgBonus%": 0.4,
+            "plungeAttackDmgBonus%": 0.4
+          },
+          "maxDuration": 15000
+        }
+      ]
     }
   },
   "15028": {
     "name": "Flower of Paradise Lost",
     "version": 3.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "elementalMastery": 80
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "elementalMastery": 80
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15029": {
     "name": "Nymph's Dream",
     "version": 3.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "hydroDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hydroDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "applyWhen": "hit",
-        "applyOnDmgType": [
-          "normalAttack",
-          "chargedAttack",
-          "plungeAttack",
-          "elementalSkill",
-          "elementalBurst"
-        ],
-        "statMap": {
-          "atk%": 0.0833,
-          "hydroDmgBonus%": 0.05
-        },
-        "duration": 8000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnDmgType": [
+            "normalAttack",
+            "chargedAttack",
+            "plungeAttack",
+            "elementalSkill",
+            "elementalBurst"
+          ],
+          "statMap": {
+            "atk%": 0.0833,
+            "hydroDmgBonus%": 0.05
+          },
+          "maxDuration": 8000
+        }
+      ]
     }
   },
   "15030": {
     "name": "Vourukasha's Glow",
     "version": 3.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "hp%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "hp%": 0.2
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -486,29 +567,35 @@
   "15031": {
     "name": "Marechaussee Hunter",
     "version": 4,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "normalAttackDmgBonus%": 0.15,
-          "chargedAttackDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "normalAttackDmgBonus%": 0.15,
+            "chargedAttackDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "critRate%": 0.36
+      ],
+      "4": [
+        {
+          "statMap": {
+            "critRate%": 0.36
+          }
         }
-      }
+      ]
     }
   },
   "15032": {
     "name": "Golden Troupe",
     "version": 4,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "elementalSkillDmgBonus%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "elementalSkillDmgBonus%": 0.2
+          }
         }
-      },
+      ],
       "4": [
         {
           "statMap": {
@@ -527,180 +614,218 @@
   "15033": {
     "name": "Song of Days Past",
     "version": 4.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "healingBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "healingBonus%": 0.15
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15034": {
     "name": "Nighttime Whispers in the Echoing Woods",
     "version": 4.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.18
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.18
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "geoDmgBonus%": 0.5
+      ],
+      "4": [
+        {
+          "statMap": {
+            "geoDmgBonus%": 0.5
+          }
         }
-      }
+      ]
     }
   },
   "15035": {
     "name": "Fragment of Harmonic Whimsy",
     "version": 4.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.18
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.18
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "dmgBonus%": 0.54
+      ],
+      "4": [
+        {
+          "statMap": {
+            "dmgBonus%": 0.54
+          }
         }
-      }
+      ]
     }
   },
   "15036": {
     "name": "Unfinished Reverie",
     "version": 4.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.18
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.18
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "dmgBonus%": 0.5
+      ],
+      "4": [
+        {
+          "statMap": {
+            "dmgBonus%": 0.5
+          }
         }
-      }
+      ]
     }
   },
   "15037": {
     "name": "Scroll of the Hero of Cinder City",
     "version": 5,
-    "tieredEffects": {
-      "2": {},
-      "4": {}
+    "bonusEffects": {
+      "2": [],
+      "4": []
     }
   },
   "15038": {
     "name": "Obsidian Codex",
     "version": 5,
-    "tieredEffects": {
-      "2": {
-        "useIfField": "onField",
-        "statMap": {
-          "dmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "useIfField": "onField",
+          "statMap": {
+            "dmgBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "critRate%": 0.4
+      ],
+      "4": [
+        {
+          "statMap": {
+            "critRate%": 0.4
+          }
         }
-      }
+      ]
     }
   },
   "15039": {
     "name": "Long Night's Oath",
     "version": 5.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "plungeAttackDmgBonus%": 0.25
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "plungeAttackDmgBonus%": 0.25
+          }
         }
-      },
-      "4": {
-        "statMap": {
-          "plungeAttackDmgBonus%": 0.75
+      ],
+      "4": [
+        {
+          "statMap": {
+            "plungeAttackDmgBonus%": 0.75
+          }
         }
-      }
+      ]
     }
   },
   "15040": {
     "name": "Finale of the Deep Galleries",
     "version": 5.5,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "cryoDmgBonus%": 0.15
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "cryoDmgBonus%": 0.15
+          }
         }
-      },
-      "4": {
-        "enableIfTagged": "noEnergy",
-        "statMap": {
-          "normalAttackDmgBonus%": 0.6,
-          "elementalBurstDmgBonus%": 0.6
+      ],
+      "4": [
+        {
+          "enableIfTagged": "noEnergy",
+          "statMap": {
+            "normalAttackDmgBonus%": 0.6,
+            "elementalBurstDmgBonus%": 0.6
+          }
         }
-      }
+      ]
     }
   },
   "15041": {
     "name": "Night of the Sky's Unveiling",
     "version": 6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "elementalMastery": 80
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "elementalMastery": 80
+          }
         }
-      },
-      "4": {
-        "useIfField": "onField",
-        "statMap": {
-          "critRate%": 0.3
+      ],
+      "4": [
+        {
+          "useIfField": "onField",
+          "statMap": {
+            "critRate%": 0.3
+          }
         }
-      }
+      ]
     }
   },
   "15042": {
     "name": "Silken Moon's Serenade",
     "version": 6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRecharge%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRecharge%": 0.2
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "applyWhen": "hit",
-        "applyOnType": "damage",
-        "statMap": {
-          "elementalMastery": 120
-        },
-        "duration": 8000
-      }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnType": "damage",
+          "applyTo": "team",
+          "statMap": {
+            "elementalMastery": 120
+          },
+          "maxDuration": 8000
+        }
+      ]
     }
   },
   "15043": {
     "name": "Aubade of Morningstar and Moon",
     "version": 6.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "elementalMastery": 80
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "elementalMastery": 80
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   },
   "15044": {
     "name": "A Day Carved From Rising Winds",
     "version": 6.3,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.18
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.18
+          }
         }
-      },
+      ],
       "4": [
         {
           "applyWhen": "hit",
@@ -713,7 +838,7 @@
           "statMap": {
             "atk%": 0.25
           },
-          "duration": 6000
+          "maxDuration": 6000
         },
         {
           "enableIfTagged": "Hexerei",
@@ -727,7 +852,7 @@
           "statMap": {
             "critRate%": 0.2
           },
-          "duration": 6000
+          "maxDuration": 6000
         }
       ]
     }
@@ -735,34 +860,40 @@
   "15045": {
     "name": "Celestial Gift",
     "version": 6.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "energyRecharge%": 0.2
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "energyRecharge%": 0.2
+          }
         }
-      },
-      "4": {
-        "applyTo": "team",
-        "applyWhen": "cast",
-        "applyOnSkillType": "elementalSkill",
-        "applyIfTagged": "Hexerei",
-        "statMap": {
-          "dmgBonus%": 0.4
-        },
-        "duration": 20000
-      }
+      ],
+      "4": [
+        {
+          "enableIfTagged": "Hexerei",
+          "applyWhen": "cast",
+          "applyOnSkillType": "elementalSkill",
+          "applyTo": "team",
+          "statMap": {
+            "dmgBonus%": 0.4
+          },
+          "maxDuration": 20000
+        }
+      ]
     }
   },
   "15046": {
     "name": "Disenchantment in Deep Shadow",
     "version": 6.6,
-    "tieredEffects": {
-      "2": {
-        "statMap": {
-          "atk%": 0.18
+    "bonusEffects": {
+      "2": [
+        {
+          "statMap": {
+            "atk%": 0.18
+          }
         }
-      },
-      "4": {}
+      ],
+      "4": []
     }
   }
 }

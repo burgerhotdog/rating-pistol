@@ -8,7 +8,8 @@
       "baseHp": 847,
       "baseAtk": 318,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20001": {
     "name": "Cornucopia",
@@ -19,7 +20,8 @@
       "baseHp": 953,
       "baseAtk": 265,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20002": {
     "name": "Collapsing Sky",
@@ -30,7 +32,8 @@
       "baseHp": 847,
       "baseAtk": 370,
       "baseDef": 198
-    }
+    },
+    "effects": []
   },
   "20003": {
     "name": "Amber",
@@ -41,7 +44,8 @@
       "baseHp": 847,
       "baseAtk": 265,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "20004": {
     "name": "Void",
@@ -52,7 +56,8 @@
       "baseHp": 847,
       "baseAtk": 318,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20005": {
     "name": "Chorus",
@@ -63,7 +68,8 @@
       "baseHp": 847,
       "baseAtk": 318,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20006": {
     "name": "Data Bank",
@@ -74,7 +80,8 @@
       "baseHp": 741,
       "baseAtk": 370,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20007": {
     "name": "Darting Arrow",
@@ -85,7 +92,8 @@
       "baseHp": 741,
       "baseAtk": 370,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20008": {
     "name": "Fine Fruit",
@@ -96,7 +104,8 @@
       "baseHp": 953,
       "baseAtk": 318,
       "baseDef": 198
-    }
+    },
+    "effects": []
   },
   "20009": {
     "name": "Shattered Home",
@@ -107,7 +116,8 @@
       "baseHp": 847,
       "baseAtk": 370,
       "baseDef": 198
-    }
+    },
+    "effects": []
   },
   "20010": {
     "name": "Defense",
@@ -118,7 +128,8 @@
       "baseHp": 953,
       "baseAtk": 265,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20011": {
     "name": "Loop",
@@ -129,7 +140,8 @@
       "baseHp": 847,
       "baseAtk": 318,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20012": {
     "name": "Meshing Cogs",
@@ -140,7 +152,8 @@
       "baseHp": 847,
       "baseAtk": 318,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20013": {
     "name": "Passkey",
@@ -151,7 +164,8 @@
       "baseHp": 741,
       "baseAtk": 370,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20014": {
     "name": "Adversarial",
@@ -162,7 +176,8 @@
       "baseHp": 741,
       "baseAtk": 370,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20015": {
     "name": "Multiplication",
@@ -173,7 +188,8 @@
       "baseHp": 953,
       "baseAtk": 318,
       "baseDef": 198
-    }
+    },
+    "effects": []
   },
   "20016": {
     "name": "Mutual Demise",
@@ -184,7 +200,8 @@
       "baseHp": 847,
       "baseAtk": 370,
       "baseDef": 198
-    }
+    },
+    "effects": []
   },
   "20017": {
     "name": "Pioneering",
@@ -195,7 +212,8 @@
       "baseHp": 953,
       "baseAtk": 265,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20018": {
     "name": "Hidden Shadow",
@@ -206,7 +224,8 @@
       "baseHp": 847,
       "baseAtk": 318,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20019": {
     "name": "Mediation",
@@ -217,7 +236,8 @@
       "baseHp": 847,
       "baseAtk": 318,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20020": {
     "name": "Sagacity",
@@ -228,7 +248,8 @@
       "baseHp": 741,
       "baseAtk": 370,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "21000": {
     "name": "Post-Op Conversation",
@@ -239,7 +260,8 @@
       "baseHp": 1058,
       "baseAtk": 423,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21001": {
     "name": "Good Night and Sleep Well",
@@ -250,7 +272,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21002": {
     "name": "Day One of My New Life",
@@ -261,7 +284,8 @@
       "baseHp": 953,
       "baseAtk": 370,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "21003": {
     "name": "Only Silence Remains",
@@ -272,7 +296,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21004": {
     "name": "Memories of the Past",
@@ -283,7 +308,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21005": {
     "name": "The Moles Welcome You",
@@ -294,7 +320,8 @@
       "baseHp": 1058,
       "baseAtk": 476,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "21006": {
     "name": "The Birth of the Self",
@@ -305,7 +332,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21007": {
     "name": "Shared Feeling",
@@ -316,7 +344,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21008": {
     "name": "Eyes of the Prey",
@@ -327,7 +356,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21009": {
     "name": "Landau's Choice",
@@ -338,7 +368,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21010": {
     "name": "Swordplay",
@@ -349,7 +380,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21011": {
     "name": "Planetary Rendezvous",
@@ -360,7 +392,8 @@
       "baseHp": 1058,
       "baseAtk": 423,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21012": {
     "name": "A Secret Vow",
@@ -371,7 +404,8 @@
       "baseHp": 1058,
       "baseAtk": 476,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "21013": {
     "name": "Make the World Clamor",
@@ -382,7 +416,8 @@
       "baseHp": 847,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21014": {
     "name": "Perfect Timing",
@@ -393,7 +428,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21015": {
     "name": "Resolution Shines As Pearls of Sweat",
@@ -404,7 +440,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21016": {
     "name": "Trend of the Universal Market",
@@ -415,7 +452,8 @@
       "baseHp": 1058,
       "baseAtk": 370,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21017": {
     "name": "Subscribe for More!",
@@ -426,7 +464,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21018": {
     "name": "Dance! Dance! Dance!",
@@ -437,7 +476,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21019": {
     "name": "Under the Blue Sky",
@@ -448,7 +488,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21020": {
     "name": "Geniuses' Repose",
@@ -459,7 +500,8 @@
       "baseHp": 847,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21021": {
     "name": "Quid Pro Quo",
@@ -470,7 +512,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21022": {
     "name": "Fermata",
@@ -481,7 +524,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21023": {
     "name": "We Are Wildfire",
@@ -492,7 +536,8 @@
       "baseHp": 741,
       "baseAtk": 476,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "21024": {
     "name": "River Flows in Spring",
@@ -503,7 +548,8 @@
       "baseHp": 847,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21025": {
     "name": "Past and Future",
@@ -514,7 +560,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21026": {
     "name": "Woof! Walk Time!",
@@ -525,7 +572,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21027": {
     "name": "The Seriousness of Breakfast",
@@ -536,7 +584,8 @@
       "baseHp": 847,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21028": {
     "name": "Warmth Shortens Cold Nights",
@@ -547,7 +596,8 @@
       "baseHp": 1058,
       "baseAtk": 370,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21029": {
     "name": "We Will Meet Again",
@@ -558,7 +608,8 @@
       "baseHp": 847,
       "baseAtk": 529,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21030": {
     "name": "This Is Me!",
@@ -569,7 +620,8 @@
       "baseHp": 847,
       "baseAtk": 370,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "21031": {
     "name": "Return to Darkness",
@@ -580,7 +632,8 @@
       "baseHp": 847,
       "baseAtk": 529,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21032": {
     "name": "Carve the Moon, Weave the Clouds",
@@ -591,7 +644,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21033": {
     "name": "Nowhere to Run",
@@ -602,7 +656,8 @@
       "baseHp": 953,
       "baseAtk": 529,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "21034": {
     "name": "Today Is Another Peaceful Day",
@@ -613,7 +668,8 @@
       "baseHp": 847,
       "baseAtk": 529,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "23000": {
     "name": "Night on the Milky Way",
@@ -624,7 +680,8 @@
       "baseHp": 1164,
       "baseAtk": 582,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23001": {
     "name": "In the Night",
@@ -635,7 +692,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23002": {
     "name": "Something Irreplaceable",
@@ -646,7 +704,8 @@
       "baseHp": 1164,
       "baseAtk": 582,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23003": {
     "name": "But the Battle Isn't Over",
@@ -657,7 +716,8 @@
       "baseHp": 1164,
       "baseAtk": 529,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23004": {
     "name": "In the Name of the World",
@@ -668,7 +728,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23005": {
     "name": "Moment of Victory",
@@ -679,7 +740,8 @@
       "baseHp": 1058,
       "baseAtk": 476,
       "baseDef": 595
-    }
+    },
+    "effects": []
   },
   "23010": {
     "name": "Before Dawn",
@@ -690,7 +752,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23012": {
     "name": "Sleep Like the Dead",
@@ -701,7 +764,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23013": {
     "name": "Time Waits for No One",
@@ -712,7 +776,8 @@
       "baseHp": 1270,
       "baseAtk": 476,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "24000": {
     "name": "On the Fall of an Aeon",
@@ -723,7 +788,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "24001": {
     "name": "Cruising in the Stellar Sea",
@@ -734,7 +800,8 @@
       "baseHp": 953,
       "baseAtk": 529,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "24002": {
     "name": "Texture of Memories",
@@ -745,7 +812,8 @@
       "baseHp": 1058,
       "baseAtk": 423,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "22000": {
     "name": "Before the Tutorial Mission Starts",
@@ -756,7 +824,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "23007": {
     "name": "Incessant Rain",
@@ -767,7 +836,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23008": {
     "name": "Echoes of the Coffin",
@@ -778,7 +848,8 @@
       "baseHp": 1164,
       "baseAtk": 582,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23006": {
     "name": "Patience Is All You Need",
@@ -789,7 +860,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23009": {
     "name": "The Unreachable Side",
@@ -800,7 +872,8 @@
       "baseHp": 1270,
       "baseAtk": 582,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "23011": {
     "name": "She Already Shut Her Eyes",
@@ -811,7 +884,8 @@
       "baseHp": 1270,
       "baseAtk": 423,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23015": {
     "name": "Brighter Than the Sun",
@@ -822,7 +896,8 @@
       "baseHp": 1058,
       "baseAtk": 635,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "24003": {
     "name": "Solitary Healing",
@@ -833,7 +908,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23014": {
     "name": "I Shall Be My Own Sword",
@@ -844,7 +920,8 @@
       "baseHp": 1164,
       "baseAtk": 582,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23016": {
     "name": "Worrisome, Blissful",
@@ -855,7 +932,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "22001": {
     "name": "Hey, Over Here",
@@ -866,7 +944,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23017": {
     "name": "Night of Fright",
@@ -877,7 +956,8 @@
       "baseHp": 1164,
       "baseAtk": 476,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23018": {
     "name": "An Instant Before A Gaze",
@@ -888,7 +968,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23019": {
     "name": "Past Self in Mirror",
@@ -899,7 +980,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23020": {
     "name": "Baptism of Pure Thought",
@@ -910,7 +992,8 @@
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "21035": {
     "name": "What Is Real?",
@@ -921,7 +1004,8 @@
       "baseHp": 1058,
       "baseAtk": 423,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21036": {
     "name": "Dreamville Adventure",
@@ -932,7 +1016,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21037": {
     "name": "Final Victor",
@@ -943,7 +1028,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21038": {
     "name": "Flames Afar",
@@ -954,7 +1040,8 @@
       "baseHp": 1058,
       "baseAtk": 476,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "21039": {
     "name": "Destiny's Threads Forewoven",
@@ -965,7 +1052,8 @@
       "baseHp": 953,
       "baseAtk": 370,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "21040": {
     "name": "The Day The Cosmos Fell",
@@ -976,7 +1064,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21041": {
     "name": "It's Showtime",
@@ -987,7 +1076,8 @@
       "baseHp": 1058,
       "baseAtk": 476,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "21042": {
     "name": "Indelible Promise",
@@ -998,7 +1088,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "23021": {
     "name": "Earthly Escapade",
@@ -1009,7 +1100,8 @@
       "baseHp": 1164,
       "baseAtk": 529,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23022": {
     "name": "Reforged Remembrance",
@@ -1020,7 +1112,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "21043": {
     "name": "Concert for Two",
@@ -1031,7 +1124,8 @@
       "baseHp": 953,
       "baseAtk": 370,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23023": {
     "name": "Inherently Unjust Destiny",
@@ -1042,7 +1136,8 @@
       "baseHp": 1058,
       "baseAtk": 423,
       "baseDef": 662
-    }
+    },
+    "effects": []
   },
   "23024": {
     "name": "Along the Passing Shore",
@@ -1053,7 +1148,8 @@
       "baseHp": 1058,
       "baseAtk": 635,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21044": {
     "name": "Boundless Choreo",
@@ -1064,7 +1160,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "22002": {
     "name": "For Tomorrow's Journey",
@@ -1075,7 +1172,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "23026": {
     "name": "Flowing Nightglow",
@@ -1086,7 +1184,8 @@
       "baseHp": 953,
       "baseAtk": 635,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23027": {
     "name": "Sailing Towards a Second Life",
@@ -1097,7 +1196,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "21045": {
     "name": "After the Charmony Fall",
@@ -1108,7 +1208,8 @@
       "baseHp": 847,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23025": {
     "name": "Whereabouts Should Dreams Rest",
@@ -1119,7 +1220,8 @@
       "baseHp": 1164,
       "baseAtk": 476,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23028": {
     "name": "Yet Hope Is Priceless",
@@ -1130,7 +1232,8 @@
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "24004": {
     "name": "Eternal Calculus",
@@ -1141,7 +1244,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21046": {
     "name": "Poised to Bloom",
@@ -1152,7 +1256,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23029": {
     "name": "Those Many Springs",
@@ -1163,7 +1268,8 @@
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23030": {
     "name": "Dance at Sunset",
@@ -1174,7 +1280,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "21047": {
     "name": "Shadowed by Night",
@@ -1185,7 +1292,8 @@
       "baseHp": 847,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23031": {
     "name": "I Venture Forth to Hunt",
@@ -1196,7 +1304,8 @@
       "baseHp": 953,
       "baseAtk": 635,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23032": {
     "name": "Scent Alone Stays True",
@@ -1207,7 +1316,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "21048": {
     "name": "Dream's Montage",
@@ -1218,7 +1328,8 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "22003": {
     "name": "Ninja Record: Sound Hunt",
@@ -1229,7 +1340,8 @@
       "baseHp": 1058,
       "baseAtk": 476,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "23033": {
     "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
@@ -1240,7 +1352,8 @@
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23034": {
     "name": "A Grounded Ascent",
@@ -1251,7 +1364,8 @@
       "baseHp": 1164,
       "baseAtk": 476,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23035": {
     "name": "Long Road Leads Home",
@@ -1262,7 +1376,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 662
-    }
+    },
+    "effects": []
   },
   "20021": {
     "name": "Shadowburn",
@@ -1273,7 +1388,8 @@
       "baseHp": 847,
       "baseAtk": 318,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20022": {
     "name": "Reminiscence",
@@ -1284,7 +1400,8 @@
       "baseHp": 635,
       "baseAtk": 423,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "21050": {
     "name": "Victory In a Blink",
@@ -1295,7 +1412,8 @@
       "baseHp": 847,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21051": {
     "name": "Geniuses' Greetings",
@@ -1306,7 +1424,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21052": {
     "name": "Sweat Now, Cry Less",
@@ -1317,7 +1436,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 198
-    }
+    },
+    "effects": []
   },
   "23036": {
     "name": "Time Woven Into Gold",
@@ -1328,7 +1448,8 @@
       "baseHp": 1058,
       "baseAtk": 635,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23037": {
     "name": "Into the Unreachable Veil",
@@ -1339,7 +1460,8 @@
       "baseHp": 953,
       "baseAtk": 635,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23038": {
     "name": "If Time Were a Flower",
@@ -1350,7 +1472,8 @@
       "baseHp": 1270,
       "baseAtk": 529,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23039": {
     "name": "Flame of Blood, Blaze My Path",
@@ -1361,7 +1484,8 @@
       "baseHp": 1376,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "24005": {
     "name": "Memory's Curtain Never Falls",
@@ -1372,7 +1496,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "22004": {
     "name": "The Great Cosmic Enterprise",
@@ -1383,7 +1508,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "23040": {
     "name": "Make Farewells More Beautiful",
@@ -1394,7 +1520,8 @@
       "baseHp": 1270,
       "baseAtk": 529,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23041": {
     "name": "Life Should Be Cast to Flames",
@@ -1405,7 +1532,8 @@
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23042": {
     "name": "Long May Rainbows Adorn the Sky",
@@ -1416,7 +1544,8 @@
       "baseHp": 1164,
       "baseAtk": 476,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23043": {
     "name": "Lies Dance on the Breeze",
@@ -1427,7 +1556,8 @@
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "21053": {
     "name": "Journey, Forever Peaceful",
@@ -1438,7 +1568,8 @@
       "baseHp": 1058,
       "baseAtk": 370,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "21054": {
     "name": "The Story's Next Page",
@@ -1449,7 +1580,8 @@
       "baseHp": 1058,
       "baseAtk": 370,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21055": {
     "name": "Unto Tomorrow's Morrow",
@@ -1460,7 +1592,8 @@
       "baseHp": 1058,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21056": {
     "name": "In Pursuit of the Wind",
@@ -1471,7 +1604,8 @@
       "baseHp": 1058,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21057": {
     "name": "The Flower Remembers",
@@ -1482,7 +1616,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21058": {
     "name": "A Trail of Bygone Blood",
@@ -1493,7 +1628,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21060": {
     "name": "A Dream Scented in Wheat",
@@ -1504,7 +1640,8 @@
       "baseHp": 953,
       "baseAtk": 529,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21061": {
     "name": "Holiday Thermae Escapade",
@@ -1515,7 +1652,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "21062": {
     "name": "See You at the End",
@@ -1526,7 +1664,8 @@
       "baseHp": 953,
       "baseAtk": 529,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23044": {
     "name": "Thus Burns the Dawn",
@@ -1537,7 +1676,8 @@
       "baseHp": 953,
       "baseAtk": 688,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23045": {
     "name": "A Thankless Coronation",
@@ -1548,7 +1688,8 @@
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23046": {
     "name": "The Hell Where Ideals Burn",
@@ -1559,7 +1700,8 @@
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "22005": {
     "name": "The Forever Victual",
@@ -1570,7 +1712,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "23047": {
     "name": "Why Does the Ocean Sing",
@@ -1581,7 +1724,8 @@
       "baseHp": 953,
       "baseAtk": 635,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23048": {
     "name": "Epoch Etched in Golden Blood",
@@ -1592,7 +1736,8 @@
       "baseHp": 953,
       "baseAtk": 635,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23049": {
     "name": "To Evernight's Stars",
@@ -1603,7 +1748,8 @@
       "baseHp": 1164,
       "baseAtk": 529,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23051": {
     "name": "Though Worlds Apart",
@@ -1614,7 +1760,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "22006": {
     "name": "Fly Into a Pink Tomorrow",
@@ -1625,7 +1772,8 @@
       "baseHp": 847,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23052": {
     "name": "This Love, Forever",
@@ -1636,7 +1784,8 @@
       "baseHp": 1270,
       "baseAtk": 476,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23050": {
     "name": "Never Forget Her Flame",
@@ -1647,7 +1796,8 @@
       "baseHp": 1164,
       "baseAtk": 529,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "20023": {
     "name": "Sneering",
@@ -1658,7 +1808,8 @@
       "baseHp": 741,
       "baseAtk": 370,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "20024": {
     "name": "Lingering Tear",
@@ -1669,7 +1820,8 @@
       "baseHp": 847,
       "baseAtk": 318,
       "baseDef": 265
-    }
+    },
+    "effects": []
   },
   "21064": {
     "name": "Mushy Shroomy's Adventures",
@@ -1680,7 +1832,8 @@
       "baseHp": 847,
       "baseAtk": 476,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "21065": {
     "name": "Today's Good Luck",
@@ -1691,7 +1844,8 @@
       "baseHp": 953,
       "baseAtk": 529,
       "baseDef": 397
-    }
+    },
+    "effects": []
   },
   "23053": {
     "name": "Dazzled by a Flowery World",
@@ -1702,7 +1856,8 @@
       "baseHp": 1058,
       "baseAtk": 582,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23054": {
     "name": "When She Decided to See",
@@ -1713,7 +1868,8 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23056": {
     "name": "The Finale of a Lie",
@@ -1724,7 +1880,8 @@
       "baseHp": 847,
       "baseAtk": 635,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "24006": {
     "name": "Elation Brimming With Blessings",
@@ -1735,7 +1892,8 @@
       "baseHp": 953,
       "baseAtk": 529,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "22007": {
     "name": "Tomorrow, Together",
@@ -1746,7 +1904,8 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
-    }
+    },
+    "effects": []
   },
   "23057": {
     "name": "Welcome to the Cosmic City",
@@ -1757,7 +1916,8 @@
       "baseHp": 1164,
       "baseAtk": 476,
       "baseDef": 529
-    }
+    },
+    "effects": []
   },
   "23058": {
     "name": "Until the Flowers Bloom Again",
@@ -1768,7 +1928,8 @@
       "baseHp": 953,
       "baseAtk": 635,
       "baseDef": 463
-    }
+    },
+    "effects": []
   },
   "23059": {
     "name": "Reforged in Hellfire",
@@ -1779,6 +1940,7 @@
       "baseHp": 1376,
       "baseAtk": 423,
       "baseDef": 463
-    }
+    },
+    "effects": []
   }
 }

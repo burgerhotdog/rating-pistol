@@ -1,16 +1,15 @@
-import { MISC } from '@/data';
+import { SUBSTAT_VALUES } from '../stats/values';
 
 export const getSubRollSums = (gameId, equipList) => {
-  const { SUB_STAT_TYPES } = MISC[gameId];
+  const MAX_VALUES = SUBSTAT_VALUES[gameId];
   const subStatSums = {};
 
   for (const equip of equipList) {
     if (!equip) continue;
 
     for (const { subStatId, subStatValue } of equip.subStatList) {
-      const maxRoll = SUB_STAT_TYPES[subStatId].VALUE;
       subStatSums[subStatId] ??= 0
-      subStatSums[subStatId] += subStatValue / maxRoll;
+      subStatSums[subStatId] += subStatValue / MAX_VALUES[subStatId];
     }
   }
 

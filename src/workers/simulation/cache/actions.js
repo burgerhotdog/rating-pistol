@@ -12,10 +12,10 @@ const DEFAULT_DURATIONS = {
     elementalBurst: 2000,
   },
   [WW]: {
-    basicAttack: 750,
-    heavyAttack: 1000,
-    midAirAttack: 1000,
-    dodgeCounter: 2000,
+    basicAttack: 500,
+    heavyAttack: 1500,
+    'mid-airAttack': 1000,
+    dodgeCounter: 1500,
     resonanceSkill: 1000,
     introSkill: 1000,
   },
@@ -83,15 +83,6 @@ export const toNormalizedAction = (rawAction, spec) => {
     action.dmgType ??= action.skillType;
   }
 
-  // Init default duration, offset
-  if (action.skillType) {
-    const defaultDuration = DEFAULT_DURATIONS[gameId][action.skillType];
-    if (defaultDuration) {
-      action.duration ??= defaultDuration;
-      action.offset ??= Math.round(action.duration * 0.5);
-    }
-  }
-
   // Resolve $teamSize
   if (action.times === '$teamSize') {
     action.times = teamSize;
@@ -115,6 +106,30 @@ export const toNormalizedAction = (rawAction, spec) => {
       index,
       weaponRank,
     });
+  }
+
+  // Init duration
+  if (!('duration' in action)) {
+    const defaults = DEFAULT_DURATIONS[gameId];
+    action.duration = defaults[action.skillType] ?? 0;
+  }
+
+  // Init hitOffsets
+  if (!('hitOffsets' in action)) {
+    if (action.compressed) {
+      let offset = action.duration * 0.65;
+      action.hitOffsets = [Math.round(offset)];
+
+      let hitsLeft = action.compressed.hitCount - 1;
+      while (hitsLeft) {
+        if (action.duration) {
+          action.duration += 50;
+          offset += 50;
+        }
+        action.hitOffsets.push(Math.round(offset));
+        hitsLeft--;
+      }
+    }
   }
 
   return action;

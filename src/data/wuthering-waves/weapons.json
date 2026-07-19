@@ -8,14 +8,16 @@
       "baseAtk": 190,
       "atk%": 0.095
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        }
       }
-    }
+    ]
   },
   "21010012": {
     "name": "Tyro Broadblade",
@@ -26,14 +28,16 @@
       "baseAtk": 209,
       "atk%": 0.123
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.05,
-          0.1
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.05,
+            0.1
+          ]
+        }
       }
-    }
+    ]
   },
   "21010013": {
     "name": "Broadblade of Night",
@@ -44,17 +48,19 @@
       "baseAtk": 325,
       "atk%": 0.243
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "atk%": [
-          0.08,
-          0.16
-        ]
-      },
-      "duration": 10000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "atk%": [
+            0.08,
+            0.16
+          ]
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "21010015": {
     "name": "Lustrous Razor",
@@ -83,7 +89,7 @@
             0.14
           ]
         },
-        "duration": 12000,
+        "maxDuration": 12000,
         "maxStacks": 3
       }
     ]
@@ -118,7 +124,7 @@
             0.48
           ]
         },
-        "duration": 14000,
+        "maxDuration": 14000,
         "maxStacks": 2
       }
     ]
@@ -132,22 +138,23 @@
       "baseAtk": 300,
       "def%": 0.384
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "applyCooldown": 12000,
-      "followUpAction": {
-        "type": "healing",
-        "attr": "hp",
-        "multipliers": {
-          "mv": [
-            0.03,
-            0.06
-          ]
+    "effects": [
+      {
+        "useOnSkillType": "resonanceSkill",
+        "useCooldown": 12000,
+        "followUpWhen": "cast",
+        "followUpAction": {
+          "type": "healing",
+          "attr": "hp",
+          "multipliers": {
+            "mv": [
+              0.03,
+              0.06
+            ]
+          }
         }
-      },
-      "maxUses": 1
-    }
+      }
+    ]
   },
   "21010024": {
     "name": "Discord",
@@ -157,7 +164,8 @@
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
-    }
+    },
+    "effects": []
   },
   "21010034": {
     "name": "Broadblade#41",
@@ -168,14 +176,16 @@
       "baseAtk": 412,
       "energyRegen%": 0.324
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.12,
+            0.24
+          ]
+        }
       }
-    }
+    ]
   },
   "21010043": {
     "name": "Broadblade of Voyager",
@@ -185,7 +195,8 @@
     "stats": {
       "baseAtk": 300,
       "energyRegen%": 0.324
-    }
+    },
+    "effects": []
   },
   "21010044": {
     "name": "Dauntless Evernight",
@@ -196,21 +207,23 @@
       "baseAtk": 337,
       "def%": 0.615
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "atk%": [
-          0.08,
-          0.16
-        ],
-        "def%": [
-          0.15,
-          0.3
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "atk%": [
+            0.08,
+            0.16
+          ],
+          "def%": [
+            0.15,
+            0.3
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21010053": {
     "name": "Guardian Broadblade",
@@ -221,18 +234,20 @@
       "baseAtk": 325,
       "atk%": 0.243
     },
-    "effects": {
-      "statMap": {
-        "basicAttackDmgBonus%": [
-          0.12,
-          0.24
-        ],
-        "heavyAttackDmgBonus%": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "basicAttackDmgBonus%": [
+            0.12,
+            0.24
+          ],
+          "heavyAttackDmgBonus%": [
+            0.12,
+            0.24
+          ]
+        }
       }
-    }
+    ]
   },
   "21010064": {
     "name": "Helios Cleaver",
@@ -243,18 +258,23 @@
       "baseAtk": 412,
       "atk%": 0.303
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "applyCooldown": 12000,
-      "statMap": {
-        "atk%": [
-          0.09,
-          0.18
-        ]
-      },
-      "duration": 12000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "applyCooldown": 12000,
+        "removeWhen": "maxStacks",
+        "removeOffset": 6000,
+        "statMap": {
+          "atk%": [
+            0.03,
+            0.06
+          ]
+        },
+        "rampingInterval": 2000,
+        "maxStacks": 4
+      }
+    ]
   },
   "21010074": {
     "name": "Autumntrace",
@@ -265,22 +285,24 @@
       "baseAtk": 412,
       "critRate%": 0.202
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnDmgType": [
-        "basicAttack",
-        "heavyAttack"
-      ],
-      "applyCooldown": 1000,
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.128
-        ]
-      },
-      "duration": 7000,
-      "maxStacks": 5
-    }
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnDmgType": [
+          "basicAttack",
+          "heavyAttack"
+        ],
+        "applyCooldown": 1000,
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.128
+          ]
+        },
+        "maxDuration": 7000,
+        "maxStacks": 5
+      }
+    ]
   },
   "21020011": {
     "name": "Training Sword",
@@ -291,14 +313,16 @@
       "baseAtk": 190,
       "atk%": 0.095
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        }
       }
-    }
+    ]
   },
   "21020012": {
     "name": "Tyro Sword",
@@ -309,14 +333,16 @@
       "baseAtk": 209,
       "atk%": 0.123
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.05,
-          0.1
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.05,
+            0.1
+          ]
+        }
       }
-    }
+    ]
   },
   "21020013": {
     "name": "Sword of Night",
@@ -327,17 +353,19 @@
       "baseAtk": 325,
       "atk%": 0.243
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "atk%": [
-          0.08,
-          0.16
-        ]
-      },
-      "duration": 10000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "atk%": [
+            0.08,
+            0.16
+          ]
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "21020015": {
     "name": "Emerald of Genesis",
@@ -366,7 +394,7 @@
             0.12
           ]
         },
-        "duration": 10000,
+        "maxDuration": 10000,
         "maxStacks": 2
       }
     ]
@@ -380,22 +408,23 @@
       "baseAtk": 325,
       "atk%": 0.243
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceLiberation",
-      "applyCooldown": 20000,
-      "followUpAction": {
-        "type": "healing",
-        "attr": "hp",
-        "multipliers": {
-          "mv": [
-            0.05,
-            0.1
-          ]
+    "effects": [
+      {
+        "useOnSkillType": "resonanceLiberation",
+        "useCooldown": 20000,
+        "followUpWhen": "cast",
+        "followUpAction": {
+          "type": "healing",
+          "attr": "hp",
+          "multipliers": {
+            "mv": [
+              0.05,
+              0.1
+            ]
+          }
         }
-      },
-      "maxUses": 1
-    }
+      }
+    ]
   },
   "21020024": {
     "name": "Overture",
@@ -405,7 +434,8 @@
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
-    }
+    },
+    "effects": []
   },
   "21020034": {
     "name": "Sword#18",
@@ -430,6 +460,7 @@
       {
         "useOnDmgType": "heavyAttack",
         "useCooldown": 8000,
+        "followUpWhen": "hit",
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -451,7 +482,8 @@
     "stats": {
       "baseAtk": 300,
       "energyRegen%": 0.324
-    }
+    },
+    "effects": []
   },
   "21020044": {
     "name": "Commando of Conviction",
@@ -462,17 +494,19 @@
       "baseAtk": 412,
       "atk%": 0.303
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "atk%": [
-          0.15,
-          0.3
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "atk%": [
+            0.15,
+            0.3
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21020053": {
     "name": "Guardian Sword",
@@ -483,14 +517,16 @@
       "baseAtk": 300,
       "hp%": 0.303
     },
-    "effects": {
-      "statMap": {
-        "resonanceSkillDmgBonus%": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "resonanceSkillDmgBonus%": [
+            0.12,
+            0.24
+          ]
+        }
       }
-    }
+    ]
   },
   "21020064": {
     "name": "Lunar Cutter",
@@ -501,18 +537,20 @@
       "baseAtk": 412,
       "atk%": 0.303
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "applyCooldown": 12000,
-      "statMap": {
-        "atk%": [
-          0.07,
-          0.14
-        ]
-      },
-      "duration": 12000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "applyCooldown": 12000,
+        "statMap": {
+          "atk%": [
+            0.07,
+            0.14
+          ]
+        },
+        "maxDuration": 12000
+      }
+    ]
   },
   "21020074": {
     "name": "Lumingloss",
@@ -523,22 +561,24 @@
       "baseAtk": 387,
       "atk%": 0.364
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "applyCooldown": 1000,
-      "statMap": {
-        "basicAttackDmgBonus%": [
-          0.2,
-          0.64
-        ],
-        "heavyAttackDmgBonus%": [
-          0.2,
-          0.64
-        ]
-      },
-      "duration": 10000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "applyCooldown": 1000,
+        "statMap": {
+          "basicAttackDmgBonus%": [
+            0.2,
+            0.64
+          ],
+          "heavyAttackDmgBonus%": [
+            0.2,
+            0.64
+          ]
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "21030011": {
     "name": "Training Pistols",
@@ -549,14 +589,16 @@
       "baseAtk": 190,
       "atk%": 0.095
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        }
       }
-    }
+    ]
   },
   "21030012": {
     "name": "Tyro Pistols",
@@ -567,14 +609,16 @@
       "baseAtk": 209,
       "atk%": 0.123
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.05,
-          0.1
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.05,
+            0.1
+          ]
+        }
       }
-    }
+    ]
   },
   "21030013": {
     "name": "Pistols of Night",
@@ -585,17 +629,19 @@
       "baseAtk": 325,
       "atk%": 0.243
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "atk%": [
-          0.08,
-          0.16
-        ]
-      },
-      "duration": 10000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "atk%": [
+            0.08,
+            0.16
+          ]
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "21030015": {
     "name": "Static Mist",
@@ -616,16 +662,16 @@
         }
       },
       {
-        "applyTo": "next",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
         "statMap": {
           "atk%": [
             0.1,
             0.2
           ]
         },
-        "duration": 14000
+        "maxDuration": 14000
       }
     ]
   },
@@ -638,20 +684,23 @@
       "baseAtk": 325,
       "atk%": 0.243
     },
-    "effects": {
-      "useOnSkillType": "dodgeCounter",
-      "useCooldown": 6000,
-      "followUpAction": {
-        "type": "healing",
-        "attr": "hp",
-        "multipliers": {
-          "mv": [
-            0.016,
-            0.032
-          ]
+    "effects": [
+      {
+        "useOnSkillType": "dodgeCounter",
+        "useCooldown": 6000,
+        "followUpWhen": "cast",
+        "followUpAction": {
+          "type": "healing",
+          "attr": "hp",
+          "multipliers": {
+            "mv": [
+              0.016,
+              0.032
+            ]
+          }
         }
       }
-    }
+    ]
   },
   "21030024": {
     "name": "Cadenza",
@@ -661,7 +710,8 @@
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
-    }
+    },
+    "effects": []
   },
   "21030034": {
     "name": "Pistols#26",
@@ -672,14 +722,16 @@
       "baseAtk": 387,
       "atk%": 0.364
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.12,
+            0.24
+          ]
+        }
       }
-    }
+    ]
   },
   "21030043": {
     "name": "Pistols of Voyager",
@@ -689,7 +741,8 @@
     "stats": {
       "baseAtk": 300,
       "atk%": 0.303
-    }
+    },
+    "effects": []
   },
   "21030044": {
     "name": "Undying Flame",
@@ -700,17 +753,19 @@
       "baseAtk": 412,
       "atk%": 0.303
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "resonanceSkillDmgBonus%": [
-          0.2,
-          0.4
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "resonanceSkillDmgBonus%": [
+            0.2,
+            0.4
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21030053": {
     "name": "Guardian Pistols",
@@ -721,14 +776,16 @@
       "baseAtk": 300,
       "atk%": 0.303
     },
-    "effects": {
-      "statMap": {
-        "resonanceSkillDmgBonus%": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "resonanceSkillDmgBonus%": [
+            0.12,
+            0.24
+          ]
+        }
       }
-    }
+    ]
   },
   "21030064": {
     "name": "Novaburst",
@@ -739,14 +796,16 @@
       "baseAtk": 412,
       "atk%": 0.303
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.12,
+            0.24
+          ]
+        }
       }
-    }
+    ]
   },
   "21030074": {
     "name": "Thunderbolt",
@@ -757,22 +816,24 @@
       "baseAtk": 387,
       "atk%": 0.364
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnSkillType": [
-        "basicAttack",
-        "heavyAttack"
-      ],
-      "applyCooldown": 1000,
-      "statMap": {
-        "resonanceSkillDmgBonus%": [
-          0.07,
-          0.23
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 3
-    }
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnSkillType": [
+          "basicAttack",
+          "heavyAttack"
+        ],
+        "applyCooldown": 1000,
+        "statMap": {
+          "resonanceSkillDmgBonus%": [
+            0.07,
+            0.23
+          ]
+        },
+        "maxDuration": 10000,
+        "maxStacks": 3
+      }
+    ]
   },
   "21040011": {
     "name": "Training Gauntlets",
@@ -783,14 +844,16 @@
       "baseAtk": 190,
       "atk%": 0.095
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        }
       }
-    }
+    ]
   },
   "21040012": {
     "name": "Tyro Gauntlets",
@@ -801,14 +864,16 @@
       "baseAtk": 209,
       "atk%": 0.123
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.05,
-          0.1
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.05,
+            0.1
+          ]
+        }
       }
-    }
+    ]
   },
   "21040013": {
     "name": "Gauntlets of Night",
@@ -819,17 +884,19 @@
       "baseAtk": 325,
       "atk%": 0.243
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "atk%": [
-          0.08,
-          0.16
-        ]
-      },
-      "duration": 10000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "atk%": [
+            0.08,
+            0.16
+          ]
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "21040015": {
     "name": "Abyss Surges",
@@ -858,7 +925,7 @@
             0.2
           ]
         },
-        "duration": 8000
+        "maxDuration": 8000
       },
       {
         "applyWhen": "hit",
@@ -869,7 +936,7 @@
             0.2
           ]
         },
-        "duration": 8000
+        "maxDuration": 8000
       }
     ]
   },
@@ -882,22 +949,23 @@
       "baseAtk": 300,
       "critDmg%": 0.405
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnDmgType": "basicAttack",
-      "applyCooldown": 3000,
-      "intervalAction": {
-        "type": "healing",
-        "attr": "hp",
-        "multipliers": {
-          "mv": [
-            0.005,
-            0.011
-          ]
+    "effects": [
+      {
+        "useOnDmgType": "basicAttack",
+        "useCooldown": 3000,
+        "followUpWhen": "hit",
+        "followUpAction": {
+          "type": "healing",
+          "attr": "hp",
+          "multipliers": {
+            "mv": [
+              0.005,
+              0.011
+            ]
+          }
         }
-      },
-      "maxUses": 1
-    }
+      }
+    ]
   },
   "21040024": {
     "name": "Marcato",
@@ -907,7 +975,8 @@
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
-    }
+    },
+    "effects": []
   },
   "21040034": {
     "name": "Gauntlets#21D",
@@ -928,7 +997,7 @@
             0.16
           ]
         },
-        "duration": 8000
+        "maxDuration": 8000
       },
       {
         "applyWhen": "cast",
@@ -940,11 +1009,12 @@
             1
           ]
         },
-        "duration": 8000
+        "maxDuration": 8000
       },
       {
         "useOnSkillType": "dodgeCounter",
         "useCooldown": 6000,
+        "followUpWhen": "hit",
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -966,7 +1036,8 @@
     "stats": {
       "baseAtk": 325,
       "def%": 0.307
-    }
+    },
+    "effects": []
   },
   "21040044": {
     "name": "Amity Accord",
@@ -977,17 +1048,19 @@
       "baseAtk": 337,
       "def%": 0.615
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "resonanceLiberationDmgBonus%": [
-          0.2,
-          0.4
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "resonanceLiberationDmgBonus%": [
+            0.2,
+            0.4
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21040053": {
     "name": "Guardian Gauntlets",
@@ -998,14 +1071,16 @@
       "baseAtk": 300,
       "def%": 0.384
     },
-    "effects": {
-      "statMap": {
-        "resonanceLiberationDmgBonus%": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "resonanceLiberationDmgBonus%": [
+            0.12,
+            0.24
+          ]
+        }
       }
-    }
+    ]
   },
   "21040064": {
     "name": "Hollow Mirage",
@@ -1016,20 +1091,22 @@
       "baseAtk": 412,
       "atk%": 0.303
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceLiberation",
-      "statMap": {
-        "atk%": [
-          0.09,
-          0.15
-        ],
-        "def%": [
-          0.09,
-          0.15
-        ]
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceLiberation",
+        "statMap": {
+          "atk%": [
+            0.09,
+            0.15
+          ],
+          "def%": [
+            0.09,
+            0.15
+          ]
+        }
       }
-    }
+    ]
   },
   "21040074": {
     "name": "Stonard",
@@ -1040,17 +1117,19 @@
       "baseAtk": 412,
       "critRate%": 0.202
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "statMap": {
-        "resonanceLiberationDmgBonus%": [
-          0.18,
-          0.54
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "statMap": {
+          "resonanceLiberationDmgBonus%": [
+            0.18,
+            0.54
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21050011": {
     "name": "Training Rectifier",
@@ -1061,14 +1140,16 @@
       "baseAtk": 190,
       "atk%": 0.095
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        }
       }
-    }
+    ]
   },
   "21050012": {
     "name": "Tyro Rectifier",
@@ -1079,14 +1160,16 @@
       "baseAtk": 209,
       "atk%": 0.123
     },
-    "effects": {
-      "statMap": {
-        "atk%": [
-          0.05,
-          0.1
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "atk%": [
+            0.05,
+            0.1
+          ]
+        }
       }
-    }
+    ]
   },
   "21050013": {
     "name": "Rectifier of Night",
@@ -1097,17 +1180,19 @@
       "baseAtk": 325,
       "atk%": 0.243
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "atk%": [
-          0.08,
-          0.16
-        ]
-      },
-      "duration": 10000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "atk%": [
+            0.08,
+            0.16
+          ]
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "21050015": {
     "name": "Cosmic Ripples",
@@ -1137,7 +1222,7 @@
             0.064
           ]
         },
-        "duration": 8000,
+        "maxDuration": 8000,
         "maxStacks": 5
       }
     ]
@@ -1169,7 +1254,7 @@
             0.24
           ]
         },
-        "duration": 5000,
+        "maxDuration": 5000,
         "maxStacks": 2
       },
       {
@@ -1192,22 +1277,23 @@
       "baseAtk": 300,
       "hp%": 0.303
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "applyCooldown": 20000,
-      "intervalAction": {
-        "type": "healing",
-        "attr": "hp",
-        "multipliers": {
-          "mv": [
-            0.05,
-            0.1
-          ]
+    "effects": [
+      {
+        "useOnSkillType": "introSkill",
+        "useCooldown": 20000,
+        "followUpWhen": "cast",
+        "followUpAction": {
+          "type": "healing",
+          "attr": "hp",
+          "multipliers": {
+            "mv": [
+              0.05,
+              0.1
+            ]
+          }
         }
-      },
-      "maxUses": 1
-    }
+      }
+    ]
   },
   "21050024": {
     "name": "Variation",
@@ -1217,7 +1303,8 @@
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
-    }
+    },
+    "effects": []
   },
   "21050034": {
     "name": "Rectifier#25",
@@ -1228,17 +1315,19 @@
       "baseAtk": 337,
       "energyRegen%": 0.518
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "statMap": {
-        "atk%": [
-          0.12,
-          0.24
-        ]
-      },
-      "duration": 10000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "statMap": {
+          "atk%": [
+            0.12,
+            0.24
+          ]
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "21050043": {
     "name": "Rectifier of Voyager",
@@ -1248,7 +1337,8 @@
     "stats": {
       "baseAtk": 300,
       "energyRegen%": 0.324
-    }
+    },
+    "effects": []
   },
   "21050044": {
     "name": "Jinzhou Keeper",
@@ -1259,21 +1349,23 @@
       "baseAtk": 387,
       "atk%": 0.364
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "introSkill",
-      "statMap": {
-        "atk%": [
-          0.08,
-          0.16
-        ],
-        "hp%": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "statMap": {
+          "atk%": [
+            0.08,
+            0.16
+          ],
+          "hp%": [
+            0.1,
+            0.2
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21050053": {
     "name": "Guardian Rectifier",
@@ -1284,18 +1376,20 @@
       "baseAtk": 325,
       "atk%": 0.243
     },
-    "effects": {
-      "statMap": {
-        "basicAttackDmgBonus%": [
-          0.12,
-          0.24
-        ],
-        "heavyAttackDmgBonus%": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "basicAttackDmgBonus%": [
+            0.12,
+            0.24
+          ],
+          "heavyAttackDmgBonus%": [
+            0.12,
+            0.24
+          ]
+        }
       }
-    }
+    ]
   },
   "21050064": {
     "name": "Comet Flare",
@@ -1306,22 +1400,24 @@
       "baseAtk": 412,
       "hp%": 0.303
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnDmgType": [
-        "basicAttack",
-        "heavyAttack"
-      ],
-      "applyCooldown": 600,
-      "statMap": {
-        "healingBonus%": [
-          0.03,
-          0.06
-        ]
-      },
-      "duration": 8000,
-      "maxStacks": 3
-    }
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnDmgType": [
+          "basicAttack",
+          "heavyAttack"
+        ],
+        "applyCooldown": 600,
+        "statMap": {
+          "healingBonus%": [
+            0.03,
+            0.06
+          ]
+        },
+        "maxDuration": 8000,
+        "maxStacks": 3
+      }
+    ]
   },
   "21050074": {
     "name": "Augment",
@@ -1332,17 +1428,19 @@
       "baseAtk": 412,
       "critRate%": 0.202
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceLiberation",
-      "statMap": {
-        "atk%": [
-          0.15,
-          0.48
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceLiberation",
+        "statMap": {
+          "atk%": [
+            0.15,
+            0.48
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21010026": {
     "name": "Ages of Harvest",
@@ -1371,7 +1469,7 @@
             0.48
           ]
         },
-        "duration": 12000
+        "maxDuration": 12000
       },
       {
         "applyWhen": "cast",
@@ -1382,7 +1480,7 @@
             0.48
           ]
         },
-        "duration": 12000
+        "maxDuration": 12000
       }
     ]
   },
@@ -1394,7 +1492,8 @@
     "stats": {
       "baseAtk": 300,
       "atk%": 0.303
-    }
+    },
+    "effects": []
   },
   "21020016": {
     "name": "Blazing Brilliance",
@@ -1418,25 +1517,23 @@
         "applyWhen": "hit",
         "applyOnType": "damage",
         "applyCooldown": 500,
+        "removeWhen": "maxStacks",
+        "removeOffset": 12000,
         "statMap": {
           "resonanceSkillDmgBonus%": [
             0.04,
             0.08
           ]
         },
-        "maxStacks": 4
+        "maxStacks": 14
       },
       {
         "applyWhen": "cast",
         "applyOnSkillType": "resonanceSkill",
-        "applyCooldown": 500,
-        "statMap": {
-          "resonanceSkillDmgBonus%": [
-            0.2,
-            0.4
-          ]
+        "onApplyDoApplyEffect": {
+          "$prev.1": 5
         },
-        "maxStacks": 2
+        "stateless": true
       }
     ]
   },
@@ -1467,7 +1564,11 @@
             0.96
           ]
         },
-        "duration": 23000
+        "maxDuration": 8000,
+        "extendWhen": "cast",
+        "extendOnSkillType": "resonanceSkill",
+        "extendDuration": 5000,
+        "maxExtensions": 3
       }
     ]
   },
@@ -1493,19 +1594,22 @@
         "applyWhen": "cast",
         "applyOnSkillType": "resonanceSkill",
         "applyIfField": "onField",
-        "removeOnSkillType": "outroSkill",
         "statMap": {
           "basicAttackDmgBonus%": [
             0.12,
             0.24
           ]
         },
-        "duration": 6000,
+        "maxDuration": 6000,
         "maxStacks": 3
       },
       {
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyIfEffectStacksMin": {
+          "$prev.1": "3"
+        },
+        "onApplyDoRemoveEffect": "$prev.1",
         "useIfField": "offField",
         "statMap": {
           "basicAttackDmgBonus%": [
@@ -1513,7 +1617,7 @@
             1.04
           ]
         },
-        "duration": 27000
+        "maxDuration": 27000
       }
     ]
   },
@@ -1526,18 +1630,20 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "applyCooldown": 20000,
-      "statMap": {
-        "atk%": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "applyCooldown": 20000,
+        "statMap": {
+          "atk%": [
+            0.1,
+            0.2
+          ]
+        },
+        "maxDuration": 16000
+      }
+    ]
   },
   "21020084": {
     "name": "Endless Collapse",
@@ -1548,18 +1654,20 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "applyCooldown": 20000,
-      "statMap": {
-        "atk%": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "applyCooldown": 20000,
+        "statMap": {
+          "atk%": [
+            0.1,
+            0.2
+          ]
+        },
+        "maxDuration": 16000
+      }
+    ]
   },
   "21030084": {
     "name": "Relativistic Jet",
@@ -1570,18 +1678,20 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "applyCooldown": 20000,
-      "statMap": {
-        "atk%": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "applyCooldown": 20000,
+        "statMap": {
+          "atk%": [
+            0.1,
+            0.2
+          ]
+        },
+        "maxDuration": 16000
+      }
+    ]
   },
   "21040084": {
     "name": "Celestial Spiral",
@@ -1592,18 +1702,20 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "applyCooldown": 20000,
-      "statMap": {
-        "atk%": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "applyCooldown": 20000,
+        "statMap": {
+          "atk%": [
+            0.1,
+            0.2
+          ]
+        },
+        "maxDuration": 16000
+      }
+    ]
   },
   "21050036": {
     "name": "Stellar Symphony",
@@ -1624,16 +1736,16 @@
         }
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": "resonanceSkill",
+        "applyTo": "team",
         "statMap": {
           "atk%": [
             0.14,
             0.28
           ]
         },
-        "duration": 30000
+        "maxDuration": 30000
       }
     ]
   },
@@ -1646,18 +1758,20 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "applyCooldown": 20000,
-      "statMap": {
-        "atk%": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "applyCooldown": 20000,
+        "statMap": {
+          "atk%": [
+            0.1,
+            0.2
+          ]
+        },
+        "maxDuration": 16000
+      }
+    ]
   },
   "21020017": {
     "name": "Somnoire Anchor",
@@ -1668,24 +1782,34 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnType": "damage",
-      "applyCooldown": 1000,
-      "removeIfField": "offField",
-      "statMap": {
-        "atk%": [
-          0.02,
-          0.04
-        ],
-        "critRate%": [
-          0.006,
-          0.012
-        ]
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyCooldown": 1000,
+        "removeWhen": "cast",
+        "removeIfField": "offField",
+        "statMap": {
+          "atk%": [
+            0.02,
+            0.04
+          ]
+        },
+        "maxDuration": 3000,
+        "maxStacks": 10
       },
-      "duration": 3000,
-      "maxStacks": 10
-    }
+      {
+        "useIfEffectStacksMin": {
+          "$prev.1": 10
+        },
+        "statMap": {
+          "critRate%": [
+            0.06,
+            0.12
+          ]
+        }
+      }
+    ]
   },
   "21020026": {
     "name": "Red Spring",
@@ -1715,13 +1839,14 @@
             0.2
           ]
         },
-        "duration": 14000,
+        "maxDuration": 14000,
         "maxStacks": 3
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "1603:forteCircuit.1",
         "applyCooldown": 1000,
+        "removeWhen": "cast",
         "removeIfField": "offField",
         "statMap": {
           "basicAttackDmgBonus%": [
@@ -1729,7 +1854,7 @@
             0.8
           ]
         },
-        "duration": 10000
+        "maxDuration": 10000
       }
     ]
   },
@@ -1742,20 +1867,22 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnType": "damage",
-      "applyIfNegativeStatus": "any",
-      "applyCooldown": 1000,
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4
-    }
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyIfNegativeStatus": "any",
+        "applyCooldown": 1000,
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        },
+        "maxDuration": 10000,
+        "maxStacks": 4
+      }
+    ]
   },
   "21020094": {
     "name": "Fables of Wisdom",
@@ -1766,20 +1893,22 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnType": "damage",
-      "applyIfNegativeStatus": "any",
-      "applyCooldown": 1000,
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4
-    }
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyIfNegativeStatus": "any",
+        "applyCooldown": 1000,
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        },
+        "maxDuration": 10000,
+        "maxStacks": 4
+      }
+    ]
   },
   "21030016": {
     "name": "The Last Dance",
@@ -1811,7 +1940,7 @@
             0.96
           ]
         },
-        "duration": 5000
+        "maxDuration": 5000
       }
     ]
   },
@@ -1824,20 +1953,22 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnType": "damage",
-      "applyIfNegativeStatus": "any",
-      "applyCooldown": 1000,
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4
-    }
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyIfNegativeStatus": "any",
+        "applyCooldown": 1000,
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        },
+        "maxDuration": 10000,
+        "maxStacks": 4
+      }
+    ]
   },
   "21040026": {
     "name": "Tragicomedy",
@@ -1869,7 +2000,7 @@
             0.96
           ]
         },
-        "duration": 3000
+        "maxDuration": 3000
       }
     ]
   },
@@ -1882,20 +2013,22 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnType": "damage",
-      "applyIfNegativeStatus": "any",
-      "applyCooldown": 1000,
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4
-    }
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyIfNegativeStatus": "any",
+        "applyCooldown": 1000,
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        },
+        "maxDuration": 10000,
+        "maxStacks": 4
+      }
+    ]
   },
   "21050017": {
     "name": "Call of the Abyss",
@@ -1906,17 +2039,19 @@
       "baseAtk": 337,
       "energyRegen%": 0.518
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceLiberation",
-      "statMap": {
-        "healingBonus%": [
-          0.16,
-          0.32
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceLiberation",
+        "statMap": {
+          "healingBonus%": [
+            0.16,
+            0.32
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21050094": {
     "name": "Waltz in Masquerade",
@@ -1927,20 +2062,22 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnType": "damage",
-      "applyIfNegativeStatus": "any",
-      "applyCooldown": 1000,
-      "statMap": {
-        "atk%": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4
-    }
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyIfNegativeStatus": "any",
+        "applyCooldown": 1000,
+        "statMap": {
+          "atk%": [
+            0.04,
+            0.08
+          ]
+        },
+        "maxDuration": 10000,
+        "maxStacks": 4
+      }
+    ]
   },
   "21020036": {
     "name": "Unflickering Valor",
@@ -1969,7 +2106,7 @@
             0.48
           ]
         },
-        "duration": 10000
+        "maxDuration": 10000
       },
       {
         "applyWhen": "hit",
@@ -1980,7 +2117,7 @@
             0.48
           ]
         },
-        "duration": 4000
+        "maxDuration": 4000
       }
     ]
   },
@@ -1993,22 +2130,24 @@
       "baseAtk": 462,
       "atk%": 0.182
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnType": "damage",
-      "applyIfNegativeStatus": {
-        "spectroFrazzle": 1
-      },
-      "applyCooldown": 1000,
-      "statMap": {
-        "spectroDmgBonus%": [
-          0.06,
-          0.1
-        ]
-      },
-      "duration": 6000,
-      "maxStacks": 4
-    }
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyIfNegativeStatus": {
+          "spectroFrazzle": 1
+        },
+        "applyCooldown": 1000,
+        "statMap": {
+          "spectroDmgBonus%": [
+            0.06,
+            0.1
+          ]
+        },
+        "maxDuration": 6000,
+        "maxStacks": 4
+      }
+    ]
   },
   "21050046": {
     "name": "Luminous Hymn",
@@ -2044,20 +2183,20 @@
             0.28
           ]
         },
-        "duration": 6000,
+        "maxDuration": 6000,
         "maxStacks": 3
       },
       {
-        "applyTo": "enemy",
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "applyTo": "enemy",
         "statMap": {
           "spectroFrazzleDmgAmp%": [
             0.3,
             0.6
           ]
         },
-        "duration": 30000
+        "maxDuration": 30000
       }
     ]
   },
@@ -2080,22 +2219,22 @@
             0.26
           ]
         },
-        "duration": 6000
+        "maxDuration": 6000
       },
       {
-        "applyTo": "onField",
         "applyWhen": "cast",
         "applyOnAction": [
           "1406:forteCircuit.4",
           "1408:forteCircuit.4"
         ],
+        "applyTo": "onField",
         "statMap": {
           "aeroDmgAmp%": [
             0.1,
             0.26
           ]
         },
-        "duration": 30000
+        "maxDuration": 30000
       }
     ]
   },
@@ -2119,20 +2258,44 @@
       },
       {
         "applyWhen": "cast",
+        "applyOnSkillType": [
+          "introSkill",
+          "basicAttack"
+        ],
+        "maxDuration": 10000
+      },
+      {
+        "applyWhen": "cast",
         "applyOnSkillType": "echoSkill",
-        "removeIfState": false,
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "removeWhen": "cast",
+        "removeIfField": "offField",
+        "maxDuration": 10000,
+        "maxStacks": 2
+      },
+      {
+        "useIfEffectStacksMin": {
+          "$prev.1": 1
+        },
         "statMap": {
           "basicAttackDmgBonus%": [
-            0.2,
-            0.4
-          ],
-          "havocResIgnore%": [
-            0.06,
-            0.12
+            0.4,
+            0.8
           ]
+        }
+      },
+      {
+        "useIfEffectStacksMin": {
+          "$prev.2": 2
         },
-        "duration": 10000,
-        "maxStacks": 2
+        "statMap": {
+          "havocResIgnore%": [
+            0.12,
+            0.24
+          ]
+        }
       }
     ]
   },
@@ -2155,30 +2318,30 @@
         }
       },
       {
-        "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "aeroErosion",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "aeroErosion",
         "statMap": {
           "aeroDmgBonus%": [
             0.24,
             0.48
           ]
         },
-        "duration": 10000
+        "maxDuration": 10000
       },
       {
-        "applyTo": "enemy",
         "applyWhen": "hit",
         "applyOnType": "damage",
         "applyIfNegativeStatus": {
           "aeroErosion": 1
         },
+        "applyTo": "enemy",
         "statMap": {
           "aeroResReduction%": [
             0.1,
             0.16
           ]
         },
-        "duration": 20000
+        "maxDuration": 20000
       }
     ]
   },
@@ -2213,7 +2376,7 @@
             1
           ]
         },
-        "duration": 6000
+        "maxDuration": 6000
       }
     ]
   },
@@ -2247,19 +2410,26 @@
             0.48
           ]
         },
-        "duration": 10000
+        "maxDuration": 6000,
+        "extendWhen": "hit",
+        "extendOnDmgType": "heavyAttack",
+        "extendDuration": 4000,
+        "maxExtensions": 1
       },
       {
-        "applyTo": "team",
         "applyWhen": "hit",
         "applyOnDmgType": "heavyAttack",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "applyTo": "team",
         "statMap": {
           "fusionDmgBonus%": [
             0.24,
             0.48
           ]
         },
-        "duration": 30000
+        "maxDuration": 30000
       }
     ]
   },
@@ -2293,9 +2463,10 @@
             0.16
           ]
         },
-        "duration": 15000
+        "maxDuration": 15000
       },
       {
+        "applyTo": "enemy",
         "useIfNegativeStatus": {
           "aeroErosion": 1
         },
@@ -2343,7 +2514,7 @@
             0.16
           ]
         },
-        "duration": 12000
+        "maxDuration": 12000
       }
     ]
   },
@@ -2377,7 +2548,7 @@
             0.4
           ]
         },
-        "duration": 15000
+        "maxDuration": 15000
       },
       {
         "applyWhen": "hit",
@@ -2390,7 +2561,7 @@
             0.12
           ]
         },
-        "duration": 7000,
+        "maxDuration": 7000,
         "maxStacks": 5
       }
     ]
@@ -2404,21 +2575,23 @@
       "baseAtk": 412,
       "critDmg%": 0.405
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceLiberation",
-      "statMap": {
-        "atk%": [
-          0.072,
-          0.23
-        ],
-        "heavyAttackDmgBonus%": [
-          0.108,
-          0.345
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceLiberation",
+        "statMap": {
+          "atk%": [
+            0.072,
+            0.23
+          ],
+          "heavyAttackDmgBonus%": [
+            0.108,
+            0.345
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21020104": {
     "name": "Feather Edge",
@@ -2429,21 +2602,23 @@
       "baseAtk": 412,
       "critRate%": 0.202
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceLiberation",
-      "statMap": {
-        "atk%": [
-          0.072,
-          0.23
-        ],
-        "resonanceLiberationDmgBonus%": [
-          0.108,
-          0.345
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceLiberation",
+        "statMap": {
+          "atk%": [
+            0.072,
+            0.23
+          ],
+          "resonanceLiberationDmgBonus%": [
+            0.108,
+            0.345
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21030104": {
     "name": "Solar Flame",
@@ -2454,26 +2629,28 @@
       "baseAtk": 412,
       "critRate%": 0.202
     },
-    "effects": {
-      "applyWhen": "hit",
-      "applyOnDmgType": [
-        "basicAttack",
-        "heavyAttack"
-      ],
-      "applyCooldown": 1000,
-      "statMap": {
-        "atk%": [
-          0.022,
-          0.072
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnDmgType": [
+          "basicAttack",
+          "heavyAttack"
         ],
-        "heavyAttackDmgBonus%": [
-          0.022,
-          0.072
-        ]
-      },
-      "duration": 7000,
-      "maxStacks": 4
-    }
+        "applyCooldown": 1000,
+        "statMap": {
+          "atk%": [
+            0.022,
+            0.072
+          ],
+          "heavyAttackDmgBonus%": [
+            0.022,
+            0.072
+          ]
+        },
+        "maxDuration": 7000,
+        "maxStacks": 4
+      }
+    ]
   },
   "21040046": {
     "name": "Moongazer's Sigil",
@@ -2505,7 +2682,7 @@
             0.4
           ]
         },
-        "duration": 15000
+        "maxDuration": 15000
       },
       {
         "applyWhen": "hit",
@@ -2518,20 +2695,16 @@
             0.12
           ]
         },
-        "duration": 7000,
+        "maxDuration": 7000,
         "maxStacks": 5
       },
       {
         "applyWhen": "cast",
         "applyOnSkillType": "introSkill",
-        "useOnDmgType": "resonanceLiberation",
-        "statMap": {
-          "defIgnore%": [
-            0.36,
-            0.6
-          ]
+        "onApplyDoApplyEffect": {
+          "$prev.1": 5
         },
-        "duration": 3000
+        "stateless": true
       }
     ]
   },
@@ -2544,21 +2717,23 @@
       "baseAtk": 412,
       "critDmg%": 0.405
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceLiberation",
-      "statMap": {
-        "atk%": [
-          0.072,
-          0.23
-        ],
-        "resonanceLiberationDmgBonus%": [
-          0.108,
-          0.345
-        ]
-      },
-      "duration": 15000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceLiberation",
+        "statMap": {
+          "atk%": [
+            0.072,
+            0.23
+          ],
+          "resonanceLiberationDmgBonus%": [
+            0.108,
+            0.345
+          ]
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "21050104": {
     "name": "Radiant Dawn",
@@ -2569,21 +2744,23 @@
       "baseAtk": 412,
       "critDmg%": 0.405
     },
-    "effects": {
-      "applyWhen": "cast",
-      "applyOnSkillType": "resonanceSkill",
-      "statMap": {
-        "atk%": [
-          0.09,
-          0.288
-        ],
-        "basicAttackDmgBonus%": [
-          0.09,
-          0.288
-        ]
-      },
-      "duration": 10000
-    }
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnSkillType": "resonanceSkill",
+        "statMap": {
+          "atk%": [
+            0.09,
+            0.288
+          ],
+          "basicAttackDmgBonus%": [
+            0.09,
+            0.288
+          ]
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "21020066": {
     "name": "Emerald Sentence",
@@ -2605,7 +2782,19 @@
       },
       {
         "applyWhen": "cast",
+        "applyOnSkillType": [
+          "introSkill",
+          "basicAttack"
+        ],
+        "maxDuration": 10000
+      },
+      {
+        "applyWhen": "cast",
         "applyOnSkillType": "echoSkill",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "removeWhen": "cast",
         "removeIfField": "offField",
         "statMap": {
           "heavyAttackDmgBonus%": [
@@ -2613,20 +2802,20 @@
             0.6
           ]
         },
-        "duration": 12000,
+        "maxDuration": 12000,
         "maxStacks": 2
       },
       {
-        "applyTo": "team",
         "applyWhen": "cast",
         "applyOnSkillType": "introSkill",
+        "applyTo": "team",
         "statMap": {
           "echoSkillDmgBonus%": [
             0.2,
             0.4
           ]
         },
-        "duration": 30000
+        "maxDuration": 30000
       }
     ]
   },
@@ -2655,13 +2844,9 @@
           "heavyAttackDmgAmp%": [
             0.24,
             0.48
-          ],
-          "defIgnore%": [
-            0.04,
-            0.08
           ]
         },
-        "duration": 6000
+        "maxDuration": 6000
       },
       {
         "applyWhen": "hit",
@@ -2670,13 +2855,21 @@
           "echoSkillDmgAmp%": [
             0.24,
             0.48
-          ],
-          "defIgnore%": [
-            0.04,
-            0.08
           ]
         },
-        "duration": 6000
+        "maxDuration": 6000
+      },
+      {
+        "useIfEffectStacksMin": {
+          "$prev.1": 1,
+          "$prev.2": 1
+        },
+        "statMap": {
+          "defIgnore%": [
+            0.08,
+            0.16
+          ]
+        }
       }
     ]
   },
@@ -2707,28 +2900,32 @@
             0.16
           ]
         },
-        "duration": 15000
+        "maxDuration": 15000,
+        "maxStacks": 3
       },
       {
-        "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "any",
-        "statMap": {
-          "resonanceLiberationDmgBonus%": [
-            0.08,
-            0.16
-          ]
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "any",
+        "onApplyDoApplyEffect": {
+          "$prev.1": 1
         },
-        "duration": 15000,
-        "maxStacks": 2
+        "stateless": true
       },
       {
-        "applyTo": "team",
+        "applyBy": "any",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "any",
+        "applyIfEffectStacksMin": {
+          "$prev.2": 3
+        },
+        "applyTo": "applier",
         "statMap": {
           "dmgBonus%": [
             0.24,
             0.48
           ]
-        }
+        },
+        "maxDuration": 15000
       }
     ]
   },
@@ -2760,7 +2957,7 @@
             0.36
           ]
         },
-        "duration": 3000
+        "maxDuration": 3000
       }
     ]
   },
@@ -2783,16 +2980,16 @@
         }
       },
       {
-        "applyTo": "team",
         "applyWhen": "hit",
         "applyOnType": "healing",
+        "applyTo": "team",
         "statMap": {
           "critDmg%": [
             0.2,
             0.4
           ]
         },
-        "duration": 4000
+        "maxDuration": 4000
       }
     ]
   },
@@ -2824,7 +3021,7 @@
             0.36
           ]
         },
-        "duration": 3000
+        "maxDuration": 3000
       }
     ]
   },
@@ -2847,14 +3044,14 @@
         }
       },
       {
-        "applyOnSpecial": "tuneBreak",
+        "applyWhen": "tuneBreak",
         "statMap": {
           "dmgBonus%": [
             0.2,
             0.3
           ]
         },
-        "duration": 14000
+        "maxDuration": 14000
       }
     ]
   },
@@ -2886,23 +3083,23 @@
             0.72
           ]
         },
-        "duration": 4000
+        "maxDuration": 4000
       },
       {
-        "applyTo": "team",
-        "applyWhen": "hit",
+        "applyWhen": "inflict",
         "applyOnSkillType": "basicAttack",
-        "applyOnShiftTune": [
+        "applyForInflictShifting": [
           "tuneRupture",
           "tuneStrain"
         ],
+        "applyTo": "team",
         "statMap": {
           "dmgBonus%": [
             0.08,
             0.16
           ]
         },
-        "duration": 30000,
+        "maxDuration": 30000,
         "maxStacks": 3
       }
     ]
@@ -2936,7 +3133,7 @@
             0.09
           ]
         },
-        "duration": 3000,
+        "maxDuration": 3000,
         "maxStacks": 4
       }
     ]
@@ -2960,7 +3157,7 @@
         }
       },
       {
-        "applyOnSpecial": "tuneBreak",
+        "applyWhen": "tuneBreak",
         "statMap": {
           "atk%": [
             0.12,
@@ -2971,7 +3168,7 @@
             0.18
           ]
         },
-        "duration": 14000
+        "maxDuration": 14000
       }
     ]
   },
@@ -2994,9 +3191,9 @@
         }
       },
       {
-        "applyWhen": "cast",
-        "applyOnInflictNegativeStatus": "fusionBurst",
-        "applyOnShiftTune": "tuneRupture",
+        "applyWhen": "inflict",
+        "applyForInflictShifting": "tuneRupture",
+        "applyForInflictStatus": "fusionBurst",
         "useOnDmgType": "resonanceLiberation",
         "statMap": {
           "defIgnore%": [
@@ -3008,7 +3205,7 @@
             0.3
           ]
         },
-        "duration": 8000
+        "maxDuration": 8000
       }
     ]
   },
@@ -3039,11 +3236,11 @@
             0.4
           ]
         },
-        "duration": 4000
+        "maxDuration": 4000
       },
       {
-        "applyWhen": "hit",
-        "applyOnShiftTune": "tuneStrain",
+        "applyWhen": "inflict",
+        "applyForInflictShifting": "tuneStrain",
         "useOnDmgType": "basicAttack",
         "statMap": {
           "basicAttackDmgAmp%": [
@@ -3055,7 +3252,7 @@
             0.2
           ]
         },
-        "duration": 6000
+        "maxDuration": 6000
       }
     ]
   },
@@ -3089,7 +3286,7 @@
             0.64
           ]
         },
-        "duration": 15000
+        "maxDuration": 15000
       },
       {
         "applyWhen": "cast",
@@ -3101,7 +3298,7 @@
             0.2
           ]
         },
-        "duration": 6000
+        "maxDuration": 6000
       }
     ]
   },
@@ -3124,19 +3321,19 @@
         }
       },
       {
-        "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "glacioChafe",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "glacioChafe",
         "statMap": {
           "glacioDmgAmp%": [
             0.28,
             0.56
           ]
         },
-        "duration": 6000
+        "maxDuration": 6000
       },
       {
-        "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "glacioChafe",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "glacioChafe",
         "useOnDmgType": "resonanceLiberation",
         "statMap": {
           "defIgnore%": [
@@ -3144,20 +3341,20 @@
             0.2
           ]
         },
-        "duration": 6000
+        "maxDuration": 6000
       },
       {
-        "applyTo": "enemy",
         "applyWhen": "cast",
         "applyIfField": "onField",
         "applyCooldown": 100,
+        "applyTo": "enemy",
         "statMap": {
           "glacioChafeDmgAmp%": [
             0.2,
             0.4
           ]
         },
-        "duration": 6000
+        "maxDuration": 6000
       }
     ]
   },
@@ -3180,25 +3377,33 @@
         }
       },
       {
-        "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "fusionBurst",
-        "applyOnShiftTune": "tuneStrain",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "fusionBurst",
+        "applyForInflictShifting": "tuneStrain",
         "statMap": {
           "resonanceLiberationDmgBonus%": [
             0.36,
             0.72
           ]
         },
-        "duration": 5000
+        "maxDuration": 5000
       },
       {
-        "applyTo": "team",
+        "applyBy": "any",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "fusionBurst",
+        "applyForInflictShifting": "tuneStrain",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "applyTo": "applier",
         "statMap": {
           "atk%": [
             0.24,
             0.48
           ]
-        }
+        },
+        "maxDuration": 15000
       }
     ]
   },
@@ -3229,12 +3434,12 @@
             0.4
           ]
         },
-        "duration": 14000,
+        "maxDuration": 14000,
         "maxStacks": 2
       },
       {
-        "applyWhen": "hit",
-        "applyOnShiftTune": "hack",
+        "applyWhen": "inflict",
+        "applyForInflictShifting": "hack",
         "useOnDmgType": "heavyAttack",
         "statMap": {
           "heavyAttackDmgAmp%": [
@@ -3246,7 +3451,7 @@
             0.2
           ]
         },
-        "duration": 14000
+        "maxDuration": 14000
       }
     ]
   },
@@ -3277,30 +3482,30 @@
             0.48
           ]
         },
-        "duration": 14000
+        "maxDuration": 14000
       },
       {
-        "applyWhen": "hit",
-        "applyOnShiftTune": "hack",
+        "applyWhen": "inflict",
+        "applyForInflictShifting": "hack",
         "statMap": {
           "basicAttackDmgBonus%": [
             0.12,
             0.24
           ]
         },
-        "duration": 14000
+        "maxDuration": 14000
       },
       {
+        "applyWhen": "inflict",
+        "applyForInflictShifting": "hack",
         "applyTo": "team",
-        "applyWhen": "hit",
-        "applyOnShiftTune": "hack",
         "statMap": {
           "atk%": [
             0.24,
             0.48
           ]
         },
-        "duration": 30000
+        "maxDuration": 30000
       }
     ]
   },
@@ -3323,27 +3528,27 @@
         }
       },
       {
-        "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "glacioChafe",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "glacioChafe",
         "statMap": {
           "glacioDmgBonus%": [
             0.3,
             0.6
           ]
         },
-        "duration": 12000
+        "maxDuration": 12000
       },
       {
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "glacioChafe",
         "applyTo": "team",
-        "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "glacioChafe",
         "statMap": {
           "atk%": [
             0.24,
             0.48
           ]
         },
-        "duration": 30000
+        "maxDuration": 30000
       }
     ]
   },
@@ -3366,8 +3571,8 @@
         }
       },
       {
-        "applyWhen": "hit",
-        "applyOnInflictNegativeStatus": "havocBane",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "havocBane",
         "useOnDmgType": "heavyAttack",
         "statMap": {
           "heavyAttackDmgAmp%": [
@@ -3379,7 +3584,7 @@
             0.24
           ]
         },
-        "duration": 8000
+        "maxDuration": 8000
       }
     ]
   },
@@ -3398,6 +3603,29 @@
           "hp%": [
             0.12,
             0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "glacioChafe",
+        "maxDuration": 6000
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnType": "healing",
+        "maxDuration": 6000
+      },
+      {
+        "applyTo": "team",
+        "useIfEffectStacksMin": {
+          "$prev.1": 1,
+          "$prev.2": 1
+        },
+        "statMap": {
+          "atk%": [
+            0.2,
+            0.4
           ]
         }
       }
