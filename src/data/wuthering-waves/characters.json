@@ -161,6 +161,7 @@
       {
         "applyWhen": "cast",
         "applyOnSkillType": "heavyAttack",
+        "followUpWhen": "hit",
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -605,6 +606,7 @@
         "applyTo": "onField",
         "useOnSkillType": "basicAttack",
         "useCooldown": 350,
+        "followUpWhen": "hit",
         "followUpAction": "resonanceLiberation.2",
         "maxDuration": 10000,
         "rankMods": {
@@ -619,6 +621,7 @@
         "applyTo": "onField",
         "useOnSkillType": "heavyAttack",
         "useCooldown": 350,
+        "followUpWhen": "hit",
         "followUpAction": "resonanceLiberation.2",
         "times": 2,
         "maxDuration": 10000,
@@ -679,6 +682,7 @@
           "resonanceSkill.1",
           "forteCircuit.1"
         ],
+        "followUpWhen": "hit",
         "followUpAction": "resonanceLiberation.2",
         "times": 4,
         "maxUses": 1
@@ -785,6 +789,7 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
+        "followUpWhen": "hit",
         "followUpAction": {
           "skillType": "coordinatedAttack",
           "dmgType": "resonanceLiberation",
@@ -849,6 +854,7 @@
           "basicAttack",
           "dodgeCounter"
         ],
+        "followUpWhen": "hit",
         "followUpAction": "resonanceSkill.3",
         "maxDuration": 10000,
         "maxUses": 4
@@ -859,6 +865,7 @@
         "applyTo": "enemy",
         "useOnType": "damage",
         "useCooldown": 1000,
+        "followUpWhen": "hit",
         "followUpAction": "forteCircuit.2",
         "maxDuration": 18000
       },
@@ -933,6 +940,7 @@
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnSkillType": "basicAttack",
+        "followUpWhen": "hit",
         "followUpAction": {
           "dmgType": "resonanceSkill",
           "multipliers": {
@@ -988,6 +996,7 @@
         "applyTo": "onField",
         "useOnType": "damage",
         "useCooldown": 1200,
+        "followUpWhen": "hit",
         "followUpAction": "resonanceSkill.2",
         "maxDuration": 12000
       },
@@ -997,6 +1006,7 @@
           "resonanceSkill.4",
           "resonanceLiberation.1"
         ],
+        "followUpWhen": "hit",
         "followUpAction": "resonanceSkill.3",
         "maxUses": 1
       },
@@ -1009,6 +1019,7 @@
       {
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "followUpWhen": "hit",
         "followUpAction": "resonanceSkill.1",
         "maxUses": 1
       },
@@ -1030,6 +1041,7 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
+        "followUpWhen": "hit",
         "followUpAction": {
           "type": "shield",
           "attr": "def",
@@ -1344,6 +1356,7 @@
         "applyTo": "next",
         "useOnSkillType": "heavyAttack",
         "useCooldown": 1000,
+        "followUpWhen": "hit",
         "followUpAction": {
           "skillType": "coordinatedAttack",
           "dmgType": "outroSkill",
@@ -1531,6 +1544,7 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
+        "followUpWhen": "hit",
         "followUpAction": [
           {
             "skillType": "resonanceSkill",
@@ -1609,6 +1623,7 @@
         "applyOnAction": "resonanceLiberation.1",
         "applyTo": "team",
         "useCooldown": 1000,
+        "followUpWhen": "hit",
         "followUpAction": [
           "resonanceLiberation.3",
           "resonanceLiberation.4"
@@ -1717,6 +1732,7 @@
           "forteCircuit.3",
           "forteCircuit.4"
         ],
+        "followUpWhen": "hit",
         "followUpAction": [
           "resonanceLiberation.3",
           "resonanceLiberation.4"
@@ -1814,6 +1830,7 @@
         "applyWhen": "cast",
         "applyOnAction": "normalAttack.6",
         "applyCooldown": 15000,
+        "followUpWhen": "hit",
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -2310,6 +2327,7 @@
         "applyTo": "onField",
         "useOnType": "damage",
         "useCooldown": 1000,
+        "followUpWhen": "hit",
         "followUpAction": "resonanceLiberation.1",
         "maxDuration": 30000,
         "maxUses": 21,
@@ -2456,6 +2474,7 @@
         "applyTo": "next",
         "useOnSkillType": "basicAttack",
         "useCooldown": 2000,
+        "followUpWhen": "hit",
         "followUpAction": {
           "dmgType": "outroSkill",
           "multipliers": {
@@ -2814,6 +2833,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "outroSkill.1",
+        "followUpWhen": "hit",
         "followUpAction": "forteCircuit.8",
         "times": 4,
         "maxUses": 1
@@ -3050,6 +3070,7 @@
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
         "applyCooldown": 25000,
+        "followUpWhen": "hit",
         "followUpAction": "forteCircuit.1",
         "maxDuration": 15000,
         "maxUses": 1
@@ -3263,6 +3284,7 @@
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
         "applyTo": "next",
+        "followUpWhen": "hit",
         "followUpAction": {
           "skillType": "echoSkill",
           "multipliers": {
@@ -3481,6 +3503,7 @@
         "applyTo": "next",
         "useOnSkillType": "resonanceSkill",
         "useCooldown": 1000,
+        "followUpWhen": "hit",
         "followUpAction": {
           "dmgType": "basicAttack",
           "multipliers": {
@@ -3508,6 +3531,7 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
+        "followUpWhen": "hit",
         "followUpAction": {
           "type": "healing",
           "attr": "energyRegen",
@@ -3616,6 +3640,7 @@
       {
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
+        "followUpWhen": "hit",
         "followUpAction": {
           "dmgType": "outroSkill",
           "multipliers": {
@@ -3667,6 +3692,7 @@
       {
         "rank": 1,
         "useOnAction": "resonanceLiberation.2",
+        "followUpWhen": "hit",
         "followUpAction": {
           "inflictStatus": {
             "spectroFrazzle": 2
@@ -3735,6 +3761,7 @@
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
         "useOnAction": "resonanceSkill.1",
+        "followUpWhen": "hit",
         "followUpAction": "forteCircuit.3"
       },
       {
@@ -3742,6 +3769,7 @@
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
         "useOnAction": "resonanceSkill.1",
+        "followUpWhen": "hit",
         "followUpAction": "forteCircuit.4"
       }
     ],
@@ -3793,6 +3821,7 @@
         "applyOnAction": "resonanceLiberation.1",
         "applyTo": "onField",
         "useCooldown": 1000,
+        "followUpWhen": "hit",
         "followUpAction": "resonanceLiberation.2",
         "maxDuration": 30000,
         "maxUses": 21,
@@ -4093,6 +4122,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.3",
+        "followUpWhen": "hit",
         "followUpAction": "forteCircuit.4",
         "times": 40,
         "maxUses": 1
@@ -4245,6 +4275,7 @@
           "forteCircuit.2"
         ],
         "applyTo": "next",
+        "followUpWhen": "hit",
         "followUpAction": "forteCircuit.3",
         "maxUses": 1
       },
@@ -4574,6 +4605,7 @@
       {
         "useOnType": "damage",
         "useCooldown": 500,
+        "followUpWhen": "hit",
         "followUpAction": {
           "type": "shield",
           "multipliers": {
@@ -4959,6 +4991,7 @@
           "forteCircuit.3",
           "introSkill.1"
         ],
+        "followUpWhen": "hit",
         "followUpAction": "forteCircuit.2"
       },
       {
@@ -5399,6 +5432,7 @@
         "applyOnAction": "resonanceLiberation.1",
         "useOnInflict": "glacioChafe",
         "useCooldown": 0.5,
+        "followUpWhen": "hit",
         "followUpAction": {
           "inflictStatus": {
             "glacioChafe": 2
@@ -5787,6 +5821,7 @@
           "resonanceSkill.1",
           "resonanceSkill.2"
         ],
+        "followUpWhen": "hit",
         "followUpAction": "resonanceLiberation.2",
         "maxUses": 1
       },

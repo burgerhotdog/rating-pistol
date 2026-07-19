@@ -59,52 +59,6 @@ characters:
 
 weapons:
     unchecked:
-        21010015 Lustrous Razor
-        21010016 Verdant Summit
-        21010023 Originite: Type I
-        21010034 Broadblade#41
-        21010043 Broadblade of Voyager
-        21010044 Dauntless Evernight
-        21010053 Guardian Broadblade
-        21010064 Helios Cleaver
-        21010074 Autumntrace
-        21020015 Emerald of Genesis
-        21020023 Originite: Type II
-        21020034 Sword#18
-        21020043 Sword of Voyager
-        21020044 Commando of Conviction
-        21020053 Guardian Sword
-        21020064 Lunar Cutter
-        21020074 Lumingloss
-        21030015 Static Mist
-        21030023 Originite: Type III
-        21030034 Pistols#26
-        21030043 Pistols of Voyager
-        21030044 Undying Flame
-        21030053 Guardian Pistols
-        21030064 Novaburst
-        21030074 Thunderbolt
-        21040015 Abyss Surges
-        21040023 Originite: Type IV
-        21040034 Gauntlets#21D
-        21040043 Gauntlets of Voyager
-        21040044 Amity Accord
-        21040053 Guardian Gauntlets
-        21040064 Hollow Mirage
-        21040074 Stonard
-        21050015 Cosmic Ripples
-        21050016 Stringmaster
-        21050023 Originite: Type V
-        21050034 Rectifier#25
-        21050043 Rectifier of Voyager
-        21050044 Jinzhou Keeper
-        21050053 Guardian Rectifier
-        21050064 Comet Flare
-        21050074 Augment
-        21010026 Ages of Harvest
-        21010063 Beguiling Melody
-        21020016 Blazing Brilliance
-        21040016 Verity's Handle
         21050026 Rime-Draped Sprouts
         21010084 Waning Redshift
         21020084 Endless Collapse
@@ -162,6 +116,36 @@ weapons:
         21050096 Firstlight's Herald
 
     simplified:
+        21010034 Broadblade#41
+            assume resonator hp always above 80%
+        21020034 Sword#18
+            assume resonator hp always below 40%
+        21020064 Lunar Cutter
+            assume average stacks
+        21030034 Pistols#26
+            assume resonator never takes damage
+        21030064 Novaburst
+            assume max stacks always
+        21040034 Gauntlets#21D
+            does not include dashes
+        21040064 Hollow Mirage
+            assume resonator never takes damage
+        21050034 Rectifier#25
+            assume resonator hp always above 60%
+
+    energy not counted:
+        21010024 Discord
+        21010043 Broadblade of Voyager
+        21010063 Beguiling Melody
+        21020024 Overture
+        21020043 Sword of Voyager
+        21030024 Cadenza
+        21030043 Pistols of Voyager
+        21040024 Marcato
+        21040043 Gauntlets of Voyager
+        21050024 Variation
+        21050043 Rectifier of Voyager
+
 
 sets:
     unchecked:
@@ -169,6 +153,8 @@ sets:
     incomplete:
 
     simplified:
+        9 Lingering Tunes
+            ramp up time might not be accurate
         13 Empyrean Anthem
             no crit needed
         20 Crown of Valor

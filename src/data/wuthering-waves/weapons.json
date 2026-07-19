@@ -140,9 +140,9 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnSkillType": "resonanceSkill",
-        "applyCooldown": 12000,
+        "useOnSkillType": "resonanceSkill",
+        "useCooldown": 12000,
+        "followUpWhen": "cast",
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -152,8 +152,7 @@
               0.06
             ]
           }
-        },
-        "maxUses": 1
+        }
       }
     ]
   },
@@ -264,13 +263,16 @@
         "applyWhen": "cast",
         "applyOnSkillType": "resonanceSkill",
         "applyCooldown": 12000,
+        "removeWhen": "maxStacks",
+        "removeOffset": 6000,
         "statMap": {
           "atk%": [
-            0.09,
-            0.18
+            0.03,
+            0.06
           ]
         },
-        "maxDuration": 12000
+        "rampingInterval": 2000,
+        "maxStacks": 4
       }
     ]
   },
@@ -408,9 +410,9 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnSkillType": "resonanceLiberation",
-        "applyCooldown": 20000,
+        "useOnSkillType": "resonanceLiberation",
+        "useCooldown": 20000,
+        "followUpWhen": "cast",
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -420,8 +422,7 @@
               0.1
             ]
           }
-        },
-        "maxUses": 1
+        }
       }
     ]
   },
@@ -459,6 +460,7 @@
       {
         "useOnDmgType": "heavyAttack",
         "useCooldown": 8000,
+        "followUpWhen": "hit",
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -686,6 +688,7 @@
       {
         "useOnSkillType": "dodgeCounter",
         "useCooldown": 6000,
+        "followUpWhen": "cast",
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -948,10 +951,10 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
-        "applyOnDmgType": "basicAttack",
-        "applyCooldown": 3000,
-        "intervalAction": {
+        "useOnDmgType": "basicAttack",
+        "useCooldown": 3000,
+        "followUpWhen": "hit",
+        "followUpAction": {
           "type": "healing",
           "attr": "hp",
           "multipliers": {
@@ -960,8 +963,7 @@
               0.011
             ]
           }
-        },
-        "maxUses": 1
+        }
       }
     ]
   },
@@ -1012,6 +1014,7 @@
       {
         "useOnSkillType": "dodgeCounter",
         "useCooldown": 6000,
+        "followUpWhen": "hit",
         "followUpAction": {
           "type": "healing",
           "attr": "hp",
@@ -1276,10 +1279,10 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnSkillType": "introSkill",
-        "applyCooldown": 20000,
-        "intervalAction": {
+        "useOnSkillType": "introSkill",
+        "useCooldown": 20000,
+        "followUpWhen": "cast",
+        "followUpAction": {
           "type": "healing",
           "attr": "hp",
           "multipliers": {
@@ -1288,8 +1291,7 @@
               0.1
             ]
           }
-        },
-        "maxUses": 1
+        }
       }
     ]
   },
@@ -1515,10 +1517,7 @@
         "applyWhen": "hit",
         "applyOnType": "damage",
         "applyCooldown": 500,
-        "removeWhen": "after",
-        "removeIfEffectStacksMin": {
-          "$prev.0": 14
-        },
+        "removeWhen": "maxStacks",
         "removeOffset": 12000,
         "statMap": {
           "resonanceSkillDmgBonus%": [
@@ -1565,7 +1564,11 @@
             0.96
           ]
         },
-        "maxDuration": 23000
+        "maxDuration": 8000,
+        "extendWhen": "cast",
+        "extendOnSkillType": "resonanceSkill",
+        "extendDuration": 5000,
+        "maxExtensions": 3
       }
     ]
   },

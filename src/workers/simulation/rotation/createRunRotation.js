@@ -12,7 +12,7 @@ function decayUsedBuffs(ctx, usedBuffStates) {
   for (const [stateMap, effectState] of usedBuffStates) {
     const { effect } = effectState;
 
-    if ('useCooldown' in effect) {
+    if (effect.useCooldown) {
       effectState.cooldown = effect.useCooldown;
     }
 
@@ -23,13 +23,14 @@ function decayUsedBuffs(ctx, usedBuffStates) {
   }
 }
 
-function runFollowUpActions(ctx, action, depth) {
+function runFollowUpActions(ctx, action, when, depth) {
   const usedFollowUpStates = getUsedFollowUpStates(ctx, action.ownerId, action);
 
   for (const [stateMap, effectState] of usedFollowUpStates) {
     const { effect } = effectState;
     const { times = 1 } = effect;
 
+    if (effect.followUpWhen !== when) continue;
     if (effectState.executing) continue;
 
     effectState.executing = true;
@@ -40,7 +41,7 @@ function runFollowUpActions(ctx, action, depth) {
     }
     effectState.executing = false;
 
-    if ('useCooldown' in effect) {
+    if (effect.useCooldown) {
       effectState.cooldown = effect.useCooldown;
     }
 
@@ -59,7 +60,7 @@ function runIntervalActions(ctx, elapsed, depth) {
       const { effect } = effectState;
       const { times = 1 } = effect;
 
-      if (!('intervalAction' in effect)) continue;
+      if (!effect.intervalAction) continue;
 
       effectState.intervalTimer -= elapsed;
       while (effectState.intervalTimer <= 0) {
@@ -103,6 +104,7 @@ function runAction(ctx, action, depth = 0) {
 
   // Action is cast
   runEffectPhase(ctx, action, 'cast');
+  runFollowUpActions(ctx, action, 'cast', depth);
 
   // Advance time to initial hit
   if (initialOffset > 0) {
@@ -137,7 +139,7 @@ function runAction(ctx, action, depth = 0) {
       advanceTime(ctx, elapsed, depth);
     }
     runEffectPhase(ctx, action, 'hit');
-    runFollowUpActions(ctx, action, depth);
+    runFollowUpActions(ctx, action, 'hit', depth);
   }
 
   // Advance time after last hit

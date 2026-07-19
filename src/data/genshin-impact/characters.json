@@ -451,6 +451,7 @@
         "applyOnAction": "elementalSkill.1",
         "applyTo": "onField",
         "useCooldown": 2000,
+        "followUpWhen": "hit",
         "followUpAction": "elementalSkill.2",
         "maxDuration": 30000
       },

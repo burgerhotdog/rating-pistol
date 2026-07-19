@@ -5,12 +5,6 @@ export const ZZZ = 'zenless-zone-zero';
 
 export { default as VERSION } from './version.json';
 
-import GI_MISC from './genshin-impact/misc.json';
-import HSR_MISC from './honkai-star-rail/misc.json';
-import WW_MISC from './wuthering-waves/misc.json';
-import ZZZ_MISC from './zenless-zone-zero/misc.json';
-export const MISC = { [GI]: GI_MISC, [HSR]: HSR_MISC, [WW]: WW_MISC, [ZZZ]: ZZZ_MISC };
-
 import GI_CHAR from './genshin-impact/characters.json';
 import HSR_CHAR from './honkai-star-rail/characters.json';
 import WW_CHAR from './wuthering-waves/characters.json';

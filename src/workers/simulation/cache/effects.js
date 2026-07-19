@@ -180,6 +180,7 @@ export const normalizeEffects = (member, spec) => {
           .flatMap(([, effects]) => toArray(effects))),
   ];
 
+  const effectLookup = {};
   const memberEffects = [];
   const passiveEffects = [];
   const globalEffects = [];
@@ -198,6 +199,8 @@ export const normalizeEffects = (member, spec) => {
       memberActions: teamActions[memberId],
     });
 
+    effectLookup[effect.key] = effect;
+
     if (!effect.applyWhen) { // Passive effects
       passiveEffects.push(effect);
     } else if (effect.applyWhen === 'tuneBreak') { // Tune break effects
@@ -210,6 +213,7 @@ export const normalizeEffects = (member, spec) => {
   }
 
   return {
+    effectLookup,
     memberEffects,
     passiveEffects,
     globalEffects,

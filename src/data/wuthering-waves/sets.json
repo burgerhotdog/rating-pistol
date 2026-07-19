@@ -314,6 +314,7 @@
       "5": [
         {
           "useOnSkillType": "outroSkill",
+          "followUpWhen": "cast",
           "followUpAction": {
             "element": "havoc",
             "dmgType": "outroSkill",
