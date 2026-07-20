@@ -86,8 +86,11 @@ export function runTuneBreak(ctx) {
   delete tune.shifting;
   delete tune.shiftingTimeRemaining;
 
-  for (const effect of ctx.cache.effects.tuneBreak) {
-    if (cooldowns[effect.key]) continue;
+  for (const effect of Object.values(ctx.cache.effects)) {
+    if (
+      effect.applyWhen !== 'tuneBreak' ||
+      cooldowns[effect.key]
+    ) continue;
     applyEffect(ctx, effect);
   }
 }

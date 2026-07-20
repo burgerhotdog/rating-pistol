@@ -747,7 +747,7 @@
       ],
       "4": [
         {
-          "enableIfTagged": "noEnergy",
+          "enableIfNoEnergy": true,
           "statMap": {
             "normalAttackDmgBonus%": 0.6,
             "elementalBurstDmgBonus%": 0.6

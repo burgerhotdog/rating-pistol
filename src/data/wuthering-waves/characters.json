@@ -27,7 +27,11 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "normalAttack.5",
-        "useOnTagged": "Ice Burst",
+        "useOnAction": [
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.4"
+        ],
         "statMap": {
           "dmgBonus%": 0.2
         },
@@ -43,7 +47,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "cast",
         "applyOnAction": "normalAttack.5",
         "statMap": {
@@ -52,14 +56,14 @@
         "maxDuration": 10000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "chance": 0.7,
         "statMap": {
           "dmgBonus%": 0.35
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnAction": "forteCircuit.1",
@@ -70,14 +74,14 @@
         "maxUses": 1
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnTagged": "Ice Burst",
         "statMap": {
           "critDmg%": 1
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.2",
@@ -194,7 +198,7 @@
         "maxDuration": 36000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.1",
         "statMap": {
@@ -204,7 +208,7 @@
         "maxDuration": 12000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
         "statMap": {
@@ -213,21 +217,21 @@
         "maxDuration": 10000
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "useOnAction": "resonanceLiberation.2",
         "statMap": {
           "mv%": 0.2
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "mv": 0.012
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.1",
         "applyTo": "team",
@@ -314,7 +318,7 @@
         "maxUses": 1
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "outroSkill.1",
         "applyTo": "team",
@@ -324,14 +328,14 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "mv": 2
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.4",
         "useOnSkillType": "basicAttack",
@@ -424,7 +428,7 @@
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "chance": 0.5,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
@@ -432,7 +436,7 @@
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
         "applyTo": "team",
@@ -509,7 +513,7 @@
         "maxDuration": 6000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "hit",
         "applyOnSkillType": "basicAttack",
         "statMap": {
@@ -519,7 +523,7 @@
         "maxStacks": 4
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": [
           "forteCircuit.1",
           "forteCircuit.2"
@@ -529,7 +533,7 @@
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
         "applyTo": "team",
@@ -539,13 +543,13 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "statMap": {
           "resonanceSkillDmgBonus%": 0.35
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "hit",
         "applyOnTagged": "Cosmos",
         "statMap": {
@@ -669,14 +673,14 @@
         "maxDuration": 14000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "resonanceLiberation.2",
         "statMap": {
           "critDmg%": 0.3
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceSkill.1",
@@ -688,7 +692,7 @@
         "maxUses": 1
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "applyTo": "team",
@@ -747,7 +751,7 @@
         "maxDuration": 15000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": [
           "introSkill.1",
@@ -759,14 +763,14 @@
         "maxDuration": 15000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnTagged": "Deathblade Gear",
         "statMap": {
           "electroDmgBonus%": 0.25
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "outroSkill.1",
         "applyTo": "team",
@@ -776,7 +780,7 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": [
           "introSkill.1",
           "resonanceLiberation.2"
@@ -786,7 +790,7 @@
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
         "followUpWhen": "hit",
@@ -902,7 +906,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "useOnAction": [
           "resonanceSkill.1",
           "resonanceSkill.2"
@@ -912,14 +916,14 @@
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "forteCircuit.2",
         "statMap": {
           "mv%": 0.55
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "hit",
         "applyOnAction": "forteCircuit.2",
         "applyTo": "team",
@@ -929,14 +933,14 @@
         "maxDuration": 12000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "dmgBonus%": 1
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnSkillType": "basicAttack",
@@ -1024,21 +1028,21 @@
         "maxUses": 1
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "useOnTagged": "Lightning Infused",
         "statMap": {
           "attackSpd%": 0.2
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "applyOnAction": "resonanceSkill.2",
         "statMap": {
           "mv": 0.2
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "followUpWhen": "hit",
@@ -1052,7 +1056,7 @@
         "maxUses": 1
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "applyWhen": "hit",
         "applyOnAction": "resonanceSkill.1",
         "statMap": {
@@ -1061,7 +1065,7 @@
         "maxDuration": 12000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "hit",
         "applyOnAction": "resonanceSkill.1",
         "applyTo": "team",
@@ -1123,27 +1127,27 @@
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "statMap": {
           "resonanceSkillDmgBonus%": 0.4
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "useOnAction": "forteCircuit.2",
         "statMap": {
           "dmgBonus%": 0.95
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "dmgBonus%": 0.85
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
         "applyTo": "team",
@@ -1226,7 +1230,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.2",
         "statMap": {
@@ -1235,7 +1239,7 @@
         "maxDuration": 8000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnSkillType": [
@@ -1248,7 +1252,7 @@
         "maxDuration": 10000
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "useOnAction": [
           "resonanceSkill.1",
           "forteCircuit.1"
@@ -1258,7 +1262,7 @@
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
         "statMap": {
@@ -1267,7 +1271,7 @@
         "maxDuration": 6000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "statMap": {
@@ -1276,7 +1280,7 @@
         "maxDuration": 10000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnSkillType": "heavyAttack",
@@ -1368,7 +1372,7 @@
         "maxUses": 2
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
         "applyCooldown": 15000,
@@ -1378,7 +1382,7 @@
         "maxDuration": 15000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceSkill.1",
@@ -1393,7 +1397,7 @@
         "maxDuration": 8000
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceLiberation.1",
@@ -1406,14 +1410,14 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnDmgType": "outroSkill",
         "statMap": {
           "mv%": 1.2
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "applyWhen": "cast",
         "applyOnType": "damage",
         "statMap": {
@@ -1422,7 +1426,7 @@
         "maxDuration": 8000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnSkillType": "heavyAttack",
         "applyOnAction": [
@@ -1528,7 +1532,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
         "useOnAction": [
@@ -1541,7 +1545,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
         "followUpWhen": "hit",
@@ -1668,7 +1672,7 @@
         "maxDuration": 30000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "cast",
         "applyOnAction": "outroSkill.1",
         "intervalAction": {
@@ -1681,14 +1685,14 @@
         "maxDuration": 30000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "resonanceLiberation.4",
         "statMap": {
           "healingBonus%": 0.12
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.1",
@@ -1705,14 +1709,14 @@
         "maxDuration": 24000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "chance": 0.5,
         "statMap": {
           "healingBonus%": 0.2
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": [
           "forteCircuit.1",
           "forteCircuit.2",
@@ -1724,7 +1728,7 @@
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.1",
@@ -1807,7 +1811,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "useOnAction": [
           "forteCircuit.4",
           "forteCircuit.5",
@@ -1818,7 +1822,7 @@
         }
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "critRate%": 0.2,
@@ -1826,7 +1830,7 @@
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "normalAttack.6",
         "applyCooldown": 15000,
@@ -1841,7 +1845,7 @@
         "maxUses": 1
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "normalAttack.6",
         "applyCooldown": 15000,
@@ -1851,7 +1855,7 @@
         "maxDuration": 5000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": [
           "forteCircuit.1",
           "forteCircuit.2",
@@ -1862,7 +1866,7 @@
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.1",
         "statMap": {
@@ -1967,7 +1971,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "hit",
         "applyOnType": "damage",
         "statMap": {
@@ -1977,13 +1981,13 @@
         "maxStacks": 6
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "statMap": {
           "resonanceLiberationDmgBonus%": 0.3
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "useOnAction": [
           "forteCircuit.1",
           "forteCircuit.2",
@@ -1995,13 +1999,13 @@
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "statMap": {
           "havocDmgBonus%": 0.3
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.1",
@@ -2098,7 +2102,7 @@
         "maxDuration": 10000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "useOnAction": [
           "resonanceSkill.1",
           "resonanceSkill.2",
@@ -2110,7 +2114,7 @@
         }
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "hit",
         "applyOnAction": [
           "resonanceSkill.2",
@@ -2123,14 +2127,14 @@
         "maxDuration": 8000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "dmgBonus%": 0.8
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnSkillType": "introSkill",
         "applyTo": "team",
@@ -2140,7 +2144,7 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "forteCircuit.1",
         "statMap": {
           "mv%": 0.5,
@@ -2148,7 +2152,7 @@
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": [
           "resonanceSkill.1",
           "resonanceSkill.2",
@@ -2217,7 +2221,7 @@
         }
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.1",
@@ -2238,7 +2242,7 @@
         "maxStacks": 4
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
         "statMap": {
@@ -2248,7 +2252,7 @@
         "maxStacks": 2
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceLiberation.1",
@@ -2261,14 +2265,14 @@
         "maxDuration": 20000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "mv%": 1.2
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": [
           "forteCircuit.8",
           "forteCircuit.9",
@@ -2368,7 +2372,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.3",
         "statMap": {
@@ -2377,7 +2381,7 @@
         "maxDuration": 27000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceSkill.1",
@@ -2391,7 +2395,7 @@
         "maxStacks": 3
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.2",
         "applyTo": "team",
@@ -2401,14 +2405,14 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "mv%": 0.467
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": [
           "forteCircuit.2",
           "forteCircuit.3"
@@ -2485,14 +2489,14 @@
         "maxUses": 3
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "useOnAction": "forteCircuit.2",
         "statMap": {
           "mv%": 0.48
         }
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnSkillType": "resonanceSkill",
         "applyOnAction": "resonanceLiberation.1",
@@ -2502,7 +2506,7 @@
         "maxDuration": 8000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnAction": [
@@ -2518,7 +2522,7 @@
         "maxUses": 5
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "applyTo": "team",
@@ -2528,21 +2532,21 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnDmgType": "outroSkill",
         "statMap": {
           "mv%": 2.22
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "mv%": 1
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": "forteCircuit.2",
         "statMap": {
           "mv%": 0.76
@@ -2625,13 +2629,13 @@
         "maxDuration": 28000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "statMap": {
           "atk%": 0.2
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceSkill.3",
@@ -2690,9 +2694,8 @@
     "effects": [
       {
         "applyWhen": "cast",
-        "applyOnAction": "resonanceLiberation.2",
-        "applyTo": "onField",
-        "intervalAction": "resonanceLiberation.1",
+        "applyOnAction": "resonanceLiberation.1",
+        "intervalAction": "resonanceLiberation.2",
         "intervalCooldown": 3000,
         "maxDuration": 30000,
         "rankMods": {
@@ -2703,50 +2706,7 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "resonanceLiberation.2",
-        "applyTo": "team",
-        "variableStatMap": {
-          "critRate%": {
-            "attr": "energyRegen%",
-            "step": 0.002,
-            "value": 0.0001,
-            "maxValue": 0.125
-          }
-        },
-        "maxDuration": 30000,
-        "rankMods": {
-          "1": {
-            "maxDuration": 10000
-          },
-          "2": {
-            "statMap": {
-              "atk%": 0.4
-            }
-          }
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "resonanceLiberation.2",
-        "applyTo": "first",
-        "variableStatMap": {
-          "critDmg%": {
-            "attr": "energyRegen%",
-            "step": 0.001,
-            "value": 0.0001,
-            "maxValue": 0.25
-          }
-        },
-        "maxDuration": 30000,
-        "rankMods": {
-          "1": {
-            "maxDuration": 10000
-          }
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "resonanceLiberation.2",
+        "applyOnAction": "resonanceLiberation.1",
         "statMap": {
           "energyRegen%": 0.1
         },
@@ -2758,17 +2718,57 @@
         }
       },
       {
-        "useOnAction": "introSkill.2",
+        "applyBy": "any",
+        "applyWhen": "cast",
+        "applyOnSkillType": "introSkill",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "removeWhen": "cast",
+        "removeIfEffectStacksMax": {
+          "$prev.1": 0
+        },
+        "maxStacks": 2
+      },
+      {
+        "applyTo": "team",
+        "useIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "variableStatMap": {
+          "critRate%": {
+            "attr": "energyRegen%",
+            "step": 0.002,
+            "value": 0.0001,
+            "maxValue": 0.125
+          }
+        }
+      },
+      {
+        "applyTo": "team",
+        "useIfEffectStacksMin": {
+          "$prev.2": 2
+        },
+        "variableStatMap": {
+          "critDmg%": {
+            "attr": "energyRegen%",
+            "step": 0.001,
+            "value": 0.0001,
+            "maxValue": 0.25
+          }
+        }
+      },
+      {
+        "enableIfRankMax": 0,
+        "applyWhen": "cast",
+        "applyOnAction": "introSkill.3",
+        "onApplyDoRemove": "$prev.4",
+        "stateless": true
+      },
+      {
+        "useOnAction": "introSkill.3",
         "statMap": {
           "critRate%": 1
-        },
-        "rankMods": {
-          "6": {
-            "statMap": {
-              "mv%": 0.42,
-              "critDmg%": 5
-            }
-          }
         }
       },
       {
@@ -2781,10 +2781,27 @@
         "maxDuration": 30000
       },
       {
-        "rank": 4,
-        "useOnAction": "resonanceSkill.2",
+        "enableIfRankMin": 2,
+        "useIfEffectStacksMin": {
+          "$prev.7": 1
+        },
+        "statMap": {
+          "atk%": 0.4
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnAction": "resonanceSkill.1",
         "statMap": {
           "healingBonus%": 0.7
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": "introSkill.3",
+        "statMap": {
+          "mv%": 0.42,
+          "critDmg%": 5
         }
       }
     ],
@@ -2799,7 +2816,7 @@
         "7": 5
       },
       "rotation": [
-        "introSkill.2",
+        "introSkill.3",
         "introSkill.4",
         "normalAttack.1",
         "normalAttack.2",
@@ -2807,9 +2824,12 @@
         "normalAttack.4",
         "forteCircuit.2",
         "forteCircuit.1",
-        "resonanceSkill.2",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
         "resonanceSkill.1",
-        "resonanceLiberation.2",
+        "resonanceSkill.2",
+        "resonanceLiberation.1",
         "outroSkill.1"
       ]
     }
@@ -2868,7 +2888,7 @@
         "maxDuration": 10000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "useOnAction": [
           "forteCircuit.6",
           "forteCircuit.7"
@@ -2878,27 +2898,27 @@
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "dmgBonus%": 0.3
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "statMap": {
           "basicAttackDmgBonus%": 0.3
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "forteCircuit.8",
         "statMap": {
           "mv%": 1
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "applyTo": "team",
@@ -3009,7 +3029,7 @@
         "maxUses": 1
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
         "applyCooldown": 25000,
@@ -3019,21 +3039,21 @@
         "maxDuration": 18000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "useOnAction": "forteCircuit.1",
         "statMap": {
           "mv%": 1.2
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "mv%": 0.5
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
         "statMap": {
@@ -3042,7 +3062,7 @@
         "maxDuration": 15000
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
         "applyTo": "team",
@@ -3052,21 +3072,21 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "introSkill.1",
         "statMap": {
           "mv%": 3.03
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnDmgType": "outroSkill",
         "statMap": {
           "mv%": 0.68
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
         "applyCooldown": 25000,
@@ -3158,21 +3178,21 @@
         }
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "useOnAction": "resonanceLiberation.3",
         "statMap": {
           "mv%": 1.26
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnDmgType": "outroSkill",
         "statMap": {
           "mv": 10.3218
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": [
           "resonanceSkill.1",
           "resonanceSkill.2"
@@ -3182,7 +3202,7 @@
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": [
           "normalAttack.6",
@@ -3196,14 +3216,14 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "forteCircuit.1",
         "statMap": {
           "mv%": 0.47
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": "resonanceLiberation.2",
         "statMap": {
           "mv": 1.866
@@ -3304,7 +3324,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": [
           "forteCircuit.1",
@@ -3318,7 +3338,7 @@
         "maxStacks": 3
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.3",
         "statMap": {
@@ -3327,7 +3347,7 @@
         "maxDuration": 30000
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
         "statMap": {
@@ -3337,7 +3357,7 @@
         "maxDuration": 15000
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.1",
         "useOnAction": [
@@ -3351,21 +3371,21 @@
         "maxDuration": 12000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "mv%": 0.2
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnSkillType": "heavyAttack",
         "statMap": {
           "mv%": 0.8
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnAction": [
@@ -3379,7 +3399,7 @@
         "maxDuration": 12000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "useOnAction": "forteCircuit.3",
@@ -3474,7 +3494,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "cast",
         "applyOnAction": [
           "introSkill.1",
@@ -3489,7 +3509,7 @@
         "maxStacks": 3
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "useOnSkillType": "mid-airAttack",
         "useOnAction": "forteCircuit.1",
         "statMap": {
@@ -3497,7 +3517,7 @@
         }
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnSkillType": "outroSkill",
         "applyTo": "next",
@@ -3514,21 +3534,21 @@
         "maxUses": 2
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "forteCircuit.1",
         "statMap": {
           "mv%": 0.42
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "useOnAction": "forteCircuit.3",
         "statMap": {
           "shieldBonus%": 0.2
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
         "followUpWhen": "hit",
@@ -3543,7 +3563,7 @@
         "maxUses": 1
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "applyWhen": "hit",
         "applyOnDmgType": "basicAttack",
         "statMap": {
@@ -3552,7 +3572,7 @@
         "maxDuration": 10000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnSkillType": "mid-airAttack",
         "useOnAction": "forteCircuit.1",
         "statMap": {
@@ -3683,14 +3703,14 @@
         }
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "useOnAction": "resonanceLiberation.2",
         "statMap": {
           "mv%": 0.9
         }
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "useOnAction": "resonanceLiberation.2",
         "followUpWhen": "hit",
         "followUpAction": {
@@ -3700,7 +3720,7 @@
         }
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
         "useOnDmgType": "outroSkill",
@@ -3712,21 +3732,21 @@
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "forteCircuit.3",
         "statMap": {
           "mv%": 0.91
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "forteCircuit.4",
         "statMap": {
           "mv%": 2.49
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "hit",
         "applyOnSkillType": [
           "basicAttack",
@@ -3739,7 +3759,7 @@
         "maxDuration": 30000
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
         "statMap": {
@@ -3748,7 +3768,7 @@
         "maxDuration": 15000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.1",
         "statMap": {
@@ -3757,7 +3777,7 @@
         "maxDuration": 20000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.1",
         "useOnAction": "resonanceSkill.1",
@@ -3765,7 +3785,7 @@
         "followUpAction": "forteCircuit.3"
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "forteCircuit.2",
         "useOnAction": "resonanceSkill.1",
@@ -3863,7 +3883,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "useOnAction": [
           "resonanceSkill.1",
           "resonanceSkill.2",
@@ -3874,28 +3894,28 @@
         }
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "hit",
         "applyOnAction": "resonanceLiberation.1",
         "intervalAction": "resonanceSkill.3",
         "maxUses": 1
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "useOnAction": "resonanceSkill.3",
         "statMap": {
           "mv%": 2.45
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "mv%": 3.7
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": [
           "forteCircuit.1",
           "forteCircuit.2",
@@ -3906,7 +3926,7 @@
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "statMap": {
@@ -3998,7 +4018,7 @@
         "maxDuration": 30000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "cast",
         "applyOnSkillType": "basicAttack",
         "statMap": {
@@ -4007,7 +4027,7 @@
         "maxDuration": 10000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "applyTo": "team",
@@ -4017,20 +4037,20 @@
         "maxDuration": 30000
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "useOnDmgType": "resonanceLiberation",
         "statMap": {
           "defIgnore%": 0.45
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "statMap": {
           "resonanceLiberationDmgBonus%": 0.4
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "applyWhen": "hit",
         "applyOnAction": "normalAttack.4",
         "intervalAction": {
@@ -4145,13 +4165,13 @@
         "maxDuration": 20000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "statMap": {
           "critRate%": 0.2
         }
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "useOnAction": [
           "resonanceSkill.3",
           "resonanceSkill.4"
@@ -4161,14 +4181,14 @@
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "resonanceLiberation.2",
         "statMap": {
           "mv%": 12
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
         "applyTo": "team",
@@ -4178,14 +4198,14 @@
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "useOnAction": "resonanceLiberation.1",
         "statMap": {
           "mv%": 1.2
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": "forteCircuit.3",
         "statMap": {
           "mv": 16
@@ -4289,7 +4309,7 @@
         }
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "cast",
         "applyOnAction": "resonanceLiberation.1",
         "statMap": {
@@ -4298,7 +4318,7 @@
         "maxDuration": 10000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": [
           "resonanceLiberation.1",
@@ -4314,21 +4334,21 @@
         "maxStacks": 2
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": "introSkill.2",
         "statMap": {
           "mv%": 1
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "useOnAction": "forteCircuit.2",
         "statMap": {
           "mv%": 1.25
         }
       },
       {
-        "rank": 5,
+        "enableIfRankMin": 5,
         "applyWhen": "cast",
         "applyOnAction": [
           "introSkill.1",
@@ -4340,7 +4360,7 @@
         "maxDuration": 10000
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": [
           "forteCircuit.2",
           "resonanceLiberation.1",
@@ -4429,7 +4449,7 @@
         "maxDuration": 20000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "useOnAction": [
           "normalAttack.1",
           "normalAttack.2",
@@ -4444,7 +4464,7 @@
         }
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "useOnAction": [
           "normalAttack.7",
           "normalAttack.8",
@@ -4456,14 +4476,14 @@
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyTo": "team",
         "statMap": {
           "dmgBonus%": 0.2
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useOnAction": [
           "resonanceLiberation.1",
           "introSkill.2",
@@ -4525,7 +4545,7 @@
     "quality": 5,
     "element": "havoc",
     "type": "rectifier",
-    "tagged": "noEnergy",
+    "noEnergy": true,
     "baseStats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -5207,7 +5227,7 @@
     },
     "effects": [
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "statMap": {
           "mid-airAttackDmgBonus%": 1.5
         }
@@ -5261,7 +5281,7 @@
     },
     "effects": [
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "statMap": {
           "dmgBonus%": 0.3
         }
@@ -5412,7 +5432,7 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
-    "tagged": "noEnergy",
+    "noEnergy": true,
     "baseStats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -5683,7 +5703,7 @@
         "maxDuration": 25000
       },
       {
-        "rank": 1,
+        "enableIfRankMin": 1,
         "applyWhen": "cast",
         "applyOnAction": "introSkill.1",
         "statMap": {
@@ -5692,7 +5712,7 @@
         "maxDuration": 14000
       },
       {
-        "rank": 2,
+        "enableIfRankMin": 2,
         "applyWhen": "cast",
         "applyOnAction": "resonanceSkill.2",
         "intervalAction": [
@@ -5708,7 +5728,7 @@
         "maxUses": 1
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": [
           "resonanceLiberation.1",
           "resonanceLiberation.5"
@@ -5719,7 +5739,7 @@
         }
       },
       {
-        "rank": 3,
+        "enableIfRankMin": 3,
         "useOnAction": [
           "resonanceLiberation.4",
           "forteCircuit.1"
@@ -5729,14 +5749,14 @@
         }
       },
       {
-        "rank": 4,
+        "enableIfRankMin": 4,
         "applyTo": "team",
         "statMap": {
           "dmgBonus%": 0.2
         }
       },
       {
-        "rank": 6,
+        "enableIfRankMin": 6,
         "useIfShifting": "hack",
         "useIfInterfered": "hack",
         "statMap": {

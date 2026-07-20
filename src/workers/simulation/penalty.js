@@ -19,7 +19,7 @@ const penaltyMult = (current, target) => {
 
 export const createGetPenalty = (cache, currId) => {
   const { gameId, member } = cache;
-  const { tagged, matchAttr } = CHARACTER[gameId][currId];
+  const { noEnergy, matchAttr } = CHARACTER[gameId][currId];
   const { statMap } = member[currId];
   const matchMap = {};
 
@@ -27,7 +27,7 @@ export const createGetPenalty = (cache, currId) => {
     matchMap[attr] = getAttr(attr, statMap);
   }
 
-  if (!toArray(tagged).includes('noEnergy')) {
+  if (!noEnergy) {
     const energyAttr = ENERGY_ATTR[gameId];
     matchMap[energyAttr] = getAttr(energyAttr, statMap);
   }
