@@ -16,9 +16,11 @@ function decayUsedBuffs(ctx, usedBuffStates) {
       effectState.cooldown = effect.useCooldown;
     }
 
-    effectState.usesLeft--;
-    if (!effectState.usesLeft) {
-      delete stateMap[effect.key];
+    if (effectState.usesLeft) {
+      effectState.usesLeft--;
+      if (!effectState.usesLeft) {
+        delete stateMap[effect.key];
+      }
     }
   }
 }
@@ -45,37 +47,38 @@ function runFollowUpActions(ctx, action, when, depth) {
       effectState.cooldown = effect.useCooldown;
     }
 
-    effectState.usesLeft--;
-    if (effectState.usesLeft <= 0) {
-      delete stateMap[effect.key];
+    if (effectState.usesLeft) {
+      effectState.usesLeft--;
+      if (effectState.usesLeft <= 0) {
+        delete stateMap[effect.key];
+      }
     }
   }
 }
 
 function runIntervalActions(ctx, elapsed, depth) {
-  const { memberEffects } = ctx.state;
-
-  for (const stateMap of Object.values(memberEffects)) {
+  for (const stateMap of Object.values(ctx.state.memberEffects)) {
     for (const [key, effectState] of Object.entries(stateMap)) {
       const { effect } = effectState;
-      const { times = 1 } = effect;
-
       if (!effect.intervalAction) continue;
+      const { times = 1 } = effect;
 
       effectState.intervalTimer -= elapsed;
       while (effectState.intervalTimer <= 0) {
-        for (const action of effect.intervalAction) {
-          for (let i = 0; i < times; i++) {
+        for (let i = 0; i < times; i++) {
+          for (const action of effect.intervalAction) {
             runAction(ctx, action, depth + 1);
           }
         }
 
         effectState.intervalTimer += effect.intervalCooldown;
 
-        effectState.usesLeft--;
-        if (!effectState.usesLeft) {
-          delete stateMap[key];
-          break;
+        if (effectState.usesLeft) {
+          effectState.usesLeft--;
+          if (!effectState.usesLeft) {
+            delete stateMap[key];
+            break;
+          }
         }
       }
     }

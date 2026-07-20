@@ -20,8 +20,10 @@ export function applyEffect(ctx, effect, action = {}) {
     stateMap[effect.key] = {
       effect,
       stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
-      timeLeft: effect.maxDuration ?? Infinity,
-      usesLeft: effect.maxUses ?? Infinity,
+      ...('maxDuration' in effect &&
+        { timeLeft: effect.maxDuration }),
+      ...('maxUses' in effect &&
+        { usesLeft: effect.maxUses }),
       ...('maxExtensions' in effect &&
         { extensionsLeft: effect.maxExtensions }),
       ...('intervalCooldown' in effect &&
@@ -167,10 +169,12 @@ export function advanceEffects(ctx, elapsed) {
         }
       }
 
-      effectState.timeLeft -= elapsed;
-      if (effectState.timeLeft <= 0) {
-        delete stateMap[effectKey];
-        continue;
+      if (effectState.timeLeft) {
+        effectState.timeLeft -= elapsed;
+        if (effectState.timeLeft <= 0) {
+          delete stateMap[effectKey];
+          continue;
+        }
       }
     }
   }
@@ -182,7 +186,6 @@ function onApplyDoRemove(ctx, rawDoRemove) {
 
   for (const effectKey of doRemove) {
     const effect = ctx.cache.effects[effectKey];
-    console.log(effectKey);
 
     for (const target of effect.applyTo) {
       if (target === 'enemy') {

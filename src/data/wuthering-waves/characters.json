@@ -2769,14 +2769,6 @@
         "useOnAction": "introSkill.3",
         "statMap": {
           "critRate%": 1
-        },
-        "rankMods": {
-          "6": {
-            "statMap": {
-              "mv%": 0.42,
-              "critDmg%": 5
-            }
-          }
         }
       },
       {
@@ -2789,10 +2781,27 @@
         "maxDuration": 30000
       },
       {
+        "enableIfRankMin": 2,
+        "useIfEffectStacksMin": {
+          "$prev.7": 1
+        },
+        "statMap": {
+          "atk%": 0.4
+        }
+      },
+      {
         "enableIfRankMin": 4,
         "useOnAction": "resonanceSkill.1",
         "statMap": {
           "healingBonus%": 0.7
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": "introSkill.3",
+        "statMap": {
+          "mv%": 0.42,
+          "critDmg%": 5
         }
       }
     ],
@@ -4536,7 +4545,7 @@
     "quality": 5,
     "element": "havoc",
     "type": "rectifier",
-    "tagged": "noEnergy",
+    "noEnergy": true,
     "baseStats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -5423,7 +5432,7 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
-    "tagged": "noEnergy",
+    "noEnergy": true,
     "baseStats": {
       "baseHp": 12237,
       "baseAtk": 375,

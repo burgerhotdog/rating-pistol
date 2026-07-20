@@ -81,7 +81,6 @@ function resolvePrev(effect) {
   if (effect.onApplyDoApply) {
     effect.onApplyDoApply = toResolvedMap(effect.onApplyDoApply);
   }
-
   if (effect.onApplyDoRemove) {
     effect.onApplyDoRemove = toResolvedKey(effect.onApplyDoRemove);
   }
@@ -174,22 +173,16 @@ export const normalizeEffects = (member, spec) => {
     {
       type: 'character',
       id: memberId,
-      rank: memberRank,
-      data: CHARACTER[gameId][memberId],
       rawEffects: CHARACTER[gameId][memberId].effects,
     },
     {
       type: 'weapon',
       id: weaponId,
-      rank: weaponRank,
-      data: WEAPON[gameId][weaponId],
       rawEffects: WEAPON[gameId][weaponId].effects,
     },
     ...Object.entries(setCounts).map(([setId, count]) => ({
       type: 'set',
       id: setId,
-      rank: count,
-      data: SET[gameId][setId],
       rawEffects: Object.entries(SET[gameId][setId].bonusEffects)
         .filter(([tier]) => Number(tier) <= count)
         .flatMap(([, effects]) => effects),
@@ -198,9 +191,14 @@ export const normalizeEffects = (member, spec) => {
 
   const effectLookup = {};
 
-  for (const { type, id, rank, data, rawEffects } of toNormalize) {
+  for (const { type, id, rawEffects } of toNormalize) {
     for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabled(rawEffect, { type, data, rank })) continue;
+      if (!isEnabled(rawEffect, {
+        gameId,
+        type,
+        rank: memberRank,
+        character: CHARACTER[gameId][memberId],
+      })) continue;
 
       const effect = toNormalizedEffect(rawEffect, {
         gameId,

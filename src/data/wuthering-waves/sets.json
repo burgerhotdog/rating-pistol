@@ -490,7 +490,7 @@
     "bonusEffects": {
       "3": [
         {
-          "enableIfTagged": "noEnergy",
+          "enableIfNoEnergy": true,
           "statMap": {
             "critRate%": 0.2,
             "echoSkillDmgBonus%": 0.35

@@ -24,8 +24,14 @@ const ifRankMax = (maxRank, rank) => {
   return rank <= maxRank;
 };
 
+const ifNoEnergy = (effect, character) => {
+  if ('ifNoEnergy' in effect) {
+    return character.noEnergy;
+  }
+};
+
 export const isEnabled = (effect, spec) => {
-  const { type, data, rank } = spec;
+  const { gameId, type, rank, character } = spec;
 
   const hasEnableIf = Object.keys(effect)
     .some((field) => field.startsWith('enableIf'));
@@ -34,15 +40,20 @@ export const isEnabled = (effect, spec) => {
   switch (type) {
     case 'character':
       return (
-        ifElement(effect.enableIfElement, data) ||
-        ifWeaponType(effect.enableIfWeaponType, data) ||
-        ifTagged(effect.enableIfTagged, data) ||
+        ifElement(effect.enableIfElement, character) ||
+        ifWeaponType(effect.enableIfWeaponType, character) ||
+        ifTagged(effect.enableIfTagged, character) ||
         ifRankMin(effect.enableIfRankMin, rank) || 
-        ifRankMax(effect.enableIfRankMax, rank)
+        ifRankMax(effect.enableIfRankMax, rank) ||
+        ifNoEnergy(effect, character)
       );
     case 'weapon':
       return true;
     case 'set':
-      return ifTagged(effect.enableIfTagged, data);
+      return (
+        ifWeaponType(effect.enableIfWeaponType, character) ||
+        ifTagged(effect.enableIfTagged, character) ||
+        ifNoEnergy(effect, character)
+      );
   }
 };
