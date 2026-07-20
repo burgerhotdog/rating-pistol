@@ -823,7 +823,7 @@
           "applyIfEffectStacksMin": {
             "$prev.1": 1
           },
-          "onApplyDoRemoveEffect": "$prev.1",
+          "onApplyDoRemove": "$prev.1",
           "statMap": {
             "critRate%": 0.25
           },
@@ -840,7 +840,7 @@
           "applyIfEffectStacksMin": {
             "$prev.2": 1
           },
-          "onApplyDoRemoveEffect": "$prev.2",
+          "onApplyDoRemove": "$prev.2",
           "applyTo": "next",
           "statMap": {
             "glacioDmgBonus%": 0.25

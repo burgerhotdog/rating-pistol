@@ -1,3 +1,4 @@
+import { toArray } from '@/utils';
 import { matchApplyFilter, matchRemoveFilter, matchExtendFilter } from '../filter';
 
 const getAllStateMaps = (ctx) => {
@@ -55,24 +56,20 @@ export function applyEffect(ctx, effect, action = {}) {
 
 }
 
-function applyEffects(ctx, action, when) {
-  const toApply = [
-    ...ctx.cache.effects.global,
-    ...ctx.cache.effects.member[action.ownerId],
-  ];
-
-  for (const effect of toApply) {
+function applyEffectsWhen(ctx, action, when) {
+  for (const effect of Object.values(ctx.cache.effects)) {
     if (
+      !(effect.applyBy === 'any' || effect.ownerId === action.ownerId) ||
       effect.applyWhen !== when ||
       ctx.state.cooldowns[effect.key] ||
       !matchApplyFilter({ effect, action, ctx })
     ) continue;
 
-    if (effect.onApplyDoRemoveEffect) {
-      onApplyDoRemoveEffect(ctx, effect.onApplyDoRemoveEffect);
+    if (effect.onApplyDoRemove) {
+      onApplyDoRemove(ctx, effect.onApplyDoRemove);
     }
-    if (effect.onApplyDoApplyEffect) {
-      onApplyDoApplyEffect(ctx, effect.onApplyDoApplyEffect);
+    if (effect.onApplyDoApply) {
+      onApplyDoApply(ctx, effect.onApplyDoApply);
     }
 
     if (effect.stateless) continue;
@@ -80,10 +77,10 @@ function applyEffects(ctx, action, when) {
   }
 }
 
-function extendEffects(ctx, action, when) {
+function extendEffectsWhen(ctx, action, when) {
   for (const stateMap of getAllStateMaps(ctx)) {
     for (const [effectKey, effectState] of Object.entries(stateMap)) {
-      const effect = ctx.cache.effects.lookup[effectKey];
+      const effect = ctx.cache.effects[effectKey];
       if (
         effect.extendWhen !== when ||
         effect.ownerId !== action.ownerId ||
@@ -100,7 +97,7 @@ function extendEffects(ctx, action, when) {
 }
 
 function removeEffect(ctx, stateMap, effectKey) {
-  const effect = ctx.cache.effects.lookup[effectKey];
+  const effect = ctx.cache.effects[effectKey];
   const effectState = stateMap[effectKey];
 
   if (!effect.removeOffset) {
@@ -111,10 +108,10 @@ function removeEffect(ctx, stateMap, effectKey) {
   effectState.removeTimer ??= effect.removeOffset;
 }
 
-function removeEffects(ctx, action, when) {
+function removeEffectsWhen(ctx, action, when) {
   for (const stateMap of getAllStateMaps(ctx)) {
     for (const effectKey in stateMap) {
-      const effect = ctx.cache.effects.lookup[effectKey];
+      const effect = ctx.cache.effects[effectKey];
       if (
         effect.removeWhen !== when ||
         effect.ownerId !== action.ownerId ||
@@ -127,9 +124,9 @@ function removeEffects(ctx, action, when) {
 }
 
 export function runEffectPhase(ctx, action, phase) {
-  removeEffects(ctx, action, phase);
-  extendEffects(ctx, action, phase);
-  applyEffects(ctx, action, phase);
+  removeEffectsWhen(ctx, action, phase);
+  extendEffectsWhen(ctx, action, phase);
+  applyEffectsWhen(ctx, action, phase);
 }
 
 export function advanceEffects(ctx, elapsed) {
@@ -179,24 +176,29 @@ export function advanceEffects(ctx, elapsed) {
   }
 }
 
-function onApplyDoRemoveEffect(ctx, effectKey) {
+function onApplyDoRemove(ctx, rawDoRemove) {
   const { memberEffects, fieldEffects, debuffs } = ctx.state;
-  const effect = ctx.cache.effects.lookup[effectKey];
+  const doRemove = toArray(rawDoRemove);
 
-  for (const target of effect.applyTo) {
-    if (target === 'enemy') {
-      removeEffect(ctx, debuffs, effectKey);
-    } else if (target === 'onField' || target === 'offField') {
-      removeEffect(ctx, fieldEffects[target], effectKey);
-    } else {
-      removeEffect(ctx, memberEffects[target], effectKey);
+  for (const effectKey of doRemove) {
+    const effect = ctx.cache.effects[effectKey];
+    console.log(effectKey);
+
+    for (const target of effect.applyTo) {
+      if (target === 'enemy') {
+        removeEffect(ctx, debuffs, effectKey);
+      } else if (target === 'onField' || target === 'offField') {
+        removeEffect(ctx, fieldEffects[target], effectKey);
+      } else {
+        removeEffect(ctx, memberEffects[target], effectKey);
+      }
     }
   }
 }
 
-function onApplyDoApplyEffect(ctx, effectsToApply) {
+function onApplyDoApply(ctx, effectsToApply) {
   for (const [effectKey, stacks] of Object.entries(effectsToApply)) {
-    const effect = ctx.cache.effects.lookup[effectKey];
+    const effect = ctx.cache.effects[effectKey];
     for (let i = 0; i < stacks; i++) {
       applyEffect(ctx, effect);
     }

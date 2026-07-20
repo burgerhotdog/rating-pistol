@@ -68,13 +68,7 @@ export const compileCache = (gameId, team) => {
     memberIds,
     member: {},
     fullRotationTime: 0,
-    effects: {
-      lookup: {},
-      member: {},
-      passive: [],
-      global: [],
-      tuneBreak: [],
-    },
+    effects: {},
   };
 
   for (const member of team) {
@@ -98,18 +92,8 @@ export const compileCache = (gameId, team) => {
 
     cache.fullRotationTime += rotationTime;
 
-    const {
-      effectLookup,
-      memberEffects,
-      passiveEffects,
-      globalEffects,
-      tuneBreakEffects,
-    } = normalizeEffects(member, { gameId, memberIds, teamActions });
-    Object.assign(cache.effects.lookup, effectLookup);
-    cache.effects.member[memberId] = memberEffects;
-    cache.effects.passive.push(...passiveEffects);
-    cache.effects.global.push(...globalEffects);
-    cache.effects.tuneBreak.push(...tuneBreakEffects);
+    const effectLookup = normalizeEffects(member, { gameId, memberIds, teamActions });
+    Object.assign(cache.effects, effectLookup);
 
     cache.member[memberId] = {
       ...member,

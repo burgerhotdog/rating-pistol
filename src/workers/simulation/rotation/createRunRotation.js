@@ -188,7 +188,8 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   };
 
   // Init passives into effect states
-  for (const effect of cache.effects.passive) {
+  for (const effect of Object.values(cache.effects)) {
+    if (effect.applyWhen) continue;
     applyEffect(ctx, effect);
   }
 
