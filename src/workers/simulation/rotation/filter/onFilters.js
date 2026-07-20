@@ -1,12 +1,11 @@
 import { toArray } from '@/utils';
 
-// Filter based on what action is
 const onAction = (rawFilter, { action }) => {
   const filter = toArray(rawFilter);
   const isMatch = (key) =>
     key.includes(':')
       ? key === action.key
-      : key === action.short;
+      : key === action.ref;
   return filter.some((key) => isMatch(key));
 };
 

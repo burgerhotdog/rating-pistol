@@ -142,7 +142,7 @@ const toNormalizedEffect = (rawEffect, spec) => {
 
       effect[actionType] = [];
       for (const [index, rawlinkedAction] of effectActions.entries()) {
-        if (typeof rawlinkedAction === 'string') { // shortKey referencing actions.json
+        if (typeof rawlinkedAction === 'string') { // ref
           effect[actionType].push(memberActions[rawlinkedAction]);
         } else { // inline action object
           effect[actionType].push(toNormalizedAction(rawlinkedAction, {

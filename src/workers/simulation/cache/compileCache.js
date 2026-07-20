@@ -11,9 +11,9 @@ const getConvertedRotation = (rawRotation, spec) => {
   const rotation = [];
   let rotationTime = 0;
 
-  // Convert shortKeys to actions
-  for (const shortKey of rawRotation) {
-    const action = memberActions[shortKey];
+  // Convert refs to actions
+  for (const ref of rawRotation) {
+    const action = memberActions[ref];
 
     if (teamSize === 1) {
       const { skillType } = action;

@@ -772,8 +772,6 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
   );
 }
 
-// ─── Rotation drag-and-drop helpers ────────────────────────────────────────
-
 function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
@@ -782,8 +780,8 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
     transition,
   };
 
-  const [category, actionId] = actionKey.split('.');
-  const index = Number(actionId) - 1;
+  const [category, actionIndex] = actionKey.split('.');
+  const index = Number(actionIndex);
   const { name, tagged, skillType } = ACTION[gameId][characterId][category].actions[index];
 
   return (

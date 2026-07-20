@@ -68,7 +68,7 @@ export const toNormalizedAction = (rawAction, spec) => {
     ...rawAction,
     ownerId,
     key: `${ownerId}:${category}.${actionId}`,
-    short: `${category}.${actionId}`,
+    ref: `${category}.${actionId}`,
     id: actionId,
   };
 
