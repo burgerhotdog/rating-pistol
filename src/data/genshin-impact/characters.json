@@ -448,23 +448,23 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnAction": "elementalSkill.1",
+        "applyOnAction": "elementalSkill.0",
         "applyTo": "onField",
         "useCooldown": 2000,
         "followUpWhen": "hit",
-        "followUpAction": "elementalSkill.2",
+        "followUpAction": "elementalSkill.1",
         "maxDuration": 30000
       },
       {
         "chance": 0.5,
-        "useOnAction": "elementalSkill.2",
+        "useOnAction": "elementalSkill.1",
         "statMap": {
           "dmgBonus%": 0.25
         }
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "elementalBurst.1",
+        "applyOnAction": "elementalBurst.2",
         "applyTo": "team",
         "statMap": {
           "elementalMastery": 125
@@ -478,7 +478,7 @@
         "15021": 5
       },
       "rotation": [
-        "elementalSkill.1"
+        "elementalSkill.0"
       ]
     }
   },

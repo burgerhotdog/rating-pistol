@@ -5,28 +5,27 @@ import { resolveRankedValue } from './resolveRanked';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
-    normalAttack: 1000,
-    chargedAttack: 1000,
-    plungeAttack: 1000,
-    elementalSkill: 1000,
-    elementalBurst: 2000,
+    'normalAttack': 1000,
+    'chargedAttack': 1000,
+    'plungeAttack': 1000,
+    'elementalSkill': 1000,
+    'elementalBurst': 2000,
   },
   [WW]: {
-    basicAttack: 500,
-    heavyAttack: 1500,
+    'basicAttack': 500,
+    'heavyAttack': 1500,
     'mid-airAttack': 1000,
-    dodgeCounter: 1500,
-    resonanceSkill: 1000,
-    introSkill: 1000,
+    'dodgeCounter': 1500,
+    'resonanceSkill': 1000,
+    'introSkill': 1000,
   },
   [ZZZ]: {
-    basicAttack: 1000,
-    dodgeCounter: 1000,
-    dashAttack: 1000,
-    assistAttack: 1000,
-    specialAttack: 1000,
-    chainAttack: 1000,
-    ultimate: 1000,
+    'basicAttack': 1000,
+    'dodgeCounter': 1000,
+    'dashAttack': 1000,
+    'assistAttack': 1000,
+    'specialAttack': 1000,
+    'chainAttack': 2000,
   },
 };
 
@@ -161,12 +160,11 @@ export const getMemberActions = (member, { gameId, teamSize }) => {
     const mvIndex = getIndex(category);
 
     for (const [index, rawAction] of actions.entries()) {
-      const actionId = String(index + 1);
-      memberActions[`${category}.${actionId}`] = toNormalizedAction(rawAction, {
+      memberActions[`${category}.${index}`] = toNormalizedAction(rawAction, {
         gameId,
         ownerId: memberId,
         category,
-        actionId,
+        actionId: index,
         teamSize,
         index: mvIndex,
         charElement: char.element,

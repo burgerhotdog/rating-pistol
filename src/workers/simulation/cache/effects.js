@@ -149,7 +149,7 @@ const toNormalizedEffect = (rawEffect, spec) => {
             gameId,
             ownerId,
             category: `${sourceId}:effect${effectId}`,
-            actionId: String(index + 1),
+            actionId: index,
             teamSize: memberIds.length,
             weaponRank,
           }));
@@ -206,7 +206,7 @@ export const normalizeEffects = (member, spec) => {
         gameId,
         ownerId: memberId,
         sourceId: id,
-        effectId: String(index + 1),
+        effectId: index,
         memberRank,
         weaponRank,
         memberIds,
