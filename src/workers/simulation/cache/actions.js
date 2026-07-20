@@ -157,17 +157,18 @@ export const getMemberActions = (member, { gameId, teamSize }) => {
   const getIndex = createIndexGetter(gameId, memberId, member.rank);
 
   const memberActions = {};
-  for (const [category, skill] of Object.entries(ACTION[gameId][memberId])) {
-    const index = getIndex(category);
+  for (const [category, { actions }] of Object.entries(ACTION[gameId][memberId])) {
+    const mvIndex = getIndex(category);
 
-    for (const [actionId, rawAction] of Object.entries(skill)) {
+    for (const [index, rawAction] of actions.entries()) {
+      const actionId = String(index + 1);
       memberActions[`${category}.${actionId}`] = toNormalizedAction(rawAction, {
         gameId,
         ownerId: memberId,
         category,
         actionId,
         teamSize,
-        index,
+        index: mvIndex,
         charElement: char.element,
       });
     }

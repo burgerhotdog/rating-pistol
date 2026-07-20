@@ -553,11 +553,12 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
     const filtered = {};
 
     for (const category in skillMap) {
-      const skill = skillMap[category];
+      const { actions } = skillMap[category];
       const filteredSkill = [];
 
-      for (const actionId in skill) {
-        const action = { ...skill[actionId] };
+      for (const [index, rawAction] of actions.entries()) {
+        const actionId = String(index + 1);
+        const action = { ...rawAction };
         action.key = `${category}.${actionId}`;
 
         if (action.name.toLowerCase().includes(lower)) {
@@ -793,7 +794,8 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
   };
 
   const [category, actionId] = actionKey.split('.');
-  const { name, tagged, skillType } = ACTION[gameId][characterId][category][actionId];
+  const index = Number(actionId) - 1;
+  const { name, tagged, skillType } = ACTION[gameId][characterId][category].actions[index];
 
   return (
     <Box
