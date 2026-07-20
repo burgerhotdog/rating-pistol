@@ -30,14 +30,18 @@ const ifNoEnergy = (effect, character) => {
   }
 };
 
+const doesWeaponTypeMatchCharacterType = (weapon, character) => {
+  return weapon.type === character.type;
+};
+
 export const isEnabled = (effect, spec) => {
-  const { gameId, type, rank, character } = spec;
+  const { from, rank, character, weapon } = spec;
 
   const hasEnableIf = Object.keys(effect)
     .some((field) => field.startsWith('enableIf'));
   if (!hasEnableIf) return true;
 
-  switch (type) {
+  switch (from) {
     case 'character':
       return (
         ifElement(effect.enableIfElement, character) ||
@@ -48,7 +52,7 @@ export const isEnabled = (effect, spec) => {
         ifNoEnergy(effect, character)
       );
     case 'weapon':
-      return true;
+      return doesWeaponTypeMatchCharacterType(weapon, character);
     case 'set':
       return (
         ifWeaponType(effect.enableIfWeaponType, character) ||

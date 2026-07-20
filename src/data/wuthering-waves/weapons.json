@@ -1528,12 +1528,11 @@
         "maxStacks": 14
       },
       {
-        "applyWhen": "cast",
-        "applyOnSkillType": "resonanceSkill",
-        "onApplyDoApply": {
+        "useWhen": "cast",
+        "useOnSkillType": "resonanceSkill",
+        "onUseDoApply": {
           "$prev.1": 5
-        },
-        "stateless": true
+        }
       }
     ]
   },
@@ -2699,12 +2698,11 @@
         "maxStacks": 5
       },
       {
-        "applyWhen": "cast",
-        "applyOnSkillType": "introSkill",
-        "onApplyDoApply": {
+        "useWhen": "cast",
+        "useOnSkillType": "introSkill",
+        "onUseDoApply": {
           "$prev.1": 5
-        },
-        "stateless": true
+        }
       }
     ]
   },
@@ -2904,12 +2902,11 @@
         "maxStacks": 3
       },
       {
-        "applyWhen": "inflict",
-        "applyForInflictStatus": "any",
-        "onApplyDoApply": {
+        "useWhen": "inflict",
+        "useForInflictStatus": "any",
+        "onUseDoApply": {
           "$prev.1": 1
-        },
-        "stateless": true
+        }
       },
       {
         "applyBy": "any",

@@ -2760,10 +2760,9 @@
       },
       {
         "enableIfRankMax": 0,
-        "applyWhen": "cast",
-        "applyOnAction": "introSkill.3",
-        "onApplyDoRemove": "$prev.4",
-        "stateless": true
+        "useWhen": "cast",
+        "useOnAction": "introSkill.3",
+        "onUseDoRemove": "$prev.4"
       },
       {
         "useOnAction": "introSkill.3",

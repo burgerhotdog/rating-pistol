@@ -1,9 +1,8 @@
 import { toArray } from '@/utils';
-import { matchApplyFilter, matchRemoveFilter, matchExtendFilter } from '../filter';
+import { matchApplyFilter, matchUseFilter, matchRemoveFilter, matchExtendFilter } from '../filter';
 
 const getAllStateMaps = (ctx) => {
   const { memberEffects, fieldEffects, debuffs } = ctx.state;
-
   return [
     ...Object.values(memberEffects),
     ...Object.values(fieldEffects),
@@ -67,14 +66,7 @@ function applyEffectsWhen(ctx, action, when) {
       !matchApplyFilter({ effect, action, ctx })
     ) continue;
 
-    if (effect.onApplyDoRemove) {
-      onApplyDoRemove(ctx, effect.onApplyDoRemove);
-    }
-    if (effect.onApplyDoApply) {
-      onApplyDoApply(ctx, effect.onApplyDoApply);
-    }
-
-    if (effect.stateless) continue;
+    onApplyDo(ctx, effect);
     applyEffect(ctx, effect, action);
   }
 }
@@ -125,10 +117,26 @@ function removeEffectsWhen(ctx, action, when) {
   }
 }
 
+function whenUseEffects(ctx, action, when) {
+  for (const stateMap of getAllStateMaps(ctx)) {
+    for (const effectKey in stateMap) {
+      const effect = ctx.cache.effects[effectKey];
+      if (
+        effect.useWhen !== when ||
+        effect.ownerId !== action.ownerId ||
+        !matchUseFilter({ effect, action, ctx })
+      ) continue;
+
+      onUseDo(ctx, effect);
+    }
+  }
+}
+
 export function runEffectPhase(ctx, action, phase) {
   removeEffectsWhen(ctx, action, phase);
   extendEffectsWhen(ctx, action, phase);
   applyEffectsWhen(ctx, action, phase);
+  whenUseEffects(ctx, action, phase);
 }
 
 export function advanceEffects(ctx, elapsed) {
@@ -180,7 +188,25 @@ export function advanceEffects(ctx, elapsed) {
   }
 }
 
-function onApplyDoRemove(ctx, rawDoRemove) {
+function onApplyDo(ctx, effect) {
+  if (effect.onApplyDoRemove) {
+    doRemove(ctx, effect.onApplyDoRemove);
+  }
+  if (effect.onApplyDoApply) {
+    doApply(ctx, effect.onApplyDoApply);
+  }
+}
+
+function onUseDo(ctx, effect) {
+  if (effect.onUseDoRemove) {
+    doRemove(ctx, effect.onUseDoRemove);
+  }
+  if (effect.onUseDoApply) {
+    doApply(ctx, effect.onUseDoApply);
+  }
+}
+
+function doRemove(ctx, rawDoRemove) {
   const { memberEffects, fieldEffects, debuffs } = ctx.state;
   const doRemove = toArray(rawDoRemove);
 
@@ -199,7 +225,7 @@ function onApplyDoRemove(ctx, rawDoRemove) {
   }
 }
 
-function onApplyDoApply(ctx, effectsToApply) {
+function doApply(ctx, effectsToApply) {
   for (const [effectKey, stacks] of Object.entries(effectsToApply)) {
     const effect = ctx.cache.effects[effectKey];
     for (let i = 0; i < stacks; i++) {

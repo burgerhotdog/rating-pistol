@@ -78,11 +78,15 @@ function resolvePrev(effect) {
     }
   }
 
-  if (effect.onApplyDoApply) {
-    effect.onApplyDoApply = toResolvedMap(effect.onApplyDoApply);
-  }
-  if (effect.onApplyDoRemove) {
-    effect.onApplyDoRemove = toResolvedKey(effect.onApplyDoRemove);
+  for (const prefix of ['Apply', 'Use']) {
+    const doApply = `on${prefix}DoApply`;
+    if (doApply in effect) {
+      effect[doApply] = toResolvedMap(effect[doApply]);
+    }
+    const doRemove = `on${prefix}DoRemove`;
+    if (doRemove in effect) {
+      effect[doRemove] = toResolvedKey(effect[doRemove]);
+    }
   }
 }
 
@@ -168,20 +172,22 @@ const toNormalizedEffect = (rawEffect, spec) => {
 export const normalizeEffects = (member, spec) => {
   const { gameId, memberIds, teamActions } = spec;
   const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts } = member;
+  const character = CHARACTER[gameId][memberId];
+  const weapon = WEAPON[gameId][weaponId];
 
   const toNormalize = [
     {
-      type: 'character',
+      from: 'character',
       id: memberId,
       rawEffects: CHARACTER[gameId][memberId].effects,
     },
     {
-      type: 'weapon',
+      from: 'weapon',
       id: weaponId,
       rawEffects: WEAPON[gameId][weaponId].effects,
     },
     ...Object.entries(setCounts).map(([setId, count]) => ({
-      type: 'set',
+      from: 'set',
       id: setId,
       rawEffects: Object.entries(SET[gameId][setId].bonusEffects)
         .filter(([tier]) => Number(tier) <= count)
@@ -189,16 +195,12 @@ export const normalizeEffects = (member, spec) => {
     })),
  ];
 
-  const effectLookup = {};
+  const normalized = {};
 
-  for (const { type, id, rawEffects } of toNormalize) {
+  for (const { from, id, rawEffects } of toNormalize) {
+    const spec = { from, rank: memberRank, character, weapon };
     for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabled(rawEffect, {
-        gameId,
-        type,
-        rank: memberRank,
-        character: CHARACTER[gameId][memberId],
-      })) continue;
+      if (!isEnabled(rawEffect, spec)) continue;
 
       const effect = toNormalizedEffect(rawEffect, {
         gameId,
@@ -211,9 +213,9 @@ export const normalizeEffects = (member, spec) => {
         memberActions: teamActions[memberId],
       });
 
-      effectLookup[effect.key] = effect;
+      normalized[effect.key] = effect;
     }
   }
 
-  return effectLookup;
+  return normalized;
 };
