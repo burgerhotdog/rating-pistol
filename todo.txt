@@ -1,3 +1,2 @@
 switchable chars resonanace modes
-different sourceId for char,weap,set effects / prevent same name stackign
 merge fieldEffectStates with using ifField check
