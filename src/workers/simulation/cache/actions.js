@@ -1,6 +1,5 @@
 import { GI, WW, ZZZ } from '@/data';
 import { CHARACTER, ACTION } from '@/data';
-import { toArray } from '@/utils';
 import { resolveRankedValue } from './resolveRanked';
 
 const DEFAULT_DURATIONS = {
@@ -38,7 +37,7 @@ const getCompressed = (multipliers, attr, { index, weaponRank }) => {
         : scaling[index]; // indexed
 
   const compressed = { flat: 0, mvs: {}, hitCount: 0 };
-  for (const { flat, mv, times = 1 } of toArray(multipliers)) {
+  for (const { flat, mv, times = 1 } of multipliers) {
     if (flat) {
       compressed.flat += resolveScaling(flat) * times;
     }

@@ -50,7 +50,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "atk%": [
@@ -81,7 +81,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "statMap": {
           "resonanceLiberationDmgBonus%": [
@@ -113,7 +113,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "introSkill",
           "resonanceLiberation"
@@ -140,18 +140,20 @@
     },
     "effects": [
       {
+        "useWhen": "before",
         "useOnSkillType": "resonanceSkill",
         "useCooldown": 12000,
-        "followUpWhen": "cast",
-        "followUpAction": {
+        "useAction": {
           "type": "healing",
           "attr": "hp",
-          "multipliers": {
-            "mv": [
-              0.03,
-              0.06
-            ]
-          }
+          "multipliers": [
+            {
+              "mv": [
+                0.03,
+                0.06
+              ]
+            }
+          ]
         }
       }
     ]
@@ -209,7 +211,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "atk%": [
@@ -260,7 +262,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "applyCooldown": 12000,
         "removeWhen": "maxStacks",
@@ -355,7 +357,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "atk%": [
@@ -386,7 +388,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "statMap": {
           "atk%": [
@@ -410,18 +412,20 @@
     },
     "effects": [
       {
+        "useWhen": "before",
         "useOnSkillType": "resonanceLiberation",
         "useCooldown": 20000,
-        "followUpWhen": "cast",
-        "followUpAction": {
+        "useAction": {
           "type": "healing",
           "attr": "hp",
-          "multipliers": {
-            "mv": [
-              0.05,
-              0.1
-            ]
-          }
+          "multipliers": [
+            {
+              "mv": [
+                0.05,
+                0.1
+              ]
+            }
+          ]
         }
       }
     ]
@@ -458,18 +462,20 @@
         }
       },
       {
+        "useWhen": "hit",
         "useOnDmgType": "heavyAttack",
         "useCooldown": 8000,
-        "followUpWhen": "hit",
-        "followUpAction": {
+        "useAction": {
           "type": "healing",
           "attr": "hp",
-          "multipliers": {
-            "mv": [
-              0.05,
-              0.1
-            ]
-          }
+          "multipliers": [
+            {
+              "mv": [
+                0.05,
+                0.1
+              ]
+            }
+          ]
         }
       }
     ]
@@ -496,7 +502,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "atk%": [
@@ -539,7 +545,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "applyCooldown": 12000,
         "statMap": {
@@ -563,7 +569,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "applyCooldown": 1000,
         "statMap": {
@@ -631,7 +637,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "atk%": [
@@ -662,7 +668,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
         "applyTo": "next",
         "statMap": {
@@ -686,18 +692,20 @@
     },
     "effects": [
       {
+        "useWhen": "before",
         "useOnSkillType": "dodgeCounter",
         "useCooldown": 6000,
-        "followUpWhen": "cast",
-        "followUpAction": {
+        "useAction": {
           "type": "healing",
           "attr": "hp",
-          "multipliers": {
-            "mv": [
-              0.016,
-              0.032
-            ]
-          }
+          "multipliers": [
+            {
+              "mv": [
+                0.016,
+                0.032
+              ]
+            }
+          ]
         }
       }
     ]
@@ -755,7 +763,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "resonanceSkillDmgBonus%": [
@@ -886,7 +894,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "atk%": [
@@ -951,18 +959,20 @@
     },
     "effects": [
       {
+        "useWhen": "hit",
         "useOnDmgType": "basicAttack",
         "useCooldown": 3000,
-        "followUpWhen": "hit",
-        "followUpAction": {
+        "useAction": {
           "type": "healing",
           "attr": "hp",
-          "multipliers": {
-            "mv": [
-              0.005,
-              0.011
-            ]
-          }
+          "multipliers": [
+            {
+              "mv": [
+                0.005,
+                0.011
+              ]
+            }
+          ]
         }
       }
     ]
@@ -989,7 +999,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "dodgeCounter",
         "statMap": {
           "atk%": [
@@ -1000,7 +1010,7 @@
         "maxDuration": 8000
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "dodgeCounter",
         "useOnSkillType": "dodgeCounter",
         "statMap": {
@@ -1012,18 +1022,20 @@
         "maxDuration": 8000
       },
       {
+        "useWhen": "hit",
         "useOnSkillType": "dodgeCounter",
         "useCooldown": 6000,
-        "followUpWhen": "hit",
-        "followUpAction": {
+        "useAction": {
           "type": "healing",
           "attr": "hp",
-          "multipliers": {
-            "mv": [
-              0.05,
-              0.1
-            ]
-          }
+          "multipliers": [
+            {
+              "mv": [
+                0.05,
+                0.1
+              ]
+            }
+          ]
         }
       }
     ]
@@ -1050,7 +1062,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "resonanceLiberationDmgBonus%": [
@@ -1093,7 +1105,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceLiberation",
         "statMap": {
           "atk%": [
@@ -1119,7 +1131,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "statMap": {
           "resonanceLiberationDmgBonus%": [
@@ -1182,7 +1194,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "atk%": [
@@ -1279,18 +1291,20 @@
     },
     "effects": [
       {
+        "useWhen": "before",
         "useOnSkillType": "introSkill",
         "useCooldown": 20000,
-        "followUpWhen": "cast",
-        "followUpAction": {
+        "useAction": {
           "type": "healing",
           "attr": "hp",
-          "multipliers": {
-            "mv": [
-              0.05,
-              0.1
-            ]
-          }
+          "multipliers": [
+            {
+              "mv": [
+                0.05,
+                0.1
+              ]
+            }
+          ]
         }
       }
     ]
@@ -1317,7 +1331,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "statMap": {
           "atk%": [
@@ -1351,7 +1365,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "atk%": [
@@ -1430,7 +1444,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceLiberation",
         "statMap": {
           "atk%": [
@@ -1461,7 +1475,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "resonanceSkillDmgBonus%": [
@@ -1472,7 +1486,7 @@
         "maxDuration": 12000
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "statMap": {
           "resonanceSkillDmgBonus%": [
@@ -1528,7 +1542,7 @@
         "maxStacks": 14
       },
       {
-        "useWhen": "cast",
+        "useWhen": "before",
         "useOnSkillType": "resonanceSkill",
         "onUseDoApply": {
           "$prev.1": 5
@@ -1555,7 +1569,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceLiberation",
         "statMap": {
           "resonanceLiberationDmgBonus%": [
@@ -1564,7 +1578,7 @@
           ]
         },
         "maxDuration": 8000,
-        "extendWhen": "cast",
+        "extendWhen": "before",
         "extendOnSkillType": "resonanceSkill",
         "extendDuration": 5000,
         "maxExtensions": 3
@@ -1590,7 +1604,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "applyIfField": "onField",
         "statMap": {
@@ -1603,7 +1617,7 @@
         "maxStacks": 3
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": "3"
@@ -1631,7 +1645,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "applyCooldown": 20000,
         "statMap": {
@@ -1655,7 +1669,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "applyCooldown": 20000,
         "statMap": {
@@ -1679,7 +1693,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "applyCooldown": 20000,
         "statMap": {
@@ -1703,7 +1717,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "applyCooldown": 20000,
         "statMap": {
@@ -1735,7 +1749,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "applyTo": "team",
         "statMap": {
@@ -1759,7 +1773,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "applyCooldown": 20000,
         "statMap": {
@@ -1786,7 +1800,7 @@
         "applyWhen": "hit",
         "applyOnType": "damage",
         "applyCooldown": 1000,
-        "removeWhen": "cast",
+        "removeWhen": "before",
         "removeIfField": "offField",
         "statMap": {
           "atk%": [
@@ -1842,10 +1856,10 @@
         "maxStacks": 3
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnAction": "1603:forteCircuit.1",
         "applyCooldown": 1000,
-        "removeWhen": "cast",
+        "removeWhen": "before",
         "removeIfField": "offField",
         "statMap": {
           "basicAttackDmgBonus%": [
@@ -1928,7 +1942,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "introSkill",
           "resonanceLiberation"
@@ -1988,7 +2002,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "basicAttack",
           "introSkill"
@@ -2040,7 +2054,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceLiberation",
         "statMap": {
           "healingBonus%": [
@@ -2097,7 +2111,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceLiberation",
         "statMap": {
           "basicAttackDmgBonus%": [
@@ -2186,7 +2200,7 @@
         "maxStacks": 3
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
         "applyTo": "enemy",
         "statMap": {
@@ -2221,7 +2235,7 @@
         "maxDuration": 6000
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnAction": [
           "1406:forteCircuit.4",
           "1408:forteCircuit.4"
@@ -2256,7 +2270,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "introSkill",
           "basicAttack"
@@ -2264,12 +2278,12 @@
         "maxDuration": 10000
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "echoSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
-        "removeWhen": "cast",
+        "removeWhen": "before",
         "removeIfField": "offField",
         "maxDuration": 10000,
         "maxStacks": 2
@@ -2363,7 +2377,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "basicAttack",
         "statMap": {
           "defIgnore%": [
@@ -2398,7 +2412,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "introSkill",
           "resonanceLiberation"
@@ -2451,7 +2465,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "introSkill",
           "basicAttack"
@@ -2536,7 +2550,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "introSkill",
           "resonanceSkill"
@@ -2576,7 +2590,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceLiberation",
         "statMap": {
           "atk%": [
@@ -2603,7 +2617,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceLiberation",
         "statMap": {
           "atk%": [
@@ -2670,7 +2684,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "introSkill",
           "resonanceLiberation"
@@ -2698,7 +2712,7 @@
         "maxStacks": 5
       },
       {
-        "useWhen": "cast",
+        "useWhen": "before",
         "useOnSkillType": "introSkill",
         "onUseDoApply": {
           "$prev.1": 5
@@ -2717,7 +2731,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceLiberation",
         "statMap": {
           "atk%": [
@@ -2744,7 +2758,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "statMap": {
           "atk%": [
@@ -2779,7 +2793,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "introSkill",
           "basicAttack"
@@ -2787,12 +2801,12 @@
         "maxDuration": 10000
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "echoSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
-        "removeWhen": "cast",
+        "removeWhen": "before",
         "removeIfField": "offField",
         "statMap": {
           "heavyAttackDmgBonus%": [
@@ -2804,7 +2818,7 @@
         "maxStacks": 2
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "applyTo": "team",
         "statMap": {
@@ -2890,7 +2904,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "resonanceLiberationDmgBonus%": [
@@ -2909,7 +2923,7 @@
         }
       },
       {
-        "applyBy": "any",
+        "applyBy": "team",
         "applyWhen": "inflict",
         "applyForInflictStatus": "any",
         "applyIfEffectStacksMin": {
@@ -3272,7 +3286,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": [
           "introSkill",
           "echoSkill"
@@ -3286,7 +3300,7 @@
         "maxDuration": 15000
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnDmgType": "echoSkill",
         "useOnElement": "aero",
         "statMap": {
@@ -3341,7 +3355,7 @@
         "maxDuration": 6000
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyIfField": "onField",
         "applyCooldown": 100,
         "applyTo": "enemy",
@@ -3386,7 +3400,7 @@
         "maxDuration": 5000
       },
       {
-        "applyBy": "any",
+        "applyBy": "team",
         "applyWhen": "inflict",
         "applyForInflictStatus": "fusionBurst",
         "applyForInflictShifting": "tuneStrain",
@@ -3423,7 +3437,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
         "statMap": {
           "spectroDmgBonus%": [
@@ -3471,7 +3485,7 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "before",
         "applyOnSkillType": "introSkill",
         "statMap": {
           "basicAttackDmgBonus%": [

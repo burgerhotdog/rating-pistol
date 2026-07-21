@@ -1,5 +1,5 @@
 import { getEnemyMap } from '../getCurrent';
-import { getDmgAmpMult } from '../damageFormula/dmgAmp';
+import { getDmgAmpMult } from '../formula/dmgAmp';
 
 const LEVEL_MODIFIER = 3674;
 

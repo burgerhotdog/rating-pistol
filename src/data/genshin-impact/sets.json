@@ -28,7 +28,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": [
             "elementalSkill",
             "elementalBurst"
@@ -146,7 +146,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": "elementalBurst",
           "applyTo": "team",
           "statMap": {
@@ -220,7 +220,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": "elementalSkill",
           "statMap": {
             "normalAttackDmgBonus%": 0.3,
@@ -295,7 +295,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": "elementalSkill",
           "applyCooldown": 10000,
           "statMap": {
@@ -372,9 +372,11 @@
           "applyCooldown": 3500,
           "intervalAction": {
             "element": "physical",
-            "multipliers": {
-              "flat": 27000
-            }
+            "multipliers": [
+              {
+                "flat": 27000
+              }
+            ]
           },
           "intervalOffset": 3000,
           "maxUses": 1
@@ -395,9 +397,9 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": "elementalBurst",
-          "removeWhen": "cast",
+          "removeWhen": "before",
           "removeIfField": "offField",
           "statMap": {
             "atk%": 0.48
@@ -871,7 +873,7 @@
       "4": [
         {
           "enableIfTagged": "Hexerei",
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": "elementalSkill",
           "applyTo": "team",
           "statMap": {

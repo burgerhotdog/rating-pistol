@@ -1,40 +1,7 @@
 import { mergeObj, mergeObjs, getAttr } from '@/utils';
 import { resolveVariableStatMap, mergeStatMap } from '../utils';
-import { runDamageFormula, runTuneFormula } from './damageFormula';
-import { getEnemyMap, getUsedBuffStates, resolveBuffMap } from './getCurrent';
-
-export const buildTuneFootprint = (ctx, footprintType, memberId, action = {}) => {
-  const enemyMap = getEnemyMap(ctx);
-  const key = footprintType === 'tuneBreak'
-    ? 'other:tuneBreak'
-    : footprintType === 'tuneResponse'
-      ? `${memberId}:tuneResponse`
-      : action.key;
-
-  const ownerId = footprintType === 'tuneBreak'
-    ? 'other'
-    : memberId;
-
-  const dmgType = footprintType === 'tuneBreak'
-    ? 'tuneBreak'
-    : action.dmgType;
-
-  const buildMap = ctx.buildMaps[memberId];
-  const usedBuffStates = getUsedBuffStates(ctx, memberId);
-  const { fixedBuffMap } = resolveBuffMap(ctx, usedBuffStates);
-  const tuneStatMap = mergeObj(buildMap, fixedBuffMap);
-  const fixed = footprintType === 'tuneBreak'
-    ? runTuneFormula(ctx.helpers, enemyMap, tuneStatMap)
-    : runTuneFormula(ctx.helpers, enemyMap, tuneStatMap, action.compressed.mvs['tuneAmp'], action.element);
-
-  return {
-    key,
-    ownerId,
-    type: 'damage',
-    dmgType,
-    fixed,
-  };
-};
+import { getEnemyMap, getUsedBuffStates } from './getCurrent';
+import { runFormula } from './formula';
 
 const getTuneStrainBuff = (ctx, memberId, statMap) => {
   const { tune } = ctx.state;
@@ -45,12 +12,11 @@ const getTuneStrainBuff = (ctx, memberId, statMap) => {
   return { ['totalDmg%']: stacks * tuneBreakBoost * 0.0012 };
 };
 
-export const buildFootprint = (ctx, action, fixedBuffMap, variableBuffSpecs) => {
+export const buildFootprint = (ctx, action, buildMap, fixedBuffMap, variableBuffSpecs = []) => {
   if (!action.compressed) return;
 
   const enemyMap = getEnemyMap(ctx);
-  const ctxBuildMap = ctx.buildMaps[action.ownerId];
-  const tuneStrainBuff = getTuneStrainBuff(ctx, action.ownerId, mergeObj(ctxBuildMap, fixedBuffMap));
+  const tuneStrainBuff = getTuneStrainBuff(ctx, action.ownerId, mergeObj(buildMap, fixedBuffMap));
   mergeStatMap(fixedBuffMap, tuneStrainBuff);
 
   const currBuffMap = {};
@@ -62,40 +28,36 @@ export const buildFootprint = (ctx, action, fixedBuffMap, variableBuffSpecs) => 
     }
   }
 
-  // Compute fixed damage for teammate actions that aren't affected by variableStats
-  if (
+  const canResolveNow =
     action.ownerId !== ctx.currId &&
-    !variableBuffSpecs.length
-  ) {
-    const statMap = mergeObj(ctxBuildMap, fixedBuffMap);
+    !variableBuffSpecs.length;
 
-    const fixed = action.attr === 'tuneAmp'
-      ? runTuneFormula(ctx.helpers, enemyMap, statMap, action.compressed.mvs['tuneAmp'], action.element)
-      : runDamageFormula(ctx.helpers, action, enemyMap, statMap);
-
+  if (!canResolveNow) {
     return {
       ...action,
-      fixed,
+      enemyMap,
+      ctxBuildMap: buildMap,
+      fixedBuffMap,
+      variableBuffSpecs,
+      currBuffMap,
     };
   }
 
+  const statMap = mergeObj(buildMap, fixedBuffMap);
   return {
     ...action,
-    enemyMap,
-    ctxBuildMap,
-    fixedBuffMap,
-    variableBuffSpecs,
-    currBuffMap,
+    fixed: runFormula(ctx.helpers, action, enemyMap, statMap),
   };
 };
 
 export const evaluateFootprint = (helpers, currId, footprint, buildMap) => {
   const {
-    key, ownerId, type, dmgType, element, attr, compressed,
+    key, ownerId, type, dmgType,
     enemyMap,
     ctxBuildMap,
     fixedBuffMap,
     variableBuffSpecs, currBuffMap,
+    tuneBreaksPerLoop = 1,
   } = footprint;
 
   const ownerBuildMap =
@@ -114,9 +76,7 @@ export const evaluateFootprint = (helpers, currId, footprint, buildMap) => {
 
   const ownerStatMap = mergeObjs(ownerBuildMap, fixedBuffMap, variableBuffMap);
 
-  const value = attr === 'tuneAmp'
-    ? runTuneFormula(helpers, enemyMap, ownerStatMap, compressed.mvs['tuneAmp'], element)
-    : runDamageFormula(helpers, footprint, enemyMap, ownerStatMap);
+  const value = runFormula(helpers, footprint, enemyMap, ownerStatMap) * tuneBreaksPerLoop;
 
   return { key, ownerId, type, dmgType, value };
 };

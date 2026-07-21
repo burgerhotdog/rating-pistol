@@ -56,7 +56,7 @@
           }
         },
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": "ultimate",
           "statMap": {
             "combatAtk%": 0.15
@@ -120,7 +120,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyIfField": "onField",
           "applyCooldown": 20000,
           "statMap": {
@@ -160,7 +160,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": [
             "chainAttack",
             "ultimate"
@@ -317,7 +317,7 @@
           }
         },
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyIfField": "onField",
           "applyCooldown": 7500,
           "useIfField": "onField",
@@ -343,7 +343,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": [
             "defensiveAssist",
             "evasiveAssist"
@@ -469,7 +469,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack",
@@ -503,7 +503,7 @@
       "4": [
         {
           "enableIfWeaponType": "stun",
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
@@ -516,7 +516,7 @@
         },
         {
           "enableIfWeaponType": "stun",
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": [
             "exSpecialAttack",
             "chainAttack"
@@ -552,7 +552,7 @@
         },
         {
           "enableIfWeaponType": "attack",
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": [
             "exSpecialAttack",
             "ultimate"
@@ -579,7 +579,7 @@
       "4": [
         {
           "enableIfWeaponType": "support",
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": [
             "exSpecialAttack",
             "ultimate"
@@ -655,7 +655,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": "exSpecialAttack",
           "applyTo": "team",
           "statMap": {
@@ -696,7 +696,7 @@
       ],
       "4": [
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": "exSpecialAttack",
           "statMap": {
             "anomalyProficiency": 25
@@ -731,7 +731,7 @@
           }
         },
         {
-          "applyWhen": "cast",
+          "applyWhen": "before",
           "applyOnSkillType": [
             "exSpecialAttack",
             "ultimate"

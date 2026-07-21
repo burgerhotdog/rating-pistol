@@ -4,9 +4,31 @@ import { isEnabled } from './isEnabled';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
+function resolveApplyBy(effect, memberIds) {
+  const { applyBy, ownerId } = effect;
+  switch (applyBy) {
+    case undefined:
+      effect.applyBy = [ownerId];
+      break;
+    case 'team':
+      effect.applyBy = memberIds;
+      break;
+    case 'ally':
+      effect.applyBy = memberIds.filter((id) => id !== ownerId);
+      break;
+    case 'first':
+      effect.applyBy = [memberIds[0]];
+      break;
+    case 'next':
+      effect.applyBy = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
+      break;
+    default:
+      effect.applyBy = [applyBy];
+  }
+};
+
 function resolveApplyTo(effect, memberIds) {
   const { applyTo, ownerId } = effect;
-
   switch (applyTo) {
     case undefined:
       effect.applyTo = [ownerId];
@@ -109,6 +131,7 @@ const toNormalizedEffect = (rawEffect, spec) => {
     id: effectId,
   };
 
+  resolveApplyBy(effect, memberIds);
   resolveApplyTo(effect, memberIds);
   resolvePrev(effect);
 
@@ -136,7 +159,7 @@ const toNormalizedEffect = (rawEffect, spec) => {
     }
   }
 
-  for (const actionType of ['followUpAction', 'intervalAction']) {
+  for (const actionType of ['useAction', 'intervalAction']) {
     if (actionType in effect) {
       const effectActions = toArray(effect[actionType]);
 

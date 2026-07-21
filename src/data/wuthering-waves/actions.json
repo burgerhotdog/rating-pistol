@@ -745,7 +745,7 @@
           ]
         },
         {
-          "name": "Emergency Plan: Healing",
+          "name": "Emergency Plan: Team Healing",
           "type": "healing",
           "attr": "hp",
           "multipliers": [
@@ -803,6 +803,61 @@
     "resonanceLiberation": {
       "name": "Momentary Union",
       "actions": [
+        {
+          "name": "Momentary Union",
+          "skillType": "resonanceLiberation",
+          "type": "healing",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "flat": [
+                310,
+                336,
+                361,
+                397,
+                422,
+                452,
+                492,
+                533,
+                574,
+                617,
+                668,
+                718,
+                769,
+                820,
+                871,
+                922,
+                973,
+                1024,
+                1074,
+                1125
+              ],
+              "mv": [
+                0.0126,
+                0.0136,
+                0.0147,
+                0.0161,
+                0.0171,
+                0.0183,
+                0.02,
+                0.0216,
+                0.0233,
+                0.0251,
+                0.0271,
+                0.0292,
+                0.0312,
+                0.0333,
+                0.0354,
+                0.0374,
+                0.0395,
+                0.0416,
+                0.0436,
+                0.0457
+              ]
+            }
+          ],
+          "times": "$teamSize"
+        },
         {
           "name": "Remnant Entities",
           "skillType": "coordinatedAttack",
@@ -884,61 +939,6 @@
                 0.0468,
                 0.0491,
                 0.0514
-              ]
-            }
-          ],
-          "times": "$teamSize"
-        },
-        {
-          "name": "Momentary Union: Team Healing",
-          "type": "healing",
-          "skillType": "resonanceLiberation",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "flat": [
-                310,
-                336,
-                361,
-                397,
-                422,
-                452,
-                492,
-                533,
-                574,
-                617,
-                668,
-                718,
-                769,
-                820,
-                871,
-                922,
-                973,
-                1024,
-                1074,
-                1125
-              ],
-              "mv": [
-                0.0126,
-                0.0136,
-                0.0147,
-                0.0161,
-                0.0171,
-                0.0183,
-                0.02,
-                0.0216,
-                0.0233,
-                0.0251,
-                0.0271,
-                0.0292,
-                0.0312,
-                0.0333,
-                0.0354,
-                0.0374,
-                0.0395,
-                0.0416,
-                0.0436,
-                0.0457
               ]
             }
           ],
@@ -1796,9 +1796,11 @@
         {
           "name": "Frosty Marks",
           "skillType": "outroSkill",
-          "multipliers": {
-            "mv": 5.8794
-          }
+          "multipliers": [
+            {
+              "mv": 5.8794
+            }
+          ]
         }
       ]
     }
@@ -4015,9 +4017,11 @@
         {
           "name": "Closing Remark",
           "skillType": "outroSkill",
-          "multipliers": {
-            "mv": 7.942
-          }
+          "multipliers": [
+            {
+              "mv": 7.942
+            }
+          ]
         }
       ]
     }
@@ -7762,9 +7766,11 @@
         {
           "name": "Leaping Flames",
           "skillType": "outroSkill",
-          "multipliers": {
-            "mv": 5.3
-          }
+          "multipliers": [
+            {
+              "mv": 5.3
+            }
+          ]
         }
       ]
     }
@@ -14601,7 +14607,6 @@
         },
         {
           "name": "Particle Jet",
-          "skillType": "tuneRuptureResponse",
           "dmgType": "tuneRupture",
           "attr": "tuneAmp",
           "multipliers": [
@@ -16000,7 +16005,6 @@
         },
         {
           "name": "Starburst",
-          "skillType": "tuneRuptureResponse",
           "dmgType": "tuneRupture",
           "attr": "tuneAmp",
           "multipliers": [
@@ -24299,7 +24303,6 @@
       "actions": [
         {
           "name": "Meltdown",
-          "skillType": "hackResponse",
           "dmgType": "hack",
           "attr": "tuneAmp",
           "multipliers": [
@@ -30784,9 +30787,11 @@
         {
           "name": "From Gloom to Gleam",
           "skillType": "outroSkill",
-          "multipliers": {
-            "mv": 1
-          }
+          "multipliers": [
+            {
+              "mv": 1
+            }
+          ]
         }
       ]
     }
@@ -31878,9 +31883,11 @@
           "name": "Strike Before Ready",
           "skillType": "outroSkill",
           "dmgType": "echoSkill",
-          "multipliers": {
-            "mv": 1
-          }
+          "multipliers": [
+            {
+              "mv": 1
+            }
+          ]
         }
       ]
     }
@@ -33038,9 +33045,11 @@
         {
           "name": "In This Very Moment",
           "skillType": "outroSkill",
-          "multipliers": {
-            "mv": 7.95
-          }
+          "multipliers": [
+            {
+              "mv": 7.95
+            }
+          ]
         }
       ]
     }
@@ -39350,7 +39359,6 @@
         },
         {
           "name": "Spectral Analysis",
-          "skillType": "tuneRuptureResponse",
           "dmgType": "tuneRupture",
           "attr": "tuneAmp",
           "multipliers": [
@@ -39425,9 +39433,11 @@
         {
           "name": "Let's Hit the Road!",
           "skillType": "outroSkill",
-          "multipliers": {
-            "mv": 1
-          }
+          "multipliers": [
+            {
+              "mv": 1
+            }
+          ]
         }
       ]
     }
@@ -40411,9 +40421,11 @@
         {
           "name": "Bow to the Last Light",
           "skillType": "outroSkill",
-          "multipliers": {
-            "mv": 5
-          }
+          "multipliers": [
+            {
+              "mv": 5
+            }
+          ]
         }
       ]
     }
@@ -42462,7 +42474,6 @@
       "actions": [
         {
           "name": "Data Crash",
-          "skillType": "hackResponse",
           "dmgType": "hack",
           "attr": "tuneAmp",
           "multipliers": [
@@ -44546,9 +44557,11 @@
         {
           "name": "Twining",
           "skillType": "outroSkill",
-          "multipliers": {
-            "mv": 3.2924
-          }
+          "multipliers": [
+            {
+              "mv": 3.2924
+            }
+          ]
         }
       ]
     }
@@ -48198,9 +48211,11 @@
         {
           "name": "As the Wind Wills",
           "skillType": "outroSkill",
-          "multipliers": {
-            "mv": 3
-          }
+          "multipliers": [
+            {
+              "mv": 3
+            }
+          ]
         }
       ]
     }

@@ -2,42 +2,22 @@ import { mergeObj } from '@/utils';
 import { mergeStatMap, resolveVariableStatMap } from '../utils';
 import { matchUseFilter } from './filter';
 
-const getAllStates = (ctx, memberId, effectTypes) => {
+export const getUsedBuffStates = (ctx, memberId, action = {}) => {
   const { memberEffects, fieldEffects } = ctx.state;
   const field = ctx.getField(memberId);
 
-  const stateMaps = [
+  const effectStates = [
     ...Object.values(memberEffects[memberId])
       .map((effectState) => [memberEffects[memberId], effectState]),
     ...Object.values(fieldEffects[field])
       .map((effectState) => [fieldEffects[field], effectState]),
-  ]
+  ];
 
-  return stateMaps.filter(([, { effect }]) =>
-    effectTypes.some((type) => type in effect));
-};
-
-const getUsedStates = (allStates, ctx, memberId, action) =>
-  allStates.filter(([, { cooldown, effect }]) => !cooldown && matchUseFilter({ effect, action, ctx }));
-
-export const getUsedBuffStates = (ctx, memberId, action = {}) => {
-  const buffStates = getAllStates(ctx, memberId, ['statMap', 'variableStatMap']);
-  return getUsedStates(buffStates, ctx, memberId, action);
-};
-
-export const getUsedFollowUpStates = (ctx, memberId, action = {}) => {
-  const followUpStates = getAllStates(ctx, memberId, ['followUpAction']);
-  return getUsedStates(
-    [
-      ...followUpStates,
-      ...Object.values(ctx.state.debuffs)
-        .map((effectState) => [ctx.state.debuffs, effectState])
-        .filter(([, { effect }]) => 'followUpAction' in effect),
-    ],
-    ctx,
-    memberId,
-    action
-  );
+  return effectStates
+    .filter(([, { cooldown, effect }]) =>
+      ('statMap' in effect || 'variableStatMap' in effect) &&
+      !cooldown &&
+      matchUseFilter({ effect, action, ctx }));
 };
 
 export const resolveBuffMap = (ctx, usedBuffStates) => {
@@ -79,11 +59,11 @@ export const resolveBuffMap = (ctx, usedBuffStates) => {
 };
 
 export const getEnemyMap = (ctx) => {
-  const { debuffs, negativeStatuses } = ctx.state;
+  const { enemyEffects, negativeStatuses } = ctx.state;
   const enemyMap = {};
 
   // Debuffs on enemy
-  for (const { effect, stacks } of Object.values(debuffs)) {
+  for (const { effect, stacks } of Object.values(enemyEffects)) {
     const { statMap, chance = 1 } = effect;
     if (!statMap) continue;
     mergeStatMap(enemyMap, statMap, stacks * chance);

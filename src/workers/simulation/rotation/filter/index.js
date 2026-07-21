@@ -9,31 +9,16 @@ const createMatcher = (prefix, filterFunctions, isMatchWhenNoFilters = true) => 
         .map(([suffix, fn]) => [`${prefix}${suffix}`, fn]));
 
   return ({ effect, action, ctx }) => {
-    const hasNoFilters = !Object.keys(effect).some((key) => key in filters);
-    return hasNoFilters
-      ? isMatchWhenNoFilters
-      : Object.entries(filters)
-        .some(([field, fn]) =>
-          field in effect &&
-          fn(effect[field], { effect, action, ctx }));
+    const hasFilters = Object.keys(effect)
+      .some((key) => key in filters);
+    if (!hasFilters) return isMatchWhenNoFilters;
+    
+    return Object.entries(filters)
+      .some(([field, fn]) =>
+        field in effect &&
+        fn(effect[field], { effect, action, ctx }));
   };
 };
-
-const matchApplyOn = createMatcher('apply', onFilters);
-const matchApplyIf = createMatcher('apply', ifFilters);
-const matchApplyFor = createMatcher('apply', forFilters);
-export const matchApplyFilter = (spec) =>
-  matchApplyOn(spec) &&
-  matchApplyIf(spec) &&
-  matchApplyFor(spec);
-
-const matchUseOn = createMatcher('use', onFilters);
-const matchUseIf = createMatcher('use', ifFilters);
-const matchUseFor = createMatcher('use', forFilters);
-export const matchUseFilter = (spec) =>
-  matchUseOn(spec) &&
-  matchUseIf(spec) &&
-  matchUseFor(spec);
 
 const matchRemoveOn = createMatcher('remove', onFilters, false);
 const matchRemoveIf = createMatcher('remove', ifFilters, false);
@@ -50,3 +35,19 @@ export const matchExtendFilter = (spec) =>
   matchExtendOn(spec) &&
   matchExtendIf(spec) &&
   matchExtendFor(spec);
+
+const matchUseOn = createMatcher('use', onFilters);
+const matchUseIf = createMatcher('use', ifFilters);
+const matchUseFor = createMatcher('use', forFilters);
+export const matchUseFilter = (spec) =>
+  matchUseOn(spec) &&
+  matchUseIf(spec) &&
+  matchUseFor(spec);
+
+const matchApplyOn = createMatcher('apply', onFilters);
+const matchApplyIf = createMatcher('apply', ifFilters);
+const matchApplyFor = createMatcher('apply', forFilters);
+export const matchApplyFilter = (spec) =>
+  matchApplyOn(spec) &&
+  matchApplyIf(spec) &&
+  matchApplyFor(spec);

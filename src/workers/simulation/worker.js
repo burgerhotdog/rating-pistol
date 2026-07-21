@@ -1,5 +1,5 @@
 import { compileCache } from './cache';
-import { createGetDefMult, createGetResMult } from './rotation/damageFormula';
+import { createGetDefMult, createGetResMult } from './rotation/formula';
 import { runTrials } from './runTrials';
 
 const compileHelpers = (gameId) => ({
