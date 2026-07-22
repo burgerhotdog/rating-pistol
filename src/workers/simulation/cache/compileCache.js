@@ -44,11 +44,6 @@ const getConvertedRotation = (rawRotation, spec) => {
       rotation.splice(insertAfterIndex, 0, {
         key: 'other:tuneBreak',
         ownerId: memberId,
-        type: 'damage',
-        dmgType: 'tuneBreak',
-        element: 'physical',
-        attr: 'tuneAmp',
-        compressed: { flat: 0, mvs: { tuneAmp: 16 }, hitCounts: 1 },
       });
     }
   }

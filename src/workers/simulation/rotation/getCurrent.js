@@ -2,29 +2,27 @@ import { mergeObj } from '@/utils';
 import { mergeStatMap, resolveVariableStatMap } from '../utils';
 import { matchUseFilter } from './filter';
 
-export const getUsedBuffStates = (ctx, memberId, action = {}) => {
+const getUsedBuffStates = (ctx, memberId, action = {}) => {
   const { memberEffects, fieldEffects } = ctx.state;
   const field = ctx.getField(memberId);
-
   const effectStates = [
-    ...Object.values(memberEffects[memberId])
-      .map((effectState) => [memberEffects[memberId], effectState]),
-    ...Object.values(fieldEffects[field])
-      .map((effectState) => [fieldEffects[field], effectState]),
+    ...Object.values(memberEffects[memberId]),
+    ...Object.values(fieldEffects[field]),
   ];
 
   return effectStates
-    .filter(([, { cooldown, effect }]) =>
+    .filter(({ cooldown, effect }) =>
       ('statMap' in effect || 'variableStatMap' in effect) &&
       !cooldown &&
       matchUseFilter({ effect, action, ctx }));
 };
 
-export const resolveBuffMap = (ctx, usedBuffStates) => {
+export const resolveBuffMap = (ctx, memberId, action = {}) => {
+  const usedBuffStates = getUsedBuffStates(ctx, memberId, action);
   const fixedBuffMap = {};
   const variableBuffSpecs = [];
 
-  for (const [, { effect, stacks }] of usedBuffStates) {
+  for (const { effect, stacks } of usedBuffStates) {
     const { statMap, variableStatMap, chance = 1 } = effect;
 
     if ('statMap' in effect) {
@@ -43,7 +41,7 @@ export const resolveBuffMap = (ctx, usedBuffStates) => {
       // Otherwise, resolve now
       const sourceBuildMap = ctx.buildMaps[sourceId];
       const sourceBuffMap = {};
-      for (const [, { effect, stacks }] of getUsedBuffStates(ctx, sourceId)) {
+      for (const { effect, stacks } of getUsedBuffStates(ctx, sourceId)) {
         const { statMap, chance = 1 } = effect;
         if (!statMap) continue;
         mergeStatMap(sourceBuffMap, statMap, stacks * chance);

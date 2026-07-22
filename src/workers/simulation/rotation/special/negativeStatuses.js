@@ -1,7 +1,4 @@
-import { getEnemyMap } from '../getCurrent';
-import { getDmgAmpMult } from '../formula/dmgAmp';
-
-const LEVEL_MODIFIER = 3674;
+import { buildFootprint } from '../footprint';
 
 const STATUSES = {
   glacioChafe: {
@@ -24,7 +21,10 @@ const STATUSES = {
       }
 
       if (ctx.recordFootprint) {
-        const footprint = buildStatusFootprint(ctx, stateMap.glacioChafe);
+        const footprint = buildFootprint(ctx, {
+          type: 'negativeStatus',
+          statusState: stateMap.glacioChafe,
+        });
         ctx.footprints.push(footprint);
       }
 
@@ -63,7 +63,10 @@ const STATUSES = {
 
       if (stateMap.fusionBurst.stacks === 10) {
         if (ctx.recordFootprint) {
-          const footprint = buildStatusFootprint(ctx, stateMap.fusionBurst);
+          const footprint = buildFootprint(ctx, {
+            type: 'negativeStatus',
+            statusState: stateMap.fusionBurst,
+          });
           ctx.footprints.push(footprint);
         }
         delete stateMap.fusionBurst;
@@ -112,7 +115,10 @@ const STATUSES = {
 
         if (!state.timer) {
           if (ctx.recordFootprint) {
-            const footprint = buildStatusFootprint(ctx, state);
+            const footprint = buildFootprint(ctx, {
+              type: 'negativeStatus',
+              statusState: stateMap.electroFlare,
+            });
             ctx.footprints.push(footprint);
           }
 
@@ -160,7 +166,10 @@ const STATUSES = {
 
         if (state.timer === 0) {
           if (ctx.recordFootprint) {
-            const footprint = buildStatusFootprint(ctx, state);
+            const footprint = buildFootprint(ctx, {
+              type: 'negativeStatus',
+              statusState: stateMap.aeroErosion,
+            });
             ctx.footprints.push(footprint);
           }
 
@@ -204,7 +213,10 @@ const STATUSES = {
 
         if (!state.timer) {
           if (ctx.recordFootprint) {
-            const footprint = buildStatusFootprint(ctx, state);
+            const footprint = buildFootprint(ctx, {
+              type: 'negativeStatus',
+              statusState: stateMap.spectroFrazzle,
+            });
             ctx.footprints.push(footprint);
           }
 
@@ -247,29 +259,6 @@ const STATUSES = {
       }
     },
   }
-};
-
-const buildStatusFootprint = (ctx, statusState) => {
-  const { getDefMult, getResMult } = ctx.helpers;
-  const { stacks, rage, status } = statusState;
-
-  const enemyMap = getEnemyMap(ctx);
-
-  const mv = status.mv[stacks - 1];
-  const rageMv = rage ? status.mv[rage - 1] : 0;
-  const baseDmg = LEVEL_MODIFIER * ((mv + rageMv) / 10000);
-
-  const dmgAmpMult = getDmgAmpMult(enemyMap, {}, [status.id]);
-  const defMult = getDefMult(enemyMap);
-  const resMult = getResMult(status.element, enemyMap);
-
-  return {
-    key: `other:${status.id}`,
-    ownerId: 'other',
-    type: 'damage',
-    dmgType: status.id,
-    fixed: baseDmg * dmgAmpMult * defMult * resMult,
-  };
 };
 
 export function inflictNegativeStatuses(ctx, action) {

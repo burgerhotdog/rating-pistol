@@ -1,7 +1,24 @@
 import { mergeObj, mergeObjs, getAttr } from '@/utils';
-import { resolveVariableStatMap, mergeStatMap } from '../utils';
-import { getEnemyMap, getUsedBuffStates } from './getCurrent';
-import { runFormula } from './formula';
+import { resolveVariableStatMap, mergeStatMap } from '../../utils';
+import { getEnemyMap, resolveBuffMap } from '../getCurrent';
+import { runFormula } from '../formula';
+import { buildNegativeStatusFootprint } from './negativeStatus';
+import { matchUseFilter } from '../filter';
+
+const getUsedBuffStates = (ctx, memberId, action = {}) => {
+  const { memberEffects, fieldEffects } = ctx.state;
+  const field = ctx.getField(memberId);
+  const effectStates = [
+    ...Object.values(memberEffects[memberId]),
+    ...Object.values(fieldEffects[field]),
+  ];
+
+  return effectStates
+    .filter(({ cooldown, effect }) =>
+      ('statMap' in effect || 'variableStatMap' in effect) &&
+      !cooldown &&
+      matchUseFilter({ effect, action, ctx }));
+};
 
 const getTuneStrainBuff = (ctx, memberId, statMap) => {
   const { tune } = ctx.state;
@@ -12,16 +29,21 @@ const getTuneStrainBuff = (ctx, memberId, statMap) => {
   return { ['totalDmg%']: stacks * tuneBreakBoost * 0.0012 };
 };
 
-export const buildFootprint = (ctx, action, buildMap, fixedBuffMap, variableBuffSpecs = []) => {
-  if (!action.compressed) return;
-
+export const buildFootprint = (ctx, spec) => {
   const enemyMap = getEnemyMap(ctx);
+  if (spec.type === 'negativeStatus') {
+    return buildNegativeStatusFootprint(ctx, enemyMap, spec.statusState);
+  };
+
+  const { action } = spec;
+  const buildMap = ctx.buildMaps[action.ownerId];
+  const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, action.ownerId, action);
   const tuneStrainBuff = getTuneStrainBuff(ctx, action.ownerId, mergeObj(buildMap, fixedBuffMap));
   mergeStatMap(fixedBuffMap, tuneStrainBuff);
 
   const currBuffMap = {};
   if (variableBuffSpecs.length) {
-    for (const [, { effect, stacks }] of getUsedBuffStates(ctx, ctx.currId)) {
+    for (const { effect, stacks } of getUsedBuffStates(ctx, ctx.currId)) {
       const { statMap, chance = 1 } = effect;
       if (!statMap) continue;
       mergeStatMap(currBuffMap, statMap, stacks * chance);

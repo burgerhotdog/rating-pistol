@@ -26,12 +26,21 @@ import {
   inflictTuneShifting,
   advanceTune,
 } from './special/tune';
-import { getUsedBuffStates, resolveBuffMap } from './getCurrent';
 import { buildFootprint, evaluateFootprint } from './footprint';
 
-function decayUsedBuffs(ctx, usedBuffStates) {
-  for (const [stateMap, effectState] of usedBuffStates) {
-    const { effect } = effectState;
+function decayUsedBuffs(ctx, action) {
+  const { memberEffects, fieldEffects } = ctx.state;
+  const field = ctx.getField(action.ownerId);
+  const effectStates = [
+    ...Object.values(memberEffects[action.ownerId]),
+    ...Object.values(fieldEffects[field]),
+  ].filter(({ cooldown, effect }) =>
+    ('statMap' in effect || 'variableStatMap' in effect) &&
+    !cooldown &&
+    matchUseFilter({ effect, action, ctx }));
+
+  for (const effectState of effectStates) {
+    const { stateMap, effect } = effectState;
 
     if (effect.useCooldown) {
       effectState.useCooldown = effect.useCooldown;
@@ -185,17 +194,14 @@ function runAction(ctx, action) {
 
   // Action hit
   if (action.compressed) {
-    const buildMap = ctx.buildMaps[action.ownerId];
-    const usedBuffStates = getUsedBuffStates(ctx, action.ownerId, action);
-    const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, usedBuffStates);
     if (ctx.recordFootprint) {
-      const footprint = buildFootprint(ctx, action, buildMap, fixedBuffMap, variableBuffSpecs);
+      const footprint = buildFootprint(ctx, { action });
       if (footprint) {
         ctx.footprints.push(footprint);
       }
     }
-    applyOffTuneBuildup(ctx, action, fixedBuffMap);
-    decayUsedBuffs(ctx, usedBuffStates);
+    applyOffTuneBuildup(ctx, action);
+    decayUsedBuffs(ctx, action);
   }
 
   inflictNegativeStatuses(ctx, action);

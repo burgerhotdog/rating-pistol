@@ -1,6 +1,5 @@
 import { getAttr } from '@/utils';
 import { buildFootprint } from '../footprint';
-import { getUsedBuffStates, resolveBuffMap } from '../getCurrent';
 
 const tuneBreakAction = {
   key: 'other:tuneBreak',
@@ -18,8 +17,8 @@ function recordTuneFootprints(ctx, tune) {
       ? 1
       : 1 / Math.ceil(300 / ctx.offTuneBuildup[1]);
 
-  function buildTuneBreakFootprint(action, buildMap, fixedBuffMap) {
-    const footprint = buildFootprint(ctx, action, buildMap, fixedBuffMap);
+  function buildTuneBreakFootprint(action) {
+    const footprint = buildFootprint(ctx, { action });
     if ('fixed' in footprint) {
       return { ...footprint, fixed: footprint.fixed * tuneBreaksPerLoop };
     } else {
@@ -28,10 +27,7 @@ function recordTuneFootprints(ctx, tune) {
   };
 
   // Tune break
-  const buildMap = ctx.buildMaps[ctx.onFieldId];
-  const usedBuffStates = getUsedBuffStates(ctx, ctx.onFieldId);
-  const { fixedBuffMap } = resolveBuffMap(ctx, usedBuffStates);
-  const breakFootprint = buildTuneBreakFootprint(tuneBreakAction, buildMap, fixedBuffMap);
+  const breakFootprint = buildTuneBreakFootprint({ ...tuneBreakAction, ownerId: ctx.onFieldId });
   ctx.footprints.push(breakFootprint);
 
   // Early exit if not tune rupture or hack
@@ -47,10 +43,7 @@ function recordTuneFootprints(ctx, tune) {
   for (const effectState of tuneResponseStates) {
     const { effect } = effectState;
 
-    const buildMap = ctx.buildMaps[effect.ownerId];
-    const usedBuffStates = getUsedBuffStates(ctx, effect.ownerId);
-    const { fixedBuffMap } = resolveBuffMap(ctx, usedBuffStates);
-    const responseFootprint = buildTuneBreakFootprint(effect.useAction[0], buildMap, fixedBuffMap);
+    const responseFootprint = buildTuneBreakFootprint(effect.useAction[0]);
     ctx.footprints.push(responseFootprint);
 
     effectState.useCooldown = 8000;
@@ -91,7 +84,7 @@ export function runTuneBreak(ctx) {
   delete tune.shiftingTimeRemaining;
 }
 
-export function applyOffTuneBuildup(ctx, action, fixedBuffMap) {
+export function applyOffTuneBuildup(ctx, action, fixedBuffMap = {}) {
   if (action.type !== 'damage') return;
   const { tune } = ctx.state;
   if (tune.isMistune || tune.offTuneCooldown) return;
