@@ -21,10 +21,7 @@ const STATUSES = {
       }
 
       const currState = negativeStatuses.glacioChafe;
-      if (ctx.recordFootprint) {
-        const footprint = buildFootprint(ctx, currState);
-        ctx.footprints.push(footprint);
-      }
+      if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState));
       if (currState.stacks === 10) {
         delete negativeStatuses.glacioChafe;
       }
@@ -58,10 +55,7 @@ const STATUSES = {
 
       const currState = negativeStatuses.fusionBurst;
       if (currState.stacks === 10) {
-        if (ctx.recordFootprint) {
-          const footprint = buildFootprint(ctx, currState);
-          ctx.footprints.push(footprint);
-        }
+        if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState));
         delete negativeStatuses.fusionBurst;
       }
     },
@@ -104,10 +98,7 @@ const STATUSES = {
         remaining -= decrease;
 
         if (!currState.timer) {
-          if (ctx.recordFootprint) {
-            const footprint = buildFootprint(ctx, currState);
-            ctx.footprints.push(footprint);
-          }
+          if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
 
           currState.stacks = Math.floor(currState.stacks / 2);
           currState.timer = 5000;
@@ -150,10 +141,7 @@ const STATUSES = {
         remaining -= decrease;
 
         if (currState.timer === 0) {
-          if (ctx.recordFootprint) {
-            const footprint = buildFootprint(ctx, currState);
-            ctx.footprints.push(footprint);
-          }
+          if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
 
           currState.timer = 3000;
         }
@@ -192,10 +180,7 @@ const STATUSES = {
         remaining -= decrease;
 
         if (!currState.timer) {
-          if (ctx.recordFootprint) {
-            const footprint = buildFootprint(ctx, currState);
-            ctx.footprints.push(footprint);
-          }
+          if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
 
           currState.stacks--;
           currState.timer = 3000;
@@ -246,7 +231,6 @@ export function inflictNegativeStatuses(ctx, action) {
 
 export function advanceNegativeStatuses(ctx, elapsed) {
   const { negativeStatuses } = ctx.state;
-
   for (const statusState of Object.values(negativeStatuses)) {
     const { status } = statusState;
     status.advance(ctx, elapsed);
@@ -255,7 +239,7 @@ export function advanceNegativeStatuses(ctx, elapsed) {
 
 const LEVEL_MODIFIER = 3674;
 
-export const buildFootprint = (ctx, statusState) => {
+export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
   const { getDefMult, getResMult } = ctx.helpers;
   const { stacks, rage, status } = statusState;
 
@@ -274,6 +258,7 @@ export const buildFootprint = (ctx, statusState) => {
     ownerId: 'other',
     type: 'damage',
     dmgType: status.id,
-    fixed: baseDmg * dmgAmpMult * defMult * resMult,
+    value: baseDmg * dmgAmpMult * defMult * resMult,
+    runtime: ctx.state.runtime + runtimeOffset,
   };
 };

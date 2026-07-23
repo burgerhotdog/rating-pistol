@@ -3,22 +3,23 @@ import { resolveVariableStatMap, mergeStatMap } from '../utils';
 import { runFormula } from './formula';
 import { getDebuffMap, getBuffMap } from './getStatMap';
 
-export const buildFootprint = (ctx, action) => {
-  const footprint = {
+export const buildSnapshot = (ctx, action) => {
+  const snapshot = {
     ...action,
     ctxBuildMap: ctx.buildMaps[action.ownerId],
     ...getDebuffMap(ctx, { action }),
     ...getBuffMap(ctx, action.ownerId, { action }),
+    runtime: ctx.state.runtime,
   };
 
-  if (footprint.buffSpecs.length) {
-    footprint.currBuffMap = getBuffMap(ctx, ctx.currId, { ignoreVariable: true }).buffMap;
+  if (snapshot.buffSpecs.length) {
+    snapshot.currBuffMap = getBuffMap(ctx, ctx.currId, { ignoreVariable: true }).buffMap;
   } else if (action.ownerId !== ctx.currId) {
-    const statMap = toMergedObj(footprint.debuffMap, footprint.ctxBuildMap, footprint.buffMap);
-    footprint.fixed = runFormula(ctx.helpers, action, statMap);
+    const statMap = toMergedObj(snapshot.debuffMap, snapshot.ctxBuildMap, snapshot.buffMap);
+    snapshot.value = runFormula(ctx.helpers, action, statMap);
   }
 
-  return footprint;
+  return snapshot;
 };
 
 const toResolvedSpecs = (buffSpecs, sourceBuffedMap) => {
@@ -30,14 +31,14 @@ const toResolvedSpecs = (buffSpecs, sourceBuffedMap) => {
   return variableBuffMap;
 };
 
-export const evaluateFootprint = (helpers, currId, footprint, buildMap) => {
+export const evaluateSnapshot = (helpers, currId, snapshot, buildMap) => {
   const {
-    key, ownerId, type, dmgType,
+    ownerId,
     ctxBuildMap,
     debuffMap, debuffSpecs = [],
     buffMap, buffSpecs = [],
     currBuffMap = {},
-  } = footprint;
+  } = snapshot;
 
   const currBuffedMap = toMergedObj(buildMap, currBuffMap);
 
@@ -49,11 +50,5 @@ export const evaluateFootprint = (helpers, currId, footprint, buildMap) => {
     toResolvedSpecs(buffSpecs, currBuffedMap)
   );
 
-  return {
-    key,
-    ownerId,
-    type,
-    dmgType,
-    value: runFormula(helpers, footprint, statMap),
-  };
+  return runFormula(helpers, snapshot, statMap);
 };

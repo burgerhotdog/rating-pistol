@@ -26,7 +26,7 @@ import {
   inflictTuneShifting,
   advanceTune,
 } from './special/tune';
-import { buildFootprint, evaluateFootprint } from './footprint';
+import { buildSnapshot, evaluateSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 
 function decayUsedBuffs(ctx, action) {
@@ -61,9 +61,7 @@ function runIntervalActions(ctx, elapsed) {
     effectState.intervalTimer -= elapsed;
     while (effectState.intervalTimer <= 0) {
       for (let i = 0; i < times; i++) {
-        for (const action of effect.intervalAction) {
-          runAction(ctx, action);
-        }
+        for (const action of effect.intervalAction) runAction(ctx, action);
       }
 
       effectState.intervalTimer += effect.intervalCooldown;
@@ -143,13 +141,6 @@ function handleApplyWhen(ctx, action, when) {
   }
 }
 
-function runEffects(ctx, action, when) {
-  handleRemoveWhen(ctx, action, when);
-  handleExtendWhen(ctx, action, when);
-  handleUseWhen(ctx, action, when);
-  handleApplyWhen(ctx, action, when);
-}
-
 function advanceApplyCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.state;
 
@@ -163,40 +154,41 @@ function advanceApplyCooldowns(ctx, elapsed) {
 
 function runAction(ctx, action) {
   const { duration = 0, hitOffsets = [0] } = action;
-  let currentTime = 0;
+  let actionRuntime = 0;
 
-  function runEffectsWhen(when) {
-    runEffects(ctx, action, when);
-  }
-
-  if (action.key === 'other:tuneBreak') {
-    runTuneBreak(ctx, action);
-    runEffects(ctx, action, 'tuneBreak');
-    return;
-  }
-
-  function advanceTime(elapsed) {
+  function advanceTimeTo(timestamp) {
+    const elapsed = timestamp - actionRuntime;
     if (elapsed <= 0) return;
+
     runIntervalActions(ctx, elapsed);
     advanceNegativeStatuses(ctx, elapsed);
     advanceTune(ctx, elapsed);
     advanceEffects(ctx, elapsed);
     advanceApplyCooldowns(ctx, elapsed);
-    currentTime += elapsed;
+
+    actionRuntime += elapsed;
+    if (ctx.saveSnapshots) ctx.state.runtime += elapsed;
   };
 
-  // Action cast
-  runEffectsWhen('before');
-  advanceTime(hitOffsets[0]);
+  function runEffectsWhen(when) {
+    handleRemoveWhen(ctx, action, when);
+    handleExtendWhen(ctx, action, when);
+    handleUseWhen(ctx, action, when);
+    handleApplyWhen(ctx, action, when);
+  }
 
-  // Action hit
+  if (action.key === 'other:tuneBreak') {
+    runTuneBreak(ctx, action);
+    runEffectsWhen('tuneBreak');
+    return;
+  }
+
+  // Action timeline
+  runEffectsWhen('before');
+  advanceTimeTo(hitOffsets[0]);
+
   if (action.compressed) {
-    if (ctx.recordFootprint) {
-      const footprint = buildFootprint(ctx, action);
-      if (footprint) {
-        ctx.footprints.push(footprint);
-      }
-    }
+    if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, action));
     applyOffTuneBuildup(ctx, action);
     decayUsedBuffs(ctx, action);
   }
@@ -205,13 +197,12 @@ function runAction(ctx, action) {
   inflictTuneShifting(ctx, action);
   runEffectsWhen('inflict');
 
-  // Effects per hit
   for (const offset of hitOffsets) {
-    advanceTime(offset - currentTime);
+    advanceTimeTo(offset);
     runEffectsWhen('hit');
   }
 
-  advanceTime(duration - currentTime);
+  advanceTimeTo(duration);
   runEffectsWhen('after');
 }
 
@@ -229,6 +220,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     currId,
     onFieldId: null,
     state: {
+      runtime: 0,
       applyCooldowns: {},
       memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
       enemyEffects: {},
@@ -236,7 +228,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
       tune: { offTune: 0 },
     },
     runAction,
-    footprints: [],
+    snapshots: [],
     offTuneBuildup: [],
   };
 
@@ -256,47 +248,17 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     runAction(ctx, action);
   }
   ctx.offTuneBuildup.push(ctx.state.tune.offTune);
-  ctx.recordFootprint = true;
+  ctx.saveSnapshots = true;
   for (const action of actionOrder) {
     ctx.onFieldId = action.ownerId;
     runAction(ctx, action);
   }
 
-  // Resolve fixed footprints
-  const fixedSummary = {};
-  const remaining = [];
-
-  for (const footprint of ctx.footprints) {
-    if (!('fixed' in footprint)) {
-      remaining.push(footprint);
-      continue;
-    }
-
-    addToSummary(fixedSummary, {
-      key: footprint.key,
-      ownerId: footprint.ownerId,
-      type: footprint.type,
-      dmgType: footprint.dmgType,
-      value: footprint.fixed,
-    });
-  }
-
-  return (statMap) => {
-    const summary = { ...fixedSummary };
-    for (const footprint of remaining) {
-      const result = evaluateFootprint(helpers, currId, footprint, statMap);
-      addToSummary(summary, result);
-    }
-    return summary;
-  };
+  return (buildMap) => ctx.snapshots.map((snapshot) =>
+    'value' in snapshot
+      ? snapshot
+      : {
+        ...snapshot,
+        value: evaluateSnapshot(helpers, currId, snapshot, buildMap),
+      });
 };
-
-function addToSummary(summary, result) {
-  const prev = summary[result.key];
-
-  if (prev) {
-    prev.value += result.value;
-  } else {
-    summary[result.key] = { ...result };
-  }
-}

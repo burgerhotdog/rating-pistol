@@ -38,7 +38,7 @@ const calcTuneBreaksPerRotation = (ctx) => {
 function recordTuneBreak(ctx) {
   const timesPerRotation = calcTuneBreaksPerRotation(ctx);
 
-  const buildFootprint = (action) => {
+  const buildSnapshot = (action) => {
     const { debuffMap } = getDebuffMap(ctx, { action });
     const buffsOwner = action?.ownerId ?? ctx.onFieldId;
     const buildMap = ctx.buildMaps[buffsOwner];
@@ -51,12 +51,13 @@ function recordTuneBreak(ctx) {
 
     return {
       ...(action ?? tuneBreakAction),
-      fixed: damage * timesPerRotation,
+      value: damage * timesPerRotation,
+      runtime: ctx.state.runtime,
     };
   };
 
   // Tune break
-  ctx.footprints.push(buildFootprint());
+  ctx.snapshots.push(buildSnapshot());
 
   // Tune response
   const { shifting } = ctx.state.tune;
@@ -71,7 +72,7 @@ function recordTuneBreak(ctx) {
       effect.useIfInterfered !== shifting
     ) continue;
 
-    ctx.footprints.push(buildFootprint(effect.useAction[0]));
+    ctx.snapshots.push(buildSnapshot(effect.useAction[0]));
     effectState.useCooldown = 8000;
   }
 }
@@ -79,9 +80,9 @@ function recordTuneBreak(ctx) {
 export function runTuneBreak(ctx) {
   const { tune } = ctx.state;
 
-  if (!ctx.recordFootprint) { // Record offTune on first loop
+  if (!ctx.saveSnapshots) { // Record offTune on first loop
     ctx.offTuneBuildup.push(tune.offTune);
-  } else { // Record footprints on second loop
+  } else { // Record snapshots on second loop
     recordTuneBreak(ctx);
   }
 
