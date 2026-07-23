@@ -7,7 +7,8 @@ const ifAttr = (rawFilter = {}, { effect, ctx }) => {
 };
 
 const ifField = (filter, { action, ctx }) => {
-  const field = ctx.getField(action.ownerId)
+  const isOnField = action.ownerId === ctx.onFieldId;
+  const field = isOnField ? 'onField' : 'offField';
   return filter != null && filter === field;
 };
 
@@ -15,7 +16,6 @@ const ifEffectStacks = (rawFilter = {}, state, op) => { // helper
   const filter = Object.entries(rawFilter);
   const stateMaps = [
     ...Object.values(state.memberEffects),
-    ...Object.values(state.fieldEffects),
     state.enemyEffects,
   ];
   return filter.every(([key, stacks]) =>

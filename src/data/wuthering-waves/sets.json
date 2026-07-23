@@ -358,7 +358,8 @@
         {
           "applyWhen": "hit",
           "applyOnSkillType": "coordinatedAttack",
-          "applyTo": "onField",
+          "applyTo": "enemy",
+          "useIfField": "onField",
           "statMap": {
             "atk%": 0.2
           },

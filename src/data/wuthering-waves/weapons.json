@@ -2240,7 +2240,8 @@
           "1406:forteCircuit.4",
           "1408:forteCircuit.4"
         ],
-        "applyTo": "onField",
+        "applyTo": "enemy",
+        "useIfField": "onField",
         "statMap": {
           "aeroDmgAmp%": [
             0.1,

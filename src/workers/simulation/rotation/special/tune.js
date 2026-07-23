@@ -49,10 +49,6 @@ function recordTuneBreak(ctx) {
     const element = action?.element ?? 'physical';
     const damage = runTuneFormula(ctx.helpers, statMap, tuneAmp, element);
 
-    if (buffsOwner === "1308") {
-      console.log(buffMap);
-    }
-
     return {
       ...(action ?? tuneBreakAction),
       fixed: damage * timesPerRotation,

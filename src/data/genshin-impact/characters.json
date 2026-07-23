@@ -449,7 +449,7 @@
       {
         "applyWhen": "hit",
         "applyOnAction": "elementalSkill.0",
-        "applyTo": "onField",
+        "applyTo": "enemy",
         "useWhen": "hit",
         "useCooldown": 2000,
         "useAction": "elementalSkill.1",

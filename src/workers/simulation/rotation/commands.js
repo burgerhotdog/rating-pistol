@@ -5,7 +5,7 @@ import {
 } from './effects';
 
 function doRemove(ctx, rawDoRemove) {
-  const { memberEffects, fieldEffects, enemyEffects } = ctx.state;
+  const { memberEffects, enemyEffects } = ctx.state;
   const doRemove = toArray(rawDoRemove);
 
   for (const effectKey of doRemove) {
@@ -13,8 +13,6 @@ function doRemove(ctx, rawDoRemove) {
     for (const target of effect.applyTo) {
       if (target === 'enemy') {
         runRemoveEffect(enemyEffects[effectKey]);
-      } else if (target === 'onField' || target === 'offField') {
-        runRemoveEffect(fieldEffects[target][effectKey]);
       } else {
         runRemoveEffect(memberEffects[target][effectKey]);
       }

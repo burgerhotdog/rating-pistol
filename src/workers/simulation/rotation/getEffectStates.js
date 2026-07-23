@@ -1,15 +1,7 @@
 const getEffectStatesForMember = (ctx, memberId) => {
-  const { memberEffects, fieldEffects } = ctx.state;
-  if (memberId === 'all') return [
-    ...Object.values(memberEffects).flatMap(Object.values),
-    ...Object.values(fieldEffects).flatMap(Object.values),
-  ];
-
-  const fieldId = ctx.getField(memberId);
-  return [
-    ...Object.values(memberEffects[memberId]),
-    ...Object.values(fieldEffects[fieldId]),
-  ];
+  const { memberEffects } = ctx.state;
+  if (memberId === 'all') return Object.values(memberEffects).flatMap(Object.values);
+  return Object.values(memberEffects[memberId]);
 };
 
 export const getEffectStates = (ctx, { enemy, member, type }) => {

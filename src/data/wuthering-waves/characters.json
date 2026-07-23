@@ -418,9 +418,10 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.1",
-        "applyTo": "onField",
+        "applyTo": "enemy",
         "useWhen": "hit",
         "useOnType": "damage",
+        "useIfField": "onField",
         "useCooldown": 1000,
         "useAction": "resonanceLiberation.0",
         "maxDuration": 30000,
@@ -1157,9 +1158,10 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "applyTo": "onField",
+        "applyTo": "enemy",
         "useWhen": "hit",
         "useOnSkillType": "basicAttack",
+        "useIfField": "onField",
         "useCooldown": 350,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 10000,
@@ -1172,9 +1174,10 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "applyTo": "onField",
+        "applyTo": "enemy",
         "useWhen": "hit",
         "useOnSkillType": "heavyAttack",
+        "useIfField": "onField",
         "useCooldown": 350,
         "useAction": "resonanceLiberation.1",
         "times": 2,
@@ -2351,9 +2354,10 @@
       {
         "applyWhen": "hit",
         "applyOnAction": "resonanceSkill.0",
-        "applyTo": "onField",
+        "applyTo": "enemy",
         "useWhen": "hit",
         "useOnType": "damage",
+        "useIfField": "onField",
         "useCooldown": 1200,
         "useAction": "resonanceSkill.1",
         "maxDuration": 12000
@@ -4442,7 +4446,8 @@
       {
         "applyWhen": "before",
         "applyOnAction": "outroSkill.1",
-        "applyTo": "onField",
+        "applyTo": "enemy",
+        "useIfField": "onField",
         "statMap": {
           "spectroFrazzleDmgAmp%": 1
         },
@@ -5089,7 +5094,8 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.0",
-        "applyTo": "onField",
+        "applyTo": "enemy",
+        "useIfField": "onField",
         "removeWhen": "before",
         "removeOnAction": "normalAttack.3",
         "statMap": {
@@ -5711,8 +5717,9 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "applyTo": "onField",
+        "applyTo": "enemy",
         "useWhen": "hit",
+        "useIfField": "onField",
         "useCooldown": 1000,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 30000,

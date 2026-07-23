@@ -228,20 +228,9 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     buildMaps,
     currId,
     onFieldId: null,
-    getField(id) {
-      return id === this.onFieldId
-        ? 'onField'
-        : 'offField';
-    },
     state: {
       applyCooldowns: {},
-      memberEffects: Object.fromEntries(
-        cache.memberIds.map((id) => [id, {}])
-      ),
-      fieldEffects: {
-        onField: {},
-        offField: {},
-      },
+      memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
       enemyEffects: {},
       negativeStatuses: {},
       tune: { offTune: 0 },
@@ -260,8 +249,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   // Rotation loop
   const actionOrder = cache.memberIds
     .toReversed()
-    .flatMap((memberId) =>
-      cache.member[memberId].rotation);
+    .flatMap((memberId) => cache.member[memberId].rotation);
 
   for (const action of actionOrder) {
     ctx.onFieldId = action.ownerId;
@@ -292,7 +280,6 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
       value: footprint.fixed,
     });
   }
-
 
   return (statMap) => {
     const summary = { ...fixedSummary };

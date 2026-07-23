@@ -46,7 +46,7 @@ export function runUseEffect(effectState, ctx) {
 }
 
 export function runApplyEffect(ctx, effect, action = {}) {
-  const { applyCooldowns, memberEffects, fieldEffects, enemyEffects } = ctx.state;
+  const { applyCooldowns, memberEffects, enemyEffects } = ctx.state;
 
   function updateState(stateMap) {
     const prevState = stateMap[effect.key] ?? {};
@@ -80,8 +80,6 @@ export function runApplyEffect(ctx, effect, action = {}) {
       updateState(memberEffects[action.ownerId]);
     } else if (target === 'enemy') {
       updateState(enemyEffects);
-    } else if (target === 'onField' || target === 'offField') {
-      updateState(fieldEffects[target]);
     } else {
       updateState(memberEffects[target]);
     }
