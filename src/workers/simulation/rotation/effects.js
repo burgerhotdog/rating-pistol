@@ -1,46 +1,45 @@
 import { getEffectStates } from './getEffectStates';
 
-export function runRemoveEffect(effectState) {
-  if (!effectState) return;
-  const { stateMap, effect } = effectState;
+export function runRemoveEffect(state) {
+  if (!state) return;
+  const { store, effect } = state;
 
   if ('removeOffset' in effect) {
-    effectState.removeTimer ??= effect.removeOffset;
+    state.removeTimer ??= effect.removeOffset;
   } else {
-    delete stateMap[effect.key];
+    delete store[effect.key];
   }
 }
 
-export function runExtendEffect(effectState) {
-  if (!effectState) return;
-  const { effect } = effectState;
+export function runExtendEffect(state) {
+  if (!state) return;
+  const { effect } = state;
 
-  effectState.timeLeft += effect.extendDuration;
-  effectState.extendCooldown = effect.extendCooldown;
-  effectState.extensionsLeft--;
+  state.timeLeft += effect.extendDuration;
+  state.extendCooldown = effect.extendCooldown;
+  state.extensionsLeft--;
 }
 
-export function runUseEffect(effectState, ctx) {
-  const { stateMap, effect } = effectState;
+export function runUseEffect(ctx, state, spec = {}) {
+  const { runtimeOffset } = spec;
+  const { store, effect } = state;
 
   if (effect.useAction) {
-    effectState.isRunning = true;
+    state.isRunning = true;
     for (let i = 0; i < (effect.times ?? 1); i++) {
-      for (const effectAction of effect.useAction) {
-        ctx.runAction(ctx, effectAction);
+      for (const action of effect.useAction) {
+        ctx.runAction(ctx, action, { runtimeOffset, noDuration: true });
       }
     }
-    delete effectState.isRunning;
+    delete state.isRunning;
 
     if (effect.useCooldown) {
-      effectState.useCooldown = effect.useCooldown;
+      state.useCooldown = effect.useCooldown;
     }
 
-    if (effectState.usesLeft) {
-      effectState.usesLeft--;
-      if (!effectState.usesLeft) {
-        delete stateMap[effect.key];
-      }
+    if (state.usesLeft) {
+      state.usesLeft--;
+      if (!state.usesLeft) return delete store[effect.key];
     }
   }
 }
@@ -48,11 +47,11 @@ export function runUseEffect(effectState, ctx) {
 export function runApplyEffect(ctx, effect, action = {}) {
   const { applyCooldowns, memberEffects, globalEffects } = ctx.states;
 
-  function updateState(stateMap) {
-    const prevState = stateMap[effect.key] ?? {};
+  function updateState(store) {
+    const prevState = store[effect.key] ?? {};
     const prevStacks = prevState.stacks ?? 0;
-    stateMap[effect.key] = {
-      stateMap,
+    store[effect.key] = {
+      store,
       effect,
       stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
       ...('maxDuration' in effect &&
@@ -61,17 +60,17 @@ export function runApplyEffect(ctx, effect, action = {}) {
         { usesLeft: effect.maxUses }),
       ...('maxExtensions' in effect &&
         { extensionsLeft: effect.maxExtensions }),
-      ...('intervalCooldown' in effect &&
-        { intervalTimer: effect.intervalOffset ?? 0 }),
+      ...('applyOffset' in effect &&
+        { useCooldown: effect.applyOffset }),
       ...('rampingInterval' in effect &&
         { rampingTimer: effect.rampingOffset ?? 0 }),
     };
 
     if ( // If effect should be removed when reaching max stacks
       effect.removeWhen === 'maxStacks' &&
-      stateMap[effect.key].stacks === (effect.maxStacks ?? 1)
+      store[effect.key].stacks === (effect.maxStacks ?? 1)
     ) {
-      runRemoveEffect(stateMap[effect.key]);
+      runRemoveEffect(store[effect.key]);
     }
   }
 
@@ -90,51 +89,61 @@ export function runApplyEffect(ctx, effect, action = {}) {
   }
 }
 
+function advanceEffect(ctx, state, elapsed) {
+  const { store, effect } = state;
+
+  if (state.useCooldown) {
+    state.useCooldown -= elapsed;
+    if (state.useCooldown <= 0) delete state.useCooldown;
+  }
+
+  if (state.extendCooldown) {
+    state.extendCooldown -= elapsed;
+    if (state.extendCooldown <= 0) delete state.extendCooldown;
+  }
+
+  if (state.rampingTimer) {
+    const { rampingInterval, maxStacks } = state.effect;
+    state.rampingTimer -= elapsed;
+    while (state.rampingTimer <= 0) {
+      if (state.stacks >= maxStacks) {
+        delete state.rampingTimer;
+        break;
+      }
+      state.stacks++;
+      state.rampingTimer += rampingInterval;
+    }
+  }
+
+  if (state.removeTimer) {
+    state.removeTimer -= elapsed;
+    if (state.removeTimer <= 0) return delete store[effect.key];
+  }
+
+  if (state.timeLeft) {
+    state.timeLeft -= elapsed;
+    if (state.timeLeft <= 0) return delete store[effect.key];
+  }
+}
+
 export function advanceEffects(ctx, elapsed) {
-  const effectStates = getEffectStates(ctx, { member: 'all' });
-  for (const effectState of effectStates) {
-    const { stateMap, effect } = effectState;
+  if (!elapsed) return;
+  for (const state of getEffectStates(ctx, { member: 'all' })) {
+    const { effect } = state;
 
-    if (effectState.useCooldown) {
-      effectState.useCooldown -= elapsed;
-      if (effectState.useCooldown <= 0) {
-        delete effectState.useCooldown;
-      }
+    if (effect.useWhen !== 'interval') {
+      advanceEffect(ctx, state, elapsed);
+      continue;
     }
 
-    if (effectState.extendCooldown) {
-      effectState.extendCooldown -= elapsed;
-      if (effectState.extendCooldown <= 0) {
-        delete effectState.extendCooldown;
-      }
-    }
-
-    if (effectState.rampingTimer) {
-      const { rampingInterval, maxStacks } = effectState.effect;
-      effectState.rampingTimer -= elapsed;
-      while (effectState.rampingTimer <= 0) {
-        if (effectState.stacks >= maxStacks) {
-          delete effectState.rampingTimer;
-          break;
-        }
-        effectState.stacks++;
-        effectState.rampingTimer += rampingInterval;
-      }
-    }
-
-    if (effectState.removeTimer) {
-      effectState.removeTimer -= elapsed;
-      if (effectState.removeTimer <= 0) {
-        delete stateMap[effect.key];
-        continue;
-      }
-    }
-
-    if (effectState.timeLeft) {
-      effectState.timeLeft -= elapsed;
-      if (effectState.timeLeft <= 0) {
-        delete stateMap[effect.key];
-        continue;
+    let remaining = elapsed;
+    while (remaining) {
+      const diff = Math.min(state.useCooldown, remaining);
+      if (advanceEffect(ctx, state, diff)) break;
+      remaining -= diff;
+      
+      if (!state.useCooldown) {
+        if (runUseEffect(ctx, state, { runtimeOffset: elapsed - remaining })) break;
       }
     }
   }

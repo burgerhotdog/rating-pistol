@@ -12,14 +12,14 @@ const ifField = (filter, { action, ctx }) => {
   return filter != null && filter === field;
 };
 
-const ifEffectStacks = (rawFilter = {}, state, op) => { // helper
+const ifEffectStacks = (rawFilter = {}, states, op) => { // helper
   const filter = Object.entries(rawFilter);
-  const stateMaps = [
-    ...Object.values(state.memberEffects),
-    state.globalEffects,
+  const stores = [
+    ...Object.values(states.memberEffects),
+    states.globalEffects,
   ];
-  return filter.every(([key, stacks]) =>
-    stateMaps.some((stateMap) => op(stateMap[key]?.stacks, stacks)));
+  return filter.every(([effectKey, stacks]) =>
+    stores.some((store) => op(store[effectKey]?.stacks, stacks)));
 };
 
 const ifEffectStacksMin = (rawFilter, { ctx }) =>

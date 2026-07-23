@@ -370,7 +370,9 @@
           "applyWhen": "hit",
           "applyOnType": "healing",
           "applyCooldown": 3500,
-          "intervalAction": {
+          "useWhen": "interval",
+          "useCooldown": 3000,
+          "useAction": {
             "element": "physical",
             "multipliers": [
               {
@@ -378,7 +380,6 @@
               }
             ]
           },
-          "intervalOffset": 3000,
           "maxUses": 1
         }
       ]

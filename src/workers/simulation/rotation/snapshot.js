@@ -3,12 +3,13 @@ import { resolveStatSpecs, mergeStatMap } from '../utils';
 import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 
-export const buildSnapshot = (ctx, action) => {
+export const buildSnapshot = (ctx, action, options = {}) => {
+  const { runtimeOffset = 0 } = options;
   const snapshot = {
     ...action,
     ctxBuildMap: ctx.buildMaps[action.ownerId],
     ...getBuffMap(ctx, { memberId: action.ownerId, action }),
-    runtime: ctx.states.runtime,
+    runtime: ctx.states.runtime + runtimeOffset,
   };
 
   if (snapshot.buffSpecs.length) {

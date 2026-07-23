@@ -140,8 +140,9 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "intervalAction": "resonanceLiberation.1",
-        "intervalCooldown": 2500,
+        "useWhen": "interval",
+        "useCooldown": 2500,
+        "useAction": "resonanceLiberation.1",
         "maxUses": 4,
         "rankMods": {
           "4": {
@@ -154,8 +155,8 @@
         "applyOnSkillType": "heavyAttack",
         "applyOnAction": "resonanceSkill.0",
         "useWhen": "interval",
+        "useCooldown": 2000,
         "useAction": "forteCircuit.0",
-        "interval": 2000,
         "maxUses": 4
       },
       {
@@ -200,7 +201,9 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
-        "intervalAction": {
+        "useWhen": "interval",
+        "useCooldown": 3000,
+        "useAction": {
           "type": "healing",
           "attr": "hp",
           "multipliers": [
@@ -209,7 +212,6 @@
             }
           ]
         },
-        "intervalCooldown": 3000,
         "maxDuration": 30000
       },
       {
@@ -943,8 +945,9 @@
       {
         "applyWhen": "hit",
         "applyOnAction": "forteCircuit.2",
-        "intervalAction": "forteCircuit.0",
-        "intervalCooldown": 100,
+        "useWhen": "interval",
+        "useCooldown": 100,
+        "useAction": "forteCircuit.0",
         "maxUses": 30
       },
       {
@@ -1052,7 +1055,9 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
-        "intervalAction": {
+        "useWhen": "interval",
+        "useCooldown": 1500,
+        "useAction": {
           "dmgType": "outroSkill",
           "multipliers": [
             {
@@ -1060,7 +1065,6 @@
             }
           ]
         },
-        "intervalCooldown": 1500,
         "maxDuration": 6000
       },
       {
@@ -1889,8 +1893,9 @@
           "forteCircuit.2",
           "introSkill.0"
         ],
-        "intervalAction": "forteCircuit.0",
-        "intervalCooldown": 3000,
+        "useWhen": "interval",
+        "useCooldown": 3000,
+        "useAction": "forteCircuit.0",
         "maxDuration": 25000
       },
       {
@@ -2811,7 +2816,9 @@
       {
         "applyWhen": "before",
         "applyOnAction": "outroSkill.0",
-        "intervalAction": {
+        "useWhen": "interval",
+        "useCooldown": 1000,
+        "useAction": {
           "type": "healing",
           "multipliers": [
             {
@@ -2819,7 +2826,6 @@
             }
           ]
         },
-        "intervalCooldown": 1000,
         "maxDuration": 16000
       },
       {
@@ -3374,15 +3380,17 @@
       {
         "applyWhen": "hit",
         "applyOnAction": "resonanceLiberation.2",
-        "intervalAction": "resonanceLiberation.0",
-        "intervalCooldown": 250,
+        "useWhen": "interval",
+        "useCooldown": 250,
+        "useAction": "resonanceLiberation.0",
         "maxDuration": 3120
       },
       {
         "applyWhen": "hit",
         "applyOnAction": "resonanceLiberation.2",
-        "intervalAction": "resonanceLiberation.1",
-        "intervalOffset": 3120,
+        "applyOffset": 3120,
+        "useWhen": "interval",
+        "useAction": "resonanceLiberation.1",
         "maxUses": 1
       },
       {
@@ -3393,8 +3401,9 @@
           "forteCircuit.8",
           "forteCircuit.9"
         ],
-        "intervalAction": "forteCircuit.10",
-        "intervalCooldown": 6000,
+        "useWhen": "interval",
+        "useCooldown": 6000,
+        "useAction": "forteCircuit.10",
         "maxDuration": 30000
       },
       {
@@ -3522,8 +3531,9 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "intervalAction": "resonanceLiberation.1",
-        "intervalCooldown": 1000,
+        "useWhen": "interval",
+        "useCooldown": 1000,
+        "useAction": "resonanceLiberation.1",
         "maxUses": 20
       },
       {
@@ -3584,7 +3594,8 @@
         "enableIfRankMin": 6,
         "applyWhen": "hit",
         "applyOnAction": "normalAttack.3",
-        "intervalAction": {
+        "useWhen": "interval",
+        "useAction": {
           "dmgType": "resonanceLiberation",
           "multipliers": [
             {
@@ -3963,7 +3974,9 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
-        "intervalAction": {
+        "useWhen": "interval",
+        "useCooldown": 1000,
+        "useAction": {
           "type": "healing",
           "multipliers": [
             {
@@ -3971,7 +3984,6 @@
             }
           ]
         },
-        "intervalCooldown": 1000,
         "maxDuration": 6000
       },
       {
@@ -3987,7 +3999,9 @@
         "enableIfRankMin": 1,
         "applyWhen": "before",
         "applyOnAction": "outroSkill.0",
-        "intervalAction": {
+        "useWhen": "interval",
+        "useCooldown": 5000,
+        "useAction": {
           "type": "healing",
           "multipliers": [
             {
@@ -3995,7 +4009,6 @@
             }
           ]
         },
-        "intervalCooldown": 5000,
         "maxDuration": 30000
       },
       {
@@ -4226,8 +4239,9 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "intervalAction": "resonanceLiberation.1",
-        "intervalCooldown": 3000,
+        "useWhen": "interval",
+        "useCooldown": 3000,
+        "useAction": "resonanceLiberation.1",
         "maxDuration": 30000,
         "rankMods": {
           "1": {
@@ -4985,7 +4999,8 @@
         "enableIfRankMin": 2,
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.1",
-        "intervalAction": [
+        "useWhen": "interval",
+        "useAction": [
           {
             "dmgType": "heavyAttack",
             "multipliers": [
@@ -5776,7 +5791,8 @@
         "enableIfRankMin": 2,
         "applyWhen": "hit",
         "applyOnAction": "resonanceLiberation.0",
-        "intervalAction": "resonanceSkill.2",
+        "useWhen": "interval",
+        "useAction": "resonanceSkill.2",
         "maxUses": 1
       },
       {

@@ -4,45 +4,31 @@ import {
   runApplyEffect,
 } from './effects';
 
-function doRemove(ctx, rawDoRemove) {
+function doRemove(ctx, toRemove) {
   const { memberEffects, globalEffects } = ctx.states;
-  const doRemove = toArray(rawDoRemove);
 
-  for (const effectKey of doRemove) {
+  for (const effectKey of toArray(toRemove)) {
     const effect = ctx.cache.effects[effectKey];
     for (const target of effect.applyTo) {
-      if (target === 'global') {
-        runRemoveEffect(globalEffects[effectKey]);
-      } else {
-        runRemoveEffect(memberEffects[target][effectKey]);
-      }
+      if (target === 'global') runRemoveEffect(globalEffects[effectKey]);
+      else runRemoveEffect(memberEffects[target][effectKey]);
     }
   }
 }
 
-function doApply(ctx, effectsToApply) {
-  for (const [effectKey, stacks] of Object.entries(effectsToApply)) {
+function doApply(ctx, toApply = {}) {
+  for (const [effectKey, stacks] of Object.entries(toApply)) {
     const effect = ctx.cache.effects[effectKey];
-    for (let i = 0; i < stacks; i++) {
-      runApplyEffect(ctx, effect);
-    }
+    for (let i = 0; i < stacks; i++) runApplyEffect(ctx, effect);
   }
 }
 
 export function onUseDoCommand(ctx, effect) {
-  if (effect.onUseDoRemove) {
-    doRemove(ctx, effect.onUseDoRemove);
-  }
-  if (effect.onUseDoApply) {
-    doApply(ctx, effect.onUseDoApply);
-  }
+  if ('onUseDoRemove' in effect) doRemove(ctx, effect.onUseDoRemove);
+  if ('onUseDoApply' in effect) doApply(ctx, effect.onUseDoApply);
 }
 
 export function onApplyDoCommand(ctx, effect) {
-  if (effect.onApplyDoRemove) {
-    doRemove(ctx, effect.onApplyDoRemove);
-  }
-  if (effect.onApplyDoApply) {
-    doApply(ctx, effect.onApplyDoApply);
-  }
+  if ('onApplyDoRemove' in effect) doRemove(ctx, effect.onApplyDoRemove);
+  if ('onApplyDoApply' in effect) doApply(ctx, effect.onApplyDoApply);
 }

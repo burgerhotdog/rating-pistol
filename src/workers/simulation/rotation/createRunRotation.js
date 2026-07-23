@@ -30,97 +30,61 @@ import { buildSnapshot, evaluateSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 
 function decayUsedBuffs(ctx, action) {
-  for (const effectState of getEffectStates(ctx, {
-    member: action.ownerId,
-    type: 'buff',
-  })) {
-    const { stateMap, effect, useCooldown } = effectState;
+  for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
+    const { store, effect, useCooldown } = state;
     if (useCooldown || !matchUseFilter(effect, { ctx, action })) continue;
 
     if (effect.useCooldown) {
-      effectState.useCooldown = effect.useCooldown;
+      state.useCooldown = effect.useCooldown;
     }
 
-    if (effectState.usesLeft) {
-      effectState.usesLeft--;
-      if (!effectState.usesLeft) {
-        delete stateMap[effect.key];
-      }
-    }
-  }
-}
-
-function runIntervalActions(ctx, elapsed) {
-  const effectStates = getEffectStates(ctx, { member: 'all' });
-  for (const effectState of effectStates) {
-    const { stateMap, effect } = effectState;
-
-    if (!effect.intervalAction) continue;
-    const { times = 1 } = effect;
-
-    effectState.intervalTimer -= elapsed;
-    while (effectState.intervalTimer <= 0) {
-      for (let i = 0; i < times; i++) {
-        for (const action of effect.intervalAction) runAction(ctx, action);
-      }
-
-      effectState.intervalTimer += effect.intervalCooldown;
-
-      if (effectState.usesLeft) {
-        effectState.usesLeft--;
-        if (!effectState.usesLeft) {
-          delete stateMap[effect.key];
-          break;
-        }
+    if (state.usesLeft) {
+      state.usesLeft--;
+      if (!state.usesLeft) {
+        delete store[effect.key];
       }
     }
   }
 }
 
 function handleRemoveWhen(ctx, action, when) {
-  for (const effectState of getEffectStates(ctx, {
-    member: action.ownerId,
-  })) {
-    const { effect } = effectState;
+  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
+    const { effect } = state;
     const shouldRemove =
       effect.removeWhen === when &&
       matchRemoveFilter(effect, { ctx, action });
 
     if (!shouldRemove) continue;
-    runRemoveEffect(effectState);
+    runRemoveEffect(state);
   }
 }
 
 function handleExtendWhen(ctx, action, when) {
-  for (const effectState of getEffectStates(ctx, {
-    member: action.ownerId,
-  })) {
-    const { effect } = effectState;
+  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
+    const { effect } = state;
     const shouldExtend =
       effect.extendWhen === when &&
-      !effectState.extendCooldown &&
+      !state.extendCooldown &&
       matchExtendFilter(effect, { ctx, action }) &&
-      effectState.extensionsLeft;
+      state.extensionsLeft;
 
     if (!shouldExtend) continue;
-    runExtendEffect(effectState);
+    runExtendEffect(state);
   }
 }
 
 function handleUseWhen(ctx, action, when) {
-  for (const effectState of getEffectStates(ctx, {
-    member: action.ownerId,
-  })) {
-    const { effect } = effectState;
+  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
+    const { effect } = state;
     const shouldUse =
       effect.useWhen === when &&
-      !effectState.useCooldown &&
+      !state.useCooldown &&
       matchUseFilter(effect, { ctx, action }) &&
-      !effectState.isRunning;
+      !state.isRunning;
 
     if (!shouldUse) continue;
     onUseDoCommand(ctx, effect);
-    runUseEffect(effectState, ctx);
+    runUseEffect(ctx, state);
   }
 }
 
@@ -138,30 +102,28 @@ function handleApplyWhen(ctx, action, when) {
   }
 }
 
-function advanceApplyCooldowns(ctx, elapsed) {
+function advanceCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.states;
-
   for (const effectKey in applyCooldowns) {
     applyCooldowns[effectKey] -= elapsed;
-    if (applyCooldowns[effectKey] <= 0) {
-      delete applyCooldowns[effectKey];
-    }
+    if (applyCooldowns[effectKey] <= 0) delete applyCooldowns[effectKey];
   }
 }
 
-function runAction(ctx, action) {
+function runAction(ctx, action, options = {}) {
+  const { runtimeOffset, noDuration } = options;
   const { duration = 0, hitOffsets = [0] } = action;
   let actionRuntime = 0;
 
   function advanceTimeTo(timestamp) {
+    if (noDuration) return;
     const elapsed = timestamp - actionRuntime;
     if (elapsed <= 0) return;
 
-    runIntervalActions(ctx, elapsed);
     advanceNegativeStatuses(ctx, elapsed);
     advanceTune(ctx, elapsed);
     advanceEffects(ctx, elapsed);
-    advanceApplyCooldowns(ctx, elapsed);
+    advanceCooldowns(ctx, elapsed);
 
     actionRuntime += elapsed;
     if (ctx.saveSnapshots) ctx.states.runtime += elapsed;
@@ -185,7 +147,7 @@ function runAction(ctx, action) {
   advanceTimeTo(hitOffsets[0]);
 
   if (action.compressed) {
-    if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, action));
+    if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, action, { runtimeOffset }));
     applyOffTuneBuildup(ctx, action);
     decayUsedBuffs(ctx, action);
   }

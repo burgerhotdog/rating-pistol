@@ -159,29 +159,27 @@ const toNormalizedEffect = (rawEffect, spec) => {
     }
   }
 
-  for (const actionType of ['useAction', 'intervalAction']) {
-    if (actionType in effect) {
-      const effectActions = toArray(effect[actionType]);
+  if ('useAction' in effect) {
+    const effectActions = toArray(effect.useAction);
 
-      effect[actionType] = [];
-      for (const [index, rawlinkedAction] of effectActions.entries()) {
-        if (typeof rawlinkedAction === 'string') { // ref
-          effect[actionType].push(memberActions[rawlinkedAction]);
-        } else { // inline action object
-          effect[actionType].push(toNormalizedAction(rawlinkedAction, {
-            gameId,
-            ownerId,
-            category: `${sourceId}:effect${effectId}`,
-            actionId: index,
-            teamSize: memberIds.length,
-            weaponRank,
-          }));
-        }
+    effect.useAction = [];
+    for (const [index, rawlinkedAction] of effectActions.entries()) {
+      if (typeof rawlinkedAction === 'string') { // ref
+        effect.useAction.push(memberActions[rawlinkedAction]);
+      } else { // inline action object
+        effect.useAction.push(toNormalizedAction(rawlinkedAction, {
+          gameId,
+          ownerId,
+          category: `${sourceId}:effect${effectId}`,
+          actionId: index,
+          teamSize: memberIds.length,
+          weaponRank,
+        }));
       }
+    }
 
-      if (actionType === 'intervalAction') {
-        effect.intervalCooldown ??= 1000;
-      }
+    if (effect.useWhen === 'interval') {
+      effect.useCooldown ??= 1000;
     }
   }
 
