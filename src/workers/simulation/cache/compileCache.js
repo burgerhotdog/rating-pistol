@@ -1,5 +1,5 @@
 import { WW } from '@/data';
-import { mergeObj, mergeEquipList, compileBaseMap } from '@/utils';
+import { toMergedObj, mergeEquipList, compileBaseMap } from '@/utils';
 import { getMemberActions } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
@@ -81,7 +81,7 @@ export const compileCache = (gameId, team) => {
 
     const baseMap = compileBaseMap(gameId, memberId, weaponId);
     const equipMap = mergeEquipList(equipList);
-    const statMap = mergeObj(baseMap, equipMap);
+    const statMap = toMergedObj(baseMap, equipMap);
 
     const { rotation, rotationTime } = getConvertedRotation(rawRotation, {
       gameId,

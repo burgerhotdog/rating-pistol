@@ -1,4 +1,5 @@
-import { buildFootprint } from '../footprint';
+import { getDebuffMap } from '../getStatMap';
+import { getDmgAmpMult } from '../formula/dmgAmp';
 
 const STATUSES = {
   glacioChafe: {
@@ -6,39 +7,34 @@ const STATUSES = {
     element: 'glacio',
     mv: [2450, 4442, 6434, 8426, 10417, 12409, 14401, 16393, 18385, 20377, 27169, 33961, 40753],
     inflict: (ctx, status, stacks) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.glacioChafe;
-
-      if (state) {
-        state.stacks = Math.min(state.stacks + stacks, 10);
-        state.duration = 15000;
+      const { negativeStatuses } = ctx.state;
+      if ('glacioChafe' in negativeStatuses) {
+        const currState = negativeStatuses.glacioChafe;
+        currState.stacks = Math.min(currState.stacks + stacks, 10);
+        currState.timeLeft = 15000;
       } else {
-        stateMap.glacioChafe = {
-          stacks: Math.min(stacks, 10),
-          duration: 15000,
+        negativeStatuses.glacioChafe = {
           status,
+          stacks: Math.min(stacks, 10),
+          timeLeft: 15000,
         };
       }
 
+      const currState = negativeStatuses.glacioChafe;
       if (ctx.recordFootprint) {
-        const footprint = buildFootprint(ctx, {
-          type: 'negativeStatus',
-          statusState: stateMap.glacioChafe,
-        });
+        const footprint = buildFootprint(ctx, currState);
         ctx.footprints.push(footprint);
       }
-
-      if (stateMap.glacioChafe.stacks === 10) {
-        delete stateMap.glacioChafe;
+      if (currState.stacks === 10) {
+        delete negativeStatuses.glacioChafe;
       }
     },
     advance: (ctx, elapsed) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.glacioChafe;
-
-      state.duration -= elapsed;
-      if (state.duration <= 0) {
-        delete stateMap.glacioChafe;
+      const { negativeStatuses } = ctx.state;
+      const currState = negativeStatuses.glacioChafe;
+      currState.timeLeft -= elapsed;
+      if (currState.timeLeft <= 0) {
+        delete negativeStatuses.glacioChafe;
       }
     },
   },
@@ -47,38 +43,34 @@ const STATUSES = {
     element: 'fusion',
     mv: [8400, 15229, 22058, 28888, 35717, 42546, 49375, 56204, 63034, 69863, 93150, 116438, 139726],
     inflict: (ctx, status, stacks) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.fusionBurst;
-
-      if (state) {
-        state.stacks = Math.min(state.stacks + stacks, 10);
-        state.duration = 15000;
+      const { negativeStatuses } = ctx.state;
+      if ('fusionBurst' in negativeStatuses) {
+        const currState = negativeStatuses.fusionBurst;
+        currState.stacks = Math.min(currState.stacks + stacks, 10);
+        currState.timeLeft = 15000;
       } else {
-        stateMap.fusionBurst = {
-          stacks: Math.min(stacks, 10),
-          duration: 15000,
+        negativeStatuses.fusionBurst = {
           status,
+          stacks: Math.min(stacks, 10),
+          timeLeft: 15000,
         };
       }
 
-      if (stateMap.fusionBurst.stacks === 10) {
+      const currState = negativeStatuses.fusionBurst;
+      if (currState.stacks === 10) {
         if (ctx.recordFootprint) {
-          const footprint = buildFootprint(ctx, {
-            type: 'negativeStatus',
-            statusState: stateMap.fusionBurst,
-          });
+          const footprint = buildFootprint(ctx, currState);
           ctx.footprints.push(footprint);
         }
-        delete stateMap.fusionBurst;
+        delete negativeStatuses.fusionBurst;
       }
     },
     advance: (ctx, elapsed) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.fusionBurst;
-
-      state.duration -= elapsed;
-      if (state.duration <= 0) {
-        delete stateMap.fusionBurst;
+      const { negativeStatuses } = ctx.state;
+      const currState = negativeStatuses.fusionBurst;
+      currState.timeLeft -= elapsed;
+      if (currState.timeLeft <= 0) {
+        delete negativeStatuses.fusionBurst;
       }
     },
   },
@@ -87,46 +79,41 @@ const STATUSES = {
     element: 'electro',
     mv: [5000, 9065, 13130, 17195, 21260, 25325, 29390, 33455, 37520, 41585, 55447, 69308, 83170],
     inflict: (ctx, status, stacks) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.electroFlare;
-
-      if (state) {
-        const nextStacks = state.stacks + stacks;
-        state.stacks = Math.min(nextStacks, 10);
-        state.rage = Math.max(nextStacks - 10, 0);
+      const { negativeStatuses } = ctx.state;
+      if ('electroFlare' in negativeStatuses) {
+        const currState = negativeStatuses.electroFlare;
+        const nextStacks = currState.stacks + stacks;
+        currState.stacks = Math.min(nextStacks, 10);
+        currState.rage = Math.max(nextStacks - 10, 0);
       } else {
-        stateMap.electroFlare = {
+        negativeStatuses.electroFlare = {
+          status,
           stacks: Math.min(stacks, 10),
           rage: Math.max(stacks - 10, 0),
           timer: 5000,
-          status,
         };
       }
     },
     advance: (ctx, elapsed) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.electroFlare;
-
+      const { negativeStatuses } = ctx.state;
+      const currState = negativeStatuses.electroFlare;
       let remaining = elapsed;
       while (remaining > 0) {
-        const decrease = Math.min(state.timer, remaining);
-        state.timer -= decrease;
+        const decrease = Math.min(currState.timer, remaining);
+        currState.timer -= decrease;
         remaining -= decrease;
 
-        if (!state.timer) {
+        if (!currState.timer) {
           if (ctx.recordFootprint) {
-            const footprint = buildFootprint(ctx, {
-              type: 'negativeStatus',
-              statusState: stateMap.electroFlare,
-            });
+            const footprint = buildFootprint(ctx, currState);
             ctx.footprints.push(footprint);
           }
 
-          state.stacks = Math.floor(state.stacks / 2);
-          state.timer = 5000;
+          currState.stacks = Math.floor(currState.stacks / 2);
+          currState.timer = 5000;
 
-          if (!state.stacks) {
-            delete stateMap.electroFlare;
+          if (!currState.stacks) {
+            delete negativeStatuses.electroFlare;
             break;
           }
         }
@@ -138,46 +125,41 @@ const STATUSES = {
     element: 'aero',
     mv: [4500, 11250, 22500, 33750, 45000, 56250, 67500, 78750, 90000, 101250, 112500, 123750],
     inflict: (ctx, status, stacks) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.aeroErosion;
-
-      if (state) {
-        state.stacks = Math.min(state.stacks + stacks, 3);
-        state.duration = 15000;
+      const { negativeStatuses } = ctx.state;
+      if ('aeroErosion' in negativeStatuses) {
+        const currState = negativeStatuses.aeroErosion;
+        currState.stacks = Math.min(currState.stacks + stacks, 3);
+        currState.timeLeft = 15000;
       } else {
-        stateMap.aeroErosion = {
+        negativeStatuses.aeroErosion = {
+          status,
           stacks: Math.min(stacks, 3),
           timer: 3000,
-          duration: 15000,
-          status,
+          timeLeft: 15000,
         };
       }
     },
     advance: (ctx, elapsed) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.aeroErosion;
-
+      const { negativeStatuses } = ctx.state;
+      const currState = negativeStatuses.aeroErosion;
       let remaining = elapsed;
       while (remaining > 0) {
-        const decrease = Math.min(state.duration, state.timer, remaining);
-        state.duration -= decrease;
-        state.timer -= decrease;
+        const decrease = Math.min(currState.timeLeft, currState.timer, remaining);
+        currState.timeLeft -= decrease;
+        currState.timer -= decrease;
         remaining -= decrease;
 
-        if (state.timer === 0) {
+        if (currState.timer === 0) {
           if (ctx.recordFootprint) {
-            const footprint = buildFootprint(ctx, {
-              type: 'negativeStatus',
-              statusState: stateMap.aeroErosion,
-            });
+            const footprint = buildFootprint(ctx, currState);
             ctx.footprints.push(footprint);
           }
 
-          state.timer = 3000;
+          currState.timer = 3000;
         }
 
-        if (state.duration === 0) {
-          delete stateMap.aeroErosion;
+        if (currState.timeLeft === 0) {
+          delete negativeStatuses.aeroErosion;
           break;
         }
       }
@@ -188,43 +170,38 @@ const STATUSES = {
     element: 'spectro',
     mv: [3000, 5439, 7878, 10317, 12756, 15195, 17634, 20073, 22512, 24951, 33268, 41585, 49902],
     inflict: (ctx, status, stacks) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.spectroFrazzle;
-
-      if (state) {
-        state.stacks = Math.min(state.stacks + stacks, 10);
+      const { negativeStatuses } = ctx.state;
+      if ('spectroFrazzle' in negativeStatuses) {
+        const currState = negativeStatuses.spectroFrazzle;
+        currState.stacks = Math.min(currState.stacks + stacks, 10);
       } else {
-        stateMap.spectroFrazzle = {
+        negativeStatuses.spectroFrazzle = {
+          status,
           stacks: Math.min(stacks, 10),
           timer: 3000,
-          status,
         };
       }
     },
     advance: (ctx, elapsed) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.spectroFrazzle;
+      const { negativeStatuses } = ctx.state;
+      const currState = negativeStatuses.spectroFrazzle;
       let remaining = elapsed;
-
       while (remaining > 0) {
-        const decrease = Math.min(state.timer, remaining);
-        state.timer -= decrease;
+        const decrease = Math.min(currState.timer, remaining);
+        currState.timer -= decrease;
         remaining -= decrease;
 
-        if (!state.timer) {
+        if (!currState.timer) {
           if (ctx.recordFootprint) {
-            const footprint = buildFootprint(ctx, {
-              type: 'negativeStatus',
-              statusState: stateMap.spectroFrazzle,
-            });
+            const footprint = buildFootprint(ctx, currState);
             ctx.footprints.push(footprint);
           }
 
-          state.stacks--;
-          state.timer = 3000;
+          currState.stacks--;
+          currState.timer = 3000;
 
-          if (!state.stacks) {
-            delete stateMap.spectroFrazzle;
+          if (!currState.stacks) {
+            delete negativeStatuses.spectroFrazzle;
             break;
           }
         }
@@ -235,27 +212,25 @@ const STATUSES = {
     id: 'havocBane',
     element: 'havoc',
     inflict: (ctx, status, stacks) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.havocBane;
-
-      if (state) {
-        state.stacks = Math.min(state.stacks + stacks, 3);
-        state.duration = 15000;
+      const { negativeStatuses } = ctx.state;
+      if ('havocBane' in negativeStatuses) {
+        const currState = negativeStatuses.havocBane;
+        currState.stacks = Math.min(currState.stacks + stacks, 3);
+        currState.timeLeft = 15000;
       } else {
-        stateMap.havocBane = {
-          stacks: Math.min(stacks, 3),
-          duration: 15000,
+        negativeStatuses.havocBane = {
           status,
+          stacks: Math.min(stacks, 3),
+          timeLeft: 15000,
         };
       }
     },
     advance: (ctx, elapsed) => {
-      const stateMap = ctx.state.negativeStatuses;
-      const state = stateMap.havocBane;
-
-      state.duration -= elapsed;
-      if (state.duration <= 0) {
-        delete stateMap.havocBane;
+      const { negativeStatuses } = ctx.state;
+      const currState = negativeStatuses.havocBane;
+      currState.timeLeft -= elapsed;
+      if (currState.timeLeft <= 0) {
+        delete negativeStatuses.havocBane;
       }
     },
   }
@@ -277,3 +252,28 @@ export function advanceNegativeStatuses(ctx, elapsed) {
     status.advance(ctx, elapsed);
   }
 }
+
+const LEVEL_MODIFIER = 3674;
+
+export const buildFootprint = (ctx, statusState) => {
+  const { getDefMult, getResMult } = ctx.helpers;
+  const { stacks, rage, status } = statusState;
+
+  const { debuffMap } = getDebuffMap(ctx);
+
+  const mv = status.mv[stacks - 1];
+  const rageMv = rage ? status.mv[rage - 1] : 0;
+  const baseDmg = LEVEL_MODIFIER * ((mv + rageMv) / 10000);
+
+  const dmgAmpMult = getDmgAmpMult(debuffMap, [status.id]);
+  const defMult = getDefMult(debuffMap);
+  const resMult = getResMult(status.element, debuffMap);
+
+  return {
+    key: `other:${status.id}`,
+    ownerId: 'other',
+    type: 'damage',
+    dmgType: status.id,
+    fixed: baseDmg * dmgAmpMult * defMult * resMult,
+  };
+};

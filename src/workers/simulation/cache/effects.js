@@ -1,5 +1,5 @@
 import { CHARACTER, WEAPON, SET } from '@/data';
-import { toArray, mergeObj } from '@/utils';
+import { toArray, toMergedObj } from '@/utils';
 import { isEnabled } from './isEnabled';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
@@ -64,7 +64,7 @@ function resolveRankMods(effect, memberRank) {
 
       const prev = effect[key];
       if (typeof prev === 'object' && !Array.isArray(prev)) { // merge objects
-        effect[key] = mergeObj(prev, add);
+        effect[key] = toMergedObj(prev, add);
       } else if (typeof add === 'number') { // combine numbers
         effect[key] += add;
       } else { // merge string arrays

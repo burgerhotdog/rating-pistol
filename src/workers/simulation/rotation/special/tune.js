@@ -1,5 +1,9 @@
-import { getAttr } from '@/utils';
-import { buildFootprint } from '../footprint';
+import { getAttr, toMergedObj } from '@/utils';
+import { getDebuffMap, getBuffMap } from '../getStatMap';
+import { getEffectStates } from '../getEffectStates';
+
+const LEVEL_MODIFIER = 716.22;
+const ENEMY_TYPE_MODIFIER = 14;
 
 const tuneBreakAction = {
   key: 'other:tuneBreak',
@@ -8,44 +12,65 @@ const tuneBreakAction = {
   dmgType: 'tuneBreak',
   element: 'physical',
   attr: 'tuneAmp',
-  compressed: { flat: 0, mvs: { tuneAmp: 16 }, hitCounts: 1 },
-}
+};
 
-function recordTuneFootprints(ctx, tune) {
-  const tuneBreaksPerLoop =
-    ctx.offTuneBuildup[0] === 300
-      ? 1
-      : 1 / Math.ceil(300 / ctx.offTuneBuildup[1]);
+export const runTuneFormula = (helpers, statMap, tuneAmp, element) => {
+  const { getDefMult, getResMult } = helpers;
 
-  function buildTuneBreakFootprint(action) {
-    const footprint = buildFootprint(ctx, { action });
-    if ('fixed' in footprint) {
-      return { ...footprint, fixed: footprint.fixed * tuneBreaksPerLoop };
-    } else {
-      return { ...footprint, tuneBreaksPerLoop };
-    }
+  const baseDmg = LEVEL_MODIFIER * tuneAmp;
+  const defMult = getDefMult(statMap);
+  const resMult = getResMult(element, statMap);
+  const tuneBreakBoostMult = 1 + (getAttr('tuneBreakBoost', statMap) / 100);
+
+  return baseDmg *
+    ENEMY_TYPE_MODIFIER *
+    defMult * resMult *
+    tuneBreakBoostMult;
+};
+
+const calcTuneBreaksPerRotation = (ctx) => {
+  const [offTuneAtFirstBreak, offTuneAfterFullRotation] = ctx.offTuneBuildup;
+  if (offTuneAtFirstBreak === 300) return 1;
+  return 1 / Math.ceil(300 / offTuneAfterFullRotation);
+};
+
+function recordTuneBreak(ctx) {
+  const timesPerRotation = calcTuneBreaksPerRotation(ctx);
+
+  const buildFootprint = (action) => {
+    const { debuffMap } = getDebuffMap(ctx, { action });
+    const buffsOwner = action?.ownerId ?? ctx.onFieldId;
+    const buildMap = ctx.buildMaps[buffsOwner];
+    const { buffMap } = getBuffMap(ctx, buffsOwner, { action, ignoreVariable: true });
+    const statMap = toMergedObj(debuffMap, buildMap, buffMap);
+
+    const tuneAmp = action?.compressed?.tuneAmp ?? 16;
+    const element = action?.element ?? 'physical';
+    const damage = runTuneFormula(ctx.helpers, statMap, tuneAmp, element);
+
+    return {
+      ...(action ?? tuneBreakAction),
+      fixed: damage * timesPerRotation,
+    };
   };
 
   // Tune break
-  const breakFootprint = buildTuneBreakFootprint({ ...tuneBreakAction, ownerId: ctx.onFieldId });
-  ctx.footprints.push(breakFootprint);
+  ctx.footprints.push(buildFootprint());
 
-  // Early exit if not tune rupture or hack
-  if (tune.shifting !== 'tuneRupture' && tune.shifting !== 'hack') return;
-  
-  const { memberEffects } = ctx.state;
-  const tuneResponseStates = Object.values(memberEffects)
-    .flatMap((stateMap) => Object.values(stateMap))
-    .filter(({ effect }) =>
-      effect.useWhen === 'tuneResponse' &&
-      effect.useIfInterfered === tune.shifting);
-
-  for (const effectState of tuneResponseStates) {
+  // Tune response
+  const { shifting } = ctx.state.tune;
+  if (shifting !== 'tuneRupture' && shifting !== 'hack') return;
+  for (const effectState of getEffectStates(ctx, {
+    member: 'all',
+    type: 'action',
+  })) {
     const { effect } = effectState;
+    if (
+      effect.useWhen !== 'tuneResponse' ||
+      effect.useIfInterfered !== shifting
+    ) continue;
 
-    const responseFootprint = buildTuneBreakFootprint(effect.useAction[0]);
-    ctx.footprints.push(responseFootprint);
-
+    ctx.footprints.push(buildFootprint(effect.useAction[0]));
     effectState.useCooldown = 8000;
   }
 }
@@ -56,10 +81,10 @@ export function runTuneBreak(ctx) {
   if (!ctx.recordFootprint) { // Record offTune on first loop
     ctx.offTuneBuildup.push(tune.offTune);
   } else { // Record footprints on second loop
-    recordTuneFootprints(ctx, tune);
+    recordTuneBreak(ctx);
   }
 
-  // Early exit if tune break not available
+  // Early exit if not inflicting tune interfered
   if (!tune.isMistune || !tune.shifting) return;
 
   tune.offTune = 0;
@@ -67,33 +92,38 @@ export function runTuneBreak(ctx) {
   delete tune.isMistune;
 
   tune.interfered = tune.shifting;
-  switch (tune.interfered) {
+  switch (tune.shifting) {
     case 'tuneRupture':
-      tune.interferedTimeRemaining = 8000;
+      tune.interferedTimeLeft = 8000;
       break;
     case 'tuneStrain':
-      tune.interferedTimeRemaining = 30000;
+      tune.interferedTimeLeft = 30000;
       tune.interferedStacks = tune.strainAppliers.size;
       delete tune.strainAppliers;
       break;
     case 'hack':
-      tune.interferedTimeRemaining = 8000;
+      tune.interferedTimeLeft = 8000;
       break;
   }
   delete tune.shifting;
-  delete tune.shiftingTimeRemaining;
+  delete tune.shiftingTimeLeft;
 }
 
-export function applyOffTuneBuildup(ctx, action, fixedBuffMap = {}) {
-  if (action.type !== 'damage') return;
+export function applyOffTuneBuildup(ctx, action) {
   const { tune } = ctx.state;
-  if (tune.isMistune || tune.offTuneCooldown) return;
+  if (
+    action.type !== 'damage' ||
+    tune.isMistune ||
+    tune.offTuneCooldown
+  ) return;
+
+  const { debuffMap } = getDebuffMap(ctx, { action });
+  const buildMap = ctx.buildMaps[action.ownerId];
+  const { buffMap } = getBuffMap(ctx, action.ownerId, { action, ignoreVariable: true });
+  const statMap = toMergedObj(debuffMap, buildMap, buffMap);
+  const offTuneBuildupRate = getAttr('offTuneBuildupRate%', statMap);
 
   const hitCount = action.compressed.hitCount;
-  const offTuneBuildupRate = (
-    getAttr('offTuneBuildupRate%', ctx.buildMaps[action.ownerId]) +
-    getAttr('offTuneBuildupRate%', fixedBuffMap)
-  );
 
   tune.offTune += 10 * offTuneBuildupRate * hitCount;
   if (tune.offTune >= 300) {
@@ -107,7 +137,7 @@ export function inflictTuneShifting(ctx, action) {
   const { tune } = ctx.state;
 
   tune.shifting = action.inflictShifting;
-  tune.shiftingTimeRemaining = 25000;
+  tune.shiftingTimeLeft = 25000;
 
   if (action.inflictShifting === 'tuneStrain') {
     tune.strainAppliers ??= new Set();
@@ -125,20 +155,20 @@ export function advanceTune(ctx, elapsed) {
     }
   }
 
-  if (tune.shiftingTimeRemaining) {
-    tune.shiftingTimeRemaining -= elapsed;
-    if (tune.shiftingTimeRemaining <= 0) {
+  if (tune.shiftingTimeLeft) {
+    tune.shiftingTimeLeft -= elapsed;
+    if (tune.shiftingTimeLeft <= 0) {
       delete tune.shifting;
-      delete tune.shiftingTimeRemaining;
+      delete tune.shiftingTimeLeft;
       delete tune.strainAppliers;
     }
   }
 
-  if (tune.interferedTimeRemaining) {
-    tune.interferedTimeRemaining -= elapsed;
-    if (tune.interferedTimeRemaining <= 0) {
+  if (tune.interferedTimeLeft) {
+    tune.interferedTimeLeft -= elapsed;
+    if (tune.interferedTimeLeft <= 0) {
       delete tune.interfered;
-      delete tune.interferedTimeRemaining;
+      delete tune.interferedTimeLeft;
       delete tune.interferedStacks;
     }
   }

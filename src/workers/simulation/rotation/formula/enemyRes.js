@@ -22,9 +22,9 @@ export const createGetResMult = (gameId) => {
     }
   };
 
-  return (element, enemyMap, statMap = {}) => {
-    const resReduction = getAttr('resReduction%', enemyMap);
-    const elementResReduction = getAttr(`${element}ResReduction%`, enemyMap);
+  return (element, statMap) => {
+    const resReduction = getAttr('resReduction%', statMap);
+    const elementResReduction = getAttr(`${element}ResReduction%`, statMap);
     const totalResReduction = resReduction + elementResReduction;
 
     const resIgnore = getAttr(`res${keyword}%`, statMap);

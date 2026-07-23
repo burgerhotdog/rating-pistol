@@ -1,14 +1,4 @@
-export const mergeObj = (a, b) => {
-  const result = { ...a };
-
-  for (const key in b) {
-    result[key] = (result[key] ?? 0) + b[key];
-  }
-
-  return result;
-};
-
-export const mergeObjs = (...objects) => {
+export const toMergedObj = (...objects) => {
   const result = {};
 
   for (const obj of objects) {

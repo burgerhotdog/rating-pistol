@@ -1,5 +1,5 @@
 import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET } from '@/data';
-import { toArray, mergeObj, mergeObjs, mergeEquipList, resolveRankedValue } from '@/utils';
+import { toArray, toMergedObj, mergeEquipList, resolveRankedValue } from '@/utils';
 
 const DEFAULT = {
   [GI]: {
@@ -27,11 +27,11 @@ const DEFAULT = {
 
 export const compileBaseMap = (gameId, charId, weapId) => {
   const { baseStats, ascensionStats } = CHARACTER[gameId][charId];
-  const charStats = mergeObj(baseStats, ascensionStats);
+  const charStats = toMergedObj(baseStats, ascensionStats);
 
   const { stats: weaponStats } = WEAPON[gameId][weapId];
 
-  return mergeObjs(DEFAULT[gameId], charStats, weaponStats);
+  return toMergedObj(DEFAULT[gameId], charStats, weaponStats);
 };
 
 export const compileMenuMap = (gameId, charId, member) => {
@@ -39,7 +39,7 @@ export const compileMenuMap = (gameId, charId, member) => {
 
   const baseMap = compileBaseMap(gameId, charId, weaponId);
 
-  const statMap = mergeObj(baseMap, mergeEquipList(build.equipList ?? []));
+  const statMap = toMergedObj(baseMap, mergeEquipList(build.equipList ?? []));
 
   const allEffects = [
     ...toArray(CHARACTER[gameId][charId].effects),
@@ -75,5 +75,5 @@ export const compileMenuMap = (gameId, charId, member) => {
     }
   }
 
-  return mergeObjs(statMap, ...toMerge);
+  return toMergedObj(statMap, ...toMerge);
 };

@@ -1,4 +1,4 @@
-import { mergeObj } from '@/utils';
+import { toMergedObj } from '@/utils';
 import {
   matchRemoveFilter,
   matchExtendFilter,
@@ -27,20 +27,15 @@ import {
   advanceTune,
 } from './special/tune';
 import { buildFootprint, evaluateFootprint } from './footprint';
+import { getEffectStates } from './getEffectStates';
 
 function decayUsedBuffs(ctx, action) {
-  const { memberEffects, fieldEffects } = ctx.state;
-  const field = ctx.getField(action.ownerId);
-  const effectStates = [
-    ...Object.values(memberEffects[action.ownerId]),
-    ...Object.values(fieldEffects[field]),
-  ].filter(({ cooldown, effect }) =>
-    ('statMap' in effect || 'variableStatMap' in effect) &&
-    !cooldown &&
-    matchUseFilter({ effect, action, ctx }));
-
-  for (const effectState of effectStates) {
-    const { stateMap, effect } = effectState;
+  for (const effectState of getEffectStates(ctx, {
+    member: action.ownerId,
+    type: 'buff',
+  })) {
+    const { stateMap, effect, useCooldown } = effectState;
+    if (useCooldown || !matchUseFilter(effect, { ctx, action })) continue;
 
     if (effect.useCooldown) {
       effectState.useCooldown = effect.useCooldown;
@@ -56,67 +51,82 @@ function decayUsedBuffs(ctx, action) {
 }
 
 function runIntervalActions(ctx, elapsed) {
-  for (const stateMap of Object.values(ctx.state.memberEffects)) {
-    for (const [key, effectState] of Object.entries(stateMap)) {
-      const { effect } = effectState;
-      if (!effect.intervalAction) continue;
-      const { times = 1 } = effect;
+  const effectStates = getEffectStates(ctx, { member: 'all' });
+  for (const effectState of effectStates) {
+    const { stateMap, effect } = effectState;
 
-      effectState.intervalTimer -= elapsed;
-      while (effectState.intervalTimer <= 0) {
-        for (let i = 0; i < times; i++) {
-          for (const action of effect.intervalAction) {
-            runAction(ctx, action);
-          }
+    if (!effect.intervalAction) continue;
+    const { times = 1 } = effect;
+
+    effectState.intervalTimer -= elapsed;
+    while (effectState.intervalTimer <= 0) {
+      for (let i = 0; i < times; i++) {
+        for (const action of effect.intervalAction) {
+          runAction(ctx, action);
         }
+      }
 
-        effectState.intervalTimer += effect.intervalCooldown;
+      effectState.intervalTimer += effect.intervalCooldown;
 
-        if (effectState.usesLeft) {
-          effectState.usesLeft--;
-          if (!effectState.usesLeft) {
-            delete stateMap[key];
-            break;
-          }
+      if (effectState.usesLeft) {
+        effectState.usesLeft--;
+        if (!effectState.usesLeft) {
+          delete stateMap[effect.key];
+          break;
         }
       }
     }
   }
 }
 
-function handleRemoveWhen(effectState, { ctx, action, when }) {
-  const { effect } = effectState;
-  const shouldRemove =
-    effect.removeWhen === when &&
-    matchRemoveFilter({ ctx, effect, action });
+function handleRemoveWhen(ctx, action, when) {
+  for (const effectState of getEffectStates(ctx, {
+    enemy: true,
+    member: action.ownerId,
+  })) {
+    const { effect } = effectState;
+    const shouldRemove =
+      effect.removeWhen === when &&
+      matchRemoveFilter(effect, { ctx, action });
 
-  if (!shouldRemove) return false;
-  return runRemoveEffect(effectState);
+    if (!shouldRemove) continue;
+    runRemoveEffect(effectState);
+  }
 }
 
-function handleExtendWhen(effectState, { ctx, action, when }) {
-  const { effect } = effectState;
-  const shouldExtend =
-    effect.extendWhen === when &&
-    !effectState.extendCooldown &&
-    matchExtendFilter({ ctx, effect, action }) &&
-    effectState.extensionsLeft;
+function handleExtendWhen(ctx, action, when) {
+  for (const effectState of getEffectStates(ctx, {
+    enemy: true,
+    member: action.ownerId,
+  })) {
+    const { effect } = effectState;
+    const shouldExtend =
+      effect.extendWhen === when &&
+      !effectState.extendCooldown &&
+      matchExtendFilter(effect, { ctx, action }) &&
+      effectState.extensionsLeft;
 
-  if (!shouldExtend) return;
-  runExtendEffect(effectState);
+    if (!shouldExtend) continue;
+    runExtendEffect(effectState);
+  }
 }
 
-function handleUseWhen(effectState, { ctx, action, when }) {
-  const { effect } = effectState;
-  const shouldUse =
-    effect.useWhen === when &&
-    !effectState.useCooldown &&
-    matchUseFilter({ ctx, effect, action }) &&
-    !effectState.isRunning;
+function handleUseWhen(ctx, action, when) {
+  for (const effectState of getEffectStates(ctx, {
+    enemy: true,
+    member: action.ownerId,
+  })) {
+    const { effect } = effectState;
+    const shouldUse =
+      effect.useWhen === when &&
+      !effectState.useCooldown &&
+      matchUseFilter(effect, { ctx, action }) &&
+      !effectState.isRunning;
 
-  if (!shouldUse) return;
-  onUseDoCommand(ctx, effect);
-  runUseEffect(effectState, ctx);
+    if (!shouldUse) continue;
+    onUseDoCommand(ctx, effect);
+    runUseEffect(effectState, ctx);
+  }
 }
 
 function handleApplyWhen(effect, { ctx, action, when }) {
@@ -124,7 +134,7 @@ function handleApplyWhen(effect, { ctx, action, when }) {
     effect.applyBy.includes(action.ownerId) &&
     effect.applyWhen === when &&
     !ctx.state.applyCooldowns[effect.key] &&
-    matchApplyFilter({ effect, ctx, action });
+    matchApplyFilter(effect, { ctx, action });
 
   if (!shouldApply) return;
   onApplyDoCommand(ctx, effect);
@@ -132,24 +142,13 @@ function handleApplyWhen(effect, { ctx, action, when }) {
 }
 
 function runEffects(ctx, action, when) {
-  const { memberEffects, fieldEffects, enemyEffects } = ctx.state;
-  const fieldId = ctx.getField(action.ownerId);
-  const spec = { ctx, action, when };
-
-  const effectStates = [
-    ...Object.values(memberEffects[action.ownerId]),
-    ...Object.values(fieldEffects[fieldId]),
-    ...Object.values(enemyEffects),
-  ];
-  for (const effectState of effectStates) {
-    if (handleRemoveWhen(effectState, spec)) continue;
-    handleExtendWhen(effectState, spec);
-    handleUseWhen(effectState, spec);
-  }
+  handleRemoveWhen(ctx, action, when);
+  handleExtendWhen(ctx, action, when);
+  handleUseWhen(ctx, action, when);
 
   const effects = Object.values(ctx.cache.effects);
   for (const effect of effects) {
-    handleApplyWhen(effect, spec);
+    handleApplyWhen(effect, { ctx, action, when });
   }
 }
 
@@ -195,7 +194,7 @@ function runAction(ctx, action) {
   // Action hit
   if (action.compressed) {
     if (ctx.recordFootprint) {
-      const footprint = buildFootprint(ctx, { action });
+      const footprint = buildFootprint(ctx, action);
       if (footprint) {
         ctx.footprints.push(footprint);
       }
@@ -221,7 +220,7 @@ function runAction(ctx, action) {
 export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
-    buildMaps[memberId] = mergeObj(cache.member[memberId].baseMap, equipMap);
+    buildMaps[memberId] = toMergedObj(cache.member[memberId].baseMap, equipMap);
   }
 
   const ctx = {
@@ -282,7 +281,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   const remaining = [];
 
   for (const footprint of ctx.footprints) {
-    if (!footprint.fixed) {
+    if (!('fixed' in footprint)) {
       remaining.push(footprint);
       continue;
     }

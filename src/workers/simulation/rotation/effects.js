@@ -1,13 +1,13 @@
+import { getEffectStates } from './getEffectStates';
+
 export function runRemoveEffect(effectState) {
-  if (!effectState) return true;
+  if (!effectState) return;
   const { stateMap, effect } = effectState;
 
   if ('removeOffset' in effect) {
     effectState.removeTimer ??= effect.removeOffset;
-    return false;
   } else {
     delete stateMap[effect.key];
-    return true;
   }
 }
 
@@ -71,7 +71,7 @@ export function runApplyEffect(ctx, effect, action = {}) {
       effect.removeWhen === 'maxStacks' &&
       stateMap[effect.key].stacks === (effect.maxStacks ?? 1)
     ) {
-      runRemoveEffect(ctx, stateMap, effect.key);
+      runRemoveEffect(stateMap[effect.key]);
     }
   }
 
@@ -93,15 +93,7 @@ export function runApplyEffect(ctx, effect, action = {}) {
 }
 
 export function advanceEffects(ctx, elapsed) {
-  const { memberEffects, fieldEffects, enemyEffects } = ctx.state;
-  const effectStates = [
-    ...Object.values(memberEffects)
-      .flatMap((stateMap) => Object.values(stateMap)),
-    ...Object.values(fieldEffects)
-      .flatMap((stateMap) => Object.values(stateMap)),
-    ...Object.values(enemyEffects),
-  ];
-  
+  const effectStates = getEffectStates(ctx, { enemy: true, member: 'all' });
   for (const effectState of effectStates) {
     const { stateMap, effect } = effectState;
 
