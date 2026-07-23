@@ -1386,7 +1386,7 @@
       {
         "useOnDmgType": "elementalSkill",
         "useCooldown": 1500,
-        "variableStatMap": {
+        "statSpecs": {
           "flat": {
             "attr": "def",
             "step": 1,

@@ -1,4 +1,4 @@
-import { getDebuffMap } from '../getStatMap';
+import { getBuffMap } from '../getStatMap';
 import { getDmgAmpMult } from '../formula/dmgAmp';
 
 const STATUSES = {
@@ -243,15 +243,15 @@ export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
   const { getDefMult, getResMult } = ctx.helpers;
   const { stacks, rage, status } = statusState;
 
-  const { debuffMap } = getDebuffMap(ctx);
+  const { buffMap } = getBuffMap(ctx);
 
   const mv = status.mv[stacks - 1];
   const rageMv = rage ? status.mv[rage - 1] : 0;
   const baseDmg = LEVEL_MODIFIER * ((mv + rageMv) / 10000);
 
-  const dmgAmpMult = getDmgAmpMult(debuffMap, [status.id]);
-  const defMult = getDefMult(debuffMap);
-  const resMult = getResMult(status.element, debuffMap);
+  const dmgAmpMult = getDmgAmpMult(buffMap, [status.id]);
+  const defMult = getDefMult(buffMap);
+  const resMult = getResMult(status.element, buffMap);
 
   return {
     key: `other:${status.id}`,

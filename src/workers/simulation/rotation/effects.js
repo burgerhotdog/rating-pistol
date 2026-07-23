@@ -46,7 +46,7 @@ export function runUseEffect(effectState, ctx) {
 }
 
 export function runApplyEffect(ctx, effect, action = {}) {
-  const { applyCooldowns, memberEffects, enemyEffects } = ctx.state;
+  const { applyCooldowns, memberEffects, globalEffects } = ctx.state;
 
   function updateState(stateMap) {
     const prevState = stateMap[effect.key] ?? {};
@@ -78,8 +78,8 @@ export function runApplyEffect(ctx, effect, action = {}) {
   for (const target of effect.applyTo) {
     if (target === 'applier') {
       updateState(memberEffects[action.ownerId]);
-    } else if (target === 'enemy') {
-      updateState(enemyEffects);
+    } else if (target === 'global') {
+      updateState(globalEffects);
     } else {
       updateState(memberEffects[target]);
     }
@@ -91,7 +91,7 @@ export function runApplyEffect(ctx, effect, action = {}) {
 }
 
 export function advanceEffects(ctx, elapsed) {
-  const effectStates = getEffectStates(ctx, { enemy: true, member: 'all' });
+  const effectStates = getEffectStates(ctx, { member: 'all' });
   for (const effectState of effectStates) {
     const { stateMap, effect } = effectState;
 

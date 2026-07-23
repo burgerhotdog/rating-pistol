@@ -358,7 +358,7 @@
         {
           "applyWhen": "hit",
           "applyOnSkillType": "coordinatedAttack",
-          "applyTo": "enemy",
+          "applyTo": "global",
           "useIfField": "onField",
           "statMap": {
             "atk%": 0.2
@@ -628,7 +628,7 @@
           "applyTo": "next",
           "removeWhen": "before",
           "removeIfField": "offField",
-          "variableStatMap": {
+          "statSpecs": {
             "atk%": {
               "attr": "tuneBreakBoost",
               "step": 1,
@@ -657,7 +657,7 @@
           "applyWhen": "hit",
           "applyOnType": "healing",
           "applyTo": "team",
-          "variableStatMap": {
+          "statSpecs": {
             "atk%": {
               "attr": "offTuneBuildupRate%",
               "step": 0.01,
@@ -922,7 +922,7 @@
           "applyWhen": "inflict",
           "applyForInflictStatus": "glacioChafe",
           "applyTo": "team",
-          "variableStatMap": {
+          "statSpecs": {
             "atk%": {
               "attr": "energyRegen%",
               "step": 0.01,

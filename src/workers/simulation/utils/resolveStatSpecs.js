@@ -1,9 +1,9 @@
 import { getAttr } from '@/utils';
 
-export const resolveVariableStatMap = (variableStatMap, sourceStatMap) => {
+export const resolveStatSpecs = (statSpecs, sourceStatMap) => {
   const resolved = {};
 
-  for (const [statId, spec] of Object.entries(variableStatMap)) {
+  for (const [statId, spec] of Object.entries(statSpecs)) {
     const {
       attr, offset = 0, step,
       value, maxValue = Infinity,

@@ -16,7 +16,7 @@ const ifEffectStacks = (rawFilter = {}, state, op) => { // helper
   const filter = Object.entries(rawFilter);
   const stateMaps = [
     ...Object.values(state.memberEffects),
-    state.enemyEffects,
+    state.globalEffects,
   ];
   return filter.every(([key, stacks]) =>
     stateMaps.some((stateMap) => op(stateMap[key]?.stacks, stacks)));

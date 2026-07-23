@@ -296,7 +296,7 @@
           }
         },
         {
-          "variableStatMap": {
+          "statSpecs": {
             "atk%": {
               "attr": "effectHitRate%",
               "step": 0.01,

@@ -144,13 +144,13 @@ const toNormalizedEffect = (rawEffect, spec) => {
     }
   }
 
-  // Resolve ranked variableStatMaps
-  if (effect.variableStatMap) {
-    effect.variableStatMap = { ...effect.variableStatMap };
+  // Resolve ranked statSpecss
+  if (effect.statSpecs) {
+    effect.statSpecs = { ...effect.statSpecs };
 
-    for (const [statId, spec] of Object.entries(effect.variableStatMap)) {
+    for (const [statId, spec] of Object.entries(effect.statSpecs)) {
       const resolvedSpec = { ...spec };
-      effect.variableStatMap[statId] = resolvedSpec;
+      effect.statSpecs[statId] = resolvedSpec;
 
       for (const [field, value] of Object.entries(resolvedSpec)) {
         if (typeof value === 'string') continue;

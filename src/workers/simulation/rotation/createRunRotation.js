@@ -79,7 +79,6 @@ function runIntervalActions(ctx, elapsed) {
 
 function handleRemoveWhen(ctx, action, when) {
   for (const effectState of getEffectStates(ctx, {
-    enemy: true,
     member: action.ownerId,
   })) {
     const { effect } = effectState;
@@ -94,7 +93,6 @@ function handleRemoveWhen(ctx, action, when) {
 
 function handleExtendWhen(ctx, action, when) {
   for (const effectState of getEffectStates(ctx, {
-    enemy: true,
     member: action.ownerId,
   })) {
     const { effect } = effectState;
@@ -111,7 +109,6 @@ function handleExtendWhen(ctx, action, when) {
 
 function handleUseWhen(ctx, action, when) {
   for (const effectState of getEffectStates(ctx, {
-    enemy: true,
     member: action.ownerId,
   })) {
     const { effect } = effectState;
@@ -223,7 +220,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
       runtime: 0,
       applyCooldowns: {},
       memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
-      enemyEffects: {},
+      globalEffects: {},
       negativeStatuses: {},
       tune: { offTune: 0 },
     },

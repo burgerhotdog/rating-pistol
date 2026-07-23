@@ -1,5 +1,5 @@
 import { getAttr, toMergedObj } from '@/utils';
-import { getDebuffMap, getBuffMap } from '../getStatMap';
+import { getBuffMap } from '../getStatMap';
 import { getEffectStates } from '../getEffectStates';
 
 const LEVEL_MODIFIER = 716.22;
@@ -39,11 +39,10 @@ function recordTuneBreak(ctx) {
   const timesPerRotation = calcTuneBreaksPerRotation(ctx);
 
   const buildSnapshot = (action) => {
-    const { debuffMap } = getDebuffMap(ctx, { action });
     const buffsOwner = action?.ownerId ?? ctx.onFieldId;
     const buildMap = ctx.buildMaps[buffsOwner];
-    const { buffMap } = getBuffMap(ctx, buffsOwner, { action, ignoreVariable: true });
-    const statMap = toMergedObj(debuffMap, buildMap, buffMap);
+    const { buffMap } = getBuffMap(ctx, { memberId: buffsOwner, action, ignoreSpecs: true });
+    const statMap = toMergedObj(buildMap, buffMap);
 
     const tuneAmp = action?.compressed?.mvs?.tuneAmp ?? 16;
     const element = action?.element ?? 'physical';
@@ -119,10 +118,9 @@ export function applyOffTuneBuildup(ctx, action) {
     tune.offTuneCooldown
   ) return;
 
-  const { debuffMap } = getDebuffMap(ctx, { action });
   const buildMap = ctx.buildMaps[action.ownerId];
-  const { buffMap } = getBuffMap(ctx, action.ownerId, { action, ignoreVariable: true });
-  const statMap = toMergedObj(debuffMap, buildMap, buffMap);
+  const { buffMap } = getBuffMap(ctx, { memberId: action.ownerId, action, ignoreSpecs: true });
+  const statMap = toMergedObj(buildMap, buffMap);
   const offTuneBuildupRate = getAttr('offTuneBuildupRate%', statMap);
 
   const hitCount = action.compressed.hitCount;

@@ -418,7 +418,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.1",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useWhen": "hit",
         "useOnType": "damage",
         "useIfField": "onField",
@@ -866,7 +866,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.2",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "statMap": {
           "glacioResReduction%": 0.08
         },
@@ -1158,7 +1158,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useWhen": "hit",
         "useOnSkillType": "basicAttack",
         "useIfField": "onField",
@@ -1174,7 +1174,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useWhen": "hit",
         "useOnSkillType": "heavyAttack",
         "useIfField": "onField",
@@ -1445,7 +1445,7 @@
       {
         "applyWhen": "hit",
         "applyOnAction": "resonanceLiberation.0",
-        "variableStatMap": {
+        "statSpecs": {
           "atk": {
             "attr": "energyRegen",
             "step": 0.01,
@@ -1457,7 +1457,7 @@
         "maxDuration": 12000
       },
       {
-        "variableStatMap": {
+        "statSpecs": {
           "atk": {
             "attr": "energyRegen",
             "step": 0.01,
@@ -1840,7 +1840,7 @@
     "effects": [
       {
         "useOnAction": "resonanceLiberation.0",
-        "variableStatMap": {
+        "statSpecs": {
           "critRate%": {
             "attr": "energyRegen%",
             "step": 0.01,
@@ -1907,12 +1907,12 @@
       },
       {
         "applyWhen": "tuneBreak",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useIfInterfered": [
           "tuneRupture",
           "tuneStrain"
         ],
-        "variableStatMap": {
+        "statSpecs": {
           "dmgBonus%": {
             "attr": "energyRegen%",
             "step": 0.01,
@@ -2221,7 +2221,7 @@
       {
         "applyWhen": "hit",
         "applyOnAction": "forteCircuit.0",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useWhen": "hit",
         "useOnType": "damage",
         "useCooldown": 1000,
@@ -2354,7 +2354,7 @@
       {
         "applyWhen": "hit",
         "applyOnAction": "resonanceSkill.0",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useWhen": "hit",
         "useOnType": "damage",
         "useIfField": "onField",
@@ -3542,7 +3542,7 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "statMap": {
           "aeroErosionDmgAmp%": 1
         },
@@ -4266,7 +4266,7 @@
         "useIfEffectStacksMin": {
           "$prev.1": 1
         },
-        "variableStatMap": {
+        "statSpecs": {
           "critRate%": {
             "attr": "energyRegen%",
             "step": 0.002,
@@ -4280,7 +4280,7 @@
         "useIfEffectStacksMin": {
           "$prev.2": 2
         },
-        "variableStatMap": {
+        "statSpecs": {
           "critDmg%": {
             "attr": "energyRegen%",
             "step": 0.001,
@@ -4437,7 +4437,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "outroSkill.1",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "statMap": {
           "spectroResReduction%": 0.1
         },
@@ -4446,7 +4446,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "outroSkill.1",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useIfField": "onField",
         "statMap": {
           "spectroFrazzleDmgAmp%": 1
@@ -4510,7 +4510,7 @@
           "basicAttack",
           "dodgeCounter"
         ],
-        "applyTo": "enemy",
+        "applyTo": "global",
         "statMap": {
           "spectroResReduction%": 0.1
         },
@@ -4910,7 +4910,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.2",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "statMap": {
           "vuln%": 0.05
         },
@@ -4919,7 +4919,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.3",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "statMap": {
           "defReduction%": 0.05
         },
@@ -5094,7 +5094,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.0",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useIfField": "onField",
         "removeWhen": "before",
         "removeOnAction": "normalAttack.3",
@@ -5543,7 +5543,7 @@
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "applyTo": "team",
-        "variableStatMap": {
+        "statSpecs": {
           "atk": {
             "attr": "critRate%",
             "step": 0.001,
@@ -5717,7 +5717,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useWhen": "hit",
         "useIfField": "onField",
         "useCooldown": 1000,

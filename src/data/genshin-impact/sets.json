@@ -321,7 +321,7 @@
       ],
       "4": [
         {
-          "variableStatMap": {
+          "statSpecs": {
             "elementalBurstDmgBonus%": {
               "attr": "ER",
               "step": 0.01,

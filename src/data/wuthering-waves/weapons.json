@@ -2202,7 +2202,7 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
-        "applyTo": "enemy",
+        "applyTo": "global",
         "statMap": {
           "spectroFrazzleDmgAmp%": [
             0.3,
@@ -2240,7 +2240,7 @@
           "1406:forteCircuit.4",
           "1408:forteCircuit.4"
         ],
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useIfField": "onField",
         "statMap": {
           "aeroDmgAmp%": [
@@ -2348,7 +2348,7 @@
         "applyIfNegativeStatus": {
           "aeroErosion": 1
         },
-        "applyTo": "enemy",
+        "applyTo": "global",
         "statMap": {
           "aeroResReduction%": [
             0.1,
@@ -2480,7 +2480,7 @@
         "maxDuration": 15000
       },
       {
-        "applyTo": "enemy",
+        "applyTo": "global",
         "useIfNegativeStatus": {
           "aeroErosion": 1
         },
@@ -3359,7 +3359,7 @@
         "applyWhen": "before",
         "applyIfField": "onField",
         "applyCooldown": 100,
-        "applyTo": "enemy",
+        "applyTo": "global",
         "statMap": {
           "glacioChafeDmgAmp%": [
             0.2,

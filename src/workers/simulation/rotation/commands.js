@@ -5,14 +5,14 @@ import {
 } from './effects';
 
 function doRemove(ctx, rawDoRemove) {
-  const { memberEffects, enemyEffects } = ctx.state;
+  const { memberEffects, globalEffects } = ctx.state;
   const doRemove = toArray(rawDoRemove);
 
   for (const effectKey of doRemove) {
     const effect = ctx.cache.effects[effectKey];
     for (const target of effect.applyTo) {
-      if (target === 'enemy') {
-        runRemoveEffect(enemyEffects[effectKey]);
+      if (target === 'global') {
+        runRemoveEffect(globalEffects[effectKey]);
       } else {
         runRemoveEffect(memberEffects[target][effectKey]);
       }

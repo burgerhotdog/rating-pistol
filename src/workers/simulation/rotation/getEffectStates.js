@@ -4,15 +4,15 @@ const getEffectStatesForMember = (ctx, memberId) => {
   return Object.values(memberEffects[memberId]);
 };
 
-export const getEffectStates = (ctx, { enemy, member, type }) => {
+export const getEffectStates = (ctx, { member, type }) => {
   const effectStates = [
-    ...(enemy ? Object.values(ctx.state.enemyEffects) : []),
+    ...Object.values(ctx.state.globalEffects),
     ...(member ? getEffectStatesForMember(ctx, member) : []),
   ];
 
   switch (type) {
     case 'buff':
-      return effectStates.filter(({ effect: e }) => 'statMap' in e || 'variableStatMap' in e);
+      return effectStates.filter(({ effect: e }) => 'statMap' in e || 'statSpecs' in e);
     case 'action':
       return effectStates.filter(({ effect: e }) => 'useAction' in e);
     default:
