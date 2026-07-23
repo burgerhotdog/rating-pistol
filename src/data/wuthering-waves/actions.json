@@ -42306,34 +42306,8 @@
       "name": "Netrunner",
       "actions": [
         {
-          "name": "Netrunner: Override",
-          "dmgType": "heavyAttack",
-          "multipliers": [
-            {
-              "mv": [
-                4.5,
-                4.869,
-                5.238,
-                5.7546,
-                6.1236,
-                6.548,
-                7.1384,
-                7.7288,
-                8.3192,
-                8.9465,
-                9.6845,
-                10.4225,
-                11.1605,
-                11.8985,
-                12.6365,
-                13.3745,
-                14.1125,
-                14.8505,
-                15.5885,
-                16.3265
-              ]
-            }
-          ]
+          "name": "Netrunner",
+          "skillType": "resonanceLiberation"
         },
         {
           "name": "Spoofing Program: Ping",
@@ -42364,6 +42338,12 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Spoofing Program: Cyberware Malfunction"
+        },
+        {
+          "name": "Spoofing Program: Breach Protocol"
         },
         {
           "name": "Spoofing Program: Synapse Burnout",
@@ -42427,6 +42407,36 @@
           ]
         },
         {
+          "name": "Netrunner: Override",
+          "dmgType": "heavyAttack",
+          "multipliers": [
+            {
+              "mv": [
+                4.5,
+                4.869,
+                5.238,
+                5.7546,
+                6.1236,
+                6.548,
+                7.1384,
+                7.7288,
+                8.3192,
+                8.9465,
+                9.6845,
+                10.4225,
+                11.1605,
+                11.8985,
+                12.6365,
+                13.3745,
+                14.1125,
+                14.8505,
+                15.5885,
+                16.3265
+              ]
+            }
+          ]
+        },
+        {
           "name": "Netrunner: Old Net Deep Dive",
           "tagged": "Algorithm Compaction",
           "dmgType": "heavyAttack",
@@ -42456,16 +42466,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "Netrunner",
-          "skillType": "resonanceLiberation"
-        },
-        {
-          "name": "Spoofing Program: Cyberware Malfunction"
-        },
-        {
-          "name": "Spoofing Program: Breach Protocol"
         }
       ]
     },

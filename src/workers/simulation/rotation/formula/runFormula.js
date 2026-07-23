@@ -19,12 +19,12 @@ function runDamageFormula(helpers, action, statMap) {
   const resMult = getResMult(element, statMap);
   const defMult = getDefMult(statMap);
 
-  const totalDmgMult = 1 + getAttr('totalDmg%', statMap);
+  const vulnMult = 1 + getAttr('vuln%', statMap);
 
   return baseValue *
     critMult * dmgBonusMult * dmgAmpMult *
     resMult * defMult *
-    totalDmgMult *
+    vulnMult *
     times;
 }
 

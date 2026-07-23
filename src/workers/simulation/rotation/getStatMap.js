@@ -84,8 +84,8 @@ export const getBuffMap = (ctx, memberId, spec = {}) => {
     const tuneStrainStacks = ctx.state.tune.interferedStacks;
     if (tuneStrainStacks) {
       const tuneBreakBoost = getAttr('tuneBreakBoost', toMergedObj(buildMap, buffMap));
-      buffMap['totalDmg%'] ??= 0;
-      buffMap['totalDmg%'] += tuneStrainStacks * tuneBreakBoost * 0.0012;
+      buffMap['vuln%'] ??= 0;
+      buffMap['vuln%'] += tuneStrainStacks * tuneBreakBoost * 0.0012;
     }
   }
 

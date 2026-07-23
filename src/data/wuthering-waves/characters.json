@@ -4904,16 +4904,16 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnAction": "resonanceLiberation.6",
+        "applyOnAction": "resonanceLiberation.2",
         "applyTo": "enemy",
         "statMap": {
-          "dmgBonus%": 0.05
+          "vuln%": 0.05
         },
         "maxDuration": 30000
       },
       {
         "applyWhen": "before",
-        "applyOnAction": "resonanceLiberation.7",
+        "applyOnAction": "resonanceLiberation.3",
         "applyTo": "enemy",
         "statMap": {
           "defReduction%": 0.05
@@ -4989,16 +4989,16 @@
               }
             ]
           },
-          "resonanceLiberation.6",
-          "resonanceLiberation.7"
+          "resonanceLiberation.2",
+          "resonanceLiberation.3"
         ],
         "maxUses": 1
       },
       {
         "enableIfRankMin": 3,
         "useOnAction": [
-          "resonanceLiberation.0",
-          "resonanceLiberation.4"
+          "resonanceLiberation.6",
+          "resonanceLiberation.7"
         ],
         "statMap": {
           "mv%": 0.5,
@@ -5008,7 +5008,7 @@
       {
         "enableIfRankMin": 3,
         "useOnAction": [
-          "resonanceLiberation.3",
+          "resonanceLiberation.5",
           "forteCircuit.0"
         ],
         "statMap": {
@@ -5059,11 +5059,13 @@
         "normalAttack.13",
         "normalAttack.15",
         "normalAttack.16",
-        "resonanceLiberation.5",
+        "resonanceLiberation.0",
         "resonanceLiberation.1",
         "resonanceLiberation.2",
         "resonanceLiberation.3",
         "resonanceLiberation.4",
+        "resonanceLiberation.5",
+        "resonanceLiberation.7",
         "outroSkill.0"
       ]
     }

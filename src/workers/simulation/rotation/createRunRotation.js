@@ -129,27 +129,25 @@ function handleUseWhen(ctx, action, when) {
   }
 }
 
-function handleApplyWhen(effect, { ctx, action, when }) {
-  const shouldApply =
-    effect.applyBy.includes(action.ownerId) &&
-    effect.applyWhen === when &&
-    !ctx.state.applyCooldowns[effect.key] &&
-    matchApplyFilter(effect, { ctx, action });
+function handleApplyWhen(ctx, action, when) {
+  for (const effect of Object.values(ctx.cache.effects)) {
+    const shouldApply =
+      effect.applyBy.includes(action.ownerId) &&
+      effect.applyWhen === when &&
+      !ctx.state.applyCooldowns[effect.key] &&
+      matchApplyFilter(effect, { ctx, action });
 
-  if (!shouldApply) return;
-  onApplyDoCommand(ctx, effect);
-  runApplyEffect(ctx, effect, action);
+    if (!shouldApply) continue;
+    onApplyDoCommand(ctx, effect);
+    runApplyEffect(ctx, effect, action);
+  }
 }
 
 function runEffects(ctx, action, when) {
   handleRemoveWhen(ctx, action, when);
   handleExtendWhen(ctx, action, when);
   handleUseWhen(ctx, action, when);
-
-  const effects = Object.values(ctx.cache.effects);
-  for (const effect of effects) {
-    handleApplyWhen(effect, { ctx, action, when });
-  }
+  handleApplyWhen(ctx, action, when);
 }
 
 function advanceApplyCooldowns(ctx, elapsed) {

@@ -17,15 +17,16 @@ const tuneBreakAction = {
 export const runTuneFormula = (helpers, statMap, tuneAmp, element) => {
   const { getDefMult, getResMult } = helpers;
 
-  const baseDmg = LEVEL_MODIFIER * tuneAmp;
   const defMult = getDefMult(statMap);
   const resMult = getResMult(element, statMap);
   const tuneBreakBoostMult = 1 + (getAttr('tuneBreakBoost', statMap) / 100);
+  const vulnMult = 1 + getAttr('vuln%', statMap);
 
-  return baseDmg *
+  return LEVEL_MODIFIER * tuneAmp *
     ENEMY_TYPE_MODIFIER *
     defMult * resMult *
-    tuneBreakBoostMult;
+    tuneBreakBoostMult *
+    vulnMult;
 };
 
 const calcTuneBreaksPerRotation = (ctx) => {
@@ -44,9 +45,13 @@ function recordTuneBreak(ctx) {
     const { buffMap } = getBuffMap(ctx, buffsOwner, { action, ignoreVariable: true });
     const statMap = toMergedObj(debuffMap, buildMap, buffMap);
 
-    const tuneAmp = action?.compressed?.tuneAmp ?? 16;
+    const tuneAmp = action?.compressed?.mvs?.tuneAmp ?? 16;
     const element = action?.element ?? 'physical';
     const damage = runTuneFormula(ctx.helpers, statMap, tuneAmp, element);
+
+    if (buffsOwner === "1308") {
+      console.log(buffMap);
+    }
 
     return {
       ...(action ?? tuneBreakAction),
