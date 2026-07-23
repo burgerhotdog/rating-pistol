@@ -45,14 +45,14 @@ export const getBuffMap = (ctx, options = {}) => {
 
   if (ctx.gameId === WW) {
     // Havoc bane
-    const havocBaneStacks = ctx.state.negativeStatuses.havocBane?.stacks;
+    const havocBaneStacks = ctx.states.negativeStatuses.havocBane?.stacks;
     if (havocBaneStacks) {
       buffMap['defReduction%'] ??= 0;
       buffMap['defReduction%'] += 0.02 * havocBaneStacks;
     }
 
     // Tune Strain
-    const tuneStrainStacks = ctx.state.tune.interferedStacks;
+    const tuneStrainStacks = ctx.states.tune.interferedStacks;
     if (tuneStrainStacks) {
       const tuneBreakBoost = getAttr('tuneBreakBoost', toMergedObj(buildMap, buffMap));
       buffMap['vuln%'] ??= 0;

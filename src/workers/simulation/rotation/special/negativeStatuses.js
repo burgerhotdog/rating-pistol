@@ -7,7 +7,7 @@ const STATUSES = {
     element: 'glacio',
     mv: [2450, 4442, 6434, 8426, 10417, 12409, 14401, 16393, 18385, 20377, 27169, 33961, 40753],
     inflict: (ctx, status, stacks) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       if ('glacioChafe' in negativeStatuses) {
         const currState = negativeStatuses.glacioChafe;
         currState.stacks = Math.min(currState.stacks + stacks, 10);
@@ -27,7 +27,7 @@ const STATUSES = {
       }
     },
     advance: (ctx, elapsed) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       const currState = negativeStatuses.glacioChafe;
       currState.timeLeft -= elapsed;
       if (currState.timeLeft <= 0) {
@@ -40,7 +40,7 @@ const STATUSES = {
     element: 'fusion',
     mv: [8400, 15229, 22058, 28888, 35717, 42546, 49375, 56204, 63034, 69863, 93150, 116438, 139726],
     inflict: (ctx, status, stacks) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       if ('fusionBurst' in negativeStatuses) {
         const currState = negativeStatuses.fusionBurst;
         currState.stacks = Math.min(currState.stacks + stacks, 10);
@@ -60,7 +60,7 @@ const STATUSES = {
       }
     },
     advance: (ctx, elapsed) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       const currState = negativeStatuses.fusionBurst;
       currState.timeLeft -= elapsed;
       if (currState.timeLeft <= 0) {
@@ -73,7 +73,7 @@ const STATUSES = {
     element: 'electro',
     mv: [5000, 9065, 13130, 17195, 21260, 25325, 29390, 33455, 37520, 41585, 55447, 69308, 83170],
     inflict: (ctx, status, stacks) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       if ('electroFlare' in negativeStatuses) {
         const currState = negativeStatuses.electroFlare;
         const nextStacks = currState.stacks + stacks;
@@ -89,7 +89,7 @@ const STATUSES = {
       }
     },
     advance: (ctx, elapsed) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       const currState = negativeStatuses.electroFlare;
       let remaining = elapsed;
       while (remaining > 0) {
@@ -116,7 +116,7 @@ const STATUSES = {
     element: 'aero',
     mv: [4500, 11250, 22500, 33750, 45000, 56250, 67500, 78750, 90000, 101250, 112500, 123750],
     inflict: (ctx, status, stacks) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       if ('aeroErosion' in negativeStatuses) {
         const currState = negativeStatuses.aeroErosion;
         currState.stacks = Math.min(currState.stacks + stacks, 3);
@@ -131,7 +131,7 @@ const STATUSES = {
       }
     },
     advance: (ctx, elapsed) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       const currState = negativeStatuses.aeroErosion;
       let remaining = elapsed;
       while (remaining > 0) {
@@ -158,7 +158,7 @@ const STATUSES = {
     element: 'spectro',
     mv: [3000, 5439, 7878, 10317, 12756, 15195, 17634, 20073, 22512, 24951, 33268, 41585, 49902],
     inflict: (ctx, status, stacks) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       if ('spectroFrazzle' in negativeStatuses) {
         const currState = negativeStatuses.spectroFrazzle;
         currState.stacks = Math.min(currState.stacks + stacks, 10);
@@ -171,7 +171,7 @@ const STATUSES = {
       }
     },
     advance: (ctx, elapsed) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       const currState = negativeStatuses.spectroFrazzle;
       let remaining = elapsed;
       while (remaining > 0) {
@@ -197,7 +197,7 @@ const STATUSES = {
     id: 'havocBane',
     element: 'havoc',
     inflict: (ctx, status, stacks) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       if ('havocBane' in negativeStatuses) {
         const currState = negativeStatuses.havocBane;
         currState.stacks = Math.min(currState.stacks + stacks, 3);
@@ -211,7 +211,7 @@ const STATUSES = {
       }
     },
     advance: (ctx, elapsed) => {
-      const { negativeStatuses } = ctx.state;
+      const { negativeStatuses } = ctx.states;
       const currState = negativeStatuses.havocBane;
       currState.timeLeft -= elapsed;
       if (currState.timeLeft <= 0) {
@@ -230,7 +230,7 @@ export function inflictNegativeStatuses(ctx, action) {
 }
 
 export function advanceNegativeStatuses(ctx, elapsed) {
-  const { negativeStatuses } = ctx.state;
+  const { negativeStatuses } = ctx.states;
   for (const statusState of Object.values(negativeStatuses)) {
     const { status } = statusState;
     status.advance(ctx, elapsed);
@@ -259,6 +259,6 @@ export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
     type: 'damage',
     dmgType: status.id,
     value: baseDmg * dmgAmpMult * defMult * resMult,
-    runtime: ctx.state.runtime + runtimeOffset,
+    runtime: ctx.states.runtime + runtimeOffset,
   };
 };

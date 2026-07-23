@@ -129,7 +129,7 @@ function handleApplyWhen(ctx, action, when) {
     const shouldApply =
       effect.applyBy.includes(action.ownerId) &&
       effect.applyWhen === when &&
-      !ctx.state.applyCooldowns[effect.key] &&
+      !ctx.states.applyCooldowns[effect.key] &&
       matchApplyFilter(effect, { ctx, action });
 
     if (!shouldApply) continue;
@@ -139,7 +139,7 @@ function handleApplyWhen(ctx, action, when) {
 }
 
 function advanceApplyCooldowns(ctx, elapsed) {
-  const { applyCooldowns } = ctx.state;
+  const { applyCooldowns } = ctx.states;
 
   for (const effectKey in applyCooldowns) {
     applyCooldowns[effectKey] -= elapsed;
@@ -164,7 +164,7 @@ function runAction(ctx, action) {
     advanceApplyCooldowns(ctx, elapsed);
 
     actionRuntime += elapsed;
-    if (ctx.saveSnapshots) ctx.state.runtime += elapsed;
+    if (ctx.saveSnapshots) ctx.states.runtime += elapsed;
   };
 
   function runEffectsWhen(when) {
@@ -216,11 +216,11 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     buildMaps,
     currId,
     onFieldId: null,
-    state: {
+    states: {
       runtime: 0,
       applyCooldowns: {},
-      memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
       globalEffects: {},
+      memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
       negativeStatuses: {},
       tune: { offTune: 0 },
     },
@@ -244,7 +244,7 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     ctx.onFieldId = action.ownerId;
     runAction(ctx, action);
   }
-  ctx.offTuneBuildup.push(ctx.state.tune.offTune);
+  ctx.offTuneBuildup.push(ctx.states.tune.offTune);
   ctx.saveSnapshots = true;
   for (const action of actionOrder) {
     ctx.onFieldId = action.ownerId;

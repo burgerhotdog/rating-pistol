@@ -1,12 +1,12 @@
 const getEffectStatesForMember = (ctx, memberId) => {
-  const { memberEffects } = ctx.state;
+  const { memberEffects } = ctx.states;
   if (memberId === 'all') return Object.values(memberEffects).flatMap(Object.values);
   return Object.values(memberEffects[memberId]);
 };
 
 export const getEffectStates = (ctx, { member, type }) => {
   const effectStates = [
-    ...Object.values(ctx.state.globalEffects),
+    ...Object.values(ctx.states.globalEffects),
     ...(member ? getEffectStatesForMember(ctx, member) : []),
   ];
 

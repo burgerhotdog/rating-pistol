@@ -5,7 +5,7 @@ import {
 } from './effects';
 
 function doRemove(ctx, rawDoRemove) {
-  const { memberEffects, globalEffects } = ctx.state;
+  const { memberEffects, globalEffects } = ctx.states;
   const doRemove = toArray(rawDoRemove);
 
   for (const effectKey of doRemove) {

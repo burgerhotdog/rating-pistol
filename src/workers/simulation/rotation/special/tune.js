@@ -51,7 +51,7 @@ function recordTuneBreak(ctx) {
     return {
       ...(action ?? tuneBreakAction),
       value: damage * timesPerRotation,
-      runtime: ctx.state.runtime,
+      runtime: ctx.states.runtime,
     };
   };
 
@@ -59,7 +59,7 @@ function recordTuneBreak(ctx) {
   ctx.snapshots.push(buildSnapshot());
 
   // Tune response
-  const { shifting } = ctx.state.tune;
+  const { shifting } = ctx.states.tune;
   if (shifting !== 'tuneRupture' && shifting !== 'hack') return;
   for (const effectState of getEffectStates(ctx, {
     member: 'all',
@@ -77,7 +77,7 @@ function recordTuneBreak(ctx) {
 }
 
 export function runTuneBreak(ctx) {
-  const { tune } = ctx.state;
+  const { tune } = ctx.states;
 
   if (!ctx.saveSnapshots) { // Record offTune on first loop
     ctx.offTuneBuildup.push(tune.offTune);
@@ -111,7 +111,7 @@ export function runTuneBreak(ctx) {
 }
 
 export function applyOffTuneBuildup(ctx, action) {
-  const { tune } = ctx.state;
+  const { tune } = ctx.states;
   if (
     action.type !== 'damage' ||
     tune.isMistune ||
@@ -134,7 +134,7 @@ export function applyOffTuneBuildup(ctx, action) {
 
 export function inflictTuneShifting(ctx, action) {
   if (!action.inflictShifting) return;
-  const { tune } = ctx.state;
+  const { tune } = ctx.states;
 
   tune.shifting = action.inflictShifting;
   tune.shiftingTimeLeft = 25000;
@@ -146,7 +146,7 @@ export function inflictTuneShifting(ctx, action) {
 }
 
 export function advanceTune(ctx, elapsed) {
-  const { tune } = ctx.state;
+  const { tune } = ctx.states;
 
   if (tune.offTuneCooldown) {
     tune.offTuneCooldown -= elapsed;

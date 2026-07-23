@@ -46,7 +46,7 @@ export function runUseEffect(effectState, ctx) {
 }
 
 export function runApplyEffect(ctx, effect, action = {}) {
-  const { applyCooldowns, memberEffects, globalEffects } = ctx.state;
+  const { applyCooldowns, memberEffects, globalEffects } = ctx.states;
 
   function updateState(stateMap) {
     const prevState = stateMap[effect.key] ?? {};

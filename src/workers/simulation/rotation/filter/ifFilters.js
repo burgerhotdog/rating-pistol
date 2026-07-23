@@ -23,13 +23,13 @@ const ifEffectStacks = (rawFilter = {}, state, op) => { // helper
 };
 
 const ifEffectStacksMin = (rawFilter, { ctx }) =>
-  ifEffectStacks(rawFilter, ctx.state, (a, b) => a >= b);
+  ifEffectStacks(rawFilter, ctx.states, (a, b) => a >= b);
 
 const ifEffectStacksMax = (rawFilter, { ctx }) => 
-  ifEffectStacks(rawFilter, ctx.state, (a, b) => a <= b);
+  ifEffectStacks(rawFilter, ctx.states, (a, b) => a <= b);
 
 const ifNegativeStatus = (rawFilter = {}, { ctx }) => {
-  const { negativeStatuses } = ctx.state;
+  const { negativeStatuses } = ctx.states;
   if (rawFilter === 'any') {
     return Object.keys(negativeStatuses).length;
   }
@@ -39,13 +39,13 @@ const ifNegativeStatus = (rawFilter = {}, { ctx }) => {
 
 const ifShifting = (rawFilter, { ctx }) => {
   const filter = toArray(rawFilter);
-  const { tune } = ctx.state;
+  const { tune } = ctx.states;
   return filter.includes(tune.shifting);
 };
 
 const ifInterfered = (rawFilter, { ctx }) => {
   const filter = toArray(rawFilter);
-  const { tune } = ctx.state;
+  const { tune } = ctx.states;
   return filter.includes(tune.interfered);
 };
 
