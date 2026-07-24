@@ -204,7 +204,7 @@ def parse_set(version, id, data):
 
 def parse_echo(version, id, data):
     actions = []
-    for entry in data['skill']['damage'].values():
+    for index, entry in enumerate(data['skill']['damage'].values()):
         action = {
             'name': f'Echo Skill: {data["name"]}',
         }
@@ -221,17 +221,10 @@ def parse_echo(version, id, data):
             action['attr'] = attr
 
         # Echoes with flat components don't use rate_lv
-        if entry['rate_lv'][0] == 0:
-            hit_str = data['skill']['param'][4][0]
-            hit_parts = hit_str.split('+')
-            hit = {
-                'mv': float(hit_parts[0][:-1]) / 100,
-                'flat': int(hit_parts[1]),
-            }
+        if len(entry['rate_lv']) > 4:
+            action['multipliers'] = [{'mv': entry['rate_lv'][4] / 10000}]
         else:
-            hit = { 'mv': entry['rate_lv'][4] / 10000 }
-
-        action['multipliers'] = [hit]
+            action['multipliers'] = []
 
         actions.append(action)
     

@@ -52,6 +52,7 @@ def enter_ids(game, version, type):
     entries = []
 
     for input_id in inputs:
+        print(input_id)
         if mapped_type == 'sonata':
             input_data = response[input_id]
         else:

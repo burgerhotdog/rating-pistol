@@ -1,1 +1,4358 @@
-{}
+{
+  "6000038": {
+    "name": "Hooscamp",
+    "version": 1,
+    "id": "6000038",
+    "sets": [
+      "4",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Hooscamp",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": []
+      }
+    ]
+  },
+  "6000039": {
+    "name": "Tempest Mephis",
+    "version": 1,
+    "id": "6000039",
+    "sets": [
+      "3"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Tempest Mephis",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 1.0248
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Tempest Mephis",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 1.7568
+          }
+        ]
+      }
+    ]
+  },
+  "6000040": {
+    "name": "Hoochief",
+    "version": 1,
+    "id": "6000040",
+    "sets": [
+      "4",
+      "7"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Hoochief",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000041": {
+    "name": "Diamondclaw",
+    "version": 1,
+    "id": "6000041",
+    "sets": [
+      "8",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Diamondclaw",
+        "type": "healing",
+        "multipliers": []
+      }
+    ]
+  },
+  "6000042": {
+    "name": "Crownless",
+    "version": 1,
+    "id": "6000042",
+    "sets": [
+      "6"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Crownless",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.3408
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Crownless",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.0056
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Crownless",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.6704
+          }
+        ]
+      }
+    ]
+  },
+  "6000043": {
+    "name": "Feilian Beringal",
+    "version": 1,
+    "id": "6000043",
+    "sets": [
+      "4"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Feilian Beringal",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.3184
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Feilian Beringal",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.8336
+          }
+        ]
+      }
+    ]
+  },
+  "6000044": {
+    "name": "Lampylumen Myriad",
+    "version": 1,
+    "id": "6000044",
+    "sets": [
+      "1"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Lampylumen Myriad",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.0016
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Lampylumen Myriad",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.0016
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Lampylumen Myriad",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.6688
+          }
+        ]
+      }
+    ]
+  },
+  "6000045": {
+    "name": "Mourning Aix",
+    "version": 1,
+    "id": "6000045",
+    "sets": [
+      "5"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Mourning Aix",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.5744
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Mourning Aix",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 2.3616
+          }
+        ]
+      }
+    ]
+  },
+  "6000047": {
+    "name": "Chirpuff",
+    "version": 1,
+    "id": "6000047",
+    "sets": [
+      "4",
+      "6"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Chirpuff",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      }
+    ]
+  },
+  "6000048": {
+    "name": "Mech Abomination",
+    "version": 1,
+    "id": "6000048",
+    "sets": [
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Mech Abomination",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.4864
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Mech Abomination",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 3.2
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Mech Abomination",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 1.6
+          }
+        ]
+      }
+    ]
+  },
+  "6000049": {
+    "name": "Autopuppet Scout",
+    "version": 1,
+    "id": "6000049",
+    "sets": [
+      "1",
+      "5"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Autopuppet Scout",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.72
+          }
+        ]
+      }
+    ]
+  },
+  "6000050": {
+    "name": "Traffic Illuminator",
+    "version": 1,
+    "id": "6000050",
+    "sets": [
+      "2",
+      "3",
+      "4"
+    ],
+    "actions": []
+  },
+  "6000051": {
+    "name": "Clang Bang",
+    "version": 1.1,
+    "id": "6000051",
+    "sets": [
+      "1",
+      "5"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Clang Bang",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": []
+      }
+    ]
+  },
+  "6000052": {
+    "name": "Impermanence Heron",
+    "version": 1,
+    "id": "6000052",
+    "sets": [
+      "8"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Impermanence Heron",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.5572
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Impermanence Heron",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 3.1056
+          }
+        ]
+      }
+    ]
+  },
+  "6000053": {
+    "name": "Dreamless",
+    "version": 1,
+    "id": "6000053",
+    "sets": [
+      "6"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Dreamless",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.8956
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Dreamless",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 2.704
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Dreamless",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.184
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Dreamless",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.5408
+          }
+        ]
+      }
+    ]
+  },
+  "6000054": {
+    "name": "Lava Larva",
+    "version": 1.1,
+    "id": "6000054",
+    "sets": [
+      "2",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Lava Larva",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      }
+    ]
+  },
+  "6000055": {
+    "name": "Dwarf Cassowary",
+    "version": 1.1,
+    "id": "6000055",
+    "sets": [
+      "4",
+      "7"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Dwarf Cassowary",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Dwarf Cassowary",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Dwarf Cassowary",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      }
+    ]
+  },
+  "6000056": {
+    "name": "Glacio Dreadmane",
+    "version": 1.1,
+    "id": "6000056",
+    "sets": [
+      "1",
+      "8"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Glacio Dreadmane",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.144
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Glacio Dreadmane",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.32
+          }
+        ]
+      }
+    ]
+  },
+  "6000057": {
+    "name": "Lumiscale Construct",
+    "version": 1.1,
+    "id": "6000057",
+    "sets": [
+      "1",
+      "3"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Lumiscale Construct",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.768
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Lumiscale Construct",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 5.536
+          }
+        ]
+      }
+    ]
+  },
+  "6000058": {
+    "name": "Lightcrusher",
+    "version": 1.1,
+    "id": "6000058",
+    "sets": [
+      "5"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Lightcrusher",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.3536
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Lightcrusher",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.5508
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Lightcrusher",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.5508
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Lightcrusher",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.1504
+          }
+        ]
+      }
+    ]
+  },
+  "6000060": {
+    "name": "Fallacy of No Return",
+    "version": 1.3,
+    "id": "6000060",
+    "sets": [
+      "7"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fallacy of No Return",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.1585
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Fallacy of No Return",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.0158
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Fallacy of No Return",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.1982
+          }
+        ]
+      }
+    ]
+  },
+  "6000062": {
+    "name": "Voltscourge Stalker",
+    "version": 2,
+    "id": "6000062",
+    "sets": [
+      "12",
+      "13"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Voltscourge Stalker",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.432
+          }
+        ]
+      }
+    ]
+  },
+  "6000063": {
+    "name": "Frostscourge Stalker",
+    "version": 2,
+    "id": "6000063",
+    "sets": [
+      "11",
+      "12"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Frostscourge Stalker",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000064": {
+    "name": "Chop Chop: Headless",
+    "version": 2,
+    "id": "6000064",
+    "sets": [
+      "11",
+      "14"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Chop Chop: Headless",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000065": {
+    "name": "Chop Chop: Leftless",
+    "version": 2,
+    "id": "6000065",
+    "sets": [
+      "10",
+      "14"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Chop Chop: Leftless",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000066": {
+    "name": "Chop Chop: Rightless",
+    "version": 2,
+    "id": "6000066",
+    "sets": [
+      "10",
+      "14"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Chop Chop: Rightless",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000067": {
+    "name": "Fae Ignis",
+    "version": 2,
+    "id": "6000067",
+    "sets": [
+      "11",
+      "12",
+      "19"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fae Ignis",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000068": {
+    "name": "Nimbus Wraith",
+    "version": 2,
+    "id": "6000068",
+    "sets": [
+      "12",
+      "13",
+      "22"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nimbus Wraith",
+        "type": "healing",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.027
+          }
+        ]
+      }
+    ]
+  },
+  "6000069": {
+    "name": "Hocus Pocus",
+    "version": 2,
+    "id": "6000069",
+    "sets": [
+      "10",
+      "13"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Hocus Pocus",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.432
+          }
+        ]
+      }
+    ]
+  },
+  "6000070": {
+    "name": "Lottie Lost",
+    "version": 2,
+    "id": "6000070",
+    "sets": [
+      "10",
+      "14"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Lottie Lost",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000071": {
+    "name": "Diggy Duggy",
+    "version": 2,
+    "id": "6000071",
+    "sets": [
+      "11",
+      "14"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Diggy Duggy",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000072": {
+    "name": "Chest Mimic",
+    "version": 2,
+    "id": "6000072",
+    "sets": [
+      "10",
+      "12",
+      "13"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Chest Mimic",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.642
+          }
+        ]
+      }
+    ]
+  },
+  "6000073": {
+    "name": "Questless Knight",
+    "version": 2,
+    "id": "6000073",
+    "sets": [
+      "10",
+      "12"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Questless Knight",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 3.132
+          }
+        ]
+      }
+    ]
+  },
+  "6000074": {
+    "name": "Diurnus Knight",
+    "version": 2,
+    "id": "6000074",
+    "sets": [
+      "11",
+      "14"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Diurnus Knight",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000075": {
+    "name": "Nocturnus Knight",
+    "version": 2,
+    "id": "6000075",
+    "sets": [
+      "12",
+      "13"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nocturnus Knight",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000076": {
+    "name": "Abyssal Patricius",
+    "version": 2,
+    "id": "6000076",
+    "sets": [
+      "10",
+      "13"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Abyssal Patricius",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000077": {
+    "name": "Abyssal Gladius",
+    "version": 2,
+    "id": "6000077",
+    "sets": [
+      "12",
+      "14",
+      "23"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Abyssal Gladius",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Abyssal Gladius",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 6.705
+          }
+        ]
+      }
+    ]
+  },
+  "6000078": {
+    "name": "Abyssal Mercator",
+    "version": 2,
+    "id": "6000078",
+    "sets": [
+      "10",
+      "11"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Abyssal Mercator",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.894
+          }
+        ]
+      }
+    ]
+  },
+  "6000079": {
+    "name": "Chop Chop",
+    "version": 2,
+    "id": "6000079",
+    "sets": [
+      "13",
+      "14",
+      "19"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Chop Chop",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.1926
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Chop Chop",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.7704
+          }
+        ]
+      }
+    ]
+  },
+  "6000080": {
+    "name": "Vitreum Dancer",
+    "version": 2,
+    "id": "6000080",
+    "sets": [
+      "11",
+      "13"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Vitreum Dancer",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 3.132
+          }
+        ]
+      }
+    ]
+  },
+  "6000081": {
+    "name": "Cuddle Wuddle",
+    "version": 2,
+    "id": "6000081",
+    "sets": [
+      "10",
+      "12"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Cuddle Wuddle",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.4698
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Cuddle Wuddle",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 1.2528
+          }
+        ]
+      }
+    ]
+  },
+  "6000082": {
+    "name": "Lorelei",
+    "version": 2,
+    "id": "6000082",
+    "sets": [
+      "12"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Lorelei",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      }
+    ]
+  },
+  "6000083": {
+    "name": "Sentry Construct",
+    "version": 2,
+    "id": "6000083",
+    "sets": [
+      "10"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Sentry Construct",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Sentry Construct",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      }
+    ]
+  },
+  "6000084": {
+    "name": "Dragon of Dirge",
+    "version": 2,
+    "id": "6000084",
+    "sets": [
+      "14"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Dragon of Dirge",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.3681
+          }
+        ]
+      }
+    ]
+  },
+  "6000085": {
+    "name": "Hecate",
+    "version": 2,
+    "id": "6000085",
+    "sets": [
+      "13"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Hecate",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.4559
+          }
+        ]
+      }
+    ]
+  },
+  "6000086": {
+    "name": "Nightmare: Feilian Beringal",
+    "version": 2,
+    "id": "6000086",
+    "sets": [
+      "4"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Feilian Beringal",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.6416
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Feilian Beringal",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.2188
+          }
+        ]
+      }
+    ]
+  },
+  "6000087": {
+    "name": "Nightmare: Impermanence Heron",
+    "version": 2,
+    "id": "6000087",
+    "sets": [
+      "12"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Impermanence Heron",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.405
+          }
+        ]
+      }
+    ]
+  },
+  "6000088": {
+    "name": "Nightmare: Thundering Mephis",
+    "version": 2,
+    "id": "6000088",
+    "sets": [
+      "3"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Thundering Mephis",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      }
+    ]
+  },
+  "6000089": {
+    "name": "Nightmare: Tempest Mephis",
+    "version": 2,
+    "id": "6000089",
+    "sets": [
+      "3",
+      "13"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Tempest Mephis",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      }
+    ]
+  },
+  "6000090": {
+    "name": "Nightmare: Crownless",
+    "version": 2,
+    "id": "6000090",
+    "sets": [
+      "6"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Crownless",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 2.646
+          }
+        ]
+      }
+    ]
+  },
+  "6000091": {
+    "name": "Nightmare: Inferno Rider",
+    "version": 2,
+    "id": "6000091",
+    "sets": [
+      "2"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Inferno Rider",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Inferno Rider",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.835
+          }
+        ]
+      }
+    ]
+  },
+  "6000092": {
+    "name": "Nightmare: Mourning Aix",
+    "version": 2,
+    "id": "6000092",
+    "sets": [
+      "11"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Mourning Aix",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      }
+    ]
+  },
+  "6000093": {
+    "name": "Golden Junrock",
+    "version": 2.1,
+    "id": "6000093",
+    "sets": [
+      "10",
+      "11",
+      "21"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Golden Junrock",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000094": {
+    "name": "Calcified Junrock",
+    "version": 2.1,
+    "id": "6000094",
+    "sets": [
+      "13",
+      "14",
+      "20"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Calcified Junrock",
+        "type": "healing",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.0252
+          }
+        ]
+      }
+    ]
+  },
+  "6000095": {
+    "name": "Aero Prism",
+    "version": 2.1,
+    "id": "6000095",
+    "sets": [
+      "11",
+      "14"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Aero Prism",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.1926
+          }
+        ]
+      }
+    ]
+  },
+  "6000096": {
+    "name": "Rage Against the Statue",
+    "version": 2.1,
+    "id": "6000096",
+    "sets": [
+      "11",
+      "16",
+      "21"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Rage Against the Statue",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 3.132
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Rage Against the Statue",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 4.698
+          }
+        ]
+      }
+    ]
+  },
+  "6000097": {
+    "name": "Hurriclaw",
+    "version": 2.1,
+    "id": "6000097",
+    "sets": [
+      "14",
+      "16",
+      "20"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Hurriclaw",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.566
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Hurriclaw",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.566
+          }
+        ]
+      }
+    ]
+  },
+  "6000098": {
+    "name": "La Guardia",
+    "version": 2.2,
+    "id": "6000098",
+    "sets": [
+      "12",
+      "16",
+      "18"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: La Guardia",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: La Guardia",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: La Guardia",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.1788
+          }
+        ]
+      }
+    ]
+  },
+  "6000099": {
+    "name": "Sagittario",
+    "version": 2.2,
+    "id": "6000099",
+    "sets": [
+      "11",
+      "16",
+      "18"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Sagittario",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Sagittario",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Sagittario",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.5364
+          }
+        ]
+      }
+    ]
+  },
+  "6000100": {
+    "name": "Sacerdos",
+    "version": 2.2,
+    "id": "6000100",
+    "sets": [
+      "16",
+      "17"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Sacerdos",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.648
+          }
+        ]
+      }
+    ]
+  },
+  "6000101": {
+    "name": "Aero Drake",
+    "version": 2.2,
+    "id": "6000101",
+    "sets": [
+      "14",
+      "16",
+      "18"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Aero Drake",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000102": {
+    "name": "Electro Drake",
+    "version": 2.2,
+    "id": "6000102",
+    "sets": [
+      "12",
+      "16",
+      "18"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Electro Drake",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.432
+          }
+        ]
+      }
+    ]
+  },
+  "6000103": {
+    "name": "Glacio Drake",
+    "version": 2.2,
+    "id": "6000103",
+    "sets": [
+      "16",
+      "17"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Glacio Drake",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.2592
+          }
+        ]
+      }
+    ]
+  },
+  "6000104": {
+    "name": "Capitaneus",
+    "version": 2.2,
+    "id": "6000104",
+    "sets": [
+      "11",
+      "16",
+      "17"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Capitaneus",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.188
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Capitaneus",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.594
+          }
+        ]
+      }
+    ]
+  },
+  "6000105": {
+    "name": "Nightmare: Lampylumen Myriad",
+    "version": 2.2,
+    "id": "6000105",
+    "sets": [
+      "10",
+      "13"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Lampylumen Myriad",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      }
+    ]
+  },
+  "6000106": {
+    "name": "Reminiscence: Fleurdelys",
+    "version": 2.2,
+    "id": "6000106",
+    "sets": [
+      "16",
+      "17"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Reminiscence: Fleurdelys",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.2736
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Reminiscence: Fleurdelys",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.368
+          }
+        ]
+      }
+    ]
+  },
+  "6000107": {
+    "name": "Fusion Drake",
+    "version": 2.4,
+    "id": "6000107",
+    "sets": [
+      "17",
+      "18"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fusion Drake",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.2592
+          }
+        ]
+      }
+    ]
+  },
+  "6000108": {
+    "name": "Spectro Drake",
+    "version": 2.4,
+    "id": "6000108",
+    "sets": [
+      "17",
+      "18"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Spectro Drake",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.432
+          }
+        ]
+      }
+    ]
+  },
+  "6000109": {
+    "name": "Havoc Drake",
+    "version": 2.4,
+    "id": "6000109",
+    "sets": [
+      "17",
+      "18",
+      "23"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Havoc Drake",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000110": {
+    "name": "Devotee's Flesh",
+    "version": 2.4,
+    "id": "6000110",
+    "sets": [
+      "16",
+      "17",
+      "18"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Devotee's Flesh",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.432
+          }
+        ]
+      }
+    ]
+  },
+  "6000111": {
+    "name": "Pilgrim's Shell",
+    "version": 2.4,
+    "id": "6000111",
+    "sets": [
+      "17",
+      "18"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Pilgrim's Shell",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000112": {
+    "name": "Kerasaur",
+    "version": 2.4,
+    "id": "6000112",
+    "sets": [
+      "17",
+      "18",
+      "22"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Kerasaur",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Kerasaur",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000113": {
+    "name": "Nightmare: Kelpie",
+    "version": 2.4,
+    "id": "6000113",
+    "sets": [
+      "16",
+      "17"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Kelpie",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Kelpie",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      }
+    ]
+  },
+  "6000114": {
+    "name": "Lioness of Glory",
+    "version": 2.4,
+    "id": "6000114",
+    "sets": [
+      "18"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Lioness of Glory",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.8208
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Lioness of Glory",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 1.9152
+          }
+        ]
+      }
+    ]
+  },
+  "6000115": {
+    "name": "Nightmare: Hecate",
+    "version": 2.5,
+    "id": "6000115",
+    "sets": [
+      "19"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Hecate",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.5238
+          }
+        ]
+      }
+    ]
+  },
+  "6000116": {
+    "name": "Reminiscence: Fenrico",
+    "version": 2.5,
+    "id": "6000116",
+    "sets": [
+      "19",
+      "21"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Reminiscence: Fenrico",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      }
+    ]
+  },
+  "6000117": {
+    "name": "Nightmare: Havoc Warrior",
+    "version": 2.5,
+    "id": "6000117",
+    "sets": [
+      "19"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Havoc Warrior",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.7173
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Havoc Warrior",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.7173
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Havoc Warrior",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.7173
+          }
+        ]
+      }
+    ]
+  },
+  "6000118": {
+    "name": "Nightmare: Glacio Predator",
+    "version": 2.5,
+    "id": "6000118",
+    "sets": [
+      "19"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Glacio Predator",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.4608
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Glacio Predator",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.046
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Glacio Predator",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.2304
+          }
+        ]
+      }
+    ]
+  },
+  "6000119": {
+    "name": "Nightmare: Tambourinist",
+    "version": 2.5,
+    "id": "6000119",
+    "sets": [
+      "19"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Tambourinist",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.144
+          }
+        ]
+      }
+    ]
+  },
+  "6000120": {
+    "name": "Corrosaurus",
+    "version": 2.6,
+    "id": "6000120",
+    "sets": [
+      "18",
+      "22"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Corrosaurus",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      }
+    ]
+  },
+  "6000121": {
+    "name": "The False Sovereign",
+    "version": 2.6,
+    "id": "6000121",
+    "sets": [
+      "20"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: The False Sovereign",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.5535
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: The False Sovereign",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      }
+    ]
+  },
+  "6000160": {
+    "name": "Lady of the Sea",
+    "version": 2.6,
+    "id": "6000160",
+    "sets": [
+      "20"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Lady of the Sea",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.1368
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Lady of the Sea",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.6416
+          }
+        ]
+      }
+    ]
+  },
+  "6000161": {
+    "name": "Nightmare: Violet-Feathered Heron",
+    "version": 2.6,
+    "id": "6000161",
+    "sets": [
+      "20"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Violet-Feathered Heron",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 2.88
+          }
+        ]
+      }
+    ]
+  },
+  "6000162": {
+    "name": "Nightmare: Cyan-Feathered Heron",
+    "version": 2.6,
+    "id": "6000162",
+    "sets": [
+      "21"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Cyan-Feathered Heron",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.368
+          }
+        ]
+      }
+    ]
+  },
+  "6000163": {
+    "name": "Nightmare: Electro Predator",
+    "version": 2.6,
+    "id": "6000163",
+    "sets": [
+      "20"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Electro Predator",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.1728
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Electro Predator",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.4608
+          }
+        ]
+      }
+    ]
+  },
+  "6000164": {
+    "name": "Nightmare: Aero Predator",
+    "version": 2.6,
+    "id": "6000164",
+    "sets": [
+      "20"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Aero Predator",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.288
+          }
+        ]
+      }
+    ]
+  },
+  "6000165": {
+    "name": "Nightmare: Gulpuff",
+    "version": 2.6,
+    "id": "6000165",
+    "sets": [
+      "21"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Gulpuff",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.2304
+          }
+        ]
+      }
+    ]
+  },
+  "6000166": {
+    "name": "Nightmare: Chirpuff",
+    "version": 2.6,
+    "id": "6000166",
+    "sets": [
+      "21"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Chirpuff",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      }
+    ]
+  },
+  "6000167": {
+    "name": "Reminiscence: Threnodian - Leviathan",
+    "version": 2.7,
+    "id": "6000167",
+    "sets": [
+      "22",
+      "23"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Reminiscence: Threnodian - Leviathan",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.3104
+          }
+        ]
+      }
+    ]
+  },
+  "6000168": {
+    "name": "Nightmare: Viridblaze Saurian",
+    "version": 2.7,
+    "id": "6000168",
+    "sets": [
+      "22"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Viridblaze Saurian",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.1712
+          }
+        ]
+      }
+    ]
+  },
+  "6000169": {
+    "name": "Nightmare: Baby Viridblaze Saurian",
+    "version": 2.7,
+    "id": "6000169",
+    "sets": [
+      "22"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Baby Viridblaze Saurian",
+        "type": "healing",
+        "multipliers": []
+      }
+    ]
+  },
+  "6000170": {
+    "name": "Nightmare: Baby Roseshroom",
+    "version": 2.7,
+    "id": "6000170",
+    "sets": [
+      "22"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Baby Roseshroom",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": []
+      }
+    ]
+  },
+  "6000171": {
+    "name": "Nightmare: Tick Tack",
+    "version": 2.8,
+    "id": "6000171",
+    "sets": [
+      "23"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Tick Tack",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.6848
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Tick Tack",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.0272
+          }
+        ]
+      }
+    ]
+  },
+  "6000172": {
+    "name": "Nightmare: Dwarf Cassowary",
+    "version": 2.8,
+    "id": "6000172",
+    "sets": [
+      "23"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Dwarf Cassowary",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Dwarf Cassowary",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Nightmare: Dwarf Cassowary",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      }
+    ]
+  },
+  "6000173": {
+    "name": "Nightmare: Roseshroom",
+    "version": 2.8,
+    "id": "6000173",
+    "sets": [
+      "23"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nightmare: Roseshroom",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.5706
+          }
+        ]
+      }
+    ]
+  },
+  "6000174": {
+    "name": "Tremor Warrior",
+    "version": 3,
+    "id": "6000174",
+    "sets": [
+      "25",
+      "28",
+      "30"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Tremor Warrior",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 2.052
+          }
+        ]
+      }
+    ]
+  },
+  "6000175": {
+    "name": "Flora Drone",
+    "version": 3,
+    "id": "6000175",
+    "sets": [
+      "24",
+      "26",
+      "29",
+      "31"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Flora Drone",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.648
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Flora Drone",
+        "type": "healing",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.036
+          }
+        ]
+      }
+    ]
+  },
+  "6000176": {
+    "name": "Mining Drone",
+    "version": 3,
+    "id": "6000176",
+    "sets": [
+      "25",
+      "26",
+      "29",
+      "31"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Mining Drone",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.026
+          }
+        ]
+      }
+    ]
+  },
+  "6000177": {
+    "name": "Geospider S4",
+    "version": 3,
+    "id": "6000177",
+    "sets": [
+      "24",
+      "25",
+      "27"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Geospider S4",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.5184
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Geospider S4",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.7776
+          }
+        ]
+      }
+    ]
+  },
+  "6000178": {
+    "name": "Zip Zap",
+    "version": 3,
+    "id": "6000178",
+    "sets": [
+      "24",
+      "26",
+      "28",
+      "29"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Zip Zap",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.2592
+          }
+        ]
+      }
+    ]
+  },
+  "6000179": {
+    "name": "Twin Nova: Nebulous Cannon",
+    "version": 3,
+    "id": "6000179",
+    "sets": [
+      "26",
+      "28"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Twin Nova: Nebulous Cannon",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.8051
+          }
+        ]
+      }
+    ]
+  },
+  "6000181": {
+    "name": "Flora Reindeer",
+    "version": 3,
+    "id": "6000181",
+    "sets": [
+      "26",
+      "31"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Flora Reindeer",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.926
+          }
+        ]
+      }
+    ]
+  },
+  "6000182": {
+    "name": "Mining Reindeer",
+    "version": 3,
+    "id": "6000182",
+    "sets": [
+      "24",
+      "31"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Mining Reindeer",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 2.376
+          }
+        ]
+      }
+    ]
+  },
+  "6000183": {
+    "name": "Ironhoof",
+    "version": 3,
+    "id": "6000183",
+    "sets": [
+      "24",
+      "30",
+      "31"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Ironhoof",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.5364
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Ironhoof",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.1341
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Ironhoof",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 1.7433
+          }
+        ]
+      }
+    ]
+  },
+  "6000184": {
+    "name": "Spacetrek Explorer",
+    "version": 3,
+    "id": "6000184",
+    "sets": [
+      "25",
+      "28",
+      "29"
+    ],
+    "actions": []
+  },
+  "6000185": {
+    "name": "Sabercat Reaver",
+    "version": 3,
+    "id": "6000185",
+    "sets": [
+      "24",
+      "25",
+      "29"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Sabercat Reaver",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 1.926
+          }
+        ]
+      }
+    ]
+  },
+  "6000186": {
+    "name": "Sabercat Prowler",
+    "version": 3,
+    "id": "6000186",
+    "sets": [
+      "24",
+      "25",
+      "29"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Sabercat Prowler",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.926
+          }
+        ]
+      }
+    ]
+  },
+  "6000187": {
+    "name": "Frostbite Coleoid",
+    "version": 3,
+    "id": "6000187",
+    "sets": [
+      "25",
+      "30"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Frostbite Coleoid",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 1.926
+          }
+        ]
+      }
+    ]
+  },
+  "6000188": {
+    "name": "Windlash Coleoid",
+    "version": 3,
+    "id": "6000188",
+    "sets": [
+      "26",
+      "30"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Windlash Coleoid",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000189": {
+    "name": "Hyvatia",
+    "version": 3,
+    "id": "6000189",
+    "sets": [
+      "24",
+      "26"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Hyvatia",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.2736
+          }
+        ]
+      }
+    ]
+  },
+  "6000190": {
+    "name": "Reactor Husk",
+    "version": 3,
+    "id": "6000190",
+    "sets": [
+      "25",
+      "28"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Reactor Husk",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 3.51
+          }
+        ]
+      }
+    ]
+  },
+  "6000191": {
+    "name": "Sigillum",
+    "version": 3.1,
+    "id": "6000191",
+    "sets": [
+      "27"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Sigillum",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.684
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Sigillum",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.052
+          }
+        ]
+      }
+    ]
+  },
+  "6000192": {
+    "name": "Nameless Explorer",
+    "version": 3.1,
+    "id": "6000192",
+    "sets": [
+      "29",
+      "31"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Nameless Explorer",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      }
+    ]
+  },
+  "6000193": {
+    "name": "Kronablight",
+    "version": 3.1,
+    "id": "6000193",
+    "sets": [
+      "27",
+      "28"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Kronablight",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000195": {
+    "name": "Glommoth",
+    "version": 3.1,
+    "id": "6000195",
+    "sets": [
+      "27",
+      "30"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Glommoth",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      }
+    ]
+  },
+  "6000196": {
+    "name": "Iceglint Dancer",
+    "version": 3.1,
+    "id": "6000196",
+    "sets": [
+      "27",
+      "30",
+      "31"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Iceglint Dancer",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.052
+          }
+        ]
+      }
+    ]
+  },
+  "6000197": {
+    "name": "Shadow Stepper",
+    "version": 3.1,
+    "id": "6000197",
+    "sets": [
+      "27",
+      "28",
+      "30"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Shadow Stepper",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000198": {
+    "name": "Voidwing Moth",
+    "version": 3.3,
+    "id": "6000198",
+    "sets": [
+      "31"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Voidwing Moth",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Voidwing Moth",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.4933
+          }
+        ]
+      }
+    ]
+  },
+  "6000199": {
+    "name": "Reminiscence: Threnodian - Voidborne Construct",
+    "version": 3.3,
+    "id": "6000199",
+    "sets": [
+      "30"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Reminiscence: Threnodian - Voidborne Construct",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.2188
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Reminiscence: Threnodian - Voidborne Construct",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 1.6416
+          }
+        ]
+      }
+    ]
+  },
+  "6000200": {
+    "name": "Reminiscence: Denia",
+    "version": 3.3,
+    "id": "6000200",
+    "sets": [
+      "28"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Reminiscence: Denia",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      }
+    ]
+  },
+  "6000201": {
+    "name": "Reminiscence - Nightmare: Adam Smasher",
+    "version": 3.4,
+    "id": "6000201",
+    "sets": [
+      "32"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Reminiscence - Nightmare: Adam Smasher",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Reminiscence - Nightmare: Adam Smasher",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.171
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Reminiscence - Nightmare: Adam Smasher",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.1026
+          }
+        ]
+      }
+    ]
+  },
+  "6000202": {
+    "name": "Smiter",
+    "version": 3.5,
+    "id": "6000202",
+    "sets": [
+      "33"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Smiter",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.1926
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Smiter",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.5778
+          }
+        ]
+      }
+    ]
+  },
+  "6000203": {
+    "name": "Porcelain Picket",
+    "version": 3.5,
+    "id": "6000203",
+    "sets": [
+      "35"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Porcelain Picket",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.1944
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Porcelain Picket",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.1296
+          }
+        ]
+      }
+    ]
+  },
+  "6000204": {
+    "name": "Stone Picket",
+    "version": 3.5,
+    "id": "6000204",
+    "sets": [
+      "35"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Stone Picket",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000205": {
+    "name": "Aureate Picket",
+    "version": 3.5,
+    "id": "6000205",
+    "sets": [
+      "34"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Aureate Picket",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.539
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Aureate Picket",
+        "type": "healing",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.0055
+          }
+        ]
+      }
+    ]
+  },
+  "6000206": {
+    "name": "Kernel Puppet: Joy",
+    "version": 3.5,
+    "id": "6000206",
+    "sets": [
+      "33"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Kernel Puppet: Joy",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000207": {
+    "name": "Kernel Puppet: Anger",
+    "version": 3.5,
+    "id": "6000207",
+    "sets": [
+      "34"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Kernel Puppet: Anger",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000208": {
+    "name": "Kernel Puppet: Worry",
+    "version": 3.5,
+    "id": "6000208",
+    "sets": [
+      "34"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Kernel Puppet: Worry",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.648
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Kernel Puppet: Worry",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.648
+          }
+        ]
+      }
+    ]
+  },
+  "6000209": {
+    "name": "Kernel Puppet: Reflection",
+    "version": 3.5,
+    "id": "6000209",
+    "sets": [
+      "34"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Kernel Puppet: Reflection",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.648
+          }
+        ]
+      }
+    ]
+  },
+  "6000210": {
+    "name": "Kernel Puppet: Grief",
+    "version": 3.5,
+    "id": "6000210",
+    "sets": [
+      "35"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Kernel Puppet: Grief",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000211": {
+    "name": "Kernel Puppet: Fright",
+    "version": 3.5,
+    "id": "6000211",
+    "sets": [
+      "35"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Kernel Puppet: Fright",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.5184
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Kernel Puppet: Fright",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.7776
+          }
+        ]
+      }
+    ]
+  },
+  "6000212": {
+    "name": "Fog Lionarch: Body",
+    "version": 3.5,
+    "id": "6000212",
+    "sets": [
+      "33"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fog Lionarch: Body",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 1.926
+          }
+        ]
+      }
+    ]
+  },
+  "6000213": {
+    "name": "Fog Lionarch: Head",
+    "version": 3.5,
+    "id": "6000213",
+    "sets": [
+      "33"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fog Lionarch: Head",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 1.296
+          }
+        ]
+      }
+    ]
+  },
+  "6000214": {
+    "name": "Smolder",
+    "version": 3.5,
+    "id": "6000214",
+    "sets": [
+      "33"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Smolder",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 1.926
+          }
+        ]
+      }
+    ]
+  },
+  "6000215": {
+    "name": "Fog Lionarch",
+    "version": 3.5,
+    "id": "6000215",
+    "sets": [
+      "33",
+      "34",
+      "35"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fog Lionarch",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.3393
+          }
+        ]
+      }
+    ]
+  },
+  "6000216": {
+    "name": "Forbidden Bastion",
+    "version": 3.5,
+    "id": "6000216",
+    "sets": [
+      "33",
+      "34",
+      "35"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Forbidden Bastion",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.376
+          }
+        ]
+      }
+    ]
+  },
+  "6000217": {
+    "name": "Myriad Snare: Rustfire Chassis",
+    "version": 3.5,
+    "id": "6000217",
+    "sets": [
+      "34",
+      "35"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Myriad Snare: Rustfire Chassis",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.102
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Myriad Snare: Rustfire Chassis",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.0037
+          }
+        ]
+      }
+    ]
+  },
+  "6000218": {
+    "name": "Thousand-Puppet Pavilion",
+    "version": 3.5,
+    "id": "6000218",
+    "sets": [
+      "33"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Thousand-Puppet Pavilion",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.4104
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Thousand-Puppet Pavilion",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.0944
+          }
+        ]
+      }
+    ]
+  },
+  "390070051": {
+    "name": "Vanguard Junrock",
+    "version": 1,
+    "id": "390070051",
+    "sets": [
+      "3",
+      "7",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Vanguard Junrock",
+        "type": "healing",
+        "multipliers": []
+      }
+    ]
+  },
+  "390070052": {
+    "name": "Fission Junrock",
+    "version": 1,
+    "id": "390070052",
+    "sets": [
+      "3",
+      "7",
+      "8"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fission Junrock",
+        "type": "healing",
+        "attr": "hp",
+        "multipliers": []
+      }
+    ]
+  },
+  "390070053": {
+    "name": "Electro Predator",
+    "version": 1,
+    "id": "390070053",
+    "sets": [
+      "2",
+      "3"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Electro Predator",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.1728
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Electro Predator",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.4608
+          }
+        ]
+      }
+    ]
+  },
+  "390070064": {
+    "name": "Fusion Warrior",
+    "version": 1,
+    "id": "390070064",
+    "sets": [
+      "2",
+      "3",
+      "4"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fusion Warrior",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.88
+          }
+        ]
+      }
+    ]
+  },
+  "390070065": {
+    "name": "Havoc Warrior",
+    "version": 1,
+    "id": "390070065",
+    "sets": [
+      "5",
+      "6"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Havoc Warrior",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.7173
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Havoc Warrior",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.7173
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Havoc Warrior",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.7173
+          }
+        ]
+      }
+    ]
+  },
+  "390070066": {
+    "name": "Snip Snap",
+    "version": 1,
+    "id": "390070066",
+    "sets": [
+      "2",
+      "7",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Snip Snap",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": []
+      }
+    ]
+  },
+  "390070067": {
+    "name": "Zig Zag",
+    "version": 1,
+    "id": "390070067",
+    "sets": [
+      "5",
+      "8",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Zig Zag",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": []
+      }
+    ]
+  },
+  "390070068": {
+    "name": "Whiff Whaff",
+    "version": 1,
+    "id": "390070068",
+    "sets": [
+      "4",
+      "7",
+      "8"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Whiff Whaff",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.5136
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Whiff Whaff",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.1997
+          }
+        ]
+      }
+    ]
+  },
+  "390070069": {
+    "name": "Tick Tack",
+    "version": 1,
+    "id": "390070069",
+    "sets": [
+      "6",
+      "7",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Tick Tack",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.6848
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Tick Tack",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.0272
+          }
+        ]
+      }
+    ]
+  },
+  "390070070": {
+    "name": "Glacio Predator",
+    "version": 1,
+    "id": "390070070",
+    "sets": [
+      "1",
+      "5"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Glacio Predator",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.4608
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Glacio Predator",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.046
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Glacio Predator",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.2304
+          }
+        ]
+      }
+    ]
+  },
+  "390070071": {
+    "name": "Aero Predator",
+    "version": 1,
+    "id": "390070071",
+    "sets": [
+      "3",
+      "4"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Aero Predator",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.288
+          }
+        ]
+      }
+    ]
+  },
+  "390070074": {
+    "name": "Cruisewing",
+    "version": 1,
+    "id": "390070074",
+    "sets": [
+      "5",
+      "7",
+      "8"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Cruisewing",
+        "type": "healing",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.018
+          }
+        ]
+      }
+    ]
+  },
+  "390070075": {
+    "name": "Sabyr Boar",
+    "version": 1,
+    "id": "390070075",
+    "sets": [
+      "1",
+      "4",
+      "8"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Sabyr Boar",
+        "type": "healing",
+        "multipliers": []
+      }
+    ]
+  },
+  "390070076": {
+    "name": "Gulpuff",
+    "version": 1,
+    "id": "390070076",
+    "sets": [
+      "1",
+      "5"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Gulpuff",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.2304
+          }
+        ]
+      }
+    ]
+  },
+  "390070077": {
+    "name": "Excarat",
+    "version": 1,
+    "id": "390070077",
+    "sets": [
+      "1",
+      "6"
+    ],
+    "actions": []
+  },
+  "390070100": {
+    "name": "Fusion Dreadmane",
+    "version": 1,
+    "id": "390070100",
+    "sets": [
+      "2",
+      "7"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fusion Dreadmane",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": []
+      }
+    ]
+  },
+  "390070105": {
+    "name": "Hoartoise",
+    "version": 1,
+    "id": "390070105",
+    "sets": [
+      "1",
+      "5"
+    ],
+    "actions": []
+  },
+  "390077004": {
+    "name": "Violet-Feathered Heron",
+    "version": 1,
+    "id": "390077004",
+    "sets": [
+      "2",
+      "3"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Violet-Feathered Heron",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 2.88
+          }
+        ]
+      }
+    ]
+  },
+  "390077005": {
+    "name": "Cyan-Feathered Heron",
+    "version": 1,
+    "id": "390077005",
+    "sets": [
+      "4",
+      "5"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Cyan-Feathered Heron",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.368
+          }
+        ]
+      }
+    ]
+  },
+  "390077012": {
+    "name": "Fusion Prism",
+    "version": 1,
+    "id": "390077012",
+    "sets": [
+      "1",
+      "2",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Fusion Prism",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": []
+      }
+    ]
+  },
+  "390077013": {
+    "name": "Glacio Prism",
+    "version": 1,
+    "id": "390077013",
+    "sets": [
+      "1",
+      "6",
+      "8"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Glacio Prism",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 0.384
+          }
+        ]
+      }
+    ]
+  },
+  "390077016": {
+    "name": "Spectro Prism",
+    "version": 1,
+    "id": "390077016",
+    "sets": [
+      "2",
+      "3",
+      "5"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Spectro Prism",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.144
+          }
+        ]
+      }
+    ]
+  },
+  "390077017": {
+    "name": "Havoc Prism",
+    "version": 1,
+    "id": "390077017",
+    "sets": [
+      "3",
+      "5",
+      "6"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Havoc Prism",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.2304
+          }
+        ]
+      }
+    ]
+  },
+  "390077021": {
+    "name": "Stonewall Bracer",
+    "version": 1,
+    "id": "390077021",
+    "sets": [
+      "7",
+      "8"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Stonewall Bracer",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 1.1264
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Stonewall Bracer",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 1.6896
+          }
+        ]
+      }
+    ]
+  },
+  "390077022": {
+    "name": "Flautist",
+    "version": 1,
+    "id": "390077022",
+    "sets": [
+      "3",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Flautist",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.5328
+          }
+        ]
+      }
+    ]
+  },
+  "390077023": {
+    "name": "Tambourinist",
+    "version": 1,
+    "id": "390077023",
+    "sets": [
+      "1",
+      "6"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Tambourinist",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.144
+          }
+        ]
+      }
+    ]
+  },
+  "390077024": {
+    "name": "Rocksteady Guardian",
+    "version": 1,
+    "id": "390077024",
+    "sets": [
+      "5",
+      "7"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Rocksteady Guardian",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.0552
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Rocksteady Guardian",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.046
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Rocksteady Guardian",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.0829
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Rocksteady Guardian",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.0829
+          }
+        ]
+      }
+    ]
+  },
+  "390077025": {
+    "name": "Chasm Guardian",
+    "version": 1,
+    "id": "390077025",
+    "sets": [
+      "7",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Chasm Guardian",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Chasm Guardian",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": []
+      },
+      {
+        "name": "Echo Skill: Chasm Guardian",
+        "type": "healing",
+        "multipliers": []
+      }
+    ]
+  },
+  "390077029": {
+    "name": "Roseshroom",
+    "version": 1,
+    "id": "390077029",
+    "sets": [
+      "1",
+      "6"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Roseshroom",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.5706
+          }
+        ]
+      }
+    ]
+  },
+  "390077033": {
+    "name": "Havoc Dreadmane",
+    "version": 1,
+    "id": "390077033",
+    "sets": [
+      "2",
+      "6"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Havoc Dreadmane",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.1664
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Havoc Dreadmane",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.7776
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Havoc Dreadmane",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.1664
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Havoc Dreadmane",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 0.7776
+          }
+        ]
+      }
+    ]
+  },
+  "390077038": {
+    "name": "Spearback",
+    "version": 1,
+    "id": "390077038",
+    "sets": [
+      "8",
+      "9"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Spearback",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.2996
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Spearback",
+        "type": "healing",
+        "multipliers": [
+          {
+            "mv": 0.5136
+          }
+        ]
+      }
+    ]
+  },
+  "390080003": {
+    "name": "Thundering Mephis",
+    "version": 1,
+    "id": "390080003",
+    "sets": [
+      "3"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Thundering Mephis",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 1.326
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Thundering Mephis",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 1.8944
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Thundering Mephis",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.3156
+          }
+        ]
+      }
+    ]
+  },
+  "390080005": {
+    "name": "Bell-Borne Geochelone",
+    "version": 1,
+    "id": "390080005",
+    "sets": [
+      "7",
+      "8"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Bell-Borne Geochelone",
+        "skillType": "echoSkill",
+        "element": "glacio",
+        "attr": "def",
+        "multipliers": [
+          {
+            "mv": 1.4592
+          }
+        ]
+      }
+    ]
+  },
+  "390080007": {
+    "name": "Inferno Rider",
+    "version": 1,
+    "id": "390080007",
+    "sets": [
+      "2"
+    ],
+    "actions": [
+      {
+        "name": "Echo Skill: Inferno Rider",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.424
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Inferno Rider",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.828
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Inferno Rider",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.828
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Inferno Rider",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.828
+          }
+        ]
+      }
+    ]
+  }
+}
