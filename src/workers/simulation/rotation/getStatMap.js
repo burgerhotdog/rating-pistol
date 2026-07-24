@@ -11,8 +11,8 @@ export const getBuffMap = (ctx, options = {}) => {
   const buffSpecs = [];
 
   function addToBuffSpecs(effect, buffMult) {
-    const { statSpecs } = effect;
-    buffSpecs.push({ statSpecs, buffMult });
+    const { buffSpec } = effect;
+    buffSpecs.push({ buffSpec, buffMult });
   };
 
   function getSpecsSourceMap(memberId) {
@@ -21,29 +21,26 @@ export const getBuffMap = (ctx, options = {}) => {
     return toMergedObj(buildMap, buffMap);
   }
 
-  for (const { effect, stacks, useCooldown } of getEffectStates(ctx, {
-    member: memberId,
-    type: 'buff',
-  })) {
-    if (useCooldown || !matchUseFilter(effect, { ctx, action })) continue;
+  for (const { effect, stacks, buffCooldown } of getEffectStates(ctx, { member: memberId, type: 'buff' })) {
+    if (buffCooldown || !matchUseFilter(effect, { ctx, action })) continue;
     const buffMult = (effect.chance ?? 1) * stacks;
 
-    if ('statMap' in effect) {
-      mergeStatMap(buffMap, effect.statMap, buffMult);
+    if ('buffMap' in effect) {
+      mergeStatMap(buffMap, effect.buffMap, buffMult);
     }
 
-    if ('statSpecs' in effect && !ignoreSpecs) {
+    if ('buffSpec' in effect && !ignoreSpecs) {
       if (effect.ownerId === ctx.currId && !resolveNow) {
         addToBuffSpecs(effect, buffMult);
         continue;
       }
 
-      const resolvedStatMap = resolveStatSpecs(effect.statSpecs, getSpecsSourceMap(effect.ownerId));
+      const resolvedStatMap = resolveStatSpecs(effect.buffSpec, getSpecsSourceMap(effect.ownerId));
       mergeStatMap(buffMap, resolvedStatMap, buffMult);
     }
   }
 
-  if (ctx.gameId === WW) {
+  if (ctx.cache.gameId === WW) {
     // Havoc bane
     const havocBaneStacks = ctx.states.negativeStatuses.havocBane?.stacks;
     if (havocBaneStacks) {

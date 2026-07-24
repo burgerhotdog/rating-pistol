@@ -12,7 +12,7 @@ export const getEffectStates = (ctx, { member, type }) => {
 
   switch (type) {
     case 'buff':
-      return states.filter(({ effect: e }) => 'statMap' in e || 'statSpecs' in e);
+      return states.filter(({ effect: e }) => 'buffMap' in e || 'buffSpec' in e);
     case 'action':
       return states.filter(({ effect: e }) => 'useAction' in e);
     default:

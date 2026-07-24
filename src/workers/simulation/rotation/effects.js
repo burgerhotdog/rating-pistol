@@ -24,7 +24,7 @@ export function runUseEffect(ctx, state, spec = {}) {
   const { runtimeOffset } = spec;
   const { store, effect } = state;
 
-  if (effect.useAction) {
+  if ('useAction' in effect) {
     state.isRunning = true;
     for (let i = 0; i < (effect.times ?? 1); i++) {
       for (const action of effect.useAction) {
@@ -89,21 +89,36 @@ export function runApplyEffect(ctx, effect, action = {}) {
   }
 }
 
-function advanceEffect(ctx, state, elapsed) {
+function advanceEffectState(ctx, state, elapsed) {
   const { store, effect } = state;
 
-  if (state.useCooldown) {
+  if ('timeLeft' in state) {
+    state.timeLeft -= elapsed;
+    if (state.timeLeft <= 0) return delete store[effect.key];
+  }
+
+  if ('removeTimer' in state) {
+    state.removeTimer -= elapsed;
+    if (state.removeTimer <= 0) return delete store[effect.key];
+  }
+
+  if ('useCooldown' in state) {
     state.useCooldown -= elapsed;
     if (state.useCooldown <= 0) delete state.useCooldown;
   }
 
-  if (state.extendCooldown) {
+  if ('buffCooldown' in state) {
+    state.buffCooldown -= elapsed;
+    if (state.buffCooldown <= 0) delete state.buffCooldown;
+  }
+
+  if ('extendCooldown' in state) {
     state.extendCooldown -= elapsed;
     if (state.extendCooldown <= 0) delete state.extendCooldown;
   }
 
-  if (state.rampingTimer) {
-    const { rampingInterval, maxStacks } = state.effect;
+  if ('rampingTimer' in state) {
+    const { rampingInterval, maxStacks } = effect;
     state.rampingTimer -= elapsed;
     while (state.rampingTimer <= 0) {
       if (state.stacks >= maxStacks) {
@@ -114,16 +129,6 @@ function advanceEffect(ctx, state, elapsed) {
       state.rampingTimer += rampingInterval;
     }
   }
-
-  if (state.removeTimer) {
-    state.removeTimer -= elapsed;
-    if (state.removeTimer <= 0) return delete store[effect.key];
-  }
-
-  if (state.timeLeft) {
-    state.timeLeft -= elapsed;
-    if (state.timeLeft <= 0) return delete store[effect.key];
-  }
 }
 
 export function advanceEffects(ctx, elapsed) {
@@ -132,14 +137,14 @@ export function advanceEffects(ctx, elapsed) {
     const { effect } = state;
 
     if (effect.useWhen !== 'interval') {
-      advanceEffect(ctx, state, elapsed);
+      advanceEffectState(ctx, state, elapsed);
       continue;
     }
 
     let remaining = elapsed;
     while (remaining) {
       const diff = Math.min(state.useCooldown, remaining);
-      if (advanceEffect(ctx, state, diff)) break;
+      if (advanceEffectState(ctx, state, diff)) break;
       remaining -= diff;
       
       if (!state.useCooldown) {

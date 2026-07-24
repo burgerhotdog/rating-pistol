@@ -5,7 +5,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.08
           }
         }
@@ -14,7 +14,7 @@
         {
           "applyWhen": "hit",
           "applyOnDmgType": "BA",
-          "statMap": {
+          "buffMap": {
             "combatAtk%": 0.09
           },
           "maxDuration": 6000
@@ -22,7 +22,7 @@
         {
           "applyWhen": "hit",
           "applyOnDmgType": "DC",
-          "statMap": {
+          "buffMap": {
             "combatAtk%": 0.09
           },
           "maxDuration": 6000
@@ -30,7 +30,7 @@
         {
           "applyWhen": "hit",
           "applyOnDmgType": "exSpecialAttack",
-          "statMap": {
+          "buffMap": {
             "combatAtk%": 0.09
           },
           "maxDuration": 6000
@@ -44,21 +44,21 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "penRatio%": 0.08
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "ultimateDmgBonus%": 0.2
           }
         },
         {
           "applyWhen": "before",
           "applyOnSkillType": "ultimate",
-          "statMap": {
+          "buffMap": {
             "combatAtk%": 0.15
           },
           "maxDuration": 12000
@@ -72,7 +72,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "impact%": 0.06
           }
         }
@@ -84,7 +84,7 @@
             "dashAttack",
             "dodgeCounter"
           ],
-          "statMap": {
+          "buffMap": {
             "daze%": 0.2
           }
         }
@@ -97,7 +97,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "anomalyProficiency": 30
           }
         }
@@ -113,7 +113,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.1
           }
         }
@@ -123,7 +123,7 @@
           "applyWhen": "before",
           "applyIfField": "onField",
           "applyCooldown": 20000,
-          "statMap": {
+          "buffMap": {
             "combatAtk%": 0.25
           },
           "maxDuration": 10000
@@ -137,7 +137,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "def%": 0.16
           }
         }
@@ -153,7 +153,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "energyRegen%": 0.2
           }
         }
@@ -166,7 +166,7 @@
             "ultimate"
           ],
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.15
           },
           "maxDuration": 12000
@@ -180,7 +180,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "fireDmgBonus%": 0.1
           }
         }
@@ -190,7 +190,7 @@
           "applyWhen": "hit",
           "applyOnType": "damage",
           "applyIfAnomaly": "burning",
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.28
           },
           "maxDuration": 8000
@@ -204,19 +204,19 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "etherDmgBonus%": 0.1
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.2
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.33
           }
         }
@@ -229,7 +229,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "electricDmgBonus%": 0.1
           }
         }
@@ -237,7 +237,7 @@
       "4": [
         {
           "useIfAnomaly": "shocked",
-          "statMap": {
+          "buffMap": {
             "combatAtk%": 0.28
           }
         }
@@ -250,20 +250,20 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "iceDmgBonus%": 0.1
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "basicAttackDmgBonus%": 0.2,
             "dashAttackDmgBonus%": 0.2
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "basicAttackDmgBonus%": 0.2,
             "dashAttackDmgBonus%": 0.2
           }
@@ -277,14 +277,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "physicalDmgBonus%": 0.1
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.35
           }
         }
@@ -297,21 +297,21 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "anomalyProficiency": 30
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "fireDmgBonus%": 0.15,
             "electricDmgBonus%": 0.15
           }
         },
         {
           "useIfField": "offField",
-          "statMap": {
+          "buffMap": {
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
           }
@@ -321,7 +321,7 @@
           "applyIfField": "onField",
           "applyCooldown": 7500,
           "useIfField": "onField",
-          "statMap": {
+          "buffMap": {
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
           },
@@ -336,7 +336,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "shieldBonus%": 0.15
           }
         }
@@ -349,7 +349,7 @@
             "evasiveAssist"
           ],
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.15
           },
           "maxDuration": 10000
@@ -363,7 +363,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.16
           }
         }
@@ -373,12 +373,12 @@
           "useIfAttr": {
             "anomalyMastery": 115
           },
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.3
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.12
           }
         }
@@ -391,7 +391,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.1
           }
         }
@@ -399,7 +399,7 @@
       "4": [
         {
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.24
           }
         }
@@ -412,7 +412,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "aftershockDmgBonus%": 0.15,
             "dashAttackDmgBonus%": 0.15
           }
@@ -425,7 +425,7 @@
             "aftershock",
             "dashAttack"
           ],
-          "statMap": {
+          "buffMap": {
             "combatAtk%": 0.04,
             "critRate%": 0.04
           },
@@ -441,14 +441,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "anomalyMastery%": 0.08
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "anomalyProficiency": 45,
             "etherDmgBonus%": 0.25
           }
@@ -462,7 +462,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "hp%": 0.1
           }
         }
@@ -475,14 +475,14 @@
             "chainAttack",
             "ultimate"
           ],
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.04
           },
           "maxDuration": 15000,
           "maxStacks": 3
         },
         {
-          "statMap": {
+          "buffMap": {
             "sheerDmgBonus%": 0.1
           }
         }
@@ -495,7 +495,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "daze%": 0.06
           }
         }
@@ -509,7 +509,7 @@
             "chainAttack"
           ],
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.15
           },
           "maxDuration": 15000
@@ -525,7 +525,7 @@
           "useIfAttr": {
             "critRate%": 0.5
           },
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.15
           },
           "maxDuration": 15000
@@ -539,14 +539,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "basicAttackDmgBonus%": 0.15
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "basicAttackDmgBonus%": 0.2
           }
         },
@@ -557,7 +557,7 @@
             "exSpecialAttack",
             "ultimate"
           ],
-          "statMap": {
+          "buffMap": {
             "basicAttackDmgBonus%": 0.2
           },
           "maxDuration": 25000
@@ -571,7 +571,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "energyRegen%": 0.2
           }
         }
@@ -585,7 +585,7 @@
             "ultimate"
           ],
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.18
           },
           "maxDuration": 25000
@@ -599,14 +599,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "physicalDmgBonus%": 0.1
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.2,
             "combatAtk%": 0.1
           }
@@ -620,7 +620,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "etherDmgBonus%": 0.1
           }
         }
@@ -629,13 +629,13 @@
         {
           "applyWhen": "hit",
           "applyOnDmgType": "BA",
-          "statMap": {
+          "buffMap": {
             "anomalyProficiency": 36
           },
           "maxDuration": 8000
         },
         {
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.25
           }
         }
@@ -648,7 +648,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "hp%": 0.1
           }
         }
@@ -658,7 +658,7 @@
           "applyWhen": "before",
           "applyOnSkillType": "exSpecialAttack",
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.06
           },
           "maxDuration": 25000,
@@ -673,7 +673,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "iceDmgBonus%": 0.1
           }
         }
@@ -689,7 +689,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "windDmgBonus%": 0.1
           }
         }
@@ -698,14 +698,14 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "exSpecialAttack",
-          "statMap": {
+          "buffMap": {
             "anomalyProficiency": 25
           },
           "maxDuration": 40000,
           "maxStacks": 2
         },
         {
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.18
           }
         }
@@ -718,7 +718,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "etherDmgBonus%": 0.1
           }
         }
@@ -726,7 +726,7 @@
       "4": [
         {
           "enableIfElement": "ether",
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.3
           }
         },
@@ -736,7 +736,7 @@
             "exSpecialAttack",
             "ultimate"
           ],
-          "statMap": {
+          "buffMap": {
             "combatAtk%": 0.1
           },
           "maxDuration": 30000

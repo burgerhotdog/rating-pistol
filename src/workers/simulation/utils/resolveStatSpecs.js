@@ -1,13 +1,13 @@
 import { getAttr } from '@/utils';
 
-export const resolveStatSpecs = (statSpecs, sourceStatMap) => {
+export const resolveStatSpecs = (buffSpec, sourceStatMap) => {
   const resolved = {};
 
-  for (const [statId, spec] of Object.entries(statSpecs)) {
+  for (const [statId, statSpec] of Object.entries(buffSpec)) {
     const {
       attr, offset = 0, step,
       value, maxValue = Infinity,
-    } = spec;
+    } = statSpec;
 
     const attrValue = getAttr(attr, sourceStatMap);
     const mult = Math.max((attrValue - offset) / step, 0);

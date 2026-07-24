@@ -5,7 +5,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "glacioDmgBonus%": 0.1
           }
         }
@@ -17,7 +17,7 @@
             "basicAttack",
             "heavyAttack"
           ],
-          "statMap": {
+          "buffMap": {
             "glacioDmgBonus%": 0.1
           },
           "maxDuration": 15000,
@@ -32,7 +32,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.1
           }
         }
@@ -41,7 +41,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "resonanceSkill",
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.3
           },
           "maxDuration": 15000
@@ -55,7 +55,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "electroDmgBonus%": 0.1
           }
         }
@@ -64,7 +64,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "heavyAttack",
-          "statMap": {
+          "buffMap": {
             "electroDmgBonus%": 0.15
           },
           "maxDuration": 15000
@@ -72,7 +72,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "resonanceSkill",
-          "statMap": {
+          "buffMap": {
             "electroDmgBonus%": 0.15
           },
           "maxDuration": 15000
@@ -86,7 +86,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "aeroDmgBonus%": 0.1
           }
         }
@@ -95,7 +95,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "introSkill",
-          "statMap": {
+          "buffMap": {
             "aeroDmgBonus%": 0.3
           },
           "maxDuration": 15000
@@ -109,7 +109,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spectroDmgBonus%": 0.1
           }
         }
@@ -118,7 +118,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "introSkill",
-          "statMap": {
+          "buffMap": {
             "spectroDmgBonus%": 0.3
           },
           "maxDuration": 15000
@@ -132,7 +132,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "havocDmgBonus%": 0.1
           }
         }
@@ -144,7 +144,7 @@
             "basicAttack",
             "heavyAttack"
           ],
-          "statMap": {
+          "buffMap": {
             "havocDmgBonus%": 0.075
           },
           "maxDuration": 15000,
@@ -159,7 +159,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "healingBonus%": 0.1
           }
         }
@@ -169,7 +169,7 @@
           "applyWhen": "hit",
           "applyOnType": "healing",
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.15
           },
           "maxDuration": 30000
@@ -183,7 +183,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "energyRegen%": 0.1
           }
         }
@@ -193,7 +193,7 @@
           "applyWhen": "before",
           "applyOnSkillType": "outroSkill",
           "applyTo": "next",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.225
           },
           "maxDuration": 15000
@@ -207,7 +207,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.1
           }
         }
@@ -219,14 +219,14 @@
           "applyCooldown": 1500,
           "removeWhen": "before",
           "removeIfField": "offField",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.05
           },
           "maxStacks": 4
         },
         {
           "useIfDmgType": "outroSkill",
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.6
           }
         }
@@ -239,7 +239,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "resonanceSkillDmgBonus%": 0.12
           }
         }
@@ -248,7 +248,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "resonanceSkill",
-          "statMap": {
+          "buffMap": {
             "glacioDmgBonus%": 0.225
           },
           "maxDuration": 15000,
@@ -257,7 +257,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "resonanceLiberation",
-          "statMap": {
+          "buffMap": {
             "resonanceSkillDmgBonus%": 0.18
           },
           "maxDuration": 5000,
@@ -272,7 +272,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spectroDmgBonus%": 0.1
           }
         }
@@ -281,7 +281,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictStatus": "spectroFrazzle",
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.2
           },
           "maxDuration": 15000
@@ -292,7 +292,7 @@
           "applyIfNegativeStatus": {
             "spectroFrazzle": 10
           },
-          "statMap": {
+          "buffMap": {
             "spectroDmgBonus%": 0.15
           },
           "maxDuration": 15000
@@ -306,7 +306,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "havocDmgBonus%": 0.1
           }
         }
@@ -329,7 +329,7 @@
           "applyWhen": "before",
           "applyOnSkillType": "outroSkill",
           "applyTo": "next",
-          "statMap": {
+          "buffMap": {
             "havocDmgBonus%": 0.15
           },
           "maxDuration": 15000
@@ -343,7 +343,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "energyRegen%": 0.1
           }
         }
@@ -351,7 +351,7 @@
       "5": [
         {
           "useOnSkillType": "coordinatedAttack",
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.8
           }
         },
@@ -360,7 +360,7 @@
           "applyOnSkillType": "coordinatedAttack",
           "applyTo": "global",
           "useIfField": "onField",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.2
           },
           "maxDuration": 4000
@@ -374,14 +374,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "energyRegen%": 0.1
           }
         }
       ],
       "5": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.15
           }
         },
@@ -389,7 +389,7 @@
           "useIfAttr": {
             "energyRegen": 2.5
           },
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.3
           }
         }
@@ -402,7 +402,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "aeroDmgBonus%": 0.1
           }
         }
@@ -412,7 +412,7 @@
           "applyWhen": "inflict",
           "applyForInflictStatus": "aeroErosion",
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "aeroDmgBonus%": 0.15
           },
           "maxDuration": 20000
@@ -420,7 +420,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictStatus": "aeroErosion",
-          "statMap": {
+          "buffMap": {
             "aeroDmgBonus%": 0.15
           },
           "maxDuration": 20000
@@ -434,7 +434,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "aeroDmgBonus%": 0.1
           }
         }
@@ -446,7 +446,7 @@
           "applyIfNegativeStatus": {
             "aeroErosion": 1
           },
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.1,
             "aeroDmgBonus%": 0.3
           },
@@ -461,7 +461,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.1
           }
         }
@@ -471,7 +471,7 @@
           "applyWhen": "before",
           "applyOnSkillType": "resonanceLiberation",
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.15
           },
           "maxDuration": 35000
@@ -479,7 +479,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "resonanceLiberation",
-          "statMap": {
+          "buffMap": {
             "resonanceLiberationDmgBonus%": 0.2
           },
           "maxDuration": 35000
@@ -494,7 +494,7 @@
       "3": [
         {
           "enableIfNoEnergy": true,
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.2,
             "echoSkillDmgBonus%": 0.35
           }
@@ -511,7 +511,7 @@
           "applyWhen": "hit",
           "applyOnType": "shield",
           "applyCooldown": 500,
-          "statMap": {
+          "buffMap": {
             "atk%": 0.06,
             "critDmg%": 0.04
           },
@@ -529,7 +529,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "echoSkill",
-          "statMap": {
+          "buffMap": {
             "heavyAttackDmgBonus%": 0.3
           },
           "maxDuration": 4000
@@ -538,7 +538,7 @@
           "applyWhen": "before",
           "applyOnSkillType": "echoSkill",
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "echoSkillDmgBonus%": 0.04
           },
           "maxDuration": 30000,
@@ -556,7 +556,7 @@
           "applyWhen": "hit",
           "applyOnDmgType": "echoSkill",
           "useOnDmgType": "heavyAttack",
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.2
           },
           "maxDuration": 6000
@@ -565,7 +565,7 @@
           "applyWhen": "hit",
           "applyOnDmgType": "heavyAttack",
           "useOnDmgType": "echoSkill",
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.2
           },
           "maxDuration": 6000
@@ -575,7 +575,7 @@
             "$prev.1": 1,
             "$prev.2": 1
           },
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.16
           }
         }
@@ -590,7 +590,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictStatus": "havocBane",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.2,
             "resonanceLiberationDmgBonus%": 0.3
           },
@@ -605,7 +605,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spectroDmgBonus%": 0.1
           }
         }
@@ -617,7 +617,7 @@
           "applyTo": "next",
           "removeWhen": "before",
           "removeIfField": "offField",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.15
           },
           "maxDuration": 15000
@@ -628,7 +628,7 @@
           "applyTo": "next",
           "removeWhen": "before",
           "removeIfField": "offField",
-          "statSpecs": {
+          "buffSpec": {
             "atk%": {
               "attr": "tuneBreakBoost",
               "step": 1,
@@ -647,7 +647,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "healingBonus%": 0.1
           }
         }
@@ -657,7 +657,7 @@
           "applyWhen": "hit",
           "applyOnType": "healing",
           "applyTo": "team",
-          "statSpecs": {
+          "buffSpec": {
             "atk%": {
               "attr": "offTuneBuildupRate%",
               "step": 0.01,
@@ -676,7 +676,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spectroDmgBonus%": 0.1
           }
         }
@@ -685,7 +685,7 @@
         {
           "applyWhen": "hit",
           "applyOnDmgType": "basicAttack",
-          "statMap": {
+          "buffMap": {
             "spectroDmgBonus%": 0.1
           },
           "maxDuration": 5000,
@@ -696,7 +696,7 @@
           "useIfEffectStacksMin": {
             "$prev.1": 3
           },
-          "statMap": {
+          "buffMap": {
             "basicAttackDmgBonus%": 0.4
           }
         }
@@ -709,7 +709,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.1
           }
         }
@@ -719,7 +719,7 @@
           "applyWhen": "inflict",
           "applyForInflictStatus": "fusionBurst",
           "applyForInflictShifting": "tuneRupture",
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.2,
             "fusionDmgBonus%": 0.2
           },
@@ -734,7 +734,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.1
           }
         }
@@ -743,7 +743,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictStatus": "fusionBurst",
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.1
           },
           "maxDuration": 15000
@@ -755,7 +755,7 @@
             "$prev.1": 1
           },
           "applyTo": "next",
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.25
           },
           "maxDuration": 15000
@@ -769,7 +769,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "aeroDmgBonus%": 0.1
           }
         }
@@ -779,7 +779,7 @@
           "applyWhen": "hit",
           "applyOnDmgType": "echoSkill",
           "useOnDmgType": "echoSkill",
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.2
           },
           "maxDuration": 5000
@@ -787,7 +787,7 @@
         {
           "applyWhen": "hit",
           "applyOnDmgType": "echoSkill",
-          "statMap": {
+          "buffMap": {
             "aeroDmgBonus%": 0.15
           },
           "maxDuration": 5000
@@ -801,7 +801,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "glacioDmgBonus%": 0.1
           }
         }
@@ -810,7 +810,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictStatus": "glacioChafe",
-          "statMap": {
+          "buffMap": {
             "glacioDmgBonus%": 0.1
           },
           "maxDuration": 15000
@@ -827,7 +827,7 @@
             "$prev.1": 1
           },
           "onApplyDoRemove": "$prev.1",
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.25
           },
           "maxDuration": 6000,
@@ -845,7 +845,7 @@
           },
           "onApplyDoRemove": "$prev.2",
           "applyTo": "next",
-          "statMap": {
+          "buffMap": {
             "glacioDmgBonus%": 0.25
           },
           "maxDuration": 15000
@@ -859,7 +859,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.1
           }
         }
@@ -872,7 +872,7 @@
             "tuneStrain"
           ],
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "tuneBreakBoost": 20
           },
           "maxDuration": 30000
@@ -888,7 +888,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictShifting": "hack",
-          "statMap": {
+          "buffMap": {
             "basicAttackDmgBonus%": 0.35,
             "heavyAttackDmgBonus%": 0.35
           },
@@ -903,7 +903,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "energyRegen%": 0.1
           }
         }
@@ -912,7 +912,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictStatus": "havocBane",
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.2,
             "heavyAttackDmgBonus%": 0.35
           },
@@ -922,7 +922,7 @@
           "applyWhen": "inflict",
           "applyForInflictStatus": "glacioChafe",
           "applyTo": "team",
-          "statSpecs": {
+          "buffSpec": {
             "atk%": {
               "attr": "energyRegen%",
               "step": 0.01,
@@ -941,7 +941,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "aeroDmg%": 0.1
           }
         }
@@ -950,7 +950,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictShifting": "tuneStrain",
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.2,
             "aeroDmgBonus%": 0.3
           },
@@ -965,7 +965,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "hp%": 0.1
           }
         }
@@ -975,7 +975,7 @@
           "applyWhen": "hit",
           "applyOnType": "shield",
           "applyCooldown": 500,
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.05
           },
           "maxDuration": 5000,
@@ -985,7 +985,7 @@
           "useIfEffectStacksMin": {
             "$prev.1": 4
           },
-          "statMap": {
+          "buffMap": {
             "fusionDmgBonus%": 0.15
           }
         }

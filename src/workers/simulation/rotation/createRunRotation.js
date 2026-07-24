@@ -1,3 +1,4 @@
+import { WW } from '@/data';
 import { toMergedObj } from '@/utils';
 import {
   matchRemoveFilter,
@@ -28,24 +29,6 @@ import {
 } from './special/tune';
 import { buildSnapshot, evaluateSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
-
-function decayUsedBuffs(ctx, action) {
-  for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
-    const { store, effect, useCooldown } = state;
-    if (useCooldown || !matchUseFilter(effect, { ctx, action })) continue;
-
-    if (effect.useCooldown) {
-      state.useCooldown = effect.useCooldown;
-    }
-
-    if (state.usesLeft) {
-      state.usesLeft--;
-      if (!state.usesLeft) {
-        delete store[effect.key];
-      }
-    }
-  }
-}
 
 function handleRemoveWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
@@ -110,6 +93,19 @@ function advanceCooldowns(ctx, elapsed) {
   }
 }
 
+function decayBuffStates(ctx, action) {
+  for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
+    const { store, effect, useCooldown } = state;
+    if (useCooldown || !matchUseFilter(effect, { ctx, action })) continue;
+
+    if ('buffCooldown' in effect) state.buffCooldown = effect.buffCooldown;
+    if ('usesLeft' in state) {
+      state.usesLeft--;
+      if (!state.usesLeft) delete store[effect.key];
+    }
+  }
+}
+
 function runAction(ctx, action, options = {}) {
   const { runtimeOffset, noDuration } = options;
   const { duration = 0, hitOffsets = [0] } = action;
@@ -120,8 +116,8 @@ function runAction(ctx, action, options = {}) {
     const elapsed = timestamp - actionRuntime;
     if (elapsed <= 0) return;
 
-    advanceNegativeStatuses(ctx, elapsed);
-    advanceTune(ctx, elapsed);
+    if (ctx.cache.gameId === WW) advanceNegativeStatuses(ctx, elapsed);
+    if (ctx.cache.gameId === WW) advanceTune(ctx, elapsed);
     advanceEffects(ctx, elapsed);
     advanceCooldowns(ctx, elapsed);
 
@@ -148,13 +144,13 @@ function runAction(ctx, action, options = {}) {
 
   if (action.compressed) {
     if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, action, { runtimeOffset }));
-    applyOffTuneBuildup(ctx, action);
-    decayUsedBuffs(ctx, action);
+    if (ctx.cache.gameId === WW) applyOffTuneBuildup(ctx, action);
+    decayBuffStates(ctx, action);
   }
 
-  inflictNegativeStatuses(ctx, action);
-  inflictTuneShifting(ctx, action);
-  runEffectsWhen('inflict');
+  if (ctx.cache.gameId === WW) inflictNegativeStatuses(ctx, action);
+  if (ctx.cache.gameId === WW) inflictTuneShifting(ctx, action);
+  if (ctx.cache.gameId === WW) runEffectsWhen('inflict');
 
   for (const offset of hitOffsets) {
     advanceTimeTo(offset);

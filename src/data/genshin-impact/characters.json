@@ -458,7 +458,7 @@
       {
         "chance": 0.5,
         "useOnAction": "elementalSkill.1",
-        "statMap": {
+        "buffMap": {
           "dmgBonus%": 0.25
         }
       },
@@ -466,7 +466,7 @@
         "applyWhen": "before",
         "applyOnAction": "elementalBurst.2",
         "applyTo": "team",
-        "statMap": {
+        "buffMap": {
           "elementalMastery": 125
         },
         "maxDuration": 10000

@@ -135,22 +135,22 @@ const toNormalizedEffect = (rawEffect, spec) => {
   resolveApplyTo(effect, memberIds);
   resolvePrev(effect);
 
-  // Resolve ranked statMaps
-  if (effect.statMap) {
-    effect.statMap = { ...effect.statMap };
+  // Resolve ranked buffMaps
+  if (effect.buffMap) {
+    effect.buffMap = { ...effect.buffMap };
 
-    for (const [statId, value] of Object.entries(effect.statMap)) {
-      effect.statMap[statId] = resolveStatValue(value);
+    for (const [statId, value] of Object.entries(effect.buffMap)) {
+      effect.buffMap[statId] = resolveStatValue(value);
     }
   }
 
-  // Resolve ranked statSpecss
-  if (effect.statSpecs) {
-    effect.statSpecs = { ...effect.statSpecs };
+  // Resolve ranked buffSpec
+  if (effect.buffSpec) {
+    effect.buffSpec = { ...effect.buffSpec };
 
-    for (const [statId, spec] of Object.entries(effect.statSpecs)) {
+    for (const [statId, spec] of Object.entries(effect.buffSpec)) {
       const resolvedSpec = { ...spec };
-      effect.statSpecs[statId] = resolvedSpec;
+      effect.buffSpec[statId] = resolvedSpec;
 
       for (const [field, value] of Object.entries(resolvedSpec)) {
         if (typeof value === 'string') continue;

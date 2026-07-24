@@ -5,7 +5,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "outgoingHealingBoost%": 0.1
           }
         }
@@ -21,14 +21,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "spd%": 0.06,
             "basicAtkDmgBonus%": 0.1
           }
@@ -42,14 +42,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "def%": 0.15
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "shieldBonus%": 0.2
           }
         }
@@ -62,7 +62,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "iceDmgBonus%": 0.1
           }
         }
@@ -71,7 +71,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "ultimate",
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.25
           }
         }
@@ -84,7 +84,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "physicalDmgBonus%": 0.1
           }
         }
@@ -93,7 +93,7 @@
         {
           "applyWhen": "hit",
           "applyOnType": "damage",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.05
           },
           "maxStacks": 5
@@ -119,14 +119,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "fireDmgBonus%": 0.1
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "skillDmgBonus%": 0.12
           }
         },
@@ -134,7 +134,7 @@
           "applyWhen": "hit",
           "applyOnSkillType": "ultimate",
           "useOnType": "damage",
-          "statMap": {
+          "buffMap": {
             "fireDmgBonus%": 0.12
           },
           "maxUses": 1
@@ -148,14 +148,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "quantumDmgBonus%": 0.1
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "defIgnore%": 0.2
           }
         }
@@ -168,7 +168,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "lightningDmgBonus%": 0.1
           }
         }
@@ -177,7 +177,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "skill",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.2
           },
           "maxUses": 1
@@ -191,7 +191,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "windDmgBonus%": 0.1
           }
         }
@@ -207,14 +207,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "breakEffect%": 0.16
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "breakEffect%": 0.16
           }
         }
@@ -227,14 +227,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "imaginaryDmgBonus%": 0.1
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.1,
             "critDmg%": 0.2
           }
@@ -248,7 +248,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         },
@@ -256,7 +256,7 @@
           "useIfAttr": {
             "spd": 120
           },
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         }
@@ -269,7 +269,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "hp%": 0.12
           }
         },
@@ -278,7 +278,7 @@
           "useIfAttr": {
             "spd": 120
           },
-          "statMap": {
+          "buffMap": {
             "atk%": 0.08
           }
         }
@@ -291,12 +291,12 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "effectHitRate%": 0.1
           }
         },
         {
-          "statSpecs": {
+          "buffSpec": {
             "atk%": {
               "attr": "effectHitRate%",
               "step": 0.01,
@@ -314,7 +314,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "def%": 0.15
           }
         },
@@ -322,7 +322,7 @@
           "useIfAttr": {
             "effectHitRate%": 0.5
           },
-          "statMap": {
+          "buffMap": {
             "def%": 0.15
           }
         }
@@ -335,7 +335,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.16
           }
         }
@@ -348,7 +348,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.08
           }
         },
@@ -356,7 +356,7 @@
           "useIfAttr": {
             "critRate%": 0.5
           },
-          "statMap": {
+          "buffMap": {
             "ultimateDmgBonus%": 0.15,
             "follow-upAttackDmgBonus%": 0.15
           }
@@ -370,7 +370,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "breakEffect%": 0.16
           }
         },
@@ -378,7 +378,7 @@
           "useIfAttr": {
             "spd": 145
           },
-          "statMap": {
+          "buffMap": {
             "breakEffect%": 0.2
           }
         }
@@ -391,7 +391,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "energyRegenerationRate%": 0.05
           }
         }
@@ -404,14 +404,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "hp%": 0.2
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.16
           }
         }
@@ -424,7 +424,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spd%": 0.06
           }
         }
@@ -440,7 +440,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.08
           }
         },
@@ -448,7 +448,7 @@
           "useIfAttr": {
             "critRate%": 0.7
           },
-          "statMap": {
+          "buffMap": {
             "basicAtkDmgBonus%": 0.2,
             "skillDmgBonus%": 0.2
           }
@@ -462,7 +462,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "effectRes%": 0.1
           }
         },
@@ -471,7 +471,7 @@
           "useIfAttr": {
             "effectRes%": 0.3
           },
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.1
           }
         }
@@ -484,14 +484,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "follow-upAttackDmgBonus%": 0.2
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.48
           }
         }
@@ -504,14 +504,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "defIgnore%": 0.18
           }
         }
@@ -524,7 +524,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         },
@@ -532,7 +532,7 @@
           "useIfAttr": {
             "spd": 135
           },
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.12
           }
         },
@@ -540,7 +540,7 @@
           "useIfAttr": {
             "spd": 160
           },
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.06
           }
         }
@@ -553,7 +553,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "energyRegenerationRate%": 0.05
           }
         }
@@ -566,19 +566,19 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.12
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.04
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.04,
             "critDmg%": 0.24
           }
@@ -592,7 +592,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "breakEffect%": 0.16
           }
         }
@@ -600,7 +600,7 @@
       "4": [
         {
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "breakEffect%": 0.3
           }
         }
@@ -613,12 +613,12 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.04
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.4
           }
         }
@@ -631,12 +631,12 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.12
           }
         }
@@ -649,14 +649,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "breakEffect%": 0.16
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "defIgnore%": 0.25
           }
         }
@@ -669,21 +669,21 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.06
           }
         },
         {
           "applyWhen": "before",
           "applyOnSkillType": "follow-upAttack",
-          "statMap": {
+          "buffMap": {
             "ultimateDmgBonus%": 0.36
           }
         }
@@ -696,7 +696,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "follow-upAttackDmgBonus%": 0.25,
             "critDmg%": 0.25
           }
@@ -710,12 +710,12 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spd%": 0.06
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "breakEffect%": 0.4
           }
         }
@@ -728,13 +728,13 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "energyRegenerationRate%": 0.05
           }
         },
         {
           "applyTo": "first",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         }
@@ -747,12 +747,12 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.16
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.32
           }
         }
@@ -765,7 +765,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spd%": 0.06
           }
         }
@@ -781,14 +781,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.08
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "skillDmgBonus%": 0.2,
             "ultimateDmgBonus%": 0.2
           }
@@ -796,7 +796,7 @@
         {
           "applyWhen": "hit",
           "applyOnSkillType": "ultimate",
-          "statMap": {
+          "buffMap": {
             "skillDmgBonus%": 0.25
           },
           "maxUses": 1
@@ -810,14 +810,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "spd%": 0.06,
             "critDmg%": 0.3
           }
@@ -831,14 +831,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "quantumDmgBonus%": 0.1
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "spd%": -0.08,
             "critRate%": 0.32
           }
@@ -852,7 +852,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "hp%": 0.12
           }
         },
@@ -860,7 +860,7 @@
           "useIfAttr": {
             "HP": 5000
           },
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.28
           }
         }
@@ -873,7 +873,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spd%": 0.06
           }
         },
@@ -881,7 +881,7 @@
           "useIfAttr": {
             "spd": 135
           },
-          "statMap": {
+          "buffMap": {
             "outgoingHealingBoost%": 0.12
           }
         },
@@ -889,7 +889,7 @@
           "useIfAttr": {
             "spd": 180
           },
-          "statMap": {
+          "buffMap": {
             "outgoingHealingBoost%": 0.08
           }
         }
@@ -902,7 +902,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spd%": 0.06
           }
         }
@@ -911,7 +911,7 @@
         {
           "applyWhen": "hit",
           "applyOnType": "healing",
-          "statMap": {
+          "buffMap": {
             "spd%": 0.06
           }
         },
@@ -919,7 +919,7 @@
           "applyWhen": "hit",
           "applyOnType": "healing",
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.15
           }
         }
@@ -932,14 +932,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.16
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.48
           }
         }
@@ -952,7 +952,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.36
           }
         }
@@ -965,7 +965,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         },
@@ -973,7 +973,7 @@
           "useIfAttr": {
             "atk": 2400
           },
-          "statMap": {
+          "buffMap": {
             "dotDmgBonus%": 0.12
           }
         },
@@ -981,7 +981,7 @@
           "useIfAttr": {
             "atk": 3600
           },
-          "statMap": {
+          "buffMap": {
             "dotDmgBonus%": 0.12
           }
         }
@@ -994,20 +994,20 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.08
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "hp%": 0.24
           }
         },
         {
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.15
           }
         }
@@ -1020,20 +1020,20 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "shieldBonus%": 0.1
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "shieldBonus%": 0.12
           }
         },
         {
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.15
           }
         }
@@ -1046,13 +1046,13 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.08
           }
         },
         {
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "spd%": 0.08
           }
         }
@@ -1065,12 +1065,12 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.16
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.32
           }
         }
@@ -1083,14 +1083,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.16
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "defIgnore%": 0.2
           }
         }
@@ -1103,7 +1103,7 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "spd%": 0.06
           }
         }
@@ -1113,7 +1113,7 @@
           "useIfAttr": {
             "spd": 120
           },
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.1
           }
         },
@@ -1121,13 +1121,13 @@
           "useIfAttr": {
             "spd": 160
           },
-          "statMap": {
+          "buffMap": {
             "critRate%": 0.08
           }
         },
         {
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "elation%": 0.1
           }
         }
@@ -1140,12 +1140,12 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "elation%": 0.08
           }
         },
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.32
           }
         }
@@ -1160,13 +1160,13 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "follow-upAttack",
-          "statMap": {
+          "buffMap": {
             "atk%": 0.24
           }
         },
         {
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.12
           }
         }
@@ -1179,14 +1179,14 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "atk%": 0.12
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "skillDmgBonus%": 0.54,
             "ultimateDmgBonus%": 0.54
           }
@@ -1200,20 +1200,20 @@
     "bonusEffects": {
       "2": [
         {
-          "statMap": {
+          "buffMap": {
             "hp%": 0.12
           }
         }
       ],
       "4": [
         {
-          "statMap": {
+          "buffMap": {
             "critDmg%": 0.28
           }
         },
         {
           "applyTo": "team",
-          "statMap": {
+          "buffMap": {
             "dmgBonus%": 0.15
           }
         }

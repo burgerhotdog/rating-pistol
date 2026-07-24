@@ -52,6 +52,6 @@ export const createGetDefMult = (gameId) => {
 
   return (statMap) => {
     const enemyDef = getEnemyDef(statMap);
-    return charLevelFactor / (charLevelFactor + enemyDef);
+    return charLevelFactor / Math.max(charLevelFactor + enemyDef, Number.EPSILON);
   };
 };

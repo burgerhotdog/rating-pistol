@@ -24,12 +24,12 @@ export const buildSnapshot = (ctx, action, options = {}) => {
 };
 
 const toResolvedSpecs = (buffSpecs, sourceMap) => {
-  const statMap = {};
-  for (const { statSpecs, buffMult } of buffSpecs) {
-    const resolvedStatMap = resolveStatSpecs(statSpecs, sourceMap);
-    mergeStatMap(statMap, resolvedStatMap, buffMult);
+  const buffMap = {};
+  for (const { buffSpec, buffMult } of buffSpecs) {
+    const resolvedStatMap = resolveStatSpecs(buffSpec, sourceMap);
+    mergeStatMap(buffMap, resolvedStatMap, buffMult);
   }
-  return statMap;
+  return buffMap;
 };
 
 export const evaluateSnapshot = (helpers, currId, snapshot, currBuildMap) => {
