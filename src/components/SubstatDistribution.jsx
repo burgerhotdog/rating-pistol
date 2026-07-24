@@ -46,13 +46,9 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const chanceOfStat = (weights, stat) => {
   const dfs = (pool, remainingDraws, prob) => {
-    if (pool.every(([name]) => name !== stat)) {
-      return 0;
-    }
+    if (pool.every(([name]) => name !== stat)) return 0;
 
-    if (remainingDraws === 0) {
-      return 0;
-    }
+    if (remainingDraws === 0) return 0;
 
     const total = pool.reduce((s, [, w]) => s + w, 0);
     let result = 0;
