@@ -991,5 +991,14 @@
         }
       ]
     }
+  },
+  "1": {
+    "name": "Freezing Frost",
+    "id": 1,
+    "version": 3.5,
+    "bonusEffects": {
+      "2": [],
+      "5": []
+    }
   }
 }

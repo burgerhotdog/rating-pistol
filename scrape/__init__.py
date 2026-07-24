@@ -4,4 +4,3 @@ from .parse_character import parse_character
 from .parse_action import parse_action
 from .parse_weapon import parse_weapon
 from .parse_set import parse_set
-from .parse_image import make_parse_image

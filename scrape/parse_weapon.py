@@ -103,7 +103,7 @@ def parse_weapon(game, version, id, data):
     result = {}
     result["name"] = data["name"]
     result["id"] = int(id)
-    result["version"] = version
+    result["version"] = float(version)
 
     for field, parser in FIELDS[game].items():
         result[field] = parser(data)

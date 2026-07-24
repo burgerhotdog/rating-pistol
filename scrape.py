@@ -3,86 +3,44 @@ from scrape import (
     enter_ids,
     read_json,
     write_json,
-    parse_character,
-    parse_action,
-    parse_weapon,
-    parse_set,
-    make_parse_image,
 )
 
 manifest = requests.get("https://static.nanoka.cc/manifest.json").json()
 
-contexts = {
-    "gi": {
-        "link": "gi",
-        "name": "Genshin Impact",
-        "id": "genshin-impact",
-        "lang": {
-            "type": {
-                "set": "artifact",
-            },
-        },
-    },
-    "hsr": {
-        "link": "hsr",
-        "name": "Honkai Star Rail",
-        "id": "honkai-star-rail",
-        "lang": {
-            "type": {
-                "weapon": "lightcone",
-                "set": "relicset",
-            },
-        },
-    },
-    "ww": {
-        "link": "ww",
-        "name": "Wuthering Waves",
-        "id": "wuthering-waves",
-        "lang": {
-            "type": {
-                "set": "sonata",
-            },
-        },
-    },
-    "zzz": {
-        "link": "zzz",
-        "name": "Zenless Zone Zero",
-        "id": "zenless-zone-zero",
-        "lang": {
-            "type": {
-                "set": "equipment",
-            },
-        },
-    },
+game_ids = {
+    "gi": "genshin-impact",
+    "hsr": "honkai-star-rail",
+    "ww": "wuthering-waves",
+    "zzz": "zenless-zone-zero",
 }
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("game", choices=[key for key in contexts.keys()], help="Game link")
+    parser.add_argument("game", choices=game_ids.keys(), help="Game")
     args = parser.parse_args()
     game = args.game
-
-    ctx = contexts[game]
-    game_id = ctx["id"]
-
-    parse_image = make_parse_image(ctx)
+    game_id = game_ids[game]
 
     # Enter IDs
     version = manifest[game]["live"]
 
-    characters = enter_ids(ctx, version, "character")
-    weapons = enter_ids(ctx, version, "weapon")
-    sets = enter_ids(ctx, version, "set")
+    characters = enter_ids(game, version, "character")
+    weapons = enter_ids(game, version, "weapon")
+    sets = enter_ids(game, version, "set")
+    if game == "ww":
+        echoes = enter_ids(game, version, "echo")
     print()
 
     # Confirm input
     print(f"Version {version} update summary")
     if characters:
-        print(f"New characters: {', '.join([character["name"] for character, _ in characters])}")
+        print(f"New characters: {', '.join([character["name"] for character, _, _ in characters])}")
     if weapons:
-        print(f"New weapons: {', '.join([weapon["name"] for weapon in weapons])}")
+        print(f"New weapons: {', '.join([weapon["name"] for weapon, _ in weapons])}")
     if sets:
-        print(f"New sets: {', '.join([set["name"] for set in sets])}")
+        print(f"New sets: {', '.join([set["name"] for set, _ in sets])}")
+    if echoes:
+        print(f"New echoes: {', '.join([set["name"] for set, _ in sets])}")
     print()
 
     while True:
@@ -96,12 +54,6 @@ def main():
         print("Invalid input. Please try again.")
     print()
 
-    # Scrape
-    def scrape_data(type, type_id):
-        base = f"https://static.nanoka.cc/{game}/{version}/en/"
-        url = f"{base}{ctx["lang"]["type"].get(type, type)}/{type_id}.json"
-        return requests.get(url).json()
-
     if characters:
         characters_path = f"src/data/{game_id}/characters.json"
         actions_path = f"src/data/{game_id}/actions.json"
@@ -109,12 +61,13 @@ def main():
         characters_json = read_json(characters_path)
         actions_json = read_json(actions_path)
 
-        for character, actions in characters:
+        for character, actions, image in characters:
             id = character["id"]
-            data = scrape_data("character", id)
-            parse_image("character", data, id)
             characters_json[id] = character
             actions_json[id] = actions
+            
+            with open(f"public/{game_id}/character/{id}.webp", "wb") as f:
+                f.write(image)
 
         write_json(characters_path, characters_json)
         write_json(actions_path, actions_json)
@@ -123,11 +76,12 @@ def main():
         weapons_path = f"src/data/{game_id}/weapons.json"
         weapons_json = read_json(weapons_path)
 
-        for weapon in weapons:
+        for weapon, image in weapons:
             id = weapon["id"]
-            data = scrape_data("weapon", id)
-            parse_image("weapon", data, id)
             weapons_json[id] = weapon
+            
+            with open(f"public/{game_id}/weapon/{id}.webp", "wb") as f:
+                f.write(image)
 
         write_json(weapons_path, weapons_json)
 
@@ -135,13 +89,27 @@ def main():
         sets_path = f"src/data/{game_id}/sets.json"
         sets_json = read_json(sets_path)
 
-        for set in sets:
+        for set, image in sets:
             id = set["id"]
-            data = scrape_data("set", id)
-            parse_image("set", data, id)
             sets_json[id] = set
+            
+            with open(f"public/{game_id}/set/{id}.webp", "wb") as f:
+                f.write(image)
 
         write_json(sets_path, sets_json)
+
+    if echoes:
+        echoes_path = f"src/data/{game_id}/echoes.json"
+        echoes_json = read_json(echoes_path)
+
+        for echo, image in sets:
+            id = echo["id"]
+            echoes_json[id] = set
+            
+            with open(f"public/{game_id}/echo/{id}.webp", "wb") as f:
+                f.write(image)
+
+        write_json(echoes_path, echoes_json)
 
     # Version number
     version_json = read_json("src/data/version.json")
