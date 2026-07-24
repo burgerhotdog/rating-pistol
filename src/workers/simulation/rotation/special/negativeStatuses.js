@@ -32,6 +32,7 @@ const STATUSES = {
     inflict: (ctx, status, stacks) => {
       const maxStacks = getStatusMaxStacks(ctx, 'glacioChafe');
       const { negativeStatuses } = ctx.states;
+
       if ('glacioChafe' in negativeStatuses) {
         const currState = negativeStatuses.glacioChafe;
         currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
@@ -62,6 +63,7 @@ const STATUSES = {
     inflict: (ctx, status, stacks) => {
       const maxStacks = getStatusMaxStacks(ctx, 'fusionBurst');
       const { negativeStatuses } = ctx.states;
+
       if ('fusionBurst' in negativeStatuses) {
         const currState = negativeStatuses.fusionBurst;
         currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
@@ -96,6 +98,7 @@ const STATUSES = {
     inflict: (ctx, status, stacks) => {
       const maxStacks = getStatusMaxStacks(ctx, 'electroFlare');
       const { negativeStatuses } = ctx.states;
+
       if ('electroFlare' in negativeStatuses) {
         const currState = negativeStatuses.electroFlare;
         const nextStacks = currState.stacks + stacks;
@@ -140,6 +143,7 @@ const STATUSES = {
     inflict: (ctx, status, stacks) => {
       const maxStacks = getStatusMaxStacks(ctx, 'aeroErosion');
       const { negativeStatuses } = ctx.states;
+
       if ('aeroErosion' in negativeStatuses) {
         const currState = negativeStatuses.aeroErosion;
         currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
@@ -183,6 +187,7 @@ const STATUSES = {
     inflict: (ctx, status, stacks) => {
       const maxStacks = getStatusMaxStacks(ctx, 'spectroFrazzle');
       const { negativeStatuses } = ctx.states;
+
       if ('spectroFrazzle' in negativeStatuses) {
         const currState = negativeStatuses.spectroFrazzle;
         currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
@@ -223,6 +228,7 @@ const STATUSES = {
     inflict: (ctx, status, stacks) => {
       const maxStacks = getStatusMaxStacks(ctx, 'havocBane');
       const { negativeStatuses } = ctx.states;
+
       if ('havocBane' in negativeStatuses) {
         const currState = negativeStatuses.havocBane;
         currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
