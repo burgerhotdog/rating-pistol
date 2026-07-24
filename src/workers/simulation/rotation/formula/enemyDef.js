@@ -33,8 +33,8 @@ export const createGetDefMult = (gameId) => {
   const charLevelFactor = getCharLevelFactor(charLevel);
   const enemyBaseDef = getEnemyBaseDef(enemyLevel);
 
-  const getEnemyDef = (enemyMap, statMap) => {
-    const defReduction = getAttr('defReduction%', enemyMap);
+  const getEnemyDef = (statMap) => {
+    const defReduction = getAttr('defReduction%', statMap);
     const defIgnore = getAttr('defIgnore%', statMap);
 
     if (gameId === HSR) {
@@ -50,8 +50,8 @@ export const createGetDefMult = (gameId) => {
     return enemyBaseDef * (1 - defReduction) * (1 - defIgnore);
   };
 
-  return (enemyMap, statMap = {}) => {
-    const enemyDef = getEnemyDef(enemyMap, statMap);
-    return charLevelFactor / (charLevelFactor + enemyDef);
+  return (statMap) => {
+    const enemyDef = getEnemyDef(statMap);
+    return charLevelFactor / Math.max(charLevelFactor + enemyDef, Number.EPSILON);
   };
 };

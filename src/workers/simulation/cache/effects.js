@@ -1,12 +1,34 @@
 import { CHARACTER, WEAPON, SET } from '@/data';
-import { toArray, mergeObj } from '@/utils';
+import { toArray, toMergedObj } from '@/utils';
 import { isEnabled } from './isEnabled';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
+function resolveApplyBy(effect, memberIds) {
+  const { applyBy, ownerId } = effect;
+  switch (applyBy) {
+    case undefined:
+      effect.applyBy = [ownerId];
+      break;
+    case 'team':
+      effect.applyBy = memberIds;
+      break;
+    case 'ally':
+      effect.applyBy = memberIds.filter((id) => id !== ownerId);
+      break;
+    case 'first':
+      effect.applyBy = [memberIds[0]];
+      break;
+    case 'next':
+      effect.applyBy = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
+      break;
+    default:
+      effect.applyBy = [applyBy];
+  }
+};
+
 function resolveApplyTo(effect, memberIds) {
   const { applyTo, ownerId } = effect;
-
   switch (applyTo) {
     case undefined:
       effect.applyTo = [ownerId];
@@ -42,7 +64,7 @@ function resolveRankMods(effect, memberRank) {
 
       const prev = effect[key];
       if (typeof prev === 'object' && !Array.isArray(prev)) { // merge objects
-        effect[key] = mergeObj(prev, add);
+        effect[key] = toMergedObj(prev, add);
       } else if (typeof add === 'number') { // combine numbers
         effect[key] += add;
       } else { // merge string arrays
@@ -78,11 +100,15 @@ function resolvePrev(effect) {
     }
   }
 
-  if (effect.onApplyDoApply) {
-    effect.onApplyDoApply = toResolvedMap(effect.onApplyDoApply);
-  }
-  if (effect.onApplyDoRemove) {
-    effect.onApplyDoRemove = toResolvedKey(effect.onApplyDoRemove);
+  for (const prefix of ['Apply', 'Use']) {
+    const doApply = `on${prefix}DoApply`;
+    if (doApply in effect) {
+      effect[doApply] = toResolvedMap(effect[doApply]);
+    }
+    const doRemove = `on${prefix}DoRemove`;
+    if (doRemove in effect) {
+      effect[doRemove] = toResolvedKey(effect[doRemove]);
+    }
   }
 }
 
@@ -105,25 +131,26 @@ const toNormalizedEffect = (rawEffect, spec) => {
     id: effectId,
   };
 
+  resolveApplyBy(effect, memberIds);
   resolveApplyTo(effect, memberIds);
   resolvePrev(effect);
 
-  // Resolve ranked statMaps
-  if (effect.statMap) {
-    effect.statMap = { ...effect.statMap };
+  // Resolve ranked buffMaps
+  if (effect.buffMap) {
+    effect.buffMap = { ...effect.buffMap };
 
-    for (const [statId, value] of Object.entries(effect.statMap)) {
-      effect.statMap[statId] = resolveStatValue(value);
+    for (const [statId, value] of Object.entries(effect.buffMap)) {
+      effect.buffMap[statId] = resolveStatValue(value);
     }
   }
 
-  // Resolve ranked variableStatMaps
-  if (effect.variableStatMap) {
-    effect.variableStatMap = { ...effect.variableStatMap };
+  // Resolve ranked buffSpec
+  if (effect.buffSpec) {
+    effect.buffSpec = { ...effect.buffSpec };
 
-    for (const [statId, spec] of Object.entries(effect.variableStatMap)) {
+    for (const [statId, spec] of Object.entries(effect.buffSpec)) {
       const resolvedSpec = { ...spec };
-      effect.variableStatMap[statId] = resolvedSpec;
+      effect.buffSpec[statId] = resolvedSpec;
 
       for (const [field, value] of Object.entries(resolvedSpec)) {
         if (typeof value === 'string') continue;
@@ -132,29 +159,27 @@ const toNormalizedEffect = (rawEffect, spec) => {
     }
   }
 
-  for (const actionType of ['followUpAction', 'intervalAction']) {
-    if (actionType in effect) {
-      const effectActions = toArray(effect[actionType]);
+  if ('useAction' in effect) {
+    const effectActions = toArray(effect.useAction);
 
-      effect[actionType] = [];
-      for (const [index, rawlinkedAction] of effectActions.entries()) {
-        if (typeof rawlinkedAction === 'string') { // shortKey referencing actions.json
-          effect[actionType].push(memberActions[rawlinkedAction]);
-        } else { // inline action object
-          effect[actionType].push(toNormalizedAction(rawlinkedAction, {
-            gameId,
-            ownerId,
-            category: `${sourceId}:effect${effectId}`,
-            actionId: String(index + 1),
-            teamSize: memberIds.length,
-            weaponRank,
-          }));
-        }
+    effect.useAction = [];
+    for (const [index, rawlinkedAction] of effectActions.entries()) {
+      if (typeof rawlinkedAction === 'string') { // ref
+        effect.useAction.push(memberActions[rawlinkedAction]);
+      } else { // inline action object
+        effect.useAction.push(toNormalizedAction(rawlinkedAction, {
+          gameId,
+          ownerId,
+          category: `${sourceId}:effect${effectId}`,
+          actionId: index,
+          teamSize: memberIds.length,
+          weaponRank,
+        }));
       }
+    }
 
-      if (actionType === 'intervalAction') {
-        effect.intervalCooldown ??= 1000;
-      }
+    if (effect.useWhen === 'interval') {
+      effect.useCooldown ??= 1000;
     }
   }
 
@@ -168,20 +193,22 @@ const toNormalizedEffect = (rawEffect, spec) => {
 export const normalizeEffects = (member, spec) => {
   const { gameId, memberIds, teamActions } = spec;
   const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts } = member;
+  const character = CHARACTER[gameId][memberId];
+  const weapon = WEAPON[gameId][weaponId];
 
   const toNormalize = [
     {
-      type: 'character',
+      from: 'character',
       id: memberId,
       rawEffects: CHARACTER[gameId][memberId].effects,
     },
     {
-      type: 'weapon',
+      from: 'weapon',
       id: weaponId,
       rawEffects: WEAPON[gameId][weaponId].effects,
     },
     ...Object.entries(setCounts).map(([setId, count]) => ({
-      type: 'set',
+      from: 'set',
       id: setId,
       rawEffects: Object.entries(SET[gameId][setId].bonusEffects)
         .filter(([tier]) => Number(tier) <= count)
@@ -189,31 +216,27 @@ export const normalizeEffects = (member, spec) => {
     })),
  ];
 
-  const effectLookup = {};
+  const normalized = {};
 
-  for (const { type, id, rawEffects } of toNormalize) {
+  for (const { from, id, rawEffects } of toNormalize) {
+    const spec = { from, rank: memberRank, character, weapon };
     for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabled(rawEffect, {
-        gameId,
-        type,
-        rank: memberRank,
-        character: CHARACTER[gameId][memberId],
-      })) continue;
+      if (!isEnabled(rawEffect, spec)) continue;
 
       const effect = toNormalizedEffect(rawEffect, {
         gameId,
         ownerId: memberId,
         sourceId: id,
-        effectId: String(index + 1),
+        effectId: index,
         memberRank,
         weaponRank,
         memberIds,
         memberActions: teamActions[memberId],
       });
 
-      effectLookup[effect.key] = effect;
+      normalized[effect.key] = effect;
     }
   }
 
-  return effectLookup;
+  return normalized;
 };

@@ -1,5 +1,5 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
-import { mergeObj, mergeEquipList } from '@/utils';
+import { toMergedObj, mergeEquipList } from '@/utils';
 import { createAssignMain } from './stats/assignMain';
 import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './stats/assignSub';
 import { getScore } from './utils';
@@ -56,7 +56,7 @@ const createEquipEvaluator = (baseMap, runRotation, getPenalty, currId) => (equi
 
   const trySlot = (index) => {
     const newEquipList = latest.equipList.with(index, equip);
-    const combinedStatMap = mergeObj(baseMap, mergeEquipList(newEquipList));
+    const combinedStatMap = toMergedObj(baseMap, mergeEquipList(newEquipList));
     const newSummary = runRotation(combinedStatMap);
     const newPenalty = getPenalty(combinedStatMap);
     const newScore = getScore(newSummary, currId, newPenalty);

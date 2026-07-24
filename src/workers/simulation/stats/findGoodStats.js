@@ -1,5 +1,5 @@
 import { WW } from '@/data';
-import { mergeObj } from '@/utils';
+import { toMergedObj } from '@/utils';
 import { getScore } from '../utils';
 import { HOYO_MAINSTAT_WEIGHTS } from './weights';
 import { HOYO_MAINSTAT_VALUES, WUWA_MAINSTAT_VALUES, SUBSTAT_VALUES } from './values';
@@ -11,7 +11,7 @@ const findGoodMainStatsWuwa = (baseMap, baseScore, currId, runRotation, getPenal
     const preferred = [];
 
     for (const [statId, value] of Object.entries(mainStats)) {
-      const testMap = mergeObj(baseMap, { [statId]: value });
+      const testMap = toMergedObj(baseMap, { [statId]: value });
       const testSummary = runRotation(testMap);
       const testPenalty = getPenalty(testMap);
       const testScore = getScore(testSummary, currId, testPenalty);
@@ -39,7 +39,7 @@ const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, currId, runRotation, 
 
     for (const statId of Object.keys(mainStats)) {
       const value = HOYO_MAINSTAT_VALUES[gameId][statId];
-      const testMap = mergeObj(baseMap, { [statId]: value });
+      const testMap = toMergedObj(baseMap, { [statId]: value });
       const testSummary = runRotation(testMap);
       const testPenalty = getPenalty(testMap);
       const testScore = getScore(testSummary, currId, testPenalty);
@@ -63,7 +63,7 @@ const findGoodSubs = (substatValues, baseMap, baseScore, currId, runRotation, ge
   const goodSubStats = [];
 
   for (const [statId, value] of Object.entries(substatValues)) {
-    const testMap = mergeObj(baseMap, { [statId]: value });
+    const testMap = toMergedObj(baseMap, { [statId]: value });
     const testSummary = runRotation(testMap);
     const testPenalty = getPenalty(testMap);
     const testScore = getScore(testSummary, currId, testPenalty);

@@ -548,27 +548,16 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
   const [search, setSearch] = useState('');
   const skillMap = ACTION[gameId][characterId];
 
-  const filteredTree = useMemo(() => {
-    const lower = search.toLowerCase();
-    const filtered = {};
-
-    for (const category in skillMap) {
-      const skill = skillMap[category];
-      const filteredSkill = [];
-
-      for (const actionId in skill) {
-        const action = { ...skill[actionId] };
-        action.key = `${category}.${actionId}`;
-
-        if (action.name.toLowerCase().includes(lower)) {
-          filteredSkill.push(action);
-        }
-      }
-
-      filtered[category] = filteredSkill;
-    }
-
-    return filtered;
+  const categories = useMemo(() => {
+    const lowerSearch = search.toLowerCase();
+    return Object.entries(skillMap)
+      .map(([category, { name, actions }]) => ({
+        category,
+        name,
+        actions: actions
+          .map((action, index) => ({ ...action, ref: `${category}.${index}` }))
+          .filter((action) => action.name.toLowerCase().includes(lowerSearch)),
+      }));
   }, [search, skillMap]);
 
   const handleSelect = (actionKey) => {
@@ -577,74 +566,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
     onClose();
   };
 
-  const hasMatches = Object.values(filteredTree).some(arr => arr.length > 0);
-
-  const renderGroup = ([id, filtered]) => {
-    if (filtered.length === 0) return null;
-
-    return (
-      <Accordion key={id} disableGutters defaultExpanded>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-            {formatStr(id)}
-          </Typography>
-          <Typography variant="body2" color="textDisabled" sx={{ ml: 1 }}>
-            ({filtered.length})
-          </Typography>
-        </AccordionSummary>
-
-        <AccordionDetails sx={{ pt: 0 }}>
-          <Stack spacing={0.5}>
-            {filtered.map(({ key, name, tagged = [], skillType = [] }) => (
-              <ListItemButton
-                key={key}
-                onClick={() => handleSelect(key)}
-                disableGutters
-                dense
-                sx={{ px: 0.5 }}
-              >
-                {toArray(skillType).map((type) => (
-                  <Chip
-                    key={type}
-                    label={formatStr(type)}
-                    sx={{
-                      height: 20,
-                      fontSize: '0.65rem',
-                      flexShrink: 0,
-                      mr: 0.5,
-                      '& .MuiChip-label': { px: '5px' },
-                    }}
-                  />
-                ))}
-
-                <Typography
-                  variant="body2"
-                  noWrap
-                  sx={{ flexGrow: 1, minWidth: 0 }}
-                >
-                  {name}
-                </Typography>
-
-                {toArray(tagged).map((tag) => (
-                  <Chip
-                    key={tag}
-                    label={tag}
-                    sx={{
-                      height: 20,
-                      fontSize: '0.65rem',
-                      flexShrink: 0,
-                      mr: 0.5,
-                      '& .MuiChip-label': { px: '5px' },
-                    }}
-                  />
-                ))}
-              </ListItemButton>
-            ))}
-          </Stack>
-        </AccordionDetails>
-      </Accordion>
-    );
-  };
+  const hasMatches = categories.some(({ actions }) => actions.length > 0);
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
@@ -691,7 +613,75 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
       >
         {hasMatches ? (
           <Stack spacing={1}>
-            {Object.entries(filteredTree).map(renderGroup)}
+            {categories.map(({ category, name, actions }) => {
+              if (!actions.length) return null;
+              return (
+                <Accordion
+                  key={`${category}:${name}`}
+                  disableGutters
+                  defaultExpanded
+                >
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                      {formatStr(`${category}: ${name}`)}
+                    </Typography>
+                    <Typography variant="body2" color="textDisabled" sx={{ ml: 1 }}>
+                      ({actions.length})
+                    </Typography>
+                  </AccordionSummary>
+
+                  <AccordionDetails sx={{ pt: 0 }}>
+                    <Stack spacing={0.5}>
+                      {actions.map(({ key, name, tagged = [], skillType = [] }) => (
+                        <ListItemButton
+                          key={key}
+                          onClick={() => handleSelect(key)}
+                          disableGutters
+                          dense
+                          sx={{ px: 0.5 }}
+                        >
+                          {toArray(skillType).map((type) => (
+                            <Chip
+                              key={type}
+                              label={formatStr(type)}
+                              sx={{
+                                height: 20,
+                                fontSize: '0.65rem',
+                                flexShrink: 0,
+                                mr: 0.5,
+                                '& .MuiChip-label': { px: '5px' },
+                              }}
+                            />
+                          ))}
+
+                          <Typography
+                            variant="body2"
+                            noWrap
+                            sx={{ flexGrow: 1, minWidth: 0 }}
+                          >
+                            {name}
+                          </Typography>
+
+                          {toArray(tagged).map((tag) => (
+                            <Chip
+                              key={tag}
+                              label={tag}
+                              sx={{
+                                height: 20,
+                                fontSize: '0.65rem',
+                                flexShrink: 0,
+                                mr: 0.5,
+                                '& .MuiChip-label': { px: '5px' },
+                              }}
+                            />
+                          ))}
+                        </ListItemButton>
+                      ))}
+                    </Stack>
+                  </AccordionDetails>
+                </Accordion>
+              );
+            })}
           </Stack>
         ) : (
           <Typography variant="body2" color="textSecondary">
@@ -782,8 +772,6 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
   );
 }
 
-// ─── Rotation drag-and-drop helpers ────────────────────────────────────────
-
 function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
@@ -792,8 +780,9 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
     transition,
   };
 
-  const [category, actionId] = actionKey.split('.');
-  const { name, tagged, skillType } = ACTION[gameId][characterId][category][actionId];
+  const [category, actionIndex] = actionKey.split('.');
+  const index = Number(actionIndex);
+  const { name, tagged, skillType } = ACTION[gameId][characterId][category].actions[index];
 
   return (
     <Box

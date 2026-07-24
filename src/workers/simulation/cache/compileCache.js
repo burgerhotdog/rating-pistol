@@ -1,5 +1,5 @@
 import { WW } from '@/data';
-import { mergeObj, mergeEquipList, compileBaseMap } from '@/utils';
+import { toMergedObj, mergeEquipList, compileBaseMap } from '@/utils';
 import { getMemberActions } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
@@ -11,9 +11,9 @@ const getConvertedRotation = (rawRotation, spec) => {
   const rotation = [];
   let rotationTime = 0;
 
-  // Convert shortKeys to actions
-  for (const shortKey of rawRotation) {
-    const action = memberActions[shortKey];
+  // Convert refs to actions
+  for (const ref of rawRotation) {
+    const action = memberActions[ref];
 
     if (teamSize === 1) {
       const { skillType } = action;
@@ -81,7 +81,7 @@ export const compileCache = (gameId, team) => {
 
     const baseMap = compileBaseMap(gameId, memberId, weaponId);
     const equipMap = mergeEquipList(equipList);
-    const statMap = mergeObj(baseMap, equipMap);
+    const statMap = toMergedObj(baseMap, equipMap);
 
     const { rotation, rotationTime } = getConvertedRotation(rawRotation, {
       gameId,
@@ -106,7 +106,7 @@ export const compileCache = (gameId, team) => {
     };
   }
 
-  cacheTuneResponses(cache, teamActions);
+  cacheTuneResponses(cache);
 
   return cache;
 };

@@ -7,29 +7,29 @@ const ifAttr = (rawFilter = {}, { effect, ctx }) => {
 };
 
 const ifField = (filter, { action, ctx }) => {
-  const field = ctx.getField(action.ownerId)
+  const isOnField = action.ownerId === ctx.states.onFieldId;
+  const field = isOnField ? 'onField' : 'offField';
   return filter != null && filter === field;
 };
 
-const ifEffectStacks = (rawFilter = {}, state, op) => { // helper
+const ifEffectStacks = (rawFilter = {}, states, op) => { // helper
   const filter = Object.entries(rawFilter);
-  const stateMaps = [
-    ...Object.values(state.memberEffects),
-    ...Object.values(state.fieldEffects),
-    state.debuffs,
+  const stores = [
+    ...Object.values(states.memberEffects),
+    states.globalEffects,
   ];
-  return filter.every(([key, stacks]) =>
-    stateMaps.some((stateMap) => op(stateMap[key]?.stacks, stacks)));
+  return filter.every(([effectKey, stacks]) =>
+    stores.some((store) => op(store[effectKey]?.stacks, stacks)));
 };
 
 const ifEffectStacksMin = (rawFilter, { ctx }) =>
-  ifEffectStacks(rawFilter, ctx.state, (a, b) => a >= b);
+  ifEffectStacks(rawFilter, ctx.states, (a, b) => a >= b);
 
 const ifEffectStacksMax = (rawFilter, { ctx }) => 
-  ifEffectStacks(rawFilter, ctx.state, (a, b) => a <= b);
+  ifEffectStacks(rawFilter, ctx.states, (a, b) => a <= b);
 
 const ifNegativeStatus = (rawFilter = {}, { ctx }) => {
-  const { negativeStatuses } = ctx.state;
+  const { negativeStatuses } = ctx.states;
   if (rawFilter === 'any') {
     return Object.keys(negativeStatuses).length;
   }
@@ -39,13 +39,13 @@ const ifNegativeStatus = (rawFilter = {}, { ctx }) => {
 
 const ifShifting = (rawFilter, { ctx }) => {
   const filter = toArray(rawFilter);
-  const { tune } = ctx.state;
+  const { tune } = ctx.states;
   return filter.includes(tune.shifting);
 };
 
 const ifInterfered = (rawFilter, { ctx }) => {
   const filter = toArray(rawFilter);
-  const { tune } = ctx.state;
+  const { tune } = ctx.states;
   return filter.includes(tune.interfered);
 };
 

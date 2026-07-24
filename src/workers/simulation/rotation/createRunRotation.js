@@ -1,260 +1,218 @@
-import { mergeObj } from '@/utils';
-import { advanceCooldowns } from './state/cooldowns';
-import { applyEffect, runEffectPhase, advanceEffects } from './state/effects';
-import { inflictNegativeStatuses, advanceNegativeStatuses } from './state/negativeStatuses';
-import { applyOffTuneBuildup, inflictTuneShifting, advanceTune, runTuneBreak } from './state/tune';
-import { buildFootprint, evaluateFootprint } from './footprint';
-import { getUsedBuffStates, getUsedFollowUpStates, resolveBuffMap } from './getCurrent';
+import { WW } from '@/data';
+import { toMergedObj } from '@/utils';
+import {
+  matchRemoveFilter,
+  matchExtendFilter,
+  matchUseFilter,
+  matchApplyFilter,
+} from './filter';
+import {
+  onUseDoCommand,
+  onApplyDoCommand,
+} from './commands';
+import {
+  runRemoveEffect,
+  runExtendEffect,
+  runUseEffect,
+  runApplyEffect,
+  advanceEffects,
+} from './effects';
+import {
+  inflictNegativeStatuses,
+  advanceNegativeStatuses,
+} from './special/negativeStatuses';
+import {
+  runTuneBreak,
+  applyOffTuneBuildup,
+  inflictTuneShifting,
+  advanceTune,
+} from './special/tune';
+import { buildSnapshot, evaluateSnapshot } from './snapshot';
+import { getEffectStates } from './getEffectStates';
 
-const MAX_PROC_DEPTH = 5;
+function handleRemoveWhen(ctx, action, when) {
+  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
+    const { effect } = state;
+    const shouldRemove =
+      effect.removeWhen === when &&
+      matchRemoveFilter(effect, { ctx, action });
 
-function decayUsedBuffs(ctx, usedBuffStates) {
-  for (const [stateMap, effectState] of usedBuffStates) {
-    const { effect } = effectState;
+    if (!shouldRemove) continue;
+    runRemoveEffect(state);
+  }
+}
 
-    if (effect.useCooldown) {
-      effectState.cooldown = effect.useCooldown;
-    }
+function handleExtendWhen(ctx, action, when) {
+  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
+    const { effect } = state;
+    const shouldExtend =
+      effect.extendWhen === when &&
+      !state.extendCooldown &&
+      matchExtendFilter(effect, { ctx, action }) &&
+      state.extensionsLeft;
 
-    if (effectState.usesLeft) {
-      effectState.usesLeft--;
-      if (!effectState.usesLeft) {
-        delete stateMap[effect.key];
-      }
+    if (!shouldExtend) continue;
+    runExtendEffect(state);
+  }
+}
+
+function handleUseWhen(ctx, action, when) {
+  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
+    const { effect } = state;
+    const shouldUse =
+      effect.useWhen === when &&
+      !state.useCooldown &&
+      matchUseFilter(effect, { ctx, action }) &&
+      !state.isRunning;
+
+    if (!shouldUse) continue;
+    onUseDoCommand(ctx, effect);
+    runUseEffect(ctx, state);
+  }
+}
+
+function handleApplyWhen(ctx, action, when) {
+  for (const effect of Object.values(ctx.cache.effects)) {
+    const shouldApply =
+      effect.applyBy.includes(action.ownerId) &&
+      effect.applyWhen === when &&
+      !ctx.states.applyCooldowns[effect.key] &&
+      matchApplyFilter(effect, { ctx, action });
+
+    if (!shouldApply) continue;
+    onApplyDoCommand(ctx, effect);
+    runApplyEffect(ctx, effect, action);
+  }
+}
+
+function advanceCooldowns(ctx, elapsed) {
+  const { applyCooldowns } = ctx.states;
+  for (const effectKey in applyCooldowns) {
+    applyCooldowns[effectKey] -= elapsed;
+    if (applyCooldowns[effectKey] <= 0) delete applyCooldowns[effectKey];
+  }
+}
+
+function decayBuffStates(ctx, action) {
+  for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
+    const { store, effect, useCooldown } = state;
+    if (useCooldown || !matchUseFilter(effect, { ctx, action })) continue;
+
+    if ('buffCooldown' in effect) state.buffCooldown = effect.buffCooldown;
+    if ('usesLeft' in state) {
+      state.usesLeft--;
+      if (!state.usesLeft) delete store[effect.key];
     }
   }
 }
 
-function runFollowUpActions(ctx, action, when, depth) {
-  const usedFollowUpStates = getUsedFollowUpStates(ctx, action.ownerId, action);
+function runAction(ctx, action, options = {}) {
+  const { runtimeOffset, noDuration } = options;
+  const { duration = 0, hitOffsets = [0] } = action;
+  let actionRuntime = 0;
 
-  for (const [stateMap, effectState] of usedFollowUpStates) {
-    const { effect } = effectState;
-    const { times = 1 } = effect;
+  function advanceTimeTo(timestamp) {
+    if (noDuration) return;
+    const elapsed = timestamp - actionRuntime;
+    if (elapsed <= 0) return;
 
-    if (effect.followUpWhen !== when) continue;
-    if (effectState.executing) continue;
+    if (ctx.cache.gameId === WW) advanceNegativeStatuses(ctx, elapsed);
+    if (ctx.cache.gameId === WW) advanceTune(ctx, elapsed);
+    advanceEffects(ctx, elapsed);
+    advanceCooldowns(ctx, elapsed);
 
-    effectState.executing = true;
-    for (const action of effect.followUpAction) {
-      for (let i = 0; i < times; i ++) {
-        runAction(ctx, action, depth + 1);
-      }
-    }
-    effectState.executing = false;
+    actionRuntime += elapsed;
+    if (ctx.saveSnapshots) ctx.states.runtime += elapsed;
+  };
 
-    if (effect.useCooldown) {
-      effectState.cooldown = effect.useCooldown;
-    }
-
-    if (effectState.usesLeft) {
-      effectState.usesLeft--;
-      if (effectState.usesLeft <= 0) {
-        delete stateMap[effect.key];
-      }
-    }
+  function runEffectsWhen(when) {
+    handleRemoveWhen(ctx, action, when);
+    handleExtendWhen(ctx, action, when);
+    handleUseWhen(ctx, action, when);
+    handleApplyWhen(ctx, action, when);
   }
-}
 
-function runIntervalActions(ctx, elapsed, depth) {
-  for (const stateMap of Object.values(ctx.state.memberEffects)) {
-    for (const [key, effectState] of Object.entries(stateMap)) {
-      const { effect } = effectState;
-      if (!effect.intervalAction) continue;
-      const { times = 1 } = effect;
-
-      effectState.intervalTimer -= elapsed;
-      while (effectState.intervalTimer <= 0) {
-        for (let i = 0; i < times; i++) {
-          for (const action of effect.intervalAction) {
-            runAction(ctx, action, depth + 1);
-          }
-        }
-
-        effectState.intervalTimer += effect.intervalCooldown;
-
-        if (effectState.usesLeft) {
-          effectState.usesLeft--;
-          if (!effectState.usesLeft) {
-            delete stateMap[key];
-            break;
-          }
-        }
-      }
-    }
-  }
-}
-
-function advanceTime(ctx, elapsed, depth) {
-  runIntervalActions(ctx, elapsed, depth);
-  advanceNegativeStatuses(ctx, elapsed);
-
-  advanceTune(ctx.state.tune, elapsed);
-  advanceEffects(ctx, elapsed);
-  advanceCooldowns(ctx.state.cooldowns, elapsed);
-}
-
-function runAction(ctx, action, depth = 0) {
-  if (depth >= MAX_PROC_DEPTH) {
-    console.error('MAX_PROC_DEPTH');
+  if (action.key === 'other:tuneBreak') {
+    runTuneBreak(ctx, action);
+    runEffectsWhen('tuneBreak');
     return;
   }
 
-  // Resolve timings
-  const hitOffsets = action.hitOffsets ?? [0];
-  const initialOffset = hitOffsets[0];
-  let currentTime = 0;
+  // Action timeline
+  runEffectsWhen('before');
+  advanceTimeTo(hitOffsets[0]);
 
-  // Action is cast
-  runEffectPhase(ctx, action, 'cast');
-  runFollowUpActions(ctx, action, 'cast', depth);
-
-  // Advance time to initial hit
-  if (initialOffset > 0) {
-    advanceTime(ctx, initialOffset, depth);
-    currentTime += initialOffset;
-  }
-
-  // Initial hit
   if (action.compressed) {
-    const usedBuffStates = getUsedBuffStates(ctx, action.ownerId, action);
-    const { fixedBuffMap, variableBuffSpecs } = resolveBuffMap(ctx, usedBuffStates);
-    if (ctx.recordFootprint) {
-      const footprint = buildFootprint(ctx, action, fixedBuffMap, variableBuffSpecs);
-      if (footprint) {
-        ctx.footprints.push(footprint);
-      }
-    }
-    applyOffTuneBuildup(ctx, action, fixedBuffMap);
-    decayUsedBuffs(ctx, usedBuffStates);
+    if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, action, { runtimeOffset }));
+    if (ctx.cache.gameId === WW) applyOffTuneBuildup(ctx, action);
+    decayBuffStates(ctx, action);
   }
 
-  // Should only happen once regardless of hits
-  inflictNegativeStatuses(ctx, action);
-  inflictTuneShifting(ctx, action);
-  runEffectPhase(ctx, action, 'inflict');
+  if (ctx.cache.gameId === WW) inflictNegativeStatuses(ctx, action);
+  if (ctx.cache.gameId === WW) inflictTuneShifting(ctx, action);
+  if (ctx.cache.gameId === WW) runEffectsWhen('inflict');
 
-  // Triggered per hit
   for (const offset of hitOffsets) {
-    const elapsed = offset - currentTime;
-    if (elapsed > 0) {
-      currentTime += elapsed;
-      advanceTime(ctx, elapsed, depth);
-    }
-    runEffectPhase(ctx, action, 'hit');
-    runFollowUpActions(ctx, action, 'hit', depth);
+    advanceTimeTo(offset);
+    runEffectsWhen('hit');
   }
 
-  // Advance time after last hit
-  const postHits = action.duration - currentTime;
-  if (postHits > 0) {
-    advanceTime(ctx, postHits, depth);
-  }
-
-  // After action
-  runEffectPhase(ctx, action, 'after');
+  advanceTimeTo(duration);
+  runEffectsWhen('after');
 }
 
 export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
-    buildMaps[memberId] = mergeObj(cache.member[memberId].baseMap, equipMap);
+    buildMaps[memberId] = toMergedObj(cache.member[memberId].baseMap, equipMap);
   }
 
   const ctx = {
     helpers,
     cache,
-    equipMaps,
     buildMaps,
     currId,
-    onFieldId: null,
-    getField(id) {
-      return id === this.onFieldId
-        ? 'onField'
-        : 'offField';
-    },
-    state: {
-      cooldowns: {},
-      memberEffects: Object.fromEntries(
-        cache.memberIds.map((id) => [id, {}])
-      ),
-      fieldEffects: {
-        onField: {},
-        offField: {},
-      },
-      debuffs: {},
+    states: {
+      runtime: 0,
+      onFieldId: null,
+      applyCooldowns: {},
+      globalEffects: {},
+      memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
       negativeStatuses: {},
       tune: { offTune: 0 },
     },
-    footprints: [],
+    runAction,
+    snapshots: [],
     offTuneBuildup: [],
   };
 
   // Init passives into effect states
   for (const effect of Object.values(cache.effects)) {
     if (effect.applyWhen) continue;
-    applyEffect(ctx, effect);
+    runApplyEffect(ctx, effect);
   }
 
   // Rotation loop
   const actionOrder = cache.memberIds
     .toReversed()
-    .flatMap((memberId) =>
-      cache.member[memberId].rotation);
+    .flatMap((memberId) => cache.member[memberId].rotation);
 
-  oneRotationPass(ctx, actionOrder);
-  ctx.offTuneBuildup.push(ctx.state.tune.offTune);
-  ctx.recordFootprint = true;
-  oneRotationPass(ctx, actionOrder);
-
-  // Resolve fixed footprints
-  const fixedSummary = {};
-  const remaining = [];
-
-  for (const footprint of ctx.footprints) {
-    if (!footprint.fixed) {
-      remaining.push(footprint);
-      continue;
-    }
-
-    addToSummary(fixedSummary, {
-      key: footprint.key,
-      ownerId: footprint.ownerId,
-      type: footprint.type,
-      dmgType: footprint.dmgType,
-      value: footprint.fixed,
-    });
-  }
-
-  // Return function to resolve remaining footprints
-  return (statMap) => {
-    const summary = { ...fixedSummary };
-    for (const footprint of remaining) {
-      const result = evaluateFootprint(helpers, currId, footprint, statMap);
-      addToSummary(summary, result);
-    }
-    return summary;
-  };
-};
-
-function oneRotationPass(ctx, actionOrder) {
   for (const action of actionOrder) {
-    ctx.onFieldId = action.ownerId;
-
-    if (action.key === 'other:tuneBreak') {
-      runTuneBreak(ctx);
-    } else {
-      runAction(ctx, action);
-    }
+    ctx.states.onFieldId = action.ownerId;
+    runAction(ctx, action);
   }
-}
-
-function addToSummary(summary, result) {
-  const prev = summary[result.key];
-
-  if (prev) {
-    prev.value += result.value;
-  } else {
-    summary[result.key] = { ...result };
+  ctx.offTuneBuildup.push(ctx.states.tune.offTune);
+  ctx.saveSnapshots = true;
+  for (const action of actionOrder) {
+    ctx.states.onFieldId = action.ownerId;
+    runAction(ctx, action);
   }
-}
+
+  return (buildMap) => ctx.snapshots.map((snapshot) =>
+    'value' in snapshot
+      ? snapshot
+      : {
+        ...snapshot,
+        value: evaluateSnapshot(helpers, currId, snapshot, buildMap),
+      });
+};
