@@ -33,9 +33,7 @@ export function runUseEffect(ctx, state, spec = {}) {
     }
     delete state.isRunning;
 
-    if (effect.useCooldown) {
-      state.useCooldown = effect.useCooldown;
-    }
+    if (effect.useCooldown) state.useCooldown = effect.useCooldown;
 
     if (state.usesLeft) {
       state.usesLeft--;
@@ -75,18 +73,12 @@ export function runApplyEffect(ctx, effect, action = {}) {
   }
 
   for (const target of effect.applyTo) {
-    if (target === 'applier') {
-      updateState(memberEffects[action.ownerId]);
-    } else if (target === 'global') {
-      updateState(globalEffects);
-    } else {
-      updateState(memberEffects[target]);
-    }
+    if (target === 'applier') updateState(memberEffects[action.ownerId]);
+    else if (target === 'global') updateState(globalEffects);
+    else updateState(memberEffects[target]);
   }
 
-  if (effect.applyCooldown) {
-    applyCooldowns[effect.key] = effect.applyCooldown;
-  }
+  if (effect.applyCooldown) applyCooldowns[effect.key] = effect.applyCooldown;
 }
 
 function advanceEffectState(ctx, state, elapsed) {

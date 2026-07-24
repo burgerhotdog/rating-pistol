@@ -170,12 +170,11 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
   const ctx = {
     helpers,
     cache,
-    equipMaps,
     buildMaps,
     currId,
-    onFieldId: null,
     states: {
       runtime: 0,
+      onFieldId: null,
       applyCooldowns: {},
       globalEffects: {},
       memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
@@ -199,13 +198,13 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     .flatMap((memberId) => cache.member[memberId].rotation);
 
   for (const action of actionOrder) {
-    ctx.onFieldId = action.ownerId;
+    ctx.states.onFieldId = action.ownerId;
     runAction(ctx, action);
   }
   ctx.offTuneBuildup.push(ctx.states.tune.offTune);
   ctx.saveSnapshots = true;
   for (const action of actionOrder) {
-    ctx.onFieldId = action.ownerId;
+    ctx.states.onFieldId = action.ownerId;
     runAction(ctx, action);
   }
 

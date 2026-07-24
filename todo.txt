@@ -1,2 +1,1 @@
 switchable chars resonanace modes
-merge fieldEffectStates with using ifField check

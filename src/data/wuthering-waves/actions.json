@@ -29529,6 +29529,9 @@
         {
           "name": "Sword to Mark Tide's Trace",
           "skillType": "introSkill",
+          "inflictStatus": {
+            "aeroErosion": 2
+          },
           "attr": "hp",
           "multipliers": [
             {

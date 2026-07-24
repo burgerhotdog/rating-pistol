@@ -39,7 +39,7 @@ function recordTuneBreak(ctx) {
   const timesPerRotation = calcTuneBreaksPerRotation(ctx);
 
   const buildSnapshot = (action) => {
-    const buffsOwner = action?.ownerId ?? ctx.onFieldId;
+    const buffsOwner = action?.ownerId ?? ctx.states.onFieldId;
     const buildMap = ctx.buildMaps[buffsOwner];
     const { buffMap } = getBuffMap(ctx, { memberId: buffsOwner, action, ignoreSpecs: true });
     const statMap = toMergedObj(buildMap, buffMap);

@@ -7,7 +7,7 @@ const ifAttr = (rawFilter = {}, { effect, ctx }) => {
 };
 
 const ifField = (filter, { action, ctx }) => {
-  const isOnField = action.ownerId === ctx.onFieldId;
+  const isOnField = action.ownerId === ctx.states.onFieldId;
   const field = isOnField ? 'onField' : 'offField';
   return filter != null && filter === field;
 };

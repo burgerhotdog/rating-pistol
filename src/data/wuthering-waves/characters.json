@@ -3671,14 +3671,42 @@
         }
       },
       {
+        "useIfNegativeStatus": {
+          "aeroErosion": 3
+        },
         "buffMap": {
-          "dmgBonus%": 0.6
+          "dmgBonus%": 0.3
+        }
+      },
+      {
+        "useIfNegativeStatus": {
+          "aeroErosion": 4
+        },
+        "buffMap": {
+          "dmgBonus%": 0.1
+        }
+      },
+      {
+        "useIfNegativeStatus": {
+          "aeroErosion": 5
+        },
+        "buffMap": {
+          "dmgBonus%": 0.1
+        }
+      },
+      {
+        "useIfNegativeStatus": {
+          "aeroErosion": 6
+        },
+        "buffMap": {
+          "dmgBonus%": 0.1
         }
       },
       {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
         "applyTo": "ally",
+        "useIfNegativeStatus": "any",
         "buffMap": {
           "aeroDmgAmp%": 0.175
         },
