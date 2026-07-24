@@ -632,10 +632,10 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
                   <AccordionDetails sx={{ pt: 0 }}>
                     <Stack spacing={0.5}>
-                      {actions.map(({ key, name, tagged = [], skillType = [] }) => (
+                      {actions.map(({ ref, name, tagged = [], skillType = [] }) => (
                         <ListItemButton
-                          key={key}
-                          onClick={() => handleSelect(key)}
+                          key={ref}
+                          onClick={() => handleSelect(ref)}
                           disableGutters
                           dense
                           sx={{ px: 0.5 }}
