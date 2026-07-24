@@ -1,63 +1,52 @@
 import requests
+from .parse_character import parse_character
+from .parse_action import parse_action
+from .parse_weapon import parse_weapon
+from .parse_set import parse_set
 
-def enter_ids(GAME, version, id_type):
-    mapped_id_type = GAME["lang"]["id_type"].get(id_type, id_type)
-    url = f"https://static.nanoka.cc/{GAME['link']}/{version}/{mapped_id_type}.json"
-    data = requests.get(url).json()
+def parse_name(entry, type):
+    if type == "sonata":
+        return entry["name"]["en"]
+    if type == "artifact":
+        set_map = entry.get("set", {})
+        first_set = next(iter(set_map.values()), {})
+        return first_set["name"]["en"]
+    if type == "equipment":
+        return entry["en"]["name"]
 
-    # Echo uses setId -> key mapping from data[key]["group"] array.
-    echo_setid_to_key = None
-    echo_details_cache = {}
+    return entry["en"]
 
-    if mapped_id_type == "echo":
-        echo_setid_to_key = {}
-        for key, entry in data.items():
-            for set_id in entry.get("group", []):
-                echo_setid_to_key[str(set_id)] = key
-
-    def is_invalid_id(ID):
-        if mapped_id_type == "echo":
-            return ID not in echo_setid_to_key
-        return ID not in data
-
-    def get_name(ID):
-        if mapped_id_type == "echo":
-            key = echo_setid_to_key[ID]
-
-            # Cache request per key so repeated IDs in same group do not refetch.
-            if key not in echo_details_cache:
-                detail_url = f"https://static.nanoka.cc/ww/{version}/en/echo/{key}.json"
-                echo_details_cache[key] = requests.get(detail_url).json()
-
-            detail = echo_details_cache[key]
-            # JSON keys are strings, so ID string lookup is expected.
-            return detail["group"][ID]["name"]
-
-        if mapped_id_type == "artifact":
-            # data[ID]["set"] is a map; take its first value then read name.en
-            set_map = data[ID].get("set", {})
-            first_set = next(iter(set_map.values()), {})
-            return first_set["name"]["en"]
-
-        if mapped_id_type == "equipment":
-            return data[ID]["en"]["name"]
-
-        # Default behavior
-        return data[ID]["en"]
+def enter_ids(ctx, version, type):
+    mapped_type = ctx["lang"]["type"].get(type, type)
+    game = ctx['link']
+    url_base = f"https://static.nanoka.cc/{game}/{version}/"
+    response = requests.get(f"{url_base}{mapped_type}.json").json()
 
     while True:
-        input_str = input(f"Enter new {id_type} IDs (space-separated, or press Enter to skip): ")
+        raw_input = input(f"Enter new {type} IDs (separated by space, or press Enter to skip): ")
+        if raw_input == "":
+            return []
 
-        if input_str == "":
-            return [], [], {}
+        inputs = raw_input.split()
+        invalid_ids = [ID for ID in inputs if ID not in response]
+        if not invalid_ids:
+            break
 
-        id_list = input_str.split()
-        invalid_ids = [ID for ID in id_list if is_invalid_id(ID)]
-        if invalid_ids:
-            print(f"Invalid IDs: ({', '.join(invalid_ids)}). Please try again.")
-            continue
+        print(f"Invalid IDs: ({', '.join(invalid_ids)}). Please try again.")
 
-        id_list = sorted(id_list, key=int)
-        id_names = [get_name(ID) for ID in id_list]
+    inputs = sorted(inputs, key=int)
+    entries = []
 
-        return id_list, id_names, echo_setid_to_key
+    for input_id in inputs:
+        input_response = requests.get(f"{url_base}en/{mapped_type}/{input_id}.json").json()
+        match type:
+            case "character":
+                entries.push((
+                    parse_character(game, float(version), input_id, input_response),
+                    parse_action(game, input_response),
+                ))
+            case "weapon":
+                entries.push(parse_weapon(game, float(version), input_id, input_response))
+            case "set":
+                entries.push(parse_set(game, float(version), input_id, input_response))
+    return entries

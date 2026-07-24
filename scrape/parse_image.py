@@ -23,9 +23,9 @@ IMAGE_LOCATIONS = {
     },
 }
 
-def make_parse_image(GAME):
-    game_id = GAME["id"]
-    game_link = GAME["link"]
+def make_parse_image(ctx):
+    game_id = ctx["id"]
+    game_link = ctx["link"]
     image_locs = IMAGE_LOCATIONS[game_id]
 
     def parse_image(image_type, data, image_id):

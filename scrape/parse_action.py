@@ -270,20 +270,20 @@ def parse_zzz(data, resolved):
 
         resolved[skill_id] = skill
 
-def parse_action(game_id, data):
+def parse_action(game, data):
     resolved = {}
 
-    match game_id:
-        case "genshin-impact":
+    match game:
+        case "gi":
             parse_gi(data, resolved)
 
-        case "honkai-star-rail":
+        case "hsr":
             parse_hsr(data, resolved)
 
-        case "wuthering-waves":
+        case "ww":
             parse_ww(data, resolved)
 
-        case "zenless-zone-zero":
+        case "zzz":
             parse_zzz(data, resolved)
 
     return resolved

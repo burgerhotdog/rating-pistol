@@ -1,5 +1,3 @@
-from .game_info import GAME_INFO
-from .select_game_index import select_game_index
 from .enter_ids import enter_ids
 from .json import read_json, write_json
 from .parse_character import parse_character

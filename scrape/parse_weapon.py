@@ -4,7 +4,7 @@ def parse_stats(game_id, data):
     constant = {}
 
     match game_id:
-        case "genshin-impact":
+        case "gi":
             constant["baseAtk"] = round(data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"])
 
             # Ascension stats
@@ -31,12 +31,12 @@ def parse_stats(game_id, data):
             value = value_map["base"] * value_map["levels"]["90"]
             constant[stat_id] = round(value, 3) if stat_id.endswith("%") else int(round(value))
 
-        case "honkai-star-rail":
+        case "hsr":
             constant["baseHp"] = round(data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79)
             constant["baseAtk"] = round(data["stats"][6]["base_attack"] + data["stats"][6]["base_attack_add"] * 79)
             constant["baseDef"] = round(data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79)
 
-        case "wuthering-waves":
+        case "ww":
             constant["baseAtk"] = math.floor(data["stats"]["6"]["90"][0]["value"])
 
             # Ascension stats
@@ -58,7 +58,7 @@ def parse_stats(game_id, data):
             stat_id = stat_map[data['stats']['6']['90'][1]['name']]
             constant[stat_id] = data["stats"]["6"]["90"][1]["value"] / 10000 if data["stats"]["6"]["90"][1]["is_percent"] else data["stats"]["6"]["90"][1]["value"]
 
-        case "zenless-zone-zero":
+        case "zzz":
             constant["baseAtk"] = round(data["base_property"]["value"] * 104 / 7)
 
             # Ascension stats
@@ -81,32 +81,33 @@ def parse_stats(game_id, data):
     return constant
 
 FIELDS = {
-    "genshin-impact": {
+    "gi": {
         "quality": lambda data: int(data["rarity"]),
         "type": lambda data: { "WEAPON_SWORD_ONE_HAND": "sword", "WEAPON_CLAYMORE": "claymore", "WEAPON_POLE": "polearm", "WEAPON_CATALYST": "catalyst", "WEAPON_BOW": "bow" }[data["weapon_type"]],
     },
-    "honkai-star-rail": {
+    "hsr": {
         "quality": lambda data: int(data["rarity"][-1]),
         "type": lambda data: { "Rogue": "hunt", "Priest": "abundance", "Warrior": "destruction", "Knight": "preservation", "Warlock": "nihility", "Shaman": "harmony", "Mage": "erudition", "Memory": "remembrance", "Elation": "elation" }[data["base_type"]],
     },
-    "wuthering-waves": {
+    "ww": {
         "quality": lambda data: data["rarity"],
         "type": lambda data: ["broadblade", "sword", "pistols", "gauntlets", "rectifier"][data["type"] - 1],
     },
-    "zenless-zone-zero": {
+    "zzz": {
         "quality": lambda data: data["rarity"] + 1,
         "type": lambda data: next(iter(data["weapon_type"].values())).lower(),
     },
 }
 
-def parse_weapon(game_id, version, data):
+def parse_weapon(game, version, id, data):
     result = {}
     result["name"] = data["name"]
+    result["id"] = int(id)
     result["version"] = version
 
-    for field, parser in FIELDS[game_id].items():
+    for field, parser in FIELDS[game].items():
         result[field] = parser(data)
 
-    result["stats"] = parse_stats(game_id, data)
+    result["stats"] = parse_stats(game, data)
 
     return result
