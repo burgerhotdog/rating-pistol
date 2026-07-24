@@ -5,8 +5,6 @@ from scrape import (
     write_json,
 )
 
-MANUAL_VERSION = 1
-
 manifest = requests.get('https://static.nanoka.cc/manifest.json').json()
 
 game_ids = {
@@ -28,7 +26,6 @@ def main():
 
     # Enter IDs
     version = manifest[game]['live']
-    version = MANUAL_VERSION
 
     characters = enter_ids(game, version, 'character')
     weapons = enter_ids(game, version, 'weapon')
