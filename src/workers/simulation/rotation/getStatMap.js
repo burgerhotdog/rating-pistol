@@ -1,7 +1,7 @@
 import { WW } from '@/data';
 import { getAttr, toMergedObj } from '@/utils';
 import { mergeStatMap, resolveStatSpecs } from '../utils';
-import { matchUseFilter } from './filter';
+import { matchUseFilter } from './filters';
 import { getEffectStates } from './getEffectStates';
 
 export const getBuffMap = (ctx, options = {}) => {

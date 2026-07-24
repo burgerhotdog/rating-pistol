@@ -5,7 +5,7 @@ import {
   matchExtendFilter,
   matchUseFilter,
   matchApplyFilter,
-} from './filter';
+} from './filters';
 import {
   onUseDoCommand,
   onApplyDoCommand,
