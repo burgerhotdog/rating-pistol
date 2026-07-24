@@ -4815,7 +4815,14 @@
         },
         "applyTo": "global",
         "gameRule": {
-          "maxNegativeStatusStacks": 3
+          "maxStacks": {
+            "glacioChafe": 3,
+            "fusionBurst": 3,
+            "electroFlare": 3,
+            "aeroErosion": 3,
+            "spectroFrazzle": 3,
+            "havocBane": 3
+          }
         },
         "maxDuration": 15000
       },

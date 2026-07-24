@@ -12,13 +12,16 @@ const statusMaxStacks = {
 };
 
 const getStatusMaxStacks = (ctx, statusId) => {
-  let override = 0;
-  for (const { effect: { gameRule } } of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
-    if ('maxNegativeStatusStacks' in gameRule) {
-      override += gameRule.maxNegativeStatusStacks;
+  let maxStacks = statusMaxStacks[statusId];
+
+  for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
+    const { effect: { gameRule } } = state;
+    if ('maxStacks' in gameRule) {
+      maxStacks += gameRule.maxStacks[statusId] ?? 0;
     }
   }
-  return statusMaxStacks[statusId] + override;
+
+  return maxStacks;
 };
 
 const STATUSES = {
