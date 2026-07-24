@@ -5,6 +5,8 @@ from scrape import (
     write_json,
 )
 
+MANUAL_VERSION = 1
+
 manifest = requests.get('https://static.nanoka.cc/manifest.json').json()
 
 game_ids = {
@@ -13,6 +15,9 @@ game_ids = {
     'ww': 'wuthering-waves',
     'zzz': 'zenless-zone-zero',
 }
+
+def sort_entries(entries):
+    return dict(sorted(entries.items(), key=lambda entry: int(entry[0])))
 
 def main():
     parser = argparse.ArgumentParser()
@@ -23,12 +28,12 @@ def main():
 
     # Enter IDs
     version = manifest[game]['live']
+    version = MANUAL_VERSION
 
     characters = enter_ids(game, version, 'character')
     weapons = enter_ids(game, version, 'weapon')
     sets = enter_ids(game, version, 'set')
-    if game == 'ww':
-        echoes = enter_ids(game, version, 'echo')
+    echoes = enter_ids(game, version, 'echo') if game == 'ww' else []
     print()
 
     # Confirm input
@@ -71,8 +76,8 @@ def main():
                 f.write(image)
             characters_json[id] = character
             actions_json[id] = actions
-        write_json(characters_path, characters_json)
-        write_json(actions_path, actions_json)
+        write_json(characters_path, sort_entries(characters_json))
+        write_json(actions_path, sort_entries(actions_json))
 
     if weapons:
         weapons_path = f'src/data/{game_id}/weapons.json'
@@ -81,7 +86,7 @@ def main():
             with open(f'public/{game_id}/weapon/{id}.webp', 'wb') as f:
                 f.write(image)
             weapons_json[id] = weapon
-        write_json(weapons_path, weapons_json)
+        write_json(weapons_path, sort_entries(weapons_json))
 
     if sets:
         sets_path = f'src/data/{game_id}/sets.json'
@@ -90,7 +95,7 @@ def main():
             with open(f'public/{game_id}/set/{id}.webp', 'wb') as f:
                 f.write(image)
             sets_json[id] = set
-        write_json(sets_path, sets_json)
+        write_json(sets_path, sort_entries(sets_json))
 
     if echoes:
         echoes_path = f'src/data/{game_id}/echoes.json'
@@ -99,7 +104,7 @@ def main():
             with open(f'public/{game_id}/echo/{id}.webp', 'wb') as f:
                 f.write(image)
             echoes_json[id] = echo
-        write_json(echoes_path, echoes_json)
+        write_json(echoes_path, sort_entries(echoes_json))
 
     # Version number
     version_json = read_json('src/data/version.json')
