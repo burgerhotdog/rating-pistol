@@ -11,6 +11,8 @@ export const getEffectStates = (ctx, { member, type }) => {
   ];
 
   switch (type) {
+    case 'gameRule':
+      return states.filter(({ effect: e }) => 'gameRule' in e);
     case 'buff':
       return states.filter(({ effect: e }) => 'buffMap' in e || 'buffSpec' in e);
     case 'action':

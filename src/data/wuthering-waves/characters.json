@@ -4798,10 +4798,39 @@
             "havocBane": 1
           }
         },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "team",
+        "maxDuration": 20000
+      },
+      {
+        "applyBy": "team",
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "applyTo": "global",
+        "gameRule": {
+          "maxNegativeStatusStacks": 3
+        },
+        "maxDuration": 15000
+      },
+      {
+        "applyBy": "team",
+        "applyWhen": "inflict",
+        "applyIfEffectStacksMin": {
+          "$prev.2": 1
+        },
+        "applyForInflictStatus": "any",
+        "applyTo": "applier",
         "buffMap": {
           "defIgnore%": 0.18
         },
-        "maxDuration": 30000
+        "maxDuration": 15000
       }
     ]
   },
