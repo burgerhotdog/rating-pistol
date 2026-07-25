@@ -353,7 +353,17 @@
     "sets": [
       "8"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "dmgBonus%": 0.12
+        },
+        "maxDuration": 15000
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Impermanence Heron",
@@ -611,7 +621,19 @@
     "sets": [
       "7"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "buffMap": {
+          "energyRegen%": 0.1
+        }
+      },
+      {
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.1
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Fallacy of No Return",
@@ -1148,7 +1170,14 @@
     "sets": [
       "10"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "buffMap": {
+          "glacioDmgBonus%": 0.12,
+          "resonanceSkillDmgBonus%": 0.12
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Sentry Construct",
@@ -1179,7 +1208,14 @@
     "sets": [
       "14"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "buffMap": {
+          "fusionDmgBonus%": 0.12,
+          "basicAttackDmgBonus%": 0.12
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Dragon of Dirge",
@@ -1737,7 +1773,19 @@
       "10",
       "13"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "buffMap": {
+          "glacioDmgBonus%": 0.12
+        }
+      },
+      {
+        "useOnSkillType": "coordinatedAttack",
+        "buffMap": {
+          "dmgBonus%": 0.3
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Lampylumen Myriad",
@@ -2999,7 +3047,17 @@
       "27",
       "30"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "glacioDmgBonus%": 0.12
+        },
+        "maxDuration": 15000
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Glommoth",
@@ -3097,7 +3155,14 @@
     "sets": [
       "30"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "buffMap": {
+          "glacioDmgBonus%": 0.12,
+          "resonanceLiberationDmgBonus%": 0.12
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Voidborne Construct",
@@ -4474,7 +4539,14 @@
       "7",
       "8"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "applyTo": "team",
+        "buffMap": {
+          "dmgBonus%": 0.1
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Bell-Borne Geochelone",

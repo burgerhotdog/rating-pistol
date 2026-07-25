@@ -109,6 +109,7 @@
       "setCounts": {
         "8": 5
       },
+      "mainEcho": "6000052",
       "rotation": [
         "introSkill.0",
         "resonanceLiberation.0",
@@ -277,6 +278,7 @@
       "setCounts": {
         "7": 5
       },
+      "mainEcho": "390080005",
       "rotation": [
         "introSkill.0",
         "introSkill.1",
@@ -525,6 +527,7 @@
       "setCounts": {
         "13": 5
       },
+      "mainEcho": "6000105",
       "rotation": [
         "introSkill.0",
         "normalAttack.0",
@@ -749,6 +752,7 @@
       "setCounts": {
         "10": 5
       },
+      "mainEcho": "6000083",
       "rotation": [
         "introSkill.0",
         "resonanceSkill.0",
@@ -806,6 +810,7 @@
       "setCounts": {
         "30": 5
       },
+      "mainEcho": "6000199",
       "rotation": [
         "introSkill.0",
         "normalAttack.2",
@@ -893,6 +898,7 @@
       "setCounts": {
         "30": 5
       },
+      "mainEcho": "6000195",
       "rotation": [
         "introSkill.0",
         "resonanceSkill.0",
@@ -1269,6 +1275,7 @@
       "setCounts": {
         "8": 5
       },
+      "mainEcho": "6000052",
       "rotation": [
         "introSkill.0",
         "resonanceSkill.0",
@@ -1594,6 +1601,7 @@
       "setCounts": {
         "14": 5
       },
+      "mainEcho": "6000084",
       "rotation": [
         "introSkill.0",
         "forteCircuit.1",
@@ -3062,6 +3070,7 @@
       "setCounts": {
         "8": 5
       },
+      "mainEcho": "6000052",
       "rotation": [
         "introSkill.0",
         "normalAttack.0",
@@ -3195,6 +3204,7 @@
       "setCounts": {
         "8": 5
       },
+      "mainEcho": "6000052",
       "rotation": [
         "introSkill.0",
         "resonanceLiberation.0",
@@ -3474,6 +3484,7 @@
       "setCounts": {
         "8": 5
       },
+      "mainEcho": "6000052",
       "rotation": [
         "introSkill.0",
         "resonanceSkill.1",
@@ -4111,6 +4122,7 @@
       "setCounts": {
         "7": 5
       },
+      "mainEcho": "390080005",
       "rotation": [
         "introSkill.0",
         "resonanceSkill.0",
@@ -4230,6 +4242,7 @@
       "setCounts": {
         "8": 5
       },
+      "mainEcho": "6000052",
       "rotation": [
         "introSkill.0",
         "resonanceLiberation.0",
@@ -4389,6 +4402,7 @@
       "setCounts": {
         "7": 5
       },
+      "mainEcho": "6000060",
       "rotation": [
         "introSkill.2",
         "introSkill.3",
@@ -4605,6 +4619,7 @@
       "setCounts": {
         "8": 5
       },
+      "mainEcho": "6000052",
       "rotation": [
         "introSkill.0",
         "resonanceSkill.0",
@@ -5295,6 +5310,7 @@
       "setCounts": {
         "8": 5
       },
+      "mainEcho": "6000052",
       "rotation": [
         "introSkill.0",
         "forteCircuit.0",
