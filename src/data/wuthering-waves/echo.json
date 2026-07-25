@@ -7,6 +7,7 @@
       "4",
       "9"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -24,6 +25,7 @@
     "sets": [
       "3"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -56,6 +58,7 @@
       "4",
       "7"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -78,6 +81,7 @@
       "8",
       "9"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -94,6 +98,7 @@
     "sets": [
       "6"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -135,6 +140,7 @@
     "sets": [
       "4"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -166,6 +172,7 @@
     "sets": [
       "1"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -207,6 +214,7 @@
     "sets": [
       "5"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -239,6 +247,7 @@
       "4",
       "6"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -260,6 +269,7 @@
     "sets": [
       "9"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -302,6 +312,7 @@
       "1",
       "5"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -325,6 +336,7 @@
       "3",
       "4"
     ],
+    "cost": 1,
     "effects": [],
     "actions": []
   },
@@ -336,6 +348,7 @@
       "1",
       "5"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -353,6 +366,7 @@
     "sets": [
       "8"
     ],
+    "cost": 4,
     "effects": [
       {
         "applyWhen": "before",
@@ -394,6 +408,7 @@
     "sets": [
       "6"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -446,6 +461,7 @@
       "2",
       "9"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -468,6 +484,7 @@
       "4",
       "7"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -507,6 +524,7 @@
       "1",
       "8"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -539,6 +557,7 @@
       "1",
       "3"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -570,6 +589,7 @@
     "sets": [
       "5"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -621,6 +641,7 @@
     "sets": [
       "7"
     ],
+    "cost": 4,
     "effects": [
       {
         "buffMap": {
@@ -678,6 +699,7 @@
       "12",
       "13"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -700,6 +722,7 @@
       "11",
       "12"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -722,6 +745,7 @@
       "11",
       "14"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -744,6 +768,7 @@
       "10",
       "14"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -766,6 +791,7 @@
       "10",
       "14"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -789,6 +815,7 @@
       "12",
       "19"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -812,6 +839,7 @@
       "13",
       "22"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -834,6 +862,7 @@
       "10",
       "13"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -856,6 +885,7 @@
       "10",
       "14"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -878,6 +908,7 @@
       "11",
       "14"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -900,6 +931,7 @@
       "12",
       "13"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -922,6 +954,7 @@
       "10",
       "12"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -944,6 +977,7 @@
       "11",
       "14"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -966,6 +1000,7 @@
       "12",
       "13"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -988,6 +1023,7 @@
       "10",
       "13"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1011,6 +1047,7 @@
       "14",
       "23"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1043,6 +1080,7 @@
       "10",
       "11"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1066,6 +1104,7 @@
       "14",
       "19"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1098,6 +1137,7 @@
       "11",
       "13"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1120,6 +1160,7 @@
       "10",
       "12"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1149,6 +1190,7 @@
     "sets": [
       "12"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -1170,6 +1212,7 @@
     "sets": [
       "10"
     ],
+    "cost": 4,
     "effects": [
       {
         "buffMap": {
@@ -1208,6 +1251,7 @@
     "sets": [
       "14"
     ],
+    "cost": 4,
     "effects": [
       {
         "buffMap": {
@@ -1236,6 +1280,7 @@
     "sets": [
       "13"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -1257,6 +1302,7 @@
     "sets": [
       "4"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -1288,6 +1334,7 @@
     "sets": [
       "12"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -1309,6 +1356,7 @@
     "sets": [
       "3"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -1331,6 +1379,7 @@
       "3",
       "13"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -1352,6 +1401,7 @@
     "sets": [
       "6"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -1373,6 +1423,7 @@
     "sets": [
       "2"
     ],
+    "cost": 4,
     "effects": [
       {
         "buffMap": {
@@ -1411,6 +1462,7 @@
     "sets": [
       "11"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -1434,6 +1486,7 @@
       "11",
       "21"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1457,6 +1510,7 @@
       "14",
       "20"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1479,6 +1533,7 @@
       "11",
       "14"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1502,6 +1557,7 @@
       "16",
       "21"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1535,6 +1591,7 @@
       "16",
       "20"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1568,6 +1625,7 @@
       "16",
       "18"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1608,6 +1666,7 @@
       "16",
       "18"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1650,6 +1709,7 @@
       "16",
       "17"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1673,6 +1733,7 @@
       "16",
       "18"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1696,6 +1757,7 @@
       "16",
       "18"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1718,6 +1780,7 @@
       "16",
       "17"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1741,6 +1804,7 @@
       "16",
       "17"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1773,6 +1837,7 @@
       "10",
       "13"
     ],
+    "cost": 4,
     "effects": [
       {
         "buffMap": {
@@ -1807,6 +1872,7 @@
       "16",
       "17"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -1839,6 +1905,7 @@
       "17",
       "18"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1861,6 +1928,7 @@
       "17",
       "18"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1884,6 +1952,7 @@
       "18",
       "23"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1907,6 +1976,7 @@
       "17",
       "18"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -1929,6 +1999,7 @@
       "17",
       "18"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1952,6 +2023,7 @@
       "18",
       "22"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -1984,6 +2056,7 @@
       "16",
       "17"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -2015,6 +2088,7 @@
     "sets": [
       "18"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -2046,6 +2120,7 @@
     "sets": [
       "19"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -2068,6 +2143,7 @@
       "19",
       "21"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -2089,6 +2165,7 @@
     "sets": [
       "19"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2130,6 +2207,7 @@
     "sets": [
       "19"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2171,6 +2249,7 @@
     "sets": [
       "19"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2193,6 +2272,7 @@
       "18",
       "22"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2214,6 +2294,7 @@
     "sets": [
       "20"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -2245,6 +2326,7 @@
     "sets": [
       "20"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -2276,6 +2358,7 @@
     "sets": [
       "20"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2297,6 +2380,7 @@
     "sets": [
       "21"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2318,6 +2402,7 @@
     "sets": [
       "20"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2349,6 +2434,7 @@
     "sets": [
       "20"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2370,6 +2456,7 @@
     "sets": [
       "21"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2391,6 +2478,7 @@
     "sets": [
       "21"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2413,6 +2501,7 @@
       "22",
       "23"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -2434,6 +2523,7 @@
     "sets": [
       "22"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2455,6 +2545,7 @@
     "sets": [
       "22"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2471,6 +2562,7 @@
     "sets": [
       "22"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2488,6 +2580,7 @@
     "sets": [
       "23"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2519,6 +2612,7 @@
     "sets": [
       "23"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2557,6 +2651,7 @@
     "sets": [
       "23"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2580,6 +2675,7 @@
       "28",
       "30"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2604,6 +2700,7 @@
       "29",
       "31"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2638,6 +2735,7 @@
       "29",
       "31"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2661,6 +2759,7 @@
       "25",
       "27"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2695,6 +2794,7 @@
       "28",
       "29"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -2717,6 +2817,7 @@
       "26",
       "28"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2739,6 +2840,7 @@
       "26",
       "31"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2761,6 +2863,7 @@
       "24",
       "31"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2784,6 +2887,7 @@
       "30",
       "31"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2827,6 +2931,7 @@
       "28",
       "29"
     ],
+    "cost": 3,
     "effects": [],
     "actions": []
   },
@@ -2839,6 +2944,7 @@
       "25",
       "29"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2862,6 +2968,7 @@
       "25",
       "29"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2884,6 +2991,7 @@
       "25",
       "30"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2906,6 +3014,7 @@
       "26",
       "30"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -2928,6 +3037,7 @@
       "24",
       "26"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -2950,6 +3060,7 @@
       "25",
       "28"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -2971,6 +3082,7 @@
     "sets": [
       "27"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -3003,6 +3115,7 @@
       "29",
       "31"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -3025,6 +3138,7 @@
       "27",
       "28"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -3047,6 +3161,7 @@
       "27",
       "30"
     ],
+    "cost": 3,
     "effects": [
       {
         "applyWhen": "before",
@@ -3080,6 +3195,7 @@
       "30",
       "31"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3103,6 +3219,7 @@
       "28",
       "30"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3124,6 +3241,7 @@
     "sets": [
       "31"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -3155,6 +3273,7 @@
     "sets": [
       "30"
     ],
+    "cost": 4,
     "effects": [
       {
         "buffMap": {
@@ -3193,6 +3312,7 @@
     "sets": [
       "28"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -3214,6 +3334,7 @@
     "sets": [
       "32"
     ],
+    "cost": 4,
     "effects": [
       {
         "buffMap": {
@@ -3260,6 +3381,7 @@
     "sets": [
       "33"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3291,6 +3413,7 @@
     "sets": [
       "35"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3322,6 +3445,7 @@
     "sets": [
       "35"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3343,6 +3467,7 @@
     "sets": [
       "34"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3374,6 +3499,7 @@
     "sets": [
       "33"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3394,6 +3520,7 @@
     "sets": [
       "34"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3415,6 +3542,7 @@
     "sets": [
       "34"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3446,6 +3574,7 @@
     "sets": [
       "34"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3467,6 +3596,7 @@
     "sets": [
       "35"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3488,6 +3618,7 @@
     "sets": [
       "35"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3519,6 +3650,7 @@
     "sets": [
       "33"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3540,6 +3672,7 @@
     "sets": [
       "33"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3561,6 +3694,7 @@
     "sets": [
       "33"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3584,6 +3718,7 @@
       "34",
       "35"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -3607,6 +3742,7 @@
       "34",
       "35"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -3629,6 +3765,7 @@
       "34",
       "35"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -3662,6 +3799,7 @@
     "sets": [
       "33"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -3695,6 +3833,7 @@
       "7",
       "9"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3713,6 +3852,7 @@
       "7",
       "8"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3731,6 +3871,7 @@
       "2",
       "3"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3764,6 +3905,7 @@
       "3",
       "4"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3786,6 +3928,7 @@
       "5",
       "6"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3829,6 +3972,7 @@
       "7",
       "9"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3848,6 +3992,7 @@
       "8",
       "9"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3867,6 +4012,7 @@
       "7",
       "8"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3900,6 +4046,7 @@
       "7",
       "9"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3932,6 +4079,7 @@
       "1",
       "5"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3974,6 +4122,7 @@
       "3",
       "4"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -3997,6 +4146,7 @@
       "7",
       "8"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -4020,6 +4170,7 @@
       "4",
       "8"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -4037,6 +4188,7 @@
       "1",
       "5"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -4059,6 +4211,7 @@
       "1",
       "6"
     ],
+    "cost": 1,
     "effects": [],
     "actions": []
   },
@@ -4070,6 +4223,7 @@
       "2",
       "7"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -4088,6 +4242,7 @@
       "1",
       "5"
     ],
+    "cost": 1,
     "effects": [],
     "actions": []
   },
@@ -4099,6 +4254,7 @@
       "2",
       "3"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4121,6 +4277,7 @@
       "4",
       "5"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4144,6 +4301,7 @@
       "2",
       "9"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -4163,6 +4321,7 @@
       "6",
       "8"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -4186,6 +4345,7 @@
       "3",
       "5"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -4209,6 +4369,7 @@
       "5",
       "6"
     ],
+    "cost": 1,
     "effects": [],
     "actions": [
       {
@@ -4231,6 +4392,7 @@
       "7",
       "8"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4261,6 +4423,7 @@
       "3",
       "9"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4283,6 +4446,7 @@
       "1",
       "6"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4305,6 +4469,7 @@
       "5",
       "7"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4361,6 +4526,7 @@
       "7",
       "9"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4394,6 +4560,7 @@
       "1",
       "6"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4416,6 +4583,7 @@
       "2",
       "6"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4468,6 +4636,7 @@
       "8",
       "9"
     ],
+    "cost": 3,
     "effects": [],
     "actions": [
       {
@@ -4497,6 +4666,7 @@
     "sets": [
       "3"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
@@ -4539,6 +4709,7 @@
       "7",
       "8"
     ],
+    "cost": 4,
     "effects": [
       {
         "applyTo": "team",
@@ -4568,6 +4739,7 @@
     "sets": [
       "2"
     ],
+    "cost": 4,
     "effects": [],
     "actions": [
       {
