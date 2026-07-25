@@ -1412,6 +1412,7 @@
       "setCounts": {
         "2": 5
       },
+      "mainEcho": "6000091",
       "rotation": [
         "introSkill.0",
         "resonanceSkill.2",
@@ -2956,6 +2957,7 @@
         "9": 2,
         "3": 2
       },
+      "mainEcho": "6000201",
       "rotation": [
         "introSkill.0",
         "normalAttack.9",
@@ -5146,6 +5148,7 @@
         "26": 2,
         "24": 2
       },
+      "mainEcho": "6000201",
       "rotation": [
         "introSkill.0",
         "resonanceSkill.0",

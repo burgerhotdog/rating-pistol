@@ -50,3 +50,5 @@ export const SET = {
   [WW]: WW_SET,
   [ZZZ]: ZZZ_SET,
 };
+
+export { default as ECHO } from './wuthering-waves/echoes.json';

@@ -234,6 +234,7 @@ def parse_echo(version, id, data):
         'version': float(version),
         'id': str(id),
         'sets': list(data['group']),
+        'effects': [],
         'actions': actions,
     }
 

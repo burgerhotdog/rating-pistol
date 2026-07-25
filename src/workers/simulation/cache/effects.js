@@ -1,4 +1,4 @@
-import { CHARACTER, WEAPON, SET } from '@/data';
+import { WW, CHARACTER, WEAPON, SET, ECHO } from '@/data';
 import { toArray, toMergedObj } from '@/utils';
 import { isEnabled } from './isEnabled';
 import { toNormalizedAction } from './actions';
@@ -192,7 +192,7 @@ const toNormalizedEffect = (rawEffect, spec) => {
 
 export const normalizeEffects = (member, spec) => {
   const { gameId, memberIds, teamActions } = spec;
-  const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts } = member;
+  const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts, mainEcho } = member;
   const character = CHARACTER[gameId][memberId];
   const weapon = WEAPON[gameId][weaponId];
 
@@ -214,7 +214,15 @@ export const normalizeEffects = (member, spec) => {
         .filter(([tier]) => Number(tier) <= count)
         .flatMap(([, effects]) => effects),
     })),
- ];
+  ];
+
+  if (gameId === WW && mainEcho) {
+    toNormalize.push({
+      from: 'echo',
+      id: mainEcho,
+      rawEffects: ECHO[mainEcho].effects,
+    });
+  }
 
   const normalized = {};
 

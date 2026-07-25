@@ -1,4 +1,4 @@
-import { SET } from '@/data';
+import { WW, SET } from '@/data';
 import { getDefaultWeaponRank } from '@/utils';
 
 const getSetCounts = (gameId, equipList) => {
@@ -43,6 +43,9 @@ export function applyStoredBuild(gameId, member, storedBuild) {
 
   if ('equipList' in storedBuild) {
     next.setCounts = getSetCounts(gameId, storedBuild.equipList);
+    if (gameId === WW) {
+      // next.mainEcho = storedBuild.mainEcho;
+    }
   }
 
   return next;

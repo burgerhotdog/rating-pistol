@@ -7,6 +7,7 @@
       "4",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Hooscamp",
@@ -23,6 +24,7 @@
     "sets": [
       "3"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Tempest Mephis",
@@ -54,6 +56,7 @@
       "4",
       "7"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Hoochief",
@@ -75,6 +78,7 @@
       "8",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Diamondclaw",
@@ -90,6 +94,7 @@
     "sets": [
       "6"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Crownless",
@@ -130,6 +135,7 @@
     "sets": [
       "4"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Feilian Beringal",
@@ -160,6 +166,7 @@
     "sets": [
       "1"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Lampylumen Myriad",
@@ -200,6 +207,7 @@
     "sets": [
       "5"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Mourning Aix",
@@ -231,6 +239,7 @@
       "4",
       "6"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Chirpuff",
@@ -251,6 +260,7 @@
     "sets": [
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Mech Abomination",
@@ -292,6 +302,7 @@
       "1",
       "5"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Autopuppet Scout",
@@ -314,6 +325,7 @@
       "3",
       "4"
     ],
+    "effects": [],
     "actions": []
   },
   "6000051": {
@@ -324,6 +336,7 @@
       "1",
       "5"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Clang Bang",
@@ -340,6 +353,7 @@
     "sets": [
       "8"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Impermanence Heron",
@@ -370,6 +384,7 @@
     "sets": [
       "6"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Dreamless",
@@ -421,6 +436,7 @@
       "2",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Lava Larva",
@@ -442,6 +458,7 @@
       "4",
       "7"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Dwarf Cassowary",
@@ -480,6 +497,7 @@
       "1",
       "8"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Glacio Dreadmane",
@@ -511,6 +529,7 @@
       "1",
       "3"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Lumiscale Construct",
@@ -541,6 +560,7 @@
     "sets": [
       "5"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Lightcrusher",
@@ -591,6 +611,7 @@
     "sets": [
       "7"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fallacy of No Return",
@@ -635,6 +656,7 @@
       "12",
       "13"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Voltscourge Stalker",
@@ -656,6 +678,7 @@
       "11",
       "12"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Frostscourge Stalker",
@@ -677,6 +700,7 @@
       "11",
       "14"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Chop Chop: Headless",
@@ -698,6 +722,7 @@
       "10",
       "14"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Chop Chop: Leftless",
@@ -719,6 +744,7 @@
       "10",
       "14"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Chop Chop: Rightless",
@@ -741,6 +767,7 @@
       "12",
       "19"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fae Ignis",
@@ -763,6 +790,7 @@
       "13",
       "22"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nimbus Wraith",
@@ -784,6 +812,7 @@
       "10",
       "13"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Hocus Pocus",
@@ -805,6 +834,7 @@
       "10",
       "14"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Lottie Lost",
@@ -826,6 +856,7 @@
       "11",
       "14"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Diggy Duggy",
@@ -847,6 +878,7 @@
       "12",
       "13"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Chest Mimic",
@@ -868,6 +900,7 @@
       "10",
       "12"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Questless Knight",
@@ -889,6 +922,7 @@
       "11",
       "14"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Diurnus Knight",
@@ -910,6 +944,7 @@
       "12",
       "13"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nocturnus Knight",
@@ -931,6 +966,7 @@
       "10",
       "13"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Abyssal Patricius",
@@ -953,6 +989,7 @@
       "14",
       "23"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Abyssal Gladius",
@@ -984,6 +1021,7 @@
       "10",
       "11"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Abyssal Mercator",
@@ -1006,6 +1044,7 @@
       "14",
       "19"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Chop Chop",
@@ -1037,6 +1076,7 @@
       "11",
       "13"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Vitreum Dancer",
@@ -1058,6 +1098,7 @@
       "10",
       "12"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Cuddle Wuddle",
@@ -1086,6 +1127,7 @@
     "sets": [
       "12"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Lorelei",
@@ -1106,6 +1148,7 @@
     "sets": [
       "10"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Sentry Construct",
@@ -1136,6 +1179,7 @@
     "sets": [
       "14"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Dragon of Dirge",
@@ -1156,6 +1200,7 @@
     "sets": [
       "13"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Hecate",
@@ -1176,6 +1221,7 @@
     "sets": [
       "4"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Feilian Beringal",
@@ -1206,6 +1252,7 @@
     "sets": [
       "12"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Impermanence Heron",
@@ -1226,6 +1273,7 @@
     "sets": [
       "3"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Thundering Mephis",
@@ -1247,6 +1295,7 @@
       "3",
       "13"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Tempest Mephis",
@@ -1267,6 +1316,7 @@
     "sets": [
       "6"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Crownless",
@@ -1286,6 +1336,14 @@
     "id": "6000091",
     "sets": [
       "2"
+    ],
+    "effects": [
+      {
+        "buffMap": {
+          "fusionDmgBonus%": 0.12,
+          "resonanceSkillDmgBonus%": 0.12
+        }
+      }
     ],
     "actions": [
       {
@@ -1317,6 +1375,7 @@
     "sets": [
       "11"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Mourning Aix",
@@ -1339,6 +1398,7 @@
       "11",
       "21"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Golden Junrock",
@@ -1361,6 +1421,7 @@
       "14",
       "20"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Calcified Junrock",
@@ -1382,6 +1443,7 @@
       "11",
       "14"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Aero Prism",
@@ -1404,6 +1466,7 @@
       "16",
       "21"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Rage Against the Statue",
@@ -1436,6 +1499,7 @@
       "16",
       "20"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Hurriclaw",
@@ -1468,6 +1532,7 @@
       "16",
       "18"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: La Guardia",
@@ -1507,6 +1572,7 @@
       "16",
       "18"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Sagittario",
@@ -1548,6 +1614,7 @@
       "16",
       "17"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Sacerdos",
@@ -1570,6 +1637,7 @@
       "16",
       "18"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Aero Drake",
@@ -1592,6 +1660,7 @@
       "16",
       "18"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Electro Drake",
@@ -1613,6 +1682,7 @@
       "16",
       "17"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Glacio Drake",
@@ -1635,6 +1705,7 @@
       "16",
       "17"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Capitaneus",
@@ -1666,6 +1737,7 @@
       "10",
       "13"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Lampylumen Myriad",
@@ -1687,6 +1759,7 @@
       "16",
       "17"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Fleurdelys",
@@ -1718,6 +1791,7 @@
       "17",
       "18"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fusion Drake",
@@ -1739,6 +1813,7 @@
       "17",
       "18"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Spectro Drake",
@@ -1761,6 +1836,7 @@
       "18",
       "23"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Havoc Drake",
@@ -1783,6 +1859,7 @@
       "17",
       "18"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Devotee's Flesh",
@@ -1804,6 +1881,7 @@
       "17",
       "18"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Pilgrim's Shell",
@@ -1826,6 +1904,7 @@
       "18",
       "22"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Kerasaur",
@@ -1857,6 +1936,7 @@
       "16",
       "17"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Kelpie",
@@ -1887,6 +1967,7 @@
     "sets": [
       "18"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Lioness of Glory",
@@ -1917,6 +1998,7 @@
     "sets": [
       "19"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Hecate",
@@ -1938,6 +2020,7 @@
       "19",
       "21"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Fenrico",
@@ -1958,6 +2041,7 @@
     "sets": [
       "19"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Havoc Warrior",
@@ -1998,6 +2082,7 @@
     "sets": [
       "19"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Glacio Predator",
@@ -2038,6 +2123,7 @@
     "sets": [
       "19"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Tambourinist",
@@ -2059,6 +2145,7 @@
       "18",
       "22"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Corrosaurus",
@@ -2079,6 +2166,7 @@
     "sets": [
       "20"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: The False Sovereign",
@@ -2109,6 +2197,7 @@
     "sets": [
       "20"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Lady of the Sea",
@@ -2139,6 +2228,7 @@
     "sets": [
       "20"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Violet-Feathered Heron",
@@ -2159,6 +2249,7 @@
     "sets": [
       "21"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Cyan-Feathered Heron",
@@ -2179,6 +2270,7 @@
     "sets": [
       "20"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Electro Predator",
@@ -2209,6 +2301,7 @@
     "sets": [
       "20"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Aero Predator",
@@ -2229,6 +2322,7 @@
     "sets": [
       "21"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Gulpuff",
@@ -2249,6 +2343,7 @@
     "sets": [
       "21"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Chirpuff",
@@ -2270,6 +2365,7 @@
       "22",
       "23"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Leviathan",
@@ -2290,6 +2386,7 @@
     "sets": [
       "22"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Viridblaze Saurian",
@@ -2310,6 +2407,7 @@
     "sets": [
       "22"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Baby Viridblaze Saurian",
@@ -2325,6 +2423,7 @@
     "sets": [
       "22"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Baby Roseshroom",
@@ -2341,6 +2440,7 @@
     "sets": [
       "23"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Tick Tack",
@@ -2371,6 +2471,7 @@
     "sets": [
       "23"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Dwarf Cassowary",
@@ -2408,6 +2509,7 @@
     "sets": [
       "23"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Roseshroom",
@@ -2430,6 +2532,7 @@
       "28",
       "30"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Tremor Warrior",
@@ -2453,6 +2556,7 @@
       "29",
       "31"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Flora Drone",
@@ -2486,6 +2590,7 @@
       "29",
       "31"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Mining Drone",
@@ -2508,6 +2613,7 @@
       "25",
       "27"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Geospider S4",
@@ -2541,6 +2647,7 @@
       "28",
       "29"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Zip Zap",
@@ -2562,6 +2669,7 @@
       "26",
       "28"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Twin Nova: Nebulous Cannon",
@@ -2583,6 +2691,7 @@
       "26",
       "31"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Flora Reindeer",
@@ -2604,6 +2713,7 @@
       "24",
       "31"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Mining Reindeer",
@@ -2626,6 +2736,7 @@
       "30",
       "31"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Ironhoof",
@@ -2668,6 +2779,7 @@
       "28",
       "29"
     ],
+    "effects": [],
     "actions": []
   },
   "6000185": {
@@ -2679,6 +2791,7 @@
       "25",
       "29"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Sabercat Reaver",
@@ -2701,6 +2814,7 @@
       "25",
       "29"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Sabercat Prowler",
@@ -2722,6 +2836,7 @@
       "25",
       "30"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Frostbite Coleoid",
@@ -2743,6 +2858,7 @@
       "26",
       "30"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Windlash Coleoid",
@@ -2764,6 +2880,7 @@
       "24",
       "26"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Hyvatia",
@@ -2785,6 +2902,7 @@
       "25",
       "28"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Reactor Husk",
@@ -2805,6 +2923,7 @@
     "sets": [
       "27"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Sigillum",
@@ -2836,6 +2955,7 @@
       "29",
       "31"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Nameless Explorer",
@@ -2857,6 +2977,7 @@
       "27",
       "28"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Kronablight",
@@ -2878,6 +2999,7 @@
       "27",
       "30"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Glommoth",
@@ -2900,6 +3022,7 @@
       "30",
       "31"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Iceglint Dancer",
@@ -2922,6 +3045,7 @@
       "28",
       "30"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Shadow Stepper",
@@ -2942,6 +3066,7 @@
     "sets": [
       "31"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Voidwing Moth",
@@ -2972,6 +3097,7 @@
     "sets": [
       "30"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Voidborne Construct",
@@ -3002,6 +3128,7 @@
     "sets": [
       "28"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Denia",
@@ -3021,6 +3148,13 @@
     "id": "6000201",
     "sets": [
       "32"
+    ],
+    "effects": [
+      {
+        "buffMap": {
+          "critRate%": 0.15
+        }
+      }
     ],
     "actions": [
       {
@@ -3061,6 +3195,7 @@
     "sets": [
       "33"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Smiter",
@@ -3091,6 +3226,7 @@
     "sets": [
       "35"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Porcelain Picket",
@@ -3121,6 +3257,7 @@
     "sets": [
       "35"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Stone Picket",
@@ -3141,6 +3278,7 @@
     "sets": [
       "34"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Aureate Picket",
@@ -3171,6 +3309,7 @@
     "sets": [
       "33"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Kernel Puppet: Joy",
@@ -3190,6 +3329,7 @@
     "sets": [
       "34"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Kernel Puppet: Anger",
@@ -3210,6 +3350,7 @@
     "sets": [
       "34"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Kernel Puppet: Worry",
@@ -3240,6 +3381,7 @@
     "sets": [
       "34"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Kernel Puppet: Reflection",
@@ -3260,6 +3402,7 @@
     "sets": [
       "35"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Kernel Puppet: Grief",
@@ -3280,6 +3423,7 @@
     "sets": [
       "35"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Kernel Puppet: Fright",
@@ -3310,6 +3454,7 @@
     "sets": [
       "33"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fog Lionarch: Body",
@@ -3330,6 +3475,7 @@
     "sets": [
       "33"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fog Lionarch: Head",
@@ -3350,6 +3496,7 @@
     "sets": [
       "33"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Smolder",
@@ -3372,6 +3519,7 @@
       "34",
       "35"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fog Lionarch",
@@ -3394,6 +3542,7 @@
       "34",
       "35"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Forbidden Bastion",
@@ -3415,6 +3564,7 @@
       "34",
       "35"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Myriad Snare: Rustfire Chassis",
@@ -3447,6 +3597,7 @@
     "sets": [
       "33"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Thousand-Puppet Pavilion",
@@ -3479,6 +3630,7 @@
       "7",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Vanguard Junrock",
@@ -3496,6 +3648,7 @@
       "7",
       "8"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fission Junrock",
@@ -3513,6 +3666,7 @@
       "2",
       "3"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Electro Predator",
@@ -3545,6 +3699,7 @@
       "3",
       "4"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fusion Warrior",
@@ -3566,6 +3721,7 @@
       "5",
       "6"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Havoc Warrior",
@@ -3608,6 +3764,7 @@
       "7",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Snip Snap",
@@ -3626,6 +3783,7 @@
       "8",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Zig Zag",
@@ -3644,6 +3802,7 @@
       "7",
       "8"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Whiff Whaff",
@@ -3676,6 +3835,7 @@
       "7",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Tick Tack",
@@ -3707,6 +3867,7 @@
       "1",
       "5"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Glacio Predator",
@@ -3748,6 +3909,7 @@
       "3",
       "4"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Aero Predator",
@@ -3770,6 +3932,7 @@
       "7",
       "8"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Cruisewing",
@@ -3792,6 +3955,7 @@
       "4",
       "8"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Sabyr Boar",
@@ -3808,6 +3972,7 @@
       "1",
       "5"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Gulpuff",
@@ -3829,6 +3994,7 @@
       "1",
       "6"
     ],
+    "effects": [],
     "actions": []
   },
   "390070100": {
@@ -3839,6 +4005,7 @@
       "2",
       "7"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fusion Dreadmane",
@@ -3856,6 +4023,7 @@
       "1",
       "5"
     ],
+    "effects": [],
     "actions": []
   },
   "390077004": {
@@ -3866,6 +4034,7 @@
       "2",
       "3"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Violet-Feathered Heron",
@@ -3887,6 +4056,7 @@
       "4",
       "5"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Cyan-Feathered Heron",
@@ -3909,6 +4079,7 @@
       "2",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Fusion Prism",
@@ -3927,6 +4098,7 @@
       "6",
       "8"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Glacio Prism",
@@ -3949,6 +4121,7 @@
       "3",
       "5"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Spectro Prism",
@@ -3971,6 +4144,7 @@
       "5",
       "6"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Havoc Prism",
@@ -3992,6 +4166,7 @@
       "7",
       "8"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Stonewall Bracer",
@@ -4021,6 +4196,7 @@
       "3",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Flautist",
@@ -4042,6 +4218,7 @@
       "1",
       "6"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Tambourinist",
@@ -4063,6 +4240,7 @@
       "5",
       "7"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Rocksteady Guardian",
@@ -4118,6 +4296,7 @@
       "7",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Chasm Guardian",
@@ -4150,6 +4329,7 @@
       "1",
       "6"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Roseshroom",
@@ -4171,6 +4351,7 @@
       "2",
       "6"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Havoc Dreadmane",
@@ -4222,6 +4403,7 @@
       "8",
       "9"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Spearback",
@@ -4250,6 +4432,7 @@
     "sets": [
       "3"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Thundering Mephis",
@@ -4291,6 +4474,7 @@
       "7",
       "8"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Bell-Borne Geochelone",
@@ -4312,6 +4496,7 @@
     "sets": [
       "2"
     ],
+    "effects": [],
     "actions": [
       {
         "name": "Echo Skill: Inferno Rider",
