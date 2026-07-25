@@ -254,6 +254,39 @@
       }
     ]
   },
+  "6000046": {
+    "name": "Carapace",
+    "version": 1,
+    "id": "6000046",
+    "sets": [
+      "4",
+      "8"
+    ],
+    "cost": 3,
+    "effects": [],
+    "actions": [
+      {
+        "name": "Echo Skill: Carapace",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.12
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Carapace",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.68
+          }
+        ]
+      }
+    ]
+  },
   "6000047": {
     "name": "Chirpuff",
     "version": 1,
@@ -655,6 +688,73 @@
       }
     ]
   },
+  "6000059": {
+    "name": "Ju\u00e9",
+    "version": 1.1,
+    "id": "6000059",
+    "sets": [
+      "5"
+    ],
+    "cost": 4,
+    "effects": [],
+    "actions": [
+      {
+        "name": "Echo Skill: Ju\u00e9",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.64
+          }
+        ],
+        "duration": 0
+      },
+      {
+        "name": "Echo Skill: Ju\u00e9",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.16
+          }
+        ],
+        "duration": 0
+      },
+      {
+        "name": "Echo Skill: Ju\u00e9",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.4864
+          }
+        ],
+        "duration": 0
+      },
+      {
+        "name": "Echo Skill: Ju\u00e9",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.1945
+          }
+        ],
+        "duration": 0
+      },
+      {
+        "name": "Echo Skill: Ju\u00e9",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.4864
+          }
+        ],
+        "duration": 0
+      }
+    ]
+  },
   "6000060": {
     "name": "Fallacy of No Return",
     "version": 1.3,
@@ -709,6 +809,30 @@
             "mv": 0.1982
           }
         ]
+      }
+    ]
+  },
+  "6000061": {
+    "name": "Galescourge Stalker",
+    "version": 2,
+    "id": "6000061",
+    "sets": [
+      "10",
+      "13"
+    ],
+    "cost": 1,
+    "effects": [],
+    "actions": [
+      {
+        "name": "Echo Skill: Galescourge Stalker",
+        "type": "healing",
+        "attr": "hp",
+        "multipliers": [
+          {
+            "mv": 0.027
+          }
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2914,6 +3038,40 @@
       }
     ]
   },
+  "6000180": {
+    "name": "Twin Nova: Collapsar Blade",
+    "version": 3,
+    "id": "6000180",
+    "sets": [
+      "26",
+      "27",
+      "29"
+    ],
+    "cost": 3,
+    "effects": [],
+    "actions": [
+      {
+        "name": "Echo Skill: Twin Nova: Collapsar Blade",
+        "skillType": "echoSkill",
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.0201
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Twin Nova: Collapsar Blade",
+        "skillType": "echoSkill",
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 0.0201
+          }
+        ]
+      }
+    ]
+  },
   "6000181": {
     "name": "Flora Reindeer",
     "version": 3,
@@ -3239,6 +3397,49 @@
         "multipliers": [
           {
             "mv": 2.682
+          }
+        ]
+      }
+    ]
+  },
+  "6000194": {
+    "name": "Reminiscence: Kronaclaw",
+    "version": 3.1,
+    "id": "6000194",
+    "sets": [
+      "27",
+      "28"
+    ],
+    "cost": 3,
+    "effects": [],
+    "actions": [
+      {
+        "name": "Echo Skill: Reminiscence: Kronaclaw",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.0804
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Reminiscence: Kronaclaw",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 0.2413
+          }
+        ]
+      },
+      {
+        "name": "Echo Skill: Reminiscence: Kronaclaw",
+        "skillType": "echoSkill",
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 1.5555
           }
         ]
       }
@@ -4330,6 +4531,45 @@
     "effects": [],
     "actions": []
   },
+  "390070078": {
+    "name": "Baby Viridblaze Saurian",
+    "version": 1,
+    "id": "390070078",
+    "sets": [
+      "2",
+      "3",
+      "9"
+    ],
+    "cost": 1,
+    "effects": [],
+    "actions": [
+      {
+        "name": "Echo Skill: Baby Viridblaze Saurian",
+        "type": "healing",
+        "multipliers": []
+      }
+    ]
+  },
+  "390070079": {
+    "name": "Baby Roseshroom",
+    "version": 1,
+    "id": "390070079",
+    "sets": [
+      "4",
+      "6"
+    ],
+    "cost": 1,
+    "effects": [],
+    "actions": [
+      {
+        "name": "Echo Skill: Baby Roseshroom",
+        "skillType": "echoSkill",
+        "element": "havoc",
+        "multipliers": [],
+        "duration": 0
+      }
+    ]
+  },
   "390070100": {
     "name": "Fusion Dreadmane",
     "version": 1,
@@ -4670,6 +4910,30 @@
         "name": "Echo Skill: Chasm Guardian",
         "type": "healing",
         "multipliers": []
+      }
+    ]
+  },
+  "390077028": {
+    "name": "Viridblaze Saurian",
+    "version": 1,
+    "id": "390077028",
+    "sets": [
+      "2",
+      "8"
+    ],
+    "cost": 3,
+    "effects": [],
+    "actions": [
+      {
+        "name": "Echo Skill: Viridblaze Saurian",
+        "skillType": "echoSkill",
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 0.1712
+          }
+        ],
+        "duration": 0
       }
     ]
   },

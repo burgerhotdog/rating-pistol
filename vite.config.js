@@ -10,25 +10,47 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 function iconManifestPlugin() {
-  function writeManifest() {
-    const dir = path.resolve(__dirname, 'public/wuthering-waves/set');
-    const files = readdirSync(dir)
-      .filter(f => f.endsWith('.webp'))
-      .map(f => `${BASE}wuthering-waves/set/${f}`);
-    writeFileSync(
-      path.resolve(__dirname, 'public/wuthering-waves/set/manifest.json'),
-      JSON.stringify(files)
-    );
+  const directories = ['set', 'echo'];
+
+  function writeManifests() {
+    for (const directory of directories) {
+      const dir = path.resolve(
+        __dirname,
+        `public/wuthering-waves/${directory}`,
+      );
+
+      const files = readdirSync(dir)
+        .filter(file => file.endsWith('.webp'))
+        .map(file => `${BASE}wuthering-waves/${directory}/${file}`);
+
+      writeFileSync(
+        path.resolve(dir, 'manifest.json'),
+        JSON.stringify(files),
+      );
+    }
   }
 
   return {
-    name: 'generate-icon-manifest',
-    buildStart: writeManifest,
+    name: 'generate-icon-manifests',
+    buildStart: writeManifests,
+
     configureServer(server) {
-      writeManifest();
-      server.watcher.add(path.resolve(__dirname, 'public/wuthering-waves/set'));
-      server.watcher.on('change', (file) => {
-        if (file.includes('wuthering-waves/set')) writeManifest();
+      writeManifests();
+
+      for (const directory of directories) {
+        const dir = path.resolve(
+          __dirname,
+          `public/wuthering-waves/${directory}`,
+        );
+
+        server.watcher.add(dir);
+      }
+
+      server.watcher.on('change', file => {
+        if (file.includes('public/wuthering-waves/set') ||
+            file.includes('public/wuthering-waves/echo')) {
+          writeManifests();
+        }
       });
     },
   };
