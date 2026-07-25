@@ -11,6 +11,7 @@ import { compareStrings } from './helpers';
 import { validateBitmap } from './validateBitmap';
 import { getRank } from './getRank';
 import { getSetId } from './getSetId';
+import { getMainEcho } from './getMainEcho';
 import { getCost } from './getCost';
 import { getId } from './getId';
 
@@ -25,9 +26,7 @@ const initWorker = async () => {
 self.onmessage = async ({ data }) => {
   const { imageBitmap } = data;
   const validation = validateBitmap(imageBitmap);
-  if (!validation.success) {
-    return self.postMessage(validation);
-  }
+  if (!validation.success) return self.postMessage(validation);
 
   try {
     const ocrWorker = await initWorker();
@@ -154,7 +153,12 @@ self.onmessage = async ({ data }) => {
       equipList.push({ cost, setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList });
     }
 
-    const build = { rank, weaponId, equipList };
+    // Main Echo
+    const mainEchoSet = equipList[0].setId;
+    const mainEchoCost = equipList[0].cost;
+    const mainEcho = await getMainEcho(imageBitmap, mainEchoSet, mainEchoCost);
+
+    const build = { rank, weaponId, equipList, mainEcho };
     self.postMessage({ success: true, entry: [characterId, build] });
   } catch (error) {
     console.error(error);
