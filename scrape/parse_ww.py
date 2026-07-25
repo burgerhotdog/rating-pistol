@@ -17,6 +17,13 @@ list_type = [
     'rectifier',
 ]
 
+lookup_cost = {
+    0: 1,
+    1: 3,
+    2: 4,
+    3: 4,
+}
+
 lookup_stat = {
     'HP': 'hp%',
     'HP+': 'hp%',
@@ -234,6 +241,7 @@ def parse_echo(version, id, data):
         'version': float(version),
         'id': str(id),
         'sets': list(data['group']),
+        'cost': lookup_cost[data['intensity_code']],
         'effects': [],
         'actions': actions,
     }
