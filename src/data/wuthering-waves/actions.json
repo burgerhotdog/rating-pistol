@@ -46192,7 +46192,6 @@
           "tagged": "Hecate",
           "skillType": "basicAttack",
           "dmgType": "echoSkill",
-          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -46218,14 +46217,14 @@
                 0.508
               ]
             }
-          ]
+          ],
+          "duration": 0
         },
         {
           "name": "Basic Attack 2",
           "tagged": "Hecate",
           "skillType": "basicAttack",
           "dmgType": "echoSkill",
-          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -46252,7 +46251,8 @@
               ],
               "times": 2
             }
-          ]
+          ],
+          "duration": 0
         },
         {
           "name": "Enhanced Attack: Strings",

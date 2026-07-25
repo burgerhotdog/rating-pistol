@@ -1,4 +1,4 @@
-import { WW, CHARACTER, WEAPON, SET, ECHO } from '@/data';
+import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
 import { toArray, toMergedObj } from '@/utils';
 import { isEnabled } from './isEnabled';
 import { toNormalizedAction } from './actions';
@@ -216,7 +216,7 @@ export const normalizeEffects = (member, spec) => {
     })),
   ];
 
-  if (gameId === WW && mainEcho) {
+  if (mainEcho) {
     toNormalize.push({
       from: 'echo',
       id: mainEcho,

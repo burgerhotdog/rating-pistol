@@ -1,4 +1,4 @@
-import { GI, WW, ZZZ } from '@/data';
+import { GI, WW, ZZZ, ECHO } from '@/data';
 import { CHARACTER, ACTION } from '@/data';
 import { resolveRankedValue } from './resolveRanked';
 
@@ -17,6 +17,7 @@ const DEFAULT_DURATIONS = {
     'dodgeCounter': 1500,
     'resonanceSkill': 1000,
     'introSkill': 1000,
+    'echoSkill': 1000,
   },
   [ZZZ]: {
     'basicAttack': 1000,
@@ -68,13 +69,12 @@ export const toNormalizedAction = (rawAction, spec) => {
     ownerId,
     key: `${ownerId}:${category}.${actionId}`,
     ref: `${category}.${actionId}`,
+    category,
     id: actionId,
   };
 
   // Init default action type
-  if (action.multipliers) {
-    action.type ??= 'damage';
-  }
+  if (action.multipliers) action.type ??= 'damage';
 
   // Init default dmgType
   if (action.type === 'damage' && action.skillType) {
@@ -82,9 +82,7 @@ export const toNormalizedAction = (rawAction, spec) => {
   }
 
   // Resolve $teamSize
-  if (action.times === '$teamSize') {
-    action.times = teamSize;
-  }
+  if (action.times === '$teamSize') action.times = teamSize;
 
   if (action.multipliers) {
     // Init element
@@ -150,7 +148,7 @@ const createIndexGetter = (gameId, memberId, memberRank) => {
 };
 
 export const getMemberActions = (member, { gameId, teamSize }) => {
-  const { id: memberId } = member;
+  const { id: memberId, mainEcho } = member;
   const char = CHARACTER[gameId][memberId];
   const getIndex = createIndexGetter(gameId, memberId, member.rank);
 
@@ -167,6 +165,19 @@ export const getMemberActions = (member, { gameId, teamSize }) => {
         teamSize,
         index: mvIndex,
         charElement: char.element,
+      });
+    }
+  }
+
+  if (mainEcho) {
+    const echo = ECHO[mainEcho];
+    for (const [index, rawAction] of echo.actions.entries()) {
+      memberActions[`echoSkill.${index}`] = toNormalizedAction(rawAction, {
+        gameId,
+        ownerId: memberId,
+        category: 'echoSkill',
+        actionId: index,
+        teamSize,
       });
     }
   }

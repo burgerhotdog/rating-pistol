@@ -211,7 +211,7 @@ def parse_set(version, id, data):
 
 def parse_echo(version, id, data):
     actions = []
-    for index, entry in enumerate(data['skill']['damage'].values()):
+    for entry in data['skill']['damage'].values():
         action = {
             'name': f'Echo Skill: {data["name"]}',
         }
@@ -233,8 +233,10 @@ def parse_echo(version, id, data):
         else:
             action['multipliers'] = []
 
+        if data['skill']['desc'].startswith('Summon'):
+            action['duration'] = 0
+
         actions.append(action)
-    
 
     return {
         'name': data['name'],

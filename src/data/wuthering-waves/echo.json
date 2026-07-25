@@ -14,7 +14,12 @@
         "name": "Echo Skill: Hooscamp",
         "skillType": "echoSkill",
         "element": "aero",
-        "multipliers": []
+        "multipliers": [
+          {
+            "mv": 0.48,
+            "flat": 96
+          }
+        ]
       }
     ]
   },
@@ -26,10 +31,20 @@
       "3"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "echoSkill:1",
+        "buffMap": {
+          "electroDmgBonus%": 0.12,
+          "heavyAttackDmgBonus%": 0.12
+        },
+        "maxDuration": 15000
+      }
+    ],
     "actions": [
       {
-        "name": "Echo Skill: Tempest Mephis",
+        "name": "Echo Skill: Tempest Mephis: Tail swing",
         "skillType": "echoSkill",
         "element": "electro",
         "multipliers": [
@@ -39,7 +54,7 @@
         ]
       },
       {
-        "name": "Echo Skill: Tempest Mephis",
+        "name": "Echo Skill: Tempest Mephis: Claw",
         "skillType": "echoSkill",
         "element": "electro",
         "multipliers": [
@@ -258,7 +273,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -355,7 +371,8 @@
         "name": "Echo Skill: Clang Bang",
         "skillType": "echoSkill",
         "element": "glacio",
-        "multipliers": []
+        "multipliers": [],
+        "duration": 0
       }
     ]
   },
@@ -472,7 +489,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -494,7 +512,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Dwarf Cassowary",
@@ -503,7 +522,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Dwarf Cassowary",
@@ -512,7 +532,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -710,7 +731,8 @@
           {
             "mv": 0.432
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -733,7 +755,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -756,7 +779,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -779,7 +803,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -802,7 +827,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -826,7 +852,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -850,7 +877,8 @@
           {
             "mv": 0.027
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -873,7 +901,8 @@
           {
             "mv": 0.432
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -896,7 +925,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -942,7 +972,8 @@
           {
             "mv": 0.642
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1115,7 +1146,8 @@
           {
             "mv": 0.1926
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Chop Chop",
@@ -1125,7 +1157,8 @@
           {
             "mv": 0.7704
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1291,7 +1324,8 @@
           {
             "mv": 0.4559
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1313,7 +1347,8 @@
           {
             "mv": 1.6416
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Nightmare: Feilian Beringal",
@@ -1323,7 +1358,8 @@
           {
             "mv": 0.2188
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1473,7 +1509,8 @@
           {
             "mv": 2.736
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1497,7 +1534,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1521,7 +1559,8 @@
           {
             "mv": 0.0252
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1544,7 +1583,8 @@
           {
             "mv": 0.1926
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1720,7 +1760,8 @@
           {
             "mv": 0.648
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1744,7 +1785,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1768,7 +1810,8 @@
           {
             "mv": 0.432
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1791,7 +1834,8 @@
           {
             "mv": 0.2592
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1815,7 +1859,8 @@
           {
             "mv": 1.188
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Capitaneus",
@@ -1825,7 +1870,8 @@
           {
             "mv": 0.594
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1860,7 +1906,8 @@
           {
             "mv": 2.736
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1883,7 +1930,8 @@
           {
             "mv": 0.2736
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Reminiscence: Fleurdelys",
@@ -1893,7 +1941,8 @@
           {
             "mv": 1.368
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1916,7 +1965,8 @@
           {
             "mv": 0.2592
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1939,7 +1989,8 @@
           {
             "mv": 0.432
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1963,7 +2014,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -1987,7 +2039,8 @@
           {
             "mv": 0.432
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2099,7 +2152,8 @@
           {
             "mv": 0.8208
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Lioness of Glory",
@@ -2109,7 +2163,8 @@
           {
             "mv": 1.9152
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2154,7 +2209,8 @@
           {
             "mv": 2.736
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2218,7 +2274,8 @@
           {
             "mv": 0.4608
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Nightmare: Glacio Predator",
@@ -2228,7 +2285,8 @@
           {
             "mv": 0.046
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Nightmare: Glacio Predator",
@@ -2238,7 +2296,8 @@
           {
             "mv": 0.2304
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2260,7 +2319,8 @@
           {
             "mv": 0.144
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2283,7 +2343,8 @@
           {
             "mv": 2.736
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2337,7 +2398,8 @@
           {
             "mv": 0.1368
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Lady of the Sea",
@@ -2347,7 +2409,8 @@
           {
             "mv": 1.6416
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2413,7 +2476,8 @@
           {
             "mv": 0.1728
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Nightmare: Electro Predator",
@@ -2423,7 +2487,8 @@
           {
             "mv": 0.4608
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2445,7 +2510,8 @@
           {
             "mv": 0.288
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2467,7 +2533,8 @@
           {
             "mv": 0.2304
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2489,7 +2556,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2512,7 +2580,8 @@
           {
             "mv": 1.3104
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2534,7 +2603,8 @@
           {
             "mv": 0.1712
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2569,7 +2639,8 @@
         "name": "Echo Skill: Nightmare: Baby Roseshroom",
         "skillType": "echoSkill",
         "element": "havoc",
-        "multipliers": []
+        "multipliers": [],
+        "duration": 0
       }
     ]
   },
@@ -2591,7 +2662,8 @@
           {
             "mv": 0.6848
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Nightmare: Tick Tack",
@@ -2601,7 +2673,8 @@
           {
             "mv": 1.0272
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2622,7 +2695,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Nightmare: Dwarf Cassowary",
@@ -2631,7 +2705,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Nightmare: Dwarf Cassowary",
@@ -2640,7 +2715,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2662,7 +2738,8 @@
           {
             "mv": 0.5706
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2711,7 +2788,8 @@
           {
             "mv": 0.648
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Flora Drone",
@@ -2721,7 +2799,8 @@
           {
             "mv": 0.036
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2770,7 +2849,8 @@
           {
             "mv": 0.5184
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Geospider S4",
@@ -2780,7 +2860,8 @@
           {
             "mv": 0.7776
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2805,7 +2886,8 @@
           {
             "mv": 0.2592
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2851,7 +2933,8 @@
           {
             "mv": 1.926
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2874,7 +2957,8 @@
           {
             "mv": 2.376
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2955,7 +3039,8 @@
           {
             "mv": 1.926
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -2979,7 +3064,8 @@
           {
             "mv": 1.926
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3002,7 +3088,8 @@
           {
             "mv": 1.926
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3048,7 +3135,8 @@
           {
             "mv": 0.2736
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3093,7 +3181,8 @@
           {
             "mv": 0.684
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Sigillum",
@@ -3103,7 +3192,8 @@
           {
             "mv": 2.052
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3126,7 +3216,8 @@
           {
             "mv": 2.736
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3182,7 +3273,8 @@
           {
             "mv": 2.736
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3230,7 +3322,8 @@
           {
             "mv": 1.296
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3291,7 +3384,8 @@
           {
             "mv": 0.2188
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Voidborne Construct",
@@ -3301,7 +3395,8 @@
           {
             "mv": 1.6416
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3323,7 +3418,8 @@
           {
             "mv": 2.736
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3777,7 +3873,8 @@
           {
             "mv": 0.102
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Myriad Snare: Rustfire Chassis",
@@ -3788,7 +3885,8 @@
           {
             "mv": 0.0037
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3839,7 +3937,8 @@
       {
         "name": "Echo Skill: Vanguard Junrock",
         "type": "healing",
-        "multipliers": []
+        "multipliers": [],
+        "duration": 0
       }
     ]
   },
@@ -3859,7 +3958,8 @@
         "name": "Echo Skill: Fission Junrock",
         "type": "healing",
         "attr": "hp",
-        "multipliers": []
+        "multipliers": [],
+        "duration": 0
       }
     ]
   },
@@ -3882,7 +3982,8 @@
           {
             "mv": 0.1728
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Electro Predator",
@@ -3892,7 +3993,8 @@
           {
             "mv": 0.4608
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -3979,7 +4081,8 @@
         "name": "Echo Skill: Snip Snap",
         "skillType": "echoSkill",
         "element": "fusion",
-        "multipliers": []
+        "multipliers": [],
+        "duration": 0
       }
     ]
   },
@@ -3999,7 +4102,8 @@
         "name": "Echo Skill: Zig Zag",
         "skillType": "echoSkill",
         "element": "spectro",
-        "multipliers": []
+        "multipliers": [],
+        "duration": 0
       }
     ]
   },
@@ -4023,7 +4127,8 @@
           {
             "mv": 0.5136
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Whiff Whaff",
@@ -4033,7 +4138,8 @@
           {
             "mv": 0.1997
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4057,7 +4163,8 @@
           {
             "mv": 0.6848
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Tick Tack",
@@ -4067,7 +4174,8 @@
           {
             "mv": 1.0272
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4090,7 +4198,8 @@
           {
             "mv": 0.4608
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Glacio Predator",
@@ -4100,7 +4209,8 @@
           {
             "mv": 0.046
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Glacio Predator",
@@ -4110,7 +4220,8 @@
           {
             "mv": 0.2304
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4133,7 +4244,8 @@
           {
             "mv": 0.288
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4157,7 +4269,8 @@
           {
             "mv": 0.018
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4176,7 +4289,8 @@
       {
         "name": "Echo Skill: Sabyr Boar",
         "type": "healing",
-        "multipliers": []
+        "multipliers": [],
+        "duration": 0
       }
     ]
   },
@@ -4199,7 +4313,8 @@
           {
             "mv": 0.2304
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4230,7 +4345,8 @@
         "name": "Echo Skill: Fusion Dreadmane",
         "skillType": "echoSkill",
         "element": "fusion",
-        "multipliers": []
+        "multipliers": [],
+        "duration": 0
       }
     ]
   },
@@ -4308,7 +4424,8 @@
         "name": "Echo Skill: Fusion Prism",
         "skillType": "echoSkill",
         "element": "fusion",
-        "multipliers": []
+        "multipliers": [],
+        "duration": 0
       }
     ]
   },
@@ -4332,7 +4449,8 @@
           {
             "mv": 0.384
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4356,7 +4474,8 @@
           {
             "mv": 0.144
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4380,7 +4499,8 @@
           {
             "mv": 0.2304
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4457,7 +4577,8 @@
           {
             "mv": 0.144
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4571,7 +4692,8 @@
           {
             "mv": 0.5706
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -4646,7 +4768,8 @@
           {
             "mv": 0.2996
           }
-        ]
+        ],
+        "duration": 0
       },
       {
         "name": "Echo Skill: Spearback",
@@ -4655,7 +4778,8 @@
           {
             "mv": 0.5136
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
