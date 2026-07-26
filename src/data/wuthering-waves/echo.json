@@ -101,8 +101,14 @@
     "actions": [
       {
         "name": "Echo Skill: Diamondclaw",
-        "type": "healing",
-        "multipliers": []
+        "skillType": "echoSkill",
+        "element": "physical",
+        "multipliers": [
+          {
+            "mv": 0.48,
+            "flat": 96
+          }
+        ]
       }
     ]
   },
@@ -114,35 +120,48 @@
       "6"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "echoSkill:0",
+        "buffMap": {
+          "havocDmgBonus%": 0.12,
+          "resonanceSkillDmgBonus%": 0.12
+        },
+        "maxDuration": 15000
+      }
+    ],
     "actions": [
       {
-        "name": "Echo Skill: Crownless",
+        "name": "Echo Skill: Crownless 1",
         "skillType": "echoSkill",
         "element": "havoc",
         "multipliers": [
           {
-            "mv": 1.3408
+            "mv": 1.3408,
+            "times": 2
           }
         ]
       },
       {
-        "name": "Echo Skill: Crownless",
+        "name": "Echo Skill: Crownless 2",
         "skillType": "echoSkill",
         "element": "havoc",
         "multipliers": [
           {
-            "mv": 1.0056
+            "mv": 1.0056,
+            "times": 2
           }
         ]
       },
       {
-        "name": "Echo Skill: Crownless",
+        "name": "Echo Skill: Crownless 3",
         "skillType": "echoSkill",
         "element": "havoc",
         "multipliers": [
           {
-            "mv": 0.6704
+            "mv": 0.6704,
+            "times": 3
           }
         ]
       }
@@ -156,7 +175,17 @@
       "4"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "after",
+        "applyOnAction": "echoSkill:0",
+        "buffMap": {
+          "aeroDmgBonus%": 0.12,
+          "heavyAttackDmgBonus%": 0.12
+        },
+        "maxDuration": 15000
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Feilian Beringal",
@@ -165,18 +194,12 @@
         "multipliers": [
           {
             "mv": 2.3184
-          }
-        ]
-      },
-      {
-        "name": "Echo Skill: Feilian Beringal",
-        "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
+          },
           {
             "mv": 2.8336
           }
-        ]
+        ],
+        "duration": 2000
       }
     ]
   },
@@ -188,10 +211,25 @@
       "1"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "echoSkill:0",
+          "echoSkill:1",
+          "echoSkill:2"
+        ],
+        "buffMap": {
+          "glacioDmgBonus%": 0.04,
+          "resonanceSkillDmgBonus%": 0.04
+        },
+        "maxDuration": 15000,
+        "maxStacks": 3
+      }
+    ],
     "actions": [
       {
-        "name": "Echo Skill: Lampylumen Myriad",
+        "name": "Echo Skill: Lampylumen Myriad 1",
         "skillType": "echoSkill",
         "element": "glacio",
         "multipliers": [
@@ -201,7 +239,7 @@
         ]
       },
       {
-        "name": "Echo Skill: Lampylumen Myriad",
+        "name": "Echo Skill: Lampylumen Myriad 2",
         "skillType": "echoSkill",
         "element": "glacio",
         "multipliers": [
@@ -211,7 +249,7 @@
         ]
       },
       {
-        "name": "Echo Skill: Lampylumen Myriad",
+        "name": "Echo Skill: Lampylumen Myriad 3",
         "skillType": "echoSkill",
         "element": "glacio",
         "multipliers": [
@@ -230,10 +268,23 @@
       "5"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "echoSkill:0",
+          "echoSkill:1"
+        ],
+        "buffMap": {
+          "spectroDmgBonus%": 0.12,
+          "resonanceLiberationDmgBonus%": 0.12
+        },
+        "maxDuration": 15000
+      }
+    ],
     "actions": [
       {
-        "name": "Echo Skill: Mourning Aix",
+        "name": "Echo Skill: Mourning Aix 1",
         "skillType": "echoSkill",
         "element": "spectro",
         "multipliers": [
@@ -243,7 +294,7 @@
         ]
       },
       {
-        "name": "Echo Skill: Mourning Aix",
+        "name": "Echo Skill: Mourning Aix 2",
         "skillType": "echoSkill",
         "element": "spectro",
         "multipliers": [
@@ -266,7 +317,7 @@
     "effects": [],
     "actions": [
       {
-        "name": "Echo Skill: Carapace",
+        "name": "Echo Skill: Carapace 1",
         "skillType": "echoSkill",
         "element": "aero",
         "multipliers": [
@@ -276,7 +327,7 @@
         ]
       },
       {
-        "name": "Echo Skill: Carapace",
+        "name": "Echo Skill: Carapace 2",
         "skillType": "echoSkill",
         "element": "aero",
         "multipliers": [
@@ -304,7 +355,8 @@
         "element": "aero",
         "multipliers": [
           {
-            "mv": 0.384
+            "mv": 0.384,
+            "times": 3
           }
         ],
         "duration": 0
@@ -319,37 +371,34 @@
       "9"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "echoSkill:0",
+        "buffMap": {
+          "atk%": 0.12
+        },
+        "maxDuration": 15000
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Mech Abomination",
         "skillType": "echoSkill",
+        "dmgType": "outroSkill",
         "element": "electro",
         "multipliers": [
           {
             "mv": 0.4864
-          }
-        ]
-      },
-      {
-        "name": "Echo Skill: Mech Abomination",
-        "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
+          },
           {
             "mv": 3.2
-          }
-        ]
-      },
-      {
-        "name": "Echo Skill: Mech Abomination",
-        "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
+          },
           {
             "mv": 1.6
           }
-        ]
+        ],
+        "duration": 0
       }
     ]
   },
@@ -387,7 +436,13 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": []
+    "actions": [
+      {
+        "name": "Echo Skill: Traffic Illuminator",
+        "skillType": "echoSkill",
+        "duration": 0
+      }
+    ]
   },
   "6000051": {
     "name": "Clang Bang",
@@ -404,7 +459,12 @@
         "name": "Echo Skill: Clang Bang",
         "skillType": "echoSkill",
         "element": "glacio",
-        "multipliers": [],
+        "multipliers": [
+          {
+            "mv": 0.32,
+            "flat": 64
+          }
+        ],
         "duration": 0
       }
     ]
@@ -419,8 +479,19 @@
     "cost": 4,
     "effects": [
       {
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "echoSkill:0",
+          "echoSkill:1"
+        ],
+        "maxDuration": 15000
+      },
+      {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
         "applyTo": "next",
         "buffMap": {
           "dmgBonus%": 0.12
@@ -435,19 +506,21 @@
         "element": "havoc",
         "multipliers": [
           {
-            "mv": 0.5572
+            "mv": 3.1056
           }
         ]
       },
       {
-        "name": "Echo Skill: Impermanence Heron",
+        "name": "Echo Skill: Impermanence Heron: Hold",
         "skillType": "echoSkill",
         "element": "havoc",
         "multipliers": [
           {
-            "mv": 3.1056
+            "mv": 0.5572,
+            "times": 4
           }
-        ]
+        ],
+        "duration": 3000
       }
     ]
   },
