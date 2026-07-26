@@ -1,0 +1,6093 @@
+{
+  "1102": {
+    "name": "Sanhua",
+    "version": 1,
+    "quality": 4,
+    "element": "glacio",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 10062,
+      "baseAtk": 275,
+      "baseDef": 941
+    },
+    "ascensionStats": {
+      "glacioDmgBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "introSkill",
+        "useOnSkillType": "resonanceSkill",
+        "buffMap": {
+          "dmgBonus%": 0.2
+        },
+        "maxDuration": 8000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "normalAttack.4",
+        "useOnAction": [
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.2
+        },
+        "maxDuration": 8000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "basicAttackDmgAmp%": 0.38
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "before",
+        "applyOnAction": "normalAttack.4",
+        "buffMap": {
+          "critRate%": 0.15
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 3,
+        "chance": 0.7,
+        "buffMap": {
+          "dmgBonus%": 0.35
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "dmgBonus%": 1.2
+        },
+        "maxDuration": 5000,
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": [
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3"
+        ],
+        "buffMap": {
+          "critDmg%": 1
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "after",
+        "applyOnAction": [
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.1
+        },
+        "maxDuration": 20000,
+        "maxStacks": 2
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1102",
+        "1505"
+      ],
+      "weaponId": "21020015",
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": "6000052",
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.3",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1103": {
+    "name": "Baizhi",
+    "version": 1,
+    "quality": 4,
+    "element": "glacio",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 12812,
+      "baseAtk": 212,
+      "baseDef": 1002
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.12,
+      "hp%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useWhen": "interval",
+        "useCooldown": 2500,
+        "useAction": "resonanceLiberation.1",
+        "maxUses": 4,
+        "rankMods": {
+          "4": {
+            "maxUses": 2
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "heavyAttack",
+        "applyOnAction": "resonanceSkill.0",
+        "useWhen": "interval",
+        "useCooldown": 2000,
+        "useAction": "forteCircuit.0",
+        "maxUses": 4
+      },
+      {
+        "name": "Concentration",
+        "applyWhen": "hit",
+        "applyOnSkillType": "basicAttack",
+        "maxStacks": 4
+      },
+      {
+        "name": "Euphonia",
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.0",
+        "maxDuration": 15000
+      },
+      {
+        "applyBy": "first",
+        "applyWhen": "after",
+        "applyOnSkillType": "introSkill",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "onApplyDoRemove": "$prev.1",
+        "applyTo": "first",
+        "buffMap": {
+          "atk%": 0.15
+        },
+        "maxDuration": 20000
+      },
+      {
+        "useWhen": "hit",
+        "useOnSkillType": "heavyAttack",
+        "useAction": {
+          "type": "healing",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.0025
+            }
+          ]
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "useWhen": "interval",
+        "useCooldown": 3000,
+        "useAction": {
+          "type": "healing",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.0154
+            }
+          ]
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "dmgAmp%": 0.15
+        },
+        "maxDuration": 36000
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.0",
+        "buffMap": {
+          "glacioDmgBonus%": 0.15,
+          "healingBonus%": 0.15
+        },
+        "maxDuration": 12000
+      },
+      {
+        "enableIfRankMin": 3,
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "buffMap": {
+          "hp%": 0.12
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnAction": "resonanceLiberation.2",
+        "buffMap": {
+          "mv%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnAction": "resonanceLiberation.1",
+        "buffMap": {
+          "mv": 0.012
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.0",
+        "applyTo": "team",
+        "buffMap": {
+          "glacioDmgBonus%": 0.12
+        },
+        "maxDuration": 35000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1103"
+      ],
+      "weaponId": "21050024",
+      "setCounts": {
+        "7": 5
+      },
+      "mainEcho": "390080005",
+      "rotation": [
+        "introSkill.0",
+        "introSkill.1",
+        "resonanceLiberation.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1104": {
+    "name": "Lingyang",
+    "version": 1,
+    "quality": 5,
+    "element": "glacio",
+    "type": "gauntlets",
+    "baseStats": {
+      "baseHp": 10387,
+      "baseAtk": 437,
+      "baseDef": 1209
+    },
+    "ascensionStats": {
+      "glacioDmgBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "glacioDmgBonus%": 0.5
+        },
+        "maxDuration": 14000,
+        "rankMods": {
+          "3": {
+            "buffMap": {
+              "basicAttackDmgBonus%": 0.2,
+              "resonanceSkillDmgBonus%": 0.1
+            }
+          }
+        }
+      },
+      {
+        "useOnAction": "introSkill.0",
+        "buffMap": {
+          "dmgBonus%": 0.5
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.4"
+        ],
+        "useOnAction": "forteCircuit.3",
+        "buffMap": {
+          "mv%": 1.5
+        },
+        "maxDuration": 3000,
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "outroSkill.0",
+        "applyTo": "team",
+        "buffMap": {
+          "glacioDmgBonus%": 0.2
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "mv": 2
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.3",
+        "useOnSkillType": "basicAttack",
+        "buffMap": {
+          "basicAttackDmgBonus%": 1
+        },
+        "maxDuration": 3000,
+        "maxUses": 1
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1104",
+        "1102",
+        "1505"
+      ],
+      "weaponId": "21040015",
+      "setCounts": {
+        "1": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.3",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.1",
+        "forteCircuit.3",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "forteCircuit.5",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1105": {
+    "name": "Zhezhi",
+    "version": 1.2,
+    "quality": 5,
+    "element": "glacio",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 12250,
+      "baseAtk": 375,
+      "baseDef": 1197
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "global",
+        "useWhen": "hit",
+        "useOnType": "damage",
+        "useIfField": "onField",
+        "useCooldown": 1000,
+        "useAction": "resonanceLiberation.0",
+        "maxDuration": 30000,
+        "maxUses": 21,
+        "rankMods": {
+          "2": {
+            "maxUses": 6
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.2",
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.18
+        },
+        "maxDuration": 27000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "buffMap": {
+          "atk%": 0.06
+        },
+        "maxDuration": 27000,
+        "maxStacks": 3
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "glacioDmgAmp%": 0.2,
+          "resonanceSkillDmgAmp%": 0.25
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.2",
+        "buffMap": {
+          "critRate%": 0.1
+        },
+        "maxDuration": 27000
+      },
+      {
+        "enableIfRankMin": 3,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceSkill.0",
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "buffMap": {
+          "atk%": 0.15
+        },
+        "maxDuration": 27000,
+        "maxStacks": 3
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.1",
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "mv%": 0.467
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": [
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "buffMap": {
+          "mv%": 1.2
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1105",
+        "1505"
+      ],
+      "weaponId": "21050026",
+      "setCounts": {
+        "13": 5
+      },
+      "mainEcho": "6000105",
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "resonanceLiberation.1",
+        "forteCircuit.2",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1106": {
+    "name": "Youhu",
+    "version": 1.3,
+    "quality": 4,
+    "element": "glacio",
+    "type": "gauntlets",
+    "baseStats": {
+      "baseHp": 9975,
+      "baseAtk": 262,
+      "baseDef": 1051
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "useOnAction": "resonanceSkill.1",
+        "buffMap": {
+          "mv%": 0.3
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "buffMap": {
+          "glacioDmgBonus%": 0.15
+        },
+        "maxDuration": 14000,
+        "rankMods": {
+          "5": {
+            "buffMap": {
+              "critRate%": 0.15
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "useOnSkillType": "coordinatedAttack",
+        "buffMap": {
+          "dmgAmp%": 1
+        },
+        "maxDuration": 28000
+      },
+      {
+        "enableIfRankMin": 3,
+        "buffMap": {
+          "atk%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceSkill.2",
+          "resonanceSkill.3",
+          "resonanceSkill.4",
+          "resonanceSkill.5"
+        ],
+        "buffMap": {
+          "critDmg%": 0.15
+        },
+        "maxDuration": 7000,
+        "maxStacks": 4
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1106"
+      ],
+      "weaponId": "21040024",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.2",
+        "resonanceLiberation.0",
+        "resonanceSkill.3",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "resonanceSkill.4",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1107": {
+    "name": "Carlotta",
+    "version": 2,
+    "quality": 5,
+    "element": "glacio",
+    "type": "pistols",
+    "baseStats": {
+      "baseHp": 12450,
+      "baseAtk": 462,
+      "baseDef": 1197
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceLiberation.0",
+          "introSkill.0",
+          "resonanceSkill.1",
+          "resonanceLiberation.1",
+          "forteCircuit.0"
+        ],
+        "maxDuration": 4000,
+        "buffMap": {
+          "defIgnore%": 0.18
+        },
+        "rankMods": {
+          "1": {
+            "buffMap": {
+              "critRate%": 0.125
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "removeWhen": "before",
+        "removeIfField": "offField",
+        "useOnAction": [
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2"
+        ],
+        "buffMap": {
+          "mv%": 0.8
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "useOnAction": "resonanceLiberation.2",
+        "buffMap": {
+          "mv%": 1.26
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnDmgType": "outroSkill",
+        "buffMap": {
+          "mv": 10.3218
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": [
+          "resonanceSkill.0",
+          "resonanceSkill.1"
+        ],
+        "buffMap": {
+          "mv%": 0.93
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "normalAttack.5",
+          "normalAttack.6",
+          "forteCircuit.0"
+        ],
+        "applyTo": "team",
+        "buffMap": {
+          "resonanceSkillDmgBonus%": 0.25
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "mv%": 0.47
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": "resonanceLiberation.1",
+        "buffMap": {
+          "mv": 1.866
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1107",
+        "1105",
+        "1505"
+      ],
+      "weaponId": "21030016",
+      "setCounts": {
+        "10": 5
+      },
+      "mainEcho": "6000083",
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "normalAttack.7",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1108": {
+    "name": "Hiyuki",
+    "version": 3.3,
+    "quality": 5,
+    "element": "glacio",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 10300,
+      "baseAtk": 462,
+      "baseDef": 1112
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
+        "useIfNegativeStatus": {
+          "glacioChafe": 1
+        },
+        "buffMap": {
+          "glacioDmgAmp%": 0.2
+        },
+        "maxDuration": 20000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1108",
+        "1509",
+        "1508"
+      ],
+      "weaponId": "21020086",
+      "setCounts": {
+        "30": 5
+      },
+      "mainEcho": "6000199",
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceLiberation.0",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "normalAttack.6",
+        "normalAttack.7",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.10",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "normalAttack.12",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1109": {
+    "name": "Lucilla",
+    "version": 3.4,
+    "quality": 5,
+    "element": "glacio",
+    "type": "rectifier",
+    "noEnergy": true,
+    "baseStats": {
+      "baseHp": 12237,
+      "baseAtk": 375,
+      "baseDef": 1197
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "resonanceModes": [
+      "Glacio Chafe",
+      "Echo"
+    ],
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useWhen": "hit",
+        "useOnInflict": "glacioChafe",
+        "useCooldown": 0.5,
+        "useAction": {
+          "inflictStatus": {
+            "glacioChafe": 2
+          }
+        },
+        "maxDuration": 30000,
+        "maxUses": 4
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.2",
+        "applyTo": "global",
+        "buffMap": {
+          "glacioResReduction%": 0.08
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.3
+        },
+        "maxDuration": 10000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1108",
+        "1109",
+        "1508"
+      ],
+      "weaponId": "21050086",
+      "setCounts": {
+        "30": 5
+      },
+      "mainEcho": "6000195",
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceSkill.2",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "resonanceLiberation.4",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1110": {
+    "name": "Suisui",
+    "version": 3.5,
+    "quality": 5,
+    "element": "glacio",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 16712,
+      "baseAtk": 287,
+      "baseDef": 1099
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.12,
+      "hp%": 0.12
+    },
+    "effects": []
+  },
+  "1202": {
+    "name": "Chixia",
+    "version": 1,
+    "quality": 4,
+    "element": "fusion",
+    "type": "pistols",
+    "baseStats": {
+      "baseHp": 9087,
+      "baseAtk": 300,
+      "baseDef": 953
+    },
+    "ascensionStats": {
+      "fusionDmgBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "forteCircuit.2",
+        "useWhen": "interval",
+        "useCooldown": 100,
+        "useAction": "forteCircuit.0",
+        "maxUses": 30
+      },
+      {
+        "useOnAction": "forteCircuit.1",
+        "buffMap": {
+          "dmgBonus%": 0.5
+        },
+        "rankMods": {
+          "1": {
+            "buffMap": {
+              "critRate%": 1
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "forteCircuit.0",
+        "buffMap": {
+          "atk%": 0.01
+        },
+        "maxDuration": 10000,
+        "maxStacks": 30,
+        "rankMods": {
+          "5": {
+            "buffMap": {
+              "atk%": 0.01
+            }
+          }
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "chance": 0.5,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "dmgBonus%": 0.4
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.1",
+        "applyTo": "team",
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.25
+        },
+        "maxDuration": 15000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1202",
+        "1206",
+        "1207"
+      ],
+      "weaponId": "21030045",
+      "setCounts": {
+        "2": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.2",
+        "forteCircuit.1",
+        "resonanceLiberation.0",
+        "forteCircuit.2",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1203": {
+    "name": "Encore",
+    "version": 1,
+    "quality": 5,
+    "element": "fusion",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 10512,
+      "baseAtk": 425,
+      "baseDef": 1246
+    },
+    "ascensionStats": {
+      "fusionDmgBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "useOnTagged": "Cosmos",
+        "buffMap": {
+          "dmgBonus%": 0.1
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceSkill.0",
+          "resonanceLiberation.5"
+        ],
+        "buffMap": {
+          "fusionDmgBonus%": 0.1
+        },
+        "maxDuration": 10000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "useWhen": "interval",
+        "useCooldown": 1500,
+        "useAction": {
+          "dmgType": "outroSkill",
+          "multipliers": [
+            {
+              "mv": 1.7676
+            }
+          ]
+        },
+        "maxDuration": 6000
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "hit",
+        "applyOnSkillType": "basicAttack",
+        "buffMap": {
+          "fusionDmgBonus%": 0.03
+        },
+        "maxDuration": 6000,
+        "maxStacks": 4
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1"
+        ],
+        "buffMap": {
+          "mv%": 0.4
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.1",
+        "applyTo": "team",
+        "buffMap": {
+          "fusionDmgBonus%": 0.2
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "buffMap": {
+          "resonanceSkillDmgBonus%": 0.35
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "hit",
+        "applyOnTagged": "Cosmos",
+        "buffMap": {
+          "atk%": 0.05
+        },
+        "maxDuration": 10000,
+        "maxStacks": 6
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1203",
+        "1207",
+        "1505"
+      ],
+      "weaponId": "21050015",
+      "setCounts": {
+        "2": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.7",
+        "resonanceLiberation.5",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.5",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.5",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1204": {
+    "name": "Mortefi",
+    "version": 1,
+    "quality": 4,
+    "element": "fusion",
+    "type": "pistols",
+    "baseStats": {
+      "baseHp": 10025,
+      "baseAtk": 250,
+      "baseDef": 1136
+    },
+    "ascensionStats": {
+      "fusionDmgBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "global",
+        "useWhen": "hit",
+        "useOnSkillType": "basicAttack",
+        "useIfField": "onField",
+        "useCooldown": 350,
+        "useAction": "resonanceLiberation.1",
+        "maxDuration": 10000,
+        "rankMods": {
+          "4": {
+            "maxDuration": 7000
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "global",
+        "useWhen": "hit",
+        "useOnSkillType": "heavyAttack",
+        "useIfField": "onField",
+        "useCooldown": 350,
+        "useAction": "resonanceLiberation.1",
+        "times": 2,
+        "maxDuration": 10000,
+        "rankMods": {
+          "1": {
+            "useOnSkillType": "resonanceSkill"
+          },
+          "4": {
+            "maxDuration": 7000
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.0",
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "dmgBonus%": 0.25
+        },
+        "maxDuration": 8000
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceLiberation.1",
+        "applyCooldown": 350,
+        "useOnAction": "resonanceLiberation.1",
+        "buffMap": {
+          "dmgBonus%": 0.015
+        },
+        "maxDuration": 10000,
+        "maxStacks": 50,
+        "rankMods": {
+          "4": {
+            "maxDuration": 7000
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "heavyAttackDmgAmp%": 0.38
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "resonanceLiberation.1",
+        "buffMap": {
+          "critDmg%": 0.3
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceSkill.0",
+          "forteCircuit.0"
+        ],
+        "useWhen": "hit",
+        "useAction": "resonanceLiberation.1",
+        "times": 4,
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 20000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1204",
+        "1505"
+      ],
+      "weaponId": "21030015",
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": "6000052",
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1205": {
+    "name": "Changli",
+    "version": 1.1,
+    "quality": 5,
+    "element": "fusion",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 10387,
+      "baseAtk": 462,
+      "baseDef": 1099
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceLiberation.0",
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "atk%": 0.25
+        },
+        "maxDuration": 10000,
+        "maxUses": 1
+      },
+      {
+        "useOnAction": [
+          "resonanceSkill.1",
+          "resonanceSkill.2"
+        ],
+        "buffMap": {
+          "fusionDmgBonus%": 0.1
+        }
+      },
+      {
+        "useOnAction": [
+          "forteCircuit.0",
+          "resonanceLiberation.0"
+        ],
+        "buffMap": {
+          "fusionDmgBonus%": 0.2,
+          "defIgnore%": 0.15
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "fusionDmgAmp%": 0.2,
+          "resonanceLiberationDmgAmp%": 0.25
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 1,
+        "useOnAction": [
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "forteCircuit.0"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.1
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "resonanceLiberation.0"
+        ],
+        "buffMap": {
+          "critRate%": 0.25
+        },
+        "maxDuration": 8000
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "dmgBonus%": 0.8
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnSkillType": "introSkill",
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "mv%": 0.5,
+          "dmgBonus%": 0.5
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": [
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "forteCircuit.0",
+          "resonanceLiberation.0"
+        ],
+        "buffMap": {
+          "defIgnore%": 0.4
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1205",
+        "1206",
+        "1207"
+      ],
+      "weaponId": "21020016",
+      "setCounts": {
+        "2": 5
+      },
+      "mainEcho": "6000091",
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.2",
+        "normalAttack.9",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.1",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1206": {
+    "name": "Brant",
+    "version": 2.1,
+    "quality": 5,
+    "element": "fusion",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 11675,
+      "baseAtk": 375,
+      "baseDef": 1307
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceLiberation.0",
+        "buffSpec": {
+          "atk": {
+            "attr": "energyRegen",
+            "step": 0.01,
+            "offset": 1.5,
+            "value": 8,
+            "maxValue": 1040
+          }
+        },
+        "maxDuration": 12000
+      },
+      {
+        "buffSpec": {
+          "atk": {
+            "attr": "energyRegen",
+            "step": 0.01,
+            "offset": 1.5,
+            "value": 12,
+            "maxValue": 1560
+          }
+        }
+      },
+      {
+        "useOnAction": "forteCircuit.1",
+        "buffMap": {
+          "healingBonus%": 0.2
+        }
+      },
+      {
+        "buffMap": {
+          "fusionDmgBonus%": 0.15
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "fusionDmgAmp%": 0.2,
+          "resonanceSkillDmgAmp%": 0.25
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "introSkill.0",
+          "normalAttack.8",
+          "normalAttack.12",
+          "normalAttack.14"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.2
+        },
+        "maxDuration": 5000,
+        "maxStacks": 3
+      },
+      {
+        "enableIfRankMin": 2,
+        "useOnSkillType": "mid-airAttack",
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "critRate%": 0.3
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "useWhen": "hit",
+        "useOnSkillType": "resonanceSkill",
+        "useCooldown": 1000,
+        "useAction": {
+          "dmgType": "basicAttack",
+          "multipliers": [
+            {
+              "mv": 4.4
+            }
+          ]
+        },
+        "maxDuration": 20000,
+        "maxUses": 2
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "mv%": 0.42
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnAction": "forteCircuit.2",
+        "buffMap": {
+          "shieldBonus%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "useWhen": "hit",
+        "useAction": {
+          "type": "healing",
+          "attr": "energyRegen",
+          "multipliers": [
+            {
+              "mv": 660
+            }
+          ],
+          "times": 3
+        },
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 5,
+        "applyWhen": "hit",
+        "applyOnDmgType": "basicAttack",
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.15
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnSkillType": "mid-airAttack",
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "mv%": 0.3
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1206",
+        "1207"
+      ],
+      "weaponId": "21020036",
+      "setCounts": {
+        "14": 5
+      },
+      "mainEcho": "6000084",
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.1",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "forteCircuit.1",
+        "normalAttack.10",
+        "normalAttack.11",
+        "normalAttack.12",
+        "forteCircuit.1",
+        "normalAttack.13",
+        "normalAttack.14",
+        "forteCircuit.1",
+        "forteCircuit.0",
+        "forteCircuit.2",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1207": {
+    "name": "Lupa",
+    "version": 2.4,
+    "quality": 5,
+    "element": "fusion",
+    "type": "broadblade",
+    "baseStats": {
+      "baseHp": 11912,
+      "baseAtk": 387,
+      "baseDef": 1185
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "useOnAction": "resonanceSkill.1",
+        "buffMap": {
+          "mv%": 0.5
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.18,
+          "fusionDmgBonus%": 0.2,
+          "fusionResIgnore%": 0.15
+        },
+        "maxDuration": 35000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceSkill.1",
+          "normalAttack.5",
+          "normalAttack.6",
+          "normalAttack.10",
+          "resonanceLiberation.0",
+          "forteCircuit.0",
+          "forteCircuit.1"
+        ],
+        "buffMap": {
+          "atk%": 0.12
+        },
+        "maxDuration": 8000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1"
+        ],
+        "applyTo": "next",
+        "useWhen": "hit",
+        "useAction": "forteCircuit.2",
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "fusionDmgAmp%": 0.2,
+          "basicAttackDmgAmp%": 0.25
+        }
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "critRate%": 0.2
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceLiberation.0",
+          "normalAttack.5",
+          "normalAttack.6",
+          "normalAttack.10"
+        ],
+        "applyTo": "team",
+        "buffMap": {
+          "fusionDmgBonus%": 0.2
+        },
+        "maxDuration": 30000,
+        "maxStacks": 2
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "introSkill.1",
+        "buffMap": {
+          "mv%": 1
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnAction": "forteCircuit.1",
+        "buffMap": {
+          "mv%": 1.25
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "introSkill.0",
+          "introSkill.1"
+        ],
+        "buffMap": {
+          "resonanceLiberationDmgBonus%": 0.15
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": [
+          "forteCircuit.1",
+          "resonanceLiberation.0",
+          "introSkill.1"
+        ],
+        "buffMap": {
+          "defIgnore%": 0.3
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1205",
+        "1206",
+        "1207"
+      ],
+      "weaponId": "21010036",
+      "setCounts": {
+        "18": 5
+      },
+      "rotation": [
+        "introSkill.1",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "normalAttack.7",
+        "normalAttack.8",
+        "normalAttack.10",
+        "normalAttack.6",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1208": {
+    "name": "Galbrena",
+    "version": 2.7,
+    "quality": 5,
+    "element": "fusion",
+    "type": "pistols",
+    "baseStats": {
+      "baseHp": 10300,
+      "baseAtk": 462,
+      "baseDef": 1112
+    },
+    "ascensionStats": {
+      "critDmg%": 0.16,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "buffMap": {
+          "dmgAmp%": 0.05
+        },
+        "maxDuration": 5500,
+        "maxStacks": 4
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1208",
+        "1411",
+        "1505"
+      ],
+      "weaponId": "21030036",
+      "setCounts": {
+        "2": 2,
+        "22": 3
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.1",
+        "normalAttack.2",
+        "resonanceSkill.1",
+        "resonanceLiberation.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1209": {
+    "name": "Mornye",
+    "version": 3,
+    "quality": 5,
+    "element": "fusion",
+    "type": "broadblade",
+    "tagged": "tuneStrain",
+    "baseStats": {
+      "baseHp": 15375,
+      "baseAtk": 287,
+      "baseDef": 1356,
+      "tuneBreakBoost": 10
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.12,
+      "def%": 0.152
+    },
+    "effects": [
+      {
+        "useOnAction": "resonanceLiberation.0",
+        "buffSpec": {
+          "critRate%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "offset": 1,
+            "value": 0.005,
+            "maxValue": 0.8
+          },
+          "critDmg%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "offset": 1,
+            "value": 0.01,
+            "maxValue": 1.6
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "team",
+        "buffMap": {
+          "def%": 0.2
+        },
+        "maxDuration": 25000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "mv%": 0.4
+        },
+        "maxDuration": 25000
+      },
+      {
+        "useOnAction": [
+          "forteCircuit.2",
+          "introSkill.0"
+        ],
+        "useWhen": "hit",
+        "useAction": "forteCircuit.1"
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "forteCircuit.2",
+          "introSkill.0"
+        ],
+        "useWhen": "interval",
+        "useCooldown": 3000,
+        "useAction": "forteCircuit.0",
+        "maxDuration": 25000
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnAction": [
+          "forteCircuit.2",
+          "introSkill.0"
+        ],
+        "applyTo": "team",
+        "buffMap": {
+          "offTuneBuildupRate%": 0.5
+        },
+        "maxDuration": 25000
+      },
+      {
+        "applyWhen": "tuneBreak",
+        "applyTo": "global",
+        "useIfInterfered": [
+          "tuneRupture",
+          "tuneStrain"
+        ],
+        "buffSpec": {
+          "dmgBonus%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "offset": 1,
+            "value": 0.0025,
+            "maxValue": 0.4
+          }
+        },
+        "maxDuration": 8000
+      },
+      {
+        "useWhen": "tuneResponse",
+        "useIfInterfered": "tuneRupture",
+        "useAction": "forteCircuit.4"
+      },
+      {
+        "buffMap": {
+          "energyRegen%": 0.1
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "team",
+        "buffMap": {
+          "dmgAmp%": 0.25
+        },
+        "maxDuration": 30000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1209"
+      ],
+      "weaponId": "21010066",
+      "setCounts": {
+        "25": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.4",
+        "normalAttack.5",
+        "normalAttack.6",
+        "resonanceSkill.3",
+        "resonanceSkill.0",
+        "forteCircuit.3",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1210": {
+    "name": "Aemeath",
+    "version": 3.1,
+    "quality": 5,
+    "element": "fusion",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 11025,
+      "baseAtk": 425,
+      "baseDef": 1148,
+      "tuneBreakBoost": 10
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "resonanceModes": [
+      "Tune Rupture",
+      "Fusion Burst"
+    ],
+    "effects": [
+      {
+        "useWhen": "tuneResponse",
+        "useIfInterfered": "tuneRupture",
+        "useAction": "forteCircuit.2"
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
+        "buffMap": {
+          "dmgAmp%": 0.2
+        },
+        "maxDuration": 20000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1210",
+        "1509",
+        "1209"
+      ],
+      "weaponId": "21020076",
+      "setCounts": {
+        "27": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceLiberation.0",
+        "resonanceSkill.3",
+        "resonanceSkill.4",
+        "resonanceSkill.5",
+        "forteCircuit.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.1",
+        "resonanceSkill.7",
+        "resonanceLiberation.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1211": {
+    "name": "Denia",
+    "version": 3.3,
+    "quality": 5,
+    "element": "fusion",
+    "type": "rectifier",
+    "tagged": "tuneStrain",
+    "baseStats": {
+      "baseHp": 11025,
+      "baseAtk": 425,
+      "baseDef": 1148,
+      "tuneBreakBoost": 10
+    },
+    "ascensionStats": {
+      "critDmg%": 0.16,
+      "atk%": 0.12
+    },
+    "resonanceModes": [
+      "Fusion Burst",
+      "Tune Strain"
+    ],
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "dmgAmp%": 0.4
+        },
+        "maxDuration": 16000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1211",
+        "1508"
+      ],
+      "weaponId": "21050076",
+      "setCounts": {
+        "28": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1301": {
+    "name": "Calcharo",
+    "version": 1,
+    "quality": 5,
+    "element": "electro",
+    "type": "broadblade",
+    "baseStats": {
+      "baseHp": 10500,
+      "baseAtk": 437,
+      "baseDef": 1185
+    },
+    "ascensionStats": {
+      "critDmg%": 0.16,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "buffMap": {
+          "resonanceLiberationDmgBonus%": 0.1
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "introSkill.0",
+          "resonanceLiberation.1"
+        ],
+        "buffMap": {
+          "resonanceSkillDmgBonus%": 0.3
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnTagged": "Deathblade Gear",
+        "buffMap": {
+          "electroDmgBonus%": 0.25
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "outroSkill.0",
+        "applyTo": "team",
+        "buffMap": {
+          "electroDmgBonus%": 0.2
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": [
+          "introSkill.0",
+          "resonanceLiberation.1"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.5
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.1",
+        "useWhen": "hit",
+        "useAction": {
+          "skillType": "coordinatedAttack",
+          "dmgType": "resonanceLiberation",
+          "multipliers": [
+            {
+              "mv": 1
+            }
+          ]
+        },
+        "times": 2,
+        "maxUses": 1
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1301",
+        "1302",
+        "1505"
+      ],
+      "weaponId": "21010015",
+      "setCounts": {
+        "3": 5
+      },
+      "rotation": [
+        "resonanceLiberation.1",
+        "resonanceLiberation.0",
+        "forteCircuit.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.2",
+        "forteCircuit.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.2",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1302": {
+    "name": "Yinlin",
+    "version": 1,
+    "quality": 5,
+    "element": "electro",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 11000,
+      "baseAtk": 400,
+      "baseDef": 1283
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceSkill.0",
+        "useWhen": "hit",
+        "useOnSkillType": [
+          "basicAttack",
+          "dodgeCounter"
+        ],
+        "useAction": "resonanceSkill.2",
+        "maxDuration": 10000,
+        "maxUses": 4
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "forteCircuit.0",
+        "applyTo": "global",
+        "useWhen": "hit",
+        "useOnType": "damage",
+        "useCooldown": 1000,
+        "useAction": "forteCircuit.1",
+        "maxDuration": 18000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.0",
+        "buffMap": {
+          "critRate%": 0.15
+        },
+        "maxDuration": 5000
+      },
+      {
+        "useOnAction": "resonanceSkill.1",
+        "buffMap": {
+          "dmgBonus%": 0.1
+        }
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceSkill.1",
+        "buffMap": {
+          "atk%": 0.1
+        },
+        "maxDuration": 4000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "electroDmgAmp%": 0.2,
+          "resonanceLiberationDmgAmp%": 0.25
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 1,
+        "useOnAction": [
+          "resonanceSkill.0",
+          "resonanceSkill.1"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.7
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "forteCircuit.1",
+        "buffMap": {
+          "mv%": 0.55
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "hit",
+        "applyOnAction": "forteCircuit.1",
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 12000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "dmgBonus%": 1
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useWhen": "hit",
+        "useOnSkillType": "basicAttack",
+        "useAction": {
+          "dmgType": "resonanceSkill",
+          "multipliers": [
+            {
+              "mv": 4.1959
+            }
+          ]
+        },
+        "maxDuration": 30000,
+        "maxUses": 4
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1302",
+        "1505"
+      ],
+      "weaponId": "21050016",
+      "setCounts": {
+        "13": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "normalAttack.4",
+        "resonanceSkill.1",
+        "resonanceLiberation.0",
+        "normalAttack.0",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1303": {
+    "name": "Yuanwu",
+    "version": 1,
+    "quality": 4,
+    "element": "electro",
+    "type": "gauntlets",
+    "baseStats": {
+      "baseHp": 8525,
+      "baseAtk": 225,
+      "baseDef": 1637
+    },
+    "ascensionStats": {
+      "electroDmgBonus%": 0.12,
+      "def%": 0.152
+    },
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceSkill.0",
+        "applyTo": "global",
+        "useWhen": "hit",
+        "useOnType": "damage",
+        "useIfField": "onField",
+        "useCooldown": 1200,
+        "useAction": "resonanceSkill.1",
+        "maxDuration": 12000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceSkill.3",
+          "resonanceLiberation.0"
+        ],
+        "useWhen": "hit",
+        "useAction": "resonanceSkill.2",
+        "maxUses": 1
+      },
+      {
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "mv%": 0.4
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "useWhen": "hit",
+        "useAction": "resonanceSkill.0",
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 1,
+        "useOnTagged": "Lightning Infused",
+        "buffMap": {
+          "attackSpd%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "applyOnAction": "resonanceSkill.1",
+        "buffMap": {
+          "mv": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useWhen": "hit",
+        "useAction": {
+          "type": "shield",
+          "attr": "def",
+          "multipliers": [
+            {
+              "mv": 2
+            }
+          ]
+        },
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 5,
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceSkill.0",
+        "buffMap": {
+          "resonanceLiberationDmgBonus%": 0.5
+        },
+        "maxDuration": 12000
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceSkill.0",
+        "applyTo": "team",
+        "buffMap": {
+          "def%": 0.32
+        },
+        "maxDuration": 15000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1303",
+        "1505"
+      ],
+      "weaponId": "21040044",
+      "setCounts": {
+        "13": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "resonanceSkill.3",
+        "resonanceSkill.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1304": {
+    "name": "Jinhsi",
+    "version": 1.1,
+    "quality": 5,
+    "element": "spectro",
+    "type": "broadblade",
+    "baseStats": {
+      "baseHp": 10825,
+      "baseAtk": 412,
+      "baseDef": 1258
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "buffMap": {
+          "spectroDmgBonus%": 0.2
+        }
+      },
+      {
+        "useOnAction": "introSkill.0",
+        "buffMap": {
+          "mv%": 0.5
+        }
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.6"
+        ],
+        "useOnAction": [
+          "forteCircuit.7",
+          "forteCircuit.8",
+          "forteCircuit.9"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.2
+        },
+        "maxDuration": 6000,
+        "maxStacks": 4
+      },
+      {
+        "enableIfRankMin": 3,
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "buffMap": {
+          "atk%": 0.25
+        },
+        "maxDuration": 20000,
+        "maxStacks": 2
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceLiberation.0",
+          "forteCircuit.7"
+        ],
+        "applyTo": "team",
+        "buffMap": {
+          "dmgBonus%": 0.2
+        },
+        "maxDuration": 20000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "mv%": 1.2
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": [
+          "forteCircuit.7",
+          "forteCircuit.8",
+          "forteCircuit.9"
+        ],
+        "buffMap": {
+          "mv%": 0.45
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1304",
+        "1105",
+        "1503"
+      ],
+      "weaponId": "21010026",
+      "setCounts": {
+        "5": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.1",
+        "resonanceLiberation.0",
+        "forteCircuit.6",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.7",
+        "forteCircuit.8",
+        "forteCircuit.9",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1305": {
+    "name": "Xiangli Yao",
+    "version": 1.2,
+    "quality": 5,
+    "element": "electro",
+    "type": "gauntlets",
+    "baseStats": {
+      "baseHp": 10625,
+      "baseAtk": 425,
+      "baseDef": 1222
+    },
+    "ascensionStats": {
+      "critDmg%": 0.16,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "resonanceSkill",
+        "buffMap": {
+          "electroDmgBonus%": 0.05
+        },
+        "maxDuration": 8000,
+        "maxStacks": 4
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "useWhen": "hit",
+        "useOnSkillType": "basicAttack",
+        "useCooldown": 2000,
+        "useAction": {
+          "dmgType": "outroSkill",
+          "multipliers": [
+            {
+              "mv": 2.3763
+            }
+          ]
+        },
+        "maxDuration": 8000,
+        "maxUses": 3
+      },
+      {
+        "enableIfRankMin": 1,
+        "useOnAction": "forteCircuit.1",
+        "buffMap": {
+          "mv%": 0.48
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnSkillType": "resonanceSkill",
+        "applyOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "critDmg%": 0.3
+        },
+        "maxDuration": 8000
+      },
+      {
+        "enableIfRankMin": 3,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useOnAction": [
+          "resonanceSkill.0",
+          "resonanceLiberation.4",
+          "forteCircuit.0",
+          "forteCircuit.1"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.63
+        },
+        "maxDuration": 24000,
+        "maxUses": 5
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "team",
+        "buffMap": {
+          "resonanceLiberationDmgBonus%": 0.25
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnDmgType": "outroSkill",
+        "buffMap": {
+          "mv%": 2.22
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "mv%": 1
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": "forteCircuit.1",
+        "buffMap": {
+          "mv%": 0.76
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1305",
+        "1302",
+        "1505"
+      ],
+      "weaponId": "21040016",
+      "setCounts": {
+        "3": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.4",
+        "forteCircuit.2",
+        "forteCircuit.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "forteCircuit.1",
+        "resonanceLiberation.4",
+        "forteCircuit.2",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1306": {
+    "name": "Augusta",
+    "version": 2.6,
+    "quality": 5,
+    "element": "electro",
+    "type": "broadblade",
+    "baseStats": {
+      "baseHp": 10300,
+      "baseAtk": 462,
+      "baseDef": 1112
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "useWhen": "hit",
+        "useOnType": "damage",
+        "useCooldown": 500,
+        "useAction": {
+          "type": "shield",
+          "multipliers": [
+            {
+              "flat": 350,
+              "mv": 0.025
+            }
+          ]
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "dmgAmp%": 0.15
+        },
+        "maxDuration": 14000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "removeWhen": "after",
+        "removeOnAction": "resonanceLiberation.2",
+        "buffMap": {
+          "electroDmgBonus%": 0.15
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1306",
+        "1410",
+        "1505"
+      ],
+      "weaponId": "21010046",
+      "setCounts": {
+        "3": 2,
+        "20": 3
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.8",
+        "normalAttack.9",
+        "resonanceSkill.0",
+        "normalAttack.8",
+        "normalAttack.9",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1307": {
+    "name": "Buling",
+    "version": 2.8,
+    "quality": 4,
+    "element": "electro",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 10625,
+      "baseAtk": 225,
+      "baseDef": 1258
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "outroSkill.0",
+        "useWhen": "interval",
+        "useCooldown": 1000,
+        "useAction": {
+          "type": "healing",
+          "multipliers": [
+            {
+              "mv": 0.18
+            }
+          ]
+        },
+        "maxDuration": 16000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "outroSkill.0",
+        "applyTo": "team",
+        "buffMap": {
+          "dmgAmp%": 0.15
+        },
+        "maxDuration": 30000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1307"
+      ],
+      "weaponId": "21050024",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.4",
+        "resonanceSkill.0",
+        "normalAttack.3",
+        "normalAttack.6",
+        "normalAttack.9",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1308": {
+    "name": "Rebecca",
+    "version": 3.4,
+    "quality": 5,
+    "element": "electro",
+    "type": "pistols",
+    "baseStats": {
+      "baseHp": 11600,
+      "baseAtk": 400,
+      "baseDef": 1173,
+      "tuneBreakBoost": 10
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "introSkill",
+        "buffMap": {
+          "critDmg%": 0.3,
+          "defIgnore%": 0.15,
+          "atk%": 0.1
+        },
+        "maxDuration": 12000
+      },
+      {
+        "useWhen": "tuneResponse",
+        "useIfInterfered": "hack",
+        "useAction": "forteCircuit.0"
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "buffMap": {
+          "atk%": 0.1
+        },
+        "maxDuration": 12000,
+        "maxStacks": 2
+      },
+      {
+        "applyBy": "team",
+        "applyWhen": "inflict",
+        "applyForInflictShifting": "hack",
+        "applyTo": "applier",
+        "buffMap": {
+          "tuneBreakBoost": 30
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.4",
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "dmgAmp%": 0.15
+        },
+        "maxDuration": 14000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "1511",
+        "buffMap": {
+          "heavyAttackDmgAmp%": 0.35
+        },
+        "maxDuration": 14000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1511",
+        "1308",
+        "1209"
+      ],
+      "weaponId": "21030066",
+      "setCounts": {
+        "32": 1,
+        "9": 2,
+        "3": 2
+      },
+      "mainEcho": "6000201",
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.9",
+        "normalAttack.10",
+        "normalAttack.11",
+        "resonanceSkill.1",
+        "forteCircuit.1",
+        "resonanceLiberation.4",
+        "resonanceLiberation.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1402": {
+    "name": "Yangyang",
+    "version": 1,
+    "quality": 4,
+    "element": "aero",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 10200,
+      "baseAtk": 250,
+      "baseDef": 1099
+    },
+    "ascensionStats": {
+      "aeroDmgBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "buffMap": {
+          "aeroDmgBonus%": 0.08
+        },
+        "maxDuration": 8000,
+        "rankMods": {
+          "1": {
+            "buffMap": {
+              "aeroDmgBonus%": 0.15
+            }
+          }
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "buffMap": {
+          "resonanceSkillDmgBonus%": 0.4
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnAction": "forteCircuit.1",
+        "buffMap": {
+          "dmgBonus%": 0.95
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "dmgBonus%": 0.85
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.1",
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 20000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1402",
+        "1505"
+      ],
+      "weaponId": "21020015",
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": "6000052",
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.4",
+        "normalAttack.6",
+        "resonanceLiberation.0",
+        "normalAttack.0",
+        "normalAttack.4",
+        "normalAttack.6",
+        "resonanceSkill.0",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1403": {
+    "name": "Aalto",
+    "version": 1,
+    "quality": 4,
+    "element": "aero",
+    "type": "pistols",
+    "baseStats": {
+      "baseHp": 9850,
+      "baseAtk": 262,
+      "baseDef": 1075
+    },
+    "ascensionStats": {
+      "aeroDmgBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useOnSkillType": [
+          "basicAttack",
+          "heavyAttack",
+          "mid-airAttack",
+          "dodgeCounter"
+        ],
+        "buffMap": {
+          "atk%": 0.1
+        },
+        "maxDuration": 10000
+      },
+      {
+        "useOnSkillType": "heavyAttack",
+        "buffMap": {
+          "critRate%": 1
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "aeroDmgAmp%": 0.23
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.1",
+        "buffMap": {
+          "atk%": 0.15
+        },
+        "maxDuration": 8000
+      },
+      {
+        "enableIfRankMin": 3,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useOnSkillType": [
+          "basicAttack",
+          "mid-airAttack"
+        ],
+        "buffMap": {
+          "mv%": 1
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnAction": [
+          "resonanceSkill.0",
+          "forteCircuit.0"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.3
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.1",
+        "buffMap": {
+          "aeroDmgBonus%": 0.25
+        },
+        "maxDuration": 6000
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "critRate%": 0.08
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useOnSkillType": "heavyAttack",
+        "buffMap": {
+          "dmgBonus%": 0.5
+        },
+        "maxDuration": 10000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1403",
+        "1505"
+      ],
+      "weaponId": "21030015",
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": "6000052",
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "resonanceSkill.1",
+        "resonanceSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "forteCircuit.1",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1404": {
+    "name": "Jiyan",
+    "version": 1,
+    "quality": 5,
+    "element": "aero",
+    "type": "broadblade",
+    "baseStats": {
+      "baseHp": 10487,
+      "baseAtk": 437,
+      "baseDef": 1185
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "useOnAction": "resonanceSkill.0",
+        "buffMap": {
+          "dmgBonus%": 0.2
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "buffMap": {
+          "atk%": 0.1
+        },
+        "maxDuration": 15000
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "buffMap": {
+          "critDmg%": 0.12
+        },
+        "maxDuration": 8000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "useWhen": "hit",
+        "useOnSkillType": "heavyAttack",
+        "useCooldown": 1000,
+        "useAction": {
+          "skillType": "coordinatedAttack",
+          "dmgType": "outroSkill",
+          "multipliers": [
+            {
+              "mv": 3.134
+            }
+          ]
+        },
+        "maxDuration": 8000,
+        "maxUses": 2
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "applyCooldown": 15000,
+        "buffMap": {
+          "atk%": 0.28
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIfRankMin": 3,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceSkill.0",
+          "resonanceLiberation.0",
+          "forteCircuit.0",
+          "introSkill.0"
+        ],
+        "buffMap": {
+          "critRate%": 0.16,
+          "critDmg%": 0.32
+        },
+        "maxDuration": 8000
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceLiberation.0",
+          "forteCircuit.0"
+        ],
+        "applyTo": "team",
+        "buffMap": {
+          "heavyAttackDmgBonus%": 0.25
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnDmgType": "outroSkill",
+        "buffMap": {
+          "mv%": 1.2
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "applyWhen": "before",
+        "applyOnType": "damage",
+        "buffMap": {
+          "atk%": 0.45
+        },
+        "maxDuration": 8000
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnSkillType": "heavyAttack",
+        "applyOnAction": [
+          "introSkill.0",
+          "resonanceSkill.0"
+        ],
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "mv": 1.2
+        },
+        "maxStacks": 2,
+        "maxUses": 1
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1404",
+        "1204",
+        "1505"
+      ],
+      "weaponId": "21010016",
+      "setCounts": {
+        "4": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.0",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceSkill.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1405": {
+    "name": "Jianxin",
+    "version": 1,
+    "quality": 5,
+    "element": "aero",
+    "type": "gauntlets",
+    "baseStats": {
+      "baseHp": 14112,
+      "baseAtk": 337,
+      "baseDef": 1124
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceLiberation.2",
+        "useWhen": "interval",
+        "useCooldown": 250,
+        "useAction": "resonanceLiberation.0",
+        "maxDuration": 3120
+      },
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceLiberation.2",
+        "applyOffset": 3120,
+        "useWhen": "interval",
+        "useAction": "resonanceLiberation.1",
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.6",
+          "forteCircuit.7",
+          "forteCircuit.8",
+          "forteCircuit.9"
+        ],
+        "useWhen": "interval",
+        "useCooldown": 6000,
+        "useAction": "forteCircuit.10",
+        "maxDuration": 30000
+      },
+      {
+        "useOnAction": [
+          "resonanceLiberation.0",
+          "resonanceLiberation.1"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.2
+        }
+      },
+      {
+        "buffMap": {
+          "shieldBonus%": 0.2
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "resonanceLiberationDmgAmp%": 0.38
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.1",
+        "useOnAction": [
+          "resonanceLiberation.0",
+          "resonanceLiberation.1"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.8
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "useWhen": "hit",
+        "useAction": [
+          {
+            "skillType": "resonanceSkill",
+            "dmgType": "heavyAttack",
+            "multipliers": [
+              {
+                "mv": 5.5667
+              }
+            ]
+          },
+          "forteCircuit.9"
+        ],
+        "maxUses": 1
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1405",
+        "1505"
+      ],
+      "weaponId": "21040024",
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": "6000052",
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.1",
+        "resonanceLiberation.2",
+        "forteCircuit.6",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.7",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.3",
+        "forteCircuit.8",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "forteCircuit.9",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1407": {
+    "name": "Ciaccona",
+    "version": 2.3,
+    "quality": 5,
+    "element": "aero",
+    "type": "pistols",
+    "baseStats": {
+      "baseHp": 12237,
+      "baseAtk": 375,
+      "baseDef": 1197
+    },
+    "ascensionStats": {
+      "critDmg%": 0.16,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyTo": "team",
+        "buffMap": {
+          "aeroDmgBonus%": 0.24
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useWhen": "interval",
+        "useCooldown": 1000,
+        "useAction": "resonanceLiberation.1",
+        "maxUses": 20
+      },
+      {
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "dmgBonus%": 0.3
+        },
+        "rankMods": {
+          "4": {
+            "buffMap": {
+              "defIgnore%": 0.45
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "global",
+        "buffMap": {
+          "aeroErosionDmgAmp%": 1
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "before",
+        "applyOnSkillType": "basicAttack",
+        "buffMap": {
+          "atk%": 0.35
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "team",
+        "buffMap": {
+          "aeroDmgBonus%": 0.4
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnDmgType": "resonanceLiberation",
+        "buffMap": {
+          "defIgnore%": 0.45
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "buffMap": {
+          "resonanceLiberationDmgBonus%": 0.4
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "hit",
+        "applyOnAction": "normalAttack.3",
+        "useWhen": "interval",
+        "useAction": {
+          "dmgType": "resonanceLiberation",
+          "multipliers": [
+            {
+              "mv": 2.2
+            }
+          ]
+        },
+        "maxUses": 1
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1409",
+        "1407",
+        "1508"
+      ],
+      "weaponId": "21030026",
+      "setCounts": {
+        "16": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.7",
+        "normalAttack.8",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1409": {
+    "name": "Cartethyia",
+    "version": 2.4,
+    "quality": 5,
+    "element": "aero",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 14800,
+      "baseAtk": 312,
+      "baseDef": 611
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "hp%": 0.12
+    },
+    "effects": [
+      {
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "dmgBonus%": 1
+        },
+        "rankMods": {
+          "1": {
+            "buffMap": {
+              "critDmg%": 1
+            }
+          },
+          "3": {
+            "buffMap": {
+              "mv%": 1
+            }
+          }
+        }
+      },
+      {
+        "applyTo": "ally",
+        "buffMap": {
+          "healingBonus%": 0.2
+        }
+      },
+      {
+        "useIfNegativeStatus": {
+          "aeroErosion": 3
+        },
+        "buffMap": {
+          "dmgBonus%": 0.3
+        }
+      },
+      {
+        "useIfNegativeStatus": {
+          "aeroErosion": 4
+        },
+        "buffMap": {
+          "dmgBonus%": 0.1
+        }
+      },
+      {
+        "useIfNegativeStatus": {
+          "aeroErosion": 5
+        },
+        "buffMap": {
+          "dmgBonus%": 0.1
+        }
+      },
+      {
+        "useIfNegativeStatus": {
+          "aeroErosion": 6
+        },
+        "buffMap": {
+          "dmgBonus%": 0.1
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
+        "useIfNegativeStatus": "any",
+        "buffMap": {
+          "aeroDmgAmp%": 0.175
+        },
+        "maxDuration": 20000
+      },
+      {
+        "enableIfRankMin": 2,
+        "useOnAction": [
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "normalAttack.5",
+          "normalAttack.4",
+          "introSkill.0"
+        ],
+        "buffMap": {
+          "mv%": 0.5
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "useOnAction": [
+          "normalAttack.6",
+          "normalAttack.7",
+          "normalAttack.8",
+          "normalAttack.9"
+        ],
+        "buffMap": {
+          "mv%": 2
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyTo": "team",
+        "buffMap": {
+          "dmgBonus%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": [
+          "resonanceLiberation.0",
+          "introSkill.1",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "forteCircuit.5",
+          "forteCircuit.6",
+          "forteCircuit.7",
+          "forteCircuit.8",
+          "forteCircuit.9",
+          "forteCircuit.10",
+          "forteCircuit.11",
+          "forteCircuit.12",
+          "forteCircuit.13"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.4
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1409",
+        "1407",
+        "1508"
+      ],
+      "weaponId": "21020056",
+      "setCounts": {
+        "17": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "normalAttack.9",
+        "resonanceLiberation.0",
+        "forteCircuit.12",
+        "forteCircuit.11",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.13",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1410": {
+    "name": "Iuno",
+    "version": 2.6,
+    "quality": 5,
+    "element": "aero",
+    "type": "gauntlets",
+    "baseStats": {
+      "baseHp": 10525,
+      "baseAtk": 450,
+      "baseDef": 1124
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "heavyAttackDmgAmp%": 0.5
+        },
+        "maxDuration": 14000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1306",
+        "1410",
+        "1505"
+      ],
+      "weaponId": "21040046",
+      "setCounts": {
+        "4": 2,
+        "20": 3
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.6",
+        "forteCircuit.6",
+        "forteCircuit.12",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1411": {
+    "name": "Qiuyuan",
+    "version": 2.7,
+    "quality": 5,
+    "element": "aero",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 12237,
+      "baseAtk": 375,
+      "baseDef": 1197
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "echoSkillDmgAmp%": 0.5
+        },
+        "maxDuration": 14000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1208",
+        "1411",
+        "1505"
+      ],
+      "weaponId": "21020066",
+      "setCounts": {
+        "4": 2,
+        "21": 3
+      },
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "resonanceLiberation.0",
+        "forteCircuit.4",
+        "forteCircuit.5",
+        "forteCircuit.6",
+        "resonanceSkill.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1412": {
+    "name": "Sigrika",
+    "version": 3.2,
+    "quality": 5,
+    "element": "aero",
+    "type": "gauntlets",
+    "baseStats": {
+      "baseHp": 10775,
+      "baseAtk": 437,
+      "baseDef": 1136
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "enableIfRankMin": 6,
+        "buffMap": {
+          "dmgBonus%": 0.3
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1412",
+        "1411",
+        "1505"
+      ],
+      "weaponId": "21040066",
+      "setCounts": {
+        "29": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "forteCircuit.2",
+        "resonanceLiberation.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1503": {
+    "name": "Verina",
+    "version": 1,
+    "quality": 5,
+    "element": "spectro",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 14237,
+      "baseAtk": 337,
+      "baseDef": 1099
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "team",
+        "useWhen": "hit",
+        "useCooldown": 1000,
+        "useAction": [
+          "resonanceLiberation.2",
+          "resonanceLiberation.3"
+        ],
+        "maxDuration": 12000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ],
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 20000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "useWhen": "interval",
+        "useCooldown": 1000,
+        "useAction": {
+          "type": "healing",
+          "multipliers": [
+            {
+              "mv": 0.19
+            }
+          ]
+        },
+        "maxDuration": 6000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "team",
+        "buffMap": {
+          "dmgAmp%": 0.15
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "before",
+        "applyOnAction": "outroSkill.0",
+        "useWhen": "interval",
+        "useCooldown": 5000,
+        "useAction": {
+          "type": "healing",
+          "multipliers": [
+            {
+              "mv": 0.2
+            }
+          ]
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "resonanceLiberation.3",
+        "buffMap": {
+          "healingBonus%": 0.12
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ],
+        "applyTo": "team",
+        "buffMap": {
+          "spectroDmgBonus%": 0.15
+        },
+        "maxDuration": 24000
+      },
+      {
+        "enableIfRankMin": 5,
+        "chance": 0.5,
+        "buffMap": {
+          "healingBonus%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3"
+        ],
+        "useWhen": "hit",
+        "useAction": [
+          "resonanceLiberation.2",
+          "resonanceLiberation.3"
+        ],
+        "maxUses": 1
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1503"
+      ],
+      "weaponId": "21050024",
+      "setCounts": {
+        "7": 5
+      },
+      "mainEcho": "390080005",
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "forteCircuit.2",
+        "forteCircuit.4",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1504": {
+    "name": "Lumi",
+    "version": 1.4,
+    "quality": 4,
+    "element": "electro",
+    "type": "broadblade",
+    "baseStats": {
+      "baseHp": 8500,
+      "baseAtk": 337,
+      "baseDef": 879
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "outroSkill.0",
+        "useWhen": "hit",
+        "useAction": "forteCircuit.7",
+        "times": 4,
+        "maxUses": 1
+      },
+      {
+        "useOnTagged": [
+          "Red Light",
+          "Red Spotlight"
+        ],
+        "buffMap": {
+          "electroDmgBonus%": 0.1
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.5",
+          "forteCircuit.6"
+        ],
+        "buffMap": {
+          "atk%": 0.1
+        },
+        "maxDuration": 5000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "resonanceSkillDmgAmp%": 0.38
+        },
+        "maxDuration": 10000
+      },
+      {
+        "enableIfRankMin": 2,
+        "useOnAction": [
+          "forteCircuit.5",
+          "forteCircuit.6"
+        ],
+        "buffMap": {
+          "defIgnore%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "dmgBonus%": 0.3
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.3
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "forteCircuit.7",
+        "buffMap": {
+          "mv%": 1
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 20000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1504",
+        "1505"
+      ],
+      "weaponId": "21010045",
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": "6000052",
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.5",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.6",
+        "normalAttack.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.5",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1505": {
+    "name": "Shorekeeper",
+    "version": 1.3,
+    "quality": 5,
+    "element": "spectro",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 16712,
+      "baseAtk": 287,
+      "baseDef": 1099
+    },
+    "ascensionStats": {
+      "healingBonus%": 0.12,
+      "hp%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useWhen": "interval",
+        "useCooldown": 3000,
+        "useAction": "resonanceLiberation.1",
+        "maxDuration": 30000,
+        "rankMods": {
+          "1": {
+            "maxDuration": 10000
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "energyRegen%": 0.1
+        },
+        "maxDuration": 30000,
+        "rankMods": {
+          "1": {
+            "maxDuration": 10000
+          }
+        }
+      },
+      {
+        "applyBy": "team",
+        "applyWhen": "before",
+        "applyOnSkillType": "introSkill",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "removeWhen": "before",
+        "removeIfEffectStacksMax": {
+          "$prev.1": 0
+        },
+        "maxStacks": 2
+      },
+      {
+        "applyTo": "team",
+        "useIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "buffSpec": {
+          "critRate%": {
+            "attr": "energyRegen%",
+            "step": 0.002,
+            "value": 0.0001,
+            "maxValue": 0.125
+          }
+        }
+      },
+      {
+        "applyTo": "team",
+        "useIfEffectStacksMin": {
+          "$prev.2": 2
+        },
+        "buffSpec": {
+          "critDmg%": {
+            "attr": "energyRegen%",
+            "step": 0.001,
+            "value": 0.0001,
+            "maxValue": 0.25
+          }
+        }
+      },
+      {
+        "enableIfRankMax": 0,
+        "useWhen": "before",
+        "useOnAction": "introSkill.2",
+        "onUseDoRemove": "$prev.4"
+      },
+      {
+        "useOnAction": "introSkill.2",
+        "buffMap": {
+          "critRate%": 1
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "team",
+        "buffMap": {
+          "dmgAmp%": 0.15
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 2,
+        "useIfEffectStacksMin": {
+          "$prev.7": 1
+        },
+        "buffMap": {
+          "atk%": 0.4
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnAction": "resonanceSkill.0",
+        "buffMap": {
+          "healingBonus%": 0.7
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": "introSkill.2",
+        "buffMap": {
+          "mv%": 0.42,
+          "critDmg%": 5
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1505"
+      ],
+      "weaponId": "21050036",
+      "setCounts": {
+        "7": 5
+      },
+      "mainEcho": "6000060",
+      "rotation": [
+        "introSkill.2",
+        "introSkill.3",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.1",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1506": {
+    "name": "Phoebe",
+    "version": 2.1,
+    "quality": 5,
+    "element": "spectro",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 10825,
+      "baseAtk": 412,
+      "baseDef": 1258
+    },
+    "ascensionStats": {
+      "critDmg%": 0.16,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "mv%": 2.55
+        },
+        "rankMods": {
+          "1": {
+            "buffMap": {
+              "mv%": 2.25
+            }
+          }
+        }
+      },
+      {
+        "useOnAction": "forteCircuit.2",
+        "useIfNegativeStatus": {
+          "spectroFrazzle": 1
+        },
+        "buffMap": {
+          "dmgAmp%": 2.56
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1"
+        ],
+        "buffMap": {
+          "spectroDmgBonus%": 0.12
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "useWhen": "hit",
+        "useAction": {
+          "dmgType": "outroSkill",
+          "multipliers": [
+            {
+              "mv": 5.2841
+            }
+          ]
+        },
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "useOnDmgType": "outroSkill",
+        "buffMap": {
+          "mv%": 2.55
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "outroSkill.1",
+        "applyTo": "global",
+        "buffMap": {
+          "spectroResReduction%": 0.1
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "outroSkill.1",
+        "applyTo": "global",
+        "useIfField": "onField",
+        "buffMap": {
+          "spectroFrazzleDmgAmp%": 1
+        },
+        "maxDuration": 30000,
+        "rankMods": {
+          "2": {
+            "buffMap": {
+              "spectroFrazzleDmgAmp%": 1.2
+            }
+          }
+        }
+      },
+      {
+        "enableIfRankMin": 1,
+        "useOnAction": "resonanceLiberation.1",
+        "buffMap": {
+          "mv%": 0.9
+        }
+      },
+      {
+        "enableIfRankMin": 1,
+        "useWhen": "hit",
+        "useOnAction": "resonanceLiberation.1",
+        "useAction": {
+          "inflictStatus": {
+            "spectroFrazzle": 2
+          }
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "useOnDmgType": "outroSkill",
+        "useIfNegativeStatus": {
+          "spectroFrazzle": 1
+        },
+        "buffMap": {
+          "dmgAmp%": 1.2
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "forteCircuit.2",
+        "buffMap": {
+          "mv%": 0.91
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "forteCircuit.3",
+        "buffMap": {
+          "mv%": 2.49
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "hit",
+        "applyOnSkillType": [
+          "basicAttack",
+          "dodgeCounter"
+        ],
+        "applyTo": "global",
+        "buffMap": {
+          "spectroResReduction%": 0.1
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "buffMap": {
+          "spectroDmgBonus%": 0.12
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.0",
+        "buffMap": {
+          "atk%": 0.1
+        },
+        "maxDuration": 20000
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "useWhen": "hit",
+        "useOnAction": "resonanceSkill.0",
+        "useAction": "forteCircuit.2"
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.1",
+        "useWhen": "hit",
+        "useOnAction": "resonanceSkill.0",
+        "useAction": "forteCircuit.3"
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1507",
+        "1506",
+        "1505"
+      ],
+      "weaponId": "21050046",
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": "6000052",
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "forteCircuit.1",
+        "resonanceLiberation.1",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "resonanceSkill.4",
+        "forteCircuit.3",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "resonanceSkill.4",
+        "forteCircuit.3",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1507": {
+    "name": "Zani",
+    "version": 2.3,
+    "quality": 5,
+    "element": "spectro",
+    "type": "gauntlets",
+    "baseStats": {
+      "baseHp": 10775,
+      "baseAtk": 437,
+      "baseDef": 1136
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceSkill.2",
+          "resonanceSkill.3"
+        ],
+        "buffMap": {
+          "spectroFrazzleDmgAmp%": 0.2
+        },
+        "maxDuration": 14000,
+        "rankMods": {
+          "1": {
+            "buffMap": {
+              "spectroDmgBonus%": 0.5
+            }
+          }
+        }
+      },
+      {
+        "useOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.4"
+        ],
+        "buffMap": {
+          "mv%": 0.25
+        },
+        "rankMods": {
+          "6": {
+            "buffMap": {
+              "mv%": 0.4
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.2",
+        "useWhen": "hit",
+        "useAction": "forteCircuit.3",
+        "times": 40,
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "buffMap": {
+          "spectroDmgBonus%": 0.12
+        },
+        "maxDuration": 14000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
+        "buffMap": {
+          "spectroDmgAmp%": 0.2
+        },
+        "maxDuration": 20000
+      },
+      {
+        "enableIfRankMin": 2,
+        "buffMap": {
+          "critRate%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "useOnAction": [
+          "resonanceSkill.2",
+          "resonanceSkill.3"
+        ],
+        "buffMap": {
+          "mv%": 0.8
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "resonanceLiberation.1",
+        "buffMap": {
+          "mv%": 12
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "applyTo": "team",
+        "maxDuration": 30000,
+        "buffMap": {
+          "atk%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "mv%": 1.2
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": "forteCircuit.2",
+        "buffMap": {
+          "mv": 16
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1507",
+        "1506",
+        "1505"
+      ],
+      "weaponId": "21040036",
+      "setCounts": {
+        "11": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "normalAttack.2",
+        "resonanceSkill.2",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "resonanceLiberation.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1508": {
+    "name": "Chisa",
+    "version": 2.8,
+    "quality": 5,
+    "element": "havoc",
+    "type": "broadblade",
+    "baseStats": {
+      "baseHp": 10775,
+      "baseAtk": 437,
+      "baseDef": 1136
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1508"
+      ],
+      "weaponId": "21010056",
+      "setCounts": {
+        "6": 2,
+        "23": 3
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.1",
+        "normalAttack.6",
+        "normalAttack.2",
+        "resonanceLiberation.0",
+        "resonanceSkill.1",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "forteCircuit.6",
+        "forteCircuit.9",
+        "outroSkill.0"
+      ]
+    },
+    "effects": [
+      {
+        "applyWhen": "hit",
+        "applyOnSkillType": "resonanceSkill",
+        "applyTo": "global",
+        "useWhen": "hit",
+        "useOnType": "damage",
+        "useCooldown": 2000,
+        "useAction": {
+          "inflictStatus": {
+            "havocBane": 1
+          }
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "team",
+        "maxDuration": 20000
+      },
+      {
+        "applyBy": "team",
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "applyTo": "global",
+        "gameRule": {
+          "maxStacks": {
+            "glacioChafe": 3,
+            "fusionBurst": 3,
+            "electroFlare": 3,
+            "aeroErosion": 3,
+            "spectroFrazzle": 3,
+            "havocBane": 3
+          }
+        },
+        "maxDuration": 15000
+      },
+      {
+        "applyBy": "team",
+        "applyWhen": "inflict",
+        "applyIfEffectStacksMin": {
+          "$prev.2": 1
+        },
+        "applyForInflictStatus": "any",
+        "applyTo": "applier",
+        "buffMap": {
+          "defIgnore%": 0.18
+        },
+        "maxDuration": 15000
+      }
+    ]
+  },
+  "1509": {
+    "name": "Lynae",
+    "version": 3,
+    "quality": 5,
+    "element": "spectro",
+    "type": "pistols",
+    "tagged": "tuneStrain",
+    "baseStats": {
+      "baseHp": 12237,
+      "baseAtk": 375,
+      "baseDef": 1197,
+      "tuneBreakBoost": 10
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "resonanceModes": [
+      "Tune Rupture",
+      "Tune Strain"
+    ],
+    "effects": [
+      {
+        "useWhen": "tuneResponse",
+        "useIfInterfered": "tuneRupture",
+        "useAction": "forteCircuit.5"
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "dmgAmp%": 0.15,
+          "resonanceLiberationDmgAmp%": 0.25
+        },
+        "maxDuration": 14000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1509",
+        "1209"
+      ],
+      "weaponId": "21030046",
+      "setCounts": {
+        "24": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "resonanceSkill.0",
+        "normalAttack.7",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1510": {
+    "name": "Luuk Herssen",
+    "version": 3.1,
+    "quality": 5,
+    "element": "spectro",
+    "type": "gauntlets",
+    "tagged": "tuneStrain",
+    "baseStats": {
+      "baseHp": 10300,
+      "baseAtk": 462,
+      "baseDef": 1112,
+      "tuneBreakBoost": 10
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "enableIfRankMin": 1,
+        "buffMap": {
+          "mid-airAttackDmgBonus%": 1.5
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1510",
+        "1509",
+        "1209"
+      ],
+      "weaponId": "21040056",
+      "setCounts": {
+        "26": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.8",
+        "normalAttack.9",
+        "resonanceSkill.1",
+        "resonanceSkill.4",
+        "normalAttack.5",
+        "normalAttack.8",
+        "normalAttack.9",
+        "resonanceSkill.2",
+        "resonanceSkill.4",
+        "normalAttack.5",
+        "normalAttack.8",
+        "normalAttack.9",
+        "resonanceSkill.3",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1511": {
+    "name": "Lucy",
+    "version": 3.4,
+    "quality": 5,
+    "element": "spectro",
+    "type": "pistols",
+    "baseStats": {
+      "baseHp": 11025,
+      "baseAtk": 425,
+      "baseDef": 1148,
+      "tuneBreakBoost": 10
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.2",
+        "applyTo": "global",
+        "buffMap": {
+          "vuln%": 0.05
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.3",
+        "applyTo": "global",
+        "buffMap": {
+          "defReduction%": 0.05
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.3",
+        "useOnAction": "normalAttack.16",
+        "buffMap": {
+          "mv%": 2.7
+        },
+        "maxUses": 1,
+        "rankMods": {
+          "2": {
+            "buffMap": {
+              "mv%": 2.9
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.3",
+        "buffMap": {
+          "spectroDmgBonus%": 0.65
+        },
+        "maxDuration": 8000
+      },
+      {
+        "useWhen": "tuneResponse",
+        "useIfInterfered": "hack",
+        "useAction": "forteCircuit.0"
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "basicAttackDmgAmp%": 0.25
+        },
+        "maxDuration": 14000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "1308",
+        "buffMap": {
+          "dmgAmp%": 0.2
+        },
+        "maxDuration": 25000
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.1",
+        "useWhen": "interval",
+        "useAction": [
+          {
+            "dmgType": "heavyAttack",
+            "multipliers": [
+              {
+                "mv": 4.5
+              }
+            ]
+          },
+          "resonanceLiberation.2",
+          "resonanceLiberation.3"
+        ],
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": [
+          "resonanceLiberation.6",
+          "resonanceLiberation.7"
+        ],
+        "buffMap": {
+          "mv%": 0.5,
+          "critDmg%": 1
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": [
+          "resonanceLiberation.5",
+          "forteCircuit.0"
+        ],
+        "buffMap": {
+          "mv%": 0.65
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyTo": "team",
+        "buffMap": {
+          "dmgBonus%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useIfShifting": "hack",
+        "useIfInterfered": "hack",
+        "buffMap": {
+          "heavyAttackDmgBonus%": 0.4,
+          "hackDmgBonus%": 0.6
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1511",
+        "1308",
+        "1209"
+      ],
+      "weaponId": "21030056",
+      "setCounts": {
+        "32": 1,
+        "26": 2,
+        "24": 2
+      },
+      "mainEcho": "6000201",
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.3",
+        "normalAttack.10",
+        "normalAttack.11",
+        "normalAttack.12",
+        "normalAttack.13",
+        "normalAttack.15",
+        "normalAttack.16",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "resonanceLiberation.5",
+        "resonanceLiberation.7",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1601": {
+    "name": "Taoqi",
+    "version": 1,
+    "quality": 4,
+    "element": "havoc",
+    "type": "broadblade",
+    "baseStats": {
+      "baseHp": 8950,
+      "baseAtk": 225,
+      "baseDef": 1564
+    },
+    "ascensionStats": {
+      "havocDmgBonus%": 0.12,
+      "def%": 0.152
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.0",
+        "applyTo": "global",
+        "useIfField": "onField",
+        "removeWhen": "before",
+        "removeOnAction": "normalAttack.3",
+        "buffMap": {
+          "def%": 0.15
+        },
+        "maxDuration": 15000,
+        "rankMods": {
+          "3": {
+            "maxDuration": 15000
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "resonanceSkillDmgAmp%": 0.38
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 1,
+        "useOnAction": [
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "forteCircuit.5"
+        ],
+        "buffMap": {
+          "shieldBonus%": 0.4
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "critRate%": 0.2,
+          "critDmg%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "normalAttack.5",
+        "applyCooldown": 15000,
+        "useWhen": "hit",
+        "useAction": {
+          "type": "healing",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.25
+            }
+          ]
+        },
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "normalAttack.5",
+        "applyCooldown": 15000,
+        "buffMap": {
+          "def%": 0.5
+        },
+        "maxDuration": 5000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.5
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.0",
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.4,
+          "heavyAttackDmgBonus%": 0.4
+        },
+        "maxDuration": 30000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1601",
+        "1505"
+      ],
+      "weaponId": "21010024",
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": "6000052",
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.3",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "forteCircuit.2",
+        "forteCircuit.5",
+        "resonanceLiberation.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1602": {
+    "name": "Danjin",
+    "version": 1,
+    "quality": 4,
+    "element": "havoc",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 9437,
+      "baseAtk": 262,
+      "baseDef": 1148
+    },
+    "ascensionStats": {
+      "havocDmgBonus%": 0.12,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.2",
+        "buffMap": {
+          "dmgBonus%": 0.2
+        },
+        "maxDuration": 12000,
+        "rankMods": {
+          "2": {
+            "buffMap": {
+              "dmgBonus%": 0.2
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "normalAttack.5",
+        "useOnAction": [
+          "resonanceSkill.1",
+          "resonanceSkill.2"
+        ],
+        "buffMap": {
+          "dmgBonus%": 0.2
+        },
+        "maxDuration": 5000,
+        "maxUses": 2
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceSkill.3",
+          "resonanceSkill.4",
+          "resonanceSkill.5"
+        ],
+        "buffMap": {
+          "heavyAttackDmgBonus%": 0.3
+        },
+        "maxDuration": 5000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "havocDmgAmp%": 0.23
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "hit",
+        "applyOnType": "damage",
+        "buffMap": {
+          "atk%": 0.05
+        },
+        "maxDuration": 6000,
+        "maxStacks": 6
+      },
+      {
+        "enableIfRankMin": 3,
+        "buffMap": {
+          "resonanceLiberationDmgBonus%": 0.3
+        }
+      },
+      {
+        "enableIfRankMin": 4,
+        "useOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3"
+        ],
+        "buffMap": {
+          "critRate%": 0.15
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "buffMap": {
+          "havocDmgBonus%": 0.3
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.2"
+        ],
+        "applyTo": "team",
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 20000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1602",
+        "1505"
+      ],
+      "weaponId": "21020015",
+      "setCounts": {
+        "12": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "resonanceSkill.3",
+        "resonanceSkill.4",
+        "resonanceSkill.5",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1603": {
+    "name": "Camellya",
+    "version": 1.4,
+    "quality": 5,
+    "element": "havoc",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 10325,
+      "baseAtk": 450,
+      "baseDef": 1161
+    },
+    "ascensionStats": {
+      "critDmg%": 0.16,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "removeWhen": "before",
+        "removeIfField": "offField",
+        "useOnAction": [
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "normalAttack.4",
+          "normalAttack.6",
+          "normalAttack.7",
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "resonanceSkill.3",
+          "resonanceSkill.4",
+          "resonanceSkill.5",
+          "resonanceSkill.7",
+          "resonanceSkill.8",
+          "resonanceSkill.0",
+          "resonanceSkill.6"
+        ],
+        "buffMap": {
+          "mv%": 1
+        },
+        "maxDuration": 15000,
+        "rankMods": {
+          "6": {
+            "buffMap": {
+              "mv%": 2
+            }
+          }
+        }
+      },
+      {
+        "buffMap": {
+          "havocDmgBonus%": 0.15
+        }
+      },
+      {
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.15
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "useOnDmgType": "outroSkill",
+        "buffMap": {
+          "mv": 4.5902
+        },
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "applyCooldown": 25000,
+        "buffMap": {
+          "critDmg%": 0.28
+        },
+        "maxDuration": 18000
+      },
+      {
+        "enableIfRankMin": 2,
+        "useOnAction": "forteCircuit.0",
+        "buffMap": {
+          "mv%": 1.2
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "mv%": 0.5
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "buffMap": {
+          "atk%": 0.58
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "applyTo": "team",
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.25
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "introSkill.0",
+        "buffMap": {
+          "mv%": 3.03
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnDmgType": "outroSkill",
+        "buffMap": {
+          "mv%": 0.68
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.0",
+        "applyCooldown": 25000,
+        "useWhen": "hit",
+        "useAction": "forteCircuit.0",
+        "maxDuration": 15000,
+        "maxUses": 1
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1603",
+        "1606",
+        "1505"
+      ],
+      "weaponId": "21020026",
+      "setCounts": {
+        "6": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "resonanceSkill.5",
+        "resonanceSkill.4",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "resonanceSkill.5",
+        "resonanceSkill.4",
+        "resonanceSkill.6",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1606": {
+    "name": "Roccia",
+    "version": 2,
+    "quality": 5,
+    "element": "havoc",
+    "type": "gauntlets",
+    "baseStats": {
+      "baseHp": 12250,
+      "baseAtk": 375,
+      "baseDef": 1197
+    },
+    "ascensionStats": {
+      "critDmg%": 0.16,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "team",
+        "buffSpec": {
+          "atk": {
+            "attr": "critRate%",
+            "step": 0.001,
+            "offset": 0.5,
+            "value": 1,
+            "maxValue": 200
+          }
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": [
+          "resonanceSkill",
+          "heavyAttack"
+        ],
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 12000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "useWhen": "hit",
+        "useAction": {
+          "skillType": "echoSkill",
+          "multipliers": [
+            {
+              "flat": 100
+            }
+          ]
+        },
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "havocDmgAmp%": 0.2,
+          "basicAttackDmgAmp%": 0.25
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "buffMap": {
+          "havocDmgBonus%": 0.1
+        },
+        "maxDuration": 30000,
+        "maxStacks": 3
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.2",
+        "buffMap": {
+          "havocDmgBonus%": 0.1
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIfRankMin": 3,
+        "applyWhen": "before",
+        "applyOnAction": "introSkill.0",
+        "buffMap": {
+          "critRate%": 0.1,
+          "critDmg%": 0.3
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIfRankMin": 4,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceSkill.0",
+        "useOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "buffMap": {
+          "mv%": 0.6
+        },
+        "maxDuration": 12000
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "mv%": 0.2
+        }
+      },
+      {
+        "enableIfRankMin": 5,
+        "useOnSkillType": "heavyAttack",
+        "buffMap": {
+          "mv%": 0.8
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "buffMap": {
+          "defIgnore%": 0.6
+        },
+        "maxDuration": 12000
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useOnAction": "forteCircuit.2",
+        "buffMap": {
+          "mv%": 1
+        },
+        "maxDuration": 12000
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1606",
+        "1505"
+      ],
+      "weaponId": "21040026",
+      "setCounts": {
+        "12": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1607": {
+    "name": "Cantarella",
+    "version": 2.2,
+    "quality": 5,
+    "element": "havoc",
+    "type": "rectifier",
+    "baseStats": {
+      "baseHp": 11600,
+      "baseAtk": 400,
+      "baseDef": 1099
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "applyTo": "global",
+        "useWhen": "hit",
+        "useIfField": "onField",
+        "useCooldown": 1000,
+        "useAction": "resonanceLiberation.1",
+        "maxDuration": 30000,
+        "maxUses": 21,
+        "rankMods": {
+          "5": {
+            "maxUses": 5
+          }
+        }
+      },
+      {
+        "buffMap": {
+          "healingBonus%": 0.2
+        },
+        "rankMods": {
+          "4": {
+            "buffMap": {
+              "healingBonus%": 0.25
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "echoSkill",
+        "buffMap": {
+          "havocDmgBonus%": 0.06
+        },
+        "maxDuration": 10000,
+        "maxStacks": 2
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "havocDmgAmp%": 0.2,
+          "resonanceSkillDmgAmp%": 0.25
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIfRankMin": 1,
+        "useOnAction": [
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "forteCircuit.4"
+        ],
+        "buffMap": {
+          "mv%": 0.5
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyWhen": "hit",
+        "applyOnAction": "resonanceLiberation.0",
+        "useWhen": "interval",
+        "useAction": "resonanceSkill.2",
+        "maxUses": 1
+      },
+      {
+        "enableIfRankMin": 2,
+        "useOnAction": "resonanceSkill.2",
+        "buffMap": {
+          "mv%": 2.45
+        }
+      },
+      {
+        "enableIfRankMin": 3,
+        "useOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "mv%": 3.7
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "useOnAction": [
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2"
+        ],
+        "buffMap": {
+          "mv%": 0.8
+        }
+      },
+      {
+        "enableIfRankMin": 6,
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "buffMap": {
+          "defIgnore%": 0.3
+        },
+        "maxDuration": 10000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1608",
+        "1607",
+        "1411"
+      ],
+      "weaponId": "21050056",
+      "setCounts": {
+        "12": 5
+      },
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.2",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "normalAttack.4",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "forteCircuit.0",
+        "forteCircuit.6",
+        "forteCircuit.1",
+        "forteCircuit.6",
+        "forteCircuit.2",
+        "forteCircuit.6",
+        "forteCircuit.4",
+        "forteCircuit.7",
+        "resonanceSkill.2",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1608": {
+    "name": "Phrolova",
+    "version": 2.5,
+    "quality": 5,
+    "element": "havoc",
+    "type": "rectifier",
+    "noEnergy": true,
+    "baseStats": {
+      "baseHp": 10775,
+      "baseAtk": 437,
+      "baseDef": 1136
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "resonanceLiberation.4"
+        ],
+        "buffMap": {
+          "critDmg%": 0.025
+        },
+        "maxStacks": 24
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "next",
+        "buffMap": {
+          "havocDmgAmp%": 0.2,
+          "heavyAttackDmgAmp%": 0.25
+        },
+        "maxDuration": 14000
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1608",
+        "1607",
+        "1411"
+      ],
+      "weaponId": "21050066",
+      "setCounts": {
+        "6": 2,
+        "19": 3
+      },
+      "rotation": [
+        "introSkill.1",
+        "normalAttack.2",
+        "resonanceLiberation.2",
+        "resonanceSkill.0",
+        "resonanceLiberation.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "resonanceLiberation.2",
+        "normalAttack.4",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ]
+    }
+  },
+  "1610": {
+    "name": "Yangyang: Xuanling",
+    "version": 3.5,
+    "quality": 5,
+    "element": "havoc",
+    "type": "sword",
+    "baseStats": {
+      "baseHp": 11025,
+      "baseAtk": 425,
+      "baseDef": 1148
+    },
+    "ascensionStats": {
+      "critRate%": 0.08,
+      "atk%": 0.12
+    },
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "resonanceLiberation.0",
+        "useWhen": "hit",
+        "useOnAction": [
+          "resonanceSkill.0",
+          "resonanceSkill.1"
+        ],
+        "useAction": "resonanceLiberation.1",
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": "forteCircuit.2",
+        "applyIfField": "onField",
+        "applyCooldown": 25000,
+        "buffMap": {
+          "critDmg%": 1.6
+        },
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "ally",
+        "maxDuration": 20000
+      },
+      {
+        "applyBy": "team",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": "havocBane",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "applyTo": "applier",
+        "removeWhen": "before",
+        "removeIfEffectStacksMax": {
+          "$prev.1": 0
+        },
+        "buffMap": {
+          "havocDmgAmp%": 0.2
+        }
+      }
+    ]
+  }
+}

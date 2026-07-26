@@ -1,41 +1,31 @@
 import requests
 
-IMAGE_LOCATIONS = {
-    "genshin-impact": {
-        "character": lambda data, _: data["icon"],
-        "weapon": lambda data, _: data["icon"],
-        "set": lambda data, _: data["icon"],
+lookup_url = {
+    'gi': {
+        'character': lambda _, data: data['icon'],
+        'weapon': lambda _, data: data['icon'],
+        'set': lambda _, data: data['icon'],
     },
-    "honkai-star-rail": {
-        "character": lambda _, image_id: f"avatarshopicon/{image_id}",
-        "weapon": lambda _, image_id: f"lightconemediumicon/{image_id}",
-        "set": lambda data, _: f"itemfigures/{data["icon"][22:data["icon"].rindex(".")]}",
+    'hsr': {
+        'character': lambda id, _: f'avatarshopicon/{id}',
+        'weapon': lambda id, _: f'lightconemediumicon/{id}',
+        'set': lambda _, data: f'itemfigures/{data['icon'][22:data['icon'].rindex('.')]}',
     },
-    "wuthering-waves": {
-        "character": lambda data, _: data["icon"][13:data["icon"].rindex(".")],
-        "weapon": lambda data, _: data["icon"][13:data["icon"].rindex(".")],
-        "set": lambda data, _: data["icon"][13:data["icon"].rindex(".")],
+    'ww': {
+        'character': lambda _, data: data['icon'][13:data['icon'].rindex('.')],
+        'weapon': lambda _, data: data['icon'][13:data['icon'].rindex('.')],
+        'set': lambda _, data: data['icon'][13:data['icon'].rindex('.')],
+        'echo': lambda _, data: data['icon'][13:data['icon'].rindex('.')],
     },
-    "zenless-zone-zero": {
-        "character": lambda data, _: data["icon"],
-        "weapon": lambda data, _: data["code_name"],
-        "set": lambda data, _: data["icon"][41:data["icon"].rindex(".")],
+    'zzz': {
+        'character': lambda _, data: data['icon'],
+        'weapon': lambda _, data: data['code_name'],
+        'set': lambda _, data: data['icon'][41:data['icon'].rindex('.')],
     },
 }
 
-def make_parse_image(GAME):
-    game_id = GAME["id"]
-    game_link = GAME["link"]
-    image_locs = IMAGE_LOCATIONS[game_id]
-
-    def parse_image(image_type, data, image_id):
-        image_url = image_locs[image_type](data, image_id)
-
-        url = f"https://static.nanoka.cc/assets/{game_link}/{image_url}.webp"
-        response = requests.get(url)
-
-        path = f"public/{game_id}/{image_type}/{image_id}.webp"
-        with open(path, "wb") as f:
-            f.write(response.content)
-
-    return parse_image
+def parse_image(game, type, id, data):
+    image_url = lookup_url[game][type](id, data)
+    url = f'https://static.nanoka.cc/assets/{game}/{image_url}.webp'
+    response = requests.get(url)
+    return response.content

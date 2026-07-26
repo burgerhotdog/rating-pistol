@@ -1,63 +1,67 @@
 import requests
+from .parse_image import parse_image
+from .parse_gi import parse_gi
+from .parse_hsr import parse_hsr
+from .parse_ww import parse_ww
+from .parse_zzz import parse_zzz
 
-def enter_ids(GAME, version, id_type):
-    mapped_id_type = GAME["lang"]["id_type"].get(id_type, id_type)
-    url = f"https://static.nanoka.cc/{GAME['link']}/{version}/{mapped_id_type}.json"
-    data = requests.get(url).json()
+lang = {
+    'gi': {
+        'set': 'artifact',
+    },
+    'hsr': {
+        'weapon': 'lightcone',
+        'set': 'relicset',
+    },
+    'ww': {
+        'set': 'sonata',
+    },
+    'zzz': {
+        'set': 'equipment',
+    },
+}
 
-    # Echo uses setId -> key mapping from data[key]["group"] array.
-    echo_setid_to_key = None
-    echo_details_cache = {}
+parsers = {
+    "gi": parse_gi,
+    "hsr": parse_hsr,
+    "ww": parse_ww,
+    "zzz": parse_zzz,
+}
 
-    if mapped_id_type == "echo":
-        echo_setid_to_key = {}
-        for key, entry in data.items():
-            for set_id in entry.get("group", []):
-                echo_setid_to_key[str(set_id)] = key
+def parse_data(game, *args):
+    return parsers[game](*args)
 
-    def is_invalid_id(ID):
-        if mapped_id_type == "echo":
-            return ID not in echo_setid_to_key
-        return ID not in data
-
-    def get_name(ID):
-        if mapped_id_type == "echo":
-            key = echo_setid_to_key[ID]
-
-            # Cache request per key so repeated IDs in same group do not refetch.
-            if key not in echo_details_cache:
-                detail_url = f"https://static.nanoka.cc/ww/{version}/en/echo/{key}.json"
-                echo_details_cache[key] = requests.get(detail_url).json()
-
-            detail = echo_details_cache[key]
-            # JSON keys are strings, so ID string lookup is expected.
-            return detail["group"][ID]["name"]
-
-        if mapped_id_type == "artifact":
-            # data[ID]["set"] is a map; take its first value then read name.en
-            set_map = data[ID].get("set", {})
-            first_set = next(iter(set_map.values()), {})
-            return first_set["name"]["en"]
-
-        if mapped_id_type == "equipment":
-            return data[ID]["en"]["name"]
-
-        # Default behavior
-        return data[ID]["en"]
+def enter_ids(game, version, type):
+    mapped_type = lang[game].get(type, type)
+    url_base = f'https://static.nanoka.cc/{game}/{version}/'
+    response = requests.get(f'{url_base}{mapped_type}.json').json()
 
     while True:
-        input_str = input(f"Enter new {id_type} IDs (space-separated, or press Enter to skip): ")
+        raw_input = input(f'Enter new {type} IDs (separated by space, or press Enter to skip): ')
+        if raw_input == '':
+            return []
 
-        if input_str == "":
-            return [], [], {}
+        inputs = raw_input.split()
+        invalid_ids = [ID for ID in inputs if ID not in response]
+        if not invalid_ids:
+            break
 
-        id_list = input_str.split()
-        invalid_ids = [ID for ID in id_list if is_invalid_id(ID)]
-        if invalid_ids:
-            print(f"Invalid IDs: ({', '.join(invalid_ids)}). Please try again.")
-            continue
+        print(f'Invalid IDs: ({", ".join(invalid_ids)}). Please try again.')
 
-        id_list = sorted(id_list, key=int)
-        id_names = [get_name(ID) for ID in id_list]
+    inputs = sorted(inputs, key=int)
+    entries = []
 
-        return id_list, id_names, echo_setid_to_key
+    for input_id in inputs:
+        print(input_id)
+        if mapped_type == 'sonata':
+            input_data = response[input_id]
+        else:
+            input_data = requests.get(f'{url_base}en/{mapped_type}/{input_id}.json').json()
+
+        entries.append((
+            input_id,
+            parse_image(game, type, input_id, input_data),
+            parse_data(game, type, version, input_id, input_data),
+        ))
+
+    return entries

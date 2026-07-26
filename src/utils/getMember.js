@@ -1,4 +1,4 @@
-import { CHARACTER } from '@/data';
+import { WW, CHARACTER } from '@/data';
 import { getDefaultCharacterRank, getDefaultWeaponRank } from '@/utils';
 
 export function getMember(gameId, characterId) {
@@ -13,6 +13,7 @@ export function getMember(gameId, characterId) {
     weaponId,
     weaponRank: weaponId ? getDefaultWeaponRank(gameId, weaponId) : null,
     setCounts: defaults.setCounts ?? {},
+    ...(gameId === WW && { mainEcho: defaults.mainEcho }),
     rotation: defaults.rotation ?? [],
     useUserBuild: false,
   };

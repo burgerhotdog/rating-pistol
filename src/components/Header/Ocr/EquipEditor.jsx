@@ -139,7 +139,6 @@ const EquipEditor = ({ equip, index, onChange }) => {
 
           {subStatList.map((sub, subIndex) => {
             const { subStatId, subStatValue } = sub;
-            console.log(subStatValue);
             
             return (
               <Grid size={12} key={subIndex}>
