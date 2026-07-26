@@ -49,14 +49,14 @@ function runShieldFormula(action, statMap) {
     times;
 }
 
-export function runFormula(helpers, action, statMap) {
+export function runFormula(helpers, type, action, statMap) {
   if (action.attr === 'tuneAmp') {
     const tuneAmp = action.compressed.mvs.tuneAmp;
     const element = action.element;
     return runTuneFormula(helpers, statMap, tuneAmp, element);
   }
 
-  switch (action.type) {
+  switch (type) {
     case 'damage':
       return runDamageFormula(helpers, action, statMap);
     case 'healing':

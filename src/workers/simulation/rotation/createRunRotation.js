@@ -27,7 +27,7 @@ import {
   inflictTuneShifting,
   advanceTune,
 } from './special/tune';
-import { buildSnapshot, evaluateSnapshot } from './snapshot';
+import { buildSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 
 function handleRemoveWhen(ctx, action, when) {
@@ -208,11 +208,19 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     runAction(ctx, action);
   }
 
-  return (buildMap) => ctx.snapshots.map((snapshot) =>
-    'value' in snapshot
-      ? snapshot
-      : {
-        ...snapshot,
-        value: evaluateSnapshot(helpers, currId, snapshot, buildMap),
-      });
+  return (buildMap) => ctx.snapshots.map((snapshot) => {
+    const toResolve = [];
+    for (const type of ['damage', 'healing', 'shield']) {
+      if (type in snapshot && typeof snapshot[type] === 'function') {
+        toResolve.push(type);
+      }
+    }
+
+    const resolved = { ...snapshot };
+    for (const type of toResolve) {
+      resolved[type] = snapshot[type](buildMap);
+    }
+
+    return resolved;
+  });
 };

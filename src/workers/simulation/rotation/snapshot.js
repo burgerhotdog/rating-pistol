@@ -3,6 +3,8 @@ import { resolveStatSpecs, mergeStatMap } from '../utils';
 import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 
+const types = ['damage', 'healing', 'shield'];
+
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { runtimeOffset = 0 } = options;
   const snapshot = {
@@ -17,7 +19,10 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     snapshot.currBuffMap = buffMap;
   } else if (action.ownerId !== ctx.currId) {
     const statMap = toMergedObj(snapshot.ctxBuildMap, snapshot.buffMap);
-    snapshot.value = runFormula(ctx.helpers, action, statMap);
+    for (const type of types) {
+      if (!(type in action)) continue;
+      snapshot[type] = runFormula(ctx.helpers, type, action, statMap);
+    }
   }
 
   return snapshot;

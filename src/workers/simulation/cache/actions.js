@@ -39,9 +39,7 @@ const getCompressed = (multipliers, attr, { index, weaponRank }) => {
 
   const compressed = { flat: 0, mvs: {}, hitCount: 0 };
   for (const { flat, mv, times = 1 } of multipliers) {
-    if (flat) {
-      compressed.flat += resolveScaling(flat) * times;
-    }
+    if (flat) compressed.flat += resolveScaling(flat) * times;
     if (mv) {
       if (typeof mv === 'object' && !Array.isArray(mv)) { // dual attr scaling
         for (const [attrKey, scaling] of Object.entries(mv)) {
