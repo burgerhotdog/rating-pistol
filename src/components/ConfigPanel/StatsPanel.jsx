@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { CharAvatar, TeamMemberDialog } from '@/components';
+import { CharAvatar } from '@/components';
+import { TeamMemberDialog } from './TeamMemberDialog';
 import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
 import { getAttr, formatStr, compileMenuMap } from '@/utils';
 
@@ -172,6 +173,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
         <Typography variant="caption" color="textSecondary" sx={{ mb: 1.5, display: 'block' }}>
           Team Configuration
         </Typography>
+
         <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
           {team.map((member, index) => (
             <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
@@ -194,6 +196,10 @@ export const StatsPanel = ({ team, updateTeam }) => {
         )}
 
         <Divider sx={{ my: 2 }} />
+
+        <Typography variant="caption" color="textSecondary" sx={{ mb: 1.5, display: 'block' }}>
+          Rotation
+        </Typography>
 
         <Box sx={{ flexGrow: 1 }} />
 

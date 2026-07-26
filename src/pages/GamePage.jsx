@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
-import { Header, Navbar } from '@/components';
+import { Header } from '@/components';
+import { Navbar } from '@/components/ConfigPanel';
 import { useBuild, useUser } from '@/contexts';
 import { CHARACTER } from '@/data';
 import { Content } from '@/pages';
