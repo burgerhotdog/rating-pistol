@@ -1,7 +1,7 @@
 import { CHARACTER, WEAPON } from '@/data';
 
-export function getDefaultCharacterRank(gameId, characterId) {
-  const { quality } = CHARACTER[gameId][characterId];
+export function getDefaultCharacterRank(gameId, charId) {
+  const { quality } = CHARACTER[gameId][charId];
   return quality === 5 ? 0 : 6;
 }
 

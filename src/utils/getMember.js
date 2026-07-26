@@ -1,20 +1,19 @@
 import { WW, CHARACTER } from '@/data';
 import { getDefaultCharacterRank, getDefaultWeaponRank } from '@/utils';
 
-export function getMember(gameId, characterId) {
-  const charData = CHARACTER[gameId][characterId];
-  const { defaults = {} } = charData;
+export function getMember(gameId, charId, presetIndex = 0) {
+  const preset = CHARACTER[gameId][charId].presets?.[presetIndex] ?? {};
 
-  const weaponId = defaults.weaponId ?? null;
+  const weaponId = preset.weaponId ?? null;
 
   return {
-    id: characterId,
-    rank: getDefaultCharacterRank(gameId, characterId),
+    id: charId,
+    rank: getDefaultCharacterRank(gameId, charId),
     weaponId,
     weaponRank: weaponId ? getDefaultWeaponRank(gameId, weaponId) : null,
-    setCounts: defaults.setCounts ?? {},
-    ...(gameId === WW && { mainEcho: defaults.mainEcho }),
-    rotation: defaults.rotation ?? [],
+    setCounts: preset.setCounts ?? {},
+    ...(gameId === WW && { mainEcho: preset.mainEcho }),
+    rotation: preset.rotation ?? [],
     useUserBuild: false,
   };
 }

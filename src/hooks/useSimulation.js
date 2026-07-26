@@ -5,7 +5,7 @@ import { WW } from '@/data';
 const VALID_GAME_IDS = new Set([WW]);
 
 export const useSimulation = (team) => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const workerRef = useRef(null);
   const prevPayloadRef = useRef(undefined);
   const [result, setResult] = useState({});
@@ -13,13 +13,13 @@ export const useSimulation = (team) => {
   const payload = useMemo(() => {
     if (!VALID_GAME_IDS.has(gameId)) return null;
 
-    const filteredTeam = team.filter((member) => member.id);
+    const filteredTeam = team.members.filter((member) => member.id);
     if (filteredTeam.some((member) => !member.rotation.length)) {
       return null;
     }
 
-    return { gameId, characterId, team: filteredTeam };
-  }, [gameId, characterId, team]);
+    return { gameId, charId, team: filteredTeam };
+  }, [gameId, charId, team]);
 
   if (prevPayloadRef.current !== payload) {
     prevPayloadRef.current = payload;

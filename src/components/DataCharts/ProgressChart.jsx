@@ -71,7 +71,7 @@ const getGrade = (pct) => {
 
 export const ProgressChart = ({ weeklySummaries, team, userSummary, rotationTime }) => {
   const { palette, accentColors } = useTheme();
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const disabledColor = palette.action.disabled;
   if (!weeklySummaries) return null;
 
@@ -89,8 +89,8 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, rotationTime
 
   const sortedMembers = [...membersMisc].sort((a, b) => {
     // Always put the selected character first
-    if (a.id === characterId) return -1;
-    if (b.id === characterId) return 1;
+    if (a.id === charId) return -1;
+    if (b.id === charId) return 1;
 
     // Always put "other" last
     if (a.id === 'other') return 1;

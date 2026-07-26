@@ -94,9 +94,9 @@ const isSignificantStat = (gameId, statId, percentOftotal, mainStatsList) => {
 };
 
 export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const { accentColors } = useTheme();
-  const { element } = CHARACTER[gameId][characterId];
+  const { element } = CHARACTER[gameId][charId];
   const [showAll, setShowAll] = useState(false);
   if (!configMap) return null;
 

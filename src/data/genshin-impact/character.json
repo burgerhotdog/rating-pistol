@@ -472,15 +472,17 @@
         "maxDuration": 10000
       }
     ],
-    "defaults": {
-      "weaponId": "11415",
-      "setCounts": {
-        "15021": 5
-      },
-      "rotation": [
-        "elementalSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "weaponId": "11415",
+        "setCounts": {
+          "15021": 5
+        },
+        "rotation": [
+          "elementalSkill.0"
+        ]
+      }
+    ]
   },
   "10000026": {
     "name": "Xiao",

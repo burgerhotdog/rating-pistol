@@ -3,11 +3,11 @@ import { Tabs, Tab } from '@mui/material';
 import { CharAvatar } from '@/components';
 
 export const Navbar = ({ sorted }) => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const navigate = useNavigate();
 
   const handleChange = (_, id) => {
-    if (characterId === id) return;
+    if (charId === id) return;
     navigate(`/${gameId}/${id}`, { replace: true });
   };
 
@@ -15,7 +15,7 @@ export const Navbar = ({ sorted }) => {
       <Tabs
         variant="scrollable"
         orientation="vertical"
-        value={characterId ?? false}
+        value={charId ?? false}
         onChange={handleChange}
         slotProps={{
           indicator: {

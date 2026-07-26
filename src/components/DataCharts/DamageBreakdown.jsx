@@ -51,10 +51,10 @@ const buildData = (summary, currId, breakdownMode) => {
 };
 
 export const DamageBreakdown = ({ userSummary, teamIds }) => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const { accentColors } = useTheme();
 
-  const [selectedCharId, setSelectedCharId] = useState(characterId);
+  const [selectedCharId, setSelectedCharId] = useState(charId);
   const [breakdownMode, setBreakdownMode] = useState('dmgType');
 
   if (!userSummary) return null;

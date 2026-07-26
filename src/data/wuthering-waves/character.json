@@ -99,28 +99,30 @@
         "maxStacks": 2
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1102",
-        "1505"
-      ],
-      "weaponId": "21020015",
-      "setCounts": {
-        "8": 5
-      },
-      "mainEcho": "6000052",
-      "rotation": [
-        "introSkill.0",
-        "resonanceLiberation.0",
-        "resonanceSkill.0",
-        "forteCircuit.0",
-        "forteCircuit.3",
-        "forteCircuit.1",
-        "forteCircuit.2",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1102",
+          "1505"
+        ],
+        "weaponId": "21020015",
+        "setCounts": {
+          "8": 5
+        },
+        "mainEcho": "6000052",
+        "rotation": [
+          "introSkill.0",
+          "resonanceLiberation.0",
+          "resonanceSkill.0",
+          "forteCircuit.0",
+          "forteCircuit.3",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1103": {
     "name": "Baizhi",
@@ -268,30 +270,32 @@
         "maxDuration": 35000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1103"
-      ],
-      "weaponId": "21050024",
-      "setCounts": {
-        "7": 5
-      },
-      "mainEcho": "390080005",
-      "rotation": [
-        "introSkill.0",
-        "introSkill.1",
-        "resonanceLiberation.0",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          null,
+          "1103"
+        ],
+        "weaponId": "21050024",
+        "setCounts": {
+          "7": 5
+        },
+        "mainEcho": "390080005",
+        "rotation": [
+          "introSkill.0",
+          "introSkill.1",
+          "resonanceLiberation.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1104": {
     "name": "Lingyang",
@@ -374,34 +378,36 @@
         "maxUses": 1
       }
     ],
-    "defaults": {
-      "team": [
-        "1104",
-        "1102",
-        "1505"
-      ],
-      "weaponId": "21040015",
-      "setCounts": {
-        "1": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceLiberation.0",
-        "forteCircuit.0",
-        "forteCircuit.1",
-        "forteCircuit.3",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.1",
-        "forteCircuit.3",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.1",
-        "forteCircuit.4",
-        "forteCircuit.5",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1104",
+          "1102",
+          "1505"
+        ],
+        "weaponId": "21040015",
+        "setCounts": {
+          "1": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceLiberation.0",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.3",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.1",
+          "forteCircuit.3",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.1",
+          "forteCircuit.4",
+          "forteCircuit.5",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1105": {
     "name": "Zhezhi",
@@ -517,31 +523,33 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1105",
-        "1505"
-      ],
-      "weaponId": "21050026",
-      "setCounts": {
-        "13": 5
-      },
-      "mainEcho": "6000105",
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "resonanceSkill.0",
-        "forteCircuit.0",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "resonanceLiberation.1",
-        "forteCircuit.2",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1105",
+          "1505"
+        ],
+        "weaponId": "21050026",
+        "setCounts": {
+          "13": 5
+        },
+        "mainEcho": "6000105",
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "resonanceSkill.0",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "resonanceLiberation.1",
+          "forteCircuit.2",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1106": {
     "name": "Youhu",
@@ -612,31 +620,33 @@
         "maxStacks": 4
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1106"
-      ],
-      "weaponId": "21040024",
-      "setCounts": {
-        "7": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.2",
-        "resonanceLiberation.0",
-        "resonanceSkill.3",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "resonanceSkill.4",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          null,
+          "1106"
+        ],
+        "weaponId": "21040024",
+        "setCounts": {
+          "7": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.2",
+          "resonanceLiberation.0",
+          "resonanceSkill.3",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "resonanceSkill.4",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1107": {
     "name": "Carlotta",
@@ -742,34 +752,36 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1107",
-        "1105",
-        "1505"
-      ],
-      "weaponId": "21030016",
-      "setCounts": {
-        "10": 5
-      },
-      "mainEcho": "6000083",
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "normalAttack.7",
-        "forteCircuit.0",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1107",
+          "1105",
+          "1505"
+        ],
+        "weaponId": "21030016",
+        "setCounts": {
+          "10": 5
+        },
+        "mainEcho": "6000083",
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "normalAttack.7",
+          "forteCircuit.0",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1108": {
     "name": "Hiyuki",
@@ -800,40 +812,42 @@
         "maxDuration": 20000
       }
     ],
-    "defaults": {
-      "team": [
-        "1108",
-        "1509",
-        "1508"
-      ],
-      "weaponId": "21020086",
-      "setCounts": {
-        "30": 5
-      },
-      "mainEcho": "6000199",
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.2",
-        "normalAttack.3",
-        "resonanceLiberation.0",
-        "resonanceSkill.1",
-        "resonanceSkill.2",
-        "normalAttack.6",
-        "normalAttack.7",
-        "normalAttack.8",
-        "normalAttack.9",
-        "normalAttack.10",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "normalAttack.12",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1108",
+          "1509",
+          "1508"
+        ],
+        "weaponId": "21020086",
+        "setCounts": {
+          "30": 5
+        },
+        "mainEcho": "6000199",
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceLiberation.0",
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "normalAttack.6",
+          "normalAttack.7",
+          "normalAttack.8",
+          "normalAttack.9",
+          "normalAttack.10",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "normalAttack.12",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1109": {
     "name": "Lucilla",
@@ -888,32 +902,34 @@
         "maxDuration": 10000
       }
     ],
-    "defaults": {
-      "team": [
-        "1108",
-        "1109",
-        "1508"
-      ],
-      "weaponId": "21050086",
-      "setCounts": {
-        "30": 5
-      },
-      "mainEcho": "6000195",
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "resonanceSkill.2",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "resonanceLiberation.4",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1108",
+          "1109",
+          "1508"
+        ],
+        "weaponId": "21050086",
+        "setCounts": {
+          "30": 5
+        },
+        "mainEcho": "6000195",
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "resonanceSkill.2",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "resonanceLiberation.4",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1110": {
     "name": "Suisui",
@@ -1004,26 +1020,28 @@
         "maxDuration": 15000
       }
     ],
-    "defaults": {
-      "team": [
-        "1202",
-        "1206",
-        "1207"
-      ],
-      "weaponId": "21030045",
-      "setCounts": {
-        "2": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "forteCircuit.2",
-        "forteCircuit.1",
-        "resonanceLiberation.0",
-        "forteCircuit.2",
-        "forteCircuit.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1202",
+          "1206",
+          "1207"
+        ],
+        "weaponId": "21030045",
+        "setCounts": {
+          "2": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "forteCircuit.2",
+          "forteCircuit.1",
+          "resonanceLiberation.0",
+          "forteCircuit.2",
+          "forteCircuit.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1203": {
     "name": "Encore",
@@ -1120,34 +1138,36 @@
         "maxStacks": 6
       }
     ],
-    "defaults": {
-      "team": [
-        "1203",
-        "1207",
-        "1505"
-      ],
-      "weaponId": "21050015",
-      "setCounts": {
-        "2": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceLiberation.7",
-        "resonanceLiberation.5",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "resonanceLiberation.5",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "resonanceLiberation.5",
-        "forteCircuit.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1203",
+          "1207",
+          "1505"
+        ],
+        "weaponId": "21050015",
+        "setCounts": {
+          "2": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceLiberation.7",
+          "resonanceLiberation.5",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "resonanceLiberation.5",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "resonanceLiberation.5",
+          "forteCircuit.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1204": {
     "name": "Mortefi",
@@ -1265,30 +1285,32 @@
         "maxDuration": 20000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1204",
-        "1505"
-      ],
-      "weaponId": "21030015",
-      "setCounts": {
-        "8": 5
-      },
-      "mainEcho": "6000052",
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "forteCircuit.0",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "forteCircuit.0",
-        "resonanceLiberation.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1204",
+          "1505"
+        ],
+        "weaponId": "21030015",
+        "setCounts": {
+          "8": 5
+        },
+        "mainEcho": "6000052",
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "forteCircuit.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "forteCircuit.0",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1205": {
     "name": "Changli",
@@ -1409,34 +1431,36 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1205",
-        "1206",
-        "1207"
-      ],
-      "weaponId": "21020016",
-      "setCounts": {
-        "2": 5
-      },
-      "mainEcho": "6000091",
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.2",
-        "normalAttack.9",
-        "normalAttack.2",
-        "normalAttack.3",
-        "resonanceSkill.1",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "forteCircuit.0",
-        "resonanceLiberation.0",
-        "forteCircuit.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1205",
+          "1206",
+          "1207"
+        ],
+        "weaponId": "21020016",
+        "setCounts": {
+          "2": 5
+        },
+        "mainEcho": "6000091",
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.2",
+          "normalAttack.9",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceSkill.1",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "forteCircuit.0",
+          "resonanceLiberation.0",
+          "forteCircuit.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1206": {
     "name": "Brant",
@@ -1591,35 +1615,37 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1206",
-        "1207"
-      ],
-      "weaponId": "21020036",
-      "setCounts": {
-        "14": 5
-      },
-      "mainEcho": "6000084",
-      "rotation": [
-        "introSkill.0",
-        "forteCircuit.1",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "forteCircuit.1",
-        "normalAttack.10",
-        "normalAttack.11",
-        "normalAttack.12",
-        "forteCircuit.1",
-        "normalAttack.13",
-        "normalAttack.14",
-        "forteCircuit.1",
-        "forteCircuit.0",
-        "forteCircuit.2",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1206",
+          "1207"
+        ],
+        "weaponId": "21020036",
+        "setCounts": {
+          "14": 5
+        },
+        "mainEcho": "6000084",
+        "rotation": [
+          "introSkill.0",
+          "forteCircuit.1",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "forteCircuit.1",
+          "normalAttack.10",
+          "normalAttack.11",
+          "normalAttack.12",
+          "forteCircuit.1",
+          "normalAttack.13",
+          "normalAttack.14",
+          "forteCircuit.1",
+          "forteCircuit.0",
+          "forteCircuit.2",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1207": {
     "name": "Lupa",
@@ -1753,28 +1779,30 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1205",
-        "1206",
-        "1207"
-      ],
-      "weaponId": "21010036",
-      "setCounts": {
-        "18": 5
-      },
-      "rotation": [
-        "introSkill.1",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "normalAttack.7",
-        "normalAttack.8",
-        "normalAttack.10",
-        "normalAttack.6",
-        "forteCircuit.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1205",
+          "1206",
+          "1207"
+        ],
+        "weaponId": "21010036",
+        "setCounts": {
+          "18": 5
+        },
+        "rotation": [
+          "introSkill.1",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "normalAttack.7",
+          "normalAttack.8",
+          "normalAttack.10",
+          "normalAttack.6",
+          "forteCircuit.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1208": {
     "name": "Galbrena",
@@ -1802,36 +1830,38 @@
         "maxStacks": 4
       }
     ],
-    "defaults": {
-      "team": [
-        "1208",
-        "1411",
-        "1505"
-      ],
-      "weaponId": "21030036",
-      "setCounts": {
-        "2": 2,
-        "22": 3
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "normalAttack.1",
-        "normalAttack.2",
-        "resonanceSkill.1",
-        "resonanceLiberation.0",
-        "forteCircuit.1",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.4",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.4",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1208",
+          "1411",
+          "1505"
+        ],
+        "weaponId": "21030036",
+        "setCounts": {
+          "2": 2,
+          "22": 3
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "normalAttack.1",
+          "normalAttack.2",
+          "resonanceSkill.1",
+          "resonanceLiberation.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1209": {
     "name": "Mornye",
@@ -1957,28 +1987,30 @@
         "maxDuration": 30000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1209"
-      ],
-      "weaponId": "21010066",
-      "setCounts": {
-        "25": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.4",
-        "normalAttack.5",
-        "normalAttack.6",
-        "resonanceSkill.3",
-        "resonanceSkill.0",
-        "forteCircuit.3",
-        "resonanceLiberation.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          null,
+          "1209"
+        ],
+        "weaponId": "21010066",
+        "setCounts": {
+          "25": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.4",
+          "normalAttack.5",
+          "normalAttack.6",
+          "resonanceSkill.3",
+          "resonanceSkill.0",
+          "forteCircuit.3",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1210": {
     "name": "Aemeath",
@@ -2016,34 +2048,36 @@
         "maxDuration": 20000
       }
     ],
-    "defaults": {
-      "team": [
-        "1210",
-        "1509",
-        "1209"
-      ],
-      "weaponId": "21020076",
-      "setCounts": {
-        "27": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.2",
-        "normalAttack.3",
-        "resonanceLiberation.0",
-        "resonanceSkill.3",
-        "resonanceSkill.4",
-        "resonanceSkill.5",
-        "forteCircuit.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "forteCircuit.1",
-        "resonanceSkill.7",
-        "resonanceLiberation.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1210",
+          "1509",
+          "1209"
+        ],
+        "weaponId": "21020076",
+        "setCounts": {
+          "27": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceLiberation.0",
+          "resonanceSkill.3",
+          "resonanceSkill.4",
+          "resonanceSkill.5",
+          "forteCircuit.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "forteCircuit.1",
+          "resonanceSkill.7",
+          "resonanceLiberation.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1211": {
     "name": "Denia",
@@ -2077,21 +2111,23 @@
         "maxDuration": 16000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1211",
-        "1508"
-      ],
-      "weaponId": "21050076",
-      "setCounts": {
-        "28": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1211",
+          "1508"
+        ],
+        "weaponId": "21050076",
+        "setCounts": {
+          "28": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1301": {
     "name": "Calcharo",
@@ -2174,35 +2210,37 @@
         "maxUses": 1
       }
     ],
-    "defaults": {
-      "team": [
-        "1301",
-        "1302",
-        "1505"
-      ],
-      "weaponId": "21010015",
-      "setCounts": {
-        "3": 5
-      },
-      "rotation": [
-        "resonanceLiberation.1",
-        "resonanceLiberation.0",
-        "forteCircuit.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "resonanceLiberation.2",
-        "forteCircuit.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "resonanceLiberation.2",
-        "forteCircuit.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1301",
+          "1302",
+          "1505"
+        ],
+        "weaponId": "21010015",
+        "setCounts": {
+          "3": 5
+        },
+        "rotation": [
+          "resonanceLiberation.1",
+          "resonanceLiberation.0",
+          "forteCircuit.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "resonanceLiberation.2",
+          "forteCircuit.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "resonanceLiberation.2",
+          "forteCircuit.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1302": {
     "name": "Yinlin",
@@ -2326,28 +2364,30 @@
         "maxUses": 4
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1302",
-        "1505"
-      ],
-      "weaponId": "21050016",
-      "setCounts": {
-        "13": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.3",
-        "resonanceSkill.0",
-        "normalAttack.4",
-        "resonanceSkill.1",
-        "resonanceLiberation.0",
-        "normalAttack.0",
-        "forteCircuit.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1302",
+          "1505"
+        ],
+        "weaponId": "21050016",
+        "setCounts": {
+          "13": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "normalAttack.4",
+          "resonanceSkill.1",
+          "resonanceLiberation.0",
+          "normalAttack.0",
+          "forteCircuit.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1303": {
     "name": "Yuanwu",
@@ -2449,25 +2489,27 @@
         "maxDuration": 15000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1303",
-        "1505"
-      ],
-      "weaponId": "21040044",
-      "setCounts": {
-        "13": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "resonanceLiberation.0",
-        "resonanceSkill.3",
-        "resonanceSkill.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1303",
+          "1505"
+        ],
+        "weaponId": "21040044",
+        "setCounts": {
+          "13": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "resonanceLiberation.0",
+          "resonanceSkill.3",
+          "resonanceSkill.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1304": {
     "name": "Jinhsi",
@@ -2559,31 +2601,33 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1304",
-        "1105",
-        "1503"
-      ],
-      "weaponId": "21010026",
-      "setCounts": {
-        "5": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.1",
-        "resonanceLiberation.0",
-        "forteCircuit.6",
-        "forteCircuit.0",
-        "forteCircuit.1",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.7",
-        "forteCircuit.8",
-        "forteCircuit.9",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1304",
+          "1105",
+          "1503"
+        ],
+        "weaponId": "21010026",
+        "setCounts": {
+          "5": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.1",
+          "resonanceLiberation.0",
+          "forteCircuit.6",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.7",
+          "forteCircuit.8",
+          "forteCircuit.9",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1305": {
     "name": "Xiangli Yao",
@@ -2693,33 +2737,35 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1305",
-        "1302",
-        "1505"
-      ],
-      "weaponId": "21040016",
-      "setCounts": {
-        "3": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "resonanceLiberation.0",
-        "resonanceLiberation.4",
-        "forteCircuit.2",
-        "forteCircuit.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "forteCircuit.1",
-        "resonanceLiberation.4",
-        "forteCircuit.2",
-        "forteCircuit.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1305",
+          "1302",
+          "1505"
+        ],
+        "weaponId": "21040016",
+        "setCounts": {
+          "3": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "resonanceLiberation.0",
+          "resonanceLiberation.4",
+          "forteCircuit.2",
+          "forteCircuit.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "forteCircuit.1",
+          "resonanceLiberation.4",
+          "forteCircuit.2",
+          "forteCircuit.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1306": {
     "name": "Augusta",
@@ -2770,41 +2816,43 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1306",
-        "1410",
-        "1505"
-      ],
-      "weaponId": "21010046",
-      "setCounts": {
-        "3": 2,
-        "20": 3
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.8",
-        "normalAttack.9",
-        "resonanceSkill.0",
-        "normalAttack.8",
-        "normalAttack.9",
-        "resonanceLiberation.0",
-        "forteCircuit.0",
-        "forteCircuit.1",
-        "forteCircuit.2",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1306",
+          "1410",
+          "1505"
+        ],
+        "weaponId": "21010046",
+        "setCounts": {
+          "3": 2,
+          "20": 3
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.8",
+          "normalAttack.9",
+          "resonanceSkill.0",
+          "normalAttack.8",
+          "normalAttack.9",
+          "resonanceLiberation.0",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1307": {
     "name": "Buling",
@@ -2847,29 +2895,31 @@
         "maxDuration": 30000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1307"
-      ],
-      "weaponId": "21050024",
-      "setCounts": {
-        "7": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.4",
-        "resonanceSkill.0",
-        "normalAttack.3",
-        "normalAttack.6",
-        "normalAttack.9",
-        "forteCircuit.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          null,
+          "1307"
+        ],
+        "weaponId": "21050024",
+        "setCounts": {
+          "7": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.4",
+          "resonanceSkill.0",
+          "normalAttack.3",
+          "normalAttack.6",
+          "normalAttack.9",
+          "forteCircuit.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1308": {
     "name": "Rebecca",
@@ -2953,50 +3003,52 @@
         "maxDuration": 14000
       }
     ],
-    "defaults": {
-      "team": [
-        "1511",
-        "1308",
-        "1209"
-      ],
-      "weaponId": "21030066",
-      "setCounts": {
-        "32": 1,
-        "9": 2,
-        "3": 2
-      },
-      "mainEcho": "6000201",
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.9",
-        "normalAttack.10",
-        "normalAttack.11",
-        "resonanceSkill.1",
-        "forteCircuit.1",
-        "resonanceLiberation.4",
-        "resonanceLiberation.0",
-        "resonanceLiberation.0",
-        "resonanceLiberation.0",
-        "resonanceLiberation.0",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1511",
+          "1308",
+          "1209"
+        ],
+        "weaponId": "21030066",
+        "setCounts": {
+          "32": 1,
+          "9": 2,
+          "3": 2
+        },
+        "mainEcho": "6000201",
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.9",
+          "normalAttack.10",
+          "normalAttack.11",
+          "resonanceSkill.1",
+          "forteCircuit.1",
+          "resonanceLiberation.4",
+          "resonanceLiberation.0",
+          "resonanceLiberation.0",
+          "resonanceLiberation.0",
+          "resonanceLiberation.0",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1402": {
     "name": "Yangyang",
@@ -3060,33 +3112,35 @@
         "maxDuration": 20000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1402",
-        "1505"
-      ],
-      "weaponId": "21020015",
-      "setCounts": {
-        "8": 5
-      },
-      "mainEcho": "6000052",
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.4",
-        "normalAttack.6",
-        "resonanceLiberation.0",
-        "normalAttack.0",
-        "normalAttack.4",
-        "normalAttack.6",
-        "resonanceSkill.0",
-        "forteCircuit.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1402",
+          "1505"
+        ],
+        "weaponId": "21020015",
+        "setCounts": {
+          "8": 5
+        },
+        "mainEcho": "6000052",
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.4",
+          "normalAttack.6",
+          "resonanceLiberation.0",
+          "normalAttack.0",
+          "normalAttack.4",
+          "normalAttack.6",
+          "resonanceSkill.0",
+          "forteCircuit.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1403": {
     "name": "Aalto",
@@ -3194,32 +3248,34 @@
         "maxDuration": 10000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1403",
-        "1505"
-      ],
-      "weaponId": "21030015",
-      "setCounts": {
-        "8": 5
-      },
-      "mainEcho": "6000052",
-      "rotation": [
-        "introSkill.0",
-        "resonanceLiberation.0",
-        "resonanceSkill.1",
-        "resonanceSkill.0",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "normalAttack.4",
-        "forteCircuit.1",
-        "forteCircuit.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1403",
+          "1505"
+        ],
+        "weaponId": "21030015",
+        "setCounts": {
+          "8": 5
+        },
+        "mainEcho": "6000052",
+        "rotation": [
+          "introSkill.0",
+          "resonanceLiberation.0",
+          "resonanceSkill.1",
+          "resonanceSkill.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "normalAttack.4",
+          "forteCircuit.1",
+          "forteCircuit.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1404": {
     "name": "Jiyan",
@@ -3348,30 +3404,32 @@
         "maxUses": 1
       }
     ],
-    "defaults": {
-      "team": [
-        "1404",
-        "1204",
-        "1505"
-      ],
-      "weaponId": "21010016",
-      "setCounts": {
-        "4": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "forteCircuit.0",
-        "resonanceSkill.0",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceSkill.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1404",
+          "1204",
+          "1505"
+        ],
+        "weaponId": "21010016",
+        "setCounts": {
+          "4": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "forteCircuit.0",
+          "resonanceSkill.0",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceSkill.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1405": {
     "name": "Jianxin",
@@ -3474,50 +3532,52 @@
         "maxUses": 1
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1405",
-        "1505"
-      ],
-      "weaponId": "21040024",
-      "setCounts": {
-        "8": 5
-      },
-      "mainEcho": "6000052",
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.1",
-        "resonanceLiberation.2",
-        "forteCircuit.6",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.2",
-        "forteCircuit.7",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.3",
-        "forteCircuit.8",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.1",
-        "forteCircuit.4",
-        "forteCircuit.9",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1405",
+          "1505"
+        ],
+        "weaponId": "21040024",
+        "setCounts": {
+          "8": 5
+        },
+        "mainEcho": "6000052",
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.1",
+          "resonanceLiberation.2",
+          "forteCircuit.6",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.7",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.3",
+          "forteCircuit.8",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.1",
+          "forteCircuit.4",
+          "forteCircuit.9",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1407": {
     "name": "Ciaccona",
@@ -3619,29 +3679,31 @@
         "maxUses": 1
       }
     ],
-    "defaults": {
-      "team": [
-        "1409",
-        "1407",
-        "1508"
-      ],
-      "weaponId": "21030026",
-      "setCounts": {
-        "16": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.2",
-        "normalAttack.3",
-        "normalAttack.7",
-        "normalAttack.8",
-        "normalAttack.3",
-        "resonanceSkill.0",
-        "forteCircuit.0",
-        "resonanceLiberation.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1409",
+          "1407",
+          "1508"
+        ],
+        "weaponId": "21030026",
+        "setCounts": {
+          "16": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.2",
+          "normalAttack.3",
+          "normalAttack.7",
+          "normalAttack.8",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "forteCircuit.0",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1409": {
     "name": "Cartethyia",
@@ -3784,37 +3846,39 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1409",
-        "1407",
-        "1508"
-      ],
-      "weaponId": "21020056",
-      "setCounts": {
-        "17": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "resonanceSkill.0",
-        "normalAttack.9",
-        "resonanceLiberation.0",
-        "forteCircuit.12",
-        "forteCircuit.11",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.4",
-        "forteCircuit.13",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.4",
-        "resonanceLiberation.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1409",
+          "1407",
+          "1508"
+        ],
+        "weaponId": "21020056",
+        "setCounts": {
+          "17": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "normalAttack.9",
+          "resonanceLiberation.0",
+          "forteCircuit.12",
+          "forteCircuit.11",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "forteCircuit.13",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1410": {
     "name": "Iuno",
@@ -3842,30 +3906,32 @@
         "maxDuration": 14000
       }
     ],
-    "defaults": {
-      "team": [
-        "1306",
-        "1410",
-        "1505"
-      ],
-      "weaponId": "21040046",
-      "setCounts": {
-        "4": 2,
-        "20": 3
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceLiberation.0",
-        "forteCircuit.0",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.4",
-        "forteCircuit.6",
-        "forteCircuit.6",
-        "forteCircuit.12",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1306",
+          "1410",
+          "1505"
+        ],
+        "weaponId": "21040046",
+        "setCounts": {
+          "4": 2,
+          "20": 3
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceLiberation.0",
+          "forteCircuit.0",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "forteCircuit.6",
+          "forteCircuit.6",
+          "forteCircuit.12",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1411": {
     "name": "Qiuyuan",
@@ -3893,29 +3959,31 @@
         "maxDuration": 14000
       }
     ],
-    "defaults": {
-      "team": [
-        "1208",
-        "1411",
-        "1505"
-      ],
-      "weaponId": "21020066",
-      "setCounts": {
-        "4": 2,
-        "21": 3
-      },
-      "rotation": [
-        "introSkill.0",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "resonanceLiberation.0",
-        "forteCircuit.4",
-        "forteCircuit.5",
-        "forteCircuit.6",
-        "resonanceSkill.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1208",
+          "1411",
+          "1505"
+        ],
+        "weaponId": "21020066",
+        "setCounts": {
+          "4": 2,
+          "21": 3
+        },
+        "rotation": [
+          "introSkill.0",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "resonanceLiberation.0",
+          "forteCircuit.4",
+          "forteCircuit.5",
+          "forteCircuit.6",
+          "resonanceSkill.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1412": {
     "name": "Sigrika",
@@ -3940,33 +4008,35 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1412",
-        "1411",
-        "1505"
-      ],
-      "weaponId": "21040066",
-      "setCounts": {
-        "29": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "normalAttack.4",
-        "forteCircuit.2",
-        "resonanceLiberation.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "normalAttack.4",
-        "forteCircuit.1",
-        "forteCircuit.4",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1412",
+          "1411",
+          "1505"
+        ],
+        "weaponId": "21040066",
+        "setCounts": {
+          "29": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "normalAttack.4",
+          "forteCircuit.2",
+          "resonanceLiberation.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "normalAttack.4",
+          "forteCircuit.1",
+          "forteCircuit.4",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1503": {
     "name": "Verina",
@@ -4112,31 +4182,33 @@
         "maxUses": 1
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1503"
-      ],
-      "weaponId": "21050024",
-      "setCounts": {
-        "7": 5
-      },
-      "mainEcho": "390080005",
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "forteCircuit.1",
-        "forteCircuit.4",
-        "forteCircuit.2",
-        "forteCircuit.4",
-        "forteCircuit.3",
-        "forteCircuit.4",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          null,
+          "1503"
+        ],
+        "weaponId": "21050024",
+        "setCounts": {
+          "7": 5
+        },
+        "mainEcho": "390080005",
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "forteCircuit.1",
+          "forteCircuit.4",
+          "forteCircuit.2",
+          "forteCircuit.4",
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1504": {
     "name": "Lumi",
@@ -4232,36 +4304,38 @@
         "maxDuration": 20000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1504",
-        "1505"
-      ],
-      "weaponId": "21010045",
-      "setCounts": {
-        "8": 5
-      },
-      "mainEcho": "6000052",
-      "rotation": [
-        "introSkill.0",
-        "resonanceLiberation.0",
-        "forteCircuit.5",
-        "forteCircuit.1",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.6",
-        "normalAttack.0",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "forteCircuit.5",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1504",
+          "1505"
+        ],
+        "weaponId": "21010045",
+        "setCounts": {
+          "8": 5
+        },
+        "mainEcho": "6000052",
+        "rotation": [
+          "introSkill.0",
+          "resonanceLiberation.0",
+          "forteCircuit.5",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.6",
+          "normalAttack.0",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "forteCircuit.5",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1505": {
     "name": "Shorekeeper",
@@ -4392,35 +4466,37 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1505"
-      ],
-      "weaponId": "21050036",
-      "setCounts": {
-        "7": 5
-      },
-      "mainEcho": "6000060",
-      "rotation": [
-        "introSkill.2",
-        "introSkill.3",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "forteCircuit.1",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "forteCircuit.0",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "resonanceLiberation.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          null,
+          "1505"
+        ],
+        "weaponId": "21050036",
+        "setCounts": {
+          "7": 5
+        },
+        "mainEcho": "6000060",
+        "rotation": [
+          "introSkill.2",
+          "introSkill.3",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "forteCircuit.1",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "forteCircuit.0",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1506": {
     "name": "Phoebe",
@@ -4609,33 +4685,35 @@
         "useAction": "forteCircuit.3"
       }
     ],
-    "defaults": {
-      "team": [
-        "1507",
-        "1506",
-        "1505"
-      ],
-      "weaponId": "21050046",
-      "setCounts": {
-        "8": 5
-      },
-      "mainEcho": "6000052",
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "forteCircuit.1",
-        "resonanceLiberation.1",
-        "resonanceSkill.2",
-        "resonanceSkill.3",
-        "resonanceSkill.4",
-        "forteCircuit.3",
-        "resonanceSkill.2",
-        "resonanceSkill.3",
-        "resonanceSkill.4",
-        "forteCircuit.3",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1507",
+          "1506",
+          "1505"
+        ],
+        "weaponId": "21050046",
+        "setCounts": {
+          "8": 5
+        },
+        "mainEcho": "6000052",
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "forteCircuit.1",
+          "resonanceLiberation.1",
+          "resonanceSkill.2",
+          "resonanceSkill.3",
+          "resonanceSkill.4",
+          "forteCircuit.3",
+          "resonanceSkill.2",
+          "resonanceSkill.3",
+          "resonanceSkill.4",
+          "forteCircuit.3",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1507": {
     "name": "Zani",
@@ -4763,32 +4841,34 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1507",
-        "1506",
-        "1505"
-      ],
-      "weaponId": "21040036",
-      "setCounts": {
-        "11": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "normalAttack.2",
-        "resonanceSkill.2",
-        "resonanceLiberation.0",
-        "forteCircuit.0",
-        "forteCircuit.1",
-        "forteCircuit.2",
-        "forteCircuit.0",
-        "forteCircuit.1",
-        "forteCircuit.2",
-        "resonanceLiberation.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1507",
+          "1506",
+          "1505"
+        ],
+        "weaponId": "21040036",
+        "setCounts": {
+          "11": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "normalAttack.2",
+          "resonanceSkill.2",
+          "resonanceLiberation.0",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "resonanceLiberation.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1508": {
     "name": "Chisa",
@@ -4804,31 +4884,6 @@
     "ascensionStats": {
       "critRate%": 0.08,
       "atk%": 0.12
-    },
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1508"
-      ],
-      "weaponId": "21010056",
-      "setCounts": {
-        "6": 2,
-        "23": 3
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.1",
-        "normalAttack.6",
-        "normalAttack.2",
-        "resonanceLiberation.0",
-        "resonanceSkill.1",
-        "forteCircuit.1",
-        "forteCircuit.4",
-        "forteCircuit.6",
-        "forteCircuit.9",
-        "outroSkill.0"
-      ]
     },
     "effects": [
       {
@@ -4884,6 +4939,33 @@
         },
         "maxDuration": 15000
       }
+    ],
+    "presets": [
+      {
+        "team": [
+          null,
+          null,
+          "1508"
+        ],
+        "weaponId": "21010056",
+        "setCounts": {
+          "6": 2,
+          "23": 3
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.1",
+          "normalAttack.6",
+          "normalAttack.2",
+          "resonanceLiberation.0",
+          "resonanceSkill.1",
+          "forteCircuit.1",
+          "forteCircuit.4",
+          "forteCircuit.6",
+          "forteCircuit.9",
+          "outroSkill.0"
+        ]
+      }
     ]
   },
   "1509": {
@@ -4924,28 +5006,30 @@
         "maxDuration": 14000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1509",
-        "1209"
-      ],
-      "weaponId": "21030046",
-      "setCounts": {
-        "24": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceLiberation.0",
-        "resonanceSkill.0",
-        "normalAttack.7",
-        "forteCircuit.2",
-        "forteCircuit.3",
-        "forteCircuit.4",
-        "forteCircuit.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1509",
+          "1209"
+        ],
+        "weaponId": "21030046",
+        "setCounts": {
+          "24": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceLiberation.0",
+          "resonanceSkill.0",
+          "normalAttack.7",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "forteCircuit.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1510": {
     "name": "Luuk Herssen",
@@ -4972,36 +5056,38 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1510",
-        "1509",
-        "1209"
-      ],
-      "weaponId": "21040056",
-      "setCounts": {
-        "26": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.8",
-        "normalAttack.9",
-        "resonanceSkill.1",
-        "resonanceSkill.4",
-        "normalAttack.5",
-        "normalAttack.8",
-        "normalAttack.9",
-        "resonanceSkill.2",
-        "resonanceSkill.4",
-        "normalAttack.5",
-        "normalAttack.8",
-        "normalAttack.9",
-        "resonanceSkill.3",
-        "forteCircuit.0",
-        "resonanceLiberation.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1510",
+          "1509",
+          "1209"
+        ],
+        "weaponId": "21040056",
+        "setCounts": {
+          "26": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.8",
+          "normalAttack.9",
+          "resonanceSkill.1",
+          "resonanceSkill.4",
+          "normalAttack.5",
+          "normalAttack.8",
+          "normalAttack.9",
+          "resonanceSkill.2",
+          "resonanceSkill.4",
+          "normalAttack.5",
+          "normalAttack.8",
+          "normalAttack.9",
+          "resonanceSkill.3",
+          "forteCircuit.0",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1511": {
     "name": "Lucy",
@@ -5151,44 +5237,46 @@
         }
       }
     ],
-    "defaults": {
-      "team": [
-        "1511",
-        "1308",
-        "1209"
-      ],
-      "weaponId": "21030056",
-      "setCounts": {
-        "32": 1,
-        "26": 2,
-        "24": 2
-      },
-      "mainEcho": "6000201",
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "resonanceSkill.2",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "resonanceSkill.3",
-        "normalAttack.10",
-        "normalAttack.11",
-        "normalAttack.12",
-        "normalAttack.13",
-        "normalAttack.15",
-        "normalAttack.16",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "resonanceLiberation.2",
-        "resonanceLiberation.3",
-        "resonanceLiberation.4",
-        "resonanceLiberation.5",
-        "resonanceLiberation.7",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1511",
+          "1308",
+          "1209"
+        ],
+        "weaponId": "21030056",
+        "setCounts": {
+          "32": 1,
+          "26": 2,
+          "24": 2
+        },
+        "mainEcho": "6000201",
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceSkill.3",
+          "normalAttack.10",
+          "normalAttack.11",
+          "normalAttack.12",
+          "normalAttack.13",
+          "normalAttack.15",
+          "normalAttack.16",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
+          "resonanceLiberation.4",
+          "resonanceLiberation.5",
+          "resonanceLiberation.7",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1601": {
     "name": "Taoqi",
@@ -5300,35 +5388,37 @@
         "maxDuration": 30000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1601",
-        "1505"
-      ],
-      "weaponId": "21010024",
-      "setCounts": {
-        "8": 5
-      },
-      "mainEcho": "6000052",
-      "rotation": [
-        "introSkill.0",
-        "forteCircuit.0",
-        "forteCircuit.3",
-        "forteCircuit.1",
-        "forteCircuit.4",
-        "forteCircuit.2",
-        "forteCircuit.5",
-        "resonanceLiberation.0",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "normalAttack.3",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1601",
+          "1505"
+        ],
+        "weaponId": "21010024",
+        "setCounts": {
+          "8": 5
+        },
+        "mainEcho": "6000052",
+        "rotation": [
+          "introSkill.0",
+          "forteCircuit.0",
+          "forteCircuit.3",
+          "forteCircuit.1",
+          "forteCircuit.4",
+          "forteCircuit.2",
+          "forteCircuit.5",
+          "resonanceLiberation.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1602": {
     "name": "Danjin",
@@ -5443,33 +5533,35 @@
         "maxDuration": 20000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1602",
-        "1505"
-      ],
-      "weaponId": "21020015",
-      "setCounts": {
-        "12": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.1",
-        "resonanceSkill.2",
-        "resonanceLiberation.0",
-        "resonanceLiberation.1",
-        "resonanceSkill.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "resonanceSkill.3",
-        "resonanceSkill.4",
-        "resonanceSkill.5",
-        "forteCircuit.0",
-        "forteCircuit.1",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1602",
+          "1505"
+        ],
+        "weaponId": "21020015",
+        "setCounts": {
+          "12": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "resonanceLiberation.0",
+          "resonanceLiberation.1",
+          "resonanceSkill.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "resonanceSkill.3",
+          "resonanceSkill.4",
+          "resonanceSkill.5",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1603": {
     "name": "Camellya",
@@ -5609,35 +5701,37 @@
         "maxUses": 1
       }
     ],
-    "defaults": {
-      "team": [
-        "1603",
-        "1606",
-        "1505"
-      ],
-      "weaponId": "21020026",
-      "setCounts": {
-        "6": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "resonanceSkill.0",
-        "resonanceSkill.1",
-        "resonanceSkill.2",
-        "resonanceSkill.3",
-        "resonanceSkill.5",
-        "resonanceSkill.4",
-        "resonanceLiberation.0",
-        "forteCircuit.0",
-        "resonanceSkill.1",
-        "resonanceSkill.2",
-        "resonanceSkill.3",
-        "resonanceSkill.5",
-        "resonanceSkill.4",
-        "resonanceSkill.6",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1603",
+          "1606",
+          "1505"
+        ],
+        "weaponId": "21020026",
+        "setCounts": {
+          "6": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "resonanceSkill.3",
+          "resonanceSkill.5",
+          "resonanceSkill.4",
+          "resonanceLiberation.0",
+          "forteCircuit.0",
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "resonanceSkill.3",
+          "resonanceSkill.5",
+          "resonanceSkill.4",
+          "resonanceSkill.6",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1606": {
     "name": "Roccia",
@@ -5792,27 +5886,29 @@
         "maxDuration": 12000
       }
     ],
-    "defaults": {
-      "team": [
-        null,
-        "1606",
-        "1505"
-      ],
-      "weaponId": "21040026",
-      "setCounts": {
-        "12": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.3",
-        "resonanceSkill.0",
-        "forteCircuit.0",
-        "forteCircuit.1",
-        "forteCircuit.2",
-        "resonanceLiberation.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          null,
+          "1606",
+          "1505"
+        ],
+        "weaponId": "21040026",
+        "setCounts": {
+          "12": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1607": {
     "name": "Cantarella",
@@ -5931,36 +6027,38 @@
         "maxDuration": 10000
       }
     ],
-    "defaults": {
-      "team": [
-        "1608",
-        "1607",
-        "1411"
-      ],
-      "weaponId": "21050056",
-      "setCounts": {
-        "12": 5
-      },
-      "rotation": [
-        "introSkill.0",
-        "normalAttack.2",
-        "resonanceSkill.0",
-        "resonanceLiberation.0",
-        "normalAttack.4",
-        "resonanceSkill.1",
-        "resonanceSkill.2",
-        "forteCircuit.0",
-        "forteCircuit.6",
-        "forteCircuit.1",
-        "forteCircuit.6",
-        "forteCircuit.2",
-        "forteCircuit.6",
-        "forteCircuit.4",
-        "forteCircuit.7",
-        "resonanceSkill.2",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1608",
+          "1607",
+          "1411"
+        ],
+        "weaponId": "21050056",
+        "setCounts": {
+          "12": 5
+        },
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.2",
+          "resonanceSkill.0",
+          "resonanceLiberation.0",
+          "normalAttack.4",
+          "resonanceSkill.1",
+          "resonanceSkill.2",
+          "forteCircuit.0",
+          "forteCircuit.6",
+          "forteCircuit.1",
+          "forteCircuit.6",
+          "forteCircuit.2",
+          "forteCircuit.6",
+          "forteCircuit.4",
+          "forteCircuit.7",
+          "resonanceSkill.2",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1608": {
     "name": "Phrolova",
@@ -6002,32 +6100,34 @@
         "maxDuration": 14000
       }
     ],
-    "defaults": {
-      "team": [
-        "1608",
-        "1607",
-        "1411"
-      ],
-      "weaponId": "21050066",
-      "setCounts": {
-        "6": 2,
-        "19": 3
-      },
-      "rotation": [
-        "introSkill.1",
-        "normalAttack.2",
-        "resonanceLiberation.2",
-        "resonanceSkill.0",
-        "resonanceLiberation.2",
-        "normalAttack.0",
-        "normalAttack.1",
-        "normalAttack.2",
-        "resonanceLiberation.2",
-        "normalAttack.4",
-        "forteCircuit.0",
-        "outroSkill.0"
-      ]
-    }
+    "presets": [
+      {
+        "team": [
+          "1608",
+          "1607",
+          "1411"
+        ],
+        "weaponId": "21050066",
+        "setCounts": {
+          "6": 2,
+          "19": 3
+        },
+        "rotation": [
+          "introSkill.1",
+          "normalAttack.2",
+          "resonanceLiberation.2",
+          "resonanceSkill.0",
+          "resonanceLiberation.2",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "resonanceLiberation.2",
+          "normalAttack.4",
+          "forteCircuit.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1610": {
     "name": "Yangyang: Xuanling",

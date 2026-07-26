@@ -544,9 +544,9 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
   );
 }
 
-const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => {
+const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
-  const skillMap = ACTION[gameId][characterId];
+  const skillMap = ACTION[gameId][charId];
 
   const categories = useMemo(() => {
     const lowerSearch = search.toLowerCase();
@@ -772,7 +772,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
   );
 }
 
-function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) {
+function SortableRotationItem({ id, actionKey, charId, gameId, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
   const style = {
@@ -782,7 +782,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
 
   const [category, actionIndex] = actionKey.split('.');
   const index = Number(actionIndex);
-  const { name, tagged, skillType } = ACTION[gameId][characterId][category].actions[index];
+  const { name, tagged, skillType } = ACTION[gameId][charId][category].actions[index];
 
   return (
     <Box
@@ -858,7 +858,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
   );
 }
 
-function RotationEditor({ gameId, characterId, rotation, onChange }) {
+function RotationEditor({ gameId, charId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
 
@@ -885,7 +885,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
     onChange(rotation.filter((_, i) => i !== index));
   };
 
-  if (!characterId) {
+  if (!charId) {
     return (
       <Typography variant="body2" color="textSecondary">
         Select a character to edit rotation.
@@ -937,7 +937,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
                   key={sortableIds[index]}
                   id={sortableIds[index]}
                   actionKey={actionKey}
-                  characterId={characterId}
+                  charId={charId}
                   gameId={gameId}
                   onRemove={() => removeSkill(index)}
                 />
@@ -962,7 +962,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         <Button
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(CHARACTER[gameId][characterId]?.defaults?.rotation ?? [])}
+          onClick={() => onChange(CHARACTER[gameId][charId]?.defaults?.rotation ?? [])}
         >
           Reset Default
         </Button>
@@ -977,7 +977,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 
       <SkillSelectDialog
         gameId={gameId}
-        characterId={characterId}
+        charId={charId}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
         onSelect={(actionKey) => onChange([...rotation, actionKey])}
@@ -987,7 +987,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 }
 
 export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
-  const { characterId } = useParams();
+  const { charId } = useParams();
   const allBuilds = useBuild().getBuilds(gameId);
 
   const [draft, setDraft] = useState(member);
@@ -1001,10 +1001,10 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
   const weaponType = memberData?.type ?? null;
 
   // Stored build for the current draft member (only meaningful for teammates)
-  const storedBuild = draft.id && draft.id !== characterId
+  const storedBuild = draft.id && draft.id !== charId
     ? allBuilds[draft.id] ?? null
     : null;
-  const isMainCharacter = draft.id === characterId;
+  const isMainCharacter = draft.id === charId;
   const showToggle = storedBuild !== null;
   const buildLocked = !isMainCharacter && draft.useUserBuild === true;
 
@@ -1165,7 +1165,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
           <RotationEditor
             gameId={gameId}
-            characterId={draft.id}
+            charId={draft.id}
             rotation={draft.rotation}
             onChange={(rotation) => setDraft((prev) => ({ ...prev, rotation }))}
           />

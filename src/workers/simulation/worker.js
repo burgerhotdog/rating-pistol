@@ -8,7 +8,7 @@ const compileHelpers = (gameId) => ({
 });
 
 self.onmessage = ({ data }) => {
-  const { gameId, characterId, team } = data;
+  const { gameId, charId, team } = data;
   const helpers = compileHelpers(gameId);
   const cache = compileCache(gameId, team);
 
@@ -36,5 +36,5 @@ self.onmessage = ({ data }) => {
 
   self.postMessage({ status: 'Running simulation' });
 
-  runTrials(helpers, cache, equipMaps, characterId, true);
+  runTrials(helpers, cache, equipMaps, charId, true);
 };

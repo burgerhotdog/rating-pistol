@@ -49,7 +49,7 @@ export const Content = () => {
   return (
     <FlexRow spacing={1}>
       <StatsPanel
-        team={team}
+        team={team.members}
         updateTeam={updateTeam}
       />
 
@@ -63,7 +63,7 @@ export const Content = () => {
         <FlexCol spacing={1}>
           <FlexRow>
             <ProgressChart
-              team={team}
+              team={team.members}
               weeklySummaries={weeklySummaries}
               userSummary={userSummary}
               rotationTime={cache.fullRotationTime}
@@ -86,7 +86,7 @@ export const Content = () => {
             <TabPanel isActive={tabIndex === 0}>
               <DamageBreakdown
                 userSummary={userSummary}
-                teamIds={team.map((m) => m.id).filter(Boolean)}
+                teamIds={team.members.map((m) => m.id).filter(Boolean)}
               />
             </TabPanel>
 

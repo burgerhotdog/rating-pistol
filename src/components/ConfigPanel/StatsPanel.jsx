@@ -91,16 +91,16 @@ function formatFullDate(dateString) {
 }
 
 export const StatsPanel = ({ team, updateTeam }) => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const theme = useTheme();
   const [dialogIndex, setDialogIndex] = useState(null);
 
   const member = team.reduce((acc, member) => {
-    if (member.id !== characterId) return acc;
+    if (member.id !== charId) return acc;
     return member;
   }, null);
 
-  const statMap = member ? compileMenuMap(gameId, characterId, member) : {};
+  const statMap = member ? compileMenuMap(gameId, charId, member) : {};
 
   if (!member) {
     return (
@@ -117,21 +117,21 @@ export const StatsPanel = ({ team, updateTeam }) => {
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
-        avatar={<CharAvatar gameId={gameId} charId={characterId} />}
-        title={CHARACTER[gameId][characterId]?.name ?? ''}
+        avatar={<CharAvatar gameId={gameId} charId={charId} />}
+        title={CHARACTER[gameId][charId]?.name ?? ''}
         subheader={
           <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
             <Chip
-              label={formatStr(CHARACTER[gameId][characterId].element)}
+              label={formatStr(CHARACTER[gameId][charId].element)}
               variant="outlined"
               sx={{
                 fontWeight: 'bold',
-                color: theme.accentColors[gameId][CHARACTER[gameId][characterId].element]
+                color: theme.accentColors[gameId][CHARACTER[gameId][charId].element]
               }}
             />
 
             <Chip
-              label={formatStr(CHARACTER[gameId][characterId]?.type)}
+              label={formatStr(CHARACTER[gameId][charId]?.type)}
               variant="outlined"
               sx={{ fontWeight: 'bold' }}
             />

@@ -1,90 +1,50 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useBuild } from '@/contexts';
-import { CHARACTER } from '@/data';
-import { getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
+import { GI, HSR, CHARACTER } from '@/data';
+import { getMember, applyStoredBuild } from '@/utils';
 
-const getTeamSize = (gameId) =>
-  gameId === 'genshin-impact' || gameId === 'honkai-star-rail' ? 4 : 3;
+const initMember = (gameId, builds, presetKey) => {
+  const [memberId, presetIndex = 0] = presetKey.split('.');
 
-const normalizeMemberPreset = (gameId, rawMemberPreset) => {
-  const overrides =
-    typeof rawMemberPreset === 'string'
-      ? { id: rawMemberPreset }
-      : rawMemberPreset;
+  let member = getMember(gameId, memberId, presetIndex);
 
-  const { defaults = {} } = CHARACTER[gameId][overrides.id];
-
-  return { ...defaults, ...overrides };
-};
-
-const createBlankMember = () => ({
-  id: null,
-  rank: null,
-  weaponId: null,
-  weaponRank: null,
-  setCounts: {},
-  rotation: [],
-  useUserBuild: false,
-});
-
-const initMember = (gameId, memberPreset, builds) => {
-  let member = getMember(gameId, memberPreset.id);
-
-  if (memberPreset.weaponId) {
-    member.weaponId = memberPreset.weaponId;
-    member.weaponRank = getDefaultWeaponRank(gameId, memberPreset.weaponId);
-  }
-
-  if (memberPreset.setCounts) {
-    member.setCounts = { ...memberPreset.setCounts };
-  }
-
-  if (memberPreset.rotation) {
-    member.rotation = [...memberPreset.rotation];
-  }
-
-  const storedBuild = builds[member.id];
-  if (storedBuild) {
-    member = applyStoredBuild(gameId, member, storedBuild);
+  if (memberId in builds) {
+    member = applyStoredBuild(gameId, member, builds[memberId]);
   }
 
   return member;
 };
 
-const initTeam = (gameId, characterId, builds) => {
-  const teamSize = getTeamSize(gameId);
+const initTeam = (gameId, charId, builds) => {
+  const character = CHARACTER[gameId][charId];
+  const teamSize = (gameId === GI || gameId === HSR) ? 4 : 3;
   const teamPreset =
-    CHARACTER[gameId][characterId].defaults?.team ??
-    [characterId, ...Array(teamSize - 1).fill(null)];
+    character.presets?.[0]?.team ??
+    [charId, ...Array(teamSize - 1).fill(null)];
   
-  return teamPreset.map((rawMemberPreset) => {
-    if (rawMemberPreset == null) return createBlankMember();
+  const members = teamPreset.map((presetKey) =>
+    presetKey ? initMember(gameId, builds, presetKey) : {});
 
-    const memberPreset = normalizeMemberPreset(gameId, rawMemberPreset);
-    return initMember(gameId, memberPreset, builds);
-  });
+  const rotation = {};
+
+  return { members, rotation };
 };
 
 export const useTeam = () => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const builds = useBuild().getBuilds(gameId);
-  const build = builds[characterId];
+  const build = builds[charId];
+  if (!build) throw new Error(`Init team for character with no build: ${charId}`);
 
-  if (!build) {
-    throw new Error(`Attempting to init team for character with no build: ${characterId}`);
-  }
-
-  const [team, setTeam] = useState(() => initTeam(gameId, characterId, builds));
+  const [team, setTeam] = useState(() => initTeam(gameId, charId, builds));
 
   function updateTeam(index, member) {
-    if (index < 0 || index >= team.length) return;
-    setTeam((prev) => prev.with(index, member));
+    setTeam(({ members, rotation }) => ({
+      members: members.with(index, member),
+      rotation,
+    }));
   }
 
-  function replaceTeam(newTeam) {
-    setTeam([...newTeam]);
-  }
-
-  return { team, updateTeam, replaceTeam };
+  return { team, updateTeam };
 };

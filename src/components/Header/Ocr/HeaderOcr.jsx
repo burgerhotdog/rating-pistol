@@ -73,7 +73,7 @@ const HeaderOcr = () => {
 
   // --- Confirm dialog field editors ---
   const updateTopField = (field, value) => {
-    setPendingEntry(([characterId, build]) => [characterId, { ...build, [field]: value }]);
+    setPendingEntry(([charId, build]) => [charId, { ...build, [field]: value }]);
   };
 
   const updateCharacterId = (value) => {
@@ -81,9 +81,9 @@ const HeaderOcr = () => {
   };
 
   const updateEquip = (index, nextEquip) => {
-    setPendingEntry(([characterId, build]) => {
+    setPendingEntry(([charId, build]) => {
       const equipList = build.equipList.map((eq, i) => (i === index ? nextEquip : eq));
-      return [characterId, { ...build, equipList }];
+      return [charId, { ...build, equipList }];
     });
   };
 
@@ -136,7 +136,7 @@ const HeaderOcr = () => {
 
   const handleConfirm = async () => {
     if (!pendingEntry) return;
-    const [characterId] = pendingEntry;
+    const [charId] = pendingEntry;
     if (isBatchMode) {
       const nextConfirmedEntries = [...confirmedBatchEntries, pendingEntry];
       if (batchIndex === batchTotal) {
@@ -153,7 +153,7 @@ const HeaderOcr = () => {
       await saveBuildEntries(WW, [pendingEntry]);
       setPendingEntry(null);
       setDialogOpen(false);
-      navigate(`/${gameId}/${characterId}`, { replace: true });
+      navigate(`/${gameId}/${charId}`, { replace: true });
     } catch (err) {
       console.log(err);
     } finally {
