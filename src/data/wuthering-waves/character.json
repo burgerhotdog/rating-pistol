@@ -251,13 +251,7 @@
         "enableIfRankMin": 4,
         "useOnAction": "resonanceLiberation.1",
         "buffMap": {
-          "healingMv%": 0.2
-        }
-      },
-      {
-        "enableIfRankMin": 4,
-        "useOnAction": "resonanceLiberation.1",
-        "buffMap": {
+          "healingMv%": 0.2,
           "damageMv": 0.012
         }
       },
@@ -286,7 +280,6 @@
         "mainEcho": "390080005",
         "rotation": [
           "introSkill.0",
-          "introSkill.1",
           "resonanceLiberation.0",
           "normalAttack.0",
           "normalAttack.1",
@@ -569,7 +562,7 @@
     },
     "effects": [
       {
-        "useOnAction": "resonanceSkill.1",
+        "useOnAction": "resonanceSkill.0",
         "buffMap": {
           "healingMv%": 0.3
         }
@@ -609,10 +602,10 @@
         "enableIfRankMin": 6,
         "applyWhen": "before",
         "applyOnAction": [
+          "resonanceSkill.1",
           "resonanceSkill.2",
           "resonanceSkill.3",
-          "resonanceSkill.4",
-          "resonanceSkill.5"
+          "resonanceSkill.4"
         ],
         "buffMap": {
           "critDmg%": 0.15
@@ -634,16 +627,15 @@
         },
         "rotation": [
           "introSkill.0",
-          "resonanceSkill.2",
+          "resonanceSkill.1",
           "resonanceLiberation.0",
-          "resonanceSkill.3",
+          "resonanceSkill.2",
           "normalAttack.0",
           "normalAttack.1",
           "normalAttack.2",
           "normalAttack.3",
           "resonanceSkill.0",
-          "resonanceSkill.1",
-          "resonanceSkill.4",
+          "resonanceSkill.3",
           "outroSkill.0"
         ]
       }
@@ -1580,7 +1572,7 @@
       },
       {
         "enableIfRankMin": 4,
-        "useOnAction": "forteCircuit.2",
+        "useOnAction": "forteCircuit.0",
         "buffMap": {
           "shieldBonus%": 0.2
         }
@@ -1637,7 +1629,6 @@
           "introSkill.0",
           "forteCircuit.1",
           "resonanceLiberation.0",
-          "resonanceLiberation.1",
           "forteCircuit.1",
           "normalAttack.10",
           "normalAttack.11",
@@ -1647,7 +1638,6 @@
           "normalAttack.14",
           "forteCircuit.1",
           "forteCircuit.0",
-          "forteCircuit.2",
           "outroSkill.0"
         ]
       }
@@ -3948,7 +3938,7 @@
           "forteCircuit.4",
           "forteCircuit.6",
           "forteCircuit.6",
-          "forteCircuit.12",
+          "forteCircuit.7",
           "outroSkill.0"
         ]
       }
@@ -4081,10 +4071,7 @@
         "applyTo": "team",
         "useWhen": "hit",
         "useCooldown": 1000,
-        "useAction": [
-          "resonanceLiberation.2",
-          "resonanceLiberation.3"
-        ],
+        "useAction": "resonanceLiberation.1",
         "maxDuration": 12000
       },
       {
@@ -4147,7 +4134,7 @@
       },
       {
         "enableIfRankMin": 3,
-        "useOnAction": "resonanceLiberation.3",
+        "useOnAction": "resonanceLiberation.1",
         "buffMap": {
           "healingBonus%": 0.12
         }
@@ -4198,10 +4185,7 @@
           "forteCircuit.3"
         ],
         "useWhen": "hit",
-        "useAction": [
-          "resonanceLiberation.2",
-          "resonanceLiberation.3"
-        ],
+        "useAction": "resonanceLiberation.1",
         "maxUses": 1
       }
     ],
@@ -4221,13 +4205,9 @@
           "introSkill.0",
           "resonanceSkill.0",
           "resonanceLiberation.0",
-          "resonanceLiberation.1",
           "forteCircuit.1",
-          "forteCircuit.4",
           "forteCircuit.2",
-          "forteCircuit.4",
           "forteCircuit.3",
-          "forteCircuit.4",
           "outroSkill.0"
         ]
       }
@@ -4446,11 +4426,11 @@
       {
         "enableIfRankMax": 0,
         "useWhen": "before",
-        "useOnAction": "introSkill.2",
+        "useOnAction": "introSkill.1",
         "onUseDoRemove": "$prev.4"
       },
       {
-        "useOnAction": "introSkill.2",
+        "useOnAction": "introSkill.1",
         "buffMap": {
           "critRate%": 1
         }
@@ -4482,7 +4462,7 @@
       },
       {
         "enableIfRankMin": 6,
-        "useOnAction": "introSkill.2",
+        "useOnAction": "introSkill.1",
         "buffMap": {
           "damageMv%": 0.42,
           "critDmg%": 5
@@ -4502,8 +4482,7 @@
         },
         "mainEcho": "6000060",
         "rotation": [
-          "introSkill.2",
-          "introSkill.3",
+          "introSkill.1",
           "normalAttack.0",
           "normalAttack.1",
           "normalAttack.2",
