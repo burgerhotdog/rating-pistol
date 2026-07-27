@@ -100,20 +100,20 @@ def parse_actions(data):
 
         skill_id = key_to_id[raw_skill['type_name']]
 
-        indexed_multipliers = []
+        multipliers = []
 
         for key, value in raw_skill['level'].items():
             param_list = value['param_list']
 
             for index, hit in enumerate(param_list):
-                if index < len(indexed_multipliers):
-                    indexed_multipliers[index]['mv'].append(hit)
+                if index < len(multipliers):
+                    multipliers[index]['mv'].append(hit)
                 else:
-                    indexed_multipliers.append({ 'mv': [hit] })
+                    multipliers.append({ 'mv': [hit] })
 
         filtered = []
 
-        for entry in indexed_multipliers:
+        for entry in multipliers:
             mv = entry['mv']
 
             if len(mv) > 1 and all(x == mv[0] for x in mv):
@@ -121,14 +121,16 @@ def parse_actions(data):
 
             filtered.append(entry)
 
-        indexed_multipliers = filtered
+        multipliers = filtered
         
         if skill_id not in actions:
             actions[skill_id] = {
                 '1': {
                     'name': raw_skill['name'],
                     'skillType': skill_id,
-                    'multipliers': indexed_multipliers,
+                    'damage': {
+                        'multipliers': multipliers,
+                    },
                 }
             }
         else:
@@ -137,7 +139,9 @@ def parse_actions(data):
             actions[skill_id][str(count)] = {
                 'name': raw_skill['name'],
                 'skillType': skill_id,
-                'multipliers': indexed_multipliers,
+                'damage': {
+                    'multipliers': multipliers,
+                },
             }
 
     return actions

@@ -792,7 +792,6 @@
         },
         {
           "name": "Emergency Plan: Team Healing",
-          "type": "healing",
           "healing": {
             "attr": "hp",
             "multipliers": [
@@ -842,9 +841,9 @@
                   0.1051
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },
@@ -854,7 +853,6 @@
         {
           "name": "Momentary Union",
           "skillType": "resonanceLiberation",
-          "type": "healing",
           "healing": {
             "attr": "hp",
             "multipliers": [
@@ -904,9 +902,9 @@
                   0.0457
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Remnant Entities",
@@ -944,7 +942,6 @@
         },
         {
           "name": "Remnant Entities: Team Healing",
-          "type": "healing",
           "healing": {
             "attr": "hp",
             "multipliers": [
@@ -994,9 +991,9 @@
                   0.0514
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },
@@ -1005,7 +1002,6 @@
       "actions": [
         {
           "name": "Concentration: Healing",
-          "type": "healing",
           "healing": {
             "attr": "hp",
             "multipliers": [
@@ -1097,7 +1093,6 @@
         },
         {
           "name": "Overflowing Frost: Team Healing",
-          "type": "healing",
           "healing": {
             "attr": "hp",
             "multipliers": [
@@ -1147,9 +1142,9 @@
                   0.0137
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },
@@ -2672,7 +2667,6 @@
         },
         {
           "name": "Scroll Divination: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -2721,9 +2715,9 @@
                   1.4946
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Chime",
@@ -3053,7 +3047,6 @@
         },
         {
           "name": "Poetic Essence: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -3102,13 +3095,12 @@
                   1.6939
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Double Pun Bonus Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -3157,9 +3149,9 @@
                   0.9964
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },
@@ -6968,7 +6960,6 @@
         },
         {
           "name": "Enrichment Healing",
-          "type": "healing",
           "healing": {
             "attr": "HP",
             "multipliers": [
@@ -7030,7 +7021,6 @@
       "actions": [
         {
           "name": "Healing per Plume Step",
-          "type": "healing",
           "healing": {
             "attr": "HP",
             "multipliers": [
@@ -11174,7 +11164,6 @@
         },
         {
           "name": "To the Horizon: Team Healing",
-          "type": "healing",
           "healing": {
             "attr": "energyRegen%",
             "multipliers": [
@@ -11224,9 +11213,9 @@
                   606
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },
@@ -11342,7 +11331,6 @@
         },
         {
           "name": "Waves of Acclaims: Team Healing",
-          "type": "healing",
           "healing": {
             "attr": "energyRegen%",
             "multipliers": [
@@ -11392,13 +11380,12 @@
                   379
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Returned From Ashes: Shield",
-          "type": "shield",
           "shield": {
             "attr": "energyRegen%",
             "multipliers": [
@@ -14850,7 +14837,6 @@
         {
           "name": "Distributed Array: Team Healing",
           "tagged": "Wide Field Observation Mode",
-          "type": "healing",
           "healing": {
             "attr": "def",
             "multipliers": [
@@ -14900,13 +14886,12 @@
                   2.0694
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Expectation Error: Team Healing",
-          "type": "healing",
           "skillType": "resonanceSkill",
           "healing": {
             "attr": "def",
@@ -14957,9 +14942,9 @@
                   0.4552
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Optimal Solution",
@@ -15072,7 +15057,6 @@
       "actions": [
         {
           "name": "Syntony Field: Healing",
-          "type": "healing",
           "healing": {
             "attr": "def",
             "multipliers": [
@@ -23672,7 +23656,6 @@
         },
         {
           "name": "Twin Mountains: Team Healing",
-          "type": "healing",
           "skillType": "heavyAttack",
           "healing": {
             "multipliers": [
@@ -23722,13 +23705,12 @@
                   2.4672
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Twin Thunders: Team Healing",
-          "type": "healing",
           "skillType": "heavyAttack",
           "healing": {
             "multipliers": [
@@ -23778,9 +23760,9 @@
                   0.3338
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },
@@ -23997,7 +23979,6 @@
         },
         {
           "name": "Summon and Smite: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -24046,9 +24027,9 @@
                   1.4513
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },
@@ -28271,7 +28252,6 @@
         },
         {
           "name": "Incomplete Minor Zhoutian: Shield",
-          "type": "shield",
           "shield": {
             "multipliers": [
               {
@@ -28325,7 +28305,6 @@
         },
         {
           "name": "Minor Zhoutian: Shield",
-          "type": "shield",
           "shield": {
             "multipliers": [
               {
@@ -28379,7 +28358,6 @@
         },
         {
           "name": "Major Zhoutian Inner: Shield",
-          "type": "shield",
           "shield": {
             "multipliers": [
               {
@@ -28433,7 +28411,6 @@
         },
         {
           "name": "Major Zhoutian Outer: Shield",
-          "type": "shield",
           "shield": {
             "multipliers": [
               {
@@ -28487,7 +28464,6 @@
         },
         {
           "name": "Shield Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -31825,7 +31801,6 @@
         },
         {
           "name": "Moonbow: Basic Attack 1: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -31852,13 +31827,12 @@
                   0.4727
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Moonbow: Basic Attack 2: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -31885,13 +31859,12 @@
                   0.4727
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Moonbow: Basic Attack 3: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -31918,13 +31891,12 @@
                   0.8863
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Moonbow: Dodge Counter: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -31951,13 +31923,12 @@
                   0.5909
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Arc Beyond the Edge: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -31984,9 +31955,9 @@
                   0.8863
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Absolute Fullness",
@@ -32023,7 +31994,6 @@
         },
         {
           "name": "Absolute Fullness: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -32050,13 +32020,12 @@
                   3.5451
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Full Moon Domain: Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -34967,7 +34936,6 @@
         },
         {
           "name": "Arboreal Flourish: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -35016,9 +34984,9 @@
                   0.4343
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Photosynthesis Mark",
@@ -35055,7 +35023,6 @@
         },
         {
           "name": "Photosynthesis Mark: Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -35275,7 +35242,6 @@
         {
           "name": "Healing (x3)",
           "tagged": "Starflower Blooms",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -36478,7 +36444,6 @@
       "actions": [
         {
           "name": "Chaos Theory: Team Healing",
-          "type": "healing",
           "skillType": "resonanceSkill",
           "healing": {
             "attr": "hp",
@@ -36529,9 +36494,9 @@
                   0.1089
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Dim Star Butterfly (x5)",
@@ -36577,7 +36542,6 @@
         },
         {
           "name": "End Loop: Healing",
-          "type": "healing",
           "healing": {
             "attr": "hp",
             "multipliers": [
@@ -36774,7 +36738,6 @@
         },
         {
           "name": "Enlightenment: Team Healing",
-          "type": "healing",
           "healing": {
             "attr": "hp",
             "multipliers": [
@@ -36824,9 +36787,9 @@
                   0.0218
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Discernment",
@@ -36865,7 +36828,6 @@
         },
         {
           "name": "Discernment: Team Healing",
-          "type": "healing",
           "healing": {
             "attr": "hp",
             "multipliers": [
@@ -36915,9 +36877,9 @@
                   0.024
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },
@@ -38795,7 +38757,6 @@
         },
         {
           "name": "Death Snip: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -38844,9 +38805,9 @@
                   0.9198
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Thread Withdrawn",
@@ -39398,7 +39359,6 @@
         },
         {
           "name": "Moment of Nihility: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -39447,9 +39407,9 @@
                   2.1461
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },
@@ -39863,7 +39823,6 @@
         },
         {
           "name": "Sawring - Eradication: Shield",
-          "type": "shield",
           "shield": {
             "multipliers": [
               {
@@ -44775,7 +44734,6 @@
         },
         {
           "name": "Fortified Defense: Healing",
-          "type": "healing",
           "healing": {
             "attr": "def",
             "multipliers": [
@@ -44972,7 +44930,6 @@
         },
         {
           "name": "Timed Counters 1: Shield",
-          "type": "shield",
           "shield": {
             "attr": "def",
             "multipliers": [
@@ -45027,7 +44984,6 @@
         },
         {
           "name": "Timed Counters 2: Shield",
-          "type": "shield",
           "shield": {
             "attr": "def",
             "multipliers": [
@@ -45082,7 +45038,6 @@
         },
         {
           "name": "Timed Counters 3: Shield",
-          "type": "shield",
           "shield": {
             "attr": "def",
             "multipliers": [
@@ -47716,7 +47671,6 @@
         },
         {
           "name": "Trance: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -47765,13 +47719,12 @@
                   0.8278
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         },
         {
           "name": "Perception Drain: Team Healing",
-          "type": "healing",
           "healing": {
             "multipliers": [
               {
@@ -47820,9 +47773,9 @@
                   3.4491
                 ]
               }
-            ]
-          },
-          "times": "$teamSize"
+            ],
+            "times": "$teamSize"
+          }
         }
       ]
     },

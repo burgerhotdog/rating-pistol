@@ -167,7 +167,9 @@ def parse_actions(data):
                 'name': skill_data['name'],
                 'skillType': 'basicAttack' if group_id == '1' else key_to_id[group_id],
                 **({'attr': attr} if attr else {}),
-                'multipliers': multipliers,
+                'damage': {
+                    'multipliers': multipliers,
+                },
             }
 
             action_id += 1
@@ -229,9 +231,9 @@ def parse_echo(version, id, data):
 
         # Echoes with flat components don't use rate_lv
         if len(entry['rate_lv']) > 4:
-            action['multipliers'] = [{'mv': entry['rate_lv'][4] / 10000}]
-        else:
-            action['multipliers'] = []
+            action['damage'] = {
+                'multipliers': [{ 'mv': entry['rate_lv'][4] / 10000 }],
+            }
 
         if data['skill']['desc'].startswith('Summon'):
             action['duration'] = 0

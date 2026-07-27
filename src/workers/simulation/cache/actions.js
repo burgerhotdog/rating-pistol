@@ -76,9 +76,6 @@ export const toNormalizedAction = (rawAction, spec) => {
     action.dmgType ??= action.skillType;
   }
 
-  // Resolve $teamSize
-  if (action.times === '$teamSize') action.times = teamSize;
-
   // Compress multipliers
   const compressedSpec = { index, weaponRank };
   if ('damage' in action) {
@@ -98,6 +95,7 @@ export const toNormalizedAction = (rawAction, spec) => {
     const spec = action.healing;
     spec.attr ??= 'atk';
     spec.compressed = getCompressed(spec.multipliers, spec.attr, compressedSpec);
+    if (spec.times === '$teamSize') spec.times = teamSize;
   }
 
   if ('shield' in action) {
