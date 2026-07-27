@@ -3,7 +3,7 @@ import { getAttr } from '@/utils';
 
 const BASE_RES = { [GI]: 0.1, [HSR]: 0, [WW]: 0.1, [ZZZ]: -0.2 };
 
-export const createGetResMult = (gameId) => {
+export const getResMult = ( gameId, element, statMap) => {
   const baseRes = BASE_RES[gameId];
   const keyword = gameId === HSR ? 'Pen' : 'Ignore';
   const threshold = gameId === WW ? 0.8 : 0.75;
@@ -22,17 +22,15 @@ export const createGetResMult = (gameId) => {
     }
   };
 
-  return (element, statMap) => {
-    const resReduction = getAttr('resReduction%', statMap);
-    const elementResReduction = getAttr(`${element}ResReduction%`, statMap);
-    const totalResReduction = resReduction + elementResReduction;
+  const resReduction = getAttr('resReduction%', statMap);
+  const elementResReduction = getAttr(`${element}ResReduction%`, statMap);
+  const totalResReduction = resReduction + elementResReduction;
 
-    const resIgnore = getAttr(`res${keyword}%`, statMap);
-    const elementResIgnore = getAttr(`${element}Res${keyword}%`, statMap);
-    const totalResIgnore = resIgnore + elementResIgnore;
+  const resIgnore = getAttr(`res${keyword}%`, statMap);
+  const elementResIgnore = getAttr(`${element}Res${keyword}%`, statMap);
+  const totalResIgnore = resIgnore + elementResIgnore;
 
-    const totalRes = baseRes - totalResReduction - totalResIgnore;
+  const totalRes = baseRes - totalResReduction - totalResIgnore;
 
-    return getMult(totalRes);
-  }
+  return getMult(totalRes);
 };

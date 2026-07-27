@@ -15,7 +15,7 @@ const toResolvedSpecs = (buffSpecs, sourceMap) => {
 };
 
 export const buildSnapshot = (ctx, action, options = {}) => {
-  const { helpers, currId } = ctx;
+  const { cache, currId } = ctx;
   const { runtimeOffset = 0 } = options;
 
   const snapshot = {
@@ -39,7 +39,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     if (!(part in action)) continue;
 
     if (statMap) {
-      snapshot[part] = runFormula(helpers, part, action, statMap);
+      snapshot[part] = runFormula(cache.gameId, part, action, statMap);
     } else {
       snapshot[part] = (currBuildMap) => {
         const buildMap = action.ownerId === currId
@@ -49,7 +49,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
         const currBuffedMap = toMergedObj(currBuildMap, currBuffMap);
 
         const statMap = toMergedObj(buildMap, buffMap, toResolvedSpecs(buffSpecs, currBuffedMap));
-        return runFormula(helpers, part, action, statMap);
+        return runFormula(cache.gameId, part, action, statMap);
       };
     }
   }

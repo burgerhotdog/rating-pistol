@@ -1,4 +1,6 @@
 import { getAttr, toMergedObj } from '@/utils';
+import { getDefMult } from '../formula/enemyDef';
+import { getResMult } from '../formula/enemyRes';
 import { getBuffMap } from '../getStatMap';
 import { getEffectStates } from '../getEffectStates';
 
@@ -13,11 +15,9 @@ const tuneBreakAction = {
   attr: 'tuneAmp',
 };
 
-export const runTuneFormula = (helpers, statMap, tuneAmp, element) => {
-  const { getDefMult, getResMult } = helpers;
-
-  const defMult = getDefMult(statMap);
-  const resMult = getResMult(element, statMap);
+export const runTuneFormula = (gameId, statMap, tuneAmp, element) => {
+  const defMult = getDefMult(gameId, statMap);
+  const resMult = getResMult(gameId, element, statMap);
   const tuneBreakBoostMult = 1 + (getAttr('tuneBreakBoost', statMap) / 100);
   const vulnMult = 1 + getAttr('vuln%', statMap);
 
@@ -45,7 +45,7 @@ function recordTuneBreak(ctx) {
 
     const tuneAmp = action?.damage?.compressed?.mvs?.tuneAmp ?? 16;
     const element = action?.damage?.element ?? 'physical';
-    const damage = runTuneFormula(ctx.helpers, statMap, tuneAmp, element);
+    const damage = runTuneFormula(ctx.cache.gameId, statMap, tuneAmp, element);
 
     return {
       ...(action ?? tuneBreakAction),

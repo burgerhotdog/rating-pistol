@@ -87,10 +87,10 @@ function addSummaryToSums(sums, snapshots) {
   }
 }
 
-export const runTrials = (helpers, cache, equipMaps, currId, isMain = false) => {
+export const runTrials = (cache, equipMaps, currId, isMain = false) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
-  const runRotation = createRunRotation(helpers, cache, equipMaps, currId);
+  const runRotation = createRunRotation(cache, equipMaps, currId);
   const getPenalty = createGetPenalty(cache, currId);
 
   const baseSummary = runRotation(baseMap);

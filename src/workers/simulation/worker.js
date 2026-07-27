@@ -1,15 +1,8 @@
 import { compileCache } from './cache';
-import { createGetDefMult, createGetResMult } from './rotation/formula';
 import { runTrials } from './runTrials';
-
-const compileHelpers = (gameId) => ({
-  getDefMult: createGetDefMult(gameId),
-  getResMult: createGetResMult(gameId),
-});
 
 self.onmessage = ({ data }) => {
   const { gameId, charId, team } = data;
-  const helpers = compileHelpers(gameId);
   const cache = compileCache(gameId, team);
 
   const equipMaps = Object.fromEntries(
@@ -30,11 +23,11 @@ self.onmessage = ({ data }) => {
         })
       );
 
-      return [member.id, runTrials(helpers, cache, trialEquipMaps, member.id)];
+      return [member.id, runTrials(cache, trialEquipMaps, member.id)];
     })
   );
 
   self.postMessage({ status: 'Running simulation' });
 
-  runTrials(helpers, cache, equipMaps, charId, true);
+  runTrials(cache, equipMaps, charId, true);
 };

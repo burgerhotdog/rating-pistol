@@ -1,6 +1,8 @@
 import { getEffectStates } from '../getEffectStates';
 import { getBuffMap } from '../getStatMap';
 import { getDmgAmpMult } from '../formula/dmgAmp';
+import { getDefMult } from '../formula/enemyDef';
+import { getResMult } from '../formula/enemyRes';
 
 const statusMaxStacks = {
   glacioChafe: 10,
@@ -271,7 +273,6 @@ export function advanceNegativeStatuses(ctx, elapsed) {
 const LEVEL_MODIFIER = 3674;
 
 export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
-  const { getDefMult, getResMult } = ctx.helpers;
   const { stacks, rage, status } = statusState;
 
   const { buffMap } = getBuffMap(ctx);
@@ -281,8 +282,8 @@ export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
   const baseDmg = LEVEL_MODIFIER * ((mv + rageMv) / 10000);
 
   const dmgAmpMult = getDmgAmpMult(buffMap, [status.id]);
-  const defMult = getDefMult(buffMap);
-  const resMult = getResMult(status.element, buffMap);
+  const defMult = getDefMult(ctx.cache.gameId, buffMap);
+  const resMult = getResMult(ctx.cache.gameId, status.element, buffMap);
 
   return {
     key: `other:${status.id}`,

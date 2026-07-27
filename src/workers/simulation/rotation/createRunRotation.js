@@ -166,14 +166,13 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('after');
 }
 
-export const createRunRotation = (helpers, cache, equipMaps, currId) => {
+export const createRunRotation = (cache, equipMaps, currId) => {
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
     buildMaps[memberId] = toMergedObj(cache.member[memberId].baseMap, equipMap);
   }
 
   const ctx = {
-    helpers,
     cache,
     buildMaps,
     currId,
