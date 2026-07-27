@@ -1,5 +1,10 @@
 import { toArray } from '@/utils';
 
+const ifOwner = (rawFilter, character) => {
+  const filter = toArray(rawFilter);
+  return filter.some((id) => id === character.id)
+};
+
 const ifElement = (rawFilter, character) => {
   const filter = toArray(rawFilter);
   return filter.some((element) => element === character.element);
@@ -44,6 +49,7 @@ export const isEnabled = (effect, spec) => {
   switch (from) {
     case 'character':
       return (
+        ifOwner(effect.enableIfOwner, character) ||
         ifElement(effect.enableIfElement, character) ||
         ifWeaponType(effect.enableIfWeaponType, character) ||
         ifTagged(effect.enableIfTagged, character) ||

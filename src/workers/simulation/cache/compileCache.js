@@ -1,6 +1,6 @@
 import { WW } from '@/data';
 import { toMergedObj, mergeEquipList, compileBaseMap } from '@/utils';
-import { getMemberActions } from './actions';
+import { getMemberPresetActions } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
 
@@ -57,7 +57,7 @@ export const compileCache = (gameId, team) => {
   // Normalize actions
   const teamActions = {};
   for (const member of team) {
-    teamActions[member.id] = getMemberActions(member, {
+    teamActions[member.id] = getMemberPresetActions(member, {
       gameId,
       teamSize: memberIds.length,
     });

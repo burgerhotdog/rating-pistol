@@ -144,7 +144,7 @@ const createIndexGetter = (gameId, memberId, memberRank) => {
   return (category) => defaultIndex + (addByCategory[category] ?? 0);
 };
 
-export const getMemberActions = (member, { gameId, teamSize }) => {
+export const getMemberPresetActions = (member, { gameId, teamSize }) => {
   const { id: memberId, mainEcho } = member;
   const char = CHARACTER[gameId][memberId];
   const getIndex = createIndexGetter(gameId, memberId, member.rank);

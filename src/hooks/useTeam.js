@@ -2,12 +2,12 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useBuild } from '@/contexts';
 import { GI, HSR, CHARACTER } from '@/data';
-import { getMember, applyStoredBuild } from '@/utils';
+import { getMemberPreset, applyStoredBuild } from '@/utils';
 
 const initMember = (gameId, builds, presetKey) => {
   const [memberId, presetIndex = 0] = presetKey.split('.');
 
-  let member = getMember(gameId, memberId, presetIndex);
+  let member = getMemberPreset(gameId, memberId, presetIndex);
 
   if (memberId in builds) {
     member = applyStoredBuild(gameId, member, builds[memberId]);
@@ -23,8 +23,9 @@ const initTeam = (gameId, charId, builds) => {
     character.presets?.[0]?.team ??
     [charId, ...Array(teamSize - 1).fill(null)];
   
-  const members = teamPreset.map((presetKey) =>
-    presetKey ? initMember(gameId, builds, presetKey) : {});
+  const members = teamPreset.map((presetKey) => presetKey
+    ? initMember(gameId, builds, presetKey)
+    : {});
 
   const rotation = {};
 

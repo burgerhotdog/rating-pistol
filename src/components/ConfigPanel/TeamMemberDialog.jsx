@@ -39,7 +39,7 @@ import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CHARACTER, ACTION, WEAPON, SET } from '@/data';
-import { toArray, formatStr, getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
+import { toArray, formatStr, getPresetSetCounts, getMemberPreset, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
@@ -517,7 +517,7 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
         <Button
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(getMember(gameId, id).setCounts)}
+          onClick={() => onChange(getPresetSetCounts(gameId, id))}
           disabled={disabled}
         >
           Reset Default
@@ -1009,7 +1009,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
   const buildLocked = !isMainCharacter && draft.useUserBuild === true;
 
   const handleCharacterSelect = (charId) => {
-    let nextMember = getMember(gameId, charId);
+    let nextMember = getMemberPreset(gameId, charId);
     const nextStoredBuild = allBuilds[charId] ?? null;
     if (nextStoredBuild) {
       nextMember = applyStoredBuild(gameId, nextMember, nextStoredBuild);
