@@ -33,7 +33,7 @@
             "elementalSkill",
             "elementalBurst"
           ],
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "healingReceived%": 0.2
           },
@@ -148,7 +148,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "elementalBurst",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "atk%": 0.2
           },
@@ -247,7 +247,7 @@
           "applyWhen": "hit",
           "applyOnDmgType": "elementalSkill",
           "applyCooldown": 500,
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "atk%": 0.2
           },
@@ -795,7 +795,7 @@
         {
           "applyWhen": "hit",
           "applyOnType": "damage",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "elementalMastery": 120
           },
@@ -876,7 +876,7 @@
           "enableIfTagged": "Hexerei",
           "applyWhen": "before",
           "applyOnSkillType": "elementalSkill",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.4
           },

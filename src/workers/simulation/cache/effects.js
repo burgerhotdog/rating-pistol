@@ -10,16 +10,16 @@ function resolveApplyBy(effect, memberIds) {
     case undefined:
       effect.applyBy = [ownerId];
       break;
-    case 'team':
+    case '$team':
       effect.applyBy = memberIds;
       break;
-    case 'ally':
+    case '$ally':
       effect.applyBy = memberIds.filter((id) => id !== ownerId);
       break;
-    case 'first':
+    case '$first':
       effect.applyBy = [memberIds[0]];
       break;
-    case 'next':
+    case '$next':
       effect.applyBy = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
       break;
     default:
@@ -33,16 +33,16 @@ function resolveApplyTo(effect, memberIds) {
     case undefined:
       effect.applyTo = [ownerId];
       break;
-    case 'team':
+    case '$team':
       effect.applyTo = memberIds;
       break;
-    case 'ally':
+    case '$ally':
       effect.applyTo = memberIds.filter((id) => id !== ownerId);
       break;
-    case 'first':
+    case '$first':
       effect.applyTo = [memberIds[0]];
       break;
-    case 'next':
+    case '$next':
       effect.applyTo = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
       break;
     default:

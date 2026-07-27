@@ -274,7 +274,7 @@
           }
         },
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "useIfAttr": {
             "spd": 120
           },
@@ -467,7 +467,7 @@
           }
         },
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "useIfAttr": {
             "effectRes%": 0.3
           },
@@ -599,7 +599,7 @@
       ],
       "4": [
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "breakEffect%": 0.3
           }
@@ -733,7 +733,7 @@
           }
         },
         {
-          "applyTo": "first",
+          "applyTo": "$first",
           "buffMap": {
             "atk%": 0.12
           }
@@ -918,7 +918,7 @@
         {
           "applyWhen": "hit",
           "applyOnType": "healing",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "critDmg%": 0.15
           }
@@ -1006,7 +1006,7 @@
           }
         },
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.15
           }
@@ -1032,7 +1032,7 @@
           }
         },
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "critDmg%": 0.15
           }
@@ -1051,7 +1051,7 @@
           }
         },
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "spd%": 0.08
           }
@@ -1126,7 +1126,7 @@
           }
         },
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "elation%": 0.1
           }
@@ -1165,7 +1165,7 @@
           }
         },
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "critDmg%": 0.12
           }
@@ -1212,7 +1212,7 @@
           }
         },
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.15
           }

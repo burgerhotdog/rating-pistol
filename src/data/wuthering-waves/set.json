@@ -168,7 +168,7 @@
         {
           "applyWhen": "hit",
           "applyOnType": "healing",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "atk%": 0.15
           },
@@ -192,7 +192,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "outroSkill",
-          "applyTo": "next",
+          "applyTo": "$next",
           "buffMap": {
             "atk%": 0.225
           },
@@ -330,7 +330,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "outroSkill",
-          "applyTo": "next",
+          "applyTo": "$next",
           "buffMap": {
             "havocDmgBonus%": 0.15
           },
@@ -413,7 +413,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictStatus": "aeroErosion",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "aeroDmgBonus%": 0.15
           },
@@ -472,7 +472,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "resonanceLiberation",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "fusionDmgBonus%": 0.15
           },
@@ -539,7 +539,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "echoSkill",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "echoSkillDmgBonus%": 0.04
           },
@@ -616,7 +616,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "outroSkill",
-          "applyTo": "next",
+          "applyTo": "$next",
           "removeWhen": "before",
           "removeIfField": "offField",
           "buffMap": {
@@ -627,7 +627,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "outroSkill",
-          "applyTo": "next",
+          "applyTo": "$next",
           "removeWhen": "before",
           "removeIfField": "offField",
           "buffSpec": {
@@ -658,7 +658,7 @@
         {
           "applyWhen": "hit",
           "applyOnType": "healing",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffSpec": {
             "atk%": {
               "attr": "offTuneBuildupRate%",
@@ -756,7 +756,7 @@
           "applyIfEffectStacks": {
             "$prev.1": 1
           },
-          "applyTo": "next",
+          "applyTo": "$next",
           "buffMap": {
             "fusionDmgBonus%": 0.25
           },
@@ -846,7 +846,7 @@
             "$prev.2": 1
           },
           "onApplyDoRemove": "$prev.2",
-          "applyTo": "next",
+          "applyTo": "$next",
           "buffMap": {
             "glacioDmgBonus%": 0.25
           },
@@ -873,7 +873,7 @@
             "tuneRupture",
             "tuneStrain"
           ],
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "tuneBreakBoost": 20
           },
@@ -923,7 +923,7 @@
         {
           "applyWhen": "inflict",
           "applyForInflictStatus": "glacioChafe",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffSpec": {
             "atk%": {
               "attr": "energyRegen%",

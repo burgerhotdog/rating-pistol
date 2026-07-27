@@ -465,7 +465,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "elementalBurst.2",
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "elementalMastery": 125
         },

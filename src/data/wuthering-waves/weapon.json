@@ -673,7 +673,7 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
-        "applyTo": "next",
+        "applyTo": "$next",
         "buffMap": {
           "atk%": [
             0.1,
@@ -1758,7 +1758,7 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "resonanceSkill",
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "atk%": [
             0.14,
@@ -2443,7 +2443,7 @@
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "fusionDmgBonus%": [
             0.24,
@@ -2828,7 +2828,7 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "introSkill",
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "echoSkillDmgBonus%": [
             0.2,
@@ -2931,7 +2931,7 @@
         }
       },
       {
-        "applyBy": "team",
+        "applyBy": "$team",
         "applyWhen": "inflict",
         "applyForInflictStatus": "any",
         "applyIfEffectStacksMin": {
@@ -3001,7 +3001,7 @@
       {
         "applyWhen": "hit",
         "applyOnType": "healing",
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "critDmg%": [
             0.2,
@@ -3111,7 +3111,7 @@
           "tuneRupture",
           "tuneStrain"
         ],
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": [
             0.08,
@@ -3408,7 +3408,7 @@
         "maxDuration": 5000
       },
       {
-        "applyBy": "team",
+        "applyBy": "$team",
         "applyWhen": "inflict",
         "applyForInflictStatus": "fusionBurst",
         "applyForInflictShifting": "tuneStrain",
@@ -3517,7 +3517,7 @@
       {
         "applyWhen": "inflict",
         "applyForInflictShifting": "hack",
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "atk%": [
             0.24,
@@ -3560,7 +3560,7 @@
       {
         "applyWhen": "inflict",
         "applyForInflictStatus": "glacioChafe",
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "atk%": [
             0.24,
@@ -3636,7 +3636,7 @@
         "maxDuration": 6000
       },
       {
-        "applyTo": "team",
+        "applyTo": "$team",
         "useIfEffectStacksMin": {
           "$prev.1": 1,
           "$prev.2": 1

@@ -532,7 +532,7 @@
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
-        "applyTo": "next",
+        "applyTo": "$next",
         "buffMap": {
           "dmgBonus%": 0.12
         },
@@ -929,7 +929,7 @@
         }
       },
       {
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "atk%": 0.1
         }
@@ -3883,7 +3883,7 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
-        "applyTo": "next",
+        "applyTo": "$next",
         "buffMap": {
           "glacioDmgBonus%": 0.12
         },
@@ -5699,7 +5699,7 @@
     "cost": 4,
     "effects": [
       {
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": 0.1
         }

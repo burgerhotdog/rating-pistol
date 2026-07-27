@@ -165,7 +165,7 @@
             "chainAttack",
             "ultimate"
           ],
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.15
           },
@@ -348,7 +348,7 @@
             "defensiveAssist",
             "evasiveAssist"
           ],
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.15
           },
@@ -398,7 +398,7 @@
       ],
       "4": [
         {
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.24
           }
@@ -508,7 +508,7 @@
             "exSpecialAttack",
             "chainAttack"
           ],
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "critDmg%": 0.15
           },
@@ -521,7 +521,7 @@
             "exSpecialAttack",
             "chainAttack"
           ],
-          "applyTo": "team",
+          "applyTo": "$team",
           "useIfAttr": {
             "critRate%": 0.5
           },
@@ -584,7 +584,7 @@
             "exSpecialAttack",
             "ultimate"
           ],
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.18
           },
@@ -657,7 +657,7 @@
         {
           "applyWhen": "before",
           "applyOnSkillType": "exSpecialAttack",
-          "applyTo": "team",
+          "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.06
           },
