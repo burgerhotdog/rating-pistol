@@ -144,16 +144,17 @@
         "useOnSkillType": "resonanceSkill",
         "useCooldown": 12000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.03,
-                0.06
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.03,
+                  0.06
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -416,16 +417,17 @@
         "useOnSkillType": "resonanceLiberation",
         "useCooldown": 20000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.05,
+                  0.1
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -466,16 +468,17 @@
         "useOnDmgType": "heavyAttack",
         "useCooldown": 8000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.05,
+                  0.1
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -696,16 +699,17 @@
         "useOnSkillType": "dodgeCounter",
         "useCooldown": 6000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.016,
-                0.032
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.016,
+                  0.032
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -963,16 +967,17 @@
         "useOnDmgType": "basicAttack",
         "useCooldown": 3000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.005,
-                0.011
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.005,
+                  0.011
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -1026,16 +1031,17 @@
         "useOnSkillType": "dodgeCounter",
         "useCooldown": 6000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.05,
+                  0.1
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -1295,16 +1301,17 @@
         "useOnSkillType": "introSkill",
         "useCooldown": 20000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.05,
+                  0.1
+                ]
+              }
+            ]
+          }
         }
       }
     ]

@@ -15,7 +15,7 @@ function runDamageFormula(helpers, action, statMap) {
   const { getResMult, getDefMult } = helpers;
   const { dmgType, extraDmgType, times = 1 } = action;
   const { element, compressed } = action.damage;
-  const baseValue = computeBase(compressed, statMap);
+  const baseValue = computeBase('damage', compressed, statMap);
 
   const critMult = getCritMult(statMap);
 
@@ -38,7 +38,7 @@ function runDamageFormula(helpers, action, statMap) {
 function runHealingFormula(action, statMap) {
   const { healing, times = 1 } = action;
   const { compressed } = healing;
-  const baseValue = computeBase(compressed, statMap);
+  const baseValue = computeBase('healing', compressed, statMap);
   const healingBonus = 1 + getAttr('healingBonus%', statMap);
   const healingReceived = 1 + getAttr('healingReceived%', statMap);
 
@@ -50,7 +50,7 @@ function runHealingFormula(action, statMap) {
 function runShieldFormula(action, statMap) {
   const { shield, times = 1 } = action;
   const { compressed } = shield;
-  const baseValue = computeBase(compressed, statMap);
+  const baseValue = computeBase('shield', compressed, statMap);
   const shieldBonus = 1 + getAttr('shieldBonus%', statMap);
 
   return baseValue *

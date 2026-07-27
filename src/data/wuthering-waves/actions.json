@@ -788,10 +788,7 @@
                 ]
               }
             ]
-          }
-        },
-        {
-          "name": "Emergency Plan: Team Healing",
+          },
           "healing": {
             "attr": "hp",
             "multipliers": [
@@ -938,10 +935,7 @@
                 ]
               }
             ]
-          }
-        },
-        {
-          "name": "Remnant Entities: Team Healing",
+          },
           "healing": {
             "attr": "hp",
             "multipliers": [

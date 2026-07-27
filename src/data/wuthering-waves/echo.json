@@ -13,13 +13,15 @@
       {
         "name": "Echo Skill: Hooscamp",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.48,
-            "flat": 96
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.48,
+              "flat": 96
+            }
+          ]
+        }
       }
     ]
   },
@@ -46,22 +48,26 @@
       {
         "name": "Echo Skill: Tempest Mephis: Tail swing",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 1.0248
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 1.0248
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Tempest Mephis: Claw",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 1.7568
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 1.7568
+            }
+          ]
+        }
       }
     ]
   },
@@ -79,12 +85,14 @@
       {
         "name": "Echo Skill: Hoochief",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       }
     ]
   },
@@ -102,13 +110,15 @@
       {
         "name": "Echo Skill: Diamondclaw",
         "skillType": "echoSkill",
-        "element": "physical",
-        "multipliers": [
-          {
-            "mv": 0.48,
-            "flat": 96
-          }
-        ]
+        "damage": {
+          "element": "physical",
+          "multipliers": [
+            {
+              "mv": 0.48,
+              "flat": 96
+            }
+          ]
+        }
       }
     ]
   },
@@ -135,35 +145,41 @@
       {
         "name": "Echo Skill: Crownless 1",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.3408,
-            "times": 2
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.3408,
+              "times": 2
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Crownless 2",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.0056,
-            "times": 2
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.0056,
+              "times": 2
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Crownless 3",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.6704,
-            "times": 3
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.6704,
+              "times": 3
+            }
+          ]
+        }
       }
     ]
   },
@@ -190,16 +206,18 @@
       {
         "name": "Echo Skill: Feilian Beringal",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.3184
-          },
-          {
-            "mv": 2.8336
-          }
-        ],
-        "duration": 2000
+        "duration": 2000,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.3184
+            },
+            {
+              "mv": 2.8336
+            }
+          ]
+        }
       }
     ]
   },
@@ -231,32 +249,38 @@
       {
         "name": "Echo Skill: Lampylumen Myriad 1",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.0016
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.0016
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Lampylumen Myriad 2",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.0016
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.0016
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Lampylumen Myriad 3",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.6688
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.6688
+            }
+          ]
+        }
       }
     ]
   },
@@ -286,22 +310,26 @@
       {
         "name": "Echo Skill: Mourning Aix 1",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 1.5744
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 1.5744
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Mourning Aix 2",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 2.3616
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 2.3616
+            }
+          ]
+        }
       }
     ]
   },
@@ -319,22 +347,26 @@
       {
         "name": "Echo Skill: Carapace 1",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.12
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.12
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Carapace 2",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.68
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.68
+            }
+          ]
+        }
       }
     ]
   },
@@ -352,14 +384,16 @@
       {
         "name": "Echo Skill: Chirpuff",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.384,
-            "times": 3
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.384,
+              "times": 3
+            }
+          ]
+        }
       }
     ]
   },
@@ -386,19 +420,21 @@
         "name": "Echo Skill: Mech Abomination",
         "skillType": "echoSkill",
         "dmgType": "outroSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.4864
-          },
-          {
-            "mv": 3.2
-          },
-          {
-            "mv": 1.6
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.4864
+            },
+            {
+              "mv": 3.2
+            },
+            {
+              "mv": 1.6
+            }
+          ]
+        }
       }
     ]
   },
@@ -416,12 +452,14 @@
       {
         "name": "Echo Skill: Autopuppet Scout",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.72
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.72
+            }
+          ]
+        }
       }
     ]
   },
@@ -458,14 +496,16 @@
       {
         "name": "Echo Skill: Clang Bang",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.32,
-            "flat": 64
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.32,
+              "flat": 64
+            }
+          ]
+        }
       }
     ]
   },
@@ -503,24 +543,28 @@
       {
         "name": "Echo Skill: Impermanence Heron",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 3.1056
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 3.1056
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Impermanence Heron: Hold",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.5572,
-            "times": 4
-          }
-        ],
-        "duration": 3000
+        "duration": 3000,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.5572,
+              "times": 4
+            }
+          ]
+        }
       }
     ]
   },
@@ -537,42 +581,50 @@
       {
         "name": "Echo Skill: Dreamless",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.8956
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.8956
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Dreamless",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 2.704
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 2.704
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Dreamless",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.184
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.184
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Dreamless",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.5408
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.5408
+            }
+          ]
+        }
       }
     ]
   },
@@ -590,13 +642,15 @@
       {
         "name": "Echo Skill: Lava Larva",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.384
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.384
+            }
+          ]
+        }
       }
     ]
   },
@@ -614,32 +668,38 @@
       {
         "name": "Echo Skill: Dwarf Cassowary",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.384
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.384
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Dwarf Cassowary",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.384
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.384
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Dwarf Cassowary",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.384
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.384
+            }
+          ]
+        }
       }
     ]
   },
@@ -657,22 +717,26 @@
       {
         "name": "Echo Skill: Glacio Dreadmane",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.144
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.144
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Glacio Dreadmane",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.32
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.32
+            }
+          ]
+        }
       }
     ]
   },
@@ -690,22 +754,26 @@
       {
         "name": "Echo Skill: Lumiscale Construct",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.768
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.768
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Lumiscale Construct",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 5.536
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 5.536
+            }
+          ]
+        }
       }
     ]
   },
@@ -722,42 +790,50 @@
       {
         "name": "Echo Skill: Lightcrusher",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 1.3536
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 1.3536
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Lightcrusher",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 1.5508
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 1.5508
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Lightcrusher",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 1.5508
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 1.5508
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Lightcrusher",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.1504
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.1504
+            }
+          ]
+        }
       }
     ]
   },
@@ -774,57 +850,67 @@
       {
         "name": "Echo Skill: Ju\u00e9",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.64
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.64
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Ju\u00e9",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.16
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.16
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Ju\u00e9",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.4864
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.4864
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Ju\u00e9",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.1945
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.1945
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Ju\u00e9",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.4864
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.4864
+            }
+          ]
+        }
       }
     ]
   },
@@ -853,35 +939,41 @@
       {
         "name": "Echo Skill: Fallacy of No Return",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.1585
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.1585
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Fallacy of No Return",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.0158
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.0158
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Fallacy of No Return",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.1982
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.1982
+            }
+          ]
+        }
       }
     ]
   },
@@ -899,13 +991,15 @@
       {
         "name": "Echo Skill: Galescourge Stalker",
         "type": "healing",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.027
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.027
+            }
+          ]
+        }
       }
     ]
   },
@@ -923,13 +1017,15 @@
       {
         "name": "Echo Skill: Voltscourge Stalker",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.432
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.432
+            }
+          ]
+        }
       }
     ]
   },
@@ -947,13 +1043,15 @@
       {
         "name": "Echo Skill: Frostscourge Stalker",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -971,13 +1069,15 @@
       {
         "name": "Echo Skill: Chop Chop: Headless",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -995,13 +1095,15 @@
       {
         "name": "Echo Skill: Chop Chop: Leftless",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -1019,13 +1121,15 @@
       {
         "name": "Echo Skill: Chop Chop: Rightless",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -1044,13 +1148,15 @@
       {
         "name": "Echo Skill: Fae Ignis",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -1069,13 +1175,15 @@
       {
         "name": "Echo Skill: Nimbus Wraith",
         "type": "healing",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.027
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.027
+            }
+          ]
+        }
       }
     ]
   },
@@ -1093,13 +1201,15 @@
       {
         "name": "Echo Skill: Hocus Pocus",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.432
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.432
+            }
+          ]
+        }
       }
     ]
   },
@@ -1117,13 +1227,15 @@
       {
         "name": "Echo Skill: Lottie Lost",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -1141,11 +1253,13 @@
       {
         "name": "Echo Skill: Diggy Duggy",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       }
     ]
   },
@@ -1164,13 +1278,15 @@
       {
         "name": "Echo Skill: Chest Mimic",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.642
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.642
+            }
+          ]
+        }
       }
     ]
   },
@@ -1188,12 +1304,14 @@
       {
         "name": "Echo Skill: Questless Knight",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 3.132
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 3.132
+            }
+          ]
+        }
       }
     ]
   },
@@ -1211,12 +1329,14 @@
       {
         "name": "Echo Skill: Diurnus Knight",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       }
     ]
   },
@@ -1234,12 +1354,14 @@
       {
         "name": "Echo Skill: Nocturnus Knight",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       }
     ]
   },
@@ -1257,12 +1379,14 @@
       {
         "name": "Echo Skill: Abyssal Patricius",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       }
     ]
   },
@@ -1281,22 +1405,26 @@
       {
         "name": "Echo Skill: Abyssal Gladius",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Abyssal Gladius",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 6.705
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 6.705
+            }
+          ]
+        }
       }
     ]
   },
@@ -1314,12 +1442,14 @@
       {
         "name": "Echo Skill: Abyssal Mercator",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.894
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.894
+            }
+          ]
+        }
       }
     ]
   },
@@ -1338,24 +1468,28 @@
       {
         "name": "Echo Skill: Chop Chop",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.1926
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.1926
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Chop Chop",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.7704
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.7704
+            }
+          ]
+        }
       }
     ]
   },
@@ -1373,12 +1507,14 @@
       {
         "name": "Echo Skill: Vitreum Dancer",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 3.132
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 3.132
+            }
+          ]
+        }
       }
     ]
   },
@@ -1396,20 +1532,24 @@
       {
         "name": "Echo Skill: Cuddle Wuddle",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.4698
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.4698
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Cuddle Wuddle",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 1.2528
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 1.2528
+            }
+          ]
+        }
       }
     ]
   },
@@ -1426,12 +1566,14 @@
       {
         "name": "Echo Skill: Lorelei",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       }
     ]
   },
@@ -1455,22 +1597,26 @@
       {
         "name": "Echo Skill: Sentry Construct",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Sentry Construct",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       }
     ]
   },
@@ -1494,12 +1640,14 @@
       {
         "name": "Echo Skill: Dragon of Dirge",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.3681
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.3681
+            }
+          ]
+        }
       }
     ]
   },
@@ -1516,13 +1664,15 @@
       {
         "name": "Echo Skill: Hecate",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.4559
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.4559
+            }
+          ]
+        }
       }
     ]
   },
@@ -1539,24 +1689,28 @@
       {
         "name": "Echo Skill: Nightmare: Feilian Beringal",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.6416
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.6416
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Feilian Beringal",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.2188
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.2188
+            }
+          ]
+        }
       }
     ]
   },
@@ -1573,12 +1727,14 @@
       {
         "name": "Echo Skill: Nightmare: Impermanence Heron",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.405
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.405
+            }
+          ]
+        }
       }
     ]
   },
@@ -1595,12 +1751,14 @@
       {
         "name": "Echo Skill: Nightmare: Thundering Mephis",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       }
     ]
   },
@@ -1618,12 +1776,14 @@
       {
         "name": "Echo Skill: Nightmare: Tempest Mephis",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       }
     ]
   },
@@ -1640,12 +1800,14 @@
       {
         "name": "Echo Skill: Nightmare: Crownless",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 2.646
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 2.646
+            }
+          ]
+        }
       }
     ]
   },
@@ -1669,22 +1831,26 @@
       {
         "name": "Echo Skill: Nightmare: Inferno Rider",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Inferno Rider",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 2.835
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 2.835
+            }
+          ]
+        }
       }
     ]
   },
@@ -1701,13 +1867,15 @@
       {
         "name": "Echo Skill: Nightmare: Mourning Aix",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 2.736
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 2.736
+            }
+          ]
+        }
       }
     ]
   },
@@ -1726,13 +1894,15 @@
       {
         "name": "Echo Skill: Golden Junrock",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -1751,13 +1921,15 @@
       {
         "name": "Echo Skill: Calcified Junrock",
         "type": "healing",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.0252
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.0252
+            }
+          ]
+        }
       }
     ]
   },
@@ -1775,13 +1947,15 @@
       {
         "name": "Echo Skill: Aero Prism",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.1926
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.1926
+            }
+          ]
+        }
       }
     ]
   },
@@ -1800,22 +1974,26 @@
       {
         "name": "Echo Skill: Rage Against the Statue",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 3.132
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 3.132
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Rage Against the Statue",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 4.698
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 4.698
+            }
+          ]
+        }
       }
     ]
   },
@@ -1834,22 +2012,26 @@
       {
         "name": "Echo Skill: Hurriclaw",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.566
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.566
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Hurriclaw",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.566
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.566
+            }
+          ]
+        }
       }
     ]
   },
@@ -1868,29 +2050,35 @@
       {
         "name": "Echo Skill: La Guardia",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: La Guardia",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: La Guardia",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.1788
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.1788
+            }
+          ]
+        }
       }
     ]
   },
@@ -1909,32 +2097,38 @@
       {
         "name": "Echo Skill: Sagittario",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Sagittario",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Sagittario",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.5364
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.5364
+            }
+          ]
+        }
       }
     ]
   },
@@ -1952,13 +2146,15 @@
       {
         "name": "Echo Skill: Sacerdos",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.648
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.648
+            }
+          ]
+        }
       }
     ]
   },
@@ -1977,13 +2173,15 @@
       {
         "name": "Echo Skill: Aero Drake",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -2002,13 +2200,15 @@
       {
         "name": "Echo Skill: Electro Drake",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.432
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.432
+            }
+          ]
+        }
       }
     ]
   },
@@ -2026,13 +2226,15 @@
       {
         "name": "Echo Skill: Glacio Drake",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.2592
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.2592
+            }
+          ]
+        }
       }
     ]
   },
@@ -2051,24 +2253,28 @@
       {
         "name": "Echo Skill: Capitaneus",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 1.188
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 1.188
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Capitaneus",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.594
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.594
+            }
+          ]
+        }
       }
     ]
   },
@@ -2098,13 +2304,15 @@
       {
         "name": "Echo Skill: Nightmare: Lampylumen Myriad",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.736
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.736
+            }
+          ]
+        }
       }
     ]
   },
@@ -2122,24 +2330,28 @@
       {
         "name": "Echo Skill: Reminiscence: Fleurdelys",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.2736
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.2736
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Reminiscence: Fleurdelys",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.368
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.368
+            }
+          ]
+        }
       }
     ]
   },
@@ -2157,13 +2369,15 @@
       {
         "name": "Echo Skill: Fusion Drake",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.2592
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.2592
+            }
+          ]
+        }
       }
     ]
   },
@@ -2181,13 +2395,15 @@
       {
         "name": "Echo Skill: Spectro Drake",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.432
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.432
+            }
+          ]
+        }
       }
     ]
   },
@@ -2206,13 +2422,15 @@
       {
         "name": "Echo Skill: Havoc Drake",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -2231,13 +2449,15 @@
       {
         "name": "Echo Skill: Devotee's Flesh",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.432
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.432
+            }
+          ]
+        }
       }
     ]
   },
@@ -2255,12 +2475,14 @@
       {
         "name": "Echo Skill: Pilgrim's Shell",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       }
     ]
   },
@@ -2279,22 +2501,26 @@
       {
         "name": "Echo Skill: Kerasaur",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Kerasaur",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       }
     ]
   },
@@ -2312,22 +2538,26 @@
       {
         "name": "Echo Skill: Nightmare: Kelpie",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Kelpie",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       }
     ]
   },
@@ -2344,24 +2574,28 @@
       {
         "name": "Echo Skill: Lioness of Glory",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.8208
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.8208
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Lioness of Glory",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 1.9152
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 1.9152
+            }
+          ]
+        }
       }
     ]
   },
@@ -2378,12 +2612,14 @@
       {
         "name": "Echo Skill: Nightmare: Hecate",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.5238
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.5238
+            }
+          ]
+        }
       }
     ]
   },
@@ -2401,13 +2637,15 @@
       {
         "name": "Echo Skill: Reminiscence: Fenrico",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.736
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.736
+            }
+          ]
+        }
       }
     ]
   },
@@ -2424,32 +2662,38 @@
       {
         "name": "Echo Skill: Nightmare: Havoc Warrior",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.7173
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.7173
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Havoc Warrior",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.7173
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.7173
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Havoc Warrior",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.7173
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.7173
+            }
+          ]
+        }
       }
     ]
   },
@@ -2466,35 +2710,41 @@
       {
         "name": "Echo Skill: Nightmare: Glacio Predator",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.4608
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.4608
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Glacio Predator",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.046
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.046
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Glacio Predator",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.2304
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.2304
+            }
+          ]
+        }
       }
     ]
   },
@@ -2511,13 +2761,15 @@
       {
         "name": "Echo Skill: Nightmare: Tambourinist",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.144
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.144
+            }
+          ]
+        }
       }
     ]
   },
@@ -2535,13 +2787,15 @@
       {
         "name": "Echo Skill: Corrosaurus",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 2.736
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 2.736
+            }
+          ]
+        }
       }
     ]
   },
@@ -2558,22 +2812,26 @@
       {
         "name": "Echo Skill: The False Sovereign",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.5535
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.5535
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: The False Sovereign",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       }
     ]
   },
@@ -2590,24 +2848,28 @@
       {
         "name": "Echo Skill: Lady of the Sea",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.1368
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.1368
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Lady of the Sea",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.6416
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.6416
+            }
+          ]
+        }
       }
     ]
   },
@@ -2624,12 +2886,14 @@
       {
         "name": "Echo Skill: Nightmare: Violet-Feathered Heron",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 2.88
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 2.88
+            }
+          ]
+        }
       }
     ]
   },
@@ -2646,12 +2910,14 @@
       {
         "name": "Echo Skill: Nightmare: Cyan-Feathered Heron",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.368
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.368
+            }
+          ]
+        }
       }
     ]
   },
@@ -2668,24 +2934,28 @@
       {
         "name": "Echo Skill: Nightmare: Electro Predator",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.1728
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.1728
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Electro Predator",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.4608
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.4608
+            }
+          ]
+        }
       }
     ]
   },
@@ -2702,13 +2972,15 @@
       {
         "name": "Echo Skill: Nightmare: Aero Predator",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.288
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.288
+            }
+          ]
+        }
       }
     ]
   },
@@ -2725,13 +2997,15 @@
       {
         "name": "Echo Skill: Nightmare: Gulpuff",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.2304
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.2304
+            }
+          ]
+        }
       }
     ]
   },
@@ -2748,13 +3022,15 @@
       {
         "name": "Echo Skill: Nightmare: Chirpuff",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.384
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.384
+            }
+          ]
+        }
       }
     ]
   },
@@ -2772,13 +3048,15 @@
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Leviathan",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.3104
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.3104
+            }
+          ]
+        }
       }
     ]
   },
@@ -2795,13 +3073,15 @@
       {
         "name": "Echo Skill: Nightmare: Viridblaze Saurian",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.1712
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.1712
+            }
+          ]
+        }
       }
     ]
   },
@@ -2818,7 +3098,9 @@
       {
         "name": "Echo Skill: Nightmare: Baby Viridblaze Saurian",
         "type": "healing",
-        "multipliers": []
+        "damage": {
+          "multipliers": []
+        }
       }
     ]
   },
@@ -2835,9 +3117,11 @@
       {
         "name": "Echo Skill: Nightmare: Baby Roseshroom",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": []
+        }
       }
     ]
   },
@@ -2854,24 +3138,28 @@
       {
         "name": "Echo Skill: Nightmare: Tick Tack",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.6848
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.6848
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Tick Tack",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.0272
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.0272
+            }
+          ]
+        }
       }
     ]
   },
@@ -2888,32 +3176,38 @@
       {
         "name": "Echo Skill: Nightmare: Dwarf Cassowary",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.384
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.384
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Dwarf Cassowary",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.384
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.384
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Nightmare: Dwarf Cassowary",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.384
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.384
+            }
+          ]
+        }
       }
     ]
   },
@@ -2930,13 +3224,15 @@
       {
         "name": "Echo Skill: Nightmare: Roseshroom",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.5706
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.5706
+            }
+          ]
+        }
       }
     ]
   },
@@ -2955,12 +3251,14 @@
       {
         "name": "Echo Skill: Tremor Warrior",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 2.052
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 2.052
+            }
+          ]
+        }
       }
     ]
   },
@@ -2980,24 +3278,28 @@
       {
         "name": "Echo Skill: Flora Drone",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.648
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.648
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Flora Drone",
         "type": "healing",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.036
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.036
+            }
+          ]
+        }
       }
     ]
   },
@@ -3017,12 +3319,14 @@
       {
         "name": "Echo Skill: Mining Drone",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.026
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.026
+            }
+          ]
+        }
       }
     ]
   },
@@ -3041,24 +3345,28 @@
       {
         "name": "Echo Skill: Geospider S4",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.5184
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.5184
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Geospider S4",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.7776
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.7776
+            }
+          ]
+        }
       }
     ]
   },
@@ -3078,13 +3386,15 @@
       {
         "name": "Echo Skill: Zip Zap",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.2592
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.2592
+            }
+          ]
+        }
       }
     ]
   },
@@ -3102,12 +3412,14 @@
       {
         "name": "Echo Skill: Twin Nova: Nebulous Cannon",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.8051
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.8051
+            }
+          ]
+        }
       }
     ]
   },
@@ -3126,22 +3438,26 @@
       {
         "name": "Echo Skill: Twin Nova: Collapsar Blade",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.0201
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.0201
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Twin Nova: Collapsar Blade",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.0201
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.0201
+            }
+          ]
+        }
       }
     ]
   },
@@ -3159,13 +3475,15 @@
       {
         "name": "Echo Skill: Flora Reindeer",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.926
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.926
+            }
+          ]
+        }
       }
     ]
   },
@@ -3183,13 +3501,15 @@
       {
         "name": "Echo Skill: Mining Reindeer",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 2.376
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 2.376
+            }
+          ]
+        }
       }
     ]
   },
@@ -3208,32 +3528,38 @@
       {
         "name": "Echo Skill: Ironhoof",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.5364
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.5364
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Ironhoof",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.1341
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.1341
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Ironhoof",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 1.7433
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 1.7433
+            }
+          ]
+        }
       }
     ]
   },
@@ -3265,13 +3591,15 @@
       {
         "name": "Echo Skill: Sabercat Reaver",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 1.926
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 1.926
+            }
+          ]
+        }
       }
     ]
   },
@@ -3290,13 +3618,15 @@
       {
         "name": "Echo Skill: Sabercat Prowler",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.926
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.926
+            }
+          ]
+        }
       }
     ]
   },
@@ -3314,13 +3644,15 @@
       {
         "name": "Echo Skill: Frostbite Coleoid",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 1.926
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 1.926
+            }
+          ]
+        }
       }
     ]
   },
@@ -3338,12 +3670,14 @@
       {
         "name": "Echo Skill: Windlash Coleoid",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       }
     ]
   },
@@ -3361,13 +3695,15 @@
       {
         "name": "Echo Skill: Hyvatia",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.2736
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.2736
+            }
+          ]
+        }
       }
     ]
   },
@@ -3385,12 +3721,14 @@
       {
         "name": "Echo Skill: Reactor Husk",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 3.51
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 3.51
+            }
+          ]
+        }
       }
     ]
   },
@@ -3407,24 +3745,28 @@
       {
         "name": "Echo Skill: Sigillum",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.684
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.684
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Sigillum",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 2.052
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 2.052
+            }
+          ]
+        }
       }
     ]
   },
@@ -3442,13 +3784,15 @@
       {
         "name": "Echo Skill: Nameless Explorer",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.736
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.736
+            }
+          ]
+        }
       }
     ]
   },
@@ -3466,12 +3810,14 @@
       {
         "name": "Echo Skill: Kronablight",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 2.682
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 2.682
+            }
+          ]
+        }
       }
     ]
   },
@@ -3489,32 +3835,38 @@
       {
         "name": "Echo Skill: Reminiscence: Kronaclaw",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.0804
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.0804
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Reminiscence: Kronaclaw",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.2413
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.2413
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Reminiscence: Kronaclaw",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.5555
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.5555
+            }
+          ]
+        }
       }
     ]
   },
@@ -3542,13 +3894,15 @@
       {
         "name": "Echo Skill: Glommoth",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.736
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.736
+            }
+          ]
+        }
       }
     ]
   },
@@ -3567,12 +3921,14 @@
       {
         "name": "Echo Skill: Iceglint Dancer",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.052
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.052
+            }
+          ]
+        }
       }
     ]
   },
@@ -3591,13 +3947,15 @@
       {
         "name": "Echo Skill: Shadow Stepper",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -3614,22 +3972,26 @@
       {
         "name": "Echo Skill: Voidwing Moth",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 4.05
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Voidwing Moth",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.4933
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.4933
+            }
+          ]
+        }
       }
     ]
   },
@@ -3653,24 +4015,28 @@
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Voidborne Construct",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.2188
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.2188
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Voidborne Construct",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 1.6416
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 1.6416
+            }
+          ]
+        }
       }
     ]
   },
@@ -3687,13 +4053,15 @@
       {
         "name": "Echo Skill: Reminiscence: Denia",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 2.736
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 2.736
+            }
+          ]
+        }
       }
     ]
   },
@@ -3716,31 +4084,37 @@
       {
         "name": "Echo Skill: Reminiscence - Nightmare: Adam Smasher",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 2.736
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 2.736
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Reminiscence - Nightmare: Adam Smasher",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.171
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.171
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Reminiscence - Nightmare: Adam Smasher",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.1026
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.1026
+            }
+          ]
+        }
       }
     ]
   },
@@ -3757,22 +4131,26 @@
       {
         "name": "Echo Skill: Smiter",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.1926
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.1926
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Smiter",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.5778
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.5778
+            }
+          ]
+        }
       }
     ]
   },
@@ -3789,22 +4167,26 @@
       {
         "name": "Echo Skill: Porcelain Picket",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.1944
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.1944
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Porcelain Picket",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.1296
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.1296
+            }
+          ]
+        }
       }
     ]
   },
@@ -3821,12 +4203,14 @@
       {
         "name": "Echo Skill: Stone Picket",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -3843,22 +4227,26 @@
       {
         "name": "Echo Skill: Aureate Picket",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 1.539
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 1.539
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Aureate Picket",
         "type": "healing",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.0055
-          }
-        ]
+        "damage": {
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.0055
+            }
+          ]
+        }
       }
     ]
   },
@@ -3875,11 +4263,13 @@
       {
         "name": "Echo Skill: Kernel Puppet: Joy",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -3896,12 +4286,14 @@
       {
         "name": "Echo Skill: Kernel Puppet: Anger",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -3918,22 +4310,26 @@
       {
         "name": "Echo Skill: Kernel Puppet: Worry",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.648
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.648
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Kernel Puppet: Worry",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.648
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.648
+            }
+          ]
+        }
       }
     ]
   },
@@ -3950,12 +4346,14 @@
       {
         "name": "Echo Skill: Kernel Puppet: Reflection",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.648
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.648
+            }
+          ]
+        }
       }
     ]
   },
@@ -3972,12 +4370,14 @@
       {
         "name": "Echo Skill: Kernel Puppet: Grief",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -3994,22 +4394,26 @@
       {
         "name": "Echo Skill: Kernel Puppet: Fright",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.5184
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.5184
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Kernel Puppet: Fright",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.7776
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.7776
+            }
+          ]
+        }
       }
     ]
   },
@@ -4026,12 +4430,14 @@
       {
         "name": "Echo Skill: Fog Lionarch: Body",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 1.926
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 1.926
+            }
+          ]
+        }
       }
     ]
   },
@@ -4048,12 +4454,14 @@
       {
         "name": "Echo Skill: Fog Lionarch: Head",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 1.296
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 1.296
+            }
+          ]
+        }
       }
     ]
   },
@@ -4070,12 +4478,14 @@
       {
         "name": "Echo Skill: Smolder",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 1.926
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 1.926
+            }
+          ]
+        }
       }
     ]
   },
@@ -4094,12 +4504,14 @@
       {
         "name": "Echo Skill: Fog Lionarch",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.3393
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.3393
+            }
+          ]
+        }
       }
     ]
   },
@@ -4118,12 +4530,14 @@
       {
         "name": "Echo Skill: Forbidden Bastion",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 2.376
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 2.376
+            }
+          ]
+        }
       }
     ]
   },
@@ -4141,26 +4555,30 @@
       {
         "name": "Echo Skill: Myriad Snare: Rustfire Chassis",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.102
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.102
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Myriad Snare: Rustfire Chassis",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.0037
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.0037
+            }
+          ]
+        }
       }
     ]
   },
@@ -4177,22 +4595,26 @@
       {
         "name": "Echo Skill: Thousand-Puppet Pavilion",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.4104
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.4104
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Thousand-Puppet Pavilion",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.0944
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.0944
+            }
+          ]
+        }
       }
     ]
   },
@@ -4211,8 +4633,10 @@
       {
         "name": "Echo Skill: Vanguard Junrock",
         "type": "healing",
-        "multipliers": [],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": []
+        }
       }
     ]
   },
@@ -4231,9 +4655,11 @@
       {
         "name": "Echo Skill: Fission Junrock",
         "type": "healing",
-        "attr": "hp",
-        "multipliers": [],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "attr": "hp",
+          "multipliers": []
+        }
       }
     ]
   },
@@ -4251,24 +4677,28 @@
       {
         "name": "Echo Skill: Electro Predator",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.1728
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.1728
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Electro Predator",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.4608
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.4608
+            }
+          ]
+        }
       }
     ]
   },
@@ -4287,12 +4717,14 @@
       {
         "name": "Echo Skill: Fusion Warrior",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 2.88
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 2.88
+            }
+          ]
+        }
       }
     ]
   },
@@ -4310,32 +4742,38 @@
       {
         "name": "Echo Skill: Havoc Warrior",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.7173
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.7173
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Havoc Warrior",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.7173
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.7173
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Havoc Warrior",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.7173
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.7173
+            }
+          ]
+        }
       }
     ]
   },
@@ -4354,9 +4792,11 @@
       {
         "name": "Echo Skill: Snip Snap",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": []
+        }
       }
     ]
   },
@@ -4375,9 +4815,11 @@
       {
         "name": "Echo Skill: Zig Zag",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": []
+        }
       }
     ]
   },
@@ -4396,24 +4838,28 @@
       {
         "name": "Echo Skill: Whiff Whaff",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.5136
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.5136
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Whiff Whaff",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.1997
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.1997
+            }
+          ]
+        }
       }
     ]
   },
@@ -4432,24 +4878,28 @@
       {
         "name": "Echo Skill: Tick Tack",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.6848
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.6848
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Tick Tack",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.0272
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.0272
+            }
+          ]
+        }
       }
     ]
   },
@@ -4467,35 +4917,41 @@
       {
         "name": "Echo Skill: Glacio Predator",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.4608
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.4608
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Glacio Predator",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.046
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.046
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Glacio Predator",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.2304
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.2304
+            }
+          ]
+        }
       }
     ]
   },
@@ -4513,13 +4969,15 @@
       {
         "name": "Echo Skill: Aero Predator",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 0.288
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 0.288
+            }
+          ]
+        }
       }
     ]
   },
@@ -4538,13 +4996,15 @@
       {
         "name": "Echo Skill: Cruisewing",
         "type": "healing",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.018
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.018
+            }
+          ]
+        }
       }
     ]
   },
@@ -4563,8 +5023,10 @@
       {
         "name": "Echo Skill: Sabyr Boar",
         "type": "healing",
-        "multipliers": [],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": []
+        }
       }
     ]
   },
@@ -4582,13 +5044,15 @@
       {
         "name": "Echo Skill: Gulpuff",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.2304
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.2304
+            }
+          ]
+        }
       }
     ]
   },
@@ -4619,7 +5083,9 @@
       {
         "name": "Echo Skill: Baby Viridblaze Saurian",
         "type": "healing",
-        "multipliers": []
+        "damage": {
+          "multipliers": []
+        }
       }
     ]
   },
@@ -4637,9 +5103,11 @@
       {
         "name": "Echo Skill: Baby Roseshroom",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": []
+        }
       }
     ]
   },
@@ -4657,9 +5125,11 @@
       {
         "name": "Echo Skill: Fusion Dreadmane",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": []
+        }
       }
     ]
   },
@@ -4689,12 +5159,14 @@
       {
         "name": "Echo Skill: Violet-Feathered Heron",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 2.88
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 2.88
+            }
+          ]
+        }
       }
     ]
   },
@@ -4712,12 +5184,14 @@
       {
         "name": "Echo Skill: Cyan-Feathered Heron",
         "skillType": "echoSkill",
-        "element": "aero",
-        "multipliers": [
-          {
-            "mv": 2.368
-          }
-        ]
+        "damage": {
+          "element": "aero",
+          "multipliers": [
+            {
+              "mv": 2.368
+            }
+          ]
+        }
       }
     ]
   },
@@ -4736,9 +5210,11 @@
       {
         "name": "Echo Skill: Fusion Prism",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": []
+        }
       }
     ]
   },
@@ -4757,13 +5233,15 @@
       {
         "name": "Echo Skill: Glacio Prism",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 0.384
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "glacio",
+          "multipliers": [
+            {
+              "mv": 0.384
+            }
+          ]
+        }
       }
     ]
   },
@@ -4782,13 +5260,15 @@
       {
         "name": "Echo Skill: Spectro Prism",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "multipliers": [
-          {
-            "mv": 0.144
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "spectro",
+          "multipliers": [
+            {
+              "mv": 0.144
+            }
+          ]
+        }
       }
     ]
   },
@@ -4807,13 +5287,15 @@
       {
         "name": "Echo Skill: Havoc Prism",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.2304
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.2304
+            }
+          ]
+        }
       }
     ]
   },
@@ -4831,20 +5313,24 @@
       {
         "name": "Echo Skill: Stonewall Bracer",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 1.1264
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 1.1264
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Stonewall Bracer",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 1.6896
-          }
-        ]
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 1.6896
+            }
+          ]
+        }
       }
     ]
   },
@@ -4862,12 +5348,14 @@
       {
         "name": "Echo Skill: Flautist",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.5328
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.5328
+            }
+          ]
+        }
       }
     ]
   },
@@ -4885,13 +5373,15 @@
       {
         "name": "Echo Skill: Tambourinist",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.144
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.144
+            }
+          ]
+        }
       }
     ]
   },
@@ -4909,46 +5399,54 @@
       {
         "name": "Echo Skill: Rocksteady Guardian",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.0552
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.0552
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Rocksteady Guardian",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.046
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.046
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Rocksteady Guardian",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.0829
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.0829
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Rocksteady Guardian",
         "skillType": "echoSkill",
-        "element": "spectro",
-        "attr": "hp",
-        "multipliers": [
-          {
-            "mv": 0.0829
-          }
-        ]
+        "damage": {
+          "element": "spectro",
+          "attr": "hp",
+          "multipliers": [
+            {
+              "mv": 0.0829
+            }
+          ]
+        }
       }
     ]
   },
@@ -4966,23 +5464,29 @@
       {
         "name": "Echo Skill: Chasm Guardian",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 2.736
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 2.736
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Chasm Guardian",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": []
+        "damage": {
+          "element": "havoc",
+          "multipliers": []
+        }
       },
       {
         "name": "Echo Skill: Chasm Guardian",
         "type": "healing",
-        "multipliers": []
+        "damage": {
+          "multipliers": []
+        }
       }
     ]
   },
@@ -5000,13 +5504,15 @@
       {
         "name": "Echo Skill: Viridblaze Saurian",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 0.1712
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 0.1712
+            }
+          ]
+        }
       }
     ]
   },
@@ -5024,13 +5530,15 @@
       {
         "name": "Echo Skill: Roseshroom",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.5706
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.5706
+            }
+          ]
+        }
       }
     ]
   },
@@ -5048,42 +5556,50 @@
       {
         "name": "Echo Skill: Havoc Dreadmane",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.1664
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.1664
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Havoc Dreadmane",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.7776
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.7776
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Havoc Dreadmane",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 1.1664
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.1664
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Havoc Dreadmane",
         "skillType": "echoSkill",
-        "element": "havoc",
-        "multipliers": [
-          {
-            "mv": 0.7776
-          }
-        ]
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 0.7776
+            }
+          ]
+        }
       }
     ]
   },
@@ -5101,22 +5617,26 @@
       {
         "name": "Echo Skill: Spearback",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.2996
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.2996
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Spearback",
         "type": "healing",
-        "multipliers": [
-          {
-            "mv": 0.5136
-          }
-        ],
-        "duration": 0
+        "duration": 0,
+        "damage": {
+          "multipliers": [
+            {
+              "mv": 0.5136
+            }
+          ]
+        }
       }
     ]
   },
@@ -5133,32 +5653,38 @@
       {
         "name": "Echo Skill: Thundering Mephis",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 1.326
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 1.326
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Thundering Mephis",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 1.8944
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 1.8944
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Thundering Mephis",
         "skillType": "echoSkill",
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.3156
-          }
-        ]
+        "damage": {
+          "element": "electro",
+          "multipliers": [
+            {
+              "mv": 0.3156
+            }
+          ]
+        }
       }
     ]
   },
@@ -5183,13 +5709,15 @@
       {
         "name": "Echo Skill: Bell-Borne Geochelone",
         "skillType": "echoSkill",
-        "element": "glacio",
-        "attr": "def",
-        "multipliers": [
-          {
-            "mv": 1.4592
-          }
-        ]
+        "damage": {
+          "element": "glacio",
+          "attr": "def",
+          "multipliers": [
+            {
+              "mv": 1.4592
+            }
+          ]
+        }
       }
     ]
   },
@@ -5206,42 +5734,50 @@
       {
         "name": "Echo Skill: Inferno Rider",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 2.424
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 2.424
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Inferno Rider",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 2.828
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 2.828
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Inferno Rider",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 2.828
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 2.828
+            }
+          ]
+        }
       },
       {
         "name": "Echo Skill: Inferno Rider",
         "skillType": "echoSkill",
-        "element": "fusion",
-        "multipliers": [
-          {
-            "mv": 2.828
-          }
-        ]
+        "damage": {
+          "element": "fusion",
+          "multipliers": [
+            {
+              "mv": 2.828
+            }
+          ]
+        }
       }
     ]
   }

@@ -316,13 +316,15 @@
           "useWhen": "before",
           "useOnSkillType": "outroSkill",
           "useAction": {
-            "element": "havoc",
             "dmgType": "outroSkill",
-            "multipliers": [
-              {
-                "mv": 4.8
-              }
-            ]
+            "damage": {
+              "element": "havoc",
+              "multipliers": [
+                {
+                  "mv": 4.8
+                }
+              ]
+            }
           }
         },
         {
