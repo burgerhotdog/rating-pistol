@@ -71,50 +71,51 @@ export const toNormalizedAction = (rawAction, spec) => {
     id: actionId,
   };
 
-  // Init default action type
-  if (action.multipliers) action.type ??= 'damage';
-
   // Init default dmgType
-  if (action.type === 'damage' && action.skillType) {
+  if (action.damage && action.skillType) {
     action.dmgType ??= action.skillType;
   }
 
   // Resolve $teamSize
   if (action.times === '$teamSize') action.times = teamSize;
 
-  if (action.multipliers) {
-    // Init element
-    if (action.type === 'damage') {
-      if (gameId === GI && category === 'normalAttack' && weaponType !== 'catalyst') {
-        action.element ??= 'physical';
-      } else {
-        action.element ??= charElement;
-      }
-    }
+  // Compress multipliers
+  const compressedSpec = { index, weaponRank };
+  if ('damage' in action) {
+    const spec = action.damage;
+    const isGenshinPhysNa =
+      gameId === GI &&
+      category === 'normalAttack' &&
+      weaponType !== 'catalyst';
 
-    // Init attr
-    action.attr ??= 'atk';
+    if (isGenshinPhysNa) spec.element ??= 'physical';
+    else spec.element ??= charElement;
+    spec.attr ??= 'atk';
+    spec.compressed = getCompressed(spec.multipliers, spec.attr, compressedSpec);
+  }
 
-    // Compress multipliers
-    action.compressed = getCompressed(action.multipliers, action.attr, {
-      index,
-      weaponRank,
-    });
+  if ('healing' in action) {
+    const spec = action.healing;
+    spec.attr ??= 'atk';
+    spec.compressed = getCompressed(spec.multipliers, spec.attr, compressedSpec);
+  }
+
+  if ('shield' in action) {
+    const spec = action.shield;
+    spec.attr ??= 'atk';
+    spec.compressed = getCompressed(spec.multipliers, spec.attr, compressedSpec);
   }
 
   // Init duration
-  if (!('duration' in action)) {
-    const defaults = DEFAULT_DURATIONS[gameId];
-    action.duration = defaults[action.skillType] ?? 0;
-  }
+  action.duration ??= DEFAULT_DURATIONS[gameId][action.skillType] ?? 0;
 
   // Init hitOffsets
   if (!('hitOffsets' in action)) {
-    if (action.compressed) {
+    if (action.damage?.compressed) {
       let offset = action.duration * 0.65;
       action.hitOffsets = [Math.round(offset)];
 
-      let hitsLeft = action.compressed.hitCount - 1;
+      let hitsLeft = action.damage?.compressed.hitCount - 1;
       while (hitsLeft) {
         if (action.duration) {
           action.duration += 50;

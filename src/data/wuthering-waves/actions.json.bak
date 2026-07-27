@@ -6878,8 +6878,8 @@
           "inflictStatus": {
             "glacioChafe": 1
           },
-          "damage": {
             "attr": "HP",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -6969,8 +6969,8 @@
         {
           "name": "Enrichment Healing",
           "type": "healing",
-          "healing": {
             "attr": "HP",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -7031,8 +7031,8 @@
         {
           "name": "Healing per Plume Step",
           "type": "healing",
-          "healing": {
             "attr": "HP",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -7564,8 +7564,8 @@
           "inflictStatus": {
             "glacioChafe": 1
           },
-          "damage": {
             "attr": "HP",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -11175,8 +11175,8 @@
         {
           "name": "To the Horizon: Team Healing",
           "type": "healing",
-          "healing": {
             "attr": "energyRegen%",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -11343,8 +11343,8 @@
         {
           "name": "Waves of Acclaims: Team Healing",
           "type": "healing",
-          "healing": {
             "attr": "energyRegen%",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -11399,8 +11399,8 @@
         {
           "name": "Returned From Ashes: Shield",
           "type": "shield",
-          "shield": {
             "attr": "energyRegen%",
+          "shield": {
             "multipliers": [
               {
                 "flat": [
@@ -14851,8 +14851,8 @@
           "name": "Distributed Array: Team Healing",
           "tagged": "Wide Field Observation Mode",
           "type": "healing",
-          "healing": {
             "attr": "def",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -14908,8 +14908,8 @@
           "name": "Expectation Error: Team Healing",
           "type": "healing",
           "skillType": "resonanceSkill",
-          "healing": {
             "attr": "def",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -15035,8 +15035,8 @@
         {
           "name": "Critical Protocol",
           "skillType": "resonanceLiberation",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -15073,8 +15073,8 @@
         {
           "name": "Syntony Field: Healing",
           "type": "healing",
-          "healing": {
             "attr": "def",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -15250,8 +15250,8 @@
         {
           "name": "Particle Jet",
           "dmgType": "tuneRupture",
-          "damage": {
             "attr": "tuneAmp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -16696,8 +16696,8 @@
         {
           "name": "Starburst",
           "dmgType": "tuneRupture",
-          "damage": {
             "attr": "tuneAmp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -16729,8 +16729,8 @@
         {
           "name": "Seraphic Duet Bonus DMG (Per Instance)",
           "dmgType": "buff",
-          "damage": {
             "attr": "tuneAmp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -19851,8 +19851,8 @@
         {
           "name": "Leihuang Master",
           "skillType": "resonanceSkill",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -19885,8 +19885,8 @@
           "name": "Thunder Wedge: Coordinated Attack",
           "skillType": "coordinatedAttack",
           "dmgType": "resonanceSkill",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -19918,8 +19918,8 @@
         {
           "name": "Thunder Wedge: Detonation",
           "dmgType": "resonanceSkill",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -19951,8 +19951,8 @@
         {
           "name": "Rumbling Spark",
           "skillType": "resonanceSkill",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -19989,8 +19989,8 @@
         {
           "name": "Blazing Might",
           "skillType": "resonanceLiberation",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20029,8 +20029,8 @@
           "name": "Thunder Uprising",
           "skillType": "coordinatedAttack",
           "dmgType": "resonanceSkill",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20063,8 +20063,8 @@
           "name": "Basic Attack 1",
           "tagged": "Lightning Infused",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20097,8 +20097,8 @@
           "name": "Basic Attack 2",
           "tagged": "Lightning Infused",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20132,8 +20132,8 @@
           "name": "Basic Attack 3",
           "tagged": "Lightning Infused",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20192,8 +20192,8 @@
           "name": "Basic Attack 4",
           "tagged": "Lightning Infused",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20227,8 +20227,8 @@
           "name": "Basic Attack 5",
           "tagged": "Lightning Infused",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20286,8 +20286,8 @@
           "name": "Heavy Attack",
           "tagged": "Lightning Infused",
           "skillType": "heavyAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20320,8 +20320,8 @@
           "name": "Thunderweaver",
           "tagged": "Lightning Infused",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20380,8 +20380,8 @@
           "tagged": "Lightning Infused",
           "skillType": "dodgeCounter",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -20443,8 +20443,8 @@
         {
           "name": "Thunder Bombardment",
           "skillType": "introSkill",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -25380,8 +25380,8 @@
         {
           "name": "Meltdown",
           "dmgType": "hack",
-          "damage": {
             "attr": "tuneAmp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29229,8 +29229,8 @@
         {
           "name": "Basic Attack 1",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29262,8 +29262,8 @@
         {
           "name": "Basic Attack 2",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29343,8 +29343,8 @@
         {
           "name": "Basic Attack 3",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29448,8 +29448,8 @@
         {
           "name": "Basic Attack 4",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29507,8 +29507,8 @@
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29613,8 +29613,8 @@
           "name": "Heavy Attack",
           "skillType": "heavyAttack",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29673,8 +29673,8 @@
           "skillType": "mid-airAttack",
           "dmgType": "basicAttack",
           "specialType": "aeroErosion",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29708,8 +29708,8 @@
           "skillType": "mid-airAttack",
           "dmgType": "basicAttack",
           "specialType": "aeroErosion",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29743,8 +29743,8 @@
           "skillType": "mid-airAttack",
           "dmgType": "basicAttack",
           "specialType": "aeroErosion",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29779,8 +29779,8 @@
           "skillType": "mid-airAttack",
           "dmgType": "basicAttack",
           "specialType": "aeroErosion",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29819,8 +29819,8 @@
           "name": "Sword to Bear Their Names",
           "skillType": "resonanceSkill",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29882,8 +29882,8 @@
         {
           "name": "Blade of Howling Squall",
           "skillType": "resonanceLiberation",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29921,8 +29921,8 @@
         {
           "name": "Fleurdelys: Basic Attack 1",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -29954,8 +29954,8 @@
         {
           "name": "Fleurdelys: Basic Attack 2",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30059,8 +30059,8 @@
         {
           "name": "Fleurdelys: Basic Attack 3",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30164,8 +30164,8 @@
         {
           "name": "Fleurdelys: Basic Attack 4",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30198,8 +30198,8 @@
         {
           "name": "Fleurdelys: Basic Attack 5",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30256,8 +30256,8 @@
           "name": "Fleurdelys: Dodge Counter",
           "skillType": "dodgeCounter",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30361,8 +30361,8 @@
         {
           "name": "Fleurdelys: Upward Cut",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30396,8 +30396,8 @@
           "name": "Fleurdelys: Heavy Attack",
           "skillType": "heavyAttack",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30453,8 +30453,8 @@
         {
           "name": "Fleurdelys: Enhanced Heavy Attack",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30512,8 +30512,8 @@
           "name": "Fleurdelys: Mid-air Attack 1",
           "skillType": "mid-airAttack",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30594,8 +30594,8 @@
           "name": "Fleurdelys: Mid-air Attack 2",
           "skillType": "mid-airAttack",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30676,8 +30676,8 @@
           "name": "Fleurdelys: Mid-air Attack 3",
           "skillType": "mid-airAttack",
           "dmgType": "basicAttack",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30709,8 +30709,8 @@
         {
           "name": "Fleurdelys: Sword to Answer Waves' Call",
           "skillType": "resonanceSkill",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30767,8 +30767,8 @@
         {
           "name": "May Tempest Break the Tides",
           "skillType": "resonanceSkill",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30834,8 +30834,8 @@
           "inflictStatus": {
             "aeroErosion": 2
           },
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -30892,8 +30892,8 @@
         {
           "name": "Sword to Call for Freedom",
           "skillType": "introSkill",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -36480,8 +36480,8 @@
           "name": "Chaos Theory: Team Healing",
           "type": "healing",
           "skillType": "resonanceSkill",
-          "healing": {
             "attr": "hp",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -36578,8 +36578,8 @@
         {
           "name": "End Loop: Healing",
           "type": "healing",
-          "healing": {
             "attr": "hp",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -36775,8 +36775,8 @@
         {
           "name": "Enlightenment: Team Healing",
           "type": "healing",
-          "healing": {
             "attr": "hp",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -36832,8 +36832,8 @@
           "name": "Discernment",
           "skillType": "introSkill",
           "dmgType": "resonanceLiberation",
-          "damage": {
             "attr": "hp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -36866,8 +36866,8 @@
         {
           "name": "Discernment: Team Healing",
           "type": "healing",
-          "healing": {
             "attr": "hp",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -41125,8 +41125,8 @@
         {
           "name": "Spectral Analysis",
           "dmgType": "tuneRupture",
-          "damage": {
             "attr": "tuneAmp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -44241,8 +44241,8 @@
         {
           "name": "Spoofing Program: Cripple Movement",
           "dmgType": "hack",
-          "damage": {
             "attr": "tuneAmp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -44344,8 +44344,8 @@
         {
           "name": "Data Crash",
           "dmgType": "hack",
-          "damage": {
             "attr": "tuneAmp",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -44639,8 +44639,8 @@
         {
           "name": "Strategic Parry",
           "dmgType": "heavyAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -44743,8 +44743,8 @@
         {
           "name": "Fortified Defense",
           "skillType": "resonanceSkill",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -44776,8 +44776,8 @@
         {
           "name": "Fortified Defense: Healing",
           "type": "healing",
-          "healing": {
             "attr": "def",
+          "healing": {
             "multipliers": [
               {
                 "flat": [
@@ -44836,8 +44836,8 @@
         {
           "name": "Unmovable",
           "skillType": "resonanceLiberation",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -44874,8 +44874,8 @@
         {
           "name": "Timed Counters 1",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -44907,8 +44907,8 @@
         {
           "name": "Timed Counters 2",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -44940,8 +44940,8 @@
         {
           "name": "Timed Counters 3",
           "skillType": "basicAttack",
-          "damage": {
             "attr": "def",
+          "damage": {
             "multipliers": [
               {
                 "mv": [
@@ -44973,8 +44973,8 @@
         {
           "name": "Timed Counters 1: Shield",
           "type": "shield",
-          "shield": {
             "attr": "def",
+          "shield": {
             "multipliers": [
               {
                 "flat": [
@@ -45028,8 +45028,8 @@
         {
           "name": "Timed Counters 2: Shield",
           "type": "shield",
-          "shield": {
             "attr": "def",
+          "shield": {
             "multipliers": [
               {
                 "flat": [
@@ -45083,8 +45083,8 @@
         {
           "name": "Timed Counters 3: Shield",
           "type": "shield",
-          "shield": {
             "attr": "def",
+          "shield": {
             "multipliers": [
               {
                 "flat": [

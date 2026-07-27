@@ -106,6 +106,11 @@ function decayBuffStates(ctx, action) {
   }
 }
 
+const canSnapshot = (action) =>
+  'damage' in action ||
+  'healing' in action ||
+  'shield' in action;
+
 function runAction(ctx, action, options = {}) {
   const { runtimeOffset, noDuration } = options;
   const { duration = 0, hitOffsets = [0] } = action;
@@ -142,9 +147,9 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('before');
   advanceTimeTo(hitOffsets[0]);
 
-  if (action.compressed) {
+  if (canSnapshot(action)) {
     if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, action, { runtimeOffset }));
-    if (ctx.cache.gameId === WW) applyOffTuneBuildup(ctx, action);
+    if (ctx.cache.gameId === WW && 'damage' in action) applyOffTuneBuildup(ctx, action);
     decayBuffStates(ctx, action);
   }
 
@@ -210,9 +215,9 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
 
   return (buildMap) => ctx.snapshots.map((snapshot) => {
     const toResolve = [];
-    for (const type of ['damage', 'healing', 'shield']) {
-      if (type in snapshot && typeof snapshot[type] === 'function') {
-        toResolve.push(type);
+    for (const part of ['damage', 'healing', 'shield']) {
+      if (part in snapshot && typeof snapshot[part] === 'function') {
+        toResolve.push(part);
       }
     }
 

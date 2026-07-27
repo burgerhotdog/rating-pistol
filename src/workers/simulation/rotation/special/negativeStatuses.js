@@ -289,7 +289,7 @@ export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
     ownerId: 'other',
     type: 'damage',
     dmgType: status.id,
-    value: baseDmg * dmgAmpMult * defMult * resMult,
+    damage: baseDmg * dmgAmpMult * defMult * resMult,
     runtime: ctx.states.runtime + runtimeOffset,
   };
 };

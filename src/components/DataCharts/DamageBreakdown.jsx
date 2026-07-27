@@ -29,10 +29,10 @@ const buildData = (summary, currId, breakdownMode) => {
 
   // TODO: branch on breakdownMode once fieldStatus grouping is implemented.
   // For now this always groups by dmgType regardless of the selected mode.
-  for (const { ownerId, type, dmgType, value } of Object.values(summary)) {
-    if (ownerId !== currId || type !== 'damage') continue;
+  for (const { ownerId, damage, dmgType } of Object.values(summary)) {
+    if (ownerId !== currId || !damage) continue;
     damageByType[dmgType] ??= 0;
-    damageByType[dmgType] += value;
+    damageByType[dmgType] += damage;
   }
 
   const entries = Object.entries(damageByType)

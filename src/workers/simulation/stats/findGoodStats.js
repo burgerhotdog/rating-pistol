@@ -15,17 +15,13 @@ const findGoodMainStatsWuwa = (baseMap, baseScore, currId, runRotation, getPenal
       const testSummary = runRotation(testMap);
       const testPenalty = getPenalty(testMap);
       const testScore = getScore(testSummary, currId, testPenalty);
-
-      if (testScore > baseScore) {
-        preferred.push(statId);
-      }
+      if (testScore > baseScore) preferred.push(statId);
     }
 
-    if (!preferred.length) {
-      goodMainStats[cost] = Object.keys(mainStats);
-    } else {
-      goodMainStats[cost] = preferred;
-    }
+    goodMainStats[cost] =
+      preferred.length
+        ? preferred
+        : Object.keys(mainStats);
   }
 
   return goodMainStats;
@@ -43,17 +39,10 @@ const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, currId, runRotation, 
       const testSummary = runRotation(testMap);
       const testPenalty = getPenalty(testMap);
       const testScore = getScore(testSummary, currId, testPenalty);
-
-      if (testScore > baseScore) {
-        preferred.push(statId);
-      }
+      if (testScore > baseScore) preferred.push(statId);
     }
 
-    if (!preferred.length) {
-      goodMainStats.push(Object.keys(mainStats));
-    } else {
-      goodMainStats.push(preferred);
-    }
+    goodMainStats.push(preferred.length ? preferred : Object.keys(mainStats));
   }
 
   return goodMainStats;
@@ -67,10 +56,7 @@ const findGoodSubs = (substatValues, baseMap, baseScore, currId, runRotation, ge
     const testSummary = runRotation(testMap);
     const testPenalty = getPenalty(testMap);
     const testScore = getScore(testSummary, currId, testPenalty);
-
-    if (testScore > baseScore) {
-      goodSubStats.push(statId);
-    }
+    if (testScore > baseScore) goodSubStats.push(statId);
   }
 
   return goodSubStats.length

@@ -63,15 +63,27 @@ const buildConfigStats = (gameId, trials) => {
 
 const normalizeSummarySums = (sums, n) =>
   Object.fromEntries(
-    Object.entries(sums).map(([key, result]) => {
-      return [key, { ...result, value: result.value / n }];
-    })
+    Object.entries(sums).map(([snapshotKey, result]) => [
+      snapshotKey,
+      {
+        ...result,
+        damage: result.damage / n,
+        healing: result.damage / n,
+        shield: result.shield / n,
+      },
+    ])
   );
 
-function addSummaryToSums(sums, summary) {
-  for (const [key, result] of Object.entries(summary)) {
-    sums[key] ??= { ...result, value: 0 };
-    sums[key].value += result.value ?? 0;
+function addSummaryToSums(sums, snapshots) {
+  for (const [snapshotKey, snapshot] of Object.entries(snapshots)) {
+    const acc = sums[snapshotKey];
+    if (acc) {
+      for (const part of ['damage', 'healing', 'shield']) {
+        acc[part] += snapshot[part] ?? 0;
+      }
+    } else {
+      sums[snapshotKey] ??= { ...snapshot };
+    }
   }
 }
 
@@ -111,9 +123,7 @@ export const runTrials = (helpers, cache, equipMaps, currId, isMain = false) => 
       advanceTrial(trial);
       weekScores.add(trial.score);
 
-      if (isMain) {
-        addSummaryToSums(weekSummarySums, trial.summary);
-      }
+      if (isMain) addSummaryToSums(weekSummarySums, trial.summary);
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
@@ -126,9 +136,7 @@ export const runTrials = (helpers, cache, equipMaps, currId, isMain = false) => 
       trials.push(trial);
 
       weekScores.add(trial.score);
-      if (isMain) {
-        addSummaryToSums(weekSummarySums, trial.summary);
-      }
+      if (isMain) addSummaryToSums(weekSummarySums, trial.summary);
     }
 
     const avgScore = weekScores.mean;
