@@ -108,14 +108,25 @@
           "element": "havoc",
           "multipliers": [
             {
-              "mv": 1.3408,
-              "times": 2
+              "mv": 1.3408
             }
           ]
         }
       },
       {
         "name": "Echo Skill: Crownless 2",
+        "skillType": "echoSkill",
+        "damage": {
+          "element": "havoc",
+          "multipliers": [
+            {
+              "mv": 1.3408
+            }
+          ]
+        }
+      },
+      {
+        "name": "Echo Skill: Crownless 3",
         "skillType": "echoSkill",
         "damage": {
           "element": "havoc",
@@ -128,7 +139,7 @@
         }
       },
       {
-        "name": "Echo Skill: Crownless 3",
+        "name": "Echo Skill: Crownless 4",
         "skillType": "echoSkill",
         "damage": {
           "element": "havoc",

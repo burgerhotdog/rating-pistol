@@ -37,9 +37,7 @@ const getConvertedRotation = (rawRotation, spec) => {
         insertAtIndex++;
       }
 
-      if (insertAtIndex === 0) {
-        insertAtIndex++;
-      }
+      if (insertAtIndex === 0) insertAtIndex++;
 
       rotation.splice(insertAtIndex, 0, {
         key: 'other:tuneBreak',

@@ -65,5 +65,9 @@ export const isEnabled = (effect, spec) => {
         ifTagged(effect.enableIfTagged, character) ||
         ifNoEnergy(effect, character)
       );
+    case 'echo':
+      return (
+        ifOwner(effect.enableIfOwner, character)
+      );
   }
 };
