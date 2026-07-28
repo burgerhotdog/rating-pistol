@@ -29,19 +29,19 @@ const getConvertedRotation = (rawRotation, spec) => {
     if (memberId === memberIds[0]) {
       // Ensure no more than 8000 ms remain after tune break
       let timeLeft = rotationTime;
-      let insertAfterIndex = 0;
+      let insertAtIndex = 0;
       for (const action of rotation) {
         if (timeLeft <= 8000) break;
 
         timeLeft -= action.duration;
-        insertAfterIndex++;
+        insertAtIndex++;
       }
 
-      if (insertAfterIndex === 0) {
-        insertAfterIndex++;
+      if (insertAtIndex === 0) {
+        insertAtIndex++;
       }
 
-      rotation.splice(insertAfterIndex, 0, {
+      rotation.splice(insertAtIndex, 0, {
         key: 'other:tuneBreak',
         ownerId: memberId,
       });

@@ -383,6 +383,7 @@
         "setCounts": {
           "1": 5
         },
+        "mainEcho": "6000044",
         "rotation": [
           "introSkill.0",
           "resonanceLiberation.0",

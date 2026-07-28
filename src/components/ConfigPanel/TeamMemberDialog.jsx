@@ -38,7 +38,7 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTER, ACTION, WEAPON, SET } from '@/data';
+import { CHARACTER, ACTION, WEAPON, SET, ECHO } from '@/data';
 import { toArray, formatStr, getPresetSetCounts, getMemberPreset, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
@@ -772,7 +772,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
   );
 }
 
-function SortableRotationItem({ id, actionKey, charId, gameId, onRemove }) {
+function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
   const style = {
@@ -780,9 +780,16 @@ function SortableRotationItem({ id, actionKey, charId, gameId, onRemove }) {
     transition,
   };
 
+  const allActions = {
+    ...ACTION[gameId][charId],
+    echoSkill: {
+      actions: ECHO[member.mainEcho]?.actions ?? [],
+    },
+  };
+
   const [category, actionIndex] = actionKey.split('.');
   const index = Number(actionIndex);
-  const { name, tagged, skillType } = ACTION[gameId][charId][category].actions[index];
+  const { name, tagged, skillType } = allActions[category].actions[index];
 
   return (
     <Box
@@ -858,7 +865,7 @@ function SortableRotationItem({ id, actionKey, charId, gameId, onRemove }) {
   );
 }
 
-function RotationEditor({ gameId, charId, rotation, onChange }) {
+function RotationEditor({ gameId, charId, member, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
 
@@ -937,6 +944,7 @@ function RotationEditor({ gameId, charId, rotation, onChange }) {
                   key={sortableIds[index]}
                   id={sortableIds[index]}
                   actionKey={actionKey}
+                  member={member}
                   charId={charId}
                   gameId={gameId}
                   onRemove={() => removeSkill(index)}
@@ -1166,6 +1174,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
           <RotationEditor
             gameId={gameId}
             charId={draft.id}
+            member={member}
             rotation={draft.rotation}
             onChange={(rotation) => setDraft((prev) => ({ ...prev, rotation }))}
           />
