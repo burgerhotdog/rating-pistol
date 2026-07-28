@@ -11,7 +11,7 @@ const onAction = (rawFilter, { action }) => {
 
 const onType = (rawFilter, { action }) => {
   const filter = toArray(rawFilter);
-  return filter.some((type) => type in action);
+  return filter.some((part) => part in action);
 };
 
 const onTagged = (rawFilter, { action }) => {

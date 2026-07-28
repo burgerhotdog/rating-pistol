@@ -36,7 +36,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnAction": "echoSkill:1",
+        "applyOnAction": "echoSkill.1",
         "buffMap": {
           "electroDmgBonus%": 0.12,
           "heavyAttackDmgBonus%": 0.12
@@ -133,7 +133,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnAction": "echoSkill:0",
+        "applyOnAction": "echoSkill.0",
         "buffMap": {
           "havocDmgBonus%": 0.12,
           "resonanceSkillDmgBonus%": 0.12
@@ -194,7 +194,7 @@
     "effects": [
       {
         "applyWhen": "after",
-        "applyOnAction": "echoSkill:0",
+        "applyOnAction": "echoSkill.0",
         "buffMap": {
           "aeroDmgBonus%": 0.12,
           "heavyAttackDmgBonus%": 0.12
@@ -233,9 +233,9 @@
       {
         "applyWhen": "hit",
         "applyOnAction": [
-          "echoSkill:0",
-          "echoSkill:1",
-          "echoSkill:2"
+          "echoSkill.0",
+          "echoSkill.1",
+          "echoSkill.2"
         ],
         "buffMap": {
           "glacioDmgBonus%": 0.04,
@@ -296,8 +296,8 @@
       {
         "applyWhen": "hit",
         "applyOnAction": [
-          "echoSkill:0",
-          "echoSkill:1"
+          "echoSkill.0",
+          "echoSkill.1"
         ],
         "buffMap": {
           "spectroDmgBonus%": 0.12,
@@ -408,7 +408,7 @@
     "effects": [
       {
         "applyWhen": "cast",
-        "applyOnAction": "echoSkill:0",
+        "applyOnAction": "echoSkill.0",
         "buffMap": {
           "atk%": 0.12
         },
@@ -521,8 +521,8 @@
       {
         "applyWhen": "hit",
         "applyOnAction": [
-          "echoSkill:0",
-          "echoSkill:1"
+          "echoSkill.0",
+          "echoSkill.1"
         ],
         "maxDuration": 15000
       },
@@ -2626,31 +2626,8 @@
           "element": "havoc",
           "multipliers": [
             {
-              "mv": 1.7173
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Nightmare: Havoc Warrior",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 1.7173
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Nightmare: Havoc Warrior",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 1.7173
+              "mv": 1.7173,
+              "times": 3
             }
           ]
         }
@@ -2670,41 +2647,22 @@
       {
         "name": "Echo Skill: Nightmare: Glacio Predator",
         "skillType": "echoSkill",
-        "duration": 0,
         "damage": {
           "element": "glacio",
           "multipliers": [
             {
               "mv": 0.4608
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Nightmare: Glacio Predator",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "glacio",
-          "multipliers": [
+            },
             {
-              "mv": 0.046
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Nightmare: Glacio Predator",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "glacio",
-          "multipliers": [
+              "mv": 0.046,
+              "times": 10
+            },
             {
               "mv": 0.2304
             }
           ]
-        }
+        },
+        "duration": 0
       }
     ]
   },
@@ -2717,21 +2675,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Tambourinist",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 0.144
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000120": {
     "name": "Corrosaurus",
@@ -2742,12 +2686,18 @@
       "22"
     ],
     "cost": 3,
-    "effects": [],
+    "effects": [
+      {
+        "buffMap": {
+          "fusionDmgBonus%": 0.12,
+          "echoSkillDmgBonus%": 0.2
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Corrosaurus",
         "skillType": "echoSkill",
-        "duration": 0,
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -2755,7 +2705,8 @@
               "mv": 2.736
             }
           ]
-        }
+        },
+        "duration": 0
       }
     ]
   },
@@ -2767,7 +2718,28 @@
       "20"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "buffMap": {
+          "electroDmgBonus%": 0.12,
+          "heavyAttackDmgBonus%": 0.12
+        }
+      },
+      {
+        "useWhen": "before",
+        "useOnSkillType": "introSkill",
+        "useAction": {
+          "damage": {
+            "element": "electro",
+            "multipliers": [
+              {
+                "mv": 4.05
+              }
+            ]
+          }
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: The False Sovereign",
@@ -2777,18 +2749,6 @@
           "multipliers": [
             {
               "mv": 0.5535
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: The False Sovereign",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 4.05
             }
           ]
         }
@@ -2803,33 +2763,31 @@
       "20"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "buffMap": {
+          "aeroDmgBonus%": 0.12,
+          "resonanceLiberationDmgBonus%": 0.12
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Lady of the Sea",
         "skillType": "echoSkill",
-        "duration": 0,
         "damage": {
           "element": "aero",
           "multipliers": [
             {
-              "mv": 0.1368
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Lady of the Sea",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "aero",
-          "multipliers": [
+              "mv": 0.1368,
+              "times": 10
+            },
             {
               "mv": 1.6416
             }
           ]
-        }
+        },
+        "duration": 0
       }
     ]
   },
@@ -2842,20 +2800,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Violet-Feathered Heron",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 2.88
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000162": {
     "name": "Nightmare: Cyan-Feathered Heron",
@@ -2866,20 +2811,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Cyan-Feathered Heron",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 2.368
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000163": {
     "name": "Nightmare: Electro Predator",
@@ -2890,34 +2822,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Electro Predator",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 0.1728
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Nightmare: Electro Predator",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 0.4608
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000164": {
     "name": "Nightmare: Aero Predator",
@@ -2928,21 +2833,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Aero Predator",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 0.288
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000165": {
     "name": "Nightmare: Gulpuff",
@@ -2953,21 +2844,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Gulpuff",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "glacio",
-          "multipliers": [
-            {
-              "mv": 0.2304
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000166": {
     "name": "Nightmare: Chirpuff",
@@ -2978,21 +2855,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Chirpuff",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 0.384
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000167": {
     "name": "Reminiscence: Threnodian - Leviathan",
@@ -3003,17 +2866,44 @@
       "23"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "echoSkill.0",
+        "applyTo": "global",
+        "useCooldown": 500,
+        "useOnType": "damage",
+        "useIfField": "onField",
+        "useAction": {
+          "damage": {
+            "element": "havoc",
+            "multipliers": [
+              {
+                "mv": 0.2457
+              }
+            ]
+          }
+        },
+        "maxDuration": 15000,
+        "maxUses": 8
+      },
+      {
+        "buffMap": {
+          "havocDmgBonus%": 0.12,
+          "resonanceLiberationDmgBonus%": 0.12
+        }
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Leviathan",
         "skillType": "echoSkill",
-        "duration": 0,
         "damage": {
           "element": "havoc",
           "multipliers": [
             {
-              "mv": 1.3104
+              "mv": 1.3104,
+              "times": 2
             }
           ]
         }
@@ -3029,21 +2919,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Viridblaze Saurian",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 0.1712
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000169": {
     "name": "Nightmare: Baby Viridblaze Saurian",
@@ -3054,15 +2930,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Baby Viridblaze Saurian",
-        "type": "healing",
-        "damage": {
-          "multipliers": []
-        }
-      }
-    ]
+    "actions": []
   },
   "6000170": {
     "name": "Nightmare: Baby Roseshroom",
@@ -3073,17 +2941,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Baby Roseshroom",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "havoc",
-          "multipliers": []
-        }
-      }
-    ]
+    "actions": []
   },
   "6000171": {
     "name": "Nightmare: Tick Tack",
@@ -3094,34 +2952,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Tick Tack",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 0.6848
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Nightmare: Tick Tack",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 1.0272
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000172": {
     "name": "Nightmare: Dwarf Cassowary",
@@ -3132,44 +2963,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Dwarf Cassowary",
-        "type": "healing",
-        "duration": 0,
-        "damage": {
-          "multipliers": [
-            {
-              "mv": 0.384
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Nightmare: Dwarf Cassowary",
-        "type": "healing",
-        "duration": 0,
-        "damage": {
-          "multipliers": [
-            {
-              "mv": 0.384
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Nightmare: Dwarf Cassowary",
-        "type": "healing",
-        "duration": 0,
-        "damage": {
-          "multipliers": [
-            {
-              "mv": 0.384
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000173": {
     "name": "Nightmare: Roseshroom",
@@ -3180,21 +2974,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Nightmare: Roseshroom",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 0.5706
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000174": {
     "name": "Tremor Warrior",
@@ -3207,20 +2987,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Tremor Warrior",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 2.052
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000175": {
     "name": "Flora Drone",
@@ -3234,34 +3001,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Flora Drone",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 0.648
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Flora Drone",
-        "type": "healing",
-        "duration": 0,
-        "damage": {
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": 0.036
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000176": {
     "name": "Mining Drone",
@@ -3275,20 +3015,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Mining Drone",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 1.026
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000177": {
     "name": "Geospider S4",
@@ -3301,34 +3028,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Geospider S4",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "spectro",
-          "multipliers": [
-            {
-              "mv": 0.5184
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Geospider S4",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "spectro",
-          "multipliers": [
-            {
-              "mv": 0.7776
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000178": {
     "name": "Zip Zap",
@@ -3342,21 +3042,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Zip Zap",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 0.2592
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000179": {
     "name": "Twin Nova: Nebulous Cannon",
@@ -3431,21 +3117,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Flora Reindeer",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 1.926
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000182": {
     "name": "Mining Reindeer",
@@ -3457,21 +3129,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Mining Reindeer",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 2.376
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000183": {
     "name": "Ironhoof",
@@ -3484,44 +3142,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Ironhoof",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 0.5364
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Ironhoof",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 0.1341
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Ironhoof",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 1.7433
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000184": {
     "name": "Spacetrek Explorer",
@@ -3547,21 +3168,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Sabercat Reaver",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 1.926
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000186": {
     "name": "Sabercat Prowler",
@@ -3574,21 +3181,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Sabercat Prowler",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 1.926
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000187": {
     "name": "Frostbite Coleoid",
@@ -3600,21 +3193,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Frostbite Coleoid",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "glacio",
-          "multipliers": [
-            {
-              "mv": 1.926
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000188": {
     "name": "Windlash Coleoid",
@@ -3626,20 +3205,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Windlash Coleoid",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 2.682
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000189": {
     "name": "Hyvatia",
@@ -3650,20 +3216,40 @@
       "26"
     ],
     "cost": 4,
-    "effects": [],
+    "effects": [
+      {
+        "applyWhen": "before",
+        "applyOnAction": "echoSkill.0",
+        "maxDuration": 15000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyIfEffectStacksMin": {
+          "$prev.1": 1
+        },
+        "applyTo": "$next",
+        "onApplyDoRemove": "$prev.1",
+        "buffMap": {
+          "dmgBonus%": 0.1
+        },
+        "maxDuration": 15000
+      }
+    ],
     "actions": [
       {
         "name": "Echo Skill: Hyvatia",
         "skillType": "echoSkill",
-        "duration": 0,
         "damage": {
           "element": "spectro",
           "multipliers": [
             {
-              "mv": 0.2736
+              "mv": 0.2736,
+              "times": 10
             }
           ]
-        }
+        },
+        "duration": 0
       }
     ]
   },
@@ -3766,20 +3352,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Kronablight",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 2.682
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000194": {
     "name": "Reminiscence: Kronaclaw",
@@ -3791,44 +3364,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Reminiscence: Kronaclaw",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 0.0804
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Reminiscence: Kronaclaw",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 0.2413
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Reminiscence: Kronaclaw",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 1.5555
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000195": {
     "name": "Glommoth",
@@ -3903,21 +3439,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Shadow Stepper",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 1.296
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000198": {
     "name": "Voidwing Moth",
@@ -4087,32 +3609,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Smiter",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "spectro",
-          "multipliers": [
-            {
-              "mv": 0.1926
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Smiter",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "spectro",
-          "multipliers": [
-            {
-              "mv": 0.5778
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000203": {
     "name": "Porcelain Picket",
@@ -4123,32 +3620,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Porcelain Picket",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 0.1944
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Porcelain Picket",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 0.1296
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000204": {
     "name": "Stone Picket",
@@ -4159,20 +3631,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Stone Picket",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 1.296
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000205": {
     "name": "Aureate Picket",
@@ -4183,32 +3642,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Aureate Picket",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "aero",
-          "multipliers": [
-            {
-              "mv": 1.539
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Aureate Picket",
-        "type": "healing",
-        "damage": {
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": 0.0055
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000206": {
     "name": "Kernel Puppet: Joy",
@@ -4219,19 +3653,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Kernel Puppet: Joy",
-        "type": "healing",
-        "damage": {
-          "multipliers": [
-            {
-              "mv": 1.296
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000207": {
     "name": "Kernel Puppet: Anger",
@@ -4242,20 +3664,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Kernel Puppet: Anger",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 1.296
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000208": {
     "name": "Kernel Puppet: Worry",
@@ -4266,32 +3675,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Kernel Puppet: Worry",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "glacio",
-          "multipliers": [
-            {
-              "mv": 0.648
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Kernel Puppet: Worry",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "glacio",
-          "multipliers": [
-            {
-              "mv": 0.648
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000209": {
     "name": "Kernel Puppet: Reflection",
@@ -4302,20 +3686,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Kernel Puppet: Reflection",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 0.648
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000210": {
     "name": "Kernel Puppet: Grief",
@@ -4326,20 +3697,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Kernel Puppet: Grief",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "spectro",
-          "multipliers": [
-            {
-              "mv": 1.296
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000211": {
     "name": "Kernel Puppet: Fright",
@@ -4350,32 +3708,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Kernel Puppet: Fright",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 0.5184
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Kernel Puppet: Fright",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 0.7776
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000212": {
     "name": "Fog Lionarch: Body",
@@ -4386,20 +3719,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Fog Lionarch: Body",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 1.926
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000213": {
     "name": "Fog Lionarch: Head",
@@ -4410,20 +3730,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Fog Lionarch: Head",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 1.296
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000214": {
     "name": "Smolder",
@@ -4434,20 +3741,7 @@
     ],
     "cost": 1,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Smolder",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 1.926
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "6000215": {
     "name": "Fog Lionarch",
@@ -5304,20 +4598,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Flautist",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "electro",
-          "multipliers": [
-            {
-              "mv": 0.5328
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "390077023": {
     "name": "Tambourinist",
@@ -5329,21 +4610,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Tambourinist",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 0.144
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "390077024": {
     "name": "Rocksteady Guardian",
@@ -5355,60 +4622,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Rocksteady Guardian",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "spectro",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": 0.0552
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Rocksteady Guardian",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "spectro",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": 0.046
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Rocksteady Guardian",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "spectro",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": 0.0829
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Rocksteady Guardian",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "spectro",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": 0.0829
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "390077025": {
     "name": "Chasm Guardian",
@@ -5420,35 +4634,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Chasm Guardian",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 2.736
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Chasm Guardian",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": []
-        }
-      },
-      {
-        "name": "Echo Skill: Chasm Guardian",
-        "type": "healing",
-        "damage": {
-          "multipliers": []
-        }
-      }
-    ]
+    "actions": []
   },
   "390077028": {
     "name": "Viridblaze Saurian",
@@ -5460,21 +4646,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Viridblaze Saurian",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "fusion",
-          "multipliers": [
-            {
-              "mv": 0.1712
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "390077029": {
     "name": "Roseshroom",
@@ -5486,21 +4658,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Roseshroom",
-        "skillType": "echoSkill",
-        "duration": 0,
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 0.5706
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "390077033": {
     "name": "Havoc Dreadmane",
@@ -5512,56 +4670,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Havoc Dreadmane",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 1.1664
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Havoc Dreadmane",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 0.7776
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Havoc Dreadmane",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 1.1664
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Havoc Dreadmane",
-        "skillType": "echoSkill",
-        "damage": {
-          "element": "havoc",
-          "multipliers": [
-            {
-              "mv": 0.7776
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "390077038": {
     "name": "Spearback",
@@ -5573,32 +4682,7 @@
     ],
     "cost": 3,
     "effects": [],
-    "actions": [
-      {
-        "name": "Echo Skill: Spearback",
-        "type": "healing",
-        "duration": 0,
-        "damage": {
-          "multipliers": [
-            {
-              "mv": 0.2996
-            }
-          ]
-        }
-      },
-      {
-        "name": "Echo Skill: Spearback",
-        "type": "healing",
-        "duration": 0,
-        "damage": {
-          "multipliers": [
-            {
-              "mv": 0.5136
-            }
-          ]
-        }
-      }
-    ]
+    "actions": []
   },
   "390080003": {
     "name": "Thundering Mephis",
