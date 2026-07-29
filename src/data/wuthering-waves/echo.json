@@ -2094,7 +2094,7 @@
         "applyOnAction": "echoSkill.0",
         "applyTo": "global",
         "useCooldown": 500,
-        "useOnType": "damage",
+        "useOnHas": "damage",
         "useIfField": "onField",
         "useAction": {
           "damage": {

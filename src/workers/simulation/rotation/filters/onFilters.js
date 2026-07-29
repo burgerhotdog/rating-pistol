@@ -9,7 +9,7 @@ const onAction = (rawFilter, { action }) => {
   return filter.some((key) => isMatch(key));
 };
 
-const onType = (rawFilter, { action }) => {
+const onHas = (rawFilter, { action }) => {
   const filter = toArray(rawFilter);
   return filter.some((part) => part in action);
 };
@@ -28,7 +28,7 @@ const onSkillType = (rawFilter, { action }) => {
   return filter.some((skillType) => isMatch(skillType));
 };
 
-const onDmgType = (rawFilter, { action }) => {
+const onDamageType = (rawFilter, { action }) => {
   const damage = action?.damage;
   if (!damage) return;
 
@@ -47,9 +47,9 @@ const onElement = (rawFilter, { action }) => {
 
 export const onFilters = {
   'OnAction': onAction,
-  'OnType': onType,
+  'OnHas': onHas,
   'OnTagged': onTagged,
   'OnSkillType': onSkillType,
-  'OnDmgType': onDmgType,
+  'OnDamageType': onDamageType,
   'OnElement': onElement,
 };

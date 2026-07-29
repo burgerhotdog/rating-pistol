@@ -245,7 +245,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDmgType": "elementalSkill",
+          "applyOnDamageType": "elementalSkill",
           "applyCooldown": 500,
           "applyTo": "$team",
           "buffMap": {
@@ -270,7 +270,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDmgType": "elementalSkill",
+          "applyOnDamageType": "elementalSkill",
           "applyCooldown": 300,
           "buffMap": {
             "atk%": 0.9,
@@ -368,7 +368,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnType": "healing",
+          "applyOnHas": "healing",
           "applyCooldown": 3500,
           "useWhen": "interval",
           "useCooldown": 3000,
@@ -438,7 +438,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDmgType": [
+          "applyOnDamageType": [
             "elementalSkill",
             "elementalBurst"
           ],
@@ -484,7 +484,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDmgType": "chargedAttack",
+          "applyOnDamageType": "chargedAttack",
           "buffMap": {
             "attackSpd%": 0.1,
             "normalAttackDmgBonus%": 0.4,
@@ -524,7 +524,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDmgType": [
+          "applyOnDamageType": [
             "normalAttack",
             "chargedAttack",
             "plungeAttack",
@@ -794,7 +794,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnType": "damage",
+          "applyOnHas": "damage",
           "applyTo": "$team",
           "buffMap": {
             "elementalMastery": 120
@@ -832,7 +832,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDmgType": [
+          "applyOnDamageType": [
             "normalAttack",
             "chargedAttack",
             "elementalSkill",
@@ -846,7 +846,7 @@
         {
           "enableIfTagged": "Hexerei",
           "applyWhen": "hit",
-          "applyOnDmgType": [
+          "applyOnDamageType": [
             "normalAttack",
             "chargedAttack",
             "elementalSkill",

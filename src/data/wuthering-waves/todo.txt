@@ -38,7 +38,6 @@ characters:
         1505 Shorekeeper
         1506 Phoebe
         1507 Zani
-        1508 Chisa
         1509 Lynae
         1510 Luuk Herssen
         1601 Taoqi
@@ -59,6 +58,12 @@ characters:
         1103 Baizhi
             euphonia to first
             s1 energy
+        1508 Chisa
+            s1 true damage
+            s3
+            s4
+            s5
+            s6
         1511 Lucy
             teammates inflicting hack: outro, rank 4
 

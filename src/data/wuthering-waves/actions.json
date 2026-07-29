@@ -39271,7 +39271,7 @@
           }
         },
         {
-          "name": "Eye of Unraveling - Retraction",
+          "name": "Eye of Unraveling: Retraction",
           "skillType": "dodgeCounter",
           "damage": {
             "type": "basicAttack",
@@ -39870,42 +39870,7 @@
                 ]
               }
             ]
-          }
-        },
-        {
-          "name": "Bonus DMG Multiplier per Ring of Chainsaw",
-          "damage": {
-            "type": "buff",
-            "multipliers": [
-              {
-                "mv": [
-                  0.013,
-                  0.0142,
-                  0.0152,
-                  0.0167,
-                  0.0178,
-                  0.0189,
-                  0.0207,
-                  0.0224,
-                  0.024,
-                  0.0259,
-                  0.028,
-                  0.0302,
-                  0.0323,
-                  0.0344,
-                  0.0365,
-                  0.0387,
-                  0.0408,
-                  0.0429,
-                  0.045,
-                  0.0472
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "Sawring - Eradication: Shield",
+          },
           "shield": {
             "multipliers": [
               {
@@ -39954,6 +39919,38 @@
                   2.7887,
                   2.9273,
                   3.0658
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Bonus DMG Multiplier per Ring of Chainsaw",
+          "damage": {
+            "type": "buff",
+            "multipliers": [
+              {
+                "mv": [
+                  0.013,
+                  0.0142,
+                  0.0152,
+                  0.0167,
+                  0.0178,
+                  0.0189,
+                  0.0207,
+                  0.0224,
+                  0.024,
+                  0.0259,
+                  0.028,
+                  0.0302,
+                  0.0323,
+                  0.0344,
+                  0.0365,
+                  0.0387,
+                  0.0408,
+                  0.0429,
+                  0.045,
+                  0.0472
                 ]
               }
             ]

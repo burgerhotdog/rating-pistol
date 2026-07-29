@@ -92,7 +92,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnType": "damage",
+          "applyOnHas": "damage",
           "buffMap": {
             "atk%": 0.05
           },
@@ -133,7 +133,7 @@
         {
           "applyWhen": "hit",
           "applyOnSkillType": "ultimate",
-          "useOnType": "damage",
+          "useOnHas": "damage",
           "buffMap": {
             "fireDmgBonus%": 0.12
           },
@@ -910,14 +910,14 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnType": "healing",
+          "applyOnHas": "healing",
           "buffMap": {
             "spd%": 0.06
           }
         },
         {
           "applyWhen": "hit",
-          "applyOnType": "healing",
+          "applyOnHas": "healing",
           "applyTo": "$team",
           "buffMap": {
             "critDmg%": 0.15

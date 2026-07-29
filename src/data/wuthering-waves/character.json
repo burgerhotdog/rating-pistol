@@ -429,7 +429,7 @@
         "applyOnAction": "resonanceLiberation.1",
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnType": "damage",
+        "useOnHas": "damage",
         "useIfField": "onField",
         "useCooldown": 1000,
         "useAction": "resonanceLiberation.0",
@@ -709,7 +709,7 @@
       },
       {
         "enableIfRankMin": 3,
-        "useOnDmgType": "outroSkill",
+        "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv": 10.3218
         }
@@ -1617,7 +1617,7 @@
       {
         "enableIfRankMin": 5,
         "applyWhen": "hit",
-        "applyOnDmgType": "basicAttack",
+        "applyOnDamageType": "basicAttack",
         "buffMap": {
           "basicAttackDmgBonus%": 0.15
         },
@@ -1839,7 +1839,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "buffMap": {
           "dmgAmp%": 0.05
         },
@@ -2349,7 +2349,7 @@
         "applyOnAction": "forteCircuit.0",
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnType": "damage",
+        "useOnHas": "damage",
         "useCooldown": 1000,
         "useAction": "forteCircuit.1",
         "maxDuration": 18000
@@ -2488,7 +2488,7 @@
         "applyOnAction": "resonanceSkill.0",
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnType": "damage",
+        "useOnHas": "damage",
         "useIfField": "onField",
         "useCooldown": 1200,
         "useAction": "resonanceSkill.1",
@@ -2802,7 +2802,7 @@
       },
       {
         "enableIfRankMin": 5,
-        "useOnDmgType": "outroSkill",
+        "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv%": 2.22
         }
@@ -2872,7 +2872,7 @@
     "effects": [
       {
         "useWhen": "hit",
-        "useOnType": "damage",
+        "useOnHas": "damage",
         "useCooldown": 500,
         "useAction": {
           "shield": {
@@ -3405,7 +3405,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "buffMap": {
           "critDmg%": 0.12
         },
@@ -3472,7 +3472,7 @@
       },
       {
         "enableIfRankMin": 5,
-        "useOnDmgType": "outroSkill",
+        "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv%": 1.2
         }
@@ -3480,7 +3480,7 @@
       {
         "enableIfRankMin": 5,
         "applyWhen": "before",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "buffMap": {
           "atk%": 0.45
         },
@@ -3755,7 +3755,7 @@
       },
       {
         "enableIfRankMin": 4,
-        "useOnDmgType": "resonanceLiberation",
+        "useOnDamageType": "resonanceLiberation",
         "buffMap": {
           "defIgnore%": 0.45
         }
@@ -4674,7 +4674,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.0",
-        "useOnDmgType": "outroSkill",
+        "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv%": 2.55
         }
@@ -4726,7 +4726,7 @@
         "enableIfRankMin": 2,
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.0",
-        "useOnDmgType": "outroSkill",
+        "useOnDamageType": "outroSkill",
         "useIfNegativeStatus": {
           "spectroFrazzle": 1
         },
@@ -5029,10 +5029,11 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnDamageType": "resonanceSkill",
+        "applyOnAction": "normalAttack.10",
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnType": "damage",
+        "useOnHas": "damage",
         "useCooldown": 2000,
         "useAction": {
           "inflictStatus": {
@@ -5044,13 +5045,12 @@
       {
         "applyWhen": "before",
         "applyOnSkillType": "outroSkill",
-        "applyTo": "$team",
         "maxDuration": 20000
       },
       {
         "applyBy": "$team",
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
@@ -5077,6 +5077,48 @@
         "applyTo": "applier",
         "buffMap": {
           "defIgnore%": 0.18
+        },
+        "maxDuration": 15000
+      },
+      {
+        "applyWhen": "before",
+        "applyOnAction": [
+          "introSkill.0",
+          "resonanceLiberation.0"
+        ],
+        "buffMap": {
+          "havocDmgBonus%": 0.2,
+          "healingBonus%": 0.2
+        },
+        "maxDuration": 12000
+      },
+      {
+        "enableIfRankMin": 1,
+        "applyWhen": "hit",
+        "applyOnDamageType": "resonanceSkill",
+        "applyOnAction": "normalAttack.10",
+        "buffMap": {
+          "atk%": 0.3
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIfRankMin": 2,
+        "buffMap": {
+          "havocResIgnore%": 0.1
+        }
+      },
+      {
+        "enableIfRankMin": 2,
+        "applyBy": "$team",
+        "applyWhen": "inflict",
+        "applyIfEffectStacksMin": {
+          "$prev.6": 1
+        },
+        "applyForInflictStatus": "any",
+        "applyTo": "applier",
+        "buffMap": {
+          "dmgBonus%": 0.5
         },
         "maxDuration": 15000
       }
@@ -5640,7 +5682,7 @@
       {
         "enableIfRankMin": 1,
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "buffMap": {
           "atk%": 0.05
         },
@@ -5781,7 +5823,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.0",
-        "useOnDmgType": "outroSkill",
+        "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv": 4.5902
         },
@@ -5839,7 +5881,7 @@
       },
       {
         "enableIfRankMin": 5,
-        "useOnDmgType": "outroSkill",
+        "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv%": 0.68
         }

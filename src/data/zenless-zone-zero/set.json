@@ -13,7 +13,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDmgType": "BA",
+          "applyOnDamageType": "BA",
           "buffMap": {
             "combatAtk%": 0.09
           },
@@ -21,7 +21,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnDmgType": "DC",
+          "applyOnDamageType": "DC",
           "buffMap": {
             "combatAtk%": 0.09
           },
@@ -29,7 +29,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnDmgType": "exSpecialAttack",
+          "applyOnDamageType": "exSpecialAttack",
           "buffMap": {
             "combatAtk%": 0.09
           },
@@ -79,7 +79,7 @@
       ],
       "4": [
         {
-          "useOnDmgType": [
+          "useOnDamageType": [
             "basicAttack",
             "dashAttack",
             "dodgeCounter"
@@ -188,7 +188,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnType": "damage",
+          "applyOnHas": "damage",
           "applyIfAnomaly": "burning",
           "buffMap": {
             "critRate%": 0.28
@@ -421,7 +421,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDmgType": [
+          "applyOnDamageType": [
             "aftershock",
             "dashAttack"
           ],
@@ -628,7 +628,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDmgType": "BA",
+          "applyOnDamageType": "BA",
           "buffMap": {
             "anomalyProficiency": 36
           },

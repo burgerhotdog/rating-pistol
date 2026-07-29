@@ -1384,7 +1384,7 @@
     },
     "effects": [
       {
-        "useOnDmgType": "elementalSkill",
+        "useOnDamageType": "elementalSkill",
         "buffCooldown": 1500,
         "buffSpec": {
           "flat": {
