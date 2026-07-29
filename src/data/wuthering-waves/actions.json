@@ -201,8 +201,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -234,8 +234,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -378,8 +378,8 @@
         },
         {
           "name": "Glacier Burst",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -410,8 +410,8 @@
         },
         {
           "name": "Ice Prism Burst",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -442,8 +442,8 @@
         },
         {
           "name": "Ice Thorn Burst",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -689,8 +689,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -722,8 +722,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -906,8 +906,8 @@
         {
           "name": "Remnant Entities",
           "skillType": "coordinatedAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "attr": "hp",
             "multipliers": [
               {
@@ -1407,8 +1407,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -1440,8 +1440,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -1803,8 +1803,8 @@
           "name": "Tail Strike",
           "tagged": "Striding Lion",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -2024,8 +2024,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -2080,8 +2080,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -2155,8 +2155,8 @@
         {
           "name": "Inklit Spirit",
           "skillType": "coordinatedAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -2228,8 +2228,8 @@
         {
           "name": "Stroke of Genius",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -2260,8 +2260,8 @@
         {
           "name": "Creation's Zenith",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -2555,8 +2555,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -2588,8 +2588,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -3639,8 +3639,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -3672,8 +3672,8 @@
         {
           "name": "Customary Greetings",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -3729,8 +3729,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -3932,8 +3932,8 @@
         {
           "name": "Era of New Wave",
           "skillType": "resonanceLiberation",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -3966,8 +3966,8 @@
           "name": "Death Knell",
           "tagged": "Twilight Tango",
           "skillType": "resonanceLiberation",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -4025,8 +4025,8 @@
           "name": "Fatal Finale",
           "tagged": "Twilight Tango",
           "skillType": "resonanceLiberation",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -4063,8 +4063,8 @@
         {
           "name": "Imminent Oblivion",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -4351,8 +4351,8 @@
         {
           "name": "Frost Splinter",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -4409,8 +4409,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -4442,8 +4442,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -4476,8 +4476,8 @@
           "name": "Basic Attack 1",
           "tagged": "Foreclaimed Self",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -4510,8 +4510,8 @@
           "name": "Basic Attack 2",
           "tagged": "Foreclaimed Self",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -4568,8 +4568,8 @@
           "name": "Basic Attack 3",
           "tagged": "Foreclaimed Self",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -4627,8 +4627,8 @@
           "name": "Basic Attack 4",
           "tagged": "Foreclaimed Self",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -4757,8 +4757,8 @@
           "name": "Basic Attack 5",
           "tagged": "Foreclaimed Self",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -4815,8 +4815,8 @@
           "name": "Heavy Attack",
           "tagged": "Foreclaimed Self",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -4849,8 +4849,8 @@
           "name": "Bitterfrost",
           "tagged": "Foreclaimed Self",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -4908,8 +4908,8 @@
           "name": "Mid-air Attack 1",
           "tagged": "Foreclaimed Self",
           "skillType": "mid-airAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -4990,8 +4990,8 @@
           "name": "Mid-air Attack 2",
           "tagged": "Foreclaimed Self",
           "skillType": "mid-airAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -5096,8 +5096,8 @@
           "name": "Mid-air Attack 3",
           "tagged": "Foreclaimed Self",
           "skillType": "mid-airAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -5130,8 +5130,8 @@
           "name": "Dodge Counter",
           "tagged": "Foreclaimed Self",
           "skillType": "dodgeCounter",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -5472,8 +5472,8 @@
           "name": "Iai",
           "tagged": "Foreclaimed Self",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -5535,8 +5535,8 @@
         {
           "name": "Frostedge",
           "skillType": "introSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -5736,8 +5736,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -5769,8 +5769,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -6008,8 +6008,8 @@
         {
           "name": "Clear As Day",
           "skillType": "resonanceLiberation",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -6190,8 +6190,8 @@
           "name": "Letting It Go",
           "tagged": "Reminiscence",
           "skillType": "resonanceLiberation",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -6249,8 +6249,8 @@
           "name": "Mid-air Attack",
           "tagged": "Reminiscence",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -6283,8 +6283,8 @@
           "name": "Dodge Counter",
           "tagged": "Reminiscence",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -6344,8 +6344,8 @@
       "actions": [
         {
           "name": "Oblivion",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -6699,8 +6699,8 @@
           "name": "Mid-air Attack",
           "tagged": "Zepher Stance",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -6733,8 +6733,8 @@
           "name": "Dodge Counter",
           "tagged": "Zepher Stance",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -7465,8 +7465,8 @@
         {
           "name": "Illuminating Dew",
           "skillType": "mid-airAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -7498,8 +7498,8 @@
         {
           "name": "Swallow's Cut",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -7782,8 +7782,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -7815,8 +7815,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -7952,8 +7952,8 @@
       "actions": [
         {
           "name": "Thermobaric Bullets",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -8301,8 +8301,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -8334,8 +8334,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -8647,8 +8647,8 @@
           "name": "Dodge Counter",
           "tagged": "Cosmos",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9051,8 +9051,8 @@
         {
           "name": "Mid-air Attack 1",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9084,8 +9084,8 @@
         {
           "name": "Mid-air Attack 2",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9117,8 +9117,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9224,8 +9224,8 @@
         {
           "name": "Marcato",
           "skillType": "coordinatedAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -9498,8 +9498,8 @@
         {
           "name": "Mid-air Attack 1",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9530,8 +9530,8 @@
         {
           "name": "Mid-air Attack 2",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9563,8 +9563,8 @@
         {
           "name": "Mid-air Attack 3",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9596,8 +9596,8 @@
         {
           "name": "Mid-air Attack 4",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9707,8 +9707,8 @@
         {
           "name": "Mid-air Heavy Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9739,8 +9739,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9834,8 +9834,8 @@
           "name": "Conquest",
           "tagged": "True Sight",
           "skillType": "basicAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -9914,8 +9914,8 @@
           "name": "Charge",
           "tagged": "True Sight",
           "skillType": "basicAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -10010,8 +10010,8 @@
         {
           "name": "Flaming Sacrifice",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -10409,8 +10409,8 @@
         {
           "name": "Mid-air Attack 1",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10442,8 +10442,8 @@
         {
           "name": "Mid-air Attack 1: Charged Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10524,8 +10524,8 @@
         {
           "name": "Mid-air Attack 1: Flip",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10581,8 +10581,8 @@
         {
           "name": "Mid-air Attack 1: Slash",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10615,8 +10615,8 @@
         {
           "name": "Mid-air Attack 2",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10672,8 +10672,8 @@
         {
           "name": "Mid-air Attack 2: Charged Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10706,8 +10706,8 @@
         {
           "name": "Mid-air Attack 2: Flip",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10763,8 +10763,8 @@
         {
           "name": "Mid-air Attack 3",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10797,8 +10797,8 @@
         {
           "name": "Mid-air Attack 3: Flip",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10854,8 +10854,8 @@
         {
           "name": "Mid-air Attack 4",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10936,8 +10936,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -11207,8 +11207,8 @@
         {
           "name": "Returned from Ashes",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -11940,8 +11940,8 @@
         {
           "name": "Mid-air Attack 1",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -11973,8 +11973,8 @@
         {
           "name": "Mid-air Attack 2",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -12031,8 +12031,8 @@
         {
           "name": "Mid-air Attack 3",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -12088,8 +12088,8 @@
         {
           "name": "Firestrike",
           "skillType": "mid-airAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -12145,8 +12145,8 @@
         {
           "name": "Plunging Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -12283,8 +12283,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -12484,8 +12484,8 @@
         {
           "name": "Dance With the Wolf",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -12566,8 +12566,8 @@
         {
           "name": "Dance With the Wolf: Climax",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -12647,8 +12647,8 @@
         },
         {
           "name": "Set the Arena Ablaze",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -12766,8 +12766,8 @@
         {
           "name": "Nowhere to Run!",
           "skillType": "introSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -12840,8 +12840,8 @@
         {
           "name": "Basic Attack 1",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -12873,8 +12873,8 @@
         {
           "name": "Basic Attack 2",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -12954,8 +12954,8 @@
         {
           "name": "Basic Attack 3",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13059,8 +13059,8 @@
         {
           "name": "Basic Attack 4",
           "skillType": "basicAttack",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -13092,8 +13092,8 @@
         {
           "name": "Blood for Blood",
           "skillType": "dodgeCounter",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13197,8 +13197,8 @@
         {
           "name": "Ashfall Barrage Plunging Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13230,8 +13230,8 @@
         {
           "name": "Ashfall Barrage Sustained Fire",
           "skillType": "mid-airAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13352,8 +13352,8 @@
         {
           "name": "Volley of Death 3",
           "skillType": "heavyAttack",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -13415,8 +13415,8 @@
         {
           "name": "Encroach",
           "skillType": "resonanceSkill",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13472,8 +13472,8 @@
         {
           "name": "Ascent of Malice",
           "skillType": "resonanceSkill",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13534,8 +13534,8 @@
         {
           "name": "Hellfire Absolution",
           "skillType": "resonanceLiberation",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -13597,8 +13597,8 @@
         {
           "name": "Seraphic Execution 1",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13630,8 +13630,8 @@
         {
           "name": "Seraphic Execution 2",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13711,8 +13711,8 @@
         {
           "name": "Seraphic Execution 3",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13769,8 +13769,8 @@
         {
           "name": "Seraphic Execution 4",
           "skillType": "basicAttack",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -13827,8 +13827,8 @@
         {
           "name": "Seraphic Execution 5",
           "skillType": "basicAttack",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -13973,8 +13973,8 @@
         {
           "name": "Flamewing Verdict 3",
           "skillType": "heavyAttack",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -14031,8 +14031,8 @@
         {
           "name": "Purgatory Scourge",
           "skillType": "dodgeCounter",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -14089,8 +14089,8 @@
         {
           "name": "Hellsent Barrage Plunging Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -14122,8 +14122,8 @@
         {
           "name": "Hellsent Barrage Sustained Fire",
           "skillType": "mid-airAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -14155,8 +14155,8 @@
         {
           "name": "Ravage",
           "skillType": "resonanceSkill",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -14710,8 +14710,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -14743,8 +14743,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -14777,8 +14777,8 @@
           "name": "Dodge Counter",
           "tagged": "Wide Field Observation Mode",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -15090,8 +15090,8 @@
         },
         {
           "name": "Syntony Field",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -15212,8 +15212,8 @@
         },
         {
           "name": "Particle Jet",
-          "dmgType": "tuneRupture",
           "damage": {
+            "type": "tuneRupture",
             "attr": "tuneAmp",
             "multipliers": [
               {
@@ -15551,8 +15551,8 @@
         {
           "name": "Heavy Attack Charged I",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -15608,8 +15608,8 @@
         {
           "name": "Heavy Attack Charged II",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -15666,8 +15666,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -15699,8 +15699,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -16159,8 +16159,8 @@
           "name": "Heavy Attack Charged I",
           "tagged": "Mech",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -16193,8 +16193,8 @@
           "name": "Heavy Attack Charged II",
           "tagged": "Mech",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -16227,8 +16227,8 @@
           "name": "Mid-air Attack",
           "tagged": "Mech",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -16286,8 +16286,8 @@
           "name": "Dodge Counter",
           "tagged": "Mech",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -16468,8 +16468,8 @@
           "name": "Seraphic Duet: Encore",
           "tagged": "Mech",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -16551,8 +16551,8 @@
         {
           "name": "Seraphic Duet: Overture",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -16658,8 +16658,8 @@
         },
         {
           "name": "Starburst",
-          "dmgType": "tuneRupture",
           "damage": {
+            "type": "tuneRupture",
             "attr": "tuneAmp",
             "multipliers": [
               {
@@ -16691,8 +16691,8 @@
         },
         {
           "name": "Seraphic Duet Bonus DMG (Per Instance)",
-          "dmgType": "buff",
           "damage": {
+            "type": "buff",
             "attr": "tuneAmp",
             "multipliers": [
               {
@@ -17031,8 +17031,8 @@
           "name": "Mid-air Attack",
           "tagged": "Stagecraft Form",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17089,8 +17089,8 @@
           "name": "Dodge Counter",
           "tagged": "Stagecraft Form",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17338,8 +17338,8 @@
           "name": "Mid-air Attack 1",
           "tagged": "Breakdown Form",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17372,8 +17372,8 @@
           "name": "Mid-air Attack 2",
           "tagged": "Breakdown Form",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17431,8 +17431,8 @@
           "name": "Mid-air Attack 3",
           "tagged": "Breakdown Form",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17465,8 +17465,8 @@
           "name": "Mid-air Attack 4",
           "tagged": "Breakdown Form",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17523,8 +17523,8 @@
           "name": "Mid-air Heavy Attack",
           "tagged": "Breakdown Form",
           "skillType": "mid-airAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17581,8 +17581,8 @@
           "name": "Dodge Counter",
           "tagged": "Breakdown Form",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17736,8 +17736,8 @@
           "name": "Banish 1",
           "tagged": "Breakdown Form",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -17771,8 +17771,8 @@
           "name": "Banish 2",
           "tagged": "Breakdown Form",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -17880,8 +17880,8 @@
       "actions": [
         {
           "name": "Erosion Field DMG per tick",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -18213,8 +18213,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -18246,8 +18246,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -18754,8 +18754,8 @@
           "name": "Dodge Counter",
           "tagged": "Deathblade Gear",
           "skillType": "dodgeCounter",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -18851,8 +18851,8 @@
           "name": "\"Death Messenger\"",
           "tagged": "Deathblade Gear",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -19161,8 +19161,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -19194,8 +19194,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -19300,8 +19300,8 @@
           "name": "Electromagnetic Blast",
           "tagged": "Sinner's Mark",
           "skillType": "coordinatedAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -19410,8 +19410,8 @@
           "name": "Judgment Strike",
           "tagged": "Punishment Mark",
           "skillType": "coordinatedAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -19742,8 +19742,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -19775,8 +19775,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -19847,8 +19847,8 @@
         {
           "name": "Thunder Wedge: Coordinated Attack",
           "skillType": "coordinatedAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "attr": "def",
             "multipliers": [
               {
@@ -19880,8 +19880,8 @@
         },
         {
           "name": "Thunder Wedge: Detonation",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "attr": "def",
             "multipliers": [
               {
@@ -19991,8 +19991,8 @@
         {
           "name": "Thunder Uprising",
           "skillType": "coordinatedAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "attr": "def",
             "multipliers": [
               {
@@ -20342,8 +20342,8 @@
           "name": "Dodge Counter",
           "tagged": "Lightning Infused",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "def",
             "multipliers": [
               {
@@ -20728,8 +20728,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -20806,8 +20806,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -21066,8 +21066,8 @@
           "name": "Basic Attack 1",
           "tagged": "Incarnation",
           "skillType": "basicAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -21099,8 +21099,8 @@
           "name": "Basic Attack 2",
           "tagged": "Incarnation",
           "skillType": "basicAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -21178,8 +21178,8 @@
           "name": "Basic Attack 3",
           "tagged": "Incarnation",
           "skillType": "basicAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -21234,8 +21234,8 @@
           "name": "Basic Attack 4",
           "tagged": "Incarnation",
           "skillType": "basicAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -21346,8 +21346,8 @@
           "name": "Dodge Counter",
           "tagged": "Incarnation",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -21537,8 +21537,8 @@
         {
           "name": "Stella Glamor",
           "tagged": "Illuminous Epiphany",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -21569,8 +21569,8 @@
         {
           "name": "Additional multiplier per Incandescence",
           "tagged": "Illuminous Epiphany",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -21874,8 +21874,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -21907,8 +21907,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -22170,8 +22170,8 @@
         {
           "name": "Unfathomed",
           "skillType": "dodgeCounter",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -22233,8 +22233,8 @@
         {
           "name": "Decipher",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -22266,8 +22266,8 @@
         {
           "name": "Law of Reigns",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -22324,8 +22324,8 @@
         {
           "name": "Revamp",
           "skillType": "mid-airAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -22601,8 +22601,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -22635,8 +22635,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -22669,8 +22669,8 @@
         {
           "name": "Mid-air Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -22801,8 +22801,8 @@
         {
           "name": "Steelclash",
           "skillType": "dodgeCounter",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -22835,8 +22835,8 @@
         {
           "name": "Thunderoar - Backstep",
           "skillType": "dodgeCounter",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -22911,8 +22911,8 @@
         {
           "name": "Sword of Eternal Oath",
           "skillType": "resonanceLiberation",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -23019,8 +23019,8 @@
         {
           "name": "Sublime is the Sun - Sunborne (x9)",
           "skillType": "resonanceLiberation",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -23052,8 +23052,8 @@
         {
           "name": "Sublime is the Sun - Everbright Protector",
           "skillType": "resonanceLiberation",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -23229,8 +23229,8 @@
         {
           "name": "Undying Sunlight: Plunge",
           "skillType": "resonanceSkill",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -23286,8 +23286,8 @@
         {
           "name": "Undying Sunlight: Strike",
           "skillType": "MDC",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -23505,8 +23505,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -23538,8 +23538,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -23782,8 +23782,8 @@
         },
         {
           "name": "Pull-in Effect: Continuous",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -23889,8 +23889,8 @@
         },
         {
           "name": "Five Thunders Spell Array Continuous",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -24178,8 +24178,8 @@
           "name": "Heavy Attack",
           "tagged": "Huntress",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -24293,8 +24293,8 @@
           "name": "Mid-air Attack",
           "tagged": "Huntress",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -24327,8 +24327,8 @@
           "name": "Dodge Counter",
           "tagged": "Huntress",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -24418,8 +24418,8 @@
         {
           "name": "Tactical Dodge: Successful Dodge",
           "tagged": "Huntress",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -24656,8 +24656,8 @@
           "name": "Mid-air Attack",
           "tagged": "Guts",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -24690,8 +24690,8 @@
           "name": "Dodge Counter",
           "tagged": "Guts",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -24756,8 +24756,8 @@
         {
           "name": "Tactical Dodge: Successful Dodge",
           "tagged": "Guts",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -25176,8 +25176,8 @@
       "actions": [
         {
           "name": "Mk. 31 HMG",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -25208,8 +25208,8 @@
         },
         {
           "name": "Mk. 31 HMG: 1st Enhancement",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -25240,8 +25240,8 @@
         },
         {
           "name": "Mk. 31 HMG: 2nd Enhancement",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -25273,9 +25273,9 @@
         {
           "name": "BOOM! Fireworks!",
           "skillType": "resonanceLiberation",
-          "dmgType": "basicAttack",
           "inflictShifting": "hack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -25339,8 +25339,8 @@
       "actions": [
         {
           "name": "Meltdown",
-          "dmgType": "hack",
           "damage": {
+            "type": "hack",
             "attr": "tuneAmp",
             "multipliers": [
               {
@@ -25374,9 +25374,9 @@
           "name": "Rat-tat-tat!",
           "tagged": "Huntress",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "inflictShifting": "hack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -25505,9 +25505,9 @@
           "name": "Bang-bang-bang!",
           "tagged": "Guts",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "inflictShifting": "hack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -26103,8 +26103,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -26168,8 +26168,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -26362,8 +26362,8 @@
         {
           "name": "Feather Release",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -26637,8 +26637,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -26734,8 +26734,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -26771,8 +26771,8 @@
       "actions": [
         {
           "name": "Mist Bullet (x6)",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -26850,8 +26850,8 @@
       "actions": [
         {
           "name": "Mist Bullet (Forte) (x6)",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -27226,8 +27226,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -27259,8 +27259,8 @@
         {
           "name": "Banner Of Triumph",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -27324,8 +27324,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -27512,8 +27512,8 @@
         {
           "name": "Emerald Storm - Finale",
           "skillType": "resonanceLiberation",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -27808,8 +27808,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -27840,8 +27840,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -27968,8 +27968,8 @@
       "actions": [
         {
           "name": "Purification Force Field: Continuous",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -27999,8 +27999,8 @@
         },
         {
           "name": "Purification Force Field: Explosion",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -28851,8 +28851,8 @@
         {
           "name": "Mid-air Attack 1",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -28885,8 +28885,8 @@
         {
           "name": "Mid-air Attack 2",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -28919,8 +28919,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -29030,11 +29030,11 @@
         },
         {
           "name": "Symphonic Poem: Tonic",
-          "dmgType": "resonanceLiberation",
           "inflictStatus": {
             "aeroErosion": 1
           },
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -29461,8 +29461,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -29567,8 +29567,8 @@
         {
           "name": "Heavy Attack",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -29626,9 +29626,9 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
-          "specialType": "aeroErosion",
+          "extraType": "aeroErosion",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -29661,9 +29661,9 @@
         {
           "name": "Mid-air Attack 1 Sword Shadow Recalled",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
-          "specialType": "aeroErosion",
+          "extraType": "aeroErosion",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -29696,9 +29696,9 @@
         {
           "name": "Mid-air Attack 2 Sword Shadows Recalled",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
-          "specialType": "aeroErosion",
+          "extraType": "aeroErosion",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -29732,9 +29732,9 @@
         {
           "name": "Mid-air Attack 3 Sword Shadows Recalled",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
-          "specialType": "aeroErosion",
+          "extraType": "aeroErosion",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -29773,8 +29773,8 @@
         {
           "name": "Sword to Bear Their Names",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -30210,8 +30210,8 @@
         {
           "name": "Fleurdelys: Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -30315,8 +30315,8 @@
         },
         {
           "name": "Fleurdelys: Upward Cut",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -30350,8 +30350,8 @@
         {
           "name": "Fleurdelys: Heavy Attack",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -30466,8 +30466,8 @@
         {
           "name": "Fleurdelys: Mid-air Attack 1",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -30548,8 +30548,8 @@
         {
           "name": "Fleurdelys: Mid-air Attack 2",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -30630,8 +30630,8 @@
         {
           "name": "Fleurdelys: Mid-air Attack 3",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "attr": "hp",
             "multipliers": [
               {
@@ -31066,8 +31066,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -31100,8 +31100,8 @@
         {
           "name": "Moonring: Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -31158,8 +31158,8 @@
         {
           "name": "Moonbow: Basic Attack 1",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31191,8 +31191,8 @@
         {
           "name": "Moonbow: Basic Attack 2",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31225,8 +31225,8 @@
         {
           "name": "Moonbow: Basic Attack 3",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31259,8 +31259,8 @@
         {
           "name": "Moonbow: Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31469,8 +31469,8 @@
         {
           "name": "Arc Beyond the Edge",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31545,8 +31545,8 @@
         {
           "name": "Flux: Moonbow",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31578,8 +31578,8 @@
         {
           "name": "Flux: Moonring",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31612,8 +31612,8 @@
         {
           "name": "Enhanced Moonbow: Basic Attack 1",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31674,8 +31674,8 @@
         {
           "name": "Enhanced Moonbow: Basic Attack 2",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31737,8 +31737,8 @@
         {
           "name": "Enhanced Moonbow: Basic Attack 3",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31800,8 +31800,8 @@
         {
           "name": "Enhanced Moonbow: Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31863,8 +31863,8 @@
         {
           "name": "Enhanced Arc Beyond the Edge",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -31926,8 +31926,8 @@
         {
           "name": "Absolute Fullness",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -32320,8 +32320,8 @@
         {
           "name": "Mid-air Attack DMG",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -32385,8 +32385,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -32448,8 +32448,8 @@
         {
           "name": "Through the Groves",
           "skillType": "resonanceSkill",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -32482,8 +32482,8 @@
         {
           "name": "Undaunted Wayfarer",
           "skillType": "resonanceSkill",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -32569,8 +32569,8 @@
         {
           "name": "Sundering Strike",
           "skillType": "resonanceLiberation",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -32607,8 +32607,8 @@
         {
           "name": "Thus Spoke the Blade: Inkwash 1",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -32664,8 +32664,8 @@
         {
           "name": "Thus Spoke the Blade: Inkwash 2",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -32745,8 +32745,8 @@
         {
           "name": "Thus Spoke the Blade: Inkwash 3",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -32827,8 +32827,8 @@
         {
           "name": "Thus Spoke the Blade: Inkwash 4",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -33130,8 +33130,8 @@
         {
           "name": "Attack the Must-Defend",
           "skillType": "introSkill",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -33217,8 +33217,8 @@
         {
           "name": "Strike Before Ready",
           "skillType": "outroSkill",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": 1
@@ -33508,8 +33508,8 @@
         {
           "name": "Decipher: Basic Attack - Elucidated",
           "skillType": "basicAttack",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -33599,8 +33599,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -33632,8 +33632,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -33745,8 +33745,8 @@
         {
           "name": "Decipher: Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -33912,8 +33912,8 @@
         {
           "name": "Decipher: BIG BOOMY BOOM!",
           "skillType": "resonanceSkill",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -33970,8 +33970,8 @@
         {
           "name": "Decipher: Soliskin to the Aid",
           "skillType": "resonanceSkill",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -34033,8 +34033,8 @@
         {
           "name": "Where Trust Leads Me!",
           "skillType": "resonanceLiberation",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -34071,8 +34071,8 @@
         {
           "name": "Schemata of Runes",
           "skillType": "heavyAttack",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -34103,8 +34103,8 @@
         },
         {
           "name": "Runic Outburst",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -34183,8 +34183,8 @@
         },
         {
           "name": "Runic Chain Whip",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -34241,8 +34241,8 @@
         },
         {
           "name": "Runic Soliskin",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -34323,8 +34323,8 @@
         {
           "name": "Learn My True Name",
           "skillType": "resonanceSkill",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -34633,8 +34633,8 @@
         {
           "name": "Mid-air Attack 1",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -34666,8 +34666,8 @@
         {
           "name": "Mid-air Attack 2",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -34699,8 +34699,8 @@
         {
           "name": "Mid-air Attack 3",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -34733,8 +34733,8 @@
         {
           "name": "Mid-air Heavy Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -34766,8 +34766,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -34949,8 +34949,8 @@
         {
           "name": "Photosynthesis Mark",
           "skillType": "coordinatedAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -35146,8 +35146,8 @@
           "name": "Mid-air Attack 1",
           "tagged": "Starflower Blooms",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35231,8 +35231,8 @@
           "name": "Mid-air Attack 2",
           "tagged": "Starflower Blooms",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35316,8 +35316,8 @@
           "name": "Mid-air Attack 3",
           "tagged": "Starflower Blooms",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35488,8 +35488,8 @@
         {
           "name": "Glitter",
           "tagged": "Yellow Light",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35522,8 +35522,8 @@
           "name": "Mid-air Attack",
           "tagged": "Yellow Light",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35704,8 +35704,8 @@
           "name": "Heavy Attack",
           "tagged": "Red Light",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35739,8 +35739,8 @@
           "name": "Mid-air Attack",
           "tagged": "Red Light",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35773,8 +35773,8 @@
           "name": "Dodge Counter",
           "tagged": "Red Light",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35944,8 +35944,8 @@
         {
           "name": "Glare",
           "tagged": "Yellow Spotlight",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36126,8 +36126,8 @@
           "name": "Heavy Attack",
           "tagged": "Red Spotlight",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36161,8 +36161,8 @@
           "name": "Energized Pounce",
           "tagged": "Yellow Spotlight",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36196,8 +36196,8 @@
           "name": "Energized Rebound",
           "tagged": "Red Spotlight",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36228,8 +36228,8 @@
         },
         {
           "name": "Single Laser Beam",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36477,8 +36477,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36510,8 +36510,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36604,8 +36604,8 @@
         },
         {
           "name": "Dim Star Butterfly (x5)",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -36705,8 +36705,8 @@
       "actions": [
         {
           "name": "Flare Star Butterfly",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36771,8 +36771,8 @@
         {
           "name": "Transmutation",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36809,8 +36809,8 @@
         {
           "name": "Enlightenment",
           "skillType": "introSkill",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -36895,8 +36895,8 @@
         {
           "name": "Discernment",
           "skillType": "introSkill",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "attr": "hp",
             "multipliers": [
               {
@@ -37152,8 +37152,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -37186,8 +37186,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -37221,8 +37221,8 @@
           "name": "Dodge Counter",
           "tagged": "Chamuel's Star",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -37292,8 +37292,8 @@
         },
         {
           "name": "Refracted Holy Light",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -37926,8 +37926,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -37959,8 +37959,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -38086,9 +38086,9 @@
         {
           "name": "Targeted Action",
           "skillType": "resonanceSkill",
-          "dmgType": "resonanceSkill",
-          "specialType": "spectroFrazzle",
+          "extraType": "spectroFrazzle",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -38168,7 +38168,7 @@
         {
           "name": "Forcible Riposte",
           "skillType": "resonanceSkill",
-          "specialType": "spectroFrazzle",
+          "extraType": "spectroFrazzle",
           "damage": {
             "multipliers": [
               {
@@ -38348,9 +38348,9 @@
           "name": "Heavy Slash - Daybreak",
           "tagged": "Inferno Mode",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
-          "specialType": "spectroFrazzle",
+          "extraType": "spectroFrazzle",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -38383,9 +38383,9 @@
           "name": "Heavy Slash - Dawning",
           "tagged": "Inferno Mode",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
-          "specialType": "spectroFrazzle",
+          "extraType": "spectroFrazzle",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -38418,9 +38418,9 @@
           "name": "Heavy Slash - Nightfall",
           "tagged": "Inferno Mode",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
-          "specialType": "spectroFrazzle",
+          "extraType": "spectroFrazzle",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -38475,9 +38475,9 @@
         },
         {
           "name": "Additional Multiplier Per Blaze",
-          "dmgType": "heavyAttack",
-          "specialType": "spectroFrazzle",
+          "extraType": "spectroFrazzle",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -38509,9 +38509,9 @@
         {
           "name": "Heavy Slash - Lightsmash",
           "tagged": "Inferno Mode",
-          "dmgType": "heavyAttack",
-          "specialType": "spectroFrazzle",
+          "extraType": "spectroFrazzle",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -38610,7 +38610,7 @@
         {
           "name": "Beacon For the Future",
           "skillType": "outroSkill",
-          "specialType": "spectroFrazzle",
+          "extraType": "spectroFrazzle",
           "damage": {
             "multipliers": [
               {
@@ -38740,10 +38740,67 @@
           }
         },
         {
+          "name": "Rending Lunge",
+          "skillType": "basicAttack",
+          "damage": {
+            "multipliers": [
+              {
+                "mv": [
+                  0.0761,
+                  0.0823,
+                  0.0885,
+                  0.0972,
+                  0.1035,
+                  0.1106,
+                  0.1206,
+                  0.1306,
+                  0.1406,
+                  0.1511,
+                  0.1636,
+                  0.1761,
+                  0.1885,
+                  0.201,
+                  0.2135,
+                  0.2259,
+                  0.2384,
+                  0.2509,
+                  0.2633,
+                  0.2758
+                ],
+                "times": 4
+              },
+              {
+                "mv": [
+                  0.4561,
+                  0.4935,
+                  0.5308,
+                  0.5832,
+                  0.6206,
+                  0.6636,
+                  0.7234,
+                  0.7833,
+                  0.8431,
+                  0.9066,
+                  0.9814,
+                  1.0562,
+                  1.131,
+                  1.2058,
+                  1.2806,
+                  1.3554,
+                  1.4301,
+                  1.5049,
+                  1.5797,
+                  1.6545
+                ]
+              }
+            ]
+          }
+        },
+        {
           "name": "Death Snip",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -38816,16 +38873,7 @@
                   1.818,
                   1.904
                 ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "Death Snip: Additional",
-          "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
-          "damage": {
-            "multipliers": [
+              },
               {
                 "mv": [
                   0.2403,
@@ -38851,10 +38899,7 @@
                 ]
               }
             ]
-          }
-        },
-        {
-          "name": "Death Snip: Team Healing",
+          },
           "healing": {
             "multipliers": [
               {
@@ -38965,63 +39010,6 @@
           }
         },
         {
-          "name": "Rending Lunge",
-          "skillType": "basicAttack",
-          "damage": {
-            "multipliers": [
-              {
-                "mv": [
-                  0.0761,
-                  0.0823,
-                  0.0885,
-                  0.0972,
-                  0.1035,
-                  0.1106,
-                  0.1206,
-                  0.1306,
-                  0.1406,
-                  0.1511,
-                  0.1636,
-                  0.1761,
-                  0.1885,
-                  0.201,
-                  0.2135,
-                  0.2259,
-                  0.2384,
-                  0.2509,
-                  0.2633,
-                  0.2758
-                ],
-                "times": 4
-              },
-              {
-                "mv": [
-                  0.4561,
-                  0.4935,
-                  0.5308,
-                  0.5832,
-                  0.6206,
-                  0.6636,
-                  0.7234,
-                  0.7833,
-                  0.8431,
-                  0.9066,
-                  0.9814,
-                  1.0562,
-                  1.131,
-                  1.2058,
-                  1.2806,
-                  1.3554,
-                  1.4301,
-                  1.5049,
-                  1.5797,
-                  1.6545
-                ]
-              }
-            ]
-          }
-        },
-        {
           "name": "Heavy Attack",
           "skillType": "heavyAttack",
           "damage": {
@@ -39057,8 +39045,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -39204,8 +39192,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -39285,8 +39273,8 @@
         {
           "name": "Eye of Unraveling - Retraction",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -39387,8 +39375,8 @@
         },
         {
           "name": "Serrated Loop: Hold",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -39515,8 +39503,8 @@
           "name": "Sawring - Blitz 1",
           "tagged": "Chainsaw Mode",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39550,8 +39538,8 @@
           "name": "Sawring - Blitz 2",
           "tagged": "Chainsaw Mode",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39585,8 +39573,8 @@
           "name": "Sawring - Blitz 2: Hold",
           "tagged": "Chainsaw Mode",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39620,8 +39608,8 @@
           "name": "Sawring - Blitz 2: Discordance",
           "tagged": "Chainsaw Mode",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39655,8 +39643,8 @@
           "name": "Sawring - Blitz 3",
           "tagged": "Chainsaw Mode",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39690,8 +39678,8 @@
           "name": "Sawring - Blitz 3: Hold",
           "tagged": "Chainsaw Mode",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39725,8 +39713,8 @@
           "name": "Sawring - Blitz 3: Falltone",
           "tagged": "Chainsaw Mode",
           "skillType": "heavyAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39760,8 +39748,8 @@
           "name": "Dodge Counter",
           "tagged": "Chainsaw Mode",
           "skillType": "dodgeCounter",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39795,8 +39783,8 @@
           "name": "Dodge Counter: Hold",
           "tagged": "Chainsaw Mode",
           "skillType": "dodgeCounter",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39830,8 +39818,8 @@
           "name": "Sawring - Eradication",
           "tagged": "Chainsaw Mode",
           "skillType": "basicAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -39886,8 +39874,8 @@
         },
         {
           "name": "Bonus DMG Multiplier per Ring of Chainsaw",
-          "dmgType": "buff",
           "damage": {
+            "type": "buff",
             "multipliers": [
               {
                 "mv": [
@@ -40171,8 +40159,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40204,8 +40192,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40261,8 +40249,8 @@
         {
           "name": "Spark Collision Lv. 1",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40295,8 +40283,8 @@
         {
           "name": "Spark Collision Lv. 2",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40329,8 +40317,8 @@
         {
           "name": "Spark Collision Lv. 3",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40623,8 +40611,8 @@
         {
           "name": "Kaleidoscopic Parade: Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40656,8 +40644,8 @@
         {
           "name": "Kaleidoscopic Parade: Ground Heavy Attack",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40689,8 +40677,8 @@
         },
         {
           "name": "Kaleidoscopic Parade: Graffiti Blast",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40722,8 +40710,8 @@
         {
           "name": "Kaleidoscopic Parade: Mid-Air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40779,8 +40767,8 @@
         {
           "name": "Kaleidoscopic Parade: Mid-air Heavy Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41009,9 +40997,9 @@
         {
           "name": "Kaleidoscopic Parade: Iridescent Splash",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "inflictShifting": "tuneRupture",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41043,9 +41031,9 @@
         {
           "name": "Kaleidoscopic Parade: Visual Impact",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "inflictShifting": "tuneRupture",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41178,8 +41166,8 @@
         },
         {
           "name": "Spectral Analysis",
-          "dmgType": "tuneRupture",
           "damage": {
+            "type": "tuneRupture",
             "attr": "tuneAmp",
             "multipliers": [
               {
@@ -41483,8 +41471,8 @@
         {
           "name": "Mid-air Attack 1",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41516,8 +41504,8 @@
         {
           "name": "Mid-air Attack 2 Scythe: Dissection",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41597,8 +41585,8 @@
         {
           "name": "Mid-air Attack 3 Scythe: Dissection",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41678,9 +41666,9 @@
         {
           "name": "Mid-air Attack 2 Scythe: Resection",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "inflictShifting": "tuneStrain",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41736,9 +41724,9 @@
         {
           "name": "Mid-air Attack 3 Scythe: Resection",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "inflictShifting": "tuneStrain",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41794,8 +41782,8 @@
         {
           "name": "Mid-air Attack 4",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41827,8 +41815,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41954,9 +41942,9 @@
         {
           "name": "Aureole of Execution: Ring",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "inflictShifting": "tuneStrain",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42013,9 +42001,9 @@
         {
           "name": "Aureole of Execution: Breach",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "inflictShifting": "tuneStrain",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42048,9 +42036,9 @@
         {
           "name": "Aureole of Execution: Glare",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "inflictShifting": "tuneStrain",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42113,8 +42101,8 @@
         },
         {
           "name": "Ichor Deposit",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42151,8 +42139,8 @@
         {
           "name": "Rewritten in Winter's Margins",
           "skillType": "resonanceLiberation",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42214,8 +42202,8 @@
         {
           "name": "Gavel of Earthshaker",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42793,8 +42781,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42850,8 +42838,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42932,8 +42920,8 @@
           "name": "Mid-air Attack",
           "tagged": "Algorithm Compaction",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42990,8 +42978,8 @@
           "name": "Dodge Counter",
           "tagged": "Algorithm Compaction",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -43120,8 +43108,8 @@
           "name": "Thread Shredding 1",
           "tagged": "Algorithm Compaction",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -43226,8 +43214,8 @@
           "name": "Thread Shredding 2",
           "tagged": "Algorithm Compaction",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -43356,8 +43344,8 @@
           "name": "Thread Shredding 3",
           "tagged": "Algorithm Compaction",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -43486,8 +43474,8 @@
           "name": "Thread Shredding 4",
           "tagged": "Algorithm Compaction",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -43993,8 +43981,8 @@
         },
         {
           "name": "Payload: Follow-up Attack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -44157,9 +44145,9 @@
           "name": "Deadlock",
           "tagged": "Algorithm Compaction",
           "skillType": "resonanceSkill",
-          "dmgType": "heavyAttack",
           "inflictShifting": "hack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -44224,8 +44212,8 @@
         },
         {
           "name": "Spoofing Program: Ping",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -44262,8 +44250,8 @@
         },
         {
           "name": "Spoofing Program: Synapse Burnout",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -44294,8 +44282,8 @@
         },
         {
           "name": "Spoofing Program: Cripple Movement",
-          "dmgType": "hack",
           "damage": {
+            "type": "hack",
             "attr": "tuneAmp",
             "multipliers": [
               {
@@ -44327,8 +44315,8 @@
         },
         {
           "name": "Netrunner: Override",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -44360,8 +44348,8 @@
         {
           "name": "Netrunner: Old Net Deep Dive",
           "tagged": "Algorithm Compaction",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -44397,8 +44385,8 @@
       "actions": [
         {
           "name": "Data Crash",
-          "dmgType": "hack",
           "damage": {
+            "type": "hack",
             "attr": "tuneAmp",
             "multipliers": [
               {
@@ -44692,8 +44680,8 @@
         },
         {
           "name": "Strategic Parry",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "attr": "def",
             "multipliers": [
               {
@@ -44726,8 +44714,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -44759,8 +44747,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -45370,8 +45358,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -45403,8 +45391,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -45677,8 +45665,8 @@
         },
         {
           "name": "Crimson Bloom: Scarlet Burst",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": [
@@ -46063,8 +46051,8 @@
         {
           "name": "Heavy Attack",
           "skillType": "heavyAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46097,8 +46085,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46131,8 +46119,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46170,8 +46158,8 @@
         {
           "name": "Crimson Blossom",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46374,8 +46362,8 @@
           "name": "Floral Ravage",
           "tagged": "Blossom Mode",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46443,8 +46431,8 @@
           "name": "Atonement",
           "tagged": "Blossom Mode",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46519,8 +46507,8 @@
         {
           "name": "Ephemeral",
           "skillType": "resonanceSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46799,8 +46787,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46832,8 +46820,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46909,8 +46897,8 @@
         {
           "name": "Commedia Improvviso!",
           "skillType": "resonanceLiberation",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46948,8 +46936,8 @@
         {
           "name": "Real Fantasy 1",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46981,8 +46969,8 @@
         {
           "name": "Real Fantasy 2",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47014,8 +47002,8 @@
         {
           "name": "Real Fantasy 3",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47264,8 +47252,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47321,8 +47309,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47426,8 +47414,8 @@
         },
         {
           "name": "Jolt",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47465,8 +47453,8 @@
           "name": "Flowing Suffocation",
           "skillType": "resonanceLiberation",
           "extraSkillType": "echoSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47498,8 +47486,8 @@
         {
           "name": "Diffusion",
           "skillType": "coordinatedAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47639,8 +47627,8 @@
           "name": "Abysmal Vortex",
           "tagged": "Mirage",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47698,8 +47686,8 @@
           "tagged": "Mirage",
           "skillType": "resonanceSkill",
           "extraSkillType": "echoSkill",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47733,8 +47721,8 @@
           "name": "Shadowy Sweep",
           "tagged": "Mirage",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -48118,8 +48106,8 @@
           "name": "Scarlet Coda",
           "skillType": "heavyAttack",
           "extraSkillType": "echoSkill",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -48201,8 +48189,8 @@
         {
           "name": "Mid-air Attack",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -48234,8 +48222,8 @@
         {
           "name": "Dodge Counter",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -48311,8 +48299,8 @@
           "name": "Basic Attack 1",
           "tagged": "Hecate",
           "skillType": "basicAttack",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -48346,8 +48334,8 @@
           "name": "Basic Attack 2",
           "tagged": "Hecate",
           "skillType": "basicAttack",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -48381,8 +48369,8 @@
         {
           "name": "Enhanced Attack: Strings",
           "tagged": "Hecate",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -48438,8 +48426,8 @@
         {
           "name": "Enhanced Attack: Winds",
           "tagged": "Hecate",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -48495,8 +48483,8 @@
         {
           "name": "Enhanced Attack: Cadenza",
           "tagged": "Hecate",
-          "dmgType": "echoSkill",
           "damage": {
+            "type": "echoSkill",
             "multipliers": [
               {
                 "mv": [
@@ -48589,8 +48577,8 @@
         {
           "name": "Movement of Fate and Finality",
           "skillType": "basicAttack",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -48790,8 +48778,8 @@
         {
           "name": "Suite of Immortality",
           "skillType": "introSkill",
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": [
@@ -49352,8 +49340,8 @@
           "name": "Mid-air Attack",
           "tagged": "Azure Sword Stance",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49386,8 +49374,8 @@
           "name": "Mid-air Attack",
           "tagged": "Feather Sword Stance",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49420,8 +49408,8 @@
           "name": "Dodge Counter",
           "tagged": "Azure Sword Stance",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49502,8 +49490,8 @@
           "name": "Dodge Counter",
           "tagged": "Feather Sword Stance",
           "skillType": "dodgeCounter",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49542,8 +49530,8 @@
           "name": "Sword Stance Switch: Azure",
           "tagged": "Feather Sword Stance",
           "skillType": "resonanceSkill",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49601,8 +49589,8 @@
           "name": "Sword Stance Switch: Feather",
           "tagged": "Azure Sword Stance",
           "skillType": "resonanceSkill",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49640,8 +49628,8 @@
         {
           "name": "Hush of a Thousand Voices",
           "skillType": "resonanceLiberation",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49672,8 +49660,8 @@
         },
         {
           "name": "Shadow of Xuanling",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49711,11 +49699,11 @@
           "name": "Sword Stance Flow: Azure",
           "tagged": "Feather Sword Stance",
           "skillType": "resonanceSkill",
-          "dmgType": "heavyAttack",
           "consumeNegativeStatus": {
             "havocBane": 1
           },
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49773,11 +49761,11 @@
           "name": "Sword Stance Flow: Feather",
           "tagged": "Azure Sword Stance",
           "skillType": "resonanceSkill",
-          "dmgType": "heavyAttack",
           "consumeNegativeStatus": {
             "havocBane": 1
           },
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49955,8 +49943,8 @@
           "name": "Feather Fall",
           "tagged": "Feather Sword Stance",
           "skillType": "mid-airAttack",
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": [
@@ -50014,8 +50002,8 @@
           "name": "Basic Attack 1",
           "tagged": "Havoc in Bloom",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -50049,8 +50037,8 @@
           "name": "Basic Attack 2",
           "tagged": "Havoc in Bloom",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -50131,8 +50119,8 @@
           "name": "Basic Attack 3",
           "tagged": "Havoc in Bloom",
           "skillType": "basicAttack",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -50190,8 +50178,8 @@
           "name": "Dodge Counter 1",
           "tagged": "Havoc in Bloom",
           "skillType": "dodgeCounter",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -50225,8 +50213,8 @@
           "name": "Dodge Counter 2",
           "tagged": "Havoc in Bloom",
           "skillType": "dodgeCounter",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [
@@ -50307,8 +50295,8 @@
           "name": "Dodge Counter 3",
           "tagged": "Havoc in Bloom",
           "skillType": "dodgeCounter",
-          "dmgType": "heavyAttack",
           "damage": {
+            "type": "heavyAttack",
             "multipliers": [
               {
                 "mv": [

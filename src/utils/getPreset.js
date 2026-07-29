@@ -11,7 +11,8 @@ export function getPresetSetCounts(gameId, charId, presetIndex = 0) {
 }
 
 export function getMemberPreset(gameId, charId, presetIndex = 0) {
-  const { quality, presets = [] } = CHARACTER[gameId][charId];
+  const character = CHARACTER[gameId][charId];
+  const { quality, presets = [] } = character;
   const preset = presets[presetIndex];
   if (!preset) return { id: charId };
 
@@ -53,6 +54,8 @@ export function getMemberPreset(gameId, charId, presetIndex = 0) {
       rotation.splice(insertAtIndex, 0, ...preset.rotation);
     }
   }
+
+  if ('resonanceModes' in character) member.resonanceMode = 0;
 
   return member;
 }

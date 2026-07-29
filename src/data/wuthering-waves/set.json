@@ -316,8 +316,8 @@
           "useWhen": "before",
           "useOnSkillType": "outroSkill",
           "useAction": {
-            "dmgType": "outroSkill",
             "damage": {
+              "type": "outroSkill",
               "element": "havoc",
               "multipliers": [
                 {

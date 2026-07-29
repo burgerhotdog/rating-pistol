@@ -90,7 +90,7 @@ export const compileCache = (gameId, team) => {
 
     cache.fullRotationTime += rotationTime;
 
-    const effectLookup = normalizeEffects(member, { gameId, memberIds, teamActions });
+    const effectLookup = normalizeEffects(gameId, member, { memberIds, teamActions });
     Object.assign(cache.effects, effectLookup);
 
     cache.member[memberId] = {

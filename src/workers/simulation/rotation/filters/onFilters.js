@@ -29,11 +29,15 @@ const onSkillType = (rawFilter, { action }) => {
 };
 
 const onDmgType = (rawFilter, { action }) => {
+  const damage = action?.damage;
+  if (!damage) return;
+
   const filter = toArray(rawFilter);
   const isMatch = (type) =>
-    type === action.dmgType ||
-    type === action.extraDmgType;
-  return filter.some((dmgType) => isMatch(dmgType));
+    type === damage.type ||
+    type === damage.extraType;
+
+  return filter.some((type) => isMatch(type));
 };
 
 const onElement = (rawFilter, { action }) => {

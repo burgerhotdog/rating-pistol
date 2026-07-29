@@ -167,8 +167,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -508,8 +508,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -653,8 +653,8 @@
         },
         {
           "name": "Dandelion Breeze: Field Entering/Exiting",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -908,8 +908,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -1134,8 +1134,8 @@
       "actions": [
         {
           "name": "Lightning Rose: Discharge",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -1307,8 +1307,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -1482,8 +1482,8 @@
         },
         {
           "name": "Let the Show Begin: Droplet",
-          "dmgType": "elementalSkill",
           "damage": {
+            "type": "elementalSkill",
             "multipliers": [
               {
                 "mv": [
@@ -1752,8 +1752,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -1870,8 +1870,8 @@
       "actions": [
         {
           "name": "Glacial Waltz: Icicle",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -2070,8 +2070,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -2269,8 +2269,8 @@
         },
         {
           "name": "Dawn: Phoenix",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -2296,8 +2296,8 @@
         },
         {
           "name": "Dawn: Explosion",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -2492,8 +2492,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -2664,8 +2664,8 @@
         },
         {
           "name": "Soul Companion",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -2915,8 +2915,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -3028,8 +3028,8 @@
         },
         {
           "name": "Baron Bunny: Explosion",
-          "dmgType": "elementalSkill",
           "damage": {
+            "type": "elementalSkill",
             "multipliers": [
               {
                 "mv": [
@@ -3064,8 +3064,8 @@
       "actions": [
         {
           "name": "Fiery Rain: Wave",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -3380,8 +3380,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -3553,8 +3553,8 @@
       "actions": [
         {
           "name": "Wind's Grand Ode: DoT",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -3580,8 +3580,8 @@
         },
         {
           "name": "Wind's Grand Ode: Elemental Absorption",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -3799,8 +3799,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -4225,8 +4225,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -4442,8 +4442,8 @@
         },
         {
           "name": "Stormbreaker: Discharge",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -4722,8 +4722,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -4886,8 +4886,8 @@
       "actions": [
         {
           "name": "Guhua Sword: Raincutter: Sword Rain",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -5151,8 +5151,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -5384,8 +5384,8 @@
         },
         {
           "name": "DMG per Star Jade",
-          "dmgType": "chargedAttack",
           "damage": {
+            "type": "chargedAttack",
             "multipliers": [
               {
                 "mv": [
@@ -5411,8 +5411,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -5557,8 +5557,8 @@
       "actions": [
         {
           "name": "DMG Per Gem",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -5703,8 +5703,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -5816,8 +5816,8 @@
         },
         {
           "name": "Jumpy Dumpty: Mine",
-          "dmgType": "elementalSkill",
           "damage": {
+            "type": "elementalSkill",
             "multipliers": [
               {
                 "mv": [
@@ -5848,8 +5848,8 @@
       "actions": [
         {
           "name": "Sparks 'n' Splash: Attack",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -6075,8 +6075,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -6544,8 +6544,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -6630,8 +6630,8 @@
       "actions": [
         {
           "name": "Freikugel",
-          "dmgType": "elementalSkill",
           "damage": {
+            "type": "elementalSkill",
             "multipliers": [
               {
                 "mv": [
@@ -6904,8 +6904,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -7109,8 +7109,8 @@
         },
         {
           "name": "Passion Overload: Explosion",
-          "dmgType": "elementalSkill",
           "damage": {
+            "type": "elementalSkill",
             "multipliers": [
               {
                 "mv": [
@@ -7519,8 +7519,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -8141,8 +8141,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -8682,8 +8682,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -8881,8 +8881,8 @@
         },
         {
           "name": "Herald of Frost Contact",
-          "dmgType": "elementalSkill",
           "damage": {
+            "type": "elementalSkill",
             "multipliers": [
               {
                 "mv": [
@@ -9152,8 +9152,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -9601,8 +9601,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10074,8 +10074,8 @@
         },
         {
           "name": "Transient Blossom",
-          "dmgType": "elementalSkill",
           "damage": {
+            "type": "elementalSkill",
             "attr": "def",
             "multipliers": [
               {
@@ -10134,8 +10134,8 @@
         },
         {
           "name": "Fatal Blossom",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -10358,8 +10358,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10791,8 +10791,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -10877,8 +10877,8 @@
       "actions": [
         {
           "name": "DoT",
-          "dmgType": "elementalSkill",
           "damage": {
+            "type": "elementalSkill",
             "multipliers": [
               {
                 "mv": [
@@ -10904,8 +10904,8 @@
         },
         {
           "name": "Explosion",
-          "dmgType": "elementalSkill",
           "damage": {
+            "type": "elementalSkill",
             "multipliers": [
               {
                 "mv": [
@@ -11228,8 +11228,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -11427,8 +11427,8 @@
         },
         {
           "name": "Starward Sword: Consecutive Slash",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -11454,8 +11454,8 @@
         },
         {
           "name": "Starward Sword: Last Attack",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -11623,8 +11623,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -11741,8 +11741,8 @@
       "actions": [
         {
           "name": "DoT",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -11768,8 +11768,8 @@
         },
         {
           "name": "Additional Elemental DMG",
-          "dmgType": "elementalBurst",
           "damage": {
+            "type": "elementalBurst",
             "multipliers": [
               {
                 "mv": [
@@ -11968,8 +11968,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -12493,8 +12493,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -12918,8 +12918,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13378,8 +13378,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -13795,8 +13795,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -14191,8 +14191,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -14505,8 +14505,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -15049,8 +15049,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -15544,8 +15544,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -16312,8 +16312,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -16799,8 +16799,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17287,8 +17287,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -17683,8 +17683,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -18078,8 +18078,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -18338,8 +18338,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -18798,8 +18798,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -19240,8 +19240,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -19611,8 +19611,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -20118,8 +20118,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -20597,8 +20597,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -21057,8 +21057,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -21490,8 +21490,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -21923,8 +21923,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -22373,8 +22373,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -22706,8 +22706,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -23174,8 +23174,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -23480,8 +23480,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -23951,8 +23951,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -24519,8 +24519,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -24906,8 +24906,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -25393,8 +25393,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -25745,8 +25745,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -26114,8 +26114,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -26474,8 +26474,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -26945,8 +26945,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -27435,8 +27435,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -27933,8 +27933,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -28393,8 +28393,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -28707,8 +28707,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -29170,8 +29170,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -29530,8 +29530,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -30060,8 +30060,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -30639,8 +30639,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -30953,8 +30953,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -31267,8 +31267,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -31781,8 +31781,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -32295,8 +32295,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -32763,8 +32763,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -33131,8 +33131,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -33418,8 +33418,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -33927,8 +33927,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -34326,8 +34326,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -34786,8 +34786,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35192,8 +35192,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35563,8 +35563,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -35988,8 +35988,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36375,8 +36375,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -36689,8 +36689,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -37003,8 +37003,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -37336,8 +37336,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -37859,8 +37859,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -38282,8 +38282,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -38596,8 +38596,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -39207,8 +39207,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -39632,8 +39632,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -39938,8 +39938,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40352,8 +40352,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -40639,8 +40639,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41180,8 +41180,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41540,8 +41540,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -41946,8 +41946,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -42663,8 +42663,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -43015,8 +43015,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -43348,8 +43348,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -43816,8 +43816,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -44373,8 +44373,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -44687,8 +44687,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -45277,8 +45277,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -45814,8 +45814,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46301,8 +46301,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -46761,8 +46761,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47321,8 +47321,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -47868,8 +47868,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -48577,8 +48577,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49127,8 +49127,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49506,8 +49506,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [
@@ -49893,8 +49893,8 @@
         },
         {
           "name": "Plunge Collision",
-          "dmgType": "plungeAttack",
           "damage": {
+            "type": "plungeAttack",
             "multipliers": [
               {
                 "mv": [

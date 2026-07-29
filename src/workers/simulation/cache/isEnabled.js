@@ -30,7 +30,7 @@ const ifRankMax = (maxRank, rank) => {
 };
 
 const ifNoEnergy = (effect, character) => {
-  if ('ifNoEnergy' in effect) {
+  if ('enableIfNoEnergy' in effect) {
     return character.noEnergy;
   }
 };
@@ -44,6 +44,7 @@ export const isEnabled = (effect, spec) => {
 
   const hasEnableIf = Object.keys(effect)
     .some((field) => field.startsWith('enableIf'));
+
   if (!hasEnableIf) return true;
 
   switch (from) {

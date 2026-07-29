@@ -14,13 +14,17 @@ function runDamageFormula(gameId, action, statMap) {
     return runTuneFormula(gameId, statMap, tuneAmp, element);
   }
 
-  const { dmgType, extraDmgType, times = 1 } = action;
-  const { element, compressed } = action.damage;
+  const { damage, times = 1 } = action;
+  const { type, extraType, element, compressed } = damage;
+  const bonusTypes = [
+    element,
+    type,
+    ...(extraType ? [extraType] : []),
+  ];
+
   const baseValue = computeBase('damage', compressed, statMap);
 
   const critMult = getCritMult(statMap);
-
-  const bonusTypes = [element, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
   const dmgBonusMult = getDmgBonusMult(statMap, bonusTypes);
   const dmgAmpMult = getDmgAmpMult(statMap, bonusTypes);
 

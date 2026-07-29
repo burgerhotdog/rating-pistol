@@ -190,8 +190,8 @@ const toNormalizedEffect = (rawEffect, spec) => {
   return effect;
 };
 
-export const normalizeEffects = (member, spec) => {
-  const { gameId, memberIds, teamActions } = spec;
+export const normalizeEffects = (gameId, member, spec) => {
+  const { memberIds, teamActions } = spec;
   const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts, mainEcho } = member;
   const character = CHARACTER[gameId][memberId];
   const weapon = WEAPON[gameId][weaponId];
@@ -200,12 +200,12 @@ export const normalizeEffects = (member, spec) => {
     {
       from: 'character',
       id: memberId,
-      rawEffects: CHARACTER[gameId][memberId].effects,
+      rawEffects: character.effects,
     },
     {
       from: 'weapon',
       id: weaponId,
-      rawEffects: WEAPON[gameId][weaponId].effects,
+      rawEffects: weapon.effects,
     },
     ...Object.entries(setCounts).map(([setId, count]) => ({
       from: 'set',

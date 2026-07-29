@@ -355,8 +355,8 @@
       {
         "name": "Echo Skill: Mech Abomination",
         "skillType": "echoSkill",
-        "dmgType": "outroSkill",
         "damage": {
+          "type": "outroSkill",
           "element": "electro",
           "multipliers": [
             {
@@ -594,8 +594,8 @@
         "useWhen": "interval",
         "useCooldown": 1000,
         "useAction": {
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "element": "spectro",
             "multipliers": [
               {

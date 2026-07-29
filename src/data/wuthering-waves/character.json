@@ -1090,8 +1090,8 @@
         "useWhen": "interval",
         "useCooldown": 1500,
         "useAction": {
-          "dmgType": "outroSkill",
           "damage": {
+            "type": "outroSkill",
             "multipliers": [
               {
                 "mv": 1.7676
@@ -1570,8 +1570,8 @@
         "useOnSkillType": "resonanceSkill",
         "useCooldown": 1000,
         "useAction": {
-          "dmgType": "basicAttack",
           "damage": {
+            "type": "basicAttack",
             "multipliers": [
               {
                 "mv": 4.4
@@ -2269,8 +2269,8 @@
         "useWhen": "hit",
         "useAction": {
           "skillType": "coordinatedAttack",
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": 1
@@ -2427,8 +2427,8 @@
         "useWhen": "hit",
         "useOnSkillType": "basicAttack",
         "useAction": {
-          "dmgType": "resonanceSkill",
           "damage": {
+            "type": "resonanceSkill",
             "multipliers": [
               {
                 "mv": 4.1959
@@ -2745,8 +2745,8 @@
         "useOnSkillType": "basicAttack",
         "useCooldown": 2000,
         "useAction": {
-          "dmgType": "outroSkill",
           "damage": {
+            "type": "outroSkill",
             "multipliers": [
               {
                 "mv": 2.3763
@@ -3420,8 +3420,8 @@
         "useCooldown": 1000,
         "useAction": {
           "skillType": "coordinatedAttack",
-          "dmgType": "outroSkill",
           "damage": {
+            "type": "outroSkill",
             "multipliers": [
               {
                 "mv": 3.134
@@ -3620,8 +3620,8 @@
         "useAction": [
           {
             "skillType": "resonanceSkill",
-            "dmgType": "heavyAttack",
             "damage": {
+              "type": "heavyAttack",
               "multipliers": [
                 {
                   "mv": 5.5667
@@ -3772,8 +3772,8 @@
         "applyOnAction": "normalAttack.3",
         "useWhen": "interval",
         "useAction": {
-          "dmgType": "resonanceLiberation",
           "damage": {
+            "type": "resonanceLiberation",
             "multipliers": [
               {
                 "mv": 2.2
@@ -4660,8 +4660,8 @@
         "applyOnSkillType": "outroSkill",
         "useWhen": "hit",
         "useAction": {
-          "dmgType": "outroSkill",
           "damage": {
+            "type": "outroSkill",
             "multipliers": [
               {
                 "mv": 5.2841
@@ -5097,8 +5097,8 @@
         "rotation": [
           "introSkill.0",
           "normalAttack.1",
-          "normalAttack.6",
           "normalAttack.2",
+          "normalAttack.3",
           "resonanceLiberation.0",
           "resonanceSkill.1",
           "forteCircuit.1",
@@ -5205,7 +5205,7 @@
       {
         "team": [
           "1510",
-          "1509",
+          "1211.1",
           "1209"
         ],
         "weaponId": "21040056",
@@ -5334,8 +5334,8 @@
         "useWhen": "interval",
         "useAction": [
           {
-            "dmgType": "heavyAttack",
             "damage": {
+              "type": "heavyAttack",
               "multipliers": [
                 {
                   "mv": 4.5

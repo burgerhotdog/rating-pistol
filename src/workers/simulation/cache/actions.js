@@ -56,11 +56,42 @@ const getCompressed = (multipliers, attr, { index, weaponRank }) => {
   return compressed;
 };
 
+function toNormedDamage(gameId, action, spec) {
+  const { category, charElement, weaponType, index, weaponRank } = spec;
+  const isGiPhysNa =
+    gameId === GI &&
+    category === 'normalAttack' &&
+    weaponType !== 'catalyst';
+
+  const damage = { ...action.damage };
+  if ('skillType' in action) damage.type ??= action.skillType;
+  damage.element ??= isGiPhysNa ? 'physical' : charElement;
+  damage.attr ??= 'atk';
+  damage.compressed = getCompressed(damage.multipliers, damage.attr, { index, weaponRank });
+  return damage;
+}
+
+function toNormedHealing(gameId, action, spec) {
+  const { index, weaponRank, teamSize } = spec;
+
+  const healing = { ...action.healing };
+  healing.attr ??= 'atk';
+  healing.compressed = getCompressed(healing.multipliers, healing.attr, { index, weaponRank });
+  if (healing.times === '$teamSize') healing.times = teamSize;
+  return healing;
+}
+
+function toNormedShield(gameId, action, spec) {
+  const { index, weaponRank } = spec;
+
+  const shield = { ...action.shield };
+  shield.attr ??= 'atk';
+  shield.compressed = getCompressed(shield.multipliers, shield.attr, { index, weaponRank });
+  return shield;
+}
+
 export const toNormalizedAction = (rawAction, spec) => {
-  const {
-    gameId, ownerId, category, actionId,
-    teamSize, index, charElement, weaponType, weaponRank,
-  } = spec;
+  const { gameId, ownerId, category, actionId } = spec;
 
   const action = {
     ...rawAction,
@@ -71,38 +102,9 @@ export const toNormalizedAction = (rawAction, spec) => {
     id: actionId,
   };
 
-  // Init default dmgType
-  if (action.damage && action.skillType) {
-    action.dmgType ??= action.skillType;
-  }
-
-  // Compress multipliers
-  const compressedSpec = { index, weaponRank };
-  if ('damage' in action) {
-    const spec = action.damage;
-    const isGenshinPhysNa =
-      gameId === GI &&
-      category === 'normalAttack' &&
-      weaponType !== 'catalyst';
-
-    if (isGenshinPhysNa) spec.element ??= 'physical';
-    else spec.element ??= charElement;
-    spec.attr ??= 'atk';
-    spec.compressed = getCompressed(spec.multipliers, spec.attr, compressedSpec);
-  }
-
-  if ('healing' in action) {
-    const spec = action.healing;
-    spec.attr ??= 'atk';
-    spec.compressed = getCompressed(spec.multipliers, spec.attr, compressedSpec);
-    if (spec.times === '$teamSize') spec.times = teamSize;
-  }
-
-  if ('shield' in action) {
-    const spec = action.shield;
-    spec.attr ??= 'atk';
-    spec.compressed = getCompressed(spec.multipliers, spec.attr, compressedSpec);
-  }
+  if ('damage' in action) action.damage = toNormedDamage(gameId, action, spec);
+  if ('healing' in action) action.healing = toNormedHealing(gameId, action, spec);
+  if ('shield' in action) action.shield = toNormedShield(gameId, action, spec);
 
   // Init duration
   action.duration ??= DEFAULT_DURATIONS[gameId][action.skillType] ?? 0;

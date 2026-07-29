@@ -22,7 +22,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     key: action.key,
     ownerId: action.ownerId,
     type: action.type,
-    dmgType: action.dmgType,
+    dmgType: action?.damage?.type,
     runtime: ctx.states.runtime + runtimeOffset,
   };
 
