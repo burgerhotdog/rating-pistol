@@ -22,7 +22,7 @@ const initTeam = (gameId, charId, builds) => {
   const teamPreset =
     character.presets?.[0]?.team ??
     [charId, ...Array(teamSize - 1).fill(null)];
-  
+
   const members = teamPreset.map((presetKey) => presetKey
     ? initMember(gameId, builds, presetKey)
     : {});

@@ -865,7 +865,7 @@ function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove 
   );
 }
 
-function RotationEditor({ gameId, charId, member, rotation, onChange }) {
+function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
 

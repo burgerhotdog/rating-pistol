@@ -14,7 +14,7 @@ export const useSimulation = (team) => {
     if (!VALID_GAME_IDS.has(gameId)) return null;
 
     const filteredTeam = team.members.filter((member) => member.id);
-    if (filteredTeam.some((member) => !member.rotation.length)) {
+    if (filteredTeam.some((member) => !member.rotation?.length)) {
       return null;
     }
 

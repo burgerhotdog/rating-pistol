@@ -13,7 +13,7 @@ export function getPresetSetCounts(gameId, charId, presetIndex = 0) {
 export function getMemberPreset(gameId, charId, presetIndex = 0) {
   const { quality, presets = [] } = CHARACTER[gameId][charId];
   const preset = presets[presetIndex];
-  if (!preset) return {};
+  if (!preset) return { id: charId };
 
   const member = {
     useUserBuild: false,
