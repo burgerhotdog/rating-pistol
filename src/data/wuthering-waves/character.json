@@ -1276,15 +1276,13 @@
       },
       {
         "enableIfRankMin": 5,
-        "applyWhen": "before",
-        "applyOnAction": [
+        "useWhen": "before",
+        "useOnAction": [
           "resonanceSkill.0",
           "forteCircuit.0"
         ],
-        "useWhen": "hit",
         "useAction": "resonanceLiberation.1",
-        "times": 4,
-        "maxUses": 1
+        "times": 4
       },
       {
         "enableIfRankMin": 6,
@@ -1598,9 +1596,8 @@
       },
       {
         "enableIfRankMin": 4,
-        "applyWhen": "before",
-        "applyOnAction": "forteCircuit.0",
-        "useWhen": "hit",
+        "useWhen": "before",
+        "useOnAction": "forteCircuit.0",
         "useAction": {
           "healing": {
             "attr": "energyRegen",
@@ -1611,8 +1608,7 @@
             ],
             "times": "$teamSize"
           }
-        },
-        "maxUses": 1
+        }
       },
       {
         "enableIfRankMin": 5,
@@ -2264,9 +2260,8 @@
       },
       {
         "enableIfRankMin": 6,
-        "applyWhen": "before",
-        "applyOnAction": "forteCircuit.1",
-        "useWhen": "hit",
+        "useWhen": "before",
+        "useOnAction": "forteCircuit.1",
         "useAction": {
           "skillType": "coordinatedAttack",
           "damage": {
@@ -2278,8 +2273,7 @@
             ]
           }
         },
-        "times": 2,
-        "maxUses": 1
+        "times": 2
       }
     ],
     "presets": [
@@ -2533,9 +2527,8 @@
       },
       {
         "enableIfRankMin": 4,
-        "applyWhen": "before",
-        "applyOnAction": "resonanceLiberation.0",
-        "useWhen": "hit",
+        "useWhen": "before",
+        "useOnAction": "resonanceLiberation.0",
         "useAction": {
           "shield": {
             "attr": "def",
@@ -2545,8 +2538,7 @@
               }
             ]
           }
-        },
-        "maxUses": 1
+        }
       },
       {
         "enableIfRankMin": 5,
@@ -5533,10 +5525,9 @@
       },
       {
         "enableIfRankMin": 4,
-        "applyWhen": "before",
-        "applyOnAction": "normalAttack.5",
-        "applyCooldown": 15000,
-        "useWhen": "hit",
+        "useWhen": "before",
+        "useOnAction": "normalAttack.5",
+        "useCooldown": 15000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -5546,8 +5537,7 @@
               }
             ]
           }
-        },
-        "maxUses": 1
+        }
       },
       {
         "enableIfRankMin": 4,

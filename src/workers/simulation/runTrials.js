@@ -68,7 +68,7 @@ const normalizeSummarySums = (sums, n) =>
       {
         ...result,
         damage: result.damage / n,
-        healing: result.damage / n,
+        healing: result.healing / n,
         shield: result.shield / n,
       },
     ])
