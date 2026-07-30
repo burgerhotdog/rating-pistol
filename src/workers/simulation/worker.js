@@ -1,5 +1,6 @@
 import { compileCache } from './cache';
 import { runTrials } from './runTrials';
+import { getPrydwenBenchmark } from './otherBenchmarks';
 
 self.onmessage = ({ data }) => {
   const { gameId, charId, team } = data;
@@ -32,5 +33,8 @@ self.onmessage = ({ data }) => {
 
   self.postMessage({ status: 'Running simulation' });
 
-  runTrials(cache, equipMaps, charId, true);
+  const message = runTrials(cache, equipMaps, charId, true);
+  message.prydwenSummary = getPrydwenBenchmark(gameId, charId, cache.member[charId].baseMap, message.configMap, message.runRotation);
+
+  self.postMessage(message);
 };
