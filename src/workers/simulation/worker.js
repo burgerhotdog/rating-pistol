@@ -35,6 +35,7 @@ self.onmessage = ({ data }) => {
 
   const message = runTrials(cache, equipMaps, charId, true);
   message.prydwenSummary = getPrydwenBenchmark(gameId, charId, cache.member[charId].baseMap, message.configMap, message.runRotation);
+  delete message.runRotation;
 
   self.postMessage(message);
 };

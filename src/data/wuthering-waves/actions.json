@@ -49526,6 +49526,41 @@
       "name": "Feather's Edge",
       "actions": [
         {
+          "name": "Sword Stance Switch: Feather",
+          "tagged": "Azure Sword Stance",
+          "skillType": "resonanceSkill",
+          "damage": {
+            "type": "heavyAttack",
+            "multipliers": [
+              {
+                "mv": [
+                  0.1688,
+                  0.1827,
+                  0.1965,
+                  0.2159,
+                  0.2298,
+                  0.2457,
+                  0.2678,
+                  0.29,
+                  0.3121,
+                  0.3356,
+                  0.3633,
+                  0.391,
+                  0.4187,
+                  0.4464,
+                  0.4741,
+                  0.5017,
+                  0.5294,
+                  0.5571,
+                  0.5848,
+                  0.6125
+                ],
+                "times": 3
+              }
+            ]
+          }
+        },
+        {
           "name": "Sword Stance Switch: Azure",
           "tagged": "Feather Sword Stance",
           "skillType": "resonanceSkill",
@@ -49578,41 +49613,6 @@
                   0.2581,
                   0.2709,
                   0.2837
-                ],
-                "times": 3
-              }
-            ]
-          }
-        },
-        {
-          "name": "Sword Stance Switch: Feather",
-          "tagged": "Azure Sword Stance",
-          "skillType": "resonanceSkill",
-          "damage": {
-            "type": "heavyAttack",
-            "multipliers": [
-              {
-                "mv": [
-                  0.1688,
-                  0.1827,
-                  0.1965,
-                  0.2159,
-                  0.2298,
-                  0.2457,
-                  0.2678,
-                  0.29,
-                  0.3121,
-                  0.3356,
-                  0.3633,
-                  0.391,
-                  0.4187,
-                  0.4464,
-                  0.4741,
-                  0.5017,
-                  0.5294,
-                  0.5571,
-                  0.5848,
-                  0.6125
                 ],
                 "times": 3
               }

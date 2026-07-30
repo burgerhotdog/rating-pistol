@@ -6425,6 +6425,36 @@
           "havocDmgAmp%": 0.2
         }
       }
+    ],
+    "presets": [
+      {
+        "team": [
+          "1610",
+          "1508",
+          "1110"
+        ],
+        "setCounts": {
+          "33": 5
+        },
+        "mainEcho": "6000218",
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "forteCircuit.3",
+          "forteCircuit.4",
+          "forteCircuit.5",
+          "forteCircuit.6",
+          "forteCircuit.7",
+          "resonanceLiberation.0",
+          "resonanceSkill.1",
+          "forteCircuit.2",
+          "outroSkill.0"
+        ]
+      }
     ]
   }
 }
