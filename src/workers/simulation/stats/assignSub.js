@@ -3,7 +3,7 @@ import { weightedLottery } from '../utils';
 import { HOYO_SUBSTAT_WEIGHTS } from './weights';
 import { SUBSTAT_VALUES } from './values';
 
-const WW_TABLE = {
+export const WW_TABLE = {
   'atk': [30, 40, 50, 60],
   'def': [40, 50, 60, 70],
   'hp': [320, 360, 390, 430, 470, 510, 540, 580],

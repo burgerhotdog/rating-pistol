@@ -23,7 +23,10 @@ self.onmessage = ({ data }) => {
         })
       );
 
-      return [member.id, runTrials(cache, trialEquipMaps, member.id)];
+      return [
+        member.id,
+        runTrials(cache, trialEquipMaps, member.id),
+      ];
     })
   );
 

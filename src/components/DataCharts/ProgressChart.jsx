@@ -69,7 +69,7 @@ const getGrade = (pct) => {
   return { grade: 'E', color: '#ef4444' };
 };
 
-export const ProgressChart = ({ weeklySummaries, team, userSummary, rotationTime }) => {
+export const ProgressChart = ({ weeklySummaries, team, userSummary, prydwenSummary, rotationTime }) => {
   const { palette, accentColors } = useTheme();
   const { gameId, charId } = useParams();
   const disabledColor = palette.action.disabled;
@@ -113,6 +113,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, rotationTime
   const activeScores = weeklySummaries.map((actionMap) => toDps(sumRotationDmg(actionMap)));
   const benchmarkDps = activeScores[activeScores.length - 1];
   const userDps = toDps(sumRotationDmg(userSummary ?? {}));
+  const prydwenDps = toDps(sumRotationDmg(prydwenSummary ?? {}));
   const scaledBuildRating = userDps / benchmarkDps * 100;
 
   const data = activeScores.map((dmg, index) => {
@@ -129,7 +130,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, rotationTime
   });
 
   const yMin = 0;
-  const yMax = Math.max(benchmarkDps, userDps) * 1.05;
+  const yMax = Math.max(benchmarkDps, userDps, prydwenDps) * 1.05;
 
   const { grade, color: gradeColor } = getGrade(scaledBuildRating);
 
@@ -167,6 +168,11 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, rotationTime
           <ReferenceLine
             y={userDps}
             strokeWidth={2}
+          />
+
+          <ReferenceLine
+            y={prydwenDps}
+            strokeWidth={1}
           />
 
           {/* Stacked member DPS areas */}
