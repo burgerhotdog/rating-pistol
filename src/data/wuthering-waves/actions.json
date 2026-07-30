@@ -6817,7 +6817,8 @@
       "name": "Vernal Screen",
       "actions": [
         {
-          "name": "Zephyr Stance",
+          "name": "Resonance Skill",
+          "tagged": "Zephyr Stance",
           "skillType": "resonanceSkill",
           "damage": {
             "multipliers": [
@@ -6851,6 +6852,7 @@
         },
         {
           "name": "Awakening Spring",
+          "tagged": "Zephyr Stance",
           "skillType": "resonanceSkill",
           "inflictStatus": {
             "glacioChafe": 1
@@ -6944,7 +6946,7 @@
           }
         },
         {
-          "name": "Enrichment Healing",
+          "name": "Enrichment",
           "healing": {
             "attr": "HP",
             "multipliers": [
@@ -7005,6 +7007,10 @@
       "name": "Song of Thoroughfare",
       "actions": [
         {
+          "name": "Song of Thoroughfare",
+          "skillType": "resonanceLiberation"
+        },
+        {
           "name": "Healing per Plume Step",
           "healing": {
             "attr": "HP",
@@ -7059,10 +7065,6 @@
               }
             ]
           }
-        },
-        {
-          "name": "Song of Thoroughfare",
-          "skillType": "resonanceLiberation"
         }
       ]
     },

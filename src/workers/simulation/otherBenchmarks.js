@@ -18,9 +18,7 @@ export function getPrydwenBenchmark(gameId, charId, baseMap, configMap, runRotat
 
   const bestConfig = Object.entries(configMap).sort((a, b) => b.count - a.count)[0];
   const mainstats = bestConfig[0].split('|');
-  for (const stat of mainstats) {
-    prydwenMap[stat] ??= 0;
-  }
+  for (const stat of mainstats) prydwenMap[stat] ??= 0;
   const [cost4, cost3a, cost3b, cost1a, cost1b] = mainstats;
   prydwenMap[cost4] += WUWA_MAINSTAT_VALUES[4][cost4];
   prydwenMap[cost3a] += WUWA_MAINSTAT_VALUES[3][cost3a];

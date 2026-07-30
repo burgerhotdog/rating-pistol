@@ -950,8 +950,49 @@
       "healingBonus%": 0.12,
       "hp%": 0.12
     },
-    "effects": [],
-    "presets": []
+    "effects": [
+      {
+        "useWhen": "before",
+        "useOnAction": [
+          "resonanceSkill.1",
+          "introSkill.0"
+        ],
+        "useAction": "resonanceSkill.3"
+      },
+      {
+        "applyWhen": "before",
+        "applyOnSkillType": "outroSkill",
+        "applyTo": "$team",
+        "buffMap": {
+          "dmgAmp%": 0.25
+        },
+        "maxDuration": 30000
+      }
+    ],
+    "presets": [
+      {
+        "team": [
+          "1610",
+          "1508",
+          "1110"
+        ],
+        "weaponId": "21050096",
+        "setCounts": {
+          "33": 5
+        },
+        "mainEcho": "6000216",
+        "rotation": [
+          "introSkill.0",
+          "resonanceSkill.2",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.3",
+          "resonanceLiberation.0",
+          "outroSkill.0"
+        ]
+      }
+    ]
   },
   "1202": {
     "name": "Chixia",
