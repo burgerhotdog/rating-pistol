@@ -303,13 +303,84 @@ export const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapa
   );
 };
 
-export const GridSelectDialog = ({ mode, ...rest }) => {
-  switch (mode) {
-    case 'character':
-      return CharacterSelectDialog(rest);
-    case 'weapon':
-      return WeaponSelectDialog(rest);
-    case 'set':
-      return SetSelectDialog(rest);
-  }
+const DATATYPE = {
+  'character': CHARACTER,
+  'weapon': WEAPON,
+  'set': SET,
+};
+
+export const GridSelectDialog = ({ mode, gameId, open, onClose, onSelect, ...spec }) => {
+  const [search, setSearch] = useState('');
+  const { weaponType } = spec;
+
+  const entries = useMemo(() => {
+    const allEntries = Object.values(DATATYPE[mode][gameId]);
+    return allEntries
+      .filter(({ type }) => !weaponType || type === weaponType)
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [mode, gameId, weaponType])
+
+  const options = useMemo(() => {
+    const lower = search.toLowerCase();
+    return entries.filter(({ name }) =>
+      name.toLowerCase().includes(lower));
+  }, [entries, search]);
+
+  const handleSelect = (id) => {
+    onSelect(id);
+    setSearch('');
+    onClose();
+  };
+
+  return (
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
+      <DialogTitle sx={{ pr: 6 }}>
+        Select Character
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{ position: 'absolute', right: 8, top: 8 }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
+
+      <DialogContent>
+        <TextField
+          fullWidth
+          placeholder="Search characters..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          sx={{ mb: 2 }}
+        />
+
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 1,
+            justifyContent: 'flex-start',
+            width: 'fit-content',
+            maxWidth: '100%',
+            mx: 'auto',
+          }}
+        >
+          {options.map(({ id, name }) => (
+            <Card key={id} sx={{ width: 100 }}>
+              <CardActionArea onClick={() => handleSelect(id)}>
+                <CardMedia
+                  image={`${gameId}/character/${id}.webp`}
+                  title={name}
+                  sx={{ width: 100, height: 100 }}
+                />
+                <Typography variant="body2" sx={{ textAlign: 'center' }} noWrap>
+                  {name}
+                </Typography>
+              </CardActionArea>
+            </Card>
+          ))}
+        </Box>
+      </DialogContent>
+    </Dialog>
+  );
 };

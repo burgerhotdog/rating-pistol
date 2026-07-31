@@ -2,6 +2,7 @@
   "1": {
     "name": "Freezing Frost",
     "version": 1,
+    "id": "1",
     "bonusEffects": {
       "2": [
         {
@@ -29,6 +30,7 @@
   "2": {
     "name": "Molten Rift",
     "version": 1,
+    "id": "2",
     "bonusEffects": {
       "2": [
         {
@@ -52,6 +54,7 @@
   "3": {
     "name": "Void Thunder",
     "version": 1,
+    "id": "3",
     "bonusEffects": {
       "2": [
         {
@@ -83,6 +86,7 @@
   "4": {
     "name": "Sierra Gale",
     "version": 1,
+    "id": "4",
     "bonusEffects": {
       "2": [
         {
@@ -106,6 +110,7 @@
   "5": {
     "name": "Celestial Light",
     "version": 1,
+    "id": "5",
     "bonusEffects": {
       "2": [
         {
@@ -129,6 +134,7 @@
   "6": {
     "name": "Havoc Eclipse",
     "version": 1,
+    "id": "6",
     "bonusEffects": {
       "2": [
         {
@@ -156,6 +162,7 @@
   "7": {
     "name": "Rejuvenating Glow",
     "version": 1,
+    "id": "7",
     "bonusEffects": {
       "2": [
         {
@@ -180,6 +187,7 @@
   "8": {
     "name": "Moonlit Clouds",
     "version": 1,
+    "id": "8",
     "bonusEffects": {
       "2": [
         {
@@ -204,6 +212,7 @@
   "9": {
     "name": "Lingering Tunes",
     "version": 1,
+    "id": "9",
     "bonusEffects": {
       "2": [
         {
@@ -236,6 +245,7 @@
   "10": {
     "name": "Frosty Resolve",
     "version": 2,
+    "id": "10",
     "bonusEffects": {
       "2": [
         {
@@ -269,6 +279,7 @@
   "11": {
     "name": "Eternal Radiance",
     "version": 2,
+    "id": "11",
     "bonusEffects": {
       "2": [
         {
@@ -303,6 +314,7 @@
   "12": {
     "name": "Midnight Veil",
     "version": 2,
+    "id": "12",
     "bonusEffects": {
       "2": [
         {
@@ -342,6 +354,7 @@
   "13": {
     "name": "Empyrean Anthem",
     "version": 2,
+    "id": "13",
     "bonusEffects": {
       "2": [
         {
@@ -373,6 +386,7 @@
   "14": {
     "name": "Tidebreaking Courage",
     "version": 2,
+    "id": "14",
     "bonusEffects": {
       "2": [
         {
@@ -401,6 +415,7 @@
   "16": {
     "name": "Gusts of Welkin",
     "version": 2.2,
+    "id": "16",
     "bonusEffects": {
       "2": [
         {
@@ -433,6 +448,7 @@
   "17": {
     "name": "Windward Pilgrimage",
     "version": 2.4,
+    "id": "17",
     "bonusEffects": {
       "2": [
         {
@@ -460,6 +476,7 @@
   "18": {
     "name": "Flaming Clawprint",
     "version": 2.4,
+    "id": "18",
     "bonusEffects": {
       "2": [
         {
@@ -492,6 +509,7 @@
   "19": {
     "name": "Dream of the Lost",
     "version": 2.5,
+    "id": "19",
     "bonusEffects": {
       "3": [
         {
@@ -507,6 +525,7 @@
   "20": {
     "name": "Crown of Valor",
     "version": 2.6,
+    "id": "20",
     "bonusEffects": {
       "3": [
         {
@@ -526,6 +545,7 @@
   "21": {
     "name": "Law of Harmony",
     "version": 2.6,
+    "id": "21",
     "bonusEffects": {
       "3": [
         {
@@ -552,6 +572,7 @@
   "22": {
     "name": "Flamewing's Shadow",
     "version": 2.7,
+    "id": "22",
     "bonusEffects": {
       "3": [
         {
@@ -587,6 +608,7 @@
   "23": {
     "name": "Thread of Severed Fate",
     "version": 2.8,
+    "id": "23",
     "bonusEffects": {
       "3": [
         {
@@ -604,6 +626,7 @@
   "24": {
     "name": "Pact of Neonlight Leap",
     "version": 3,
+    "id": "24",
     "bonusEffects": {
       "2": [
         {
@@ -646,6 +669,7 @@
   "25": {
     "name": "Halo of Starry Radiance",
     "version": 3,
+    "id": "25",
     "bonusEffects": {
       "2": [
         {
@@ -675,6 +699,7 @@
   "26": {
     "name": "Rite of Gilded Revelation",
     "version": 3,
+    "id": "26",
     "bonusEffects": {
       "2": [
         {
@@ -708,6 +733,7 @@
   "27": {
     "name": "Trailblazing Star",
     "version": 3.1,
+    "id": "27",
     "bonusEffects": {
       "2": [
         {
@@ -733,6 +759,7 @@
   "28": {
     "name": "Chromatic Foam",
     "version": 3.1,
+    "id": "28",
     "bonusEffects": {
       "2": [
         {
@@ -768,6 +795,7 @@
   "29": {
     "name": "Sound of True Name",
     "version": 3.1,
+    "id": "29",
     "bonusEffects": {
       "2": [
         {
@@ -800,6 +828,7 @@
   "30": {
     "name": "Wishes of Quiet Snowfall",
     "version": 3.3,
+    "id": "30",
     "bonusEffects": {
       "2": [
         {
@@ -858,6 +887,7 @@
   "31": {
     "name": "Reel of Spliced Memories",
     "version": 3.3,
+    "id": "31",
     "bonusEffects": {
       "2": [
         {
@@ -885,6 +915,7 @@
   "32": {
     "name": "Shadow of Shattered Dreams",
     "version": 3.4,
+    "id": "32",
     "bonusEffects": {
       "1": [
         {
@@ -902,6 +933,7 @@
   "33": {
     "name": "Song of Feathered Trace",
     "version": 3.5,
+    "id": "33",
     "bonusEffects": {
       "2": [
         {
@@ -940,6 +972,7 @@
   "34": {
     "name": "Heart of Evil's Purge",
     "version": 3.5,
+    "id": "34",
     "bonusEffects": {
       "2": [
         {
@@ -964,6 +997,7 @@
   "35": {
     "name": "Lamp of Nether Road",
     "version": 3.5,
+    "id": "35",
     "bonusEffects": {
       "2": [
         {
