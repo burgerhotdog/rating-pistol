@@ -2,6 +2,7 @@
   "31000": {
     "name": "Woodpecker Electro",
     "version": 1,
+    "id": "31000",
     "bonusEffects": {
       "2": [
         {
@@ -41,6 +42,7 @@
   "31100": {
     "name": "Puffer Electro",
     "version": 1,
+    "id": "31100",
     "bonusEffects": {
       "2": [
         {
@@ -69,6 +71,7 @@
   "31200": {
     "name": "Shockstar Disco",
     "version": 1,
+    "id": "31200",
     "bonusEffects": {
       "2": [
         {
@@ -94,6 +97,7 @@
   "31300": {
     "name": "Freedom Blues",
     "version": 1,
+    "id": "31300",
     "bonusEffects": {
       "2": [
         {
@@ -110,6 +114,7 @@
   "31400": {
     "name": "Hormone Punk",
     "version": 1,
+    "id": "31400",
     "bonusEffects": {
       "2": [
         {
@@ -134,6 +139,7 @@
   "31500": {
     "name": "Soul Rock",
     "version": 1,
+    "id": "31500",
     "bonusEffects": {
       "2": [
         {
@@ -150,6 +156,7 @@
   "31600": {
     "name": "Swing Jazz",
     "version": 1,
+    "id": "31600",
     "bonusEffects": {
       "2": [
         {
@@ -177,6 +184,7 @@
   "32200": {
     "name": "Inferno Metal",
     "version": 1,
+    "id": "32200",
     "bonusEffects": {
       "2": [
         {
@@ -201,6 +209,7 @@
   "32300": {
     "name": "Chaotic Metal",
     "version": 1,
+    "id": "32300",
     "bonusEffects": {
       "2": [
         {
@@ -226,6 +235,7 @@
   "32400": {
     "name": "Thunder Metal",
     "version": 1,
+    "id": "32400",
     "bonusEffects": {
       "2": [
         {
@@ -247,6 +257,7 @@
   "32500": {
     "name": "Polar Metal",
     "version": 1,
+    "id": "32500",
     "bonusEffects": {
       "2": [
         {
@@ -274,6 +285,7 @@
   "32600": {
     "name": "Fanged Metal",
     "version": 1,
+    "id": "32600",
     "bonusEffects": {
       "2": [
         {
@@ -294,6 +306,7 @@
   "31800": {
     "name": "Chaos Jazz",
     "version": 1.2,
+    "id": "31800",
     "bonusEffects": {
       "2": [
         {
@@ -333,6 +346,7 @@
   "31900": {
     "name": "Proto Punk",
     "version": 1.2,
+    "id": "31900",
     "bonusEffects": {
       "2": [
         {
@@ -360,6 +374,7 @@
   "32700": {
     "name": "Branch & Blade Song",
     "version": 1.4,
+    "id": "32700",
     "bonusEffects": {
       "2": [
         {
@@ -388,6 +403,7 @@
   "32800": {
     "name": "Astral Voice",
     "version": 1.4,
+    "id": "32800",
     "bonusEffects": {
       "2": [
         {
@@ -409,6 +425,7 @@
   "32900": {
     "name": "Shadow Harmony",
     "version": 1.6,
+    "id": "32900",
     "bonusEffects": {
       "2": [
         {
@@ -438,6 +455,7 @@
   "33000": {
     "name": "Phaethon's Melody",
     "version": 1.6,
+    "id": "33000",
     "bonusEffects": {
       "2": [
         {
@@ -459,6 +477,7 @@
   "33100": {
     "name": "Yunkui Tales",
     "version": 2,
+    "id": "33100",
     "bonusEffects": {
       "2": [
         {
@@ -492,6 +511,7 @@
   "33200": {
     "name": "King of the Summit",
     "version": 2,
+    "id": "33200",
     "bonusEffects": {
       "2": [
         {
@@ -536,6 +556,7 @@
   "33300": {
     "name": "Dawn's Bloom",
     "version": 2.2,
+    "id": "33300",
     "bonusEffects": {
       "2": [
         {
@@ -568,6 +589,7 @@
   "33400": {
     "name": "Moonlight Lullaby",
     "version": 2.2,
+    "id": "33400",
     "bonusEffects": {
       "2": [
         {
@@ -596,6 +618,7 @@
   "33500": {
     "name": "White Water Ballad",
     "version": 2.5,
+    "id": "33500",
     "bonusEffects": {
       "2": [
         {
@@ -617,6 +640,7 @@
   "33600": {
     "name": "Shining Aria",
     "version": 2.5,
+    "id": "33600",
     "bonusEffects": {
       "2": [
         {
@@ -645,6 +669,7 @@
   "33700": {
     "name": "Bunny in Wonderland",
     "version": 2.7,
+    "id": "33700",
     "bonusEffects": {
       "2": [
         {
@@ -670,6 +695,7 @@
   "33800": {
     "name": "Notes From the Chained",
     "version": 2.7,
+    "id": "33800",
     "bonusEffects": {
       "2": [
         {
@@ -686,6 +712,7 @@
   "33900": {
     "name": "Wuthering Salon",
     "version": 3,
+    "id": "33900",
     "bonusEffects": {
       "2": [
         {
@@ -715,6 +742,7 @@
   "34000": {
     "name": "The Sky Ablaze",
     "version": 3,
+    "id": "34000",
     "bonusEffects": {
       "2": [
         {

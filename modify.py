@@ -1,0 +1,51 @@
+import json, shutil
+
+def get_path(dirname, filename):
+    return f'src/data/{dirname}/{filename}'
+
+def modify(data):
+    was_changed = False
+
+    for id, entry in data.items():
+        if 'id' in entry:
+            continue
+
+        was_changed = True
+
+        data[id] = {
+            'name': entry['name'],
+            'version': entry['version'],
+            'id': id,
+            **entry,
+        }
+
+    return was_changed
+
+GAMES_TO_MODIFY = [
+    'genshin-impact',
+    'honkai-star-rail',
+    'wuthering-waves',
+    'zenless-zone-zero',
+]
+
+FILES_TO_MODIFY = [
+    'set.json',
+]
+
+def main():
+    for dirname in GAMES_TO_MODIFY:
+        for filename in FILES_TO_MODIFY:
+            path = get_path(dirname, filename)
+            with open(path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+
+            was_changed = modify(data)
+            if was_changed:
+                # shutil.copy2(path, f'{path}.bak')
+                with open(path, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, indent=2)
+
+            print(f'{path} changed?: {was_changed}')
+
+if __name__ == '__main__':
+    main()

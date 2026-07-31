@@ -2,6 +2,7 @@
   "12001": {
     "name": "[Lunar] Pleniluna",
     "version": 1,
+    "id": "12001",
     "quality": 3,
     "type": "attack",
     "stats": {
@@ -13,6 +14,7 @@
   "12002": {
     "name": "[Lunar] Decrescent",
     "version": 1,
+    "id": "12002",
     "quality": 3,
     "type": "attack",
     "stats": {
@@ -24,6 +26,7 @@
   "12003": {
     "name": "[Lunar] Noviluna",
     "version": 1,
+    "id": "12003",
     "quality": 3,
     "type": "attack",
     "stats": {
@@ -35,6 +38,7 @@
   "12004": {
     "name": "[Reverb] Mark I",
     "version": 1,
+    "id": "12004",
     "quality": 3,
     "type": "support",
     "stats": {
@@ -46,6 +50,7 @@
   "12005": {
     "name": "[Reverb] Mark II",
     "version": 1,
+    "id": "12005",
     "quality": 3,
     "type": "support",
     "stats": {
@@ -57,6 +62,7 @@
   "12006": {
     "name": "[Reverb] Mark III",
     "version": 1,
+    "id": "12006",
     "quality": 3,
     "type": "support",
     "stats": {
@@ -68,6 +74,7 @@
   "12007": {
     "name": "[Vortex] Revolver",
     "version": 1,
+    "id": "12007",
     "quality": 3,
     "type": "stun",
     "stats": {
@@ -79,6 +86,7 @@
   "12008": {
     "name": "[Vortex] Arrow",
     "version": 1,
+    "id": "12008",
     "quality": 3,
     "type": "stun",
     "stats": {
@@ -90,6 +98,7 @@
   "12009": {
     "name": "[Vortex] Hatchet",
     "version": 1,
+    "id": "12009",
     "quality": 3,
     "type": "stun",
     "stats": {
@@ -101,6 +110,7 @@
   "12010": {
     "name": "[Magnetic Storm] Alpha",
     "version": 1,
+    "id": "12010",
     "quality": 3,
     "type": "anomaly",
     "stats": {
@@ -112,6 +122,7 @@
   "12011": {
     "name": "[Magnetic Storm] Bravo",
     "version": 1,
+    "id": "12011",
     "quality": 3,
     "type": "anomaly",
     "stats": {
@@ -123,6 +134,7 @@
   "12012": {
     "name": "[Magnetic Storm] Charlie",
     "version": 1,
+    "id": "12012",
     "quality": 3,
     "type": "anomaly",
     "stats": {
@@ -134,6 +146,7 @@
   "12013": {
     "name": "[Identity] Base",
     "version": 1,
+    "id": "12013",
     "quality": 3,
     "type": "defense",
     "stats": {
@@ -145,6 +158,7 @@
   "12014": {
     "name": "[Identity] Inflection",
     "version": 1,
+    "id": "12014",
     "quality": 3,
     "type": "defense",
     "stats": {
@@ -156,6 +170,7 @@
   "13001": {
     "name": "Street Superstar",
     "version": 1,
+    "id": "13001",
     "quality": 4,
     "type": "attack",
     "stats": {
@@ -167,6 +182,7 @@
   "13002": {
     "name": "Slice of Time",
     "version": 1,
+    "id": "13002",
     "quality": 4,
     "type": "support",
     "stats": {
@@ -178,6 +194,7 @@
   "13003": {
     "name": "Rainforest Gourmet",
     "version": 1,
+    "id": "13003",
     "quality": 4,
     "type": "anomaly",
     "stats": {
@@ -189,6 +206,7 @@
   "13004": {
     "name": "Starlight Engine",
     "version": 1,
+    "id": "13004",
     "quality": 4,
     "type": "attack",
     "stats": {
@@ -200,6 +218,7 @@
   "13005": {
     "name": "Steam Oven",
     "version": 1,
+    "id": "13005",
     "quality": 4,
     "type": "stun",
     "stats": {
@@ -211,6 +230,7 @@
   "13006": {
     "name": "Precious Fossilized Core",
     "version": 1,
+    "id": "13006",
     "quality": 4,
     "type": "stun",
     "stats": {
@@ -222,6 +242,7 @@
   "13007": {
     "name": "Original Transmorpher",
     "version": 1,
+    "id": "13007",
     "quality": 4,
     "type": "defense",
     "stats": {
@@ -233,6 +254,7 @@
   "13008": {
     "name": "Weeping Gemini",
     "version": 1,
+    "id": "13008",
     "quality": 4,
     "type": "anomaly",
     "stats": {
@@ -244,6 +266,7 @@
   "13009": {
     "name": "Electro-Lip Gloss",
     "version": 1,
+    "id": "13009",
     "quality": 4,
     "type": "anomaly",
     "stats": {
@@ -255,6 +278,7 @@
   "13010": {
     "name": "Bunny Band",
     "version": 1,
+    "id": "13010",
     "quality": 4,
     "type": "defense",
     "stats": {
@@ -266,6 +290,7 @@
   "13011": {
     "name": "Spring Embrace",
     "version": 1,
+    "id": "13011",
     "quality": 4,
     "type": "defense",
     "stats": {
@@ -277,6 +302,7 @@
   "13101": {
     "name": "Demara Battery Mark II",
     "version": 1,
+    "id": "13101",
     "quality": 4,
     "type": "stun",
     "stats": {
@@ -288,6 +314,7 @@
   "13103": {
     "name": "The Vault",
     "version": 1,
+    "id": "13103",
     "quality": 4,
     "type": "support",
     "stats": {
@@ -299,6 +326,7 @@
   "13106": {
     "name": "Housekeeper",
     "version": 1,
+    "id": "13106",
     "quality": 4,
     "type": "attack",
     "stats": {
@@ -310,6 +338,7 @@
   "13108": {
     "name": "Starlight Engine Replica",
     "version": 1,
+    "id": "13108",
     "quality": 4,
     "type": "attack",
     "stats": {
@@ -321,6 +350,7 @@
   "13111": {
     "name": "Drill Rig - Red Axis",
     "version": 1,
+    "id": "13111",
     "quality": 4,
     "type": "attack",
     "stats": {
@@ -332,6 +362,7 @@
   "13112": {
     "name": "Big Cylinder",
     "version": 1,
+    "id": "13112",
     "quality": 4,
     "type": "defense",
     "stats": {
@@ -343,6 +374,7 @@
   "13113": {
     "name": "Bashful Demon",
     "version": 1,
+    "id": "13113",
     "quality": 4,
     "type": "support",
     "stats": {
@@ -354,6 +386,7 @@
   "13115": {
     "name": "Kaboom the Cannon",
     "version": 1,
+    "id": "13115",
     "quality": 4,
     "type": "support",
     "stats": {
@@ -365,6 +398,7 @@
   "13128": {
     "name": "Roaring Ride",
     "version": 1,
+    "id": "13128",
     "quality": 4,
     "type": "anomaly",
     "stats": {
@@ -376,6 +410,7 @@
   "14001": {
     "name": "Cannon Rotor",
     "version": 1,
+    "id": "14001",
     "quality": 4,
     "type": "attack",
     "stats": {
@@ -387,6 +422,7 @@
   "14002": {
     "name": "Unfettered Game Ball",
     "version": 1,
+    "id": "14002",
     "quality": 4,
     "type": "support",
     "stats": {
@@ -398,6 +434,7 @@
   "14003": {
     "name": "Six Shooter",
     "version": 1,
+    "id": "14003",
     "quality": 4,
     "type": "stun",
     "stats": {
@@ -409,6 +446,7 @@
   "14102": {
     "name": "Steel Cushion",
     "version": 1,
+    "id": "14102",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -420,6 +458,7 @@
   "14104": {
     "name": "The Brimstone",
     "version": 1,
+    "id": "14104",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -431,6 +470,7 @@
   "14110": {
     "name": "Hellfire Gears",
     "version": 1,
+    "id": "14110",
     "quality": 5,
     "type": "stun",
     "stats": {
@@ -442,6 +482,7 @@
   "14114": {
     "name": "The Restrained",
     "version": 1,
+    "id": "14114",
     "quality": 5,
     "type": "stun",
     "stats": {
@@ -453,6 +494,7 @@
   "14118": {
     "name": "Fusion Compiler",
     "version": 1,
+    "id": "14118",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -464,6 +506,7 @@
   "14119": {
     "name": "Deep Sea Visitor",
     "version": 1,
+    "id": "14119",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -475,6 +518,7 @@
   "14121": {
     "name": "Weeping Cradle",
     "version": 1,
+    "id": "14121",
     "quality": 5,
     "type": "support",
     "stats": {
@@ -486,6 +530,7 @@
   "14124": {
     "name": "Riot Suppressor Mark VI",
     "version": 1,
+    "id": "14124",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -497,6 +542,7 @@
   "13013": {
     "name": "Gilded Blossom",
     "version": 1.1,
+    "id": "13013",
     "quality": 4,
     "type": "attack",
     "stats": {
@@ -508,6 +554,7 @@
   "13127": {
     "name": "Peacekeeper - Specialized",
     "version": 1.1,
+    "id": "13127",
     "quality": 4,
     "type": "defense",
     "stats": {
@@ -519,6 +566,7 @@
   "14125": {
     "name": "Ice-Jade Teapot",
     "version": 1.1,
+    "id": "14125",
     "quality": 5,
     "type": "stun",
     "stats": {
@@ -530,6 +578,7 @@
   "14126": {
     "name": "Sharpened Stinger",
     "version": 1.1,
+    "id": "14126",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -541,6 +590,7 @@
   "14107": {
     "name": "Tusks of Fury",
     "version": 1.2,
+    "id": "14107",
     "quality": 5,
     "type": "defense",
     "stats": {
@@ -552,6 +602,7 @@
   "14117": {
     "name": "Flamemaker Shaker",
     "version": 1.2,
+    "id": "14117",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -563,6 +614,7 @@
   "14116": {
     "name": "Blazing Laurel",
     "version": 1.3,
+    "id": "14116",
     "quality": 5,
     "type": "stun",
     "stats": {
@@ -574,6 +626,7 @@
   "14122": {
     "name": "Timeweaver",
     "version": 1.3,
+    "id": "14122",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -585,6 +638,7 @@
   "13015": {
     "name": "Marcato Desire",
     "version": 1.4,
+    "id": "13015",
     "quality": 4,
     "type": "attack",
     "stats": {
@@ -596,6 +650,7 @@
   "14109": {
     "name": "Hailstorm Shrine",
     "version": 1.4,
+    "id": "14109",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -607,6 +662,7 @@
   "14120": {
     "name": "Zanshin Herb Case",
     "version": 1.4,
+    "id": "14120",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -618,6 +674,7 @@
   "14131": {
     "name": "Elegant Vanity",
     "version": 1.5,
+    "id": "14131",
     "quality": 5,
     "type": "support",
     "stats": {
@@ -629,6 +686,7 @@
   "14132": {
     "name": "Heartstring Nocturne",
     "version": 1.5,
+    "id": "14132",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -640,6 +698,7 @@
   "13135": {
     "name": "Box Cutter",
     "version": 1.6,
+    "id": "13135",
     "quality": 4,
     "type": "stun",
     "stats": {
@@ -651,6 +710,7 @@
   "14136": {
     "name": "Spectral Gaze",
     "version": 1.6,
+    "id": "14136",
     "quality": 5,
     "type": "stun",
     "stats": {
@@ -662,6 +722,7 @@
   "14138": {
     "name": "Severed Innocence",
     "version": 1.6,
+    "id": "14138",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -673,6 +734,7 @@
   "14129": {
     "name": "Myriad Eclipse",
     "version": 1.7,
+    "id": "14129",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -684,6 +746,7 @@
   "14133": {
     "name": "Flight of Fancy",
     "version": 1.7,
+    "id": "14133",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -695,6 +758,7 @@
   "12015": {
     "name": "[Cinder] Cobalt",
     "version": 2,
+    "id": "12015",
     "quality": 3,
     "type": "rupture",
     "stats": {
@@ -706,6 +770,7 @@
   "13012": {
     "name": "Puzzle Sphere",
     "version": 2,
+    "id": "13012",
     "quality": 4,
     "type": "rupture",
     "stats": {
@@ -717,6 +782,7 @@
   "13014": {
     "name": "Radiowave Journey",
     "version": 2,
+    "id": "13014",
     "quality": 4,
     "type": "rupture",
     "stats": {
@@ -728,6 +794,7 @@
   "13016": {
     "name": "Reel Projector",
     "version": 2,
+    "id": "13016",
     "quality": 4,
     "type": "defense",
     "stats": {
@@ -739,6 +806,7 @@
   "13142": {
     "name": "Tremor Trigram Vessel",
     "version": 2,
+    "id": "13142",
     "quality": 4,
     "type": "defense",
     "stats": {
@@ -750,6 +818,7 @@
   "14137": {
     "name": "Qingming Birdcage",
     "version": 2,
+    "id": "14137",
     "quality": 5,
     "type": "rupture",
     "stats": {
@@ -761,6 +830,7 @@
   "14139": {
     "name": "Roaring Fur-nace",
     "version": 2,
+    "id": "14139",
     "quality": 5,
     "type": "stun",
     "stats": {
@@ -772,6 +842,7 @@
   "14140": {
     "name": "Practiced Perfection",
     "version": 2.1,
+    "id": "14140",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -783,6 +854,7 @@
   "14141": {
     "name": "Metanukimorphosis",
     "version": 2.1,
+    "id": "14141",
     "quality": 5,
     "type": "support",
     "stats": {
@@ -794,6 +866,7 @@
   "14130": {
     "name": "Bellicose Blaze",
     "version": 2.2,
+    "id": "14130",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -805,6 +878,7 @@
   "14146": {
     "name": "Cordis Germina",
     "version": 2.2,
+    "id": "14146",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -816,6 +890,7 @@
   "13144": {
     "name": "Grill O'Wisp",
     "version": 2.3,
+    "id": "13144",
     "quality": 4,
     "type": "rupture",
     "stats": {
@@ -827,6 +902,7 @@
   "14105": {
     "name": "Kraken's Cradle",
     "version": 2.3,
+    "id": "14105",
     "quality": 5,
     "type": "rupture",
     "stats": {
@@ -838,6 +914,7 @@
   "14145": {
     "name": "Dreamlit Hearth",
     "version": 2.3,
+    "id": "14145",
     "quality": 5,
     "type": "support",
     "stats": {
@@ -849,6 +926,7 @@
   "14147": {
     "name": "Wrathful Vajra",
     "version": 2.4,
+    "id": "14147",
     "quality": 5,
     "type": "rupture",
     "stats": {
@@ -860,6 +938,7 @@
   "14148": {
     "name": "Yesterday Calls",
     "version": 2.4,
+    "id": "14148",
     "quality": 5,
     "type": "stun",
     "stats": {
@@ -871,6 +950,7 @@
   "13019": {
     "name": "Cauldron of Clarity",
     "version": 2.5,
+    "id": "13019",
     "quality": 4,
     "type": "rupture",
     "stats": {
@@ -882,6 +962,7 @@
   "14134": {
     "name": "Half-Sugar Bunny",
     "version": 2.5,
+    "id": "14134",
     "quality": 5,
     "type": "defense",
     "stats": {
@@ -893,6 +974,7 @@
   "14143": {
     "name": "Cloudcleave Radiance",
     "version": 2.5,
+    "id": "14143",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -904,6 +986,7 @@
   "14149": {
     "name": "Thoughtbop",
     "version": 2.6,
+    "id": "14149",
     "quality": 5,
     "type": "support",
     "stats": {
@@ -915,6 +998,7 @@
   "14150": {
     "name": "Angel in the Shell",
     "version": 2.6,
+    "id": "14150",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -926,6 +1010,7 @@
   "13020": {
     "name": "The Simmering Pot",
     "version": 2.7,
+    "id": "13020",
     "quality": 4,
     "type": "stun",
     "stats": {
@@ -937,6 +1022,7 @@
   "14151": {
     "name": "Neon Fantasies",
     "version": 2.7,
+    "id": "14151",
     "quality": 5,
     "type": "stun",
     "stats": {
@@ -948,6 +1034,7 @@
   "14152": {
     "name": "Serpentine Seeker",
     "version": 2.7,
+    "id": "14152",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -959,6 +1046,7 @@
   "14153": {
     "name": "Starlight Rider Faceplate",
     "version": 2.8,
+    "id": "14153",
     "quality": 5,
     "type": "rupture",
     "stats": {
@@ -970,6 +1058,7 @@
   "14154": {
     "name": "Frostfall Sickle",
     "version": 2.8,
+    "id": "14154",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -981,6 +1070,7 @@
   "14155": {
     "name": "Sol Exuvia",
     "version": 3,
+    "id": "14155",
     "quality": 5,
     "type": "attack",
     "stats": {
@@ -992,6 +1082,7 @@
   "14156": {
     "name": "Joyau Dore",
     "version": 3,
+    "id": "14156",
     "quality": 5,
     "type": "anomaly",
     "stats": {
@@ -1003,6 +1094,7 @@
   "14157": {
     "name": "Chief Sidekick",
     "version": 3,
+    "id": "14157",
     "quality": 5,
     "type": "stun",
     "stats": {

@@ -2,6 +2,7 @@
   "14002": {
     "name": "Thundersoother",
     "version": 1,
+    "id": "14002",
     "bonusEffects": {
       "2": [],
       "4": []
@@ -10,6 +11,7 @@
   "14003": {
     "name": "Lavawalker",
     "version": 1,
+    "id": "14003",
     "bonusEffects": {
       "2": [],
       "4": []
@@ -18,6 +20,7 @@
   "14004": {
     "name": "Maiden Beloved",
     "version": 1,
+    "id": "14004",
     "bonusEffects": {
       "2": [
         {
@@ -45,6 +48,7 @@
   "15001": {
     "name": "Gladiator's Finale",
     "version": 1,
+    "id": "15001",
     "bonusEffects": {
       "2": [
         {
@@ -70,6 +74,7 @@
   "15002": {
     "name": "Viridescent Venerer",
     "version": 1,
+    "id": "15002",
     "bonusEffects": {
       "2": [
         {
@@ -84,6 +89,7 @@
   "15003": {
     "name": "Wanderer's Troupe",
     "version": 1,
+    "id": "15003",
     "bonusEffects": {
       "2": [
         {
@@ -108,6 +114,7 @@
   "15005": {
     "name": "Thundering Fury",
     "version": 1,
+    "id": "15005",
     "bonusEffects": {
       "2": [
         {
@@ -122,6 +129,7 @@
   "15006": {
     "name": "Crimson Witch of Flames",
     "version": 1,
+    "id": "15006",
     "bonusEffects": {
       "2": [
         {
@@ -136,6 +144,7 @@
   "15007": {
     "name": "Noblesse Oblige",
     "version": 1,
+    "id": "15007",
     "bonusEffects": {
       "2": [
         {
@@ -160,6 +169,7 @@
   "15008": {
     "name": "Bloodstained Chivalry",
     "version": 1,
+    "id": "15008",
     "bonusEffects": {
       "2": [
         {
@@ -174,6 +184,7 @@
   "15014": {
     "name": "Archaic Petra",
     "version": 1,
+    "id": "15014",
     "bonusEffects": {
       "2": [
         {
@@ -188,6 +199,7 @@
   "15015": {
     "name": "Retracing Bolide",
     "version": 1,
+    "id": "15015",
     "bonusEffects": {
       "2": [],
       "4": []
@@ -196,6 +208,7 @@
   "14001": {
     "name": "Blizzard Strayer",
     "version": 1.2,
+    "id": "14001",
     "bonusEffects": {
       "2": [
         {
@@ -210,6 +223,7 @@
   "15016": {
     "name": "Heart of Depth",
     "version": 1.2,
+    "id": "15016",
     "bonusEffects": {
       "2": [
         {
@@ -234,6 +248,7 @@
   "15017": {
     "name": "Tenacity of the Millelith",
     "version": 1.5,
+    "id": "15017",
     "bonusEffects": {
       "2": [
         {
@@ -259,6 +274,7 @@
   "15018": {
     "name": "Pale Flame",
     "version": 1.5,
+    "id": "15018",
     "bonusEffects": {
       "2": [
         {
@@ -285,6 +301,7 @@
   "15019": {
     "name": "Shimenawa's Reminiscence",
     "version": 2,
+    "id": "15019",
     "bonusEffects": {
       "2": [
         {
@@ -311,6 +328,7 @@
   "15020": {
     "name": "Emblem of Severed Fate",
     "version": 2,
+    "id": "15020",
     "bonusEffects": {
       "2": [
         {
@@ -336,6 +354,7 @@
   "15021": {
     "name": "Husk of Opulent Dreams",
     "version": 2.3,
+    "id": "15021",
     "bonusEffects": {
       "2": [
         {
@@ -357,6 +376,7 @@
   "15022": {
     "name": "Ocean-Hued Clam",
     "version": 2.3,
+    "id": "15022",
     "bonusEffects": {
       "2": [
         {
@@ -388,6 +408,7 @@
   "15023": {
     "name": "Vermillion Hereafter",
     "version": 2.6,
+    "id": "15023",
     "bonusEffects": {
       "2": [
         {
@@ -413,6 +434,7 @@
   "15024": {
     "name": "Echoes of an Offering",
     "version": 2.6,
+    "id": "15024",
     "bonusEffects": {
       "2": [
         {
@@ -427,6 +449,7 @@
   "15025": {
     "name": "Deepwood Memories",
     "version": 3,
+    "id": "15025",
     "bonusEffects": {
       "2": [
         {
@@ -453,6 +476,7 @@
   "15026": {
     "name": "Gilded Dreams",
     "version": 3,
+    "id": "15026",
     "bonusEffects": {
       "2": [
         {
@@ -473,6 +497,7 @@
   "15027": {
     "name": "Desert Pavilion Chronicle",
     "version": 3.3,
+    "id": "15027",
     "bonusEffects": {
       "2": [
         {
@@ -499,6 +524,7 @@
   "15028": {
     "name": "Flower of Paradise Lost",
     "version": 3.3,
+    "id": "15028",
     "bonusEffects": {
       "2": [
         {
@@ -513,6 +539,7 @@
   "15029": {
     "name": "Nymph's Dream",
     "version": 3.6,
+    "id": "15029",
     "bonusEffects": {
       "2": [
         {
@@ -543,6 +570,7 @@
   "15030": {
     "name": "Vourukasha's Glow",
     "version": 3.6,
+    "id": "15030",
     "bonusEffects": {
       "2": [
         {
@@ -570,6 +598,7 @@
   "15031": {
     "name": "Marechaussee Hunter",
     "version": 4,
+    "id": "15031",
     "bonusEffects": {
       "2": [
         {
@@ -591,6 +620,7 @@
   "15032": {
     "name": "Golden Troupe",
     "version": 4,
+    "id": "15032",
     "bonusEffects": {
       "2": [
         {
@@ -617,6 +647,7 @@
   "15033": {
     "name": "Song of Days Past",
     "version": 4.3,
+    "id": "15033",
     "bonusEffects": {
       "2": [
         {
@@ -631,6 +662,7 @@
   "15034": {
     "name": "Nighttime Whispers in the Echoing Woods",
     "version": 4.3,
+    "id": "15034",
     "bonusEffects": {
       "2": [
         {
@@ -651,6 +683,7 @@
   "15035": {
     "name": "Fragment of Harmonic Whimsy",
     "version": 4.6,
+    "id": "15035",
     "bonusEffects": {
       "2": [
         {
@@ -671,6 +704,7 @@
   "15036": {
     "name": "Unfinished Reverie",
     "version": 4.6,
+    "id": "15036",
     "bonusEffects": {
       "2": [
         {
@@ -691,6 +725,7 @@
   "15037": {
     "name": "Scroll of the Hero of Cinder City",
     "version": 5,
+    "id": "15037",
     "bonusEffects": {
       "2": [],
       "4": []
@@ -699,6 +734,7 @@
   "15038": {
     "name": "Obsidian Codex",
     "version": 5,
+    "id": "15038",
     "bonusEffects": {
       "2": [
         {
@@ -720,6 +756,7 @@
   "15039": {
     "name": "Long Night's Oath",
     "version": 5.5,
+    "id": "15039",
     "bonusEffects": {
       "2": [
         {
@@ -740,6 +777,7 @@
   "15040": {
     "name": "Finale of the Deep Galleries",
     "version": 5.5,
+    "id": "15040",
     "bonusEffects": {
       "2": [
         {
@@ -762,6 +800,7 @@
   "15041": {
     "name": "Night of the Sky's Unveiling",
     "version": 6,
+    "id": "15041",
     "bonusEffects": {
       "2": [
         {
@@ -783,6 +822,7 @@
   "15042": {
     "name": "Silken Moon's Serenade",
     "version": 6,
+    "id": "15042",
     "bonusEffects": {
       "2": [
         {
@@ -807,6 +847,7 @@
   "15043": {
     "name": "Aubade of Morningstar and Moon",
     "version": 6.3,
+    "id": "15043",
     "bonusEffects": {
       "2": [
         {
@@ -821,6 +862,7 @@
   "15044": {
     "name": "A Day Carved From Rising Winds",
     "version": 6.3,
+    "id": "15044",
     "bonusEffects": {
       "2": [
         {
@@ -863,6 +905,7 @@
   "15045": {
     "name": "Celestial Gift",
     "version": 6.6,
+    "id": "15045",
     "bonusEffects": {
       "2": [
         {
@@ -888,6 +931,7 @@
   "15046": {
     "name": "Disenchantment in Deep Shadow",
     "version": 6.6,
+    "id": "15046",
     "bonusEffects": {
       "2": [
         {

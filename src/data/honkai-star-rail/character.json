@@ -2,6 +2,7 @@
   "1001": {
     "name": "March 7th",
     "version": 1,
+    "id": "1001",
     "quality": 4,
     "element": "ice",
     "type": "preservation",
@@ -21,6 +22,7 @@
   "1002": {
     "name": "Dan Heng",
     "version": 1,
+    "id": "1002",
     "quality": 4,
     "element": "wind",
     "type": "hunt",
@@ -40,6 +42,7 @@
   "1003": {
     "name": "Himeko",
     "version": 1,
+    "id": "1003",
     "quality": 5,
     "element": "fire",
     "type": "erudition",
@@ -59,6 +62,7 @@
   "1004": {
     "name": "Welt",
     "version": 1,
+    "id": "1004",
     "quality": 5,
     "element": "imaginary",
     "type": "nihility",
@@ -78,6 +82,7 @@
   "1008": {
     "name": "Arlan",
     "version": 1,
+    "id": "1008",
     "quality": 4,
     "element": "lightning",
     "type": "destruction",
@@ -97,6 +102,7 @@
   "1009": {
     "name": "Asta",
     "version": 1,
+    "id": "1009",
     "quality": 4,
     "element": "fire",
     "type": "harmony",
@@ -116,6 +122,7 @@
   "1013": {
     "name": "Herta",
     "version": 1,
+    "id": "1013",
     "quality": 4,
     "element": "ice",
     "type": "erudition",
@@ -135,6 +142,7 @@
   "1101": {
     "name": "Bronya",
     "version": 1,
+    "id": "1101",
     "quality": 5,
     "element": "wind",
     "type": "harmony",
@@ -154,6 +162,7 @@
   "1102": {
     "name": "Seele",
     "version": 1,
+    "id": "1102",
     "quality": 5,
     "element": "quantum",
     "type": "hunt",
@@ -173,6 +182,7 @@
   "1103": {
     "name": "Serval",
     "version": 1,
+    "id": "1103",
     "quality": 4,
     "element": "lightning",
     "type": "erudition",
@@ -192,6 +202,7 @@
   "1104": {
     "name": "Gepard",
     "version": 1,
+    "id": "1104",
     "quality": 5,
     "element": "ice",
     "type": "preservation",
@@ -211,6 +222,7 @@
   "1105": {
     "name": "Natasha",
     "version": 1,
+    "id": "1105",
     "quality": 4,
     "element": "physical",
     "type": "abundance",
@@ -230,6 +242,7 @@
   "1106": {
     "name": "Pela",
     "version": 1,
+    "id": "1106",
     "quality": 4,
     "element": "ice",
     "type": "nihility",
@@ -249,6 +262,7 @@
   "1107": {
     "name": "Clara",
     "version": 1,
+    "id": "1107",
     "quality": 5,
     "element": "physical",
     "type": "destruction",
@@ -268,6 +282,7 @@
   "1108": {
     "name": "Sampo",
     "version": 1,
+    "id": "1108",
     "quality": 4,
     "element": "wind",
     "type": "nihility",
@@ -287,6 +302,7 @@
   "1109": {
     "name": "Hook",
     "version": 1,
+    "id": "1109",
     "quality": 4,
     "element": "fire",
     "type": "destruction",
@@ -306,6 +322,7 @@
   "1201": {
     "name": "Qingque",
     "version": 1,
+    "id": "1201",
     "quality": 4,
     "element": "quantum",
     "type": "erudition",
@@ -325,6 +342,7 @@
   "1202": {
     "name": "Tingyun",
     "version": 1,
+    "id": "1202",
     "quality": 4,
     "element": "lightning",
     "type": "harmony",
@@ -344,6 +362,7 @@
   "1204": {
     "name": "Jing Yuan",
     "version": 1,
+    "id": "1204",
     "quality": 5,
     "element": "lightning",
     "type": "erudition",
@@ -363,6 +382,7 @@
   "1206": {
     "name": "Sushang",
     "version": 1,
+    "id": "1206",
     "quality": 4,
     "element": "physical",
     "type": "hunt",
@@ -382,6 +402,7 @@
   "1209": {
     "name": "Yanqing",
     "version": 1,
+    "id": "1209",
     "quality": 5,
     "element": "ice",
     "type": "hunt",
@@ -401,6 +422,7 @@
   "1211": {
     "name": "Bailu",
     "version": 1,
+    "id": "1211",
     "quality": 5,
     "element": "lightning",
     "type": "abundance",
@@ -420,6 +442,7 @@
   "1006": {
     "name": "Silver Wolf",
     "version": 1.1,
+    "id": "1006",
     "quality": 5,
     "element": "quantum",
     "type": "nihility",
@@ -439,6 +462,7 @@
   "1203": {
     "name": "Luocha",
     "version": 1.1,
+    "id": "1203",
     "quality": 5,
     "element": "imaginary",
     "type": "abundance",
@@ -458,6 +482,7 @@
   "1207": {
     "name": "Yukong",
     "version": 1.1,
+    "id": "1207",
     "quality": 4,
     "element": "imaginary",
     "type": "harmony",
@@ -477,6 +502,7 @@
   "1005": {
     "name": "Kafka",
     "version": 1.2,
+    "id": "1005",
     "quality": 5,
     "element": "lightning",
     "type": "nihility",
@@ -496,6 +522,7 @@
   "1111": {
     "name": "Luka",
     "version": 1.2,
+    "id": "1111",
     "quality": 4,
     "element": "physical",
     "type": "nihility",
@@ -515,6 +542,7 @@
   "1205": {
     "name": "Blade",
     "version": 1.2,
+    "id": "1205",
     "quality": 5,
     "element": "wind",
     "type": "destruction",
@@ -534,6 +562,7 @@
   "1110": {
     "name": "Lynx",
     "version": 1.3,
+    "id": "1110",
     "quality": 4,
     "element": "quantum",
     "type": "abundance",
@@ -553,6 +582,7 @@
   "1208": {
     "name": "Fu Xuan",
     "version": 1.3,
+    "id": "1208",
     "quality": 5,
     "element": "quantum",
     "type": "preservation",
@@ -572,6 +602,7 @@
   "1213": {
     "name": "Dan Heng: Imbibitor Lunae",
     "version": 1.3,
+    "id": "1213",
     "quality": 5,
     "element": "imaginary",
     "type": "destruction",
@@ -591,6 +622,7 @@
   "1112": {
     "name": "Topaz & Numby",
     "version": 1.4,
+    "id": "1112",
     "quality": 5,
     "element": "fire",
     "type": "hunt",
@@ -610,6 +642,7 @@
   "1210": {
     "name": "Guinaifen",
     "version": 1.4,
+    "id": "1210",
     "quality": 4,
     "element": "fire",
     "type": "nihility",
@@ -629,6 +662,7 @@
   "1212": {
     "name": "Jingliu",
     "version": 1.4,
+    "id": "1212",
     "quality": 5,
     "element": "ice",
     "type": "destruction",
@@ -648,6 +682,7 @@
   "1215": {
     "name": "Hanya",
     "version": 1.5,
+    "id": "1215",
     "quality": 4,
     "element": "physical",
     "type": "harmony",
@@ -667,6 +702,7 @@
   "1217": {
     "name": "Huohuo",
     "version": 1.5,
+    "id": "1217",
     "quality": 5,
     "element": "wind",
     "type": "abundance",
@@ -686,6 +722,7 @@
   "1302": {
     "name": "Argenti",
     "version": 1.5,
+    "id": "1302",
     "quality": 5,
     "element": "physical",
     "type": "erudition",
@@ -705,6 +742,7 @@
   "1214": {
     "name": "Xueyi",
     "version": 1.6,
+    "id": "1214",
     "quality": 4,
     "element": "quantum",
     "type": "destruction",
@@ -724,6 +762,7 @@
   "1303": {
     "name": "Ruan Mei",
     "version": 1.6,
+    "id": "1303",
     "quality": 5,
     "element": "ice",
     "type": "harmony",
@@ -743,6 +782,7 @@
   "1305": {
     "name": "Dr. Ratio",
     "version": 1.6,
+    "id": "1305",
     "quality": 5,
     "element": "imaginary",
     "type": "hunt",
@@ -762,6 +802,7 @@
   "1306": {
     "name": "Sparkle",
     "version": 2,
+    "id": "1306",
     "quality": 5,
     "element": "quantum",
     "type": "harmony",
@@ -781,6 +822,7 @@
   "1307": {
     "name": "Black Swan",
     "version": 2,
+    "id": "1307",
     "quality": 5,
     "element": "wind",
     "type": "nihility",
@@ -800,6 +842,7 @@
   "1312": {
     "name": "Misha",
     "version": 2,
+    "id": "1312",
     "quality": 4,
     "element": "ice",
     "type": "destruction",
@@ -819,6 +862,7 @@
   "1301": {
     "name": "Gallagher",
     "version": 2.1,
+    "id": "1301",
     "quality": 4,
     "element": "fire",
     "type": "abundance",
@@ -838,6 +882,7 @@
   "1304": {
     "name": "Aventurine",
     "version": 2.1,
+    "id": "1304",
     "quality": 5,
     "element": "imaginary",
     "type": "preservation",
@@ -857,6 +902,7 @@
   "1308": {
     "name": "Acheron",
     "version": 2.1,
+    "id": "1308",
     "quality": 5,
     "element": "lightning",
     "type": "nihility",
@@ -876,6 +922,7 @@
   "1309": {
     "name": "Robin",
     "version": 2.2,
+    "id": "1309",
     "quality": 5,
     "element": "physical",
     "type": "harmony",
@@ -895,6 +942,7 @@
   "1315": {
     "name": "Boothill",
     "version": 2.2,
+    "id": "1315",
     "quality": 5,
     "element": "physical",
     "type": "hunt",
@@ -914,6 +962,7 @@
   "1310": {
     "name": "Firefly",
     "version": 2.3,
+    "id": "1310",
     "quality": 5,
     "element": "fire",
     "type": "destruction",
@@ -933,6 +982,7 @@
   "1314": {
     "name": "Jade",
     "version": 2.3,
+    "id": "1314",
     "quality": 5,
     "element": "quantum",
     "type": "erudition",
@@ -952,6 +1002,7 @@
   "1218": {
     "name": "Jiaoqiu",
     "version": 2.4,
+    "id": "1218",
     "quality": 5,
     "element": "fire",
     "type": "nihility",
@@ -971,6 +1022,7 @@
   "1221": {
     "name": "Yunli",
     "version": 2.4,
+    "id": "1221",
     "quality": 5,
     "element": "physical",
     "type": "destruction",
@@ -990,6 +1042,7 @@
   "1224": {
     "name": "March 7th",
     "version": 2.4,
+    "id": "1224",
     "quality": 4,
     "element": "imaginary",
     "type": "hunt",
@@ -1009,6 +1062,7 @@
   "1220": {
     "name": "Feixiao",
     "version": 2.5,
+    "id": "1220",
     "quality": 5,
     "element": "wind",
     "type": "hunt",
@@ -1028,6 +1082,7 @@
   "1222": {
     "name": "Lingsha",
     "version": 2.5,
+    "id": "1222",
     "quality": 5,
     "element": "fire",
     "type": "abundance",
@@ -1047,6 +1102,7 @@
   "1223": {
     "name": "Moze",
     "version": 2.5,
+    "id": "1223",
     "quality": 4,
     "element": "lightning",
     "type": "hunt",
@@ -1066,6 +1122,7 @@
   "1317": {
     "name": "Rappa",
     "version": 2.6,
+    "id": "1317",
     "quality": 5,
     "element": "imaginary",
     "type": "erudition",
@@ -1085,6 +1142,7 @@
   "1225": {
     "name": "Fugue",
     "version": 2.7,
+    "id": "1225",
     "quality": 5,
     "element": "fire",
     "type": "nihility",
@@ -1104,6 +1162,7 @@
   "1313": {
     "name": "Sunday",
     "version": 2.7,
+    "id": "1313",
     "quality": 5,
     "element": "imaginary",
     "type": "harmony",
@@ -1123,6 +1182,7 @@
   "1401": {
     "name": "The Herta",
     "version": 3,
+    "id": "1401",
     "quality": 5,
     "element": "ice",
     "type": "erudition",
@@ -1142,6 +1202,7 @@
   "1402": {
     "name": "Aglaea",
     "version": 3,
+    "id": "1402",
     "quality": 5,
     "element": "lightning",
     "type": "remembrance",
@@ -1161,6 +1222,7 @@
   "1403": {
     "name": "Tribbie",
     "version": 3.1,
+    "id": "1403",
     "quality": 5,
     "element": "quantum",
     "type": "harmony",
@@ -1180,6 +1242,7 @@
   "1404": {
     "name": "Mydei",
     "version": 3.1,
+    "id": "1404",
     "quality": 5,
     "element": "imaginary",
     "type": "destruction",
@@ -1199,6 +1262,7 @@
   "1405": {
     "name": "Anaxa",
     "version": 3.2,
+    "id": "1405",
     "quality": 5,
     "element": "wind",
     "type": "erudition",
@@ -1218,6 +1282,7 @@
   "1407": {
     "name": "Castorice",
     "version": 3.2,
+    "id": "1407",
     "quality": 5,
     "element": "quantum",
     "type": "remembrance",
@@ -1237,6 +1302,7 @@
   "1406": {
     "name": "Cipher",
     "version": 3.3,
+    "id": "1406",
     "quality": 5,
     "element": "quantum",
     "type": "nihility",
@@ -1256,6 +1322,7 @@
   "1409": {
     "name": "Hyacine",
     "version": 3.3,
+    "id": "1409",
     "quality": 5,
     "element": "wind",
     "type": "remembrance",
@@ -1275,6 +1342,7 @@
   "1014": {
     "name": "Saber",
     "version": 3.4,
+    "id": "1014",
     "quality": 5,
     "element": "wind",
     "type": "destruction",
@@ -1294,6 +1362,7 @@
   "1015": {
     "name": "Archer",
     "version": 3.4,
+    "id": "1015",
     "quality": 5,
     "element": "quantum",
     "type": "hunt",
@@ -1313,6 +1382,7 @@
   "1408": {
     "name": "Phainon",
     "version": 3.4,
+    "id": "1408",
     "quality": 5,
     "element": "physical",
     "type": "destruction",
@@ -1332,6 +1402,7 @@
   "1410": {
     "name": "Hysilens",
     "version": 3.5,
+    "id": "1410",
     "quality": 5,
     "element": "physical",
     "type": "nihility",
@@ -1351,6 +1422,7 @@
   "1412": {
     "name": "Cerydra",
     "version": 3.5,
+    "id": "1412",
     "quality": 5,
     "element": "wind",
     "type": "harmony",
@@ -1370,6 +1442,7 @@
   "1413": {
     "name": "Evernight",
     "version": 3.6,
+    "id": "1413",
     "quality": 5,
     "element": "ice",
     "type": "remembrance",
@@ -1389,6 +1462,7 @@
   "1414": {
     "name": "Dan Heng: Permansor Terrae",
     "version": 3.6,
+    "id": "1414",
     "quality": 5,
     "element": "physical",
     "type": "preservation",
@@ -1408,6 +1482,7 @@
   "1415": {
     "name": "Cyrene",
     "version": 3.7,
+    "id": "1415",
     "quality": 5,
     "element": "ice",
     "type": "remembrance",
@@ -1427,6 +1502,7 @@
   "1321": {
     "name": "The Dahlia",
     "version": 3.8,
+    "id": "1321",
     "quality": 5,
     "element": "fire",
     "type": "nihility",
@@ -1446,6 +1522,7 @@
   "1501": {
     "name": "Sparxie",
     "version": 4,
+    "id": "1501",
     "quality": 5,
     "element": "fire",
     "type": "elation",
@@ -1465,6 +1542,7 @@
   "1502": {
     "name": "Yao Guang",
     "version": 4,
+    "id": "1502",
     "quality": 5,
     "element": "physical",
     "type": "elation",
@@ -1484,6 +1562,7 @@
   "1504": {
     "name": "Ashveil",
     "version": 4.1,
+    "id": "1504",
     "quality": 5,
     "element": "lightning",
     "type": "hunt",
@@ -1503,6 +1582,7 @@
   "1505": {
     "name": "Evanescia",
     "version": 4.2,
+    "id": "1505",
     "quality": 5,
     "element": "physical",
     "type": "elation",
@@ -1522,6 +1602,7 @@
   "1506": {
     "name": "Silver Wolf LV.999",
     "version": 4.2,
+    "id": "1506",
     "quality": 5,
     "element": "imaginary",
     "type": "elation",
@@ -1541,6 +1622,7 @@
   "1507": {
     "name": "Mortenax Blade",
     "version": 4.3,
+    "id": "1507",
     "quality": 5,
     "element": "fire",
     "type": "nihility",

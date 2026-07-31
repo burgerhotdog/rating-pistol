@@ -2,6 +2,7 @@
   "1011": {
     "name": "Anby",
     "version": 1,
+    "id": "1011",
     "quality": 4,
     "element": "electric",
     "type": "stun",
@@ -22,6 +23,7 @@
   "1021": {
     "name": "Nekomata",
     "version": 1,
+    "id": "1021",
     "quality": 5,
     "element": "physical",
     "type": "attack",
@@ -42,6 +44,7 @@
   "1031": {
     "name": "Nicole",
     "version": 1,
+    "id": "1031",
     "quality": 4,
     "element": "ether",
     "type": "support",
@@ -62,6 +65,7 @@
   "1041": {
     "name": "Soldier 11",
     "version": 1,
+    "id": "1041",
     "quality": 5,
     "element": "fire",
     "type": "attack",
@@ -82,6 +86,7 @@
   "1061": {
     "name": "Corin",
     "version": 1,
+    "id": "1061",
     "quality": 4,
     "element": "physical",
     "type": "attack",
@@ -102,6 +107,7 @@
   "1081": {
     "name": "Billy",
     "version": 1,
+    "id": "1081",
     "quality": 4,
     "element": "physical",
     "type": "attack",
@@ -122,6 +128,7 @@
   "1101": {
     "name": "Koleda",
     "version": 1,
+    "id": "1101",
     "quality": 5,
     "element": "fire",
     "type": "stun",
@@ -142,6 +149,7 @@
   "1111": {
     "name": "Anton",
     "version": 1,
+    "id": "1111",
     "quality": 4,
     "element": "electric",
     "type": "attack",
@@ -162,6 +170,7 @@
   "1121": {
     "name": "Ben",
     "version": 1,
+    "id": "1121",
     "quality": 4,
     "element": "fire",
     "type": "defense",
@@ -182,6 +191,7 @@
   "1131": {
     "name": "Soukaku",
     "version": 1,
+    "id": "1131",
     "quality": 4,
     "element": "ice",
     "type": "support",
@@ -202,6 +212,7 @@
   "1141": {
     "name": "Lycaon",
     "version": 1,
+    "id": "1141",
     "quality": 5,
     "element": "ice",
     "type": "stun",
@@ -222,6 +233,7 @@
   "1151": {
     "name": "Lucy",
     "version": 1,
+    "id": "1151",
     "quality": 4,
     "element": "fire",
     "type": "support",
@@ -242,6 +254,7 @@
   "1181": {
     "name": "Grace",
     "version": 1,
+    "id": "1181",
     "quality": 5,
     "element": "electric",
     "type": "anomaly",
@@ -262,6 +275,7 @@
   "1191": {
     "name": "Ellen",
     "version": 1,
+    "id": "1191",
     "quality": 5,
     "element": "ice",
     "type": "attack",
@@ -282,6 +296,7 @@
   "1211": {
     "name": "Rina",
     "version": 1,
+    "id": "1211",
     "quality": 5,
     "element": "electric",
     "type": "support",
@@ -302,6 +317,7 @@
   "1241": {
     "name": "Zhu Yuan",
     "version": 1,
+    "id": "1241",
     "quality": 5,
     "element": "ether",
     "type": "attack",
@@ -322,6 +338,7 @@
   "1281": {
     "name": "Piper",
     "version": 1,
+    "id": "1281",
     "quality": 4,
     "element": "physical",
     "type": "anomaly",
@@ -342,6 +359,7 @@
   "1251": {
     "name": "Qingyi",
     "version": 1.1,
+    "id": "1251",
     "quality": 5,
     "element": "electric",
     "type": "stun",
@@ -362,6 +380,7 @@
   "1261": {
     "name": "Jane",
     "version": 1.1,
+    "id": "1261",
     "quality": 5,
     "element": "physical",
     "type": "anomaly",
@@ -382,6 +401,7 @@
   "1271": {
     "name": "Seth",
     "version": 1.1,
+    "id": "1271",
     "quality": 4,
     "element": "electric",
     "type": "defense",
@@ -402,6 +422,7 @@
   "1071": {
     "name": "Caesar",
     "version": 1.2,
+    "id": "1071",
     "quality": 5,
     "element": "physical",
     "type": "defense",
@@ -422,6 +443,7 @@
   "1171": {
     "name": "Burnice",
     "version": 1.2,
+    "id": "1171",
     "quality": 5,
     "element": "fire",
     "type": "anomaly",
@@ -442,6 +464,7 @@
   "1161": {
     "name": "Lighter",
     "version": 1.3,
+    "id": "1161",
     "quality": 5,
     "element": "fire",
     "type": "stun",
@@ -462,6 +485,7 @@
   "1221": {
     "name": "Yanagi",
     "version": 1.3,
+    "id": "1221",
     "quality": 5,
     "element": "electric",
     "type": "anomaly",
@@ -482,6 +506,7 @@
   "1091": {
     "name": "Miyabi",
     "version": 1.4,
+    "id": "1091",
     "quality": 5,
     "element": "ice",
     "type": "anomaly",
@@ -502,6 +527,7 @@
   "1201": {
     "name": "Harumasa",
     "version": 1.4,
+    "id": "1201",
     "quality": 5,
     "element": "electric",
     "type": "attack",
@@ -522,6 +548,7 @@
   "1311": {
     "name": "Astra Yao",
     "version": 1.5,
+    "id": "1311",
     "quality": 5,
     "element": "ether",
     "type": "support",
@@ -542,6 +569,7 @@
   "1321": {
     "name": "Evelyn",
     "version": 1.5,
+    "id": "1321",
     "quality": 5,
     "element": "fire",
     "type": "attack",
@@ -562,6 +590,7 @@
   "1351": {
     "name": "Pulchra",
     "version": 1.6,
+    "id": "1351",
     "quality": 4,
     "element": "physical",
     "type": "stun",
@@ -582,6 +611,7 @@
   "1361": {
     "name": "Trigger",
     "version": 1.6,
+    "id": "1361",
     "quality": 5,
     "element": "electric",
     "type": "stun",
@@ -602,6 +632,7 @@
   "1381": {
     "name": "Soldier 0 - Anby",
     "version": 1.6,
+    "id": "1381",
     "quality": 5,
     "element": "electric",
     "type": "attack",
@@ -622,6 +653,7 @@
   "1291": {
     "name": "Hugo",
     "version": 1.7,
+    "id": "1291",
     "quality": 5,
     "element": "ice",
     "type": "attack",
@@ -642,6 +674,7 @@
   "1331": {
     "name": "Vivian",
     "version": 1.7,
+    "id": "1331",
     "quality": 5,
     "element": "ether",
     "type": "anomaly",
@@ -662,6 +695,7 @@
   "1371": {
     "name": "Yixuan",
     "version": 2,
+    "id": "1371",
     "quality": 5,
     "element": "ether",
     "type": "rupture",
@@ -682,6 +716,7 @@
   "1391": {
     "name": "Ju Fufu",
     "version": 2,
+    "id": "1391",
     "quality": 5,
     "element": "fire",
     "type": "stun",
@@ -702,6 +737,7 @@
   "1421": {
     "name": "Pan Yinhu",
     "version": 2,
+    "id": "1421",
     "quality": 4,
     "element": "physical",
     "type": "defense",
@@ -722,6 +758,7 @@
   "1401": {
     "name": "Alice",
     "version": 2.1,
+    "id": "1401",
     "quality": 5,
     "element": "physical",
     "type": "anomaly",
@@ -742,6 +779,7 @@
   "1411": {
     "name": "Yuzuha",
     "version": 2.1,
+    "id": "1411",
     "quality": 5,
     "element": "physical",
     "type": "support",
@@ -762,6 +800,7 @@
   "1301": {
     "name": "Orphie & Magus",
     "version": 2.2,
+    "id": "1301",
     "quality": 5,
     "element": "fire",
     "type": "attack",
@@ -782,6 +821,7 @@
   "1461": {
     "name": "Seed",
     "version": 2.2,
+    "id": "1461",
     "quality": 5,
     "element": "electric",
     "type": "attack",
@@ -802,6 +842,7 @@
   "1051": {
     "name": "Yidhari",
     "version": 2.3,
+    "id": "1051",
     "quality": 5,
     "element": "ice",
     "type": "rupture",
@@ -822,6 +863,7 @@
   "1441": {
     "name": "Manato",
     "version": 2.3,
+    "id": "1441",
     "quality": 4,
     "element": "fire",
     "type": "rupture",
@@ -842,6 +884,7 @@
   "1451": {
     "name": "Lucia",
     "version": 2.3,
+    "id": "1451",
     "quality": 5,
     "element": "ether",
     "type": "support",
@@ -862,6 +905,7 @@
   "1471": {
     "name": "Banyue",
     "version": 2.4,
+    "id": "1471",
     "quality": 5,
     "element": "fire",
     "type": "rupture",
@@ -882,6 +926,7 @@
   "1481": {
     "name": "Dialyn",
     "version": 2.4,
+    "id": "1481",
     "quality": 5,
     "element": "physical",
     "type": "stun",
@@ -902,6 +947,7 @@
   "1341": {
     "name": "Zhao",
     "version": 2.5,
+    "id": "1341",
     "quality": 5,
     "element": "ice",
     "type": "defense",
@@ -922,6 +968,7 @@
   "1431": {
     "name": "Ye Shunguang",
     "version": 2.5,
+    "id": "1431",
     "quality": 5,
     "element": "physical",
     "type": "attack",
@@ -942,6 +989,7 @@
   "1491": {
     "name": "Sunna",
     "version": 2.6,
+    "id": "1491",
     "quality": 5,
     "element": "physical",
     "type": "support",
@@ -962,6 +1010,7 @@
   "1501": {
     "name": "Aria",
     "version": 2.6,
+    "id": "1501",
     "quality": 5,
     "element": "ether",
     "type": "anomaly",
@@ -982,6 +1031,7 @@
   "1511": {
     "name": "Nangong Yu",
     "version": 2.7,
+    "id": "1511",
     "quality": 5,
     "element": "ether",
     "type": "stun",
@@ -1002,6 +1052,7 @@
   "1521": {
     "name": "Cissia",
     "version": 2.7,
+    "id": "1521",
     "quality": 5,
     "element": "electric",
     "type": "attack",
@@ -1022,6 +1073,7 @@
   "1531": {
     "name": "Starlight - Billy",
     "version": 2.8,
+    "id": "1531",
     "quality": 5,
     "element": "physical",
     "type": "rupture",
@@ -1042,6 +1094,7 @@
   "1541": {
     "name": "Promeia",
     "version": 2.8,
+    "id": "1541",
     "quality": 5,
     "element": "ice",
     "type": "anomaly",
@@ -1062,6 +1115,7 @@
   "1551": {
     "name": "Pyrois",
     "version": 3,
+    "id": "1551",
     "quality": 5,
     "element": "ether",
     "type": "attack",
@@ -1082,6 +1136,7 @@
   "1561": {
     "name": "Velina",
     "version": 3,
+    "id": "1561",
     "quality": 5,
     "element": "wind",
     "type": "anomaly",
@@ -1102,6 +1157,7 @@
   "1571": {
     "name": "Norma",
     "version": 3,
+    "id": "1571",
     "quality": 5,
     "element": "fire",
     "type": "stun",
