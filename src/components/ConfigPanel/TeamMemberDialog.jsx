@@ -38,7 +38,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { CHARACTER, ACTION, WEAPON, SET, ECHO } from '@/data';
 import { toArray, formatStr, getPresetSetCounts, getMemberPreset, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
-import { GridSelectDialog } from './GridSelect';
+import { CharacterSelectDialog, WeaponSelectDialog, SetSelectDialog } from './GridSelect';
 
 function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false }) {
   const [hovered, setHovered] = useState(false);
@@ -245,8 +245,7 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
         </Button>
       </Stack>
 
-      <GridSelectDialog
-        mode="set"
+      <SetSelectDialog
         gameId={gameId}
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
@@ -890,8 +889,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
         </DialogActions>
       </Dialog>
 
-      <GridSelectDialog
-        mode="character"
+      <CharacterSelectDialog
         gameId={gameId}
         open={charDialogOpen}
         onClose={() => setCharDialogOpen(false)}
@@ -905,8 +903,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
         }}
       />
 
-      <GridSelectDialog
-        mode="weapon"
+      <WeaponSelectDialog
         gameId={gameId}
         weaponType={weaponType}
         open={weaponDialogOpen}
