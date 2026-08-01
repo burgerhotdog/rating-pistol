@@ -83,6 +83,27 @@
     },
     "effects": []
   },
+  "1051": {
+    "name": "Yidhari",
+    "version": 2.3,
+    "id": "1051",
+    "quality": 5,
+    "element": "ice",
+    "type": "rupture",
+    "baseStats": {
+      "baseHp": 8497,
+      "baseAtk": 785,
+      "baseDef": 448,
+      "baseImpact": 95,
+      "baseAnomalyMastery": 87,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
   "1061": {
     "name": "Corin",
     "version": 1,
@@ -104,6 +125,27 @@
     },
     "effects": []
   },
+  "1071": {
+    "name": "Caesar",
+    "version": 1.2,
+    "id": "1071",
+    "quality": 5,
+    "element": "physical",
+    "type": "defense",
+    "baseStats": {
+      "baseHp": 9526,
+      "baseAtk": 637,
+      "baseDef": 754,
+      "baseImpact": 105,
+      "baseAnomalyMastery": 87,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
   "1081": {
     "name": "Billy",
     "version": 1,
@@ -121,6 +163,27 @@
     },
     "ascensionStats": {
       "critRate%": 0.144,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
+  "1091": {
+    "name": "Miyabi",
+    "version": 1.4,
+    "id": "1091",
+    "quality": 5,
+    "element": "ice",
+    "type": "anomaly",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 806,
+      "baseDef": 607,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 116,
+      "baseAnomalyProficiency": 148
+    },
+    "ascensionStats": {
+      "baseAnomalyProficiency": 90,
       "baseAtk": 75
     },
     "effects": []
@@ -251,6 +314,48 @@
     },
     "effects": []
   },
+  "1161": {
+    "name": "Lighter",
+    "version": 1.3,
+    "id": "1161",
+    "quality": 5,
+    "element": "fire",
+    "type": "stun",
+    "baseStats": {
+      "baseHp": 8253,
+      "baseAtk": 723,
+      "baseDef": 613,
+      "baseImpact": 119,
+      "baseAnomalyMastery": 91,
+      "baseAnomalyProficiency": 90
+    },
+    "ascensionStats": {
+      "baseImpact": 18,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
+  "1171": {
+    "name": "Burnice",
+    "version": 1.2,
+    "id": "1171",
+    "quality": 5,
+    "element": "fire",
+    "type": "anomaly",
+    "baseStats": {
+      "baseHp": 7368,
+      "baseAtk": 788,
+      "baseDef": 601,
+      "baseImpact": 83,
+      "baseAnomalyMastery": 118,
+      "baseAnomalyProficiency": 120
+    },
+    "ascensionStats": {
+      "baseEnergyRegen": 36,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
   "1181": {
     "name": "Grace",
     "version": 1,
@@ -293,6 +398,27 @@
     },
     "effects": []
   },
+  "1201": {
+    "name": "Harumasa",
+    "version": 1.4,
+    "id": "1201",
+    "quality": 5,
+    "element": "electric",
+    "type": "attack",
+    "baseStats": {
+      "baseHp": 7406,
+      "baseAtk": 841,
+      "baseDef": 601,
+      "baseImpact": 90,
+      "baseAnomalyMastery": 80,
+      "baseAnomalyProficiency": 95
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
   "1211": {
     "name": "Rina",
     "version": 1,
@@ -314,6 +440,27 @@
     },
     "effects": []
   },
+  "1221": {
+    "name": "Yanagi",
+    "version": 1.3,
+    "id": "1221",
+    "quality": 5,
+    "element": "electric",
+    "type": "anomaly",
+    "baseStats": {
+      "baseHp": 7789,
+      "baseAtk": 798,
+      "baseDef": 613,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 112,
+      "baseAnomalyProficiency": 114
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
   "1241": {
     "name": "Zhu Yuan",
     "version": 1,
@@ -331,27 +478,6 @@
     },
     "ascensionStats": {
       "critDmg%": 0.288,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1281": {
-    "name": "Piper",
-    "version": 1,
-    "id": "1281",
-    "quality": 4,
-    "element": "physical",
-    "type": "anomaly",
-    "baseStats": {
-      "baseHp": 6977,
-      "baseAtk": 683,
-      "baseDef": 613,
-      "baseImpact": 86,
-      "baseAnomalyMastery": 116,
-      "baseAnomalyProficiency": 118
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
       "baseAtk": 75
     },
     "effects": []
@@ -419,41 +545,20 @@
     },
     "effects": []
   },
-  "1071": {
-    "name": "Caesar",
-    "version": 1.2,
-    "id": "1071",
-    "quality": 5,
+  "1281": {
+    "name": "Piper",
+    "version": 1,
+    "id": "1281",
+    "quality": 4,
     "element": "physical",
-    "type": "defense",
-    "baseStats": {
-      "baseHp": 9526,
-      "baseAtk": 637,
-      "baseDef": 754,
-      "baseImpact": 105,
-      "baseAnomalyMastery": 87,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseImpact": 18,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1171": {
-    "name": "Burnice",
-    "version": 1.2,
-    "id": "1171",
-    "quality": 5,
-    "element": "fire",
     "type": "anomaly",
     "baseStats": {
-      "baseHp": 7368,
-      "baseAtk": 788,
-      "baseDef": 601,
-      "baseImpact": 83,
-      "baseAnomalyMastery": 118,
-      "baseAnomalyProficiency": 120
+      "baseHp": 6977,
+      "baseAtk": 683,
+      "baseDef": 613,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 116,
+      "baseAnomalyProficiency": 118
     },
     "ascensionStats": {
       "baseEnergyRegen": 36,
@@ -461,86 +566,44 @@
     },
     "effects": []
   },
-  "1161": {
-    "name": "Lighter",
-    "version": 1.3,
-    "id": "1161",
+  "1291": {
+    "name": "Hugo",
+    "version": 1.7,
+    "id": "1291",
     "quality": 5,
-    "element": "fire",
-    "type": "stun",
+    "element": "ice",
+    "type": "attack",
     "baseStats": {
-      "baseHp": 8253,
-      "baseAtk": 723,
-      "baseDef": 613,
-      "baseImpact": 119,
-      "baseAnomalyMastery": 91,
+      "baseHp": 7941,
+      "baseAtk": 844,
+      "baseDef": 617,
+      "baseImpact": 95,
+      "baseAnomalyMastery": 86,
       "baseAnomalyProficiency": 90
     },
     "ascensionStats": {
-      "baseImpact": 18,
+      "critRate%": 0.144,
       "baseAtk": 75
     },
     "effects": []
   },
-  "1221": {
-    "name": "Yanagi",
-    "version": 1.3,
-    "id": "1221",
+  "1301": {
+    "name": "Orphie & Magus",
+    "version": 2.2,
+    "id": "1301",
     "quality": 5,
-    "element": "electric",
-    "type": "anomaly",
-    "baseStats": {
-      "baseHp": 7789,
-      "baseAtk": 798,
-      "baseDef": 613,
-      "baseImpact": 86,
-      "baseAnomalyMastery": 112,
-      "baseAnomalyProficiency": 114
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1091": {
-    "name": "Miyabi",
-    "version": 1.4,
-    "id": "1091",
-    "quality": 5,
-    "element": "ice",
-    "type": "anomaly",
-    "baseStats": {
-      "baseHp": 7674,
-      "baseAtk": 806,
-      "baseDef": 607,
-      "baseImpact": 86,
-      "baseAnomalyMastery": 116,
-      "baseAnomalyProficiency": 148
-    },
-    "ascensionStats": {
-      "baseAnomalyProficiency": 90,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1201": {
-    "name": "Harumasa",
-    "version": 1.4,
-    "id": "1201",
-    "quality": 5,
-    "element": "electric",
+    "element": "fire",
     "type": "attack",
     "baseStats": {
-      "baseHp": 7406,
-      "baseAtk": 841,
-      "baseDef": 601,
-      "baseImpact": 90,
-      "baseAnomalyMastery": 80,
-      "baseAnomalyProficiency": 95
+      "baseHp": 7789,
+      "baseAtk": 855,
+      "baseDef": 613,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 92,
+      "baseAnomalyProficiency": 90
     },
     "ascensionStats": {
-      "critRate%": 0.144,
+      "baseEnergyRegen": 36,
       "baseAtk": 75
     },
     "effects": []
@@ -587,6 +650,48 @@
     },
     "effects": []
   },
+  "1331": {
+    "name": "Vivian",
+    "version": 1.7,
+    "id": "1331",
+    "quality": 5,
+    "element": "ether",
+    "type": "anomaly",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 806,
+      "baseDef": 607,
+      "baseImpact": 86,
+      "baseAnomalyMastery": 108,
+      "baseAnomalyProficiency": 118
+    },
+    "ascensionStats": {
+      "baseAnomalyMastery": 36,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
+  "1341": {
+    "name": "Zhao",
+    "version": 2.5,
+    "id": "1341",
+    "quality": 5,
+    "element": "ice",
+    "type": "defense",
+    "baseStats": {
+      "baseHp": 9117,
+      "baseAtk": 691,
+      "baseDef": 702,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 93,
+      "baseAnomalyProficiency": 96
+    },
+    "ascensionStats": {
+      "hp%": 0.18,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
   "1351": {
     "name": "Pulchra",
     "version": 1.6,
@@ -629,69 +734,6 @@
     },
     "effects": []
   },
-  "1381": {
-    "name": "Soldier 0 - Anby",
-    "version": 1.6,
-    "id": "1381",
-    "quality": 5,
-    "element": "electric",
-    "type": "attack",
-    "baseStats": {
-      "baseHp": 7674,
-      "baseAtk": 855,
-      "baseDef": 613,
-      "baseImpact": 93,
-      "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1291": {
-    "name": "Hugo",
-    "version": 1.7,
-    "id": "1291",
-    "quality": 5,
-    "element": "ice",
-    "type": "attack",
-    "baseStats": {
-      "baseHp": 7941,
-      "baseAtk": 844,
-      "baseDef": 617,
-      "baseImpact": 95,
-      "baseAnomalyMastery": 86,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1331": {
-    "name": "Vivian",
-    "version": 1.7,
-    "id": "1331",
-    "quality": 5,
-    "element": "ether",
-    "type": "anomaly",
-    "baseStats": {
-      "baseHp": 7674,
-      "baseAtk": 806,
-      "baseDef": 607,
-      "baseImpact": 86,
-      "baseAnomalyMastery": 108,
-      "baseAnomalyProficiency": 118
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
   "1371": {
     "name": "Yixuan",
     "version": 2,
@@ -713,6 +755,27 @@
     },
     "effects": []
   },
+  "1381": {
+    "name": "Soldier 0 - Anby",
+    "version": 1.6,
+    "id": "1381",
+    "quality": 5,
+    "element": "electric",
+    "type": "attack",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 855,
+      "baseDef": 613,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
   "1391": {
     "name": "Ju Fufu",
     "version": 2,
@@ -730,27 +793,6 @@
     },
     "ascensionStats": {
       "critRate%": 0.144,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1421": {
-    "name": "Pan Yinhu",
-    "version": 2,
-    "id": "1421",
-    "quality": 4,
-    "element": "physical",
-    "type": "defense",
-    "baseStats": {
-      "baseHp": 8454,
-      "baseAtk": 587,
-      "baseDef": 713,
-      "baseImpact": 94,
-      "baseAnomalyMastery": 91,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
       "baseAtk": 75
     },
     "effects": []
@@ -797,19 +839,19 @@
     },
     "effects": []
   },
-  "1301": {
-    "name": "Orphie & Magus",
-    "version": 2.2,
-    "id": "1301",
-    "quality": 5,
-    "element": "fire",
-    "type": "attack",
+  "1421": {
+    "name": "Pan Yinhu",
+    "version": 2,
+    "id": "1421",
+    "quality": 4,
+    "element": "physical",
+    "type": "defense",
     "baseStats": {
-      "baseHp": 7789,
-      "baseAtk": 855,
-      "baseDef": 613,
-      "baseImpact": 93,
-      "baseAnomalyMastery": 92,
+      "baseHp": 8454,
+      "baseAtk": 587,
+      "baseDef": 713,
+      "baseImpact": 94,
+      "baseAnomalyMastery": 91,
       "baseAnomalyProficiency": 90
     },
     "ascensionStats": {
@@ -818,41 +860,20 @@
     },
     "effects": []
   },
-  "1461": {
-    "name": "Seed",
-    "version": 2.2,
-    "id": "1461",
+  "1431": {
+    "name": "Ye Shunguang",
+    "version": 2.5,
+    "id": "1431",
     "quality": 5,
-    "element": "electric",
+    "element": "physical",
     "type": "attack",
     "baseStats": {
       "baseHp": 7674,
-      "baseAtk": 855,
-      "baseDef": 613,
-      "baseImpact": 93,
+      "baseAtk": 863,
+      "baseDef": 607,
+      "baseImpact": 83,
       "baseAnomalyMastery": 94,
       "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critDmg%": 0.288,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1051": {
-    "name": "Yidhari",
-    "version": 2.3,
-    "id": "1051",
-    "quality": 5,
-    "element": "ice",
-    "type": "rupture",
-    "baseStats": {
-      "baseHp": 8497,
-      "baseAtk": 785,
-      "baseDef": 448,
-      "baseImpact": 95,
-      "baseAnomalyMastery": 87,
-      "baseAnomalyProficiency": 90
     },
     "ascensionStats": {
       "critRate%": 0.144,
@@ -902,6 +923,27 @@
     },
     "effects": []
   },
+  "1461": {
+    "name": "Seed",
+    "version": 2.2,
+    "id": "1461",
+    "quality": 5,
+    "element": "electric",
+    "type": "attack",
+    "baseStats": {
+      "baseHp": 7674,
+      "baseAtk": 855,
+      "baseDef": 613,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 94,
+      "baseAnomalyProficiency": 93
+    },
+    "ascensionStats": {
+      "critDmg%": 0.288,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
   "1471": {
     "name": "Banyue",
     "version": 2.4,
@@ -935,48 +977,6 @@
       "baseAtk": 683,
       "baseDef": 613,
       "baseImpact": 110,
-      "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1341": {
-    "name": "Zhao",
-    "version": 2.5,
-    "id": "1341",
-    "quality": 5,
-    "element": "ice",
-    "type": "defense",
-    "baseStats": {
-      "baseHp": 9117,
-      "baseAtk": 691,
-      "baseDef": 702,
-      "baseImpact": 93,
-      "baseAnomalyMastery": 93,
-      "baseAnomalyProficiency": 96
-    },
-    "ascensionStats": {
-      "hp%": 0.18,
-      "baseAtk": 75
-    },
-    "effects": []
-  },
-  "1431": {
-    "name": "Ye Shunguang",
-    "version": 2.5,
-    "id": "1431",
-    "quality": 5,
-    "element": "physical",
-    "type": "attack",
-    "baseStats": {
-      "baseHp": 7674,
-      "baseAtk": 863,
-      "baseDef": 607,
-      "baseImpact": 83,
       "baseAnomalyMastery": 94,
       "baseAnomalyProficiency": 93
     },
@@ -1168,6 +1168,48 @@
       "baseImpact": 106,
       "baseAnomalyMastery": 99,
       "baseAnomalyProficiency": 98
+    },
+    "ascensionStats": {
+      "critRate%": 0.144,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
+  "1581": {
+    "name": "Remielle",
+    "version": 3.1,
+    "id": "1581",
+    "quality": 5,
+    "element": "lumiflux",
+    "type": "anomaly",
+    "baseStats": {
+      "baseHp": 7483,
+      "baseAtk": 748,
+      "baseDef": 601,
+      "baseImpact": 83,
+      "baseAnomalyMastery": 115,
+      "baseAnomalyProficiency": 116
+    },
+    "ascensionStats": {
+      "baseAnomalyProficiency": 54,
+      "baseAtk": 75
+    },
+    "effects": []
+  },
+  "1591": {
+    "name": "Sigrid",
+    "version": 3.1,
+    "id": "1591",
+    "quality": 5,
+    "element": "ice",
+    "type": "attack",
+    "baseStats": {
+      "baseHp": 7789,
+      "baseAtk": 863,
+      "baseDef": 607,
+      "baseImpact": 93,
+      "baseAnomalyMastery": 92,
+      "baseAnomalyProficiency": 90
     },
     "ascensionStats": {
       "critRate%": 0.144,

@@ -17,7 +17,7 @@ def main():
 
     print(f'Version {version} update summary')
     if characters:
-        names = [character['name'] for _, _, character in characters]
+        names = [character['name'] for _, _, (character, _) in characters]
         print(f'New characters: {", ".join(names)}')
     if weapons:
         names = [weapon['name'] for _, _, weapon in weapons]

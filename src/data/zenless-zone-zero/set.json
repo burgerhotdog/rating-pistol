@@ -181,6 +181,74 @@
       ]
     }
   },
+  "31800": {
+    "name": "Chaos Jazz",
+    "version": 1.2,
+    "id": "31800",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "anomalyProficiency": 30
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "fireDmgBonus%": 0.15,
+            "electricDmgBonus%": 0.15
+          }
+        },
+        {
+          "useIfField": "offField",
+          "buffMap": {
+            "exSpecialAttackDmgBonus%": 0.2,
+            "assistAttackDmgBonus%": 0.2
+          }
+        },
+        {
+          "applyWhen": "before",
+          "applyIfField": "onField",
+          "applyCooldown": 7500,
+          "useIfField": "onField",
+          "buffMap": {
+            "exSpecialAttackDmgBonus%": 0.2,
+            "assistAttackDmgBonus%": 0.2
+          },
+          "maxDuration": 5000
+        }
+      ]
+    }
+  },
+  "31900": {
+    "name": "Proto Punk",
+    "version": 1.2,
+    "id": "31900",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "shieldBonus%": 0.15
+          }
+        }
+      ],
+      "4": [
+        {
+          "applyWhen": "before",
+          "applyOnSkillType": [
+            "defensiveAssist",
+            "evasiveAssist"
+          ],
+          "applyTo": "$team",
+          "buffMap": {
+            "dmgBonus%": 0.15
+          },
+          "maxDuration": 10000
+        }
+      ]
+    }
+  },
   "32200": {
     "name": "Inferno Metal",
     "version": 1,
@@ -299,74 +367,6 @@
           "buffMap": {
             "dmgBonus%": 0.35
           }
-        }
-      ]
-    }
-  },
-  "31800": {
-    "name": "Chaos Jazz",
-    "version": 1.2,
-    "id": "31800",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "anomalyProficiency": 30
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "fireDmgBonus%": 0.15,
-            "electricDmgBonus%": 0.15
-          }
-        },
-        {
-          "useIfField": "offField",
-          "buffMap": {
-            "exSpecialAttackDmgBonus%": 0.2,
-            "assistAttackDmgBonus%": 0.2
-          }
-        },
-        {
-          "applyWhen": "before",
-          "applyIfField": "onField",
-          "applyCooldown": 7500,
-          "useIfField": "onField",
-          "buffMap": {
-            "exSpecialAttackDmgBonus%": 0.2,
-            "assistAttackDmgBonus%": 0.2
-          },
-          "maxDuration": 5000
-        }
-      ]
-    }
-  },
-  "31900": {
-    "name": "Proto Punk",
-    "version": 1.2,
-    "id": "31900",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "shieldBonus%": 0.15
-          }
-        }
-      ],
-      "4": [
-        {
-          "applyWhen": "before",
-          "applyOnSkillType": [
-            "defensiveAssist",
-            "evasiveAssist"
-          ],
-          "applyTo": "$team",
-          "buffMap": {
-            "dmgBonus%": 0.15
-          },
-          "maxDuration": 10000
         }
       ]
     }
@@ -770,6 +770,24 @@
           "maxDuration": 30000
         }
       ]
+    }
+  },
+  "34100": {
+    "name": "Feathered Fate",
+    "version": 3.1,
+    "id": "34100",
+    "bonusEffects": {
+      "2": [],
+      "4": []
+    }
+  },
+  "34200": {
+    "name": "Thorned Rose",
+    "version": 3.1,
+    "id": "34200",
+    "bonusEffects": {
+      "2": [],
+      "4": []
     }
   }
 }

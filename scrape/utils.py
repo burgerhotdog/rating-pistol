@@ -1,12 +1,12 @@
 import json, os
 
 def read_json(path):
-    with open(path, 'r') as f:
+    with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 def write_json(path, data):
     tmp_path = path + '.tmp'
-    with open(tmp_path, 'w') as f:
+    with open(tmp_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2)
     os.replace(tmp_path, path)
 
@@ -45,7 +45,7 @@ game_ids = {
 }
 
 def save_characters(game_id, characters):
-    path_c = f'src/data/{game_id}/characters.json'
+    path_c = f'src/data/{game_id}/character.json'
     path_a = f'src/data/{game_id}/actions.json'
 
     data_c = read_json(path_c)
