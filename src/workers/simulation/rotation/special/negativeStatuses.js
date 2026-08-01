@@ -289,7 +289,7 @@ export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
     key: `other:${status.id}`,
     ownerId: 'other',
     type: 'damage',
-    dmgType: status.id,
+    damageType: status.id,
     damage: baseDmg * dmgAmpMult * defMult * resMult,
     runtime: ctx.states.runtime + runtimeOffset,
   };

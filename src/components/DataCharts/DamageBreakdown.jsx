@@ -28,8 +28,8 @@ const VALID_CATEGORIES = new Set([
 ]);
 
 const BREAKDOWN_MODES = [
-  { value: 'damageType', label: 'Damage type' },
-  { value: 'fieldStatus', label: 'Skill Category' },
+  'damageType',
+  'category',
 ];
 
 const buildData = (summary, currId, breakdownMode) => {
@@ -37,6 +37,7 @@ const buildData = (summary, currId, breakdownMode) => {
 
   const getType = (snapshot) => {
     if (breakdownMode === 'damageType') {
+      if (!snapshot.damageType) console.log(snapshot);
       return snapshot.damageType ?? 'other';
     } else {
       const { category } = snapshot;
@@ -110,13 +111,13 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
             onChange={(_, value) => value && setBreakdownMode(value)}
             exclusive
           >
-            {BREAKDOWN_MODES.map(({ value, label }) => (
+            {BREAKDOWN_MODES.map((mode) => (
               <ToggleButton
-                key={value}
-                value={value}
+                key={mode}
+                value={mode}
                 sx={{ px: 1.5, textTransform: 'none' }}
               >
-                {label}
+                {formatStr(mode)}
               </ToggleButton>
             ))}
           </ToggleButtonGroup>
