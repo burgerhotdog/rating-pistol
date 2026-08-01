@@ -1,5 +1,5 @@
 import { GI, WW, ZZZ, ECHO } from '@/data';
-import { CHARACTER, ACTION } from '@/data';
+import { CHARACTER } from '@/data';
 import { resolveRankedValue } from './resolveRanked';
 
 const DEFAULT_DURATIONS = {
@@ -152,7 +152,7 @@ export const getMemberPresetActions = (member, { gameId, teamSize }) => {
   const getIndex = createIndexGetter(gameId, memberId, member.rank);
 
   const memberActions = {};
-  for (const [category, { actions }] of Object.entries(ACTION[gameId][memberId])) {
+  for (const [category, { actions }] of Object.entries(char.skills)) {
     const mvIndex = getIndex(category);
 
     for (const [index, rawAction] of actions.entries()) {

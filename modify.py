@@ -4,22 +4,10 @@ def get_path(dirname, filename):
     return f'src/data/{dirname}/{filename}'
 
 def modify(data):
-    was_changed = False
+    for entry in data.values():
+        print(entry['id'])
 
-    for id, entry in data.items():
-        if 'id' in entry:
-            continue
-
-        was_changed = True
-
-        data[id] = {
-            'name': entry['name'],
-            'version': entry['version'],
-            'id': id,
-            **entry,
-        }
-
-    return was_changed
+    return True
 
 GAMES_TO_MODIFY = [
     'genshin-impact',
@@ -29,7 +17,7 @@ GAMES_TO_MODIFY = [
 ]
 
 FILES_TO_MODIFY = [
-    'set.json',
+    'character.json',
 ]
 
 def main():
@@ -41,7 +29,7 @@ def main():
 
             was_changed = modify(data)
             if was_changed:
-                # shutil.copy2(path, f'{path}.bak')
+                shutil.copy2(path, f'{path}.bak')
                 with open(path, 'w', encoding='utf-8') as f:
                     json.dump(data, f, indent=2)
 

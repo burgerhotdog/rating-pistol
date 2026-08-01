@@ -9,12 +9,6 @@ import WW_C from './wuthering-waves/character.json';
 import ZZZ_C from './zenless-zone-zero/character.json';
 export const CHARACTER = { [GI]: GI_C, [HSR]: HSR_C, [WW]: WW_C, [ZZZ]: ZZZ_C };
 
-import GI_A from './genshin-impact/actions.json';
-import HSR_A from './honkai-star-rail/actions.json';
-import WW_A from './wuthering-waves/actions.json';
-import ZZZ_A from './zenless-zone-zero/actions.json';
-export const ACTION = { [GI]: GI_A, [HSR]: HSR_A, [WW]: WW_A, [ZZZ]: ZZZ_A };
-
 import GI_W from './genshin-impact/weapon.json';
 import HSR_W from './honkai-star-rail/weapon.json';
 import WW_W from './wuthering-waves/weapon.json';

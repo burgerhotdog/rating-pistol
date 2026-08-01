@@ -95,37 +95,6 @@ def format_multipliers(raw_list):
 
     return result
 
-def parse_character(version, id, data):
-    ascension = {}
-    for v in data['skill_trees'].values():
-        skill = v.get('skill')
-        if v.get('node_type') != 4 or not skill:
-            continue
-        name = skill['name']
-        if name not in lookup_stat:
-            continue
-        stat = lookup_stat[name]
-        value = float(skill['param'][0].rstrip('%')) / 100
-        ascension[stat] = ascension.get(stat, 0) + value
-    for k in ascension:
-        ascension[k] = round(ascension[k], 4 if k.endswith('%') else 1)
-
-    return {
-        'name': str(data['name']),
-        'version': float(version),
-        'id': str(id),
-        'quality': int(data['rarity']),
-        'element': list_element[int(data['element']) - 1],
-        'type': list_type[int(data['weapon']) - 1],
-        'baseStats': {
-            'baseHp': math.floor(data['stats']['6']['90']['life']),
-            'baseAtk': math.floor(data['stats']['6']['90']['atk']),
-            'baseDef': math.floor(data['stats']['6']['90']['def']),
-        },
-        'ascensionStats': ascension,
-        'effects': [],
-    }
-
 def parse_actions(data):
     actions = {}
     key_to_id = {
@@ -183,6 +152,39 @@ def parse_actions(data):
         }
     }
     return actions
+
+def parse_character(version, id, data):
+    ascension = {}
+    for v in data['skill_trees'].values():
+        skill = v.get('skill')
+        if v.get('node_type') != 4 or not skill:
+            continue
+        name = skill['name']
+        if name not in lookup_stat:
+            continue
+        stat = lookup_stat[name]
+        value = float(skill['param'][0].rstrip('%')) / 100
+        ascension[stat] = ascension.get(stat, 0) + value
+    for k in ascension:
+        ascension[k] = round(ascension[k], 4 if k.endswith('%') else 1)
+
+    return {
+        'name': str(data['name']),
+        'version': float(version),
+        'id': str(id),
+        'quality': int(data['rarity']),
+        'element': list_element[int(data['element']) - 1],
+        'type': list_type[int(data['weapon']) - 1],
+        'baseStats': {
+            'baseHp': math.floor(data['stats']['6']['90']['life']),
+            'baseAtk': math.floor(data['stats']['6']['90']['atk']),
+            'baseDef': math.floor(data['stats']['6']['90']['def']),
+        },
+        'ascensionStats': ascension,
+        'effects': [],
+        'skills': parse_actions(data),
+        'presets': [],
+    }
 
 def parse_weapon(version, id, data):
     stat = lookup_stat[data['stats']['6']['90'][1]['name']]
@@ -243,7 +245,7 @@ def parse_echo(version, id, data):
 def parse_ww(type, version, id, data):
     match type:
         case 'character':
-            return parse_character(version, id, data), parse_actions(data)
+            return parse_character(version, id, data)
 
         case 'weapon':
             return parse_weapon(version, id, data)

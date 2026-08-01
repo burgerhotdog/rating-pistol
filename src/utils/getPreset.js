@@ -1,4 +1,4 @@
-import { WW, CHARACTER, ACTION, WEAPON, ECHO } from '@/data';
+import { WW, CHARACTER, WEAPON, ECHO } from '@/data';
 
 export function getDefaultWeaponRank(gameId, weaponId) {
   const { quality } = WEAPON[gameId][weaponId];
@@ -40,13 +40,13 @@ export function getMemberPreset(gameId, charId, presetIndex = 0) {
       if (preset.timing === 'beginning') {
         const firstRef = rotation[0] ?? '';
         const [category, actionIndex] = firstRef.split('.');
-        const first = ACTION[WW][charId][category]?.actions?.[actionIndex];
+        const first = CHARACTER[WW][charId].skills[category]?.actions?.[actionIndex];
 
         insertAtIndex = first?.type === 'introSkill' ? 1 : 0;
       } else {
         const lastRef = rotation.at(-1) ?? '';
         const [category, actionIndex] = lastRef.split('.');
-        const last = ACTION[WW][charId][category]?.actions?.[actionIndex];
+        const last = CHARACTER[WW][charId].skills[category]?.actions?.[actionIndex];
 
         if (last?.type === 'outroSkill') insertAtIndex = -1;
       }

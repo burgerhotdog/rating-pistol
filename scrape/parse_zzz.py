@@ -31,46 +31,6 @@ lookup_stat = {
     'PEN Ratio': 'penRatio%',
 }
 
-def parse_character(version, id, data):
-    ascension = {}
-    for v in data['extra_level']['6']['extra'].values():
-        stat = lookup_stat_id[v['prop']]
-        value = v['value']
-        if stat.endswith('%'):
-            value = round(value / 10000, 4)
-        ascension[stat] = value
-
-    return {
-        'name': str(data['name']),
-        'version': float(version),
-        'id': str(id),
-        'quality': int(data['rarity']) + 1,
-        'element': next(iter(data['element_type'].values())).lower(),
-        'type': next(iter(data['weapon_type'].values())).lower(),
-        'baseStats': {
-            'baseHp': round(
-                data['stats']['hp_growth'] / 10000 * 59
-                + data['stats']['hp_max']
-                + data['level']['6']['hp_max']
-            ),
-            'baseAtk': round(
-                data['stats']['attack_growth'] / 10000 * 59
-                + data['stats']['attack']
-                + data['level']['6']['attack']
-            ),
-            'baseDef': round(
-                data['stats']['defence_growth'] / 10000 * 59
-                + data['stats']['defence']
-                + data['level']['6']['defence']
-            ),
-            'baseImpact': round(data['stats']['break_stun']),
-            'baseAnomalyMastery': round(data['stats']['element_abnormal_power']),
-            'baseAnomalyProficiency': round(data['stats']['element_mystery']),
-        },
-        'ascensionStats': ascension,
-        'effects': [],
-    }
-
 def parse_actions(data):
     actions = {}
     key_to_id = {
@@ -142,6 +102,48 @@ def parse_actions(data):
         actions[skill_id] = skill
     return actions
 
+def parse_character(version, id, data):
+    ascension = {}
+    for v in data['extra_level']['6']['extra'].values():
+        stat = lookup_stat_id[v['prop']]
+        value = v['value']
+        if stat.endswith('%'):
+            value = round(value / 10000, 4)
+        ascension[stat] = value
+
+    return {
+        'name': str(data['name']),
+        'version': float(version),
+        'id': str(id),
+        'quality': int(data['rarity']) + 1,
+        'element': next(iter(data['element_type'].values())).lower(),
+        'type': next(iter(data['weapon_type'].values())).lower(),
+        'baseStats': {
+            'baseHp': round(
+                data['stats']['hp_growth'] / 10000 * 59
+                + data['stats']['hp_max']
+                + data['level']['6']['hp_max']
+            ),
+            'baseAtk': round(
+                data['stats']['attack_growth'] / 10000 * 59
+                + data['stats']['attack']
+                + data['level']['6']['attack']
+            ),
+            'baseDef': round(
+                data['stats']['defence_growth'] / 10000 * 59
+                + data['stats']['defence']
+                + data['level']['6']['defence']
+            ),
+            'baseImpact': round(data['stats']['break_stun']),
+            'baseAnomalyMastery': round(data['stats']['element_abnormal_power']),
+            'baseAnomalyProficiency': round(data['stats']['element_mystery']),
+        },
+        'ascensionStats': ascension,
+        'effects': [],
+        'skills': parse_actions(data),
+        'presets': [],
+    }
+
 def parse_weapon(version, id, data):
     stat = lookup_stat[data['rand_property']['name']]
     value = data['rand_property']['value'] * 2.5
@@ -161,7 +163,7 @@ def parse_weapon(version, id, data):
 def parse_zzz(type, version, id, data):
     match type:
         case 'character':
-            return parse_character(version, id, data), parse_actions(data)
+            return parse_character(version, id, data)
 
         case 'weapon':
             return parse_weapon(version, id, data)

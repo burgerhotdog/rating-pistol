@@ -34,46 +34,6 @@ lookup_stat = {
     'ElationDamageAddedRatioBase': 'elation%',
 }
 
-def parse_character(version, id, data):
-    ascension = {}
-    for node in data['skill_trees'].values():
-        entry = node.get('1')
-        if not entry or entry.get('point_type') != 1:
-            continue
-
-        add = entry['status_add_list'][0]
-        stat = lookup_stat[add['property_type']]
-        ascension[stat] = ascension.get(stat, 0) + add['value']
-
-    for k in ascension:
-        ascension[k] = round(ascension[k], 4 if k.endswith('%') else 1)
-
-    return {
-        'name': str(data['name']),
-        'version': float(version),
-        'id': str(id),
-        'quality': int(data['rarity'][-1]),
-        'element': 'lightning' if data['damage_type'] == 'Thunder' else data['damage_type'].lower(),
-        'type': lookup_type[data['base_type']],
-        'baseStats': {
-            'baseHp': round(
-                data['stats']['6']['hp_add'] * 79
-                + data['stats']['6']['hp_base']
-            ),
-            'baseAtk': round(
-                data['stats']['6']['attack_add'] * 79
-                + data['stats']['6']['attack_base']
-            ),
-            'baseDef': round(
-                data['stats']['6']['defence_add'] * 79
-                + data['stats']['6']['defence_base']
-            ),
-            'baseSpd': round(data['stats']['6']['speed_base']),
-        },
-        'ascensionStats': ascension,
-        'effects': [],
-    }
-
 def parse_actions(data):
     actions = {}
     key_to_id = {
@@ -146,6 +106,48 @@ def parse_actions(data):
 
     return actions
 
+def parse_character(version, id, data):
+    ascension = {}
+    for node in data['skill_trees'].values():
+        entry = node.get('1')
+        if not entry or entry.get('point_type') != 1:
+            continue
+
+        add = entry['status_add_list'][0]
+        stat = lookup_stat[add['property_type']]
+        ascension[stat] = ascension.get(stat, 0) + add['value']
+
+    for k in ascension:
+        ascension[k] = round(ascension[k], 4 if k.endswith('%') else 1)
+
+    return {
+        'name': str(data['name']),
+        'version': float(version),
+        'id': str(id),
+        'quality': int(data['rarity'][-1]),
+        'element': 'lightning' if data['damage_type'] == 'Thunder' else data['damage_type'].lower(),
+        'type': lookup_type[data['base_type']],
+        'baseStats': {
+            'baseHp': round(
+                data['stats']['6']['hp_add'] * 79
+                + data['stats']['6']['hp_base']
+            ),
+            'baseAtk': round(
+                data['stats']['6']['attack_add'] * 79
+                + data['stats']['6']['attack_base']
+            ),
+            'baseDef': round(
+                data['stats']['6']['defence_add'] * 79
+                + data['stats']['6']['defence_base']
+            ),
+            'baseSpd': round(data['stats']['6']['speed_base']),
+        },
+        'ascensionStats': ascension,
+        'effects': [],
+        'skills': parse_actions(data),
+        'presets': [],
+    }
+
 def parse_weapon(version, id, data):
     return {
         'name': str(data['name']),
@@ -173,7 +175,7 @@ def parse_weapon(version, id, data):
 def parse_hsr(type, version, id, data):
     match type:
         case 'character':
-            return parse_character(version, id, data), parse_actions(data)
+            return parse_character(version, id, data)
 
         case 'weapon':
             return parse_weapon(version, id, data)

@@ -38,7 +38,7 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTER, ACTION, WEAPON, SET, ECHO, WW } from '@/data';
+import { CHARACTER, WEAPON, SET, ECHO, WW } from '@/data';
 import { toArray, formatStr, getPresetSetCounts, getMemberPreset, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 import { CharacterSelectDialog, WeaponSelectDialog, SetSelectDialog } from './GridSelect';
@@ -261,11 +261,11 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
 
 const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
-  const skillMap = ACTION[gameId][charId];
+  const { skills } = CHARACTER[gameId][charId];
 
   const categories = useMemo(() => {
     const lowerSearch = search.toLowerCase();
-    return Object.entries(skillMap)
+    return Object.entries(skills)
       .map(([category, { name, actions }]) => ({
         category,
         name,
@@ -273,7 +273,7 @@ const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
           .map((action, index) => ({ ...action, ref: `${category}.${index}` }))
           .filter((action) => action.name.toLowerCase().includes(lowerSearch)),
       }));
-  }, [search, skillMap]);
+  }, [search, skills]);
 
   const handleSelect = (actionKey) => {
     onSelect(actionKey);
@@ -494,7 +494,7 @@ function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove 
   };
 
   const allActions = {
-    ...ACTION[gameId][charId],
+    ...CHARACTER[gameId][charId].skills,
     echoSkill: {
       actions: ECHO[member.mainEcho]?.actions ?? [],
     },

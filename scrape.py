@@ -17,7 +17,7 @@ def main():
 
     print(f'Version {version} update summary')
     if characters:
-        names = [character['name'] for _, _, (character, _) in characters]
+        names = [character['name'] for _, _, character in characters]
         print(f'New characters: {", ".join(names)}')
     if weapons:
         names = [weapon['name'] for _, _, weapon in weapons]
@@ -49,6 +49,7 @@ def main():
         save_data(game, 'set', sets)
     if echoes:
         save_data(game, 'echo', echoes)
+
     save_version(game, version)
     print('Update complete')
 

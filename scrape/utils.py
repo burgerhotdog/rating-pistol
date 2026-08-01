@@ -44,28 +44,8 @@ game_ids = {
     'zzz': 'zenless-zone-zero',
 }
 
-def save_characters(game_id, characters):
-    path_c = f'src/data/{game_id}/character.json'
-    path_a = f'src/data/{game_id}/actions.json'
-
-    data_c = read_json(path_c)
-    data_a = read_json(path_a)
-
-    for id, image, (character, actions) in characters:
-        with open(f'public/{game_id}/character/{id}.webp', 'wb') as f:
-            f.write(image)
-
-        merge_entry(data_c, id, character)
-        merge_entry(data_a, id, actions)
-
-    write_json(path_c, sorted_json(data_c))
-    write_json(path_a, sorted_json(data_a))
-
 def save_data(game, type, entries):
     game_id = game_ids[game]
-
-    if type == 'character':
-        return save_characters(game_id, entries)
 
     path = f'src/data/{game_id}/{type}.json'
     data = read_json(path)

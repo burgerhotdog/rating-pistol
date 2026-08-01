@@ -28,41 +28,6 @@ lookup_stat = {
     'fight_prop_heal_add': 'healingBonus%',
 }
 
-def parse_character(version, id, data):
-    rawStat, value = list(data['stats_modifier']['ascension'][5].items())[3]
-    stat = lookup_stat[rawStat]
-    return {
-        'name': str(data['name']),
-        'version': float(version),
-        'id': str(id),
-        'quality': 4 if data['rarity'] == 'QUALITY_PURPLE' else 5,
-        'element': data['element'].lower(),
-        'type': lookup_type[data['weapon']],
-        'baseStats': {
-            'baseHp': round(
-                data['base_hp'] * data['stats_modifier']['hp']['90']
-                + data['stats_modifier']['ascension'][5]['fight_prop_base_hp']
-            ),
-            'baseAtk': round(
-                data['base_atk'] * data['stats_modifier']['atk']['90']
-                + data['stats_modifier']['ascension'][5]['fight_prop_base_attack']
-            ),
-            'baseDef': round(
-                data['base_def'] * data['stats_modifier']['def']['90']
-                + data['stats_modifier']['ascension'][5]['fight_prop_base_defense']
-            ),
-            **(
-                { 'elementalMastery': round(data['elemental_mastery']) }
-                if data['elemental_mastery']
-                else {}
-            ),
-        },
-        'ascensionStats': {
-            stat: value,
-        },
-        'effects': [],
-    }
-
 def parse_actions(data):
     actions = {}
     index_to_id = {
@@ -112,7 +77,44 @@ def parse_actions(data):
 
         actions[skill_id] = skill
 
-    return {}
+    return actions
+
+def parse_character(version, id, data):
+    rawStat, value = list(data['stats_modifier']['ascension'][5].items())[3]
+    stat = lookup_stat[rawStat]
+    return {
+        'name': str(data['name']),
+        'version': float(version),
+        'id': str(id),
+        'quality': 4 if data['rarity'] == 'QUALITY_PURPLE' else 5,
+        'element': data['element'].lower(),
+        'type': lookup_type[data['weapon']],
+        'baseStats': {
+            'baseHp': round(
+                data['base_hp'] * data['stats_modifier']['hp']['90']
+                + data['stats_modifier']['ascension'][5]['fight_prop_base_hp']
+            ),
+            'baseAtk': round(
+                data['base_atk'] * data['stats_modifier']['atk']['90']
+                + data['stats_modifier']['ascension'][5]['fight_prop_base_attack']
+            ),
+            'baseDef': round(
+                data['base_def'] * data['stats_modifier']['def']['90']
+                + data['stats_modifier']['ascension'][5]['fight_prop_base_defense']
+            ),
+            **(
+                { 'elementalMastery': round(data['elemental_mastery']) }
+                if data['elemental_mastery']
+                else {}
+            ),
+        },
+        'ascensionStats': {
+            stat: value,
+        },
+        'effects': [],
+        'skills': parse_actions(data),
+        'presets': [],
+    }
 
 def parse_weapon(version, id, data):
     raw_id, value_map = list(data['stats_modifier'].items())[1]
@@ -139,7 +141,7 @@ def parse_weapon(version, id, data):
 def parse_gi(type, version, id, data):
     match type:
         case 'character':
-            return parse_character(version, id, data), parse_actions(data)
+            return parse_character(version, id, data)
 
         case 'weapon':
             return parse_weapon(version, id, data)
