@@ -121,7 +121,7 @@ export const Timeline = ({ userSummary, team }) => {
       <ChartFill flex={3}>
         <ComposedChart
           data={data}
-          margin={{ top: 20, right: 50, left: 20, bottom: 5 }}
+          margin={{ top: 16, right: 16, left: 16, bottom: 16 }}
         >
           <defs>
             {memberColors.map((color, i) => (
@@ -137,13 +137,13 @@ export const Timeline = ({ userSummary, team }) => {
           <XAxis
             dataKey="time"
             tick={{ fontSize: 12 }}
-            label={{ value: 'Time', position: 'insideBottomRight', offset: -5, fontSize: 12 }}
           />
 
           <YAxis
             tick={{ fontSize: 12 }}
             tickFormatter={formatDmg}
             label={{ value: 'Damage', angle: -90, position: 'insideLeft', fontSize: 12 }}
+            width="auto"
           />
 
           {/* Stacked member DPS areas */}
@@ -165,7 +165,6 @@ export const Timeline = ({ userSummary, team }) => {
               if (!active || !payload || !payload.length) return null;
 
               const { time, ...rest } = payload[0].payload;
-
               const damage = Object.values(rest).reduce((acc, damage) => acc + damage, 0);
 
               return (
@@ -180,7 +179,7 @@ export const Timeline = ({ userSummary, team }) => {
                   }}
                 >
                   <Typography variant="subtitle2" gutterBottom>
-                    Time: {time}s
+                    Runtime: {time}s
                   </Typography>
 
                   {members.map((member, index) => {
@@ -242,7 +241,7 @@ export const Timeline = ({ userSummary, team }) => {
       >
         <Box>
           <InfoLabel
-            label="Team Damage"
+            label="Total Damage"
             tip="The team's total damage for one rotation."
           />
 
