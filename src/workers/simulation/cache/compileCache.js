@@ -16,8 +16,8 @@ const getConvertedRotation = (rawRotation, spec) => {
     const action = memberActions[ref];
 
     if (teamSize === 1) {
-      const { skillType } = action;
-      if (skillType === 'introSkill' || skillType === 'outroSkill') continue;
+      const { type } = action;
+      if (type === 'introSkill' || type === 'outroSkill') continue;
     }
 
     rotationTime += action.duration ?? 0;

@@ -59,7 +59,7 @@
         },
         {
           "applyWhen": "before",
-          "applyOnSkillType": "ultimate",
+          "applyOnType": "ultimate",
           "buffMap": {
             "combatAtk%": 0.15
           },
@@ -168,7 +168,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": [
+          "applyOnType": [
             "chainAttack",
             "ultimate"
           ],
@@ -236,7 +236,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": [
+          "applyOnType": [
             "defensiveAssist",
             "evasiveAssist"
           ],
@@ -489,7 +489,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": [
+          "applyOnType": [
             "exSpecialAttack",
             "chainAttack",
             "ultimate"
@@ -524,7 +524,7 @@
         {
           "enableIfWeaponType": "stun",
           "applyWhen": "before",
-          "applyOnSkillType": [
+          "applyOnType": [
             "exSpecialAttack",
             "chainAttack"
           ],
@@ -537,7 +537,7 @@
         {
           "enableIfWeaponType": "stun",
           "applyWhen": "before",
-          "applyOnSkillType": [
+          "applyOnType": [
             "exSpecialAttack",
             "chainAttack"
           ],
@@ -574,7 +574,7 @@
         {
           "enableIfWeaponType": "attack",
           "applyWhen": "before",
-          "applyOnSkillType": [
+          "applyOnType": [
             "exSpecialAttack",
             "ultimate"
           ],
@@ -602,7 +602,7 @@
         {
           "enableIfWeaponType": "support",
           "applyWhen": "before",
-          "applyOnSkillType": [
+          "applyOnType": [
             "exSpecialAttack",
             "ultimate"
           ],
@@ -681,7 +681,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": "exSpecialAttack",
+          "applyOnType": "exSpecialAttack",
           "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.06
@@ -724,7 +724,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": "exSpecialAttack",
+          "applyOnType": "exSpecialAttack",
           "buffMap": {
             "anomalyProficiency": 25
           },
@@ -760,7 +760,7 @@
         },
         {
           "applyWhen": "before",
-          "applyOnSkillType": [
+          "applyOnType": [
             "exSpecialAttack",
             "ultimate"
           ],

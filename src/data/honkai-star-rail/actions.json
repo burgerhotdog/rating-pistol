@@ -5,7 +5,7 @@
       "actions": [
         {
           "name": "Frigid Cold Arrow",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -32,7 +32,7 @@
       "actions": [
         {
           "name": "The Power of Cuteness",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -83,7 +83,7 @@
       "actions": [
         {
           "name": "Glacial Cascade",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -134,7 +134,7 @@
       "actions": [
         {
           "name": "Girl Power",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -168,7 +168,7 @@
       "actions": [
         {
           "name": "Cloudlancer Art: North Wind",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -195,7 +195,7 @@
       "actions": [
         {
           "name": "Cloudlancer Art: Torrent",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -227,7 +227,7 @@
       "actions": [
         {
           "name": "Ethereal Dream",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -278,7 +278,7 @@
       "actions": [
         {
           "name": "Superiority of Reach",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -312,7 +312,7 @@
       "actions": [
         {
           "name": "Sawblade Tuning",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -339,7 +339,7 @@
       "actions": [
         {
           "name": "Molten Detonation",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -390,7 +390,7 @@
       "actions": [
         {
           "name": "Heavenly Flare",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -422,7 +422,7 @@
       "actions": [
         {
           "name": "Victory Rush",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -456,7 +456,7 @@
       "actions": [
         {
           "name": "Gravity Suppression",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -483,7 +483,7 @@
       "actions": [
         {
           "name": "Edge of the Void",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -534,7 +534,7 @@
       "actions": [
         {
           "name": "Synthetic <unbreak>Black Hole</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -585,7 +585,7 @@
       "actions": [
         {
           "name": "Time Distortion",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -619,7 +619,7 @@
       "actions": [
         {
           "name": "Midnight Tumult",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -646,7 +646,7 @@
       "actions": [
         {
           "name": "Caressing Moonlight",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -716,7 +716,7 @@
       "actions": [
         {
           "name": "Twilight Trill",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -786,7 +786,7 @@
       "actions": [
         {
           "name": "Gentle but Cruel",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -820,7 +820,7 @@
       "actions": [
         {
           "name": "System Warning",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -847,7 +847,7 @@
       "actions": [
         {
           "name": "Allow Changes?",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -917,7 +917,7 @@
       "actions": [
         {
           "name": "User Banned",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -987,7 +987,7 @@
       "actions": [
         {
           "name": "Awaiting System Response...",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -1078,7 +1078,7 @@
       "actions": [
         {
           "name": "Lightning Rush",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -1105,7 +1105,7 @@
       "actions": [
         {
           "name": "Shackle Breaker",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -1137,7 +1137,7 @@
       "actions": [
         {
           "name": "Frenzied Punishment",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -1188,7 +1188,7 @@
       "actions": [
         {
           "name": "Pain and Anger",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -1222,7 +1222,7 @@
       "actions": [
         {
           "name": "Spectrum Beam",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -1249,7 +1249,7 @@
       "actions": [
         {
           "name": "Meteor Storm",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -1281,7 +1281,7 @@
       "actions": [
         {
           "name": "Astral Blessing",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -1313,7 +1313,7 @@
       "actions": [
         {
           "name": "Astrometry",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -1347,7 +1347,7 @@
       "actions": [
         {
           "name": "What Are You Looking At?",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -1374,7 +1374,7 @@
       "actions": [
         {
           "name": "One-Time Offer",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -1406,7 +1406,7 @@
       "actions": [
         {
           "name": "<unbreak>It's Magic,</unbreak> <unbreak>I Added Some Magic</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -1438,7 +1438,7 @@
       "actions": [
         {
           "name": "Fine, I'll Do It Myself",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -1472,7 +1472,7 @@
       "actions": [
         {
           "name": "Invisible Air: Barrier of the Wind King",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -1494,7 +1494,7 @@
         },
         {
           "name": "Release, the Golden Scepter",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -1549,7 +1549,7 @@
       "actions": [
         {
           "name": "Strike Air: Hammer of the Wind King",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -1619,7 +1619,7 @@
       "actions": [
         {
           "name": "Excalibur",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -1670,7 +1670,7 @@
       "actions": [
         {
           "name": "Dragon Reactor Core",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -1723,7 +1723,7 @@
       "actions": [
         {
           "name": "Kanshou and Bakuya",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -1749,7 +1749,7 @@
       "actions": [
         {
           "name": "Caladbolg II: Fake Spiral Sword",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -1795,7 +1795,7 @@
         },
         {
           "name": "End",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": []
           }
@@ -1807,7 +1807,7 @@
       "actions": [
         {
           "name": "Unlimited Blade Works",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -1839,7 +1839,7 @@
       "actions": [
         {
           "name": "Mind's Eye (True)",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -1873,7 +1873,7 @@
       "actions": [
         {
           "name": "Windrider Bullet",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -1900,7 +1900,7 @@
       "actions": [
         {
           "name": "Combat Redeployment",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -1932,7 +1932,7 @@
       "actions": [
         {
           "name": "The <unbreak>Belobog March</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -2002,7 +2002,7 @@
       "actions": [
         {
           "name": "Leading the Way",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -2036,7 +2036,7 @@
       "actions": [
         {
           "name": "Thwack",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -2063,7 +2063,7 @@
       "actions": [
         {
           "name": "Sheathed Blade",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -2095,7 +2095,7 @@
       "actions": [
         {
           "name": "Butterfly Flurry",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -2127,7 +2127,7 @@
       "actions": [
         {
           "name": "Resurgence",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -2161,7 +2161,7 @@
       "actions": [
         {
           "name": "Roaring Thunderclap",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -2188,7 +2188,7 @@
       "actions": [
         {
           "name": "Lightning Flash",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -2258,7 +2258,7 @@
       "actions": [
         {
           "name": "Here Comes the Mechanical Fever",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -2290,7 +2290,7 @@
       "actions": [
         {
           "name": "Galvanic Chords",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -2324,7 +2324,7 @@
       "actions": [
         {
           "name": "Fist of Conviction",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -2351,7 +2351,7 @@
       "actions": [
         {
           "name": "Daunting Smite",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -2402,7 +2402,7 @@
       "actions": [
         {
           "name": "Enduring Bulwark",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -2453,7 +2453,7 @@
       "actions": [
         {
           "name": "Unyielding Will",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -2487,7 +2487,7 @@
       "actions": [
         {
           "name": "Behind the Kindness",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -2514,7 +2514,7 @@
       "actions": [
         {
           "name": "Love, Heal, and Choose",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -2603,7 +2603,7 @@
       "actions": [
         {
           "name": "Gift of Rebirth",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -2654,7 +2654,7 @@
       "actions": [
         {
           "name": "Innervation",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -2688,7 +2688,7 @@
       "actions": [
         {
           "name": "Frost Shot",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -2715,7 +2715,7 @@
       "actions": [
         {
           "name": "Frostbite",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -2747,7 +2747,7 @@
       "actions": [
         {
           "name": "Zone Suppression",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -2798,7 +2798,7 @@
       "actions": [
         {
           "name": "Data Collecting",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -2832,7 +2832,7 @@
       "actions": [
         {
           "name": "I Want to Help",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -2859,7 +2859,7 @@
       "actions": [
         {
           "name": "Svarog Watches Over You",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -2910,7 +2910,7 @@
       "actions": [
         {
           "name": "Promise, <unbreak>Not Command</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -2961,7 +2961,7 @@
       "actions": [
         {
           "name": "Because We're Family",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -2995,7 +2995,7 @@
       "actions": [
         {
           "name": "Dazzling Blades",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -3022,7 +3022,7 @@
       "actions": [
         {
           "name": "Ricochet Love",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -3054,7 +3054,7 @@
       "actions": [
         {
           "name": "Surprise Present",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -3105,7 +3105,7 @@
       "actions": [
         {
           "name": "Windtorn Dagger",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -3139,7 +3139,7 @@
       "actions": [
         {
           "name": "Hehe! Don't Get Burned!",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -3166,7 +3166,7 @@
       "actions": [
         {
           "name": "Hey! Remember Hook?",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -3212,7 +3212,7 @@
         },
         {
           "name": "Hey! Remember Hook?",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -3282,7 +3282,7 @@
       "actions": [
         {
           "name": "Boom! <unbreak>Here Comes the Fire!</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -3314,7 +3314,7 @@
       "actions": [
         {
           "name": "Ha! Oil to the Flames!",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -3348,7 +3348,7 @@
       "actions": [
         {
           "name": "Ice Crampon Technique",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -3375,7 +3375,7 @@
       "actions": [
         {
           "name": "Salted Camping Cans",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -3464,7 +3464,7 @@
       "actions": [
         {
           "name": "Snowfield <unbreak>First Aid</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -3515,7 +3515,7 @@
       "actions": [
         {
           "name": "Outdoor Survival Experience",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -3606,7 +3606,7 @@
       "actions": [
         {
           "name": "Direct Punch",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -3628,7 +3628,7 @@
         },
         {
           "name": "Sky-Shatter Fist",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -3669,7 +3669,7 @@
       "actions": [
         {
           "name": "Lacerating Fist",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -3720,7 +3720,7 @@
       "actions": [
         {
           "name": "Coup de Grâce",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -3771,7 +3771,7 @@
       "actions": [
         {
           "name": "Flying Sparks",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -3805,7 +3805,7 @@
       "actions": [
         {
           "name": "Deficit...",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -3832,7 +3832,7 @@
       "actions": [
         {
           "name": "Difficulty Paying?",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -3883,7 +3883,7 @@
       "actions": [
         {
           "name": "Turn a Profit!",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -3934,7 +3934,7 @@
       "actions": [
         {
           "name": "Trotter Market!?",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -3968,7 +3968,7 @@
       "actions": [
         {
           "name": "Flower Pick",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -3990,7 +3990,7 @@
         },
         {
           "name": "Cherry on Top!",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -4031,7 +4031,7 @@
       "actions": [
         {
           "name": "A Scoop of Moon",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -4063,7 +4063,7 @@
       "actions": [
         {
           "name": "A Quartet? Woo-hoo!",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -4095,7 +4095,7 @@
       "actions": [
         {
           "name": "Celestial Jade",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -4129,7 +4129,7 @@
       "actions": [
         {
           "name": "Dislodged",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -4156,7 +4156,7 @@
       "actions": [
         {
           "name": "Soothing Melody",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -4226,7 +4226,7 @@
       "actions": [
         {
           "name": "Amidst the Rejoicing Clouds",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -4258,7 +4258,7 @@
       "actions": [
         {
           "name": "Violet Sparknado",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -4292,7 +4292,7 @@
       "actions": [
         {
           "name": "Thorns of the Abyss",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -4319,7 +4319,7 @@
       "actions": [
         {
           "name": "Prayer of Abyss Flower",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -4370,7 +4370,7 @@
       "actions": [
         {
           "name": "Death Wish",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -4402,7 +4402,7 @@
       "actions": [
         {
           "name": "Cycle of Life",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -4455,7 +4455,7 @@
       "actions": [
         {
           "name": "Glistening Light",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -4482,7 +4482,7 @@
       "actions": [
         {
           "name": "Rifting Zenith",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -4514,7 +4514,7 @@
       "actions": [
         {
           "name": "Lightbringer",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -4546,7 +4546,7 @@
       "actions": [
         {
           "name": "Prana Extirpated",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -4580,7 +4580,7 @@
       "actions": [
         {
           "name": "Shard Sword",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -4602,7 +4602,7 @@
         },
         {
           "name": "Forest of Swords",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -4671,7 +4671,7 @@
       "actions": [
         {
           "name": "Hellscape",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -4703,7 +4703,7 @@
       "actions": [
         {
           "name": "Death Sentence",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -4830,7 +4830,7 @@
       "actions": [
         {
           "name": "Shuhu's Gift",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -4883,7 +4883,7 @@
       "actions": [
         {
           "name": "Cloudfencer Art: Starshine",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -4910,7 +4910,7 @@
       "actions": [
         {
           "name": "Cloudfencer Art: Mountainfall",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -4961,7 +4961,7 @@
       "actions": [
         {
           "name": "Shape of Taixu: Dawn Herald",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -5012,7 +5012,7 @@
       "actions": [
         {
           "name": "Dancing Blade",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -5046,7 +5046,7 @@
       "actions": [
         {
           "name": "Arrowslinger",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -5073,7 +5073,7 @@
       "actions": [
         {
           "name": "Emboldening Salvo",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -5105,7 +5105,7 @@
       "actions": [
         {
           "name": "Diving Kestrel",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -5175,7 +5175,7 @@
       "actions": [
         {
           "name": "Seven Layers, One Arrow",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -5209,7 +5209,7 @@
       "actions": [
         {
           "name": "Novaburst",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -5236,7 +5236,7 @@
       "actions": [
         {
           "name": "Known by Stars, Shown by Hearts",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -5287,7 +5287,7 @@
       "actions": [
         {
           "name": "Woes of Many Morphed to One",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -5319,7 +5319,7 @@
       "actions": [
         {
           "name": "Bleak Breeds Bliss",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -5372,7 +5372,7 @@
       "actions": [
         {
           "name": "Frost Thorn",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -5399,7 +5399,7 @@
       "actions": [
         {
           "name": "Darting Ironthorn",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -5431,7 +5431,7 @@
       "actions": [
         {
           "name": "Amidst the Raining Bliss",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -5482,7 +5482,7 @@
       "actions": [
         {
           "name": "One With the Sword",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -5592,7 +5592,7 @@
       "actions": [
         {
           "name": "Standing Ovation",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -5619,7 +5619,7 @@
       "actions": [
         {
           "name": "Blazing Welcome",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -5689,7 +5689,7 @@
       "actions": [
         {
           "name": "Watch This Showstopper",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -5740,7 +5740,7 @@
       "actions": [
         {
           "name": "PatrAeon Benefits",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -5774,7 +5774,7 @@
       "actions": [
         {
           "name": "Diagnostic Kick",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -5801,7 +5801,7 @@
       "actions": [
         {
           "name": "Singing Among Clouds",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -5852,7 +5852,7 @@
       "actions": [
         {
           "name": "Felicitous Thunderleap",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -5903,7 +5903,7 @@
       "actions": [
         {
           "name": "Gourdful of Elixir",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -5994,7 +5994,7 @@
       "actions": [
         {
           "name": "Lucent Moonglow",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -6021,7 +6021,7 @@
       "actions": [
         {
           "name": "Transcendent Flash",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -6048,7 +6048,7 @@
         },
         {
           "name": "Moon On Glacial River",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -6099,7 +6099,7 @@
       "actions": [
         {
           "name": "Florephemeral Dreamflux",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -6150,7 +6150,7 @@
       "actions": [
         {
           "name": "Crescent Transmigration",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -6203,7 +6203,7 @@
       "actions": [
         {
           "name": "Beneficent Lotus",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -6225,7 +6225,7 @@
         },
         {
           "name": "Transcendence",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -6247,7 +6247,7 @@
         },
         {
           "name": "Divine Spear",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -6283,7 +6283,7 @@
         },
         {
           "name": "Fulgurant Leap",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -6324,7 +6324,7 @@
       "actions": [
         {
           "name": "Dracore Libre",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -6351,7 +6351,7 @@
         },
         {
           "name": "Cancel",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": []
           }
@@ -6363,7 +6363,7 @@
       "actions": [
         {
           "name": "Azure's Aqua Ablutes All",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -6414,7 +6414,7 @@
       "actions": [
         {
           "name": "Righteous Heart",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -6448,7 +6448,7 @@
       "actions": [
         {
           "name": "Mara-Sunder Awl",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -6475,7 +6475,7 @@
       "actions": [
         {
           "name": "Iniquity Obliteration",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -6526,7 +6526,7 @@
       "actions": [
         {
           "name": "Divine Castigation",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -6596,7 +6596,7 @@
       "actions": [
         {
           "name": "Karmic Perpetuation",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -6630,7 +6630,7 @@
       "actions": [
         {
           "name": "Oracle Brush",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -6657,7 +6657,7 @@
       "actions": [
         {
           "name": "Samsara, Locked",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -6689,7 +6689,7 @@
       "actions": [
         {
           "name": "Ten-Lords' Decree, All Shall Obey",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -6740,7 +6740,7 @@
       "actions": [
         {
           "name": "Sanction",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -6774,7 +6774,7 @@
       "actions": [
         {
           "name": "Banner: Stormcaller",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -6801,7 +6801,7 @@
       "actions": [
         {
           "name": "Talisman: Protection",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -6890,7 +6890,7 @@
       "actions": [
         {
           "name": "Tail: <unbreak>Spiritual Domination</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -6941,7 +6941,7 @@
       "actions": [
         {
           "name": "Possession: Ethereal Metaflow",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -6994,7 +6994,7 @@
       "actions": [
         {
           "name": "Heart Afire",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -7021,7 +7021,7 @@
       "actions": [
         {
           "name": "Scorch Onslaught",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -7072,7 +7072,7 @@
       "actions": [
         {
           "name": "Pyrograph Arcanum",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -7142,7 +7142,7 @@
       "actions": [
         {
           "name": "Quartet Finesse, Octave Finery",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -7214,7 +7214,7 @@
       "actions": [
         {
           "name": "Boltsunder",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -7241,7 +7241,7 @@
       "actions": [
         {
           "name": "Waraxe",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -7273,7 +7273,7 @@
       "actions": [
         {
           "name": "Terrasplit",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -7319,7 +7319,7 @@
         },
         {
           "name": "Boltsunder Blitz",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -7365,7 +7365,7 @@
         },
         {
           "name": "Waraxe Skyward",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -7411,7 +7411,7 @@
         },
         {
           "name": "Terrasplit",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -7462,7 +7462,7 @@
       "actions": [
         {
           "name": "Thunderhunt",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -7515,7 +7515,7 @@
       "actions": [
         {
           "name": "Galespin Summersault",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -7542,7 +7542,7 @@
       "actions": [
         {
           "name": "Bladeborne Quake",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -7631,7 +7631,7 @@
       "actions": [
         {
           "name": "Earthbind, Etherbreak",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -7720,7 +7720,7 @@
       "actions": [
         {
           "name": "Flashforge",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -7773,7 +7773,7 @@
       "actions": [
         {
           "name": "Votive Incense",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -7800,7 +7800,7 @@
       "actions": [
         {
           "name": "Smoke and Splendor",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -7870,7 +7870,7 @@
       "actions": [
         {
           "name": "Dripping Mistscape",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -7959,7 +7959,7 @@
       "actions": [
         {
           "name": "Mistdance Manifest",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -8050,7 +8050,7 @@
       "actions": [
         {
           "name": "Hurlthorn",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -8077,7 +8077,7 @@
       "actions": [
         {
           "name": "Fleetwinged Raid",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -8109,7 +8109,7 @@
       "actions": [
         {
           "name": "<unbreak>Dash In,</unbreak> <unbreak>Gash Out</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -8141,7 +8141,7 @@
       "actions": [
         {
           "name": "Cascading Featherblade",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -8194,7 +8194,7 @@
       "actions": [
         {
           "name": "My Sword Zaps Demons",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -8216,7 +8216,7 @@
         },
         {
           "name": "Brows Be Smitten, Heart Be Bitten",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -8243,7 +8243,7 @@
       "actions": [
         {
           "name": "Master, It's Tea Time!",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -8294,7 +8294,7 @@
       "actions": [
         {
           "name": "<unbreak>March 7th,</unbreak> <unbreak>the Apex Heroine</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -8326,7 +8326,7 @@
       "actions": [
         {
           "name": "Master, I've Ascended!",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -8360,7 +8360,7 @@
       "actions": [
         {
           "name": "Radiant Streak",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -8382,7 +8382,7 @@
         },
         {
           "name": "Fiery Caress",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -8423,7 +8423,7 @@
       "actions": [
         {
           "name": "Virtue Beckons Bliss",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -8474,7 +8474,7 @@
       "actions": [
         {
           "name": "Solar Splendor Shines Upon All",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -8506,7 +8506,7 @@
       "actions": [
         {
           "name": "Fortune Follows Where Virtue Spreads",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -8540,7 +8540,7 @@
       "actions": [
         {
           "name": "Corkage Fee",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -8562,7 +8562,7 @@
         },
         {
           "name": "Nectar Blitz",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -8603,7 +8603,7 @@
       "actions": [
         {
           "name": "Special Brew",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -8635,7 +8635,7 @@
       "actions": [
         {
           "name": "Champagne Etiquette",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -8667,7 +8667,7 @@
       "actions": [
         {
           "name": "Tipsy Tussle",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -8720,7 +8720,7 @@
       "actions": [
         {
           "name": "Fleeting Fragrance",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -8747,7 +8747,7 @@
       "actions": [
         {
           "name": "Justice, Hereby Blooms",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -8779,7 +8779,7 @@
       "actions": [
         {
           "name": "For In This Garden, Supreme Beauty Bestows",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -8806,7 +8806,7 @@
         },
         {
           "name": "Merit Bestowed in \"My\" Garden",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -8857,7 +8857,7 @@
       "actions": [
         {
           "name": "Sublime Object",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -8891,7 +8891,7 @@
       "actions": [
         {
           "name": "Threading Fragrance",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -8918,7 +8918,7 @@
       "actions": [
         {
           "name": "String Sings Slow Swirls",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -8950,7 +8950,7 @@
       "actions": [
         {
           "name": "Petals to Stream, Repose in Dream",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -9001,7 +9001,7 @@
       "actions": [
         {
           "name": "Somatotypical Helix",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -9054,7 +9054,7 @@
       "actions": [
         {
           "name": "Straight Bet",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -9081,7 +9081,7 @@
       "actions": [
         {
           "name": "Cornerstone Deluxe",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -9132,7 +9132,7 @@
       "actions": [
         {
           "name": "Roulette Shark",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -9183,7 +9183,7 @@
       "actions": [
         {
           "name": "Shot Loaded Right",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -9236,7 +9236,7 @@
       "actions": [
         {
           "name": "Mind is Might",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -9263,7 +9263,7 @@
       "actions": [
         {
           "name": "Intellectual Midwifery",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -9295,7 +9295,7 @@
       "actions": [
         {
           "name": "Syllogistic Paradox",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -9327,7 +9327,7 @@
       "actions": [
         {
           "name": "Cogito, Ergo Sum",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -9361,7 +9361,7 @@
       "actions": [
         {
           "name": "Monodrama",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -9388,7 +9388,7 @@
       "actions": [
         {
           "name": "Dreamdiver",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -9439,7 +9439,7 @@
       "actions": [
         {
           "name": "The Hero with a Thousand Faces",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -9471,7 +9471,7 @@
       "actions": [
         {
           "name": "Red Herring",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -9505,7 +9505,7 @@
       "actions": [
         {
           "name": "Percipience, Silent Dawn",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -9560,7 +9560,7 @@
       "actions": [
         {
           "name": "Decadence, False Twilight",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -9611,7 +9611,7 @@
       "actions": [
         {
           "name": "Bliss of <unbreak>Otherworld's Embrace</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -9662,7 +9662,7 @@
       "actions": [
         {
           "name": "Loom of Fate's Caprice",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -9753,7 +9753,7 @@
       "actions": [
         {
           "name": "Trilateral Wiltcross",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -9780,7 +9780,7 @@
       "actions": [
         {
           "name": "Octobolt Flash",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -9831,7 +9831,7 @@
       "actions": [
         {
           "name": "Slashed Dream Cries in Red",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -9953,7 +9953,7 @@
         },
         {
           "name": "Rainblade",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -10018,7 +10018,7 @@
         },
         {
           "name": "Rainblade",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -10083,7 +10083,7 @@
         },
         {
           "name": "Rainblade",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -10148,7 +10148,7 @@
         },
         {
           "name": "Stygian Resurge",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -10180,7 +10180,7 @@
       "actions": [
         {
           "name": "Atop Rainleaf Hangs Oneness",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -10214,7 +10214,7 @@
       "actions": [
         {
           "name": "Wingflip White Noise",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -10241,7 +10241,7 @@
       "actions": [
         {
           "name": "Pinion's Aria",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -10273,7 +10273,7 @@
       "actions": [
         {
           "name": "Vox Harmonique, Opus Cosmique",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -10343,7 +10343,7 @@
       "actions": [
         {
           "name": "Tonal Resonance",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -10377,7 +10377,7 @@
       "actions": [
         {
           "name": "Order: Flare Propulsion",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -10399,7 +10399,7 @@
         },
         {
           "name": "Fyrefly Type-IV: Pyrogenic Decimation",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -10426,7 +10426,7 @@
       "actions": [
         {
           "name": "Order: Aerial Bombardment",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -10472,7 +10472,7 @@
         },
         {
           "name": "Fyrefly Type-IV: Deathstar Overload",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -10523,7 +10523,7 @@
       "actions": [
         {
           "name": "Fyrefly Type-IV: Complete Combustion",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -10574,7 +10574,7 @@
       "actions": [
         {
           "name": "Chrysalid Pyronexus",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -10627,7 +10627,7 @@
       "actions": [
         {
           "name": "E—Excuse Me, Please!",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -10654,7 +10654,7 @@
       "actions": [
         {
           "name": "R—Room Service!",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -10705,7 +10705,7 @@
       "actions": [
         {
           "name": "G—Gonna Be Late!",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -10775,7 +10775,7 @@
       "actions": [
         {
           "name": "Horological Escapement",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -10809,7 +10809,7 @@
       "actions": [
         {
           "name": "Gleaming Admonition",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -10836,7 +10836,7 @@
       "actions": [
         {
           "name": "Benison of Paper and Rites",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -10887,7 +10887,7 @@
       "actions": [
         {
           "name": "Ode to <unbreak>Caress and Cicatrix</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -10938,7 +10938,7 @@
       "actions": [
         {
           "name": "The Sorrowing Body",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -10972,7 +10972,7 @@
       "actions": [
         {
           "name": "Lash of Riches",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11013,7 +11013,7 @@
       "actions": [
         {
           "name": "Acquisition Surety",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -11045,7 +11045,7 @@
       "actions": [
         {
           "name": "Vow of the Deep",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -11096,7 +11096,7 @@
       "actions": [
         {
           "name": "Fang of Flare Flaying",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -11149,7 +11149,7 @@
       "actions": [
         {
           "name": "Skullcrush Spurs",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11171,7 +11171,7 @@
         },
         {
           "name": "Fanning the Hammer",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11198,7 +11198,7 @@
       "actions": [
         {
           "name": "Sizzlin' Tango",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -11230,7 +11230,7 @@
       "actions": [
         {
           "name": "Dust Devil's Sunset Rodeo",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -11281,7 +11281,7 @@
       "actions": [
         {
           "name": "Five Peas in a Pod",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -11353,7 +11353,7 @@
       "actions": [
         {
           "name": "Ninjutsu: Rise Above Tumbles",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11375,7 +11375,7 @@
         },
         {
           "name": "Ningu: Demonbane Petalblade",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11425,7 +11425,7 @@
         },
         {
           "name": "Ningu: Demonbane Petalblade",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11461,7 +11461,7 @@
         },
         {
           "name": "Ningu: Demonbane Petalblade",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11483,7 +11483,7 @@
         },
         {
           "name": "Ningu: Demonbane Petalblade",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11538,7 +11538,7 @@
       "actions": [
         {
           "name": "Ninja Strike: Rooted Resolute",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -11570,7 +11570,7 @@
       "actions": [
         {
           "name": "Nindō Supreme: Aishiteru",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -11602,7 +11602,7 @@
       "actions": [
         {
           "name": "Ninja Tech: Endurance Gauge",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -11655,7 +11655,7 @@
       "actions": [
         {
           "name": "Fiddle... Fissured Memory",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11682,7 +11682,7 @@
       "actions": [
         {
           "name": "Lick... Enkindled Betrayal",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -11714,7 +11714,7 @@
       "actions": [
         {
           "name": "Wallow... <unbreak>Entombed Ash</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -11765,7 +11765,7 @@
       "actions": [
         {
           "name": "Who's Afraid of Constance?",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -11837,7 +11837,7 @@
       "actions": [
         {
           "name": "Did You Get It",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -11864,7 +11864,7 @@
       "actions": [
         {
           "name": "Big Brain Energy",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -11891,7 +11891,7 @@
         },
         {
           "name": "Hear Me Out",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -11942,7 +11942,7 @@
       "actions": [
         {
           "name": "<unbreak>Told Ya!</unbreak> <unbreak>Magic Happens</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -11993,7 +11993,7 @@
       "actions": [
         {
           "name": "Hand Them Over",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -12046,7 +12046,7 @@
       "actions": [
         {
           "name": "Thorned Nectar",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -12068,7 +12068,7 @@
         },
         {
           "name": "Slash by a Thousandfold Kiss",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -12137,7 +12137,7 @@
       "actions": [
         {
           "name": "Rise, Exalted Renown",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -12164,7 +12164,7 @@
         },
         {
           "name": "Rise, Exalted Renown",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -12196,7 +12196,7 @@
       "actions": [
         {
           "name": "Dance, <unbreak>Destined Weaveress</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -12228,7 +12228,7 @@
       "actions": [
         {
           "name": "Rosy-Fingered",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -12298,7 +12298,7 @@
       "actions": [
         {
           "name": "Thorned Snare",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -12340,7 +12340,7 @@
       "actions": [
         {
           "name": "A Body Brewed by Tears",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": [
@@ -12363,7 +12363,7 @@
         },
         {
           "name": "The Speeding Summer",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": []
@@ -12371,7 +12371,7 @@
         },
         {
           "name": "Bloom of Drying Grass",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": []
@@ -12386,7 +12386,7 @@
       "actions": [
         {
           "name": "Hundred Rockets",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -12427,7 +12427,7 @@
       "actions": [
         {
           "name": "Where'd the Gifts Go",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -12459,7 +12459,7 @@
       "actions": [
         {
           "name": "Guess Who Lives Here",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -12529,7 +12529,7 @@
       "actions": [
         {
           "name": "Busy as Tribbie",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -12563,7 +12563,7 @@
       "actions": [
         {
           "name": "Vow of Voyage",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -12590,7 +12590,7 @@
       "actions": [
         {
           "name": "Deaths are Legion, Regrets are None",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -12636,7 +12636,7 @@
         },
         {
           "name": "Kingslayer Be King",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -12682,7 +12682,7 @@
         },
         {
           "name": "Godslayer Be God",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -12733,7 +12733,7 @@
       "actions": [
         {
           "name": "Throne of Bones",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -12803,7 +12803,7 @@
       "actions": [
         {
           "name": "Blood for Blood",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -12837,7 +12837,7 @@
       "actions": [
         {
           "name": "Pain, Brews Truth",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -12864,7 +12864,7 @@
       "actions": [
         {
           "name": "Fractal, Exiles Fallacy",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -12896,7 +12896,7 @@
       "actions": [
         {
           "name": "Sprouting Life Sculpts Earth",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -12928,7 +12928,7 @@
       "actions": [
         {
           "name": "Tetrad Wisdom Reigns Thrice",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -12962,7 +12962,7 @@
       "actions": [
         {
           "name": "Oops, a Missed Catch",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -12989,7 +12989,7 @@
       "actions": [
         {
           "name": "Hey, Jackpot for the Taking",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -13040,7 +13040,7 @@
       "actions": [
         {
           "name": "Yours Truly, <unbreak>Kitty Phantom Thief!</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -13091,7 +13091,7 @@
       "actions": [
         {
           "name": "The Hospitable Dolosian",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -13125,7 +13125,7 @@
       "actions": [
         {
           "name": "Lament, Nethersea's Ripple",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -13152,7 +13152,7 @@
       "actions": [
         {
           "name": "Silence, Wraithfly's Caress",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -13198,7 +13198,7 @@
         },
         {
           "name": "Boneclaw, Doomdrake's Embrace",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -13249,7 +13249,7 @@
       "actions": [
         {
           "name": "Doomshriek, Dawn's Chime",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -13281,7 +13281,7 @@
       "actions": [
         {
           "name": "Desolation Across Palms",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -13313,7 +13313,7 @@
       "actions": [
         {
           "name": "Claw Splits the Veil",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -13336,7 +13336,7 @@
         },
         {
           "name": "Breath Scorches the Shadow",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -13387,7 +13387,7 @@
         },
         {
           "name": "Breath Scorches the Shadow",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": []
@@ -13395,7 +13395,7 @@
         },
         {
           "name": "Breath Scorches the Shadow",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": []
@@ -13403,7 +13403,7 @@
         },
         {
           "name": "Wings Sweep the Ruins",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -13459,7 +13459,7 @@
       "actions": [
         {
           "name": "Mooncocoon Shrouds the Form",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": []
@@ -13467,7 +13467,7 @@
         },
         {
           "name": "Roar Rumbles the Realm",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": []
@@ -13475,7 +13475,7 @@
         },
         {
           "name": "Wings Sweep the Ruins",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": [
@@ -13533,7 +13533,7 @@
       "actions": [
         {
           "name": "Stride to Deliverance",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -13555,7 +13555,7 @@
         },
         {
           "name": "Creation: Bloodthorn Ferry",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -13596,7 +13596,7 @@
       "actions": [
         {
           "name": "Let There Be Light",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -13642,7 +13642,7 @@
         },
         {
           "name": "Calamity: Soulscorch Edict",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -13688,7 +13688,7 @@
         },
         {
           "name": "Foundation: Stardeath Verdict",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -13758,7 +13758,7 @@
       "actions": [
         {
           "name": "He Who Bears the World Must Burn",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -13790,7 +13790,7 @@
       "actions": [
         {
           "name": "Pyric Corpus",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -13817,7 +13817,7 @@
         },
         {
           "name": "Fate: Divine Vessel",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -13870,7 +13870,7 @@
       "actions": [
         {
           "name": "When Breeze Kisses Cirrus",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -13897,7 +13897,7 @@
       "actions": [
         {
           "name": "Love Over the Rainbow",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -13986,7 +13986,7 @@
       "actions": [
         {
           "name": "We Who Fly <unbreak>Into Twilight</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -14113,7 +14113,7 @@
       "actions": [
         {
           "name": "First Light Heals the World",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -14145,7 +14145,7 @@
       "actions": [
         {
           "name": "Rainclouds, Time to Go!",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -14173,7 +14173,7 @@
       "actions": [
         {
           "name": "Take Sky in Hand",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": [
@@ -14238,7 +14238,7 @@
         },
         {
           "name": "Soar, Unto the Sunlight",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": []
@@ -14246,7 +14246,7 @@
         },
         {
           "name": "Fall, Then Take Wing",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": []
@@ -14261,7 +14261,7 @@
       "actions": [
         {
           "name": "Aeolian Mode: Echoes in Still Waters",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -14288,7 +14288,7 @@
       "actions": [
         {
           "name": "Overtone Hum: Chorus After Dark Tides",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -14339,7 +14339,7 @@
       "actions": [
         {
           "name": "Maelstrom Rhapsody",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -14409,7 +14409,7 @@
       "actions": [
         {
           "name": "Sirenic Serenade",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -14462,7 +14462,7 @@
       "actions": [
         {
           "name": "King's Castling",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -14489,7 +14489,7 @@
       "actions": [
         {
           "name": "Pawn's Promotion",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -14540,7 +14540,7 @@
       "actions": [
         {
           "name": "Scholar's Mate",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -14572,7 +14572,7 @@
       "actions": [
         {
           "name": "Ave Imperator",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -14625,7 +14625,7 @@
       "actions": [
         {
           "name": "Time Thence Blurs",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -14652,7 +14652,7 @@
       "actions": [
         {
           "name": "Day Gently Slips",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -14679,7 +14679,7 @@
         },
         {
           "name": "Day Gently Slips",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -14711,7 +14711,7 @@
       "actions": [
         {
           "name": "O Wakeful World, Goodnight",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -14781,7 +14781,7 @@
       "actions": [
         {
           "name": "With Me, This Night",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -14813,7 +14813,7 @@
       "actions": [
         {
           "name": "Remembrance, Whirling, Like Rain",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -14850,7 +14850,7 @@
         },
         {
           "name": "Dream, Dissolving, as Dew",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -14892,7 +14892,7 @@
       "actions": [
         {
           "name": "Solitude, Drifting, In Murk",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": [
@@ -14915,7 +14915,7 @@
         },
         {
           "name": "Night, Trailing, In Step",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": []
@@ -14923,7 +14923,7 @@
         },
         {
           "name": "You, Parting, Beyond Reach",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": []
@@ -14938,7 +14938,7 @@
       "actions": [
         {
           "name": "Aegis Vitae",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -14965,7 +14965,7 @@
       "actions": [
         {
           "name": "Terra Omnibus",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -15016,7 +15016,7 @@
       "actions": [
         {
           "name": "A Dragon's Zenith Knows No Rue",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -15124,7 +15124,7 @@
       "actions": [
         {
           "name": "Of Virtue, Forms Unfold",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -15177,7 +15177,7 @@
       "actions": [
         {
           "name": "Lo, Hope Takes Flight!",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -15199,7 +15199,7 @@
         },
         {
           "name": "To Love and Tomorrow ♪",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -15240,7 +15240,7 @@
       "actions": [
         {
           "name": "Bloom, Elysium of Beyond",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -15272,7 +15272,7 @@
       "actions": [
         {
           "name": "Verse ◦ Vow ∞",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -15299,7 +15299,7 @@
         },
         {
           "name": "<unbreak>Reunion at</unbreak> <unbreak>First Sight</unbreak>",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": []
           }
@@ -15311,7 +15311,7 @@
       "actions": [
         {
           "name": "Hearts Gather as One",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -15343,7 +15343,7 @@
       "actions": [
         {
           "name": "Minuet of Blooms and Plumes",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15366,7 +15366,7 @@
         },
         {
           "name": "This Ode, to All Lives",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15389,7 +15389,7 @@
         },
         {
           "name": "Ode to Genesis",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15426,7 +15426,7 @@
         },
         {
           "name": "Ode to Romance",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15463,7 +15463,7 @@
         },
         {
           "name": "Ode to Passage",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15486,7 +15486,7 @@
         },
         {
           "name": "Ode to Strife",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15509,7 +15509,7 @@
         },
         {
           "name": "Ode to Life and Death",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15546,7 +15546,7 @@
         },
         {
           "name": "Ode to Reason",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15583,7 +15583,7 @@
         },
         {
           "name": "Ode to Sky",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15620,7 +15620,7 @@
         },
         {
           "name": "Ode to Trickery",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15671,7 +15671,7 @@
         },
         {
           "name": "Ode to Worldbearing",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15736,7 +15736,7 @@
         },
         {
           "name": "Ode to Ocean",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15787,7 +15787,7 @@
         },
         {
           "name": "Ode to Law",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15810,7 +15810,7 @@
         },
         {
           "name": "Ode to Time",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15847,7 +15847,7 @@
         },
         {
           "name": "Ode to Earth",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15884,7 +15884,7 @@
         },
         {
           "name": "Ode to Ego",
-          "skillType": "MS",
+          "type": "MS",
           "damage": {
             "type": "MS",
             "multipliers": [
@@ -15912,7 +15912,7 @@
       "actions": [
         {
           "name": "Waiting, In Every Past",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": [
@@ -15935,7 +15935,7 @@
         },
         {
           "name": "\"Hello, World ♪\"",
-          "skillType": "MT",
+          "type": "MT",
           "damage": {
             "type": "MT",
             "multipliers": []
@@ -15950,7 +15950,7 @@
       "actions": [
         {
           "name": "Cat Got Your Flametongue?",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -15972,7 +15972,7 @@
         },
         {
           "name": "Bloom! Winner Takes All",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -16008,7 +16008,7 @@
         },
         {
           "name": "Bloom! Winner Takes All",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -16049,14 +16049,14 @@
       "actions": [
         {
           "name": "Boom! Sparxicle's Poppin'",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": []
           }
         },
         {
           "name": "Engagement Farming",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -16107,7 +16107,7 @@
       "actions": [
         {
           "name": "Party's Wildin' and Camera's Rollin'",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -16139,7 +16139,7 @@
       "actions": [
         {
           "name": "Sleight of Sparx Hand",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -16228,7 +16228,7 @@
       "actions": [
         {
           "name": "Signal Overflow: The Great Encore!",
-          "skillType": "ES",
+          "type": "ES",
           "damage": {
             "type": "ES",
             "multipliers": [
@@ -16282,7 +16282,7 @@
       "actions": [
         {
           "name": "Whistlebolt Sings Joy",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -16323,7 +16323,7 @@
       "actions": [
         {
           "name": "Decalight Unveils All",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -16355,7 +16355,7 @@
       "actions": [
         {
           "name": "Hexagram of Feathered Fortune",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -16387,7 +16387,7 @@
       "actions": [
         {
           "name": "Behold Wherever Light Unfolds",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -16419,7 +16419,7 @@
       "actions": [
         {
           "name": "Let Thy Fortune Burst in Flames",
-          "skillType": "ES",
+          "type": "ES",
           "damage": {
             "type": "ES",
             "multipliers": [
@@ -16473,7 +16473,7 @@
       "actions": [
         {
           "name": "Talons: Inculcate Decorum",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -16500,7 +16500,7 @@
       "actions": [
         {
           "name": "Flog: Smite Evil",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -16570,7 +16570,7 @@
       "actions": [
         {
           "name": "Banquet: Insatiable Appetite",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -16621,7 +16621,7 @@
       "actions": [
         {
           "name": "Rancor: Enmity Reprisal",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -16655,7 +16655,7 @@
       "actions": [
         {
           "name": "Syllabus: Pop Quiz",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -16682,7 +16682,7 @@
       "actions": [
         {
           "name": "Discipline: Final Verdict",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -16733,7 +16733,7 @@
       "actions": [
         {
           "name": "Swordsong: Absolution Denied",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -16784,7 +16784,7 @@
       "actions": [
         {
           "name": "Youth: Halcyon Evermore",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -16892,7 +16892,7 @@
       "actions": [
         {
           "name": "Scarlet: Elation or Execution",
-          "skillType": "ES",
+          "type": "ES",
           "damage": {
             "type": "ES",
             "multipliers": [
@@ -16927,7 +16927,7 @@
       "actions": [
         {
           "name": "One Punch!",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -16949,7 +16949,7 @@
         },
         {
           "name": "Bonus Stage: αWolf Instant",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -16985,21 +16985,21 @@
         },
         {
           "name": "Big Flipping Sword",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": []
           }
         },
         {
           "name": "Kaboom Eggsplosion",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": []
           }
         },
         {
           "name": "Funky Munch Bean",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": []
           }
@@ -17011,7 +17011,7 @@
       "actions": [
         {
           "name": "Trigger Happy",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -17043,7 +17043,7 @@
       "actions": [
         {
           "name": "God Mode: ON!",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -17075,7 +17075,7 @@
       "actions": [
         {
           "name": "I Carry, We Win",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {
@@ -17145,7 +17145,7 @@
       "actions": [
         {
           "name": "Pro-Gamer Move",
-          "skillType": "ES",
+          "type": "ES",
           "damage": {
             "type": "ES",
             "multipliers": []
@@ -17153,7 +17153,7 @@
         },
         {
           "name": "Honkai-DMG Demo",
-          "skillType": "ES",
+          "type": "ES",
           "damage": {
             "type": "ES",
             "multipliers": [
@@ -17188,7 +17188,7 @@
       "actions": [
         {
           "name": "A Broken Blade Still Slays",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -17210,7 +17210,7 @@
         },
         {
           "name": "A Tempered Blade Severs Souls",
-          "skillType": "basicAttack",
+          "type": "basicAttack",
           "damage": {
             "multipliers": [
               {
@@ -17237,7 +17237,7 @@
       "actions": [
         {
           "name": "A Rain of Blades Seals Fate",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": [
               {
@@ -17283,7 +17283,7 @@
         },
         {
           "name": "A Rain of Blades Seals Fate",
-          "skillType": "skill",
+          "type": "skill",
           "damage": {
             "multipliers": []
           }
@@ -17295,7 +17295,7 @@
       "actions": [
         {
           "name": "Fornax Ex Corpore",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -17360,7 +17360,7 @@
         },
         {
           "name": "Tenax Per Ignem",
-          "skillType": "ultimate",
+          "type": "ultimate",
           "damage": {
             "multipliers": [
               {
@@ -17392,7 +17392,7 @@
       "actions": [
         {
           "name": "All Karma Comes Due",
-          "skillType": "talent",
+          "type": "talent",
           "damage": {
             "multipliers": [
               {

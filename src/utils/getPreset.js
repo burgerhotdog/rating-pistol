@@ -42,13 +42,13 @@ export function getMemberPreset(gameId, charId, presetIndex = 0) {
         const [category, actionIndex] = firstRef.split('.');
         const first = ACTION[WW][charId][category]?.actions?.[actionIndex];
 
-        insertAtIndex = first?.skillType === 'introSkill' ? 1 : 0;
+        insertAtIndex = first?.type === 'introSkill' ? 1 : 0;
       } else {
         const lastRef = rotation.at(-1) ?? '';
         const [category, actionIndex] = lastRef.split('.');
         const last = ACTION[WW][charId][category]?.actions?.[actionIndex];
 
-        if (last?.skillType === 'outroSkill') insertAtIndex = -1;
+        if (last?.type === 'outroSkill') insertAtIndex = -1;
       }
 
       rotation.splice(insertAtIndex, 0, ...preset.rotation);

@@ -74,7 +74,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": "ultimate",
+          "applyOnType": "ultimate",
           "buffMap": {
             "critDmg%": 0.25
           }
@@ -139,7 +139,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnSkillType": "ultimate",
+          "applyOnType": "ultimate",
           "useOnHas": "damage",
           "buffMap": {
             "fireDmgBonus%": 0.12
@@ -185,7 +185,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": "skill",
+          "applyOnType": "skill",
           "buffMap": {
             "atk%": 0.2
           },
@@ -716,7 +716,7 @@
         },
         {
           "applyWhen": "before",
-          "applyOnSkillType": "follow-upAttack",
+          "applyOnType": "follow-upAttack",
           "buffMap": {
             "ultimateDmgBonus%": 0.36
           }
@@ -835,7 +835,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnSkillType": "ultimate",
+          "applyOnType": "ultimate",
           "buffMap": {
             "skillDmgBonus%": 0.25
           },
@@ -1215,7 +1215,7 @@
       "2": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": "follow-upAttack",
+          "applyOnType": "follow-upAttack",
           "buffMap": {
             "atk%": 0.24
           }

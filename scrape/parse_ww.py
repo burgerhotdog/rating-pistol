@@ -165,7 +165,7 @@ def parse_actions(data):
 
             skills[str(action_id)] = {
                 'name': skill_data['name'],
-                'skillType': 'basicAttack' if group_id == '1' else key_to_id[group_id],
+                'type': 'basicAttack' if group_id == '1' else key_to_id[group_id],
                 **({'attr': attr} if attr else {}),
                 'damage': {
                     'multipliers': multipliers,
@@ -179,7 +179,7 @@ def parse_actions(data):
     actions['outroSkill'] = {
         '1': {
             'name': data['skill_trees']['8']['skill']['name'],
-            'skillType': 'outroSkill',
+            'type': 'outroSkill',
         }
     }
     return actions
@@ -208,11 +208,12 @@ def parse_echo(version, id, data):
         }
 
         element_index = entry['element'] - 1
-        if element_index == -1:
-            action['type'] = 'healing'
-        else:
-            action['skillType'] = 'echoSkill'
-            action['element'] = list_element[element_index]
+        action['type'] = 'echoSkill'
+        action['element'] = (
+            'physical'
+            if element_index == -1
+            else list_element[element_index]
+        )
 
         attr = entry['related_property'].lower()
         if attr != 'atk':

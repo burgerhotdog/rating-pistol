@@ -32,7 +32,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": [
+          "applyOnType": [
             "elementalSkill",
             "elementalBurst"
           ],
@@ -156,7 +156,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": "elementalBurst",
+          "applyOnType": "elementalBurst",
           "applyTo": "$team",
           "buffMap": {
             "atk%": 0.2
@@ -235,7 +235,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": "elementalSkill",
+          "applyOnType": "elementalSkill",
           "buffMap": {
             "normalAttackDmgBonus%": 0.3,
             "chargedAttackDmgBonus%": 0.3
@@ -313,7 +313,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": "elementalSkill",
+          "applyOnType": "elementalSkill",
           "applyCooldown": 10000,
           "buffMap": {
             "normalAttackDmgBonus%": 0.5,
@@ -420,7 +420,7 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnSkillType": "elementalBurst",
+          "applyOnType": "elementalBurst",
           "removeWhen": "before",
           "removeIfField": "offField",
           "buffMap": {
@@ -918,7 +918,7 @@
         {
           "enableIfTagged": "Hexerei",
           "applyWhen": "before",
-          "applyOnSkillType": "elementalSkill",
+          "applyOnType": "elementalSkill",
           "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.4

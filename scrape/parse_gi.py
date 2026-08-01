@@ -102,7 +102,7 @@ def parse_actions(data):
 
             skill[str(action_id)] = {
                 'name': desc_string.split('|')[0],
-                'skillType': skill_id,
+                'type': skill_id,
                 'damage': {
                     'multipliers': indexed_multipliers,
                 },

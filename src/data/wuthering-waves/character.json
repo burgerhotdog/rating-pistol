@@ -18,8 +18,8 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
-        "useOnSkillType": "resonanceSkill",
+        "applyOnType": "introSkill",
+        "useOnType": "resonanceSkill",
         "buffMap": {
           "dmgBonus%": 0.2
         },
@@ -40,7 +40,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "basicAttackDmgAmp%": 0.38
@@ -157,7 +157,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "heavyAttack",
+        "applyOnType": "heavyAttack",
         "applyOnAction": "resonanceSkill.0",
         "useWhen": "interval",
         "useCooldown": 2000,
@@ -167,7 +167,7 @@
       {
         "name": "Concentration",
         "applyWhen": "hit",
-        "applyOnSkillType": "basicAttack",
+        "applyOnType": "basicAttack",
         "maxStacks": 4
       },
       {
@@ -179,7 +179,7 @@
       {
         "applyBy": "$first",
         "applyWhen": "after",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
@@ -192,7 +192,7 @@
       },
       {
         "useWhen": "hit",
-        "useOnSkillType": "heavyAttack",
+        "useOnType": "heavyAttack",
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -206,7 +206,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "useWhen": "interval",
         "useCooldown": 3000,
         "useAction": {
@@ -223,7 +223,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "dmgAmp%": 0.15
@@ -367,7 +367,7 @@
         "enableIfRankMin": 6,
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.3",
-        "useOnSkillType": "basicAttack",
+        "useOnType": "basicAttack",
         "buffMap": {
           "basicAttackDmgBonus%": 1
         },
@@ -463,7 +463,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "glacioDmgAmp%": 0.2,
@@ -590,9 +590,9 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
-        "useOnSkillType": "coordinatedAttack",
+        "useOnType": "coordinatedAttack",
         "buffMap": {
           "dmgAmp%": 1
         },
@@ -803,7 +803,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$ally",
         "useIfNegativeStatus": {
           "glacioChafe": 1
@@ -961,7 +961,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$team",
         "buffMap": {
           "dmgAmp%": 0.25
@@ -1127,7 +1127,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "useWhen": "interval",
         "useCooldown": 1500,
         "useAction": {
@@ -1145,7 +1145,7 @@
       {
         "enableIfRankMin": 1,
         "applyWhen": "hit",
-        "applyOnSkillType": "basicAttack",
+        "applyOnType": "basicAttack",
         "buffMap": {
           "fusionDmgBonus%": 0.03
         },
@@ -1243,7 +1243,7 @@
         "applyOnAction": "resonanceLiberation.0",
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnSkillType": "basicAttack",
+        "useOnType": "basicAttack",
         "useIfField": "onField",
         "useCooldown": 350,
         "useAction": "resonanceLiberation.1",
@@ -1259,7 +1259,7 @@
         "applyOnAction": "resonanceLiberation.0",
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnSkillType": "heavyAttack",
+        "useOnType": "heavyAttack",
         "useIfField": "onField",
         "useCooldown": 350,
         "useAction": "resonanceLiberation.1",
@@ -1267,7 +1267,7 @@
         "maxDuration": 10000,
         "rankMods": {
           "1": {
-            "useOnSkillType": "resonanceSkill"
+            "useOnType": "resonanceSkill"
           },
           "4": {
             "maxDuration": 7000
@@ -1301,7 +1301,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "heavyAttackDmgAmp%": 0.38
@@ -1411,7 +1411,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "fusionDmgAmp%": 0.2,
@@ -1454,7 +1454,7 @@
       {
         "enableIfRankMin": 4,
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "applyTo": "$team",
         "buffMap": {
           "atk%": 0.2
@@ -1569,7 +1569,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "fusionDmgAmp%": 0.2,
@@ -1594,7 +1594,7 @@
       },
       {
         "enableIfRankMin": 2,
-        "useOnSkillType": "mid-airAttack",
+        "useOnType": "mid-airAttack",
         "useOnAction": "forteCircuit.0",
         "buffMap": {
           "critRate%": 0.3
@@ -1603,10 +1603,10 @@
       {
         "enableIfRankMin": 2,
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "useWhen": "hit",
-        "useOnSkillType": "resonanceSkill",
+        "useOnType": "resonanceSkill",
         "useCooldown": 1000,
         "useAction": {
           "damage": {
@@ -1662,7 +1662,7 @@
       },
       {
         "enableIfRankMin": 6,
-        "useOnSkillType": "mid-airAttack",
+        "useOnType": "mid-airAttack",
         "useOnAction": "forteCircuit.0",
         "buffMap": {
           "damageMv%": 0.3
@@ -1762,7 +1762,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "fusionDmgAmp%": 0.2,
@@ -2035,7 +2035,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$team",
         "buffMap": {
           "dmgAmp%": 0.25
@@ -2098,7 +2098,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$ally",
         "buffMap": {
           "dmgAmp%": 0.2
@@ -2192,7 +2192,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "dmgAmp%": 0.4
@@ -2304,7 +2304,7 @@
         "useWhen": "before",
         "useOnAction": "forteCircuit.1",
         "useAction": {
-          "skillType": "coordinatedAttack",
+          "type": "coordinatedAttack",
           "damage": {
             "type": "resonanceLiberation",
             "multipliers": [
@@ -2371,7 +2371,7 @@
         "applyWhen": "hit",
         "applyOnAction": "resonanceSkill.0",
         "useWhen": "hit",
-        "useOnSkillType": [
+        "useOnType": [
           "basicAttack",
           "dodgeCounter"
         ],
@@ -2413,7 +2413,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "electroDmgAmp%": 0.2,
@@ -2460,7 +2460,7 @@
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "useWhen": "hit",
-        "useOnSkillType": "basicAttack",
+        "useOnType": "basicAttack",
         "useAction": {
           "damage": {
             "type": "resonanceSkill",
@@ -2547,7 +2547,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "useWhen": "hit",
         "useAction": "resonanceSkill.0",
         "maxUses": 1
@@ -2763,7 +2763,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "buffMap": {
           "electroDmgBonus%": 0.05
         },
@@ -2772,10 +2772,10 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "useWhen": "hit",
-        "useOnSkillType": "basicAttack",
+        "useOnType": "basicAttack",
         "useCooldown": 2000,
         "useAction": {
           "damage": {
@@ -2800,7 +2800,7 @@
       {
         "enableIfRankMin": 2,
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "applyOnAction": "resonanceLiberation.0",
         "buffMap": {
           "critDmg%": 0.3
@@ -2920,7 +2920,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "dmgAmp%": 0.15
@@ -2929,7 +2929,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "removeWhen": "after",
         "removeOnAction": "resonanceLiberation.2",
         "buffMap": {
@@ -3066,7 +3066,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "critDmg%": 0.3,
           "defIgnore%": 0.15,
@@ -3112,7 +3112,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "dmgAmp%": 0.15
@@ -3121,7 +3121,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "1511",
         "buffMap": {
           "heavyAttackDmgAmp%": 0.35
@@ -3289,7 +3289,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "useOnSkillType": [
+        "useOnType": [
           "basicAttack",
           "heavyAttack",
           "mid-airAttack",
@@ -3301,14 +3301,14 @@
         "maxDuration": 10000
       },
       {
-        "useOnSkillType": "heavyAttack",
+        "useOnType": "heavyAttack",
         "buffMap": {
           "critRate%": 1
         }
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "aeroDmgAmp%": 0.23
@@ -3328,7 +3328,7 @@
         "enableIfRankMin": 3,
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "useOnSkillType": [
+        "useOnType": [
           "basicAttack",
           "mid-airAttack"
         ],
@@ -3369,7 +3369,7 @@
         "enableIfRankMin": 6,
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
-        "useOnSkillType": "heavyAttack",
+        "useOnType": "heavyAttack",
         "buffMap": {
           "dmgBonus%": 0.5
         },
@@ -3446,13 +3446,13 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "useWhen": "hit",
-        "useOnSkillType": "heavyAttack",
+        "useOnType": "heavyAttack",
         "useCooldown": 1000,
         "useAction": {
-          "skillType": "coordinatedAttack",
+          "type": "coordinatedAttack",
           "damage": {
             "type": "outroSkill",
             "multipliers": [
@@ -3522,7 +3522,7 @@
       {
         "enableIfRankMin": 6,
         "applyWhen": "before",
-        "applyOnSkillType": "heavyAttack",
+        "applyOnType": "heavyAttack",
         "applyOnAction": [
           "introSkill.0",
           "resonanceSkill.0"
@@ -3625,7 +3625,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "resonanceLiberationDmgAmp%": 0.38
@@ -3652,7 +3652,7 @@
         "useWhen": "hit",
         "useAction": [
           {
-            "skillType": "resonanceSkill",
+            "type": "resonanceSkill",
             "damage": {
               "type": "heavyAttack",
               "multipliers": [
@@ -3760,7 +3760,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "global",
         "buffMap": {
           "aeroErosionDmgAmp%": 1
@@ -3770,7 +3770,7 @@
       {
         "enableIfRankMin": 1,
         "applyWhen": "before",
-        "applyOnSkillType": "basicAttack",
+        "applyOnType": "basicAttack",
         "buffMap": {
           "atk%": 0.35
         },
@@ -3919,7 +3919,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$ally",
         "useIfNegativeStatus": "any",
         "buffMap": {
@@ -4040,7 +4040,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "heavyAttackDmgAmp%": 0.5
@@ -4095,7 +4095,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "echoSkillDmgAmp%": 0.5
@@ -4229,7 +4229,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "useWhen": "interval",
         "useCooldown": 1000,
         "useAction": {
@@ -4245,7 +4245,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$team",
         "buffMap": {
           "dmgAmp%": 0.15
@@ -4397,7 +4397,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "resonanceSkillDmgAmp%": 0.38
@@ -4524,7 +4524,7 @@
       {
         "applyBy": "$team",
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
@@ -4576,7 +4576,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$team",
         "buffMap": {
           "dmgAmp%": 0.15
@@ -4690,7 +4690,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "useWhen": "hit",
         "useAction": {
           "damage": {
@@ -4784,7 +4784,7 @@
       {
         "enableIfRankMin": 4,
         "applyWhen": "hit",
-        "applyOnSkillType": [
+        "applyOnType": [
           "basicAttack",
           "dodgeCounter"
         ],
@@ -4958,7 +4958,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$ally",
         "buffMap": {
           "spectroDmgAmp%": 0.2
@@ -5077,7 +5077,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "maxDuration": 20000
       },
       {
@@ -5215,7 +5215,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "dmgAmp%": 0.15,
@@ -5377,7 +5377,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "basicAttackDmgAmp%": 0.25
@@ -5386,7 +5386,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "1308",
         "buffMap": {
           "dmgAmp%": 0.2
@@ -5538,7 +5538,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "resonanceSkillDmgAmp%": 0.38
@@ -5703,7 +5703,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "havocDmgAmp%": 0.23
@@ -5995,7 +5995,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "resonanceSkill",
           "heavyAttack"
         ],
@@ -6006,11 +6006,11 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "useWhen": "hit",
         "useAction": {
-          "skillType": "echoSkill",
+          "type": "echoSkill",
           "damage": {
             "multipliers": [
               {
@@ -6023,7 +6023,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "havocDmgAmp%": 0.2,
@@ -6087,7 +6087,7 @@
       },
       {
         "enableIfRankMin": 5,
-        "useOnSkillType": "heavyAttack",
+        "useOnType": "heavyAttack",
         "buffMap": {
           "damageMv%": 0.8
         }
@@ -6189,7 +6189,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "echoSkill",
+        "applyOnType": "echoSkill",
         "buffMap": {
           "havocDmgBonus%": 0.06
         },
@@ -6198,7 +6198,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "havocDmgAmp%": 0.2,
@@ -6326,7 +6326,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "havocDmgAmp%": 0.2,
@@ -6405,7 +6405,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$ally",
         "maxDuration": 20000
       },

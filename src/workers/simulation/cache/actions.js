@@ -64,7 +64,7 @@ function toNormedDamage(gameId, action, spec) {
     weaponType !== 'catalyst';
 
   const damage = { ...action.damage };
-  if ('skillType' in action) damage.type ??= action.skillType;
+  if ('type' in action) damage.type ??= action.type;
   damage.element ??= isGiPhysNa ? 'physical' : charElement;
   damage.attr ??= 'atk';
   damage.compressed = getCompressed(damage.multipliers, damage.attr, { index, weaponRank });
@@ -107,7 +107,7 @@ export const toNormalizedAction = (rawAction, spec) => {
   if ('shield' in action) action.shield = toNormedShield(gameId, action, spec);
 
   // Init duration
-  action.duration ??= DEFAULT_DURATIONS[gameId][action.skillType] ?? 0;
+  action.duration ??= DEFAULT_DURATIONS[gameId][action.type] ?? 0;
 
   // Init hitOffsets
   if (!('hitOffsets' in action)) {

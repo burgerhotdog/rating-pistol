@@ -127,7 +127,7 @@ def parse_actions(data):
             actions[skill_id] = {
                 '1': {
                     'name': raw_skill['name'],
-                    'skillType': skill_id,
+                    'type': skill_id,
                     'damage': {
                         'multipliers': multipliers,
                     },
@@ -138,7 +138,7 @@ def parse_actions(data):
 
             actions[skill_id][str(count)] = {
                 'name': raw_skill['name'],
-                'skillType': skill_id,
+                'type': skill_id,
                 'damage': {
                     'multipliers': multipliers,
                 },

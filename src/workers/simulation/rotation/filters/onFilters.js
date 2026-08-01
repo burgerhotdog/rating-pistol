@@ -20,12 +20,12 @@ const onTagged = (rawFilter, { action }) => {
   return filter.some((tag) => actionTags.includes(tag));
 };
 
-const onSkillType = (rawFilter, { action }) => {
+const onType = (rawFilter, { action }) => {
   const filter = toArray(rawFilter);
   const isMatch = (type) =>
-    type === action.skillType ||
-    type === action.extraSkillType;
-  return filter.some((skillType) => isMatch(skillType));
+    type === action.type ||
+    type === action.extraType;
+  return filter.some((type) => isMatch(type));
 };
 
 const onDamageType = (rawFilter, { action }) => {
@@ -49,7 +49,7 @@ export const onFilters = {
   'OnAction': onAction,
   'OnHas': onHas,
   'OnTagged': onTagged,
-  'OnSkillType': onSkillType,
+  'OnType': onType,
   'OnDamageType': onDamageType,
   'OnElement': onElement,
 };

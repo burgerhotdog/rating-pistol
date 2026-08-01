@@ -347,7 +347,7 @@ const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
 
                   <AccordionDetails sx={{ pt: 0 }}>
                     <Stack spacing={0.5}>
-                      {actions.map(({ ref, name, tagged = [], skillType = [] }) => (
+                      {actions.map(({ ref, name, tagged = [], type = '' }) => (
                         <ListItemButton
                           key={ref}
                           onClick={() => handleSelect(ref)}
@@ -355,19 +355,17 @@ const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
                           dense
                           sx={{ px: 0.5 }}
                         >
-                          {toArray(skillType).map((type) => (
-                            <Chip
-                              key={type}
-                              label={formatStr(type)}
-                              sx={{
-                                height: 20,
-                                fontSize: '0.65rem',
-                                flexShrink: 0,
-                                mr: 0.5,
-                                '& .MuiChip-label': { px: '5px' },
-                              }}
-                            />
-                          ))}
+                          <Chip
+                            key={type}
+                            label={formatStr(type)}
+                            sx={{
+                              height: 20,
+                              fontSize: '0.65rem',
+                              flexShrink: 0,
+                              mr: 0.5,
+                              '& .MuiChip-label': { px: '5px' },
+                            }}
+                          />
 
                           <Typography
                             variant="body2"
@@ -504,7 +502,7 @@ function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove 
 
   const [category, actionIndex] = actionKey.split('.');
   const index = Number(actionIndex);
-  const { name, tagged, skillType } = allActions[category].actions[index];
+  const { name, tagged, type = '' } = allActions[category].actions[index];
 
   return (
     <Box
@@ -541,14 +539,12 @@ function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove 
 
       {/* Cast type chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
-        {toArray(skillType).map((type) => (
-          <Chip
-            key={type}
-            label={formatStr(type)}
-            variant="outlined"
-            sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
-          />
-        ))}
+        <Chip
+          key={type}
+          label={formatStr(type)}
+          variant="outlined"
+          sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
+        />
       </Box>
 
       {/* Action name */}

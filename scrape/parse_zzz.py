@@ -109,7 +109,7 @@ def parse_actions(data):
 
                     skill[str(index)] = {
                         'name': skill_name + ' ' + action_data['name'],
-                        'skillType': skill_id,
+                        'type': skill_id,
                         'multipliers': [mult],
                     }
 
@@ -131,7 +131,7 @@ def parse_actions(data):
 
                 skill[str(index)] = {
                     'name': skill_name + ' ' + action_data['name'],
-                    'skillType': skill_id,
+                    'type': skill_id,
                     'damage': {
                         'multipliers': [mult],
                     },

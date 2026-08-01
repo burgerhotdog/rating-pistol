@@ -33,7 +33,7 @@
     "actions": [
       {
         "name": "Echo Skill: Tempest Mephis 1",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -45,7 +45,7 @@
       },
       {
         "name": "Echo Skill: Tempest Mephis 2",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -103,7 +103,7 @@
     "actions": [
       {
         "name": "Echo Skill: Crownless 1",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -115,7 +115,7 @@
       },
       {
         "name": "Echo Skill: Crownless 2",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -127,7 +127,7 @@
       },
       {
         "name": "Echo Skill: Crownless 3",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -140,7 +140,7 @@
       },
       {
         "name": "Echo Skill: Crownless 4",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -175,7 +175,7 @@
     "actions": [
       {
         "name": "Echo Skill: Feilian Beringal",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "duration": 2000,
         "damage": {
           "element": "aero",
@@ -218,7 +218,7 @@
     "actions": [
       {
         "name": "Echo Skill: Lampylumen Myriad 1",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "glacio",
           "multipliers": [
@@ -230,7 +230,7 @@
       },
       {
         "name": "Echo Skill: Lampylumen Myriad 2",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "glacio",
           "multipliers": [
@@ -242,7 +242,7 @@
       },
       {
         "name": "Echo Skill: Lampylumen Myriad 3",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "glacio",
           "multipliers": [
@@ -279,7 +279,7 @@
     "actions": [
       {
         "name": "Echo Skill: Mourning Aix 1",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -291,7 +291,7 @@
       },
       {
         "name": "Echo Skill: Mourning Aix 2",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -354,7 +354,7 @@
     "actions": [
       {
         "name": "Echo Skill: Mech Abomination",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "type": "outroSkill",
           "element": "electro",
@@ -427,7 +427,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
@@ -447,7 +447,7 @@
     "actions": [
       {
         "name": "Echo Skill: Impermanence Heron",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -491,7 +491,7 @@
     "actions": [
       {
         "name": "Echo Skill: Dreamless",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -616,7 +616,7 @@
     "actions": [
       {
         "name": "Echo Skill: Ju\u00e9",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -673,7 +673,7 @@
     "actions": [
       {
         "name": "Echo Skill: Fallacy of No Return",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "attr": "hp",
@@ -687,7 +687,7 @@
       },
       {
         "name": "Echo Skill: Fallacy of No Return: Hold",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "attr": "hp",
@@ -907,7 +907,7 @@
     "actions": [
       {
         "name": "Echo Skill: Abyssal Patricius",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "glacio",
           "multipliers": [
@@ -976,7 +976,7 @@
     "actions": [
       {
         "name": "Echo Skill: Vitreum Dancer",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -1019,7 +1019,7 @@
     "actions": [
       {
         "name": "Echo Skill: Lorelei",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -1050,7 +1050,7 @@
     "actions": [
       {
         "name": "Echo Skill: Sentry Construct",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "glacio",
           "multipliers": [
@@ -1081,7 +1081,7 @@
     "actions": [
       {
         "name": "Echo Skill: Dragon of Dirge",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -1105,7 +1105,7 @@
     "cost": 4,
     "effects": [
       {
-        "useOnSkillType": "coordinatedAttack",
+        "useOnType": "coordinatedAttack",
         "buffMap": {
           "dmgBonus%": 0.4
         }
@@ -1114,7 +1114,7 @@
     "actions": [
       {
         "name": "Echo Skill: Hecate",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -1147,7 +1147,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Feilian Beringal",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "aero",
           "multipliers": [
@@ -1183,7 +1183,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Impermanence Heron",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -1215,7 +1215,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Thundering Mephis",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -1247,7 +1247,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Tempest Mephis",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -1284,7 +1284,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Crownless",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -1315,7 +1315,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Inferno Rider",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -1354,7 +1354,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Mourning Aix",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -1528,7 +1528,7 @@
     "actions": [
       {
         "name": "Echo Skill: Capitaneus",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -1561,7 +1561,7 @@
         }
       },
       {
-        "useOnSkillType": "coordinatedAttack",
+        "useOnType": "coordinatedAttack",
         "buffMap": {
           "dmgBonus%": 0.3
         }
@@ -1570,7 +1570,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Lampylumen Myriad",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "glacio",
           "multipliers": [
@@ -1608,7 +1608,7 @@
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Fleurdelys",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "aero",
           "multipliers": [
@@ -1708,7 +1708,7 @@
     "actions": [
       {
         "name": "Echo Skill: Kerasaur",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "aero",
           "multipliers": [
@@ -1738,7 +1738,7 @@
       },
       {
         "useWhen": "before",
-        "useOnSkillType": "outroSkill",
+        "useOnType": "outroSkill",
         "useAction": {
           "damage": {
             "element": "aero",
@@ -1754,7 +1754,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Kelpie",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "glacio",
           "multipliers": [
@@ -1785,7 +1785,7 @@
     "actions": [
       {
         "name": "Echo Skill: Lioness of Glory",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -1820,7 +1820,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nightmare: Hecate",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -1853,7 +1853,7 @@
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Fenrico",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "aero",
           "multipliers": [
@@ -1919,7 +1919,7 @@
     "actions": [
       {
         "name": "Echo Skill: Corrosaurus",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -1949,7 +1949,7 @@
       },
       {
         "useWhen": "before",
-        "useOnSkillType": "introSkill",
+        "useOnType": "introSkill",
         "useAction": {
           "damage": {
             "element": "electro",
@@ -1965,7 +1965,7 @@
     "actions": [
       {
         "name": "Echo Skill: The False Sovereign",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -1996,7 +1996,7 @@
     "actions": [
       {
         "name": "Echo Skill: Lady of the Sea",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "aero",
           "multipliers": [
@@ -2119,7 +2119,7 @@
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Leviathan",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -2279,7 +2279,7 @@
     "actions": [
       {
         "name": "Echo Skill: Twin Nova: Nebulous Cannon",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -2305,7 +2305,7 @@
     "actions": [
       {
         "name": "Echo Skill: Twin Nova: Collapsar Blade",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -2317,7 +2317,7 @@
       },
       {
         "name": "Echo Skill: Twin Nova: Collapsar Blade",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -2446,7 +2446,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
@@ -2461,7 +2461,7 @@
     "actions": [
       {
         "name": "Echo Skill: Hyvatia",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -2488,7 +2488,7 @@
     "actions": [
       {
         "name": "Echo Skill: Reactor Husk",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -2512,7 +2512,7 @@
     "actions": [
       {
         "name": "Echo Skill: Sigillum",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "duration": 0,
         "damage": {
           "element": "fusion",
@@ -2525,7 +2525,7 @@
       },
       {
         "name": "Echo Skill: Sigillum",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "duration": 0,
         "damage": {
           "element": "fusion",
@@ -2551,7 +2551,7 @@
     "actions": [
       {
         "name": "Echo Skill: Nameless Explorer",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "duration": 0,
         "damage": {
           "element": "aero",
@@ -2600,7 +2600,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "$next",
         "buffMap": {
           "glacioDmgBonus%": 0.12
@@ -2611,7 +2611,7 @@
     "actions": [
       {
         "name": "Echo Skill: Glommoth",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "duration": 0,
         "damage": {
           "element": "glacio",
@@ -2662,7 +2662,7 @@
     "actions": [
       {
         "name": "Echo Skill: Voidwing Moth",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -2674,7 +2674,7 @@
       },
       {
         "name": "Echo Skill: Voidwing Moth",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "spectro",
           "multipliers": [
@@ -2705,7 +2705,7 @@
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Voidborne Construct",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "duration": 0,
         "damage": {
           "element": "glacio",
@@ -2718,7 +2718,7 @@
       },
       {
         "name": "Echo Skill: Reminiscence: Threnodian - Voidborne Construct",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "duration": 0,
         "damage": {
           "element": "glacio",
@@ -2747,7 +2747,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
@@ -2761,7 +2761,7 @@
     "actions": [
       {
         "name": "Echo Skill: Reminiscence: Denia",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -2827,7 +2827,7 @@
     "actions": [
       {
         "name": "Echo Skill: Reminiscence - Nightmare: Adam Smasher",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "duration": 0
       }
     ]
@@ -3008,7 +3008,7 @@
     "actions": [
       {
         "name": "Echo Skill: Forbidden Bastion",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "glacio",
           "multipliers": [
@@ -3041,7 +3041,7 @@
     "actions": [
       {
         "name": "Echo Skill: Myriad Snare: Rustfire Chassis",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "attr": "hp",
@@ -3078,7 +3078,7 @@
     "actions": [
       {
         "name": "Echo Skill: Thousand-Puppet Pavilion",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -3090,7 +3090,7 @@
       },
       {
         "name": "Echo Skill: Thousand-Puppet Pavilion",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "havoc",
           "multipliers": [
@@ -3536,7 +3536,7 @@
     "actions": [
       {
         "name": "Echo Skill: Thundering Mephis",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -3548,7 +3548,7 @@
       },
       {
         "name": "Echo Skill: Thundering Mephis",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -3560,7 +3560,7 @@
       },
       {
         "name": "Echo Skill: Thundering Mephis",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "electro",
           "multipliers": [
@@ -3592,7 +3592,7 @@
     "actions": [
       {
         "name": "Echo Skill: Bell-Borne Geochelone",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "glacio",
           "attr": "def",
@@ -3617,7 +3617,7 @@
     "actions": [
       {
         "name": "Echo Skill: Inferno Rider",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -3629,7 +3629,7 @@
       },
       {
         "name": "Echo Skill: Inferno Rider",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -3641,7 +3641,7 @@
       },
       {
         "name": "Echo Skill: Inferno Rider",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
@@ -3653,7 +3653,7 @@
       },
       {
         "name": "Echo Skill: Inferno Rider",
-        "skillType": "echoSkill",
+        "type": "echoSkill",
         "damage": {
           "element": "fusion",
           "multipliers": [
