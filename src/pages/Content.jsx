@@ -10,6 +10,7 @@ import {
   DamageBreakdown,
   MainstatDistribution,
   SubstatDistribution,
+  Timeline,
 } from '@/components';
 import { useSimulation, useTeam } from '@/hooks';
 
@@ -81,6 +82,7 @@ export const Content = () => {
               <Tab label="Damage Profile" />
               <Tab label="Mainstats" />
               <Tab label="Substats" />
+              <Tab label="Timeline" />
             </Tabs>
 
             <Divider />
@@ -104,6 +106,13 @@ export const Content = () => {
                 configMap={configMap}
                 userConfigKey={userConfigKey}
                 userSubStats={userSubStats}
+              />
+            </TabPanel>
+
+            <TabPanel isActive={tabIndex === 3}>
+              <Timeline
+                userSummary={userSummary}
+                team={team.members}
               />
             </TabPanel>
           </FlexCard>

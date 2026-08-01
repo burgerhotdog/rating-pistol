@@ -37,7 +37,6 @@ const buildData = (summary, currId, breakdownMode) => {
 
   const getType = (snapshot) => {
     if (breakdownMode === 'damageType') {
-      if (!snapshot.damageType) console.log(snapshot);
       return snapshot.damageType ?? 'other';
     } else {
       const { category } = snapshot;

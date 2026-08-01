@@ -16,7 +16,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip as ChartTooltip,
-  ReferenceLine,
 } from 'recharts';
 import { FlexCard, ChartFill, Dot } from '@/components';
 import { CHARACTER } from '@/data';
@@ -48,76 +47,71 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-const getGrade = (pct) => {
-  if (pct > 100) return { grade: 'S', color: '#FFD700' };
-
-  const bands = [
-    { floor: 90, letter: 'A', color: '#4ade80' },
-    { floor: 80, letter: 'B', color: '#86efac' },
-    { floor: 70, letter: 'C', color: '#fbbf24' },
-    { floor: 60, letter: 'D', color: '#f97316' },
-  ];
-
-  for (const { floor, letter, color } of bands) {
-    if (pct >= floor) {
-      const pos = pct - floor;
-      const suffix = pos >= 7 ? '+' : pos < 3 ? '-' : '';
-      return { grade: letter + suffix, color };
+function toGroupedSummary(summary, interval = 1000) {
+  const intervals = [];
+  for (const snapshot of summary) {
+    const { ownerId, runtime } = snapshot;
+    const index = Math.ceil(runtime / interval);
+    intervals[index] ??= {};
+    const acc = intervals[index];
+    
+    acc[ownerId] ??= {};
+    const ownerAcc = acc[ownerId];
+    for (const part of ['damage', 'healing', 'shield']) {
+      if (part in snapshot) {
+        ownerAcc[part] ??= 0;
+        ownerAcc[part] += snapshot[part];
+      }
     }
   }
+  const length = intervals.length;
+  for (let i = 0; i < length; i++) intervals[i] ??= {};
+  return intervals;
+}
 
-  return { grade: 'E', color: '#ef4444' };
-};
+function accGroupedSummary(grouped, owners) {
+  const acc = Object.fromEntries(
+    owners.map((ownerId) => [ownerId, 0])
+  );
 
-export const ProgressChart = ({ weeklySummaries, team, userSummary, prydwenSummary, rotationTime }) => {
+  return grouped.map((interval) => {
+    if (interval) {
+      for (const [ownerId, parts] of Object.entries(interval)) {
+        if (!('damage' in parts)) continue;
+        acc[ownerId] += parts.damage;
+      }
+    }
+
+    return { ...acc };
+  });
+}
+
+export const Timeline = ({ userSummary, team }) => {
   const { gameId } = useParams();
   const { palette, accentColors } = useTheme();
   const disabledColor = palette.action.disabled;
-  if (!weeklySummaries) return null;
 
-  const members = team.filter((member) => member.id);
-  const membersMisc = [
-    ...members,
-    ...(Object.values(userSummary).some((result) => result.ownerId === 'other')
+  const members = [
+    ...team.filter((member) => member.id),
+    ...(userSummary.some((snapshot) => snapshot.ownerId === 'other')
       ? [{ id: 'other' }]
       : []),
   ];
 
-  const toDps = (damage) => rotationTime
-    ? (damage / rotationTime) * 1000
-    : 0;
-
-  const memberColors = membersMisc.toReversed().map((member) => {
+  const memberColors = members.toReversed().map((member) => {
     if (member.id === 'other') return '#ffffff';
     const { element } = CHARACTER[gameId][member.id];
 
     return accentColors[gameId][element] ?? disabledColor;
   });
 
-
-  const activeScores = weeklySummaries.map((actionMap) => toDps(sumRotationDmg(actionMap)));
-  const benchmarkDps = activeScores[activeScores.length - 1];
-  const userDps = toDps(sumRotationDmg(userSummary ?? {}));
-  const prydwenDps = toDps(sumRotationDmg(prydwenSummary ?? {}));
-  const scaledBuildRating = userDps / benchmarkDps * 100;
-
-  const data = activeScores.map((dmg, index) => {
-    const entry = {
-      week: index,
-      damage: dmg,
-    };
-
-    for (const m of membersMisc) {
-      entry[`dps_${m.id}`] = toDps(sumRotationDmg(weeklySummaries[index], { ownerId: m.id }));
-    }
-
-    return entry;
-  });
+  const totalDamage = sumRotationDmg(userSummary);
+  const groupedSummary = toGroupedSummary(userSummary);
+  const accGroups = accGroupedSummary(groupedSummary, members.map((member) => member.id));
+  const data = accGroups.map((group, index) => ({ ...group, time: index }));
 
   const yMin = 0;
-  const yMax = Math.max(benchmarkDps, userDps, prydwenDps) * 1.05;
-
-  const { grade, color: gradeColor } = getGrade(scaledBuildRating);
+  const yMax = totalDamage * 1.05;
 
   return (
     <FlexCard direction="row">
@@ -128,7 +122,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, prydwenSumma
         >
           <defs>
             {memberColors.map((color, i) => (
-              <linearGradient key={i} id={`gradientMember${i}`} x1="0" y1="0" x2="0" y2="1">
+              <linearGradient key={i} id={`gradient2Member${i}`} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor={color} stopOpacity={0.6} />
                 <stop offset="100%" stopColor={color} stopOpacity={0.2} />
               </linearGradient>
@@ -138,38 +132,28 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, prydwenSumma
           <CartesianGrid strokeDasharray="3 3" stroke={palette.divider} />
 
           <XAxis
-            dataKey="week"
+            dataKey="time"
             tick={{ fontSize: 12 }}
-            label={{ value: 'Weeks', position: 'insideBottomRight', offset: -5, fontSize: 12 }}
+            label={{ value: 'Time', position: 'insideBottomRight', offset: -5, fontSize: 12 }}
           />
 
           <YAxis
             domain={[yMin, yMax]}
             tick={{ fontSize: 12 }}
             tickFormatter={formatDmg}
-            label={{ value: 'DPS', angle: -90, position: 'insideLeft', fontSize: 12 }}
-          />
-
-          <ReferenceLine
-            y={userDps}
-            strokeWidth={2}
-          />
-
-          <ReferenceLine
-            y={prydwenDps}
-            strokeWidth={1}
+            label={{ value: 'Damage', angle: -90, position: 'insideLeft', fontSize: 12 }}
           />
 
           {/* Stacked member DPS areas */}
-          {membersMisc.toReversed().map((member, index) => (
+          {members.toReversed().map((member, index) => (
             <Area
               key={member.id}
               type="monotone"
-              dataKey={`dps_${member.id}`}
+              dataKey={member.id}
               stackId="members"
               stroke={memberColors[index]}
               strokeWidth={1.5}
-              fill={`url(#gradientMember${index})`}
+              fill={`url(#gradient2Member${index})`}
               activeDot={false}
             />
           ))}
@@ -178,11 +162,9 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, prydwenSumma
             content={({ active, payload }) => {
               if (!active || !payload || !payload.length) return null;
 
-              const { week, damage } = payload[0].payload;
-              const prevWeek = data[week - 1];
-              const percentGain = prevWeek && prevWeek.damage !== 0
-                ? ((damage - prevWeek.damage) / prevWeek.damage) * 100
-                : null;
+              const { time, ...rest } = payload[0].payload;
+
+              const damage = Object.values(rest).reduce((acc, damage) => acc + damage, 0);
 
               return (
                 <Paper
@@ -196,10 +178,10 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, prydwenSumma
                   }}
                 >
                   <Typography variant="subtitle2" gutterBottom>
-                    Week {week}
+                    Time: {time}s
                   </Typography>
 
-                  {membersMisc.map((member, index) => {
+                  {members.map((member, index) => {
                     return (
                       <Box
                         key={member.id}
@@ -219,7 +201,7 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, prydwenSumma
                         </Box>
 
                         <Typography variant='body2'>
-                          {formatNum(toDps(sumRotationDmg(weeklySummaries[week], { ownerId: member.id })))}
+                          {formatNum(rest[member.id])}
                         </Typography>
                       </Box>
                     );
@@ -243,12 +225,6 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, prydwenSumma
                       {formatNum(damage)}
                     </Typography>
                   </Box>
-
-                  {percentGain != null && (
-                    <Typography variant="body2" sx={{ color: percentGain >= 0 ? 'success.main' : 'error.main' }}>
-                      {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(1)}%
-                    </Typography>
-                  )}
                 </Paper>
               );
             }}
@@ -264,42 +240,12 @@ export const ProgressChart = ({ weeklySummaries, team, userSummary, prydwenSumma
       >
         <Box>
           <InfoLabel
-            label="Rating"
-            tip="Your team's total damage as a percentage of the team benchmark. Reflects how your character's current build contributes relative to the team's expected optimum."
-          />
-
-          <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
-            <Typography variant="h4" sx={{ color: gradeColor, fontWeight: 'bold' }}>
-              {grade}
-            </Typography>
-
-            <Typography variant="body1" sx={{ color: gradeColor, opacity: 0.7 }}>
-              ({scaledBuildRating.toFixed()}%)
-            </Typography>
-          </Box>
-        </Box>
-
-        <Divider />
-
-        <Box>
-          <InfoLabel
-            label="Team DPS"
-            tip="The team's total damage for one rotation divided by the time it takes to execute."
+            label="Team Damage"
+            tip="The team's total damage for one rotation."
           />
 
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {formatNum(userDps)}
-          </Typography>
-        </Box>
-
-        <Box>
-          <InfoLabel
-            label="Benchmark"
-            tip="Sum of each character's simulated average damage at the benchmark week."
-          />
-
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {formatNum(benchmarkDps)}
+            {formatNum(totalDamage)}
           </Typography>
         </Box>
       </Stack>

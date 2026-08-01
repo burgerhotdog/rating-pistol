@@ -113,7 +113,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false })
   );
 }
 
-function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) {
+function SetCountsEditor({ gameId, id, setCounts = {}, onChange, disabled = false }) {
   const capacity = (gameId === 'genshin-impact' || gameId === 'wuthering-waves') ? 5 : 6;
   const [dialogOpen, setDialogOpen] = useState(false);
   // Index of the set being replaced; null means we're adding a new one
