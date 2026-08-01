@@ -47,7 +47,7 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-function toGroupedSummary(summary, interval = 1000) {
+function splitIntoIntervals(summary, interval = 1000) {
   const intervals = [];
   for (const snapshot of summary) {
     const { ownerId, runtime } = snapshot;
@@ -69,20 +69,24 @@ function toGroupedSummary(summary, interval = 1000) {
   return intervals;
 }
 
-function accGroupedSummary(grouped, owners) {
+function accGroupedSummary(grouped, owners, accumulate = true) {
   const acc = Object.fromEntries(
     owners.map((ownerId) => [ownerId, 0])
   );
 
   return grouped.map((interval) => {
-    if (interval) {
-      for (const [ownerId, parts] of Object.entries(interval)) {
-        if (!('damage' in parts)) continue;
-        acc[ownerId] += parts.damage;
-      }
+    const currAcc = { ...acc };
+
+    for (const [ownerId, parts] of Object.entries(interval)) {
+      if (!('damage' in parts)) continue;
+      currAcc[ownerId] += parts.damage;
     }
 
-    return { ...acc };
+    if (accumulate) {
+      Object.assign(acc, currAcc); 
+    }
+
+    return currAcc;
   });
 }
 
@@ -106,12 +110,11 @@ export const Timeline = ({ userSummary, team }) => {
   });
 
   const totalDamage = sumRotationDmg(userSummary);
-  const groupedSummary = toGroupedSummary(userSummary);
-  const accGroups = accGroupedSummary(groupedSummary, members.map((member) => member.id));
-  const data = accGroups.map((group, index) => ({ ...group, time: index }));
 
-  const yMin = 0;
-  const yMax = totalDamage * 1.05;
+  const interval = 2000;
+  const intervalSummary = splitIntoIntervals(userSummary, interval);
+  const accGroups = accGroupedSummary(intervalSummary, members.map((member) => member.id), true);
+  const data = accGroups.map((group, index) => ({ ...group, time: index * (interval / 1000) }));
 
   return (
     <FlexCard direction="row">
@@ -138,7 +141,6 @@ export const Timeline = ({ userSummary, team }) => {
           />
 
           <YAxis
-            domain={[yMin, yMax]}
             tick={{ fontSize: 12 }}
             tickFormatter={formatDmg}
             label={{ value: 'Damage', angle: -90, position: 'insideLeft', fontSize: 12 }}
