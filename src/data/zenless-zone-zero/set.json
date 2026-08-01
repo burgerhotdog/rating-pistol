@@ -14,7 +14,7 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": "BA",
+          "applyOnDamageType": "basicAttack",
           "buffMap": {
             "combatAtk%": 0.09
           },
@@ -22,7 +22,7 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnDamageType": "DC",
+          "applyOnDamageType": "dodgeCounter",
           "buffMap": {
             "combatAtk%": 0.09
           },
@@ -148,9 +148,7 @@
           }
         }
       ],
-      "4": [
-        {}
-      ]
+      "4": []
     }
   },
   "31600": {

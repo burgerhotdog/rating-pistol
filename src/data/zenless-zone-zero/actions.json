@@ -292,7 +292,7 @@
       "actions": [
         {
           "name": "Dash Attack: Taser Blast DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -320,7 +320,7 @@
         },
         {
           "name": "Dash Attack: Taser Blast Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -348,7 +348,7 @@
         },
         {
           "name": "Dodge Counter: Thunderclap DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -377,7 +377,7 @@
         },
         {
           "name": "Dodge Counter: Thunderclap Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -410,7 +410,7 @@
       "actions": [
         {
           "name": "Quick Assist: Thunderfall DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -438,7 +438,7 @@
         },
         {
           "name": "Quick Assist: Thunderfall Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -466,7 +466,7 @@
         },
         {
           "name": "Defensive Assist: Flash Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -494,7 +494,7 @@
         },
         {
           "name": "Defensive Assist: Flash Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -522,7 +522,7 @@
         },
         {
           "name": "Defensive Assist: Flash Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -550,7 +550,7 @@
         },
         {
           "name": "Assist Follow-Up: Lightning Whirl DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -579,7 +579,7 @@
         },
         {
           "name": "Assist Follow-Up: Lightning Whirl Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -1198,7 +1198,7 @@
       "actions": [
         {
           "name": "Dash Attack: Over Here! DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -1227,7 +1227,7 @@
         },
         {
           "name": "Dash Attack: Over Here! Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -1255,7 +1255,7 @@
         },
         {
           "name": "Dodge Counter: Phantom Claws DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -1284,7 +1284,7 @@
         },
         {
           "name": "Dodge Counter: Phantom Claws Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -1317,7 +1317,7 @@
       "actions": [
         {
           "name": "Quick Assist: Cat's Paw DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -1345,7 +1345,7 @@
         },
         {
           "name": "Quick Assist: Cat's Paw Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -1373,7 +1373,7 @@
         },
         {
           "name": "Defensive Assist: Desperate Defense Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -1401,7 +1401,7 @@
         },
         {
           "name": "Defensive Assist: Desperate Defense Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -1429,7 +1429,7 @@
         },
         {
           "name": "Defensive Assist: Desperate Defense Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -1457,7 +1457,7 @@
         },
         {
           "name": "Assist Follow-Up: Shadow Strike DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -1486,7 +1486,7 @@
         },
         {
           "name": "Assist Follow-Up: Shadow Strike Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -2099,7 +2099,7 @@
       "actions": [
         {
           "name": "Dash Attack: Jack in the Box Forward Dash DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -2127,7 +2127,7 @@
         },
         {
           "name": "Dash Attack: Jack in the Box Backward Vault DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -2155,7 +2155,7 @@
         },
         {
           "name": "Dash Attack: Jack in the Box Forward Dash Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -2183,7 +2183,7 @@
         },
         {
           "name": "Dash Attack: Jack in the Box Backward Vault Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -2211,7 +2211,7 @@
         },
         {
           "name": "Dash Attack: Do As I Please Forward Dash DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -2239,7 +2239,7 @@
         },
         {
           "name": "Dash Attack: Do As I Please Forward Dash Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -2267,7 +2267,7 @@
         },
         {
           "name": "Dodge Counter: Diverted Bombard DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -2296,7 +2296,7 @@
         },
         {
           "name": "Dodge Counter: Diverted Bombard Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -2329,7 +2329,7 @@
       "actions": [
         {
           "name": "Quick Assist: Emergency Bombard DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -2357,7 +2357,7 @@
         },
         {
           "name": "Quick Assist: Emergency Bombard Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -2385,7 +2385,7 @@
         },
         {
           "name": "Defensive Assist: The Hare Strikes Back! Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -2413,7 +2413,7 @@
         },
         {
           "name": "Defensive Assist: The Hare Strikes Back! Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -2441,7 +2441,7 @@
         },
         {
           "name": "Defensive Assist: The Hare Strikes Back! Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -2469,7 +2469,7 @@
         },
         {
           "name": "Assist Follow-Up: Window of Opportunity DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -2498,7 +2498,7 @@
         },
         {
           "name": "Assist Follow-Up: Window of Opportunity Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -3655,7 +3655,7 @@
       "actions": [
         {
           "name": "Dash Attack: Blazing Fire DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -3683,7 +3683,7 @@
         },
         {
           "name": "Dash Attack: Blazing Fire Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -3711,7 +3711,7 @@
         },
         {
           "name": "Dash Attack: Fire Suppression DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -3739,7 +3739,7 @@
         },
         {
           "name": "Dash Attack: Fire Suppression Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -3767,7 +3767,7 @@
         },
         {
           "name": "Dodge Counter: Backdraft DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -3796,7 +3796,7 @@
         },
         {
           "name": "Dodge Counter: Backdraft Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -3829,7 +3829,7 @@
       "actions": [
         {
           "name": "Quick Assist: Covering Fire DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -3857,7 +3857,7 @@
         },
         {
           "name": "Quick Assist: Covering Fire Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -3885,7 +3885,7 @@
         },
         {
           "name": "Defensive Assist: Hold the Line Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -3913,7 +3913,7 @@
         },
         {
           "name": "Defensive Assist: Hold the Line Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -3941,7 +3941,7 @@
         },
         {
           "name": "Defensive Assist: Hold the Line Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -3969,7 +3969,7 @@
         },
         {
           "name": "Assist Follow-Up: Reignition DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -3998,7 +3998,7 @@
         },
         {
           "name": "Assist Follow-Up: Reignition Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -4788,7 +4788,7 @@
       "actions": [
         {
           "name": "Dash Attack: Frostbloom Impact DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -4817,7 +4817,7 @@
         },
         {
           "name": "Dash Attack: Frostbloom Impact Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -4845,7 +4845,7 @@
         },
         {
           "name": "Dodge Counter: Icehaul Reverb DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -4874,7 +4874,7 @@
         },
         {
           "name": "Dodge Counter: Icehaul Reverb Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -4907,7 +4907,7 @@
       "actions": [
         {
           "name": "Quick Assist: Frostshock Reinforcement DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -4936,7 +4936,7 @@
         },
         {
           "name": "Quick Assist: Frostshock Reinforcement Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -4964,7 +4964,7 @@
         },
         {
           "name": "Defensive Assist: Flashquake Rejection Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -4992,7 +4992,7 @@
         },
         {
           "name": "Defensive Assist: Flashquake Rejection Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -5020,7 +5020,7 @@
         },
         {
           "name": "Defensive Assist: Flashquake Rejection Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -5048,7 +5048,7 @@
         },
         {
           "name": "Assist Follow-Up: Glacial Onslaught DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -5077,7 +5077,7 @@
         },
         {
           "name": "Assist Follow-Up: Glacial Onslaught Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -5839,7 +5839,7 @@
       "actions": [
         {
           "name": "Dash Attack: Oopsy-Daisy! Maximum DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -5868,7 +5868,7 @@
         },
         {
           "name": "Dash Attack: Oopsy-Daisy! Maximum Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -5896,7 +5896,7 @@
         },
         {
           "name": "Dodge Counter: Nope! DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -5925,7 +5925,7 @@
         },
         {
           "name": "Dodge Counter: Nope! Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -5958,7 +5958,7 @@
       "actions": [
         {
           "name": "Quick Assist: Emergency Measures DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -5986,7 +5986,7 @@
         },
         {
           "name": "Quick Assist: Emergency Measures Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -6014,7 +6014,7 @@
         },
         {
           "name": "Defensive Assist: P\u2014Please Allow Me! Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -6042,7 +6042,7 @@
         },
         {
           "name": "Defensive Assist: P\u2014Please Allow Me! Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -6070,7 +6070,7 @@
         },
         {
           "name": "Defensive Assist: P\u2014Please Allow Me! Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -6098,7 +6098,7 @@
         },
         {
           "name": "Assist Follow-Up: Quick Sweep DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -6127,7 +6127,7 @@
         },
         {
           "name": "Assist Follow-Up: Quick Sweep Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -7086,7 +7086,7 @@
       "actions": [
         {
           "name": "Dash Attack: Hog Rush DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -7115,7 +7115,7 @@
         },
         {
           "name": "Dash Attack: Hog Rush Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -7143,7 +7143,7 @@
         },
         {
           "name": "Dodge Counter: Eye For an Eye DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -7172,7 +7172,7 @@
         },
         {
           "name": "Dodge Counter: Eye For an Eye Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -7205,7 +7205,7 @@
       "actions": [
         {
           "name": "Quick Assist: Lane Change DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -7233,7 +7233,7 @@
         },
         {
           "name": "Quick Assist: Lane Change Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -7261,7 +7261,7 @@
         },
         {
           "name": "Defensive Assist: Aegis Shield Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -7289,7 +7289,7 @@
         },
         {
           "name": "Defensive Assist: Aegis Shield Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -7317,7 +7317,7 @@
         },
         {
           "name": "Defensive Assist: Aegis Shield Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -7345,7 +7345,7 @@
         },
         {
           "name": "Assist Follow-Up: Aiding Blade DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -7374,7 +7374,7 @@
         },
         {
           "name": "Assist Follow-Up: Aiding Blade Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -8301,7 +8301,7 @@
       "actions": [
         {
           "name": "Dash Attack: Starlight Sanction 360-degree Shot DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -8329,7 +8329,7 @@
         },
         {
           "name": "Dash Attack: Starlight Sanction Straight Shot DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -8358,7 +8358,7 @@
         },
         {
           "name": "Dash Attack: Starlight Sanction 360-degree Shot Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -8386,7 +8386,7 @@
         },
         {
           "name": "Dash Attack: Starlight Sanction Straight Shot Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -8414,7 +8414,7 @@
         },
         {
           "name": "Dodge Counter: Fair Fight DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -8443,7 +8443,7 @@
         },
         {
           "name": "Dodge Counter: Fair Fight Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -8476,7 +8476,7 @@
       "actions": [
         {
           "name": "Quick Assist: Power of Teamwork DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -8504,7 +8504,7 @@
         },
         {
           "name": "Quick Assist: Power of Teamwork Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -8532,7 +8532,7 @@
         },
         {
           "name": "Assist Follow-Up: Fatal Shot DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -8561,7 +8561,7 @@
         },
         {
           "name": "Assist Follow-Up: Fatal Shot Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -9404,7 +9404,7 @@
       "actions": [
         {
           "name": "Dash Attack: Fuyubachi DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -9432,7 +9432,7 @@
         },
         {
           "name": "Dash Attack: Fuyubachi Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -9460,7 +9460,7 @@
         },
         {
           "name": "Dodge Counter: Kan Suzume DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -9489,7 +9489,7 @@
         },
         {
           "name": "Dodge Counter: Kan Suzume Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -9522,7 +9522,7 @@
       "actions": [
         {
           "name": "Quick Assist: Dancing Petals DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -9550,7 +9550,7 @@
         },
         {
           "name": "Quick Assist: Dancing Petals Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -9578,7 +9578,7 @@
         },
         {
           "name": "Defensive Assist: Drifting Petals Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -9606,7 +9606,7 @@
         },
         {
           "name": "Defensive Assist: Drifting Petals Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -9634,7 +9634,7 @@
         },
         {
           "name": "Defensive Assist: Drifting Petals Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -9662,7 +9662,7 @@
         },
         {
           "name": "Assist Follow-Up: Falling Petals DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -9691,7 +9691,7 @@
         },
         {
           "name": "Assist Follow-Up: Falling Petals Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -10420,7 +10420,7 @@
       "actions": [
         {
           "name": "Dash Attack: Tremble! DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -10448,7 +10448,7 @@
         },
         {
           "name": "Dash Attack: Tremble! Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -10476,7 +10476,7 @@
         },
         {
           "name": "Dodge Counter: Don't Look Down on Me DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -10505,7 +10505,7 @@
         },
         {
           "name": "Dodge Counter: Don't Look Down on Me Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -10538,7 +10538,7 @@
       "actions": [
         {
           "name": "Quick Assist: Coming Thru! DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -10566,7 +10566,7 @@
         },
         {
           "name": "Quick Assist: Coming Thru! Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -10594,7 +10594,7 @@
         },
         {
           "name": "Defensive Assist: Protective Hammer Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -10622,7 +10622,7 @@
         },
         {
           "name": "Defensive Assist: Protective Hammer Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -10650,7 +10650,7 @@
         },
         {
           "name": "Defensive Assist: Protective Hammer Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -10678,7 +10678,7 @@
         },
         {
           "name": "Assist Follow-Up: Hammer Bell DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -10707,7 +10707,7 @@
         },
         {
           "name": "Assist Follow-Up: Hammer Bell Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -11662,7 +11662,7 @@
       "actions": [
         {
           "name": "Dash Attack: Fire With Fire DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -11690,7 +11690,7 @@
         },
         {
           "name": "Dash Attack: Fire With Fire Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -11718,7 +11718,7 @@
         },
         {
           "name": "Dodge Counter: Retaliation DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -11746,7 +11746,7 @@
         },
         {
           "name": "Dodge Counter: Retaliation Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -11774,7 +11774,7 @@
         },
         {
           "name": "Dodge Counter: Overload Drill (Burst Mode) DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -11803,7 +11803,7 @@
         },
         {
           "name": "Dodge Counter: Overload Drill (Burst Mode) Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -11836,7 +11836,7 @@
       "actions": [
         {
           "name": "Quick Assist: Shoulder-To-Shoulder DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -11864,7 +11864,7 @@
         },
         {
           "name": "Quick Assist: Shoulder-To-Shoulder Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -11892,7 +11892,7 @@
         },
         {
           "name": "Quick Assist: Protective Drill (Burst Mode) DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -11921,7 +11921,7 @@
         },
         {
           "name": "Quick Assist: Protective Drill (Burst Mode) Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -11949,7 +11949,7 @@
         },
         {
           "name": "Defensive Assist: Iron Wrist Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -11977,7 +11977,7 @@
         },
         {
           "name": "Defensive Assist: Iron Wrist Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12005,7 +12005,7 @@
         },
         {
           "name": "Defensive Assist: Iron Wrist Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12033,7 +12033,7 @@
         },
         {
           "name": "Assist Follow-Up: Limit Burst DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12062,7 +12062,7 @@
         },
         {
           "name": "Assist Follow-Up: Limit Burst Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12563,7 +12563,7 @@
       "actions": [
         {
           "name": "Dash Attack: Incoming Expense DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -12591,7 +12591,7 @@
         },
         {
           "name": "Dash Attack: Incoming Expense Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -12619,7 +12619,7 @@
         },
         {
           "name": "Dodge Counter: Accounts Settled DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -12648,7 +12648,7 @@
         },
         {
           "name": "Dodge Counter: Accounts Settled Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -12681,7 +12681,7 @@
       "actions": [
         {
           "name": "Quick Assist: Joint Account DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12709,7 +12709,7 @@
         },
         {
           "name": "Quick Assist: Joint Account Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12737,7 +12737,7 @@
         },
         {
           "name": "Defensive Assist: Risk Allocation Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12765,7 +12765,7 @@
         },
         {
           "name": "Defensive Assist: Risk Allocation Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12793,7 +12793,7 @@
         },
         {
           "name": "Defensive Assist: Risk Allocation Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12821,7 +12821,7 @@
         },
         {
           "name": "Assist Follow-Up: Don't Break Contract DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -12850,7 +12850,7 @@
         },
         {
           "name": "Assist Follow-Up: Don't Break Contract Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -13693,7 +13693,7 @@
       "actions": [
         {
           "name": "Dash Attack: 50/50 DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -13721,7 +13721,7 @@
         },
         {
           "name": "Dash Attack: 50/50 Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -13749,7 +13749,7 @@
         },
         {
           "name": "Dash Attack: 50/50 (Frosted Banner) DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -13778,7 +13778,7 @@
         },
         {
           "name": "Dash Attack: 50/50 (Frosted Banner) Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -13806,7 +13806,7 @@
         },
         {
           "name": "Dodge Counter: Away From My Snacks DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -13835,7 +13835,7 @@
         },
         {
           "name": "Dodge Counter: Away From My Snacks Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -13868,7 +13868,7 @@
       "actions": [
         {
           "name": "Quick Assist: A Set for Two DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -13896,7 +13896,7 @@
         },
         {
           "name": "Quick Assist: A Set for Two Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -13924,7 +13924,7 @@
         },
         {
           "name": "Defensive Assist: Guarding Tactics Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -13952,7 +13952,7 @@
         },
         {
           "name": "Defensive Assist: Guarding Tactics Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -13980,7 +13980,7 @@
         },
         {
           "name": "Defensive Assist: Guarding Tactics Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -14008,7 +14008,7 @@
         },
         {
           "name": "Assist Follow-Up: Sweeping Strike DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -14037,7 +14037,7 @@
         },
         {
           "name": "Assist Follow-Up: Sweeping Strike Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -15218,7 +15218,7 @@
       "actions": [
         {
           "name": "Dash Attack: Keep it Clean DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -15246,7 +15246,7 @@
         },
         {
           "name": "Dash Attack: Keep it Clean Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -15274,7 +15274,7 @@
         },
         {
           "name": "Dodge Counter: Etiquette Manual DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -15303,7 +15303,7 @@
         },
         {
           "name": "Dodge Counter: Etiquette Manual Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -15336,7 +15336,7 @@
       "actions": [
         {
           "name": "Quick Assist: Wolf Pack DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -15364,7 +15364,7 @@
         },
         {
           "name": "Quick Assist: Wolf Pack Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -15392,7 +15392,7 @@
         },
         {
           "name": "Defensive Assist: Disrupted Hunt Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -15420,7 +15420,7 @@
         },
         {
           "name": "Defensive Assist: Disrupted Hunt Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -15448,7 +15448,7 @@
         },
         {
           "name": "Defensive Assist: Disrupted Hunt Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -15476,7 +15476,7 @@
         },
         {
           "name": "Assist Follow-Up: Vengeful Counterattack DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -15505,7 +15505,7 @@
         },
         {
           "name": "Assist Follow-Up: Vengeful Counterattack Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -15533,7 +15533,7 @@
         },
         {
           "name": "Assist Follow-Up: Vengeful Counterattack - Glacial Waltz DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -15562,7 +15562,7 @@
         },
         {
           "name": "Assist Follow-Up: Vengeful Counterattack - Glacial Waltz Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -16458,7 +16458,7 @@
       "actions": [
         {
           "name": "Dash Attack: Fearless Boar! DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -16486,7 +16486,7 @@
         },
         {
           "name": "Dash Attack: Fearless Boar! Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -16514,7 +16514,7 @@
         },
         {
           "name": "Dodge Counter: Returning Tusk! DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -16543,7 +16543,7 @@
         },
         {
           "name": "Dodge Counter: Returning Tusk! Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -16576,7 +16576,7 @@
       "actions": [
         {
           "name": "Quick Assist: Hit By Pitch! DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -16604,7 +16604,7 @@
         },
         {
           "name": "Quick Assist: Hit By Pitch! Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -16632,7 +16632,7 @@
         },
         {
           "name": "Defensive Assist: Safe on Base! Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -16660,7 +16660,7 @@
         },
         {
           "name": "Defensive Assist: Safe on Base! Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -16688,7 +16688,7 @@
         },
         {
           "name": "Defensive Assist: Safe on Base! Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -16716,7 +16716,7 @@
         },
         {
           "name": "Assist Follow-Up: Scored a Run! DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -16745,7 +16745,7 @@
         },
         {
           "name": "Assist Follow-Up: Scored a Run! Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -18065,7 +18065,7 @@
       "actions": [
         {
           "name": "Dash Attack: Charging Slam DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -18093,7 +18093,7 @@
         },
         {
           "name": "Dash Attack: Charging Slam Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -18121,7 +18121,7 @@
         },
         {
           "name": "Dodge Counter: Blazing Flash DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -18150,7 +18150,7 @@
         },
         {
           "name": "Dodge Counter: Blazing Flash Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -18183,7 +18183,7 @@
       "actions": [
         {
           "name": "Quick Assist: Blazing Flash - Guard DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -18211,7 +18211,7 @@
         },
         {
           "name": "Quick Assist: Blazing Flash - Guard Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -18239,7 +18239,7 @@
         },
         {
           "name": "Defensive Assist: Swift Break Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -18267,7 +18267,7 @@
         },
         {
           "name": "Defensive Assist: Swift Break Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -18295,7 +18295,7 @@
         },
         {
           "name": "Defensive Assist: Swift Break Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -18323,7 +18323,7 @@
         },
         {
           "name": "Assist Follow-Up: Charging Slam - Stab DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -18352,7 +18352,7 @@
         },
         {
           "name": "Assist Follow-Up: Charging Slam - Stab Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -19084,7 +19084,7 @@
       "actions": [
         {
           "name": "Dash Attack: Dangerous Fermentation DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -19113,7 +19113,7 @@
         },
         {
           "name": "Dash Attack: Dangerous Fermentation Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -19141,7 +19141,7 @@
         },
         {
           "name": "Dodge Counter: Fluttering Steps DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -19170,7 +19170,7 @@
         },
         {
           "name": "Dodge Counter: Fluttering Steps Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -19203,7 +19203,7 @@
       "actions": [
         {
           "name": "Quick Assist: Energizing Specialty Drink DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -19231,7 +19231,7 @@
         },
         {
           "name": "Quick Assist: Energizing Specialty Drink Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -19259,7 +19259,7 @@
         },
         {
           "name": "Defensive Assist: Smoky Cauldron Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -19287,7 +19287,7 @@
         },
         {
           "name": "Defensive Assist: Smoky Cauldron Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -19315,7 +19315,7 @@
         },
         {
           "name": "Defensive Assist: Smoky Cauldron Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -19343,7 +19343,7 @@
         },
         {
           "name": "Assist Follow-Up: Scorching Dew DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -19372,7 +19372,7 @@
         },
         {
           "name": "Assist Follow-Up: Scorching Dew Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -20213,7 +20213,7 @@
       "actions": [
         {
           "name": "Dash Attack: Quick Inspection DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -20241,7 +20241,7 @@
         },
         {
           "name": "Dash Attack: Quick Inspection Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -20269,7 +20269,7 @@
         },
         {
           "name": "Dodge Counter: Violation Penalty DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -20298,7 +20298,7 @@
         },
         {
           "name": "Dodge Counter: Violation Penalty Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -20331,7 +20331,7 @@
       "actions": [
         {
           "name": "Quick Assist: Incident Management DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -20359,7 +20359,7 @@
         },
         {
           "name": "Quick Assist: Incident Management Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -20387,7 +20387,7 @@
         },
         {
           "name": "Assist Follow-Up: Counter Volt Needle DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -20416,7 +20416,7 @@
         },
         {
           "name": "Assist Follow-Up: Counter Volt Needle Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -21430,7 +21430,7 @@
       "actions": [
         {
           "name": "Dash Attack: Arctic Ambush Spinning Slash DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21458,7 +21458,7 @@
         },
         {
           "name": "Dash Attack: Arctic Ambush Swift Scissors DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21487,7 +21487,7 @@
         },
         {
           "name": "Dash Attack: Arctic Ambush Charged Scissors DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21516,7 +21516,7 @@
         },
         {
           "name": "Dash Attack: Arctic Ambush Spinning Slash Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21544,7 +21544,7 @@
         },
         {
           "name": "Dash Attack: Arctic Ambush Swift Scissors Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21572,7 +21572,7 @@
         },
         {
           "name": "Dash Attack: Arctic Ambush Charged Scissors Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21600,7 +21600,7 @@
         },
         {
           "name": "Dash Attack: Monstrous Wave DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21628,7 +21628,7 @@
         },
         {
           "name": "Dash Attack: Monstrous Wave Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21656,7 +21656,7 @@
         },
         {
           "name": "Dash Attack: Cold Snap DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21685,7 +21685,7 @@
         },
         {
           "name": "Dash Attack: Cold Snap Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21713,7 +21713,7 @@
         },
         {
           "name": "Dodge Counter: Reef Rock DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21742,7 +21742,7 @@
         },
         {
           "name": "Dodge Counter: Reef Rock Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -21775,7 +21775,7 @@
       "actions": [
         {
           "name": "Quick Assist: Shark Sentinel DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -21803,7 +21803,7 @@
         },
         {
           "name": "Quick Assist: Shark Sentinel Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -21831,7 +21831,7 @@
         },
         {
           "name": "Defensive Assist: Wavefront Impact Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -21859,7 +21859,7 @@
         },
         {
           "name": "Defensive Assist: Wavefront Impact Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -21887,7 +21887,7 @@
         },
         {
           "name": "Defensive Assist: Wavefront Impact Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -21915,7 +21915,7 @@
         },
         {
           "name": "Assist Follow-Up: Shark Cruiser DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -21944,7 +21944,7 @@
         },
         {
           "name": "Assist Follow-Up: Shark Cruiser Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -22701,7 +22701,7 @@
       "actions": [
         {
           "name": "Dash Attack: Hiten no Tsuru DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22729,7 +22729,7 @@
         },
         {
           "name": "Dash Attack: Hiten no Tsuru Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22757,7 +22757,7 @@
         },
         {
           "name": "Dodge Counter: Hidden Edge DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22786,7 +22786,7 @@
         },
         {
           "name": "Dodge Counter: Hidden Edge Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22814,7 +22814,7 @@
         },
         {
           "name": "Dash Attack: Hiten no Tsuru - Slash 1st-Hit DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22843,7 +22843,7 @@
         },
         {
           "name": "Dash Attack: Hiten no Tsuru - Slash 2nd-Hit DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22872,7 +22872,7 @@
         },
         {
           "name": "Dash Attack: Hiten no Tsuru - Slash 3rd-Hit DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22901,7 +22901,7 @@
         },
         {
           "name": "Dash Attack: Hiten no Tsuru - Slash 1st-Hit Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22929,7 +22929,7 @@
         },
         {
           "name": "Dash Attack: Hiten no Tsuru - Slash 2nd-Hit Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22957,7 +22957,7 @@
         },
         {
           "name": "Dash Attack: Hiten no Tsuru - Slash 3rd-Hit Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -22985,7 +22985,7 @@
         },
         {
           "name": "Chasing Thunder Additional DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -23018,7 +23018,7 @@
       "actions": [
         {
           "name": "Quick Assist: Braced Bow DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -23046,7 +23046,7 @@
         },
         {
           "name": "Quick Assist: Braced Bow Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -23074,7 +23074,7 @@
         },
         {
           "name": "Defensive Assist: Yugamae Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -23102,7 +23102,7 @@
         },
         {
           "name": "Defensive Assist: Yugamae Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -23130,7 +23130,7 @@
         },
         {
           "name": "Defensive Assist: Yugamae Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -23158,7 +23158,7 @@
         },
         {
           "name": "Assist Follow-Up: Yugamae - Slash DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -23187,7 +23187,7 @@
         },
         {
           "name": "Assist Follow-Up: Yugamae - Slash Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -23860,7 +23860,7 @@
       "actions": [
         {
           "name": "Dash Attack: Sudden Surprise DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -23888,7 +23888,7 @@
         },
         {
           "name": "Dash Attack: Sudden Surprise Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -23916,7 +23916,7 @@
         },
         {
           "name": "Dodge Counter: Bangboo Callback DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -23944,7 +23944,7 @@
         },
         {
           "name": "Dodge Counter: Bangboo Callback Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -23977,7 +23977,7 @@
       "actions": [
         {
           "name": "Quick Assist: Duple Meter Allemande DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -24005,7 +24005,7 @@
         },
         {
           "name": "Quick Assist: Duple Meter Allemande Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -24033,7 +24033,7 @@
         },
         {
           "name": "Assist Follow-Up: Quadruple Meter Gavotte DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -24062,7 +24062,7 @@
         },
         {
           "name": "Assist Follow-Up: Quadruple Meter Gavotte Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -24905,7 +24905,7 @@
       "actions": [
         {
           "name": "Dash Attack: Fleeting Flight DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -24933,7 +24933,7 @@
         },
         {
           "name": "Dash Attack: Fleeting Flight Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -24961,7 +24961,7 @@
         },
         {
           "name": "Dodge Counter: Rapid Retaliation DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -24990,7 +24990,7 @@
         },
         {
           "name": "Dodge Counter: Rapid Retaliation Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -25023,7 +25023,7 @@
       "actions": [
         {
           "name": "Quick Assist: Blade of Elegance DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -25052,7 +25052,7 @@
         },
         {
           "name": "Quick Assist: Blade of Elegance Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -25080,7 +25080,7 @@
         },
         {
           "name": "Defensive Assist: Radiant Reversal Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -25108,7 +25108,7 @@
         },
         {
           "name": "Defensive Assist: Radiant Reversal Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -25136,7 +25136,7 @@
         },
         {
           "name": "Defensive Assist: Radiant Reversal Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -25164,7 +25164,7 @@
         },
         {
           "name": "Assist Follow-Up: Weeping Willow Stab DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -25193,7 +25193,7 @@
         },
         {
           "name": "Assist Follow-Up: Weeping Willow Stab Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -26202,7 +26202,7 @@
       "actions": [
         {
           "name": "Dash Attack: Firepower Offensive DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -26231,7 +26231,7 @@
         },
         {
           "name": "Dash Attack: Firepower Offensive Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -26259,7 +26259,7 @@
         },
         {
           "name": "Dash Attack: Overwhelming Firepower DMG Multiplier (Physical)",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -26287,7 +26287,7 @@
         },
         {
           "name": "Dash Attack: Overwhelming Firepower Daze Multiplier (Physical)",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -26315,7 +26315,7 @@
         },
         {
           "name": "Dash Attack: Overwhelming Firepower DMG Multiplier (Ether)",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -26344,7 +26344,7 @@
         },
         {
           "name": "Dash Attack: Overwhelming Firepower Daze Multiplier (Ether)",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -26372,7 +26372,7 @@
         },
         {
           "name": "Dodge Counter: Fire Blast DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -26401,7 +26401,7 @@
         },
         {
           "name": "Dodge Counter: Fire Blast Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -26434,7 +26434,7 @@
       "actions": [
         {
           "name": "Quick Assist: Covering Shot DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -26462,7 +26462,7 @@
         },
         {
           "name": "Quick Assist: Covering Shot Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -26490,7 +26490,7 @@
         },
         {
           "name": "Assist Follow-Up: Defensive Counter DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -26519,7 +26519,7 @@
         },
         {
           "name": "Assist Follow-Up: Defensive Counter Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -27305,7 +27305,7 @@
       "actions": [
         {
           "name": "Dash Attack: Breach DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -27333,7 +27333,7 @@
         },
         {
           "name": "Dash Attack: Breach Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -27361,7 +27361,7 @@
         },
         {
           "name": "Dodge Counter: Lingering Sentiments DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -27390,7 +27390,7 @@
         },
         {
           "name": "Dodge Counter: Lingering Sentiments Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -27423,7 +27423,7 @@
       "actions": [
         {
           "name": "Quick Assist: Wind Through the Pines DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -27451,7 +27451,7 @@
         },
         {
           "name": "Quick Assist: Wind Through the Pines Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -27479,7 +27479,7 @@
         },
         {
           "name": "Defensive Assist: Graceful Embellishment Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -27507,7 +27507,7 @@
         },
         {
           "name": "Defensive Assist: Graceful Embellishment Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -27535,7 +27535,7 @@
         },
         {
           "name": "Defensive Assist: Graceful Embellishment Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -27563,7 +27563,7 @@
         },
         {
           "name": "Assist Follow-Up: Song of the Clear River DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -27592,7 +27592,7 @@
         },
         {
           "name": "Assist Follow-Up: Song of the Clear River Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -28325,7 +28325,7 @@
       "actions": [
         {
           "name": "Dash Attack: Edge Jump 1st-Dodge DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28354,7 +28354,7 @@
         },
         {
           "name": "Dash Attack: Edge Jump 1st-Dodge Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28382,7 +28382,7 @@
         },
         {
           "name": "Dash Attack: Edge Jump 2nd-Dodge DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28411,7 +28411,7 @@
         },
         {
           "name": "Dash Attack: Edge Jump 2nd-Dodge Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28439,7 +28439,7 @@
         },
         {
           "name": "Dash Attack: Phantom Thrust DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28468,7 +28468,7 @@
         },
         {
           "name": "Dash Attack: Phantom Thrust Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28496,7 +28496,7 @@
         },
         {
           "name": "Dodge Counter: Swift Shadow 1st-Dodge DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28525,7 +28525,7 @@
         },
         {
           "name": "Dodge Counter: Swift Shadow 1st-Dodge Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28553,7 +28553,7 @@
         },
         {
           "name": "Dodge Counter: Swift Shadow 2nd-Dodge DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28582,7 +28582,7 @@
         },
         {
           "name": "Dodge Counter: Swift Shadow 2nd-Dodge Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28610,7 +28610,7 @@
         },
         {
           "name": "Dodge Counter: Swift Shadow Dance DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28639,7 +28639,7 @@
         },
         {
           "name": "Dodge Counter: Swift Shadow Dance Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -28672,7 +28672,7 @@
       "actions": [
         {
           "name": "Quick Assist:\u00a0Dark Thorn DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -28700,7 +28700,7 @@
         },
         {
           "name": "Quick Assist:\u00a0Dark Thorn Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -28728,7 +28728,7 @@
         },
         {
           "name": "Quick Assist: Lutz Jump DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -28756,7 +28756,7 @@
         },
         {
           "name": "Quick Assist: Lutz Jump Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -28784,7 +28784,7 @@
         },
         {
           "name": "Defensive Assist: Last Defense Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -28812,7 +28812,7 @@
         },
         {
           "name": "Defensive Assist: Last Defense Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -28840,7 +28840,7 @@
         },
         {
           "name": "Defensive Assist: Last Defense Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -28868,7 +28868,7 @@
         },
         {
           "name": "Assist Follow-Up: Gale Sweep DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -28897,7 +28897,7 @@
         },
         {
           "name": "Assist Follow-Up: Gale Sweep Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -29513,7 +29513,7 @@
       "actions": [
         {
           "name": "Dash Attack: Thunder Assault DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -29541,7 +29541,7 @@
         },
         {
           "name": "Dash Attack: Thunder Assault Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -29569,7 +29569,7 @@
         },
         {
           "name": "Dodge Counter: Retreat to Advance DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -29598,7 +29598,7 @@
         },
         {
           "name": "Dodge Counter: Retreat to Advance Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -29631,7 +29631,7 @@
       "actions": [
         {
           "name": "Quick Assist: Armed Support DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -29659,7 +29659,7 @@
         },
         {
           "name": "Quick Assist: Armed Support Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -29687,7 +29687,7 @@
         },
         {
           "name": "Defensive Assist: Thundershield Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -29715,7 +29715,7 @@
         },
         {
           "name": "Defensive Assist: Thundershield Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -29743,7 +29743,7 @@
         },
         {
           "name": "Defensive Assist: Thundershield Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -29771,7 +29771,7 @@
         },
         {
           "name": "Assist Follow-Up: Public Security Ruling DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -29800,7 +29800,7 @@
         },
         {
           "name": "Assist Follow-Up: Public Security Ruling Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -30362,7 +30362,7 @@
       "actions": [
         {
           "name": "Dash Attack: Pedal to the Metal DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -30391,7 +30391,7 @@
         },
         {
           "name": "Dash Attack: Pedal to the Metal Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -30419,7 +30419,7 @@
         },
         {
           "name": "Dodge Counter: Power Drift DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -30448,7 +30448,7 @@
         },
         {
           "name": "Dodge Counter: Power Drift Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -30481,7 +30481,7 @@
       "actions": [
         {
           "name": "Quick Assist: Brake Tap DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -30509,7 +30509,7 @@
         },
         {
           "name": "Quick Assist: Brake Tap Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -30537,7 +30537,7 @@
         },
         {
           "name": "Defensive Assist: Emergency Brake Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -30565,7 +30565,7 @@
         },
         {
           "name": "Defensive Assist: Emergency Brake Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -30593,7 +30593,7 @@
         },
         {
           "name": "Defensive Assist: Emergency Brake Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -30621,7 +30621,7 @@
         },
         {
           "name": "Assist Follow-Up: Overtaking Maneuver DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -30650,7 +30650,7 @@
         },
         {
           "name": "Assist Follow-Up: Overtaking Maneuver Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -31662,7 +31662,7 @@
       "actions": [
         {
           "name": "Dash Attack: Phantasm - Shatter DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -31690,7 +31690,7 @@
         },
         {
           "name": "Dash Attack: Phantasm - Shatter Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -31718,7 +31718,7 @@
         },
         {
           "name": "Dodge Counter: Phantasm - Slash DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -31747,7 +31747,7 @@
         },
         {
           "name": "Dodge Counter: Phantasm - Slash ALT Shot DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -31776,7 +31776,7 @@
         },
         {
           "name": "Dodge Counter: Phantasm - Slash ALT Charged Shot DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -31805,7 +31805,7 @@
         },
         {
           "name": "Dodge Counter: Phantasm - Slash Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -31833,7 +31833,7 @@
         },
         {
           "name": "Dodge Counter: Phantasm - Slash ALT Shot Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -31861,7 +31861,7 @@
         },
         {
           "name": "Dodge Counter: Phantasm - Slash ALT Charged Shot Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -31894,7 +31894,7 @@
       "actions": [
         {
           "name": "Quick Assist: Elegy DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -31923,7 +31923,7 @@
         },
         {
           "name": "Quick Assist: Elegy ALT Shot DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -31952,7 +31952,7 @@
         },
         {
           "name": "Quick Assist: Elegy ALT Charged Shot DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -31981,7 +31981,7 @@
         },
         {
           "name": "Quick Assist: Elegy Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32009,7 +32009,7 @@
         },
         {
           "name": "Quick Assist: Elegy ALT Shot Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32037,7 +32037,7 @@
         },
         {
           "name": "Quick Assist: Elegy ALT Charged Shot Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32065,7 +32065,7 @@
         },
         {
           "name": "Defensive Assist: The End Has Not Come Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32093,7 +32093,7 @@
         },
         {
           "name": "Defensive Assist: The End Has Not Come Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32121,7 +32121,7 @@
         },
         {
           "name": "Defensive Assist: The End Has Not Come Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32149,7 +32149,7 @@
         },
         {
           "name": "Assist Follow-Up: Ace Reversal DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32178,7 +32178,7 @@
         },
         {
           "name": "Assist Follow-Up: Ace Reversal Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32796,7 +32796,7 @@
       "actions": [
         {
           "name": "Dash Attack: Rush Command DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -32824,7 +32824,7 @@
         },
         {
           "name": "Dash Attack: Rush Command Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -32852,7 +32852,7 @@
         },
         {
           "name": "Dodge Counter: Counter Strike Opportunity DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -32881,7 +32881,7 @@
         },
         {
           "name": "Dodge Counter: Counter Strike Opportunity Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -32914,7 +32914,7 @@
       "actions": [
         {
           "name": "Quick Assist: Searing Slash DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32942,7 +32942,7 @@
         },
         {
           "name": "Quick Assist: Searing Slash Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32970,7 +32970,7 @@
         },
         {
           "name": "Defensive Assist: Blazing Gunblade Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -32998,7 +32998,7 @@
         },
         {
           "name": "Defensive Assist: Blazing Gunblade Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -33026,7 +33026,7 @@
         },
         {
           "name": "Defensive Assist: Blazing Gunblade Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -33054,7 +33054,7 @@
         },
         {
           "name": "Assist Follow-Up: Boiling Pierce DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -33083,7 +33083,7 @@
         },
         {
           "name": "Assist Follow-Up: Boiling Pierce Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -34271,7 +34271,7 @@
       "actions": [
         {
           "name": "Dash Attack: \"Lunar Eclipse Melody\" DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -34300,7 +34300,7 @@
         },
         {
           "name": "Dash Attack: \"Lunar Eclipse Melody\" Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -34328,7 +34328,7 @@
         },
         {
           "name": "Dodge Counter: \"Umbrella Waltz\" DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -34357,7 +34357,7 @@
         },
         {
           "name": "Dodge Counter: \"Umbrella Waltz\" Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -34390,7 +34390,7 @@
       "actions": [
         {
           "name": "Quick Assist: \"One Luminous Sky\" DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -34419,7 +34419,7 @@
         },
         {
           "name": "Quick Assist: \"One Luminous Sky\" Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -34447,7 +34447,7 @@
         },
         {
           "name": "Assist Follow-Up: \"Three Lifetimes of Fate\" DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -34476,7 +34476,7 @@
         },
         {
           "name": "Assist Follow-Up: \"Three Lifetimes of Fate\" Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -35286,7 +35286,7 @@
       "actions": [
         {
           "name": "Dash Attack: Piercing Ambush DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -35314,7 +35314,7 @@
         },
         {
           "name": "Dash Attack: Piercing Ambush Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -35342,7 +35342,7 @@
         },
         {
           "name": "Dodge Counter: Strangling Reversal DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -35371,7 +35371,7 @@
         },
         {
           "name": "Dodge Counter: Strangling Reversal Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -35404,7 +35404,7 @@
       "actions": [
         {
           "name": "Quick Assist: Fierce Blade DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -35432,7 +35432,7 @@
         },
         {
           "name": "Quick Assist: Fierce Blade Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -35460,7 +35460,7 @@
         },
         {
           "name": "Defensive Assist: Silent Protection Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -35488,7 +35488,7 @@
         },
         {
           "name": "Defensive Assist: Silent Protection Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -35516,7 +35516,7 @@
         },
         {
           "name": "Defensive Assist: Silent Protection Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -35544,7 +35544,7 @@
         },
         {
           "name": "Assist Follow-Up: Course Disruption DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -35573,7 +35573,7 @@
         },
         {
           "name": "Assist Follow-Up: Course Disruption Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -36443,7 +36443,7 @@
       "actions": [
         {
           "name": "Dash Attack: Silver Thorned Melody DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -36471,7 +36471,7 @@
         },
         {
           "name": "Dash Attack: Silver Thorned Melody Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -36499,7 +36499,7 @@
         },
         {
           "name": "Dodge Counter: Wingblade Reverb DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -36528,7 +36528,7 @@
         },
         {
           "name": "Dodge Counter: Wingblade Reverb Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -36561,7 +36561,7 @@
       "actions": [
         {
           "name": "Quick Assist: Frostwing Guard DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -36590,7 +36590,7 @@
         },
         {
           "name": "Quick Assist: Frostwing Guard Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -36618,7 +36618,7 @@
         },
         {
           "name": "Defensive Assist: Silver Umbrella Formation Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -36646,7 +36646,7 @@
         },
         {
           "name": "Defensive Assist: Silver Umbrella Formation Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -36674,7 +36674,7 @@
         },
         {
           "name": "Defensive Assist: Silver Umbrella Formation Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -36702,7 +36702,7 @@
         },
         {
           "name": "Assist Follow-Up: Featherblade Execution DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -36731,7 +36731,7 @@
         },
         {
           "name": "Assist Follow-Up: Featherblade Execution Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -37375,7 +37375,7 @@
       "actions": [
         {
           "name": "Dash Attack: Bouncing Dash DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -37404,7 +37404,7 @@
         },
         {
           "name": "Dash Attack: Bouncing Dash Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -37432,7 +37432,7 @@
         },
         {
           "name": "Dodge Counter: Swift Blink DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -37461,7 +37461,7 @@
         },
         {
           "name": "Dodge Counter: Swift Blink Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -37494,7 +37494,7 @@
       "actions": [
         {
           "name": "Entry Skill: Burst of Frost DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -37523,7 +37523,7 @@
         },
         {
           "name": "Entry Skill: Burst of Frost Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -37551,7 +37551,7 @@
         },
         {
           "name": "Quick Assist: Patch the Gaps DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -37580,7 +37580,7 @@
         },
         {
           "name": "Quick Assist: Patch the Gaps Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -37608,7 +37608,7 @@
         },
         {
           "name": "Defensive Assist: Frostveil Suppression Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -37636,7 +37636,7 @@
         },
         {
           "name": "Defensive Assist: Frostveil Suppression Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -37664,7 +37664,7 @@
         },
         {
           "name": "Defensive Assist: Frostveil Suppression Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -37692,7 +37692,7 @@
         },
         {
           "name": "Assist Follow-Up: Frostlight Reflection DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -37721,7 +37721,7 @@
         },
         {
           "name": "Assist Follow-Up: Frostlight Reflection Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -38278,7 +38278,7 @@
       "actions": [
         {
           "name": "Dash Attack: First Strike Advantage DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -38307,7 +38307,7 @@
         },
         {
           "name": "Dash Attack: First Strike Advantage Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -38335,7 +38335,7 @@
         },
         {
           "name": "Dodge Counter: Relentless Retribution DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -38364,7 +38364,7 @@
         },
         {
           "name": "Dodge Counter: Relentless Retribution Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -38397,7 +38397,7 @@
       "actions": [
         {
           "name": "Quick Assist: Contract - Bodyguard DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -38425,7 +38425,7 @@
         },
         {
           "name": "Quick Assist: Contract - Bodyguard Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -38453,7 +38453,7 @@
         },
         {
           "name": "Assist Follow-Up: Independent Pricing DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -38482,7 +38482,7 @@
         },
         {
           "name": "Assist Follow-Up: Independent Pricing Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -39441,7 +39441,7 @@
       "actions": [
         {
           "name": "Dash Attack: Vengeful Specter DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -39469,7 +39469,7 @@
         },
         {
           "name": "Dash Attack: Vengeful Specter Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -39497,7 +39497,7 @@
         },
         {
           "name": "Dodge Counter: Condemned Soul DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -39526,7 +39526,7 @@
         },
         {
           "name": "Dodge Counter: Condemned Soul Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -39559,7 +39559,7 @@
       "actions": [
         {
           "name": "Quick Assist: Cold-Bore Cover Fire DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -39587,7 +39587,7 @@
         },
         {
           "name": "Quick Assist: Cold-Bore Cover Fire Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -39615,7 +39615,7 @@
         },
         {
           "name": "Defensive Assist: Delaying Demise Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -39643,7 +39643,7 @@
         },
         {
           "name": "Defensive Assist: Delaying Demise Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -39671,7 +39671,7 @@
         },
         {
           "name": "Defensive Assist: Delaying Demise Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -39699,7 +39699,7 @@
         },
         {
           "name": "Assist Follow-Up: Piercing Thunder DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -39728,7 +39728,7 @@
         },
         {
           "name": "Assist Follow-Up: Piercing Thunder Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -40461,7 +40461,7 @@
       "actions": [
         {
           "name": "Dash Attack: Skybreaker DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -40490,7 +40490,7 @@
         },
         {
           "name": "Dash Attack: Skybreaker Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -40518,7 +40518,7 @@
         },
         {
           "name": "Dodge Counter: Banishing Blow DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -40547,7 +40547,7 @@
         },
         {
           "name": "Dodge Counter: Banishing Blow Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -40580,7 +40580,7 @@
       "actions": [
         {
           "name": "Quick Assist: Cloudstream Shadow DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -40609,7 +40609,7 @@
         },
         {
           "name": "Quick Assist: Cloudstream Shadow Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -40637,7 +40637,7 @@
         },
         {
           "name": "Defensive Assist: Clear Sky Surge Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -40665,7 +40665,7 @@
         },
         {
           "name": "Defensive Assist: Clear Sky Surge Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -40693,7 +40693,7 @@
         },
         {
           "name": "Defensive Assist: Clear Sky Surge Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -40721,7 +40721,7 @@
         },
         {
           "name": "Assist Follow-Up: Celestial Cloud Blitz DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -40750,7 +40750,7 @@
         },
         {
           "name": "Assist Follow-Up: Celestial Cloud Blitz Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -41769,7 +41769,7 @@
       "actions": [
         {
           "name": "Dash Attack: Torrent DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -41798,7 +41798,7 @@
         },
         {
           "name": "Dash Attack: Torrent Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -41826,7 +41826,7 @@
         },
         {
           "name": "Dodge Counter: Ground Flash Counter DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -41855,7 +41855,7 @@
         },
         {
           "name": "Dodge Counter: Ground Flash Counter Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -41888,7 +41888,7 @@
       "actions": [
         {
           "name": "Quick Assist: Cloud Flash DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -41916,7 +41916,7 @@
         },
         {
           "name": "Quick Assist: Cloud Flash Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -41944,7 +41944,7 @@
         },
         {
           "name": "Defensive Assist: Counter Surge Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -41972,7 +41972,7 @@
         },
         {
           "name": "Defensive Assist: Counter Surge Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -42000,7 +42000,7 @@
         },
         {
           "name": "Defensive Assist: Counter Surge Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -42028,7 +42028,7 @@
         },
         {
           "name": "Assist Follow-Up: Conducting Blow DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -42057,7 +42057,7 @@
         },
         {
           "name": "Assist Follow-Up: Conducting Blow Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -42786,7 +42786,7 @@
       "actions": [
         {
           "name": "Dash Attack: Tiger Seven Forms - Tiger Charge DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -42814,7 +42814,7 @@
         },
         {
           "name": "Dash Attack: Tiger Seven Forms - Tiger Charge Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -42842,7 +42842,7 @@
         },
         {
           "name": "Dash Attack: Tiger Seven Forms - Mountain King's Game DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -42870,7 +42870,7 @@
         },
         {
           "name": "Dash Attack: Tiger Seven Forms - Mountain King's Game Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -42898,7 +42898,7 @@
         },
         {
           "name": "Dash Attack: Tiger Seven Forms - Mountain King's Game - Momentum DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -42926,7 +42926,7 @@
         },
         {
           "name": "Dash Attack: Tiger Seven Forms - Mountain King's Game - Momentum Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -42954,7 +42954,7 @@
         },
         {
           "name": "Dash Attack: Tiger Seven Forms - Mountain King's Game - Hu Wei DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -42982,7 +42982,7 @@
         },
         {
           "name": "Dash Attack: Tiger Seven Forms - Mountain King's Game - Hu Wei Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -43010,7 +43010,7 @@
         },
         {
           "name": "Dodge Counter: Tiger Seven Forms - Reignited Mountain DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -43039,7 +43039,7 @@
         },
         {
           "name": "Dodge Counter: Tiger Seven Forms - Reignited Mountain Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -43072,7 +43072,7 @@
       "actions": [
         {
           "name": "Quick Assist: Decisive Stomp DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -43101,7 +43101,7 @@
         },
         {
           "name": "Quick Assist: Decisive Stomp Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -43129,7 +43129,7 @@
         },
         {
           "name": "Defensive Assist: Steadfast Crouching Tiger Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -43157,7 +43157,7 @@
         },
         {
           "name": "Defensive Assist: Steadfast Crouching Tiger Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -43185,7 +43185,7 @@
         },
         {
           "name": "Defensive Assist: Steadfast Crouching Tiger Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -43213,7 +43213,7 @@
         },
         {
           "name": "Assist Follow-Up: Feral Blazing Maw DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -43242,7 +43242,7 @@
         },
         {
           "name": "Assist Follow-Up: Feral Blazing Maw Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -44089,7 +44089,7 @@
       "actions": [
         {
           "name": "Dash Attack: Blade-Dancer's Gale DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -44118,7 +44118,7 @@
         },
         {
           "name": "Dash Attack: Blade-Dancer's Gale Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -44146,7 +44146,7 @@
         },
         {
           "name": "Dodge Counter: Ceremony of Swordlight DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -44175,7 +44175,7 @@
         },
         {
           "name": "Dodge Counter: Ceremony of Swordlight Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -44208,7 +44208,7 @@
       "actions": [
         {
           "name": "Quick Assist: Intertwined Stab DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -44237,7 +44237,7 @@
         },
         {
           "name": "Quick Assist: Intertwined Stab Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -44265,7 +44265,7 @@
         },
         {
           "name": "Defensive Assist: Parry Guard Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -44293,7 +44293,7 @@
         },
         {
           "name": "Defensive Assist: Parry Guard Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -44321,7 +44321,7 @@
         },
         {
           "name": "Defensive Assist: Parry Guard Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -44349,7 +44349,7 @@
         },
         {
           "name": "Assist Follow-Up: Cross Riposte DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -44378,7 +44378,7 @@
         },
         {
           "name": "Assist Follow-Up: Cross Riposte Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -45247,7 +45247,7 @@
       "actions": [
         {
           "name": "Dash Attack: You're Outta Luck! DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -45276,7 +45276,7 @@
         },
         {
           "name": "Dash Attack: You're Outta Luck! Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -45304,7 +45304,7 @@
         },
         {
           "name": "Dodge Counter: Time for Payback~ DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -45333,7 +45333,7 @@
         },
         {
           "name": "Dodge Counter: Time for Payback~ Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -45366,7 +45366,7 @@
       "actions": [
         {
           "name": "Quick Assist: Dessert Time DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -45395,7 +45395,7 @@
         },
         {
           "name": "Quick Assist: Dessert Time Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -45423,7 +45423,7 @@
         },
         {
           "name": "Defensive Assist: Replenish Your Fun Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -45451,7 +45451,7 @@
         },
         {
           "name": "Defensive Assist: Replenish Your Fun Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -45479,7 +45479,7 @@
         },
         {
           "name": "Defensive Assist: Replenish Your Fun Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -45507,7 +45507,7 @@
         },
         {
           "name": "Assist Follow-Up: We Have Cookies DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -45536,7 +45536,7 @@
         },
         {
           "name": "Assist Follow-Up: We Have Cookies Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -45564,7 +45564,7 @@
         },
         {
           "name": "Assist Follow-Up: Stuffed Hard Candy Shot DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -45593,7 +45593,7 @@
         },
         {
           "name": "Assist Follow-Up: Stuffed Hard Candy Shot Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -46206,7 +46206,7 @@
       "actions": [
         {
           "name": "Dash Attack: Sizzling Oil Supreme DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -46235,7 +46235,7 @@
         },
         {
           "name": "Dash Attack: Sizzling Oil Supreme Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -46263,7 +46263,7 @@
         },
         {
           "name": "Dodge Counter: Moving Mountains and Seas DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -46292,7 +46292,7 @@
         },
         {
           "name": "Dodge Counter: Moving Mountains and Seas Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -46325,7 +46325,7 @@
       "actions": [
         {
           "name": "Quick Assist: Lift Your Gaze to Good Fortune DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -46354,7 +46354,7 @@
         },
         {
           "name": "Quick Assist: Lift Your Gaze to Good Fortune Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -46382,7 +46382,7 @@
         },
         {
           "name": "Defensive Assist: Intimidating Presence Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -46410,7 +46410,7 @@
         },
         {
           "name": "Defensive Assist: Intimidating Presence Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -46438,7 +46438,7 @@
         },
         {
           "name": "Defensive Assist: Intimidating Presence Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -46466,7 +46466,7 @@
         },
         {
           "name": "Assist Follow-Up: Ride the Momentum DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -46495,7 +46495,7 @@
         },
         {
           "name": "Assist Follow-Up: Ride the Momentum Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -47788,7 +47788,7 @@
       "actions": [
         {
           "name": "Dash Attack: Phantasm Dash DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -47816,7 +47816,7 @@
         },
         {
           "name": "Dash Attack: Phantasm Dash Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -47844,7 +47844,7 @@
         },
         {
           "name": "Dodge Counter: Swallow Strike DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -47872,7 +47872,7 @@
         },
         {
           "name": "Dodge Counter: Swallow Strike Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -47905,7 +47905,7 @@
       "actions": [
         {
           "name": "Entry Skill: Illuminating Darkness DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -47934,7 +47934,7 @@
         },
         {
           "name": "Entry Skill: Illuminating Darkness Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -47962,7 +47962,7 @@
         },
         {
           "name": "Quick Assist: Support Guard DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -47990,7 +47990,7 @@
         },
         {
           "name": "Quick Assist: Support Guard Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -48018,7 +48018,7 @@
         },
         {
           "name": "Assist Follow-Up: Cease Hostility DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -48046,7 +48046,7 @@
         },
         {
           "name": "Assist Follow-Up: Cease Hostility Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -48074,7 +48074,7 @@
         },
         {
           "name": "Defensive Assist: When I Return Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -48102,7 +48102,7 @@
         },
         {
           "name": "Defensive Assist: When I Return Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -48130,7 +48130,7 @@
         },
         {
           "name": "Defensive Assist: When I Return Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -48158,7 +48158,7 @@
         },
         {
           "name": "Quick Assist: Enlightened Mind - Tactical Support DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -48187,7 +48187,7 @@
         },
         {
           "name": "Quick Assist: Enlightened Mind - Tactical Support Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -48215,7 +48215,7 @@
         },
         {
           "name": "Assist Follow-Up: Enlightened Mind - Unification DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -48244,7 +48244,7 @@
         },
         {
           "name": "Assist Follow-Up: Enlightened Mind - Unification Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49481,7 +49481,7 @@
       "actions": [
         {
           "name": "Dash Attack: Radiant Blade - Zanshin DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -49509,7 +49509,7 @@
         },
         {
           "name": "Dash Attack: Radiant Blade - Zanshin Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -49537,7 +49537,7 @@
         },
         {
           "name": "Dodge Counter: Radiant Blade - Battle Sweep DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -49566,7 +49566,7 @@
         },
         {
           "name": "Dodge Counter: Radiant Blade - Battle Sweep Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -49599,7 +49599,7 @@
       "actions": [
         {
           "name": "Quick Assist: Lone Shadow - Regroup DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49628,7 +49628,7 @@
         },
         {
           "name": "Quick Assist: Lone Shadow - Regroup Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49656,7 +49656,7 @@
         },
         {
           "name": "Defensive Assist: Lone Shadow - Mountain Stand DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49684,7 +49684,7 @@
         },
         {
           "name": "Defensive Assist: Lone Shadow - Mountain Stand Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49712,7 +49712,7 @@
         },
         {
           "name": "Defensive Assist: Lone Shadow - Mountain Stand Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49740,7 +49740,7 @@
         },
         {
           "name": "Defensive Assist: Lone Shadow - Mountain Stand Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49768,7 +49768,7 @@
         },
         {
           "name": "Assist Follow-Up: Lone Shadow - Breaking Fang DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49797,7 +49797,7 @@
         },
         {
           "name": "Assist Follow-Up: Lone Shadow - Breaking Fang Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49825,7 +49825,7 @@
         },
         {
           "name": "Assist Follow-Up: Lone Shadow - Breaking Fang Combo Maximum DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -49854,7 +49854,7 @@
         },
         {
           "name": "Assist Follow-Up: Lone Shadow - Breaking Fang Combo Maximum Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50560,7 +50560,7 @@
       "actions": [
         {
           "name": "Dash Attack: Refraction DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -50589,7 +50589,7 @@
         },
         {
           "name": "Dash Attack: Refraction Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -50617,7 +50617,7 @@
         },
         {
           "name": "Dodge Counter: Stardust Echo Whim DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -50646,7 +50646,7 @@
         },
         {
           "name": "Dodge Counter: Stardust Echo Harmony DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -50675,7 +50675,7 @@
         },
         {
           "name": "Dodge Counter: Stardust Echo Whim Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -50703,7 +50703,7 @@
         },
         {
           "name": "Dodge Counter: Stardust Echo Harmony Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -50736,7 +50736,7 @@
       "actions": [
         {
           "name": "Quick Assist: Crushing Mist Whim DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50765,7 +50765,7 @@
         },
         {
           "name": "Quick Assist: Crushing Mist Harmony DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50794,7 +50794,7 @@
         },
         {
           "name": "Quick Assist: Crushing Mist Aftershock DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50823,7 +50823,7 @@
         },
         {
           "name": "Quick Assist: Crushing Mist Whim Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50851,7 +50851,7 @@
         },
         {
           "name": "Quick Assist: Crushing Mist Harmony Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50879,7 +50879,7 @@
         },
         {
           "name": "Defensive Assist: Voice of Illusory Dreams Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50907,7 +50907,7 @@
         },
         {
           "name": "Defensive Assist: Voice of Illusory Dreams Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50935,7 +50935,7 @@
         },
         {
           "name": "Defensive Assist: Voice of Illusory Dreams Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50963,7 +50963,7 @@
         },
         {
           "name": "Assist Follow-Up: Harmony of Painted Dreams DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -50992,7 +50992,7 @@
         },
         {
           "name": "Assist Follow-Up: Harmony of Painted Dreams Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -51887,7 +51887,7 @@
       "actions": [
         {
           "name": "Dash Attack: Magnetic Wheel Dance DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -51915,7 +51915,7 @@
         },
         {
           "name": "Dash Attack: Magnetic Wheel Dance Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -51943,7 +51943,7 @@
         },
         {
           "name": "Dodge Counter: Blossom Burst DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -51972,7 +51972,7 @@
         },
         {
           "name": "Dodge Counter: Blossom Burst Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -52005,7 +52005,7 @@
       "actions": [
         {
           "name": "Quick Assist: Barrage of Raining Flowers DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -52034,7 +52034,7 @@
         },
         {
           "name": "Quick Assist: Barrage of Raining Flowers Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -52062,7 +52062,7 @@
         },
         {
           "name": "Defensive Assist: Sprouting Barrier Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -52090,7 +52090,7 @@
         },
         {
           "name": "Defensive Assist: Sprouting Barrier Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -52118,7 +52118,7 @@
         },
         {
           "name": "Defensive Assist: Sprouting Barrier Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -52146,7 +52146,7 @@
         },
         {
           "name": "Assist Follow-Up: Crimson Core Burst DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -52175,7 +52175,7 @@
         },
         {
           "name": "Assist Follow-Up: Crimson Core Burst Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -53136,7 +53136,7 @@
       "actions": [
         {
           "name": "Dodge: Immovable Mountain Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -53164,7 +53164,7 @@
         },
         {
           "name": "Dash Attack: Scattering Sands DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -53193,7 +53193,7 @@
         },
         {
           "name": "Dash Attack: Scattering Sands Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -53221,7 +53221,7 @@
         },
         {
           "name": "Dodge Counter: Stoneburst DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -53250,7 +53250,7 @@
         },
         {
           "name": "Dodge Counter: Stoneburst Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -53283,7 +53283,7 @@
       "actions": [
         {
           "name": "Quick Assist: Batholith DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -53312,7 +53312,7 @@
         },
         {
           "name": "Quick Assist: Batholith Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -53340,7 +53340,7 @@
         },
         {
           "name": "Defensive Assist: Iron Bastion Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -53368,7 +53368,7 @@
         },
         {
           "name": "Defensive Assist: Iron Bastion Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -53396,7 +53396,7 @@
         },
         {
           "name": "Defensive Assist: Iron Bastion Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -53424,7 +53424,7 @@
         },
         {
           "name": "Assist Follow-Up: Lofty Ascent DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -53453,7 +53453,7 @@
         },
         {
           "name": "Assist Follow-Up: Lofty Ascent Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -53481,7 +53481,7 @@
         },
         {
           "name": "Assist Follow-Up: Pierce Heavens DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -53510,7 +53510,7 @@
         },
         {
           "name": "Assist Follow-Up: Pierce Heavens Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -54471,7 +54471,7 @@
       "actions": [
         {
           "name": "Dash Attack: Sudden Call DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -54500,7 +54500,7 @@
         },
         {
           "name": "Dash Attack: Sudden Call Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -54528,7 +54528,7 @@
         },
         {
           "name": "Dodge Counter: Number Unavailable DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -54557,7 +54557,7 @@
         },
         {
           "name": "Dodge Counter: Number Unavailable Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -54590,7 +54590,7 @@
       "actions": [
         {
           "name": "Quick Assist: Forward Call DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -54619,7 +54619,7 @@
         },
         {
           "name": "Quick Assist: Forward Call Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -54647,7 +54647,7 @@
         },
         {
           "name": "Defensive Assist: Decline Call Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -54675,7 +54675,7 @@
         },
         {
           "name": "Defensive Assist: Decline Call Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -54703,7 +54703,7 @@
         },
         {
           "name": "Defensive Assist: Decline Call Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -54731,7 +54731,7 @@
         },
         {
           "name": "Assist Follow-Up: Back-to-Back Calls DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -54760,7 +54760,7 @@
         },
         {
           "name": "Assist Follow-Up: Back-to-Back Calls Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -55464,7 +55464,7 @@
       "actions": [
         {
           "name": "Dash Attack: Skyward Hammer DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -55493,7 +55493,7 @@
         },
         {
           "name": "Dash Attack: Skyward Hammer Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -55521,7 +55521,7 @@
         },
         {
           "name": "Dodge Counter: Delusion Strikeout DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -55550,7 +55550,7 @@
         },
         {
           "name": "Dodge Counter: Delusion Strikeout Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -55583,7 +55583,7 @@
       "actions": [
         {
           "name": "Quick Assist: Sonic Beatdown DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -55611,7 +55611,7 @@
         },
         {
           "name": "Quick Assist: Sonic Beatdown Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -55639,7 +55639,7 @@
         },
         {
           "name": "Defensive Assist: Stage Fright Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -55667,7 +55667,7 @@
         },
         {
           "name": "Defensive Assist: Stage Fright Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -55695,7 +55695,7 @@
         },
         {
           "name": "Defensive Assist: Stage Fright Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -55723,7 +55723,7 @@
         },
         {
           "name": "Assist Follow-Up: Jump Training DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -55752,7 +55752,7 @@
         },
         {
           "name": "Assist Follow-Up: Jump Training Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -56796,7 +56796,7 @@
       "actions": [
         {
           "name": "Dash Attack: Silky-Smooth Combo DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -56825,7 +56825,7 @@
         },
         {
           "name": "Dash Attack: Silky-Smooth Combo Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -56853,7 +56853,7 @@
         },
         {
           "name": "Dodge Counter: Slide-Shift Variation DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -56882,7 +56882,7 @@
         },
         {
           "name": "Dodge Counter: Slide-Shift Variation Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -56915,7 +56915,7 @@
       "actions": [
         {
           "name": "Quick Assist: Shatter Fantasy DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -56943,7 +56943,7 @@
         },
         {
           "name": "Quick Assist: Shatter Fantasy Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -56971,7 +56971,7 @@
         },
         {
           "name": "Defensive Assist: Clutch Save Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -56999,7 +56999,7 @@
         },
         {
           "name": "Defensive Assist: Clutch Save Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -57027,7 +57027,7 @@
         },
         {
           "name": "Defensive Assist: Clutch Save Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -57055,7 +57055,7 @@
         },
         {
           "name": "Assist Follow-Up: Encore Song DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -57084,7 +57084,7 @@
         },
         {
           "name": "Assist Follow-Up: Encore Song Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -57875,7 +57875,7 @@
       "actions": [
         {
           "name": "Dash Attack: Spinning Meteor DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -57904,7 +57904,7 @@
         },
         {
           "name": "Dash Attack: Spinning Meteor Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -57932,7 +57932,7 @@
         },
         {
           "name": "Dodge Counter: Asteroid Waltz DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -57961,7 +57961,7 @@
         },
         {
           "name": "Dodge Counter: Asteroid Waltz Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -57994,7 +57994,7 @@
       "actions": [
         {
           "name": "Quick Assist: Emergency Save DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58023,7 +58023,7 @@
         },
         {
           "name": "Quick Assist: Emergency Save Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58051,7 +58051,7 @@
         },
         {
           "name": "Defensive Assist: Perfected Choreography Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58079,7 +58079,7 @@
         },
         {
           "name": "Defensive Assist: Perfected Choreography Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58107,7 +58107,7 @@
         },
         {
           "name": "Defensive Assist: Perfected Choreography Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58135,7 +58135,7 @@
         },
         {
           "name": "Assist Follow-Up: Improvised Performance DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58164,7 +58164,7 @@
         },
         {
           "name": "Assist Follow-Up: Improvised Performance Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58783,7 +58783,7 @@
       "actions": [
         {
           "name": "Dash Attack: Bite Mark DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -58812,7 +58812,7 @@
         },
         {
           "name": "Dash Attack: Bite Mark Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -58840,7 +58840,7 @@
         },
         {
           "name": "Dodge Counter: Bite Back DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -58869,7 +58869,7 @@
         },
         {
           "name": "Dodge Counter: Bite Back Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -58902,7 +58902,7 @@
       "actions": [
         {
           "name": "Quick Assist: Alarm System DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58931,7 +58931,7 @@
         },
         {
           "name": "Quick Assist: Alarm System Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58959,7 +58959,7 @@
         },
         {
           "name": "Defensive Assist: Extra Prison Rations Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -58987,7 +58987,7 @@
         },
         {
           "name": "Defensive Assist: Extra Prison Rations Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -59015,7 +59015,7 @@
         },
         {
           "name": "Defensive Assist: Extra Prison Rations Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -59043,7 +59043,7 @@
         },
         {
           "name": "Assist Follow-Up: Partners in Crime DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -59072,7 +59072,7 @@
         },
         {
           "name": "Assist Follow-Up: Partners in Crime Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -59692,7 +59692,7 @@
       "actions": [
         {
           "name": "Dash Attack: Starlight Retribution DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -59721,7 +59721,7 @@
         },
         {
           "name": "Dash Attack: Starlight Retribution Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -59749,7 +59749,7 @@
         },
         {
           "name": "Dodge Counter: Duel King DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -59778,7 +59778,7 @@
         },
         {
           "name": "Dodge Counter: Duel King Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -59806,7 +59806,7 @@
         },
         {
           "name": "Dodge Counter: Afterfire Spin DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -59835,7 +59835,7 @@
         },
         {
           "name": "Dodge Counter: Afterfire Spin Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -59868,7 +59868,7 @@
       "actions": [
         {
           "name": "Quick Assist: Starlight - Power of Bonds DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -59897,7 +59897,7 @@
         },
         {
           "name": "Quick Assist: Starlight - Power of Bonds Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -59925,7 +59925,7 @@
         },
         {
           "name": "Defensive Assist: Hero's Entrance Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -59953,7 +59953,7 @@
         },
         {
           "name": "Defensive Assist: Hero's Entrance Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -59981,7 +59981,7 @@
         },
         {
           "name": "Defensive Assist: Hero's Entrance Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -60009,7 +60009,7 @@
         },
         {
           "name": "Assist Follow-Up: Villain's Exit DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -60038,7 +60038,7 @@
         },
         {
           "name": "Assist Follow-Up: Villain's Exit Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -60857,7 +60857,7 @@
       "actions": [
         {
           "name": "Dash Attack: Grim Reap DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -60886,7 +60886,7 @@
         },
         {
           "name": "Dash Attack: Grim Reap Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -60914,7 +60914,7 @@
         },
         {
           "name": "Dodge Counter: Soaring Bat DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -60943,7 +60943,7 @@
         },
         {
           "name": "Dodge Counter: Soaring Bat Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -60976,7 +60976,7 @@
       "actions": [
         {
           "name": "Quick Assist: Ambushing Strike DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -61005,7 +61005,7 @@
         },
         {
           "name": "Quick Assist: Ambushing Strike Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -61033,7 +61033,7 @@
         },
         {
           "name": "Defensive Assist: Injunction Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -61061,7 +61061,7 @@
         },
         {
           "name": "Defensive Assist: Injunction Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -61089,7 +61089,7 @@
         },
         {
           "name": "Defensive Assist: Injunction Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -61117,7 +61117,7 @@
         },
         {
           "name": "Assist Follow-Up: Intercepting Strike DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -61146,7 +61146,7 @@
         },
         {
           "name": "Assist Follow-Up: Intercepting Strike Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -61994,7 +61994,7 @@
       "actions": [
         {
           "name": "Dash Attack: Sunrise DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -62023,7 +62023,7 @@
         },
         {
           "name": "Dash Attack: Sunrise Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -62051,7 +62051,7 @@
         },
         {
           "name": "Dodge Counter: First Light DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -62080,7 +62080,7 @@
         },
         {
           "name": "Dodge Counter: First Light Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -62113,7 +62113,7 @@
       "actions": [
         {
           "name": "Quick Assist: Duskguard DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -62142,7 +62142,7 @@
         },
         {
           "name": "Quick Assist: Duskguard Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -62170,7 +62170,7 @@
         },
         {
           "name": "Defensive Assist: Ironhide Behemoth Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -62198,7 +62198,7 @@
         },
         {
           "name": "Defensive Assist: Ironhide Behemoth Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -62226,7 +62226,7 @@
         },
         {
           "name": "Defensive Assist: Ironhide Behemoth Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -62254,7 +62254,7 @@
         },
         {
           "name": "Assist Follow-Up: Return to Daylight DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -62283,7 +62283,7 @@
         },
         {
           "name": "Assist Follow-Up: Return to Daylight Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -63045,7 +63045,7 @@
       "actions": [
         {
           "name": "Dash Attack: Gale Step DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -63074,7 +63074,7 @@
         },
         {
           "name": "Dash Attack: Gale Step Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -63102,7 +63102,7 @@
         },
         {
           "name": "Dodge Counter: Cloudrend DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -63131,7 +63131,7 @@
         },
         {
           "name": "Dodge Counter: Cloudrend Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -63164,7 +63164,7 @@
       "actions": [
         {
           "name": "Quick Assist: Emergency Protocol DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -63193,7 +63193,7 @@
         },
         {
           "name": "Quick Assist: Emergency Protocol Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -63221,7 +63221,7 @@
         },
         {
           "name": "Defensive Assist: Judicious Intervention Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -63249,7 +63249,7 @@
         },
         {
           "name": "Defensive Assist: Judicious Intervention Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -63277,7 +63277,7 @@
         },
         {
           "name": "Defensive Assist: Judicious Intervention Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -63305,7 +63305,7 @@
         },
         {
           "name": "Assist Follow-Up: Negotiation Techniques DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -63334,7 +63334,7 @@
         },
         {
           "name": "Assist Follow-Up: Negotiation Techniques Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -64154,7 +64154,7 @@
       "actions": [
         {
           "name": "Dash Attack: Deadline Rush DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -64183,7 +64183,7 @@
         },
         {
           "name": "Dash Attack: Deadline Rush Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -64211,7 +64211,7 @@
         },
         {
           "name": "Dodge Counter: Compliance Testing DMG Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -64240,7 +64240,7 @@
         },
         {
           "name": "Dodge Counter: Compliance Testing Daze Multiplier",
-          "type": "D",
+          "type": "dodge",
           "damage": {
             "multipliers": [
               {
@@ -64273,7 +64273,7 @@
       "actions": [
         {
           "name": "Quick Assist: Roaring Backup DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -64302,7 +64302,7 @@
         },
         {
           "name": "Quick Assist: Roaring Backup Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -64330,7 +64330,7 @@
         },
         {
           "name": "Defensive Assist: Technological Bastion Light Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -64358,7 +64358,7 @@
         },
         {
           "name": "Defensive Assist: Technological Bastion Heavy Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -64386,7 +64386,7 @@
         },
         {
           "name": "Defensive Assist: Technological Bastion Chain Defensive Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -64414,7 +64414,7 @@
         },
         {
           "name": "Assist Follow-Up: Technological Suppression DMG Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
@@ -64443,7 +64443,7 @@
         },
         {
           "name": "Assist Follow-Up: Technological Suppression Daze Multiplier",
-          "type": "A",
+          "type": "assist",
           "damage": {
             "multipliers": [
               {
