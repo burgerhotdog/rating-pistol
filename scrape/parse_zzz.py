@@ -41,7 +41,7 @@ def parse_character(version, id, data):
         ascension[stat] = value
 
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'quality': int(data['rarity']) + 1,
@@ -146,7 +146,7 @@ def parse_weapon(version, id, data):
     stat = lookup_stat[data['rand_property']['name']]
     value = data['rand_property']['value'] * 2.5
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'quality': int(data['rarity']) + 1,
@@ -158,22 +158,21 @@ def parse_weapon(version, id, data):
         'effects': [],
     }
 
-def parse_set(version, id, data):
-    return {
-        'name': data['name'],
-        'version': float(version),
-        'id': str(id),
-        'bonusEffects': {},
-    }
+def parse_zzz(type, version, id, data):
+    match type:
+        case 'character':
+            return parse_character(version, id, data), parse_actions(data)
 
-def parse_character_data(version, id, data):
-    return parse_character(version, id, data), parse_actions(data)
+        case 'weapon':
+            return parse_weapon(version, id, data)
 
-parsers = {
-    'character': parse_character_data,
-    'weapon': parse_weapon,
-    'set': parse_set,
-}
-
-def parse_zzz(type, *args):
-    return parsers[type](*args)
+        case 'set':
+            return {
+                'name': str(data['name']),
+                'version': float(version),
+                'id': str(id),
+                'bonusEffects': {
+                    '2': [],
+                    '4': [],
+                },
+            }

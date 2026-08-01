@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
+import { Chip, CardContent, Box, CardHeader, Card, Divider, MenuItem, Stack, TextField, Typography, Skeleton, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { CharAvatar } from '@/components';
-import { TeamMemberDialog } from './TeamMemberDialog';
+import { TeamMemberDialog, RotationEditor } from './TeamMemberDialog';
 import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
 import { getAttr, formatStr, compileMenuMap } from '@/utils';
 
@@ -94,6 +94,13 @@ export const StatsPanel = ({ team, updateTeam }) => {
   const { gameId, charId } = useParams();
   const theme = useTheme();
   const [dialogIndex, setDialogIndex] = useState(null);
+  const [rotationMemberId, setRotationMemberId] = useState(charId);
+  const [prevCharId, setPrevCharId] = useState(charId);
+  if (prevCharId !== charId) {
+    setPrevCharId(charId);
+    setRotationMemberId(charId);
+  }
+  const rotationMemberIndex = Math.max(0, team.findIndex((m) => m.id === rotationMemberId));
 
   const member = team.reduce((acc, member) => {
     if (member.id !== charId) return acc;
@@ -201,7 +208,34 @@ export const StatsPanel = ({ team, updateTeam }) => {
           Rotation
         </Typography>
 
-        <Box sx={{ flexGrow: 1 }} />
+        <TextField
+          select
+          size="small"
+          value={rotationMemberIndex >= 0 ? rotationMemberIndex : 0}
+          onChange={(e) => setRotationMemberId(team[Number(e.target.value)]?.id ?? null)}
+          fullWidth
+          sx={{ mb: 1.5 }}
+        >
+          {team.map((m, i) => (
+            <MenuItem key={i} value={i} disabled={!m.id}>
+              {m.id ? (CHARACTER[gameId][m.id]?.name ?? m.id) : `Slot ${i + 1} (empty)`}
+            </MenuItem>
+          ))}
+        </TextField>
+
+        {(() => {
+          const idx = rotationMemberIndex;
+          const rotMember = team[idx];
+          return (
+            <RotationEditor
+              gameId={gameId}
+              charId={rotMember?.id ?? null}
+              member={rotMember}
+              rotation={rotMember?.rotation ?? []}
+              onChange={(rotation) => updateTeam(idx, { ...rotMember, rotation })}
+            />
+          );
+        })()}
 
         <Divider sx={{ my: 2 }} />
 

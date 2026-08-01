@@ -4,6 +4,7 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Autocomplete,
   Box,
   Button,
   Card,
@@ -22,6 +23,8 @@ import {
   Stack,
   Switch,
   TextField,
+  ToggleButton,
+  ToggleButtonGroup,
   Typography,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -35,7 +38,7 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTER, ACTION, WEAPON, SET, ECHO } from '@/data';
+import { CHARACTER, ACTION, WEAPON, SET, ECHO, WW } from '@/data';
 import { toArray, formatStr, getPresetSetCounts, getMemberPreset, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 import { CharacterSelectDialog, WeaponSelectDialog, SetSelectDialog } from './GridSelect';
@@ -577,7 +580,7 @@ function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove 
   );
 }
 
-function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
+export function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
 
@@ -703,6 +706,31 @@ function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
         onSelect={(actionKey) => onChange([...rotation, actionKey])}
       />
     </Box>
+  );
+}
+
+function MainEchoAutocomplete({ charId, value, onChange, disabled }) {
+  const options = useMemo(
+    () =>
+      Object.values(ECHO)
+        .map((e) => ({ id: e.id, label: e.name, cost: e.cost }))
+        .sort((a, b) => b.cost - a.cost || a.label.localeCompare(b.label)),
+    [],
+  );
+
+  const selected = options.find((o) => o.id === value) ?? null;
+
+  return (
+    <Autocomplete
+      options={options}
+      getOptionLabel={(o) => o.label}
+      value={selected}
+      onChange={(_, option) => onChange(option?.id ?? null)}
+      disabled={disabled || !charId}
+      size="small"
+      renderInput={(params) => <TextField {...params} label="Main Echo" />
+      }
+    />
   );
 }
 
@@ -874,13 +902,36 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             </Box>
           </Stack>
 
-          <RotationEditor
-            gameId={gameId}
-            charId={draft.id}
-            member={member}
-            rotation={draft.rotation}
-            onChange={(rotation) => setDraft((prev) => ({ ...prev, rotation }))}
-          />
+          {gameId === WW && (
+            <Box sx={{ mt: 2.5 }}>
+              <Typography variant="subtitle2" sx={{ mb: 1 }}>Main Echo</Typography>
+              <MainEchoAutocomplete
+                charId={draft.id}
+                value={draft.mainEcho ?? null}
+                onChange={(mainEcho) => setDraft((prev) => ({ ...prev, mainEcho }))}
+                disabled={buildLocked}
+              />
+            </Box>
+          )}
+
+          {gameId === WW && CHARACTER[gameId][draft.id]?.resonanceModes && (
+            <Box sx={{ mt: 2 }}>
+              <Typography variant="subtitle2" sx={{ mb: 1 }}>Resonance Mode</Typography>
+              <ToggleButtonGroup
+                exclusive
+                value={draft.resonanceMode ?? CHARACTER[gameId][draft.id].resonanceModes[0]}
+                onChange={(_, value) => { if (value !== null) setDraft((prev) => ({ ...prev, resonanceMode: value })); }}
+                disabled={buildLocked}
+                size="small"
+              >
+                {CHARACTER[gameId][draft.id].resonanceModes.map((mode) => (
+                  <ToggleButton key={mode} value={mode}>
+                    {mode}
+                  </ToggleButton>
+                ))}
+              </ToggleButtonGroup>
+            </Box>
+          )}
         </DialogContent>
 
         <DialogActions>

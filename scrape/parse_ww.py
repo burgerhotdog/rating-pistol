@@ -111,7 +111,7 @@ def parse_character(version, id, data):
         ascension[k] = round(ascension[k], 4 if k.endswith('%') else 1)
 
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'quality': int(data['rarity']),
@@ -188,7 +188,7 @@ def parse_weapon(version, id, data):
     stat = lookup_stat[data['stats']['6']['90'][1]['name']]
     value = data['stats']['6']['90'][1]['value']
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'quality': int(data['rarity']),
@@ -198,17 +198,6 @@ def parse_weapon(version, id, data):
             stat: value / 10000 if data['stats']['6']['90'][1]['is_percent'] else int(value),
         },
         'effects': [],
-    }
-
-def parse_set(version, id, data):
-    return {
-        'name': data['name']['en'],
-        'version': float(version),
-        'id': str(id),
-        'bonusEffects': {
-            key: []
-            for key in data['set']
-        },
     }
 
 def parse_echo(version, id, data):
@@ -241,7 +230,7 @@ def parse_echo(version, id, data):
         actions.append(action)
 
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'sets': list(data['group']),
@@ -250,15 +239,24 @@ def parse_echo(version, id, data):
         'actions': actions,
     }
 
-def parse_character_data(version, id, data):
-    return parse_character(version, id, data), parse_actions(data)
+def parse_ww(type, version, id, data):
+    match type:
+        case 'character':
+            return parse_character(version, id, data), parse_actions(data)
 
-parsers = {
-    'character': parse_character_data,
-    'weapon': parse_weapon,
-    'set': parse_set,
-    'echo': parse_echo,
-}
+        case 'weapon':
+            return parse_weapon(version, id, data)
 
-def parse_ww(type, *args):
-    return parsers[type](*args)
+        case 'echo':
+            return parse_echo(version, id, data)
+
+        case 'set':
+            return {
+                'name': str(data['name']['en']),
+                'version': float(version),
+                'id': str(id),
+                'bonusEffects': {
+                    str(num): []
+                    for num in data.get('set', {})
+                },
+            }

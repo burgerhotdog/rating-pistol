@@ -32,7 +32,7 @@ def parse_character(version, id, data):
     rawStat, value = list(data['stats_modifier']['ascension'][5].items())[3]
     stat = lookup_stat[rawStat]
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'quality': 4 if data['rarity'] == 'QUALITY_PURPLE' else 5,
@@ -119,7 +119,7 @@ def parse_weapon(version, id, data):
     stat = lookup_stat[raw_id]
     value = value_map['base'] * value_map['levels']['90']
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'quality': int(data['rarity']),
@@ -136,22 +136,21 @@ def parse_weapon(version, id, data):
         'effects': [],
     }
 
-def parse_set(version, id, data):
-    return {
-        'name': data['affix'][0]['name'],
-        'version': float(version),
-        'id': str(id),
-        'bonusEffects': {},
-    }
+def parse_gi(type, version, id, data):
+    match type:
+        case 'character':
+            return parse_character(version, id, data), parse_actions(data)
 
-def parse_character_data(version, id, data):
-    return parse_character(version, id, data), parse_actions(data)
+        case 'weapon':
+            return parse_weapon(version, id, data)
 
-parsers = {
-    'character': parse_character_data,
-    'weapon': parse_weapon,
-    'set': parse_set,
-}
-
-def parse_gi(type, *args):
-    return parsers[type](*args)
+        case 'set':
+            return {
+                'name': str(data['affix'][0]['name']),
+                'version': float(version),
+                'id': str(id),
+                'bonusEffects': {
+                    '2': [],
+                    '4': [],
+                },
+            }
