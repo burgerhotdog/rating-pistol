@@ -55,7 +55,7 @@ export function getMemberPreset(gameId, charId, presetIndex = 0) {
     }
   }
 
-  if ('resonanceModes' in character) member.resonanceMode = character.resonanceModes[0];
+  if ('modes' in character) member.resonanceMode = character.modes[0];
 
   return member;
 }

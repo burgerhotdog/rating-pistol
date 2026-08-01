@@ -6423,9 +6423,9 @@
     "element": "glacio",
     "type": "rectifier",
     "noEnergy": true,
-    "resonanceModes": [
-      "Glacio Chafe",
-      "Echo"
+    "modes": [
+      "glacioChafe",
+      "echo"
     ],
     "stats": {
       "baseHp": 12237,
@@ -17337,9 +17337,9 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
-    "resonanceModes": [
-      "Tune Rupture",
-      "Fusion Burst"
+    "modes": [
+      "tuneRupture",
+      "fusionBurst"
     ],
     "stats": {
       "baseHp": 11025,
@@ -18997,9 +18997,9 @@
     "element": "fusion",
     "type": "rectifier",
     "tagged": "tuneStrain",
-    "resonanceModes": [
-      "Fusion Burst",
-      "Tune Strain"
+    "modes": [
+      "fusionBurst",
+      "tuneStrain"
     ],
     "stats": {
       "baseHp": 11025,
@@ -33549,9 +33549,9 @@
           {
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
-            "extraType": "aeroErosion",
             "damage": {
               "type": "basicAttack",
+              "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
                 {
@@ -33584,9 +33584,9 @@
           {
             "name": "Mid-air Attack 1 Sword Shadow Recalled",
             "type": "mid-airAttack",
-            "extraType": "aeroErosion",
             "damage": {
               "type": "basicAttack",
+              "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
                 {
@@ -33619,9 +33619,9 @@
           {
             "name": "Mid-air Attack 2 Sword Shadows Recalled",
             "type": "mid-airAttack",
-            "extraType": "aeroErosion",
             "damage": {
               "type": "basicAttack",
+              "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
                 {
@@ -33655,9 +33655,9 @@
           {
             "name": "Mid-air Attack 3 Sword Shadows Recalled",
             "type": "mid-airAttack",
-            "extraType": "aeroErosion",
             "damage": {
               "type": "basicAttack",
+              "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
                 {
@@ -43020,9 +43020,9 @@
           {
             "name": "Targeted Action",
             "type": "resonanceSkill",
-            "extraType": "spectroFrazzle",
             "damage": {
               "type": "resonanceSkill",
+              "extraType": "spectroFrazzle",
               "multipliers": [
                 {
                   "mv": [
@@ -43102,8 +43102,8 @@
           {
             "name": "Forcible Riposte",
             "type": "resonanceSkill",
-            "extraType": "spectroFrazzle",
             "damage": {
+              "extraType": "spectroFrazzle",
               "multipliers": [
                 {
                   "mv": [
@@ -43282,9 +43282,9 @@
             "name": "Heavy Slash - Daybreak",
             "tagged": "Inferno Mode",
             "type": "basicAttack",
-            "extraType": "spectroFrazzle",
             "damage": {
               "type": "heavyAttack",
+              "extraType": "spectroFrazzle",
               "multipliers": [
                 {
                   "mv": [
@@ -43317,9 +43317,9 @@
             "name": "Heavy Slash - Dawning",
             "tagged": "Inferno Mode",
             "type": "basicAttack",
-            "extraType": "spectroFrazzle",
             "damage": {
               "type": "heavyAttack",
+              "extraType": "spectroFrazzle",
               "multipliers": [
                 {
                   "mv": [
@@ -43352,9 +43352,9 @@
             "name": "Heavy Slash - Nightfall",
             "tagged": "Inferno Mode",
             "type": "basicAttack",
-            "extraType": "spectroFrazzle",
             "damage": {
               "type": "heavyAttack",
+              "extraType": "spectroFrazzle",
               "multipliers": [
                 {
                   "mv": [
@@ -43409,9 +43409,9 @@
           },
           {
             "name": "Additional Multiplier Per Blaze",
-            "extraType": "spectroFrazzle",
             "damage": {
               "type": "heavyAttack",
+              "extraType": "spectroFrazzle",
               "multipliers": [
                 {
                   "mv": [
@@ -43443,9 +43443,9 @@
           {
             "name": "Heavy Slash - Lightsmash",
             "tagged": "Inferno Mode",
-            "extraType": "spectroFrazzle",
             "damage": {
               "type": "heavyAttack",
+              "extraType": "spectroFrazzle",
               "multipliers": [
                 {
                   "mv": [
@@ -43544,8 +43544,8 @@
           {
             "name": "Beacon For the Future",
             "type": "outroSkill",
-            "extraType": "spectroFrazzle",
             "damage": {
+              "extraType": "spectroFrazzle",
               "multipliers": [
                 {
                   "mv": 1.5
@@ -45117,9 +45117,9 @@
     "element": "spectro",
     "type": "pistols",
     "tagged": "tuneStrain",
-    "resonanceModes": [
-      "Tune Rupture",
-      "Tune Strain"
+    "modes": [
+      "tuneRupture",
+      "tuneStrain"
     ],
     "stats": {
       "baseHp": 12237,

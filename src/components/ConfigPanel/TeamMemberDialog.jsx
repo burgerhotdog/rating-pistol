@@ -910,17 +910,17 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             </Box>
           )}
 
-          {gameId === WW && CHARACTER[gameId][draft.id]?.resonanceModes && (
+          {gameId === WW && CHARACTER[gameId][draft.id]?.modes && (
             <Box sx={{ mt: 2 }}>
               <Typography variant="subtitle2" sx={{ mb: 1 }}>Resonance Mode</Typography>
               <ToggleButtonGroup
                 exclusive
-                value={draft.resonanceMode ?? CHARACTER[gameId][draft.id].resonanceModes[0]}
+                value={draft.resonanceMode ?? CHARACTER[gameId][draft.id].modes[0]}
                 onChange={(_, value) => { if (value !== null) setDraft((prev) => ({ ...prev, resonanceMode: value })); }}
                 disabled={buildLocked}
                 size="small"
               >
-                {CHARACTER[gameId][draft.id].resonanceModes.map((mode) => (
+                {CHARACTER[gameId][draft.id].modes.map((mode) => (
                   <ToggleButton key={mode} value={mode}>
                     {mode}
                   </ToggleButton>
