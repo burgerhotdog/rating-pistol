@@ -42561,12 +42561,9 @@
         }
       },
       {
-        "applyWhen": "before",
-        "applyOnAction": "forteCircuit.2",
         "useWhen": "hit",
-        "useAction": "forteCircuit.3",
-        "times": 40,
-        "maxUses": 1
+        "useOnAction": "forteCircuit.2",
+        "useAction": "forteCircuit.3"
       },
       {
         "applyWhen": "before",
@@ -43438,7 +43435,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "times": 40
           },
           {
             "name": "Heavy Slash - Lightsmash",
