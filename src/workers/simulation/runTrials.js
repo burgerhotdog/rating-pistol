@@ -61,31 +61,40 @@ const buildConfigStats = (gameId, trials) => {
   return configMap;
 };
 
-const normalizeSummarySums = (sums, n) =>
-  Object.fromEntries(
-    Object.entries(sums).map(([snapshotKey, result]) => [
-      snapshotKey,
-      {
-        ...result,
-        damage: result.damage / n,
-        healing: result.healing / n,
-        shield: result.shield / n,
-      },
-    ])
-  );
+function createSummaryAcc() {
+  return {
+    acc: [],
+    count: 0,
+    add(summary) {
+      this.count++;
 
-function addSummaryToSums(sums, snapshots) {
-  for (const [snapshotKey, snapshot] of Object.entries(snapshots)) {
-    const acc = sums[snapshotKey];
-    if (acc) {
-      for (const part of ['damage', 'healing', 'shield']) {
-        acc[part] += snapshot[part] ?? 0;
+      for (const [index, snapshot] of summary.entries()) {
+        const snapshotAcc = this.acc[index];
+
+        if (snapshotAcc) {
+          for (const part of ['damage', 'healing', 'shield']) {
+            if (!(part in snapshot)) continue;
+            snapshotAcc[part] ??= 0;
+            snapshotAcc[part] += snapshot[part] ?? 0;
+          }
+        } else {
+          this.acc[index] = { ...snapshot };
+        }
       }
-    } else {
-      sums[snapshotKey] ??= { ...snapshot };
-    }
-  }
-}
+    },
+    getAvgSummary() {
+      return this.acc.map((snapshot) => ({
+        ...snapshot,
+        ...('damage' in snapshot &&
+          { damage: snapshot.damage / this.count }),
+        ...('healing' in snapshot &&
+          { healing: snapshot.healing / this.count }),
+        ...('shield' in snapshot &&
+          { shield: snapshot.shield / this.count }),
+      }));
+    },
+  };
+};
 
 export const runTrials = (cache, equipMaps, currId, isMain = false) => {
   const { gameId, member } = cache;
@@ -117,13 +126,13 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
   let prevAvgScore = baseScore;
   for (let week = 1; week <= MAX_WEEKS; week++) {
     const weekScores = createScoreTracker();
-    const weekSummarySums = {};
+    const weekSummaryAcc = createSummaryAcc();
 
     for (const trial of trials) {
       advanceTrial(trial);
       weekScores.add(trial.score);
 
-      if (isMain) addSummaryToSums(weekSummarySums, trial.summary);
+      if (isMain) weekSummaryAcc.add(trial.summary);
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
@@ -136,7 +145,7 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
       trials.push(trial);
 
       weekScores.add(trial.score);
-      if (isMain) addSummaryToSums(weekSummarySums, trial.summary);
+      if (isMain) weekSummaryAcc.add(trial.summary);
     }
 
     const avgScore = weekScores.mean;
@@ -144,8 +153,7 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
 
     if (isMain) {
       self.postMessage({ week, diff });
-      const weeklySummary = normalizeSummarySums(weekSummarySums, trials.length);
-      weeklySummaries.push(weeklySummary);
+      weeklySummaries.push(weekSummaryAcc.getAvgSummary());
     }
 
     if (diff < 0.01) {

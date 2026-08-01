@@ -21,9 +21,11 @@ export const buildSnapshot = (ctx, action, options = {}) => {
   const snapshot = {
     key: action.key,
     ownerId: action.ownerId,
+    category: action.category,
     type: action.type,
-    dmgType: action?.damage?.type,
     runtime: ctx.states.runtime + runtimeOffset,
+    ...('damage' in action &&
+      { damageType: action.damage.type }),
   };
 
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: action.ownerId, action });

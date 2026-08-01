@@ -19,20 +19,42 @@ import { FlexRow, FlexCol, FlexCard, ChartFill, Dot } from '@/components';
 import { CHARACTER } from '@/data';
 import { formatStr, formatNum } from '@/utils';
 
+const VALID_CATEGORIES = new Set([
+  'normalAttack',
+  'resonanceSkill',
+  'forteCircuit',
+  'resonanceLiberation',
+  'introSkill',
+]);
+
 const BREAKDOWN_MODES = [
-  { value: 'dmgType', label: 'Dmg type' },
-  { value: 'fieldStatus', label: 'Field' },
+  { value: 'damageType', label: 'Damage type' },
+  { value: 'fieldStatus', label: 'Skill Category' },
 ];
 
 const buildData = (summary, currId, breakdownMode) => {
   const damageByType = {};
 
+  const getType = (snapshot) => {
+    if (breakdownMode === 'damageType') {
+      return snapshot.damageType ?? 'other';
+    } else {
+      const { category } = snapshot;
+      if (!VALID_CATEGORIES.has(category)) return 'other';
+      return category;
+    }
+  };
+
   // TODO: branch on breakdownMode once fieldStatus grouping is implemented.
   // For now this always groups by dmgType regardless of the selected mode.
-  for (const { ownerId, damage, dmgType } of Object.values(summary)) {
-    if (ownerId !== currId || !damage) continue;
-    damageByType[dmgType] ??= 0;
-    damageByType[dmgType] += damage;
+  for (const snapshot of summary) {
+    if (!('damage' in snapshot) || snapshot.ownerId !== currId) continue;
+
+    const type = getType(snapshot);
+    if (!type) continue;
+
+    damageByType[type] ??= 0;
+    damageByType[type] += snapshot.damage;
   }
 
   const entries = Object.entries(damageByType)
@@ -55,7 +77,7 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
   const { accentColors } = useTheme();
 
   const [selectedCharId, setSelectedCharId] = useState(charId);
-  const [breakdownMode, setBreakdownMode] = useState('dmgType');
+  const [breakdownMode, setBreakdownMode] = useState('damageType');
 
   if (!userSummary) return null;
 
@@ -89,7 +111,11 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
             exclusive
           >
             {BREAKDOWN_MODES.map(({ value, label }) => (
-              <ToggleButton key={value} value={value} sx={{ px: 1.5, textTransform: 'none' }}>
+              <ToggleButton
+                key={value}
+                value={value}
+                sx={{ px: 1.5, textTransform: 'none' }}
+              >
                 {label}
               </ToggleButton>
             ))}
