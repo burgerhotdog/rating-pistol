@@ -254,6 +254,489 @@
       ]
     }
   },
+  "113": {
+    "name": "Longevous Disciple",
+    "version": 1.2,
+    "id": "113",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "hp%": 0.2
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "critRate%": 0.16
+          }
+        }
+      ]
+    }
+  },
+  "114": {
+    "name": "Messenger Traversing Hackerspace",
+    "version": 1.2,
+    "id": "114",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "spd%": 0.06
+          }
+        }
+      ],
+      "4": [
+        {}
+      ]
+    }
+  },
+  "115": {
+    "name": "The Ashblazing Grand Duke",
+    "version": 1.5,
+    "id": "115",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "follow-upAttackDmgBonus%": 0.2
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "atk%": 0.48
+          }
+        }
+      ]
+    }
+  },
+  "116": {
+    "name": "Prisoner in Deep Confinement",
+    "version": 1.5,
+    "id": "116",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "atk%": 0.12
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "defIgnore%": 0.18
+          }
+        }
+      ]
+    }
+  },
+  "117": {
+    "name": "Pioneer Diver of Dead Waters",
+    "version": 2,
+    "id": "117",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "dmgBonus%": 0.12
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "critRate%": 0.04
+          }
+        },
+        {
+          "buffMap": {
+            "critRate%": 0.04,
+            "critDmg%": 0.24
+          }
+        }
+      ]
+    }
+  },
+  "118": {
+    "name": "Watchmaker, Master of Dream Machinations",
+    "version": 2,
+    "id": "118",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "breakEffect%": 0.16
+          }
+        }
+      ],
+      "4": [
+        {
+          "applyTo": "$team",
+          "buffMap": {
+            "breakEffect%": 0.3
+          }
+        }
+      ]
+    }
+  },
+  "119": {
+    "name": "Iron Cavalry Against the Scourge",
+    "version": 2.3,
+    "id": "119",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "breakEffect%": 0.16
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "defIgnore%": 0.25
+          }
+        }
+      ]
+    }
+  },
+  "120": {
+    "name": "The Wind-Soaring Valorous",
+    "version": 2.3,
+    "id": "120",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "atk%": 0.12
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "critRate%": 0.06
+          }
+        },
+        {
+          "applyWhen": "before",
+          "applyOnType": "follow-upAttack",
+          "buffMap": {
+            "ultimateDmgBonus%": 0.36
+          }
+        }
+      ]
+    }
+  },
+  "121": {
+    "name": "Sacerdos' Relived Ordeal",
+    "version": 2.6,
+    "id": "121",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "spd%": 0.06
+          }
+        }
+      ],
+      "4": [
+        {}
+      ]
+    }
+  },
+  "122": {
+    "name": "Scholar Lost in Erudition",
+    "version": 2.6,
+    "id": "122",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "critRate%": 0.08
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "skillDmgBonus%": 0.2,
+            "ultimateDmgBonus%": 0.2
+          }
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnType": "ultimate",
+          "buffMap": {
+            "skillDmgBonus%": 0.25
+          },
+          "maxUses": 1
+        }
+      ]
+    }
+  },
+  "123": {
+    "name": "Hero of Triumphant Song",
+    "version": 3,
+    "id": "123",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "atk%": 0.12
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "spd%": 0.06,
+            "critDmg%": 0.3
+          }
+        }
+      ]
+    }
+  },
+  "124": {
+    "name": "Poet of Mourning Collapse",
+    "version": 3,
+    "id": "124",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "quantumDmgBonus%": 0.1
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "spd%": -0.08,
+            "critRate%": 0.32
+          }
+        }
+      ]
+    }
+  },
+  "125": {
+    "name": "Warrior Goddess of Sun and Thunder",
+    "version": 3.3,
+    "id": "125",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "spd%": 0.06
+          }
+        }
+      ],
+      "4": [
+        {
+          "applyWhen": "hit",
+          "applyOnHas": "healing",
+          "buffMap": {
+            "spd%": 0.06
+          }
+        },
+        {
+          "applyWhen": "hit",
+          "applyOnHas": "healing",
+          "applyTo": "$team",
+          "buffMap": {
+            "critDmg%": 0.15
+          }
+        }
+      ]
+    }
+  },
+  "126": {
+    "name": "Wavestrider Captain",
+    "version": 3.3,
+    "id": "126",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "critDmg%": 0.16
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "atk%": 0.48
+          }
+        }
+      ]
+    }
+  },
+  "127": {
+    "name": "World-Remaking Deliverer",
+    "version": 3.6,
+    "id": "127",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "critRate%": 0.08
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "hp%": 0.24
+          }
+        },
+        {
+          "applyTo": "$team",
+          "buffMap": {
+            "dmgBonus%": 0.15
+          }
+        }
+      ]
+    }
+  },
+  "128": {
+    "name": "Self-Enshrouded Recluse",
+    "version": 3.6,
+    "id": "128",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "shieldBonus%": 0.1
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "shieldBonus%": 0.12
+          }
+        },
+        {
+          "applyTo": "$team",
+          "buffMap": {
+            "critDmg%": 0.15
+          }
+        }
+      ]
+    }
+  },
+  "129": {
+    "name": "Ever-Glorious Magical Girl",
+    "version": 4,
+    "id": "129",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "critDmg%": 0.16
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "defIgnore%": 0.2
+          }
+        }
+      ]
+    }
+  },
+  "130": {
+    "name": "Diviner of Distant Reach",
+    "version": 4,
+    "id": "130",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "spd%": 0.06
+          }
+        }
+      ],
+      "4": [
+        {
+          "useIfAttr": {
+            "spd": 120
+          },
+          "buffMap": {
+            "critRate%": 0.1
+          }
+        },
+        {
+          "useIfAttr": {
+            "spd": 160
+          },
+          "buffMap": {
+            "critRate%": 0.08
+          }
+        },
+        {
+          "applyTo": "$team",
+          "buffMap": {
+            "elation%": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "131": {
+    "name": "As Navigator Isee Sees It",
+    "version": 4.3,
+    "id": "131",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "atk%": 0.12
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "skillDmgBonus%": 0.54,
+            "ultimateDmgBonus%": 0.54
+          }
+        }
+      ]
+    }
+  },
+  "132": {
+    "name": "Divine-Querying Master Smith",
+    "version": 4.3,
+    "id": "132",
+    "bonusEffects": {
+      "2": [
+        {
+          "buffMap": {
+            "hp%": 0.12
+          }
+        }
+      ],
+      "4": [
+        {
+          "buffMap": {
+            "critDmg%": 0.28
+          }
+        },
+        {
+          "applyTo": "$team",
+          "buffMap": {
+            "dmgBonus%": 0.15
+          }
+        }
+      ]
+    }
+  },
   "301": {
     "name": "Space Sealing Station",
     "version": 1,
@@ -418,44 +901,6 @@
       ]
     }
   },
-  "113": {
-    "name": "Longevous Disciple",
-    "version": 1.2,
-    "id": "113",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "hp%": 0.2
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "critRate%": 0.16
-          }
-        }
-      ]
-    }
-  },
-  "114": {
-    "name": "Messenger Traversing Hackerspace",
-    "version": 1.2,
-    "id": "114",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "spd%": 0.06
-          }
-        }
-      ],
-      "4": [
-        {}
-      ]
-    }
-  },
   "309": {
     "name": "Rutilant Arena",
     "version": 1.2,
@@ -497,48 +942,6 @@
           },
           "buffMap": {
             "critDmg%": 0.1
-          }
-        }
-      ]
-    }
-  },
-  "115": {
-    "name": "The Ashblazing Grand Duke",
-    "version": 1.5,
-    "id": "115",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "follow-upAttackDmgBonus%": 0.2
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "atk%": 0.48
-          }
-        }
-      ]
-    }
-  },
-  "116": {
-    "name": "Prisoner in Deep Confinement",
-    "version": 1.5,
-    "id": "116",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "atk%": 0.12
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "defIgnore%": 0.18
           }
         }
       ]
@@ -588,55 +991,6 @@
       ]
     }
   },
-  "117": {
-    "name": "Pioneer Diver of Dead Waters",
-    "version": 2,
-    "id": "117",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "dmgBonus%": 0.12
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "critRate%": 0.04
-          }
-        },
-        {
-          "buffMap": {
-            "critRate%": 0.04,
-            "critDmg%": 0.24
-          }
-        }
-      ]
-    }
-  },
-  "118": {
-    "name": "Watchmaker, Master of Dream Machinations",
-    "version": 2,
-    "id": "118",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "breakEffect%": 0.16
-          }
-        }
-      ],
-      "4": [
-        {
-          "applyTo": "$team",
-          "buffMap": {
-            "breakEffect%": 0.3
-          }
-        }
-      ]
-    }
-  },
   "313": {
     "name": "Sigonia, the Unclaimed Desolation",
     "version": 2.1,
@@ -670,55 +1024,6 @@
         {
           "buffMap": {
             "critRate%": 0.12
-          }
-        }
-      ]
-    }
-  },
-  "119": {
-    "name": "Iron Cavalry Against the Scourge",
-    "version": 2.3,
-    "id": "119",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "breakEffect%": 0.16
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "defIgnore%": 0.25
-          }
-        }
-      ]
-    }
-  },
-  "120": {
-    "name": "The Wind-Soaring Valorous",
-    "version": 2.3,
-    "id": "120",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "atk%": 0.12
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "critRate%": 0.06
-          }
-        },
-        {
-          "applyWhen": "before",
-          "applyOnType": "follow-upAttack",
-          "buffMap": {
-            "ultimateDmgBonus%": 0.36
           }
         }
       ]
@@ -797,97 +1102,6 @@
       ]
     }
   },
-  "121": {
-    "name": "Sacerdos' Relived Ordeal",
-    "version": 2.6,
-    "id": "121",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "spd%": 0.06
-          }
-        }
-      ],
-      "4": [
-        {}
-      ]
-    }
-  },
-  "122": {
-    "name": "Scholar Lost in Erudition",
-    "version": 2.6,
-    "id": "122",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "critRate%": 0.08
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "skillDmgBonus%": 0.2,
-            "ultimateDmgBonus%": 0.2
-          }
-        },
-        {
-          "applyWhen": "hit",
-          "applyOnType": "ultimate",
-          "buffMap": {
-            "skillDmgBonus%": 0.25
-          },
-          "maxUses": 1
-        }
-      ]
-    }
-  },
-  "123": {
-    "name": "Hero of Triumphant Song",
-    "version": 3,
-    "id": "123",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "atk%": 0.12
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "spd%": 0.06,
-            "critDmg%": 0.3
-          }
-        }
-      ]
-    }
-  },
-  "124": {
-    "name": "Poet of Mourning Collapse",
-    "version": 3,
-    "id": "124",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "quantumDmgBonus%": 0.1
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "spd%": -0.08,
-            "critRate%": 0.32
-          }
-        }
-      ]
-    }
-  },
   "319": {
     "name": "Bone Collection's Serene Demesne",
     "version": 3.1,
@@ -940,58 +1154,6 @@
       ]
     }
   },
-  "125": {
-    "name": "Warrior Goddess of Sun and Thunder",
-    "version": 3.3,
-    "id": "125",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "spd%": 0.06
-          }
-        }
-      ],
-      "4": [
-        {
-          "applyWhen": "hit",
-          "applyOnHas": "healing",
-          "buffMap": {
-            "spd%": 0.06
-          }
-        },
-        {
-          "applyWhen": "hit",
-          "applyOnHas": "healing",
-          "applyTo": "$team",
-          "buffMap": {
-            "critDmg%": 0.15
-          }
-        }
-      ]
-    }
-  },
-  "126": {
-    "name": "Wavestrider Captain",
-    "version": 3.3,
-    "id": "126",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "critDmg%": 0.16
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "atk%": 0.48
-          }
-        }
-      ]
-    }
-  },
   "321": {
     "name": "Arcadia of Woven Dreams",
     "version": 3.4,
@@ -1036,60 +1198,6 @@
       ]
     }
   },
-  "127": {
-    "name": "World-Remaking Deliverer",
-    "version": 3.6,
-    "id": "127",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "critRate%": 0.08
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "hp%": 0.24
-          }
-        },
-        {
-          "applyTo": "$team",
-          "buffMap": {
-            "dmgBonus%": 0.15
-          }
-        }
-      ]
-    }
-  },
-  "128": {
-    "name": "Self-Enshrouded Recluse",
-    "version": 3.6,
-    "id": "128",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "shieldBonus%": 0.1
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "shieldBonus%": 0.12
-          }
-        },
-        {
-          "applyTo": "$team",
-          "buffMap": {
-            "critDmg%": 0.15
-          }
-        }
-      ]
-    }
-  },
   "323": {
     "name": "Amphoreus, The Eternal Land",
     "version": 3.7,
@@ -1124,65 +1232,6 @@
         {
           "buffMap": {
             "critDmg%": 0.32
-          }
-        }
-      ]
-    }
-  },
-  "129": {
-    "name": "Ever-Glorious Magical Girl",
-    "version": 4,
-    "id": "129",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "critDmg%": 0.16
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "defIgnore%": 0.2
-          }
-        }
-      ]
-    }
-  },
-  "130": {
-    "name": "Diviner of Distant Reach",
-    "version": 4,
-    "id": "130",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "spd%": 0.06
-          }
-        }
-      ],
-      "4": [
-        {
-          "useIfAttr": {
-            "spd": 120
-          },
-          "buffMap": {
-            "critRate%": 0.1
-          }
-        },
-        {
-          "useIfAttr": {
-            "spd": 160
-          },
-          "buffMap": {
-            "critRate%": 0.08
-          }
-        },
-        {
-          "applyTo": "$team",
-          "buffMap": {
-            "elation%": 0.1
           }
         }
       ]
@@ -1229,53 +1278,20 @@
       ]
     }
   },
-  "131": {
-    "name": "As Navigator Isee Sees It",
-    "version": 4.3,
-    "id": "131",
+  "327": {
+    "name": "Fallen Star Anchorage",
+    "version": 4.4,
+    "id": "327",
     "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "atk%": 0.12
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "skillDmgBonus%": 0.54,
-            "ultimateDmgBonus%": 0.54
-          }
-        }
-      ]
+      "2": []
     }
   },
-  "132": {
-    "name": "Divine-Querying Master Smith",
-    "version": 4.3,
-    "id": "132",
+  "328": {
+    "name": "Cosmic Life Sciences Institute",
+    "version": 4.4,
+    "id": "328",
     "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "hp%": 0.12
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "critDmg%": 0.28
-          }
-        },
-        {
-          "applyTo": "$team",
-          "buffMap": {
-            "dmgBonus%": 0.15
-          }
-        }
-      ]
+      "2": []
     }
   }
 }

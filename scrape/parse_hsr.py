@@ -34,8 +34,8 @@ lookup_stat = {
     'ElationDamageAddedRatioBase': 'elation%',
 }
 
-def parse_actions(data):
-    actions = {}
+def parse_skills(data):
+    skills = {}
     key_to_id = {
         'Basic ATK': 'basicAtk',
         'Skill': 'skill',
@@ -82,29 +82,22 @@ def parse_actions(data):
             filtered.append(entry)
 
         multipliers = filtered
-        
-        if skill_id not in actions:
-            actions[skill_id] = {
-                '1': {
-                    'name': raw_skill['name'],
-                    'type': skill_id,
-                    'damage': {
-                        'multipliers': multipliers,
-                    },
-                }
-            }
-        else:
-            count = len(actions[skill_id]) + 1
 
-            actions[skill_id][str(count)] = {
+        if skill_id not in skills:
+            skills[skill_id] = {
                 'name': raw_skill['name'],
-                'type': skill_id,
-                'damage': {
-                    'multipliers': multipliers,
-                },
+                'actions': []
             }
 
-    return actions
+        skills[skill_id]['actions'].append({
+            'name': raw_skill['name'],
+            'type': skill_id,
+            'damage': {
+                'multipliers': multipliers,
+            },
+        })
+
+    return skills
 
 def parse_character(version, id, data):
     base_data = data['stats']['6']
@@ -138,7 +131,7 @@ def parse_character(version, id, data):
         'type': lookup_type[data['base_type']],
         'stats': stats,
         'effects': [],
-        'skills': parse_actions(data),
+        'skills': parse_skills(data),
         'presets': [],
     }
 

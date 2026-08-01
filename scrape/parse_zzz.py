@@ -31,8 +31,8 @@ lookup_stat = {
     'PEN Ratio': 'penRatio%',
 }
 
-def parse_actions(data):
-    actions = {}
+def parse_skills(data):
+    skills = {}
     key_to_id = {
         'basic': 'basic',
         'dodge': 'dodge',
@@ -43,10 +43,9 @@ def parse_actions(data):
 
     for skill_key in ['basic', 'dodge', 'assist', 'special', 'chain']:
         skillData = data['skill'][skill_key]['description']
-        skill = {}
+        actions = []
         skill_id = key_to_id[skill_key]
 
-        index = 1
         for item in skillData:
             if 'param' not in item:
                 continue
@@ -67,13 +66,11 @@ def parse_actions(data):
                         value = eval(expr, {'__builtins__': {}}, {'lvl': lvl})
                         mult.append(round(value / 100, 4))
 
-                    skill[str(index)] = {
+                    actions.append({
                         'name': skill_name + ' ' + action_data['name'],
                         'type': skill_id,
                         'multipliers': [mult],
-                    }
-
-                    index += 1
+                    })
                     continue
 
                 details = next(iter(action_data['param'].values()))
@@ -89,18 +86,20 @@ def parse_actions(data):
                     if anom > 0:
                         mult['anomaly'] = anom
 
-                skill[str(index)] = {
+                actions.append({
                     'name': skill_name + ' ' + action_data['name'],
                     'type': skill_id,
                     'damage': {
                         'multipliers': [mult],
                     },
-                }
+                })
 
-                index += 1
+        skills[skill_id] = {
+            'name': '',
+            'actions': actions,
+        }
 
-        actions[skill_id] = skill
-    return actions
+    return skills
 
 def parse_character(version, id, data):
     stats = {
@@ -141,7 +140,7 @@ def parse_character(version, id, data):
         'type': next(iter(data['weapon_type'].values())).lower(),
         'stats': stats,
         'effects': [],
-        'skills': parse_actions(data),
+        'skills': parse_skills(data),
         'presets': [],
     }
 

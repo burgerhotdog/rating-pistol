@@ -95,8 +95,8 @@ def format_multipliers(raw_list):
 
     return result
 
-def parse_actions(data):
-    actions = {}
+def parse_skills(data):
+    skills = {}
     key_to_id = {
         '1': 'normalAttack',
         '2': 'resonanceSkill',
@@ -108,8 +108,7 @@ def parse_actions(data):
     for group_id in ['1', '2', '3', '7', '6']:
         skill_group_data = data['skill_trees'][group_id]['skill']
 
-        skills = {}
-        action_id = 1
+        actions = []
         for _, skill_data in skill_group_data['level'].items():
             if '%' not in skill_data['param'][0][0]:
                 continue # skip invalid entries
@@ -132,26 +131,30 @@ def parse_actions(data):
             # format multipliers list
             multipliers = format_multipliers(skill_data['param'][0])
 
-            skills[str(action_id)] = {
+            actions.append({
                 'name': skill_data['name'],
                 'type': 'basicAttack' if group_id == '1' else key_to_id[group_id],
                 **({'attr': attr} if attr else {}),
                 'damage': {
                     'multipliers': multipliers,
                 },
-            }
+            })
 
-            action_id += 1
-
-        actions[key_to_id[group_id]] = skills
-
-    actions['outroSkill'] = {
-        '1': {
-            'name': data['skill_trees']['8']['skill']['name'],
-            'type': 'outroSkill',
+        skills[key_to_id[group_id]] = {
+            'name': '',
+            'actions': actions,
         }
+
+    skills['outroSkill'] = {
+        'name': data['skill_trees']['8']['skill']['name'],
+        'actions': [
+            {
+                'name': data['skill_trees']['8']['skill']['name'],
+                'type': 'outroSkill',
+            }
+        ],
     }
-    return actions
+    return skills
 
 def parse_character(version, id, data):
     base_data = data['stats']['6']['90']
@@ -186,7 +189,7 @@ def parse_character(version, id, data):
         'type': list_type[int(data['weapon']) - 1],
         'stats': stats,
         'effects': [],
-        'skills': parse_actions(data),
+        'skills': parse_skills(data),
         'presets': [],
     }
 

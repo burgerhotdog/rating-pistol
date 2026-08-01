@@ -272,6 +272,58 @@
     },
     "effects": []
   },
+  "20021": {
+    "name": "Shadowburn",
+    "version": 3,
+    "id": "20021",
+    "quality": 3,
+    "type": "remembrance",
+    "stats": {
+      "baseHp": 847,
+      "baseAtk": 318,
+      "baseDef": 265
+    },
+    "effects": []
+  },
+  "20022": {
+    "name": "Reminiscence",
+    "version": 3,
+    "id": "20022",
+    "quality": 3,
+    "type": "remembrance",
+    "stats": {
+      "baseHp": 635,
+      "baseAtk": 423,
+      "baseDef": 265
+    },
+    "effects": []
+  },
+  "20023": {
+    "name": "Sneering",
+    "version": 4,
+    "id": "20023",
+    "quality": 3,
+    "type": "elation",
+    "stats": {
+      "baseHp": 741,
+      "baseAtk": 370,
+      "baseDef": 265
+    },
+    "effects": []
+  },
+  "20024": {
+    "name": "Lingering Tear",
+    "version": 4,
+    "id": "20024",
+    "quality": 3,
+    "type": "elation",
+    "stats": {
+      "baseHp": 847,
+      "baseAtk": 318,
+      "baseDef": 265
+    },
+    "effects": []
+  },
   "21000": {
     "name": "Post-Op Conversation",
     "version": 1,
@@ -727,357 +779,6 @@
     },
     "effects": []
   },
-  "23000": {
-    "name": "Night on the Milky Way",
-    "version": 1,
-    "id": "23000",
-    "quality": 5,
-    "type": "erudition",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 582,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23001": {
-    "name": "In the Night",
-    "version": 1,
-    "id": "23001",
-    "quality": 5,
-    "type": "hunt",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23002": {
-    "name": "Something Irreplaceable",
-    "version": 1,
-    "id": "23002",
-    "quality": 5,
-    "type": "destruction",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 582,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23003": {
-    "name": "But the Battle Isn't Over",
-    "version": 1,
-    "id": "23003",
-    "quality": 5,
-    "type": "harmony",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 529,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23004": {
-    "name": "In the Name of the World",
-    "version": 1,
-    "id": "23004",
-    "quality": 5,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23005": {
-    "name": "Moment of Victory",
-    "version": 1,
-    "id": "23005",
-    "quality": 5,
-    "type": "preservation",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 476,
-      "baseDef": 595
-    },
-    "effects": []
-  },
-  "23010": {
-    "name": "Before Dawn",
-    "version": 1,
-    "id": "23010",
-    "quality": 5,
-    "type": "erudition",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23012": {
-    "name": "Sleep Like the Dead",
-    "version": 1,
-    "id": "23012",
-    "quality": 5,
-    "type": "hunt",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23013": {
-    "name": "Time Waits for No One",
-    "version": 1,
-    "id": "23013",
-    "quality": 5,
-    "type": "abundance",
-    "stats": {
-      "baseHp": 1270,
-      "baseAtk": 476,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "24000": {
-    "name": "On the Fall of an Aeon",
-    "version": 1,
-    "id": "24000",
-    "quality": 5,
-    "type": "destruction",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 529,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "24001": {
-    "name": "Cruising in the Stellar Sea",
-    "version": 1,
-    "id": "24001",
-    "quality": 5,
-    "type": "hunt",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 529,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "24002": {
-    "name": "Texture of Memories",
-    "version": 1,
-    "id": "24002",
-    "quality": 5,
-    "type": "preservation",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 423,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "22000": {
-    "name": "Before the Tutorial Mission Starts",
-    "version": 1.1,
-    "id": "22000",
-    "quality": 4,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 476,
-      "baseDef": 331
-    },
-    "effects": []
-  },
-  "23007": {
-    "name": "Incessant Rain",
-    "version": 1.1,
-    "id": "23007",
-    "quality": 5,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23008": {
-    "name": "Echoes of the Coffin",
-    "version": 1.1,
-    "id": "23008",
-    "quality": 5,
-    "type": "abundance",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 582,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23006": {
-    "name": "Patience Is All You Need",
-    "version": 1.2,
-    "id": "23006",
-    "quality": 5,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23009": {
-    "name": "The Unreachable Side",
-    "version": 1.2,
-    "id": "23009",
-    "quality": 5,
-    "type": "destruction",
-    "stats": {
-      "baseHp": 1270,
-      "baseAtk": 582,
-      "baseDef": 331
-    },
-    "effects": []
-  },
-  "23011": {
-    "name": "She Already Shut Her Eyes",
-    "version": 1.3,
-    "id": "23011",
-    "quality": 5,
-    "type": "preservation",
-    "stats": {
-      "baseHp": 1270,
-      "baseAtk": 423,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "23015": {
-    "name": "Brighter Than the Sun",
-    "version": 1.3,
-    "id": "23015",
-    "quality": 5,
-    "type": "destruction",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 635,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "24003": {
-    "name": "Solitary Healing",
-    "version": 1.3,
-    "id": "24003",
-    "quality": 5,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 529,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23014": {
-    "name": "I Shall Be My Own Sword",
-    "version": 1.4,
-    "id": "23014",
-    "quality": 5,
-    "type": "destruction",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 582,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23016": {
-    "name": "Worrisome, Blissful",
-    "version": 1.4,
-    "id": "23016",
-    "quality": 5,
-    "type": "hunt",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "22001": {
-    "name": "Hey, Over Here",
-    "version": 1.5,
-    "id": "22001",
-    "quality": 4,
-    "type": "abundance",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 423,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23017": {
-    "name": "Night of Fright",
-    "version": 1.5,
-    "id": "23017",
-    "quality": 5,
-    "type": "abundance",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 476,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "23018": {
-    "name": "An Instant Before A Gaze",
-    "version": 1.5,
-    "id": "23018",
-    "quality": 5,
-    "type": "erudition",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23019": {
-    "name": "Past Self in Mirror",
-    "version": 1.6,
-    "id": "23019",
-    "quality": 5,
-    "type": "harmony",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 529,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "23020": {
-    "name": "Baptism of Pure Thought",
-    "version": 1.6,
-    "id": "23020",
-    "quality": 5,
-    "type": "hunt",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 582,
-      "baseDef": 529
-    },
-    "effects": []
-  },
   "21035": {
     "name": "What Is Real?",
     "version": 2,
@@ -1182,32 +883,6 @@
     },
     "effects": []
   },
-  "23021": {
-    "name": "Earthly Escapade",
-    "version": 2,
-    "id": "23021",
-    "quality": 5,
-    "type": "harmony",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 529,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23022": {
-    "name": "Reforged Remembrance",
-    "version": 2,
-    "id": "23022",
-    "quality": 5,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
   "21043": {
     "name": "Concert for Two",
     "version": 2.1,
@@ -1218,32 +893,6 @@
       "baseHp": 953,
       "baseAtk": 370,
       "baseDef": 463
-    },
-    "effects": []
-  },
-  "23023": {
-    "name": "Inherently Unjust Destiny",
-    "version": 2.1,
-    "id": "23023",
-    "quality": 5,
-    "type": "preservation",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 423,
-      "baseDef": 662
-    },
-    "effects": []
-  },
-  "23024": {
-    "name": "Along the Passing Shore",
-    "version": 2.1,
-    "id": "23024",
-    "quality": 5,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 635,
-      "baseDef": 397
     },
     "effects": []
   },
@@ -1260,45 +909,6 @@
     },
     "effects": []
   },
-  "22002": {
-    "name": "For Tomorrow's Journey",
-    "version": 2.2,
-    "id": "22002",
-    "quality": 4,
-    "type": "harmony",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 476,
-      "baseDef": 331
-    },
-    "effects": []
-  },
-  "23026": {
-    "name": "Flowing Nightglow",
-    "version": 2.2,
-    "id": "23026",
-    "quality": 5,
-    "type": "harmony",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 635,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23027": {
-    "name": "Sailing Towards a Second Life",
-    "version": 2.2,
-    "id": "23027",
-    "quality": 5,
-    "type": "hunt",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
   "21045": {
     "name": "After the Charmony Fall",
     "version": 2.3,
@@ -1308,45 +918,6 @@
     "stats": {
       "baseHp": 847,
       "baseAtk": 476,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23025": {
-    "name": "Whereabouts Should Dreams Rest",
-    "version": 2.3,
-    "id": "23025",
-    "quality": 5,
-    "type": "destruction",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 476,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "23028": {
-    "name": "Yet Hope Is Priceless",
-    "version": 2.3,
-    "id": "23028",
-    "quality": 5,
-    "type": "erudition",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 582,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "24004": {
-    "name": "Eternal Calculus",
-    "version": 2.3,
-    "id": "24004",
-    "quality": 5,
-    "type": "erudition",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 529,
       "baseDef": 397
     },
     "effects": []
@@ -1364,32 +935,6 @@
     },
     "effects": []
   },
-  "23029": {
-    "name": "Those Many Springs",
-    "version": 2.4,
-    "id": "23029",
-    "quality": 5,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 582,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "23030": {
-    "name": "Dance at Sunset",
-    "version": 2.4,
-    "id": "23030",
-    "quality": 5,
-    "type": "destruction",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
   "21047": {
     "name": "Shadowed by Night",
     "version": 2.5,
@@ -1403,32 +948,6 @@
     },
     "effects": []
   },
-  "23031": {
-    "name": "I Venture Forth to Hunt",
-    "version": 2.5,
-    "id": "23031",
-    "quality": 5,
-    "type": "hunt",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 635,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23032": {
-    "name": "Scent Alone Stays True",
-    "version": 2.5,
-    "id": "23032",
-    "quality": 5,
-    "type": "abundance",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 529,
-      "baseDef": 529
-    },
-    "effects": []
-  },
   "21048": {
     "name": "Dream's Montage",
     "version": 2.6,
@@ -1439,84 +958,6 @@
       "baseHp": 953,
       "baseAtk": 423,
       "baseDef": 397
-    },
-    "effects": []
-  },
-  "22003": {
-    "name": "Ninja Record: Sound Hunt",
-    "version": 2.6,
-    "id": "22003",
-    "quality": 4,
-    "type": "destruction",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 476,
-      "baseDef": 265
-    },
-    "effects": []
-  },
-  "23033": {
-    "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
-    "version": 2.6,
-    "id": "23033",
-    "quality": 5,
-    "type": "erudition",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 582,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "23034": {
-    "name": "A Grounded Ascent",
-    "version": 2.7,
-    "id": "23034",
-    "quality": 5,
-    "type": "harmony",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 476,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "23035": {
-    "name": "Long Road Leads Home",
-    "version": 2.7,
-    "id": "23035",
-    "quality": 5,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 476,
-      "baseDef": 662
-    },
-    "effects": []
-  },
-  "20021": {
-    "name": "Shadowburn",
-    "version": 3,
-    "id": "20021",
-    "quality": 3,
-    "type": "remembrance",
-    "stats": {
-      "baseHp": 847,
-      "baseAtk": 318,
-      "baseDef": 265
-    },
-    "effects": []
-  },
-  "20022": {
-    "name": "Reminiscence",
-    "version": 3,
-    "id": "20022",
-    "quality": 3,
-    "type": "remembrance",
-    "stats": {
-      "baseHp": 635,
-      "baseAtk": 423,
-      "baseDef": 265
     },
     "effects": []
   },
@@ -1556,136 +997,6 @@
       "baseHp": 1058,
       "baseAtk": 529,
       "baseDef": 198
-    },
-    "effects": []
-  },
-  "23036": {
-    "name": "Time Woven Into Gold",
-    "version": 3,
-    "id": "23036",
-    "quality": 5,
-    "type": "remembrance",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 635,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23037": {
-    "name": "Into the Unreachable Veil",
-    "version": 3,
-    "id": "23037",
-    "quality": 5,
-    "type": "erudition",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 635,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "23038": {
-    "name": "If Time Were a Flower",
-    "version": 3.1,
-    "id": "23038",
-    "quality": 5,
-    "type": "harmony",
-    "stats": {
-      "baseHp": 1270,
-      "baseAtk": 529,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23039": {
-    "name": "Flame of Blood, Blaze My Path",
-    "version": 3.1,
-    "id": "23039",
-    "quality": 5,
-    "type": "destruction",
-    "stats": {
-      "baseHp": 1376,
-      "baseAtk": 476,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "24005": {
-    "name": "Memory's Curtain Never Falls",
-    "version": 3.1,
-    "id": "24005",
-    "quality": 5,
-    "type": "remembrance",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 529,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "22004": {
-    "name": "The Great Cosmic Enterprise",
-    "version": 3.2,
-    "id": "22004",
-    "quality": 4,
-    "type": "erudition",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 476,
-      "baseDef": 331
-    },
-    "effects": []
-  },
-  "23040": {
-    "name": "Make Farewells More Beautiful",
-    "version": 3.2,
-    "id": "23040",
-    "quality": 5,
-    "type": "remembrance",
-    "stats": {
-      "baseHp": 1270,
-      "baseAtk": 529,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23041": {
-    "name": "Life Should Be Cast to Flames",
-    "version": 3.2,
-    "id": "23041",
-    "quality": 5,
-    "type": "erudition",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 582,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "23042": {
-    "name": "Long May Rainbows Adorn the Sky",
-    "version": 3.3,
-    "id": "23042",
-    "quality": 5,
-    "type": "remembrance",
-    "stats": {
-      "baseHp": 1164,
-      "baseAtk": 476,
-      "baseDef": 529
-    },
-    "effects": []
-  },
-  "23043": {
-    "name": "Lies Dance on the Breeze",
-    "version": 3.3,
-    "id": "23043",
-    "quality": 5,
-    "type": "nihility",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 582,
-      "baseDef": 529
     },
     "effects": []
   },
@@ -1806,6 +1117,708 @@
     },
     "effects": []
   },
+  "21064": {
+    "name": "Mushy Shroomy's Adventures",
+    "version": 4,
+    "id": "21064",
+    "quality": 4,
+    "type": "elation",
+    "stats": {
+      "baseHp": 847,
+      "baseAtk": 476,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "21065": {
+    "name": "Today's Good Luck",
+    "version": 4,
+    "id": "21065",
+    "quality": 4,
+    "type": "elation",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 529,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "22000": {
+    "name": "Before the Tutorial Mission Starts",
+    "version": 1.1,
+    "id": "22000",
+    "quality": 4,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 476,
+      "baseDef": 331
+    },
+    "effects": []
+  },
+  "22001": {
+    "name": "Hey, Over Here",
+    "version": 1.5,
+    "id": "22001",
+    "quality": 4,
+    "type": "abundance",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 423,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "22002": {
+    "name": "For Tomorrow's Journey",
+    "version": 2.2,
+    "id": "22002",
+    "quality": 4,
+    "type": "harmony",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 476,
+      "baseDef": 331
+    },
+    "effects": []
+  },
+  "22003": {
+    "name": "Ninja Record: Sound Hunt",
+    "version": 2.6,
+    "id": "22003",
+    "quality": 4,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 476,
+      "baseDef": 265
+    },
+    "effects": []
+  },
+  "22004": {
+    "name": "The Great Cosmic Enterprise",
+    "version": 3.2,
+    "id": "22004",
+    "quality": 4,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 476,
+      "baseDef": 331
+    },
+    "effects": []
+  },
+  "22005": {
+    "name": "The Forever Victual",
+    "version": 3.5,
+    "id": "22005",
+    "quality": 4,
+    "type": "harmony",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 476,
+      "baseDef": 331
+    },
+    "effects": []
+  },
+  "22006": {
+    "name": "Fly Into a Pink Tomorrow",
+    "version": 3.7,
+    "id": "22006",
+    "quality": 4,
+    "type": "remembrance",
+    "stats": {
+      "baseHp": 847,
+      "baseAtk": 476,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "22007": {
+    "name": "Tomorrow, Together",
+    "version": 4.2,
+    "id": "22007",
+    "quality": 4,
+    "type": "elation",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 476,
+      "baseDef": 331
+    },
+    "effects": []
+  },
+  "23000": {
+    "name": "Night on the Milky Way",
+    "version": 1,
+    "id": "23000",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 582,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23001": {
+    "name": "In the Night",
+    "version": 1,
+    "id": "23001",
+    "quality": 5,
+    "type": "hunt",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23002": {
+    "name": "Something Irreplaceable",
+    "version": 1,
+    "id": "23002",
+    "quality": 5,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 582,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23003": {
+    "name": "But the Battle Isn't Over",
+    "version": 1,
+    "id": "23003",
+    "quality": 5,
+    "type": "harmony",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 529,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23004": {
+    "name": "In the Name of the World",
+    "version": 1,
+    "id": "23004",
+    "quality": 5,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23005": {
+    "name": "Moment of Victory",
+    "version": 1,
+    "id": "23005",
+    "quality": 5,
+    "type": "preservation",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 476,
+      "baseDef": 595
+    },
+    "effects": []
+  },
+  "23006": {
+    "name": "Patience Is All You Need",
+    "version": 1.2,
+    "id": "23006",
+    "quality": 5,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23007": {
+    "name": "Incessant Rain",
+    "version": 1.1,
+    "id": "23007",
+    "quality": 5,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23008": {
+    "name": "Echoes of the Coffin",
+    "version": 1.1,
+    "id": "23008",
+    "quality": 5,
+    "type": "abundance",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 582,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23009": {
+    "name": "The Unreachable Side",
+    "version": 1.2,
+    "id": "23009",
+    "quality": 5,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 1270,
+      "baseAtk": 582,
+      "baseDef": 331
+    },
+    "effects": []
+  },
+  "23010": {
+    "name": "Before Dawn",
+    "version": 1,
+    "id": "23010",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23011": {
+    "name": "She Already Shut Her Eyes",
+    "version": 1.3,
+    "id": "23011",
+    "quality": 5,
+    "type": "preservation",
+    "stats": {
+      "baseHp": 1270,
+      "baseAtk": 423,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23012": {
+    "name": "Sleep Like the Dead",
+    "version": 1,
+    "id": "23012",
+    "quality": 5,
+    "type": "hunt",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23013": {
+    "name": "Time Waits for No One",
+    "version": 1,
+    "id": "23013",
+    "quality": 5,
+    "type": "abundance",
+    "stats": {
+      "baseHp": 1270,
+      "baseAtk": 476,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23014": {
+    "name": "I Shall Be My Own Sword",
+    "version": 1.4,
+    "id": "23014",
+    "quality": 5,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 582,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23015": {
+    "name": "Brighter Than the Sun",
+    "version": 1.3,
+    "id": "23015",
+    "quality": 5,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 635,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23016": {
+    "name": "Worrisome, Blissful",
+    "version": 1.4,
+    "id": "23016",
+    "quality": 5,
+    "type": "hunt",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23017": {
+    "name": "Night of Fright",
+    "version": 1.5,
+    "id": "23017",
+    "quality": 5,
+    "type": "abundance",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 476,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23018": {
+    "name": "An Instant Before A Gaze",
+    "version": 1.5,
+    "id": "23018",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23019": {
+    "name": "Past Self in Mirror",
+    "version": 1.6,
+    "id": "23019",
+    "quality": 5,
+    "type": "harmony",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 529,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23020": {
+    "name": "Baptism of Pure Thought",
+    "version": 1.6,
+    "id": "23020",
+    "quality": 5,
+    "type": "hunt",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 582,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23021": {
+    "name": "Earthly Escapade",
+    "version": 2,
+    "id": "23021",
+    "quality": 5,
+    "type": "harmony",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 529,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23022": {
+    "name": "Reforged Remembrance",
+    "version": 2,
+    "id": "23022",
+    "quality": 5,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23023": {
+    "name": "Inherently Unjust Destiny",
+    "version": 2.1,
+    "id": "23023",
+    "quality": 5,
+    "type": "preservation",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 423,
+      "baseDef": 662
+    },
+    "effects": []
+  },
+  "23024": {
+    "name": "Along the Passing Shore",
+    "version": 2.1,
+    "id": "23024",
+    "quality": 5,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 635,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23025": {
+    "name": "Whereabouts Should Dreams Rest",
+    "version": 2.3,
+    "id": "23025",
+    "quality": 5,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 476,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23026": {
+    "name": "Flowing Nightglow",
+    "version": 2.2,
+    "id": "23026",
+    "quality": 5,
+    "type": "harmony",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 635,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23027": {
+    "name": "Sailing Towards a Second Life",
+    "version": 2.2,
+    "id": "23027",
+    "quality": 5,
+    "type": "hunt",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23028": {
+    "name": "Yet Hope Is Priceless",
+    "version": 2.3,
+    "id": "23028",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 582,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23029": {
+    "name": "Those Many Springs",
+    "version": 2.4,
+    "id": "23029",
+    "quality": 5,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 582,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23030": {
+    "name": "Dance at Sunset",
+    "version": 2.4,
+    "id": "23030",
+    "quality": 5,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23031": {
+    "name": "I Venture Forth to Hunt",
+    "version": 2.5,
+    "id": "23031",
+    "quality": 5,
+    "type": "hunt",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 635,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23032": {
+    "name": "Scent Alone Stays True",
+    "version": 2.5,
+    "id": "23032",
+    "quality": 5,
+    "type": "abundance",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 529,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23033": {
+    "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
+    "version": 2.6,
+    "id": "23033",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 582,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23034": {
+    "name": "A Grounded Ascent",
+    "version": 2.7,
+    "id": "23034",
+    "quality": 5,
+    "type": "harmony",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 476,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23035": {
+    "name": "Long Road Leads Home",
+    "version": 2.7,
+    "id": "23035",
+    "quality": 5,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 476,
+      "baseDef": 662
+    },
+    "effects": []
+  },
+  "23036": {
+    "name": "Time Woven Into Gold",
+    "version": 3,
+    "id": "23036",
+    "quality": 5,
+    "type": "remembrance",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 635,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23037": {
+    "name": "Into the Unreachable Veil",
+    "version": 3,
+    "id": "23037",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 635,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23038": {
+    "name": "If Time Were a Flower",
+    "version": 3.1,
+    "id": "23038",
+    "quality": 5,
+    "type": "harmony",
+    "stats": {
+      "baseHp": 1270,
+      "baseAtk": 529,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23039": {
+    "name": "Flame of Blood, Blaze My Path",
+    "version": 3.1,
+    "id": "23039",
+    "quality": 5,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 1376,
+      "baseAtk": 476,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23040": {
+    "name": "Make Farewells More Beautiful",
+    "version": 3.2,
+    "id": "23040",
+    "quality": 5,
+    "type": "remembrance",
+    "stats": {
+      "baseHp": 1270,
+      "baseAtk": 529,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23041": {
+    "name": "Life Should Be Cast to Flames",
+    "version": 3.2,
+    "id": "23041",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 582,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23042": {
+    "name": "Long May Rainbows Adorn the Sky",
+    "version": 3.3,
+    "id": "23042",
+    "quality": 5,
+    "type": "remembrance",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 476,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23043": {
+    "name": "Lies Dance on the Breeze",
+    "version": 3.3,
+    "id": "23043",
+    "quality": 5,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 582,
+      "baseDef": 529
+    },
+    "effects": []
+  },
   "23044": {
     "name": "Thus Burns the Dawn",
     "version": 3.4,
@@ -1842,19 +1855,6 @@
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 529
-    },
-    "effects": []
-  },
-  "22005": {
-    "name": "The Forever Victual",
-    "version": 3.5,
-    "id": "22005",
-    "quality": 4,
-    "type": "harmony",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 476,
-      "baseDef": 331
     },
     "effects": []
   },
@@ -1897,45 +1897,6 @@
     },
     "effects": []
   },
-  "23051": {
-    "name": "Though Worlds Apart",
-    "version": 3.6,
-    "id": "23051",
-    "quality": 5,
-    "type": "preservation",
-    "stats": {
-      "baseHp": 1058,
-      "baseAtk": 582,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "22006": {
-    "name": "Fly Into a Pink Tomorrow",
-    "version": 3.7,
-    "id": "22006",
-    "quality": 4,
-    "type": "remembrance",
-    "stats": {
-      "baseHp": 847,
-      "baseAtk": 476,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "23052": {
-    "name": "This Love, Forever",
-    "version": 3.7,
-    "id": "23052",
-    "quality": 5,
-    "type": "remembrance",
-    "stats": {
-      "baseHp": 1270,
-      "baseAtk": 476,
-      "baseDef": 463
-    },
-    "effects": []
-  },
   "23050": {
     "name": "Never Forget Her Flame",
     "version": 3.8,
@@ -1949,55 +1910,29 @@
     },
     "effects": []
   },
-  "20023": {
-    "name": "Sneering",
-    "version": 4,
-    "id": "20023",
-    "quality": 3,
-    "type": "elation",
+  "23051": {
+    "name": "Though Worlds Apart",
+    "version": 3.6,
+    "id": "23051",
+    "quality": 5,
+    "type": "preservation",
     "stats": {
-      "baseHp": 741,
-      "baseAtk": 370,
-      "baseDef": 265
+      "baseHp": 1058,
+      "baseAtk": 582,
+      "baseDef": 463
     },
     "effects": []
   },
-  "20024": {
-    "name": "Lingering Tear",
-    "version": 4,
-    "id": "20024",
-    "quality": 3,
-    "type": "elation",
+  "23052": {
+    "name": "This Love, Forever",
+    "version": 3.7,
+    "id": "23052",
+    "quality": 5,
+    "type": "remembrance",
     "stats": {
-      "baseHp": 847,
-      "baseAtk": 318,
-      "baseDef": 265
-    },
-    "effects": []
-  },
-  "21064": {
-    "name": "Mushy Shroomy's Adventures",
-    "version": 4,
-    "id": "21064",
-    "quality": 4,
-    "type": "elation",
-    "stats": {
-      "baseHp": 847,
+      "baseHp": 1270,
       "baseAtk": 476,
-      "baseDef": 397
-    },
-    "effects": []
-  },
-  "21065": {
-    "name": "Today's Good Luck",
-    "version": 4,
-    "id": "21065",
-    "quality": 4,
-    "type": "elation",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 529,
-      "baseDef": 397
+      "baseDef": 463
     },
     "effects": []
   },
@@ -2040,32 +1975,6 @@
     },
     "effects": []
   },
-  "24006": {
-    "name": "Elation Brimming With Blessings",
-    "version": 4.1,
-    "id": "24006",
-    "quality": 5,
-    "type": "elation",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 529,
-      "baseDef": 463
-    },
-    "effects": []
-  },
-  "22007": {
-    "name": "Tomorrow, Together",
-    "version": 4.2,
-    "id": "22007",
-    "quality": 4,
-    "type": "elation",
-    "stats": {
-      "baseHp": 953,
-      "baseAtk": 476,
-      "baseDef": 331
-    },
-    "effects": []
-  },
   "23057": {
     "name": "Welcome to the Cosmic City",
     "version": 4.2,
@@ -2101,6 +2010,136 @@
     "stats": {
       "baseHp": 1376,
       "baseAtk": 423,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "23060": {
+    "name": "A Star That Lights the Night",
+    "version": 4.4,
+    "id": "23060",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 847,
+      "baseAtk": 635,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23061": {
+    "name": "Flickering Stars",
+    "version": 4.4,
+    "id": "23061",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 847,
+      "baseAtk": 635,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "23062": {
+    "name": "I Am As You Behold",
+    "version": 4.4,
+    "id": "23062",
+    "quality": 5,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 635,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "24000": {
+    "name": "On the Fall of an Aeon",
+    "version": 1,
+    "id": "24000",
+    "quality": 5,
+    "type": "destruction",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 529,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "24001": {
+    "name": "Cruising in the Stellar Sea",
+    "version": 1,
+    "id": "24001",
+    "quality": 5,
+    "type": "hunt",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 529,
+      "baseDef": 463
+    },
+    "effects": []
+  },
+  "24002": {
+    "name": "Texture of Memories",
+    "version": 1,
+    "id": "24002",
+    "quality": 5,
+    "type": "preservation",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 423,
+      "baseDef": 529
+    },
+    "effects": []
+  },
+  "24003": {
+    "name": "Solitary Healing",
+    "version": 1.3,
+    "id": "24003",
+    "quality": 5,
+    "type": "nihility",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 529,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "24004": {
+    "name": "Eternal Calculus",
+    "version": 2.3,
+    "id": "24004",
+    "quality": 5,
+    "type": "erudition",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 529,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "24005": {
+    "name": "Memory's Curtain Never Falls",
+    "version": 3.1,
+    "id": "24005",
+    "quality": 5,
+    "type": "remembrance",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 529,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "24006": {
+    "name": "Elation Brimming With Blessings",
+    "version": 4.1,
+    "id": "24006",
+    "quality": 5,
+    "type": "elation",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 529,
       "baseDef": 463
     },
     "effects": []

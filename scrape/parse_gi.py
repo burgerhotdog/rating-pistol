@@ -28,8 +28,8 @@ lookup_stat = {
     'fight_prop_heal_add': 'healingBonus%',
 }
 
-def parse_actions(data):
-    actions = {}
+def parse_skills(data):
+    skills = {}
     index_to_id = {
         0: 'normalAttack',
         1: 'elementalSkill',
@@ -46,8 +46,8 @@ def parse_actions(data):
             continue
 
         base_desc = promote[0]['desc']
-        skill = {}
-        action_id = 1
+
+        actions = []
 
         for desc_string in base_desc:
             param_matches = re.findall(r'\{param(\d+):[^}]+\}', desc_string)
@@ -65,19 +65,20 @@ def parse_actions(data):
 
                 indexed_multipliers.append({ 'mv': indexed_mv })
 
-            skill[str(action_id)] = {
+            actions.append({
                 'name': desc_string.split('|')[0],
                 'type': skill_id,
                 'damage': {
                     'multipliers': indexed_multipliers,
                 },
-            }
+            })
 
-            action_id += 1
+        skills[skill_id] = {
+            'name': '',
+            'actions': actions,
+        }
 
-        actions[skill_id] = skill
-
-    return actions
+    return skills
 
 def parse_character(version, id, data):
     stats_mod = data['stats_modifier']
@@ -110,7 +111,7 @@ def parse_character(version, id, data):
         'type': lookup_type[data['weapon']],
         'stats': stats,
         'effects': [],
-        'skills': parse_actions(data),
+        'skills': parse_skills(data),
         'presets': [],
     }
 
