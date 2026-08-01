@@ -118,9 +118,7 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
     score: baseScore,
   });
   const trials = [];
-  for (let i = 0; i < MIN_TRIALS; i++) {
-    trials.push(createTrial());
-  }
+  for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
   // Main trial loop
   let prevAvgScore = baseScore;
@@ -131,19 +129,14 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
     for (const trial of trials) {
       advanceTrial(trial);
       weekScores.add(trial.score);
-
       if (isMain) weekSummaryAcc.add(trial.summary);
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
-      if (weekScores.relativeError <= 0.005) {
-        break;
-      }
-
+      if (weekScores.relativeError <= 0.005) break;
       const trial = createTrial();
       advanceTrial(trial);
       trials.push(trial);
-
       weekScores.add(trial.score);
       if (isMain) weekSummaryAcc.add(trial.summary);
     }
@@ -156,9 +149,7 @@ export const runTrials = (cache, equipMaps, currId, isMain = false) => {
       weeklySummaries.push(weekSummaryAcc.getAvgSummary());
     }
 
-    if (diff < 0.01) {
-      break;
-    }
+    if (diff < 0.01) break;
 
     prevAvgScore = avgScore;
   }
