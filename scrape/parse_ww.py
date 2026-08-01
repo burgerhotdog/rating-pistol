@@ -154,6 +154,13 @@ def parse_actions(data):
     return actions
 
 def parse_character(version, id, data):
+    base_data = data['stats']['6']['90']
+    stats = {
+        'baseHp': math.floor(base_data['life']),
+        'baseAtk': math.floor(base_data['atk']),
+        'baseDef': math.floor(base_data['def']),
+    }
+
     ascension = {}
     for v in data['skill_trees'].values():
         skill = v.get('skill')
@@ -164,9 +171,11 @@ def parse_character(version, id, data):
             continue
         stat = lookup_stat[name]
         value = float(skill['param'][0].rstrip('%')) / 100
+
         ascension[stat] = ascension.get(stat, 0) + value
-    for k in ascension:
-        ascension[k] = round(ascension[k], 4 if k.endswith('%') else 1)
+
+    for stat in reversed(ascension):
+        stats[stat] = round(ascension[stat], 4 if stat.endswith('%') else 1)
 
     return {
         'name': str(data['name']),
@@ -175,12 +184,7 @@ def parse_character(version, id, data):
         'quality': int(data['rarity']),
         'element': list_element[int(data['element']) - 1],
         'type': list_type[int(data['weapon']) - 1],
-        'baseStats': {
-            'baseHp': math.floor(data['stats']['6']['90']['life']),
-            'baseAtk': math.floor(data['stats']['6']['90']['atk']),
-            'baseDef': math.floor(data['stats']['6']['90']['def']),
-        },
-        'ascensionStats': ascension,
+        'stats': stats,
         'effects': [],
         'skills': parse_actions(data),
         'presets': [],

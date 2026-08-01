@@ -26,12 +26,10 @@ const DEFAULT = {
 };
 
 export const compileBaseMap = (gameId, charId, weapId) => {
-  const { baseStats, ascensionStats } = CHARACTER[gameId][charId];
-  const charStats = toMergedObj(baseStats, ascensionStats);
+  const { stats: charStats } = CHARACTER[gameId][charId];
+  const { stats: weapStats } = WEAPON[gameId][weapId];
 
-  const { stats: weaponStats } = WEAPON[gameId][weapId];
-
-  return toMergedObj(DEFAULT[gameId], charStats, weaponStats);
+  return toMergedObj(DEFAULT[gameId], charStats, weapStats);
 };
 
 export const compileMenuMap = (gameId, charId, member) => {

@@ -6,14 +6,12 @@
     "quality": 4,
     "element": "glacio",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 10062,
       "baseAtk": 275,
-      "baseDef": 941
-    },
-    "ascensionStats": {
-      "glacioDmgBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 941,
+      "atk%": 0.12,
+      "glacioDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -624,16 +622,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1102",
-          "1505"
-        ],
         "weaponId": "21020015",
         "setCounts": {
           "8": 5
         },
         "mainEcho": "6000052",
+        "team": [
+          null,
+          "1102",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceLiberation.0",
@@ -654,14 +652,12 @@
     "quality": 4,
     "element": "glacio",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 12812,
       "baseAtk": 212,
-      "baseDef": 1002
-    },
-    "ascensionStats": {
-      "healingBonus%": 0.12,
-      "hp%": 0.12
+      "baseDef": 1002,
+      "hp%": 0.12,
+      "healingBonus%": 0.12
     },
     "effects": [
       {
@@ -1420,16 +1416,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          null,
-          "1103"
-        ],
         "weaponId": "21050024",
         "setCounts": {
           "7": 5
         },
         "mainEcho": "390080005",
+        "team": [
+          null,
+          null,
+          "1103"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceLiberation.0",
@@ -1450,14 +1446,12 @@
     "quality": 5,
     "element": "glacio",
     "type": "gauntlets",
-    "baseStats": {
+    "stats": {
       "baseHp": 10387,
       "baseAtk": 437,
-      "baseDef": 1209
-    },
-    "ascensionStats": {
-      "glacioDmgBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 1209,
+      "atk%": 0.12,
+      "glacioDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -2269,16 +2263,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1104",
-          "1102",
-          "1505"
-        ],
         "weaponId": "21040015",
         "setCounts": {
           "1": 5
         },
         "mainEcho": "6000044",
+        "team": [
+          "1104",
+          "1102",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceLiberation.0",
@@ -2306,14 +2300,12 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 12250,
       "baseAtk": 375,
-      "baseDef": 1197
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1197,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -2864,16 +2856,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1105",
-          "1505"
-        ],
         "weaponId": "21050026",
         "setCounts": {
           "13": 5
         },
         "mainEcho": "6000105",
+        "team": [
+          null,
+          "1105",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.0",
@@ -2897,14 +2889,12 @@
     "quality": 4,
     "element": "glacio",
     "type": "gauntlets",
-    "baseStats": {
+    "stats": {
       "baseHp": 9975,
       "baseAtk": 262,
-      "baseDef": 1051
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1051,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -3834,16 +3824,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          null,
-          "1106"
-        ],
         "weaponId": "21040024",
         "setCounts": {
           "7": 5
         },
         "mainEcho": "390080005",
+        "team": [
+          null,
+          null,
+          "1106"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.1",
@@ -3867,14 +3857,12 @@
     "quality": 5,
     "element": "glacio",
     "type": "pistols",
-    "baseStats": {
+    "stats": {
       "baseHp": 12450,
       "baseAtk": 462,
-      "baseDef": 1197
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1197,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -4955,16 +4943,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1107",
-          "1105",
-          "1505"
-        ],
         "weaponId": "21030016",
         "setCounts": {
           "10": 5
         },
         "mainEcho": "6000083",
+        "team": [
+          "1107",
+          "1105",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -4991,14 +4979,12 @@
     "quality": 5,
     "element": "glacio",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
-      "baseDef": 1112
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1112,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -6394,16 +6380,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1108",
-          "1509",
-          "1508"
-        ],
         "weaponId": "21020086",
         "setCounts": {
           "30": 5
         },
         "mainEcho": "6000199",
+        "team": [
+          "1108",
+          "1509",
+          "1508"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.2",
@@ -6437,19 +6423,17 @@
     "element": "glacio",
     "type": "rectifier",
     "noEnergy": true,
-    "baseStats": {
-      "baseHp": 12237,
-      "baseAtk": 375,
-      "baseDef": 1197
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
-    },
     "resonanceModes": [
       "Glacio Chafe",
       "Echo"
     ],
+    "stats": {
+      "baseHp": 12237,
+      "baseAtk": 375,
+      "baseDef": 1197,
+      "atk%": 0.12,
+      "critRate%": 0.08
+    },
     "effects": [
       {
         "applyWhen": "before",
@@ -7370,16 +7354,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1108",
-          "1109",
-          "1508"
-        ],
         "weaponId": "21050086",
         "setCounts": {
           "30": 5
         },
         "mainEcho": "6000195",
+        "team": [
+          "1108",
+          "1109",
+          "1508"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -7404,14 +7388,12 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 16712,
       "baseAtk": 287,
-      "baseDef": 1099
-    },
-    "ascensionStats": {
-      "healingBonus%": 0.12,
-      "hp%": 0.12
+      "baseDef": 1099,
+      "hp%": 0.12,
+      "healingBonus%": 0.12
     },
     "effects": [
       {
@@ -8555,16 +8537,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1610",
-          "1508",
-          "1110"
-        ],
         "weaponId": "21050096",
         "setCounts": {
           "33": 5
         },
         "mainEcho": "6000216",
+        "team": [
+          "1610",
+          "1508",
+          "1110"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.2",
@@ -8585,14 +8567,12 @@
     "quality": 4,
     "element": "fusion",
     "type": "pistols",
-    "baseStats": {
+    "stats": {
       "baseHp": 9087,
       "baseAtk": 300,
-      "baseDef": 953
-    },
-    "ascensionStats": {
-      "fusionDmgBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 953,
+      "atk%": 0.12,
+      "fusionDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -9172,16 +9152,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1202",
-          "1206",
-          "1207"
-        ],
         "weaponId": "21030045",
         "setCounts": {
           "2": 5
         },
         "mainEcho": "6000091",
+        "team": [
+          "1202",
+          "1206",
+          "1207"
+        ],
         "rotation": [
           "introSkill.0",
           "forteCircuit.2",
@@ -9201,14 +9181,12 @@
     "quality": 5,
     "element": "fusion",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 10512,
       "baseAtk": 425,
-      "baseDef": 1246
-    },
-    "ascensionStats": {
-      "fusionDmgBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 1246,
+      "atk%": 0.12,
+      "fusionDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -10020,16 +9998,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1203",
-          "1207",
-          "1505"
-        ],
         "weaponId": "21050015",
         "setCounts": {
           "2": 5
         },
         "mainEcho": "6000091",
+        "team": [
+          "1203",
+          "1207",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceLiberation.7",
@@ -10057,14 +10035,12 @@
     "quality": 4,
     "element": "fusion",
     "type": "pistols",
-    "baseStats": {
+    "stats": {
       "baseHp": 10025,
       "baseAtk": 250,
-      "baseDef": 1136
-    },
-    "ascensionStats": {
-      "fusionDmgBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 1136,
+      "atk%": 0.12,
+      "fusionDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -10681,16 +10657,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1204",
-          "1505"
-        ],
         "weaponId": "21030015",
         "setCounts": {
           "8": 5
         },
         "mainEcho": "6000052",
+        "team": [
+          null,
+          "1204",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -10713,14 +10689,12 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 10387,
       "baseAtk": 462,
-      "baseDef": 1099
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1099,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -11623,16 +11597,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1205",
-          "1206",
-          "1207"
-        ],
         "weaponId": "21020016",
         "setCounts": {
           "2": 5
         },
         "mainEcho": "6000091",
+        "team": [
+          "1205",
+          "1206",
+          "1207"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.2",
@@ -11659,14 +11633,12 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 11675,
       "baseAtk": 375,
-      "baseDef": 1307
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1307,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -13164,16 +13136,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1206",
-          "1207"
-        ],
         "weaponId": "21020036",
         "setCounts": {
           "14": 5
         },
         "mainEcho": "6000084",
+        "team": [
+          null,
+          "1206",
+          "1207"
+        ],
         "rotation": [
           "introSkill.0",
           "forteCircuit.1",
@@ -13199,14 +13171,12 @@
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
-    "baseStats": {
+    "stats": {
       "baseHp": 11912,
       "baseAtk": 387,
-      "baseDef": 1185
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1185,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -14670,15 +14640,15 @@
     },
     "presets": [
       {
+        "weaponId": "21010036",
+        "setCounts": {
+          "18": 5
+        },
         "team": [
           "1205",
           "1206",
           "1207"
         ],
-        "weaponId": "21010036",
-        "setCounts": {
-          "18": 5
-        },
         "rotation": [
           "introSkill.1",
           "resonanceLiberation.0",
@@ -14700,14 +14670,12 @@
     "quality": 5,
     "element": "fusion",
     "type": "pistols",
-    "baseStats": {
+    "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
-      "baseDef": 1112
-    },
-    "ascensionStats": {
-      "critDmg%": 0.16,
-      "atk%": 0.12
+      "baseDef": 1112,
+      "atk%": 0.12,
+      "critDmg%": 0.16
     },
     "effects": [
       {
@@ -16158,17 +16126,17 @@
     },
     "presets": [
       {
-        "team": [
-          "1208",
-          "1411",
-          "1505"
-        ],
         "weaponId": "21030036",
         "setCounts": {
           "2": 2,
           "22": 3
         },
         "mainEcho": "6000120",
+        "team": [
+          "1208",
+          "1411",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.1",
@@ -16198,15 +16166,13 @@
     "element": "fusion",
     "type": "broadblade",
     "tagged": "tuneStrain",
-    "baseStats": {
+    "stats": {
       "baseHp": 15375,
       "baseAtk": 287,
       "baseDef": 1356,
-      "tuneBreakBoost": 10
-    },
-    "ascensionStats": {
+      "def%": 0.152,
       "healingBonus%": 0.12,
-      "def%": 0.152
+      "tuneBreakBoost": 10
     },
     "effects": [
       {
@@ -17340,16 +17306,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          null,
-          "1209"
-        ],
         "weaponId": "21010066",
         "setCounts": {
           "25": 5
         },
         "mainEcho": "6000190",
+        "team": [
+          null,
+          null,
+          "1209"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.4",
@@ -17371,20 +17337,18 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
-    "baseStats": {
-      "baseHp": 11025,
-      "baseAtk": 425,
-      "baseDef": 1148,
-      "tuneBreakBoost": 10
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
-    },
     "resonanceModes": [
       "Tune Rupture",
       "Fusion Burst"
     ],
+    "stats": {
+      "baseHp": 11025,
+      "baseAtk": 425,
+      "baseDef": 1148,
+      "atk%": 0.12,
+      "critRate%": 0.08,
+      "tuneBreakBoost": 10
+    },
     "effects": [
       {
         "useWhen": "tuneResponse",
@@ -18966,16 +18930,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1210",
-          "1509",
-          "1209"
-        ],
         "weaponId": "21020076",
         "setCounts": {
           "27": 5
         },
         "mainEcho": "6000191",
+        "team": [
+          "1210",
+          "1509",
+          "1209"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.2",
@@ -19033,20 +18997,18 @@
     "element": "fusion",
     "type": "rectifier",
     "tagged": "tuneStrain",
-    "baseStats": {
-      "baseHp": 11025,
-      "baseAtk": 425,
-      "baseDef": 1148,
-      "tuneBreakBoost": 10
-    },
-    "ascensionStats": {
-      "critDmg%": 0.16,
-      "atk%": 0.12
-    },
     "resonanceModes": [
       "Fusion Burst",
       "Tune Strain"
     ],
+    "stats": {
+      "baseHp": 11025,
+      "baseAtk": 425,
+      "baseDef": 1148,
+      "atk%": 0.12,
+      "critDmg%": 0.16,
+      "tuneBreakBoost": 10
+    },
     "effects": [
       {
         "applyWhen": "before",
@@ -20199,32 +20161,32 @@
     },
     "presets": [
       {
-        "team": [
-          "1210.1",
-          "1211",
-          "1508"
-        ],
         "weaponId": "21050076",
         "setCounts": {
           "28": 5
         },
         "mainEcho": "6000200",
+        "team": [
+          "1210.1",
+          "1211",
+          "1508"
+        ],
         "rotation": [
           "introSkill.0",
           "outroSkill.0"
         ]
       },
       {
-        "team": [
-          "1510",
-          "1211.1",
-          "1209"
-        ],
         "weaponId": "21050076",
         "setCounts": {
           "31": 5
         },
         "mainEcho": "6000198",
+        "team": [
+          "1510",
+          "1211.1",
+          "1209"
+        ],
         "rotation": [
           "introSkill.0",
           "outroSkill.0"
@@ -20239,14 +20201,12 @@
     "quality": 5,
     "element": "electro",
     "type": "broadblade",
-    "baseStats": {
+    "stats": {
       "baseHp": 10500,
       "baseAtk": 437,
-      "baseDef": 1185
-    },
-    "ascensionStats": {
-      "critDmg%": 0.16,
-      "atk%": 0.12
+      "baseDef": 1185,
+      "atk%": 0.12,
+      "critDmg%": 0.16
     },
     "effects": [
       {
@@ -21313,16 +21273,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1301",
-          "1302",
-          "1505"
-        ],
         "weaponId": "21010015",
         "setCounts": {
           "3": 5
         },
         "mainEcho": "6000088",
+        "team": [
+          "1301",
+          "1302",
+          "1505"
+        ],
         "rotation": [
           "resonanceLiberation.1",
           "resonanceLiberation.0",
@@ -21351,14 +21311,12 @@
     "quality": 5,
     "element": "electro",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 11000,
       "baseAtk": 400,
-      "baseDef": 1283
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1283,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -21970,16 +21928,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1302",
-          "1505"
-        ],
         "weaponId": "21050016",
         "setCounts": {
           "13": 5
         },
         "mainEcho": "6000089",
+        "team": [
+          null,
+          "1302",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.3",
@@ -22001,14 +21959,12 @@
     "quality": 4,
     "element": "electro",
     "type": "gauntlets",
-    "baseStats": {
+    "stats": {
       "baseHp": 8525,
       "baseAtk": 225,
-      "baseDef": 1637
-    },
-    "ascensionStats": {
-      "electroDmgBonus%": 0.12,
-      "def%": 0.152
+      "baseDef": 1637,
+      "def%": 0.152,
+      "electroDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -23054,16 +23010,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1303",
-          "1505"
-        ],
         "weaponId": "21040044",
         "setCounts": {
           "13": 5
         },
         "mainEcho": "6000089",
+        "team": [
+          null,
+          "1303",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -23082,14 +23038,12 @@
     "quality": 5,
     "element": "spectro",
     "type": "broadblade",
-    "baseStats": {
+    "stats": {
       "baseHp": 10825,
       "baseAtk": 412,
-      "baseDef": 1258
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1258,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -24367,16 +24321,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1304",
-          "1105",
-          "1503"
-        ],
         "weaponId": "21010026",
         "setCounts": {
           "5": 5
         },
         "mainEcho": "6000059",
+        "team": [
+          "1304",
+          "1105",
+          "1503"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.1",
@@ -24401,14 +24355,12 @@
     "quality": 5,
     "element": "electro",
     "type": "gauntlets",
-    "baseStats": {
+    "stats": {
       "baseHp": 10625,
       "baseAtk": 425,
-      "baseDef": 1222
-    },
-    "ascensionStats": {
-      "critDmg%": 0.16,
-      "atk%": 0.12
+      "baseDef": 1222,
+      "atk%": 0.12,
+      "critDmg%": 0.16
     },
     "effects": [
       {
@@ -25290,16 +25242,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1305",
-          "1302",
-          "1505"
-        ],
         "weaponId": "21040016",
         "setCounts": {
           "3": 5
         },
         "mainEcho": "6000088",
+        "team": [
+          "1305",
+          "1302",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -25326,14 +25278,12 @@
     "quality": 5,
     "element": "electro",
     "type": "broadblade",
-    "baseStats": {
+    "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
-      "baseDef": 1112
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1112,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -26309,17 +26259,17 @@
     },
     "presets": [
       {
-        "team": [
-          "1306",
-          "1410",
-          "1505"
-        ],
         "weaponId": "21010046",
         "setCounts": {
           "3": 2,
           "20": 3
         },
         "mainEcho": "6000121",
+        "team": [
+          "1306",
+          "1410",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.8",
@@ -26353,14 +26303,12 @@
     "quality": 4,
     "element": "electro",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 10625,
       "baseAtk": 225,
-      "baseDef": 1258
-    },
-    "ascensionStats": {
-      "healingBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 1258,
+      "atk%": 0.12,
+      "healingBonus%": 0.12
     },
     "effects": [
       {
@@ -27046,16 +26994,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          null,
-          "1307"
-        ],
         "weaponId": "21050024",
         "setCounts": {
           "7": 5
         },
         "mainEcho": "6000060",
+        "team": [
+          null,
+          null,
+          "1307"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.0",
@@ -27078,15 +27026,13 @@
     "quality": 5,
     "element": "electro",
     "type": "pistols",
-    "baseStats": {
+    "stats": {
       "baseHp": 11600,
       "baseAtk": 400,
       "baseDef": 1173,
-      "tuneBreakBoost": 10
-    },
-    "ascensionStats": {
+      "atk%": 0.12,
       "critRate%": 0.08,
-      "atk%": 0.12
+      "tuneBreakBoost": 10
     },
     "effects": [
       {
@@ -29043,11 +28989,6 @@
     },
     "presets": [
       {
-        "team": [
-          "1511",
-          "1308",
-          "1209"
-        ],
         "weaponId": "21030066",
         "setCounts": {
           "32": 1,
@@ -29055,6 +28996,11 @@
           "3": 2
         },
         "mainEcho": "6000201",
+        "team": [
+          "1511",
+          "1308",
+          "1209"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.9",
@@ -29095,14 +29041,12 @@
     "quality": 4,
     "element": "aero",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 10200,
       "baseAtk": 250,
-      "baseDef": 1099
-    },
-    "ascensionStats": {
-      "aeroDmgBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 1099,
+      "atk%": 0.12,
+      "aeroDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -29712,16 +29656,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1402",
-          "1505"
-        ],
         "weaponId": "21020015",
         "setCounts": {
           "8": 5
         },
         "mainEcho": "6000052",
+        "team": [
+          null,
+          "1402",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.0",
@@ -29747,14 +29691,12 @@
     "quality": 4,
     "element": "aero",
     "type": "pistols",
-    "baseStats": {
+    "stats": {
       "baseHp": 9850,
       "baseAtk": 262,
-      "baseDef": 1075
-    },
-    "ascensionStats": {
-      "aeroDmgBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 1075,
+      "atk%": 0.12,
+      "aeroDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -30315,16 +30257,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1403",
-          "1505"
-        ],
         "weaponId": "21030015",
         "setCounts": {
           "8": 5
         },
         "mainEcho": "6000052",
+        "team": [
+          null,
+          "1403",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceLiberation.0",
@@ -30349,14 +30291,12 @@
     "quality": 5,
     "element": "aero",
     "type": "broadblade",
-    "baseStats": {
+    "stats": {
       "baseHp": 10487,
       "baseAtk": 437,
-      "baseDef": 1185
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1185,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -31156,16 +31096,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1404",
-          "1204",
-          "1505"
-        ],
         "weaponId": "21010016",
         "setCounts": {
           "4": 5
         },
         "mainEcho": "6000086",
+        "team": [
+          "1404",
+          "1204",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "forteCircuit.0",
@@ -31189,14 +31129,12 @@
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
-    "baseStats": {
+    "stats": {
       "baseHp": 14112,
       "baseAtk": 337,
-      "baseDef": 1124
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1124,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -32238,16 +32176,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1405",
-          "1505"
-        ],
         "weaponId": "21040024",
         "setCounts": {
           "8": 5
         },
         "mainEcho": "6000052",
+        "team": [
+          null,
+          "1405",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.1",
@@ -32290,14 +32228,12 @@
     "quality": 5,
     "element": "aero",
     "type": "pistols",
-    "baseStats": {
+    "stats": {
       "baseHp": 12237,
       "baseAtk": 375,
-      "baseDef": 1197
-    },
-    "ascensionStats": {
-      "critDmg%": 0.16,
-      "atk%": 0.12
+      "baseDef": 1197,
+      "atk%": 0.12,
+      "critDmg%": 0.16
     },
     "effects": [
       {
@@ -32999,16 +32935,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1409",
-          "1407",
-          "1508"
-        ],
         "weaponId": "21030026",
         "setCounts": {
           "16": 5
         },
         "mainEcho": "6000113",
+        "team": [
+          "1409",
+          "1407",
+          "1508"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.2",
@@ -33031,14 +32967,12 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 14800,
       "baseAtk": 312,
-      "baseDef": 611
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "hp%": 0.12
+      "baseDef": 611,
+      "hp%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -34904,16 +34838,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1409",
-          "1407",
-          "1508"
-        ],
         "weaponId": "21020056",
         "setCounts": {
           "17": 5
         },
         "mainEcho": "6000106",
+        "team": [
+          "1409",
+          "1407",
+          "1508"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.1",
@@ -34944,14 +34878,12 @@
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
-    "baseStats": {
+    "stats": {
       "baseHp": 10525,
       "baseAtk": 450,
-      "baseDef": 1124
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1124,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -36150,17 +36082,17 @@
     },
     "presets": [
       {
-        "team": [
-          "1306",
-          "1410",
-          "1505"
-        ],
         "weaponId": "21040046",
         "setCounts": {
           "4": 2,
           "20": 3
         },
         "mainEcho": "6000160",
+        "team": [
+          "1306",
+          "1410",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceLiberation.0",
@@ -36183,14 +36115,12 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12237,
       "baseAtk": 375,
-      "baseDef": 1197
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1197,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -37337,17 +37267,17 @@
     },
     "presets": [
       {
-        "team": [
-          "1208",
-          "1411",
-          "1505"
-        ],
         "weaponId": "21020066",
         "setCounts": {
           "4": 2,
           "21": 3
         },
         "mainEcho": "6000116",
+        "team": [
+          "1208",
+          "1411",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "forteCircuit.2",
@@ -37369,14 +37299,12 @@
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
-    "baseStats": {
+    "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
-      "baseDef": 1136
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1136,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -38592,16 +38520,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1412",
-          "1411",
-          "1505"
-        ],
         "weaponId": "21040066",
         "setCounts": {
           "29": 5
         },
         "mainEcho": "6000192",
+        "team": [
+          "1412",
+          "1411",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.1",
@@ -38628,14 +38556,12 @@
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 14237,
       "baseAtk": 337,
-      "baseDef": 1099
-    },
-    "ascensionStats": {
-      "healingBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 1099,
+      "atk%": 0.12,
+      "healingBonus%": 0.12
     },
     "effects": [
       {
@@ -39778,16 +39704,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          null,
-          "1503"
-        ],
         "weaponId": "21050024",
         "setCounts": {
           "7": 5
         },
         "mainEcho": "390080005",
+        "team": [
+          null,
+          null,
+          "1503"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -39807,14 +39733,12 @@
     "quality": 4,
     "element": "electro",
     "type": "broadblade",
-    "baseStats": {
+    "stats": {
       "baseHp": 8500,
       "baseAtk": 337,
-      "baseDef": 879
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 879,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -40758,16 +40682,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1504",
-          "1505"
-        ],
         "weaponId": "21010045",
         "setCounts": {
           "8": 5
         },
         "mainEcho": "6000052",
+        "team": [
+          null,
+          "1504",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceLiberation.0",
@@ -40796,14 +40720,12 @@
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 16712,
       "baseAtk": 287,
-      "baseDef": 1099
-    },
-    "ascensionStats": {
-      "healingBonus%": 0.12,
-      "hp%": 0.12
+      "baseDef": 1099,
+      "hp%": 0.12,
+      "healingBonus%": 0.12
     },
     "effects": [
       {
@@ -41604,16 +41526,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          null,
-          "1505"
-        ],
         "weaponId": "21050036",
         "setCounts": {
           "7": 5
         },
         "mainEcho": "6000060",
+        "team": [
+          null,
+          null,
+          "1505"
+        ],
         "rotation": [
           "introSkill.1",
           "normalAttack.0",
@@ -41640,14 +41562,12 @@
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 10825,
       "baseAtk": 412,
-      "baseDef": 1258
-    },
-    "ascensionStats": {
-      "critDmg%": 0.16,
-      "atk%": 0.12
+      "baseDef": 1258,
+      "atk%": 0.12,
+      "critDmg%": 0.16
     },
     "effects": [
       {
@@ -42533,16 +42453,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1507",
-          "1506",
-          "1505"
-        ],
         "weaponId": "21050046",
         "setCounts": {
           "11": 5
         },
         "mainEcho": "6000104",
+        "team": [
+          "1507",
+          "1506",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -42595,14 +42515,12 @@
     "quality": 5,
     "element": "spectro",
     "type": "gauntlets",
-    "baseStats": {
+    "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
-      "baseDef": 1136
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1136,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -43640,16 +43558,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1507",
-          "1506.1",
-          "1505"
-        ],
         "weaponId": "21040036",
         "setCounts": {
           "11": 5
         },
         "mainEcho": "6000104",
+        "team": [
+          "1507",
+          "1506.1",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -43675,14 +43593,12 @@
     "quality": 5,
     "element": "havoc",
     "type": "broadblade",
-    "baseStats": {
+    "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
-      "baseDef": 1136
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1136,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -45166,17 +45082,17 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          null,
-          "1508"
-        ],
         "weaponId": "21010056",
         "setCounts": {
           "6": 2,
           "23": 3
         },
         "mainEcho": "6000199",
+        "team": [
+          null,
+          null,
+          "1508"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.1",
@@ -45201,20 +45117,18 @@
     "element": "spectro",
     "type": "pistols",
     "tagged": "tuneStrain",
-    "baseStats": {
-      "baseHp": 12237,
-      "baseAtk": 375,
-      "baseDef": 1197,
-      "tuneBreakBoost": 10
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
-    },
     "resonanceModes": [
       "Tune Rupture",
       "Tune Strain"
     ],
+    "stats": {
+      "baseHp": 12237,
+      "baseAtk": 375,
+      "baseDef": 1197,
+      "atk%": 0.12,
+      "critRate%": 0.08,
+      "tuneBreakBoost": 10
+    },
     "effects": [
       {
         "useWhen": "tuneResponse",
@@ -46481,16 +46395,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1509",
-          "1209"
-        ],
         "weaponId": "21030046",
         "setCounts": {
           "24": 5
         },
         "mainEcho": "6000189",
+        "team": [
+          null,
+          "1509",
+          "1209"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceLiberation.0",
@@ -46513,15 +46427,13 @@
     "element": "spectro",
     "type": "gauntlets",
     "tagged": "tuneStrain",
-    "baseStats": {
+    "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
       "baseDef": 1112,
-      "tuneBreakBoost": 10
-    },
-    "ascensionStats": {
+      "atk%": 0.12,
       "critRate%": 0.08,
-      "atk%": 0.12
+      "tuneBreakBoost": 10
     },
     "effects": [
       {
@@ -47567,16 +47479,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1510",
-          "1211.1",
-          "1209"
-        ],
         "weaponId": "21040056",
         "setCounts": {
           "26": 5
         },
         "mainEcho": "6000179",
+        "team": [
+          "1510",
+          "1211.1",
+          "1209"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.8",
@@ -47606,15 +47518,13 @@
     "quality": 5,
     "element": "spectro",
     "type": "pistols",
-    "baseStats": {
+    "stats": {
       "baseHp": 11025,
       "baseAtk": 425,
       "baseDef": 1148,
-      "tuneBreakBoost": 10
-    },
-    "ascensionStats": {
+      "atk%": 0.12,
       "critRate%": 0.08,
-      "atk%": 0.12
+      "tuneBreakBoost": 10
     },
     "effects": [
       {
@@ -47638,7 +47548,7 @@
       {
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.3",
-        "useOnAction": "normalAttack.16",
+        "useOnAction": "normalAttack.14",
         "buffMap": {
           "damageMv%": 2.7
         },
@@ -48372,194 +48282,6 @@
                     0.9846,
                     1.0336,
                     1.0825
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Mid-air Attack",
-            "tagged": "Algorithm Compaction",
-            "type": "mid-airAttack",
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.315,
-                    0.3409,
-                    0.3667,
-                    0.4029,
-                    0.4287,
-                    0.4584,
-                    0.4997,
-                    0.5411,
-                    0.5824,
-                    0.6263,
-                    0.678,
-                    0.7296,
-                    0.7813,
-                    0.8329,
-                    0.8846,
-                    0.9363,
-                    0.9879,
-                    1.0396,
-                    1.0912,
-                    1.1429
-                  ]
-                },
-                {
-                  "mv": [
-                    0.315,
-                    0.3409,
-                    0.3667,
-                    0.4029,
-                    0.4287,
-                    0.4584,
-                    0.4997,
-                    0.5411,
-                    0.5824,
-                    0.6263,
-                    0.678,
-                    0.7296,
-                    0.7813,
-                    0.8329,
-                    0.8846,
-                    0.9363,
-                    0.9879,
-                    1.0396,
-                    1.0912,
-                    1.1429
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Dodge Counter",
-            "tagged": "Algorithm Compaction",
-            "type": "dodgeCounter",
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.196,
-                    0.2121,
-                    0.2282,
-                    0.2507,
-                    0.2668,
-                    0.2852,
-                    0.311,
-                    0.3367,
-                    0.3624,
-                    0.3897,
-                    0.4219,
-                    0.454,
-                    0.4861,
-                    0.5183,
-                    0.5504,
-                    0.5826,
-                    0.6147,
-                    0.6469,
-                    0.679,
-                    0.7112
-                  ]
-                },
-                {
-                  "mv": [
-                    0.196,
-                    0.2121,
-                    0.2282,
-                    0.2507,
-                    0.2668,
-                    0.2852,
-                    0.311,
-                    0.3367,
-                    0.3624,
-                    0.3897,
-                    0.4219,
-                    0.454,
-                    0.4861,
-                    0.5183,
-                    0.5504,
-                    0.5826,
-                    0.6147,
-                    0.6469,
-                    0.679,
-                    0.7112
-                  ]
-                },
-                {
-                  "mv": [
-                    0.196,
-                    0.2121,
-                    0.2282,
-                    0.2507,
-                    0.2668,
-                    0.2852,
-                    0.311,
-                    0.3367,
-                    0.3624,
-                    0.3897,
-                    0.4219,
-                    0.454,
-                    0.4861,
-                    0.5183,
-                    0.5504,
-                    0.5826,
-                    0.6147,
-                    0.6469,
-                    0.679,
-                    0.7112
-                  ]
-                },
-                {
-                  "mv": [
-                    0.196,
-                    0.2121,
-                    0.2282,
-                    0.2507,
-                    0.2668,
-                    0.2852,
-                    0.311,
-                    0.3367,
-                    0.3624,
-                    0.3897,
-                    0.4219,
-                    0.454,
-                    0.4861,
-                    0.5183,
-                    0.5504,
-                    0.5826,
-                    0.6147,
-                    0.6469,
-                    0.679,
-                    0.7112
-                  ]
-                },
-                {
-                  "mv": [
-                    0.196,
-                    0.2121,
-                    0.2282,
-                    0.2507,
-                    0.2668,
-                    0.2852,
-                    0.311,
-                    0.3367,
-                    0.3624,
-                    0.3897,
-                    0.4219,
-                    0.454,
-                    0.4861,
-                    0.5183,
-                    0.5504,
-                    0.5826,
-                    0.6147,
-                    0.6469,
-                    0.679,
-                    0.7112
                   ]
                 }
               ]
@@ -49377,6 +49099,194 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Mid-air Attack",
+            "tagged": "Algorithm Compaction",
+            "type": "mid-airAttack",
+            "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.315,
+                    0.3409,
+                    0.3667,
+                    0.4029,
+                    0.4287,
+                    0.4584,
+                    0.4997,
+                    0.5411,
+                    0.5824,
+                    0.6263,
+                    0.678,
+                    0.7296,
+                    0.7813,
+                    0.8329,
+                    0.8846,
+                    0.9363,
+                    0.9879,
+                    1.0396,
+                    1.0912,
+                    1.1429
+                  ]
+                },
+                {
+                  "mv": [
+                    0.315,
+                    0.3409,
+                    0.3667,
+                    0.4029,
+                    0.4287,
+                    0.4584,
+                    0.4997,
+                    0.5411,
+                    0.5824,
+                    0.6263,
+                    0.678,
+                    0.7296,
+                    0.7813,
+                    0.8329,
+                    0.8846,
+                    0.9363,
+                    0.9879,
+                    1.0396,
+                    1.0912,
+                    1.1429
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Dodge Counter",
+            "tagged": "Algorithm Compaction",
+            "type": "dodgeCounter",
+            "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.196,
+                    0.2121,
+                    0.2282,
+                    0.2507,
+                    0.2668,
+                    0.2852,
+                    0.311,
+                    0.3367,
+                    0.3624,
+                    0.3897,
+                    0.4219,
+                    0.454,
+                    0.4861,
+                    0.5183,
+                    0.5504,
+                    0.5826,
+                    0.6147,
+                    0.6469,
+                    0.679,
+                    0.7112
+                  ]
+                },
+                {
+                  "mv": [
+                    0.196,
+                    0.2121,
+                    0.2282,
+                    0.2507,
+                    0.2668,
+                    0.2852,
+                    0.311,
+                    0.3367,
+                    0.3624,
+                    0.3897,
+                    0.4219,
+                    0.454,
+                    0.4861,
+                    0.5183,
+                    0.5504,
+                    0.5826,
+                    0.6147,
+                    0.6469,
+                    0.679,
+                    0.7112
+                  ]
+                },
+                {
+                  "mv": [
+                    0.196,
+                    0.2121,
+                    0.2282,
+                    0.2507,
+                    0.2668,
+                    0.2852,
+                    0.311,
+                    0.3367,
+                    0.3624,
+                    0.3897,
+                    0.4219,
+                    0.454,
+                    0.4861,
+                    0.5183,
+                    0.5504,
+                    0.5826,
+                    0.6147,
+                    0.6469,
+                    0.679,
+                    0.7112
+                  ]
+                },
+                {
+                  "mv": [
+                    0.196,
+                    0.2121,
+                    0.2282,
+                    0.2507,
+                    0.2668,
+                    0.2852,
+                    0.311,
+                    0.3367,
+                    0.3624,
+                    0.3897,
+                    0.4219,
+                    0.454,
+                    0.4861,
+                    0.5183,
+                    0.5504,
+                    0.5826,
+                    0.6147,
+                    0.6469,
+                    0.679,
+                    0.7112
+                  ]
+                },
+                {
+                  "mv": [
+                    0.196,
+                    0.2121,
+                    0.2282,
+                    0.2507,
+                    0.2668,
+                    0.2852,
+                    0.311,
+                    0.3367,
+                    0.3624,
+                    0.3897,
+                    0.4219,
+                    0.454,
+                    0.4861,
+                    0.5183,
+                    0.5504,
+                    0.5826,
+                    0.6147,
+                    0.6469,
+                    0.679,
+                    0.7112
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -49977,11 +49887,6 @@
     },
     "presets": [
       {
-        "team": [
-          "1511",
-          "1308",
-          "1209"
-        ],
         "weaponId": "21030056",
         "setCounts": {
           "32": 1,
@@ -49989,6 +49894,11 @@
           "24": 2
         },
         "mainEcho": "6000201",
+        "team": [
+          "1511",
+          "1308",
+          "1209"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -49998,12 +49908,12 @@
           "normalAttack.2",
           "normalAttack.3",
           "resonanceSkill.3",
+          "normalAttack.8",
+          "normalAttack.9",
           "normalAttack.10",
           "normalAttack.11",
-          "normalAttack.12",
           "normalAttack.13",
-          "normalAttack.15",
-          "normalAttack.16",
+          "normalAttack.14",
           "resonanceLiberation.0",
           "resonanceLiberation.1",
           "resonanceLiberation.2",
@@ -50023,14 +49933,12 @@
     "quality": 4,
     "element": "havoc",
     "type": "broadblade",
-    "baseStats": {
+    "stats": {
       "baseHp": 8950,
       "baseAtk": 225,
-      "baseDef": 1564
-    },
-    "ascensionStats": {
-      "havocDmgBonus%": 0.12,
-      "def%": 0.152
+      "baseDef": 1564,
+      "def%": 0.152,
+      "havocDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -50836,16 +50744,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1601",
-          "1505"
-        ],
         "weaponId": "21010024",
         "setCounts": {
           "8": 5
         },
         "mainEcho": "6000052",
+        "team": [
+          null,
+          "1601",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "forteCircuit.0",
@@ -50873,14 +50781,12 @@
     "quality": 4,
     "element": "havoc",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 9437,
       "baseAtk": 262,
-      "baseDef": 1148
-    },
-    "ascensionStats": {
-      "havocDmgBonus%": 0.12,
-      "atk%": 0.12
+      "baseDef": 1148,
+      "atk%": 0.12,
+      "havocDmgBonus%": 0.12
     },
     "effects": [
       {
@@ -51640,16 +51546,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1602",
-          "1505"
-        ],
         "weaponId": "21020015",
         "setCounts": {
           "12": 5
         },
         "mainEcho": "6000087",
+        "team": [
+          null,
+          "1602",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.1",
@@ -51676,14 +51582,12 @@
     "quality": 5,
     "element": "havoc",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 10325,
       "baseAtk": 450,
-      "baseDef": 1161
-    },
-    "ascensionStats": {
-      "critDmg%": 0.16,
-      "atk%": 0.12
+      "baseDef": 1161,
+      "atk%": 0.12,
+      "critDmg%": 0.16
     },
     "effects": [
       {
@@ -52523,16 +52427,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1603",
-          "1606",
-          "1505"
-        ],
         "weaponId": "21020026",
         "setCounts": {
           "6": 5
         },
         "mainEcho": "6000090",
+        "team": [
+          "1603",
+          "1606",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "resonanceSkill.0",
@@ -52561,14 +52465,12 @@
     "quality": 5,
     "element": "havoc",
     "type": "gauntlets",
-    "baseStats": {
+    "stats": {
       "baseHp": 12250,
       "baseAtk": 375,
-      "baseDef": 1197
-    },
-    "ascensionStats": {
-      "critDmg%": 0.16,
-      "atk%": 0.12
+      "baseDef": 1197,
+      "atk%": 0.12,
+      "critDmg%": 0.16
     },
     "effects": [
       {
@@ -53200,16 +53102,16 @@
     },
     "presets": [
       {
-        "team": [
-          null,
-          "1606",
-          "1505"
-        ],
         "weaponId": "21040026",
         "setCounts": {
           "12": 5
         },
         "mainEcho": "6000087",
+        "team": [
+          null,
+          "1606",
+          "1505"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.3",
@@ -53230,14 +53132,12 @@
     "quality": 5,
     "element": "havoc",
     "type": "rectifier",
-    "baseStats": {
+    "stats": {
       "baseHp": 11600,
       "baseAtk": 400,
-      "baseDef": 1099
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1099,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -54229,16 +54129,16 @@
     },
     "presets": [
       {
-        "team": [
-          "1608",
-          "1607",
-          "1411"
-        ],
         "weaponId": "21050056",
         "setCounts": {
           "12": 5
         },
         "mainEcho": "6000082",
+        "team": [
+          "1608",
+          "1607",
+          "1411"
+        ],
         "rotation": [
           "introSkill.0",
           "normalAttack.2",
@@ -54269,14 +54169,12 @@
     "element": "havoc",
     "type": "rectifier",
     "noEnergy": true,
-    "baseStats": {
+    "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
-      "baseDef": 1136
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1136,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -55157,17 +55055,17 @@
     },
     "presets": [
       {
-        "team": [
-          "1608",
-          "1607",
-          "1411"
-        ],
         "weaponId": "21050066",
         "setCounts": {
           "6": 2,
           "19": 3
         },
         "mainEcho": "6000115",
+        "team": [
+          "1608",
+          "1607",
+          "1411"
+        ],
         "rotation": [
           "introSkill.1",
           "normalAttack.2",
@@ -55192,14 +55090,12 @@
     "quality": 5,
     "element": "havoc",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 11025,
       "baseAtk": 425,
-      "baseDef": 1148
-    },
-    "ascensionStats": {
-      "critRate%": 0.08,
-      "atk%": 0.12
+      "baseDef": 1148,
+      "atk%": 0.12,
+      "critRate%": 0.08
     },
     "effects": [
       {
@@ -56122,6 +56018,44 @@
         "name": "The Way of Ten Thousand Voices",
         "actions": [
           {
+            "name": "Sword Stance Flow: Feather",
+            "tagged": "Azure Sword Stance",
+            "type": "resonanceSkill",
+            "consumeNegativeStatus": {
+              "havocBane": 1
+            },
+            "damage": {
+              "type": "heavyAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.1688,
+                    0.1827,
+                    0.1965,
+                    0.2159,
+                    0.2298,
+                    0.2457,
+                    0.2678,
+                    0.29,
+                    0.3121,
+                    0.3356,
+                    0.3633,
+                    0.391,
+                    0.4187,
+                    0.4464,
+                    0.4741,
+                    0.5017,
+                    0.5294,
+                    0.5571,
+                    0.5848,
+                    0.6125
+                  ],
+                  "times": 3
+                }
+              ]
+            }
+          },
+          {
             "name": "Sword Stance Flow: Azure",
             "tagged": "Feather Sword Stance",
             "type": "resonanceSkill",
@@ -56177,44 +56111,6 @@
                     0.2581,
                     0.2709,
                     0.2837
-                  ],
-                  "times": 3
-                }
-              ]
-            }
-          },
-          {
-            "name": "Sword Stance Flow: Feather",
-            "tagged": "Azure Sword Stance",
-            "type": "resonanceSkill",
-            "consumeNegativeStatus": {
-              "havocBane": 1
-            },
-            "damage": {
-              "type": "heavyAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.1688,
-                    0.1827,
-                    0.1965,
-                    0.2159,
-                    0.2298,
-                    0.2457,
-                    0.2678,
-                    0.29,
-                    0.3121,
-                    0.3356,
-                    0.3633,
-                    0.391,
-                    0.4187,
-                    0.4464,
-                    0.4741,
-                    0.5017,
-                    0.5294,
-                    0.5571,
-                    0.5848,
-                    0.6125
                   ],
                   "times": 3
                 }
@@ -56837,29 +56733,29 @@
     },
     "presets": [
       {
+        "setCounts": {
+          "33": 5
+        },
+        "mainEcho": "6000218",
         "team": [
           "1610",
           "1508",
           "1110"
         ],
-        "setCounts": {
-          "33": 5
-        },
-        "mainEcho": "6000218",
         "rotation": [
           "introSkill.0",
           "normalAttack.0",
           "normalAttack.1",
           "normalAttack.2",
           "normalAttack.3",
-          "resonanceSkill.0",
+          "forteCircuit.0",
           "forteCircuit.3",
           "forteCircuit.4",
           "forteCircuit.5",
           "forteCircuit.6",
           "forteCircuit.7",
           "resonanceLiberation.0",
-          "resonanceSkill.1",
+          "forteCircuit.1",
           "forteCircuit.2",
           "outroSkill.0"
         ]

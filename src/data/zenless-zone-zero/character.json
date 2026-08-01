@@ -6,17 +6,13 @@
     "quality": 4,
     "element": "electric",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 7501,
-      "baseAtk": 584,
+      "baseAtk": 659,
       "baseDef": 613,
-      "baseImpact": 118,
+      "baseImpact": 136,
       "baseAnomalyMastery": 94,
       "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "baseImpact": 18,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -874,17 +870,14 @@
     "quality": 5,
     "element": "physical",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7560,
-      "baseAtk": 836,
+      "baseAtk": 911,
       "baseDef": 588,
       "baseImpact": 92,
       "baseAnomalyMastery": 97,
-      "baseAnomalyProficiency": 96
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 96,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -1803,17 +1796,14 @@
     "quality": 4,
     "element": "ether",
     "type": "support",
-    "baseStats": {
+    "stats": {
       "baseHp": 8146,
-      "baseAtk": 574,
+      "baseAtk": 649,
       "baseDef": 623,
       "baseImpact": 88,
       "baseAnomalyMastery": 90,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -3066,17 +3056,14 @@
     "quality": 5,
     "element": "fire",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 814,
+      "baseAtk": 889,
       "baseDef": 613,
       "baseImpact": 93,
       "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -4359,17 +4346,14 @@
     "quality": 5,
     "element": "ice",
     "type": "rupture",
-    "baseStats": {
+    "stats": {
       "baseHp": 8497,
-      "baseAtk": 785,
+      "baseAtk": 860,
       "baseDef": 448,
       "baseImpact": 95,
       "baseAnomalyMastery": 87,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -5660,17 +5644,14 @@
     "quality": 4,
     "element": "physical",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 6977,
-      "baseAtk": 732,
+      "baseAtk": 807,
       "baseDef": 605,
       "baseImpact": 93,
       "baseAnomalyMastery": 93,
-      "baseAnomalyProficiency": 96
-    },
-    "ascensionStats": {
-      "critDmg%": 0.288,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 96,
+      "critDmg%": 0.288
     },
     "effects": [],
     "skills": {
@@ -6758,17 +6739,13 @@
     "quality": 5,
     "element": "physical",
     "type": "defense",
-    "baseStats": {
+    "stats": {
       "baseHp": 9526,
-      "baseAtk": 637,
+      "baseAtk": 712,
       "baseDef": 754,
-      "baseImpact": 105,
+      "baseImpact": 123,
       "baseAnomalyMastery": 87,
       "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseImpact": 18,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -8109,17 +8086,14 @@
     "quality": 4,
     "element": "physical",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 6907,
-      "baseAtk": 712,
+      "baseAtk": 787,
       "baseDef": 607,
       "baseImpact": 91,
       "baseAnomalyMastery": 92,
-      "baseAnomalyProficiency": 91
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 91,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -9122,17 +9096,13 @@
     "quality": 5,
     "element": "ice",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 806,
+      "baseAtk": 881,
       "baseDef": 607,
       "baseImpact": 86,
       "baseAnomalyMastery": 116,
-      "baseAnomalyProficiency": 148
-    },
-    "ascensionStats": {
-      "baseAnomalyProficiency": 90,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 238
     },
     "effects": [],
     "skills": {
@@ -10219,17 +10189,13 @@
     "quality": 5,
     "element": "fire",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 8127,
-      "baseAtk": 661,
+      "baseAtk": 736,
       "baseDef": 595,
-      "baseImpact": 116,
+      "baseImpact": 134,
       "baseAnomalyMastery": 97,
       "baseAnomalyProficiency": 96
-    },
-    "ascensionStats": {
-      "baseImpact": 18,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -11483,17 +11449,14 @@
     "quality": 4,
     "element": "electric",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7219,
-      "baseAtk": 717,
+      "baseAtk": 792,
       "baseDef": 623,
       "baseImpact": 95,
       "baseAnomalyMastery": 86,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -12633,17 +12596,14 @@
     "quality": 4,
     "element": "fire",
     "type": "defense",
-    "baseStats": {
+    "stats": {
       "baseHp": 8578,
-      "baseAtk": 578,
+      "baseAtk": 653,
       "baseDef": 724,
       "baseImpact": 95,
       "baseAnomalyMastery": 86,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -13614,17 +13574,14 @@
     "quality": 4,
     "element": "ice",
     "type": "support",
-    "baseStats": {
+    "stats": {
       "baseHp": 8026,
-      "baseAtk": 591,
+      "baseAtk": 666,
       "baseDef": 598,
       "baseImpact": 86,
       "baseAnomalyMastery": 93,
-      "baseAnomalyProficiency": 96
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 96,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -14878,17 +14835,13 @@
     "quality": 5,
     "element": "ice",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 8416,
-      "baseAtk": 654,
+      "baseAtk": 729,
       "baseDef": 607,
-      "baseImpact": 119,
+      "baseImpact": 137,
       "baseAnomalyMastery": 91,
       "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseImpact": 18,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -16256,17 +16209,14 @@
     "quality": 4,
     "element": "fire",
     "type": "support",
-    "baseStats": {
+    "stats": {
       "baseHp": 8026,
-      "baseAtk": 584,
+      "baseAtk": 659,
       "baseDef": 613,
       "baseImpact": 86,
       "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -17487,17 +17437,13 @@
     "quality": 5,
     "element": "fire",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 8253,
-      "baseAtk": 723,
+      "baseAtk": 798,
       "baseDef": 613,
-      "baseImpact": 119,
+      "baseImpact": 137,
       "baseAnomalyMastery": 91,
       "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseImpact": 18,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -19034,17 +18980,14 @@
     "quality": 5,
     "element": "fire",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7368,
-      "baseAtk": 788,
+      "baseAtk": 863,
       "baseDef": 601,
       "baseImpact": 83,
       "baseAnomalyMastery": 118,
-      "baseAnomalyProficiency": 120
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 120,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -20302,17 +20245,13 @@
     "quality": 5,
     "element": "electric",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7483,
-      "baseAtk": 751,
+      "baseAtk": 826,
       "baseDef": 601,
       "baseImpact": 83,
-      "baseAnomalyMastery": 115,
+      "baseAnomalyMastery": 151,
       "baseAnomalyProficiency": 116
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -21198,17 +21137,14 @@
     "quality": 5,
     "element": "ice",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 863,
+      "baseAtk": 938,
       "baseDef": 607,
       "baseImpact": 93,
       "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -22692,17 +22628,14 @@
     "quality": 5,
     "element": "electric",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7406,
-      "baseAtk": 841,
+      "baseAtk": 916,
       "baseDef": 601,
       "baseImpact": 90,
       "baseAnomalyMastery": 80,
-      "baseAnomalyProficiency": 95
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 95,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -24014,17 +23947,14 @@
     "quality": 5,
     "element": "electric",
     "type": "support",
-    "baseStats": {
+    "stats": {
       "baseHp": 8609,
-      "baseAtk": 642,
+      "baseAtk": 717,
       "baseDef": 601,
       "baseImpact": 83,
       "baseAnomalyMastery": 93,
-      "baseAnomalyProficiency": 92
-    },
-    "ascensionStats": {
-      "penRatio%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 92,
+      "penRatio%": 0.144
     },
     "effects": [],
     "skills": {
@@ -24797,17 +24727,13 @@
     "quality": 5,
     "element": "electric",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7789,
-      "baseAtk": 798,
+      "baseAtk": 873,
       "baseDef": 613,
       "baseImpact": 86,
-      "baseAnomalyMastery": 112,
+      "baseAnomalyMastery": 148,
       "baseAnomalyProficiency": 114
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -26060,17 +25986,14 @@
     "quality": 5,
     "element": "ether",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7483,
-      "baseAtk": 844,
+      "baseAtk": 919,
       "baseDef": 601,
       "baseImpact": 90,
       "baseAnomalyMastery": 93,
-      "baseAnomalyProficiency": 92
-    },
-    "ascensionStats": {
-      "critDmg%": 0.288,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 92,
+      "critDmg%": 0.288
     },
     "effects": [],
     "skills": {
@@ -27298,17 +27221,13 @@
     "quality": 5,
     "element": "electric",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 8251,
-      "baseAtk": 683,
+      "baseAtk": 758,
       "baseDef": 613,
-      "baseImpact": 118,
+      "baseImpact": 136,
       "baseAnomalyMastery": 94,
       "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "baseImpact": 18,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -28393,17 +28312,13 @@
     "quality": 5,
     "element": "physical",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7789,
-      "baseAtk": 806,
+      "baseAtk": 881,
       "baseDef": 607,
       "baseImpact": 86,
-      "baseAnomalyMastery": 112,
+      "baseAnomalyMastery": 148,
       "baseAnomalyProficiency": 114
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -29720,17 +29635,14 @@
     "quality": 4,
     "element": "electric",
     "type": "defense",
-    "baseStats": {
+    "stats": {
       "baseHp": 8701,
-      "baseAtk": 568,
+      "baseAtk": 643,
       "baseDef": 746,
       "baseImpact": 94,
       "baseAnomalyMastery": 86,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -30702,17 +30614,14 @@
     "quality": 4,
     "element": "physical",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 6977,
-      "baseAtk": 683,
+      "baseAtk": 758,
       "baseDef": 613,
       "baseImpact": 86,
       "baseAnomalyMastery": 116,
-      "baseAnomalyProficiency": 118
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 118,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -31742,17 +31651,14 @@
     "quality": 5,
     "element": "ice",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7941,
-      "baseAtk": 844,
+      "baseAtk": 919,
       "baseDef": 617,
       "baseImpact": 95,
       "baseAnomalyMastery": 86,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -33067,17 +32973,14 @@
     "quality": 5,
     "element": "fire",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7789,
-      "baseAtk": 855,
+      "baseAtk": 930,
       "baseDef": 613,
       "baseImpact": 93,
       "baseAnomalyMastery": 92,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -34278,17 +34181,14 @@
     "quality": 5,
     "element": "ether",
     "type": "support",
-    "baseStats": {
+    "stats": {
       "baseHp": 8609,
-      "baseAtk": 641,
+      "baseAtk": 716,
       "baseDef": 601,
       "baseImpact": 83,
       "baseAnomalyMastery": 93,
-      "baseAnomalyProficiency": 92
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 92,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -35546,17 +35446,14 @@
     "quality": 5,
     "element": "fire",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7789,
-      "baseAtk": 855,
+      "baseAtk": 930,
       "baseDef": 613,
       "baseImpact": 93,
       "baseAnomalyMastery": 92,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -36753,17 +36650,13 @@
     "quality": 5,
     "element": "ether",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 806,
+      "baseAtk": 881,
       "baseDef": 607,
       "baseImpact": 86,
-      "baseAnomalyMastery": 108,
+      "baseAnomalyMastery": 144,
       "baseAnomalyProficiency": 118
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -37708,17 +37601,14 @@
     "quality": 5,
     "element": "ice",
     "type": "defense",
-    "baseStats": {
+    "stats": {
       "baseHp": 9117,
-      "baseAtk": 691,
+      "baseAtk": 766,
       "baseDef": 702,
       "baseImpact": 93,
       "baseAnomalyMastery": 93,
-      "baseAnomalyProficiency": 96
-    },
-    "ascensionStats": {
-      "hp%": 0.18,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 96,
+      "hp%": 0.18
     },
     "effects": [],
     "skills": {
@@ -38772,17 +38662,13 @@
     "quality": 4,
     "element": "physical",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 7613,
-      "baseAtk": 591,
+      "baseAtk": 666,
       "baseDef": 607,
-      "baseImpact": 118,
+      "baseImpact": 136,
       "baseAnomalyMastery": 92,
       "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseImpact": 18,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -39618,17 +39504,13 @@
     "quality": 5,
     "element": "electric",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 7923,
-      "baseAtk": 676,
+      "baseAtk": 751,
       "baseDef": 601,
-      "baseImpact": 113,
+      "baseImpact": 131,
       "baseAnomalyMastery": 96,
       "baseAnomalyProficiency": 95
-    },
-    "ascensionStats": {
-      "baseImpact": 18,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -40771,17 +40653,14 @@
     "quality": 5,
     "element": "ether",
     "type": "rupture",
-    "baseStats": {
-      "baseHp": 7954,
+    "stats": {
+      "baseHp": 8374,
       "baseAtk": 873,
       "baseDef": 441,
       "baseImpact": 93,
       "baseAnomalyMastery": 92,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseHp": 420
+      "baseAnomalyProficiency": 90,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -42158,17 +42037,14 @@
     "quality": 5,
     "element": "electric",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 855,
+      "baseAtk": 930,
       "baseDef": 613,
       "baseImpact": 93,
       "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -43314,17 +43190,14 @@
     "quality": 5,
     "element": "fire",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 8251,
-      "baseAtk": 691,
+      "baseAtk": 766,
       "baseDef": 598,
       "baseImpact": 118,
       "baseAnomalyMastery": 93,
-      "baseAnomalyProficiency": 96
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 96,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -44408,17 +44281,13 @@
     "quality": 5,
     "element": "physical",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 806,
+      "baseAtk": 881,
       "baseDef": 607,
       "baseImpact": 86,
-      "baseAnomalyMastery": 106,
+      "baseAnomalyMastery": 142,
       "baseAnomalyProficiency": 118
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -45567,17 +45436,13 @@
     "quality": 5,
     "element": "physical",
     "type": "support",
-    "baseStats": {
+    "stats": {
       "baseHp": 8829,
-      "baseAtk": 683,
+      "baseAtk": 758,
       "baseDef": 613,
       "baseImpact": 86,
-      "baseAnomalyMastery": 88,
+      "baseAnomalyMastery": 124,
       "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -46854,17 +46719,14 @@
     "quality": 4,
     "element": "physical",
     "type": "defense",
-    "baseStats": {
+    "stats": {
       "baseHp": 8454,
-      "baseAtk": 587,
+      "baseAtk": 662,
       "baseDef": 713,
       "baseImpact": 94,
       "baseAnomalyMastery": 91,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -47893,17 +47755,14 @@
     "quality": 5,
     "element": "physical",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 863,
+      "baseAtk": 938,
       "baseDef": 607,
       "baseImpact": 83,
       "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -49837,17 +49696,14 @@
     "quality": 4,
     "element": "fire",
     "type": "rupture",
-    "baseStats": {
+    "stats": {
       "baseHp": 7725,
-      "baseAtk": 680,
+      "baseAtk": 755,
       "baseDef": 444,
       "baseImpact": 95,
       "baseAnomalyMastery": 87,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "hp%": 0.18,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "hp%": 0.18
     },
     "effects": [],
     "skills": {
@@ -51131,17 +50987,14 @@
     "quality": 5,
     "element": "ether",
     "type": "support",
-    "baseStats": {
+    "stats": {
       "baseHp": 8477,
-      "baseAtk": 683,
+      "baseAtk": 758,
       "baseDef": 595,
       "baseImpact": 83,
       "baseAnomalyMastery": 96,
-      "baseAnomalyProficiency": 95
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 95,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -52454,17 +52307,14 @@
     "quality": 5,
     "element": "electric",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 855,
+      "baseAtk": 930,
       "baseDef": 613,
       "baseImpact": 93,
       "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critDmg%": 0.288,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "critDmg%": 0.288
     },
     "effects": [],
     "skills": {
@@ -53495,17 +53345,14 @@
     "quality": 5,
     "element": "fire",
     "type": "rupture",
-    "baseStats": {
+    "stats": {
       "baseHp": 8497,
-      "baseAtk": 785,
+      "baseAtk": 860,
       "baseDef": 446,
       "baseImpact": 95,
       "baseAnomalyMastery": 90,
-      "baseAnomalyProficiency": 89
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 89,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -55024,17 +54871,14 @@
     "quality": 5,
     "element": "physical",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 8251,
-      "baseAtk": 683,
+      "baseAtk": 758,
       "baseDef": 613,
       "baseImpact": 110,
       "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -56238,17 +56082,14 @@
     "quality": 5,
     "element": "physical",
     "type": "support",
-    "baseStats": {
+    "stats": {
       "baseHp": 8477,
-      "baseAtk": 676,
+      "baseAtk": 751,
       "baseDef": 601,
       "baseImpact": 98,
       "baseAnomalyMastery": 96,
-      "baseAnomalyProficiency": 95
-    },
-    "ascensionStats": {
-      "atk%": 0.21,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 95,
+      "atk%": 0.21
     },
     "effects": [],
     "skills": {
@@ -57278,17 +57119,13 @@
     "quality": 5,
     "element": "ether",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7750,
-      "baseAtk": 788,
+      "baseAtk": 863,
       "baseDef": 620,
       "baseImpact": 87,
-      "baseAnomalyMastery": 115,
+      "baseAnomalyMastery": 151,
       "baseAnomalyProficiency": 116
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -58550,17 +58387,13 @@
     "quality": 5,
     "element": "ether",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 8374,
-      "baseAtk": 672,
+      "baseAtk": 747,
       "baseDef": 623,
       "baseImpact": 120,
-      "baseAnomalyMastery": 90,
+      "baseAnomalyMastery": 126,
       "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -59538,17 +59371,14 @@
     "quality": 5,
     "element": "electric",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 863,
+      "baseAtk": 938,
       "baseDef": 607,
       "baseImpact": 93,
       "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "baseEnergyRegen": 36,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "baseEnergyRegen": 36
     },
     "effects": [],
     "skills": {
@@ -60525,17 +60355,14 @@
     "quality": 5,
     "element": "physical",
     "type": "rupture",
-    "baseStats": {
+    "stats": {
       "baseHp": 8497,
-      "baseAtk": 785,
+      "baseAtk": 860,
       "baseDef": 446,
       "baseImpact": 95,
       "baseAnomalyMastery": 90,
-      "baseAnomalyProficiency": 89
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 89,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -61627,17 +61454,13 @@
     "quality": 5,
     "element": "ice",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7789,
-      "baseAtk": 798,
+      "baseAtk": 873,
       "baseDef": 613,
       "baseImpact": 86,
-      "baseAnomalyMastery": 112,
+      "baseAnomalyMastery": 148,
       "baseAnomalyProficiency": 114
-    },
-    "ascensionStats": {
-      "baseAnomalyMastery": 36,
-      "baseAtk": 75
     },
     "effects": [],
     "skills": {
@@ -62757,17 +62580,14 @@
     "quality": 5,
     "element": "ether",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7674,
-      "baseAtk": 849,
+      "baseAtk": 924,
       "baseDef": 613,
       "baseImpact": 94,
       "baseAnomalyMastery": 94,
-      "baseAnomalyProficiency": 93
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 93,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -63944,17 +63764,13 @@
     "quality": 5,
     "element": "wind",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7789,
-      "baseAtk": 798,
+      "baseAtk": 873,
       "baseDef": 613,
       "baseImpact": 86,
       "baseAnomalyMastery": 112,
-      "baseAnomalyProficiency": 111
-    },
-    "ascensionStats": {
-      "baseAnomalyProficiency": 54,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 165
     },
     "effects": [],
     "skills": {
@@ -65075,17 +64891,14 @@
     "quality": 5,
     "element": "fire",
     "type": "stun",
-    "baseStats": {
+    "stats": {
       "baseHp": 7800,
-      "baseAtk": 687,
+      "baseAtk": 762,
       "baseDef": 583,
       "baseImpact": 106,
       "baseAnomalyMastery": 99,
-      "baseAnomalyProficiency": 98
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 98,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {
@@ -66405,17 +66218,13 @@
     "quality": 5,
     "element": "lumiflux",
     "type": "anomaly",
-    "baseStats": {
+    "stats": {
       "baseHp": 7483,
-      "baseAtk": 748,
+      "baseAtk": 823,
       "baseDef": 601,
       "baseImpact": 83,
       "baseAnomalyMastery": 115,
-      "baseAnomalyProficiency": 116
-    },
-    "ascensionStats": {
-      "baseAnomalyProficiency": 54,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 170
     },
     "effects": [],
     "skills": {
@@ -67595,17 +67404,14 @@
     "quality": 5,
     "element": "ice",
     "type": "attack",
-    "baseStats": {
+    "stats": {
       "baseHp": 7789,
-      "baseAtk": 863,
+      "baseAtk": 938,
       "baseDef": 607,
       "baseImpact": 93,
       "baseAnomalyMastery": 92,
-      "baseAnomalyProficiency": 90
-    },
-    "ascensionStats": {
-      "critRate%": 0.144,
-      "baseAtk": 75
+      "baseAnomalyProficiency": 90,
+      "critRate%": 0.144
     },
     "effects": [],
     "skills": {

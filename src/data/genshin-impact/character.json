@@ -6,12 +6,10 @@
     "quality": 5,
     "element": "anemo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 14695,
       "baseAtk": 239,
-      "baseDef": 769
-    },
-    "ascensionStats": {
+      "baseDef": 769,
       "healingBonus%": 0.222
     },
     "effects": [],
@@ -451,12 +449,10 @@
     "quality": 4,
     "element": "electro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 9570,
       "baseAtk": 232,
-      "baseDef": 573
-    },
-    "ascensionStats": {
+      "baseDef": 573,
       "elementalMastery": 96
     },
     "effects": [],
@@ -868,12 +864,10 @@
     "quality": 4,
     "element": "hydro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 9787,
       "baseAtk": 159,
-      "baseDef": 669
-    },
-    "ascensionStats": {
+      "baseDef": 669,
       "hp%": 0.24
     },
     "effects": [],
@@ -1285,12 +1279,10 @@
     "quality": 4,
     "element": "cryo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 11636,
       "baseAtk": 223,
-      "baseDef": 792
-    },
-    "ascensionStats": {
+      "baseDef": 792,
       "energyRecharge%": 0.267
     },
     "effects": [],
@@ -1640,12 +1632,10 @@
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 12981,
       "baseAtk": 335,
-      "baseDef": 784
-    },
-    "ascensionStats": {
+      "baseDef": 784,
       "critRate%": 0.192
     },
     "effects": [],
@@ -2081,12 +2071,10 @@
     "element": "electro",
     "type": "claymore",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 11962,
       "baseAtk": 234,
-      "baseDef": 751
-    },
-    "ascensionStats": {
+      "baseDef": 751,
       "physicalDmgBonus%": 0.3
     },
     "effects": [],
@@ -2494,12 +2482,10 @@
     "quality": 4,
     "element": "pyro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9461,
       "baseAtk": 223,
-      "baseDef": 601
-    },
-    "ascensionStats": {
+      "baseDef": 601,
       "atk%": 0.24
     },
     "effects": [],
@@ -2913,12 +2899,10 @@
     "element": "anemo",
     "type": "bow",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 10531,
       "baseAtk": 263,
-      "baseDef": 669
-    },
-    "ascensionStats": {
+      "baseDef": 669,
       "energyRecharge%": 0.32
     },
     "effects": [],
@@ -3424,12 +3408,10 @@
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 10875,
       "baseAtk": 225,
-      "baseDef": 669
-    },
-    "ascensionStats": {
+      "baseDef": 669,
       "elementalMastery": 96
     },
     "effects": [],
@@ -3860,12 +3842,10 @@
     "quality": 4,
     "element": "electro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 13050,
       "baseAtk": 225,
-      "baseDef": 648
-    },
-    "ascensionStats": {
+      "baseDef": 648,
       "electroDmgBonus%": 0.24
     },
     "effects": [],
@@ -4345,14 +4325,12 @@
     "quality": 4,
     "element": "hydro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 10222,
       "baseAtk": 202,
-      "baseDef": 758
-    },
-    "ascensionStats": {
-      "atk%": 0.24,
-      "hydroDmgBonus%": 0.2
+      "baseDef": 758,
+      "hydroDmgBonus%": 0.2,
+      "atk%": 0.24
     },
     "effects": [],
     "skills": {
@@ -4785,12 +4763,10 @@
     "quality": 4,
     "element": "geo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 9787,
       "baseAtk": 212,
-      "baseDef": 573
-    },
-    "ascensionStats": {
+      "baseDef": 573,
       "geoDmgBonus%": 0.24
     },
     "effects": [],
@@ -5069,12 +5045,10 @@
     "element": "pyro",
     "type": "catalyst",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 10287,
       "baseAtk": 311,
-      "baseDef": 615
-    },
-    "ascensionStats": {
+      "baseDef": 615,
       "pyroDmgBonus%": 0.288
     },
     "effects": [],
@@ -5379,12 +5353,10 @@
     "element": "electro",
     "type": "bow",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 9189,
       "baseAtk": 244,
-      "baseDef": 594
-    },
-    "ascensionStats": {
+      "baseDef": 594,
       "atk%": 0.24
     },
     "effects": [],
@@ -5766,12 +5738,10 @@
     "quality": 4,
     "element": "pyro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12397,
       "baseAtk": 191,
-      "baseDef": 771
-    },
-    "ascensionStats": {
+      "baseDef": 771,
       "energyRecharge%": 0.267
     },
     "effects": [],
@@ -6309,12 +6279,10 @@
     "quality": 4,
     "element": "geo",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 12071,
       "baseAtk": 191,
-      "baseDef": 799
-    },
-    "ascensionStats": {
+      "baseDef": 799,
       "def%": 0.3
     },
     "effects": [],
@@ -6811,12 +6779,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12368,
       "baseAtk": 287,
-      "baseDef": 922
-    },
-    "ascensionStats": {
+      "baseDef": 922,
       "healingBonus%": 0.222
     },
     "effects": [],
@@ -7356,12 +7322,10 @@
     "quality": 4,
     "element": "cryo",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 10984,
       "baseAtk": 223,
-      "baseDef": 648
-    },
-    "ascensionStats": {
+      "baseDef": 648,
       "atk%": 0.24
     },
     "effects": [],
@@ -7716,12 +7680,10 @@
     "element": "hydro",
     "type": "catalyst",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 10409,
       "baseAtk": 287,
-      "baseDef": 653
-    },
-    "ascensionStats": {
+      "baseDef": 653,
       "energyRecharge%": 0.32
     },
     "effects": [],
@@ -8106,12 +8068,10 @@
     "quality": 5,
     "element": "electro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 13103,
       "baseAtk": 323,
-      "baseDef": 799
-    },
-    "ascensionStats": {
+      "baseDef": 799,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -8585,12 +8545,10 @@
     "element": "anemo",
     "type": "catalyst",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 9244,
       "baseAtk": 170,
-      "baseDef": 703
-    },
-    "ascensionStats": {
+      "baseDef": 703,
       "anemoDmgBonus%": 0.24
     },
     "effects": [],
@@ -8921,12 +8879,10 @@
     "quality": 5,
     "element": "geo",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 14695,
       "baseAtk": 251,
-      "baseDef": 738
-    },
-    "ascensionStats": {
+      "baseDef": 738,
       "geoDmgBonus%": 0.288
     },
     "effects": [],
@@ -9407,12 +9363,10 @@
     "quality": 5,
     "element": "hydro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 13103,
       "baseAtk": 301,
-      "baseDef": 815
-    },
-    "ascensionStats": {
+      "baseDef": 815,
       "hydroDmgBonus%": 0.288
     },
     "effects": [],
@@ -10156,12 +10110,10 @@
     "quality": 4,
     "element": "cryo",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9570,
       "baseAtk": 212,
-      "baseDef": 601
-    },
-    "ascensionStats": {
+      "baseDef": 601,
       "cryoDmgBonus%": 0.24
     },
     "effects": [],
@@ -10662,12 +10614,10 @@
     "quality": 4,
     "element": "pyro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 11201,
       "baseAtk": 249,
-      "baseDef": 799
-    },
-    "ascensionStats": {
+      "baseDef": 799,
       "atk%": 0.24
     },
     "effects": [],
@@ -11186,12 +11136,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9797,
       "baseAtk": 335,
-      "baseDef": 630
-    },
-    "ascensionStats": {
+      "baseDef": 630,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -11654,14 +11602,6 @@
     "element": "geo",
     "type": "sword",
     "tagged": "Hexerei",
-    "baseStats": {
-      "baseHp": 13226,
-      "baseAtk": 251,
-      "baseDef": 876
-    },
-    "ascensionStats": {
-      "geoDmgBonus%": 0.288
-    },
     "rankMods": {
       "3": {
         "elementalSkill": 3
@@ -11669,6 +11609,12 @@
       "5": {
         "elementalBurst": 3
       }
+    },
+    "stats": {
+      "baseHp": 13226,
+      "baseAtk": 251,
+      "baseDef": 876,
+      "geoDmgBonus%": 0.288
     },
     "effects": [
       {
@@ -12104,12 +12050,10 @@
     "quality": 5,
     "element": "anemo",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 12736,
       "baseAtk": 349,
-      "baseDef": 799
-    },
-    "ascensionStats": {
+      "baseDef": 799,
       "critRate%": 0.192
     },
     "effects": [],
@@ -12528,14 +12472,12 @@
     "quality": 5,
     "element": "pyro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 15552,
       "baseAtk": 106,
-      "baseDef": 876
-    },
-    "ascensionStats": {
-      "critDmg%": 0.384,
-      "pyroDmgBonus%": 0.33
+      "baseDef": 876,
+      "pyroDmgBonus%": 0.33,
+      "critDmg%": 0.384
     },
     "effects": [],
     "skills": {
@@ -13015,12 +12957,10 @@
     "quality": 4,
     "element": "cryo",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 12289,
       "baseAtk": 240,
-      "baseDef": 710
-    },
-    "ascensionStats": {
+      "baseDef": 710,
       "atk%": 0.24
     },
     "effects": [],
@@ -13431,12 +13371,10 @@
     "quality": 4,
     "element": "pyro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 9352,
       "baseAtk": 240,
-      "baseDef": 587
-    },
-    "ascensionStats": {
+      "baseDef": 587,
       "pyroDmgBonus%": 0.24
     },
     "effects": [],
@@ -13812,12 +13750,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 13226,
       "baseAtk": 342,
-      "baseDef": 751
-    },
-    "ascensionStats": {
+      "baseDef": 751,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -14371,12 +14307,10 @@
     "quality": 5,
     "element": "anemo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 13348,
       "baseAtk": 297,
-      "baseDef": 807
-    },
-    "ascensionStats": {
+      "baseDef": 807,
       "elementalMastery": 115
     },
     "effects": [],
@@ -14822,12 +14756,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12858,
       "baseAtk": 342,
-      "baseDef": 784
-    },
-    "ascensionStats": {
+      "baseDef": 784,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -15181,12 +15113,10 @@
     "quality": 5,
     "element": "pyro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 10164,
       "baseAtk": 323,
-      "baseDef": 615
-    },
-    "ascensionStats": {
+      "baseDef": 615,
       "critRate%": 0.192
     },
     "effects": [],
@@ -15595,12 +15525,10 @@
     "quality": 4,
     "element": "anemo",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 11854,
       "baseAtk": 244,
-      "baseDef": 745
-    },
-    "ascensionStats": {
+      "baseDef": 745,
       "elementalMastery": 96
     },
     "effects": [],
@@ -16173,12 +16101,10 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 12907,
       "baseAtk": 337,
-      "baseDef": 789
-    },
-    "ascensionStats": {
+      "baseDef": 789,
       "energyRecharge%": 0.32
     },
     "effects": [],
@@ -16959,15 +16885,13 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 13471,
       "baseAtk": 234,
-      "baseDef": 657
-    },
-    "ascensionStats": {
-      "hydroDmgBonus%": 0.288,
+      "baseDef": 657,
+      "critRate%": -1.0,
       "healingBonus%": 0.25,
-      "critRate%": -1.0
+      "hydroDmgBonus%": 0.288
     },
     "effects": [],
     "skills": {
@@ -17412,12 +17336,10 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9570,
       "baseAtk": 195,
-      "baseDef": 628
-    },
-    "ascensionStats": {
+      "baseDef": 628,
       "atk%": 0.24
     },
     "effects": [],
@@ -17826,12 +17748,10 @@
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 10331,
       "baseAtk": 202,
-      "baseDef": 751
-    },
-    "ascensionStats": {
+      "baseDef": 751,
       "atk%": 0.24
     },
     "effects": [],
@@ -18296,12 +18216,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 10899,
       "baseAtk": 234,
-      "baseDef": 676
-    },
-    "ascensionStats": {
+      "baseDef": 676,
       "cryoDmgBonus%": 0.288
     },
     "effects": [],
@@ -18794,12 +18712,10 @@
     "quality": 4,
     "element": "geo",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9570,
       "baseAtk": 183,
-      "baseDef": 648
-    },
-    "ascensionStats": {
+      "baseDef": 648,
       "geoDmgBonus%": 0.24
     },
     "effects": [],
@@ -19181,12 +19097,10 @@
     "quality": 5,
     "element": "geo",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 12858,
       "baseAtk": 227,
-      "baseDef": 959
-    },
-    "ascensionStats": {
+      "baseDef": 959,
       "critRate%": 0.192
     },
     "effects": [],
@@ -19540,12 +19454,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 12993,
       "baseAtk": 304,
-      "baseDef": 830
-    },
-    "ascensionStats": {
+      "baseDef": 830,
       "atk%": 0.288
     },
     "effects": [],
@@ -19999,12 +19911,10 @@
     "quality": 4,
     "element": "geo",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 10657,
       "baseAtk": 191,
-      "baseDef": 734
-    },
-    "ascensionStats": {
+      "baseDef": 734,
       "energyRecharge%": 0.267
     },
     "effects": [],
@@ -20496,12 +20406,10 @@
     "quality": 5,
     "element": "electro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 10372,
       "baseAtk": 340,
-      "baseDef": 569
-    },
-    "ascensionStats": {
+      "baseDef": 569,
       "critRate%": 0.192
     },
     "effects": [],
@@ -20882,12 +20790,10 @@
     "quality": 5,
     "element": "hydro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 13715,
       "baseAtk": 299,
-      "baseDef": 769
-    },
-    "ascensionStats": {
+      "baseDef": 769,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -21349,12 +21255,10 @@
     "quality": 5,
     "element": "hydro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 14450,
       "baseAtk": 244,
-      "baseDef": 548
-    },
-    "ascensionStats": {
+      "baseDef": 548,
       "critRate%": 0.192
     },
     "effects": [],
@@ -21755,12 +21659,10 @@
     "quality": 4,
     "element": "electro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12289,
       "baseAtk": 212,
-      "baseDef": 751
-    },
-    "ascensionStats": {
+      "baseDef": 751,
       "hp%": 0.24
     },
     "effects": [],
@@ -22198,12 +22100,10 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 10657,
       "baseAtk": 225,
-      "baseDef": 684
-    },
-    "ascensionStats": {
+      "baseDef": 684,
       "anemoDmgBonus%": 0.24
     },
     "effects": [],
@@ -22649,12 +22549,10 @@
     "quality": 4,
     "element": "dendro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9787,
       "baseAtk": 200,
-      "baseDef": 601
-    },
-    "ascensionStats": {
+      "baseDef": 601,
       "atk%": 0.24
     },
     "effects": [],
@@ -23009,12 +22907,10 @@
     "quality": 4,
     "element": "electro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 12397,
       "baseAtk": 223,
-      "baseDef": 723
-    },
-    "ascensionStats": {
+      "baseDef": 723,
       "hp%": 0.24
     },
     "effects": [],
@@ -23433,12 +23329,10 @@
     "quality": 5,
     "element": "dendro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 10850,
       "baseAtk": 268,
-      "baseDef": 630
-    },
-    "ascensionStats": {
+      "baseDef": 630,
       "dendroDmgBonus%": 0.288
     },
     "effects": [],
@@ -23846,12 +23740,10 @@
     "quality": 5,
     "element": "hydro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 15185,
       "baseAtk": 230,
-      "baseDef": 729
-    },
-    "ascensionStats": {
+      "baseDef": 729,
       "hp%": 0.288
     },
     "effects": [],
@@ -24308,14 +24200,12 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 12491,
       "baseAtk": 318,
-      "baseDef": 859
-    },
-    "ascensionStats": {
-      "critDmg%": 0.384,
-      "elementalMastery": 100
+      "baseDef": 859,
+      "elementalMastery": 100,
+      "critDmg%": 0.384
     },
     "effects": [],
     "skills": {
@@ -24895,12 +24785,10 @@
     "quality": 4,
     "element": "hydro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 10875,
       "baseAtk": 212,
-      "baseDef": 683
-    },
-    "ascensionStats": {
+      "baseDef": 683,
       "hp%": 0.24
     },
     "effects": [],
@@ -25319,12 +25207,10 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 10360,
       "baseAtk": 299,
-      "baseDef": 630
-    },
-    "ascensionStats": {
+      "baseDef": 630,
       "elementalMastery": 115
     },
     "effects": [],
@@ -25832,12 +25718,10 @@
     "quality": 4,
     "element": "cryo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 11092,
       "baseAtk": 217,
-      "baseDef": 655
-    },
-    "ascensionStats": {
+      "baseDef": 655,
       "hp%": 0.24
     },
     "effects": [],
@@ -26202,12 +26086,10 @@
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 10164,
       "baseAtk": 328,
-      "baseDef": 607
-    },
-    "ascensionStats": {
+      "baseDef": 607,
       "critRate%": 0.192
     },
     "effects": [],
@@ -26553,12 +26435,10 @@
     "quality": 4,
     "element": "anemo",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9570,
       "baseAtk": 196,
-      "baseDef": 628
-    },
-    "ascensionStats": {
+      "baseDef": 628,
       "atk%": 0.24
     },
     "effects": [],
@@ -26940,12 +26820,10 @@
     "quality": 4,
     "element": "dendro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 12289,
       "baseAtk": 212,
-      "baseDef": 751
-    },
-    "ascensionStats": {
+      "baseDef": 751,
       "hp%": 0.24
     },
     "effects": [],
@@ -27383,12 +27261,10 @@
     "quality": 5,
     "element": "dendro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 13348,
       "baseAtk": 313,
-      "baseDef": 782
-    },
-    "ascensionStats": {
+      "baseDef": 782,
       "dendroDmgBonus%": 0.288
     },
     "effects": [],
@@ -27929,12 +27805,10 @@
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 15675,
       "baseAtk": 265,
-      "baseDef": 628
-    },
-    "ascensionStats": {
+      "baseDef": 628,
       "hp%": 0.288
     },
     "effects": [],
@@ -28426,12 +28300,10 @@
     "quality": 4,
     "element": "cryo",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 12506,
       "baseAtk": 223,
-      "baseDef": 713
-    },
-    "ascensionStats": {
+      "baseDef": 713,
       "hp%": 0.24
     },
     "effects": [],
@@ -28923,12 +28795,10 @@
     "quality": 4,
     "element": "dendro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 11962,
       "baseAtk": 234,
-      "baseDef": 751
-    },
-    "ascensionStats": {
+      "baseDef": 751,
       "elementalMastery": 96
     },
     "effects": [],
@@ -29282,12 +29152,10 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 13348,
       "baseAtk": 193,
-      "baseDef": 500
-    },
-    "ascensionStats": {
+      "baseDef": 500,
       "hp%": 0.288
     },
     "effects": [],
@@ -29725,12 +29593,10 @@
     "quality": 4,
     "element": "dendro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12180,
       "baseAtk": 223,
-      "baseDef": 546
-    },
-    "ascensionStats": {
+      "baseDef": 546,
       "hp%": 0.24
     },
     "effects": [],
@@ -30260,12 +30126,10 @@
     "quality": 4,
     "element": "anemo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12397,
       "baseAtk": 232,
-      "baseDef": 712
-    },
-    "ascensionStats": {
+      "baseDef": 712,
       "anemoDmgBonus%": 0.24
     },
     "effects": [],
@@ -30684,12 +30548,10 @@
     "quality": 5,
     "element": "pyro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 11021,
       "baseAtk": 318,
-      "baseDef": 538
-    },
-    "ascensionStats": {
+      "baseDef": 538,
       "critRate%": 0.192
     },
     "effects": [],
@@ -31197,12 +31059,10 @@
     "quality": 4,
     "element": "cryo",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 12071,
       "baseAtk": 255,
-      "baseDef": 708
-    },
-    "ascensionStats": {
+      "baseDef": 708,
       "atk%": 0.24
     },
     "effects": [],
@@ -31775,12 +31635,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 13593,
       "baseAtk": 311,
-      "baseDef": 763
-    },
-    "ascensionStats": {
+      "baseDef": 763,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -32153,12 +32011,10 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 14695,
       "baseAtk": 208,
-      "baseDef": 576
-    },
-    "ascensionStats": {
+      "baseDef": 576,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -32512,12 +32368,10 @@
     "quality": 4,
     "element": "cryo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 10766,
       "baseAtk": 173,
-      "baseDef": 546
-    },
-    "ascensionStats": {
+      "baseDef": 546,
       "atk%": 0.24
     },
     "effects": [],
@@ -33017,12 +32871,10 @@
     "quality": 5,
     "element": "hydro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 15307,
       "baseAtk": 244,
-      "baseDef": 696
-    },
-    "ascensionStats": {
+      "baseDef": 696,
       "critRate%": 0.192
     },
     "effects": [],
@@ -33530,12 +33382,10 @@
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 11962,
       "baseAtk": 193,
-      "baseDef": 605
-    },
-    "ascensionStats": {
+      "baseDef": 605,
       "hp%": 0.24
     },
     "effects": [],
@@ -34008,12 +33858,10 @@
     "quality": 5,
     "element": "geo",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 12650,
       "baseAtk": 352,
-      "baseDef": 793
-    },
-    "ascensionStats": {
+      "baseDef": 793,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -34394,12 +34242,10 @@
     "quality": 4,
     "element": "pyro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 11419,
       "baseAtk": 302,
-      "baseDef": 703
-    },
-    "ascensionStats": {
+      "baseDef": 703,
       "atk%": 0.24
     },
     "effects": [],
@@ -34726,12 +34572,10 @@
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 10409,
       "baseAtk": 335,
-      "baseDef": 573
-    },
-    "ascensionStats": {
+      "baseDef": 573,
       "atk%": 0.288
     },
     "effects": [],
@@ -35215,12 +35059,10 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 11438,
       "baseAtk": 323,
-      "baseDef": 953
-    },
-    "ascensionStats": {
+      "baseDef": 953,
       "critRate%": 0.192
     },
     "effects": [],
@@ -35642,12 +35484,10 @@
     "quality": 5,
     "element": "pyro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 13103,
       "baseAtk": 342,
-      "baseDef": 765
-    },
-    "ascensionStats": {
+      "baseDef": 765,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -36101,12 +35941,10 @@
     "quality": 5,
     "element": "hydro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 13348,
       "baseAtk": 193,
-      "baseDef": 500
-    },
-    "ascensionStats": {
+      "baseDef": 500,
       "hp%": 0.288
     },
     "effects": [],
@@ -36507,12 +36345,10 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9787,
       "baseAtk": 227,
-      "baseDef": 560
-    },
-    "ascensionStats": {
+      "baseDef": 560,
       "elementalMastery": 96
     },
     "effects": [],
@@ -36877,12 +36713,10 @@
     "quality": 5,
     "element": "electro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12956,
       "baseAtk": 337,
-      "baseDef": 784
-    },
-    "ascensionStats": {
+      "baseDef": 784,
       "critRate%": 0.192
     },
     "effects": [],
@@ -37404,12 +37238,10 @@
     "quality": 5,
     "element": "dendro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 13568,
       "baseAtk": 335,
-      "baseDef": 730
-    },
-    "ascensionStats": {
+      "baseDef": 730,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -37790,12 +37622,10 @@
     "quality": 4,
     "element": "geo",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 11799,
       "baseAtk": 217,
-      "baseDef": 792
-    },
-    "ascensionStats": {
+      "baseDef": 792,
       "geoDmgBonus%": 0.24
     },
     "effects": [],
@@ -38141,12 +37971,10 @@
     "quality": 5,
     "element": "dendro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 12858,
       "baseAtk": 332,
-      "baseDef": 802
-    },
-    "ascensionStats": {
+      "baseDef": 802,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -38500,12 +38328,10 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 15185,
       "baseAtk": 182,
-      "baseDef": 570
-    },
-    "ascensionStats": {
+      "baseDef": 570,
       "critRate%": 0.192
     },
     "effects": [],
@@ -38832,12 +38658,10 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12405,
       "baseAtk": 275,
-      "baseDef": 930
-    },
-    "ascensionStats": {
+      "baseDef": 930,
       "def%": 0.36
     },
     "effects": [],
@@ -39337,12 +39161,10 @@
     "quality": 5,
     "element": "anemo",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9797,
       "baseAtk": 347,
-      "baseDef": 615
-    },
-    "ascensionStats": {
+      "baseDef": 615,
       "critRate%": 0.192
     },
     "effects": [],
@@ -39805,12 +39627,10 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9244,
       "baseAtk": 244,
-      "baseDef": 587
-    },
-    "ascensionStats": {
+      "baseDef": 587,
       "atk%": 0.24
     },
     "effects": [],
@@ -40138,12 +39958,10 @@
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 12552,
       "baseAtk": 359,
-      "baseDef": 792
-    },
-    "ascensionStats": {
+      "baseDef": 792,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -40794,12 +40612,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 11634,
       "baseAtk": 127,
-      "baseDef": 763
-    },
-    "ascensionStats": {
+      "baseDef": 763,
       "elementalMastery": 115
     },
     "effects": [],
@@ -41172,12 +40988,10 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 9244,
       "baseAtk": 251,
-      "baseDef": 580
-    },
-    "ascensionStats": {
+      "baseDef": 580,
       "atk%": 0.24
     },
     "effects": [],
@@ -41561,12 +41375,10 @@
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 12736,
       "baseAtk": 215,
-      "baseDef": 757
-    },
-    "ascensionStats": {
+      "baseDef": 757,
       "elementalMastery": 115
     },
     "effects": [],
@@ -41966,12 +41778,10 @@
     "quality": 4,
     "element": "electro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 10657,
       "baseAtk": 257,
-      "baseDef": 638
-    },
-    "ascensionStats": {
+      "baseDef": 638,
       "atk%": 0.24
     },
     "effects": [],
@@ -42298,12 +42108,10 @@
     "quality": 5,
     "element": "electro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 12699,
       "baseAtk": 356,
-      "baseDef": 782
-    },
-    "ascensionStats": {
+      "baseDef": 782,
       "critRate%": 0.192
     },
     "effects": [],
@@ -42838,12 +42646,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 13348,
       "baseAtk": 347,
-      "baseDef": 732
-    },
-    "ascensionStats": {
+      "baseDef": 732,
       "critRate%": 0.192
     },
     "effects": [],
@@ -43235,12 +43041,10 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 10081,
       "baseAtk": 178,
-      "baseDef": 605
-    },
-    "ascensionStats": {
+      "baseDef": 605,
       "elementalMastery": 96
     },
     "effects": [],
@@ -43586,12 +43390,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12417,
       "baseAtk": 359,
-      "baseDef": 806
-    },
-    "ascensionStats": {
+      "baseDef": 806,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -44329,12 +44131,10 @@
     "quality": 4,
     "element": "hydro",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12506,
       "baseAtk": 189,
-      "baseDef": 560
-    },
-    "ascensionStats": {
+      "baseDef": 560,
       "hp%": 0.24
     },
     "effects": [],
@@ -44718,12 +44518,10 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 12613,
       "baseAtk": 330,
-      "baseDef": 828
-    },
-    "ascensionStats": {
+      "baseDef": 828,
       "critRate%": 0.192
     },
     "effects": [],
@@ -45115,14 +44913,11 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 10654,
       "baseAtk": 255,
       "baseDef": 669,
-      "elementalMastery": 200
-    },
-    "ascensionStats": {
-      "elementalMastery": 115
+      "elementalMastery": 315
     },
     "effects": [],
     "skills": {
@@ -45548,12 +45343,10 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 12491,
       "baseAtk": 352,
-      "baseDef": 809
-    },
-    "ascensionStats": {
+      "baseDef": 809,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -46150,12 +45943,10 @@
     "quality": 4,
     "element": "hydro",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 11201,
       "baseAtk": 242,
-      "baseDef": 607
-    },
-    "ascensionStats": {
+      "baseDef": 607,
       "elementalMastery": 96
     },
     "effects": [],
@@ -46482,14 +46273,12 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 12704,
       "baseAtk": 344,
       "baseDef": 799,
+      "critDmg%": 0.384,
       "elementalMastery": 100
-    },
-    "ascensionStats": {
-      "critDmg%": 0.384
     },
     "effects": [],
     "skills": {
@@ -47073,12 +46862,10 @@
     "element": "pyro",
     "type": "sword",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 12430,
       "baseAtk": 347,
-      "baseDef": 822
-    },
-    "ascensionStats": {
+      "baseDef": 822,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -47646,12 +47433,10 @@
     "quality": 4,
     "element": "anemo",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9646,
       "baseAtk": 223,
-      "baseDef": 580
-    },
-    "ascensionStats": {
+      "baseDef": 580,
       "healingBonus%": 0.185
     },
     "effects": [],
@@ -48152,12 +47937,10 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 14695,
       "baseAtk": 96,
-      "baseDef": 515
-    },
-    "ascensionStats": {
+      "baseDef": 515,
       "critRate%": 0.192
     },
     "effects": [],
@@ -48592,12 +48375,10 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
-    "baseStats": {
+    "stats": {
       "baseHp": 12919,
       "baseAtk": 225,
-      "baseDef": 957
-    },
-    "ascensionStats": {
+      "baseDef": 957,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -49189,12 +48970,10 @@
     "quality": 4,
     "element": "geo",
     "type": "polearm",
-    "baseStats": {
+    "stats": {
       "baseHp": 11962,
       "baseAtk": 191,
-      "baseDef": 814
-    },
-    "ascensionStats": {
+      "baseDef": 814,
       "elementalMastery": 96
     },
     "effects": [],
@@ -49652,12 +49431,10 @@
     "element": "anemo",
     "type": "claymore",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 12613,
       "baseAtk": 353,
-      "baseDef": 795
-    },
-    "ascensionStats": {
+      "baseDef": 795,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -50455,12 +50232,10 @@
     "quality": 5,
     "element": "geo",
     "type": "bow",
-    "baseStats": {
+    "stats": {
       "baseHp": 9895,
       "baseAtk": 144,
-      "baseDef": 907
-    },
-    "ascensionStats": {
+      "baseDef": 907,
       "critRate%": 0.192
     },
     "effects": [],
@@ -50881,12 +50656,10 @@
     "element": "cryo",
     "type": "polearm",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 12858,
       "baseAtk": 344,
-      "baseDef": 784
-    },
-    "ascensionStats": {
+      "baseDef": 784,
       "critDmg%": 0.384
     },
     "effects": [],
@@ -51495,12 +51268,10 @@
     "element": "pyro",
     "type": "catalyst",
     "tagged": "Hexerei",
-    "baseStats": {
+    "stats": {
       "baseHp": 10409,
       "baseAtk": 342,
-      "baseDef": 563
-    },
-    "ascensionStats": {
+      "baseDef": 563,
       "atk%": 0.288
     },
     "effects": [],
@@ -51900,12 +51671,10 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
-    "baseStats": {
+    "stats": {
       "baseHp": 9679,
       "baseAtk": 221,
-      "baseDef": 580
-    },
-    "ascensionStats": {
+      "baseDef": 580,
       "atk%": 0.24
     },
     "effects": [],
@@ -52232,12 +52001,10 @@
     "quality": 5,
     "element": "cryo",
     "type": "claymore",
-    "baseStats": {
+    "stats": {
       "baseHp": 13226,
       "baseAtk": 342,
-      "baseDef": 752
-    },
-    "ascensionStats": {
+      "baseDef": 752,
       "critRate%": 0.192
     },
     "effects": [],

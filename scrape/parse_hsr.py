@@ -107,6 +107,14 @@ def parse_actions(data):
     return actions
 
 def parse_character(version, id, data):
+    base_data = data['stats']['6']
+    stats = {
+        'baseHp': round(base_data['hp_add'] * 79 + base_data['hp_base']),
+        'baseAtk': round(base_data['attack_add'] * 79 + base_data['attack_base']),
+        'baseDef': round(base_data['defence_add'] * 79 + base_data['defence_base']),
+        'baseSpd': round(base_data['speed_base']),
+    }
+
     ascension = {}
     for node in data['skill_trees'].values():
         entry = node.get('1')
@@ -117,8 +125,9 @@ def parse_character(version, id, data):
         stat = lookup_stat[add['property_type']]
         ascension[stat] = ascension.get(stat, 0) + add['value']
 
-    for k in ascension:
-        ascension[k] = round(ascension[k], 4 if k.endswith('%') else 1)
+    for stat in ascension:
+        value = round(ascension[stat], 4 if stat.endswith('%') else 1)
+        stats[stat] = stats.get(stat, 0) + value
 
     return {
         'name': str(data['name']),
@@ -127,22 +136,7 @@ def parse_character(version, id, data):
         'quality': int(data['rarity'][-1]),
         'element': 'lightning' if data['damage_type'] == 'Thunder' else data['damage_type'].lower(),
         'type': lookup_type[data['base_type']],
-        'baseStats': {
-            'baseHp': round(
-                data['stats']['6']['hp_add'] * 79
-                + data['stats']['6']['hp_base']
-            ),
-            'baseAtk': round(
-                data['stats']['6']['attack_add'] * 79
-                + data['stats']['6']['attack_base']
-            ),
-            'baseDef': round(
-                data['stats']['6']['defence_add'] * 79
-                + data['stats']['6']['defence_base']
-            ),
-            'baseSpd': round(data['stats']['6']['speed_base']),
-        },
-        'ascensionStats': ascension,
+        'stats': stats,
         'effects': [],
         'skills': parse_actions(data),
         'presets': [],

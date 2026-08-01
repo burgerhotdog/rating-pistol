@@ -80,8 +80,27 @@ def parse_actions(data):
     return actions
 
 def parse_character(version, id, data):
-    rawStat, value = list(data['stats_modifier']['ascension'][5].items())[3]
-    stat = lookup_stat[rawStat]
+    stats_mod = data['stats_modifier']
+    stats_mod_asc = stats_mod['ascension'][5]
+
+    base_hp = data['base_hp'] * stats_mod['hp']['90'] + stats_mod_asc['fight_prop_base_hp']
+    base_atk = data['base_atk'] * stats_mod['atk']['90'] + stats_mod_asc['fight_prop_base_attack']
+    base_def = data['base_def'] * stats_mod['def']['90'] + stats_mod_asc['fight_prop_base_defense']
+
+    asc_prop, asc_value = list(stats_mod_asc.items())[3]
+    asc_stat = lookup_stat[asc_prop]
+
+    stats = {
+        'baseHp': round(base_hp),
+        'baseAtk': round(base_atk),
+        'baseDef': round(base_def),
+        asc_stat: asc_value,
+    }
+
+    extra_em = data.get('elemental_mastery')
+    if extra_em:
+        stats['elementalMastery'] = stats.get('elementalMastery', 0) + extra_em
+
     return {
         'name': str(data['name']),
         'version': float(version),
@@ -89,28 +108,7 @@ def parse_character(version, id, data):
         'quality': 4 if data['rarity'] == 'QUALITY_PURPLE' else 5,
         'element': data['element'].lower(),
         'type': lookup_type[data['weapon']],
-        'baseStats': {
-            'baseHp': round(
-                data['base_hp'] * data['stats_modifier']['hp']['90']
-                + data['stats_modifier']['ascension'][5]['fight_prop_base_hp']
-            ),
-            'baseAtk': round(
-                data['base_atk'] * data['stats_modifier']['atk']['90']
-                + data['stats_modifier']['ascension'][5]['fight_prop_base_attack']
-            ),
-            'baseDef': round(
-                data['base_def'] * data['stats_modifier']['def']['90']
-                + data['stats_modifier']['ascension'][5]['fight_prop_base_defense']
-            ),
-            **(
-                { 'elementalMastery': round(data['elemental_mastery']) }
-                if data['elemental_mastery']
-                else {}
-            ),
-        },
-        'ascensionStats': {
-            stat: value,
-        },
+        'stats': stats,
         'effects': [],
         'skills': parse_actions(data),
         'presets': [],

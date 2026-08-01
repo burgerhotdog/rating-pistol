@@ -6,15 +6,13 @@
     "quality": 4,
     "element": "ice",
     "type": "preservation",
-    "baseStats": {
+    "stats": {
       "baseHp": 1058,
       "baseAtk": 512,
       "baseDef": 573,
-      "baseSpd": 101
-    },
-    "ascensionStats": {
-      "iceDmgBonus%": 0.224,
+      "baseSpd": 101,
       "def%": 0.225,
+      "iceDmgBonus%": 0.224,
       "effectRes%": 0.1
     },
     "effects": [],
@@ -190,16 +188,14 @@
     "quality": 4,
     "element": "wind",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 882,
       "baseAtk": 547,
       "baseDef": 397,
-      "baseSpd": 110
-    },
-    "ascensionStats": {
-      "windDmgBonus%": 0.224,
+      "baseSpd": 110,
       "atk%": 0.18,
-      "def%": 0.125
+      "def%": 0.125,
+      "windDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -355,15 +351,13 @@
     "quality": 5,
     "element": "fire",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 757,
       "baseDef": 437,
-      "baseSpd": 96
-    },
-    "ascensionStats": {
-      "fireDmgBonus%": 0.224,
+      "baseSpd": 96,
       "atk%": 0.18,
+      "fireDmgBonus%": 0.224,
       "effectRes%": 0.1
     },
     "effects": [],
@@ -520,13 +514,11 @@
     "quality": 5,
     "element": "imaginary",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1125,
       "baseAtk": 621,
       "baseDef": 509,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
+      "baseSpd": 102,
       "atk%": 0.28,
       "imaginaryDmgBonus%": 0.144,
       "effectRes%": 0.1
@@ -704,16 +696,14 @@
     "quality": 4,
     "element": "lightning",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1200,
       "baseAtk": 600,
       "baseDef": 331,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
+      "baseSpd": 102,
+      "hp%": 0.1,
       "atk%": 0.28,
-      "effectRes%": 0.18,
-      "hp%": 0.1
+      "effectRes%": 0.18
     },
     "effects": [],
     "skills": {
@@ -869,16 +859,14 @@
     "quality": 4,
     "element": "fire",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 1023,
       "baseAtk": 512,
       "baseDef": 463,
-      "baseSpd": 106
-    },
-    "ascensionStats": {
-      "fireDmgBonus%": 0.224,
+      "baseSpd": 106,
       "def%": 0.225,
-      "critRate%": 0.067
+      "critRate%": 0.067,
+      "fireDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -1015,16 +1003,14 @@
     "quality": 4,
     "element": "ice",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 953,
       "baseAtk": 582,
       "baseDef": 397,
-      "baseSpd": 100
-    },
-    "ascensionStats": {
-      "iceDmgBonus%": 0.224,
+      "baseSpd": 100,
       "def%": 0.225,
-      "critRate%": 0.067
+      "critRate%": 0.067,
+      "iceDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -1161,15 +1147,13 @@
     "quality": 5,
     "element": "wind",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 1242,
       "baseAtk": 582,
       "baseDef": 534,
-      "baseSpd": 99
-    },
-    "ascensionStats": {
-      "windDmgBonus%": 0.224,
+      "baseSpd": 99,
       "critDmg%": 0.24,
+      "windDmgBonus%": 0.224,
       "effectRes%": 0.1
     },
     "effects": [],
@@ -1345,16 +1329,14 @@
     "quality": 5,
     "element": "quantum",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 931,
       "baseAtk": 640,
       "baseDef": 364,
-      "baseSpd": 115
-    },
-    "ascensionStats": {
+      "baseSpd": 115,
       "atk%": 0.28,
-      "critDmg%": 0.24,
-      "def%": 0.125
+      "def%": 0.125,
+      "critDmg%": 0.24
     },
     "effects": [],
     "skills": {
@@ -1491,13 +1473,11 @@
     "quality": 4,
     "element": "lightning",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 917,
       "baseAtk": 653,
       "baseDef": 375,
-      "baseSpd": 104
-    },
-    "ascensionStats": {
+      "baseSpd": 104,
       "critRate%": 0.187,
       "effectHitRate%": 0.18,
       "effectRes%": 0.1
@@ -1675,16 +1655,14 @@
     "quality": 5,
     "element": "ice",
     "type": "preservation",
-    "baseStats": {
+    "stats": {
       "baseHp": 1397,
       "baseAtk": 543,
       "baseDef": 655,
-      "baseSpd": 92
-    },
-    "ascensionStats": {
+      "baseSpd": 92,
+      "def%": 0.125,
       "iceDmgBonus%": 0.224,
-      "effectRes%": 0.18,
-      "def%": 0.125
+      "effectRes%": 0.18
     },
     "effects": [],
     "skills": {
@@ -1859,16 +1837,14 @@
     "quality": 4,
     "element": "physical",
     "type": "abundance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1164,
       "baseAtk": 476,
       "baseDef": 507,
-      "baseSpd": 98
-    },
-    "ascensionStats": {
+      "baseSpd": 98,
       "hp%": 0.28,
-      "effectRes%": 0.18,
-      "def%": 0.125
+      "def%": 0.125,
+      "effectRes%": 0.18
     },
     "effects": [],
     "skills": {
@@ -2081,16 +2057,14 @@
     "quality": 4,
     "element": "ice",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 988,
       "baseAtk": 547,
       "baseDef": 463,
-      "baseSpd": 105
-    },
-    "ascensionStats": {
-      "iceDmgBonus%": 0.224,
+      "baseSpd": 105,
       "atk%": 0.18,
-      "effectHitRate%": 0.1
+      "effectHitRate%": 0.1,
+      "iceDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -2246,16 +2220,14 @@
     "quality": 5,
     "element": "physical",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1242,
       "baseAtk": 737,
       "baseDef": 485,
-      "baseSpd": 90
-    },
-    "ascensionStats": {
+      "baseSpd": 90,
+      "hp%": 0.1,
       "atk%": 0.28,
-      "physicalDmgBonus%": 0.144,
-      "hp%": 0.1
+      "physicalDmgBonus%": 0.144
     },
     "effects": [],
     "skills": {
@@ -2430,13 +2402,11 @@
     "quality": 4,
     "element": "wind",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1023,
       "baseAtk": 617,
       "baseDef": 397,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
+      "baseSpd": 102,
       "atk%": 0.28,
       "effectHitRate%": 0.18,
       "effectRes%": 0.1
@@ -2595,15 +2565,13 @@
     "quality": 4,
     "element": "fire",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1341,
       "baseAtk": 617,
       "baseDef": 353,
-      "baseSpd": 94
-    },
-    "ascensionStats": {
-      "atk%": 0.28,
+      "baseSpd": 94,
       "hp%": 0.18,
+      "atk%": 0.28,
       "critDmg%": 0.133
     },
     "effects": [],
@@ -2825,16 +2793,14 @@
     "quality": 4,
     "element": "quantum",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 1023,
       "baseAtk": 653,
       "baseDef": 441,
-      "baseSpd": 98
-    },
-    "ascensionStats": {
+      "baseSpd": 98,
       "atk%": 0.28,
-      "quantumDmgBonus%": 0.144,
-      "def%": 0.125
+      "def%": 0.125,
+      "quantumDmgBonus%": 0.144
     },
     "effects": [],
     "skills": {
@@ -3007,13 +2973,11 @@
     "quality": 4,
     "element": "lightning",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 847,
       "baseAtk": 529,
       "baseDef": 397,
-      "baseSpd": 112
-    },
-    "ascensionStats": {
+      "baseSpd": 112,
       "atk%": 0.28,
       "def%": 0.225,
       "lightningDmgBonus%": 0.08
@@ -3191,16 +3155,14 @@
     "quality": 5,
     "element": "lightning",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 1164,
       "baseAtk": 699,
       "baseDef": 485,
-      "baseSpd": 99
-    },
-    "ascensionStats": {
+      "baseSpd": 99,
       "atk%": 0.28,
-      "critRate%": 0.12,
-      "def%": 0.125
+      "def%": 0.125,
+      "critRate%": 0.12
     },
     "effects": [],
     "skills": {
@@ -3337,15 +3299,13 @@
     "quality": 4,
     "element": "physical",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 917,
       "baseAtk": 564,
       "baseDef": 419,
-      "baseSpd": 107
-    },
-    "ascensionStats": {
-      "atk%": 0.28,
+      "baseSpd": 107,
       "hp%": 0.18,
+      "atk%": 0.28,
       "def%": 0.125
     },
     "effects": [],
@@ -3521,16 +3481,14 @@
     "quality": 5,
     "element": "ice",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 893,
       "baseAtk": 679,
       "baseDef": 412,
-      "baseSpd": 109
-    },
-    "ascensionStats": {
+      "baseSpd": 109,
+      "hp%": 0.1,
       "atk%": 0.28,
-      "iceDmgBonus%": 0.144,
-      "hp%": 0.1
+      "iceDmgBonus%": 0.144
     },
     "effects": [],
     "skills": {
@@ -3762,13 +3720,11 @@
     "quality": 5,
     "element": "lightning",
     "type": "abundance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1319,
       "baseAtk": 563,
       "baseDef": 485,
-      "baseSpd": 98
-    },
-    "ascensionStats": {
+      "baseSpd": 98,
       "hp%": 0.28,
       "def%": 0.225,
       "effectRes%": 0.1
@@ -4003,13 +3959,11 @@
     "quality": 5,
     "element": "quantum",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 640,
       "baseDef": 461,
-      "baseSpd": 107
-    },
-    "ascensionStats": {
+      "baseSpd": 107,
       "atk%": 0.28,
       "effectHitRate%": 0.18,
       "quantumDmgBonus%": 0.08
@@ -4282,15 +4236,13 @@
     "quality": 5,
     "element": "imaginary",
     "type": "abundance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1281,
       "baseAtk": 757,
       "baseDef": 364,
-      "baseSpd": 101
-    },
-    "ascensionStats": {
-      "atk%": 0.28,
+      "baseSpd": 101,
       "hp%": 0.18,
+      "atk%": 0.28,
       "def%": 0.125
     },
     "effects": [],
@@ -4466,16 +4418,14 @@
     "quality": 4,
     "element": "imaginary",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 917,
       "baseAtk": 600,
       "baseDef": 375,
-      "baseSpd": 107
-    },
-    "ascensionStats": {
-      "imaginaryDmgBonus%": 0.224,
+      "baseSpd": 107,
       "hp%": 0.18,
-      "atk%": 0.1
+      "atk%": 0.1,
+      "imaginaryDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -4650,16 +4600,14 @@
     "quality": 5,
     "element": "lightning",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1087,
       "baseAtk": 679,
       "baseDef": 485,
-      "baseSpd": 100
-    },
-    "ascensionStats": {
+      "baseSpd": 100,
+      "hp%": 0.1,
       "atk%": 0.28,
-      "effectHitRate%": 0.18,
-      "hp%": 0.1
+      "effectHitRate%": 0.18
     },
     "effects": [],
     "skills": {
@@ -4872,16 +4820,14 @@
     "quality": 4,
     "element": "physical",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 917,
       "baseAtk": 582,
       "baseDef": 485,
-      "baseSpd": 103
-    },
-    "ascensionStats": {
+      "baseSpd": 103,
       "atk%": 0.28,
-      "effectHitRate%": 0.18,
-      "def%": 0.125
+      "def%": 0.125,
+      "effectHitRate%": 0.18
     },
     "effects": [],
     "skills": {
@@ -5092,13 +5038,11 @@
     "quality": 5,
     "element": "wind",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1358,
       "baseAtk": 543,
       "baseDef": 485,
-      "baseSpd": 97
-    },
-    "ascensionStats": {
+      "baseSpd": 97,
       "hp%": 0.28,
       "critRate%": 0.12,
       "effectRes%": 0.1
@@ -5416,13 +5360,11 @@
     "quality": 4,
     "element": "quantum",
     "type": "abundance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1058,
       "baseAtk": 494,
       "baseDef": 551,
-      "baseSpd": 100
-    },
-    "ascensionStats": {
+      "baseSpd": 100,
       "hp%": 0.28,
       "def%": 0.225,
       "effectRes%": 0.1
@@ -5695,15 +5637,13 @@
     "quality": 5,
     "element": "quantum",
     "type": "preservation",
-    "baseStats": {
+    "stats": {
       "baseHp": 1475,
       "baseAtk": 466,
       "baseDef": 606,
-      "baseSpd": 100
-    },
-    "ascensionStats": {
-      "critRate%": 0.187,
+      "baseSpd": 100,
       "hp%": 0.18,
+      "critRate%": 0.187,
       "effectRes%": 0.1
     },
     "effects": [],
@@ -5879,16 +5819,14 @@
     "quality": 5,
     "element": "imaginary",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1242,
       "baseAtk": 699,
       "baseDef": 364,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
-      "imaginaryDmgBonus%": 0.224,
+      "baseSpd": 102,
+      "hp%": 0.1,
       "critRate%": 0.12,
-      "hp%": 0.1
+      "imaginaryDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -6145,16 +6083,14 @@
     "quality": 5,
     "element": "fire",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 931,
       "baseAtk": 621,
       "baseDef": 412,
-      "baseSpd": 110
-    },
-    "ascensionStats": {
-      "fireDmgBonus%": 0.224,
+      "baseSpd": 110,
+      "hp%": 0.1,
       "critRate%": 0.12,
-      "hp%": 0.1
+      "fireDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -6329,16 +6265,14 @@
     "quality": 4,
     "element": "fire",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 882,
       "baseAtk": 582,
       "baseDef": 441,
-      "baseSpd": 106
-    },
-    "ascensionStats": {
-      "fireDmgBonus%": 0.224,
+      "baseSpd": 106,
+      "effectHitRate%": 0.1,
       "breakEffect%": 0.24,
-      "effectHitRate%": 0.1
+      "fireDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -6532,16 +6466,14 @@
     "quality": 5,
     "element": "ice",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1436,
       "baseAtk": 679,
       "baseDef": 485,
-      "baseSpd": 96
-    },
-    "ascensionStats": {
+      "baseSpd": 96,
+      "hp%": 0.1,
       "critDmg%": 0.373,
-      "spd": 9,
-      "hp%": 0.1
+      "spd": 9
     },
     "effects": [],
     "skills": {
@@ -6762,16 +6694,14 @@
     "quality": 4,
     "element": "physical",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 917,
       "baseAtk": 564,
       "baseDef": 353,
-      "baseSpd": 110
-    },
-    "ascensionStats": {
+      "baseSpd": 110,
+      "hp%": 0.1,
       "atk%": 0.28,
-      "spd": 9,
-      "hp%": 0.1
+      "spd": 9
     },
     "effects": [],
     "skills": {
@@ -6927,13 +6857,11 @@
     "quality": 5,
     "element": "wind",
     "type": "abundance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1358,
       "baseAtk": 602,
       "baseDef": 509,
-      "baseSpd": 98
-    },
-    "ascensionStats": {
+      "baseSpd": 98,
       "hp%": 0.28,
       "effectRes%": 0.18,
       "spd": 5
@@ -7168,16 +7096,14 @@
     "quality": 5,
     "element": "physical",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 737,
       "baseDef": 364,
-      "baseSpd": 103
-    },
-    "ascensionStats": {
+      "baseSpd": 103,
+      "hp%": 0.1,
       "atk%": 0.28,
-      "physicalDmgBonus%": 0.144,
-      "hp%": 0.1
+      "physicalDmgBonus%": 0.144
     },
     "effects": [],
     "skills": {
@@ -7360,15 +7286,13 @@
     "quality": 4,
     "element": "quantum",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1058,
       "baseAtk": 600,
       "baseDef": 397,
-      "baseSpd": 103
-    },
-    "ascensionStats": {
-      "breakEffect%": 0.373,
+      "baseSpd": 103,
       "hp%": 0.18,
+      "breakEffect%": 0.373,
       "quantumDmgBonus%": 0.08
     },
     "effects": [],
@@ -7563,15 +7487,13 @@
     "quality": 5,
     "element": "ice",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 1087,
       "baseAtk": 660,
       "baseDef": 485,
-      "baseSpd": 104
-    },
-    "ascensionStats": {
-      "breakEffect%": 0.373,
+      "baseSpd": 104,
       "def%": 0.225,
+      "breakEffect%": 0.373,
       "spd": 5
     },
     "effects": [],
@@ -7747,16 +7669,14 @@
     "quality": 5,
     "element": "imaginary",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 776,
       "baseDef": 461,
-      "baseSpd": 103
-    },
-    "ascensionStats": {
+      "baseSpd": 103,
       "atk%": 0.28,
-      "critRate%": 0.12,
-      "def%": 0.125
+      "def%": 0.125,
+      "critRate%": 0.12
     },
     "effects": [],
     "skills": {
@@ -7893,13 +7813,11 @@
     "quality": 5,
     "element": "quantum",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 1397,
       "baseAtk": 524,
       "baseDef": 485,
-      "baseSpd": 101
-    },
-    "ascensionStats": {
+      "baseSpd": 101,
       "hp%": 0.28,
       "critDmg%": 0.24,
       "effectRes%": 0.1
@@ -8058,16 +7976,14 @@
     "quality": 5,
     "element": "wind",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1087,
       "baseAtk": 660,
       "baseDef": 485,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
+      "baseSpd": 102,
       "atk%": 0.28,
-      "windDmgBonus%": 0.144,
-      "effectHitRate%": 0.1
+      "effectHitRate%": 0.1,
+      "windDmgBonus%": 0.144
     },
     "effects": [],
     "skills": {
@@ -8327,16 +8243,14 @@
     "quality": 4,
     "element": "ice",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1270,
       "baseAtk": 600,
       "baseDef": 397,
-      "baseSpd": 96
-    },
-    "ascensionStats": {
-      "iceDmgBonus%": 0.224,
+      "baseSpd": 96,
       "def%": 0.225,
-      "critRate%": 0.067
+      "critRate%": 0.067,
+      "iceDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -8530,16 +8444,14 @@
     "quality": 4,
     "element": "fire",
     "type": "abundance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1305,
       "baseAtk": 529,
       "baseDef": 441,
-      "baseSpd": 98
-    },
-    "ascensionStats": {
-      "effectRes%": 0.28,
+      "baseSpd": 98,
+      "hp%": 0.18,
       "breakEffect%": 0.133,
-      "hp%": 0.18
+      "effectRes%": 0.28
     },
     "effects": [],
     "skills": {
@@ -8731,13 +8643,11 @@
     "quality": 5,
     "element": "imaginary",
     "type": "preservation",
-    "baseStats": {
+    "stats": {
       "baseHp": 1203,
       "baseAtk": 446,
       "baseDef": 655,
-      "baseSpd": 106
-    },
-    "ascensionStats": {
+      "baseSpd": 106,
       "def%": 0.35,
       "imaginaryDmgBonus%": 0.144,
       "effectRes%": 0.1
@@ -8934,13 +8844,11 @@
     "quality": 5,
     "element": "lightning",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1125,
       "baseAtk": 699,
       "baseDef": 437,
-      "baseSpd": 101
-    },
-    "ascensionStats": {
+      "baseSpd": 101,
       "atk%": 0.28,
       "critDmg%": 0.24,
       "lightningDmgBonus%": 0.08
@@ -9416,15 +9324,13 @@
     "quality": 5,
     "element": "physical",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 1281,
       "baseAtk": 640,
       "baseDef": 485,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
-      "atk%": 0.28,
+      "baseSpd": 102,
       "hp%": 0.18,
+      "atk%": 0.28,
       "spd": 5
     },
     "effects": [],
@@ -9600,16 +9506,14 @@
     "quality": 5,
     "element": "physical",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 1203,
       "baseAtk": 621,
       "baseDef": 437,
-      "baseSpd": 107
-    },
-    "ascensionStats": {
-      "breakEffect%": 0.373,
+      "baseSpd": 107,
+      "hp%": 0.1,
       "atk%": 0.18,
-      "hp%": 0.1
+      "breakEffect%": 0.373
     },
     "effects": [],
     "skills": {
@@ -9825,13 +9729,11 @@
     "quality": 5,
     "element": "fire",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 815,
       "baseAtk": 524,
       "baseDef": 776,
-      "baseSpd": 104
-    },
-    "ascensionStats": {
+      "baseSpd": 104,
       "breakEffect%": 0.373,
       "effectRes%": 0.18,
       "spd": 5
@@ -10096,15 +9998,13 @@
     "quality": 5,
     "element": "quantum",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 1087,
       "baseAtk": 660,
       "baseDef": 509,
-      "baseSpd": 103
-    },
-    "ascensionStats": {
-      "quantumDmgBonus%": 0.224,
+      "baseSpd": 103,
       "atk%": 0.18,
+      "quantumDmgBonus%": 0.224,
       "effectRes%": 0.1
     },
     "effects": [],
@@ -10294,13 +10194,11 @@
     "quality": 5,
     "element": "fire",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1358,
       "baseAtk": 602,
       "baseDef": 509,
-      "baseSpd": 98
-    },
-    "ascensionStats": {
+      "baseSpd": 98,
       "effectHitRate%": 0.28,
       "fireDmgBonus%": 0.144,
       "spd": 5
@@ -10535,15 +10433,13 @@
     "quality": 5,
     "element": "physical",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1358,
       "baseAtk": 679,
       "baseDef": 461,
-      "baseSpd": 94
-    },
-    "ascensionStats": {
-      "atk%": 0.28,
+      "baseSpd": 94,
       "hp%": 0.18,
+      "atk%": 0.28,
       "critRate%": 0.067
     },
     "effects": [],
@@ -10814,16 +10710,14 @@
     "quality": 4,
     "element": "imaginary",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 1058,
       "baseAtk": 564,
       "baseDef": 441,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
+      "baseSpd": 102,
       "atk%": 0.28,
-      "critDmg%": 0.24,
-      "def%": 0.125
+      "def%": 0.125,
+      "critDmg%": 0.24
     },
     "effects": [],
     "skills": {
@@ -11001,16 +10895,14 @@
     "quality": 5,
     "element": "wind",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 602,
       "baseDef": 388,
-      "baseSpd": 112
-    },
-    "ascensionStats": {
+      "baseSpd": 112,
       "atk%": 0.28,
-      "critRate%": 0.12,
-      "def%": 0.125
+      "def%": 0.125,
+      "critRate%": 0.12
     },
     "effects": [],
     "skills": {
@@ -11323,16 +11215,14 @@
     "quality": 5,
     "element": "fire",
     "type": "abundance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1358,
       "baseAtk": 679,
       "baseDef": 437,
-      "baseSpd": 98
-    },
-    "ascensionStats": {
-      "breakEffect%": 0.373,
+      "baseSpd": 98,
       "hp%": 0.18,
-      "atk%": 0.1
+      "atk%": 0.1,
+      "breakEffect%": 0.373
     },
     "effects": [],
     "skills": {
@@ -11621,16 +11511,14 @@
     "quality": 4,
     "element": "lightning",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 811,
       "baseAtk": 600,
       "baseDef": 353,
-      "baseSpd": 111
-    },
-    "ascensionStats": {
-      "critDmg%": 0.373,
+      "baseSpd": 111,
+      "hp%": 0.1,
       "atk%": 0.18,
-      "hp%": 0.1
+      "critDmg%": 0.373
     },
     "effects": [],
     "skills": {
@@ -11786,16 +11674,14 @@
     "quality": 5,
     "element": "imaginary",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 1087,
       "baseAtk": 718,
       "baseDef": 461,
-      "baseSpd": 96
-    },
-    "ascensionStats": {
+      "baseSpd": 96,
       "atk%": 0.28,
-      "spd": 9,
-      "breakEffect%": 0.133
+      "breakEffect%": 0.133,
+      "spd": 9
     },
     "effects": [],
     "skills": {
@@ -12109,16 +11995,14 @@
     "quality": 5,
     "element": "fire",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1125,
       "baseAtk": 582,
       "baseDef": 558,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
-      "spd": 14,
+      "baseSpd": 102,
+      "hp%": 0.1,
       "breakEffect%": 0.24,
-      "hp%": 0.1
+      "spd": 14
     },
     "effects": [],
     "skills": {
@@ -12310,16 +12194,14 @@
     "quality": 5,
     "element": "imaginary",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 1242,
       "baseAtk": 640,
       "baseDef": 534,
-      "baseSpd": 96
-    },
-    "ascensionStats": {
+      "baseSpd": 96,
+      "def%": 0.125,
       "critDmg%": 0.373,
-      "effectRes%": 0.18,
-      "def%": 0.125
+      "effectRes%": 0.18
     },
     "effects": [],
     "skills": {
@@ -12494,15 +12376,13 @@
     "quality": 5,
     "element": "ice",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 1164,
       "baseAtk": 679,
       "baseDef": 485,
-      "baseSpd": 99
-    },
-    "ascensionStats": {
-      "iceDmgBonus%": 0.224,
+      "baseSpd": 99,
       "atk%": 0.18,
+      "iceDmgBonus%": 0.224,
       "spd": 5
     },
     "effects": [],
@@ -12724,16 +12604,14 @@
     "quality": 5,
     "element": "lightning",
     "type": "remembrance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1242,
       "baseAtk": 699,
       "baseDef": 485,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
-      "lightningDmgBonus%": 0.224,
+      "baseSpd": 102,
+      "def%": 0.125,
       "critRate%": 0.12,
-      "def%": 0.125
+      "lightningDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -13085,16 +12963,14 @@
     "quality": 5,
     "element": "quantum",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 524,
       "baseDef": 728,
-      "baseSpd": 96
-    },
-    "ascensionStats": {
-      "critDmg%": 0.373,
+      "baseSpd": 96,
+      "hp%": 0.1,
       "critRate%": 0.12,
-      "hp%": 0.1
+      "critDmg%": 0.373
     },
     "effects": [],
     "skills": {
@@ -13283,15 +13159,13 @@
     "quality": 5,
     "element": "imaginary",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1552,
       "baseAtk": 427,
       "baseDef": 194,
-      "baseSpd": 95
-    },
-    "ascensionStats": {
-      "critDmg%": 0.373,
+      "baseSpd": 95,
       "hp%": 0.18,
+      "critDmg%": 0.373,
       "spd": 5
     },
     "effects": [],
@@ -13578,16 +13452,14 @@
     "quality": 5,
     "element": "wind",
     "type": "erudition",
-    "baseStats": {
+    "stats": {
       "baseHp": 970,
       "baseAtk": 757,
       "baseDef": 558,
-      "baseSpd": 97
-    },
-    "ascensionStats": {
-      "windDmgBonus%": 0.224,
+      "baseSpd": 97,
+      "hp%": 0.1,
       "critRate%": 0.12,
-      "hp%": 0.1
+      "windDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -13724,16 +13596,14 @@
     "quality": 5,
     "element": "quantum",
     "type": "remembrance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1630,
       "baseAtk": 524,
       "baseDef": 485,
-      "baseSpd": 95
-    },
-    "ascensionStats": {
+      "baseSpd": 95,
       "critRate%": 0.187,
-      "quantumDmgBonus%": 0.144,
-      "critDmg%": 0.133
+      "critDmg%": 0.133,
+      "quantumDmgBonus%": 0.144
     },
     "effects": [],
     "skills": {
@@ -14153,16 +14023,14 @@
     "quality": 5,
     "element": "quantum",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 931,
       "baseAtk": 640,
       "baseDef": 509,
-      "baseSpd": 106
-    },
-    "ascensionStats": {
-      "spd": 14,
+      "baseSpd": 106,
+      "effectHitRate%": 0.1,
       "quantumDmgBonus%": 0.144,
-      "effectHitRate%": 0.1
+      "spd": 14
     },
     "effects": [],
     "skills": {
@@ -14337,16 +14205,14 @@
     "quality": 5,
     "element": "wind",
     "type": "remembrance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1087,
       "baseAtk": 388,
       "baseDef": 631,
-      "baseSpd": 110
-    },
-    "ascensionStats": {
-      "spd": 14,
+      "baseSpd": 110,
+      "hp%": 0.1,
       "effectRes%": 0.18,
-      "hp%": 0.1
+      "spd": 14
     },
     "effects": [],
     "skills": {
@@ -14749,16 +14615,14 @@
     "quality": 5,
     "element": "wind",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1242,
       "baseAtk": 602,
       "baseDef": 655,
-      "baseSpd": 101
-    },
-    "ascensionStats": {
-      "windDmgBonus%": 0.224,
+      "baseSpd": 101,
+      "hp%": 0.1,
       "critRate%": 0.12,
-      "hp%": 0.1
+      "windDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -15021,16 +14885,14 @@
     "quality": 5,
     "element": "quantum",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 1164,
       "baseAtk": 621,
       "baseDef": 485,
-      "baseSpd": 105
-    },
-    "ascensionStats": {
-      "quantumDmgBonus%": 0.224,
+      "baseSpd": 105,
       "atk%": 0.18,
-      "critRate%": 0.067
+      "critRate%": 0.067,
+      "quantumDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -15192,15 +15054,13 @@
     "quality": 5,
     "element": "physical",
     "type": "destruction",
-    "baseStats": {
+    "stats": {
       "baseHp": 1436,
       "baseAtk": 582,
       "baseDef": 703,
-      "baseSpd": 94
-    },
-    "ascensionStats": {
-      "critDmg%": 0.373,
+      "baseSpd": 94,
       "critRate%": 0.12,
+      "critDmg%": 0.373,
       "spd": 5
     },
     "effects": [],
@@ -15550,16 +15410,14 @@
     "quality": 5,
     "element": "physical",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1203,
       "baseAtk": 602,
       "baseDef": 485,
-      "baseSpd": 102
-    },
-    "ascensionStats": {
-      "spd": 14,
+      "baseSpd": 102,
       "atk%": 0.18,
-      "effectHitRate%": 0.1
+      "effectHitRate%": 0.1,
+      "spd": 14
     },
     "effects": [],
     "skills": {
@@ -15772,16 +15630,14 @@
     "quality": 5,
     "element": "wind",
     "type": "harmony",
-    "baseStats": {
+    "stats": {
       "baseHp": 1358,
       "baseAtk": 621,
       "baseDef": 485,
-      "baseSpd": 99
-    },
-    "ascensionStats": {
-      "windDmgBonus%": 0.224,
+      "baseSpd": 99,
+      "hp%": 0.1,
       "atk%": 0.18,
-      "hp%": 0.1
+      "windDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
@@ -15956,15 +15812,13 @@
     "quality": 5,
     "element": "ice",
     "type": "remembrance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1319,
       "baseAtk": 543,
       "baseDef": 582,
-      "baseSpd": 99
-    },
-    "ascensionStats": {
-      "critRate%": 0.187,
+      "baseSpd": 99,
       "hp%": 0.18,
+      "critRate%": 0.187,
       "critDmg%": 0.133
     },
     "effects": [],
@@ -16290,13 +16144,11 @@
     "quality": 5,
     "element": "physical",
     "type": "preservation",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 582,
       "baseDef": 776,
-      "baseSpd": 97
-    },
-    "ascensionStats": {
+      "baseSpd": 97,
       "atk%": 0.28,
       "def%": 0.225,
       "spd": 5
@@ -16550,16 +16402,14 @@
     "quality": 5,
     "element": "ice",
     "type": "remembrance",
-    "baseStats": {
+    "stats": {
       "baseHp": 1397,
       "baseAtk": 446,
       "baseDef": 582,
-      "baseSpd": 101
-    },
-    "ascensionStats": {
+      "baseSpd": 101,
+      "hp%": 0.1,
       "critDmg%": 0.373,
-      "spd": 9,
-      "hp%": 0.1
+      "spd": 9
     },
     "effects": [],
     "skills": {
@@ -17344,13 +17194,11 @@
     "quality": 5,
     "element": "fire",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1087,
       "baseAtk": 679,
       "baseDef": 606,
-      "baseSpd": 96
-    },
-    "ascensionStats": {
+      "baseSpd": 96,
       "breakEffect%": 0.373,
       "effectRes%": 0.18,
       "spd": 5
@@ -17547,16 +17395,14 @@
     "quality": 5,
     "element": "fire",
     "type": "elation",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 640,
       "baseDef": 461,
-      "baseSpd": 107
-    },
-    "ascensionStats": {
-      "elation%": 0.28,
+      "baseSpd": 107,
       "critRate%": 0.12,
-      "critDmg%": 0.133
+      "critDmg%": 0.133,
+      "elation%": 0.28
     },
     "effects": [],
     "skills": {
@@ -17900,16 +17746,14 @@
     "quality": 5,
     "element": "physical",
     "type": "elation",
-    "baseStats": {
+    "stats": {
       "baseHp": 1242,
       "baseAtk": 466,
       "baseDef": 655,
-      "baseSpd": 101
-    },
-    "ascensionStats": {
+      "baseSpd": 101,
       "critRate%": 0.187,
-      "spd": 9,
-      "elation%": 0.1
+      "elation%": 0.1,
+      "spd": 9
     },
     "effects": [],
     "skills": {
@@ -18112,16 +17956,14 @@
     "quality": 5,
     "element": "lightning",
     "type": "hunt",
-    "baseStats": {
+    "stats": {
       "baseHp": 854,
       "baseAtk": 776,
       "baseDef": 388,
-      "baseSpd": 106
-    },
-    "ascensionStats": {
+      "baseSpd": 106,
+      "atk%": 0.1,
       "critDmg%": 0.373,
-      "lightningDmgBonus%": 0.144,
-      "atk%": 0.1
+      "lightningDmgBonus%": 0.144
     },
     "effects": [],
     "skills": {
@@ -18315,13 +18157,11 @@
     "quality": 5,
     "element": "physical",
     "type": "elation",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 737,
       "baseDef": 461,
-      "baseSpd": 104
-    },
-    "ascensionStats": {
+      "baseSpd": 104,
       "critRate%": 0.187,
       "elation%": 0.18,
       "spd": 5
@@ -18608,16 +18448,14 @@
     "quality": 5,
     "element": "imaginary",
     "type": "elation",
-    "baseStats": {
+    "stats": {
       "baseHp": 1048,
       "baseAtk": 388,
       "baseDef": 655,
-      "baseSpd": 110
-    },
-    "ascensionStats": {
+      "baseSpd": 110,
       "critRate%": 0.187,
-      "spd": 9,
-      "elation%": 0.1
+      "elation%": 0.1,
+      "spd": 9
     },
     "effects": [],
     "skills": {
@@ -18890,16 +18728,14 @@
     "quality": 5,
     "element": "fire",
     "type": "nihility",
-    "baseStats": {
+    "stats": {
       "baseHp": 1358,
       "baseAtk": 543,
       "baseDef": 485,
-      "baseSpd": 107
-    },
-    "ascensionStats": {
-      "fireDmgBonus%": 0.224,
+      "baseSpd": 107,
+      "hp%": 0.1,
       "critRate%": 0.12,
-      "hp%": 0.1
+      "fireDmgBonus%": 0.224
     },
     "effects": [],
     "skills": {
