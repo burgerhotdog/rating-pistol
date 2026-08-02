@@ -4,6 +4,7 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Autocomplete,
   Box,
   Button,
   Card,
@@ -19,13 +20,12 @@ import {
   IconButton,
   ListItemButton,
   MenuItem,
-  Select,
   Stack,
   Switch,
   TextField,
-  Typography,
   ToggleButton,
   ToggleButtonGroup,
+  Typography,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
@@ -38,295 +38,10 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTER, ACTION, WEAPON, SET } from '@/data';
-import { toArray, formatStr, getMember, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
+import { CHARACTER, WEAPON, SET, ECHO, WW } from '@/data';
+import { toArray, formatStr, getPresetSetCounts, getMemberPreset, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
-
-function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
-  const [search, setSearch] = useState('');
-
-  const options = useMemo(() => {
-    const lower = search.toLowerCase();
-    return Object.entries(CHARACTER[gameId])
-      .filter(([_, { name }]) => name.toLowerCase().includes(lower))
-      .map(([id, { name }]) => ({ id, name }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }, [gameId, search]);
-
-  const handleSelect = (id) => {
-    onSelect(id);
-    setSearch('');
-    onClose();
-  };
-
-  return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
-      <DialogTitle sx={{ pr: 6 }}>
-        Select Character
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{ position: 'absolute', right: 8, top: 8 }}
-        >
-          <CloseIcon />
-        </IconButton>
-      </DialogTitle>
-
-      <DialogContent>
-        <TextField
-          fullWidth
-          placeholder="Search characters..."
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          sx={{ mb: 2 }}
-        />
-
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 1,
-            justifyContent: 'flex-start',
-            width: 'fit-content',
-            maxWidth: '100%',
-            mx: 'auto',
-          }}
-        >
-          {options.map(({ id, name }) => (
-            <Card key={id} sx={{ width: 100 }}>
-              <CardActionArea onClick={() => handleSelect(id)}>
-                <CardMedia
-                  image={`${gameId}/character/${id}.webp`}
-                  title={name}
-                  sx={{ width: 100, height: 100 }}
-                />
-                <Typography variant="body2" sx={{ textAlign: 'center' }} noWrap>
-                  {name}
-                </Typography>
-              </CardActionArea>
-            </Card>
-          ))}
-        </Box>
-      </DialogContent>
-    </Dialog>
-  );
-}
-
-function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
-  const [search, setSearch] = useState('');
-
-  const options = useMemo(() => {
-    const lower = search.toLowerCase();
-    return Object.entries(WEAPON[gameId])
-      .filter(([_, w]) =>
-        (!weaponType || w.type === weaponType) &&
-        w.name.toLowerCase().includes(lower)
-      )
-      .map(([id, w]) => ({ id, name: w.name, quality: w.quality }))
-      .sort((a, b) => Number(b.quality) - Number(a.quality) || a.name.localeCompare(b.name));
-  }, [gameId, weaponType, search]);
-
-  const handleSelect = (id) => {
-    onSelect(id);
-    setSearch('');
-    onClose();
-  };
-
-  return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
-      <DialogTitle sx={{ pr: 6 }}>
-        Select Weapon
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{ position: 'absolute', right: 8, top: 8 }}
-        >
-          <CloseIcon />
-        </IconButton>
-      </DialogTitle>
-      <DialogContent>
-        <TextField
-          fullWidth
-          placeholder="Search weapons..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          sx={{ mb: 2 }}
-        />
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 1,
-            justifyContent: 'flex-start',
-            width: 'fit-content',
-            maxWidth: '100%',
-            mx: 'auto',
-          }}
-        >
-          {options.map(({ id, name }) => (
-            <Card key={id} sx={{ width: 100 }}>
-              <CardActionArea onClick={() => handleSelect(id)}>
-                <CardMedia
-                  image={`${gameId}/weapon/${id}.webp`}
-                  title={name}
-                  sx={{ width: 100, height: 100 }}
-                />
-                <Typography variant="body2" sx={{ textAlign: 'center' }} noWrap>
-                  {name}
-                </Typography>
-              </CardActionArea>
-            </Card>
-          ))}
-        </Box>
-      </DialogContent>
-    </Dialog>
-  );
-}
-
-const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapacity }) => {
-  const [search, setSearch] = useState('');
-
-  const allTiers = useMemo(() => {
-    const tiers = new Set();
-
-    for (const setId in SET[gameId]) {
-      const set = SET[gameId][setId];
-
-      for (const tier in set.bonusEffects) {
-        tiers.add(Number(tier));
-      }
-    }
-
-    return [...tiers].sort((a, b) => b - a);
-  }, [gameId]);
-
-  // Which tiers are possible given remaining capacity
-  const enabledTiers = useMemo(() =>
-    new Set(allTiers.filter((t) => t <= remainingCapacity))
-  , [allTiers, remainingCapacity]);
-
-  const [tierFilter, setTierFilter] = useState(allTiers[0]);
-
-  const options = useMemo(() => {
-    const lower = search.toLowerCase();
-    return Object.entries(SET[gameId])
-      .filter(([_, setData]) => {
-        const bonusKeys = Object.keys(setData?.bonusEffects ?? {}).map(Number);
-        // Must have at least one bonus tier matching the filter (if set) and within capacity
-        const hasMatchingTier = tierFilter
-          ? bonusKeys.includes(tierFilter) && enabledTiers.has(tierFilter)
-          : bonusKeys.some((k) => enabledTiers.has(k));
-        return hasMatchingTier && setData.name.toLowerCase().includes(lower);
-      })
-      .map(([id, setData]) => ({ id, name: setData.name }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }, [gameId, search, tierFilter, enabledTiers]);
-
-  const handleSelect = (id) => {
-    onSelect(id, tierFilter);
-    setSearch('');
-    onClose();
-  };
-
-  return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      fullWidth
-      maxWidth="lg"
-      slotProps={{
-        transition: {
-          onExited: () => {
-            setSearch('');
-            setTierFilter(allTiers[0]);
-          }
-        }
-      }}
-    >
-      <DialogTitle>
-        Select Set
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-            color: 'text.disabled',
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      </DialogTitle>
-
-      <DialogContent>
-        {/* Piece-count filter */}
-        <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 2 }}>
-          <Typography variant="body2" color="textSecondary" sx={{ flexShrink: 0 }}>
-            Piece bonus:
-          </Typography>
-          <ToggleButtonGroup
-            exclusive
-            value={tierFilter}
-            onChange={(_, val) => { if (val !== null) setTierFilter(val); }}
-          >
-            {allTiers.map((tier) => (
-              <ToggleButton
-                key={tier}
-                value={tier}
-                disabled={!enabledTiers.has(tier)}
-              >
-                {tier}pc
-              </ToggleButton>
-            ))}
-          </ToggleButtonGroup>
-        </Stack>
-
-        <TextField
-          fullWidth
-          placeholder="Search sets..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          sx={{ mb: 2 }}
-        />
-
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 1,
-            justifyContent: 'flex-start',
-            width: 'fit-content',
-            maxWidth: '100%',
-            mx: 'auto',
-          }}
-        >
-          {options.map(({ id, name }) => (
-            <Card key={id} sx={{ width: 100 }}>
-              <CardActionArea onClick={() => handleSelect(id)}>
-                <CardMedia
-                  image={`${gameId}/set/${id}.webp`}
-                  title={name}
-                  sx={{ width: 100, height: 100 }}
-                />
-
-                <Typography variant="body2" sx={{ textAlign: 'center', px: 0.5 }} noWrap>
-                  {name}
-                </Typography>
-              </CardActionArea>
-            </Card>
-          ))}
-
-          {options.length === 0 && (
-            <Typography variant="body2" color="textSecondary">
-              No sets available.
-            </Typography>
-          )}
-        </Box>
-      </DialogContent>
-    </Dialog>
-  );
-};
+import { CharacterSelectDialog, WeaponSelectDialog, SetSelectDialog } from './GridSelect';
 
 function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false }) {
   const [hovered, setHovered] = useState(false);
@@ -398,7 +113,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false })
   );
 }
 
-function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) {
+function SetCountsEditor({ gameId, id, setCounts = {}, onChange, disabled = false }) {
   const capacity = (gameId === 'genshin-impact' || gameId === 'wuthering-waves') ? 5 : 6;
   const [dialogOpen, setDialogOpen] = useState(false);
   // Index of the set being replaced; null means we're adding a new one
@@ -517,7 +232,7 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
         <Button
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(getMember(gameId, id).setCounts)}
+          onClick={() => onChange(getPresetSetCounts(gameId, id))}
           disabled={disabled}
         >
           Reset Default
@@ -544,13 +259,13 @@ function SetCountsEditor({ gameId, id, setCounts, onChange, disabled = false }) 
   );
 }
 
-const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => {
+const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
-  const skillMap = ACTION[gameId][characterId];
+  const { skills } = CHARACTER[gameId][charId];
 
   const categories = useMemo(() => {
     const lowerSearch = search.toLowerCase();
-    return Object.entries(skillMap)
+    return Object.entries(skills)
       .map(([category, { name, actions }]) => ({
         category,
         name,
@@ -558,7 +273,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
           .map((action, index) => ({ ...action, ref: `${category}.${index}` }))
           .filter((action) => action.name.toLowerCase().includes(lowerSearch)),
       }));
-  }, [search, skillMap]);
+  }, [search, skills]);
 
   const handleSelect = (actionKey) => {
     onSelect(actionKey);
@@ -632,7 +347,7 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
 
                   <AccordionDetails sx={{ pt: 0 }}>
                     <Stack spacing={0.5}>
-                      {actions.map(({ ref, name, tagged = [], skillType = [] }) => (
+                      {actions.map(({ ref, name, tagged = [], type = '' }) => (
                         <ListItemButton
                           key={ref}
                           onClick={() => handleSelect(ref)}
@@ -640,19 +355,17 @@ const SkillSelectDialog = ({ gameId, characterId, open, onClose, onSelect }) => 
                           dense
                           sx={{ px: 0.5 }}
                         >
-                          {toArray(skillType).map((type) => (
-                            <Chip
-                              key={type}
-                              label={formatStr(type)}
-                              sx={{
-                                height: 20,
-                                fontSize: '0.65rem',
-                                flexShrink: 0,
-                                mr: 0.5,
-                                '& .MuiChip-label': { px: '5px' },
-                              }}
-                            />
-                          ))}
+                          <Chip
+                            key={type}
+                            label={formatStr(type)}
+                            sx={{
+                              height: 20,
+                              fontSize: '0.65rem',
+                              flexShrink: 0,
+                              mr: 0.5,
+                              '& .MuiChip-label': { px: '5px' },
+                            }}
+                          />
 
                           <Typography
                             variant="body2"
@@ -772,7 +485,7 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
   );
 }
 
-function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) {
+function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
   const style = {
@@ -780,9 +493,16 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
     transition,
   };
 
+  const allActions = {
+    ...CHARACTER[gameId][charId].skills,
+    echoSkill: {
+      actions: ECHO[member.mainEcho]?.actions ?? [],
+    },
+  };
+
   const [category, actionIndex] = actionKey.split('.');
   const index = Number(actionIndex);
-  const { name, tagged, skillType } = ACTION[gameId][characterId][category].actions[index];
+  const { name, tagged, type = '' } = allActions[category].actions[index];
 
   return (
     <Box
@@ -819,14 +539,12 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
 
       {/* Cast type chips */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
-        {toArray(skillType).map((type) => (
-          <Chip
-            key={type}
-            label={formatStr(type)}
-            variant="outlined"
-            sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
-          />
-        ))}
+        <Chip
+          key={type}
+          label={formatStr(type)}
+          variant="outlined"
+          sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
+        />
       </Box>
 
       {/* Action name */}
@@ -858,7 +576,7 @@ function SortableRotationItem({ id, actionKey, characterId, gameId, onRemove }) 
   );
 }
 
-function RotationEditor({ gameId, characterId, rotation, onChange }) {
+export function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [dragging, setDragging] = useState(false);
 
@@ -885,7 +603,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
     onChange(rotation.filter((_, i) => i !== index));
   };
 
-  if (!characterId) {
+  if (!charId) {
     return (
       <Typography variant="body2" color="textSecondary">
         Select a character to edit rotation.
@@ -937,7 +655,8 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
                   key={sortableIds[index]}
                   id={sortableIds[index]}
                   actionKey={actionKey}
-                  characterId={characterId}
+                  member={member}
+                  charId={charId}
                   gameId={gameId}
                   onRemove={() => removeSkill(index)}
                 />
@@ -962,7 +681,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         <Button
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(CHARACTER[gameId][characterId]?.defaults?.rotation ?? [])}
+          onClick={() => onChange(CHARACTER[gameId][charId]?.defaults?.rotation ?? [])}
         >
           Reset Default
         </Button>
@@ -977,7 +696,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 
       <SkillSelectDialog
         gameId={gameId}
-        characterId={characterId}
+        charId={charId}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
         onSelect={(actionKey) => onChange([...rotation, actionKey])}
@@ -986,8 +705,33 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
   );
 }
 
+function MainEchoAutocomplete({ charId, value, onChange, disabled }) {
+  const options = useMemo(
+    () =>
+      Object.values(ECHO)
+        .map((e) => ({ id: e.id, label: e.name, cost: e.cost }))
+        .sort((a, b) => b.cost - a.cost || a.label.localeCompare(b.label)),
+    [],
+  );
+
+  const selected = options.find((o) => o.id === value) ?? null;
+
+  return (
+    <Autocomplete
+      options={options}
+      getOptionLabel={(o) => o.label}
+      value={selected}
+      onChange={(_, option) => onChange(option?.id ?? null)}
+      disabled={disabled || !charId}
+      size="small"
+      renderInput={(params) => <TextField {...params} label="Main Echo" />
+      }
+    />
+  );
+}
+
 export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
-  const { characterId } = useParams();
+  const { charId } = useParams();
   const allBuilds = useBuild().getBuilds(gameId);
 
   const [draft, setDraft] = useState(member);
@@ -1001,21 +745,12 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
   const weaponType = memberData?.type ?? null;
 
   // Stored build for the current draft member (only meaningful for teammates)
-  const storedBuild = draft.id && draft.id !== characterId
+  const storedBuild = draft.id && draft.id !== charId
     ? allBuilds[draft.id] ?? null
     : null;
-  const isMainCharacter = draft.id === characterId;
+  const isMainCharacter = draft.id === charId;
   const showToggle = storedBuild !== null;
   const buildLocked = !isMainCharacter && draft.useUserBuild === true;
-
-  const handleCharacterSelect = (charId) => {
-    let nextMember = getMember(gameId, charId);
-    const nextStoredBuild = allBuilds[charId] ?? null;
-    if (nextStoredBuild) {
-      nextMember = applyStoredBuild(gameId, nextMember, nextStoredBuild);
-    }
-    setDraft(nextMember);
-  };
 
   const handleToggleUserBuild = (useUserBuild) => {
     if (useUserBuild && storedBuild) {
@@ -1163,12 +898,36 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             </Box>
           </Stack>
 
-          <RotationEditor
-            gameId={gameId}
-            characterId={draft.id}
-            rotation={draft.rotation}
-            onChange={(rotation) => setDraft((prev) => ({ ...prev, rotation }))}
-          />
+          {gameId === WW && (
+            <Box sx={{ mt: 2.5 }}>
+              <Typography variant="subtitle2" sx={{ mb: 1 }}>Main Echo</Typography>
+              <MainEchoAutocomplete
+                charId={draft.id}
+                value={draft.mainEcho ?? null}
+                onChange={(mainEcho) => setDraft((prev) => ({ ...prev, mainEcho }))}
+                disabled={buildLocked}
+              />
+            </Box>
+          )}
+
+          {gameId === WW && CHARACTER[gameId][draft.id]?.modes && (
+            <Box sx={{ mt: 2 }}>
+              <Typography variant="subtitle2" sx={{ mb: 1 }}>Resonance Mode</Typography>
+              <ToggleButtonGroup
+                exclusive
+                value={draft.resonanceMode ?? CHARACTER[gameId][draft.id].modes[0]}
+                onChange={(_, value) => { if (value !== null) setDraft((prev) => ({ ...prev, resonanceMode: value })); }}
+                disabled={buildLocked}
+                size="small"
+              >
+                {CHARACTER[gameId][draft.id].modes.map((mode) => (
+                  <ToggleButton key={mode} value={mode}>
+                    {mode}
+                  </ToggleButton>
+                ))}
+              </ToggleButtonGroup>
+            </Box>
+          )}
         </DialogContent>
 
         <DialogActions>
@@ -1181,7 +940,14 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
         gameId={gameId}
         open={charDialogOpen}
         onClose={() => setCharDialogOpen(false)}
-        onSelect={handleCharacterSelect}
+        onSelect={(charId) => {
+          let nextMember = getMemberPreset(gameId, charId);
+          const nextStoredBuild = allBuilds[charId] ?? null;
+          if (nextStoredBuild) {
+            nextMember = applyStoredBuild(gameId, nextMember, nextStoredBuild);
+          }
+          setDraft(nextMember);
+        }}
       />
 
       <WeaponSelectDialog

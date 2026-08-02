@@ -18,7 +18,7 @@ The multi-game pattern is consistent — changes to data shape or rating logic t
 ## Key Conventions
 
 ### Routing
-- Route pattern: `/:gameId/:characterId?`
+- Route pattern: `/:gameId/:charId?`
 - Use `navigate(path, { replace: true })` when switching characters to avoid history stacking.
 - Parse only the first pathname segment to determine the active game.
 

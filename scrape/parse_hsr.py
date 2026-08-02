@@ -34,48 +34,8 @@ lookup_stat = {
     'ElationDamageAddedRatioBase': 'elation%',
 }
 
-def parse_character(version, id, data):
-    ascension = {}
-    for node in data['skill_trees'].values():
-        entry = node.get('1')
-        if not entry or entry.get('point_type') != 1:
-            continue
-
-        add = entry['status_add_list'][0]
-        stat = lookup_stat[add['property_type']]
-        ascension[stat] = ascension.get(stat, 0) + add['value']
-
-    for k in ascension:
-        ascension[k] = round(ascension[k], 4 if k.endswith('%') else 1)
-
-    return {
-        'name': data['name'],
-        'version': float(version),
-        'id': str(id),
-        'quality': int(data['rarity'][-1]),
-        'element': 'lightning' if data['damage_type'] == 'Thunder' else data['damage_type'].lower(),
-        'type': lookup_type[data['base_type']],
-        'baseStats': {
-            'baseHp': round(
-                data['stats']['6']['hp_add'] * 79
-                + data['stats']['6']['hp_base']
-            ),
-            'baseAtk': round(
-                data['stats']['6']['attack_add'] * 79
-                + data['stats']['6']['attack_base']
-            ),
-            'baseDef': round(
-                data['stats']['6']['defence_add'] * 79
-                + data['stats']['6']['defence_base']
-            ),
-            'baseSpd': round(data['stats']['6']['speed_base']),
-        },
-        'ascensionStats': ascension,
-        'effects': [],
-    }
-
-def parse_actions(data):
-    actions = {}
+def parse_skills(data):
+    skills = {}
     key_to_id = {
         'Basic ATK': 'basicAtk',
         'Skill': 'skill',
@@ -100,20 +60,20 @@ def parse_actions(data):
 
         skill_id = key_to_id[raw_skill['type_name']]
 
-        indexed_multipliers = []
+        multipliers = []
 
         for key, value in raw_skill['level'].items():
             param_list = value['param_list']
 
             for index, hit in enumerate(param_list):
-                if index < len(indexed_multipliers):
-                    indexed_multipliers[index]['mv'].append(hit)
+                if index < len(multipliers):
+                    multipliers[index]['mv'].append(hit)
                 else:
-                    indexed_multipliers.append({ 'mv': [hit] })
+                    multipliers.append({ 'mv': [hit] })
 
         filtered = []
 
-        for entry in indexed_multipliers:
+        for entry in multipliers:
             mv = entry['mv']
 
             if len(mv) > 1 and all(x == mv[0] for x in mv):
@@ -121,30 +81,63 @@ def parse_actions(data):
 
             filtered.append(entry)
 
-        indexed_multipliers = filtered
-        
-        if skill_id not in actions:
-            actions[skill_id] = {
-                '1': {
-                    'name': raw_skill['name'],
-                    'skillType': skill_id,
-                    'multipliers': indexed_multipliers,
-                }
-            }
-        else:
-            count = len(actions[skill_id]) + 1
+        multipliers = filtered
 
-            actions[skill_id][str(count)] = {
+        if skill_id not in skills:
+            skills[skill_id] = {
                 'name': raw_skill['name'],
-                'skillType': skill_id,
-                'multipliers': indexed_multipliers,
+                'actions': []
             }
 
-    return actions
+        skills[skill_id]['actions'].append({
+            'name': raw_skill['name'],
+            'type': skill_id,
+            'damage': {
+                'multipliers': multipliers,
+            },
+        })
+
+    return skills
+
+def parse_character(version, id, data):
+    base_data = data['stats']['6']
+    stats = {
+        'baseHp': round(base_data['hp_add'] * 79 + base_data['hp_base']),
+        'baseAtk': round(base_data['attack_add'] * 79 + base_data['attack_base']),
+        'baseDef': round(base_data['defence_add'] * 79 + base_data['defence_base']),
+        'baseSpd': round(base_data['speed_base']),
+    }
+
+    ascension = {}
+    for node in data['skill_trees'].values():
+        entry = node.get('1')
+        if not entry or entry.get('point_type') != 1:
+            continue
+
+        add = entry['status_add_list'][0]
+        stat = lookup_stat[add['property_type']]
+        ascension[stat] = ascension.get(stat, 0) + add['value']
+
+    for stat in ascension:
+        value = round(ascension[stat], 4 if stat.endswith('%') else 1)
+        stats[stat] = stats.get(stat, 0) + value
+
+    return {
+        'name': str(data['name']),
+        'version': float(version),
+        'id': str(id),
+        'quality': int(data['rarity'][-1]),
+        'element': 'lightning' if data['damage_type'] == 'Thunder' else data['damage_type'].lower(),
+        'type': lookup_type[data['base_type']],
+        'stats': stats,
+        'effects': [],
+        'skills': parse_skills(data),
+        'presets': [],
+    }
 
 def parse_weapon(version, id, data):
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'quality': int(data['rarity'][-1]),
@@ -166,22 +159,21 @@ def parse_weapon(version, id, data):
         'effects': [],
     }
 
-def parse_set(version, id, data):
-    return {
-        'name': data['name'],
-        'version': float(version),
-        'id': str(id),
-        'bonusEffects': {},
-    }
+def parse_hsr(type, version, id, data):
+    match type:
+        case 'character':
+            return parse_character(version, id, data)
 
-def parse_character_data(version, id, data):
-    return parse_character(version, id, data), parse_actions(data)
+        case 'weapon':
+            return parse_weapon(version, id, data)
 
-parsers = {
-    'character': parse_character_data,
-    'weapon': parse_weapon,
-    'set': parse_set,
-}
-
-def parse_hsr(type, *args):
-    return parsers[type](*args)
+        case 'set':
+            return {
+                'name': str(data['name']),
+                'version': float(version),
+                'id': str(id),
+                'bonusEffects': {
+                    str(num): []
+                    for num in data.get('require_num', {})
+                },
+            }

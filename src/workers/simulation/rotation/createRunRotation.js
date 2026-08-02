@@ -27,7 +27,7 @@ import {
   inflictTuneShifting,
   advanceTune,
 } from './special/tune';
-import { buildSnapshot, evaluateSnapshot } from './snapshot';
+import { buildSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 
 function handleRemoveWhen(ctx, action, when) {
@@ -106,6 +106,11 @@ function decayBuffStates(ctx, action) {
   }
 }
 
+const canSnapshot = (action) =>
+  'damage' in action ||
+  'healing' in action ||
+  'shield' in action;
+
 function runAction(ctx, action, options = {}) {
   const { runtimeOffset, noDuration } = options;
   const { duration = 0, hitOffsets = [0] } = action;
@@ -142,9 +147,9 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('before');
   advanceTimeTo(hitOffsets[0]);
 
-  if (action.compressed) {
+  if (canSnapshot(action)) {
     if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, action, { runtimeOffset }));
-    if (ctx.cache.gameId === WW) applyOffTuneBuildup(ctx, action);
+    if (ctx.cache.gameId === WW && 'damage' in action) applyOffTuneBuildup(ctx, action);
     decayBuffStates(ctx, action);
   }
 
@@ -161,14 +166,13 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('after');
 }
 
-export const createRunRotation = (helpers, cache, equipMaps, currId) => {
+export const createRunRotation = (cache, equipMaps, currId) => {
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
     buildMaps[memberId] = toMergedObj(cache.member[memberId].baseMap, equipMap);
   }
 
   const ctx = {
-    helpers,
     cache,
     buildMaps,
     currId,
@@ -208,11 +212,19 @@ export const createRunRotation = (helpers, cache, equipMaps, currId) => {
     runAction(ctx, action);
   }
 
-  return (buildMap) => ctx.snapshots.map((snapshot) =>
-    'value' in snapshot
-      ? snapshot
-      : {
-        ...snapshot,
-        value: evaluateSnapshot(helpers, currId, snapshot, buildMap),
-      });
+  return (buildMap) => ctx.snapshots.map((snapshot) => {
+    const toResolve = [];
+    for (const part of ['damage', 'healing', 'shield']) {
+      if (part in snapshot && typeof snapshot[part] === 'function') {
+        toResolve.push(part);
+      }
+    }
+
+    const resolved = { ...snapshot };
+    for (const type of toResolve) {
+      resolved[type] = snapshot[type](buildMap);
+    }
+
+    return resolved;
+  });
 };

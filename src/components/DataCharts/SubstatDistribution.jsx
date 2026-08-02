@@ -89,27 +89,27 @@ const isSignificantStat = (gameId, statId, percentOftotal, mainStatsList) => {
     .reduce((acc, chance) => acc + chance, 0);
 
   const unbiasedPercentOfTotal = avgRolls / 41;
-  
+
   return percentOftotal > unbiasedPercentOfTotal;
 };
 
 export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const { accentColors } = useTheme();
-  const { element } = CHARACTER[gameId][characterId];
+  const { element } = CHARACTER[gameId][charId];
   const [showAll, setShowAll] = useState(false);
   if (!configMap) return null;
 
-  const { subRollSums = {} } = configMap[userConfigKey] ?? {};
+  const { subDist = {} } = configMap[userConfigKey] ?? {};
 
-  const totalRolls = Object.values(subRollSums)
+  const totalRolls = Object.values(subDist)
     .reduce((acc, rolls) => acc + rolls , 0);
 
   const chartData = Object.keys(SUBSTAT_VALUES[gameId])
     .map((statId) => ({
       id: statId,
       name: formatStr(statId),
-      sim: subRollSums[statId] ?? 0,
+      sim: subDist[statId] ?? 0,
       user: userSubStats[statId] ?? 0,
     }))
     .filter(({ id, sim }) => showAll || isSignificantStat(gameId, id, sim / totalRolls, (userConfigKey ?? '').split('|')))

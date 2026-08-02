@@ -1,13 +1,14 @@
 import { useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
-import { Header, Navbar } from '@/components';
+import { Header } from '@/components';
+import { Navbar } from '@/components/ConfigPanel';
 import { useBuild, useUser } from '@/contexts';
 import { CHARACTER } from '@/data';
 import { Content } from '@/pages';
 
 export const GamePage = () => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
 
   const builds = useBuild().getBuilds(gameId);
   const pinned = useUser().pinnedIds[gameId];
@@ -22,12 +23,12 @@ export const GamePage = () => {
     return bIndex - aIndex;
   }), [gameId, builds, pinned]);
 
-  // Navigate guard against invalid characterIds
-  if (characterId && (!CHARACTER[gameId][characterId] || !builds[characterId])) {
+  // Navigate guard against invalid charIds
+  if (charId && (!CHARACTER[gameId][charId] || !builds[charId])) {
     return <Navigate to={`/${gameId}`} replace />;
   }
 
-  if (!characterId && sorted.length) {
+  if (!charId && sorted.length) {
     return <Navigate to={`/${gameId}/${sorted[0]}`} replace />;
   }
 
@@ -45,7 +46,7 @@ export const GamePage = () => {
         }}
       >
         <Navbar sorted={sorted} />
-        {characterId && <Content key={`${gameId}-${characterId}`} />}
+        {charId && <Content key={`${gameId}-${charId}`} />}
       </Box>
     </>
   );

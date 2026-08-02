@@ -1,5 +1,10 @@
 import { toArray } from '@/utils';
 
+const ifOwner = (rawFilter, character) => {
+  const filter = toArray(rawFilter);
+  return filter.some((id) => id === character.id)
+};
+
 const ifElement = (rawFilter, character) => {
   const filter = toArray(rawFilter);
   return filter.some((element) => element === character.element);
@@ -25,7 +30,7 @@ const ifRankMax = (maxRank, rank) => {
 };
 
 const ifNoEnergy = (effect, character) => {
-  if ('ifNoEnergy' in effect) {
+  if ('enableIfNoEnergy' in effect) {
     return character.noEnergy;
   }
 };
@@ -39,11 +44,13 @@ export const isEnabled = (effect, spec) => {
 
   const hasEnableIf = Object.keys(effect)
     .some((field) => field.startsWith('enableIf'));
+
   if (!hasEnableIf) return true;
 
   switch (from) {
     case 'character':
       return (
+        ifOwner(effect.enableIfOwner, character) ||
         ifElement(effect.enableIfElement, character) ||
         ifWeaponType(effect.enableIfWeaponType, character) ||
         ifTagged(effect.enableIfTagged, character) ||
@@ -58,6 +65,10 @@ export const isEnabled = (effect, spec) => {
         ifWeaponType(effect.enableIfWeaponType, character) ||
         ifTagged(effect.enableIfTagged, character) ||
         ifNoEnergy(effect, character)
+      );
+    case 'echo':
+      return (
+        ifOwner(effect.enableIfOwner, character)
       );
   }
 };

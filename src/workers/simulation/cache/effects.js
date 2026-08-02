@@ -10,16 +10,16 @@ function resolveApplyBy(effect, memberIds) {
     case undefined:
       effect.applyBy = [ownerId];
       break;
-    case 'team':
+    case '$team':
       effect.applyBy = memberIds;
       break;
-    case 'ally':
+    case '$ally':
       effect.applyBy = memberIds.filter((id) => id !== ownerId);
       break;
-    case 'first':
+    case '$first':
       effect.applyBy = [memberIds[0]];
       break;
-    case 'next':
+    case '$next':
       effect.applyBy = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
       break;
     default:
@@ -33,16 +33,16 @@ function resolveApplyTo(effect, memberIds) {
     case undefined:
       effect.applyTo = [ownerId];
       break;
-    case 'team':
+    case '$team':
       effect.applyTo = memberIds;
       break;
-    case 'ally':
+    case '$ally':
       effect.applyTo = memberIds.filter((id) => id !== ownerId);
       break;
-    case 'first':
+    case '$first':
       effect.applyTo = [memberIds[0]];
       break;
-    case 'next':
+    case '$next':
       effect.applyTo = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
       break;
     default:
@@ -190,8 +190,8 @@ const toNormalizedEffect = (rawEffect, spec) => {
   return effect;
 };
 
-export const normalizeEffects = (member, spec) => {
-  const { gameId, memberIds, teamActions } = spec;
+export const normalizeEffects = (gameId, member, spec) => {
+  const { memberIds, teamActions } = spec;
   const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts, mainEcho } = member;
   const character = CHARACTER[gameId][memberId];
   const weapon = WEAPON[gameId][weaponId];
@@ -200,12 +200,12 @@ export const normalizeEffects = (member, spec) => {
     {
       from: 'character',
       id: memberId,
-      rawEffects: CHARACTER[gameId][memberId].effects,
+      rawEffects: character.effects,
     },
     {
       from: 'weapon',
       id: weaponId,
-      rawEffects: WEAPON[gameId][weaponId].effects,
+      rawEffects: weapon.effects,
     },
     ...Object.entries(setCounts).map(([setId, count]) => ({
       from: 'set',

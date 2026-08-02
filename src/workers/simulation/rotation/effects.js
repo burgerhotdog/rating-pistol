@@ -3,12 +3,8 @@ import { getEffectStates } from './getEffectStates';
 export function runRemoveEffect(state) {
   if (!state) return;
   const { store, effect } = state;
-
-  if ('removeOffset' in effect) {
-    state.removeTimer ??= effect.removeOffset;
-  } else {
-    delete store[effect.key];
-  }
+  if ('removeOffset' in effect) state.removeTimer ??= effect.removeOffset;
+  else delete store[effect.key];
 }
 
 export function runExtendEffect(state) {
@@ -23,18 +19,18 @@ export function runExtendEffect(state) {
 export function runUseEffect(ctx, state, spec = {}) {
   const { runtimeOffset } = spec;
   const { store, effect } = state;
+  const runOptions = { runtimeOffset, noDuration: true };
 
   if ('useAction' in effect) {
     state.isRunning = true;
     for (let i = 0; i < (effect.times ?? 1); i++) {
       for (const action of effect.useAction) {
-        ctx.runAction(ctx, action, { runtimeOffset, noDuration: true });
+        ctx.runAction(ctx, action, runOptions);
       }
     }
     delete state.isRunning;
 
     if (effect.useCooldown) state.useCooldown = effect.useCooldown;
-
     if (state.usesLeft) {
       state.usesLeft--;
       if (!state.usesLeft) return delete store[effect.key];
@@ -75,7 +71,7 @@ export function runApplyEffect(ctx, effect, action = {}) {
   for (const target of effect.applyTo) {
     if (target === 'applier') updateState(memberEffects[action.ownerId]);
     else if (target === 'global') updateState(globalEffects);
-    else updateState(memberEffects[target]);
+    else if (target in memberEffects) updateState(memberEffects[target]);
   }
 
   if (effect.applyCooldown) applyCooldowns[effect.key] = effect.applyCooldown;

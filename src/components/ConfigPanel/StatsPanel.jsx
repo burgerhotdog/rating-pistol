@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Tooltip } from '@mui/material';
+import { Chip, CardContent, Box, CardHeader, Card, Divider, MenuItem, Stack, TextField, Typography, Skeleton, Tooltip } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { CharAvatar, TeamMemberDialog } from '@/components';
+import { CharAvatar } from '@/components';
+import { TeamMemberDialog, RotationEditor } from './TeamMemberDialog';
 import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
 import { getAttr, formatStr, compileMenuMap } from '@/utils';
 
@@ -90,16 +91,23 @@ function formatFullDate(dateString) {
 }
 
 export const StatsPanel = ({ team, updateTeam }) => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const theme = useTheme();
   const [dialogIndex, setDialogIndex] = useState(null);
+  const [rotationMemberId, setRotationMemberId] = useState(charId);
+  const [prevCharId, setPrevCharId] = useState(charId);
+  if (prevCharId !== charId) {
+    setPrevCharId(charId);
+    setRotationMemberId(charId);
+  }
+  const rotationMemberIndex = Math.max(0, team.findIndex((m) => m.id === rotationMemberId));
 
   const member = team.reduce((acc, member) => {
-    if (member.id !== characterId) return acc;
+    if (member.id !== charId) return acc;
     return member;
   }, null);
 
-  const statMap = member ? compileMenuMap(gameId, characterId, member) : {};
+  const statMap = member ? compileMenuMap(gameId, charId, member) : {};
 
   if (!member) {
     return (
@@ -116,21 +124,21 @@ export const StatsPanel = ({ team, updateTeam }) => {
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
-        avatar={<CharAvatar gameId={gameId} charId={characterId} />}
-        title={CHARACTER[gameId][characterId]?.name ?? ''}
+        avatar={<CharAvatar gameId={gameId} charId={charId} />}
+        title={CHARACTER[gameId][charId]?.name ?? ''}
         subheader={
           <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
             <Chip
-              label={formatStr(CHARACTER[gameId][characterId].element)}
+              label={formatStr(CHARACTER[gameId][charId].element)}
               variant="outlined"
               sx={{
                 fontWeight: 'bold',
-                color: theme.accentColors[gameId][CHARACTER[gameId][characterId].element]
+                color: theme.accentColors[gameId][CHARACTER[gameId][charId].element]
               }}
             />
 
             <Chip
-              label={formatStr(CHARACTER[gameId][characterId]?.type)}
+              label={formatStr(CHARACTER[gameId][charId]?.type)}
               variant="outlined"
               sx={{ fontWeight: 'bold' }}
             />
@@ -172,6 +180,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
         <Typography variant="caption" color="textSecondary" sx={{ mb: 1.5, display: 'block' }}>
           Team Configuration
         </Typography>
+
         <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
           {team.map((member, index) => (
             <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
@@ -195,7 +204,38 @@ export const StatsPanel = ({ team, updateTeam }) => {
 
         <Divider sx={{ my: 2 }} />
 
-        <Box sx={{ flexGrow: 1 }} />
+        <Typography variant="caption" color="textSecondary" sx={{ mb: 1.5, display: 'block' }}>
+          Rotation
+        </Typography>
+
+        <TextField
+          select
+          size="small"
+          value={rotationMemberIndex >= 0 ? rotationMemberIndex : 0}
+          onChange={(e) => setRotationMemberId(team[Number(e.target.value)]?.id ?? null)}
+          fullWidth
+          sx={{ mb: 1.5 }}
+        >
+          {team.map((m, i) => (
+            <MenuItem key={i} value={i} disabled={!m.id}>
+              {m.id ? (CHARACTER[gameId][m.id]?.name ?? m.id) : `Slot ${i + 1} (empty)`}
+            </MenuItem>
+          ))}
+        </TextField>
+
+        {(() => {
+          const idx = rotationMemberIndex;
+          const rotMember = team[idx];
+          return (
+            <RotationEditor
+              gameId={gameId}
+              charId={rotMember?.id ?? null}
+              member={rotMember}
+              rotation={rotMember?.rotation ?? []}
+              onChange={(rotation) => updateTeam(idx, { ...rotMember, rotation })}
+            />
+          );
+        })()}
 
         <Divider sx={{ my: 2 }} />
 

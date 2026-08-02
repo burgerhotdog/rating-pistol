@@ -31,48 +31,8 @@ lookup_stat = {
     'PEN Ratio': 'penRatio%',
 }
 
-def parse_character(version, id, data):
-    ascension = {}
-    for v in data['extra_level']['6']['extra'].values():
-        stat = lookup_stat_id[v['prop']]
-        value = v['value']
-        if stat.endswith('%'):
-            value = round(value / 10000, 4)
-        ascension[stat] = value
-
-    return {
-        'name': data['name'],
-        'version': float(version),
-        'id': str(id),
-        'quality': int(data['rarity']) + 1,
-        'element': next(iter(data['element_type'].values())).lower(),
-        'type': next(iter(data['weapon_type'].values())).lower(),
-        'baseStats': {
-            'baseHp': round(
-                data['stats']['hp_growth'] / 10000 * 59
-                + data['stats']['hp_max']
-                + data['level']['6']['hp_max']
-            ),
-            'baseAtk': round(
-                data['stats']['attack_growth'] / 10000 * 59
-                + data['stats']['attack']
-                + data['level']['6']['attack']
-            ),
-            'baseDef': round(
-                data['stats']['defence_growth'] / 10000 * 59
-                + data['stats']['defence']
-                + data['level']['6']['defence']
-            ),
-            'baseImpact': round(data['stats']['break_stun']),
-            'baseAnomalyMastery': round(data['stats']['element_abnormal_power']),
-            'baseAnomalyProficiency': round(data['stats']['element_mystery']),
-        },
-        'ascensionStats': ascension,
-        'effects': [],
-    }
-
-def parse_actions(data):
-    actions = {}
+def parse_skills(data):
+    skills = {}
     key_to_id = {
         'basic': 'basic',
         'dodge': 'dodge',
@@ -83,10 +43,9 @@ def parse_actions(data):
 
     for skill_key in ['basic', 'dodge', 'assist', 'special', 'chain']:
         skillData = data['skill'][skill_key]['description']
-        skill = {}
+        actions = []
         skill_id = key_to_id[skill_key]
 
-        index = 1
         for item in skillData:
             if 'param' not in item:
                 continue
@@ -107,13 +66,11 @@ def parse_actions(data):
                         value = eval(expr, {'__builtins__': {}}, {'lvl': lvl})
                         mult.append(round(value / 100, 4))
 
-                    skill[str(index)] = {
+                    actions.append({
                         'name': skill_name + ' ' + action_data['name'],
-                        'skillType': skill_id,
+                        'type': skill_id,
                         'multipliers': [mult],
-                    }
-
-                    index += 1
+                    })
                     continue
 
                 details = next(iter(action_data['param'].values()))
@@ -129,22 +86,69 @@ def parse_actions(data):
                     if anom > 0:
                         mult['anomaly'] = anom
 
-                skill[str(index)] = {
+                actions.append({
                     'name': skill_name + ' ' + action_data['name'],
-                    'skillType': skill_id,
-                    'multipliers': [mult],
-                }
+                    'type': skill_id,
+                    'damage': {
+                        'multipliers': [mult],
+                    },
+                })
 
-                index += 1
+        skills[skill_id] = {
+            'name': '',
+            'actions': actions,
+        }
 
-        actions[skill_id] = skill
-    return actions
+    return skills
+
+def parse_character(version, id, data):
+    stats = {
+        'baseHp': round(
+            data['stats']['hp_growth'] / 10000 * 59
+            + data['stats']['hp_max']
+            + data['level']['6']['hp_max']
+        ),
+        'baseAtk': round(
+            data['stats']['attack_growth'] / 10000 * 59
+            + data['stats']['attack']
+            + data['level']['6']['attack']
+        ),
+        'baseDef': round(
+            data['stats']['defence_growth'] / 10000 * 59
+            + data['stats']['defence']
+            + data['level']['6']['defence']
+        ),
+        'baseImpact': round(data['stats']['break_stun']),
+        'baseAnomalyMastery': round(data['stats']['element_abnormal_power']),
+        'baseAnomalyProficiency': round(data['stats']['element_mystery']),
+    }
+
+    for v in data['extra_level']['6']['extra'].values():
+        stat = lookup_stat_id[v['prop']]
+        value = v['value']
+        if stat.endswith('%'):
+            value = round(value / 10000, 4)
+
+        stats[stat] = stats.get(stat, 0) + value
+
+    return {
+        'name': str(data['name']),
+        'version': float(version),
+        'id': str(id),
+        'quality': int(data['rarity']) + 1,
+        'element': next(iter(data['element_type'].values())).lower(),
+        'type': next(iter(data['weapon_type'].values())).lower(),
+        'stats': stats,
+        'effects': [],
+        'skills': parse_skills(data),
+        'presets': [],
+    }
 
 def parse_weapon(version, id, data):
     stat = lookup_stat[data['rand_property']['name']]
     value = data['rand_property']['value'] * 2.5
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'quality': int(data['rarity']) + 1,
@@ -156,22 +160,21 @@ def parse_weapon(version, id, data):
         'effects': [],
     }
 
-def parse_set(version, id, data):
-    return {
-        'name': data['name'],
-        'version': float(version),
-        'id': str(id),
-        'bonusEffects': {},
-    }
+def parse_zzz(type, version, id, data):
+    match type:
+        case 'character':
+            return parse_character(version, id, data)
 
-def parse_character_data(version, id, data):
-    return parse_character(version, id, data), parse_actions(data)
+        case 'weapon':
+            return parse_weapon(version, id, data)
 
-parsers = {
-    'character': parse_character_data,
-    'weapon': parse_weapon,
-    'set': parse_set,
-}
-
-def parse_zzz(type, *args):
-    return parsers[type](*args)
+        case 'set':
+            return {
+                'name': str(data['name']),
+                'version': float(version),
+                'id': str(id),
+                'bonusEffects': {
+                    '2': [],
+                    '4': [],
+                },
+            }

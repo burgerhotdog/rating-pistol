@@ -29,7 +29,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route element={<GameIdGuard />}>
-                <Route path="/:gameId/:characterId?" element={<GamePage />} />
+                <Route path="/:gameId/:charId?" element={<GamePage />} />
               </Route>
             </Routes>
           </Container>

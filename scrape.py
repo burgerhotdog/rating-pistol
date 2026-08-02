@@ -49,6 +49,7 @@ def main():
         save_data(game, 'set', sets)
     if echoes:
         save_data(game, 'echo', echoes)
+
     save_version(game, version)
     print('Update complete')
 

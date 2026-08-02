@@ -1,5 +1,5 @@
 import { GI, WW, ZZZ, ECHO } from '@/data';
-import { CHARACTER, ACTION } from '@/data';
+import { CHARACTER } from '@/data';
 import { resolveRankedValue } from './resolveRanked';
 
 const DEFAULT_DURATIONS = {
@@ -39,9 +39,7 @@ const getCompressed = (multipliers, attr, { index, weaponRank }) => {
 
   const compressed = { flat: 0, mvs: {}, hitCount: 0 };
   for (const { flat, mv, times = 1 } of multipliers) {
-    if (flat) {
-      compressed.flat += resolveScaling(flat) * times;
-    }
+    if (flat) compressed.flat += resolveScaling(flat) * times;
     if (mv) {
       if (typeof mv === 'object' && !Array.isArray(mv)) { // dual attr scaling
         for (const [attrKey, scaling] of Object.entries(mv)) {
@@ -58,11 +56,42 @@ const getCompressed = (multipliers, attr, { index, weaponRank }) => {
   return compressed;
 };
 
+function toNormedDamage(gameId, action, spec) {
+  const { category, charElement, weaponType, index, weaponRank } = spec;
+  const isGiPhysNa =
+    gameId === GI &&
+    category === 'normalAttack' &&
+    weaponType !== 'catalyst';
+
+  const damage = { ...action.damage };
+  if ('type' in action) damage.type ??= action.type;
+  damage.element ??= isGiPhysNa ? 'physical' : charElement;
+  damage.attr ??= 'atk';
+  damage.compressed = getCompressed(damage.multipliers, damage.attr, { index, weaponRank });
+  return damage;
+}
+
+function toNormedHealing(gameId, action, spec) {
+  const { index, weaponRank, teamSize } = spec;
+
+  const healing = { ...action.healing };
+  healing.attr ??= 'atk';
+  healing.compressed = getCompressed(healing.multipliers, healing.attr, { index, weaponRank });
+  if (healing.times === '$teamSize') healing.times = teamSize;
+  return healing;
+}
+
+function toNormedShield(gameId, action, spec) {
+  const { index, weaponRank } = spec;
+
+  const shield = { ...action.shield };
+  shield.attr ??= 'atk';
+  shield.compressed = getCompressed(shield.multipliers, shield.attr, { index, weaponRank });
+  return shield;
+}
+
 export const toNormalizedAction = (rawAction, spec) => {
-  const {
-    gameId, ownerId, category, actionId,
-    teamSize, index, charElement, weaponType, weaponRank,
-  } = spec;
+  const { gameId, ownerId, category, actionId } = spec;
 
   const action = {
     ...rawAction,
@@ -73,50 +102,20 @@ export const toNormalizedAction = (rawAction, spec) => {
     id: actionId,
   };
 
-  // Init default action type
-  if (action.multipliers) action.type ??= 'damage';
-
-  // Init default dmgType
-  if (action.type === 'damage' && action.skillType) {
-    action.dmgType ??= action.skillType;
-  }
-
-  // Resolve $teamSize
-  if (action.times === '$teamSize') action.times = teamSize;
-
-  if (action.multipliers) {
-    // Init element
-    if (action.type === 'damage') {
-      if (gameId === GI && category === 'normalAttack' && weaponType !== 'catalyst') {
-        action.element ??= 'physical';
-      } else {
-        action.element ??= charElement;
-      }
-    }
-
-    // Init attr
-    action.attr ??= 'atk';
-
-    // Compress multipliers
-    action.compressed = getCompressed(action.multipliers, action.attr, {
-      index,
-      weaponRank,
-    });
-  }
+  if ('damage' in action) action.damage = toNormedDamage(gameId, action, spec);
+  if ('healing' in action) action.healing = toNormedHealing(gameId, action, spec);
+  if ('shield' in action) action.shield = toNormedShield(gameId, action, spec);
 
   // Init duration
-  if (!('duration' in action)) {
-    const defaults = DEFAULT_DURATIONS[gameId];
-    action.duration = defaults[action.skillType] ?? 0;
-  }
+  action.duration ??= DEFAULT_DURATIONS[gameId][action.type] ?? 0;
 
   // Init hitOffsets
   if (!('hitOffsets' in action)) {
-    if (action.compressed) {
+    if (action.damage?.compressed) {
       let offset = action.duration * 0.65;
       action.hitOffsets = [Math.round(offset)];
 
-      let hitsLeft = action.compressed.hitCount - 1;
+      let hitsLeft = action.damage?.compressed.hitCount - 1;
       while (hitsLeft) {
         if (action.duration) {
           action.duration += 50;
@@ -147,13 +146,13 @@ const createIndexGetter = (gameId, memberId, memberRank) => {
   return (category) => defaultIndex + (addByCategory[category] ?? 0);
 };
 
-export const getMemberActions = (member, { gameId, teamSize }) => {
+export const getMemberPresetActions = (member, { gameId, teamSize }) => {
   const { id: memberId, mainEcho } = member;
   const char = CHARACTER[gameId][memberId];
   const getIndex = createIndexGetter(gameId, memberId, member.rank);
 
   const memberActions = {};
-  for (const [category, { actions }] of Object.entries(ACTION[gameId][memberId])) {
+  for (const [category, { actions }] of Object.entries(char.skills)) {
     const mvIndex = getIndex(category);
 
     for (const [index, rawAction] of actions.entries()) {

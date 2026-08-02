@@ -16,7 +16,7 @@ export const ConfirmDialog = ({
   onConfirm,
 }) => {
   const build = pendingEntry ? pendingEntry[1] : null;
-  const characterId = pendingEntry ? pendingEntry[0] : '';
+  const charId = pendingEntry ? pendingEntry[0] : '';
 
   const confirmLabel = isBatchMode
     ? batchIndex < batchTotal
@@ -40,11 +40,11 @@ export const ConfirmDialog = ({
                 options={Object.values(CHARACTER[WW])}
                 getOptionLabel={(option) => option.name ?? ''}
                 isOptionEqualToValue={(option, value) => option.id === value.id}
-                value={CHARACTER[WW][characterId] ?? null}
+                value={CHARACTER[WW][charId] ?? null}
                 onChange={(e, newValue) => onUpdateCharacterId(newValue?.id)}
                 fullWidth
                 renderInput={(params) => (
-                  <TextField {...params} label="Character" error={!characterId} />
+                  <TextField {...params} label="Character" error={!charId} />
                 )}
               />
             </Grid>
@@ -67,7 +67,7 @@ export const ConfirmDialog = ({
 
             <Grid size={12}>
               <Autocomplete
-                options={Object.values(WEAPON[WW]).filter((option) => option.type === CHARACTER[WW][characterId]?.type)}
+                options={Object.values(WEAPON[WW]).filter((option) => option.type === CHARACTER[WW][charId]?.type)}
                 getOptionLabel={(option) => option.name}
                 isOptionEqualToValue={(option, value) => option.id === value.id}
                 value={WEAPON[WW][build.weaponId] ?? null}

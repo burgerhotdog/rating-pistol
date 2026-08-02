@@ -28,7 +28,7 @@ const CONFIG = {
   },
 };
 
-export const createGetDefMult = (gameId) => {
+export const getDefMult = (gameId, statMap) => {
   const { charLevel, getCharLevelFactor, enemyLevel, getEnemyBaseDef } = CONFIG[gameId];
   const charLevelFactor = getCharLevelFactor(charLevel);
   const enemyBaseDef = getEnemyBaseDef(enemyLevel);
@@ -50,8 +50,6 @@ export const createGetDefMult = (gameId) => {
     return enemyBaseDef * (1 - defReduction) * (1 - defIgnore);
   };
 
-  return (statMap) => {
-    const enemyDef = getEnemyDef(statMap);
-    return charLevelFactor / Math.max(charLevelFactor + enemyDef, Number.EPSILON);
-  };
+  const enemyDef = getEnemyDef(statMap);
+  return charLevelFactor / Math.max(charLevelFactor + enemyDef, Number.EPSILON);
 };

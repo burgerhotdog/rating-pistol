@@ -3,21 +3,33 @@ import { computeBase } from './computeBase';
 import { getCritMult } from './crit';
 import { getDmgBonusMult } from './dmgBonus';
 import { getDmgAmpMult } from './dmgAmp';
+import { getDefMult } from './enemyDef';
+import { getResMult } from './enemyRes';
 import { runTuneFormula } from '../special/tune';
 
-function runDamageFormula(helpers, action, statMap) {
-  const { getResMult, getDefMult } = helpers;
-  const { dmgType, extraDmgType, element, compressed, times = 1 } = action;
-  const baseValue = computeBase(compressed, statMap);
+function runDamageFormula(gameId, action, statMap) {
+  if (action.damage.attr === 'tuneAmp') {
+    const tuneAmp = action.damage.compressed.mvs.tuneAmp;
+    const element = action.damage.element;
+    return runTuneFormula(gameId, statMap, tuneAmp, element);
+  }
+
+  const { damage, times = 1 } = action;
+  const { type, extraType, element, compressed } = damage;
+  const bonusTypes = [
+    element,
+    type,
+    ...(extraType ? [extraType] : []),
+  ];
+
+  const baseValue = computeBase('damage', compressed, statMap);
 
   const critMult = getCritMult(statMap);
-
-  const bonusTypes = [element, dmgType, ...(extraDmgType ? [extraDmgType] : [])];
   const dmgBonusMult = getDmgBonusMult(statMap, bonusTypes);
   const dmgAmpMult = getDmgAmpMult(statMap, bonusTypes);
 
-  const resMult = getResMult(element, statMap);
-  const defMult = getDefMult(statMap);
+  const resMult = getResMult(gameId, element, statMap);
+  const defMult = getDefMult(gameId, statMap);
 
   const vulnMult = 1 + getAttr('vuln%', statMap);
 
@@ -29,8 +41,9 @@ function runDamageFormula(helpers, action, statMap) {
 }
 
 function runHealingFormula(action, statMap) {
-  const { compressed, times = 1 } = action;
-  const baseValue = computeBase(compressed, statMap);
+  const { healing, times = 1 } = action;
+  const { compressed } = healing;
+  const baseValue = computeBase('healing', compressed, statMap);
   const healingBonus = 1 + getAttr('healingBonus%', statMap);
   const healingReceived = 1 + getAttr('healingReceived%', statMap);
 
@@ -40,8 +53,9 @@ function runHealingFormula(action, statMap) {
 }
 
 function runShieldFormula(action, statMap) {
-  const { compressed, times = 1 } = action;
-  const baseValue = computeBase(compressed, statMap);
+  const { shield, times = 1 } = action;
+  const { compressed } = shield;
+  const baseValue = computeBase('shield', compressed, statMap);
   const shieldBonus = 1 + getAttr('shieldBonus%', statMap);
 
   return baseValue *
@@ -49,16 +63,10 @@ function runShieldFormula(action, statMap) {
     times;
 }
 
-export function runFormula(helpers, action, statMap) {
-  if (action.attr === 'tuneAmp') {
-    const tuneAmp = action.compressed.mvs.tuneAmp;
-    const element = action.element;
-    return runTuneFormula(helpers, statMap, tuneAmp, element);
-  }
-
-  switch (action.type) {
+export function runFormula(gameId, part, action, statMap) {
+  switch (part) {
     case 'damage':
-      return runDamageFormula(helpers, action, statMap);
+      return runDamageFormula(gameId, action, statMap);
     case 'healing':
       return runHealingFormula(action, statMap);
     case 'shield':

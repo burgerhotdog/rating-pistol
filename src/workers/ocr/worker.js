@@ -60,8 +60,8 @@ self.onmessage = async ({ data }) => {
       return shortest <= threshold ? bestMatch : null;
     }
 
-    // characterId
-    const characterId = await getId(imageBitmap, ocrWorker);
+    // charId
+    const charId = await getId(imageBitmap, ocrWorker);
     const rank = getRank(imageBitmap);
 
     // weaponId
@@ -159,7 +159,7 @@ self.onmessage = async ({ data }) => {
     const mainEcho = await getMainEcho(imageBitmap, mainEchoSet, mainEchoCost);
 
     const build = { rank, weaponId, equipList, mainEcho };
-    self.postMessage({ success: true, entry: [characterId, build] });
+    self.postMessage({ success: true, entry: [charId, build] });
   } catch (error) {
     console.error(error);
   }

@@ -1,5 +1,5 @@
 import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET } from '@/data';
-import { toArray, toMergedObj, mergeEquipList, resolveRankedValue } from '@/utils';
+import { toArray, toMergedObj, toEquipMap, resolveRankedValue } from '@/utils';
 
 const DEFAULT = {
   [GI]: {
@@ -26,12 +26,10 @@ const DEFAULT = {
 };
 
 export const compileBaseMap = (gameId, charId, weapId) => {
-  const { baseStats, ascensionStats } = CHARACTER[gameId][charId];
-  const charStats = toMergedObj(baseStats, ascensionStats);
+  const { stats: charStats } = CHARACTER[gameId][charId];
+  const { stats: weapStats } = WEAPON[gameId][weapId];
 
-  const { stats: weaponStats } = WEAPON[gameId][weapId];
-
-  return toMergedObj(DEFAULT[gameId], charStats, weaponStats);
+  return toMergedObj(DEFAULT[gameId], charStats, weapStats);
 };
 
 export const compileMenuMap = (gameId, charId, member) => {
@@ -39,7 +37,7 @@ export const compileMenuMap = (gameId, charId, member) => {
 
   const baseMap = compileBaseMap(gameId, charId, weaponId);
 
-  const statMap = toMergedObj(baseMap, mergeEquipList(build.equipList ?? []));
+  const statMap = toMergedObj(baseMap, toEquipMap(build.equipList ?? []));
 
   const allEffects = [
     ...toArray(CHARACTER[gameId][charId].effects),

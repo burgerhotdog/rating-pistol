@@ -19,20 +19,42 @@ import { FlexRow, FlexCol, FlexCard, ChartFill, Dot } from '@/components';
 import { CHARACTER } from '@/data';
 import { formatStr, formatNum } from '@/utils';
 
+const VALID_CATEGORIES = new Set([
+  'normalAttack',
+  'resonanceSkill',
+  'forteCircuit',
+  'resonanceLiberation',
+  'introSkill',
+]);
+
 const BREAKDOWN_MODES = [
-  { value: 'dmgType', label: 'Dmg type' },
-  { value: 'fieldStatus', label: 'Field' },
+  'damageType',
+  'category',
 ];
 
 const buildData = (summary, currId, breakdownMode) => {
   const damageByType = {};
 
+  const getType = (snapshot) => {
+    if (breakdownMode === 'damageType') {
+      return snapshot.damageType ?? 'other';
+    } else {
+      const { category } = snapshot;
+      if (!VALID_CATEGORIES.has(category)) return 'other';
+      return category;
+    }
+  };
+
   // TODO: branch on breakdownMode once fieldStatus grouping is implemented.
   // For now this always groups by dmgType regardless of the selected mode.
-  for (const { ownerId, type, dmgType, value } of Object.values(summary)) {
-    if (ownerId !== currId || type !== 'damage') continue;
-    damageByType[dmgType] ??= 0;
-    damageByType[dmgType] += value;
+  for (const snapshot of summary) {
+    if (!('damage' in snapshot) || snapshot.ownerId !== currId) continue;
+
+    const type = getType(snapshot);
+    if (!type) continue;
+
+    damageByType[type] ??= 0;
+    damageByType[type] += snapshot.damage;
   }
 
   const entries = Object.entries(damageByType)
@@ -51,11 +73,11 @@ const buildData = (summary, currId, breakdownMode) => {
 };
 
 export const DamageBreakdown = ({ userSummary, teamIds }) => {
-  const { gameId, characterId } = useParams();
+  const { gameId, charId } = useParams();
   const { accentColors } = useTheme();
 
-  const [selectedCharId, setSelectedCharId] = useState(characterId);
-  const [breakdownMode, setBreakdownMode] = useState('dmgType');
+  const [selectedCharId, setSelectedCharId] = useState(charId);
+  const [breakdownMode, setBreakdownMode] = useState('damageType');
 
   if (!userSummary) return null;
 
@@ -88,9 +110,13 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
             onChange={(_, value) => value && setBreakdownMode(value)}
             exclusive
           >
-            {BREAKDOWN_MODES.map(({ value, label }) => (
-              <ToggleButton key={value} value={value} sx={{ px: 1.5, textTransform: 'none' }}>
-                {label}
+            {BREAKDOWN_MODES.map((mode) => (
+              <ToggleButton
+                key={mode}
+                value={mode}
+                sx={{ px: 1.5, textTransform: 'none' }}
+              >
+                {formatStr(mode)}
               </ToggleButton>
             ))}
           </ToggleButtonGroup>

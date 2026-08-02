@@ -1,6 +1,6 @@
 import { WW } from '@/data';
-import { toMergedObj, mergeEquipList, compileBaseMap } from '@/utils';
-import { getMemberActions } from './actions';
+import { toMergedObj, toEquipMap, compileBaseMap } from '@/utils';
+import { getMemberPresetActions } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
 
@@ -16,8 +16,8 @@ const getConvertedRotation = (rawRotation, spec) => {
     const action = memberActions[ref];
 
     if (teamSize === 1) {
-      const { skillType } = action;
-      if (skillType === 'introSkill' || skillType === 'outroSkill') continue;
+      const { type } = action;
+      if (type === 'introSkill' || type === 'outroSkill') continue;
     }
 
     rotationTime += action.duration ?? 0;
@@ -29,19 +29,17 @@ const getConvertedRotation = (rawRotation, spec) => {
     if (memberId === memberIds[0]) {
       // Ensure no more than 8000 ms remain after tune break
       let timeLeft = rotationTime;
-      let insertAfterIndex = 0;
+      let insertAtIndex = 0;
       for (const action of rotation) {
         if (timeLeft <= 8000) break;
 
         timeLeft -= action.duration;
-        insertAfterIndex++;
+        insertAtIndex++;
       }
 
-      if (insertAfterIndex === 0) {
-        insertAfterIndex++;
-      }
+      if (insertAtIndex === 0) insertAtIndex++;
 
-      rotation.splice(insertAfterIndex, 0, {
+      rotation.splice(insertAtIndex, 0, {
         key: 'other:tuneBreak',
         ownerId: memberId,
       });
@@ -57,7 +55,7 @@ export const compileCache = (gameId, team) => {
   // Normalize actions
   const teamActions = {};
   for (const member of team) {
-    teamActions[member.id] = getMemberActions(member, {
+    teamActions[member.id] = getMemberPresetActions(member, {
       gameId,
       teamSize: memberIds.length,
     });
@@ -67,8 +65,11 @@ export const compileCache = (gameId, team) => {
     gameId,
     memberIds,
     member: {},
-    fullRotationTime: 0,
     effects: {},
+    fullRotationTime: 0,
+    getDps(damage) {
+      return damage / this.fullRotationTime * 1000;
+    },
   };
 
   for (const member of team) {
@@ -80,7 +81,7 @@ export const compileCache = (gameId, team) => {
     } = member;
 
     const baseMap = compileBaseMap(gameId, memberId, weaponId);
-    const equipMap = mergeEquipList(equipList);
+    const equipMap = toEquipMap(equipList);
     const statMap = toMergedObj(baseMap, equipMap);
 
     const { rotation, rotationTime } = getConvertedRotation(rawRotation, {
@@ -92,7 +93,7 @@ export const compileCache = (gameId, team) => {
 
     cache.fullRotationTime += rotationTime;
 
-    const effectLookup = normalizeEffects(member, { gameId, memberIds, teamActions });
+    const effectLookup = normalizeEffects(gameId, member, { memberIds, teamActions });
     Object.assign(cache.effects, effectLookup);
 
     cache.member[memberId] = {

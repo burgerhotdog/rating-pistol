@@ -1,4 +1,6 @@
 import { getAttr, toMergedObj } from '@/utils';
+import { getDefMult } from '../formula/enemyDef';
+import { getResMult } from '../formula/enemyRes';
 import { getBuffMap } from '../getStatMap';
 import { getEffectStates } from '../getEffectStates';
 
@@ -8,17 +10,14 @@ const ENEMY_TYPE_MODIFIER = 14;
 const tuneBreakAction = {
   key: 'other:tuneBreak',
   ownerId: 'other',
-  type: 'damage',
-  dmgType: 'tuneBreak',
+  damageType: 'tuneBreak',
   element: 'physical',
   attr: 'tuneAmp',
 };
 
-export const runTuneFormula = (helpers, statMap, tuneAmp, element) => {
-  const { getDefMult, getResMult } = helpers;
-
-  const defMult = getDefMult(statMap);
-  const resMult = getResMult(element, statMap);
+export const runTuneFormula = (gameId, statMap, tuneAmp, element) => {
+  const defMult = getDefMult(gameId, statMap);
+  const resMult = getResMult(gameId, element, statMap);
   const tuneBreakBoostMult = 1 + (getAttr('tuneBreakBoost', statMap) / 100);
   const vulnMult = 1 + getAttr('vuln%', statMap);
 
@@ -44,13 +43,15 @@ function recordTuneBreak(ctx) {
     const { buffMap } = getBuffMap(ctx, { memberId: buffsOwner, action, ignoreSpecs: true });
     const statMap = toMergedObj(buildMap, buffMap);
 
-    const tuneAmp = action?.compressed?.mvs?.tuneAmp ?? 16;
-    const element = action?.element ?? 'physical';
-    const damage = runTuneFormula(ctx.helpers, statMap, tuneAmp, element);
+    const tuneAmp = action?.damage?.compressed?.mvs?.tuneAmp ?? 16;
+    const element = action?.damage?.element ?? 'physical';
+    const damage = runTuneFormula(ctx.cache.gameId, statMap, tuneAmp, element);
 
     return {
       ...(action ?? tuneBreakAction),
-      value: damage * timesPerRotation,
+      ...(action && 'damage' in action &&
+        { damageType: action.damage.type }),
+      damage: damage * timesPerRotation,
       runtime: ctx.states.runtime,
     };
   };
@@ -61,17 +62,14 @@ function recordTuneBreak(ctx) {
   // Tune response
   const { shifting } = ctx.states.tune;
   if (shifting !== 'tuneRupture' && shifting !== 'hack') return;
-  for (const state of getEffectStates(ctx, {
-    member: 'all',
-    type: 'action',
-  })) {
-    const { effect } = state;
+  for (const state of getEffectStates(ctx, { member: 'all', type: 'action' })) {
+    const { effect: { useWhen, useIfInterfered, useAction} } = state;
     if (
-      effect.useWhen !== 'tuneResponse' ||
-      effect.useIfInterfered !== shifting
+      useWhen !== 'tuneResponse' ||
+      useIfInterfered !== shifting
     ) continue;
 
-    ctx.snapshots.push(buildSnapshot(effect.useAction[0]));
+    ctx.snapshots.push(buildSnapshot(useAction[0]));
     state.useCooldown = 8000;
   }
 }
@@ -79,11 +77,10 @@ function recordTuneBreak(ctx) {
 export function runTuneBreak(ctx) {
   const { tune } = ctx.states;
 
-  if (!ctx.saveSnapshots) { // Record offTune on first loop
-    ctx.offTuneBuildup.push(tune.offTune);
-  } else { // Record snapshots on second loop
-    recordTuneBreak(ctx);
-  }
+  // Record offTune on first loop
+  // Record snapshots on second loop
+  if (!ctx.saveSnapshots) ctx.offTuneBuildup.push(tune.offTune);
+  else recordTuneBreak(ctx);
 
   // Early exit if not inflicting tune interfered
   if (!tune.isMistune || !tune.shifting) return;
@@ -113,7 +110,7 @@ export function runTuneBreak(ctx) {
 export function applyOffTuneBuildup(ctx, action) {
   const { tune } = ctx.states;
   if (
-    action.type !== 'damage' ||
+    !action.damage ||
     tune.isMistune ||
     tune.offTuneCooldown
   ) return;
@@ -123,13 +120,12 @@ export function applyOffTuneBuildup(ctx, action) {
   const statMap = toMergedObj(buildMap, buffMap);
   const offTuneBuildupRate = getAttr('offTuneBuildupRate%', statMap);
 
-  const hitCount = action.compressed.hitCount;
+  const hitCount = action.damage.compressed.hitCount;
 
   tune.offTune += 10 * offTuneBuildupRate * hitCount;
-  if (tune.offTune >= 300) {
-    tune.offTune = 300;
-    tune.isMistune = true;
-  }
+  if (tune.offTune < 300) return;
+  tune.offTune = 300;
+  tune.isMistune = true;
 }
 
 export function inflictTuneShifting(ctx, action) {
@@ -150,9 +146,7 @@ export function advanceTune(ctx, elapsed) {
 
   if (tune.offTuneCooldown) {
     tune.offTuneCooldown -= elapsed;
-    if (tune.offTuneCooldown <= 0) {
-      delete tune.offTuneCooldown;
-    }
+    if (tune.offTuneCooldown <= 0) delete tune.offTuneCooldown;
   }
 
   if (tune.shiftingTimeLeft) {

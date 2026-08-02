@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Tabs, Tab, Divider } from '@mui/material';
+import { Tabs, Tab, Divider } from '@mui/material';
 import {
   FlexRow,
   FlexCol,
@@ -8,22 +8,17 @@ import {
   StatsPanel,
   ProgressChart,
   DamageBreakdown,
-  MainstatDistribution,
-  SubstatDistribution,
+  RatingGrade,
+  Timeline,
+  StatDist,
 } from '@/components';
 import { useSimulation, useTeam } from '@/hooks';
 
 const TabPanel = ({ isActive, children }) => (
   isActive && (
-    <Box
-      sx={{
-        display: 'flex',
-        minHeight: 0,
-        flex: 1,
-      }}
-    >
+    <FlexCol>
       {children}
-    </Box>
+    </FlexCol>
   )
 );
 
@@ -32,12 +27,14 @@ export const Content = () => {
 
   const {
     status,
-    userSummary,
-    cache,
-    diff,
     week,
-    weeklySummaries,
+    diff,
+    trialBands,
     configMap,
+    userSummary,
+    userDps,
+    benchmarkDps,
+    prydwenDps,
     userConfigKey,
     userSubStats,
   } = useSimulation(team);
@@ -49,7 +46,7 @@ export const Content = () => {
   return (
     <FlexRow spacing={1}>
       <StatsPanel
-        team={team}
+        team={team.members}
         updateTeam={updateTeam}
       />
 
@@ -60,52 +57,54 @@ export const Content = () => {
           diff={diff}
         />
       ) : (
-        <FlexCol spacing={1}>
-          <FlexRow>
-            <ProgressChart
-              team={team}
-              weeklySummaries={weeklySummaries}
-              userSummary={userSummary}
-              rotationTime={cache.fullRotationTime}
-            />
-          </FlexRow>
+        <FlexCard spacing={1}>
+          <Tabs
+            value={tabIndex}
+            onChange={(_, newIndex) => setTabIndex(newIndex)}
+            centered
+          >
+            <Tab label="Overview" />
+            <Tab label="Damage Profile" />
+            <Tab label="Build Details" />
+          </Tabs>
 
-          <FlexCard>
-            <Tabs
-              value={tabIndex}
-              onChange={(_, newIndex) => setTabIndex(newIndex)}
-              centered
-            >
-              <Tab label="Damage Profile" />
-              <Tab label="Mainstats" />
-              <Tab label="Substats" />
-            </Tabs>
+          <TabPanel isActive={tabIndex === 0}>
+            <ProgressChart
+              trialBands={trialBands}
+              userDps={userDps}
+              prydwenDps={prydwenDps}
+            />
 
             <Divider />
 
-            <TabPanel isActive={tabIndex === 0}>
-              <DamageBreakdown
-                userSummary={userSummary}
-                teamIds={team.map((m) => m.id).filter(Boolean)}
-              />
-            </TabPanel>
+            <RatingGrade
+              userDps={userDps}
+              benchmarkDps={benchmarkDps}
+            />
+          </TabPanel>
 
-            <TabPanel isActive={tabIndex === 1}>
-              <MainstatDistribution
-                configMap={configMap}
-                userConfigKey={userConfigKey}
-              />
-            </TabPanel>
+          <TabPanel isActive={tabIndex === 1}>
+            <Timeline
+              userSummary={userSummary}
+              team={team.members}
+            />
 
-            <TabPanel isActive={tabIndex === 2}>
-              <SubstatDistribution
-                configMap={configMap}
-                userConfigKey={userConfigKey}
-                userSubStats={userSubStats}
-              />
-            </TabPanel>
-          </FlexCard>
-        </FlexCol>
+            <Divider />
+
+            <DamageBreakdown
+              userSummary={userSummary}
+              teamIds={team.members.map((m) => m.id).filter(Boolean)}
+            />
+          </TabPanel>
+
+          <TabPanel isActive={tabIndex === 2}>
+            <StatDist
+              configMap={configMap}
+              userConfigKey={userConfigKey}
+              userSubStats={userSubStats}
+            />
+          </TabPanel>
+        </FlexCard>
       )}
     </FlexRow>
   );

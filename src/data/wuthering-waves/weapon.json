@@ -2,6 +2,7 @@
   "21010011": {
     "name": "Training Broadblade",
     "version": 1,
+    "id": "21010011",
     "quality": 1,
     "type": "broadblade",
     "stats": {
@@ -22,6 +23,7 @@
   "21010012": {
     "name": "Tyro Broadblade",
     "version": 1,
+    "id": "21010012",
     "quality": 2,
     "type": "broadblade",
     "stats": {
@@ -42,6 +44,7 @@
   "21010013": {
     "name": "Broadblade of Night",
     "version": 1,
+    "id": "21010013",
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -51,7 +54,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "atk%": [
             0.08,
@@ -65,6 +68,7 @@
   "21010015": {
     "name": "Lustrous Razor",
     "version": 1,
+    "id": "21010015",
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -82,7 +86,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.07,
@@ -97,6 +101,7 @@
   "21010016": {
     "name": "Verdant Summit",
     "version": 1,
+    "id": "21010016",
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -114,7 +119,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "introSkill",
           "resonanceLiberation"
         ],
@@ -132,6 +137,7 @@
   "21010023": {
     "name": "Originite: Type I",
     "version": 1,
+    "id": "21010023",
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -141,19 +147,20 @@
     "effects": [
       {
         "useWhen": "before",
-        "useOnSkillType": "resonanceSkill",
+        "useOnType": "resonanceSkill",
         "useCooldown": 12000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.03,
-                0.06
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.03,
+                  0.06
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -161,6 +168,7 @@
   "21010024": {
     "name": "Discord",
     "version": 1,
+    "id": "21010024",
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -172,6 +180,7 @@
   "21010034": {
     "name": "Broadblade#41",
     "version": 1,
+    "id": "21010034",
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -192,6 +201,7 @@
   "21010043": {
     "name": "Broadblade of Voyager",
     "version": 1,
+    "id": "21010043",
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -203,6 +213,7 @@
   "21010044": {
     "name": "Dauntless Evernight",
     "version": 1,
+    "id": "21010044",
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -212,7 +223,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "atk%": [
             0.08,
@@ -230,6 +241,7 @@
   "21010053": {
     "name": "Guardian Broadblade",
     "version": 1,
+    "id": "21010053",
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -254,6 +266,7 @@
   "21010064": {
     "name": "Helios Cleaver",
     "version": 1,
+    "id": "21010064",
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -263,7 +276,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "applyCooldown": 12000,
         "removeWhen": "maxStacks",
         "removeOffset": 6000,
@@ -281,6 +294,7 @@
   "21010074": {
     "name": "Autumntrace",
     "version": 1,
+    "id": "21010074",
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -290,7 +304,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnDmgType": [
+        "applyOnDamageType": [
           "basicAttack",
           "heavyAttack"
         ],
@@ -309,6 +323,7 @@
   "21020011": {
     "name": "Training Sword",
     "version": 1,
+    "id": "21020011",
     "quality": 1,
     "type": "sword",
     "stats": {
@@ -329,6 +344,7 @@
   "21020012": {
     "name": "Tyro Sword",
     "version": 1,
+    "id": "21020012",
     "quality": 2,
     "type": "sword",
     "stats": {
@@ -349,6 +365,7 @@
   "21020013": {
     "name": "Sword of Night",
     "version": 1,
+    "id": "21020013",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -358,7 +375,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "atk%": [
             0.08,
@@ -372,6 +389,7 @@
   "21020015": {
     "name": "Emerald of Genesis",
     "version": 1,
+    "id": "21020015",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -389,7 +407,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "buffMap": {
           "atk%": [
             0.06,
@@ -404,6 +422,7 @@
   "21020023": {
     "name": "Originite: Type II",
     "version": 1,
+    "id": "21020023",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -413,19 +432,20 @@
     "effects": [
       {
         "useWhen": "before",
-        "useOnSkillType": "resonanceLiberation",
+        "useOnType": "resonanceLiberation",
         "useCooldown": 20000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.05,
+                  0.1
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -433,6 +453,7 @@
   "21020024": {
     "name": "Overture",
     "version": 1,
+    "id": "21020024",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -444,6 +465,7 @@
   "21020034": {
     "name": "Sword#18",
     "version": 1,
+    "id": "21020034",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -452,7 +474,7 @@
     },
     "effects": [
       {
-        "useOnDmgType": "heavyAttack",
+        "useOnDamageType": "heavyAttack",
         "buffCooldown": 8000,
         "buffMap": {
           "heavyAttackDmgBonus%": [
@@ -463,19 +485,20 @@
       },
       {
         "useWhen": "hit",
-        "useOnDmgType": "heavyAttack",
+        "useOnDamageType": "heavyAttack",
         "useCooldown": 8000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.05,
+                  0.1
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -483,6 +506,7 @@
   "21020043": {
     "name": "Sword of Voyager",
     "version": 1,
+    "id": "21020043",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -494,6 +518,7 @@
   "21020044": {
     "name": "Commando of Conviction",
     "version": 1,
+    "id": "21020044",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -503,7 +528,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "atk%": [
             0.15,
@@ -517,6 +542,7 @@
   "21020053": {
     "name": "Guardian Sword",
     "version": 1,
+    "id": "21020053",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -537,6 +563,7 @@
   "21020064": {
     "name": "Lunar Cutter",
     "version": 1,
+    "id": "21020064",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -546,7 +573,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "applyCooldown": 12000,
         "buffMap": {
           "atk%": [
@@ -561,6 +588,7 @@
   "21020074": {
     "name": "Lumingloss",
     "version": 1,
+    "id": "21020074",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -570,7 +598,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "applyCooldown": 1000,
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -589,6 +617,7 @@
   "21030011": {
     "name": "Training Pistols",
     "version": 1,
+    "id": "21030011",
     "quality": 1,
     "type": "pistols",
     "stats": {
@@ -609,6 +638,7 @@
   "21030012": {
     "name": "Tyro Pistols",
     "version": 1,
+    "id": "21030012",
     "quality": 2,
     "type": "pistols",
     "stats": {
@@ -629,6 +659,7 @@
   "21030013": {
     "name": "Pistols of Night",
     "version": 1,
+    "id": "21030013",
     "quality": 3,
     "type": "pistols",
     "stats": {
@@ -638,7 +669,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "atk%": [
             0.08,
@@ -652,6 +683,7 @@
   "21030015": {
     "name": "Static Mist",
     "version": 1,
+    "id": "21030015",
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -669,8 +701,8 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
-        "applyTo": "next",
+        "applyOnType": "outroSkill",
+        "applyTo": "$next",
         "buffMap": {
           "atk%": [
             0.1,
@@ -684,6 +716,7 @@
   "21030023": {
     "name": "Originite: Type III",
     "version": 1,
+    "id": "21030023",
     "quality": 3,
     "type": "pistols",
     "stats": {
@@ -693,19 +726,20 @@
     "effects": [
       {
         "useWhen": "before",
-        "useOnSkillType": "dodgeCounter",
+        "useOnType": "dodgeCounter",
         "useCooldown": 6000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.016,
-                0.032
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.016,
+                  0.032
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -713,6 +747,7 @@
   "21030024": {
     "name": "Cadenza",
     "version": 1,
+    "id": "21030024",
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -724,6 +759,7 @@
   "21030034": {
     "name": "Pistols#26",
     "version": 1,
+    "id": "21030034",
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -744,6 +780,7 @@
   "21030043": {
     "name": "Pistols of Voyager",
     "version": 1,
+    "id": "21030043",
     "quality": 3,
     "type": "pistols",
     "stats": {
@@ -755,6 +792,7 @@
   "21030044": {
     "name": "Undying Flame",
     "version": 1,
+    "id": "21030044",
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -764,7 +802,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.2,
@@ -778,6 +816,7 @@
   "21030053": {
     "name": "Guardian Pistols",
     "version": 1,
+    "id": "21030053",
     "quality": 3,
     "type": "pistols",
     "stats": {
@@ -798,6 +837,7 @@
   "21030064": {
     "name": "Novaburst",
     "version": 1,
+    "id": "21030064",
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -818,6 +858,7 @@
   "21030074": {
     "name": "Thunderbolt",
     "version": 1,
+    "id": "21030074",
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -827,7 +868,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnSkillType": [
+        "applyOnType": [
           "basicAttack",
           "heavyAttack"
         ],
@@ -846,6 +887,7 @@
   "21040011": {
     "name": "Training Gauntlets",
     "version": 1,
+    "id": "21040011",
     "quality": 1,
     "type": "gauntlets",
     "stats": {
@@ -866,6 +908,7 @@
   "21040012": {
     "name": "Tyro Gauntlets",
     "version": 1,
+    "id": "21040012",
     "quality": 2,
     "type": "gauntlets",
     "stats": {
@@ -886,6 +929,7 @@
   "21040013": {
     "name": "Gauntlets of Night",
     "version": 1,
+    "id": "21040013",
     "quality": 3,
     "type": "gauntlets",
     "stats": {
@@ -895,7 +939,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "atk%": [
             0.08,
@@ -909,6 +953,7 @@
   "21040015": {
     "name": "Abyss Surges",
     "version": 1,
+    "id": "21040015",
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -926,7 +971,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.1,
@@ -937,7 +982,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnSkillType": "basicAttack",
+        "applyOnType": "basicAttack",
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.1,
@@ -951,6 +996,7 @@
   "21040023": {
     "name": "Originite: Type IV",
     "version": 1,
+    "id": "21040023",
     "quality": 3,
     "type": "gauntlets",
     "stats": {
@@ -960,19 +1006,20 @@
     "effects": [
       {
         "useWhen": "hit",
-        "useOnDmgType": "basicAttack",
+        "useOnDamageType": "basicAttack",
         "useCooldown": 3000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.005,
-                0.011
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.005,
+                  0.011
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -980,6 +1027,7 @@
   "21040024": {
     "name": "Marcato",
     "version": 1,
+    "id": "21040024",
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -991,6 +1039,7 @@
   "21040034": {
     "name": "Gauntlets#21D",
     "version": 1,
+    "id": "21040034",
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -1000,7 +1049,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "dodgeCounter",
+        "applyOnType": "dodgeCounter",
         "buffMap": {
           "atk%": [
             0.08,
@@ -1011,8 +1060,8 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "dodgeCounter",
-        "useOnSkillType": "dodgeCounter",
+        "applyOnType": "dodgeCounter",
+        "useOnType": "dodgeCounter",
         "buffMap": {
           "dmgBonus%": [
             0.5,
@@ -1023,19 +1072,20 @@
       },
       {
         "useWhen": "hit",
-        "useOnSkillType": "dodgeCounter",
+        "useOnType": "dodgeCounter",
         "useCooldown": 6000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.05,
+                  0.1
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -1043,6 +1093,7 @@
   "21040043": {
     "name": "Gauntlets of Voyager",
     "version": 1,
+    "id": "21040043",
     "quality": 3,
     "type": "gauntlets",
     "stats": {
@@ -1054,6 +1105,7 @@
   "21040044": {
     "name": "Amity Accord",
     "version": 1,
+    "id": "21040044",
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -1063,7 +1115,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.2,
@@ -1077,6 +1129,7 @@
   "21040053": {
     "name": "Guardian Gauntlets",
     "version": 1,
+    "id": "21040053",
     "quality": 3,
     "type": "gauntlets",
     "stats": {
@@ -1097,6 +1150,7 @@
   "21040064": {
     "name": "Hollow Mirage",
     "version": 1,
+    "id": "21040064",
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -1106,7 +1160,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceLiberation",
+        "applyOnType": "resonanceLiberation",
         "buffMap": {
           "atk%": [
             0.09,
@@ -1123,6 +1177,7 @@
   "21040074": {
     "name": "Stonard",
     "version": 1,
+    "id": "21040074",
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -1132,7 +1187,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.18,
@@ -1146,6 +1201,7 @@
   "21050011": {
     "name": "Training Rectifier",
     "version": 1,
+    "id": "21050011",
     "quality": 1,
     "type": "rectifier",
     "stats": {
@@ -1166,6 +1222,7 @@
   "21050012": {
     "name": "Tyro Rectifier",
     "version": 1,
+    "id": "21050012",
     "quality": 2,
     "type": "rectifier",
     "stats": {
@@ -1186,6 +1243,7 @@
   "21050013": {
     "name": "Rectifier of Night",
     "version": 1,
+    "id": "21050013",
     "quality": 3,
     "type": "rectifier",
     "stats": {
@@ -1195,7 +1253,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "atk%": [
             0.08,
@@ -1209,6 +1267,7 @@
   "21050015": {
     "name": "Cosmic Ripples",
     "version": 1,
+    "id": "21050015",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -1226,7 +1285,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDmgType": "basicAttack",
+        "applyOnDamageType": "basicAttack",
         "applyCooldown": 500,
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -1242,6 +1301,7 @@
   "21050016": {
     "name": "Stringmaster",
     "version": 1,
+    "id": "21050016",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -1259,7 +1319,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDmgType": "resonanceSkill",
+        "applyOnDamageType": "resonanceSkill",
         "buffMap": {
           "atk%": [
             0.12,
@@ -1283,6 +1343,7 @@
   "21050023": {
     "name": "Originite: Type V",
     "version": 1,
+    "id": "21050023",
     "quality": 3,
     "type": "rectifier",
     "stats": {
@@ -1292,19 +1353,20 @@
     "effects": [
       {
         "useWhen": "before",
-        "useOnSkillType": "introSkill",
+        "useOnType": "introSkill",
         "useCooldown": 20000,
         "useAction": {
-          "type": "healing",
-          "attr": "hp",
-          "multipliers": [
-            {
-              "mv": [
-                0.05,
-                0.1
-              ]
-            }
-          ]
+          "healing": {
+            "attr": "hp",
+            "multipliers": [
+              {
+                "mv": [
+                  0.05,
+                  0.1
+                ]
+              }
+            ]
+          }
         }
       }
     ]
@@ -1312,6 +1374,7 @@
   "21050024": {
     "name": "Variation",
     "version": 1,
+    "id": "21050024",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1323,6 +1386,7 @@
   "21050034": {
     "name": "Rectifier#25",
     "version": 1,
+    "id": "21050034",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1332,7 +1396,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "buffMap": {
           "atk%": [
             0.12,
@@ -1346,6 +1410,7 @@
   "21050043": {
     "name": "Rectifier of Voyager",
     "version": 1,
+    "id": "21050043",
     "quality": 3,
     "type": "rectifier",
     "stats": {
@@ -1357,6 +1422,7 @@
   "21050044": {
     "name": "Jinzhou Keeper",
     "version": 1,
+    "id": "21050044",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1366,7 +1432,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "atk%": [
             0.08,
@@ -1384,6 +1450,7 @@
   "21050053": {
     "name": "Guardian Rectifier",
     "version": 1,
+    "id": "21050053",
     "quality": 3,
     "type": "rectifier",
     "stats": {
@@ -1408,6 +1475,7 @@
   "21050064": {
     "name": "Comet Flare",
     "version": 1,
+    "id": "21050064",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1417,7 +1485,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnDmgType": [
+        "applyOnDamageType": [
           "basicAttack",
           "heavyAttack"
         ],
@@ -1436,6 +1504,7 @@
   "21050074": {
     "name": "Augment",
     "version": 1,
+    "id": "21050074",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1445,7 +1514,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceLiberation",
+        "applyOnType": "resonanceLiberation",
         "buffMap": {
           "atk%": [
             0.15,
@@ -1459,6 +1528,7 @@
   "21010026": {
     "name": "Ages of Harvest",
     "version": 1.1,
+    "id": "21010026",
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -1476,7 +1546,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.24,
@@ -1487,7 +1557,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.24,
@@ -1501,6 +1571,7 @@
   "21010063": {
     "name": "Beguiling Melody",
     "version": 1.1,
+    "id": "21010063",
     "quality": 3,
     "type": "broadblade",
     "stats": {
@@ -1512,6 +1583,7 @@
   "21020016": {
     "name": "Blazing Brilliance",
     "version": 1.1,
+    "id": "21020016",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -1529,7 +1601,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyCooldown": 500,
         "removeWhen": "maxStacks",
         "removeOffset": 12000,
@@ -1543,7 +1615,7 @@
       },
       {
         "useWhen": "before",
-        "useOnSkillType": "resonanceSkill",
+        "useOnType": "resonanceSkill",
         "onUseDoApply": {
           "$prev.1": 5
         }
@@ -1553,6 +1625,7 @@
   "21040016": {
     "name": "Verity's Handle",
     "version": 1.2,
+    "id": "21040016",
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -1570,7 +1643,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceLiberation",
+        "applyOnType": "resonanceLiberation",
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.48,
@@ -1579,7 +1652,7 @@
         },
         "maxDuration": 8000,
         "extendWhen": "before",
-        "extendOnSkillType": "resonanceSkill",
+        "extendOnType": "resonanceSkill",
         "extendDuration": 5000,
         "maxExtensions": 3
       }
@@ -1588,6 +1661,7 @@
   "21050026": {
     "name": "Rime-Draped Sprouts",
     "version": 1.2,
+    "id": "21050026",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -1605,7 +1679,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "applyIfField": "onField",
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -1618,7 +1692,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": "3"
         },
@@ -1637,6 +1711,7 @@
   "21010084": {
     "name": "Waning Redshift",
     "version": 1.3,
+    "id": "21010084",
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -1646,7 +1721,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
@@ -1661,6 +1736,7 @@
   "21020084": {
     "name": "Endless Collapse",
     "version": 1.3,
+    "id": "21020084",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -1670,7 +1746,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
@@ -1685,6 +1761,7 @@
   "21030084": {
     "name": "Relativistic Jet",
     "version": 1.3,
+    "id": "21030084",
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -1694,7 +1771,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
@@ -1709,6 +1786,7 @@
   "21040084": {
     "name": "Celestial Spiral",
     "version": 1.3,
+    "id": "21040084",
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -1718,7 +1796,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
@@ -1733,6 +1811,7 @@
   "21050036": {
     "name": "Stellar Symphony",
     "version": 1.3,
+    "id": "21050036",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -1750,8 +1829,8 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
-        "applyTo": "team",
+        "applyOnType": "resonanceSkill",
+        "applyTo": "$team",
         "buffMap": {
           "atk%": [
             0.14,
@@ -1765,6 +1844,7 @@
   "21050084": {
     "name": "Fusion Accretion",
     "version": 1.3,
+    "id": "21050084",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -1774,7 +1854,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
@@ -1789,6 +1869,7 @@
   "21020017": {
     "name": "Somnoire Anchor",
     "version": 1.4,
+    "id": "21020017",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -1798,7 +1879,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyCooldown": 1000,
         "removeWhen": "before",
         "removeIfField": "offField",
@@ -1827,6 +1908,7 @@
   "21020026": {
     "name": "Red Spring",
     "version": 1.4,
+    "id": "21020026",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -1844,7 +1926,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDmgType": "basicAttack",
+        "applyOnDamageType": "basicAttack",
         "applyCooldown": 1000,
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -1874,6 +1956,7 @@
   "21010094": {
     "name": "Meditations on Mercy",
     "version": 2,
+    "id": "21010094",
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -1883,7 +1966,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfNegativeStatus": "any",
         "applyCooldown": 1000,
         "buffMap": {
@@ -1900,6 +1983,7 @@
   "21020094": {
     "name": "Fables of Wisdom",
     "version": 2,
+    "id": "21020094",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -1909,7 +1993,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfNegativeStatus": "any",
         "applyCooldown": 1000,
         "buffMap": {
@@ -1926,6 +2010,7 @@
   "21030016": {
     "name": "The Last Dance",
     "version": 2,
+    "id": "21030016",
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -1943,7 +2028,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "introSkill",
           "resonanceLiberation"
         ],
@@ -1960,6 +2045,7 @@
   "21030094": {
     "name": "Romance in Farewell",
     "version": 2,
+    "id": "21030094",
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -1969,7 +2055,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfNegativeStatus": "any",
         "applyCooldown": 1000,
         "buffMap": {
@@ -1986,6 +2072,7 @@
   "21040026": {
     "name": "Tragicomedy",
     "version": 2,
+    "id": "21040026",
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -2003,7 +2090,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "basicAttack",
           "introSkill"
         ],
@@ -2020,6 +2107,7 @@
   "21040094": {
     "name": "Legend of Drunken Hero",
     "version": 2,
+    "id": "21040094",
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -2029,7 +2117,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfNegativeStatus": "any",
         "applyCooldown": 1000,
         "buffMap": {
@@ -2046,6 +2134,7 @@
   "21050017": {
     "name": "Call of the Abyss",
     "version": 2,
+    "id": "21050017",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -2055,7 +2144,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceLiberation",
+        "applyOnType": "resonanceLiberation",
         "buffMap": {
           "healingBonus%": [
             0.16,
@@ -2069,6 +2158,7 @@
   "21050094": {
     "name": "Waltz in Masquerade",
     "version": 2,
+    "id": "21050094",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -2078,7 +2168,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfNegativeStatus": "any",
         "applyCooldown": 1000,
         "buffMap": {
@@ -2095,6 +2185,7 @@
   "21020036": {
     "name": "Unflickering Valor",
     "version": 2.1,
+    "id": "21020036",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -2112,7 +2203,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceLiberation",
+        "applyOnType": "resonanceLiberation",
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.24,
@@ -2123,7 +2214,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDmgType": "basicAttack",
+        "applyOnDamageType": "basicAttack",
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.24,
@@ -2137,6 +2228,7 @@
   "21050027": {
     "name": "Ocean's Gift",
     "version": 2.1,
+    "id": "21050027",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -2146,7 +2238,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfNegativeStatus": {
           "spectroFrazzle": 1
         },
@@ -2165,6 +2257,7 @@
   "21050046": {
     "name": "Luminous Hymn",
     "version": 2.1,
+    "id": "21050046",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -2182,7 +2275,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfNegativeStatus": {
           "spectroFrazzle": 1
         },
@@ -2201,7 +2294,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "outroSkill",
+        "applyOnType": "outroSkill",
         "applyTo": "global",
         "buffMap": {
           "spectroFrazzleDmgAmp%": [
@@ -2216,6 +2309,7 @@
   "21020046": {
     "name": "Bloodpact's Pledge",
     "version": 2.2,
+    "id": "21020046",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -2225,7 +2319,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": "healing",
+        "applyOnHas": "healing",
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.1,
@@ -2255,6 +2349,7 @@
   "21050056": {
     "name": "Whispers of Sirens",
     "version": 2.2,
+    "id": "21050056",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -2272,7 +2367,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "introSkill",
           "basicAttack"
         ],
@@ -2280,7 +2375,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "echoSkill",
+        "applyOnType": "echoSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
@@ -2316,6 +2411,7 @@
   "21030026": {
     "name": "Woodland Aria",
     "version": 2.3,
+    "id": "21030026",
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -2344,7 +2440,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfNegativeStatus": {
           "aeroErosion": 1
         },
@@ -2362,6 +2458,7 @@
   "21040036": {
     "name": "Blazing Justice",
     "version": 2.3,
+    "id": "21040036",
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -2379,7 +2476,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "basicAttack",
+        "applyOnType": "basicAttack",
         "buffMap": {
           "defIgnore%": [
             0.08,
@@ -2397,6 +2494,7 @@
   "21010036": {
     "name": "Wildfire Mark",
     "version": 2.4,
+    "id": "21010036",
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2414,7 +2512,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "introSkill",
           "resonanceLiberation"
         ],
@@ -2426,17 +2524,17 @@
         },
         "maxDuration": 6000,
         "extendWhen": "hit",
-        "extendOnDmgType": "heavyAttack",
+        "extendOnDamageType": "heavyAttack",
         "extendDuration": 4000,
         "maxExtensions": 1
       },
       {
         "applyWhen": "hit",
-        "applyOnDmgType": "heavyAttack",
+        "applyOnDamageType": "heavyAttack",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "fusionDmgBonus%": [
             0.24,
@@ -2450,6 +2548,7 @@
   "21020056": {
     "name": "Defier's Thorn",
     "version": 2.4,
+    "id": "21020056",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -2467,7 +2566,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "introSkill",
           "basicAttack"
         ],
@@ -2496,6 +2595,7 @@
   "21050066": {
     "name": "Lethean Elegy",
     "version": 2.5,
+    "id": "21050066",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -2513,7 +2613,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDmgType": "echoSkill",
+        "applyOnDamageType": "echoSkill",
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.32,
@@ -2535,6 +2635,7 @@
   "21010046": {
     "name": "Thunderflare Dominion",
     "version": 2.6,
+    "id": "21010046",
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2552,7 +2653,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "introSkill",
           "resonanceSkill"
         ],
@@ -2566,9 +2667,9 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "shield",
+        "applyOnHas": "shield",
         "applyCooldown": 500,
-        "useOnDmgType": "heavyAttack",
+        "useOnDamageType": "heavyAttack",
         "buffMap": {
           "defIgnore%": [
             0.072,
@@ -2583,6 +2684,7 @@
   "21010104": {
     "name": "Aureate Zenith",
     "version": 2.6,
+    "id": "21010104",
     "quality": 4,
     "type": "broadblade",
     "stats": {
@@ -2592,7 +2694,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceLiberation",
+        "applyOnType": "resonanceLiberation",
         "buffMap": {
           "atk%": [
             0.072,
@@ -2610,6 +2712,7 @@
   "21020104": {
     "name": "Feather Edge",
     "version": 2.6,
+    "id": "21020104",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -2619,7 +2722,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceLiberation",
+        "applyOnType": "resonanceLiberation",
         "buffMap": {
           "atk%": [
             0.072,
@@ -2637,6 +2740,7 @@
   "21030104": {
     "name": "Solar Flame",
     "version": 2.6,
+    "id": "21030104",
     "quality": 4,
     "type": "pistols",
     "stats": {
@@ -2646,7 +2750,7 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnDmgType": [
+        "applyOnDamageType": [
           "basicAttack",
           "heavyAttack"
         ],
@@ -2669,6 +2773,7 @@
   "21040046": {
     "name": "Moongazer's Sigil",
     "version": 2.6,
+    "id": "21040046",
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -2686,7 +2791,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "introSkill",
           "resonanceLiberation"
         ],
@@ -2700,9 +2805,9 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "shield",
+        "applyOnHas": "shield",
         "applyCooldown": 500,
-        "useOnDmgType": "resonanceLiberation",
+        "useOnDamageType": "resonanceLiberation",
         "buffMap": {
           "defIgnore%": [
             0.072,
@@ -2714,7 +2819,7 @@
       },
       {
         "useWhen": "before",
-        "useOnSkillType": "introSkill",
+        "useOnType": "introSkill",
         "onUseDoApply": {
           "$prev.1": 5
         }
@@ -2724,6 +2829,7 @@
   "21040104": {
     "name": "Aether Strike",
     "version": 2.6,
+    "id": "21040104",
     "quality": 4,
     "type": "gauntlets",
     "stats": {
@@ -2733,7 +2839,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceLiberation",
+        "applyOnType": "resonanceLiberation",
         "buffMap": {
           "atk%": [
             0.072,
@@ -2751,6 +2857,7 @@
   "21050104": {
     "name": "Radiant Dawn",
     "version": 2.6,
+    "id": "21050104",
     "quality": 4,
     "type": "rectifier",
     "stats": {
@@ -2760,7 +2867,7 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "buffMap": {
           "atk%": [
             0.09,
@@ -2778,6 +2885,7 @@
   "21020066": {
     "name": "Emerald Sentence",
     "version": 2.7,
+    "id": "21020066",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -2795,7 +2903,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "introSkill",
           "basicAttack"
         ],
@@ -2803,7 +2911,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "echoSkill",
+        "applyOnType": "echoSkill",
         "applyIfEffectStacksMin": {
           "$prev.1": 1
         },
@@ -2820,8 +2928,8 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
-        "applyTo": "team",
+        "applyOnType": "introSkill",
+        "applyTo": "$team",
         "buffMap": {
           "echoSkillDmgBonus%": [
             0.2,
@@ -2835,6 +2943,7 @@
   "21030036": {
     "name": "Lux & Umbra",
     "version": 2.7,
+    "id": "21030036",
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -2852,7 +2961,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDmgType": "echoSkill",
+        "applyOnDamageType": "echoSkill",
         "buffMap": {
           "heavyAttackDmgAmp%": [
             0.24,
@@ -2863,7 +2972,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDmgType": "heavyAttack",
+        "applyOnDamageType": "heavyAttack",
         "buffMap": {
           "echoSkillDmgAmp%": [
             0.24,
@@ -2889,6 +2998,7 @@
   "21010056": {
     "name": "Kumokiri",
     "version": 2.8,
+    "id": "21010056",
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2906,7 +3016,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.08,
@@ -2924,7 +3034,7 @@
         }
       },
       {
-        "applyBy": "team",
+        "applyBy": "$team",
         "applyWhen": "inflict",
         "applyForInflictStatus": "any",
         "applyIfEffectStacksMin": {
@@ -2944,6 +3054,7 @@
   "21010045": {
     "name": "Radiance Cleaver",
     "version": 3,
+    "id": "21010045",
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2961,7 +3072,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfInterfered": "tuneStrain",
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
@@ -2976,6 +3087,7 @@
   "21010066": {
     "name": "Starfield Calibrator",
     "version": 3,
+    "id": "21010066",
     "quality": 5,
     "type": "broadblade",
     "stats": {
@@ -2993,8 +3105,8 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "healing",
-        "applyTo": "team",
+        "applyOnHas": "healing",
+        "applyTo": "$team",
         "buffMap": {
           "critDmg%": [
             0.2,
@@ -3008,6 +3120,7 @@
   "21020045": {
     "name": "Laser Shearer",
     "version": 3,
+    "id": "21020045",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -3025,7 +3138,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfInterfered": "tuneStrain",
         "buffMap": {
           "resonanceSkillDmgBonus%": [
@@ -3040,6 +3153,7 @@
   "21030045": {
     "name": "Phasic Homogenizer",
     "version": 3,
+    "id": "21030045",
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -3070,6 +3184,7 @@
   "21030046": {
     "name": "Spectrum Blaster",
     "version": 3,
+    "id": "21030046",
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -3087,8 +3202,8 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnSkillType": "introSkill",
-        "applyOnDmgType": "basicAttack",
+        "applyOnType": "introSkill",
+        "applyOnDamageType": "basicAttack",
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.36,
@@ -3099,12 +3214,12 @@
       },
       {
         "applyWhen": "inflict",
-        "applyOnSkillType": "basicAttack",
+        "applyOnType": "basicAttack",
         "applyForInflictShifting": [
           "tuneRupture",
           "tuneStrain"
         ],
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": [
             0.08,
@@ -3119,6 +3234,7 @@
   "21040045": {
     "name": "Pulsation Bracer",
     "version": 3,
+    "id": "21040045",
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -3136,7 +3252,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "damage",
+        "applyOnHas": "damage",
         "applyIfInterfered": "tuneStrain",
         "applyCooldown": 500,
         "buffMap": {
@@ -3153,6 +3269,7 @@
   "21050045": {
     "name": "Boson Astrolabe",
     "version": 3,
+    "id": "21050045",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -3187,6 +3304,7 @@
   "21020076": {
     "name": "Everbright Polestar",
     "version": 3.1,
+    "id": "21020076",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -3206,7 +3324,7 @@
         "applyWhen": "inflict",
         "applyForInflictShifting": "tuneRupture",
         "applyForInflictStatus": "fusionBurst",
-        "useOnDmgType": "resonanceLiberation",
+        "useOnDamageType": "resonanceLiberation",
         "buffMap": {
           "defIgnore%": [
             0.32,
@@ -3224,6 +3342,7 @@
   "21040056": {
     "name": "Daybreaker's Spine",
     "version": 3.1,
+    "id": "21040056",
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -3241,7 +3360,7 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDmgType": "basicAttack",
+        "applyOnDamageType": "basicAttack",
         "buffMap": {
           "spectroDmgBonus%": [
             0.2,
@@ -3253,7 +3372,7 @@
       {
         "applyWhen": "inflict",
         "applyForInflictShifting": "tuneStrain",
-        "useOnDmgType": "basicAttack",
+        "useOnDamageType": "basicAttack",
         "buffMap": {
           "basicAttackDmgAmp%": [
             0.2,
@@ -3271,6 +3390,7 @@
   "21040066": {
     "name": "Solsworn Ciphers",
     "version": 3.2,
+    "id": "21040066",
     "quality": 5,
     "type": "gauntlets",
     "stats": {
@@ -3288,7 +3408,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": [
+        "applyOnType": [
           "introSkill",
           "echoSkill"
         ],
@@ -3302,7 +3422,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnDmgType": "echoSkill",
+        "applyOnDamageType": "echoSkill",
         "useOnElement": "aero",
         "buffMap": {
           "defIgnore%": [
@@ -3317,6 +3437,7 @@
   "21020086": {
     "name": "Frostburn",
     "version": 3.3,
+    "id": "21020086",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -3346,7 +3467,7 @@
       {
         "applyWhen": "inflict",
         "applyForInflictStatus": "glacioChafe",
-        "useOnDmgType": "resonanceLiberation",
+        "useOnDamageType": "resonanceLiberation",
         "buffMap": {
           "defIgnore%": [
             0.1,
@@ -3373,6 +3494,7 @@
   "21050076": {
     "name": "Forged Dwarf Star",
     "version": 3.3,
+    "id": "21050076",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -3401,7 +3523,7 @@
         "maxDuration": 5000
       },
       {
-        "applyBy": "team",
+        "applyBy": "$team",
         "applyWhen": "inflict",
         "applyForInflictStatus": "fusionBurst",
         "applyForInflictShifting": "tuneStrain",
@@ -3422,6 +3544,7 @@
   "21030056": {
     "name": "Spectral Trigger",
     "version": 3.4,
+    "id": "21030056",
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -3439,7 +3562,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "resonanceSkill",
+        "applyOnType": "resonanceSkill",
         "buffMap": {
           "spectroDmgBonus%": [
             0.2,
@@ -3452,7 +3575,7 @@
       {
         "applyWhen": "inflict",
         "applyForInflictShifting": "hack",
-        "useOnDmgType": "heavyAttack",
+        "useOnDamageType": "heavyAttack",
         "buffMap": {
           "heavyAttackDmgAmp%": [
             0.3,
@@ -3470,6 +3593,7 @@
   "21030066": {
     "name": "Skull Thrasher",
     "version": 3.4,
+    "id": "21030066",
     "quality": 5,
     "type": "pistols",
     "stats": {
@@ -3487,7 +3611,7 @@
       },
       {
         "applyWhen": "before",
-        "applyOnSkillType": "introSkill",
+        "applyOnType": "introSkill",
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.24,
@@ -3510,7 +3634,7 @@
       {
         "applyWhen": "inflict",
         "applyForInflictShifting": "hack",
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "atk%": [
             0.24,
@@ -3524,6 +3648,7 @@
   "21050086": {
     "name": "Freeze Frame",
     "version": 3.4,
+    "id": "21050086",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -3553,7 +3678,7 @@
       {
         "applyWhen": "inflict",
         "applyForInflictStatus": "glacioChafe",
-        "applyTo": "team",
+        "applyTo": "$team",
         "buffMap": {
           "atk%": [
             0.24,
@@ -3567,6 +3692,7 @@
   "21020096": {
     "name": "Azure Oath",
     "version": 3.5,
+    "id": "21020096",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -3585,7 +3711,7 @@
       {
         "applyWhen": "inflict",
         "applyForInflictStatus": "havocBane",
-        "useOnDmgType": "heavyAttack",
+        "useOnDamageType": "heavyAttack",
         "buffMap": {
           "heavyAttackDmgAmp%": [
             0.36,
@@ -3603,6 +3729,7 @@
   "21050096": {
     "name": "Firstlight's Herald",
     "version": 3.5,
+    "id": "21050096",
     "quality": 5,
     "type": "rectifier",
     "stats": {
@@ -3625,11 +3752,11 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnType": "healing",
+        "applyOnHas": "healing",
         "maxDuration": 6000
       },
       {
-        "applyTo": "team",
+        "applyTo": "$team",
         "useIfEffectStacksMin": {
           "$prev.1": 1,
           "$prev.2": 1

@@ -1,4 +1,4 @@
-import { WW, SET } from '@/data';
+import { SET } from '@/data';
 import { getDefaultWeaponRank } from '@/utils';
 
 const getSetCounts = (gameId, equipList) => {
@@ -21,7 +21,6 @@ const getSetCounts = (gameId, equipList) => {
 
     for (const tier in bonusEffects) {
       if (Number(tier) > count) continue;
-
       resolved[setId] = Number(tier);
     }
   }
@@ -43,9 +42,14 @@ export function applyStoredBuild(gameId, member, storedBuild) {
 
   if ('equipList' in storedBuild) {
     next.setCounts = getSetCounts(gameId, storedBuild.equipList);
-    if (gameId === WW) {
-      // next.mainEcho = storedBuild.mainEcho;
-    }
+  }
+
+  if ('mainEcho' in storedBuild) {
+    next.mainEcho = storedBuild.mainEcho;
+  }
+
+  if ('resonanceMode' in storedBuild) {
+    next.resonanceMode = storedBuild.resonanceMode;
   }
 
   return next;

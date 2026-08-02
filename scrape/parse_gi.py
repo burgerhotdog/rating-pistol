@@ -28,43 +28,8 @@ lookup_stat = {
     'fight_prop_heal_add': 'healingBonus%',
 }
 
-def parse_character(version, id, data):
-    rawStat, value = list(data['stats_modifier']['ascension'][5].items())[3]
-    stat = lookup_stat[rawStat]
-    return {
-        'name': data['name'],
-        'version': float(version),
-        'id': str(id),
-        'quality': 4 if data['rarity'] == 'QUALITY_PURPLE' else 5,
-        'element': data['element'].lower(),
-        'type': lookup_type[data['weapon']],
-        'baseStats': {
-            'baseHp': round(
-                data['base_hp'] * data['stats_modifier']['hp']['90']
-                + data['stats_modifier']['ascension'][5]['fight_prop_base_hp']
-            ),
-            'baseAtk': round(
-                data['base_atk'] * data['stats_modifier']['atk']['90']
-                + data['stats_modifier']['ascension'][5]['fight_prop_base_attack']
-            ),
-            'baseDef': round(
-                data['base_def'] * data['stats_modifier']['def']['90']
-                + data['stats_modifier']['ascension'][5]['fight_prop_base_defense']
-            ),
-            **(
-                { 'elementalMastery': round(data['elemental_mastery']) }
-                if data['elemental_mastery']
-                else {}
-            ),
-        },
-        'ascensionStats': {
-            stat: value,
-        },
-        'effects': [],
-    }
-
-def parse_actions(data):
-    actions = {}
+def parse_skills(data):
+    skills = {}
     index_to_id = {
         0: 'normalAttack',
         1: 'elementalSkill',
@@ -81,8 +46,8 @@ def parse_actions(data):
             continue
 
         base_desc = promote[0]['desc']
-        skill = {}
-        action_id = 1
+
+        actions = []
 
         for desc_string in base_desc:
             param_matches = re.findall(r'\{param(\d+):[^}]+\}', desc_string)
@@ -100,24 +65,62 @@ def parse_actions(data):
 
                 indexed_multipliers.append({ 'mv': indexed_mv })
 
-            skill[str(action_id)] = {
+            actions.append({
                 'name': desc_string.split('|')[0],
-                'skillType': skill_id,
-                'multipliers': indexed_multipliers,
-            }
+                'type': skill_id,
+                'damage': {
+                    'multipliers': indexed_multipliers,
+                },
+            })
 
-            action_id += 1
+        skills[skill_id] = {
+            'name': '',
+            'actions': actions,
+        }
 
-        actions[skill_id] = skill
+    return skills
 
-    return {}
+def parse_character(version, id, data):
+    stats_mod = data['stats_modifier']
+    stats_mod_asc = stats_mod['ascension'][5]
+
+    base_hp = data['base_hp'] * stats_mod['hp']['90'] + stats_mod_asc['fight_prop_base_hp']
+    base_atk = data['base_atk'] * stats_mod['atk']['90'] + stats_mod_asc['fight_prop_base_attack']
+    base_def = data['base_def'] * stats_mod['def']['90'] + stats_mod_asc['fight_prop_base_defense']
+
+    asc_prop, asc_value = list(stats_mod_asc.items())[3]
+    asc_stat = lookup_stat[asc_prop]
+
+    stats = {
+        'baseHp': round(base_hp),
+        'baseAtk': round(base_atk),
+        'baseDef': round(base_def),
+        asc_stat: asc_value,
+    }
+
+    extra_em = data.get('elemental_mastery')
+    if extra_em:
+        stats['elementalMastery'] = stats.get('elementalMastery', 0) + extra_em
+
+    return {
+        'name': str(data['name']),
+        'version': float(version),
+        'id': str(id),
+        'quality': 4 if data['rarity'] == 'QUALITY_PURPLE' else 5,
+        'element': data['element'].lower(),
+        'type': lookup_type[data['weapon']],
+        'stats': stats,
+        'effects': [],
+        'skills': parse_skills(data),
+        'presets': [],
+    }
 
 def parse_weapon(version, id, data):
     raw_id, value_map = list(data['stats_modifier'].items())[1]
     stat = lookup_stat[raw_id]
     value = value_map['base'] * value_map['levels']['90']
     return {
-        'name': data['name'],
+        'name': str(data['name']),
         'version': float(version),
         'id': str(id),
         'quality': int(data['rarity']),
@@ -134,22 +137,21 @@ def parse_weapon(version, id, data):
         'effects': [],
     }
 
-def parse_set(version, id, data):
-    return {
-        'name': data['affix'][0]['name'],
-        'version': float(version),
-        'id': str(id),
-        'bonusEffects': {},
-    }
+def parse_gi(type, version, id, data):
+    match type:
+        case 'character':
+            return parse_character(version, id, data)
 
-def parse_character_data(version, id, data):
-    return parse_character(version, id, data), parse_actions(data)
+        case 'weapon':
+            return parse_weapon(version, id, data)
 
-parsers = {
-    'character': parse_character_data,
-    'weapon': parse_weapon,
-    'set': parse_set,
-}
-
-def parse_gi(type, *args):
-    return parsers[type](*args)
+        case 'set':
+            return {
+                'name': str(data['affix'][0]['name']),
+                'version': float(version),
+                'id': str(id),
+                'bonusEffects': {
+                    '2': [],
+                    '4': [],
+                },
+            }

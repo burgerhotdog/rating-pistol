@@ -1,19 +1,21 @@
 import { GI, WW } from '@/data';
-import { mergeEquipList } from '@/utils';
-import { createRunRotation } from './rotation';
+import { toEquipMap, getTotals } from '@/utils';
 import { createTrialAdvancer } from './advanceTrial';
 import { findGoodStats } from './stats/findGoodStats';
 import { createGetPenalty } from './penalty';
 import { getSubRollSums, getScore, getMainConfig } from './utils';
 
-const MIN_TRIALS = 100;
+const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
-const createScoreTracker = () => {
+const createDistribution = () => {
+  const samples = [];
   let n = 0, mean = 0, M2 = 0;
   return {
     add(x) {
+      samples.push(x);
+
       n++;
       const delta = x - mean;
       mean += delta / n;
@@ -24,7 +26,20 @@ const createScoreTracker = () => {
       const stdErr = Math.sqrt(M2 / (n - 1) / n);
       return stdErr / Math.max(Math.abs(mean), 1e-8);
     },
-    get mean() { return mean; },
+    get mean() {
+      return mean;
+    },
+    get bands() {
+      const sorted = [...samples].sort((a, b) => a - b);
+      return {
+        mean,
+        p10: sorted[Math.floor(sorted.length * 0.1)],
+        p25: sorted[Math.floor(sorted.length * 0.25)],
+        p50: sorted[Math.floor(sorted.length * 0.5)],
+        p75: sorted[Math.floor(sorted.length * 0.75)],
+        p90: sorted[Math.floor(sorted.length * 0.9)],
+      };
+    },
   };
 };
 
@@ -37,55 +52,49 @@ const buildConfigStats = (gameId, trials) => {
     if (!configMap[key]) {
       configMap[key] = {
         count: 0,
-        subRollSums: {},
+        subDist: {},
       };
     }
 
     const entry = configMap[key];
     entry.count++;
 
-    const { subRollSums } = entry;
+    const { subDist } = entry;
     const rollMap = getSubRollSums(gameId, trial.equipList);
     for (const [statId, rolls] of Object.entries(rollMap)) {
-      subRollSums[statId] ??= 0;
-      subRollSums[statId] += rolls;
+      subDist[statId] ??= 0;
+      subDist[statId] += rolls;
     }
   }
 
-  for (const { count, subRollSums } of Object.values(configMap)) {
-    for (const [statId, rolls] of Object.entries(subRollSums)) {
-      subRollSums[statId] = rolls / count;
+  for (const { count, subDist } of Object.values(configMap)) {
+    for (const [statId, rolls] of Object.entries(subDist)) {
+      subDist[statId] = rolls / count;
     }
   }
 
   return configMap;
 };
 
-const normalizeSummarySums = (sums, n) =>
-  Object.fromEntries(
-    Object.entries(sums).map(([key, result]) => {
-      return [key, { ...result, value: result.value / n }];
-    })
-  );
-
-function addSummaryToSums(sums, summary) {
-  for (const [key, result] of Object.entries(summary)) {
-    sums[key] ??= { ...result, value: 0 };
-    sums[key].value += result.value ?? 0;
-  }
-}
-
-export const runTrials = (helpers, cache, equipMaps, currId, isMain = false) => {
+export const runTrials = (cache, runRotation, currId, isMain = false) => {
   const { gameId, member } = cache;
   const { baseMap } = member[currId];
-  const runRotation = createRunRotation(helpers, cache, equipMaps, currId);
   const getPenalty = createGetPenalty(cache, currId);
 
   const baseSummary = runRotation(baseMap);
+  const baseTotals = getTotals(baseSummary);
+  const baseDps = cache.getDps(baseTotals.damage);
   const basePenalty = getPenalty(baseMap);
   const baseScore = getScore(baseSummary, currId, basePenalty);
 
-  const weeklySummaries = [baseSummary];
+  const trialBands = [{
+    mean: baseDps,
+    p10: baseDps,
+    p25: baseDps,
+    p50: baseDps,
+    p75: baseDps,
+    p90: baseDps,
+  }];
   const goodStats = findGoodStats(cache, baseScore, currId, runRotation, getPenalty);
   const advanceTrial = createTrialAdvancer(cache, currId, goodStats, runRotation, getPenalty);
 
@@ -94,77 +103,57 @@ export const runTrials = (helpers, cache, equipMaps, currId, isMain = false) => 
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),
     summary: baseSummary,
+    dps: baseDps,
     score: baseScore,
   });
   const trials = [];
-  for (let i = 0; i < MIN_TRIALS; i++) {
-    trials.push(createTrial());
-  }
+  for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
   // Main trial loop
-  let prevAvgScore = baseScore;
+  let prevMeanDps = baseDps;
   for (let week = 1; week <= MAX_WEEKS; week++) {
-    const weekScores = createScoreTracker();
-    const weekSummarySums = {};
+    const distribution = createDistribution();
 
     for (const trial of trials) {
       advanceTrial(trial);
-      weekScores.add(trial.score);
-
-      if (isMain) {
-        addSummaryToSums(weekSummarySums, trial.summary);
-      }
+      distribution.add(trial.dps);
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
-      if (weekScores.relativeError <= 0.005) {
-        break;
-      }
-
+      if (distribution.relativeError <= 0.01) break;
       const trial = createTrial();
       advanceTrial(trial);
       trials.push(trial);
-
-      weekScores.add(trial.score);
-      if (isMain) {
-        addSummaryToSums(weekSummarySums, trial.summary);
-      }
+      distribution.add(trial.dps);
     }
 
-    const avgScore = weekScores.mean;
-    const diff = (avgScore - prevAvgScore) / prevAvgScore;
+    const meanDps = distribution.mean;
+    const diff = (meanDps - prevMeanDps) / prevMeanDps;
 
     if (isMain) {
       self.postMessage({ week, diff });
-      const weeklySummary = normalizeSummarySums(weekSummarySums, trials.length);
-      weeklySummaries.push(weeklySummary);
+      trialBands.push(distribution.bands);
     }
 
-    if (diff < 0.01) {
-      break;
-    }
+    if (diff < 0.01) break;
 
-    prevAvgScore = avgScore;
+    prevMeanDps = meanDps;
   }
 
   if (!isMain) {
-    const avgEquipMap = {};
-    for (const { equipList } of trials) {
-      const equipMap = mergeEquipList(equipList);
+    const meanEquipMap = {};
+    for (const trial of trials) {
+      const equipMap = toEquipMap(trial.equipList);
       for (const [stat, value] of Object.entries(equipMap)) {
-        avgEquipMap[stat] ??= 0;
-        avgEquipMap[stat] += value / trials.length;
+        meanEquipMap[stat] ??= 0;
+        meanEquipMap[stat] += value / trials.length;
       }
     }
-    return avgEquipMap;
+    return meanEquipMap;
   }
-  
-  self.postMessage({
-    cache,
-    weeklySummaries,
-    userSummary: runRotation(cache.member[currId].statMap),
+
+  return {
+    trialBands,
     configMap: buildConfigStats(gameId, trials),
-    userConfigKey: getMainConfig(gameId, cache.member[currId].equipList),
-    userSubStats: getSubRollSums(gameId, cache.member[currId].equipList),
-  });
+  };
 };

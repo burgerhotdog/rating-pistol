@@ -7,8 +7,8 @@ export const sumRotationDmg = (summary, filter = {}) => {
       continue;
     }
 
-    if (result.type === 'damage') {
-      sum += result.value;
+    if (result.damage) {
+      sum += result.damage;
     }
   }
 

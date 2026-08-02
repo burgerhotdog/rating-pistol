@@ -1,11 +1,15 @@
-export const getTotals = (summary, filter = {}) => {
+export const getTotals = (snapshots, filter = {}) => {
   const totals = { damage: 0, healing: 0, shield: 0 };
   const matchesFilter = (ownerId) =>
     !filter.ownerId || ownerId === filter.ownerId;
 
-  for (const { ownerId, type, value } of summary) {
-    if (!matchesFilter(ownerId)) continue;
-    totals[type] += value;
+  for (const snapshot of snapshots) {
+    if (!matchesFilter(snapshot.ownerId)) continue;
+    for (const key in totals) {
+      if (key in snapshot) {
+        totals[key] += snapshot[key];
+      }
+    }
   }
 
   return totals;

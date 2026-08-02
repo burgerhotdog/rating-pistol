@@ -3,25 +3,7 @@ import { resolveStatSpecs, mergeStatMap } from '../utils';
 import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 
-export const buildSnapshot = (ctx, action, options = {}) => {
-  const { runtimeOffset = 0 } = options;
-  const snapshot = {
-    ...action,
-    ctxBuildMap: ctx.buildMaps[action.ownerId],
-    ...getBuffMap(ctx, { memberId: action.ownerId, action }),
-    runtime: ctx.states.runtime + runtimeOffset,
-  };
-
-  if (snapshot.buffSpecs.length) {
-    const { buffMap } = getBuffMap(ctx, { memberId: ctx.currId, ignoreSpecs: true })
-    snapshot.currBuffMap = buffMap;
-  } else if (action.ownerId !== ctx.currId) {
-    const statMap = toMergedObj(snapshot.ctxBuildMap, snapshot.buffMap);
-    snapshot.value = runFormula(ctx.helpers, action, statMap);
-  }
-
-  return snapshot;
-};
+const snapshotParts = ['damage', 'healing', 'shield'];
 
 const toResolvedSpecs = (buffSpecs, sourceMap) => {
   const buffMap = {};
@@ -32,20 +14,47 @@ const toResolvedSpecs = (buffSpecs, sourceMap) => {
   return buffMap;
 };
 
-export const evaluateSnapshot = (helpers, currId, snapshot, currBuildMap) => {
-  const {
-    ownerId,
-    ctxBuildMap,
-    buffMap, buffSpecs,
-    currBuffMap = {},
-  } = snapshot;
+export const buildSnapshot = (ctx, action, options = {}) => {
+  const { cache, currId } = ctx;
+  const { runtimeOffset = 0 } = options;
 
-  const buildMap = ownerId === currId
-    ? currBuildMap
-    : ctxBuildMap;
+  const snapshot = {
+    key: action.key,
+    ownerId: action.ownerId,
+    category: action.category,
+    type: action.type,
+    runtime: ctx.states.runtime + runtimeOffset,
+    ...('damage' in action &&
+      { damageType: action.damage.type }),
+  };
 
-  const currBuffedMap = toMergedObj(currBuildMap, currBuffMap);
-  const statMap = toMergedObj(buildMap, buffMap, toResolvedSpecs(buffSpecs, currBuffedMap));
+  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: action.ownerId, action });
+  const currBuffMap = buffSpecs.length
+    ? getBuffMap(ctx, { memberId: currId, ignoreSpecs: true })
+    : null;
 
-  return runFormula(helpers, snapshot, statMap);
+  const statMap = (action.ownerId !== currId && !currBuffMap)
+    ? toMergedObj(ctx.buildMaps[action.ownerId], buffMap)
+    : null;
+
+  for (const part of snapshotParts) {
+    if (!(part in action)) continue;
+
+    if (statMap) {
+      snapshot[part] = runFormula(cache.gameId, part, action, statMap);
+    } else {
+      snapshot[part] = (currBuildMap) => {
+        const buildMap = action.ownerId === currId
+          ? currBuildMap
+          : ctx.buildMaps[action.ownerId];
+
+        const currBuffedMap = toMergedObj(currBuildMap, currBuffMap);
+
+        const statMap = toMergedObj(buildMap, buffMap, toResolvedSpecs(buffSpecs, currBuffedMap));
+        return runFormula(cache.gameId, part, action, statMap);
+      };
+    }
+  }
+
+  return snapshot;
 };
