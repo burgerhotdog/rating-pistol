@@ -27,8 +27,9 @@ export const ProgressChart = ({ trialBands, userDps, prydwenDps }) => {
   const { element } = CHARACTER[gameId][charId]
   const accentColor = accentColors[gameId][element] ?? disabledColor;
 
-  const data = trialBands.map(({ p10, p25, p50, p75, p90 }, index) => ({
+  const data = trialBands.map(({ mean, p10, p25, p50, p75, p90 }, index) => ({
     week: index,
+    mean,
     median: p50,
     band50Low: p25,
     band50High: p75 - p25,
@@ -88,36 +89,44 @@ export const ProgressChart = ({ trialBands, userDps, prydwenDps }) => {
           />
 
           <Area
+            type="monotone"
             dataKey="band80Low"
             stackId="band80"
             stroke="none"
             fill="transparent"
+            activeDot={false}
           />
           <Area
+            type="monotone"
             dataKey="band80High"
             stackId="band80"
             stroke="none"
             fill={accentColor}
             fillOpacity={0.15}
+            activeDot={false}
           />
 
           <Area
+            type="monotone"
             dataKey="band50Low"
             stackId="band50"
             stroke="none"
             fill="transparent"
+            activeDot={false}
           />
           <Area
+            type="monotone"
             dataKey="band50High"
             stackId="band50"
             stroke="none"
             fill={accentColor}
             fillOpacity={0.3}
+            activeDot={false}
           />
 
           <Area
             type="monotone"
-            dataKey="median"
+            dataKey="mean"
             stroke={accentColor}
             strokeWidth={1.5}
             fill="url(#gradient)"
@@ -128,11 +137,11 @@ export const ProgressChart = ({ trialBands, userDps, prydwenDps }) => {
             content={({ active, payload }) => {
               if (!active || !payload || !payload.length) return null;
 
-              const { week, median } = payload[0].payload;
+              const { week, mean } = payload[0].payload;
               const prevWeek = data[week - 1];
 
-              const diff = prevWeek?.median > 0
-                ? (median - prevWeek.median) / prevWeek.median * 100
+              const diff = prevWeek?.mean > 0
+                ? (mean - prevWeek.mean) / prevWeek.mean * 100
                 : null;
 
               const diffColor = diff >= 0
@@ -169,7 +178,7 @@ export const ProgressChart = ({ trialBands, userDps, prydwenDps }) => {
                     </Typography>
 
                     <Typography variant="body2">
-                      {formatNum(median)}
+                      {formatNum(mean)}
                     </Typography>
                   </Box>
 

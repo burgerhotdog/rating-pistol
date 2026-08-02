@@ -5,7 +5,7 @@ import { findGoodStats } from './stats/findGoodStats';
 import { createGetPenalty } from './penalty';
 import { getSubRollSums, getScore, getMainConfig } from './utils';
 
-const MIN_TRIALS = 100;
+const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
@@ -32,6 +32,7 @@ const createDistribution = () => {
     get bands() {
       const sorted = [...samples].sort((a, b) => a - b);
       return {
+        mean,
         p10: sorted[Math.floor(sorted.length * 0.1)],
         p25: sorted[Math.floor(sorted.length * 0.25)],
         p50: sorted[Math.floor(sorted.length * 0.5)],
@@ -87,6 +88,7 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
   const baseScore = getScore(baseSummary, currId, basePenalty);
 
   const trialBands = [{
+    mean: baseDps,
     p10: baseDps,
     p25: baseDps,
     p50: baseDps,
@@ -118,7 +120,7 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
-      if (distribution.relativeError <= 0.005) break;
+      if (distribution.relativeError <= 0.01) break;
       const trial = createTrial();
       advanceTrial(trial);
       trials.push(trial);

@@ -42,7 +42,7 @@ self.onmessage = ({ data }) => {
 
   const userSummary = runRotation(cache.member[charId].statMap);
   const userDps = cache.getDps(getTotals(userSummary).damage);
-  const benchmarkDps = trialBands.at(-1).p50;
+  const benchmarkDps = trialBands.at(-1).mean;
   const prydwenSummary = getPrydwenBenchmark(gameId, charId, cache.member[charId].baseMap, configMap, runRotation);
   const prydwenDps = cache.getDps(getTotals(prydwenSummary).damage);
 
