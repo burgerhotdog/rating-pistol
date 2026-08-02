@@ -10,7 +10,7 @@ export const toMergedObj = (...objects) => {
   return result;
 };
 
-export function mergeEquipList(equipList) {
+export function toEquipMap(equipList) {
   const result = {};
 
   for (const item of equipList) {

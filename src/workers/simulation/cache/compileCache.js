@@ -1,5 +1,5 @@
 import { WW } from '@/data';
-import { toMergedObj, mergeEquipList, compileBaseMap } from '@/utils';
+import { toMergedObj, toEquipMap, compileBaseMap } from '@/utils';
 import { getMemberPresetActions } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
@@ -65,8 +65,11 @@ export const compileCache = (gameId, team) => {
     gameId,
     memberIds,
     member: {},
-    fullRotationTime: 0,
     effects: {},
+    fullRotationTime: 0,
+    getDps(damage) {
+      return damage / this.fullRotationTime * 1000;
+    },
   };
 
   for (const member of team) {
@@ -78,7 +81,7 @@ export const compileCache = (gameId, team) => {
     } = member;
 
     const baseMap = compileBaseMap(gameId, memberId, weaponId);
-    const equipMap = mergeEquipList(equipList);
+    const equipMap = toEquipMap(equipList);
     const statMap = toMergedObj(baseMap, equipMap);
 
     const { rotation, rotationTime } = getConvertedRotation(rawRotation, {

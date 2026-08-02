@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import {
   Box,
+  CardHeader,
   Divider,
   Paper,
   Stack,
@@ -20,32 +21,6 @@ import {
 import { FlexCard, ChartFill, Dot } from '@/components';
 import { CHARACTER } from '@/data';
 import { sumRotationDmg, formatNum, formatDmg } from '@/utils';
-
-const InfoLabel = ({ label, tip }) => (
-  <Box
-    sx={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: 0.5,
-    }}
-  >
-    <Typography
-      variant="overline"
-      color="textSecondary"
-      sx={{ lineHeight: 1.4 }}
-    >
-      {label}
-    </Typography>
-
-    <Tooltip
-      title={tip}
-    >
-      <HelpOutlineOutlinedIcon
-        color="disabled"
-      />
-    </Tooltip>
-  </Box>
-);
 
 function splitIntoIntervals(summary, interval = 1000) {
   const intervals = [];
@@ -109,15 +84,23 @@ export const Timeline = ({ userSummary, team }) => {
     return accentColors[gameId][element] ?? disabledColor;
   });
 
-  const totalDamage = sumRotationDmg(userSummary);
-
   const interval = 2000;
   const intervalSummary = splitIntoIntervals(userSummary, interval);
   const accGroups = accGroupedSummary(intervalSummary, members.map((member) => member.id), true);
   const data = accGroups.map((group, index) => ({ ...group, time: index * (interval / 1000) }));
 
   return (
-    <FlexCard direction="row">
+    <FlexCard>
+      <CardHeader
+        title={
+          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
+            <Typography variant="subtitle1">
+              Rotation Timeline
+            </Typography>
+          </Stack>
+        }
+        disableTypography
+      />
       <ChartFill flex={3}>
         <ComposedChart
           data={data}
@@ -232,24 +215,6 @@ export const Timeline = ({ userSummary, team }) => {
           />
         </ComposedChart>
       </ChartFill>
-
-      <Divider orientation="vertical" flexItem />
-
-      <Stack
-        spacing={1.5}
-        sx={{ flex: 1, p: 2, minWidth: 150, justifyContent: 'center' }}
-      >
-        <Box>
-          <InfoLabel
-            label="Total Damage"
-            tip="The team's total damage for one rotation."
-          />
-
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {formatNum(totalDamage)}
-          </Typography>
-        </Box>
-      </Stack>
     </FlexCard>
   );
 };

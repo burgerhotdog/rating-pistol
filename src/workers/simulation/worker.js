@@ -1,6 +1,9 @@
+import { getTotals } from '@/utils';
+import { createRunRotation } from './rotation';
 import { compileCache } from './cache';
 import { runTrials } from './runTrials';
 import { getPrydwenBenchmark } from './otherBenchmarks';
+import { getSubRollSums, getMainConfig } from './utils';
 
 self.onmessage = ({ data }) => {
   const { gameId, charId, team } = data;
@@ -24,18 +27,33 @@ self.onmessage = ({ data }) => {
         })
       );
 
+      const runRotation = createRunRotation(cache, trialEquipMaps, member.id);
       return [
         member.id,
-        runTrials(cache, trialEquipMaps, member.id),
+        runTrials(cache, runRotation, member.id),
       ];
     })
   );
 
   self.postMessage({ status: 'Running simulation' });
 
-  const message = runTrials(cache, equipMaps, charId, true);
-  message.prydwenSummary = getPrydwenBenchmark(gameId, charId, cache.member[charId].baseMap, message.configMap, message.runRotation);
-  delete message.runRotation;
+  const runRotation = createRunRotation(cache, equipMaps, charId);
+  const { trialBands, configMap } = runTrials(cache, runRotation, charId, true);
 
-  self.postMessage(message);
+  const userSummary = runRotation(cache.member[charId].statMap);
+  const userDps = cache.getDps(getTotals(userSummary).damage);
+  const benchmarkDps = trialBands.at(-1).p50;
+  const prydwenSummary = getPrydwenBenchmark(gameId, charId, cache.member[charId].baseMap, configMap, runRotation);
+  const prydwenDps = cache.getDps(getTotals(prydwenSummary).damage);
+
+  self.postMessage({
+    trialBands,
+    configMap,
+    userSummary,
+    userDps,
+    benchmarkDps,
+    prydwenDps,
+    userConfigKey: getMainConfig(gameId, cache.member[charId].equipList),
+    userSubStats: getSubRollSums(gameId, cache.member[charId].equipList),
+  });
 };

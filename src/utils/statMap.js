@@ -1,5 +1,5 @@
 import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET } from '@/data';
-import { toArray, toMergedObj, mergeEquipList, resolveRankedValue } from '@/utils';
+import { toArray, toMergedObj, toEquipMap, resolveRankedValue } from '@/utils';
 
 const DEFAULT = {
   [GI]: {
@@ -37,7 +37,7 @@ export const compileMenuMap = (gameId, charId, member) => {
 
   const baseMap = compileBaseMap(gameId, charId, weaponId);
 
-  const statMap = toMergedObj(baseMap, mergeEquipList(build.equipList ?? []));
+  const statMap = toMergedObj(baseMap, toEquipMap(build.equipList ?? []));
 
   const allEffects = [
     ...toArray(CHARACTER[gameId][charId].effects),

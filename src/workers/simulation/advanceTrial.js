@@ -1,5 +1,5 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
-import { toMergedObj, mergeEquipList } from '@/utils';
+import { toMergedObj, toEquipMap, getTotals } from '@/utils';
 import { createAssignMain } from './stats/assignMain';
 import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './stats/assignSub';
 import { getScore } from './utils';
@@ -51,13 +51,15 @@ const createEquipGenerator = (gameId, goodStats) => {
   };
 };
 
-const createEquipEvaluator = (baseMap, runRotation, getPenalty, currId) => (equip, latest) => {
+const createEquipEvaluator = (cache, baseMap, runRotation, getPenalty, currId) => (equip, latest) => {
   const buffer = { ...latest };
 
   const trySlot = (index) => {
     const newEquipList = latest.equipList.with(index, equip);
-    const combinedStatMap = toMergedObj(baseMap, mergeEquipList(newEquipList));
+    const combinedStatMap = toMergedObj(baseMap, toEquipMap(newEquipList));
     const newSummary = runRotation(combinedStatMap);
+    const newTotals = getTotals(newSummary);
+    const newDps = cache.getDps(newTotals.damage);
     const newPenalty = getPenalty(combinedStatMap);
     const newScore = getScore(newSummary, currId, newPenalty);
 
@@ -65,6 +67,7 @@ const createEquipEvaluator = (baseMap, runRotation, getPenalty, currId) => (equi
       Object.assign(buffer, {
         equipList: newEquipList,
         summary: newSummary,
+        dps: newDps,
         score: newScore,
       });
     }
@@ -92,7 +95,7 @@ export const createTrialAdvancer = (cache, currId, goodStats, runRotation, getPe
   const { baseMap } = cache.member[currId];
 
   const generateEquip = createEquipGenerator(gameId, goodStats);
-  const evaluateEquip = createEquipEvaluator(baseMap, runRotation, getPenalty, currId);
+  const evaluateEquip = createEquipEvaluator(cache, baseMap, runRotation, getPenalty, currId);
 
   const passes = {
     [GI]: [{ count: 66,  slotCount: 5 }],
