@@ -13,7 +13,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip as ChartTooltip,
-  ReferenceLine,
 } from 'recharts';
 import { FlexCard, ChartFill } from '@/components';
 import { CHARACTER } from '@/data';
@@ -50,42 +49,34 @@ export const ProgressChart = ({ trialBands, userDps, prydwenDps }) => {
               <stop offset="100%" stopColor={accentColor} stopOpacity={0.2} />
             </linearGradient>
           </defs>
-
           <CartesianGrid
             strokeDasharray="3 3"
             stroke={palette.divider}
           />
-
           <XAxis
             dataKey="week"
+            tick={{ fontSize: 12 }}
             label={{
               value: 'Weeks',
               position: 'insideBottomRight',
               offset: -5,
+              fontSize: 12,
             }}
           />
-
           <YAxis
             domain={[
               0,
               Math.max(trialBands.at(-1).p90, userDps, prydwenDps) * 1.05,
             ]}
+            tick={{ fontSize: 12 }}
             tickFormatter={formatDmg}
             label={{
               value: 'DPS',
               angle: -90,
               position: 'insideLeft',
+              fontSize: 12,
             }}
-          />
-
-          <ReferenceLine
-            y={userDps}
-            strokeWidth={2}
-          />
-
-          <ReferenceLine
-            y={prydwenDps}
-            strokeWidth={1}
+            width="auto"
           />
 
           <Area
