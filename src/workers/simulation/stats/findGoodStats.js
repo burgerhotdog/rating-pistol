@@ -1,16 +1,14 @@
-import { WW } from '@/data';
+import { WW, MAINSTAT, SUBSTAT } from '@/data';
 import { toMergedObj } from '@/utils';
 import { getScore } from '../utils';
-import { HOYO_MAINSTAT_WEIGHTS } from './weights';
-import { HOYO_MAINSTAT_VALUES, WUWA_MAINSTAT_VALUES, SUBSTAT_VALUES } from './values';
 
 const findGoodMainStatsWuwa = (baseMap, baseScore, currId, runRotation, getPenalty) => {
   const goodMainStats = {};
 
-  for (const [cost, mainStats] of Object.entries(WUWA_MAINSTAT_VALUES)) {
+  for (const [cost, costMainstats] of Object.entries(MAINSTAT[WW])) {
     const preferred = [];
 
-    for (const [statId, value] of Object.entries(mainStats)) {
+    for (const { id: statId, value } of Object.values(costMainstats)) {
       const testMap = toMergedObj(baseMap, { [statId]: value });
       const testSummary = runRotation(testMap);
       const testPenalty = getPenalty(testMap);
@@ -18,10 +16,7 @@ const findGoodMainStatsWuwa = (baseMap, baseScore, currId, runRotation, getPenal
       if (testScore > baseScore) preferred.push(statId);
     }
 
-    goodMainStats[cost] =
-      preferred.length
-        ? preferred
-        : Object.keys(mainStats);
+    goodMainStats[cost] = preferred.length ? preferred : Object.keys(costMainstats);
   }
 
   return goodMainStats;
@@ -30,11 +25,10 @@ const findGoodMainStatsWuwa = (baseMap, baseScore, currId, runRotation, getPenal
 const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, currId, runRotation, getPenalty) => {
   const goodMainStats = [];
 
-  for (const mainStats of HOYO_MAINSTAT_WEIGHTS[gameId]) {
+  for (const slotMainstats of MAINSTAT[gameId]) {
     const preferred = [];
 
-    for (const statId of Object.keys(mainStats)) {
-      const value = HOYO_MAINSTAT_VALUES[gameId][statId];
+    for (const { id: statId, value } of Object.values(slotMainstats)) {
       const testMap = toMergedObj(baseMap, { [statId]: value });
       const testSummary = runRotation(testMap);
       const testPenalty = getPenalty(testMap);
@@ -42,16 +36,16 @@ const findGoodMainStatsHoyo = (gameId, baseMap, baseScore, currId, runRotation, 
       if (testScore > baseScore) preferred.push(statId);
     }
 
-    goodMainStats.push(preferred.length ? preferred : Object.keys(mainStats));
+    goodMainStats.push(preferred.length ? preferred : Object.keys(slotMainstats));
   }
 
   return goodMainStats;
 };
 
-const findGoodSubs = (substatValues, baseMap, baseScore, currId, runRotation, getPenalty) => {
+const findGoodSubs = (gameId, baseMap, baseScore, currId, runRotation, getPenalty) => {
   const goodSubStats = [];
 
-  for (const [statId, value] of Object.entries(substatValues)) {
+  for (const { id: statId, value } of Object.values(SUBSTAT[gameId])) {
     const testMap = toMergedObj(baseMap, { [statId]: value });
     const testSummary = runRotation(testMap);
     const testPenalty = getPenalty(testMap);
@@ -61,7 +55,7 @@ const findGoodSubs = (substatValues, baseMap, baseScore, currId, runRotation, ge
 
   return goodSubStats.length
     ? goodSubStats
-    : Object.keys(substatValues);
+    : Object.keys(SUBSTAT[gameId]);
 };
 
 export const findGoodStats = (cache, baseScore, currId, runRotation, getPenalty) => {
@@ -72,8 +66,7 @@ export const findGoodStats = (cache, baseScore, currId, runRotation, getPenalty)
     ? findGoodMainStatsWuwa(baseMap, baseScore, currId, runRotation, getPenalty)
     : findGoodMainStatsHoyo(gameId, baseMap, baseScore, currId, runRotation, getPenalty);
 
-  const substatValues = SUBSTAT_VALUES[gameId];
-  const sub = findGoodSubs(substatValues, baseMap, baseScore, currId, runRotation, getPenalty);
+  const sub = findGoodSubs(gameId, baseMap, baseScore, currId, runRotation, getPenalty);
 
   return { main, sub };
 };

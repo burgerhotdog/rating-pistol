@@ -38,3 +38,22 @@ export const SET = {
 
 export { default as ECHO } from './wuthering-waves/echo.json';
 export { default as VERSION } from './version.json';
+
+import {
+  MAINSTAT_GI, MAINSTAT_HSR, MAINSTAT_WW, MAINSTAT_ZZZ,
+  SUBSTAT_GI, SUBSTAT_HSR, SUBSTAT_WW, SUBSTAT_ZZZ,
+} from './stats';
+
+export const MAINSTAT = {
+  [GI]: MAINSTAT_GI,
+  [HSR]: MAINSTAT_HSR,
+  [WW]: MAINSTAT_WW,
+  [ZZZ]: MAINSTAT_ZZZ,
+};
+
+export const SUBSTAT = {
+  [GI]: SUBSTAT_GI,
+  [HSR]: SUBSTAT_HSR,
+  [WW]: SUBSTAT_WW,
+  [ZZZ]: SUBSTAT_ZZZ,
+};

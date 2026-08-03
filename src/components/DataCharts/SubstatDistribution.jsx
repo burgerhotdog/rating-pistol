@@ -12,10 +12,8 @@ import {
   Tooltip as RechartsTooltip,
 } from 'recharts';
 import { FlexCard, ChartFill } from '@/components';
-import { WW, CHARACTER } from '@/data';
+import { WW, CHARACTER, SUBSTAT } from '@/data';
 import { formatStr } from '@/utils';
-import { HOYO_SUBSTAT_WEIGHTS } from '@/workers/simulation/stats/weights';
-import { SUBSTAT_VALUES } from '@/workers/simulation/stats/values';
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
@@ -77,11 +75,11 @@ const isSignificantStat = (gameId, statId, percentOftotal, mainStatsList) => {
     return percentOftotal > (11899 / 128700);
   }
 
-  const weights = Object.entries(HOYO_SUBSTAT_WEIGHTS[gameId]);
-
   const baseChances = mainStatsList.map((mainStat) => {
-    const withoutMain = weights.filter(([key]) => key !== mainStat);
-    return chanceOfStat(withoutMain, statId);
+    const weights = Object.values(SUBSTAT[gameId])
+      .filter(({ id }) => id !== mainStat)
+      .map(({ id, weight }) => [id, weight]);
+    return chanceOfStat(weights, statId);
   });
 
   const avgRolls = baseChances
@@ -105,7 +103,7 @@ export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) 
   const totalRolls = Object.values(subDist)
     .reduce((acc, rolls) => acc + rolls , 0);
 
-  const chartData = Object.keys(SUBSTAT_VALUES[gameId])
+  const chartData = Object.keys(SUBSTAT[gameId])
     .map((statId) => ({
       id: statId,
       name: formatStr(statId),
