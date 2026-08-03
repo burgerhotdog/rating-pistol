@@ -9,7 +9,7 @@ const getConvertedRotation = (rawRotation, spec) => {
   const teamSize = memberIds.length;
 
   const rotation = [];
-  let rotationTime = 0;
+  let duration = 0;
 
   // Convert refs to actions
   for (const ref of rawRotation) {
@@ -20,7 +20,7 @@ const getConvertedRotation = (rawRotation, spec) => {
       if (type === 'introSkill' || type === 'outroSkill') continue;
     }
 
-    rotationTime += action.duration ?? 0;
+    duration += action.duration ?? 0;
     rotation.push(action);
   }
 
@@ -28,7 +28,7 @@ const getConvertedRotation = (rawRotation, spec) => {
   if (gameId === WW) {
     if (memberId === memberIds[0]) {
       // Ensure no more than 8000 ms remain after tune break
-      let timeLeft = rotationTime;
+      let timeLeft = duration;
       let insertAtIndex = 0;
       for (const action of rotation) {
         if (timeLeft <= 8000) break;
@@ -46,7 +46,7 @@ const getConvertedRotation = (rawRotation, spec) => {
     }
   }
 
-  return { rotation, rotationTime };
+  return { rotation, duration };
 };
 
 export const compileCache = (gameId, team) => {
@@ -61,16 +61,9 @@ export const compileCache = (gameId, team) => {
     });
   }
 
-  const cache = {
-    gameId,
-    memberIds,
-    member: {},
-    effects: {},
-    fullRotationTime: 0,
-    getDps(damage) {
-      return damage / this.fullRotationTime * 1000;
-    },
-  };
+  const memberCache = {};
+  const effectsCache = {};
+  let rotationDuration = 0;
 
   for (const member of team) {
     const {
@@ -84,30 +77,38 @@ export const compileCache = (gameId, team) => {
     const equipMap = toEquipMap(equipList);
     const statMap = toMergedObj(baseMap, equipMap);
 
-    const { rotation, rotationTime } = getConvertedRotation(rawRotation, {
+    const { rotation, duration } = getConvertedRotation(rawRotation, {
       gameId,
       memberId,
       memberActions: teamActions[memberId],
       memberIds,
     });
 
-    cache.fullRotationTime += rotationTime;
+    rotationDuration += duration;
 
     const effectLookup = normalizeEffects(gameId, member, { memberIds, teamActions });
-    Object.assign(cache.effects, effectLookup);
+    Object.assign(effectsCache, effectLookup);
 
-    cache.member[memberId] = {
+    memberCache[memberId] = {
       ...member,
       equipList,
       baseMap,
       equipMap,
       statMap,
       rotation,
-      rotationTime,
     };
   }
 
-  cacheTuneResponses(cache);
+  const tuneStrainMaxStacks = cacheTuneResponses(memberCache);
 
-  return cache;
+  return {
+    gameId,
+    memberIds,
+    member: memberCache,
+    effects: effectsCache,
+    tuneStrainMaxStacks,
+    getDps(damage) {
+      return damage / rotationDuration * 1000;
+    },
+  };
 };
