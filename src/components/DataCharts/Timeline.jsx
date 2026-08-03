@@ -137,7 +137,7 @@ export const Timeline = ({ userSummary, team }) => {
       <defs>
         {[...(new Set(Object.values(memberColors)))].map((color) => (
           <linearGradient key={color} id={`gradient${color}`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={color} stopOpacity={0.6} />
+            <stop offset="0%" stopColor={color} stopOpacity={1} />
             <stop offset="100%" stopColor={color} stopOpacity={0.2} />
           </linearGradient>
         ))}
@@ -209,24 +209,23 @@ export const Timeline = ({ userSummary, team }) => {
               return (
                 <Area
                   key={id}
-                  type="monotone"
-                  name={gameCharacters[id]?.name ?? 'Other'}
                   dataKey={id}
-                  stackId="members"
-                  fill={`url(#gradient${color})`}
-                  stroke={color}
                   activeDot={false}
+                  fill={`url(#gradient${color})`}
+                  name={gameCharacters[id]?.name ?? 'Other'}
+                  stackId="members"
+                  stroke={color}
+                  strokeOpacity={0}
+                  type="monotone"
                 />
               );
             })}
 
             <ChartTooltip
-              content={({ active, payload }) => {
-                if (!active || !payload || !payload.length) return null;
-                const { time } = payload[0].payload;
+              content={({ payload }) => {
                 return (
                   <TooltipContent
-                    time={time}
+                    time={payload[0]?.payload?.time}
                     rows={payload.toReversed()}
                   />
                 );
@@ -245,21 +244,23 @@ export const Timeline = ({ userSummary, team }) => {
               return (
                 <Scatter
                   key={id}
-                  name={gameCharacters[id]?.name ?? 'Other'}
                   dataKey={id}
+                  name={gameCharacters[id]?.name ?? 'Other'}
                   fill={color}
-                  stroke={color}
                 />
               );
             })}
 
             <ChartTooltip
-              content={({ active, payload }) => {
-                if (!active || !payload || !payload.length) return null;
+              isAnimationActive={false}
+              content={({ payload }) => {
+                const time = payload[0]?.value ?? 0;
+                const rows = payload[1] ? [payload[1]] : [];
+
                 return (
                   <TooltipContent
-                    time={payload[0].value}
-                    rows={[payload[1]]}
+                    time={time}
+                    rows={rows}
                   />
                 );
               }}
