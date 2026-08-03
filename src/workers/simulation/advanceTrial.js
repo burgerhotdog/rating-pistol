@@ -101,7 +101,7 @@ export const createTrialAdvancer = (cache, currId, goodStats, runRotation, getPe
     [GI]: [{ count: 66,  slotCount: 5 }],
     [HSR]: [{ count: 84,  slotCount: 6, type: 'relic' }],
     [ZZZ]: [{ count: 120, slotCount: 6 }],
-    [WW]: [{ count: 20, cost: 4 }, { count: 15, cost: 3 }, { count: 60 }],
+    [WW]: [{ count: 20, cost: 4 }, { count: 60 }],
   };
 
   return (trial) => {

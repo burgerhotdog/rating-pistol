@@ -1,9 +1,9 @@
 import { GI, WW } from '@/data';
-import { toEquipMap, getTotals } from '@/utils';
+import { getTotals } from '@/utils';
 import { createTrialAdvancer } from './advanceTrial';
 import { findGoodStats } from './stats/findGoodStats';
 import { createGetPenalty } from './penalty';
-import { getSubRollSums, getScore, getMainConfig } from './utils';
+import { getScore } from './utils';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
@@ -41,39 +41,6 @@ const createDistribution = () => {
       };
     },
   };
-};
-
-const buildConfigStats = (gameId, trials) => {
-  const configMap = {};
-
-  for (const trial of trials) {
-    const key = getMainConfig(gameId, trial.equipList);
-
-    if (!configMap[key]) {
-      configMap[key] = {
-        count: 0,
-        subDist: {},
-      };
-    }
-
-    const entry = configMap[key];
-    entry.count++;
-
-    const { subDist } = entry;
-    const rollMap = getSubRollSums(gameId, trial.equipList);
-    for (const [statId, rolls] of Object.entries(rollMap)) {
-      subDist[statId] ??= 0;
-      subDist[statId] += rolls;
-    }
-  }
-
-  for (const { count, subDist } of Object.values(configMap)) {
-    for (const [statId, rolls] of Object.entries(subDist)) {
-      subDist[statId] = rolls / count;
-    }
-  }
-
-  return configMap;
 };
 
 export const runTrials = (cache, runRotation, currId, isMain = false) => {
@@ -140,20 +107,5 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
     prevMeanDps = meanDps;
   }
 
-  if (!isMain) {
-    const meanEquipMap = {};
-    for (const trial of trials) {
-      const equipMap = toEquipMap(trial.equipList);
-      for (const [stat, value] of Object.entries(equipMap)) {
-        meanEquipMap[stat] ??= 0;
-        meanEquipMap[stat] += value / trials.length;
-      }
-    }
-    return meanEquipMap;
-  }
-
-  return {
-    trialBands,
-    configMap: buildConfigStats(gameId, trials),
-  };
+  return { trialBands, trials };
 };
