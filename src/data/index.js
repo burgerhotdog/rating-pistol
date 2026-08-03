@@ -3,24 +3,38 @@ export const HSR = 'honkai-star-rail';
 export const WW = 'wuthering-waves';
 export const ZZZ = 'zenless-zone-zero';
 
-import GI_C from './genshin-impact/character.json';
-import HSR_C from './honkai-star-rail/character.json';
-import WW_C from './wuthering-waves/character.json';
-import ZZZ_C from './zenless-zone-zero/character.json';
-export const CHARACTER = { [GI]: GI_C, [HSR]: HSR_C, [WW]: WW_C, [ZZZ]: ZZZ_C };
+import CHARACTER_GI from './genshin-impact/character.json';
+import CHARACTER_HSR from './honkai-star-rail/character.json';
+import CHARACTER_WW from './wuthering-waves/character.json';
+import CHARACTER_ZZZ from './zenless-zone-zero/character.json';
+export const CHARACTER = {
+  [GI]: CHARACTER_GI,
+  [HSR]: CHARACTER_HSR,
+  [WW]: CHARACTER_WW,
+  [ZZZ]: CHARACTER_ZZZ,
+};
 
-import GI_W from './genshin-impact/weapon.json';
-import HSR_W from './honkai-star-rail/weapon.json';
-import WW_W from './wuthering-waves/weapon.json';
-import ZZZ_W from './zenless-zone-zero/weapon.json';
-export const WEAPON = { [GI]: GI_W, [HSR]: HSR_W, [WW]: WW_W, [ZZZ]: ZZZ_W };
+import WEAPON_GI from './genshin-impact/weapon.json';
+import WEAPON_HSR from './honkai-star-rail/weapon.json';
+import WEAPON_WW from './wuthering-waves/weapon.json';
+import WEAPON_ZZZ from './zenless-zone-zero/weapon.json';
+export const WEAPON = {
+  [GI]: WEAPON_GI,
+  [HSR]: WEAPON_HSR,
+  [WW]: WEAPON_WW,
+  [ZZZ]: WEAPON_ZZZ,
+};
 
-import GI_S from './genshin-impact/set.json';
-import HSR_S from './honkai-star-rail/set.json';
-import WW_S from './wuthering-waves/set.json';
-import ZZZ_S from './zenless-zone-zero/set.json';
-export const SET = { [GI]: GI_S, [HSR]: HSR_S, [WW]: WW_S, [ZZZ]: ZZZ_S };
+import SET_GI from './genshin-impact/set.json';
+import SET_HSR from './honkai-star-rail/set.json';
+import SET_WW from './wuthering-waves/set.json';
+import SET_ZZZ from './zenless-zone-zero/set.json';
+export const SET = {
+  [GI]: SET_GI,
+  [HSR]: SET_HSR,
+  [WW]: SET_WW,
+  [ZZZ]: SET_ZZZ,
+};
 
 export { default as ECHO } from './wuthering-waves/echo.json';
-
 export { default as VERSION } from './version.json';
