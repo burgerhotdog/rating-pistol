@@ -20,11 +20,11 @@ import { formatNum, formatDmg } from '@/utils';
 
 export const ProgressChart = ({ trialBands, userDps }) => {
   const { gameId, charId } = useParams();
-  const { palette, accentColors } = useTheme();
+  const { palette, elementColors } = useTheme();
 
   const disabledColor = palette.action.disabled;
   const { element } = CHARACTER[gameId][charId]
-  const accentColor = accentColors[gameId][element] ?? disabledColor;
+  const accentColor = elementColors[gameId][element] ?? disabledColor;
 
   const data = trialBands.map(({ mean, p10, p25, p50, p75, p90 }, index) => ({
     week: index,

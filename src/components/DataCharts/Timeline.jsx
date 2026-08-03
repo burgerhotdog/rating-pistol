@@ -116,9 +116,9 @@ const TooltipContent = ({ time, rows }) => {
 
 export const Timeline = ({ userSummary, team }) => {
   const { gameId } = useParams();
-  const { palette, accentColors } = useTheme();
+  const { palette, elementColors } = useTheme();
   const [isRunningTotal, setIsRunningTotal] = useState(true);
-  const gameColors = accentColors[gameId];
+  const gameColors = elementColors[gameId];
   const gameCharacters = CHARACTER[gameId];
 
   const memberStack = team.filter((m) => m.id).map((m) => m.id);

@@ -198,9 +198,9 @@ function createSubFilter(gameId, configKey = '', subDist = {}) {
 
 export const StatDist = ({ configMap, userConfigKey, userSubStats }) => {
   const { gameId, charId } = useParams();
-  const { accentColors } = useTheme();
+  const { elementColors } = useTheme();
   const { element } = CHARACTER[gameId][charId];
-  const elementColor = accentColors[gameId][element];
+  const elementColor = elementColors[gameId][element];
   if (!configMap) return null;
 
   const entries = Object.entries(configMap);

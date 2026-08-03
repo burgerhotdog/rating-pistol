@@ -1,9 +1,1 @@
 switchable chars resonanace modes
-implement
-    main echo defaults
-    ocr main echo
-    main echo multipliers
-    actions
-    buffs
-    rotation timings/ durations
-    apply main echo with the set, not with the character

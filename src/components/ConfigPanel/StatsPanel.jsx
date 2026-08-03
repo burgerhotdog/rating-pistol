@@ -133,7 +133,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
               variant="outlined"
               sx={{
                 fontWeight: 'bold',
-                color: theme.accentColors[gameId][CHARACTER[gameId][charId].element]
+                color: theme.elementColors[gameId][CHARACTER[gameId][charId].element]
               }}
             />
 

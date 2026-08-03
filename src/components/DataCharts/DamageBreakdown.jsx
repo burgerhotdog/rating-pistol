@@ -74,7 +74,7 @@ const buildData = (summary, currId, breakdownMode) => {
 
 export const DamageBreakdown = ({ userSummary, teamIds }) => {
   const { gameId, charId } = useParams();
-  const { accentColors } = useTheme();
+  const { elementColors } = useTheme();
 
   const [selectedCharId, setSelectedCharId] = useState(charId);
   const [breakdownMode, setBreakdownMode] = useState('damageType');
@@ -84,7 +84,7 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
   const data = buildData(userSummary, selectedCharId, breakdownMode);
 
   const { element } = CHARACTER[gameId][selectedCharId];
-  const elementColor = accentColors[gameId][element];
+  const elementColor = elementColors[gameId][element];
 
   return (
     <FlexCard>

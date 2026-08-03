@@ -93,7 +93,7 @@ const isSignificantStat = (gameId, statId, percentOftotal, mainStatsList) => {
 
 export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) => {
   const { gameId, charId } = useParams();
-  const { accentColors } = useTheme();
+  const { elementColors } = useTheme();
   const { element } = CHARACTER[gameId][charId];
   const [showAll, setShowAll] = useState(false);
   if (!configMap) return null;
@@ -113,7 +113,7 @@ export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) 
     .filter(({ id, sim }) => showAll || isSignificantStat(gameId, id, sim / totalRolls, (userConfigKey ?? '').split('|')))
     .sort((a, b) => b.sim - a.sim);
 
-  const elementColor = accentColors[gameId][element];
+  const elementColor = elementColors[gameId][element];
   const maxValue = Math.max(...chartData.flatMap((d) => [d.sim, d.user]));
 
   return (
