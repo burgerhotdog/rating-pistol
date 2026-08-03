@@ -131,7 +131,7 @@ export function advanceEffects(ctx, elapsed) {
 
     let remaining = elapsed;
     while (remaining) {
-      const diff = Math.min(state.useCooldown, remaining);
+      const diff = Math.min(state.useCooldown ?? 0, remaining);
       if (advanceEffectState(ctx, state, diff)) break;
       remaining -= diff;
       

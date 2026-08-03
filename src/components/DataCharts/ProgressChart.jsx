@@ -18,7 +18,7 @@ import { FlexCard, ChartFill } from '@/components';
 import { CHARACTER } from '@/data';
 import { formatNum, formatDmg } from '@/utils';
 
-export const ProgressChart = ({ trialBands, userDps, prydwenDps }) => {
+export const ProgressChart = ({ trialBands, userDps }) => {
   const { gameId, charId } = useParams();
   const { palette, accentColors } = useTheme();
 
@@ -66,7 +66,7 @@ export const ProgressChart = ({ trialBands, userDps, prydwenDps }) => {
           <YAxis
             domain={[
               0,
-              Math.max(trialBands.at(-1).p90, userDps, prydwenDps) * 1.05,
+              Math.max(trialBands.at(-1).p90, userDps) * 1.05,
             ]}
             tick={{ fontSize: 12 }}
             tickFormatter={formatDmg}

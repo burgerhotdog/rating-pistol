@@ -1,7 +1,5 @@
-import { GI, HSR, WW, ZZZ } from '@/data';
+import { GI, HSR, WW, ZZZ, MAINSTAT } from '@/data';
 import { weightedLottery } from '../utils';
-import { HOYO_MAINSTAT_WEIGHTS, WUWA_MAINSTAT_WEIGHTS } from './weights';
-import { HOYO_MAINSTAT_VALUES, WUWA_MAINSTAT_VALUES } from './values';
 
 const FLATS_BY_COST = {
   4: {
@@ -43,15 +41,7 @@ export const createAssignMain = (gameId) => {
     }
   };
 
-  const getWeights = (result) =>
-    gameId === WW
-      ? WUWA_MAINSTAT_WEIGHTS[result.cost]
-      : HOYO_MAINSTAT_WEIGHTS[gameId][result.index];
-  
-  const getValues = (result) =>
-    gameId === WW
-      ? WUWA_MAINSTAT_VALUES[result.cost]
-      : HOYO_MAINSTAT_VALUES[gameId];
+  const gameMainstat = MAINSTAT[gameId];
 
   return (spec) => {
     // Assign cost or index
@@ -60,12 +50,11 @@ export const createAssignMain = (gameId) => {
       : initIndex(spec);
 
     // Assign stat
-    const weights = getWeights(result);
-    const values = getValues(result);
-    const winner = weightedLottery(Object.values(weights));
+    const options = gameMainstat[gameId === WW ? result.cost : result.index];
+    const winner = weightedLottery(Object.values(options).map(({ weight }) => weight));
 
-    result.mainStatId = Object.keys(weights)[winner];
-    result.mainStatValue = values[result.mainStatId];
+    result.mainStatId = Object.keys(options)[winner];
+    result.mainStatValue = options[result.mainStatId].value;
 
     return result;
   };

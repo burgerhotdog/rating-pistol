@@ -1,7 +1,6 @@
-import { SUBSTAT_VALUES } from '../stats/values';
+import { SUBSTAT } from '@/data';
 
 export const getSubRollSums = (gameId, equipList) => {
-  const MAX_VALUES = SUBSTAT_VALUES[gameId];
   const subStatSums = {};
 
   for (const equip of equipList) {
@@ -9,7 +8,7 @@ export const getSubRollSums = (gameId, equipList) => {
 
     for (const { subStatId, subStatValue } of equip.subStatList) {
       subStatSums[subStatId] ??= 0
-      subStatSums[subStatId] += subStatValue / MAX_VALUES[subStatId];
+      subStatSums[subStatId] += subStatValue / SUBSTAT[gameId][subStatId].value;
     }
   }
 

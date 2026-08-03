@@ -4,7 +4,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ATTR_ASSETS } from '@/assets';
 import { FlexRow, FlexCol, FlexCard } from '@/components';
-import { WW, CHARACTER } from '@/data';
+import { WW, CHARACTER, SUBSTAT } from '@/data';
 import { formatStr } from '@/utils';
 import { 
   BarChart,
@@ -15,12 +15,9 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  Legend,
   Tooltip as RechartsTooltip,
 } from 'recharts';
 import { ChartFill } from '../Layout';
-import { HOYO_SUBSTAT_WEIGHTS } from '@/workers/simulation/stats/weights';
-import { SUBSTAT_VALUES } from '@/workers/simulation/stats/values';
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
@@ -180,12 +177,13 @@ function createSubFilter(gameId, configKey = '', subDist = {}) {
   }
 
   const mainStatsList = configKey.split('|');
-  const subWeights = Object.entries(HOYO_SUBSTAT_WEIGHTS[gameId]);
 
   return (stat) => {
     const baseChances = mainStatsList.map((mainStat) => {
-      const withoutMain = subWeights.filter(([key]) => key !== mainStat);
-      return chanceOfStat(withoutMain, stat);
+      const weights = Object.values(SUBSTAT[gameId])
+        .filter(({ id }) => id !== mainStat)
+        .map(({ id, weight }) => [id, weight]);
+      return chanceOfStat(weights, stat);
     });
 
     const avgRolls = baseChances
@@ -218,7 +216,7 @@ export const StatDist = ({ configMap, userConfigKey, userSubStats }) => {
 
   const subFilter = createSubFilter(gameId, userConfigKey, subDist);
 
-  const data = Object.keys(SUBSTAT_VALUES[gameId])
+  const data = Object.keys(SUBSTAT[gameId])
     .filter(subFilter)
     .map((stat) => {
       const avgRolls = subDist[stat];
