@@ -122,7 +122,7 @@ const Mainstats = ({ configMap, userConfigKey }) => {
         title={
           <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
             <Typography variant="subtitle1">
-              Mainstat distribution
+              Mainstat Distribution
             </Typography>
 
             <Tooltip title="Top main stat combinations in simulated builds.">

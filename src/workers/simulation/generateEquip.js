@@ -10,38 +10,30 @@ const FLATS_BY_COST = {
   1: { mainStatFlatId: 'hp', mainStatFlatValue: 2280 },
 };
 
-function initEquipGI() {
-  const index = Math.floor(Math.random() * 5);
-  return { index };
-}
-
-function initEquipHSR(spec) {
-  const index = spec === 'relic'
-    ? Math.floor(Math.random() * 4)
-    : Math.random() < 0.5 ? 4 : 5;
-  return { index };
-}
-
-function initEquipWW(spec) {
-  const cost = spec ?? (Math.random() < 0.5 ? 3 : 1);
-  return { cost, ...FLATS_BY_COST[cost] };
-};
-
-function initEquipZZZ() {
-  const index = Math.floor(Math.random() * 6);
-  return { index };
-}
-
 function createInitEquip(gameId) {
   switch (gameId) {
     case GI:
-      return initEquipGI;
+      return function initEquip() {
+        const index = Math.floor(Math.random() * 5);
+        return { index };
+      };
     case HSR:
-      return initEquipHSR;
+      return function initEquip(spec) {
+        const index = spec === 'relic'
+          ? Math.floor(Math.random() * 4)
+          : Math.random() < 0.5 ? 4 : 5;
+        return { index };
+      };
     case WW:
-      return initEquipWW;
+      return function initEquip(spec) {
+        const cost = spec ?? (Math.random() < 0.5 ? 3 : 1);
+        return { cost, ...FLATS_BY_COST[cost] };
+      };
     case ZZZ:
-      return initEquipZZZ;
+      return function initEquip() {
+        const index = Math.floor(Math.random() * 6);
+        return { index };
+      };
   }
 }
 

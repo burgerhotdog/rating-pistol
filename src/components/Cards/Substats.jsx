@@ -10,7 +10,7 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import { alpha } from '@mui/material/styles';
+import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
   BarChart,
@@ -18,7 +18,6 @@ import {
   PolarGrid,
   Radar,
   RadarChart,
-  ResponsiveContainer,
   Tooltip as RechartsTooltip,
   XAxis,
   YAxis,
@@ -116,8 +115,52 @@ function createSubFilter(gameId, configKey = '', subDist = {}) {
   };
 };
 
+const MAX_CHARS_PER_LINE = 10;
+
+function wrapLabel(value, maxChars = MAX_CHARS_PER_LINE) {
+  const words = String(value).split(' ');
+  const lines = [];
+  let current = '';
+
+  words.forEach((word) => {
+    const next = current ? `${current} ${word}` : word;
+    if (next.length > maxChars && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = next;
+    }
+  });
+  if (current) lines.push(current);
+  return lines;
+}
+
+function CustomPolarAngleAxisTick({ x, y, cx, cy, payload, textAnchor, color }) {
+  const lines = wrapLabel(payload.value);
+  const lineHeight = 12;
+  // vertically center the multi-line block on the original tick position
+  const startDy = -((lines.length - 1) * lineHeight) / 2;
+
+  return (
+    <text
+      x={x}
+      y={y}
+      textAnchor={textAnchor}
+      fontSize={11}
+      fill={color}
+    >
+      {lines.map((line, i) => (
+        <tspan key={i} x={x} dy={i === 0 ? startDy : lineHeight}>
+          {line}
+        </tspan>
+      ))}
+    </text>
+  );
+}
+
 const Substats = ({ configMap, userConfigKey, userSubStats }) => {
   const { gameId } = useParams();
+  const { palette } = useTheme();
   const color = useElementColors({ char: '$curr' });
   if (!configMap) return null;
 
@@ -158,58 +201,48 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
       />
 
       <CardContent component={Stack} direction="row" sx={{ flex: 1 }}>
-        <ResponsiveContainer width="100%" height="100%">
-          <RadarChart
-            responsive
-            data={data}
-            outerRadius="70%"
-            margin={{
-              top: 16,
-              left: 48,
-              right: 48,
-              bottom: 16,
-            }}
-          >
-            <PolarGrid />
-            <PolarAngleAxis
-              dataKey="stat"
-              tick={{ fontSize: 9 }}
-            />
-            <Radar
-              dataKey="user"
-              stroke={color}
-              fill={color}
-              fillOpacity={0.6}
-            />
-          </RadarChart>
-        </ResponsiveContainer>
+        <RadarChart
+          data={data}
+          width="100%"
+          height="100%"
+          responsive
+        >
+          <PolarGrid />
+          <PolarAngleAxis dataKey="stat" tick={<CustomPolarAngleAxisTick color={palette.text.disabled} />} />
+          <Radar
+            dataKey="user"
+            stroke={color}
+            fill={color}
+            fillOpacity={0.6}
+          />
+        </RadarChart>
 
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            layout="vertical"
-            data={data}
-            margin={{ left: 16, right: 16, top: 8, bottom: 8 }}
-          >
-            <XAxis
-              type="number"
-              tickFormatter={(v) => v.toFixed(1)}
-            />
-  
-            <YAxis
-              type="category"
-              dataKey="stat"
-              tick={{ fontSize: 11 }}
-            />
-  
-            <RechartsTooltip content={CustomTooltip} />
-  
-            <Bar
-              dataKey="avg"
-              name="Benchmark"
-              fill={alpha(color, 0.6)}
-            />
-          </BarChart>
-        </ResponsiveContainer>
+        <BarChart
+          layout="vertical"
+          data={data}
+          width="100%"
+          height="100%"
+          responsive
+        >
+          <XAxis
+            type="number"
+            tickFormatter={(v) => v.toFixed(1)}
+          />
+
+          <YAxis
+            type="category"
+            dataKey="stat"
+            tick={{ fontSize: 11 }}
+          />
+
+          <RechartsTooltip content={CustomTooltip} />
+
+          <Bar
+            dataKey="avg"
+            name="Benchmark"
+            fill={alpha(color, 0.6)}
+          />
+        </BarChart>
       </CardContent>
     </Card>
   );

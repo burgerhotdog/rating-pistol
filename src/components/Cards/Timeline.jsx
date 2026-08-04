@@ -17,7 +17,6 @@ import {
   Area,
   AreaChart,
   CartesianGrid,
-  ResponsiveContainer,
   Scatter,
   ScatterChart,
   Tooltip as ChartTooltip,
@@ -237,67 +236,75 @@ const Timeline = ({ userSummary, memberIds }) => {
       />
 
       <CardContent component={Stack} sx={{ flex: 1 }}>
-        <ResponsiveContainer width="100%" height="100%">
-          {isRunningTotal ? (
-            <AreaChart data={data}>
-              {axisProps}
+        {isRunningTotal ? (
+          <AreaChart
+            data={data}
+            width="100%"
+            height="100%"
+            responsive
+          >
+            {axisProps}
 
-              {memberStack.toReversed().map((id) => {
-                const color = memberColors[id];
-                return (
-                  <Area
-                    key={id}
-                    dataKey={id}
-                    activeDot={false}
-                    fill={`url(#gradient${color})`}
-                    hide={isCurrOnly && id !== charId}
-                    name={charData[id]?.name ?? 'Other'}
-                    stackId="members"
-                    stroke={color}
-                    strokeOpacity={0}
-                    type="monotone"
-                  />
-                );
-              })}
+            {memberStack.toReversed().map((id) => {
+              const color = memberColors[id];
+              return (
+                <Area
+                  key={id}
+                  dataKey={id}
+                  activeDot={false}
+                  fill={`url(#gradient${color})`}
+                  hide={isCurrOnly && id !== charId}
+                  name={charData[id]?.name ?? 'Other'}
+                  stackId="members"
+                  stroke={color}
+                  strokeOpacity={0}
+                  type="monotone"
+                />
+              );
+            })}
 
-              <ChartTooltip
-                content={({ payload }) => (
-                  <TooltipContent
-                    time={payload[0]?.payload?.time}
-                    rows={payload.toReversed()}
-                  />
-                )}
-              />
-            </AreaChart>
-          ) : (
-            <ScatterChart data={data}>
-              {axisProps}
+            <ChartTooltip
+              content={({ payload }) => (
+                <TooltipContent
+                  time={payload[0]?.payload?.time}
+                  rows={payload.toReversed()}
+                />
+              )}
+            />
+          </AreaChart>
+        ) : (
+          <ScatterChart
+            data={data}
+            width="100%"
+            height="100%"
+            responsive
+          >
+            {axisProps}
 
-              {memberStack.map((id) => {
-                const color = memberColors[id];
-                return (
-                  <Scatter
-                    key={id}
-                    dataKey={id}
-                    animationInterpolateFn={popCrossfade}
-                    name={charData[id]?.name ?? 'Other'}
-                    fill={color}
-                  />
-                );
-              })}
+            {memberStack.map((id) => {
+              const color = memberColors[id];
+              return (
+                <Scatter
+                  key={id}
+                  dataKey={id}
+                  animationInterpolateFn={popCrossfade}
+                  name={charData[id]?.name ?? 'Other'}
+                  fill={color}
+                />
+              );
+            })}
 
-              <ChartTooltip
-                isAnimationActive={false}
-                content={({ payload }) => (
-                  <TooltipContent
-                    time={payload[0]?.value ?? 0}
-                    rows={payload[1] ? [payload[1]] : []}
-                  />
-                )}
-              />
-            </ScatterChart>
-          )}
-        </ResponsiveContainer>
+            <ChartTooltip
+              isAnimationActive={false}
+              content={({ payload }) => (
+                <TooltipContent
+                  time={payload[0]?.value ?? 0}
+                  rows={payload[1] ? [payload[1]] : []}
+                />
+              )}
+            />
+          </ScatterChart>
+        )}
       </CardContent>
     </Card>
   );

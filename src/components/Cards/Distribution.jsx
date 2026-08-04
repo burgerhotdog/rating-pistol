@@ -19,7 +19,6 @@ import {
   Cell,
   Pie,
   PieChart,
-  ResponsiveContainer,
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
@@ -120,56 +119,62 @@ const Distribution = ({ userSummary }) => {
 
       <CardContent component={Stack} sx={{ flex: 1 }}> 
         <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={data}
-                dataKey="value"
-                animationBegin={0}
-              >
-                {data.map(({ name, percent }) => {
-                  const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
-                  return (<Cell key={name} fill={fill} stroke="none" />);
-                })}
-              </Pie>
+          <PieChart 
+            width="100%"
+            height="100%"
+            responsive
+          >
+            <Pie
+              data={data}
+              dataKey="value"
+              animationBegin={0}
+            >
+              {data.map(({ name, percent }) => {
+                const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
+                return (<Cell key={name} fill={fill} stroke="none" />);
+              })}
+            </Pie>
 
-              <ChartTooltip
-                content={({ payload }) => {
-                  const { name = '', value = 0 } = payload?.[0]?.payload ?? {};
+            <ChartTooltip
+              content={({ payload }) => {
+                const { name = '', value = 0 } = payload?.[0]?.payload ?? {};
 
-                  return (
-                    <Paper sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
-                      <Typography variant="subtitle2">
-                        {formatStr(name)}
-                      </Typography>
+                return (
+                  <Paper sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
+                    <Typography variant="subtitle2">
+                      {formatStr(name)}
+                    </Typography>
 
-                      <Typography variant="body2" color="textSecondary">
-                        {formatNum(value)} damage
-                      </Typography>
-                    </Paper>
-                  );
-                }}
-              />
-            </PieChart>
-          </ResponsiveContainer>
+                    <Typography variant="body2" color="textSecondary">
+                      {formatNum(value)} damage
+                    </Typography>
+                  </Paper>
+                );
+              }}
+            />
+          </PieChart>
 
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart layout="vertical" data={data}>
-              <XAxis domain={[0, 1]} type="number" />
-    
-              <YAxis
-                dataKey="name"
-                type="category"
-                tick={{ fontSize: 11 }}
-              />
-    
-              <Bar
-                dataKey="percent"
-                animationMatchBy={matchByDataKey('name')}
-                fill={color}
-              />
-            </BarChart>
-          </ResponsiveContainer>
+          <BarChart
+            layout="vertical"
+            data={data}
+            width="100%"
+            height="100%"
+            responsive
+          >
+            <XAxis domain={[0, 1]} type="number" />
+  
+            <YAxis
+              dataKey="name"
+              type="category"
+              tick={{ fontSize: 11 }}
+            />
+  
+            <Bar
+              dataKey="percent"
+              animationMatchBy={matchByDataKey('name')}
+              fill={color}
+            />
+          </BarChart>
         </Stack>
       </CardContent>
     </Card>
