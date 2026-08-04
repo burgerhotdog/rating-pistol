@@ -214,7 +214,6 @@ export const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapa
             Piece bonus:
           </Typography>
           <ToggleButtonGroup
-            exclusive
             value={tierFilter}
             onChange={(_, val) => { if (val !== null) setTierFilter(val); }}
           >

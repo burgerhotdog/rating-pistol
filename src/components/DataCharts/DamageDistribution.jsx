@@ -2,21 +2,23 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   CardHeader,
-  Stack,
-  Divider,
   Paper,
+  Stack,
+  ToggleButton,
+  ToggleButtonGroup,
   Tooltip,
   Typography,
-  MenuItem,
-  ToggleButtonGroup,
-  ToggleButton,
-  TextField,
 } from '@mui/material';
-import { alpha, darken, useTheme } from '@mui/material/styles';
+import { alpha, darken } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import { PieChart, Pie, Tooltip as ChartTooltip, Cell } from 'recharts';
+import {
+  Cell,
+  Pie,
+  PieChart,
+  Tooltip as ChartTooltip,
+} from 'recharts';
 import { FlexRow, FlexCol, FlexCard, ChartFill, Dot } from '@/components';
-import { CHARACTER } from '@/data';
+import { useElementColors } from '@/hooks';
 import { formatStr, formatNum } from '@/utils';
 
 const VALID_CATEGORIES = new Set([
@@ -27,16 +29,16 @@ const VALID_CATEGORIES = new Set([
   'introSkill',
 ]);
 
-const BREAKDOWN_MODES = [
+const DISTRIBUTION_MODES = [
   'damageType',
   'category',
 ];
 
-const buildData = (summary, currId, breakdownMode) => {
+const buildData = (summary, currId, distributionMode) => {
   const damageByType = {};
 
   const getType = (snapshot) => {
-    if (breakdownMode === 'damageType') {
+    if (distributionMode === 'damageType') {
       return snapshot.damageType ?? 'other';
     } else {
       const { category } = snapshot;
@@ -45,8 +47,6 @@ const buildData = (summary, currId, breakdownMode) => {
     }
   };
 
-  // TODO: branch on breakdownMode once fieldStatus grouping is implemented.
-  // For now this always groups by dmgType regardless of the selected mode.
   for (const snapshot of summary) {
     if (!('damage' in snapshot) || snapshot.ownerId !== currId) continue;
 
@@ -72,19 +72,15 @@ const buildData = (summary, currId, breakdownMode) => {
   });
 };
 
-export const DamageBreakdown = ({ userSummary, teamIds }) => {
-  const { gameId, charId } = useParams();
-  const { elementColors } = useTheme();
+export const DamageDistribution = ({ userSummary }) => {
+  const { charId } = useParams();
+  const [distributionMode, setDistributionMode] = useState('damageType');
 
-  const [selectedCharId, setSelectedCharId] = useState(charId);
-  const [breakdownMode, setBreakdownMode] = useState('damageType');
+  const handleToggleButtonGroup = (_, value) => value && setDistributionMode(value);
 
-  if (!userSummary) return null;
+  const color = useElementColors({ char: '$curr' });
 
-  const data = buildData(userSummary, selectedCharId, breakdownMode);
-
-  const { element } = CHARACTER[gameId][selectedCharId];
-  const elementColor = elementColors[gameId][element];
+  const data = buildData(userSummary, charId, distributionMode);
 
   return (
     <FlexCard>
@@ -92,25 +88,20 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
         title={
           <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
             <Typography variant="subtitle1">
-              Damage breakdown
+              Damage Distribution
             </Typography>
 
-            <Tooltip
-              title="How damage is distributed across your rotation."
-            >
-              <HelpOutlineOutlinedIcon
-                color="disabled"
-              />
+            <Tooltip title="How damage is distributed across your rotation.">
+              <HelpOutlineOutlinedIcon color="disabled" />
             </Tooltip>
           </Stack>
         }
         action={
           <ToggleButtonGroup
-            value={breakdownMode}
-            onChange={(_, value) => value && setBreakdownMode(value)}
-            exclusive
+            value={distributionMode}
+            onChange={handleToggleButtonGroup}
           >
-            {BREAKDOWN_MODES.map((mode) => (
+            {DISTRIBUTION_MODES.map((mode) => (
               <ToggleButton
                 key={mode}
                 value={mode}
@@ -129,15 +120,14 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
           <PieChart>
             <Pie data={data} dataKey="value">
               {data.map(({ name, percent }) => {
-                const fill = alpha(darken(elementColor, (1 - percent) * 0.7), 0.9);
+                const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
                 return (<Cell key={name} fill={fill} stroke="none" />);
               })}
             </Pie>
 
             <ChartTooltip
-              content={({ active, payload }) => {
-                if (!active || !payload?.length) return null;
-                const { name, value } = payload[0].payload;
+              content={({ payload }) => {
+                const { name = '', value = 0 } = payload?.[0]?.payload ?? {};
 
                 return (
                   <Paper sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
@@ -156,22 +146,9 @@ export const DamageBreakdown = ({ userSummary, teamIds }) => {
         </ChartFill>
 
         <FlexCol spacing={1}>
-          <TextField
-            select
-            value={selectedCharId}
-            onChange={(e) => setSelectedCharId(e.target.value)}
-            fullWidth
-          >
-            {teamIds.map((id) => (
-              <MenuItem key={id} value={id}>
-                {CHARACTER[gameId][id].name}
-              </MenuItem>
-            ))}
-          </TextField>
-
           <Stack spacing={0.5} sx={{ flexGrow: 1, justifyContent: 'center' }}>
             {data.map(({ name, percent }) => {
-              const fill = alpha(darken(elementColor, (1 - percent) * 0.7), 0.9);
+              const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
 
               return (
                 <Stack

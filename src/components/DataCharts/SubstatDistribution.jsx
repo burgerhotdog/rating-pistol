@@ -1,18 +1,28 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, CardHeader, Stack, Paper, Tooltip, Typography, Switch, FormControlLabel } from '@mui/material';
-import { alpha, useTheme } from '@mui/material/styles';
+import {
+  Box,
+  CardHeader,
+  FormControlLabel,
+  Paper,
+  Stack,
+  Switch,
+  Tooltip,
+  Typography,
+} from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
-  BarChart,
   Bar,
-  XAxis,
-  YAxis,
+  BarChart,
   Legend,
   Tooltip as RechartsTooltip,
+  XAxis,
+  YAxis,
 } from 'recharts';
-import { FlexCard, ChartFill } from '@/components';
-import { WW, CHARACTER, SUBSTAT } from '@/data';
+import { ChartFill, FlexCard } from '@/components';
+import { WW, SUBSTAT } from '@/data';
+import { useElementColors } from '@/hooks';
 import { formatStr } from '@/utils';
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -92,11 +102,8 @@ const isSignificantStat = (gameId, statId, percentOftotal, mainStatsList) => {
 };
 
 export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) => {
-  const { gameId, charId } = useParams();
-  const { elementColors } = useTheme();
-  const { element } = CHARACTER[gameId][charId];
+  const { gameId } = useParams();
   const [showAll, setShowAll] = useState(false);
-  if (!configMap) return null;
 
   const { subDist = {} } = configMap[userConfigKey] ?? {};
 
@@ -113,7 +120,7 @@ export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) 
     .filter(({ id, sim }) => showAll || isSignificantStat(gameId, id, sim / totalRolls, (userConfigKey ?? '').split('|')))
     .sort((a, b) => b.sim - a.sim);
 
-  const elementColor = elementColors[gameId][element];
+  const color = useElementColors({ char: '$curr' });
   const maxValue = Math.max(...chartData.flatMap((d) => [d.sim, d.user]));
 
   return (
@@ -169,13 +176,13 @@ export const SubstatDistribution = ({ configMap, userConfigKey, userSubStats }) 
           <Bar
             dataKey="sim"
             name="Benchmark"
-            fill={alpha(elementColor, 0.3)}
+            fill={alpha(color, 0.3)}
           />
 
           <Bar
             dataKey="user"
             name="You"
-            fill={elementColor}
+            fill={color}
           />
         </BarChart>
       </ChartFill>

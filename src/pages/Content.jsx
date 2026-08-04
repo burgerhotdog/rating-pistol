@@ -7,7 +7,7 @@ import {
   LoadingBar,
   StatsPanel,
   ProgressChart,
-  DamageBreakdown,
+  DamageDistribution,
   RatingGrade,
   Timeline,
   StatDist,
@@ -91,7 +91,7 @@ export const Content = () => {
 
             <Divider />
 
-            <DamageBreakdown
+            <DamageDistribution
               userSummary={userSummary}
               teamIds={team.members.map((m) => m.id).filter(Boolean)}
             />

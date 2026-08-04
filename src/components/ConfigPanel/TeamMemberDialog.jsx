@@ -914,11 +914,9 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             <Box sx={{ mt: 2 }}>
               <Typography variant="subtitle2" sx={{ mb: 1 }}>Resonance Mode</Typography>
               <ToggleButtonGroup
-                exclusive
                 value={draft.resonanceMode ?? CHARACTER[gameId][draft.id].modes[0]}
                 onChange={(_, value) => { if (value !== null) setDraft((prev) => ({ ...prev, resonanceMode: value })); }}
                 disabled={buildLocked}
-                size="small"
               >
                 {CHARACTER[gameId][draft.id].modes.map((mode) => (
                   <ToggleButton key={mode} value={mode}>

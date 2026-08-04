@@ -3,11 +3,10 @@ import { useParams } from 'react-router-dom';
 import {
   Box,
   CardHeader,
+  Checkbox,
   Divider,
   FormControlLabel,
   Paper,
-  Stack,
-  Switch,
   Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -21,18 +20,29 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { FlexCard, ChartFill, Dot } from '@/components';
-import { CHARACTER } from '@/data';
+import { ChartFill, Dot, FlexCard } from '@/components';
+import { useCharData, useElementColors } from '@/hooks';
 import { formatNum, formatDmg } from '@/utils';
 
-function createData(summary, memberStack, isRunningTotal = false) {
-  const runtimeDamage = {};
-  for (const { runtime, ownerId, damage = 0 } of summary) {
-    if (damage <= 0) continue;
+function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
+  const filteredSummary = summary.filter(({ ownerId, field, damage = 0 }) => {
+    if (!isCurrOnly) return damage > 0;
 
-    runtimeDamage[runtime] ??= { time: runtime };
-    runtimeDamage[runtime][ownerId] ??= 0;
-    runtimeDamage[runtime][ownerId] += damage;
+    if (ownerId !== currId || field !== 'onField') return;
+    return damage > 0;
+  });
+
+  const runtimeOffset = isCurrOnly && filteredSummary.length
+    ? filteredSummary[0].runtime
+    : 0;
+
+  const runtimeDamage = {};
+  for (const { runtime, ownerId, damage } of filteredSummary) {
+    const adjustedRuntime = runtime - runtimeOffset;
+
+    runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
+    runtimeDamage[adjustedRuntime][ownerId] ??= 0;
+    runtimeDamage[adjustedRuntime][ownerId] += damage;
   }
 
   if (isRunningTotal) {
@@ -115,23 +125,26 @@ const TooltipContent = ({ time, rows }) => {
 };
 
 export const Timeline = ({ userSummary, team }) => {
-  const { gameId } = useParams();
-  const { palette, elementColors } = useTheme();
+  const { charId } = useParams();
+  const { palette } = useTheme();
   const [isRunningTotal, setIsRunningTotal] = useState(true);
-  const gameColors = elementColors[gameId];
-  const gameCharacters = CHARACTER[gameId];
+  const [isCurrOnly, setIsCurrOnly] = useState(false);
+  const handleCheckbox = (setter) => (event) => setter(event.target.checked);
+  const charData = useCharData();
+  const elementColors = useElementColors();
 
   const memberStack = team.filter((m) => m.id).map((m) => m.id);
   if (userSummary.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
 
   const memberColors = Object.fromEntries(
     memberStack.map((id) => {
-      const element = gameCharacters[id]?.element;
-      return [id, gameColors[element] ?? '#ffffff'];
+      const element = charData[id]?.element;
+      return [id, elementColors[element] ?? '#ffffff'];
     })
   );
 
-  const data = createData(userSummary, memberStack, isRunningTotal);
+  const data = buildData(userSummary, memberStack, isRunningTotal, isCurrOnly, charId);
+  const chartMargin = { top: 16, right: 32, left: 32, bottom: 16 };
   const axisProps = (
     <>
       <defs>
@@ -148,20 +161,14 @@ export const Timeline = ({ userSummary, team }) => {
       />
       <XAxis
         dataKey="time"
-        type="number"
         domain={[0, 'dataMax']}
         tick={{ fontSize: 12 }}
         tickFormatter={(time) => `${(time / 1000).toFixed()}s`}
+        type="number"
       />
       <YAxis
         tick={{ fontSize: 12 }}
         tickFormatter={formatDmg}
-        label={{
-          value: 'Damage',
-          angle: -90,
-          position: 'insideLeft',
-          fontSize: 12,
-        }}
         width="auto"
       />
     </>
@@ -170,38 +177,34 @@ export const Timeline = ({ userSummary, team }) => {
   return (
     <FlexCard>
       <CardHeader
-        title={
-          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-            <Typography variant="subtitle1">
-              Rotation Timeline
-            </Typography>
-          </Stack>
-        }
+        title="Damage Timeline"
         action={
-          <FormControlLabel
-            control={
-              <Switch
-                size="small"
-                checked={isRunningTotal}
-                onChange={(e) => setIsRunningTotal(e.target.checked)}
-              />
-            }
-            label={
-              <Typography variant="caption" color="textSecondary">
-                Running Total
-              </Typography>
-            }
-          />
+          <>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isRunningTotal}
+                  onChange={handleCheckbox(setIsRunningTotal)}
+                />
+              }
+              label="Running Total"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isCurrOnly}
+                  onChange={handleCheckbox(setIsCurrOnly)}
+                />
+              }
+              label="Hide Teammates"
+            />
+          </>
         }
-        disableTypography
       />
 
       <ChartFill flex={3}>
         {isRunningTotal ? (
-          <AreaChart
-            data={data}
-            margin={{ top: 16, right: 16, left: 16, bottom: 16 }}
-          >
+          <AreaChart data={data} margin={chartMargin}>
             {axisProps}
 
             {memberStack.toReversed().map((id) => {
@@ -212,7 +215,8 @@ export const Timeline = ({ userSummary, team }) => {
                   dataKey={id}
                   activeDot={false}
                   fill={`url(#gradient${color})`}
-                  name={gameCharacters[id]?.name ?? 'Other'}
+                  hide={isCurrOnly && id !== charId}
+                  name={charData[id]?.name ?? 'Other'}
                   stackId="members"
                   stroke={color}
                   strokeOpacity={0}
@@ -233,10 +237,7 @@ export const Timeline = ({ userSummary, team }) => {
             />
           </AreaChart>
         ) : (
-          <ScatterChart
-            data={data}
-            margin={{ top: 16, right: 16, left: 16, bottom: 16 }}
-          >
+          <ScatterChart data={data} margin={chartMargin}>
             {axisProps}
 
             {memberStack.map((id) => {
@@ -245,7 +246,7 @@ export const Timeline = ({ userSummary, team }) => {
                 <Scatter
                   key={id}
                   dataKey={id}
-                  name={gameCharacters[id]?.name ?? 'Other'}
+                  name={charData[id]?.name ?? 'Other'}
                   fill={color}
                 />
               );

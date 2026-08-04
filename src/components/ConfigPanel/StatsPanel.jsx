@@ -1,11 +1,24 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Chip, CardContent, Box, CardHeader, Card, Divider, MenuItem, Stack, TextField, Typography, Skeleton, Tooltip } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Chip,
+  Divider,
+  MenuItem,
+  Skeleton,
+  Stack,
+  TextField,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 import { CharAvatar } from '@/components';
-import { TeamMemberDialog, RotationEditor } from './TeamMemberDialog';
-import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
+import { GI, HSR, WW, ZZZ } from '@/data';
+import { useElementColors, useCharData } from '@/hooks';
 import { getAttr, formatStr, compileMenuMap } from '@/utils';
+import { TeamMemberDialog, RotationEditor } from './TeamMemberDialog';
 
 const MENU_STATS = {
   [GI]: [
@@ -92,7 +105,9 @@ function formatFullDate(dateString) {
 
 export const StatsPanel = ({ team, updateTeam }) => {
   const { gameId, charId } = useParams();
-  const theme = useTheme();
+  const color = useElementColors({ char: '$curr' });
+  const charData = useCharData();
+  const currChar = charData[charId];
   const [dialogIndex, setDialogIndex] = useState(null);
   const [rotationMemberId, setRotationMemberId] = useState(charId);
   const [prevCharId, setPrevCharId] = useState(charId);
@@ -125,20 +140,20 @@ export const StatsPanel = ({ team, updateTeam }) => {
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
         avatar={<CharAvatar gameId={gameId} charId={charId} />}
-        title={CHARACTER[gameId][charId]?.name ?? ''}
+        title={currChar?.name ?? ''}
         subheader={
           <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
             <Chip
-              label={formatStr(CHARACTER[gameId][charId].element)}
+              label={formatStr(currChar.element)}
               variant="outlined"
               sx={{
                 fontWeight: 'bold',
-                color: theme.elementColors[gameId][CHARACTER[gameId][charId].element]
+                color,
               }}
             />
 
             <Chip
-              label={formatStr(CHARACTER[gameId][charId]?.type)}
+              label={formatStr(currChar?.type)}
               variant="outlined"
               sx={{ fontWeight: 'bold' }}
             />
@@ -218,7 +233,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
         >
           {team.map((m, i) => (
             <MenuItem key={i} value={i} disabled={!m.id}>
-              {m.id ? (CHARACTER[gameId][m.id]?.name ?? m.id) : `Slot ${i + 1} (empty)`}
+              {m.id ? (charData[m.id]?.name ?? m.id) : `Slot ${i + 1} (empty)`}
             </MenuItem>
           ))}
         </TextField>

@@ -1,23 +1,33 @@
 import { useParams } from 'react-router-dom';
-import { Avatar, Stack, IconButton, Box, Card, CardHeader, Tooltip, Typography, Paper } from '@mui/material';
-import { alpha, useTheme } from '@mui/material/styles';
+import {
+  Avatar,
+  Box,
+  Card,
+  CardHeader,
+  IconButton,
+  Paper,
+  Stack,
+  Tooltip,
+  Typography,
+} from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import { ATTR_ASSETS } from '@/assets';
-import { FlexRow, FlexCol, FlexCard } from '@/components';
-import { WW, CHARACTER, SUBSTAT } from '@/data';
-import { formatStr } from '@/utils';
-import { 
-  BarChart,
+import {
   Bar,
-  XAxis,
-  YAxis,
+  BarChart,
+  PolarAngleAxis,
+  PolarGrid,
   Radar,
   RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
   Tooltip as RechartsTooltip,
+  XAxis,
+  YAxis,
 } from 'recharts';
-import { ChartFill } from '../Layout';
+import { ATTR_ASSETS } from '@/assets';
+import { ChartFill, FlexCard, FlexCol, FlexRow } from '@/components';
+import { WW, SUBSTAT } from '@/data';
+import { useElementColors } from '@/hooks';
+import { formatStr } from '@/utils';
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
@@ -197,10 +207,8 @@ function createSubFilter(gameId, configKey = '', subDist = {}) {
 };
 
 export const StatDist = ({ configMap, userConfigKey, userSubStats }) => {
-  const { gameId, charId } = useParams();
-  const { elementColors } = useTheme();
-  const { element } = CHARACTER[gameId][charId];
-  const elementColor = elementColors[gameId][element];
+  const { gameId } = useParams();
+  const color = useElementColors({ char: '$curr' });
   if (!configMap) return null;
 
   const entries = Object.entries(configMap);
@@ -306,8 +314,8 @@ export const StatDist = ({ configMap, userConfigKey, userSubStats }) => {
               />
               <Radar
                 dataKey="user"
-                stroke={elementColor}
-                fill={elementColor}
+                stroke={color}
+                fill={color}
                 fillOpacity={0.6}
               />
             </RadarChart>
@@ -336,7 +344,7 @@ export const StatDist = ({ configMap, userConfigKey, userSubStats }) => {
               <Bar
                 dataKey="avg"
                 name="Benchmark"
-                fill={alpha(elementColor, 0.6)}
+                fill={alpha(color, 0.6)}
               />
             </BarChart>
           </ChartFill>

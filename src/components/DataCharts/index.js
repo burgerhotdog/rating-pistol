@@ -1,5 +1,5 @@
 export * from './ProgressChart';
-export * from './DamageBreakdown';
+export * from './DamageDistribution';
 export * from './MainstatDistribution';
 export * from './SubstatDistribution';
 export * from './Timeline';
