@@ -111,7 +111,7 @@ export const DamageDistribution = ({ userSummary }) => {
         disableTypography
       />
 
-      <Stack direction="row" sx={{ flex: 1 }}>
+      <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <ChartFill>
           <PieChart>
             <Pie data={data} dataKey="value">
@@ -141,31 +141,33 @@ export const DamageDistribution = ({ userSummary }) => {
           </PieChart>
         </ChartFill>
 
-        <Stack spacing={1} sx={{ flex: 1 }}>
-          <Stack spacing={0.5} sx={{ flexGrow: 1, justifyContent: 'center' }}>
-            {data.map(({ name, percent }) => {
-              const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
+        <Stack spacing={0.5} sx={{ flex: 1, justifyContent: 'center' }}>
+          {data.map(({ name, percent }) => {
+            const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
 
-              return (
+            return (
+              <Stack
+                key={name}
+                direction="row"
+                sx={{ justifyContent: 'space-between' }}
+              >
                 <Stack
-                  key={name}
                   direction="row"
-                  spacing={0.5}
+                  spacing={1}
                   sx={{ alignItems: 'center' }}
                 >
                   <Dot color={fill} />
-
-                  <Typography variant="body2" sx={{ flexGrow: 1 }}>
+                  <Typography variant="body2">
                     {name}
                   </Typography>
-
-                  <Typography variant="body2" color="textSecondary">
-                    {(percent * 100).toFixed()}%
-                  </Typography>
                 </Stack>
-              );
-            })}
-          </Stack>
+
+                <Typography variant="body2">
+                  {(percent * 100).toFixed()}%
+                </Typography>
+              </Stack>
+            );
+          })}
         </Stack>
       </Stack>
     </FlexCard>
