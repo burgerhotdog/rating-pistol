@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
+import { Box, LinearProgress, Stack, Typography } from '@mui/material';
 
 export const LoadingBar = ({ status, week, diff }) => {
   const initialDiffRef = useRef(null);

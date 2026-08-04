@@ -1,9 +1,65 @@
 import { useState } from 'react';
 import { Stack, Tab, Tabs } from '@mui/material';
-import { LoadingBar } from '@/components';
+import {
+  LoadingBar,
+  RatingCard,
+  ProgressCard,
+  TimelineCard,
+  DistributionCard,
+  MainstatsCard,
+  SubstatsCard,
+} from '@/components';
 import { useElementColors, useSimulation } from '@/hooks';
 import { formatStr } from '@/utils';
-import TabPanels from './TabPanels';
+
+const TabPanels = [
+  {
+    value: 'overview',
+    render: (results) => (
+      <Stack spacing={1} sx={{ flex: 1 }}>
+        <RatingCard
+          userDps={results.userDps}
+          benchmarkDps={results.benchmarkDps}
+        />
+        <ProgressCard
+          trialBands={results.trialBands}
+          userDps={results.userDps}
+          prydwenDps={results.prydwenDps}
+        />
+      </Stack>
+    ),
+  },
+  {
+    value: 'damageProfile',
+    render: (results) => (
+      <Stack spacing={1} sx={{ flex: 1 }}>
+        <TimelineCard
+          userSummary={results.userSummary}
+          memberIds={results.memberIds}
+        />
+        <DistributionCard
+          userSummary={results.userSummary}
+        />
+      </Stack>
+    ),
+  },
+  {
+    value: 'buildDetails',
+    render: (results) => (
+      <Stack spacing={1} sx={{ flex: 1 }}>
+        <MainstatsCard
+          configMap={results.configMap}
+          userConfigKey={results.userConfigKey}
+        />
+        <SubstatsCard
+          configMap={results.configMap}
+          userConfigKey={results.userConfigKey}
+          userSubStats={results.userSubStats}
+        />
+      </Stack>
+    ),
+  },
+];
 
 const Charts = ({ team }) => {
   const results = useSimulation(team);
@@ -27,13 +83,7 @@ const Charts = ({ team }) => {
         value={tab}
         onChange={handleTabs}
         textColor="inherit"
-        slotProps={{
-          indicator: {
-            sx: {
-              backgroundColor: color,
-            },
-          },
-        }}
+        slotProps={{ indicator: { sx: { backgroundColor: color } } }}
         centered
       >
         {TabPanels.map(({ value }) => (

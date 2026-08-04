@@ -103,7 +103,7 @@ const ConfigRow = ({ gameId, configKey, isUser, pct }) => {
   );
 };
 
-export const MainstatDist = ({ configMap, userConfigKey }) => {
+const Mainstats = ({ configMap, userConfigKey }) => {
   const { gameId } = useParams();
   if (!configMap) return null;
 
@@ -149,3 +149,5 @@ export const MainstatDist = ({ configMap, userConfigKey }) => {
     </Card>
   );
 };
+
+export default Mainstats;

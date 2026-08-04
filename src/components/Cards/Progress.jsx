@@ -21,7 +21,7 @@ import {
 import { useElementColors } from '@/hooks';
 import { formatNum, formatDmg } from '@/utils';
 
-export const ProgressChart = ({ trialBands, userDps }) => {
+const Progress = ({ trialBands, userDps }) => {
   const { palette } = useTheme();
   const color = useElementColors({ char: '$curr' });
 
@@ -186,3 +186,5 @@ export const ProgressChart = ({ trialBands, userDps }) => {
     </Card>
   );
 };
+
+export default Progress;

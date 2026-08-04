@@ -116,7 +116,7 @@ function createSubFilter(gameId, configKey = '', subDist = {}) {
   };
 };
 
-export const SubstatDist = ({ configMap, userConfigKey, userSubStats }) => {
+const Substats = ({ configMap, userConfigKey, userSubStats }) => {
   const { gameId } = useParams();
   const color = useElementColors({ char: '$curr' });
   if (!configMap) return null;
@@ -214,3 +214,5 @@ export const SubstatDist = ({ configMap, userConfigKey, userSubStats }) => {
     </Card>
   );
 };
+
+export default Substats;

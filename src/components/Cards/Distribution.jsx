@@ -78,7 +78,7 @@ const buildData = (summary, currId, distributionMode) => {
   });
 };
 
-export const DamageDistribution = ({ userSummary }) => {
+const Distribution = ({ userSummary }) => {
   const { charId } = useParams();
   const [distributionMode, setDistributionMode] = useState('damageType');
 
@@ -173,3 +173,5 @@ export const DamageDistribution = ({ userSummary }) => {
     </Card>
   );
 };
+
+export default Distribution;

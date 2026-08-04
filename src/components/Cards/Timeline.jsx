@@ -128,7 +128,7 @@ const TooltipContent = ({ time, rows }) => {
   );
 };
 
-export const Timeline = ({ userSummary, memberIds }) => {
+const Timeline = ({ userSummary, memberIds }) => {
   const { charId } = useParams();
   const { palette } = useTheme();
   const [isRunningTotal, setIsRunningTotal] = useState(true);
@@ -273,3 +273,5 @@ export const Timeline = ({ userSummary, memberIds }) => {
     </Card>
   );
 };
+
+export default Timeline;
