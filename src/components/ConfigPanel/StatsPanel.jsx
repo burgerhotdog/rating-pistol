@@ -103,38 +103,33 @@ function formatFullDate(dateString) {
   });
 }
 
-export const StatsPanel = ({ team, updateTeam }) => {
+export const StatsPanel = ({ team = [], updateTeam }) => {
   const { gameId, charId } = useParams();
   const color = useElementColors({ char: '$curr' });
   const charData = useCharData();
-  const currChar = charData[charId];
   const [dialogIndex, setDialogIndex] = useState(null);
   const [rotationMemberId, setRotationMemberId] = useState(charId);
   const [prevCharId, setPrevCharId] = useState(charId);
+
+  const member = team.find((member) => member.id === charId);
+  if (!charId || !member) return (
+    <Card sx={{ width: 300 }}>
+      <Skeleton
+        variant="rectangular"
+        width="100%"
+        height="100%"
+      />
+    </Card>
+  );
+
   if (prevCharId !== charId) {
     setPrevCharId(charId);
     setRotationMemberId(charId);
   }
   const rotationMemberIndex = Math.max(0, team.findIndex((m) => m.id === rotationMemberId));
 
-  const member = team.reduce((acc, member) => {
-    if (member.id !== charId) return acc;
-    return member;
-  }, null);
-
-  const statMap = member ? compileMenuMap(gameId, charId, member) : {};
-
-  if (!member) {
-    return (
-      <Card sx={{ width: 300 }}>
-        <Skeleton
-          variant="rectangular"
-          width="100%"
-          height="100%"
-        />
-      </Card>
-    )
-  }
+  const currChar = charData[charId];
+  const statMap = compileMenuMap(gameId, charId, member);
 
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
@@ -144,8 +139,8 @@ export const StatsPanel = ({ team, updateTeam }) => {
         subheader={
           <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
             <Chip
-              label={formatStr(currChar.element)}
               variant="outlined"
+              label={formatStr(currChar.element)}
               sx={{
                 fontWeight: 'bold',
                 color,
@@ -153,8 +148,8 @@ export const StatsPanel = ({ team, updateTeam }) => {
             />
 
             <Chip
-              label={formatStr(currChar?.type)}
               variant="outlined"
+              label={formatStr(currChar?.type)}
               sx={{ fontWeight: 'bold' }}
             />
           </Stack>

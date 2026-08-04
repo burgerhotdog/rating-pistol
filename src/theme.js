@@ -58,6 +58,11 @@ const theme = createTheme({
       defaultProps: {
         useFlexGap: true,
       },
+      styleOverrides: {
+        root: {
+          minHeight: 0,
+        },
+      },
     },
     MuiSvgIcon: {
       defaultProps: {

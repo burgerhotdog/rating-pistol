@@ -1,31 +1,6 @@
 import { Box, Card } from '@mui/material';
 import { ResponsiveContainer } from 'recharts';
 
-export const FlexRow = ({ spacing, sx, ...props }) => (
-  <Box
-    sx={[{
-      display: 'flex',
-      flex: 1,
-      minHeight: 0,
-      gap: spacing,
-    }, sx]}
-    {...props}
-  />
-);
-
-export const FlexCol = ({ spacing, sx, ...props }) => (
-  <Box
-    sx={[{
-      display: 'flex',
-      flexDirection: 'column',
-      flex: 1,
-      minHeight: 0,
-      gap: spacing,
-    }, sx]}
-    {...props}
-  />
-);
-
 export const FlexCard = ({ direction = 'column', sx, ...props }) => (
   <Card
     sx={[{

@@ -6,7 +6,7 @@ export const Navbar = ({ sorted }) => {
   const { gameId, charId } = useParams();
   const navigate = useNavigate();
 
-  const handleChange = (_, id) => {
+  const handleTabs = (_, id) => {
     if (charId === id) return;
     navigate(`/${gameId}/${id}`, { replace: true });
   };
@@ -16,7 +16,7 @@ export const Navbar = ({ sorted }) => {
         variant="scrollable"
         orientation="vertical"
         value={charId ?? false}
-        onChange={handleChange}
+        onChange={handleTabs}
         slotProps={{
           indicator: {
             style: { display: 'none' },

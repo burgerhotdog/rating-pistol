@@ -205,7 +205,7 @@ function SetCountsEditor({ gameId, id, setCounts = {}, onChange, disabled = fals
         Set Bonuses
       </Typography>
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ alignItems: 'flex-start', flexWrap: 'wrap' }}>
+      <Stack direction="row" spacing={1} sx={{ alignItems: 'flex-start', flexWrap: 'wrap' }}>
         {entries.map(([setId, pieces], index) => (
           <SetIcon
             key={setId}
@@ -248,7 +248,7 @@ function SetCountsEditor({ gameId, id, setCounts = {}, onChange, disabled = fals
         )}
       </Stack>
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap', mt: 1 }}>
+      <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', mt: 1 }}>
         <Button
           variant="outlined"
           startIcon={<RestartAltIcon />}
@@ -690,7 +690,7 @@ export function RotationEditor({ gameId, charId, member, rotation = [], onChange
         )}
       </Box>
 
-      <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
+      <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap' }}>
         <Button
           variant="outlined"
           startIcon={<AddIcon />}

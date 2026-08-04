@@ -1,53 +1,50 @@
-import { useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Stack } from '@mui/material';
 import { Header } from '@/components';
 import { Navbar } from '@/components/ConfigPanel';
-import { useBuild, useUser } from '@/contexts';
 import { CHARACTER } from '@/data';
-import { Content } from '@/pages';
+import { StatsPanel } from '@/components';
+import { useSortedBuilds, useTeam } from '@/hooks';
+import { Charts } from '@/layouts';
 
-export const GamePage = () => {
-  const { gameId, charId } = useParams();
-
-  const builds = useBuild().getBuilds(gameId);
-  const pinned = useUser().pinnedIds[gameId];
-
-  const sorted = useMemo(() => Object.keys(builds).sort((a, b) => {
-    if (a === pinned) return -1;
-    if (b === pinned) return 1;
-
-    const aIndex = CHARACTER[gameId][a].version;
-    const bIndex = CHARACTER[gameId][b].version;
-
-    return bIndex - aIndex;
-  }), [gameId, builds, pinned]);
-
-  // Navigate guard against invalid charIds
-  if (charId && (!CHARACTER[gameId][charId] || !builds[charId])) {
-    return <Navigate to={`/${gameId}`} replace />;
-  }
-
-  if (!charId && sorted.length) {
-    return <Navigate to={`/${gameId}/${sorted[0]}`} replace />;
-  }
+const PageLayout = ({ sortedKeys }) => {
+  const { team, updateTeam } = useTeam();
 
   return (
     <>
       <Header />
-      <Box
-        sx={{
-          display: 'flex',
-          flex: 1,
-          minHeight: 0,
-          overflow: 'hidden',
-          gap: 1,
-          pb: 4,
-        }}
+      <Stack
+        direction="row"
+        spacing={1}
+        sx={{ flex: 1, overflow: 'hidden', pb: 4 }}
       >
-        <Navbar sorted={sorted} />
-        {charId && <Content key={`${gameId}-${charId}`} />}
-      </Box>
+        <Navbar sorted={sortedKeys} />
+        <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
+          <StatsPanel team={team.members} updateTeam={updateTeam}/>
+          <Charts team={team} />
+        </Stack>
+      </Stack>
     </>
   );
 };
+
+const GamePage = () => {
+  const { gameId, charId } = useParams();
+  const { builds, sortedKeys } = useSortedBuilds(gameId);
+  const charData = CHARACTER[gameId];
+
+  const isBadCharId = charId && (!charData[charId] || !builds[charId]);
+  if (isBadCharId) return (
+    <Navigate to={`/${gameId}`} replace />
+  );
+
+  if (!charId && sortedKeys.length) return (
+    <Navigate to={`/${gameId}/${sortedKeys[0]}`} replace />
+  );
+
+  return (
+    <PageLayout key={`${gameId}-${charId}`} sortedKeys={sortedKeys} />
+  );
+};
+
+export default GamePage;

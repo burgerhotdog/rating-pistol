@@ -93,5 +93,6 @@ self.onmessage = ({ data }) => {
     benchmarkDps,
     userConfigKey: getMainConfig(gameId, cache.member[charId].equipList),
     userSubStats: getSubRollSums(gameId, cache.member[charId].equipList),
+    memberIds: cache.memberIds,
   });
 };

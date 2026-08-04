@@ -17,7 +17,7 @@ import {
   PieChart,
   Tooltip as ChartTooltip,
 } from 'recharts';
-import { FlexRow, FlexCol, FlexCard, ChartFill, Dot } from '@/components';
+import { FlexCard, ChartFill, Dot } from '@/components';
 import { useElementColors } from '@/hooks';
 import { formatStr, formatNum } from '@/utils';
 
@@ -88,7 +88,7 @@ export const DamageDistribution = ({ userSummary }) => {
         title={
           <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
             <Typography variant="subtitle1">
-              Damage Distribution
+              Distribution
             </Typography>
 
             <Tooltip title="How damage is distributed across your rotation.">
@@ -115,7 +115,7 @@ export const DamageDistribution = ({ userSummary }) => {
         disableTypography
       />
 
-      <FlexRow>
+      <Stack direction="row" sx={{ flex: 1 }}>
         <ChartFill>
           <PieChart>
             <Pie data={data} dataKey="value">
@@ -145,7 +145,7 @@ export const DamageDistribution = ({ userSummary }) => {
           </PieChart>
         </ChartFill>
 
-        <FlexCol spacing={1}>
+        <Stack spacing={1} sx={{ flex: 1 }}>
           <Stack spacing={0.5} sx={{ flexGrow: 1, justifyContent: 'center' }}>
             {data.map(({ name, percent }) => {
               const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
@@ -170,8 +170,8 @@ export const DamageDistribution = ({ userSummary }) => {
               );
             })}
           </Stack>
-        </FlexCol>
-      </FlexRow>
+        </Stack>
+      </Stack>
     </FlexCard>
   );
 };

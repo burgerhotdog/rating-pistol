@@ -124,7 +124,7 @@ const TooltipContent = ({ time, rows }) => {
   );
 };
 
-export const Timeline = ({ userSummary, team }) => {
+export const Timeline = ({ userSummary, memberIds }) => {
   const { charId } = useParams();
   const { palette } = useTheme();
   const [isRunningTotal, setIsRunningTotal] = useState(true);
@@ -133,7 +133,7 @@ export const Timeline = ({ userSummary, team }) => {
   const charData = useCharData();
   const elementColors = useElementColors();
 
-  const memberStack = team.filter((m) => m.id).map((m) => m.id);
+  const memberStack = [...memberIds];
   if (userSummary.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
 
   const memberColors = Object.fromEntries(
@@ -177,7 +177,7 @@ export const Timeline = ({ userSummary, team }) => {
   return (
     <FlexCard>
       <CardHeader
-        title="Damage Timeline"
+        title="Timeline"
         action={
           <>
             <FormControlLabel
