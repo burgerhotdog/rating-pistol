@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   Box,
+  Card,
   CardHeader,
+  CardContent,
   Checkbox,
   Divider,
   FormControlLabel,
   Paper,
+  Stack,
   Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -20,7 +23,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { ChartFill, Dot, FlexCard } from '@/components';
+import { ChartFill, Dot } from '@/components';
 import { useCharData, useElementColors } from '@/hooks';
 import { formatNum, formatDmg } from '@/utils';
 
@@ -145,7 +148,6 @@ export const Timeline = ({ userSummary, memberIds }) => {
   );
 
   const data = buildData(userSummary, memberStack, isRunningTotal, isCurrOnly, charId);
-  const chartMargin = { top: 16, right: 32, left: 32, bottom: 16 };
   const axisProps = (
     <>
       <defs>
@@ -176,9 +178,9 @@ export const Timeline = ({ userSummary, memberIds }) => {
   );
 
   return (
-    <FlexCard>
+    <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
-        title="Timeline"
+        title="Rotation Timeline"
         action={
           <>
             <FormControlLabel
@@ -186,25 +188,17 @@ export const Timeline = ({ userSummary, memberIds }) => {
                 <Checkbox
                   checked={isRunningTotal}
                   onChange={handleCheckbox(setIsRunningTotal)}
-                  sx={{
-                    '&.Mui-checked': {
-                      color: accentColor,
-                    },
-                  }}
+                  sx={{ '&.Mui-checked': { color: accentColor } }}
                 />
               }
-              label="Running Total"
+              label="Show Running Total"
             />
             <FormControlLabel
               control={
                 <Checkbox
                   checked={isCurrOnly}
                   onChange={handleCheckbox(setIsCurrOnly)}
-                  sx={{
-                    '&.Mui-checked': {
-                      color: accentColor,
-                    },
-                  }}
+                  sx={{ '&.Mui-checked': { color: accentColor } }}
                 />
               }
               label="Hide Teammates"
@@ -213,73 +207,68 @@ export const Timeline = ({ userSummary, memberIds }) => {
         }
       />
 
-      <ChartFill flex={3}>
-        {isRunningTotal ? (
-          <AreaChart data={data} margin={chartMargin}>
-            {axisProps}
+      <CardContent component={Stack} sx={{ flex: 1 }}>
+        <ChartFill>
+          {isRunningTotal ? (
+            <AreaChart data={data}>
+              {axisProps}
 
-            {memberStack.toReversed().map((id) => {
-              const color = memberColors[id];
-              return (
-                <Area
-                  key={id}
-                  dataKey={id}
-                  activeDot={false}
-                  fill={`url(#gradient${color})`}
-                  hide={isCurrOnly && id !== charId}
-                  name={charData[id]?.name ?? 'Other'}
-                  stackId="members"
-                  stroke={color}
-                  strokeOpacity={0}
-                  type="monotone"
-                />
-              );
-            })}
-
-            <ChartTooltip
-              content={({ payload }) => {
+              {memberStack.toReversed().map((id) => {
+                const color = memberColors[id];
                 return (
+                  <Area
+                    key={id}
+                    dataKey={id}
+                    activeDot={false}
+                    fill={`url(#gradient${color})`}
+                    hide={isCurrOnly && id !== charId}
+                    name={charData[id]?.name ?? 'Other'}
+                    stackId="members"
+                    stroke={color}
+                    strokeOpacity={0}
+                    type="monotone"
+                  />
+                );
+              })}
+
+              <ChartTooltip
+                content={({ payload }) => (
                   <TooltipContent
                     time={payload[0]?.payload?.time}
                     rows={payload.toReversed()}
                   />
-                );
-              }}
-            />
-          </AreaChart>
-        ) : (
-          <ScatterChart data={data} margin={chartMargin}>
-            {axisProps}
+                )}
+              />
+            </AreaChart>
+          ) : (
+            <ScatterChart data={data}>
+              {axisProps}
 
-            {memberStack.map((id) => {
-              const color = memberColors[id];
-              return (
-                <Scatter
-                  key={id}
-                  dataKey={id}
-                  name={charData[id]?.name ?? 'Other'}
-                  fill={color}
-                />
-              );
-            })}
-
-            <ChartTooltip
-              isAnimationActive={false}
-              content={({ payload }) => {
-                const time = payload[0]?.value ?? 0;
-                const rows = payload[1] ? [payload[1]] : [];
-
+              {memberStack.map((id) => {
+                const color = memberColors[id];
                 return (
-                  <TooltipContent
-                    time={time}
-                    rows={rows}
+                  <Scatter
+                    key={id}
+                    dataKey={id}
+                    name={charData[id]?.name ?? 'Other'}
+                    fill={color}
                   />
                 );
-              }}
-            />
-          </ScatterChart>
-        )}
-      </ChartFill>
-    </FlexCard>
+              })}
+
+              <ChartTooltip
+                isAnimationActive={false}
+                content={({ payload }) => (
+                  <TooltipContent
+                    time={payload[0]?.value ?? 0}
+                    rows={payload[1] ? [payload[1]] : []}
+                  />
+                )}
+              />
+            </ScatterChart>
+          )}
+        </ChartFill>
+      </CardContent>
+    </Card>
   );
 };

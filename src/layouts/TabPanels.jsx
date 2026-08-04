@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material';
 import {
-  RatingGrade,
+  Rating,
   ProgressChart,
   Timeline,
   DamageDistribution,
@@ -13,7 +13,7 @@ export default [
     value: 'overview',
     render: (results) => (
       <Stack spacing={1} sx={{ flex: 1 }}>
-        <RatingGrade
+        <Rating
           userDps={results.userDps}
           benchmarkDps={results.benchmarkDps}
         />

@@ -34,6 +34,11 @@ const theme = createTheme({
         },
       },
     },
+    MuiCheckbox: {
+      defaultProps: {
+        size: 'small',
+      },
+    },
     MuiChip: {
       defaultProps: {
         size: 'small',
@@ -92,6 +97,7 @@ const theme = createTheme({
     MuiToggleButton: {
       defaultProps: {
         size: 'small',
+        sx: { typography: 'caption' },
       },
       styleOverrides: {
         root: {

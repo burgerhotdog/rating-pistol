@@ -4,6 +4,7 @@ import {
   Box,
   Card,
   CardHeader,
+  CardContent,
   IconButton,
   Stack,
   Tooltip,
@@ -12,7 +13,6 @@ import {
 import { alpha } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ATTR_ASSETS } from '@/assets';
-import { FlexCard } from '@/components';
 import { formatStr } from '@/utils';
 
 const IconRow = ({ gameId, slots }) => {
@@ -117,27 +117,23 @@ export const MainstatDist = ({ configMap, userConfigKey }) => {
     : sorted;
 
   return (
-    <Stack sx={{ flex: 1 }}>
-      <FlexCard>
-        <CardHeader
-          title={
-            <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-              <Typography variant="subtitle1">
-                Mainstat distribution
-              </Typography>
+    <Card component={Stack} sx={{ flex: 1 }}>
+      <CardHeader
+        title={
+          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
+            <Typography variant="subtitle1">
+              Mainstat distribution
+            </Typography>
 
-              <Tooltip
-                title="Top main stat combinations in simulated builds."
-              >
-                <HelpOutlineOutlinedIcon
-                  color="disabled"
-                />
-              </Tooltip>
-            </Stack>
-          }
-          disableTypography
-        />
+            <Tooltip title="Top main stat combinations in simulated builds.">
+              <HelpOutlineOutlinedIcon color="disabled" />
+            </Tooltip>
+          </Stack>
+        }
+        disableTypography
+      />
 
+      <CardContent component={Stack} sx={{ flex: 1 }}>
         <Box sx={{ px: 1, pb: 1, display: 'flex', flexDirection: 'column', gap: 0.25 }}>
           {ordered.map(([key, config]) => (
             <ConfigRow
@@ -149,7 +145,7 @@ export const MainstatDist = ({ configMap, userConfigKey }) => {
             />
           ))}
         </Box>
-      </FlexCard>
-    </Stack>
+      </CardContent>
+    </Card>
   );
 };

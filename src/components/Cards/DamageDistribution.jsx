@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
+  Card,
   CardHeader,
+  CardContent,
   Paper,
   Stack,
   ToggleButton,
@@ -12,12 +14,16 @@ import {
 import { alpha, darken } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
+  Bar,
+  BarChart,
   Cell,
   Pie,
   PieChart,
   Tooltip as ChartTooltip,
+  XAxis,
+  YAxis,
 } from 'recharts';
-import { FlexCard, ChartFill, Dot } from '@/components';
+import { ChartFill } from '@/components';
 import { useElementColors } from '@/hooks';
 import { formatStr, formatNum } from '@/utils';
 
@@ -83,7 +89,7 @@ export const DamageDistribution = ({ userSummary }) => {
   const data = buildData(userSummary, charId, distributionMode);
 
   return (
-    <FlexCard>
+    <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
         title={
           <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
@@ -111,65 +117,59 @@ export const DamageDistribution = ({ userSummary }) => {
         disableTypography
       />
 
-      <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-        <ChartFill>
-          <PieChart>
-            <Pie data={data} dataKey="value">
-              {data.map(({ name, percent }) => {
-                const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
-                return (<Cell key={name} fill={fill} stroke="none" />);
-              })}
-            </Pie>
+      <CardContent component={Stack} sx={{ flex: 1 }}> 
+        <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
+          <ChartFill>
+            <PieChart>
+              <Pie data={data} dataKey="value" animationBegin={0}>
+                {data.map(({ name, percent }) => {
+                  const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
+                  return (<Cell key={name} fill={fill} stroke="none" />);
+                })}
+              </Pie>
 
-            <ChartTooltip
-              content={({ payload }) => {
-                const { name = '', value = 0 } = payload?.[0]?.payload ?? {};
+              <ChartTooltip
+                content={({ payload }) => {
+                  const { name = '', value = 0 } = payload?.[0]?.payload ?? {};
 
-                return (
-                  <Paper sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
-                    <Typography variant="subtitle2">
-                      {formatStr(name)}
-                    </Typography>
+                  return (
+                    <Paper sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
+                      <Typography variant="subtitle2">
+                        {formatStr(name)}
+                      </Typography>
 
-                    <Typography variant="body2" color="textSecondary">
-                      {formatNum(value)} damage
-                    </Typography>
-                  </Paper>
-                );
-              }}
-            />
-          </PieChart>
-        </ChartFill>
+                      <Typography variant="body2" color="textSecondary">
+                        {formatNum(value)} damage
+                      </Typography>
+                    </Paper>
+                  );
+                }}
+              />
+            </PieChart>
+          </ChartFill>
 
-        <Stack spacing={0.5} sx={{ flex: 1, justifyContent: 'center' }}>
-          {data.map(({ name, percent }) => {
-            const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
-
-            return (
-              <Stack
-                key={name}
-                direction="row"
-                sx={{ justifyContent: 'space-between' }}
-              >
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  sx={{ alignItems: 'center' }}
-                >
-                  <Dot color={fill} />
-                  <Typography variant="body2">
-                    {name}
-                  </Typography>
-                </Stack>
-
-                <Typography variant="body2">
-                  {(percent * 100).toFixed()}%
-                </Typography>
-              </Stack>
-            );
-          })}
+          <ChartFill>
+            <BarChart layout="vertical" data={data}>
+              <XAxis
+                domain={[0, 1]}
+                type="number"
+              />
+    
+              <YAxis
+                dataKey="name"
+                type="category"
+                tick={{ fontSize: 11 }}
+              />
+    
+              <Bar
+                dataKey="percent"
+                name="You"
+                fill={color}
+              />
+            </BarChart>
+          </ChartFill>
         </Stack>
-      </Stack>
-    </FlexCard>
+      </CardContent>
+    </Card>
   );
 };

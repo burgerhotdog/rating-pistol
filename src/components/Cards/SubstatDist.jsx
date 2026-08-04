@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom';
 import {
   Box,
+  Card,
   CardHeader,
+  CardContent,
   Paper,
   Stack,
   Tooltip,
@@ -20,7 +22,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { ChartFill, FlexCard } from '@/components';
+import { ChartFill } from '@/components';
 import { WW, SUBSTAT } from '@/data';
 import { useElementColors } from '@/hooks';
 import { formatStr } from '@/utils';
@@ -139,83 +141,76 @@ export const SubstatDist = ({ configMap, userConfigKey, userSubStats }) => {
     .sort((a, b) => b.avg - a.avg);
 
   return (
-    <Stack sx={{ flex: 1 }}>
-      <FlexCard>
-        <CardHeader
-          title={
-            <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-              <Typography variant="subtitle1">
-                Substat distribution
-              </Typography>
+    <Card component={Stack} sx={{ flex: 1 }}>
+      <CardHeader
+        title={
+          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
+            <Typography variant="subtitle1">
+              Substat Distribution
+            </Typography>
 
-              <Tooltip
-                title="Substat distribution comparison with average."
-              >
-                <HelpOutlineOutlinedIcon
-                  color="disabled"
-                />
-              </Tooltip>
-            </Stack>
-          }
-          disableTypography
-        />
+            <Tooltip title="Substat distribution comparison with average.">
+              <HelpOutlineOutlinedIcon color="disabled" />
+            </Tooltip>
+          </Stack>
+        }
+        disableTypography
+      />
 
-        <Stack direction="row" sx={{ flex: 1 }}>
-          <ChartFill>
-            <RadarChart
-              responsive
-              data={data}
-              outerRadius="70%"
-              margin={{
-                top: 16,
-                left: 48,
-                right: 48,
-                bottom: 16,
-              }}
-            >
-              <PolarGrid />
-              <PolarAngleAxis
-                dataKey="stat"
-                tick={{ fontSize: 9 }}
-              />
-              <Radar
-                dataKey="user"
-                stroke={color}
-                fill={color}
-                fillOpacity={0.6}
-              />
-            </RadarChart>
-          </ChartFill>
+      <CardContent component={Stack} direction="row" sx={{ flex: 1 }}>
+        <ChartFill>
+          <RadarChart
+            responsive
+            data={data}
+            outerRadius="70%"
+            margin={{
+              top: 16,
+              left: 48,
+              right: 48,
+              bottom: 16,
+            }}
+          >
+            <PolarGrid />
+            <PolarAngleAxis
+              dataKey="stat"
+              tick={{ fontSize: 9 }}
+            />
+            <Radar
+              dataKey="user"
+              stroke={color}
+              fill={color}
+              fillOpacity={0.6}
+            />
+          </RadarChart>
+        </ChartFill>
 
-          <ChartFill>
-            <BarChart
-              layout="vertical"
-              data={data}
-              margin={{ left: 16, right: 16, top: 8, bottom: 8 }}
-            >
-              <XAxis
-                type="number"
-                tickFormatter={(v) => v.toFixed(1)}
-              />
-    
-              <YAxis
-                type="category"
-                dataKey="stat"
-                width="auto"
-                tick={{ fontSize: 11 }}
-              />
-    
-              <RechartsTooltip content={CustomTooltip} />
-    
-              <Bar
-                dataKey="avg"
-                name="Benchmark"
-                fill={alpha(color, 0.6)}
-              />
-            </BarChart>
-          </ChartFill>
-        </Stack>
-      </FlexCard>
-    </Stack>
+        <ChartFill>
+          <BarChart
+            layout="vertical"
+            data={data}
+            margin={{ left: 16, right: 16, top: 8, bottom: 8 }}
+          >
+            <XAxis
+              type="number"
+              tickFormatter={(v) => v.toFixed(1)}
+            />
+  
+            <YAxis
+              type="category"
+              dataKey="stat"
+              tick={{ fontSize: 11 }}
+            />
+  
+            <RechartsTooltip content={CustomTooltip} />
+  
+            <Bar
+              dataKey="avg"
+              name="Benchmark"
+              fill={alpha(color, 0.6)}
+            />
+          </BarChart>
+        </ChartFill>
+      </CardContent>
+    </Card>
   );
 };

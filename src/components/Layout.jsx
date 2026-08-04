@@ -1,16 +1,5 @@
-import { Box, Card } from '@mui/material';
+import { Box } from '@mui/material';
 import { ResponsiveContainer } from 'recharts';
-
-export const FlexCard = ({ direction = 'column', sx, ...props }) => (
-  <Card
-    sx={[{
-      display: 'flex',
-      flexDirection: direction,
-      flex: 1,
-    }, sx]}
-    {...props}
-  />
-);
 
 export const ChartFill = ({ children, flex = 1, ...props }) => {
   return (
