@@ -4,7 +4,7 @@ import { getSkippableStats } from './getSkippableStats';
 import { createAssignMain } from './stats/assignMain';
 import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './stats/assignSub';
 
-const createEquipGenerator = (gameId, skippable) => {
+function createEquipGenerator(gameId, skippable) {
   const isGoodMain = (equip) => {
     const key = gameId === WW ? equip.cost : equip.index;
     return !skippable.mainstats[key].has(equip.mainStatId);
@@ -49,44 +49,39 @@ const createEquipGenerator = (gameId, skippable) => {
 
     return { ...equip, subStatList };
   };
-};
+}
 
-const createEquipEvaluator = (cache, evaluateEquipMap) => (equip, latest) => {
-  const buffer = { ...latest };
+function createEquipEvaluator(cache, evaluateEquipMap) {
+  function trySlots(slots, equip, prev) {
+    const next = { ...prev };
+    for (const equipIndex of slots) {
+      const equipList = prev.equipList.with(equipIndex, equip);
+      const { summary, totals, score } = evaluateEquipMap(toEquipMap(equipList));
 
-  const trySlot = (index) => {
-    const newEquipList = latest.equipList.with(index, equip);
-    const { summary, totals, score } = evaluateEquipMap(toEquipMap(newEquipList));
-    const newDps = cache.getDps(totals.damage);
-
-    if (score > buffer.score) {
-      Object.assign(buffer, {
-        equipList: newEquipList,
-        summary,
-        score,
-        dps: newDps,
-      });
+      if (score > next.score) {
+        const dps = cache.getDps(totals.damage);
+        Object.assign(next, { equipList, summary, score, dps });
+      }
     }
-  };
-
-  if ('cost' in equip) {
-    if (equip.cost === 4) {
-      trySlot(0);
-    } else if (equip.cost === 3) {
-      trySlot(1);
-      trySlot(2);
-    } else {
-      trySlot(3);
-      trySlot(4);
-    }
-  } else {
-    trySlot(equip.index);
+    return next;
   }
 
-  return buffer;
-};
+  return (equip, trial) => {
+    if ('index' in equip)
+      return trySlots([equip.index], equip, trial);
 
-export const createTrialAdvancer = (cache, score, evaluateEquipMap) => {
+    switch (equip.cost) {
+      case 4:
+        return trySlots([0], equip, trial);
+      case 3:
+        return trySlots([1, 2], equip, trial);
+      case 1:
+        return trySlots([3, 4], equip, trial);
+    }
+  };
+}
+
+export function createTrialAdvancer(cache, score, evaluateEquipMap) {
   const { gameId } = cache;
 
   const skippable = getSkippableStats(gameId, score, evaluateEquipMap);
@@ -120,4 +115,4 @@ export const createTrialAdvancer = (cache, score, evaluateEquipMap) => {
       }
     }
   };
-};
+}

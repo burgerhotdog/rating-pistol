@@ -32,7 +32,7 @@ const initTeam = (gameId, charId, builds) => {
   return { members, rotation: {} };
 };
 
-export const useTeam = () => {
+export function useTeam() {
   const { gameId, charId } = useParams();
   const builds = useBuild().getBuilds(gameId);
   const [team, setTeam] = useState(() => initTeam(gameId, charId, builds));
@@ -45,4 +45,4 @@ export const useTeam = () => {
   }
 
   return { team, updateTeam };
-};
+}

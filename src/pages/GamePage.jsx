@@ -1,9 +1,7 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { Stack } from '@mui/material';
-import { Header } from '@/components';
-import { Navbar } from '@/components/ConfigPanel';
+import { Header, Navbar, StatsPanel } from '@/components';
 import { CHARACTER } from '@/data';
-import { StatsPanel } from '@/components';
 import { useSortedBuilds, useTeam } from '@/hooks';
 import { Charts } from '@/layouts';
 

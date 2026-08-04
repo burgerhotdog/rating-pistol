@@ -1,5 +1,6 @@
-const toBaseStat = (str) =>
-  `base${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+function toBaseStat(stat) {
+  return `base${stat.charAt(0).toUpperCase()}${stat.slice(1)}`;
+}
 
 export function getAttr(attr, statMap) {
   if (attr.endsWith('%')) return statMap[attr] ?? 0;

@@ -5,7 +5,7 @@ import { WW } from '@/data';
 const WORKER_PATH = '../workers/simulation/worker.js';
 const VALID_GAME_IDS = new Set([WW]);
 
-export const useSimulation = (team) => {
+export function useSimulation(team) {
   const { gameId, charId } = useParams();
   const workerRef = useRef(null);
   const prevPayloadRef = useRef(undefined);
@@ -52,4 +52,4 @@ export const useSimulation = (team) => {
   }, [payload]);
 
   return payload ? result : {};
-};
+}

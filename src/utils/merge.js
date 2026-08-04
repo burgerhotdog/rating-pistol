@@ -1,38 +1,49 @@
-export const toMergedObj = (...objects) => {
-  const result = {};
+export function toMergedObj(...objects) {
+  const merged = {};
 
   for (const obj of objects) {
     for (const key in obj) {
-      result[key] = (result[key] ?? 0) + obj[key];
+      merged[key] = (merged[key] ?? 0)
+        + obj[key];
     }
   }
 
-  return result;
-};
+  return merged;
+}
 
-export function toEquipMap(equipList) {
-  const result = {};
+export function toEquipMap(equipList = []) {
+  const equipMap = {};
 
-  for (const item of equipList) {
-    if (!item) continue;
-    const { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList } = item;
-    
-    // Main stat
-    result[mainStatId] = (result[mainStatId] ?? 0) + mainStatValue;
+  for (const equip of equipList) {
+    if (!equip) continue;
 
-    // Main stat flat value (ww)
-    if (mainStatFlatId) {
-      result[mainStatFlatId] = (result[mainStatFlatId] ?? 0) + mainStatFlatValue;
+    const {
+      mainStatId, mainStatValue,
+      mainStatFlatId, mainStatFlatValue,
+      subStatList,
+    } = equip;
+
+    if (mainStatId && mainStatValue) {
+      equipMap[mainStatId] = (equipMap[mainStatId] ?? 0)
+        + mainStatValue;
     }
 
-    // Sub stats
-    for (const line of subStatList) {
-      if (!line) continue;
-      const { subStatId, subStatValue } = line;
-      if (!subStatId || !subStatValue) continue;
-      result[subStatId] = (result[subStatId] ?? 0) + subStatValue;
+    if (mainStatFlatId && mainStatFlatValue) {
+      equipMap[mainStatFlatId] = (equipMap[mainStatFlatId] ?? 0)
+        + mainStatFlatValue;
+    }
+
+    if (subStatList) {
+      for (const line of subStatList) {
+        if (!line) continue;
+        const { subStatId, subStatValue } = line;
+        if (subStatId && subStatValue) {
+          equipMap[subStatId] = (equipMap[subStatId] ?? 0)
+            + subStatValue;
+        }
+      }
     }
   }
 
-  return result;
+  return equipMap;
 }

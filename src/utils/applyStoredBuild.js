@@ -1,7 +1,7 @@
 import { SET } from '@/data';
 import { getDefaultWeaponRank } from '@/utils';
 
-const getSetCounts = (gameId, equipList) => {
+function getSetCounts(gameId, equipList) {
   const setData = SET[gameId];
   const setCounts = {};
 
@@ -26,7 +26,7 @@ const getSetCounts = (gameId, equipList) => {
   }
 
   return resolved;
-};
+}
 
 export function applyStoredBuild(gameId, member, storedBuild) {
   const next = { ...member, build: storedBuild, useUserBuild: true };
