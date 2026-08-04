@@ -41,10 +41,6 @@ const Charts = ({ team }) => {
             key={value}
             value={value}
             label={formatStr(value)}
-            sx={{
-              typography: 'subtitle1',
-              textTransform: 'none',
-            }}
           />
         ))}
       </Tabs>

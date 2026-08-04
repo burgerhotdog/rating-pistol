@@ -132,6 +132,7 @@ export const Timeline = ({ userSummary, memberIds }) => {
   const handleCheckbox = (setter) => (event) => setter(event.target.checked);
   const charData = useCharData();
   const elementColors = useElementColors();
+  const accentColor = elementColors[charData[charId].element];
 
   const memberStack = [...memberIds];
   if (userSummary.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
@@ -185,6 +186,11 @@ export const Timeline = ({ userSummary, memberIds }) => {
                 <Checkbox
                   checked={isRunningTotal}
                   onChange={handleCheckbox(setIsRunningTotal)}
+                  sx={{
+                    '&.Mui-checked': {
+                      color: accentColor,
+                    },
+                  }}
                 />
               }
               label="Running Total"
@@ -194,6 +200,11 @@ export const Timeline = ({ userSummary, memberIds }) => {
                 <Checkbox
                   checked={isCurrOnly}
                   onChange={handleCheckbox(setIsCurrOnly)}
+                  sx={{
+                    '&.Mui-checked': {
+                      color: accentColor,
+                    },
+                  }}
                 />
               }
               label="Hide Teammates"

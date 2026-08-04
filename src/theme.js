@@ -79,6 +79,26 @@ const theme = createTheme({
         size: 'small',
       },
     },
+    MuiTab: {
+      defaultProps: {
+        sx: { typography: 'subtitle1' },
+      },
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+      },
+    },
+    MuiToggleButton: {
+      defaultProps: {
+        size: 'small',
+      },
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+      },
+    },
     MuiToggleButtonGroup: {
       defaultProps: {
         size: 'small',

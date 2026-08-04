@@ -88,7 +88,7 @@ export const DamageDistribution = ({ userSummary }) => {
         title={
           <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
             <Typography variant="subtitle1">
-              Distribution
+              Damage Distribution
             </Typography>
 
             <Tooltip title="How damage is distributed across your rotation.">
@@ -102,11 +102,7 @@ export const DamageDistribution = ({ userSummary }) => {
             onChange={handleToggleButtonGroup}
           >
             {DISTRIBUTION_MODES.map((mode) => (
-              <ToggleButton
-                key={mode}
-                value={mode}
-                sx={{ px: 1.5, textTransform: 'none' }}
-              >
+              <ToggleButton key={mode} value={mode}>
                 {formatStr(mode)}
               </ToggleButton>
             ))}
