@@ -1,6 +1,5 @@
 import { GI, WW } from '@/data';
 import { createTrialAdvancer } from './advanceTrial';
-import { findGoodStats } from './stats/findGoodStats';
 import { createEquipListEvaluator } from './penalty';
 
 const MIN_TRIALS = 50;
@@ -43,9 +42,9 @@ const createDistribution = () => {
 
 export const runTrials = (cache, runRotation, currId, isMain = false) => {
   const { gameId } = cache;
-  const getScore = createEquipListEvaluator(cache, currId, runRotation);
+  const evaluateEquipMap = createEquipListEvaluator(cache, currId, runRotation);
 
-  const { summary, totals, score } = getScore();
+  const { summary, totals, score } = evaluateEquipMap();
   const dps = cache.getDps(totals.damage);
 
   const trialBands = [{
@@ -56,8 +55,8 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
     p75: dps,
     p90: dps,
   }];
-  const goodStats = findGoodStats(gameId, score, getScore);
-  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, getScore);
+
+  const advanceTrial = createTrialAdvancer(cache, score, evaluateEquipMap);
 
   // Init trials
   const equipListLength = (gameId === GI || gameId === WW) ? 5 : 6;

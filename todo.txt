@@ -1,1 +1,2 @@
 switchable chars resonanace modes
+batch compute snapshot damage, but spread out hits
