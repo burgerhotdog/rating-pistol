@@ -17,13 +17,6 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import { CHARACTER, WEAPON, SET } from '@/data';
 
-/**
- * Shared grid-select dialog. Renders a search field + a wrapping grid of
- * image cards, and (optionally) extra filter controls above the search box.
- *
- * `entries` should already be filtered/sorted by the caller — this component
- * only applies the free-text name search on top of whatever is passed in.
- */
 function SelectDialogBase({
   title,
   searchPlaceholder = 'Search...',

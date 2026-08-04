@@ -1,9 +1,7 @@
 import { GI, WW } from '@/data';
-import { getTotals } from '@/utils';
 import { createTrialAdvancer } from './advanceTrial';
 import { findGoodStats } from './stats/findGoodStats';
-import { createGetPenalty } from './penalty';
-import { getScore } from './utils';
+import { createEquipListEvaluator } from './penalty';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
@@ -44,40 +42,36 @@ const createDistribution = () => {
 };
 
 export const runTrials = (cache, runRotation, currId, isMain = false) => {
-  const { gameId, member } = cache;
-  const { baseMap } = member[currId];
-  const getPenalty = createGetPenalty(cache, currId);
+  const { gameId } = cache;
+  const getScore = createEquipListEvaluator(cache, currId, runRotation);
 
-  const baseSummary = runRotation(baseMap);
-  const baseTotals = getTotals(baseSummary);
-  const baseDps = cache.getDps(baseTotals.damage);
-  const basePenalty = getPenalty(baseMap);
-  const baseScore = getScore(baseSummary, currId, basePenalty);
+  const { summary, totals, score } = getScore();
+  const dps = cache.getDps(totals.damage);
 
   const trialBands = [{
-    mean: baseDps,
-    p10: baseDps,
-    p25: baseDps,
-    p50: baseDps,
-    p75: baseDps,
-    p90: baseDps,
+    mean: dps,
+    p10: dps,
+    p25: dps,
+    p50: dps,
+    p75: dps,
+    p90: dps,
   }];
-  const goodStats = findGoodStats(cache, baseScore, currId, runRotation, getPenalty);
-  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, runRotation, getPenalty);
+  const goodStats = findGoodStats(gameId, score, getScore);
+  const advanceTrial = createTrialAdvancer(cache, currId, goodStats, getScore);
 
   // Init trials
   const equipListLength = (gameId === GI || gameId === WW) ? 5 : 6;
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),
-    summary: baseSummary,
-    dps: baseDps,
-    score: baseScore,
+    summary,
+    score,
+    dps,
   });
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
 
   // Main trial loop
-  let prevMeanDps = baseDps;
+  let prevMeanDps = dps;
   for (let week = 1; week <= MAX_WEEKS; week++) {
     const distribution = createDistribution();
 

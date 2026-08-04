@@ -1,6 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
+import {
+  Box,
+  Button,
+  Checkbox,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  FormControlLabel,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+} from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
 import { useBuild, useUser } from '@/contexts';
 import { fetchEnka, parseEnkaObj } from './enkaHelpers';
@@ -17,9 +30,7 @@ const HeaderEnka = () => {
   const [enkaList, setEnkaList] = useState([]);
   const [selectedList, setSelectedList] = useState([]);
 
-  useEffect(() => {
-    setUid(savedUids[gameId] ?? '');
-  }, [savedUids, gameId]);
+  useEffect(() => setUid(savedUids[gameId] ?? ''), [savedUids, gameId]);
 
   const isValidLength = (gameId, input) => {
     if (gameId === GI || gameId === HSR) return /^\d{9,10}$/.test(input);

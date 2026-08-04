@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   Accordion,
-  AccordionSummary,
   AccordionDetails,
+  AccordionSummary,
   Autocomplete,
   Box,
   Button,
@@ -34,12 +34,32 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
-import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
-import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  useSortable,
+  sortableKeyboardCoordinates,
+  arrayMove,
+} from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CHARACTER, WEAPON, SET, ECHO, WW } from '@/data';
-import { toArray, formatStr, getPresetSetCounts, getMemberPreset, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
+import { WW, CHARACTER, WEAPON, SET, ECHO } from '@/data';
+import {
+  toArray,
+  formatStr,
+  getPresetSetCounts,
+  getMemberPreset,
+  getDefaultWeaponRank,
+  applyStoredBuild,
+} from '@/utils';
 import { useBuild } from '@/contexts';
 import { CharacterSelectDialog, WeaponSelectDialog, SetSelectDialog } from './GridSelect';
 

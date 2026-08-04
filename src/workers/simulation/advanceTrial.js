@@ -1,8 +1,7 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
-import { toMergedObj, toEquipMap, getTotals } from '@/utils';
+import { toEquipMap } from '@/utils';
 import { createAssignMain } from './stats/assignMain';
 import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './stats/assignSub';
-import { getScore } from './utils';
 
 const createEquipGenerator = (gameId, goodStats) => {
   const isGoodMain = (equip) => {
@@ -51,24 +50,20 @@ const createEquipGenerator = (gameId, goodStats) => {
   };
 };
 
-const createEquipEvaluator = (cache, baseMap, runRotation, getPenalty, currId) => (equip, latest) => {
+const createEquipEvaluator = (cache, baseMap, getScore) => (equip, latest) => {
   const buffer = { ...latest };
 
   const trySlot = (index) => {
     const newEquipList = latest.equipList.with(index, equip);
-    const combinedStatMap = toMergedObj(baseMap, toEquipMap(newEquipList));
-    const newSummary = runRotation(combinedStatMap);
-    const newTotals = getTotals(newSummary);
-    const newDps = cache.getDps(newTotals.damage);
-    const newPenalty = getPenalty(combinedStatMap);
-    const newScore = getScore(newSummary, currId, newPenalty);
+    const { summary, totals, score } = getScore(toEquipMap(newEquipList));
+    const newDps = cache.getDps(totals.damage);
 
-    if (newScore > buffer.score) {
+    if (score > buffer.score) {
       Object.assign(buffer, {
         equipList: newEquipList,
-        summary: newSummary,
+        summary,
+        score,
         dps: newDps,
-        score: newScore,
       });
     }
   };
@@ -90,12 +85,12 @@ const createEquipEvaluator = (cache, baseMap, runRotation, getPenalty, currId) =
   return buffer;
 };
 
-export const createTrialAdvancer = (cache, currId, goodStats, runRotation, getPenalty) => {
+export const createTrialAdvancer = (cache, currId, goodStats, getScore) => {
   const { gameId } = cache;
   const { baseMap } = cache.member[currId];
 
   const generateEquip = createEquipGenerator(gameId, goodStats);
-  const evaluateEquip = createEquipEvaluator(cache, baseMap, runRotation, getPenalty, currId);
+  const evaluateEquip = createEquipEvaluator(cache, baseMap, getScore);
 
   const passes = {
     [GI]: [{ count: 66,  slotCount: 5 }],
