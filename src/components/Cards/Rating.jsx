@@ -1,6 +1,7 @@
 import {
   Box,
   Card,
+  CardHeader,
   CardContent,
   Divider,
   Stack,
@@ -38,24 +39,16 @@ const Rating = ({ userDps, benchmarkDps }) => {
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
+      <CardHeader title="Overall Rating" />
+
       <CardContent component={Stack} spacing={1}>
-        <Box>
-          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }} >
-            <Typography variant="overline" color="textSecondary">
-              Rating
-            </Typography>
-            <Tooltip>
-              <HelpOutlineOutlinedIcon color="disabled" />
-            </Tooltip>
-          </Stack>
-          <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
-            <Typography variant="h4" sx={{ color: gradeColor, fontWeight: 'bold' }}>
-              {grade}
-            </Typography>
-            <Typography variant="body1" sx={{ color: gradeColor, opacity: 0.7 }}>
-              ({scaledBuildRating.toFixed()}%)
-            </Typography>
-          </Box>
+        <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
+          <Typography variant="h4" sx={{ color: gradeColor, fontWeight: 'bold' }}>
+            {grade}
+          </Typography>
+          <Typography variant="body1" sx={{ color: gradeColor, opacity: 0.7 }}>
+            ({scaledBuildRating.toFixed()}%)
+          </Typography>
         </Box>
 
         <Divider />

@@ -18,11 +18,11 @@ import {
   PolarGrid,
   Radar,
   RadarChart,
+  ResponsiveContainer,
   Tooltip as RechartsTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { ChartFill } from '@/components';
 import { WW, SUBSTAT } from '@/data';
 import { useElementColors } from '@/hooks';
 import { formatStr } from '@/utils';
@@ -158,7 +158,7 @@ export const SubstatDist = ({ configMap, userConfigKey, userSubStats }) => {
       />
 
       <CardContent component={Stack} direction="row" sx={{ flex: 1 }}>
-        <ChartFill>
+        <ResponsiveContainer width="100%" height="100%">
           <RadarChart
             responsive
             data={data}
@@ -182,9 +182,9 @@ export const SubstatDist = ({ configMap, userConfigKey, userSubStats }) => {
               fillOpacity={0.6}
             />
           </RadarChart>
-        </ChartFill>
+        </ResponsiveContainer>
 
-        <ChartFill>
+        <ResponsiveContainer width="100%" height="100%">
           <BarChart
             layout="vertical"
             data={data}
@@ -209,7 +209,7 @@ export const SubstatDist = ({ configMap, userConfigKey, userSubStats }) => {
               fill={alpha(color, 0.6)}
             />
           </BarChart>
-        </ChartFill>
+        </ResponsiveContainer>
       </CardContent>
     </Card>
   );

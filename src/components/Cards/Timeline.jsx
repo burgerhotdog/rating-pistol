@@ -17,13 +17,14 @@ import {
   Area,
   AreaChart,
   CartesianGrid,
+  ResponsiveContainer,
   Scatter,
   ScatterChart,
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { ChartFill, Dot } from '@/components';
+import { Dot } from '@/components';
 import { useCharData, useElementColors } from '@/hooks';
 import { formatNum, formatDmg } from '@/utils';
 
@@ -208,7 +209,7 @@ export const Timeline = ({ userSummary, memberIds }) => {
       />
 
       <CardContent component={Stack} sx={{ flex: 1 }}>
-        <ChartFill>
+        <ResponsiveContainer width="100%" height="100%">
           {isRunningTotal ? (
             <AreaChart data={data}>
               {axisProps}
@@ -267,7 +268,7 @@ export const Timeline = ({ userSummary, memberIds }) => {
               />
             </ScatterChart>
           )}
-        </ChartFill>
+        </ResponsiveContainer>
       </CardContent>
     </Card>
   );

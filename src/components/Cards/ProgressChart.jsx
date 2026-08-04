@@ -10,14 +10,14 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import {
-  ComposedChart,
   Area,
+  CartesianGrid,
+  ComposedChart,
+  ResponsiveContainer,
+  Tooltip as ChartTooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip as ChartTooltip,
 } from 'recharts';
-import { ChartFill } from '@/components';
 import { useElementColors } from '@/hooks';
 import { formatNum, formatDmg } from '@/utils';
 
@@ -39,7 +39,7 @@ export const ProgressChart = ({ trialBands, userDps }) => {
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader title="Simulated Farming Progression" />
       <CardContent component={Stack} sx={{ flex: 1 }}>
-        <ChartFill>
+        <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={data}>
             <defs>
               <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
@@ -181,7 +181,7 @@ export const ProgressChart = ({ trialBands, userDps }) => {
               }}
             />
           </ComposedChart>
-        </ChartFill>
+        </ResponsiveContainer>
       </CardContent>
     </Card>
   );

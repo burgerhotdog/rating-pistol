@@ -19,11 +19,11 @@ import {
   Cell,
   Pie,
   PieChart,
+  ResponsiveContainer,
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { ChartFill } from '@/components';
 import { useElementColors } from '@/hooks';
 import { formatStr, formatNum } from '@/utils';
 
@@ -119,7 +119,7 @@ export const DamageDistribution = ({ userSummary }) => {
 
       <CardContent component={Stack} sx={{ flex: 1 }}> 
         <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-          <ChartFill>
+          <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie data={data} dataKey="value" animationBegin={0}>
                 {data.map(({ name, percent }) => {
@@ -146,9 +146,9 @@ export const DamageDistribution = ({ userSummary }) => {
                 }}
               />
             </PieChart>
-          </ChartFill>
+          </ResponsiveContainer>
 
-          <ChartFill>
+          <ResponsiveContainer width="100%" height="100%">
             <BarChart layout="vertical" data={data}>
               <XAxis
                 domain={[0, 1]}
@@ -167,7 +167,7 @@ export const DamageDistribution = ({ userSummary }) => {
                 fill={color}
               />
             </BarChart>
-          </ChartFill>
+          </ResponsiveContainer>
         </Stack>
       </CardContent>
     </Card>
