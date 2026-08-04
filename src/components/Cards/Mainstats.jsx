@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Avatar,
   Box,
@@ -11,7 +12,6 @@ import {
   Typography,
 } from '@mui/material';
 import { alpha } from '@mui/material/styles';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { ATTR_ASSETS } from '@/assets';
 import { formatStr } from '@/utils';
 

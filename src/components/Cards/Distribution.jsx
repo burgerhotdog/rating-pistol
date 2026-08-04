@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Card,
   CardContent,
@@ -12,7 +13,6 @@ import {
   Typography,
 } from '@mui/material';
 import { alpha, darken } from '@mui/material/styles';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Bar,
   BarChart,
@@ -25,7 +25,7 @@ import {
   YAxis,
 } from 'recharts';
 import { useElementColors } from '@/hooks';
-import { formatStr, formatNum } from '@/utils';
+import { formatNum, formatStr } from '@/utils';
 
 const VALID_CATEGORIES = new Set([
   'normalAttack',

@@ -1,3 +1,4 @@
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Box,
   Card,
@@ -8,7 +9,6 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { formatNum } from '@/utils';
 
 const getGrade = (pct) => {

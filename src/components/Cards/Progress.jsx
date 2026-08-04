@@ -19,7 +19,7 @@ import {
   YAxis,
 } from 'recharts';
 import { useElementColors } from '@/hooks';
-import { formatNum, formatDmg } from '@/utils';
+import { formatDmg, formatNum } from '@/utils';
 
 const Progress = ({ trialBands, userDps }) => {
   const { palette } = useTheme();

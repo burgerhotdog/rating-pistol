@@ -26,7 +26,7 @@ import {
 } from 'recharts';
 import { Dot } from '@/components';
 import { useCharData, useElementColors } from '@/hooks';
-import { formatNum, formatDmg } from '@/utils';
+import { formatDmg, formatNum } from '@/utils';
 
 function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
   const filteredSummary = summary.filter(({ ownerId, field, damage = 0 }) => {
