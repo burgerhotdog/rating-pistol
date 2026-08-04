@@ -1,6 +1,6 @@
 import { GI, WW } from '@/data';
+import { createEquipListEvaluator } from './evaluateEquipList';
 import { createTrialAdvancer } from './advanceTrial';
-import { createEquipListEvaluator } from './penalty';
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;

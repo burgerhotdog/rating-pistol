@@ -1,4 +1,7 @@
-import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
+import {
+  GI, HSR, WW, ZZZ,
+  CHARACTER,
+} from '@/data';
 import { toArray, getAttr, getTotals, toMergedObj } from '@/utils';
 
 const ENERGY_ATTR = {
@@ -34,7 +37,7 @@ export const createEquipListEvaluator = (cache, evalId, runRotation) => {
 
   const baseMap = cache.member[evalId].baseMap;
 
-  return (equipMap = {}) => {
+  return function evaluateEquipList(equipMap = {}) {
     const statMap = toMergedObj(baseMap, equipMap);
     const penalty = Object.entries(matchMap)
       .reduce((acc, [attr, target]) => {
