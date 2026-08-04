@@ -23,6 +23,7 @@ import {
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
+  matchByDataKey,
 } from 'recharts';
 import { useElementColors } from '@/hooks';
 import { formatNum, formatStr } from '@/utils';
@@ -121,7 +122,11 @@ const Distribution = ({ userSummary }) => {
         <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
-              <Pie data={data} dataKey="value" animationBegin={0}>
+              <Pie
+                data={data}
+                dataKey="value"
+                animationBegin={0}
+              >
                 {data.map(({ name, percent }) => {
                   const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
                   return (<Cell key={name} fill={fill} stroke="none" />);
@@ -150,10 +155,7 @@ const Distribution = ({ userSummary }) => {
 
           <ResponsiveContainer width="100%" height="100%">
             <BarChart layout="vertical" data={data}>
-              <XAxis
-                domain={[0, 1]}
-                type="number"
-              />
+              <XAxis domain={[0, 1]} type="number" />
     
               <YAxis
                 dataKey="name"
@@ -163,7 +165,7 @@ const Distribution = ({ userSummary }) => {
     
               <Bar
                 dataKey="percent"
-                name="You"
+                animationMatchBy={matchByDataKey('name')}
                 fill={color}
               />
             </BarChart>

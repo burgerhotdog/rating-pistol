@@ -134,7 +134,7 @@ const Mainstats = ({ configMap, userConfigKey }) => {
       />
 
       <CardContent component={Stack} sx={{ flex: 1 }}>
-        <Box sx={{ px: 1, pb: 1, display: 'flex', flexDirection: 'column', gap: 0.25 }}>
+        <Stack spacing={0.25}>
           {ordered.map(([key, config]) => (
             <ConfigRow
               key={key}
@@ -144,7 +144,7 @@ const Mainstats = ({ configMap, userConfigKey }) => {
               pct={config.count / total}
             />
           ))}
-        </Box>
+        </Stack>
       </CardContent>
     </Card>
   );

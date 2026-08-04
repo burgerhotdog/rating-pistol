@@ -128,6 +128,34 @@ const TooltipContent = ({ time, rows }) => {
   );
 };
 
+const popCrossfade = (items, animationElapsedTime) => {
+  if (items == null) return [];
+  if (animationElapsedTime === 1) {
+    return items.flatMap((item) => (item.status === 'removed' ? [] : [item.next]));
+  }
+
+  const result = [];
+  for (const item of items) {
+    if (item.status === 'matched' || item.status === 'added') {
+      const { next } = item;
+      result.push({
+        ...next,
+        opacity: animationElapsedTime,
+        size: next.size * animationElapsedTime * animationElapsedTime,
+      });
+    }
+    if (item.status === 'matched' || item.status === 'removed') {
+      const { prev } = item;
+      result.push({
+        ...prev,
+        opacity: 1 - animationElapsedTime,
+        size: prev.size * (1 - animationElapsedTime) * (1 - animationElapsedTime),
+      });
+    }
+  }
+  return result;
+};
+
 const Timeline = ({ userSummary, memberIds }) => {
   const { charId } = useParams();
   const { palette } = useTheme();
@@ -251,6 +279,7 @@ const Timeline = ({ userSummary, memberIds }) => {
                   <Scatter
                     key={id}
                     dataKey={id}
+                    animationInterpolateFn={popCrossfade}
                     name={charData[id]?.name ?? 'Other'}
                     fill={color}
                   />

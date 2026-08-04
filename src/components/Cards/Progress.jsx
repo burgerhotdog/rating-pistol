@@ -123,10 +123,8 @@ const Progress = ({ trialBands, userDps }) => {
             />
 
             <ChartTooltip
-              content={({ active, payload }) => {
-                if (!active || !payload || !payload.length) return null;
-
-                const { week, mean } = payload[0].payload;
+              content={({ payload }) => {
+                const { week, mean } = payload?.[0]?.payload ?? {};
                 const prevWeek = data[week - 1];
 
                 const diff = prevWeek?.mean > 0
@@ -167,7 +165,7 @@ const Progress = ({ trialBands, userDps }) => {
                       </Typography>
 
                       <Typography variant="body2">
-                        {formatNum(mean)}
+                        {formatNum(mean ?? 0)}
                       </Typography>
                     </Box>
 
