@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Card,
   CardContent,
@@ -9,7 +8,6 @@ import {
   Stack,
   ToggleButton,
   ToggleButtonGroup,
-  Tooltip,
   Typography,
 } from '@mui/material';
 import { alpha, darken } from '@mui/material/styles';
@@ -90,17 +88,7 @@ const Distribution = ({ userSummary }) => {
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
-        title={
-          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-            <Typography variant="subtitle1">
-              Damage Distribution
-            </Typography>
-
-            <Tooltip title="How damage is distributed across your rotation.">
-              <HelpOutlineOutlinedIcon color="disabled" />
-            </Tooltip>
-          </Stack>
-        }
+        title="Damage Distribution"
         action={
           <ToggleButtonGroup
             value={distributionMode}
@@ -113,7 +101,6 @@ const Distribution = ({ userSummary }) => {
             ))}
           </ToggleButtonGroup>
         }
-        disableTypography
       />
 
       <CardContent component={Stack} sx={{ flex: 1 }}> 

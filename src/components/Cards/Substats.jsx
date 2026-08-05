@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Box,
   Card,
@@ -7,7 +6,6 @@ import {
   CardHeader,
   Paper,
   Stack,
-  Tooltip,
   Typography,
 } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
@@ -184,21 +182,7 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader
-        title={
-          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-            <Typography variant="subtitle1">
-              Substat Distribution
-            </Typography>
-
-            <Tooltip title="Substat distribution comparison with average.">
-              <HelpOutlineOutlinedIcon color="disabled" />
-            </Tooltip>
-          </Stack>
-        }
-        disableTypography
-      />
-
+      <CardHeader title="Substat Distribution" />
       <CardContent component={Stack} direction="row" sx={{ flex: 1 }}>
         <RadarChart data={data}>
           <PolarGrid />

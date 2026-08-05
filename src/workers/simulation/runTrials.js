@@ -3,8 +3,8 @@ import { createEquipListEvaluator } from './evaluateEquipList';
 import { createTrialAdvancer } from './advanceTrial';
 
 // Temporary Modifiers
-const FIXED_TRIALS = 400;
-const FIXED_WEEKS = false;
+const FIXED_TRIALS = 1000;
+const FIXED_WEEKS = 10;
 
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;

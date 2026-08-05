@@ -25,7 +25,7 @@ import {
 } from 'recharts';
 import { ComposedChart } from '@/components';
 import { useElementColors } from '@/hooks';
-import { formatDmg, formatNum } from '@/utils';
+import { formatDmg, formatNum, ceil } from '@/utils';
 
 // Diffs consecutive entries of a level/rate series across the band keys,
 // producing the derivative series (one entry shorter than the input).
@@ -95,18 +95,18 @@ const Progress = ({ trialBands, userDps }) => {
   const isDerivative = mode !== 'level';
 
   const yDomain = useMemo(() => {
-    if (!isDerivative) {
-      return [0, Math.max(trialBands.at(-1).p90, userDps) * 1.05];
-    }
-    const values = data.flatMap((d) => [
-      d.band80Low,
-      d.band80Low + d.band80High,
-    ]);
-    const min = Math.min(0, ...values);
-    const max = Math.max(0, ...values);
-    const pad = (max - min) * 0.1 || 1;
-    return [min - pad, max + pad];
-  }, [data, isDerivative, trialBands, userDps]);
+    if (mode === 'level') return [0, ceil(Math.max(trialBands.at(-1).p90, userDps), -4)];
+
+    const yValues = data.flatMap(({ band80Low, band80High }) => {
+      const p10 = band80Low;
+      const p90 = band80Low + band80High
+      return [p10, p90];
+    });
+
+    if (mode === 'rate') return [0, Math.max(0, ...yValues)];
+
+    return [Math.min(0, ...yValues), 0];
+  }, [data, mode, trialBands, userDps]);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -118,17 +118,17 @@ const Progress = ({ trialBands, userDps }) => {
             onChange={(_, next) => next && setMode(next)}
           >
             <ToggleButton value="level">
-              <Tooltip title="Show DPS over time">
+              <Tooltip title="Show progression (DPS/week)">
                 <ShowChartIcon />
               </Tooltip>
             </ToggleButton>
             <ToggleButton value="rate">
-              <Tooltip title="Show rate of change (Δ DPS/week)">
+              <Tooltip title="Show improvement rate (Δ DPS/week)">
                 <TrendingUpIcon />
               </Tooltip>
             </ToggleButton>
             <ToggleButton value="accel">
-              <Tooltip title="Show rate of the rate of change (Δ² DPS/week²)">
+              <Tooltip title="Show improvement acceleration (Δ² DPS/week²)">
                 <BoltIcon />
               </Tooltip>
             </ToggleButton>

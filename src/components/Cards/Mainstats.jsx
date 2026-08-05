@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Avatar,
   Box,
@@ -118,21 +117,7 @@ const Mainstats = ({ configMap, userConfigKey }) => {
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader
-        title={
-          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-            <Typography variant="subtitle1">
-              Mainstat Distribution
-            </Typography>
-
-            <Tooltip title="Top main stat combinations in simulated builds.">
-              <HelpOutlineOutlinedIcon color="disabled" />
-            </Tooltip>
-          </Stack>
-        }
-        disableTypography
-      />
-
+      <CardHeader title="Mainstat Distribution" />
       <CardContent component={Stack} sx={{ flex: 1 }}>
         <Stack spacing={0.25}>
           {ordered.map(([key, config]) => (

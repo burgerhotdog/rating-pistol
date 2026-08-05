@@ -1,4 +1,3 @@
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Box,
   Card,
@@ -6,7 +5,6 @@ import {
   CardHeader,
   Divider,
   Stack,
-  Tooltip,
   Typography,
 } from '@mui/material';
 import { formatNum } from '@/utils';
@@ -58,9 +56,6 @@ const Rating = ({ userDps, benchmarkDps }) => {
             <Typography variant="overline" color="textSecondary">
               Team DPS
             </Typography>
-            <Tooltip>
-              <HelpOutlineOutlinedIcon color="disabled" />
-            </Tooltip>
           </Stack>
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {formatNum(userDps)}
@@ -72,9 +67,6 @@ const Rating = ({ userDps, benchmarkDps }) => {
             <Typography variant="overline" color="textSecondary">
               Benchmark
             </Typography>
-            <Tooltip>
-              <HelpOutlineOutlinedIcon color="disabled" />
-            </Tooltip>
           </Stack>
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
             {formatNum(benchmarkDps)}
