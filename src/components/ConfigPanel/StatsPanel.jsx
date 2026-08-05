@@ -1,11 +1,58 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Chip, CardContent, Box, CardHeader, Card, Divider, MenuItem, Stack, TextField, Typography, Skeleton, Tooltip } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  Chip,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Divider,
+  GlobalStyles,
+  IconButton,
+  ListItemButton,
+  MenuItem,
+  Skeleton,
+  Stack,
+  TextField,
+  Tooltip,
+  Typography,
+} from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ClearAllIcon from '@mui/icons-material/ClearAll';
+import CloseIcon from '@mui/icons-material/Close';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
+import {
+  SortableContext,
+  arrayMove,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { CharAvatar } from '@/components';
-import { TeamMemberDialog, RotationEditor } from './TeamMemberDialog';
-import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
-import { getAttr, formatStr, compileMenuMap } from '@/utils';
+import { GI, HSR, WW, ZZZ, CHARACTER, ECHO } from '@/data';
+import { useElementColors, useCharData } from '@/hooks';
+import { toArray, getAttr, formatStr, compileMenuMap } from '@/utils';
+import { TeamMemberDialog } from './TeamMemberDialog';
 
 const MENU_STATS = {
   [GI]: [
@@ -90,64 +137,421 @@ function formatFullDate(dateString) {
   });
 }
 
-export const StatsPanel = ({ team, updateTeam }) => {
+const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
+  const [search, setSearch] = useState('');
+  const { skills } = CHARACTER[gameId][charId];
+
+  const categories = useMemo(() => {
+    const lowerSearch = search.toLowerCase();
+    return Object.entries(skills)
+      .map(([category, { name, actions }]) => ({
+        category,
+        name,
+        actions: actions
+          .map((action, index) => ({ ...action, ref: `${category}.${index}` }))
+          .filter((action) => action.name.toLowerCase().includes(lowerSearch)),
+      }));
+  }, [search, skills]);
+
+  const handleSelect = (actionKey) => {
+    onSelect(actionKey);
+    setSearch('');
+    onClose();
+  };
+
+  const hasMatches = categories.some(({ actions }) => actions.length > 0);
+
+  return (
+    <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
+      <DialogTitle>
+        Select Action
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: 'text.disabled',
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
+
+
+      <Box sx={{ px: 3, mb: 2 }}>
+        <TextField
+          placeholder="Search actions..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          fullWidth
+        />
+      </Box>
+
+      <DialogContent
+        dividers
+        sx={{
+          scrollbarColor: 'rgba(255,255,255,0.18) transparent',
+          '&::-webkit-scrollbar': { width: 5 },
+          '&::-webkit-scrollbar-track': { background: 'transparent' },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'rgba(255,255,255,0.18)',
+            borderRadius: 3,
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: 'rgba(255,255,255,0.32)',
+          },
+        }}
+      >
+        {hasMatches ? (
+          <Stack spacing={1}>
+            {categories.map(({ category, name, actions }) => {
+              if (!actions.length) return null;
+              return (
+                <Accordion
+                  key={`${category}:${name}`}
+                  disableGutters
+                  defaultExpanded
+                >
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                      {formatStr(`${category}: ${name}`)}
+                    </Typography>
+                    <Typography variant="body2" color="textDisabled" sx={{ ml: 1 }}>
+                      ({actions.length})
+                    </Typography>
+                  </AccordionSummary>
+
+                  <AccordionDetails sx={{ pt: 0 }}>
+                    <Stack spacing={0.5}>
+                      {actions.map(({ ref, name, tagged = [], type = '' }) => (
+                        <ListItemButton
+                          key={ref}
+                          onClick={() => handleSelect(ref)}
+                          disableGutters
+                          dense
+                          sx={{ px: 0.5 }}
+                        >
+                          <Chip
+                            key={type}
+                            label={formatStr(type)}
+                            sx={{
+                              height: 20,
+                              fontSize: '0.65rem',
+                              flexShrink: 0,
+                              mr: 0.5,
+                              '& .MuiChip-label': { px: '5px' },
+                            }}
+                          />
+
+                          <Typography
+                            variant="body2"
+                            noWrap
+                            sx={{ flexGrow: 1, minWidth: 0 }}
+                          >
+                            {name}
+                          </Typography>
+
+                          {toArray(tagged).map((tag) => (
+                            <Chip
+                              key={tag}
+                              label={tag}
+                              sx={{
+                                height: 20,
+                                fontSize: '0.65rem',
+                                flexShrink: 0,
+                                mr: 0.5,
+                                '& .MuiChip-label': { px: '5px' },
+                              }}
+                            />
+                          ))}
+                        </ListItemButton>
+                      ))}
+                    </Stack>
+                  </AccordionDetails>
+                </Accordion>
+              );
+            })}
+          </Stack>
+        ) : (
+          <Typography variant="body2" color="textSecondary">
+            No skills available for this character.
+          </Typography>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove }) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
+  const allActions = {
+    ...CHARACTER[gameId][charId].skills,
+    echoSkill: {
+      actions: ECHO[member.mainEcho]?.actions ?? [],
+    },
+  };
+
+  const [category, actionIndex] = actionKey.split('.');
+  const index = Number(actionIndex);
+  const { name, tagged, type = '' } = allActions[category].actions[index];
+
+  return (
+    <Box
+      ref={setNodeRef}
+      style={style}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 1,
+        py: 0.5,
+        px: 1,
+        borderBottom: '1px solid',
+        borderColor: 'divider',
+        bgcolor: isDragging ? 'action.selected' : 'transparent',
+        '&:last-child': { borderBottom: 'none' },
+        '& .rotation-delete': { opacity: 0, transition: 'opacity 0.15s' },
+        '&:hover .rotation-delete': { opacity: 1 },
+      }}
+    >
+      {/* Drag handle */}
+      <Box
+        {...attributes}
+        {...listeners}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          cursor: isDragging ? 'grabbing' : 'grab',
+          color: 'text.disabled',
+          flexShrink: 0,
+        }}
+      >
+        <DragIndicatorIcon sx={{ fontSize: 18 }} />
+      </Box>
+
+      {/* Cast type chips */}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0, width: 100 }}>
+        <Chip
+          key={type}
+          label={formatStr(type)}
+          variant="outlined"
+          sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
+        />
+      </Box>
+
+      {/* Action name */}
+      <Typography variant="body2" noWrap sx={{ flex: 1, minWidth: 0 }}>
+        {name}
+      </Typography>
+
+      {/* Tags chips */}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
+        {toArray(tagged).map((tag) => (
+          <Chip
+            key={tag}
+            label={tag}
+            sx={{
+              height: 20,
+              fontSize: '0.65rem',
+              flexShrink: 0,
+              '& .MuiChip-label': { px: '5px' },
+            }}
+          />
+        ))}
+      </Box>
+
+      {/* Delete — hover only */}
+      <IconButton className="rotation-delete" onClick={onRemove} sx={{ flexShrink: 0 }}>
+        <DeleteOutlineOutlinedIcon />
+      </IconButton>
+    </Box>
+  );
+}
+
+function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
+  const [skillDialogOpen, setSkillDialogOpen] = useState(false);
+  const [dragging, setDragging] = useState(false);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
+  );
+
+  const sortableIds = useMemo(
+    () => rotation.map((key, i) => `${key}__${i}`),
+    [rotation],
+  );
+
+  const handleDragEnd = ({ active, over }) => {
+    setDragging(false);
+    if (over && active.id !== over.id) {
+      const oldIndex = sortableIds.indexOf(active.id);
+      const newIndex = sortableIds.indexOf(over.id);
+      onChange(arrayMove(rotation, oldIndex, newIndex));
+    }
+  };
+
+  const removeSkill = (index) => {
+    onChange(rotation.filter((_, i) => i !== index));
+  };
+
+  if (!charId) {
+    return (
+      <Typography variant="body2" color="textSecondary">
+        Select a character to edit rotation.
+      </Typography>
+    );
+  }
+
+  return (
+    <Box>
+      {dragging && <GlobalStyles styles={{ '*': { cursor: 'grabbing !important' } }} />}
+
+      <Box
+        sx={{
+          maxHeight: 220,
+          overflowY: 'auto',
+          border: 1,
+          borderColor: 'divider',
+          borderRadius: 1,
+          mb: 1,
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'rgba(255,255,255,0.18) transparent',
+          '&::-webkit-scrollbar': { width: 5 },
+          '&::-webkit-scrollbar-track': { background: 'transparent' },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'rgba(255,255,255,0.18)',
+            borderRadius: 3,
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: 'rgba(255,255,255,0.32)',
+          },
+        }}
+      >
+        {rotation.length > 0 ? (
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            modifiers={[restrictToVerticalAxis]}
+            onDragStart={() => setDragging(true)}
+            onDragEnd={handleDragEnd}
+            onDragCancel={() => setDragging(false)}
+          >
+            <SortableContext items={sortableIds} strategy={verticalListSortingStrategy}>
+              {rotation.map((actionKey, index) => (
+                <SortableRotationItem
+                  key={sortableIds[index]}
+                  id={sortableIds[index]}
+                  actionKey={actionKey}
+                  member={member}
+                  charId={charId}
+                  gameId={gameId}
+                  onRemove={() => removeSkill(index)}
+                />
+              ))}
+            </SortableContext>
+          </DndContext>
+        ) : (
+          <Typography variant="body2" color="textSecondary" sx={{ p: 2, textAlign: 'center' }}>
+            Rotation is empty.
+          </Typography>
+        )}
+      </Box>
+
+      <Stack direction="row" spacing={1}>
+        <Button
+          variant="outlined"
+          startIcon={<AddIcon />}
+          onClick={() => setSkillDialogOpen(true)}
+        >
+          Add
+        </Button>
+        <Button
+          variant="outlined"
+          startIcon={<RestartAltIcon />}
+          onClick={() => onChange(CHARACTER[gameId][charId]?.defaults?.rotation ?? [])}
+        >
+          Reset
+        </Button>
+        <Button
+          variant="outlined"
+          startIcon={<ClearAllIcon />}
+          onClick={() => onChange([])}
+        >
+          Clear
+        </Button>
+      </Stack>
+
+      <SkillSelectDialog
+        gameId={gameId}
+        charId={charId}
+        open={skillDialogOpen}
+        onClose={() => setSkillDialogOpen(false)}
+        onSelect={(actionKey) => onChange([...rotation, actionKey])}
+      />
+    </Box>
+  );
+}
+
+export const StatsPanel = ({ team = [], updateTeam }) => {
   const { gameId, charId } = useParams();
-  const theme = useTheme();
+  const color = useElementColors({ char: '$curr' });
+  const charData = useCharData();
   const [dialogIndex, setDialogIndex] = useState(null);
   const [rotationMemberId, setRotationMemberId] = useState(charId);
   const [prevCharId, setPrevCharId] = useState(charId);
+
+  const member = team.find((member) => member.id === charId);
+  if (!charId || !member) return (
+    <Card sx={{ width: 300 }}>
+      <Skeleton
+        variant="rectangular"
+        width="100%"
+        height="100%"
+      />
+    </Card>
+  );
+
   if (prevCharId !== charId) {
     setPrevCharId(charId);
     setRotationMemberId(charId);
   }
   const rotationMemberIndex = Math.max(0, team.findIndex((m) => m.id === rotationMemberId));
 
-  const member = team.reduce((acc, member) => {
-    if (member.id !== charId) return acc;
-    return member;
-  }, null);
-
-  const statMap = member ? compileMenuMap(gameId, charId, member) : {};
-
-  if (!member) {
-    return (
-      <Card sx={{ width: 300 }}>
-        <Skeleton
-          variant="rectangular"
-          width="100%"
-          height="100%"
-        />
-      </Card>
-    )
-  }
+  const currChar = charData[charId];
+  const statMap = compileMenuMap(gameId, charId, member);
 
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
         avatar={<CharAvatar gameId={gameId} charId={charId} />}
-        title={CHARACTER[gameId][charId]?.name ?? ''}
+        title={currChar?.name ?? ''}
         subheader={
           <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
             <Chip
-              label={formatStr(CHARACTER[gameId][charId].element)}
               variant="outlined"
-              sx={{
-                fontWeight: 'bold',
-                color: theme.accentColors[gameId][CHARACTER[gameId][charId].element]
-              }}
+              label={formatStr(currChar.element)}
+              sx={{ fontWeight: 'bold', color }}
             />
 
             <Chip
-              label={formatStr(CHARACTER[gameId][charId]?.type)}
               variant="outlined"
+              label={formatStr(currChar?.type)}
               sx={{ fontWeight: 'bold' }}
             />
           </Stack>
         }
       />
 
-      <CardContent sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-        <Stack spacing={1}>
+      <CardContent component={Stack} spacing={1} sx={{ flex: 1 }}>
+        <Stack spacing={0.5} sx={{ flex: 1 }}>
           {MENU_STATS[gameId].map((id) => {
             const totalValue = getAttr(id, statMap) +
               ((gameId === WW && id === 'critDmg%') ? 1 : 0);
@@ -175,69 +579,72 @@ export const StatsPanel = ({ team, updateTeam }) => {
           })}
         </Stack>
 
-        <Divider sx={{ my: 2 }} />
+        <Divider />
 
-        <Typography variant="caption" color="textSecondary" sx={{ mb: 1.5, display: 'block' }}>
-          Team Configuration
-        </Typography>
+        <Stack>
+          <Typography variant="caption" color="textSecondary">
+            Team Configuration
+          </Typography>
 
-        <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
-          {team.map((member, index) => (
-            <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
-              <CharAvatar
-                gameId={gameId}
-                charId={member?.id ?? null}
-              />
-            </Box>
-          ))}
+          <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
+            {team.map((member, index) => (
+              <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
+                <CharAvatar
+                  gameId={gameId}
+                  charId={member?.id ?? null}
+                />
+              </Box>
+            ))}
+          </Stack>
+
+          {dialogIndex !== null && (
+            <TeamMemberDialog
+              gameId={gameId}
+              member={team[dialogIndex]}
+              open={dialogIndex !== null}
+              onClose={() => setDialogIndex(null)}
+              onSave={(updatedMember) => updateTeam(dialogIndex, updatedMember)}
+            />
+          )}
         </Stack>
 
-        {dialogIndex !== null && (
-          <TeamMemberDialog
-            gameId={gameId}
-            member={team[dialogIndex]}
-            open={dialogIndex !== null}
-            onClose={() => setDialogIndex(null)}
-            onSave={(updatedMember) => updateTeam(dialogIndex, updatedMember)}
-          />
-        )}
+        <Divider />
 
-        <Divider sx={{ my: 2 }} />
+        <Stack>
+          <Typography variant="caption" color="textSecondary">
+            Rotation
+          </Typography>
 
-        <Typography variant="caption" color="textSecondary" sx={{ mb: 1.5, display: 'block' }}>
-          Rotation
-        </Typography>
+          <TextField
+            select
+            size="small"
+            value={rotationMemberIndex >= 0 ? rotationMemberIndex : 0}
+            onChange={(e) => setRotationMemberId(team[Number(e.target.value)]?.id ?? null)}
+            fullWidth
+          >
+            {team.map((m, i) => (
+              <MenuItem key={i} value={i} disabled={!m.id}>
+                {m.id ? (charData[m.id]?.name ?? m.id) : `Slot ${i + 1} (empty)`}
+              </MenuItem>
+            ))}
+          </TextField>
 
-        <TextField
-          select
-          size="small"
-          value={rotationMemberIndex >= 0 ? rotationMemberIndex : 0}
-          onChange={(e) => setRotationMemberId(team[Number(e.target.value)]?.id ?? null)}
-          fullWidth
-          sx={{ mb: 1.5 }}
-        >
-          {team.map((m, i) => (
-            <MenuItem key={i} value={i} disabled={!m.id}>
-              {m.id ? (CHARACTER[gameId][m.id]?.name ?? m.id) : `Slot ${i + 1} (empty)`}
-            </MenuItem>
-          ))}
-        </TextField>
+          {(() => {
+            const idx = rotationMemberIndex;
+            const rotMember = team[idx];
+            return (
+              <RotationEditor
+                gameId={gameId}
+                charId={rotMember?.id ?? null}
+                member={rotMember}
+                rotation={rotMember?.rotation ?? []}
+                onChange={(rotation) => updateTeam(idx, { ...rotMember, rotation })}
+              />
+            );
+          })()}
+        </Stack>
 
-        {(() => {
-          const idx = rotationMemberIndex;
-          const rotMember = team[idx];
-          return (
-            <RotationEditor
-              gameId={gameId}
-              charId={rotMember?.id ?? null}
-              member={rotMember}
-              rotation={rotMember?.rotation ?? []}
-              onChange={(rotation) => updateTeam(idx, { ...rotMember, rotation })}
-            />
-          );
-        })()}
-
-        <Divider sx={{ my: 2 }} />
+        <Divider />
 
         <Tooltip title={formatFullDate(member.build?.lastUpdated)}>
           <Typography variant="caption" color="textSecondary">

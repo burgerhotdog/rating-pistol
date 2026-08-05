@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
+import { Box, LinearProgress, Stack, Typography } from '@mui/material';
 
 export const LoadingBar = ({ status, week, diff }) => {
   const initialDiffRef = useRef(null);
@@ -7,26 +7,28 @@ export const LoadingBar = ({ status, week, diff }) => {
   // const value = diff != null ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
 
   return (
-    <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Stack spacing={2} sx={{ width: '50%' }}>
         <Typography
           variant="body2"
           color="textSecondary"
           sx={{ textAlign: 'center' }}
         >
-          {status || 'Initializing...'}
+          {status ?? ''}
         </Typography>
 
-        <LinearProgress
-          variant="determinate"
-          value={0}
-          sx={{
-            height: 6,
-            borderRadius: 3,
-            backgroundColor: 'action.hover',
-            '& .MuiLinearProgress-bar': { borderRadius: 3 },
-          }}
-        />
+        {status && (
+          <LinearProgress
+            variant="determinate"
+            value={0}
+            sx={{
+              height: 6,
+              borderRadius: 3,
+              backgroundColor: 'action.hover',
+              '& .MuiLinearProgress-bar': { borderRadius: 3 },
+            }}
+          />
+        )}
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography
@@ -38,6 +40,6 @@ export const LoadingBar = ({ status, week, diff }) => {
           </Typography>
         </Box>
       </Stack>
-    </Card>
+    </Box>
   );
 };

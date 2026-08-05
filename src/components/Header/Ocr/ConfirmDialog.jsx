@@ -1,4 +1,14 @@
-import { Autocomplete, Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, MenuItem, Grid } from '@mui/material';
+import {
+  Autocomplete,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Grid,
+  MenuItem,
+  TextField,
+} from '@mui/material';
 import { WW, CHARACTER, WEAPON } from '@/data';
 import EquipEditor from './EquipEditor';
 

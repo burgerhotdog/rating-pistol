@@ -17,27 +17,24 @@ const initMember = (gameId, builds, presetKey) => {
 };
 
 const initTeam = (gameId, charId, builds) => {
-  const character = CHARACTER[gameId][charId];
+  if (!charId) return { members: [], rotation: {} };
+  const char = CHARACTER[gameId][charId];
+
   const teamSize = (gameId === GI || gameId === HSR) ? 4 : 3;
   const teamPreset =
-    character.presets?.[0]?.team ??
+    char?.presets?.[0]?.team ??
     [charId, ...Array(teamSize - 1).fill(null)];
 
   const members = teamPreset.map((presetKey) => presetKey
     ? initMember(gameId, builds, presetKey)
     : {});
 
-  const rotation = {};
-
-  return { members, rotation };
+  return { members, rotation: {} };
 };
 
-export const useTeam = () => {
+export function useTeam() {
   const { gameId, charId } = useParams();
   const builds = useBuild().getBuilds(gameId);
-  const build = builds[charId];
-  if (!build) throw new Error(`Init team for character with no build: ${charId}`);
-
   const [team, setTeam] = useState(() => initTeam(gameId, charId, builds));
 
   function updateTeam(index, member) {
@@ -48,4 +45,4 @@ export const useTeam = () => {
   }
 
   return { team, updateTeam };
-};
+}

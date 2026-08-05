@@ -1,4 +1,7 @@
-import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET } from '@/data';
+import {
+  GI, HSR, WW, ZZZ,
+  CHARACTER, WEAPON, SET,
+} from '@/data';
 import { toArray, toMergedObj, toEquipMap, resolveRankedValue } from '@/utils';
 
 const DEFAULT = {
@@ -25,14 +28,14 @@ const DEFAULT = {
   },
 };
 
-export const compileBaseMap = (gameId, charId, weapId) => {
+export function compileBaseMap(gameId, charId, weapId) {
   const { stats: charStats } = CHARACTER[gameId][charId];
   const { stats: weapStats } = WEAPON[gameId][weapId];
 
   return toMergedObj(DEFAULT[gameId], charStats, weapStats);
-};
+}
 
-export const compileMenuMap = (gameId, charId, member) => {
+export function compileMenuMap(gameId, charId, member) {
   const { rank: memberRank = 0, weaponId, weaponRank = 1, setCounts = {}, build = {}} = member;
 
   const baseMap = compileBaseMap(gameId, charId, weaponId);
@@ -74,4 +77,4 @@ export const compileMenuMap = (gameId, charId, member) => {
   }
 
   return toMergedObj(statMap, ...toMerge);
-};
+}

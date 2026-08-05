@@ -1,117 +1,56 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
-import { toMergedObj, toEquipMap, getTotals } from '@/utils';
-import { createAssignMain } from './stats/assignMain';
-import { revealSubStatWuwa, revealSubStatsHoyo, upgradeSubStats } from './stats/assignSub';
-import { getScore } from './utils';
+import { toEquipMap } from '@/utils';
+import { getSkippableStats } from './getSkippableStats';
+import { createEquipGenerator } from './generateEquip';
 
-const createEquipGenerator = (gameId, goodStats) => {
-  const isGoodMain = (equip) => {
-    const key = gameId === WW ? equip.cost : equip.index;
-    return goodStats.main[key].includes(equip.mainStatId);
-  };
+function createEquipEvaluator(cache, evaluateEquipMap) {
+  function trySlots(slots, equip, prev) {
+    const next = { ...prev };
+    for (const equipIndex of slots) {
+      const equipList = prev.equipList.with(equipIndex, equip);
+      const { summary, totals, score } = evaluateEquipMap(toEquipMap(equipList));
 
-  const hasGoodSubs = (subStatList, numGood) => {
-    let count = 0;
-
-    for (const { subStatId } of subStatList) {
-      if (goodStats.sub.includes(subStatId)) count++;
+      if (score > next.score) {
+        const dps = cache.getDps(totals.damage);
+        Object.assign(next, { equipList, summary, score, dps });
+      }
     }
-
-    return count >= numGood;
-  };
-
-  const assignMain = createAssignMain(gameId);
-
-  // Return early on certain conditions
-  return (spec) => {
-    if (Math.random() < 0.5) return; // Wrong set
-
-    const equip = assignMain(spec);
-    if (!isGoodMain(equip)) return; // Bad main stat
-
-    const subStatList = [];
-    if (gameId === WW) {
-      revealSubStatWuwa(subStatList);
-      if (!hasGoodSubs(subStatList, 1)) return; // Sub 1 is bad
-
-      revealSubStatWuwa(subStatList);
-      revealSubStatWuwa(subStatList);
-      if (!hasGoodSubs(subStatList, 2)) return; // Sub 2 and 3 are both bad
-
-      revealSubStatWuwa(subStatList);
-      revealSubStatWuwa(subStatList);
-    } else {
-      revealSubStatsHoyo(subStatList, gameId, equip.mainStatId);
-      if (!hasGoodSubs(subStatList, 2)) return; // Bad starting 4 stats
-
-      upgradeSubStats(subStatList, gameId);
-    }
-
-    return { ...equip, subStatList };
-  };
-};
-
-const createEquipEvaluator = (cache, baseMap, runRotation, getPenalty, currId) => (equip, latest) => {
-  const buffer = { ...latest };
-
-  const trySlot = (index) => {
-    const newEquipList = latest.equipList.with(index, equip);
-    const combinedStatMap = toMergedObj(baseMap, toEquipMap(newEquipList));
-    const newSummary = runRotation(combinedStatMap);
-    const newTotals = getTotals(newSummary);
-    const newDps = cache.getDps(newTotals.damage);
-    const newPenalty = getPenalty(combinedStatMap);
-    const newScore = getScore(newSummary, currId, newPenalty);
-
-    if (newScore > buffer.score) {
-      Object.assign(buffer, {
-        equipList: newEquipList,
-        summary: newSummary,
-        dps: newDps,
-        score: newScore,
-      });
-    }
-  };
-
-  if ('cost' in equip) {
-    if (equip.cost === 4) {
-      trySlot(0);
-    } else if (equip.cost === 3) {
-      trySlot(1);
-      trySlot(2);
-    } else {
-      trySlot(3);
-      trySlot(4);
-    }
-  } else {
-    trySlot(equip.index);
+    return next;
   }
 
-  return buffer;
-};
+  return function evaluateEquip(equip, trial) {
+    if ('index' in equip)
+      return trySlots([equip.index], equip, trial);
 
-export const createTrialAdvancer = (cache, currId, goodStats, runRotation, getPenalty) => {
+    switch (equip.cost) {
+      case 4:
+        return trySlots([0], equip, trial);
+      case 3:
+        return trySlots([1, 2], equip, trial);
+      case 1:
+        return trySlots([3, 4], equip, trial);
+    }
+  };
+}
+
+export function createTrialAdvancer(cache, score, evaluateEquipMap) {
   const { gameId } = cache;
-  const { baseMap } = cache.member[currId];
-
-  const generateEquip = createEquipGenerator(gameId, goodStats);
-  const evaluateEquip = createEquipEvaluator(cache, baseMap, runRotation, getPenalty, currId);
+  const skippable = getSkippableStats(gameId, score, evaluateEquipMap);
+  const generateEquip = createEquipGenerator(gameId, skippable);
+  const evaluateEquip = createEquipEvaluator(cache, evaluateEquipMap);
 
   const passes = {
-    [GI]: [{ count: 66,  slotCount: 5 }],
-    [HSR]: [{ count: 84,  slotCount: 6, type: 'relic' }],
-    [ZZZ]: [{ count: 120, slotCount: 6 }],
+    [GI]: [{ count: 66 }],
+    [HSR]: [{ count: 84, type: 'relic' }],
+    [ZZZ]: [{ count: 120 }],
     [WW]: [{ count: 20, cost: 4 }, { count: 60 }],
-  };
+  }[gameId];
 
-  return (trial) => {
-    for (const pass of passes[gameId]) {
-
+  return function advanceTrial(trial) {
+    for (const pass of passes) {
       let spec;
       if (gameId === WW) {
-        if ('cost' in pass) {
-          spec = pass.cost;
-        }
+        if ('cost' in pass) spec = pass.cost;
       } else if (gameId === HSR) {
         spec = pass.type;
       }
@@ -124,4 +63,4 @@ export const createTrialAdvancer = (cache, currId, goodStats, runRotation, getPe
       }
     }
   };
-};
+}

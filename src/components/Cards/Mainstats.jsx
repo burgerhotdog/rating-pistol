@@ -1,9 +1,18 @@
 import { useParams } from 'react-router-dom';
-import { Avatar, Stack, IconButton, Box, Card, CardHeader, Tooltip, Typography } from '@mui/material';
-import { alpha } from '@mui/material/styles';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import {
+  Avatar,
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  IconButton,
+  Stack,
+  Tooltip,
+  Typography,
+} from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import { ATTR_ASSETS } from '@/assets';
-import { FlexCard } from '@/components';
 import { formatStr } from '@/utils';
 
 const IconRow = ({ gameId, slots }) => {
@@ -94,7 +103,7 @@ const ConfigRow = ({ gameId, configKey, isUser, pct }) => {
   );
 };
 
-export const MainstatDistribution = ({ configMap, userConfigKey }) => {
+const Mainstats = ({ configMap, userConfigKey }) => {
   const { gameId } = useParams();
   if (!configMap) return null;
 
@@ -108,37 +117,37 @@ export const MainstatDistribution = ({ configMap, userConfigKey }) => {
     : sorted;
 
   return (
-    <FlexCard>
+    <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
         title={
           <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
             <Typography variant="subtitle1">
-              Main stat distribution
+              Mainstat Distribution
             </Typography>
 
-            <Tooltip
-              title="Top main stat combinations in simulated builds."
-            >
-              <HelpOutlineOutlinedIcon
-                color="disabled"
-              />
+            <Tooltip title="Top main stat combinations in simulated builds.">
+              <HelpOutlineOutlinedIcon color="disabled" />
             </Tooltip>
           </Stack>
         }
         disableTypography
       />
 
-      <Box sx={{ px: 1, pb: 1, display: 'flex', flexDirection: 'column', gap: 0.25 }}>
-        {ordered.map(([key, config]) => (
-          <ConfigRow
-            key={key}
-            gameId={gameId}
-            configKey={key}
-            isUser={key === userConfigKey}
-            pct={config.count / total}
-          />
-        ))}
-      </Box>
-    </FlexCard>
+      <CardContent component={Stack} sx={{ flex: 1 }}>
+        <Stack spacing={0.25}>
+          {ordered.map(([key, config]) => (
+            <ConfigRow
+              key={key}
+              gameId={gameId}
+              configKey={key}
+              isUser={key === userConfigKey}
+              pct={config.count / total}
+            />
+          ))}
+        </Stack>
+      </CardContent>
+    </Card>
   );
 };
+
+export default Mainstats;

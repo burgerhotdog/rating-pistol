@@ -11,7 +11,7 @@ const SPECIAL_CASES = {
   Ex: 'EX',
 };
 
-export const formatStr = (str) => {
+export function formatStr(str) {
   return str
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .split(' ')
@@ -25,22 +25,14 @@ export const formatStr = (str) => {
       return hasPercent ? `${word}%` : word;
     })
     .join(' ');
-};
+}
 
-export const formatNum = (num) => {
-  return num.toLocaleString('en-US', {
-    maximumFractionDigits: 0,
-  });
-};
+export function formatNum(num) {
+  return num.toLocaleString('en-US', { maximumFractionDigits: 0 });
+}
 
-export const formatDmg = (num) => {
-  if (num >= 1_000_000) {
-    return `${(num / 1_000_000).toFixed(1)}M`;
-  }
-
-  if (num >= 1_000) {
-    return `${(num / 1_000).toFixed(0)}K`;
-  }
-
+export function formatDmg(num) {
+  if (num >= 1_000_000) return `${(num / 1_000_000).toFixed(1)}M`;
+  if (num >= 1_000) return `${(num / 1_000).toFixed(0)}K`;
   return num.toFixed(0);
-};
+}

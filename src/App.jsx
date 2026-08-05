@@ -6,10 +6,8 @@ import { GamePage, HomePage } from '@/pages';
 
 const GameIdGuard = () => {
   const { gameId } = useParams();
-  if (!VERSION[gameId]) {
+  if (!VERSION[gameId])
     return <Navigate to="/" replace />;
-  }
-
   return <Outlet />;
 };
 

@@ -23,6 +23,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     ownerId: action.ownerId,
     category: action.category,
     type: action.type,
+    field: ctx.states.getField(action.ownerId),
     runtime: ctx.states.runtime + runtimeOffset,
     ...('damage' in action &&
       { damageType: action.damage.type }),

@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   Box,
+  Card,
+  CardContent,
   CardHeader,
+  Checkbox,
   Divider,
   FormControlLabel,
   Paper,
   Stack,
-  Switch,
   Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -21,18 +23,29 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { FlexCard, ChartFill, Dot } from '@/components';
-import { CHARACTER } from '@/data';
-import { formatNum, formatDmg } from '@/utils';
+import { Dot } from '@/components';
+import { useCharData, useElementColors } from '@/hooks';
+import { formatDmg, formatNum } from '@/utils';
 
-function createData(summary, memberStack, isRunningTotal = false) {
+function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
+  const filteredSummary = summary.filter(({ ownerId, field, damage = 0 }) => {
+    if (!isCurrOnly) return damage > 0;
+
+    if (ownerId !== currId || field !== 'onField') return;
+    return damage > 0;
+  });
+
+  const runtimeOffset = isCurrOnly && filteredSummary.length
+    ? filteredSummary[0].runtime
+    : 0;
+
   const runtimeDamage = {};
-  for (const { runtime, ownerId, damage = 0 } of summary) {
-    if (damage <= 0) continue;
+  for (const { runtime, ownerId, damage } of filteredSummary) {
+    const adjustedRuntime = runtime - runtimeOffset;
 
-    runtimeDamage[runtime] ??= { time: runtime };
-    runtimeDamage[runtime][ownerId] ??= 0;
-    runtimeDamage[runtime][ownerId] += damage;
+    runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
+    runtimeDamage[adjustedRuntime][ownerId] ??= 0;
+    runtimeDamage[adjustedRuntime][ownerId] += damage;
   }
 
   if (isRunningTotal) {
@@ -114,24 +127,55 @@ const TooltipContent = ({ time, rows }) => {
   );
 };
 
-export const Timeline = ({ userSummary, team }) => {
-  const { gameId } = useParams();
-  const { palette, accentColors } = useTheme();
-  const [isRunningTotal, setIsRunningTotal] = useState(true);
-  const gameColors = accentColors[gameId];
-  const gameCharacters = CHARACTER[gameId];
+const popCrossfade = (items, animationElapsedTime) => {
+  if (items == null) return [];
+  if (animationElapsedTime === 1) {
+    return items.flatMap((item) => (item.status === 'removed' ? [] : [item.next]));
+  }
 
-  const memberStack = team.filter((m) => m.id).map((m) => m.id);
+  const result = [];
+  for (const item of items) {
+    if (item.status === 'matched' || item.status === 'added') {
+      const { next } = item;
+      result.push({
+        ...next,
+        opacity: animationElapsedTime,
+        size: next.size * animationElapsedTime * animationElapsedTime,
+      });
+    }
+    if (item.status === 'matched' || item.status === 'removed') {
+      const { prev } = item;
+      result.push({
+        ...prev,
+        opacity: 1 - animationElapsedTime,
+        size: prev.size * (1 - animationElapsedTime) * (1 - animationElapsedTime),
+      });
+    }
+  }
+  return result;
+};
+
+const Timeline = ({ userSummary, memberIds }) => {
+  const { charId } = useParams();
+  const { palette } = useTheme();
+  const [isRunningTotal, setIsRunningTotal] = useState(true);
+  const [isCurrOnly, setIsCurrOnly] = useState(false);
+  const handleCheckbox = (setter) => (event) => setter(event.target.checked);
+  const charData = useCharData();
+  const elementColors = useElementColors();
+  const accentColor = elementColors[charData[charId].element];
+
+  const memberStack = [...memberIds];
   if (userSummary.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
 
   const memberColors = Object.fromEntries(
     memberStack.map((id) => {
-      const element = gameCharacters[id]?.element;
-      return [id, gameColors[element] ?? '#ffffff'];
+      const element = charData[id]?.element;
+      return [id, elementColors[element] ?? '#ffffff'];
     })
   );
 
-  const data = createData(userSummary, memberStack, isRunningTotal);
+  const data = buildData(userSummary, memberStack, isRunningTotal, isCurrOnly, charId);
   const axisProps = (
     <>
       <defs>
@@ -148,59 +192,56 @@ export const Timeline = ({ userSummary, team }) => {
       />
       <XAxis
         dataKey="time"
-        type="number"
         domain={[0, 'dataMax']}
         tick={{ fontSize: 12 }}
         tickFormatter={(time) => `${(time / 1000).toFixed()}s`}
+        type="number"
       />
       <YAxis
         tick={{ fontSize: 12 }}
         tickFormatter={formatDmg}
-        label={{
-          value: 'Damage',
-          angle: -90,
-          position: 'insideLeft',
-          fontSize: 12,
-        }}
         width="auto"
       />
     </>
   );
 
   return (
-    <FlexCard>
+    <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
-        title={
-          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-            <Typography variant="subtitle1">
-              Rotation Timeline
-            </Typography>
-          </Stack>
-        }
+        title="Rotation Timeline"
         action={
-          <FormControlLabel
-            control={
-              <Switch
-                size="small"
-                checked={isRunningTotal}
-                onChange={(e) => setIsRunningTotal(e.target.checked)}
-              />
-            }
-            label={
-              <Typography variant="caption" color="textSecondary">
-                Running Total
-              </Typography>
-            }
-          />
+          <>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isRunningTotal}
+                  onChange={handleCheckbox(setIsRunningTotal)}
+                  sx={{ '&.Mui-checked': { color: accentColor } }}
+                />
+              }
+              label="Show Running Total"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isCurrOnly}
+                  onChange={handleCheckbox(setIsCurrOnly)}
+                  sx={{ '&.Mui-checked': { color: accentColor } }}
+                />
+              }
+              label="Hide Teammates"
+            />
+          </>
         }
-        disableTypography
       />
 
-      <ChartFill flex={3}>
+      <CardContent component={Stack} sx={{ flex: 1 }}>
         {isRunningTotal ? (
           <AreaChart
             data={data}
-            margin={{ top: 16, right: 16, left: 16, bottom: 16 }}
+            width="100%"
+            height="100%"
+            responsive
           >
             {axisProps}
 
@@ -212,7 +253,8 @@ export const Timeline = ({ userSummary, team }) => {
                   dataKey={id}
                   activeDot={false}
                   fill={`url(#gradient${color})`}
-                  name={gameCharacters[id]?.name ?? 'Other'}
+                  hide={isCurrOnly && id !== charId}
+                  name={charData[id]?.name ?? 'Other'}
                   stackId="members"
                   stroke={color}
                   strokeOpacity={0}
@@ -222,20 +264,20 @@ export const Timeline = ({ userSummary, team }) => {
             })}
 
             <ChartTooltip
-              content={({ payload }) => {
-                return (
-                  <TooltipContent
-                    time={payload[0]?.payload?.time}
-                    rows={payload.toReversed()}
-                  />
-                );
-              }}
+              content={({ payload }) => (
+                <TooltipContent
+                  time={payload[0]?.payload?.time}
+                  rows={payload.toReversed()}
+                />
+              )}
             />
           </AreaChart>
         ) : (
           <ScatterChart
             data={data}
-            margin={{ top: 16, right: 16, left: 16, bottom: 16 }}
+            width="100%"
+            height="100%"
+            responsive
           >
             {axisProps}
 
@@ -245,7 +287,8 @@ export const Timeline = ({ userSummary, team }) => {
                 <Scatter
                   key={id}
                   dataKey={id}
-                  name={gameCharacters[id]?.name ?? 'Other'}
+                  animationInterpolateFn={popCrossfade}
+                  name={charData[id]?.name ?? 'Other'}
                   fill={color}
                 />
               );
@@ -253,21 +296,18 @@ export const Timeline = ({ userSummary, team }) => {
 
             <ChartTooltip
               isAnimationActive={false}
-              content={({ payload }) => {
-                const time = payload[0]?.value ?? 0;
-                const rows = payload[1] ? [payload[1]] : [];
-
-                return (
-                  <TooltipContent
-                    time={time}
-                    rows={rows}
-                  />
-                );
-              }}
+              content={({ payload }) => (
+                <TooltipContent
+                  time={payload[0]?.value ?? 0}
+                  rows={payload[1] ? [payload[1]] : []}
+                />
+              )}
             />
           </ScatterChart>
         )}
-      </ChartFill>
-    </FlexCard>
+      </CardContent>
+    </Card>
   );
 };
+
+export default Timeline;

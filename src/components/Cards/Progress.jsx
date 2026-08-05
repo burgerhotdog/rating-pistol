@@ -1,30 +1,28 @@
-import { useParams } from 'react-router-dom';
 import {
   Box,
+  Card,
+  CardContent,
+  CardHeader,
   Divider,
   Paper,
+  Stack,
   Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import {
-  ComposedChart,
   Area,
+  CartesianGrid,
+  ComposedChart,
+  Tooltip as ChartTooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip as ChartTooltip,
 } from 'recharts';
-import { FlexCard, ChartFill } from '@/components';
-import { CHARACTER } from '@/data';
-import { formatNum, formatDmg } from '@/utils';
+import { useElementColors } from '@/hooks';
+import { formatDmg, formatNum } from '@/utils';
 
-export const ProgressChart = ({ trialBands, userDps }) => {
-  const { gameId, charId } = useParams();
-  const { palette, accentColors } = useTheme();
-
-  const disabledColor = palette.action.disabled;
-  const { element } = CHARACTER[gameId][charId]
-  const accentColor = accentColors[gameId][element] ?? disabledColor;
+const Progress = ({ trialBands, userDps }) => {
+  const { palette } = useTheme();
+  const color = useElementColors({ char: '$curr' });
 
   const data = trialBands.map(({ mean, p10, p25, p50, p75, p90 }, index) => ({
     week: index,
@@ -37,16 +35,19 @@ export const ProgressChart = ({ trialBands, userDps }) => {
   }));
 
   return (
-    <FlexCard direction="row">
-      <ChartFill flex={3}>
+    <Card component={Stack} sx={{ flex: 1 }}>
+      <CardHeader title="Simulated Farming Progression" />
+      <CardContent component={Stack} sx={{ flex: 1 }}>
         <ComposedChart
-          data={data}
-          margin={{ top: 32, right: 48, left: 32, bottom: 32 }}
+          data={data} 
+          width="100%"
+          height="100%"
+          responsive
         >
           <defs>
             <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={accentColor} stopOpacity={0.6} />
-              <stop offset="100%" stopColor={accentColor} stopOpacity={0.2} />
+              <stop offset="0%" stopColor={color} stopOpacity={0.6} />
+              <stop offset="100%" stopColor={color} stopOpacity={0.2} />
             </linearGradient>
           </defs>
           <CartesianGrid
@@ -92,7 +93,7 @@ export const ProgressChart = ({ trialBands, userDps }) => {
             dataKey="band80High"
             stackId="band80"
             stroke="none"
-            fill={accentColor}
+            fill={color}
             fillOpacity={0.15}
             activeDot={false}
           />
@@ -110,7 +111,7 @@ export const ProgressChart = ({ trialBands, userDps }) => {
             dataKey="band50High"
             stackId="band50"
             stroke="none"
-            fill={accentColor}
+            fill={color}
             fillOpacity={0.3}
             activeDot={false}
           />
@@ -118,17 +119,15 @@ export const ProgressChart = ({ trialBands, userDps }) => {
           <Area
             type="monotone"
             dataKey="mean"
-            stroke={accentColor}
+            stroke={color}
             strokeWidth={1.5}
             fill="url(#gradient)"
             activeDot={false}
           />
 
           <ChartTooltip
-            content={({ active, payload }) => {
-              if (!active || !payload || !payload.length) return null;
-
-              const { week, mean } = payload[0].payload;
+            content={({ payload }) => {
+              const { week, mean } = payload?.[0]?.payload ?? {};
               const prevWeek = data[week - 1];
 
               const diff = prevWeek?.mean > 0
@@ -169,7 +168,7 @@ export const ProgressChart = ({ trialBands, userDps }) => {
                     </Typography>
 
                     <Typography variant="body2">
-                      {formatNum(mean)}
+                      {formatNum(mean ?? 0)}
                     </Typography>
                   </Box>
 
@@ -183,7 +182,9 @@ export const ProgressChart = ({ trialBands, userDps }) => {
             }}
           />
         </ComposedChart>
-      </ChartFill>
-    </FlexCard>
+      </CardContent>
+    </Card>
   );
 };
+
+export default Progress;

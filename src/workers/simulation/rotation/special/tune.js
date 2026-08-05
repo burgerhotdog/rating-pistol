@@ -51,6 +51,8 @@ function recordTuneBreak(ctx) {
       ...(action ?? tuneBreakAction),
       ...(action && 'damage' in action &&
         { damageType: action.damage.type }),
+      ...(action &&
+        { field: ctx.states.getField(action.ownerId) }),
       damage: damage * timesPerRotation,
       runtime: ctx.states.runtime,
     };
