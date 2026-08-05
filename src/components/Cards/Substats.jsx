@@ -13,15 +13,14 @@ import {
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
-  BarChart,
   PolarAngleAxis,
   PolarGrid,
   Radar,
-  RadarChart,
   Tooltip as RechartsTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
+import { BarChart, RadarChart } from '@/components';
 import { WW, SUBSTAT } from '@/data';
 import { useElementColors } from '@/hooks';
 import { formatStr } from '@/utils';
@@ -135,7 +134,7 @@ function wrapLabel(value, maxChars = MAX_CHARS_PER_LINE) {
   return lines;
 }
 
-function CustomPolarAngleAxisTick({ x, y, cx, cy, payload, textAnchor, color }) {
+function CustomPolarAngleAxisTick({ x, y, payload, textAnchor, color }) {
   const lines = wrapLabel(payload.value);
   const lineHeight = 12;
   // vertically center the multi-line block on the original tick position
@@ -201,12 +200,7 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
       />
 
       <CardContent component={Stack} direction="row" sx={{ flex: 1 }}>
-        <RadarChart
-          data={data}
-          width="100%"
-          height="100%"
-          responsive
-        >
+        <RadarChart data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="stat" tick={<CustomPolarAngleAxisTick color={palette.text.disabled} />} />
           <Radar
@@ -220,9 +214,6 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
         <BarChart
           layout="vertical"
           data={data}
-          width="100%"
-          height="100%"
-          responsive
         >
           <XAxis
             type="number"

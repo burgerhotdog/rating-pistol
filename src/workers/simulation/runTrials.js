@@ -2,8 +2,13 @@ import { GI, WW } from '@/data';
 import { createEquipListEvaluator } from './evaluateEquipList';
 import { createTrialAdvancer } from './advanceTrial';
 
+// Temporary Modifiers
+const FIXED_TRIALS = 400;
+const FIXED_WEEKS = false;
+
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
+const MIN_WEEKS = 1;
 const MAX_WEEKS = 20;
 const DIFF_THRESHOLD = 0.01;
 const ERROR_THRESHOLD = 0.005;
@@ -43,6 +48,8 @@ const createDistribution = () => {
 };
 
 export const runTrials = (cache, runRotation, currId, isMain = false) => {
+  const isFixedTrials = FIXED_TRIALS !== false;
+  const isFixedWeeks = FIXED_WEEKS !== false;
   const { gameId } = cache;
   const evaluateEquipMap = createEquipListEvaluator(cache, currId, runRotation);
 
@@ -69,11 +76,13 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
     dps,
   });
   const trials = [];
-  for (let i = 0; i < MIN_TRIALS; i++) trials.push(createTrial());
+  const startingLen = isFixedTrials ? FIXED_TRIALS : MIN_TRIALS;
+  for (let i = 0; i < startingLen; i++) trials.push(createTrial());
 
   // Main trial loop
   let prevMeanDps = dps;
-  for (let week = 1; week <= MAX_WEEKS; week++) {
+  const stoppingWeek = isFixedWeeks ? FIXED_WEEKS : MAX_WEEKS;
+  for (let week = 1; week <= stoppingWeek; week++) {
     const distribution = createDistribution();
 
     for (const trial of trials) {
@@ -81,15 +90,13 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
       distribution.add(trial.dps);
     }
 
-    while (week === 1 && trials.length < MAX_TRIALS) {
+    while (week === 1 && trials.length < MAX_TRIALS && !isFixedTrials) {
       if (distribution.relativeError <= ERROR_THRESHOLD) break;
       const trial = createTrial();
       advanceTrial(trial);
       trials.push(trial);
       distribution.add(trial.dps);
     }
-
-    if (week === 1) console.log(trials.length);
 
     const meanDps = distribution.mean;
     const diff = (meanDps - prevMeanDps) / prevMeanDps;
@@ -99,10 +106,12 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
       trialBands.push(distribution.bands);
     }
 
-    if (diff < DIFF_THRESHOLD) break;
+    if (week >= MIN_WEEKS && diff < DIFF_THRESHOLD && !isFixedWeeks) break;
 
     prevMeanDps = meanDps;
   }
+
+  console.log(`Trials: ${trials.length}`, `Weeks: ${trialBands.length - 1}`);
 
   return { trialBands, trials };
 };

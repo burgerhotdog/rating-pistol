@@ -15,15 +15,14 @@ import {
 import { alpha, darken } from '@mui/material/styles';
 import {
   Bar,
-  BarChart,
   Cell,
   Pie,
-  PieChart,
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
   matchByDataKey,
 } from 'recharts';
+import { BarChart, PieChart } from '@/components';
 import { useElementColors } from '@/hooks';
 import { formatNum, formatStr } from '@/utils';
 
@@ -119,11 +118,7 @@ const Distribution = ({ userSummary }) => {
 
       <CardContent component={Stack} sx={{ flex: 1 }}> 
         <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-          <PieChart 
-            width="100%"
-            height="100%"
-            responsive
-          >
+          <PieChart>
             <Pie
               data={data}
               dataKey="value"
@@ -157,9 +152,6 @@ const Distribution = ({ userSummary }) => {
           <BarChart
             layout="vertical"
             data={data}
-            width="100%"
-            height="100%"
-            responsive
           >
             <XAxis domain={[0, 1]} type="number" />
   
