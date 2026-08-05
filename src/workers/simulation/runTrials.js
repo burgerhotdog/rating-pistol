@@ -5,6 +5,8 @@ import { createTrialAdvancer } from './advanceTrial';
 const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
+const DIFF_THRESHOLD = 0.01;
+const ERROR_THRESHOLD = 0.005;
 
 const createDistribution = () => {
   const samples = [];
@@ -80,12 +82,14 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
     }
 
     while (week === 1 && trials.length < MAX_TRIALS) {
-      if (distribution.relativeError <= 0.01) break;
+      if (distribution.relativeError <= ERROR_THRESHOLD) break;
       const trial = createTrial();
       advanceTrial(trial);
       trials.push(trial);
       distribution.add(trial.dps);
     }
+
+    if (week === 1) console.log(trials.length);
 
     const meanDps = distribution.mean;
     const diff = (meanDps - prevMeanDps) / prevMeanDps;
@@ -95,7 +99,7 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
       trialBands.push(distribution.bands);
     }
 
-    if (diff < 0.01) break;
+    if (diff < DIFF_THRESHOLD) break;
 
     prevMeanDps = meanDps;
   }
