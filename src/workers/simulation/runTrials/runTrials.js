@@ -1,84 +1,69 @@
+import { mean, linearRegression } from 'simple-statistics';
 import { GI, WW } from '@/data';
-import { round, diff } from '@/utils';
+import { diff } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { createAdvanceTrial } from './advance';
 import { createDistribution } from './distribution';
 import { initTrials } from './initTrials';
+import { findBestPossibleEquipMap } from './bestEquipMap';
 
 const MIN_WEEKS = 3;
 const MAX_WEEKS = 50;
+const THRESHOLDS = [0.5, 0.75, 0.9, 0.95, 0.99];
 
-function linearRegression(xs, ys) {
-  const n = xs.length;
-  const sumX = xs.reduce((a, b) => a + b, 0);
-  const sumY = ys.reduce((a, b) => a + b, 0);
-  const sumXY = xs.reduce((s, x, i) => s + x * ys[i], 0);
-  const sumXX = xs.reduce((s, x) => s + x * x, 0);
-  const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
-  const intercept = (sumY - slope * sumX) / n;
+const FIT_START_WEEK = 5;
+const MIN_FIT_POINTS = 10;
 
-  return { slope, intercept };
+const Q_STABILITY_WINDOW = 5;
+const Q_STABILITY_TOLERANCE = 0.02;
+
+function isFitStable(qHistory) {
+  if (qHistory.length < Q_STABILITY_WINDOW) return false;
+  const recent = qHistory.slice(-Q_STABILITY_WINDOW);
+  const spread = Math.max(...recent) - Math.min(...recent);
+  return spread < Q_STABILITY_TOLERANCE;
+}
+
+function fitRemainingCurve(weekHistory, remainingHistory) {
+  const points = weekHistory
+    .map((week, i) => ({ week, remaining: remainingHistory[i] }))
+    .filter((pt) => pt.week >= FIT_START_WEEK && pt.remaining > 0);
+
+  if (points.length < MIN_FIT_POINTS) return null;
+
+  // Transform:
+  // ln(remaining) = ln(A) + B * ln(week)
+  const logPoints = points.map(({ week, remaining }) => [
+    Math.log(week),
+    Math.log(remaining),
+  ]);
+
+  const { m, b } = linearRegression(logPoints);
+  const q = -m;
+  if (!(q > 0)) return null;
+  const A = Math.exp(b);
+
+  return {
+    q,
+    A,
+    predict: (week) => A * week ** -q,
+    weekForRemaining: (remaining) => (A / remaining) ** (1 / q),
+  };
 }
 
 const SMOOTHING_WINDOW = 3;
-const FIT_START_WEEK = 5;
-const MIN_FIT_POINTS = 10;
-function fitPowerLaw(diffHistory) {
-  const smoothed = diffHistory.map((_, i) => {
-    const start = Math.max(0, i - SMOOTHING_WINDOW + 1);
-    const slice = diffHistory.slice(start, i + 1);
-    return slice.reduce((a, b) => a + b, 0) / slice.length;
-  });
 
-  const points = smoothed
-    .map((d, i) => ({ diff: d, week: i + 1 }))
-    .filter((pt) => pt.week >= FIT_START_WEEK && pt.diff > 0);
-
-  if (points.length < MIN_FIT_POINTS) {
-    console.log('not enough points', points.length, 'of', MIN_FIT_POINTS, 'needed');
-    return null;
-  }
-
-  const xs = points.map((pt) => Math.log(pt.week));
-  const ys = points.map((pt) => Math.log(pt.diff));
-  const { slope, intercept } = linearRegression(xs, ys);
-
-  const p = -slope;
-  const C = Math.exp(intercept);
-  const T = points[points.length - 1].week;
-
-  if (!(p > 1)) {
-    console.log('p not > 1:', round(p, 4));
-    return null;
-  }
-
-  return { p, C, T };
-}
-
-const P_STABILITY_WINDOW = 5;
-const P_STABILITY_TOLERANCE = 0.02;
-function isFitStable(pHistory) {
-  if (pHistory.length < P_STABILITY_WINDOW) return false;
-  const recent = pHistory.slice(-P_STABILITY_WINDOW);
-  const spread = Math.max(...recent) - Math.min(...recent);
-  return spread < P_STABILITY_TOLERANCE;
-}
-
-const REMAINING_GROWTH_THRESHOLD = 0.1;
-function extrapolate(fit, currMean) {
-  const { p, C, T } = fit;
-  const remainingFraction = (C * Math.pow(T, 1 - p)) / (p - 1);
-  const ceilingDps = currMean * (1 + remainingFraction);
-
-  // Solve C * t^(1-p) / (p-1) = threshold for t
-  const target = (REMAINING_GROWTH_THRESHOLD * (p - 1)) / C;
-  const weeksToThreshold = Math.pow(target, 1 / (1 - p));
-
-  return { p, C, remainingFraction, ceilingDps, weeksToThreshold };
+function smooth(history) {
+  const start = Math.max(0, history.length - SMOOTHING_WINDOW);
+  return mean(history.slice(start));
 }
 
 export function runTrials(cache, runRotation, currId, logWeeks = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, currId, runRotation);
+
+  const bestEquipMap = findBestPossibleEquipMap(evaluateEquipMap);
+  const dpsCeiling = cache.getDps(bestEquipMap.totals.damage);
+
   const advanceTrial = createAdvanceTrial(cache, evaluateEquipMap);
   const trials = [];
   const dpsProgression = [];
@@ -102,14 +87,17 @@ export function runTrials(cache, runRotation, currId, logWeeks = false) {
   // Week 1
   const initialDist = initTrials(trials, createTrial, advanceTrial);
   dpsProgression.push(initialDist.bands);
-  const initialDiff = diff(initialDist.mean, baseDps)
-  if (logWeeks) self.postMessage({ week: 1, diff: initialDiff });
+  if (logWeeks) self.postMessage({ week: 1, diff: diff(initialDist.mean, baseDps) });
 
   // Week 2+
-  let prevMean = initialDist.mean;
-  const diffHistory = [];
-  const pHistory = [];
-  let extrapolation = null;
+  const meanHistory = [baseDps, initialDist.mean];
+  const weekHistory = [0, 1];
+  const remainingHistory = [dpsCeiling - baseDps, dpsCeiling - initialDist.mean];
+  const qHistory = [];
+
+  const thresholdWeeks = {};
+  let lastFit = null;
+
   for (let week = 2; week <= MAX_WEEKS; week++) {
     const currDist = createDistribution();
 
@@ -119,33 +107,74 @@ export function runTrials(cache, runRotation, currId, logWeeks = false) {
     }
 
     dpsProgression.push(currDist.bands);
+
     const currMean = currDist.mean;
-    const currDiff = diff(currMean, prevMean);
-    if (logWeeks) self.postMessage({ week, diff: currDiff });
-    diffHistory.push(currDiff);
-    prevMean = currMean;
+    if (logWeeks) self.postMessage({ week, diff: diff(currMean, meanHistory.at(-1)) });
+
+    const prevSmoothedMean = smooth(meanHistory);
+    meanHistory.push(currMean);
+    const smoothedMean = smooth(meanHistory);
+    const smoothedRemaining = dpsCeiling - smoothedMean;
+
+    if (smoothedRemaining < 0 && logWeeks) {
+      console.warn(`Week ${week}: smoothed mean (${smoothedMean}) exceeds dps ceiling (${dpsCeiling})`);
+    }
+
+    weekHistory.push(week);
+    remainingHistory.push(smoothedRemaining);
+
+    for (const threshold of THRESHOLDS) {
+      if (thresholdWeeks[threshold]) continue; // already resolved
+
+      const target = threshold * dpsCeiling;
+      if (smoothedMean >= target) {
+        const prevWeek = week - 1;
+        const frac = (target - prevSmoothedMean) / (smoothedMean - prevSmoothedMean);
+        thresholdWeeks[threshold] = {
+          week: prevWeek + Math.max(0, Math.min(1, frac)),
+          isExtrapolated: false,
+        };
+      }
+    }
 
     if (week < MIN_WEEKS) continue;
-    const fit = fitPowerLaw(diffHistory);
+    const fit = fitRemainingCurve(weekHistory, remainingHistory);
     if (!fit) continue;
 
-    pHistory.push(fit.p);
-    if (logWeeks) self.postMessage({ week, p: fit.p, C: fit.C });
-    if (isFitStable(pHistory)) {
-      extrapolation = extrapolate(fit, currMean);
-      break;
+    lastFit = fit;
+    qHistory.push(fit.q);
+    if (logWeeks) self.postMessage({ week, q: fit.q, A: fit.A });
+
+    const allResolved = THRESHOLDS.every((t) => thresholdWeeks[t]);
+    if (allResolved) break;
+
+    if (isFitStable(qHistory)) break;
+  }
+
+  if (lastFit) {
+    for (const threshold of THRESHOLDS) {
+      if (thresholdWeeks[threshold]) continue;
+
+      const targetRemaining = (1 - threshold) * dpsCeiling;
+      thresholdWeeks[threshold] = {
+        week: lastFit.weekForRemaining(targetRemaining),
+        isExtrapolated: true,
+      };
     }
   }
 
   console.log(
     `\nTrials: ${trials.length}`,
     `\nWeeks: ${dpsProgression.length - 1}`,
-    `\np: ${extrapolation?.p.toFixed(2)}`,
-    `\nC: ${extrapolation?.C.toFixed(4)}`,
-    `\nremainingFraction: ${extrapolation?.remainingFraction.toFixed(2)}`,
-    `\nceilingDps: ${extrapolation?.ceilingDps.toFixed()}`,
-    `\nweeksToThreshold: ${extrapolation?.weeksToThreshold.toFixed()}`,
+    `\ndpsCeiling: ${dpsCeiling.toFixed()}`,
+    `\nq: ${lastFit?.q.toFixed(4)}`,
+    `\nA: ${lastFit?.A.toFixed(4)}`,
+    ...THRESHOLDS.map((t) => {
+      const entry = thresholdWeeks[t];
+      const label = entry?.isExtrapolated ? 'extrapolated' : 'actual';
+      return `\nweeksTo${Math.round(t * 100)}%: ${entry?.week.toFixed(1) ?? 'unresolved'} (${label})`;
+    }),
   );
 
-  return { dpsProgression, trials, extrapolation };
+  return { dpsProgression, trials, dpsCeiling, thresholdWeeks, fit: lastFit };
 }
