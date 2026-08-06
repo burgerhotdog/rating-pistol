@@ -22,7 +22,7 @@ const TabPanels = [
           benchmarkDps={results.benchmarkDps}
         />
         <ProgressCard
-          trialBands={results.trialBands}
+          dpsProgression={results.dpsProgression}
           userDps={results.userDps}
           prydwenDps={results.prydwenDps}
         />

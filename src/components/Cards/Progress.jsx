@@ -49,16 +49,12 @@ function diffSeries(series) {
 function buildData(series) {
   const data = [];
   for (const entry of series) {
-    const { p10, p20, p30, p40, p50, p60, p70, p80, p90, ...rest } = entry;
+    const { p10, p25, p50, p75, p90, ...rest } = entry;
     data.push({
       ...rest,
       median: p50,
-      band20Low: p40,
-      band20High: p60 - p40,
-      band40Low: p30,
-      band40High: p70 - p30,
-      band60Low: p20,
-      band60High: p80 - p20,
+      band50Low: p25,
+      band50High: p75 - p25,
       band80Low: p10,
       band80High: p90 - p10,
     });
@@ -66,15 +62,15 @@ function buildData(series) {
   return data;
 }
 
-const Progress = ({ trialBands }) => {
+const Progress = ({ dpsProgression }) => {
   const { palette } = useTheme();
   const color = useElementColors({ char: '$curr' });
   const [mode, setMode] = useState('level');
 
-  const levelsSeries = useMemo(() => trialBands.map((entry, index) => ({
+  const levelsSeries = useMemo(() => dpsProgression.map((entry, index) => ({
     ...entry,
     week: index,
-  })), [trialBands]);
+  })), [dpsProgression]);
   const ratesSeries = useMemo(() => diffSeries(levelsSeries), [levelsSeries]);
   const accelSeries = useMemo(() => diffSeries(ratesSeries), [ratesSeries]);
 
@@ -138,10 +134,10 @@ const Progress = ({ trialBands }) => {
           />
           <XAxis
             dataKey="week"
-            domain={[0, trialBands.length - 1]}
+            domain={[0, dpsProgression.length - 1]}
             type="number"
             tick={{ fontSize: 12 }}
-            tickCount={trialBands.length}
+            tickCount={dpsProgression.length}
             label={{
               value: 'Weeks',
               position: 'insideBottomRight',
@@ -174,61 +170,25 @@ const Progress = ({ trialBands }) => {
             stackId="band80"
             stroke="none"
             fill={color}
-            fillOpacity={0.2}
+            fillOpacity={0.15}
             activeDot={false}
           />
 
           <Area
             type="monotone"
-            dataKey="band60Low"
-            stackId="band60"
+            dataKey="band50Low"
+            stackId="band50"
             stroke="none"
             fill="transparent"
             activeDot={false}
           />
           <Area
             type="monotone"
-            dataKey="band60High"
-            stackId="band60"
+            dataKey="band50High"
+            stackId="band50"
             stroke="none"
             fill={color}
             fillOpacity={0.3}
-            activeDot={false}
-          />
-
-          <Area
-            type="monotone"
-            dataKey="band40Low"
-            stackId="band40"
-            stroke="none"
-            fill="transparent"
-            activeDot={false}
-          />
-          <Area
-            type="monotone"
-            dataKey="band40High"
-            stackId="band40"
-            stroke="none"
-            fill={color}
-            fillOpacity={0.4}
-            activeDot={false}
-          />
-
-          <Area
-            type="monotone"
-            dataKey="band20Low"
-            stackId="band20"
-            stroke="none"
-            fill="transparent"
-            activeDot={false}
-          />
-          <Area
-            type="monotone"
-            dataKey="band20High"
-            stackId="band20"
-            stroke="none"
-            fill={color}
-            fillOpacity={0.5}
             activeDot={false}
           />
 
@@ -258,7 +218,7 @@ const Progress = ({ trialBands }) => {
                     <Divider />
 
                     <Stack>
-                      {['p90', 'p80', 'p70', 'p60', 'p50', 'p40', 'p30', 'p20', 'p10', 'mean'].map((percentile) => {
+                      {['p90', 'p75', 'p50', 'p25', 'p10', '', 'mean'].map((percentile) => {
                         const value = weekEntry[percentile];
                         const prevValue = prevEntry[percentile];
                         const pctDiff = prevValue != null ? (value / prevValue - 1) * 100 : null;

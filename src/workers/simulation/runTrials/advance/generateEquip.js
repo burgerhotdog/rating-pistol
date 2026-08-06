@@ -2,7 +2,7 @@ import {
   GI, HSR, WW, ZZZ,
   MAINSTAT, SUBSTAT,
 } from '@/data';
-import { weightedLottery } from './utils';
+import { weightedLottery } from './weightedLottery';
 
 const FLATS_BY_COST = {
   4: { mainStatFlatId: 'atk', mainStatFlatValue: 150 },

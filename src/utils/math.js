@@ -2,7 +2,6 @@ const acceptDecimals = (fn) => (value, decimals = 0) => {
   const factor = 10 ** decimals;
   return fn(value * factor) / factor;
 };
-
 export const round = acceptDecimals(Math.round);
 export const floor = acceptDecimals(Math.floor);
 export const ceil = acceptDecimals(Math.ceil);
@@ -17,3 +16,4 @@ export const randomInt = (min, max) => {
 
 export const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
+export const diff = (a, b) => a / b - 1;
