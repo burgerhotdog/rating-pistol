@@ -1,12 +1,10 @@
 import { GI, WW } from '@/data';
+import { clamp } from '@/utils';
 import { createEquipListEvaluator } from './evaluateEquipList';
 import { createTrialAdvancer } from './advanceTrial';
 
-// Temporary Modifiers
-const FIXED_TRIALS = false;
 const FIXED_WEEKS = false;
 
-const PILOT_TRIALS = 100;
 const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
 const MIN_WEEKS = 3;
@@ -20,48 +18,6 @@ const FIT_START_WEEK = 5;
 const MIN_FIT_POINTS = 10;
 const P_STABILITY_WINDOW = 5;
 const P_STABILITY_TOLERANCE = 0.02;
-
-const fitPowerLaw = (diffHistory) => {
-  const smoothed = smooth(diffHistory, SMOOTHING_WINDOW);
-
-  const points = smoothed
-    .map((d, i) => ({ diff: d, week: i + 1 }))
-    .filter((pt) => pt.week >= FIT_START_WEEK && pt.diff > 0);
-
-  if (points.length < MIN_FIT_POINTS) {
-    console.log('not enough points', points.length, 'of', MIN_FIT_POINTS, 'needed');
-    return null;
-  }
-
-  const xs = points.map((pt) => Math.log(pt.week));
-  const ys = points.map((pt) => Math.log(pt.diff));
-  const { slope, intercept } = linearRegression(xs, ys);
-
-  const p = -slope;
-  const C = Math.exp(intercept);
-  const T = points[points.length - 1].week;
-
-  if (!(p > 1)) {
-    console.log('p not > 1:', p);
-    return null;
-  }
-
-  return { p, C, T };
-};
-
-const isFitStable = (pHistory) => {
-  if (pHistory.length < P_STABILITY_WINDOW) return false;
-  const recent = pHistory.slice(-P_STABILITY_WINDOW);
-  const spread = Math.max(...recent) - Math.min(...recent);
-  return spread < P_STABILITY_TOLERANCE;
-};
-
-const smooth = (arr, windowSize) =>
-  arr.map((_, i) => {
-    const start = Math.max(0, i - windowSize + 1);
-    const slice = arr.slice(start, i + 1);
-    return slice.reduce((a, b) => a + b, 0) / slice.length;
-  });
 
 const createDistribution = () => {
   const samples = [];
@@ -106,23 +62,39 @@ const createDistribution = () => {
   };
 };
 
-const extrapolate = (fit, currentMeanDps) => {
-  const { p, C, T } = fit;
-  const remainingFraction = (C * Math.pow(T, 1 - p)) / (p - 1);
-  const ceilingDps = currentMeanDps * (1 + remainingFraction);
+const sizeTrialPool = (createTrial, advanceTrial) => {
+  const trials = [];
+  const dist = createDistribution();
 
-  // Solve C * t^(1-p) / (p-1) = threshold for t
-  const target = (REMAINING_GROWTH_THRESHOLD * (p - 1)) / C;
-  const weeksToThreshold = Math.pow(target, 1 / (1 - p));
+  for (let i = 0; i < MIN_TRIALS; i++) {
+    const trial = createTrial();
+    advanceTrial(trial);
+    trials.push(trial);
+    dist.add(trial.dps);
+  }
 
-  return { p, C, remainingFraction, ceilingDps, weeksToThreshold };
-};
+  let prevTarget = null;
 
-const computeRequiredTrials = (stdDev, mean, targetRelErr) => {
-  if (mean === 0) return MIN_TRIALS;
-  const raw = Math.pow(stdDev / (targetRelErr * Math.abs(mean)), 2);
-  const withMargin = Math.ceil(raw * 1.15);
-  return Math.min(MAX_TRIALS, Math.max(MIN_TRIALS, withMargin));
+  for (let iter = 0; iter < MAX_ITERATIONS; iter++) {
+    const raw = Math.pow(dist.stdDev / (TARGET_RELATIVE_ERROR * Math.abs(dist.mean)), 2);
+    const target = clamp(raw, MIN_TRIALS, MAX_TRIALS);
+
+    if (prevTarget !== null) {
+      const change = Math.abs(target - prevTarget) / prevTarget;
+      if (change < RECOMPUTE_TOLERANCE) break;
+    }
+    prevTarget = target;
+
+    if (trials.length >= target || trials.length >= MAX_TRIALS) break;
+    while (trials.length < target && trials.length < MAX_TRIALS) {
+      const trial = createTrial();
+      advanceTrial(trial);
+      trials.push(trial);
+      dist.add(trial.dps);
+    }
+  }
+
+  return { trials, dist };
 };
 
 const linearRegression = (xs, ys) => {
@@ -137,45 +109,58 @@ const linearRegression = (xs, ys) => {
   return { slope, intercept };
 };
 
-const sizeTrialPool = (createTrial, advanceTrial) => {
-  const trials = [];
-  const dist = createDistribution();
+const fitPowerLaw = (diffHistory) => {
+  const smoothed = diffHistory.map((_, i) => {
+    const start = Math.max(0, i - SMOOTHING_WINDOW + 1);
+    const slice = diffHistory.slice(start, i + 1);
+    return slice.reduce((a, b) => a + b, 0) / slice.length;
+  });
 
-  // Seed with an initial pilot
-  for (let i = 0; i < PILOT_TRIALS; i++) {
-    const trial = createTrial();
-    advanceTrial(trial);
-    trials.push(trial);
-    dist.add(trial.dps);
+  const points = smoothed
+    .map((d, i) => ({ diff: d, week: i + 1 }))
+    .filter((pt) => pt.week >= FIT_START_WEEK && pt.diff > 0);
+
+  if (points.length < MIN_FIT_POINTS) {
+    console.log('not enough points', points.length, 'of', MIN_FIT_POINTS, 'needed');
+    return null;
   }
 
-  let prevTarget = null;
+  const xs = points.map((pt) => Math.log(pt.week));
+  const ys = points.map((pt) => Math.log(pt.diff));
+  const { slope, intercept } = linearRegression(xs, ys);
 
-  for (let iter = 0; iter < MAX_ITERATIONS; iter++) {
-    const target = computeRequiredTrials(dist.stdDev, dist.mean, TARGET_RELATIVE_ERROR);
-    const cappedTarget = Math.min(MAX_TRIALS, target);
+  const p = -slope;
+  const C = Math.exp(intercept);
+  const T = points[points.length - 1].week;
 
-    if (prevTarget !== null) {
-      const change = Math.abs(cappedTarget - prevTarget) / prevTarget;
-      if (change < RECOMPUTE_TOLERANCE) break;
-    }
-    prevTarget = cappedTarget;
-
-    // Not converged (or first round): top up to the current target
-    if (trials.length >= cappedTarget || trials.length >= MAX_TRIALS) break;
-    while (trials.length < cappedTarget && trials.length < MAX_TRIALS) {
-      const trial = createTrial();
-      advanceTrial(trial);
-      trials.push(trial);
-      dist.add(trial.dps);
-    }
+  if (!(p > 1)) {
+    console.log('p not > 1:', p);
+    return null;
   }
 
-  return { trials, dist };
+  return { p, C, T };
+};
+
+const isFitStable = (pHistory) => {
+  if (pHistory.length < P_STABILITY_WINDOW) return false;
+  const recent = pHistory.slice(-P_STABILITY_WINDOW);
+  const spread = Math.max(...recent) - Math.min(...recent);
+  return spread < P_STABILITY_TOLERANCE;
+};
+
+const extrapolate = (fit, currentMeanDps) => {
+  const { p, C, T } = fit;
+  const remainingFraction = (C * Math.pow(T, 1 - p)) / (p - 1);
+  const ceilingDps = currentMeanDps * (1 + remainingFraction);
+
+  // Solve C * t^(1-p) / (p-1) = threshold for t
+  const target = (REMAINING_GROWTH_THRESHOLD * (p - 1)) / C;
+  const weeksToThreshold = Math.pow(target, 1 / (1 - p));
+
+  return { p, C, remainingFraction, ceilingDps, weeksToThreshold };
 };
 
 export const runTrials = (cache, runRotation, currId, isMain = false) => {
-  const isFixedTrials = FIXED_TRIALS !== false;
   const isFixedWeeks = FIXED_WEEKS !== false;
   const { gameId } = cache;
   const evaluateEquipMap = createEquipListEvaluator(cache, currId, runRotation);
@@ -206,34 +191,20 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
   });
 
   // Stage 1: size the trial pool
-  let trials;
-  let week1Dist;
-
-  if (isFixedTrials) {
-    trials = [];
-    for (let i = 0; i < FIXED_TRIALS; i++) trials.push(createTrial());
-    week1Dist = null; // no week-1 advance happened yet in the fixed-trials path
-  } else {
-    const result = sizeTrialPool(createTrial, advanceTrial);
-    trials = result.trials;
-    week1Dist = result.dist; // these trials already had week 1 applied
-
-    if (isMain) {
-      trialBands.push(week1Dist.bands);
-      self.postMessage({ week: 1, diff: (week1Dist.mean - dps) / dps });
-    }
+  const { trials, dist } = sizeTrialPool(createTrial, advanceTrial);
+  if (isMain) {
+    trialBands.push(dist.bands);
+    self.postMessage({ week: 1, diff: (dist.mean - dps) / dps });
   }
 
   // Stage 2: advance remaining weeks, tracking gains for extrapolation
-  const startWeek = isFixedTrials ? 1 : 2; // week 1 already advanced above (dynamic case)
-  let prevMeanDps = isFixedTrials ? dps : week1Dist.mean;
-
+  let prevMeanDps = dist.mean;
   const diffHistory = [];
   const pHistory = [];
   let extrapolation = null;
-  const stoppingWeek = isFixedWeeks ? FIXED_WEEKS : MAX_WEEKS;
 
-  for (let week = startWeek; week <= stoppingWeek; week++) {
+  const stoppingWeek = isFixedWeeks ? FIXED_WEEKS : MAX_WEEKS;
+  for (let week = 2; week <= stoppingWeek; week++) {
     const distribution = createDistribution();
     for (const trial of trials) {
       advanceTrial(trial);

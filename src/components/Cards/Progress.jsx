@@ -4,7 +4,6 @@ import {
   CardContent,
   CardHeader,
   Divider,
-  Slider,
   Stack,
   ToggleButton,
   ToggleButtonGroup,
@@ -71,7 +70,6 @@ const Progress = ({ trialBands }) => {
   const { palette } = useTheme();
   const color = useElementColors({ char: '$curr' });
   const [mode, setMode] = useState('level');
-  const [displayTrials, setDisplayTrials] = useState(11);
 
   const levelsSeries = useMemo(() => trialBands.map((entry, index) => ({
     ...entry,
@@ -123,18 +121,11 @@ const Progress = ({ trialBands }) => {
                 </Tooltip>
               </ToggleButton>
             </ToggleButtonGroup>
-            <Slider
-              value={displayTrials}
-              onChange={(_, value) => setDisplayTrials(value)}
-              valueLabelDisplay="auto"
-              min={1}
-              max={11}
-            />
           </Stack>
         }
       />
       <CardContent component={Stack} sx={{ flex: 1 }}>
-        <ComposedChart data={data.slice(0, displayTrials)}>
+        <ComposedChart data={data}>
           <defs>
             <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor={color} stopOpacity={0.6} />
@@ -147,10 +138,10 @@ const Progress = ({ trialBands }) => {
           />
           <XAxis
             dataKey="week"
-            domain={[0, displayTrials - 1]}
+            domain={[0, trialBands.length - 1]}
             type="number"
             tick={{ fontSize: 12 }}
-            tickCount={displayTrials}
+            tickCount={trialBands.length}
             label={{
               value: 'Weeks',
               position: 'insideBottomRight',
