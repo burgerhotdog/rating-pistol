@@ -3,15 +3,65 @@ import { createEquipListEvaluator } from './evaluateEquipList';
 import { createTrialAdvancer } from './advanceTrial';
 
 // Temporary Modifiers
-const FIXED_TRIALS = 1000;
-const FIXED_WEEKS = 10;
+const FIXED_TRIALS = false;
+const FIXED_WEEKS = false;
 
-const MIN_TRIALS = 50;
-const MAX_TRIALS = 500;
-const MIN_WEEKS = 1;
-const MAX_WEEKS = 20;
-const DIFF_THRESHOLD = 0.01;
-const ERROR_THRESHOLD = 0.005;
+const PILOT_TRIALS = 100;
+const MIN_TRIALS = 100;
+const MAX_TRIALS = 1000;
+const MIN_WEEKS = 3;
+const MAX_WEEKS = 50;
+const TARGET_RELATIVE_ERROR = 0.005;
+const REMAINING_GROWTH_THRESHOLD = 0.1;
+const RECOMPUTE_TOLERANCE = 0.01;
+const MAX_ITERATIONS = 15;
+const SMOOTHING_WINDOW = 3;
+const FIT_START_WEEK = 5;
+const MIN_FIT_POINTS = 10;
+const P_STABILITY_WINDOW = 5;
+const P_STABILITY_TOLERANCE = 0.02;
+
+const fitPowerLaw = (diffHistory) => {
+  const smoothed = smooth(diffHistory, SMOOTHING_WINDOW);
+
+  const points = smoothed
+    .map((d, i) => ({ diff: d, week: i + 1 }))
+    .filter((pt) => pt.week >= FIT_START_WEEK && pt.diff > 0);
+
+  if (points.length < MIN_FIT_POINTS) {
+    console.log('not enough points', points.length, 'of', MIN_FIT_POINTS, 'needed');
+    return null;
+  }
+
+  const xs = points.map((pt) => Math.log(pt.week));
+  const ys = points.map((pt) => Math.log(pt.diff));
+  const { slope, intercept } = linearRegression(xs, ys);
+
+  const p = -slope;
+  const C = Math.exp(intercept);
+  const T = points[points.length - 1].week;
+
+  if (!(p > 1)) {
+    console.log('p not > 1:', p);
+    return null;
+  }
+
+  return { p, C, T };
+};
+
+const isFitStable = (pHistory) => {
+  if (pHistory.length < P_STABILITY_WINDOW) return false;
+  const recent = pHistory.slice(-P_STABILITY_WINDOW);
+  const spread = Math.max(...recent) - Math.min(...recent);
+  return spread < P_STABILITY_TOLERANCE;
+};
+
+const smooth = (arr, windowSize) =>
+  arr.map((_, i) => {
+    const start = Math.max(0, i - windowSize + 1);
+    const slice = arr.slice(start, i + 1);
+    return slice.reduce((a, b) => a + b, 0) / slice.length;
+  });
 
 const createDistribution = () => {
   const samples = [];
@@ -30,21 +80,98 @@ const createDistribution = () => {
       const stdErr = Math.sqrt(M2 / (n - 1) / n);
       return stdErr / Math.max(Math.abs(mean), 1e-8);
     },
+    get stdDev() {
+      if (n < 2) return 0;
+      return Math.sqrt(M2 / (n - 1));
+    },
     get mean() {
       return mean;
     },
     get bands() {
       const sorted = [...samples].sort((a, b) => a - b);
+      const pick = (p) => sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * p))];
       return {
         mean,
-        p10: sorted[Math.floor(sorted.length * 0.1)],
-        p25: sorted[Math.floor(sorted.length * 0.25)],
-        p50: sorted[Math.floor(sorted.length * 0.5)],
-        p75: sorted[Math.floor(sorted.length * 0.75)],
-        p90: sorted[Math.floor(sorted.length * 0.9)],
+        p10: pick(0.1),
+        p20: pick(0.2),
+        p30: pick(0.3),
+        p40: pick(0.4),
+        p50: pick(0.5),
+        p60: pick(0.6),
+        p70: pick(0.7),
+        p80: pick(0.8),
+        p90: pick(0.9),
       };
     },
   };
+};
+
+const extrapolate = (fit, currentMeanDps) => {
+  const { p, C, T } = fit;
+  const remainingFraction = (C * Math.pow(T, 1 - p)) / (p - 1);
+  const ceilingDps = currentMeanDps * (1 + remainingFraction);
+
+  // Solve C * t^(1-p) / (p-1) = threshold for t
+  const target = (REMAINING_GROWTH_THRESHOLD * (p - 1)) / C;
+  const weeksToThreshold = Math.pow(target, 1 / (1 - p));
+
+  return { p, C, remainingFraction, ceilingDps, weeksToThreshold };
+};
+
+const computeRequiredTrials = (stdDev, mean, targetRelErr) => {
+  if (mean === 0) return MIN_TRIALS;
+  const raw = Math.pow(stdDev / (targetRelErr * Math.abs(mean)), 2);
+  const withMargin = Math.ceil(raw * 1.15);
+  return Math.min(MAX_TRIALS, Math.max(MIN_TRIALS, withMargin));
+};
+
+const linearRegression = (xs, ys) => {
+  const n = xs.length;
+  const sumX = xs.reduce((a, b) => a + b, 0);
+  const sumY = ys.reduce((a, b) => a + b, 0);
+  const sumXY = xs.reduce((s, x, i) => s + x * ys[i], 0);
+  const sumXX = xs.reduce((s, x) => s + x * x, 0);
+  const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+  const intercept = (sumY - slope * sumX) / n;
+
+  return { slope, intercept };
+};
+
+const sizeTrialPool = (createTrial, advanceTrial) => {
+  const trials = [];
+  const dist = createDistribution();
+
+  // Seed with an initial pilot
+  for (let i = 0; i < PILOT_TRIALS; i++) {
+    const trial = createTrial();
+    advanceTrial(trial);
+    trials.push(trial);
+    dist.add(trial.dps);
+  }
+
+  let prevTarget = null;
+
+  for (let iter = 0; iter < MAX_ITERATIONS; iter++) {
+    const target = computeRequiredTrials(dist.stdDev, dist.mean, TARGET_RELATIVE_ERROR);
+    const cappedTarget = Math.min(MAX_TRIALS, target);
+
+    if (prevTarget !== null) {
+      const change = Math.abs(cappedTarget - prevTarget) / prevTarget;
+      if (change < RECOMPUTE_TOLERANCE) break;
+    }
+    prevTarget = cappedTarget;
+
+    // Not converged (or first round): top up to the current target
+    if (trials.length >= cappedTarget || trials.length >= MAX_TRIALS) break;
+    while (trials.length < cappedTarget && trials.length < MAX_TRIALS) {
+      const trial = createTrial();
+      advanceTrial(trial);
+      trials.push(trial);
+      dist.add(trial.dps);
+    }
+  }
+
+  return { trials, dist };
 };
 
 export const runTrials = (cache, runRotation, currId, isMain = false) => {
@@ -59,9 +186,13 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
   const trialBands = [{
     mean: dps,
     p10: dps,
-    p25: dps,
+    p20: dps,
+    p30: dps,
+    p40: dps,
     p50: dps,
-    p75: dps,
+    p60: dps,
+    p70: dps,
+    p80: dps,
     p90: dps,
   }];
 
@@ -71,47 +202,80 @@ export const runTrials = (cache, runRotation, currId, isMain = false) => {
   const equipListLength = (gameId === GI || gameId === WW) ? 5 : 6;
   const createTrial = () => ({
     equipList: new Array(equipListLength).fill(null),
-    summary,
-    score,
-    dps,
+    summary, score, dps,
   });
-  const trials = [];
-  const startingLen = isFixedTrials ? FIXED_TRIALS : MIN_TRIALS;
-  for (let i = 0; i < startingLen; i++) trials.push(createTrial());
 
-  // Main trial loop
-  let prevMeanDps = dps;
+  // Stage 1: size the trial pool
+  let trials;
+  let week1Dist;
+
+  if (isFixedTrials) {
+    trials = [];
+    for (let i = 0; i < FIXED_TRIALS; i++) trials.push(createTrial());
+    week1Dist = null; // no week-1 advance happened yet in the fixed-trials path
+  } else {
+    const result = sizeTrialPool(createTrial, advanceTrial);
+    trials = result.trials;
+    week1Dist = result.dist; // these trials already had week 1 applied
+
+    if (isMain) {
+      trialBands.push(week1Dist.bands);
+      self.postMessage({ week: 1, diff: (week1Dist.mean - dps) / dps });
+    }
+  }
+
+  // Stage 2: advance remaining weeks, tracking gains for extrapolation
+  const startWeek = isFixedTrials ? 1 : 2; // week 1 already advanced above (dynamic case)
+  let prevMeanDps = isFixedTrials ? dps : week1Dist.mean;
+
+  const diffHistory = [];
+  const pHistory = [];
+  let extrapolation = null;
   const stoppingWeek = isFixedWeeks ? FIXED_WEEKS : MAX_WEEKS;
-  for (let week = 1; week <= stoppingWeek; week++) {
-    const distribution = createDistribution();
 
+  for (let week = startWeek; week <= stoppingWeek; week++) {
+    const distribution = createDistribution();
     for (const trial of trials) {
       advanceTrial(trial);
       distribution.add(trial.dps);
     }
 
-    while (week === 1 && trials.length < MAX_TRIALS && !isFixedTrials) {
-      if (distribution.relativeError <= ERROR_THRESHOLD) break;
-      const trial = createTrial();
-      advanceTrial(trial);
-      trials.push(trial);
-      distribution.add(trial.dps);
-    }
-
     const meanDps = distribution.mean;
     const diff = (meanDps - prevMeanDps) / prevMeanDps;
+    diffHistory.push(diff);
 
     if (isMain) {
       self.postMessage({ week, diff });
       trialBands.push(distribution.bands);
     }
 
-    if (week >= MIN_WEEKS && diff < DIFF_THRESHOLD && !isFixedWeeks) break;
+    if (!isFixedWeeks && week >= MIN_WEEKS) {
+      const fit = fitPowerLaw(diffHistory);
+
+      if (fit) {
+        pHistory.push(fit.p);
+
+        if (isMain) self.postMessage({ week, p: fit.p, C: fit.C });
+
+        if (isFitStable(pHistory)) {
+          extrapolation = extrapolate(fit, meanDps);
+          break;
+        }
+      }
+    }
 
     prevMeanDps = meanDps;
   }
 
-  console.log(`Trials: ${trials.length}`, `Weeks: ${trialBands.length - 1}`);
+  console.log(
+    `Trials: ${trials.length}`,
+    `Weeks: ${trialBands.length - 1}`,
+    `p: ${extrapolation?.p.toFixed(2)}`,
+    `C: ${extrapolation?.C.toFixed(4)}`,
+    `remainingFraction: ${extrapolation?.remainingFraction.toFixed(2)}`,
+    `ceilingDps: ${extrapolation?.ceilingDps.toFixed()}`,
+    `weeksToThreshold: ${extrapolation?.weeksToThreshold.toFixed()}`,
+  );
 
-  return { trialBands, trials };
+  return { trialBands, trials, extrapolation };
 };

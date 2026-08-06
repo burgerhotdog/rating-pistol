@@ -6,3 +6,6 @@ also where 2nd deriv becomes 0
 maybe compare stamina efficiency with talents/rate of stamina eff
 
 have new tab that compares diff weapons/sets/teammates?
+
+
+when d2 mean touches 0: stop Weeks

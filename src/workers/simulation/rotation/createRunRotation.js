@@ -180,9 +180,7 @@ export const createRunRotation = (cache, equipMaps, currId) => {
       runtime: 0,
       onFieldId: null,
       getField(id) {
-        return id === this.onFieldId
-          ? 'onField'
-          : 'offField';
+        return id === this.onFieldId ? 'onField' : 'offField';
       },
       applyCooldowns: {},
       globalEffects: {},
