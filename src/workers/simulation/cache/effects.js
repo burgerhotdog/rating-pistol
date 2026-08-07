@@ -77,30 +77,10 @@ function resolveRankMods(effect, memberRank) {
   }
 }
 
-function resolveRef(effect, keyToId) {
-  const toResolvedMap = (rawMap) => {
-    const resolved = {};
-    for (const [rawKey, stacks] of Object.entries(rawMap)) {
-      const effectId = rawKey.includes(':') ? rawKey : keyToId(rawKey)
-      resolved[effectId] = stacks;
-    }
-    return resolved;
-  }
-
-  for (const field in effect) {
-    if (
-      /^[a-z]\w*IfEffectStacks[A-Z]\w*$/.test(field) ||
-      /^on[A-Z]\w*Do[A-Z]\w*$/.test(field)
-    ) {
-      effect[field] = toResolvedMap(effect[field]);
-    }
-  }
-}
-
 const toNormalizedEffect = (rawEffect, spec) => {
   const {
     gameId, ownerId, sourceId, effectIndex,
-    memberRank, weaponRank, memberIds, memberActions, keyToId,
+    memberRank, weaponRank, memberIds, memberActions,
   } = spec;
 
   const resolveStatValue = (value) =>
@@ -118,7 +98,6 @@ const toNormalizedEffect = (rawEffect, spec) => {
 
   resolveApplyBy(effect, memberIds);
   resolveApplyTo(effect, memberIds);
-  resolveRef(effect, keyToId);
 
   // Resolve ranked buffMaps
   if (effect.buffMap) {
@@ -214,14 +193,6 @@ export const normalizeEffects = (gameId, member, spec) => {
   for (const { from, id, rawEffects } of toNormalize) {
     const spec = { from, rank: memberRank, character, weapon };
 
-    const keyToId = (key) => {
-      for (const [index, rawEffect] of rawEffects.entries()) {
-        if (rawEffect.key === key) {
-          return `${memberId}.${id}:effect${index}`;
-        }
-      }
-    };
-
     for (const [index, rawEffect] of rawEffects.entries()) {
       if (!isEnabled(rawEffect, spec)) continue;
 
@@ -234,26 +205,35 @@ export const normalizeEffects = (gameId, member, spec) => {
         weaponRank,
         memberIds,
         memberActions: teamActions[memberId],
-        keyToId,
       });
 
       normalized[effect.id] = effect;
     }
   }
 
+  // Resolve tokens
+  const hasEffectStacksMap = (field) =>
+    /^[a-z]\w*IfEffectStacks[A-Z]\w*$/.test(field) ||
+    /^on[A-Z]\w*Do[A-Z]\w*$/.test(field);
+
+  const resolveEffectId = (key) =>
+    key.includes(':')
+      ? key
+      : Object.values(normalized).find((effect) => effect.key === key).id;
+
   for (const effect of Object.values(normalized)) {
     const { maxStacks = 1 } = effect;
 
     for (const field in effect) {
-      if (!/^on[A-Z]\w*Do[A-Z]\w*$/.test(field)) continue;
+      if (!hasEffectStacksMap(field)) continue;
 
-      const commandSpec = effect[field];
+      const resolved = {};
 
-      for (const [id, stacks] in Object.entries(commandSpec)) {
-        if (stacks === '$maxStacks') {
-          commandSpec[id] = maxStacks;
-        }
+      for (const [key, stacks] of Object.entries(effect[field])) {
+        resolved[resolveEffectId(key)] = stacks === '$maxStacks' ? maxStacks : stacks;
       }
+
+      effect[field] = resolved;
     }
   }
 
