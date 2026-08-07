@@ -206,7 +206,7 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
             domain={[0, chartData.at(-1).week]}
             type="number"
             tick={{ fontSize: 12 }}
-            tickCount={chartData.length}
+            tickCount={chartData.length - 1}
             label={{
               value: 'Weeks',
               position: 'insideBottomRight',
