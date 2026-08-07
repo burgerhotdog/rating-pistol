@@ -286,7 +286,7 @@ export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
   const resMult = getResMult(ctx.cache.gameId, status.element, buffMap);
 
   return {
-    key: `other:${status.id}`,
+    id: `other:${status.id}`,
     ownerId: 'other',
     type: 'damage',
     damageType: status.id,

@@ -683,13 +683,13 @@
         "maxUses": 4
       },
       {
-        "name": "Concentration",
+        "key": "concentration",
         "applyWhen": "hit",
         "applyOnType": "basicAttack",
         "maxStacks": 4
       },
       {
-        "name": "Euphonia",
+        "key": "euphonia",
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.0",
         "maxDuration": 15000
@@ -699,9 +699,11 @@
         "applyWhen": "after",
         "applyOnType": "introSkill",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "euphonia": 1
         },
-        "onApplyDoRemove": "$prev.1",
+        "onApplyDoRemove": {
+          "euphonia": 1
+        },
         "applyTo": "$first",
         "buffMap": {
           "atk%": 0.15
@@ -7397,12 +7399,88 @@
     },
     "effects": [
       {
-        "useWhen": "before",
-        "useOnAction": [
+        "key": "enrichment",
+        "applyWhen": "before",
+        "applyOnAction": [
           "resonanceSkill.1",
           "introSkill.0"
         ],
-        "useAction": "resonanceSkill.3"
+        "applyCooldown": 25000,
+        "applyTo": "$team"
+      },
+      {
+        "key": "ceaselessLandscape",
+        "applyWhen":"before",
+        "applyOnAction": "resonanceLiberation.0",
+        "maxDuration": 30000
+      },
+      {
+        "key": "roamingTranscendent",
+        "applyOnAction": "outroSkill.0",
+        "applyIfEffectStacksMin": {
+          "ceaselessLandscape": 1
+        },
+        "removeWhen": "expire",
+        "removeIfEffectStacksMax": {
+          "ceaselessLandscape": 0
+        },
+        "maxDuration": 30000
+      },
+      {
+        "applyBy": "$team",
+        "applyWhen": "inflict",
+        "applyForInflictStatus": [
+          "spectroFrazzle",
+          "fusionBurst",
+          "glacioChafe",
+          "aeroErosion",
+          "electroFlare"
+        ],
+        "applyIfEffectStacksMin": {
+          "roamingTranscendent": 1
+        },
+        "applyTo": "global",
+        "gameRule": {
+          "maxStacks": {
+            "glacioChafe": 3,
+            "fusionBurst": 3,
+            "electroFlare": 3,
+            "aeroErosion": 3,
+            "spectroFrazzle": 3
+          }
+        },
+        "maxDuration": 15000
+      },
+      {
+        "applyBy": "$team",
+        "applyWhen": "inflict",
+        "applyForConsumeStatus": "havocBane",
+        "applyIfEffectStacksMin": {
+          "roamingTranscendent": 1
+        },
+        "applyTo": "$applier",
+        "useOnElement": "havoc",
+        "buffMap": {
+          "defIgnore%": 0.06,
+          "havocResIgnore%": 0.12
+        },
+        "maxDuration": 30000
+      },
+      {
+        "useOnAction": "resonanceSkill.1",
+        "useCooldown": 25000,
+        "buffMap": {
+          "critRate%": 0.8,
+          "glacioDmgBonus%": 2.4
+        }
+      },
+      {
+        "useOnAction": "introSkill.0",
+        "useCooldown": 25000,
+        "buffMap": {
+          "critRate%": 0.8,
+          "glacioDmgBonus%": 2.4
+        }
       },
       {
         "applyWhen": "before",
@@ -7412,6 +7490,28 @@
           "dmgAmp%": 0.25
         },
         "maxDuration": 30000
+      },
+      {
+        "key": "reflectingShadows",
+        "applyWhen": "before",
+        "applyOnAction": [
+          "outroSkill.0",
+          "resonanceLiberation.1"
+        ],
+        "applyIfEffectStacksMin": {
+          "roamingTranscendent": 1
+        },
+        "applyTo": "$team",
+        "buffSpecs": {
+          "dmgBonus%": {
+            "attr": "energyRegen%",
+            "offset": 2,
+            "step": 0.01,
+            "value": 0.002,
+            "maxValue": 0.12
+          }
+        },
+        "maxDuration": 6000
       }
     ],
     "skills": {
@@ -7810,7 +7910,7 @@
               "glacioChafe": 1
             },
             "damage": {
-              "attr": "HP",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -7900,7 +8000,7 @@
           {
             "name": "Enrichment",
             "healing": {
-              "attr": "HP",
+              "attr": "hp",
               "multipliers": [
                 {
                   "flat": [
@@ -7963,9 +8063,12 @@
             "type": "resonanceLiberation"
           },
           {
-            "name": "Healing per Plume Step",
+            "name": "Plume Step",
+            "inflictStatus": {
+              "glacioChafe": 1
+            },
             "healing": {
-              "attr": "HP",
+              "attr": "hp",
               "multipliers": [
                 {
                   "flat": [
@@ -8418,9 +8521,8 @@
           },
           {
             "name": "Illuminating Dew",
-            "type": "mid-airAttack",
+            "type": "heavyAttack",
             "damage": {
-              "type": "heavyAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -8494,7 +8596,7 @@
               "glacioChafe": 1
             },
             "damage": {
-              "attr": "HP",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -27066,7 +27168,7 @@
         "applyBy": "$team",
         "applyWhen": "inflict",
         "applyForInflictShifting": "hack",
-        "applyTo": "applier",
+        "applyTo": "$applier",
         "buffMap": {
           "tuneBreakBoost": 30
         },
@@ -40742,6 +40844,7 @@
         }
       },
       {
+        "key": "stellarealm",
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "buffMap": {
@@ -40755,22 +40858,24 @@
         }
       },
       {
+        "key": "evolved",
         "applyBy": "$team",
         "applyWhen": "before",
         "applyOnType": "introSkill",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "stellarealm": 1
         },
         "removeWhen": "before",
         "removeIfEffectStacksMax": {
-          "$prev.1": 0
+          "stellarealm": 0
         },
         "maxStacks": 2
       },
       {
+        "key": "innerStellarealm",
         "applyTo": "$team",
         "useIfEffectStacksMin": {
-          "$prev.1": 1
+          "evolved": 1
         },
         "buffSpec": {
           "critRate%": {
@@ -40784,7 +40889,7 @@
       {
         "applyTo": "$team",
         "useIfEffectStacksMin": {
-          "$prev.2": 2
+          "evolved": 2
         },
         "buffSpec": {
           "critDmg%": {
@@ -40799,7 +40904,9 @@
         "enableIfRankMax": 0,
         "useWhen": "before",
         "useOnAction": "introSkill.1",
-        "onUseDoRemove": "$prev.4"
+        "onUseDoRemove": {
+          "stellarealm": 1
+        }
       },
       {
         "useOnAction": "introSkill.1",
@@ -40819,7 +40926,7 @@
       {
         "enableIfRankMin": 2,
         "useIfEffectStacksMin": {
-          "$prev.7": 1
+          "stellarealm": 1
         },
         "buffMap": {
           "atk%": 0.4
@@ -43615,6 +43722,7 @@
         "maxDuration": 30000
       },
       {
+        "key": "resonantThreadOfClosure",
         "applyWhen": "before",
         "applyOnType": "outroSkill",
         "maxDuration": 20000
@@ -43624,7 +43732,7 @@
         "applyWhen": "hit",
         "applyOnHas": "damage",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "resonantThreadOfClosure": 1
         },
         "applyTo": "global",
         "gameRule": {
@@ -43640,13 +43748,14 @@
         "maxDuration": 15000
       },
       {
+        "key": "threadOfBane",
         "applyBy": "$team",
         "applyWhen": "inflict",
         "applyIfEffectStacksMin": {
-          "$prev.2": 1
+          "resonantThreadOfClosure": 1
         },
         "applyForInflictStatus": "any",
-        "applyTo": "applier",
+        "applyTo": "$applier",
         "buffMap": {
           "defIgnore%": 0.18
         },
@@ -43685,10 +43794,10 @@
         "applyBy": "$team",
         "applyWhen": "inflict",
         "applyIfEffectStacksMin": {
-          "$prev.6": 1
+          "resonantThreadOfClosure": 1
         },
         "applyForInflictStatus": "any",
-        "applyTo": "applier",
+        "applyTo": "$applier",
         "buffMap": {
           "dmgBonus%": 0.5
         },
@@ -55118,6 +55227,7 @@
         "maxUses": 1
       },
       {
+        "key": "tonalSwitch",
         "applyWhen": "before",
         "applyOnType": "outroSkill",
         "applyTo": "$ally",
@@ -55128,12 +55238,12 @@
         "applyWhen": "inflict",
         "applyForInflictStatus": "havocBane",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "tonalSwitch": 1
         },
-        "applyTo": "applier",
+        "applyTo": "$applier",
         "removeWhen": "before",
         "removeIfEffectStacksMax": {
-          "$prev.1": 0
+          "tonalSwitch": 0
         },
         "buffMap": {
           "havocDmgAmp%": 0.2
@@ -56019,7 +56129,7 @@
             "name": "Sword Stance Flow: Feather",
             "tagged": "Azure Sword Stance",
             "type": "resonanceSkill",
-            "consumeNegativeStatus": {
+            "consumeStatus": {
               "havocBane": 1
             },
             "damage": {
@@ -56057,7 +56167,7 @@
             "name": "Sword Stance Flow: Azure",
             "tagged": "Feather Sword Stance",
             "type": "resonanceSkill",
-            "consumeNegativeStatus": {
+            "consumeStatus": {
               "havocBane": 1
             },
             "damage": {

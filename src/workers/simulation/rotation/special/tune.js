@@ -8,7 +8,7 @@ const LEVEL_MODIFIER = 716.22;
 const ENEMY_TYPE_MODIFIER = 14;
 
 const tuneBreakAction = {
-  key: 'other:tuneBreak',
+  id: 'other:tuneBreak',
   ownerId: 'other',
   damageType: 'tuneBreak',
   element: 'physical',

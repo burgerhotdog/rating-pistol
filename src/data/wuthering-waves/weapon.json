@@ -1600,6 +1600,7 @@
         }
       },
       {
+        "key": "searingFeather",
         "applyWhen": "hit",
         "applyOnHas": "damage",
         "applyCooldown": 500,
@@ -1617,7 +1618,7 @@
         "useWhen": "before",
         "useOnType": "resonanceSkill",
         "onUseDoApply": {
-          "$prev.1": 5
+          "searingFeather": 5
         }
       }
     ]
@@ -1678,6 +1679,7 @@
         }
       },
       {
+        "key": "basicAttackDmgIncreased",
         "applyWhen": "before",
         "applyOnType": "resonanceSkill",
         "applyIfField": "onField",
@@ -1694,9 +1696,11 @@
         "applyWhen": "before",
         "applyOnType": "outroSkill",
         "applyIfEffectStacksMin": {
-          "$prev.1": "3"
+          "basicAttackDmgIncreased": 3
         },
-        "onApplyDoRemove": "$prev.1",
+        "onApplyDoRemove": {
+          "basicAttackDmgIncreased": 3
+        },
         "useIfField": "offField",
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -1878,6 +1882,7 @@
     },
     "effects": [
       {
+        "key": "hiss",
         "applyWhen": "hit",
         "applyOnHas": "damage",
         "applyCooldown": 1000,
@@ -1894,7 +1899,7 @@
       },
       {
         "useIfEffectStacksMin": {
-          "$prev.1": 10
+          "hiss": 10
         },
         "buffMap": {
           "critRate%": [
@@ -2366,6 +2371,7 @@
         }
       },
       {
+        "key": "gentleDreamReady",
         "applyWhen": "before",
         "applyOnType": [
           "introSkill",
@@ -2374,10 +2380,11 @@
         "maxDuration": 10000
       },
       {
+        "key": "gentleDream",
         "applyWhen": "before",
         "applyOnType": "echoSkill",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "gentleDreamReady": 1
         },
         "removeWhen": "before",
         "removeIfField": "offField",
@@ -2386,7 +2393,7 @@
       },
       {
         "useIfEffectStacksMin": {
-          "$prev.1": 1
+          "gentleDream": 1
         },
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -2397,7 +2404,7 @@
       },
       {
         "useIfEffectStacksMin": {
-          "$prev.2": 2
+          "gentleDream": 2
         },
         "buffMap": {
           "havocResIgnore%": [
@@ -2516,6 +2523,12 @@
           "introSkill",
           "resonanceLiberation"
         ],
+        "extendWhen": "hit",
+        "extendOnDamageType": "heavyAttack",
+        "extendDuration": 4000,
+        "onExtendDoApply": {
+          "teamFusionDmgIncreased": 1
+        },
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.24,
@@ -2523,17 +2536,11 @@
           ]
         },
         "maxDuration": 6000,
-        "extendWhen": "hit",
-        "extendOnDamageType": "heavyAttack",
-        "extendDuration": 4000,
         "maxExtensions": 1
       },
       {
-        "applyWhen": "hit",
-        "applyOnDamageType": "heavyAttack",
-        "applyIfEffectStacksMin": {
-          "$prev.1": 1
-        },
+        "key": "teamFusionDmgIncreased",
+        "applyWhen": "command",
         "applyTo": "$team",
         "buffMap": {
           "fusionDmgBonus%": [
@@ -2804,6 +2811,7 @@
         "maxDuration": 15000
       },
       {
+        "key": "resonanceLiberationDmgIncreased",
         "applyWhen": "hit",
         "applyOnHas": "shield",
         "applyCooldown": 500,
@@ -2821,7 +2829,7 @@
         "useWhen": "before",
         "useOnType": "introSkill",
         "onUseDoApply": {
-          "$prev.1": 5
+          "resonanceLiberationDmgIncreased": 5
         }
       }
     ]
@@ -2902,6 +2910,7 @@
         }
       },
       {
+        "key": "bambooCleaverReady",
         "applyWhen": "before",
         "applyOnType": [
           "introSkill",
@@ -2910,10 +2919,11 @@
         "maxDuration": 10000
       },
       {
+        "key": "bambooCleaver",
         "applyWhen": "before",
         "applyOnType": "echoSkill",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "bambooCleaverReady": 1
         },
         "removeWhen": "before",
         "removeIfField": "offField",
@@ -2960,6 +2970,7 @@
         }
       },
       {
+        "key": "heavyAttackDmgIncreased",
         "applyWhen": "hit",
         "applyOnDamageType": "echoSkill",
         "buffMap": {
@@ -2971,6 +2982,7 @@
         "maxDuration": 6000
       },
       {
+        "key": "echoSkillDmgIncreased",
         "applyWhen": "hit",
         "applyOnDamageType": "heavyAttack",
         "buffMap": {
@@ -2983,8 +2995,8 @@
       },
       {
         "useIfEffectStacksMin": {
-          "$prev.1": 1,
-          "$prev.2": 1
+          "heavyAttackDmgIncreased": 1,
+          "echoSkillDmgIncreased": 1
         },
         "buffMap": {
           "defIgnore%": [
@@ -3015,6 +3027,7 @@
         }
       },
       {
+        "key": "resonanceLiberationDmgIncreased",
         "applyWhen": "before",
         "applyOnType": "introSkill",
         "buffMap": {
@@ -3030,7 +3043,7 @@
         "useWhen": "inflict",
         "useForInflictStatus": "any",
         "onUseDoApply": {
-          "$prev.1": 1
+          "resonanceLiberationDmgIncreased": 1
         }
       },
       {
@@ -3038,7 +3051,7 @@
         "applyWhen": "inflict",
         "applyForInflictStatus": "any",
         "applyIfEffectStacksMin": {
-          "$prev.2": 3
+          "resonanceLiberationDmgIncreased": 3
         },
         "applyTo": "applier",
         "buffMap": {
@@ -3511,6 +3524,7 @@
         }
       },
       {
+        "key": "resonanceLiberationDmgIncreased",
         "applyWhen": "inflict",
         "applyForInflictStatus": "fusionBurst",
         "applyForInflictShifting": "tuneStrain",
@@ -3528,7 +3542,7 @@
         "applyForInflictStatus": "fusionBurst",
         "applyForInflictShifting": "tuneStrain",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "resonanceLiberationDmgIncreased": 1
         },
         "applyTo": "applier",
         "buffMap": {
@@ -3746,20 +3760,29 @@
         }
       },
       {
+        "key": "snowTaint",
         "applyWhen": "inflict",
         "applyForInflictStatus": "glacioChafe",
         "maxDuration": 6000
       },
       {
+        "key": "ripples",
         "applyWhen": "hit",
         "applyOnHas": "healing",
         "maxDuration": 6000
       },
       {
+        "useOnType": "outroSkill",
+        "onUseDoApply": {
+          "snowTaint": 1,
+          "ripples": 1
+        }
+      },
+      {
         "applyTo": "$team",
         "useIfEffectStacksMin": {
-          "$prev.1": 1,
-          "$prev.2": 1
+          "snowTaint": 1,
+          "ripples": 1
         },
         "buffMap": {
           "atk%": [

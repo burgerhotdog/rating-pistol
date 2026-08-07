@@ -5,9 +5,9 @@ export function getTotals(summary, filter = {}) {
 
   for (const snapshot of summary) {
     if (!matchesFilter(snapshot.ownerId)) continue;
-    for (const key in totals) {
-      if (key in snapshot) {
-        totals[key] += snapshot[key];
+    for (const part in totals) {
+      if (part in snapshot) {
+        totals[part] += snapshot[part];
       }
     }
   }

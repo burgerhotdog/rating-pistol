@@ -19,7 +19,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
   const { runtimeOffset = 0 } = options;
 
   const snapshot = {
-    key: action.key,
+    id: action.id,
     ownerId: action.ownerId,
     category: action.category,
     type: action.type,

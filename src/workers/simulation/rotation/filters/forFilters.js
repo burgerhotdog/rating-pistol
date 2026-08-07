@@ -1,13 +1,17 @@
 import { toArray } from '@/utils';
 
-// Filter based on what action inflicts
 const forInflictStatus = (rawFilter, { action }) => {
   const inflicted = action.inflictStatus ?? {};
-  if (rawFilter === 'any') {
-    return Object.keys(inflicted).length;
-  }
+  if (rawFilter === 'any') return Object.keys(inflicted).length;
   const filter = toArray(rawFilter);
-  return filter.some((statusId) => statusId in inflicted);
+  return filter.some((status) => status in inflicted);
+};
+
+const forConsumeStatus = (rawFilter, { action }) => {
+  const consumed = action.consumeStatus ?? {};
+  if (rawFilter === 'any') return Object.keys(consumed).length;
+  const filter = toArray(rawFilter);
+  return filter.some((status) => status in consumed);
 };
 
 const forInflictShifting = (rawFilter, { action }) => {
@@ -17,5 +21,6 @@ const forInflictShifting = (rawFilter, { action }) => {
 
 export const forFilters = {
   'ForInflictStatus': forInflictStatus,
+  'ForConsumeStatus': forConsumeStatus,
   'ForInflictShifting': forInflictShifting,
 };

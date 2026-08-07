@@ -153,8 +153,8 @@ const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
       }));
   }, [search, skills]);
 
-  const handleSelect = (actionKey) => {
-    onSelect(actionKey);
+  const handleSelect = (actionRef) => {
+    onSelect(actionRef);
     setSearch('');
     onClose();
   };
@@ -284,7 +284,7 @@ const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
   );
 };
 
-function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove }) {
+function SortableRotationItem({ id, actionRef, charId, member, gameId, onRemove }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
   const style = {
@@ -299,7 +299,7 @@ function SortableRotationItem({ id, actionKey, charId, member, gameId, onRemove 
     },
   };
 
-  const [category, actionIndex] = actionKey.split('.');
+  const [category, actionIndex] = actionRef.split('.');
   const index = Number(actionIndex);
   const { name, tagged, type = '' } = allActions[category].actions[index];
 
@@ -445,11 +445,11 @@ function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
             onDragCancel={() => setDragging(false)}
           >
             <SortableContext items={sortableIds} strategy={verticalListSortingStrategy}>
-              {rotation.map((actionKey, index) => (
+              {rotation.map((actionRef, index) => (
                 <SortableRotationItem
                   key={sortableIds[index]}
                   id={sortableIds[index]}
-                  actionKey={actionKey}
+                  actionRef={actionRef}
                   member={member}
                   charId={charId}
                   gameId={gameId}
@@ -494,7 +494,7 @@ function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
         charId={charId}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
-        onSelect={(actionKey) => onChange([...rotation, actionKey])}
+        onSelect={(actionRef) => onChange([...rotation, actionRef])}
       />
     </Box>
   );

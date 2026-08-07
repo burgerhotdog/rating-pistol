@@ -91,15 +91,15 @@ function toNormedShield(gameId, action, spec) {
 }
 
 export const toNormalizedAction = (rawAction, spec) => {
-  const { gameId, ownerId, category, actionId } = spec;
+  const { gameId, ownerId, category, actionIndex } = spec;
 
   const action = {
     ...rawAction,
     ownerId,
-    key: `${ownerId}:${category}.${actionId}`,
-    ref: `${category}.${actionId}`,
+    id: `${ownerId}:${category}.${actionIndex}`,
+    ref: `${category}.${actionIndex}`,
     category,
-    id: actionId,
+    index: actionIndex,
   };
 
   if ('damage' in action) action.damage = toNormedDamage(gameId, action, spec);
@@ -160,7 +160,7 @@ export const getMemberPresetActions = (member, { gameId, teamSize }) => {
         gameId,
         ownerId: memberId,
         category,
-        actionId: index,
+        actionIndex: index,
         teamSize,
         index: mvIndex,
         charElement: char.element,
@@ -175,7 +175,7 @@ export const getMemberPresetActions = (member, { gameId, teamSize }) => {
         gameId,
         ownerId: memberId,
         category: 'echoSkill',
-        actionId: index,
+        actionIndex: index,
         teamSize,
       });
     }
