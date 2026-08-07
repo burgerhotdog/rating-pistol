@@ -8,4 +8,7 @@ maybe compare stamina efficiency with talents/rate of stamina eff
 have new tab that compares diff weapons/sets/teammates?
 
 
-when d2 mean touches 0: stop Weeks
+use solver to filter only variable stat maps that actually affect damage
+also batch hits that have same buffmaps but different hit times for chart
+
+progress prediction dotted line becomes off with monotone
