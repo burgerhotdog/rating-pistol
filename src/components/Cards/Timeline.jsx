@@ -15,7 +15,6 @@ import {
 import { useTheme } from '@mui/material/styles';
 import {
   Area,
-  Brush,
   CartesianGrid,
   Scatter,
   Tooltip as ChartTooltip,
@@ -203,13 +202,6 @@ const Timeline = ({ userSummary, memberIds }) => {
         tick={{ fontSize: 12 }}
         tickFormatter={formatDmg}
         width="auto"
-      />
-      <Brush
-        dataKey="time"
-        height={20}
-        stroke={accentColor}
-        tickFormatter={(time) => `${(time / 1000).toFixed()}s`}
-        travellerWidth={8}
       />
     </>
   );
