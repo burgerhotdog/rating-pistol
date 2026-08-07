@@ -56,8 +56,7 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
 
   const levels = useMemo(() => buildData(levelsSeries), [levelsSeries]);
 
-  const dataSeries = levelsSeries;
-  const dataSeriesByWeek = Object.fromEntries(dataSeries.map((entry) => {
+  const dataSeriesByWeek = Object.fromEntries(levelsSeries.map((entry) => {
     const { week, ...rest } = entry;
     return [week, rest];
   }));
@@ -206,13 +205,12 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
 
           <ChartTooltip
             content={({ payload }) => {
-              const { week = 0 } = payload?.[0]?.payload ?? {};
+              const { mean, extrapolatedMean, week = 0 } = payload?.[0]?.payload ?? {};
               const weekEntry = dataSeriesByWeek[week] ?? {};
-              const prevWeek = Number(week) - 1;
-              const prevEntry = dataSeriesByWeek[prevWeek] ?? {};
+              const prevEntry = dataSeriesByWeek[Number(week) - 1] ?? {};
 
-              const value = weekEntry.mean;
-              const prevValue = prevEntry.mean;
+              const value = mean ?? extrapolatedMean;
+              const prevValue = prevEntry.mean ?? weekEntry.extrapolatedMean;
               const pctDiff = prevValue != null ? (value / prevValue - 1) * 100 : null;
               const diffColor = pctDiff >= 0 ? 'success.main' : 'error.main';
               return (
