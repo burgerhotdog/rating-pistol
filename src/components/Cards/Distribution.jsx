@@ -84,11 +84,15 @@ const Distribution = ({ userSummary }) => {
   const color = useElementColors({ char: '$curr' });
 
   const data = buildData(userSummary, charId, distributionMode);
+  const totalDamage = data.reduce((acc, entry) => acc + entry.value, 0);
+  const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
+  const dps = duration > 0 ? totalDamage / (duration / 1000) : null;
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
         title="Damage Distribution"
+        subheader={`${formatNum(totalDamage)} total damage${dps != null ? ` · ${formatNum(dps)} DPS` : ''}`}
         action={
           <ToggleButtonGroup
             value={distributionMode}
@@ -110,6 +114,8 @@ const Distribution = ({ userSummary }) => {
               data={data}
               dataKey="value"
               animationBegin={0}
+              label={({ percent }) => `${(percent * 100).toFixed()}%`}
+              labelLine={false}
             >
               {data.map(({ name, percent }) => {
                 const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);

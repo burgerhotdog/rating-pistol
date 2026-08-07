@@ -11,6 +11,9 @@ import {
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
+  Cell,
+  Legend,
+  LabelList,
   PolarAngleAxis,
   PolarGrid,
   Radar,
@@ -211,12 +214,28 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
           />
 
           <RechartsTooltip content={CustomTooltip} />
+          <Legend wrapperStyle={{ fontSize: 11 }} />
 
           <Bar
             dataKey="avg"
             name="Benchmark"
             fill={alpha(color, 0.6)}
           />
+          <Bar
+            dataKey="user"
+            name="Your Rolls"
+            fill={color}
+          >
+            {data.map((entry) => (
+              <Cell key={entry.stat} fill={entry.pct >= 100 ? palette.success.main : palette.error.main} />
+            ))}
+            <LabelList
+              dataKey="pct"
+              position="right"
+              formatter={(v) => `${v.toFixed(0)}%`}
+              style={{ fontSize: 10, fill: palette.text.secondary }}
+            />
+          </Bar>
         </BarChart>
       </CardContent>
     </Card>

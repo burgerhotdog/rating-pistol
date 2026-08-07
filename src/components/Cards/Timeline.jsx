@@ -15,6 +15,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import {
   Area,
+  Brush,
   CartesianGrid,
   Scatter,
   Tooltip as ChartTooltip,
@@ -174,6 +175,9 @@ const Timeline = ({ userSummary, memberIds }) => {
   );
 
   const data = buildData(userSummary, memberStack, isRunningTotal, isCurrOnly, charId);
+  const totalDamage = userSummary.reduce((acc, { damage = 0 }) => acc + damage, 0);
+  const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
+  const teamDps = duration > 0 ? totalDamage / (duration / 1000) : null;
   const axisProps = (
     <>
       <defs>
@@ -200,6 +204,13 @@ const Timeline = ({ userSummary, memberIds }) => {
         tickFormatter={formatDmg}
         width="auto"
       />
+      <Brush
+        dataKey="time"
+        height={20}
+        stroke={accentColor}
+        tickFormatter={(time) => `${(time / 1000).toFixed()}s`}
+        travellerWidth={8}
+      />
     </>
   );
 
@@ -207,6 +218,7 @@ const Timeline = ({ userSummary, memberIds }) => {
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
         title="Rotation Timeline"
+        subheader={`${(duration / 1000).toFixed(1)}s rotation · ${formatNum(totalDamage)} dmg${teamDps != null ? ` · ${formatNum(teamDps)} DPS` : ''}`}
         action={
           <>
             <FormControlLabel

@@ -20,11 +20,17 @@ const TabPanels = [
         <RatingCard
           userDps={results.userDps}
           benchmarkDps={results.benchmarkDps}
+          dpsCeiling={results.dpsCeiling}
+          thresholdWeeks={results.thresholdWeeks}
+          fit={results.fit}
+          dpsProgression={results.dpsProgression}
         />
         <ProgressCard
           dpsProgression={results.dpsProgression}
           userDps={results.userDps}
-          prydwenDps={results.prydwenDps}
+          dpsCeiling={results.dpsCeiling}
+          thresholdWeeks={results.thresholdWeeks}
+          fit={results.fit}
         />
       </Stack>
     ),

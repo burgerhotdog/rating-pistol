@@ -34,7 +34,7 @@ const IconRow = ({ gameId, slots }) => {
 
 const USER_COLOR = '#BA7517';
 
-const ConfigRow = ({ gameId, configKey, isUser, pct }) => {
+const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
   const slots = configKey.split('|');
 
   return (
@@ -78,13 +78,15 @@ const ConfigRow = ({ gameId, configKey, isUser, pct }) => {
             </Box>
           )}
 
-          <Typography
-            variant="caption"
-            color="textSecondary"
-            sx={{ minWidth: 30, textAlign: 'right' }}
-          >
-            {(pct * 100).toFixed(0)}%
-          </Typography>
+          <Tooltip title={`${count} of ${total} simulated builds`}>
+            <Typography
+              variant="caption"
+              color="textSecondary"
+              sx={{ minWidth: 30, textAlign: 'right' }}
+            >
+              {(pct * 100).toFixed(0)}%
+            </Typography>
+          </Tooltip>
         </Box>
       </Box>
 
@@ -115,9 +117,18 @@ const Mainstats = ({ configMap, userConfigKey }) => {
     ? [sorted[userIdx], ...sorted.filter((_, i) => i !== userIdx)]
     : sorted;
 
+  const userRank = userIdx >= 0 ? userIdx + 1 : null;
+
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader title="Mainstat Distribution" />
+      <CardHeader
+        title="Mainstat Distribution"
+        subheader={
+          userRank != null
+            ? `Your config ranks #${userRank} of ${sorted.length} · ${total.toLocaleString()} builds simulated`
+            : `${total.toLocaleString()} builds simulated`
+        }
+      />
       <CardContent component={Stack} sx={{ flex: 1 }}>
         <Stack spacing={0.25}>
           {ordered.map(([key, config]) => (
@@ -126,6 +137,8 @@ const Mainstats = ({ configMap, userConfigKey }) => {
               gameId={gameId}
               configKey={key}
               isUser={key === userConfigKey}
+              count={config.count}
+              total={total}
               pct={config.count / total}
             />
           ))}

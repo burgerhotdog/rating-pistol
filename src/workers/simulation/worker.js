@@ -75,7 +75,7 @@ self.onmessage = ({ data }) => {
 
   self.postMessage({ status: 'Running simulation' });
   const runRotation = createRunRotation(cache, equipMaps, charId);
-  const { trials, dpsProgression } = runTrials(cache, runRotation, charId, true);
+  const { trials, dpsProgression, dpsCeiling, thresholdWeeks, fit } = runTrials(cache, runRotation, charId, true);
   const configMap = buildConfigStats(gameId, trials);
 
   const userSummary = runRotation(cache.member[charId].statMap);
@@ -84,6 +84,10 @@ self.onmessage = ({ data }) => {
 
   self.postMessage({
     dpsProgression,
+    dpsCeiling,
+    thresholdWeeks,
+    // fit's predict/weekForRemaining closures can't cross postMessage, only q/A are needed downstream
+    fit: fit ? { q: fit.q, A: fit.A } : null,
     configMap,
     userSummary,
     userDps,
