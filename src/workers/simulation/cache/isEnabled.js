@@ -1,7 +1,7 @@
 import { toArray } from '@/utils';
 
 const passStringFilter = (ctxValue, reqStr) =>
-  ctxValue === reqStr;
+  toArray(ctxValue).includes(reqStr);
 
 const passNumberFilter = (ctxNumber, reqNumber) =>
   reqNumber < 0
