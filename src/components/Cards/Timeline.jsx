@@ -38,12 +38,21 @@ function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
     : 0;
 
   const runtimeDamage = {};
-  for (const { runtime, ownerId, damage } of filteredSummary) {
-    const adjustedRuntime = runtime - runtimeOffset;
-
-    runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
-    runtimeDamage[adjustedRuntime][ownerId] ??= 0;
-    runtimeDamage[adjustedRuntime][ownerId] += damage;
+  for (const { runtime, ownerId, damage, hitOffsets } of filteredSummary) {
+    if (hitOffsets?.length) {
+      const splitDamage = damage / hitOffsets.length;
+      for (const offset of hitOffsets) {
+        const adjustedRuntime = runtime + offset - runtimeOffset;
+        runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
+        runtimeDamage[adjustedRuntime][ownerId] ??= 0;
+        runtimeDamage[adjustedRuntime][ownerId] += splitDamage;
+      }
+    } else {
+      const adjustedRuntime = runtime - runtimeOffset;
+      runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
+      runtimeDamage[adjustedRuntime][ownerId] ??= 0;
+      runtimeDamage[adjustedRuntime][ownerId] += damage;
+    }
   }
 
   if (isRunningTotal) {

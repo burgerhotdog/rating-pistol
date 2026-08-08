@@ -27,6 +27,8 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     runtime: ctx.states.runtime + runtimeOffset,
     ...('damage' in action &&
       { damageType: action.damage.type }),
+    ...(action.hitOffsets &&
+      { hitOffsets: action.hitOffsets }),
   };
 
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: action.ownerId, action });

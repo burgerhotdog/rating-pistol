@@ -118,8 +118,10 @@ export const toNormalizedAction = (rawAction, spec) => {
       let hitsLeft = action.damage?.compressed.hitCount - 1;
       while (hitsLeft) {
         if (action.duration) {
-          action.duration += 50;
-          offset += 50;
+          offset += 100;
+          if (action.duration - offset <= 100) {
+            action.duration += 100;
+          }
         }
         action.hitOffsets.push(Math.round(offset));
         hitsLeft--;
