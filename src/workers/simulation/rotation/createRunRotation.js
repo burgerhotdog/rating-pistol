@@ -7,6 +7,8 @@ import {
   matchApplyFilter,
 } from './filters';
 import {
+  onRemoveDoCommand,
+  onExtendDoCommand,
   onUseDoCommand,
   onApplyDoCommand,
 } from './commands';
@@ -33,11 +35,13 @@ import { getEffectStates } from './getEffectStates';
 function handleRemoveWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
     const { effect } = state;
+
     const shouldRemove =
       effect.removeWhen === when &&
       matchRemoveFilter(effect, { ctx, action });
 
     if (!shouldRemove) continue;
+    onRemoveDoCommand(ctx, effect);
     runRemoveEffect(state);
   }
 }
@@ -45,6 +49,7 @@ function handleRemoveWhen(ctx, action, when) {
 function handleExtendWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
     const { effect } = state;
+
     const shouldExtend =
       effect.extendWhen === when &&
       !state.extendCooldown &&
@@ -52,6 +57,7 @@ function handleExtendWhen(ctx, action, when) {
       state.extensionsLeft;
 
     if (!shouldExtend) continue;
+    onExtendDoCommand(ctx, effect);
     runExtendEffect(state);
   }
 }
@@ -59,6 +65,7 @@ function handleExtendWhen(ctx, action, when) {
 function handleUseWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
     const { effect } = state;
+
     const shouldUse =
       effect.useWhen === when &&
       !state.useCooldown &&
@@ -76,20 +83,20 @@ function handleApplyWhen(ctx, action, when) {
     const shouldApply =
       effect.applyBy.includes(action.ownerId) &&
       effect.applyWhen === when &&
-      !ctx.states.applyCooldowns[effect.key] &&
+      !ctx.states.applyCooldowns[effect.id] &&
       matchApplyFilter(effect, { ctx, action });
 
     if (!shouldApply) continue;
     onApplyDoCommand(ctx, effect);
-    runApplyEffect(ctx, effect, action);
+    runApplyEffect(ctx, effect, { applier: action.ownerId });
   }
 }
 
 function advanceCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.states;
-  for (const effectKey in applyCooldowns) {
-    applyCooldowns[effectKey] -= elapsed;
-    if (applyCooldowns[effectKey] <= 0) delete applyCooldowns[effectKey];
+  for (const effectId in applyCooldowns) {
+    applyCooldowns[effectId] -= elapsed;
+    if (applyCooldowns[effectId] <= 0) delete applyCooldowns[effectId];
   }
 }
 
@@ -101,7 +108,7 @@ function decayBuffStates(ctx, action) {
     if ('buffCooldown' in effect) state.buffCooldown = effect.buffCooldown;
     if ('usesLeft' in state) {
       state.usesLeft--;
-      if (!state.usesLeft) delete store[effect.key];
+      if (!state.usesLeft) delete store[effect.id];
     }
   }
 }
@@ -137,7 +144,7 @@ function runAction(ctx, action, options = {}) {
     handleApplyWhen(ctx, action, when);
   }
 
-  if (action.key === 'other:tuneBreak') {
+  if (action.id === 'other:tuneBreak') {
     runTuneBreak(ctx, action);
     runEffectsWhen('tuneBreak');
     return;
@@ -180,9 +187,7 @@ export const createRunRotation = (cache, equipMaps, currId) => {
       runtime: 0,
       onFieldId: null,
       getField(id) {
-        return id === this.onFieldId
-          ? 'onField'
-          : 'offField';
+        return id === this.onFieldId ? 'onField' : 'offField';
       },
       applyCooldowns: {},
       globalEffects: {},

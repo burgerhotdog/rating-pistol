@@ -57,7 +57,7 @@ export function compileMenuMap(gameId, charId, member) {
       effect.rank > memberRank ||
       effect.applyWhen ||
       (effect.applyTo && effect.applyTo !== 'team') ||
-      Object.keys(effect).some((key) => key.startsWith('useOn'))
+      Object.keys(effect).some((field) => field.startsWith('useOn'))
     ) return false;
 
     return effect.statMap;

@@ -118,11 +118,11 @@ def parse_skills(data):
             if fmt is None:
                 attr = None
             elif 'HP' in fmt:
-                attr = 'HP'
+                attr = 'hp'
             elif 'ATK' in fmt:
-                attr = 'ATK'
+                attr = 'atk'
             elif 'DEF' in fmt:
-                attr = 'DEF'
+                attr = 'def'
             elif 'Tune AMP' in fmt:
                 attr = 'tuneAmp'
             else:
@@ -134,8 +134,8 @@ def parse_skills(data):
             actions.append({
                 'name': skill_data['name'],
                 'type': 'basicAttack' if group_id == '1' else key_to_id[group_id],
-                **({'attr': attr} if attr else {}),
                 'damage': {
+                    **({'attr': attr} if attr else {}),
                     'multipliers': multipliers,
                 },
             })

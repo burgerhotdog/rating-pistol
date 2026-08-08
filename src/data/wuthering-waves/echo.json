@@ -421,7 +421,8 @@
     "cost": 4,
     "effects": [
       {
-        "applyWhen": "hit",
+        "key": "heronReady",
+        "applyWhen": "before",
         "applyOnAction": "echoSkill.0",
         "maxDuration": 15000
       },
@@ -429,7 +430,10 @@
         "applyWhen": "before",
         "applyOnType": "outroSkill",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "heronReady": 1
+        },
+        "onApplyDoRemove": {
+          "heronReady": 1
         },
         "applyTo": "$next",
         "buffMap": {
@@ -576,6 +580,7 @@
     "cost": 4,
     "effects": [
       {
+        "key": "blessingOfTime",
         "applyWhen": "before",
         "buffMap": {
           "resonanceSkillDmgBonus%": 0.16
@@ -585,11 +590,11 @@
       {
         "applyWhen": "hit",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "blessingOfTime": 1
         },
         "removeWhen": "before",
         "removeIfEffectStacksMax": {
-          "$prev.1": 0
+          "blessingOfTime": 0
         },
         "useWhen": "interval",
         "useCooldown": 1000,
@@ -2440,6 +2445,7 @@
     "cost": 4,
     "effects": [
       {
+        "key": "hyvatiaSummoned",
         "applyWhen": "before",
         "applyOnAction": "echoSkill.0",
         "maxDuration": 15000
@@ -2448,10 +2454,12 @@
         "applyWhen": "before",
         "applyOnType": "outroSkill",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "hyvatiaSummoned": 1
         },
         "applyTo": "$next",
-        "onApplyDoRemove": "$prev.1",
+        "onApplyDoRemove": {
+          "hyvatiaSummoned": 1
+        },
         "buffMap": {
           "dmgBonus%": 0.1
         },
@@ -2741,6 +2749,7 @@
     "cost": 4,
     "effects": [
       {
+        "key": "tricksterSummoned",
         "applyWhen": "hit",
         "applyOnAction": "echoSkill.0",
         "maxDuration": 15000
@@ -2749,7 +2758,7 @@
         "applyWhen": "before",
         "applyOnType": "outroSkill",
         "applyIfEffectStacksMin": {
-          "$prev.1": 1
+          "tricksterSummoned": 1
         },
         "applyTo": "$next",
         "buffMap": {

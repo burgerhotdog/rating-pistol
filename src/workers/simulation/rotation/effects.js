@@ -1,10 +1,14 @@
 import { getEffectStates } from './getEffectStates';
 
-export function runRemoveEffect(state) {
+export function runRemoveEffect(state, stacks) {
   if (!state) return;
-  const { store, effect } = state;
-  if ('removeOffset' in effect) state.removeTimer ??= effect.removeOffset;
-  else delete store[effect.key];
+
+  state.stacks -= stacks;
+
+  if (state.stacks <= 0) {
+    const { store, effect: { id } } = state;
+    delete store[id];
+  }
 }
 
 export function runExtendEffect(state) {
@@ -33,48 +37,57 @@ export function runUseEffect(ctx, state, spec = {}) {
     if (effect.useCooldown) state.useCooldown = effect.useCooldown;
     if (state.usesLeft) {
       state.usesLeft--;
-      if (!state.usesLeft) return delete store[effect.key];
+      if (!state.usesLeft) return delete store[effect.id];
     }
   }
 }
 
-export function runApplyEffect(ctx, effect, action = {}) {
+export function runApplyEffect(ctx, effect, spec = {}) {
   const { applyCooldowns, memberEffects, globalEffects } = ctx.states;
+  const { id, maxStacks = 1 } = effect;
 
   function updateState(store) {
-    const prevState = store[effect.key] ?? {};
+    const prevState = store[id] ?? {};
     const prevStacks = prevState.stacks ?? 0;
-    store[effect.key] = {
+
+    const nextStacks = prevStacks + (spec.stacks ?? 1);
+
+    store[id] = {
       store,
       effect,
-      stacks: Math.min(prevStacks + 1, effect.maxStacks ?? 1),
-      ...('maxDuration' in effect &&
+      stacks: Math.min(nextStacks, maxStacks),
+      ...(effect.maxDuration &&
         { timeLeft: effect.maxDuration }),
-      ...('maxUses' in effect &&
+      ...(effect.maxUses &&
         { usesLeft: effect.maxUses }),
-      ...('maxExtensions' in effect &&
+      ...(effect.maxExtensions &&
         { extensionsLeft: effect.maxExtensions }),
-      ...('applyOffset' in effect &&
+      ...(effect.applyOffset &&
         { useCooldown: effect.applyOffset }),
-      ...('rampingInterval' in effect &&
+      ...(effect.rampingInterval &&
         { rampingTimer: effect.rampingOffset ?? 0 }),
     };
 
     if ( // If effect should be removed when reaching max stacks
       effect.removeWhen === 'maxStacks' &&
-      store[effect.key].stacks === (effect.maxStacks ?? 1)
+      store[id].stacks === maxStacks
     ) {
-      runRemoveEffect(store[effect.key]);
+      if (effect.removeOffset) {
+        store[id].removeTimer ??= effect.removeOffset;
+      } else {
+        delete store[id];
+      }
     }
   }
 
   for (const target of effect.applyTo) {
-    if (target === 'applier') updateState(memberEffects[action.ownerId]);
+    if (target === '$applier') updateState(memberEffects[spec.applier]);
     else if (target === 'global') updateState(globalEffects);
     else if (target in memberEffects) updateState(memberEffects[target]);
   }
 
-  if (effect.applyCooldown) applyCooldowns[effect.key] = effect.applyCooldown;
+  if (effect.applyCooldown)
+    applyCooldowns[id] = effect.applyCooldown;
 }
 
 function advanceEffectState(ctx, state, elapsed) {
@@ -82,12 +95,12 @@ function advanceEffectState(ctx, state, elapsed) {
 
   if ('timeLeft' in state) {
     state.timeLeft -= elapsed;
-    if (state.timeLeft <= 0) return delete store[effect.key];
+    if (state.timeLeft <= 0) return delete store[effect.id];
   }
 
   if ('removeTimer' in state) {
     state.removeTimer -= elapsed;
-    if (state.removeTimer <= 0) return delete store[effect.key];
+    if (state.removeTimer <= 0) return delete store[effect.id];
   }
 
   if ('useCooldown' in state) {

@@ -4,7 +4,7 @@ const getEffectStatesForMember = (ctx, memberId) => {
   return Object.values(memberEffects[memberId]);
 };
 
-export const getEffectStates = (ctx, { member, type }) => {
+export function getEffectStates(ctx, { member, type }) {
   const states = [
     ...Object.values(ctx.states.globalEffects),
     ...(member ? getEffectStatesForMember(ctx, member) : []),
@@ -20,4 +20,4 @@ export const getEffectStates = (ctx, { member, type }) => {
     default:
       return states;
   }
-};
+}

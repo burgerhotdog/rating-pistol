@@ -2,7 +2,6 @@ import { toEquipMap, getTotals } from '@/utils';
 import { createRunRotation } from './rotation';
 import { compileCache } from './cache';
 import { runTrials } from './runTrials';
-// import { getPrydwenBenchmark } from './otherBenchmarks';
 import { getSubRollSums, getMainConfig } from './utils';
 
 const buildConfigStats = (gameId, trials) => {
@@ -76,17 +75,19 @@ self.onmessage = ({ data }) => {
 
   self.postMessage({ status: 'Running simulation' });
   const runRotation = createRunRotation(cache, equipMaps, charId);
-  const { trials, trialBands } = runTrials(cache, runRotation, charId, true);
+  const { trials, dpsProgression, dpsCeiling, thresholdWeeks, fit } = runTrials(cache, runRotation, charId, true);
   const configMap = buildConfigStats(gameId, trials);
 
   const userSummary = runRotation(cache.member[charId].statMap);
   const userDps = cache.getDps(getTotals(userSummary).damage);
-  const benchmarkDps = trialBands.at(-1).mean;
-  // const prydwenSummary = getPrydwenBenchmark(gameId, charId, cache.member[charId].baseMap, configMap, runRotation);
-  // const prydwenDps = cache.getDps(getTotals(prydwenSummary).damage);
+  const benchmarkDps = dpsProgression.at(-1).mean;
 
   self.postMessage({
-    trialBands,
+    dpsProgression,
+    dpsCeiling,
+    thresholdWeeks,
+    // fit's predict/weekForRemaining closures can't cross postMessage, only q/A are needed downstream
+    fit: fit ? { q: fit.q, A: fit.A } : null,
     configMap,
     userSummary,
     userDps,

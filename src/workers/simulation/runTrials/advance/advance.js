@@ -33,8 +33,9 @@ function createEquipEvaluator(cache, evaluateEquipMap) {
   };
 }
 
-export function createTrialAdvancer(cache, score, evaluateEquipMap) {
+export function createAdvanceTrial(cache, evaluateEquipMap) {
   const { gameId } = cache;
+  const { score } = evaluateEquipMap();
   const skippable = getSkippableStats(gameId, score, evaluateEquipMap);
   const generateEquip = createEquipGenerator(gameId, skippable);
   const evaluateEquip = createEquipEvaluator(cache, evaluateEquipMap);
@@ -46,7 +47,7 @@ export function createTrialAdvancer(cache, score, evaluateEquipMap) {
     [WW]: [{ count: 20, cost: 4 }, { count: 60 }],
   }[gameId];
 
-  return function advanceTrial(trial) {
+  return (trial) => {
     for (const pass of passes) {
       let spec;
       if (gameId === WW) {

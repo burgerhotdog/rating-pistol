@@ -2,7 +2,10 @@ import {
   GI, HSR, WW, ZZZ,
   CHARACTER,
 } from '@/data';
-import { toArray, getAttr, getTotals, toMergedObj } from '@/utils';
+import {
+  getAttr, getTotals,
+  toArray, toMergedObj,
+} from '@/utils';
 
 const ENERGY_ATTR = {
   [GI]: 'energyRecharge%',
@@ -20,10 +23,10 @@ const penaltyMult = (current, target) => {
   return Math.exp(-relativeDeficit);
 };
 
-export const createEquipListEvaluator = (cache, evalId, runRotation) => {
-  const { gameId, member } = cache;
+export function createEvaluateEquipMap(cache, evalId, runRotation) {
+  const { gameId } = cache;
   const { noEnergy, matchAttr } = CHARACTER[gameId][evalId];
-  const { statMap } = member[evalId];
+  const { statMap } = cache.member[evalId];
   const matchMap = {};
 
   for (const attr of toArray(matchAttr)) {
@@ -37,7 +40,7 @@ export const createEquipListEvaluator = (cache, evalId, runRotation) => {
 
   const baseMap = cache.member[evalId].baseMap;
 
-  return function evaluateEquipList(equipMap = {}) {
+  return (equipMap = {}) => {
     const statMap = toMergedObj(baseMap, equipMap);
     const penalty = Object.entries(matchMap)
       .reduce((acc, [attr, target]) => {
@@ -52,5 +55,5 @@ export const createEquipListEvaluator = (cache, evalId, runRotation) => {
     const score = baseScore * penalty;
 
     return { summary, totals, score };
-  }
-};
+  };
+}

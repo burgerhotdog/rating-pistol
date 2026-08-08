@@ -15,15 +15,13 @@ import {
 import { useTheme } from '@mui/material/styles';
 import {
   Area,
-  AreaChart,
   CartesianGrid,
   Scatter,
-  ScatterChart,
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { Dot } from '@/components';
+import { AreaChart, Dot, ScatterChart } from '@/components';
 import { useCharData, useElementColors } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
@@ -40,12 +38,21 @@ function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
     : 0;
 
   const runtimeDamage = {};
-  for (const { runtime, ownerId, damage } of filteredSummary) {
-    const adjustedRuntime = runtime - runtimeOffset;
-
-    runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
-    runtimeDamage[adjustedRuntime][ownerId] ??= 0;
-    runtimeDamage[adjustedRuntime][ownerId] += damage;
+  for (const { runtime, ownerId, damage, hitOffsets } of filteredSummary) {
+    if (hitOffsets?.length) {
+      const splitDamage = damage / hitOffsets.length;
+      for (const offset of hitOffsets) {
+        const adjustedRuntime = runtime + offset - runtimeOffset;
+        runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
+        runtimeDamage[adjustedRuntime][ownerId] ??= 0;
+        runtimeDamage[adjustedRuntime][ownerId] += splitDamage;
+      }
+    } else {
+      const adjustedRuntime = runtime - runtimeOffset;
+      runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
+      runtimeDamage[adjustedRuntime][ownerId] ??= 0;
+      runtimeDamage[adjustedRuntime][ownerId] += damage;
+    }
   }
 
   if (isRunningTotal) {
@@ -176,6 +183,9 @@ const Timeline = ({ userSummary, memberIds }) => {
   );
 
   const data = buildData(userSummary, memberStack, isRunningTotal, isCurrOnly, charId);
+  const totalDamage = userSummary.reduce((acc, { damage = 0 }) => acc + damage, 0);
+  const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
+  const teamDps = duration > 0 ? totalDamage / (duration / 1000) : null;
   const axisProps = (
     <>
       <defs>
@@ -209,6 +219,7 @@ const Timeline = ({ userSummary, memberIds }) => {
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
         title="Rotation Timeline"
+        subheader={`${(duration / 1000).toFixed(1)}s rotation · ${formatNum(totalDamage)} dmg${teamDps != null ? ` · ${formatNum(teamDps)} DPS` : ''}`}
         action={
           <>
             <FormControlLabel
@@ -237,12 +248,7 @@ const Timeline = ({ userSummary, memberIds }) => {
 
       <CardContent component={Stack} sx={{ flex: 1 }}>
         {isRunningTotal ? (
-          <AreaChart
-            data={data}
-            width="100%"
-            height="100%"
-            responsive
-          >
+          <AreaChart data={data}>
             {axisProps}
 
             {memberStack.toReversed().map((id) => {
@@ -273,12 +279,7 @@ const Timeline = ({ userSummary, memberIds }) => {
             />
           </AreaChart>
         ) : (
-          <ScatterChart
-            data={data}
-            width="100%"
-            height="100%"
-            responsive
-          >
+          <ScatterChart data={data}>
             {axisProps}
 
             {memberStack.map((id) => {

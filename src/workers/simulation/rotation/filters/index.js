@@ -10,7 +10,7 @@ const createMatcher = (prefix, filterFunctions, isMatchWhenNoFilters = true) => 
 
   return (effect, { ctx, action }) => {
     const hasFilters = Object.keys(effect)
-      .some((key) => key in filters);
+      .some((field) => field in filters);
     if (!hasFilters) return isMatchWhenNoFilters;
     
     return Object.entries(filters)

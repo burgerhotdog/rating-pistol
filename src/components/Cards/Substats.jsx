@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Box,
   Card,
@@ -7,21 +6,22 @@ import {
   CardHeader,
   Paper,
   Stack,
-  Tooltip,
   Typography,
 } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
-  BarChart,
+  Cell,
+  Legend,
+  LabelList,
   PolarAngleAxis,
   PolarGrid,
   Radar,
-  RadarChart,
   Tooltip as RechartsTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
+import { BarChart, RadarChart } from '@/components';
 import { WW, SUBSTAT } from '@/data';
 import { useElementColors } from '@/hooks';
 import { formatStr } from '@/utils';
@@ -135,7 +135,7 @@ function wrapLabel(value, maxChars = MAX_CHARS_PER_LINE) {
   return lines;
 }
 
-function CustomPolarAngleAxisTick({ x, y, cx, cy, payload, textAnchor, color }) {
+function CustomPolarAngleAxisTick({ x, y, payload, textAnchor, color }) {
   const lines = wrapLabel(payload.value);
   const lineHeight = 12;
   // vertically center the multi-line block on the original tick position
@@ -185,28 +185,9 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader
-        title={
-          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-            <Typography variant="subtitle1">
-              Substat Distribution
-            </Typography>
-
-            <Tooltip title="Substat distribution comparison with average.">
-              <HelpOutlineOutlinedIcon color="disabled" />
-            </Tooltip>
-          </Stack>
-        }
-        disableTypography
-      />
-
+      <CardHeader title="Substat Distribution" />
       <CardContent component={Stack} direction="row" sx={{ flex: 1 }}>
-        <RadarChart
-          data={data}
-          width="100%"
-          height="100%"
-          responsive
-        >
+        <RadarChart data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="stat" tick={<CustomPolarAngleAxisTick color={palette.text.disabled} />} />
           <Radar
@@ -220,9 +201,6 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
         <BarChart
           layout="vertical"
           data={data}
-          width="100%"
-          height="100%"
-          responsive
         >
           <XAxis
             type="number"
@@ -236,12 +214,28 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
           />
 
           <RechartsTooltip content={CustomTooltip} />
+          <Legend wrapperStyle={{ fontSize: 11 }} />
 
           <Bar
             dataKey="avg"
             name="Benchmark"
             fill={alpha(color, 0.6)}
           />
+          <Bar
+            dataKey="user"
+            name="Your Rolls"
+            fill={color}
+          >
+            {data.map((entry) => (
+              <Cell key={entry.stat} fill={entry.pct >= 100 ? palette.success.main : palette.error.main} />
+            ))}
+            <LabelList
+              dataKey="pct"
+              position="right"
+              formatter={(v) => `${v.toFixed(0)}%`}
+              style={{ fontSize: 10, fill: palette.text.secondary }}
+            />
+          </Bar>
         </BarChart>
       </CardContent>
     </Card>

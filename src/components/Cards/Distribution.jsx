@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import {
   Card,
   CardContent,
@@ -9,21 +8,19 @@ import {
   Stack,
   ToggleButton,
   ToggleButtonGroup,
-  Tooltip,
   Typography,
 } from '@mui/material';
 import { alpha, darken } from '@mui/material/styles';
 import {
   Bar,
-  BarChart,
   Cell,
   Pie,
-  PieChart,
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
   matchByDataKey,
 } from 'recharts';
+import { BarChart, PieChart } from '@/components';
 import { useElementColors } from '@/hooks';
 import { formatNum, formatStr } from '@/utils';
 
@@ -87,21 +84,15 @@ const Distribution = ({ userSummary }) => {
   const color = useElementColors({ char: '$curr' });
 
   const data = buildData(userSummary, charId, distributionMode);
+  const totalDamage = data.reduce((acc, entry) => acc + entry.value, 0);
+  const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
+  const dps = duration > 0 ? totalDamage / (duration / 1000) : null;
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
-        title={
-          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-            <Typography variant="subtitle1">
-              Damage Distribution
-            </Typography>
-
-            <Tooltip title="How damage is distributed across your rotation.">
-              <HelpOutlineOutlinedIcon color="disabled" />
-            </Tooltip>
-          </Stack>
-        }
+        title="Damage Distribution"
+        subheader={`${formatNum(totalDamage)} total damage${dps != null ? ` · ${formatNum(dps)} DPS` : ''}`}
         action={
           <ToggleButtonGroup
             value={distributionMode}
@@ -114,20 +105,17 @@ const Distribution = ({ userSummary }) => {
             ))}
           </ToggleButtonGroup>
         }
-        disableTypography
       />
 
       <CardContent component={Stack} sx={{ flex: 1 }}> 
         <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-          <PieChart 
-            width="100%"
-            height="100%"
-            responsive
-          >
+          <PieChart>
             <Pie
               data={data}
               dataKey="value"
               animationBegin={0}
+              label={({ percent }) => `${(percent * 100).toFixed()}%`}
+              labelLine={false}
             >
               {data.map(({ name, percent }) => {
                 const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
@@ -157,9 +145,6 @@ const Distribution = ({ userSummary }) => {
           <BarChart
             layout="vertical"
             data={data}
-            width="100%"
-            height="100%"
-            responsive
           >
             <XAxis domain={[0, 1]} type="number" />
   

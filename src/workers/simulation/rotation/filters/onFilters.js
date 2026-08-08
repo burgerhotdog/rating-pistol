@@ -2,11 +2,8 @@ import { toArray } from '@/utils';
 
 const onAction = (rawFilter, { action }) => {
   const filter = toArray(rawFilter);
-  const isMatch = (key) =>
-    key.includes(':')
-      ? key === action.key
-      : key === action.ref;
-  return filter.some((key) => isMatch(key));
+  const isMatch = (id) => id === (id.includes(':') ? action.id : action.ref);
+  return filter.some(isMatch);
 };
 
 const onHas = (rawFilter, { action }) => {
@@ -42,7 +39,7 @@ const onDamageType = (rawFilter, { action }) => {
 
 const onElement = (rawFilter, { action }) => {
   const filter = toArray(rawFilter);
-  return filter.includes(action.element);
+  return filter.includes(action.damage?.element);
 };
 
 export const onFilters = {

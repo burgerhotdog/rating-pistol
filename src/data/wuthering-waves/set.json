@@ -576,6 +576,7 @@
     "bonusEffects": {
       "3": [
         {
+          "key": "heavyAttackCritRateIncreased",
           "applyWhen": "hit",
           "applyOnDamageType": "echoSkill",
           "useOnDamageType": "heavyAttack",
@@ -585,6 +586,7 @@
           "maxDuration": 6000
         },
         {
+          "key": "echoSkillCritRateIncreased",
           "applyWhen": "hit",
           "applyOnDamageType": "heavyAttack",
           "useOnDamageType": "echoSkill",
@@ -595,8 +597,8 @@
         },
         {
           "useIfEffectStacksMin": {
-            "$prev.1": 1,
-            "$prev.2": 1
+            "heavyAttackCritRateIncreased": 1,
+            "echoSkillCritRateIncreased": 1
           },
           "buffMap": {
             "fusionDmgBonus%": 0.16
@@ -710,6 +712,7 @@
       ],
       "5": [
         {
+          "key": "spectroDmgIncreased",
           "applyWhen": "hit",
           "applyOnDamageType": "basicAttack",
           "buffMap": {
@@ -721,7 +724,7 @@
         {
           "useOnType": "resonanceLiberation",
           "useIfEffectStacksMin": {
-            "$prev.1": 3
+            "spectroDmgIncreased": 3
           },
           "buffMap": {
             "basicAttackDmgBonus%": 0.4
@@ -770,6 +773,7 @@
       ],
       "5": [
         {
+          "key": "fusionDmgBonusGained",
           "applyWhen": "inflict",
           "applyForInflictStatus": "fusionBurst",
           "buffMap": {
@@ -781,7 +785,7 @@
           "applyWhen": "before",
           "applyOnType": "outroSkill",
           "applyIfEffectStacks": {
-            "$prev.1": 1
+            "fusionDmgBonusGained": 1
           },
           "applyTo": "$next",
           "buffMap": {
@@ -847,17 +851,21 @@
           "maxDuration": 15000
         },
         {
+          "key": "snowfall",
           "applyWhen": "inflict",
           "applyForInflictStatus": "glacioChafe",
-          "applyCooldown": 25000
+          "applyCooldown": 25000,
+          "maxDuration": 15000
         },
         {
           "applyWhen": "hit",
           "applyOnDamageType": "resonanceLiberation",
           "applyIfEffectStacksMin": {
-            "$prev.1": 1
+            "snowfall": 1
           },
-          "onApplyDoRemove": "$prev.1",
+          "onApplyDoRemove": {
+            "snowfall": 1
+          },
           "buffMap": {
             "critRate%": 0.25
           },
@@ -872,9 +880,11 @@
           "applyWhen": "before",
           "applyOnType": "outroSkill",
           "applyIfEffectStacksMin": {
-            "$prev.2": 1
+            "snowfall": 1
           },
-          "onApplyDoRemove": "$prev.2",
+          "onApplyDoRemove": {
+            "snowfall": 1
+          },
           "applyTo": "$next",
           "buffMap": {
             "glacioDmgBonus%": 0.25
@@ -1008,6 +1018,7 @@
       ],
       "5": [
         {
+          "key": "critRateIncreased",
           "applyWhen": "hit",
           "applyOnHas": "shield",
           "applyCooldown": 500,
@@ -1019,7 +1030,7 @@
         },
         {
           "useIfEffectStacksMin": {
-            "$prev.1": 4
+            "critRateIncreased": 4
           },
           "buffMap": {
             "fusionDmgBonus%": 0.15
