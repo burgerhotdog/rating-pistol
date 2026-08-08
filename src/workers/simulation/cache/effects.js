@@ -180,7 +180,7 @@ export const normalizeEffects = (gameId, member, spec) => {
     })),
   ];
 
-  if (mainEcho) {
+  if (ECHO[mainEcho]?.effects) {
     toNormalize.push({
       from: 'echo',
       id: mainEcho,

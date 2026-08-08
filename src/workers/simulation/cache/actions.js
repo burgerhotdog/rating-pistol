@@ -17,7 +17,6 @@ const DEFAULT_DURATIONS = {
     'dodgeCounter': 1500,
     'resonanceSkill': 1000,
     'introSkill': 1000,
-    'echoSkill': 1000,
   },
   [ZZZ]: {
     'basicAttack': 1000,
@@ -170,17 +169,14 @@ export const getMemberPresetActions = (member, { gameId, teamSize }) => {
     }
   }
 
-  if (mainEcho) {
-    const echo = ECHO[mainEcho];
-    for (const [index, rawAction] of echo.actions.entries()) {
-      memberActions[`echoSkill.${index}`] = toNormalizedAction(rawAction, {
-        gameId,
-        ownerId: memberId,
-        category: 'echoSkill',
-        actionIndex: index,
-        teamSize,
-      });
-    }
+  if (ECHO[mainEcho]?.action) {
+    memberActions['echoSkill.0'] = toNormalizedAction(ECHO[mainEcho].action, {
+      gameId,
+      ownerId: memberId,
+      category: 'echoSkill',
+      actionIndex: 0,
+      teamSize,
+    });
   }
 
   return memberActions;

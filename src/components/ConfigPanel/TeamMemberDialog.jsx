@@ -332,13 +332,11 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
 }
 
 function MainEchoAutocomplete({ charId, value, onChange, disabled }) {
-  const options = useMemo(
-    () =>
-      Object.values(ECHO)
-        .map((e) => ({ id: e.id, label: e.name, cost: e.cost }))
-        .sort((a, b) => b.cost - a.cost || a.label.localeCompare(b.label)),
-    [],
-  );
+  const options = useMemo(() => (
+    Object.values(ECHO)
+      .map((e) => ({ id: e.id, label: e.name, cost: e.cost }))
+      .sort((a, b) => b.cost - a.cost || a.label.localeCompare(b.label))
+  ), []);
 
   const selected = options.find((o) => o.id === value) ?? null;
 

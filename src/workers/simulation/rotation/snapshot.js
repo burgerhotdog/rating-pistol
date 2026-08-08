@@ -20,6 +20,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
 
   const snapshot = {
     id: action.id,
+    name: action.name,
     ownerId: action.ownerId,
     category: action.category,
     type: action.type,

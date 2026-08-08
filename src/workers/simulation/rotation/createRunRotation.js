@@ -209,7 +209,8 @@ export const createRunRotation = (cache, equipMaps, currId) => {
   // Rotation loop
   const actionOrder = cache.memberIds
     .toReversed()
-    .flatMap((memberId) => cache.member[memberId].rotation);
+    .flatMap((memberId) =>
+      cache.member[memberId].rotation);
 
   for (const action of actionOrder) {
     ctx.states.onFieldId = action.ownerId;

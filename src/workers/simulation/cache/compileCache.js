@@ -1,11 +1,11 @@
-import { WW } from '@/data';
+import { WW, ECHO } from '@/data';
 import { toMergedObj, toEquipMap, compileBaseMap } from '@/utils';
 import { getMemberPresetActions } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
 
 const getConvertedRotation = (rawRotation, spec) => {
-  const { gameId, memberId, memberActions, memberIds } = spec;
+  const { gameId, memberId, memberActions, memberIds, mainEcho } = spec;
   const teamSize = memberIds.length;
 
   const rotation = [];
@@ -24,8 +24,21 @@ const getConvertedRotation = (rawRotation, spec) => {
     rotation.push(action);
   }
 
-  // Insert tune break action for first character
   if (gameId === WW) {
+    // Insert main echo rotation
+    if (ECHO[mainEcho]?.action) {
+      let insertAtIndex = rotation.length;
+
+      if (ECHO[mainEcho]?.timing === 'afterIntro') {
+        insertAtIndex = rotation[0]?.type === 'introSkill' ? 1 : 0;
+      } else {
+        if (rotation.at(-1)?.type === 'outroSkill') insertAtIndex = -1;
+      }
+
+      rotation.splice(insertAtIndex, 0, memberActions['echoSkill.0']);
+    }
+
+    // Insert tune break action for first character
     if (memberId === memberIds[0]) {
       // Ensure no more than 8000 ms remain after tune break
       let timeLeft = duration;
@@ -71,6 +84,7 @@ export const compileCache = (gameId, team) => {
       weaponId,
       rotation: rawRotation,
       build: { equipList = [] } = {},
+      mainEcho,
     } = member;
 
     const baseMap = compileBaseMap(gameId, memberId, weaponId);
@@ -82,6 +96,7 @@ export const compileCache = (gameId, team) => {
       memberId,
       memberActions: teamActions[memberId],
       memberIds,
+      mainEcho,
     });
 
     rotationDuration += duration;
