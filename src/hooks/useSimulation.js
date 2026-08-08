@@ -2,7 +2,6 @@ import { useMemo, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { WW } from '@/data';
 
-const WORKER_PATH = '../workers/simulation/worker.js';
 const VALID_GAME_IDS = new Set([WW]);
 
 export function useSimulation(team) {
@@ -31,7 +30,7 @@ export function useSimulation(team) {
     workerRef.current = null;
     if (!payload) return;
 
-    const worker = new Worker(new URL(WORKER_PATH, import.meta.url), { type: 'module' });
+    const worker = new Worker(new URL('../workers/simulation/worker.js', import.meta.url), { type: 'module' });
     workerRef.current = worker;
 
     worker.onmessage = ({ data }) => {
