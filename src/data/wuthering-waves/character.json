@@ -46,7 +46,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "before",
         "applyOnAction": "normalAttack.4",
         "buffMap": {
@@ -55,14 +57,18 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "chance": 0.7,
         "buffMap": {
           "dmgBonus%": 0.35
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "useOnAction": "forteCircuit.0",
@@ -73,7 +79,9 @@
         "maxUses": 1
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": [
           "forteCircuit.1",
           "forteCircuit.2",
@@ -84,7 +92,9 @@
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "after",
         "applyOnAction": [
           "forteCircuit.1",
@@ -751,7 +761,9 @@
         "maxDuration": 36000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.0",
         "buffMap": {
@@ -761,7 +773,9 @@
         "maxDuration": 12000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "applyWhen": "before",
         "applyOnAction": "introSkill.0",
         "buffMap": {
@@ -770,7 +784,9 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useOnAction": "resonanceLiberation.1",
         "buffMap": {
           "healingMv%": 0.2,
@@ -778,7 +794,9 @@
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.0",
         "applyTo": "$team",
@@ -1493,7 +1511,9 @@
         "maxUses": 1
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "outroSkill.0",
         "applyTo": "$team",
@@ -1503,14 +1523,18 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "damageMv": 2
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.3",
         "useOnType": "basicAttack",
@@ -2358,7 +2382,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.2",
         "buffMap": {
@@ -2367,7 +2393,9 @@
         "maxDuration": 27000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "resonanceSkill.0",
@@ -2381,7 +2409,9 @@
         "maxStacks": 3
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.1",
         "applyTo": "$team",
@@ -2391,14 +2421,18 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "damageMv%": 0.467
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": [
           "forteCircuit.1",
           "forteCircuit.2"
@@ -2931,13 +2965,17 @@
         "maxDuration": 28000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "buffMap": {
           "atk%": 0.2
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "resonanceSkill.1",
@@ -3903,21 +3941,27 @@
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useOnAction": "resonanceLiberation.2",
         "buffMap": {
           "damageMv%": 1.26
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv": 10.3218
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": [
           "resonanceSkill.0",
           "resonanceSkill.1"
@@ -3927,7 +3971,9 @@
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "normalAttack.5",
@@ -3941,14 +3987,18 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "forteCircuit.0",
         "buffMap": {
           "damageMv%": 0.47
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": "resonanceLiberation.1",
         "buffMap": {
           "damageMv": 1.866
@@ -8715,7 +8765,9 @@
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "chance": 0.5,
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
@@ -8723,7 +8775,9 @@
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.1",
         "applyTo": "$team",
@@ -9326,7 +9380,9 @@
         "maxDuration": 6000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "hit",
         "applyOnType": "basicAttack",
         "buffMap": {
@@ -9336,7 +9392,9 @@
         "maxStacks": 4
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": [
           "forteCircuit.0",
           "forteCircuit.1"
@@ -9346,7 +9404,9 @@
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.1",
         "applyTo": "$team",
@@ -9356,13 +9416,17 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "buffMap": {
           "resonanceSkillDmgBonus%": 0.35
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "hit",
         "applyOnTagged": "Cosmos",
         "buffMap": {
@@ -10216,14 +10280,18 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "resonanceLiberation.1",
         "buffMap": {
           "critDmg%": 0.3
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useWhen": "before",
         "useOnAction": [
           "resonanceSkill.0",
@@ -10233,7 +10301,9 @@
         "times": 4
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "applyTo": "$team",
@@ -10839,7 +10909,9 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "useOnAction": [
           "resonanceSkill.0",
           "resonanceSkill.1",
@@ -10851,7 +10923,9 @@
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "hit",
         "applyOnAction": [
           "resonanceSkill.1",
@@ -10864,14 +10938,18 @@
         "maxDuration": 8000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "dmgBonus%": 0.8
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnType": "introSkill",
         "applyTo": "$team",
@@ -10881,7 +10959,9 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "forteCircuit.0",
         "buffMap": {
           "damageMv%": 0.5,
@@ -10889,7 +10969,9 @@
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": [
           "resonanceSkill.0",
           "resonanceSkill.1",
@@ -11790,7 +11872,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "introSkill.0",
@@ -11805,7 +11889,9 @@
         "maxStacks": 3
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useOnType": "mid-airAttack",
         "useOnAction": "forteCircuit.0",
         "buffMap": {
@@ -11813,7 +11899,9 @@
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnType": "outroSkill",
         "applyTo": "$next",
@@ -11834,21 +11922,27 @@
         "maxUses": 2
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "forteCircuit.0",
         "buffMap": {
           "damageMv%": 0.42
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useOnAction": "forteCircuit.0",
         "buffMap": {
           "shieldBonus%": 0.2
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useWhen": "before",
         "useOnAction": "forteCircuit.0",
         "useAction": {
@@ -11864,7 +11958,9 @@
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "applyWhen": "hit",
         "applyOnDamageType": "basicAttack",
         "buffMap": {
@@ -11873,7 +11969,9 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnType": "mid-airAttack",
         "useOnAction": "forteCircuit.0",
         "buffMap": {
@@ -13335,7 +13433,9 @@
         }
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "buffMap": {
@@ -13344,7 +13444,9 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "resonanceLiberation.0",
@@ -13360,21 +13462,27 @@
         "maxStacks": 2
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "introSkill.1",
         "buffMap": {
           "damageMv%": 1
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useOnAction": "forteCircuit.1",
         "buffMap": {
           "damageMv%": 1.25
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "introSkill.0",
@@ -13386,7 +13494,9 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": [
           "forteCircuit.1",
           "resonanceLiberation.0",
@@ -20320,7 +20430,9 @@
         "maxDuration": 15000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "introSkill.0",
@@ -20332,14 +20444,18 @@
         "maxDuration": 15000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnTagged": "Deathblade Gear",
         "buffMap": {
           "electroDmgBonus%": 0.25
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "outroSkill.0",
         "applyTo": "$team",
@@ -20349,7 +20465,9 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": [
           "introSkill.0",
           "resonanceLiberation.1"
@@ -20359,7 +20477,9 @@
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useWhen": "before",
         "useOnAction": "forteCircuit.1",
         "useAction": {
@@ -21476,7 +21596,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "useOnAction": [
           "resonanceSkill.0",
           "resonanceSkill.1"
@@ -21486,14 +21608,18 @@
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "forteCircuit.1",
         "buffMap": {
           "damageMv%": 0.55
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "hit",
         "applyOnAction": "forteCircuit.1",
         "applyTo": "$team",
@@ -21503,14 +21629,18 @@
         "maxDuration": 12000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "dmgBonus%": 1
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "useWhen": "hit",
@@ -22104,21 +22234,27 @@
         "maxUses": 1
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "useOnTagged": "Lightning Infused",
         "buffMap": {
           "attackSpd%": 0.2
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "applyOnAction": "resonanceSkill.1",
         "buffMap": {
           "damageMv": 0.2
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useWhen": "before",
         "useOnAction": "resonanceLiberation.0",
         "useAction": {
@@ -22133,7 +22269,9 @@
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "applyWhen": "hit",
         "applyOnAction": "resonanceSkill.0",
         "buffMap": {
@@ -22142,7 +22280,9 @@
         "maxDuration": 12000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "hit",
         "applyOnAction": "resonanceSkill.0",
         "applyTo": "$team",
@@ -23160,7 +23300,9 @@
         }
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "forteCircuit.0",
@@ -23181,7 +23323,9 @@
         "maxStacks": 4
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "applyWhen": "before",
         "applyOnAction": "introSkill.0",
         "buffMap": {
@@ -23191,7 +23335,9 @@
         "maxStacks": 2
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "resonanceLiberation.0",
@@ -23204,14 +23350,18 @@
         "maxDuration": 20000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "damageMv%": 1.2
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": [
           "forteCircuit.7",
           "forteCircuit.8",
@@ -24495,14 +24645,18 @@
         "maxUses": 3
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "useOnAction": "forteCircuit.1",
         "buffMap": {
           "damageMv%": 0.48
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnType": "resonanceSkill",
         "applyOnAction": "resonanceLiberation.0",
@@ -24512,7 +24666,9 @@
         "maxDuration": 8000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "useOnAction": [
@@ -24528,7 +24684,9 @@
         "maxUses": 5
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "applyTo": "$team",
@@ -24538,21 +24696,27 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv%": 2.22
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "damageMv%": 1
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": "forteCircuit.1",
         "buffMap": {
           "damageMv%": 0.76
@@ -29167,27 +29331,35 @@
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "buffMap": {
           "resonanceSkillDmgBonus%": 0.4
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useOnAction": "forteCircuit.1",
         "buffMap": {
           "dmgBonus%": 0.95
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "dmgBonus%": 0.85
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.1",
         "applyTo": "$team",
@@ -29831,7 +30003,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.1",
         "buffMap": {
@@ -29840,7 +30014,9 @@
         "maxDuration": 8000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "useOnType": [
@@ -29853,7 +30029,9 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useOnAction": [
           "resonanceSkill.0",
           "forteCircuit.0"
@@ -29863,7 +30041,9 @@
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.1",
         "buffMap": {
@@ -29872,7 +30052,9 @@
         "maxDuration": 6000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "buffMap": {
@@ -29881,7 +30063,9 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "useOnType": "heavyAttack",
@@ -30445,7 +30629,9 @@
         "maxUses": 2
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": "introSkill.0",
         "applyCooldown": 15000,
@@ -30455,7 +30641,9 @@
         "maxDuration": 15000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "resonanceSkill.0",
@@ -30470,7 +30658,9 @@
         "maxDuration": 8000
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "resonanceLiberation.0",
@@ -30483,14 +30673,18 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv%": 1.2
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "applyWhen": "before",
         "applyOnHas": "damage",
         "buffMap": {
@@ -30499,7 +30693,9 @@
         "maxDuration": 8000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnType": "heavyAttack",
         "applyOnAction": [
@@ -31292,7 +31488,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.1",
         "useOnAction": [
@@ -31305,7 +31503,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.0",
         "useWhen": "hit",
@@ -32375,7 +32575,9 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "before",
         "applyOnType": "basicAttack",
         "buffMap": {
@@ -32384,7 +32586,9 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "applyTo": "$team",
@@ -32394,20 +32598,26 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useOnDamageType": "resonanceLiberation",
         "buffMap": {
           "defIgnore%": 0.45
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "buffMap": {
           "resonanceLiberationDmgBonus%": 0.4
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "hit",
         "applyOnAction": "normalAttack.3",
         "useWhen": "interval",
@@ -33144,7 +33354,9 @@
         "maxDuration": 20000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useOnAction": [
           "normalAttack.0",
           "normalAttack.1",
@@ -33159,7 +33371,9 @@
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useOnAction": [
           "normalAttack.6",
           "normalAttack.7",
@@ -33171,14 +33385,18 @@
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": 0.2
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": [
           "resonanceLiberation.0",
           "introSkill.1",
@@ -37410,7 +37628,9 @@
     },
     "effects": [
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "buffMap": {
           "dmgBonus%": 0.3
         }
@@ -38717,7 +38937,9 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "before",
         "applyOnAction": "outroSkill.0",
         "useWhen": "interval",
@@ -38734,14 +38956,18 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "resonanceLiberation.1",
         "buffMap": {
           "healingBonus%": 0.12
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "forteCircuit.0",
@@ -38758,14 +38984,18 @@
         "maxDuration": 24000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "chance": 0.5,
         "buffMap": {
           "healingBonus%": 0.2
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": [
           "forteCircuit.0",
           "forteCircuit.1",
@@ -38777,7 +39007,9 @@
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "forteCircuit.0",
@@ -39881,7 +40113,9 @@
         "maxDuration": 10000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useOnAction": [
           "forteCircuit.5",
           "forteCircuit.6"
@@ -39891,27 +40125,35 @@
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "dmgBonus%": 0.3
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "buffMap": {
           "basicAttackDmgBonus%": 0.3
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "forteCircuit.7",
         "buffMap": {
           "damageMv%": 1
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "applyTo": "$team",
@@ -40901,7 +41143,9 @@
         }
       },
       {
-        "enableIfRankMax": 0,
+        "enableIf": {
+          "rank": -1
+        },
         "useWhen": "before",
         "useOnAction": "introSkill.1",
         "onUseDoRemove": {
@@ -40924,7 +41168,9 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useIfEffectStacksMin": {
           "stellarealm": 1
         },
@@ -40933,14 +41179,18 @@
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useOnAction": "resonanceSkill.0",
         "buffMap": {
           "healingBonus%": 0.7
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": "introSkill.1",
         "buffMap": {
           "damageMv%": 0.42,
@@ -41760,14 +42010,18 @@
         }
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "useOnAction": "resonanceLiberation.1",
         "buffMap": {
           "damageMv%": 0.9
         }
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "useWhen": "hit",
         "useOnAction": "resonanceLiberation.1",
         "useAction": {
@@ -41777,7 +42031,9 @@
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.0",
         "useOnDamageType": "outroSkill",
@@ -41789,21 +42045,27 @@
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "forteCircuit.2",
         "buffMap": {
           "damageMv%": 0.91
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "forteCircuit.3",
         "buffMap": {
           "damageMv%": 2.49
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "hit",
         "applyOnType": [
           "basicAttack",
@@ -41816,7 +42078,9 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "applyWhen": "before",
         "applyOnAction": "introSkill.0",
         "buffMap": {
@@ -41825,7 +42089,9 @@
         "maxDuration": 15000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.0",
         "buffMap": {
@@ -41834,7 +42100,9 @@
         "maxDuration": 20000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.0",
         "useWhen": "hit",
@@ -41842,7 +42110,9 @@
         "useAction": "forteCircuit.2"
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.1",
         "useWhen": "hit",
@@ -42690,13 +42960,17 @@
         "maxDuration": 20000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "buffMap": {
           "critRate%": 0.2
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useOnAction": [
           "resonanceSkill.2",
           "resonanceSkill.3"
@@ -42706,14 +42980,18 @@
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "resonanceLiberation.1",
         "buffMap": {
           "damageMv%": 12
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "introSkill.0",
         "applyTo": "$team",
@@ -42723,14 +43001,18 @@
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "damageMv%": 1.2
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": "forteCircuit.2",
         "buffMap": {
           "damageMv": 16
@@ -43774,7 +44056,9 @@
         "maxDuration": 12000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "hit",
         "applyOnDamageType": "resonanceSkill",
         "applyOnAction": "normalAttack.10",
@@ -43784,13 +44068,17 @@
         "maxDuration": 15000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "buffMap": {
           "havocResIgnore%": 0.1
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyBy": "$team",
         "applyWhen": "inflict",
         "applyIfEffectStacksMin": {
@@ -46544,7 +46832,9 @@
     },
     "effects": [
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "buffMap": {
           "mid-airAttackDmgBonus%": 1.5
         }
@@ -47700,7 +47990,9 @@
         "maxDuration": 25000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "before",
         "applyOnAction": "introSkill.0",
         "buffMap": {
@@ -47709,7 +48001,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.1",
         "useWhen": "interval",
@@ -47730,7 +48024,9 @@
         "maxUses": 1
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": [
           "resonanceLiberation.6",
           "resonanceLiberation.7"
@@ -47741,7 +48037,9 @@
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": [
           "resonanceLiberation.5",
           "forteCircuit.0"
@@ -47751,14 +48049,18 @@
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": 0.2
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useIfShifting": "hack",
         "useIfInterfered": "hack",
         "buffMap": {
@@ -50075,7 +50377,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "useOnAction": [
           "forteCircuit.3",
           "forteCircuit.4",
@@ -50086,7 +50390,9 @@
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "critRate%": 0.2,
@@ -50094,7 +50400,9 @@
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useWhen": "before",
         "useOnAction": "normalAttack.5",
         "useCooldown": 15000,
@@ -50110,7 +50418,9 @@
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "normalAttack.5",
         "applyCooldown": 15000,
@@ -50120,7 +50430,9 @@
         "maxDuration": 5000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": [
           "forteCircuit.0",
           "forteCircuit.1",
@@ -50131,7 +50443,9 @@
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.0",
         "buffMap": {
@@ -50946,7 +51260,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "hit",
         "applyOnHas": "damage",
         "buffMap": {
@@ -50956,13 +51272,17 @@
         "maxStacks": 6
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "buffMap": {
           "resonanceLiberationDmgBonus%": 0.3
         }
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "useOnAction": [
           "forteCircuit.0",
           "forteCircuit.1",
@@ -50974,13 +51294,17 @@
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "buffMap": {
           "havocDmgBonus%": 0.3
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "forteCircuit.0",
@@ -51752,7 +52076,9 @@
         "maxUses": 1
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "applyWhen": "before",
         "applyOnAction": "introSkill.0",
         "applyCooldown": 25000,
@@ -51762,21 +52088,27 @@
         "maxDuration": 18000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useOnAction": "forteCircuit.0",
         "buffMap": {
           "damageMv%": 1.2
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "damageMv%": 0.5
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.0",
         "buffMap": {
@@ -51785,7 +52117,9 @@
         "maxDuration": 15000
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "introSkill.0",
         "applyTo": "$team",
@@ -51795,21 +52129,27 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "introSkill.0",
         "buffMap": {
           "damageMv%": 3.03
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnDamageType": "outroSkill",
         "buffMap": {
           "damageMv%": 0.68
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.0",
         "applyCooldown": 25000,
@@ -52634,7 +52974,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": [
           "forteCircuit.0",
@@ -52648,7 +52990,9 @@
         "maxStacks": 3
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "before",
         "applyOnAction": "forteCircuit.2",
         "buffMap": {
@@ -52657,7 +53001,9 @@
         "maxDuration": 30000
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "applyWhen": "before",
         "applyOnAction": "introSkill.0",
         "buffMap": {
@@ -52667,7 +53013,9 @@
         "maxDuration": 15000
       },
       {
-        "enableIfRankMin": 4,
+        "enableIf": {
+          "rank": 4
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceSkill.0",
         "useOnAction": [
@@ -52681,21 +53029,27 @@
         "maxDuration": 12000
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "damageMv%": 0.2
         }
       },
       {
-        "enableIfRankMin": 5,
+        "enableIf": {
+          "rank": 5
+        },
         "useOnType": "heavyAttack",
         "buffMap": {
           "damageMv%": 0.8
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "useOnAction": [
@@ -52709,7 +53063,9 @@
         "maxDuration": 12000
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "useOnAction": "forteCircuit.2",
@@ -53295,7 +53651,9 @@
         "maxDuration": 14000
       },
       {
-        "enableIfRankMin": 1,
+        "enableIf": {
+          "rank": 1
+        },
         "useOnAction": [
           "resonanceSkill.0",
           "resonanceSkill.1",
@@ -53306,7 +53664,9 @@
         }
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "applyWhen": "hit",
         "applyOnAction": "resonanceLiberation.0",
         "useWhen": "interval",
@@ -53314,21 +53674,27 @@
         "maxUses": 1
       },
       {
-        "enableIfRankMin": 2,
+        "enableIf": {
+          "rank": 2
+        },
         "useOnAction": "resonanceSkill.2",
         "buffMap": {
           "damageMv%": 2.45
         }
       },
       {
-        "enableIfRankMin": 3,
+        "enableIf": {
+          "rank": 3
+        },
         "useOnAction": "resonanceLiberation.0",
         "buffMap": {
           "damageMv%": 3.7
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "useOnAction": [
           "forteCircuit.0",
           "forteCircuit.1",
@@ -53339,7 +53705,9 @@
         }
       },
       {
-        "enableIfRankMin": 6,
+        "enableIf": {
+          "rank": 6
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "buffMap": {

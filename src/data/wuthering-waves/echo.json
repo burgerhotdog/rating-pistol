@@ -218,10 +218,14 @@
     "cost": 4,
     "effects": [
       {
-        "enableIfOwner": [
-          "1604",
-          "1605"
-        ],
+        "enableIf": {
+          "character": {
+            "id": [
+              "1604",
+              "1605"
+            ]
+          }
+        },
         "applyWhen": "before",
         "applyOnAction": "resonanceLiberation.0",
         "useOnAction": "echoSkill.0",
@@ -1177,11 +1181,15 @@
         "aeroDmgBonus%": 0.1
       },
       {
-        "enableIfOwner": [
-          "1406",
-          "1408",
-          "1409"
-        ],
+        "enableIf": {
+          "character": {
+            "id": [
+              "1406",
+              "1408",
+              "1409"
+            ]
+          }
+        },
         "aeroDmgBonus%": 0.1
       }
     ],
@@ -1978,7 +1986,13 @@
     "cost": 4,
     "effects": [
       {
-        "enableIfOwner": "1210",
+        "enableIf": {
+          "character": {
+            "id": [
+              "1210"
+            ]
+          }
+        },
         "buffMap": {
           "resonanceLiberationDmgBonus%": 0.25
         }
@@ -2202,16 +2216,26 @@
     "cost": 4,
     "effects": [
       {
-        "enableIfOwner": [
-          "1511",
-          "1308"
-        ],
+        "enableIf": {
+          "character": {
+            "id": [
+              "1511",
+              "1308"
+            ]
+          }
+        },
         "buffMap": {
           "critRate%": 0.15
         }
       },
       {
-        "enableIfOwner": "1511",
+        "enableIf": {
+          "character": {
+            "id": [
+              "1511"
+            ]
+          }
+        },
         "useWhen": "before",
         "useOnAction": "echoSkill.0",
         "useAction": {
@@ -2226,7 +2250,13 @@
         }
       },
       {
-        "enableIfOwner": "1308",
+        "enableIf": {
+          "character": {
+            "id": [
+              "1308"
+            ]
+          }
+        },
         "useWhen": "before",
         "useOnAction": "echoSkill.0",
         "useAction": {

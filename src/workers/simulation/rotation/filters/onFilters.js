@@ -2,7 +2,7 @@ import { toArray } from '@/utils';
 
 const onAction = (rawFilter, { action }) => {
   const filter = toArray(rawFilter);
-  const isMatch = (id) => id === (id.includes(':') ? action.id : action.ref);
+  const isMatch = (id) => id === action.ref;
   return filter.some(isMatch);
 };
 

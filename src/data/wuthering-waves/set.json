@@ -513,7 +513,11 @@
     "bonusEffects": {
       "3": [
         {
-          "enableIfNoEnergy": true,
+          "enableIf": {
+            "character": {
+              "tagged": "noEnergy"
+            }
+          },
           "buffMap": {
             "critRate%": 0.2,
             "echoSkillDmgBonus%": 0.35

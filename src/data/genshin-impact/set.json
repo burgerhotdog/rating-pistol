@@ -59,11 +59,15 @@
       ],
       "4": [
         {
-          "enableIfWeaponType": [
-            "sword",
-            "claymore",
-            "polearm"
-          ],
+          "enableIf": {
+            "weapon": {
+              "type": [
+                "sword",
+                "claymore",
+                "polearm"
+              ]
+            }
+          },
           "buffMap": {
             "normalAttackDmgBonus%": 0.35
           }
@@ -100,10 +104,14 @@
       ],
       "4": [
         {
-          "enableIfWeaponType": [
-            "catalyst",
-            "bow"
-          ],
+          "enableIf": {
+            "weapon": {
+              "type": [
+                "catalyst",
+                "bow"
+              ]
+            }
+          },
           "buffMap": {
             "chargedAttackDmgBonus%": 0.35
           }
@@ -788,7 +796,11 @@
       ],
       "4": [
         {
-          "enableIfNoEnergy": true,
+          "enableIf": {
+            "character": {
+              "tagged": "noEnergy"
+            }
+          },
           "buffMap": {
             "normalAttackDmgBonus%": 0.6,
             "elementalBurstDmgBonus%": 0.6
@@ -886,7 +898,11 @@
           "maxDuration": 6000
         },
         {
-          "enableIfTagged": "Hexerei",
+          "enableIf": {
+            "character": {
+              "tagged": "hexerei"
+            }
+          },
           "applyWhen": "hit",
           "applyOnDamageType": [
             "normalAttack",
@@ -916,7 +932,11 @@
       ],
       "4": [
         {
-          "enableIfTagged": "Hexerei",
+          "enableIf": {
+            "character": {
+              "tagged": "hexerei"
+            }
+          },
           "applyWhen": "before",
           "applyOnType": "elementalSkill",
           "applyTo": "$team",

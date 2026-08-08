@@ -520,7 +520,11 @@
       ],
       "4": [
         {
-          "enableIfWeaponType": "stun",
+          "enableIf": {
+            "weapon": {
+              "type": "stun"
+            }
+          },
           "applyWhen": "before",
           "applyOnType": [
             "exSpecialAttack",
@@ -533,7 +537,11 @@
           "maxDuration": 15000
         },
         {
-          "enableIfWeaponType": "stun",
+          "enableIf": {
+            "weapon": {
+              "type": "stun"
+            }
+          },
           "applyWhen": "before",
           "applyOnType": [
             "exSpecialAttack",
@@ -570,7 +578,11 @@
           }
         },
         {
-          "enableIfWeaponType": "attack",
+          "enableIf": {
+            "weapon": {
+              "type": "attack"
+            }
+          },
           "applyWhen": "before",
           "applyOnType": [
             "exSpecialAttack",
@@ -598,7 +610,11 @@
       ],
       "4": [
         {
-          "enableIfWeaponType": "support",
+          "enableIf": {
+            "weapon": {
+              "type": "support"
+            }
+          },
           "applyWhen": "before",
           "applyOnType": [
             "exSpecialAttack",
@@ -751,7 +767,11 @@
       ],
       "4": [
         {
-          "enableIfElement": "ether",
+          "enableIf": {
+            "character": {
+              "element": "ether"
+            }
+          },
           "buffMap": {
             "critDmg%": 0.3
           }

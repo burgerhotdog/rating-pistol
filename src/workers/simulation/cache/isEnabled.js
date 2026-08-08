@@ -1,74 +1,60 @@
 import { toArray } from '@/utils';
 
-const ifOwner = (rawFilter, character) => {
-  const filter = toArray(rawFilter);
-  return filter.some((id) => id === character.id)
-};
+function passStringFilter(ctxValue, reqStr) {
+  return ctxValue === reqStr;
+}
 
-const ifElement = (rawFilter, character) => {
-  const filter = toArray(rawFilter);
-  return filter.some((element) => element === character.element);
-};
-
-const ifWeaponType = (rawFilter, character) => {
-  const filter = toArray(rawFilter);
-  return filter.some((type) => type === character.type);
-};
-
-const ifTagged = (rawFilter, character) => {
-  const filter = toArray(rawFilter);
-  const charTagged = toArray(character.tagged);
-  return filter.some((tag) => charTagged.includes(tag));
-};
-
-const ifRankMin = (minRank, rank) => {
-  return rank >= minRank;
-};
-
-const ifRankMax = (maxRank, rank) => {
-  return rank <= maxRank;
-};
-
-const ifNoEnergy = (effect, character) => {
-  if ('enableIfNoEnergy' in effect) {
-    return character.noEnergy;
+function passNumberFilter(ctxNumber, reqNumber) {
+  if (reqNumber < 0) {
+    if (ctxNumber < Math.abs(reqNumber)) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    if (ctxNumber >= reqNumber) {
+      return true;
+    } else {
+      return false;
+    }
   }
-};
+}
 
-const doesWeaponTypeMatchCharacterType = (weapon, character) => {
-  return weapon.type === character.type;
-};
+function ctxValueInOptions(ctxValue, reqValueOptions) {
+  for (const reqValueOption of reqValueOptions) {
+    const passes = typeof valueOption === 'number'
+      ? passNumberFilter(ctxValue, reqValueOption)
+      : passStringFilter(ctxValue, reqValueOption);
 
-export const isEnabled = (effect, spec) => {
-  const { from, rank, character, weapon } = spec;
-
-  const hasEnableIf = Object.keys(effect)
-    .some((field) => field.startsWith('enableIf'));
-
-  if (!hasEnableIf) return true;
-
-  switch (from) {
-    case 'character':
-      return (
-        ifOwner(effect.enableIfOwner, character) ||
-        ifElement(effect.enableIfElement, character) ||
-        ifWeaponType(effect.enableIfWeaponType, character) ||
-        ifTagged(effect.enableIfTagged, character) ||
-        ifRankMin(effect.enableIfRankMin, rank) || 
-        ifRankMax(effect.enableIfRankMax, rank) ||
-        ifNoEnergy(effect, character)
-      );
-    case 'weapon':
-      return doesWeaponTypeMatchCharacterType(weapon, character);
-    case 'set':
-      return (
-        ifWeaponType(effect.enableIfWeaponType, character) ||
-        ifTagged(effect.enableIfTagged, character) ||
-        ifNoEnergy(effect, character)
-      );
-    case 'echo':
-      return (
-        ifOwner(effect.enableIfOwner, character)
-      );
+    if (passes) return true;
   }
-};
+}
+
+export function createIsEnabled(ctx) {
+  const filterMet = (filter) => {
+    for (const filterType in filter) {
+      if (filterType === 'rank') {
+        const meetsRank = passNumberFilter(ctx.member.rank, filter.rank);
+        if (!meetsRank) return false;
+      } else {
+        const filterFields = filter[filterType];
+
+        for (const field in filterFields) {
+          const reqValue = filterFields[field];
+          const ctxValue = ctx[filterType][field];
+
+          const inOptions = ctxValueInOptions(ctxValue, toArray(reqValue));
+
+          if (!inOptions) return false;
+        }
+      }
+    }
+
+    return true;
+  };
+
+  return (effect) => {
+    if (!effect.enableIf) return true;
+    return toArray(effect.enableIf).some(filterMet);
+  };
+}

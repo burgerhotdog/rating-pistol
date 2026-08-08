@@ -1,6 +1,6 @@
 import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
 import { toArray, toMergedObj } from '@/utils';
-import { isEnabled } from './isEnabled';
+import { createIsEnabled } from './isEnabled';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
@@ -156,23 +156,34 @@ const toNormalizedEffect = (rawEffect, spec) => {
 
 export const normalizeEffects = (gameId, member, spec) => {
   const { memberIds, teamActions } = spec;
-  const { id: memberId, rank: memberRank, weaponId, weaponRank, setCounts, mainEcho } = member;
-  const character = CHARACTER[gameId][memberId];
-  const weapon = WEAPON[gameId][weaponId];
+  const {
+    id: memberId, rank: memberRank,
+    weaponId, weaponRank,
+    setCounts, mainEcho,
+  } = member;
+
+  const ctx = {
+    member,
+    character: CHARACTER[gameId][memberId],
+    weapon: WEAPON[gameId][weaponId],
+    echo: ECHO[mainEcho],
+  };
+
+  const isEnabled = createIsEnabled(ctx);
 
   const toNormalize = [
     {
-      from: 'character',
+      sourceType: 'character',
       id: memberId,
-      rawEffects: character.effects,
+      rawEffects: ctx.character.effects,
     },
     {
-      from: 'weapon',
+      sourceType: 'weapon',
       id: weaponId,
-      rawEffects: weapon.effects,
+      rawEffects: ctx.weapon.effects,
     },
     ...Object.entries(setCounts).map(([setId, count]) => ({
-      from: 'set',
+      sourceType: 'set',
       id: setId,
       rawEffects: Object.entries(SET[gameId][setId].bonusEffects)
         .filter(([tier]) => Number(tier) <= count)
@@ -182,7 +193,7 @@ export const normalizeEffects = (gameId, member, spec) => {
 
   if (ECHO[mainEcho]?.effects) {
     toNormalize.push({
-      from: 'echo',
+      sourceType: 'echo',
       id: mainEcho,
       rawEffects: ECHO[mainEcho].effects,
     });
@@ -190,11 +201,14 @@ export const normalizeEffects = (gameId, member, spec) => {
 
   const normalized = {};
 
-  for (const { from, id, rawEffects } of toNormalize) {
-    const spec = { from, rank: memberRank, character, weapon };
+  for (const { sourceType, id, rawEffects } of toNormalize) {
+    if (
+      sourceType === 'weapon' &&
+      ctx.character.type !== ctx.weapon.type
+    ) continue;
 
     for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabled(rawEffect, spec)) continue;
+      if (!isEnabled(rawEffect)) continue;
 
       const effect = toNormalizedEffect(rawEffect, {
         gameId,
