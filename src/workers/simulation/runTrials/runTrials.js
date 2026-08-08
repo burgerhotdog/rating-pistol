@@ -12,10 +12,10 @@ const MAX_WEEKS = 50;
 const THRESHOLDS = [0.5, 0.75, 0.9, 0.95, 0.99];
 
 const FIT_START_WEEK = 5;
-const MIN_FIT_POINTS = 10;
+const MIN_FIT_POINTS = 5;
 
 const Q_STABILITY_WINDOW = 5;
-const Q_STABILITY_TOLERANCE = 0.02;
+const Q_STABILITY_TOLERANCE = 0.01;
 
 function isFitStable(qHistory) {
   if (qHistory.length < Q_STABILITY_WINDOW) return false;

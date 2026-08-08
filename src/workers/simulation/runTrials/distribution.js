@@ -1,4 +1,4 @@
-export const createDistribution = () => {
+export function createDistribution() {
   const samples = [];
   let n = 0, mean = 0, M2 = 0;
   return {
@@ -35,4 +35,4 @@ export const createDistribution = () => {
       };
     },
   };
-};
+}
