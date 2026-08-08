@@ -1,34 +1,18 @@
 import { toArray } from '@/utils';
 
-function passStringFilter(ctxValue, reqStr) {
-  return ctxValue === reqStr;
-}
+const passStringFilter = (ctxValue, reqStr) =>
+  ctxValue === reqStr;
 
-function passNumberFilter(ctxNumber, reqNumber) {
-  if (reqNumber < 0) {
-    if (ctxNumber < Math.abs(reqNumber)) {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    if (ctxNumber >= reqNumber) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-}
+const passNumberFilter = (ctxNumber, reqNumber) =>
+  reqNumber < 0
+    ? ctxNumber < Math.abs(reqNumber)
+    : ctxNumber >= reqNumber;
 
-function ctxValueInOptions(ctxValue, reqValueOptions) {
-  for (const reqValueOption of reqValueOptions) {
-    const passes = typeof valueOption === 'number'
+const ctxValueInOptions = (ctxValue, reqValueOptions) =>
+  reqValueOptions.some((reqValueOption) =>
+    typeof valueOption === 'number'
       ? passNumberFilter(ctxValue, reqValueOption)
-      : passStringFilter(ctxValue, reqValueOption);
-
-    if (passes) return true;
-  }
-}
+      : passStringFilter(ctxValue, reqValueOption));
 
 export function createIsEnabled(ctx) {
   const filterMet = (filter) => {
