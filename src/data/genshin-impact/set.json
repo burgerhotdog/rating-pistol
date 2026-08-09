@@ -32,10 +32,16 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": [
-            "elementalSkill",
-            "elementalBurst"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "type": [
+                  "elementalSkill",
+                  "elementalBurst"
+                ]
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "healingReceived%": 0.2
@@ -164,7 +170,13 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": "elementalBurst",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "elementalBurst"
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "atk%": 0.2
@@ -243,7 +255,13 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": "elementalSkill",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "elementalSkill"
+              }
+            }
+          },
           "buffMap": {
             "normalAttackDmgBonus%": 0.3,
             "chargedAttackDmgBonus%": 0.3
@@ -321,7 +339,13 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": "elementalSkill",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "elementalSkill"
+              }
+            }
+          },
           "applyCooldown": 10000,
           "buffMap": {
             "normalAttackDmgBonus%": 0.5,
@@ -428,7 +452,13 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": "elementalBurst",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "elementalBurst"
+              }
+            }
+          },
           "removeWhen": "before",
           "removeIfField": "offField",
           "buffMap": {
@@ -938,7 +968,13 @@
             }
           },
           "applyWhen": "before",
-          "applyOnType": "elementalSkill",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "elementalSkill"
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.4

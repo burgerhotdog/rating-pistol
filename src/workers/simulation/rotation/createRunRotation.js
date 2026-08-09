@@ -31,6 +31,7 @@ import {
 } from './special/tune';
 import { buildSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
+import { passesFilter } from './filter';
 
 function handleRemoveWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
@@ -84,7 +85,8 @@ function handleApplyWhen(ctx, action, when) {
       effect.applyBy.includes(action.ownerId) &&
       effect.applyWhen === when &&
       !ctx.states.applyCooldowns[effect.id] &&
-      matchApplyFilter(effect, { ctx, action });
+      matchApplyFilter(effect, { ctx, action }) &&
+      passesFilter(effect.apply?.filter, { action });
 
     if (!shouldApply) continue;
     onApplyDoCommand(ctx, effect);

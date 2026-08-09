@@ -11619,7 +11619,13 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnAction": "elementalSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          }
+        },
         "applyTo": "global",
         "useWhen": "hit",
         "useCooldown": 2000,
@@ -11635,7 +11641,13 @@
       },
       {
         "applyWhen": "before",
-        "applyOnAction": "elementalBurst.2",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.2"
+            }
+          }
+        },
         "applyTo": "$team",
         "buffMap": {
           "elementalMastery": 125

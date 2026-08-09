@@ -105,7 +105,13 @@
     "effects": [
       {
         "applyWhen": "cast",
-        "applyOnAction": "echoSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "atk%": 0.12
         },
@@ -176,12 +182,24 @@
       {
         "key": "heronReady",
         "applyWhen": "before",
-        "applyOnAction": "echoSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "maxDuration": 15000
       },
       {
         "applyWhen": "before",
-        "applyOnType": "outroSkill",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
         "applyIfEffectStacksMin": {
           "heronReady": 1
         },
@@ -227,7 +245,13 @@
           }
         },
         "applyWhen": "before",
-        "applyOnAction": "resonanceLiberation.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "useOnAction": "echoSkill.0",
         "buffMap": {
           "dmgBonus%": 0.5
@@ -313,7 +337,13 @@
       {
         "key": "blessingOfTime",
         "applyWhen": "before",
-        "applyOnAction": "echoSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "resonanceSkillDmgBonus%": 0.16
         },
@@ -377,7 +407,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnAction": "echoSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "energyRegen%": 0.1
         },
@@ -385,7 +421,13 @@
       },
       {
         "applyWhen": "before",
-        "applyOnAction": "echoSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "applyTo": "$team",
         "buffMap": {
           "atk%": 0.1
@@ -1628,7 +1670,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnAction": "echoSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "applyTo": "global",
         "useCooldown": 500,
         "useOnHas": "damage",
@@ -1921,12 +1969,24 @@
       {
         "key": "hyvatiaSummoned",
         "applyWhen": "before",
-        "applyOnAction": "echoSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "maxDuration": 15000
       },
       {
         "applyWhen": "before",
-        "applyOnType": "outroSkill",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
         "applyIfEffectStacksMin": {
           "hyvatiaSummoned": 1
         },
@@ -2068,7 +2128,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnType": "outroSkill",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
         "applyTo": "$next",
         "buffMap": {
           "glacioDmgBonus%": 0.12
@@ -2177,12 +2243,24 @@
       {
         "key": "tricksterSummoned",
         "applyWhen": "hit",
-        "applyOnAction": "echoSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "maxDuration": 15000
       },
       {
         "applyWhen": "before",
-        "applyOnType": "outroSkill",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
         "applyIfEffectStacksMin": {
           "tricksterSummoned": 1
         },
@@ -2481,7 +2559,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnAction": "echoSkill.0",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "useWhen": "inflict",
         "useForInflictStatus": "havocBane",
         "useCooldown": 1000,
