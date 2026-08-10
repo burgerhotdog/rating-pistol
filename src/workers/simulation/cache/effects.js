@@ -226,28 +226,98 @@ export const normalizeEffects = (gameId, member, spec) => {
   }
 
   // Resolve tokens
-  const hasEffectStacksMap = (field) =>
-    /^[a-z]\w*IfEffectStacks[A-Z]\w*$/.test(field) ||
-    /^on[A-Z]\w*Do[A-Z]\w*$/.test(field);
-
-  const resolveEffectId = (key) =>
+  const resolveEffectId = (key, sourceId) =>
     key.includes(':')
       ? key
-      : Object.values(normalized).find((effect) => effect.key === key).id;
+      : Object.values(normalized)
+        .filter((effect) => effect.sourceId === sourceId)
+        .find((effect) => effect.key === key).id;
 
-  for (const effect of Object.values(normalized)) {
-    const { maxStacks = 1 } = effect;
+  function walkBooleanTree(node, onLeaf) {
+    if (node == null || typeof node !== 'object') return;
+    if (Array.isArray(node)) {
+      node.forEach((n) => walkBooleanTree(n, onLeaf));
+      return;
+    }
+    if ('and' in node) {
+      node.and.forEach((n) => walkBooleanTree(n, onLeaf));
+      return;
+    }
+    if ('or' in node) {
+      node.or.forEach((n) => walkBooleanTree(n, onLeaf));
+      return;
+    }
+    if ('not' in node) {
+      walkBooleanTree(node.not, onLeaf);
+      return;
+    }
+    onLeaf(node);
+  }
 
-    for (const field in effect) {
-      if (!hasEffectStacksMap(field)) continue;
+  function traverseFilter(node, sourceId) {
+    walkBooleanTree(node, (leaf) => {
+      if ('has' in leaf) return; // generic has (e.g. action.has) - not an effect reference
 
-      const resolved = {};
+      const [key, value] = Object.entries(leaf)[0];
+      if (key === 'effectStacks') {
+        resolveEffectStacksKeys(value, sourceId);
+        return;
+      }
+      traverseFilter(value, sourceId);
+    });
+  }
 
-      for (const [key, stacks] of Object.entries(effect[field])) {
-        resolved[resolveEffectId(key)] = stacks === '$maxStacks' ? maxStacks : stacks;
+  function resolveEffectStacksKeys(value, sourceId) {
+    walkBooleanTree(value, (leaf) => {
+      if ('has' in leaf) {
+        if (Array.isArray(leaf.has)) {
+          leaf.has = leaf.has.map((key) => resolveEffectId(key, sourceId));
+        } else if (leaf.has !== '*') {
+          leaf.has = resolveEffectId(leaf.has, sourceId);
+        }
+        return;
       }
 
-      effect[field] = resolved;
+      // remaining keys are effect ids being compared (stacks thresholds etc.)
+      for (const key of Object.keys(leaf)) {
+        const comparison = leaf[key];
+        delete leaf[key];
+        leaf[resolveEffectId(key, sourceId)] = comparison;
+      }
+    });
+  }
+
+  for (const effect of Object.values(normalized)) {
+    const { sourceId } = effect;
+
+    for (const field in effect) {
+      if (
+        field === 'useIfEffectStacksMin' ||
+        /^on[A-Z]\w*Do[A-Z]\w*$/.test(field)
+      ) {
+        const resolved = {};
+        for (const [key, stacks] of Object.entries(effect[field])) {
+          const id = resolveEffectId(key, sourceId);
+          resolved[id] = stacks;
+        }
+        effect[field] = resolved;
+      }
+    }
+
+    if (effect.apply?.filter) {
+      traverseFilter(effect.apply.filter, sourceId);
+    }
+
+    if (effect.remove?.filter) {
+      traverseFilter(effect.remove.filter, sourceId);
+    }
+
+    if (effect.extend?.filter) {
+      traverseFilter(effect.extend.filter, sourceId);
+    }
+
+    if (effect.use?.filter) {
+      traverseFilter(effect.use.filter, sourceId);
     }
   }
 

@@ -74,7 +74,13 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": "ultimate",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "ultimate"
+              }
+            }
+          },
           "buffMap": {
             "critDmg%": 0.25
           }
@@ -97,7 +103,13 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnHas": "damage",
+          "apply": {
+            "filter": {
+              "action": {
+                "has": "damage"
+              }
+            }
+          },
           "buffMap": {
             "atk%": 0.05
           },
@@ -139,8 +151,20 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnType": "ultimate",
-          "useOnHas": "damage",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "ultimate"
+              }
+            }
+          },
+          "use": {
+            "filter": {
+              "action": {
+                "has": "damage"
+              }
+            }
+          },
           "buffMap": {
             "fireDmgBonus%": 0.12
           },
@@ -185,7 +209,13 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": "skill",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "skill"
+              }
+            }
+          },
           "buffMap": {
             "atk%": 0.2
           },
@@ -424,7 +454,13 @@
         },
         {
           "applyWhen": "before",
-          "applyOnType": "follow-upAttack",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "follow-upAttack"
+              }
+            }
+          },
           "buffMap": {
             "ultimateDmgBonus%": 0.36
           }
@@ -470,7 +506,13 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnType": "ultimate",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "ultimate"
+              }
+            }
+          },
           "buffMap": {
             "skillDmgBonus%": 0.25
           },
@@ -516,8 +558,35 @@
       "4": [
         {
           "buffMap": {
-            "spd%": -0.08,
-            "critRate%": 0.32
+            "spd%": -0.08
+          }
+        },
+        {
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  "<": 110
+                }
+              }
+            }
+          },
+          "buffMap": {
+            "critRate%": 0.2
+          }
+        },
+        {
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  "<": 195
+                }
+              }
+            }
+          },
+          "buffMap": {
+            "critRate%": 0.12
           }
         }
       ]
@@ -538,14 +607,26 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnHas": "healing",
+          "apply": {
+            "filter": {
+              "action": {
+                "has": "healing"
+              }
+            }
+          },
           "buffMap": {
             "spd%": 0.06
           }
         },
         {
           "applyWhen": "hit",
-          "applyOnHas": "healing",
+          "apply": {
+            "filter": {
+              "action": {
+                "has": "healing"
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "critDmg%": 0.15
@@ -664,16 +745,28 @@
       ],
       "4": [
         {
-          "useIfAttr": {
-            "spd": 120
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  ">=": 120
+                }
+              }
+            }
           },
           "buffMap": {
             "critRate%": 0.1
           }
         },
         {
-          "useIfAttr": {
-            "spd": 160
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  ">=": 160
+                }
+              }
+            }
           },
           "buffMap": {
             "critRate%": 0.08
@@ -749,8 +842,14 @@
           }
         },
         {
-          "useIfAttr": {
-            "spd": 120
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  ">=": 120
+                }
+              }
+            }
           },
           "buffMap": {
             "atk%": 0.12
@@ -772,8 +871,14 @@
         },
         {
           "applyTo": "$team",
-          "useIfAttr": {
-            "spd": 120
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  ">=": 120
+                }
+              }
+            }
           },
           "buffMap": {
             "atk%": 0.08
@@ -818,8 +923,14 @@
           }
         },
         {
-          "useIfAttr": {
-            "effectHitRate%": 0.5
+          "use": {
+            "filter": {
+              "attrMap": {
+                "effectHitRate%": {
+                  ">=": 0.5
+                }
+              }
+            }
           },
           "buffMap": {
             "def%": 0.15
@@ -854,8 +965,14 @@
           }
         },
         {
-          "useIfAttr": {
-            "critRate%": 0.5
+          "use": {
+            "filter": {
+              "attrMap": {
+                "critRate%": {
+                  ">=": 0.5
+                }
+              }
+            }
           },
           "buffMap": {
             "ultimateDmgBonus%": 0.15,
@@ -877,8 +994,14 @@
           }
         },
         {
-          "useIfAttr": {
-            "spd": 145
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  ">=": 145
+                }
+              }
+            }
           },
           "buffMap": {
             "breakEffect%": 0.2
@@ -913,8 +1036,14 @@
           }
         },
         {
-          "useIfAttr": {
-            "critRate%": 0.7
+          "use": {
+            "filter": {
+              "attrMap": {
+                "critRate%": {
+                  ">=": 0.7
+                }
+              }
+            }
           },
           "buffMap": {
             "basicAtkDmgBonus%": 0.2,
@@ -937,8 +1066,14 @@
         },
         {
           "applyTo": "$team",
-          "useIfAttr": {
-            "effectRes%": 0.3
+          "use": {
+            "filter": {
+              "attrMap": {
+                "effectRes%": {
+                  ">=": 0.3
+                }
+              }
+            }
           },
           "buffMap": {
             "critDmg%": 0.1
@@ -959,16 +1094,28 @@
           }
         },
         {
-          "useIfAttr": {
-            "spd": 135
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  ">=": 135
+                }
+              }
+            }
           },
           "buffMap": {
             "dmgBonus%": 0.12
           }
         },
         {
-          "useIfAttr": {
-            "spd": 160
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  ">=": 160
+                }
+              }
+            }
           },
           "buffMap": {
             "dmgBonus%": 0.06
@@ -1114,8 +1261,14 @@
           }
         },
         {
-          "useIfAttr": {
-            "HP": 5000
+          "use": {
+            "filter": {
+              "attrMap": {
+                "hp": {
+                  ">=": 5000
+                }
+              }
+            }
           },
           "buffMap": {
             "critDmg%": 0.28
@@ -1136,16 +1289,28 @@
           }
         },
         {
-          "useIfAttr": {
-            "spd": 135
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  ">=": 135
+                }
+              }
+            }
           },
           "buffMap": {
             "outgoingHealingBoost%": 0.12
           }
         },
         {
-          "useIfAttr": {
-            "spd": 180
+          "use": {
+            "filter": {
+              "attrMap": {
+                "spd": {
+                  ">=": 180
+                }
+              }
+            }
           },
           "buffMap": {
             "outgoingHealingBoost%": 0.08
@@ -1180,16 +1345,28 @@
           }
         },
         {
-          "useIfAttr": {
-            "atk": 2400
+          "use": {
+            "filter": {
+              "attrMap": {
+                "atk": {
+                  ">=": 2400
+                }
+              }
+            }
           },
           "buffMap": {
             "dotDmgBonus%": 0.12
           }
         },
         {
-          "useIfAttr": {
-            "atk": 3600
+          "use": {
+            "filter": {
+              "attrMap": {
+                "atk": {
+                  ">=": 3600
+                }
+              }
+            }
           },
           "buffMap": {
             "dotDmgBonus%": 0.12
@@ -1264,7 +1441,13 @@
       "2": [
         {
           "applyWhen": "before",
-          "applyOnType": "follow-upAttack",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "follow-upAttack"
+              }
+            }
+          },
           "buffMap": {
             "atk%": 0.24
           }

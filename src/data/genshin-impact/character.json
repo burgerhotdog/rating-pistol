@@ -11634,7 +11634,13 @@
       },
       {
         "chance": 0.5,
-        "useOnAction": "elementalSkill.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.25
         }

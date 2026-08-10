@@ -286,7 +286,15 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": "elementalSkill",
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "elementalSkill"
+                }
+              }
+            }
+          },
           "applyCooldown": 500,
           "applyTo": "$team",
           "buffMap": {
@@ -312,7 +320,15 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": "elementalSkill",
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "elementalSkill"
+                }
+              }
+            }
+          },
           "applyCooldown": 300,
           "buffMap": {
             "atk%": 0.9,
@@ -420,7 +436,13 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnHas": "healing",
+          "apply": {
+            "filter": {
+              "action": {
+                "has": "healing"
+              }
+            }
+          },
           "applyCooldown": 3500,
           "useWhen": "interval",
           "useCooldown": 3000,
@@ -460,7 +482,11 @@
             }
           },
           "removeWhen": "before",
-          "removeIfField": "offField",
+          "remove": {
+            "filter": {
+              "field": "offField"
+            }
+          },
           "buffMap": {
             "atk%": 0.48
           },
@@ -499,10 +525,18 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": [
-            "elementalSkill",
-            "elementalBurst"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              }
+            }
+          },
           "buffMap": {
             "dendroResReduction%": 0.3
           },
@@ -547,7 +581,15 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": "chargedAttack",
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "chargedAttack"
+                }
+              }
+            }
+          },
           "buffMap": {
             "attackSpd%": 0.1,
             "normalAttackDmgBonus%": 0.4,
@@ -589,13 +631,21 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": [
-            "normalAttack",
-            "chargedAttack",
-            "plungeAttack",
-            "elementalSkill",
-            "elementalBurst"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "normalAttack",
+                    "chargedAttack",
+                    "plungeAttack",
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              }
+            }
+          },
           "buffMap": {
             "atk%": 0.0833,
             "hydroDmgBonus%": 0.05
@@ -674,7 +724,11 @@
           }
         },
         {
-          "useIfField": "offField",
+          "use": {
+            "filter": {
+              "field": "offField"
+            }
+          },
           "buffMap": {
             "elementalSkillDmgBonus%": 0.25
           }
@@ -776,7 +830,11 @@
     "bonusEffects": {
       "2": [
         {
-          "useIfField": "onField",
+          "use": {
+            "filter": {
+              "field": "onField"
+            }
+          },
           "buffMap": {
             "dmgBonus%": 0.15
           }
@@ -853,7 +911,11 @@
       ],
       "4": [
         {
-          "useIfField": "onField",
+          "use": {
+            "filter": {
+              "field": "onField"
+            }
+          },
           "buffMap": {
             "critRate%": 0.3
           }
@@ -876,7 +938,13 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnHas": "damage",
+          "apply": {
+            "filter": {
+              "action": {
+                "has": "damage"
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "elementalMastery": 120
@@ -916,12 +984,20 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": [
-            "normalAttack",
-            "chargedAttack",
-            "elementalSkill",
-            "elementalBurst"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "normalAttack",
+                    "chargedAttack",
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              }
+            }
+          },
           "buffMap": {
             "atk%": 0.25
           },
@@ -934,12 +1010,20 @@
             }
           },
           "applyWhen": "hit",
-          "applyOnDamageType": [
-            "normalAttack",
-            "chargedAttack",
-            "elementalSkill",
-            "elementalBurst"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "normalAttack",
+                    "chargedAttack",
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              }
+            }
+          },
           "buffMap": {
             "critRate%": 0.2
           },

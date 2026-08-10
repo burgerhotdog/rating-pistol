@@ -195,13 +195,19 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
+            "and": [
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "heronReady"
+                }
+              }
+            ]
           }
-        },
-        "applyIfEffectStacksMin": {
-          "heronReady": 1
         },
         "onApplyDoRemove": {
           "heronReady": 1
@@ -252,7 +258,13 @@
             }
           }
         },
-        "useOnAction": "echoSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.5
         },
@@ -351,12 +363,33 @@
       },
       {
         "applyWhen": "hit",
-        "applyIfEffectStacksMin": {
-          "blessingOfTime": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "blessingOfTime"
+                }
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": "resonanceSkill"
+                  }
+                }
+              }
+            ]
+          }
         },
         "removeWhen": "before",
-        "removeIfEffectStacksMax": {
-          "blessingOfTime": 0
+        "remove": {
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "blessingOfTime"
+              }
+            }
+          }
         },
         "useWhen": "interval",
         "useCooldown": 1000,
@@ -778,7 +811,13 @@
     "cost": 4,
     "effects": [
       {
-        "useOnType": "coordinatedAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "coordinatedAttack"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.4
         }
@@ -936,7 +975,13 @@
         }
       },
       {
-        "useOnAction": "echoSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.2
         }
@@ -994,9 +1039,23 @@
     "cost": 4,
     "effects": [
       {
-        "useOnAction": "echoSkill.0",
-        "useIfNegativeStatus": {
-          "spectroFrazzle": 1
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "echoSkill.0"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "spectroFrazzle"
+                  }
+                }
+              }
+            ]
+          }
         },
         "buffMap": {
           "dmgBonus%": 1
@@ -1190,7 +1249,13 @@
         }
       },
       {
-        "useOnType": "coordinatedAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "coordinatedAttack"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.3
         }
@@ -1353,7 +1418,13 @@
       },
       {
         "useWhen": "before",
-        "useOnType": "outroSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
         "useAction": {
           "damage": {
             "element": "aero",
@@ -1545,7 +1616,13 @@
       },
       {
         "useWhen": "before",
-        "useOnType": "introSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          }
+        },
         "useAction": {
           "damage": {
             "element": "electro",
@@ -1679,8 +1756,20 @@
         },
         "applyTo": "global",
         "useCooldown": 500,
-        "useOnHas": "damage",
-        "useIfField": "onField",
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          }
+        },
         "useAction": {
           "damage": {
             "element": "havoc",
@@ -1982,13 +2071,19 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "hyvatiaSummoned"
+                }
+              },
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              }
+            ]
           }
-        },
-        "applyIfEffectStacksMin": {
-          "hyvatiaSummoned": 1
         },
         "applyTo": "$next",
         "onApplyDoRemove": {
@@ -2256,13 +2351,19 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "tricksterSummoned"
+                }
+              },
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              }
+            ]
           }
-        },
-        "applyIfEffectStacksMin": {
-          "tricksterSummoned": 1
         },
         "applyTo": "$next",
         "buffMap": {
@@ -2315,8 +2416,15 @@
           }
         },
         "useWhen": "before",
-        "useOnAction": "echoSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "useAction": {
+          "type": "echoSkill",
           "damage": {
             "element": "spectro",
             "multipliers": [
@@ -2336,8 +2444,15 @@
           }
         },
         "useWhen": "before",
-        "useOnAction": "echoSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          }
+        },
         "useAction": {
+          "type": "echoSkill",
           "damage": {
             "element": "electro",
             "multipliers": [
@@ -2567,7 +2682,15 @@
           }
         },
         "useWhen": "inflict",
-        "useForInflictStatus": "havocBane",
+        "use": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "havocBane"
+              }
+            }
+          }
+        },
         "useCooldown": 1000,
         "useAction": {
           "name": "Blades of Thousand Memories",

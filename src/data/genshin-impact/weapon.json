@@ -1510,7 +1510,13 @@
     },
     "effects": [
       {
-        "useOnDamageType": "elementalSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          }
+        },
         "buffCooldown": 1500,
         "buffSpec": {
           "flat": {

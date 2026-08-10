@@ -75,11 +75,16 @@ self.onmessage = ({ data }) => {
 
   self.postMessage({ status: 'Running simulation' });
   const runRotation = createRunRotation(cache, equipMaps, charId);
+  const userSummary = runRotation(cache.member[charId].statMap);
+  const userDps = cache.getDps(getTotals(userSummary).damage);
+  if (Number.isNaN(userDps)) {
+    console.log(userDps);
+    self.postMessage({ errorLog: cache.effects });
+    throw new Error('error');
+  }
   const { trials, dpsProgression, dpsCeiling, thresholdWeeks, fit } = runTrials(cache, runRotation, charId, true);
   const configMap = buildConfigStats(gameId, trials);
 
-  const userSummary = runRotation(cache.member[charId].statMap);
-  const userDps = cache.getDps(getTotals(userSummary).damage);
   const benchmarkDps = dpsProgression.at(-1).mean;
 
   self.postMessage({

@@ -23,7 +23,13 @@
             }
           }
         },
-        "useOnType": "resonanceSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.2
         },
@@ -38,11 +44,17 @@
             }
           }
         },
-        "useOnAction": [
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.2
         },
@@ -101,7 +113,13 @@
             }
           }
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 1.2
         },
@@ -112,11 +130,17 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": [
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "critDmg%": 1
         }
@@ -775,13 +799,19 @@
         "applyWhen": "after",
         "apply": {
           "filter": {
-            "action": {
-              "type": "introSkill"
-            }
+            "and": [
+              {
+                "action": {
+                  "type": "introSkill"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "euphonia"
+                }
+              }
+            ]
           }
-        },
-        "applyIfEffectStacksMin": {
-          "euphonia": 1
         },
         "onApplyDoRemove": {
           "euphonia": 1
@@ -794,7 +824,13 @@
       },
       {
         "useWhen": "hit",
-        "useOnType": "heavyAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "heavyAttack"
+            }
+          }
+        },
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -883,7 +919,13 @@
         "enableIf": {
           "rank": 4
         },
-        "useOnAction": "resonanceLiberation.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "buffMap": {
           "healingMv%": 0.2,
           "damageMv": 0.012
@@ -1599,7 +1641,13 @@
         }
       },
       {
-        "useOnAction": "introSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.5
         }
@@ -1617,7 +1665,13 @@
             }
           }
         },
-        "useOnAction": "forteCircuit.3",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.3"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1.5
         },
@@ -1646,7 +1700,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv": 2
         }
@@ -1663,7 +1723,13 @@
             }
           }
         },
-        "useOnType": "basicAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "basicAttack"
+            }
+          }
+        },
         "buffMap": {
           "basicAttackDmgBonus%": 1
         },
@@ -2471,8 +2537,20 @@
         },
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnHas": "damage",
-        "useIfField": "onField",
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          }
+        },
         "useCooldown": 1000,
         "useAction": "resonanceLiberation.0",
         "maxDuration": 30000,
@@ -2592,7 +2670,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.467
         }
@@ -2601,10 +2685,16 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": [
-          "forteCircuit.1",
-          "forteCircuit.2"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1.2
         }
@@ -3102,7 +3192,13 @@
     },
     "effects": [
       {
-        "useOnAction": "resonanceSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "healingMv%": 0.3
         }
@@ -3138,7 +3234,13 @@
           }
         },
         "applyTo": "$next",
-        "useOnType": "coordinatedAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "coordinatedAttack"
+            }
+          }
+        },
         "buffMap": {
           "dmgAmp%": 1
         },
@@ -4128,12 +4230,22 @@
           }
         },
         "removeWhen": "before",
-        "removeIfField": "offField",
-        "useOnAction": [
-          "resonanceLiberation.0",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2"
-        ],
+        "remove": {
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceLiberation.0",
+                "resonanceLiberation.1",
+                "resonanceLiberation.2"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.8
         }
@@ -4142,7 +4254,13 @@
         "enableIf": {
           "rank": 2
         },
-        "useOnAction": "resonanceLiberation.2",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.2"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1.26
         }
@@ -4151,7 +4269,15 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnDamageType": "outroSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "outroSkill"
+              }
+            }
+          }
+        },
         "buffMap": {
           "damageMv": 10.3218
         }
@@ -4160,10 +4286,16 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": [
-          "resonanceSkill.0",
-          "resonanceSkill.1"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.0",
+                "resonanceSkill.1"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.93
         }
@@ -4194,7 +4326,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.47
         }
@@ -4203,7 +4341,13 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": "resonanceLiberation.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv": 1.866
         }
@@ -5253,8 +5397,14 @@
           }
         },
         "applyTo": "$ally",
-        "useIfNegativeStatus": {
-          "glacioChafe": 1
+        "use": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "has": "glacioChafe"
+              }
+            }
+          }
         },
         "buffMap": {
           "glacioDmgAmp%": 0.2
@@ -6707,7 +6857,15 @@
           }
         },
         "useWhen": "hit",
-        "useOnInflict": "glacioChafe",
+        "use": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "glacioChafe"
+              }
+            }
+          }
+        },
         "useCooldown": 0.5,
         "useAction": {
           "inflictStatus": {
@@ -7708,32 +7866,58 @@
         "key": "roamingTranscendent",
         "apply": {
           "filter": {
-            "action": {
-              "ref": "outroSkill.0"
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "ceaselessLandscape"
+                }
+              },
+              {
+                "action": {
+                  "ref": "outroSkill.0"
+                }
+              }
+            ]
           }
         },
-        "applyIfEffectStacksMin": {
-          "ceaselessLandscape": 1
-        },
         "removeWhen": "expire",
-        "removeIfEffectStacksMax": {
-          "ceaselessLandscape": 0
+        "remove": {
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "ceaselessLandscape"
+              }
+            }
+          }
         },
         "maxDuration": 30000
       },
       {
         "applyBy": "$team",
         "applyWhen": "inflict",
-        "applyForInflictStatus": [
-          "spectroFrazzle",
-          "fusionBurst",
-          "glacioChafe",
-          "aeroErosion",
-          "electroFlare"
-        ],
-        "applyIfEffectStacksMin": {
-          "roamingTranscendent": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "roamingTranscendent"
+                }
+              },
+              {
+                "action": {
+                  "inflictStatus": {
+                    "has": [
+                      "spectroFrazzle",
+                      "fusionBurst",
+                      "glacioChafe",
+                      "aeroErosion",
+                      "electroFlare"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
         },
         "applyTo": "global",
         "gameRule": {
@@ -7750,12 +7934,34 @@
       {
         "applyBy": "$team",
         "applyWhen": "inflict",
-        "applyForConsumeStatus": "havocBane",
-        "applyIfEffectStacksMin": {
-          "roamingTranscendent": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "roamingTranscendent"
+                }
+              },
+              {
+                "action": {
+                  "consumeStatus": {
+                    "has": "havocBane"
+                  }
+                }
+              }
+            ]
+          }
         },
         "applyTo": "$applier",
-        "useOnElement": "havoc",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "havoc"
+              }
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": 0.06,
           "havocResIgnore%": 0.12
@@ -7763,7 +7969,13 @@
         "maxDuration": 30000
       },
       {
-        "useOnAction": "resonanceSkill.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.1"
+            }
+          }
+        },
         "useCooldown": 25000,
         "buffMap": {
           "critRate%": 0.8,
@@ -7771,7 +7983,13 @@
         }
       },
       {
-        "useOnAction": "introSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          }
+        },
         "useCooldown": 25000,
         "buffMap": {
           "critRate%": 0.8,
@@ -7798,16 +8016,22 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "ref": [
-                "outroSkill.0",
-                "resonanceLiberation.1"
-              ]
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "roamingTranscendent"
+                }
+              },
+              {
+                "action": {
+                  "ref": [
+                    "outroSkill.0",
+                    "resonanceLiberation.1"
+                  ]
+                }
+              }
+            ]
           }
-        },
-        "applyIfEffectStacksMin": {
-          "roamingTranscendent": 1
         },
         "applyTo": "$team",
         "buffSpecs": {
@@ -9000,7 +9224,13 @@
         "maxUses": 30
       },
       {
-        "useOnAction": "forteCircuit.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.5
         },
@@ -9039,7 +9269,13 @@
           "rank": 3
         },
         "chance": 0.5,
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.4
         }
@@ -9622,7 +9858,13 @@
     },
     "effects": [
       {
-        "useOnTagged": "Cosmos",
+        "use": {
+          "filter": {
+            "action": {
+              "tagged": "Cosmos"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.1
         }
@@ -9689,10 +9931,16 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": [
-          "forteCircuit.0",
-          "forteCircuit.1"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.4
         }
@@ -9728,7 +9976,13 @@
           "rank": 6
         },
         "applyWhen": "hit",
-        "applyOnTagged": "Cosmos",
+        "apply": {
+          "filter": {
+            "action": {
+              "tagged": "Cosmos"
+            }
+          }
+        },
         "buffMap": {
           "atk%": 0.05
         },
@@ -10520,8 +10774,20 @@
         },
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnType": "basicAttack",
-        "useIfField": "onField",
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": "basicAttack"
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          }
+        },
         "useCooldown": 350,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 10000,
@@ -10542,8 +10808,20 @@
         },
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnType": "heavyAttack",
-        "useIfField": "onField",
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": "heavyAttack"
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          }
+        },
         "useCooldown": 350,
         "useAction": "resonanceLiberation.1",
         "times": 2,
@@ -10566,7 +10844,13 @@
             }
           }
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.25
         },
@@ -10582,7 +10866,13 @@
           }
         },
         "applyCooldown": 350,
-        "useOnAction": "resonanceLiberation.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.015
         },
@@ -10613,7 +10903,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "resonanceLiberation.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "buffMap": {
           "critDmg%": 0.3
         }
@@ -10623,10 +10919,16 @@
           "rank": 5
         },
         "useWhen": "before",
-        "useOnAction": [
-          "resonanceSkill.0",
-          "forteCircuit.0"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.0",
+                "forteCircuit.0"
+              ]
+            }
+          }
+        },
         "useAction": "resonanceLiberation.1",
         "times": 4
       },
@@ -11214,7 +11516,13 @@
             }
           }
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "atk%": 0.25
         },
@@ -11222,19 +11530,31 @@
         "maxUses": 1
       },
       {
-        "useOnAction": [
-          "resonanceSkill.1",
-          "resonanceSkill.2"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.1",
+                "resonanceSkill.2"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "fusionDmgBonus%": 0.1
         }
       },
       {
-        "useOnAction": [
-          "forteCircuit.0",
-          "resonanceLiberation.0"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "resonanceLiberation.0"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "fusionDmgBonus%": 0.2,
           "defIgnore%": 0.15
@@ -11260,12 +11580,18 @@
         "enableIf": {
           "rank": 1
         },
-        "useOnAction": [
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "resonanceSkill.2",
-          "forteCircuit.0"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.0",
+                "resonanceSkill.1",
+                "resonanceSkill.2",
+                "forteCircuit.0"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.1
         }
@@ -11295,7 +11621,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.8
         }
@@ -11322,7 +11654,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.5,
           "dmgBonus%": 0.5
@@ -11332,13 +11670,19 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": [
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "resonanceSkill.2",
-          "forteCircuit.0",
-          "resonanceLiberation.0"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.0",
+                "resonanceSkill.1",
+                "resonanceSkill.2",
+                "forteCircuit.0",
+                "resonanceLiberation.0"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": 0.4
         }
@@ -12217,7 +12561,13 @@
         }
       },
       {
-        "useOnAction": "forteCircuit.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          }
+        },
         "buffMap": {
           "healingBonus%": 0.2
         }
@@ -12270,8 +12620,20 @@
         "enableIf": {
           "rank": 2
         },
-        "useOnType": "mid-airAttack",
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "type": "mid-airAttack"
+                },
+                {
+                  "ref": "forteCircuit.0"
+                }
+              ]
+            }
+          }
+        },
         "buffMap": {
           "critRate%": 0.3
         }
@@ -12290,7 +12652,13 @@
         },
         "applyTo": "$next",
         "useWhen": "hit",
-        "useOnType": "resonanceSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          }
+        },
         "useCooldown": 1000,
         "useAction": {
           "damage": {
@@ -12309,7 +12677,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.42
         }
@@ -12318,7 +12692,13 @@
         "enableIf": {
           "rank": 4
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "shieldBonus%": 0.2
         }
@@ -12328,7 +12708,13 @@
           "rank": 4
         },
         "useWhen": "before",
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "useAction": {
           "healing": {
             "attr": "energyRegen",
@@ -12346,7 +12732,15 @@
           "rank": 5
         },
         "applyWhen": "hit",
-        "applyOnDamageType": "basicAttack",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          }
+        },
         "buffMap": {
           "basicAttackDmgBonus%": 0.15
         },
@@ -12356,8 +12750,20 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnType": "mid-airAttack",
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "type": "mid-airAttack"
+                },
+                {
+                  "ref": "forteCircuit.0"
+                }
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.3
         }
@@ -13764,7 +14170,13 @@
     },
     "effects": [
       {
-        "useOnAction": "resonanceSkill.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.5
         }
@@ -13885,7 +14297,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "introSkill.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1
         }
@@ -13894,7 +14312,13 @@
         "enableIf": {
           "rank": 4
         },
-        "useOnAction": "forteCircuit.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1.25
         }
@@ -13923,11 +14347,17 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": [
-          "forteCircuit.1",
-          "resonanceLiberation.0",
-          "introSkill.1"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "resonanceLiberation.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": 0.3
         }
@@ -15318,7 +15748,13 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          }
+        },
         "buffMap": {
           "dmgAmp%": 0.05
         },
@@ -16814,7 +17250,13 @@
     },
     "effects": [
       {
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffSpec": {
           "critRate%": {
             "attr": "energyRegen%",
@@ -16856,17 +17298,29 @@
             }
           }
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "healingMv%": 0.4
         },
         "maxDuration": 25000
       },
       {
-        "useOnAction": [
-          "forteCircuit.2",
-          "introSkill.0"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.2",
+                "introSkill.0"
+              ]
+            }
+          }
+        },
         "useWhen": "hit",
         "useAction": "forteCircuit.1"
       },
@@ -16908,10 +17362,18 @@
       {
         "applyWhen": "tuneBreak",
         "applyTo": "global",
-        "useIfInterfered": [
-          "tuneRupture",
-          "tuneStrain"
-        ],
+        "use": {
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": [
+                  "tuneRupture",
+                  "tuneStrain"
+                ]
+              }
+            }
+          }
+        },
         "buffSpec": {
           "dmgBonus%": {
             "attr": "energyRegen%",
@@ -16925,7 +17387,15 @@
       },
       {
         "useWhen": "tuneResponse",
-        "useIfInterfered": "tuneRupture",
+        "use": {
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "tuneRupture"
+              }
+            }
+          }
+        },
         "useAction": "forteCircuit.4"
       },
       {
@@ -18020,7 +18490,15 @@
     "effects": [
       {
         "useWhen": "tuneResponse",
-        "useIfInterfered": "tuneRupture",
+        "use": {
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "tuneRupture"
+              }
+            }
+          }
+        },
         "useAction": "forteCircuit.2"
       },
       {
@@ -20927,7 +21405,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnTagged": "Deathblade Gear",
+        "use": {
+          "filter": {
+            "action": {
+              "tagged": "Deathblade Gear"
+            }
+          }
+        },
         "buffMap": {
           "electroDmgBonus%": 0.25
         }
@@ -20954,10 +21438,16 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": [
-          "introSkill.0",
-          "resonanceLiberation.1"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "resonanceLiberation.1"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.5
         }
@@ -20967,7 +21457,13 @@
           "rank": 6
         },
         "useWhen": "before",
-        "useOnAction": "forteCircuit.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          }
+        },
         "useAction": {
           "type": "coordinatedAttack",
           "damage": {
@@ -22037,10 +22533,16 @@
           }
         },
         "useWhen": "hit",
-        "useOnType": [
-          "basicAttack",
-          "dodgeCounter"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "dodgeCounter"
+              ]
+            }
+          }
+        },
         "useAction": "resonanceSkill.2",
         "maxDuration": 10000,
         "maxUses": 4
@@ -22056,7 +22558,13 @@
         },
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnHas": "damage",
+        "use": {
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          }
+        },
         "useCooldown": 1000,
         "useAction": "forteCircuit.1",
         "maxDuration": 18000
@@ -22076,7 +22584,13 @@
         "maxDuration": 5000
       },
       {
-        "useOnAction": "resonanceSkill.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.1"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.1
         }
@@ -22115,10 +22629,16 @@
         "enableIf": {
           "rank": 1
         },
-        "useOnAction": [
-          "resonanceSkill.0",
-          "resonanceSkill.1"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.0",
+                "resonanceSkill.1"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.7
         }
@@ -22127,7 +22647,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "forteCircuit.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.55
         }
@@ -22154,7 +22680,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 1
         }
@@ -22172,7 +22704,13 @@
           }
         },
         "useWhen": "hit",
-        "useOnType": "basicAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "basicAttack"
+            }
+          }
+        },
         "useAction": {
           "damage": {
             "type": "resonanceSkill",
@@ -22738,8 +23276,20 @@
         },
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnHas": "damage",
-        "useIfField": "onField",
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          }
+        },
         "useCooldown": 1200,
         "useAction": "resonanceSkill.1",
         "maxDuration": 12000
@@ -22761,7 +23311,13 @@
         "maxUses": 1
       },
       {
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.4
         }
@@ -22783,7 +23339,13 @@
         "enableIf": {
           "rank": 1
         },
-        "useOnTagged": "Lightning Infused",
+        "use": {
+          "filter": {
+            "action": {
+              "tagged": "Lightning Infused"
+            }
+          }
+        },
         "buffMap": {
           "attackSpd%": 0.2
         }
@@ -22808,7 +23370,13 @@
           "rank": 4
         },
         "useWhen": "before",
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "useAction": {
           "shield": {
             "attr": "def",
@@ -23858,7 +24426,13 @@
         }
       },
       {
-        "useOnAction": "introSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.5
         }
@@ -23881,11 +24455,17 @@
             }
           }
         },
-        "useOnAction": [
-          "forteCircuit.7",
-          "forteCircuit.8",
-          "forteCircuit.9"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.2
         },
@@ -23935,7 +24515,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1.2
         }
@@ -23944,11 +24530,17 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": [
-          "forteCircuit.7",
-          "forteCircuit.8",
-          "forteCircuit.9"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.45
         }
@@ -25223,7 +25815,13 @@
         },
         "applyTo": "$next",
         "useWhen": "hit",
-        "useOnType": "basicAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "basicAttack"
+            }
+          }
+        },
         "useCooldown": 2000,
         "useAction": {
           "damage": {
@@ -25242,7 +25840,13 @@
         "enableIf": {
           "rank": 1
         },
-        "useOnAction": "forteCircuit.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.48
         }
@@ -25283,12 +25887,18 @@
             }
           }
         },
-        "useOnAction": [
-          "resonanceSkill.0",
-          "resonanceLiberation.4",
-          "forteCircuit.0",
-          "forteCircuit.1"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.0",
+                "resonanceLiberation.4",
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.63
         },
@@ -25317,7 +25927,15 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnDamageType": "outroSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "outroSkill"
+              }
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 2.22
         }
@@ -25326,7 +25944,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1
         }
@@ -25335,7 +25959,13 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": "forteCircuit.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.76
         }
@@ -26172,7 +26802,13 @@
     "effects": [
       {
         "useWhen": "hit",
-        "useOnHas": "damage",
+        "use": {
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          }
+        },
         "useCooldown": 500,
         "useAction": {
           "shield": {
@@ -26210,7 +26846,13 @@
           }
         },
         "removeWhen": "after",
-        "removeOnAction": "resonanceLiberation.2",
+        "remove": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.2"
+            }
+          }
+        },
         "buffMap": {
           "electroDmgBonus%": 0.15
         }
@@ -27961,7 +28603,15 @@
       },
       {
         "useWhen": "tuneResponse",
-        "useIfInterfered": "hack",
+        "use": {
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "hack"
+              }
+            }
+          }
+        },
         "useAction": "forteCircuit.0"
       },
       {
@@ -27985,7 +28635,13 @@
       {
         "applyBy": "$team",
         "applyWhen": "inflict",
-        "applyForInflictShifting": "hack",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictShifting": "hack"
+            }
+          }
+        },
         "applyTo": "$applier",
         "buffMap": {
           "tuneBreakBoost": 30
@@ -30020,7 +30676,13 @@
         "enableIf": {
           "rank": 4
         },
-        "useOnAction": "forteCircuit.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.95
         }
@@ -30029,7 +30691,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.85
         }
@@ -30666,19 +31334,31 @@
             }
           }
         },
-        "useOnType": [
-          "basicAttack",
-          "heavyAttack",
-          "mid-airAttack",
-          "dodgeCounter"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "heavyAttack",
+                "mid-airAttack",
+                "dodgeCounter"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "atk%": 0.1
         },
         "maxDuration": 10000
       },
       {
-        "useOnType": "heavyAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "heavyAttack"
+            }
+          }
+        },
         "buffMap": {
           "critRate%": 1
         }
@@ -30727,10 +31407,16 @@
             }
           }
         },
-        "useOnType": [
-          "basicAttack",
-          "mid-airAttack"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "mid-airAttack"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1
         },
@@ -30740,10 +31426,16 @@
         "enableIf": {
           "rank": 4
         },
-        "useOnAction": [
-          "resonanceSkill.0",
-          "forteCircuit.0"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.0",
+                "forteCircuit.0"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.3
         }
@@ -30794,7 +31486,13 @@
             }
           }
         },
-        "useOnType": "heavyAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "heavyAttack"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.5
         },
@@ -31312,7 +32010,13 @@
     },
     "effects": [
       {
-        "useOnAction": "resonanceSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.2
         }
@@ -31333,7 +32037,13 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          }
+        },
         "buffMap": {
           "critDmg%": 0.12
         },
@@ -31350,7 +32060,13 @@
         },
         "applyTo": "$next",
         "useWhen": "hit",
-        "useOnType": "heavyAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "heavyAttack"
+            }
+          }
+        },
         "useCooldown": 1000,
         "useAction": {
           "type": "coordinatedAttack",
@@ -31432,7 +32148,15 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnDamageType": "outroSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "outroSkill"
+              }
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1.2
         }
@@ -31442,7 +32166,13 @@
           "rank": 5
         },
         "applyWhen": "before",
-        "applyOnHas": "damage",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          }
+        },
         "buffMap": {
           "atk%": 0.45
         },
@@ -31470,7 +32200,13 @@
             }
           ]
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv": 1.2
         },
@@ -32251,10 +32987,16 @@
         "maxDuration": 30000
       },
       {
-        "useOnAction": [
-          "resonanceLiberation.0",
-          "resonanceLiberation.1"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceLiberation.0",
+                "resonanceLiberation.1"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.2
         }
@@ -32291,10 +33033,16 @@
             }
           }
         },
-        "useOnAction": [
-          "resonanceLiberation.0",
-          "resonanceLiberation.1"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceLiberation.0",
+                "resonanceLiberation.1"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.8
         },
@@ -33363,7 +34111,13 @@
         "maxUses": 20
       },
       {
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.3
         },
@@ -33429,7 +34183,15 @@
         "enableIf": {
           "rank": 4
         },
-        "useOnDamageType": "resonanceLiberation",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "resonanceLiberation"
+              }
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": 0.45
         }
@@ -34122,7 +34884,13 @@
     },
     "effects": [
       {
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 1
         },
@@ -34146,32 +34914,72 @@
         }
       },
       {
-        "useIfNegativeStatus": {
-          "aeroErosion": 3
+        "use": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "aeroErosion": {
+                  "stacks": {
+                    ">=": 3
+                  }
+                }
+              }
+            }
+          }
         },
         "buffMap": {
           "dmgBonus%": 0.3
         }
       },
       {
-        "useIfNegativeStatus": {
-          "aeroErosion": 4
+        "use": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "aeroErosion": {
+                  "stacks": {
+                    ">=": 4
+                  }
+                }
+              }
+            }
+          }
         },
         "buffMap": {
           "dmgBonus%": 0.1
         }
       },
       {
-        "useIfNegativeStatus": {
-          "aeroErosion": 5
+        "use": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "aeroErosion": {
+                  "stacks": {
+                    ">=": 5
+                  }
+                }
+              }
+            }
+          }
         },
         "buffMap": {
           "dmgBonus%": 0.1
         }
       },
       {
-        "useIfNegativeStatus": {
-          "aeroErosion": 6
+        "use": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "aeroErosion": {
+                  "stacks": {
+                    ">=": 6
+                  }
+                }
+              }
+            }
+          }
         },
         "buffMap": {
           "dmgBonus%": 0.1
@@ -34187,7 +34995,15 @@
           }
         },
         "applyTo": "$ally",
-        "useIfNegativeStatus": "any",
+        "use": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "has": "*"
+              }
+            }
+          }
+        },
         "buffMap": {
           "aeroDmgAmp%": 0.175
         },
@@ -34197,15 +35013,21 @@
         "enableIf": {
           "rank": 2
         },
-        "useOnAction": [
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "normalAttack.5",
-          "normalAttack.4",
-          "introSkill.0"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.0",
+                "normalAttack.1",
+                "normalAttack.2",
+                "normalAttack.3",
+                "normalAttack.5",
+                "normalAttack.4",
+                "introSkill.0"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.5
         }
@@ -34214,12 +35036,18 @@
         "enableIf": {
           "rank": 2
         },
-        "useOnAction": [
-          "normalAttack.6",
-          "normalAttack.7",
-          "normalAttack.8",
-          "normalAttack.9"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.6",
+                "normalAttack.7",
+                "normalAttack.8",
+                "normalAttack.9"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 2
         }
@@ -34237,24 +35065,30 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": [
-          "resonanceLiberation.0",
-          "introSkill.1",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "forteCircuit.5",
-          "forteCircuit.6",
-          "forteCircuit.7",
-          "forteCircuit.8",
-          "forteCircuit.9",
-          "forteCircuit.10",
-          "forteCircuit.11",
-          "forteCircuit.12",
-          "forteCircuit.13"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceLiberation.0",
+                "introSkill.1",
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6",
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9",
+                "forteCircuit.10",
+                "forteCircuit.11",
+                "forteCircuit.12",
+                "forteCircuit.13"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.4
         }
@@ -39841,7 +40675,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "resonanceLiberation.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "buffMap": {
           "healingBonus%": 0.12
         }
@@ -39884,12 +40724,18 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": [
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.2
         }
@@ -40984,10 +41830,16 @@
         "maxUses": 1
       },
       {
-        "useOnTagged": [
-          "Red Light",
-          "Red Spotlight"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "tagged": [
+                "Red Light",
+                "Red Spotlight"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "electroDmgBonus%": 0.1
         }
@@ -41028,10 +41880,16 @@
         "enableIf": {
           "rank": 2
         },
-        "useOnAction": [
-          "forteCircuit.5",
-          "forteCircuit.6"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.5",
+                "forteCircuit.6"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": 0.2
         }
@@ -41040,7 +41898,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.3
         }
@@ -41057,7 +41921,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "forteCircuit.7",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.7"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1
         }
@@ -42035,25 +42905,41 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "type": "introSkill"
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "stellarealm"
+                }
+              },
+              {
+                "action": {
+                  "type": "introSkill"
+                }
+              }
+            ]
           }
         },
-        "applyIfEffectStacksMin": {
-          "stellarealm": 1
-        },
         "removeWhen": "before",
-        "removeIfEffectStacksMax": {
-          "stellarealm": 0
+        "remove": {
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "stellarealm"
+              }
+            }
+          }
         },
         "maxStacks": 2
       },
       {
         "key": "innerStellarealm",
         "applyTo": "$team",
-        "useIfEffectStacksMin": {
-          "evolved": 1
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "has": "evolved"
+            }
+          }
         },
         "buffSpec": {
           "critRate%": {
@@ -42066,8 +42952,12 @@
       },
       {
         "applyTo": "$team",
-        "useIfEffectStacksMin": {
-          "evolved": 2
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "evolved": 2
+            }
+          }
         },
         "buffSpec": {
           "critDmg%": {
@@ -42083,13 +42973,25 @@
           "rank": -1
         },
         "useWhen": "before",
-        "useOnAction": "introSkill.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.1"
+            }
+          }
+        },
         "onUseDoRemove": {
           "stellarealm": 1
         }
       },
       {
-        "useOnAction": "introSkill.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.1"
+            }
+          }
+        },
         "buffMap": {
           "critRate%": 1
         }
@@ -42113,8 +43015,12 @@
         "enableIf": {
           "rank": 2
         },
-        "useIfEffectStacksMin": {
-          "stellarealm": 1
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "has": "stellarealm"
+            }
+          }
         },
         "buffMap": {
           "atk%": 0.4
@@ -42124,7 +43030,13 @@
         "enableIf": {
           "rank": 4
         },
-        "useOnAction": "resonanceSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "healingBonus%": 0.7
         }
@@ -42133,7 +43045,13 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": "introSkill.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.42,
           "critDmg%": 5
@@ -42870,7 +43788,13 @@
     },
     "effects": [
       {
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 2.55
         },
@@ -42883,9 +43807,23 @@
         }
       },
       {
-        "useOnAction": "forteCircuit.2",
-        "useIfNegativeStatus": {
-          "spectroFrazzle": 1
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "forteCircuit.2"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "spectroFrazzle"
+                  }
+                }
+              }
+            ]
+          }
         },
         "buffMap": {
           "dmgAmp%": 2.56
@@ -42938,7 +43876,15 @@
             }
           }
         },
-        "useOnDamageType": "outroSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "outroSkill"
+              }
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 2.55
         }
@@ -42968,7 +43914,11 @@
           }
         },
         "applyTo": "global",
-        "useIfField": "onField",
+        "use": {
+          "filter": {
+            "field": "onField"
+          }
+        },
         "buffMap": {
           "spectroFrazzleDmgAmp%": 1
         },
@@ -42985,7 +43935,13 @@
         "enableIf": {
           "rank": 1
         },
-        "useOnAction": "resonanceLiberation.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.9
         }
@@ -42995,7 +43951,13 @@
           "rank": 1
         },
         "useWhen": "hit",
-        "useOnAction": "resonanceLiberation.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "useAction": {
           "inflictStatus": {
             "spectroFrazzle": 2
@@ -43014,9 +43976,25 @@
             }
           }
         },
-        "useOnDamageType": "outroSkill",
-        "useIfNegativeStatus": {
-          "spectroFrazzle": 1
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "outroSkill"
+                  }
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "spectroFrazzle"
+                  }
+                }
+              }
+            ]
+          }
         },
         "buffMap": {
           "dmgAmp%": 1.2
@@ -43026,7 +44004,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "forteCircuit.2",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.2"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.91
         }
@@ -43035,7 +44019,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "forteCircuit.3",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.3"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 2.49
         }
@@ -43108,7 +44098,13 @@
           }
         },
         "useWhen": "hit",
-        "useOnAction": "resonanceSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.0"
+            }
+          }
+        },
         "useAction": "forteCircuit.2"
       },
       {
@@ -43124,7 +44120,13 @@
           }
         },
         "useWhen": "hit",
-        "useOnAction": "resonanceSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.0"
+            }
+          }
+        },
         "useAction": "forteCircuit.3"
       }
     ],
@@ -43933,13 +44935,19 @@
         }
       },
       {
-        "useOnAction": [
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.4"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.25
         },
@@ -43953,7 +44961,13 @@
       },
       {
         "useWhen": "hit",
-        "useOnAction": "forteCircuit.2",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.2"
+            }
+          }
+        },
         "useAction": "forteCircuit.3"
       },
       {
@@ -43997,10 +45011,16 @@
         "enableIf": {
           "rank": 2
         },
-        "useOnAction": [
-          "resonanceSkill.2",
-          "resonanceSkill.3"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.2",
+                "resonanceSkill.3"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.8
         }
@@ -44009,7 +45029,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "resonanceLiberation.1",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 12
         }
@@ -44036,7 +45062,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1.2
         }
@@ -44045,7 +45077,13 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": "forteCircuit.2",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.2"
+            }
+          }
+        },
         "buffMap": {
           "damageMv": 16
         }
@@ -45022,17 +46060,31 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnDamageType": "resonanceSkill",
         "apply": {
           "filter": {
             "action": {
-              "ref": "normalAttack.10"
+              "or": [
+                {
+                  "ref": "normalAttack.10"
+                },
+                {
+                  "damage": {
+                    "type": "resonanceSkill"
+                  }
+                }
+              ]
             }
           }
         },
         "applyTo": "global",
         "useWhen": "hit",
-        "useOnHas": "damage",
+        "use": {
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          }
+        },
         "useCooldown": 2000,
         "useAction": {
           "inflictStatus": {
@@ -45056,9 +46108,21 @@
       {
         "applyBy": "$team",
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfEffectStacksMin": {
-          "resonantThreadOfClosure": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "resonantThreadOfClosure"
+                }
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          }
         },
         "applyTo": "global",
         "gameRule": {
@@ -45077,10 +46141,22 @@
         "key": "threadOfBane",
         "applyBy": "$team",
         "applyWhen": "inflict",
-        "applyIfEffectStacksMin": {
-          "resonantThreadOfClosure": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "resonantThreadOfClosure"
+                }
+              },
+              {
+                "action": {
+                  "has": "inflictStatus"
+                }
+              }
+            ]
+          }
         },
-        "applyForInflictStatus": "any",
         "applyTo": "$applier",
         "buffMap": {
           "defIgnore%": 0.18
@@ -45110,11 +46186,19 @@
           "rank": 1
         },
         "applyWhen": "hit",
-        "applyOnDamageType": "resonanceSkill",
         "apply": {
           "filter": {
             "action": {
-              "ref": "normalAttack.10"
+              "or": [
+                {
+                  "ref": "normalAttack.10"
+                },
+                {
+                  "damage": {
+                    "type": "resonanceSkill"
+                  }
+                }
+              ]
             }
           }
         },
@@ -45137,10 +46221,22 @@
         },
         "applyBy": "$team",
         "applyWhen": "inflict",
-        "applyIfEffectStacksMin": {
-          "resonantThreadOfClosure": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "resonantThreadOfClosure"
+                }
+              },
+              {
+                "action": {
+                  "has": "inflictStatus"
+                }
+              }
+            ]
+          }
         },
-        "applyForInflictStatus": "any",
         "applyTo": "$applier",
         "buffMap": {
           "dmgBonus%": 0.5
@@ -46583,7 +47679,15 @@
     "effects": [
       {
         "useWhen": "tuneResponse",
-        "useIfInterfered": "tuneRupture",
+        "use": {
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "tuneRupture"
+              }
+            }
+          }
+        },
         "useAction": "forteCircuit.5"
       },
       {
@@ -49025,7 +50129,13 @@
             }
           }
         },
-        "useOnAction": "normalAttack.14",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "normalAttack.14"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 2.7
         },
@@ -49054,7 +50164,15 @@
       },
       {
         "useWhen": "tuneResponse",
-        "useIfInterfered": "hack",
+        "use": {
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "hack"
+              }
+            }
+          }
+        },
         "useAction": "forteCircuit.0"
       },
       {
@@ -49137,10 +50255,16 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": [
-          "resonanceLiberation.6",
-          "resonanceLiberation.7"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceLiberation.6",
+                "resonanceLiberation.7"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.5,
           "critDmg%": 1
@@ -49150,10 +50274,16 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": [
-          "resonanceLiberation.5",
-          "forteCircuit.0"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceLiberation.5",
+                "forteCircuit.0"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.65
         }
@@ -49171,8 +50301,22 @@
         "enableIf": {
           "rank": 6
         },
-        "useIfShifting": "hack",
-        "useIfInterfered": "hack",
+        "use": {
+          "filter": {
+            "states": {
+              "tune": {
+                "or": [
+                  {
+                    "shifting": "hack"
+                  },
+                  {
+                    "interfered": "hack"
+                  }
+                ]
+              }
+            }
+          }
+        },
         "buffMap": {
           "heavyAttackDmgBonus%": 0.4,
           "hackDmgBonus%": 0.6
@@ -51470,9 +52614,19 @@
           }
         },
         "applyTo": "global",
-        "useIfField": "onField",
+        "use": {
+          "filter": {
+            "field": "onField"
+          }
+        },
         "removeWhen": "before",
-        "removeOnAction": "normalAttack.3",
+        "remove": {
+          "filter": {
+            "action": {
+              "ref": "normalAttack.3"
+            }
+          }
+        },
         "buffMap": {
           "def%": 0.15
         },
@@ -51502,11 +52656,17 @@
         "enableIf": {
           "rank": 1
         },
-        "useOnAction": [
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "forteCircuit.5"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "shieldBonus%": 0.4
         }
@@ -51515,7 +52675,13 @@
         "enableIf": {
           "rank": 2
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "critRate%": 0.2,
           "critDmg%": 0.2
@@ -51526,7 +52692,13 @@
           "rank": 4
         },
         "useWhen": "before",
-        "useOnAction": "normalAttack.5",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          }
+        },
         "useCooldown": 15000,
         "useAction": {
           "healing": {
@@ -51561,11 +52733,17 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": [
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.5
         }
@@ -52374,10 +53552,16 @@
             }
           }
         },
-        "useOnAction": [
-          "resonanceSkill.1",
-          "resonanceSkill.2"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.1",
+                "resonanceSkill.2"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": 0.2
         },
@@ -52422,7 +53606,13 @@
           "rank": 1
         },
         "applyWhen": "hit",
-        "applyOnHas": "damage",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          }
+        },
         "buffMap": {
           "atk%": 0.05
         },
@@ -52441,12 +53631,18 @@
         "enableIf": {
           "rank": 4
         },
-        "useOnAction": [
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "critRate%": 0.15
         }
@@ -53195,25 +54391,35 @@
           }
         },
         "removeWhen": "before",
-        "removeIfField": "offField",
-        "useOnAction": [
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "normalAttack.4",
-          "normalAttack.6",
-          "normalAttack.7",
-          "resonanceSkill.1",
-          "resonanceSkill.2",
-          "resonanceSkill.3",
-          "resonanceSkill.4",
-          "resonanceSkill.5",
-          "resonanceSkill.7",
-          "resonanceSkill.8",
-          "resonanceSkill.0",
-          "resonanceSkill.6"
-        ],
+        "remove": {
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.0",
+                "normalAttack.1",
+                "normalAttack.2",
+                "normalAttack.3",
+                "normalAttack.4",
+                "normalAttack.6",
+                "normalAttack.7",
+                "resonanceSkill.1",
+                "resonanceSkill.2",
+                "resonanceSkill.3",
+                "resonanceSkill.4",
+                "resonanceSkill.5",
+                "resonanceSkill.7",
+                "resonanceSkill.8",
+                "resonanceSkill.0",
+                "resonanceSkill.6"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1
         },
@@ -53245,7 +54451,15 @@
             }
           }
         },
-        "useOnDamageType": "outroSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "outroSkill"
+              }
+            }
+          }
+        },
         "buffMap": {
           "damageMv": 4.5902
         },
@@ -53273,7 +54487,13 @@
         "enableIf": {
           "rank": 2
         },
-        "useOnAction": "forteCircuit.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1.2
         }
@@ -53282,7 +54502,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.5
         }
@@ -53326,7 +54552,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "introSkill.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 3.03
         }
@@ -53335,7 +54567,15 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnDamageType": "outroSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "outroSkill"
+              }
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.68
         }
@@ -54266,11 +55506,17 @@
             }
           }
         },
-        "useOnAction": [
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.6
         },
@@ -54280,7 +55526,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.2
         }
@@ -54289,7 +55541,13 @@
         "enableIf": {
           "rank": 5
         },
-        "useOnType": "heavyAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "heavyAttack"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.8
         }
@@ -54306,11 +55564,17 @@
             }
           }
         },
-        "useOnAction": [
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": 0.6
         },
@@ -54328,7 +55592,13 @@
             }
           }
         },
-        "useOnAction": "forteCircuit.2",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.2"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 1
         },
@@ -54874,7 +56144,11 @@
         },
         "applyTo": "global",
         "useWhen": "hit",
-        "useIfField": "onField",
+        "use": {
+          "filter": {
+            "field": "onField"
+          }
+        },
         "useCooldown": 1000,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 30000,
@@ -54932,11 +56206,17 @@
         "enableIf": {
           "rank": 1
         },
-        "useOnAction": [
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "forteCircuit.4"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.0",
+                "resonanceSkill.1",
+                "forteCircuit.4"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.5
         }
@@ -54961,7 +56241,13 @@
         "enableIf": {
           "rank": 2
         },
-        "useOnAction": "resonanceSkill.2",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.2"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 2.45
         }
@@ -54970,7 +56256,13 @@
         "enableIf": {
           "rank": 3
         },
-        "useOnAction": "resonanceLiberation.0",
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 3.7
         }
@@ -54979,11 +56271,17 @@
         "enableIf": {
           "rank": 6
         },
-        "useOnAction": [
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "damageMv%": 0.8
         }
@@ -56885,10 +58183,16 @@
           }
         },
         "useWhen": "hit",
-        "useOnAction": [
-          "resonanceSkill.0",
-          "resonanceSkill.1"
-        ],
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.0",
+                "resonanceSkill.1"
+              ]
+            }
+          }
+        },
         "useAction": "resonanceLiberation.1",
         "maxUses": 1
       },
@@ -56896,12 +58200,18 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "ref": "forteCircuit.2"
-            }
+            "and": [
+              {
+                "action": {
+                  "ref": "forteCircuit.2"
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
           }
         },
-        "applyIfField": "onField",
         "applyCooldown": 25000,
         "buffMap": {
           "critDmg%": 1.6
@@ -56924,14 +58234,34 @@
       {
         "applyBy": "$team",
         "applyWhen": "inflict",
-        "applyForInflictStatus": "havocBane",
-        "applyIfEffectStacksMin": {
-          "tonalSwitch": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "tonalSwitch"
+                }
+              },
+              {
+                "action": {
+                  "inflictStatus": {
+                    "has": "havocBane"
+                  }
+                }
+              }
+            ]
+          }
         },
         "applyTo": "$applier",
         "removeWhen": "before",
-        "removeIfEffectStacksMax": {
-          "tonalSwitch": 0
+        "remove": {
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "tonalSwitch"
+              }
+            }
+          }
         },
         "buffMap": {
           "havocDmgAmp%": 0.2

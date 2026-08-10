@@ -1,12 +1,6 @@
 import { WW } from '@/data';
 import { toMergedObj } from '@/utils';
 import {
-  matchRemoveFilter,
-  matchExtendFilter,
-  matchUseFilter,
-  matchApplyFilter,
-} from './filters';
-import {
   onRemoveDoCommand,
   onExtendDoCommand,
   onUseDoCommand,
@@ -31,7 +25,7 @@ import {
 } from './special/tune';
 import { buildSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
-import { passesFilter } from './filter';
+import { createEventFilter } from './filter';
 
 function handleRemoveWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
@@ -39,7 +33,8 @@ function handleRemoveWhen(ctx, action, when) {
 
     const shouldRemove =
       effect.removeWhen === when &&
-      matchRemoveFilter(effect, { ctx, action });
+      effect.remove &&
+      ctx.eventFilter(effect.remove?.filter, action, effect);
 
     if (!shouldRemove) continue;
     onRemoveDoCommand(ctx, effect);
@@ -54,7 +49,7 @@ function handleExtendWhen(ctx, action, when) {
     const shouldExtend =
       effect.extendWhen === when &&
       !state.extendCooldown &&
-      matchExtendFilter(effect, { ctx, action }) &&
+      ctx.eventFilter(effect.extend?.filter, action, effect);
       state.extensionsLeft;
 
     if (!shouldExtend) continue;
@@ -70,7 +65,7 @@ function handleUseWhen(ctx, action, when) {
     const shouldUse =
       effect.useWhen === when &&
       !state.useCooldown &&
-      matchUseFilter(effect, { ctx, action }) &&
+      ctx.eventFilter(effect.use?.filter, action, effect) &&
       !state.isRunning;
 
     if (!shouldUse) continue;
@@ -85,8 +80,7 @@ function handleApplyWhen(ctx, action, when) {
       effect.applyBy.includes(action.ownerId) &&
       effect.applyWhen === when &&
       !ctx.states.applyCooldowns[effect.id] &&
-      matchApplyFilter(effect, { ctx, action }) &&
-      passesFilter(effect.apply?.filter, { action });
+      ctx.eventFilter(effect.apply?.filter, action, effect);
 
     if (!shouldApply) continue;
     onApplyDoCommand(ctx, effect);
@@ -105,7 +99,10 @@ function advanceCooldowns(ctx, elapsed) {
 function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
     const { store, effect, useCooldown } = state;
-    if (useCooldown || !matchUseFilter(effect, { ctx, action })) continue;
+    if (
+      useCooldown ||
+      !ctx.eventFilter(effect.use?.filter, action, effect)
+    ) continue;
 
     if ('buffCooldown' in effect) state.buffCooldown = effect.buffCooldown;
     if ('usesLeft' in state) {
@@ -201,6 +198,8 @@ export const createRunRotation = (cache, equipMaps, currId) => {
     snapshots: [],
     offTuneBuildup: [],
   };
+
+  ctx.eventFilter = createEventFilter(ctx);
 
   // Init passives into effect states
   for (const effect of Object.values(cache.effects)) {

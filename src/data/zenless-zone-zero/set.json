@@ -14,7 +14,15 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": "basicAttack",
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "basicAttack"
+                }
+              }
+            }
+          },
           "buffMap": {
             "combatAtk%": 0.09
           },
@@ -22,7 +30,15 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnDamageType": "dodgeCounter",
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "dodgeCounter"
+                }
+              }
+            }
+          },
           "buffMap": {
             "combatAtk%": 0.09
           },
@@ -30,7 +46,15 @@
         },
         {
           "applyWhen": "hit",
-          "applyOnDamageType": "exSpecialAttack",
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "exSpecialAttack"
+                }
+              }
+            }
+          },
           "buffMap": {
             "combatAtk%": 0.09
           },
@@ -59,7 +83,13 @@
         },
         {
           "applyWhen": "before",
-          "applyOnType": "ultimate",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "ultimate"
+              }
+            }
+          },
           "buffMap": {
             "combatAtk%": 0.15
           },
@@ -82,11 +112,19 @@
       ],
       "4": [
         {
-          "useOnDamageType": [
-            "basicAttack",
-            "dashAttack",
-            "dodgeCounter"
-          ],
+          "use": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "basicAttack",
+                    "dashAttack",
+                    "dodgeCounter"
+                  ]
+                }
+              }
+            }
+          },
           "buffMap": {
             "daze%": 0.2
           }
@@ -126,7 +164,11 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyIfField": "onField",
+          "apply": {
+            "filter": {
+              "field": "onField"
+            }
+          },
           "applyCooldown": 20000,
           "buffMap": {
             "combatAtk%": 0.25
@@ -166,10 +208,16 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": [
-            "chainAttack",
-            "ultimate"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "type": [
+                  "chainAttack",
+                  "ultimate"
+                ]
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.15
@@ -199,7 +247,11 @@
           }
         },
         {
-          "useIfField": "offField",
+          "use": {
+            "filter": {
+              "field": "offField"
+            }
+          },
           "buffMap": {
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
@@ -207,9 +259,17 @@
         },
         {
           "applyWhen": "before",
-          "applyIfField": "onField",
+          "apply": {
+            "filter": {
+              "field": "onField"
+            }
+          },
           "applyCooldown": 7500,
-          "useIfField": "onField",
+          "use": {
+            "filter": {
+              "field": "onField"
+            }
+          },
           "buffMap": {
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
@@ -234,10 +294,16 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": [
-            "defensiveAssist",
-            "evasiveAssist"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "type": [
+                  "defensiveAssist",
+                  "evasiveAssist"
+                ]
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.15
@@ -262,8 +328,13 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnHas": "damage",
-          "applyIfAnomaly": "burning",
+          "apply": {
+            "filter": {
+              "action": {
+                "has": "damage"
+              }
+            }
+          },
           "buffMap": {
             "critRate%": 0.28
           },
@@ -312,7 +383,6 @@
       ],
       "4": [
         {
-          "useIfAnomaly": "shocked",
           "buffMap": {
             "combatAtk%": 0.28
           }
@@ -383,8 +453,14 @@
       ],
       "4": [
         {
-          "useIfAttr": {
-            "anomalyMastery": 115
+          "use": {
+            "filter": {
+              "attrMap": {
+                "anomalyMastery": {
+                  ">=": 115
+                }
+              }
+            }
           },
           "buffMap": {
             "critDmg%": 0.3
@@ -436,10 +512,18 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": [
-            "aftershock",
-            "dashAttack"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "aftershock",
+                    "dashAttack"
+                  ]
+                }
+              }
+            }
+          },
           "buffMap": {
             "combatAtk%": 0.04,
             "critRate%": 0.04
@@ -487,11 +571,17 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": [
-            "exSpecialAttack",
-            "chainAttack",
-            "ultimate"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "type": [
+                  "exSpecialAttack",
+                  "chainAttack",
+                  "ultimate"
+                ]
+              }
+            }
+          },
           "buffMap": {
             "critRate%": 0.04
           },
@@ -526,10 +616,16 @@
             }
           },
           "applyWhen": "before",
-          "applyOnType": [
-            "exSpecialAttack",
-            "chainAttack"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "type": [
+                  "exSpecialAttack",
+                  "chainAttack"
+                ]
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "critDmg%": 0.15
@@ -543,13 +639,25 @@
             }
           },
           "applyWhen": "before",
-          "applyOnType": [
-            "exSpecialAttack",
-            "chainAttack"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "type": [
+                  "exSpecialAttack",
+                  "chainAttack"
+                ]
+              }
+            }
+          },
           "applyTo": "$team",
-          "useIfAttr": {
-            "critRate%": 0.5
+          "use": {
+            "filter": {
+              "attrMap": {
+                "critRate%": {
+                  ">=": 0.5
+                }
+              }
+            }
           },
           "buffMap": {
             "critDmg%": 0.15
@@ -584,10 +692,16 @@
             }
           },
           "applyWhen": "before",
-          "applyOnType": [
-            "exSpecialAttack",
-            "ultimate"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "type": [
+                  "exSpecialAttack",
+                  "ultimate"
+                ]
+              }
+            }
+          },
           "buffMap": {
             "basicAttackDmgBonus%": 0.2
           },
@@ -616,10 +730,16 @@
             }
           },
           "applyWhen": "before",
-          "applyOnType": [
-            "exSpecialAttack",
-            "ultimate"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "type": [
+                  "exSpecialAttack",
+                  "ultimate"
+                ]
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.18
@@ -666,7 +786,15 @@
       "4": [
         {
           "applyWhen": "hit",
-          "applyOnDamageType": "BA",
+          "apply": {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "basicAttack"
+                }
+              }
+            }
+          },
           "buffMap": {
             "anomalyProficiency": 36
           },
@@ -695,7 +823,13 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": "exSpecialAttack",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "exSpecialAttack"
+              }
+            }
+          },
           "applyTo": "$team",
           "buffMap": {
             "dmgBonus%": 0.06
@@ -738,7 +872,13 @@
       "4": [
         {
           "applyWhen": "before",
-          "applyOnType": "exSpecialAttack",
+          "apply": {
+            "filter": {
+              "action": {
+                "type": "exSpecialAttack"
+              }
+            }
+          },
           "buffMap": {
             "anomalyProficiency": 25
           },
@@ -778,10 +918,16 @@
         },
         {
           "applyWhen": "before",
-          "applyOnType": [
-            "exSpecialAttack",
-            "ultimate"
-          ],
+          "apply": {
+            "filter": {
+              "action": {
+                "type": [
+                  "exSpecialAttack",
+                  "ultimate"
+                ]
+              }
+            }
+          },
           "buffMap": {
             "combatAtk%": 0.1
           },

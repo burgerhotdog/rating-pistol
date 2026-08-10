@@ -2,8 +2,9 @@ import { getEffectStates } from './getEffectStates';
 
 export function runRemoveEffect(state, stacks) {
   if (!state) return;
+  const { effect } = state;
 
-  state.stacks -= stacks;
+  state.stacks -= stacks ?? effect.maxStacks ?? 1;
 
   if (state.stacks <= 0) {
     const { store, effect: { id } } = state;
@@ -25,7 +26,7 @@ export function runUseEffect(ctx, state, spec = {}) {
   const { store, effect } = state;
   const runOptions = { runtimeOffset, noDuration: true };
 
-  if ('useAction' in effect) {
+  if (effect.useAction) {
     state.isRunning = true;
     for (let i = 0; i < (effect.times ?? 1); i++) {
       for (const action of effect.useAction) {

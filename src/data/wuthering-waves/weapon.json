@@ -131,10 +131,16 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": [
-          "introSkill",
-          "resonanceLiberation"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceLiberation"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "heavyAttackDmgBonus%": [
             0.24,
@@ -159,7 +165,13 @@
     "effects": [
       {
         "useWhen": "before",
-        "useOnType": "resonanceSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          }
+        },
         "useCooldown": 12000,
         "useAction": {
           "healing": {
@@ -328,10 +340,18 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnDamageType": [
-          "basicAttack",
-          "heavyAttack"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "basicAttack",
+                  "heavyAttack"
+                ]
+              }
+            }
+          }
+        },
         "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
@@ -468,7 +488,13 @@
     "effects": [
       {
         "useWhen": "before",
-        "useOnType": "resonanceLiberation",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
         "useCooldown": 20000,
         "useAction": {
           "healing": {
@@ -510,7 +536,15 @@
     },
     "effects": [
       {
-        "useOnDamageType": "heavyAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          }
+        },
         "buffCooldown": 8000,
         "buffMap": {
           "heavyAttackDmgBonus%": [
@@ -521,7 +555,15 @@
       },
       {
         "useWhen": "hit",
-        "useOnDamageType": "heavyAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          }
+        },
         "useCooldown": 8000,
         "useAction": {
           "healing": {
@@ -792,7 +834,13 @@
     "effects": [
       {
         "useWhen": "before",
-        "useOnType": "dodgeCounter",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "dodgeCounter"
+            }
+          }
+        },
         "useCooldown": 6000,
         "useAction": {
           "healing": {
@@ -940,10 +988,16 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnType": [
-          "basicAttack",
-          "heavyAttack"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "heavyAttack"
+              ]
+            }
+          }
+        },
         "applyCooldown": 1000,
         "buffMap": {
           "resonanceSkillDmgBonus%": [
@@ -1096,7 +1150,15 @@
     "effects": [
       {
         "useWhen": "hit",
-        "useOnDamageType": "basicAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          }
+        },
         "useCooldown": 3000,
         "useAction": {
           "healing": {
@@ -1139,7 +1201,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnType": "dodgeCounter",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "dodgeCounter"
+            }
+          }
+        },
         "buffMap": {
           "atk%": [
             0.08,
@@ -1150,8 +1218,20 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": "dodgeCounter",
-        "useOnType": "dodgeCounter",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "dodgeCounter"
+            }
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "type": "dodgeCounter"
+            }
+          }
+        },
         "buffMap": {
           "dmgBonus%": [
             0.5,
@@ -1162,7 +1242,13 @@
       },
       {
         "useWhen": "hit",
-        "useOnType": "dodgeCounter",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "dodgeCounter"
+            }
+          }
+        },
         "useCooldown": 6000,
         "useAction": {
           "healing": {
@@ -1256,7 +1342,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
         "buffMap": {
           "atk%": [
             0.09,
@@ -1393,7 +1485,15 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDamageType": "basicAttack",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          }
+        },
         "applyCooldown": 500,
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -1427,7 +1527,15 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDamageType": "resonanceSkill",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "resonanceSkill"
+              }
+            }
+          }
+        },
         "buffMap": {
           "atk%": [
             0.12,
@@ -1438,7 +1546,11 @@
         "maxStacks": 2
       },
       {
-        "useIfField": "offField",
+        "use": {
+          "filter": {
+            "field": "offField"
+          }
+        },
         "buffMap": {
           "atk%": [
             0.12,
@@ -1461,7 +1573,13 @@
     "effects": [
       {
         "useWhen": "before",
-        "useOnType": "introSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          }
+        },
         "useCooldown": 20000,
         "useAction": {
           "healing": {
@@ -1605,10 +1723,18 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnDamageType": [
-          "basicAttack",
-          "heavyAttack"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "basicAttack",
+                  "heavyAttack"
+                ]
+              }
+            }
+          }
+        },
         "applyCooldown": 600,
         "buffMap": {
           "healingBonus%": [
@@ -1634,7 +1760,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
         "buffMap": {
           "atk%": [
             0.15,
@@ -1734,7 +1866,13 @@
       {
         "key": "searingFeather",
         "applyWhen": "hit",
-        "applyOnHas": "damage",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          }
+        },
         "applyCooldown": 500,
         "removeWhen": "maxStacks",
         "removeOffset": 12000,
@@ -1748,7 +1886,13 @@
       },
       {
         "useWhen": "before",
-        "useOnType": "resonanceSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          }
+        },
         "onUseDoApply": {
           "searingFeather": 5
         }
@@ -1776,7 +1920,13 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.48,
@@ -1785,7 +1935,13 @@
         },
         "maxDuration": 8000,
         "extendWhen": "before",
-        "extendOnType": "resonanceSkill",
+        "extend": {
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          }
+        },
         "extendDuration": 5000,
         "maxExtensions": 3
       }
@@ -1815,12 +1971,18 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
+            "and": [
+              {
+                "action": {
+                  "type": "resonanceSkill"
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
           }
         },
-        "applyIfField": "onField",
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.12,
@@ -1834,18 +1996,28 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "basicAttackDmgIncreased": 3
+                }
+              },
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              }
+            ]
           }
-        },
-        "applyIfEffectStacksMin": {
-          "basicAttackDmgIncreased": 3
         },
         "onApplyDoRemove": {
           "basicAttackDmgIncreased": 3
         },
-        "useIfField": "offField",
+        "use": {
+          "filter": {
+            "field": "offField"
+          }
+        },
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.52,
@@ -2064,10 +2236,20 @@
       {
         "key": "hiss",
         "applyWhen": "hit",
-        "applyOnHas": "damage",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          }
+        },
         "applyCooldown": 1000,
         "removeWhen": "before",
-        "removeIfField": "offField",
+        "remove": {
+          "filter": {
+            "field": "offField"
+          }
+        },
         "buffMap": {
           "atk%": [
             0.02,
@@ -2078,8 +2260,12 @@
         "maxStacks": 10
       },
       {
-        "useIfEffectStacksMin": {
-          "hiss": 10
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "hiss": 10
+            }
+          }
         },
         "buffMap": {
           "critRate%": [
@@ -2111,7 +2297,15 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDamageType": "basicAttack",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          }
+        },
         "applyCooldown": 1000,
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -2138,7 +2332,11 @@
         },
         "applyCooldown": 1000,
         "removeWhen": "before",
-        "removeIfField": "offField",
+        "remove": {
+          "filter": {
+            "field": "offField"
+          }
+        },
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.4,
@@ -2162,8 +2360,24 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfNegativeStatus": "any",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
+                }
+              }
+            ]
+          }
+        },
         "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
@@ -2189,8 +2403,24 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfNegativeStatus": "any",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
+                }
+              }
+            ]
+          }
+        },
         "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
@@ -2224,10 +2454,16 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": [
-          "introSkill",
-          "resonanceLiberation"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceLiberation"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.48,
@@ -2251,8 +2487,24 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfNegativeStatus": "any",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
+                }
+              }
+            ]
+          }
+        },
         "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
@@ -2286,10 +2538,16 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": [
-          "basicAttack",
-          "introSkill"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "introSkill"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "heavyAttackDmgBonus%": [
             0.48,
@@ -2313,8 +2571,24 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfNegativeStatus": "any",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
+                }
+              }
+            ]
+          }
+        },
         "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
@@ -2340,7 +2614,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
         "buffMap": {
           "healingBonus%": [
             0.16,
@@ -2364,8 +2644,24 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfNegativeStatus": "any",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
+                }
+              }
+            ]
+          }
+        },
         "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
@@ -2399,7 +2695,13 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.24,
@@ -2410,7 +2712,15 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDamageType": "basicAttack",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          }
+        },
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.24,
@@ -2434,9 +2744,23 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfNegativeStatus": {
-          "spectroFrazzle": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "spectroFrazzle"
+                  }
+                }
+              }
+            ]
+          }
         },
         "applyCooldown": 1000,
         "buffMap": {
@@ -2471,9 +2795,23 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfNegativeStatus": {
-          "spectroFrazzle": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "spectroFrazzle"
+                  }
+                }
+              }
+            ]
+          }
         },
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -2521,7 +2859,13 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnHas": "healing",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          }
+        },
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.1,
@@ -2551,7 +2895,11 @@
           }
         },
         "applyTo": "global",
-        "useIfField": "onField",
+        "use": {
+          "filter": {
+            "field": "onField"
+          }
+        },
         "buffMap": {
           "aeroDmgAmp%": [
             0.1,
@@ -2584,10 +2932,16 @@
       {
         "key": "gentleDreamReady",
         "applyWhen": "before",
-        "applyOnType": [
-          "introSkill",
-          "basicAttack"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "basicAttack"
+              ]
+            }
+          }
+        },
         "maxDuration": 10000
       },
       {
@@ -2595,22 +2949,36 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "type": "echoSkill"
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "gentleDreamReady"
+                }
+              },
+              {
+                "action": {
+                  "type": "echoSkill"
+                }
+              }
+            ]
           }
         },
-        "applyIfEffectStacksMin": {
-          "gentleDreamReady": 1
-        },
         "removeWhen": "before",
-        "removeIfField": "offField",
+        "remove": {
+          "filter": {
+            "field": "offField"
+          }
+        },
         "maxDuration": 10000,
         "maxStacks": 2
       },
       {
-        "useIfEffectStacksMin": {
-          "gentleDream": 1
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "has": "gentleDream"
+            }
+          }
         },
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -2620,8 +2988,12 @@
         }
       },
       {
-        "useIfEffectStacksMin": {
-          "gentleDream": 2
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "gentleDream": 2
+            }
+          }
         },
         "buffMap": {
           "havocResIgnore%": [
@@ -2653,7 +3025,15 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictStatus": "aeroErosion",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "aeroErosion"
+              }
+            }
+          }
+        },
         "buffMap": {
           "aeroDmgBonus%": [
             0.24,
@@ -2664,9 +3044,23 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfNegativeStatus": {
-          "aeroErosion": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "aeroErosion"
+                  }
+                }
+              }
+            ]
+          }
         },
         "applyTo": "global",
         "buffMap": {
@@ -2742,12 +3136,26 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": [
-          "introSkill",
-          "resonanceLiberation"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceLiberation"
+              ]
+            }
+          }
+        },
         "extendWhen": "hit",
-        "extendOnDamageType": "heavyAttack",
+        "extend":{
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          }
+        },
         "extendDuration": 4000,
         "onExtendDoApply": {
           "teamFusionDmgIncreased": 1
@@ -2796,10 +3204,16 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": [
-          "introSkill",
-          "basicAttack"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "basicAttack"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": [
             0.08,
@@ -2810,8 +3224,14 @@
       },
       {
         "applyTo": "global",
-        "useIfNegativeStatus": {
-          "aeroErosion": 1
+        "use": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "has": "aeroErosion"
+              }
+            }
+          }
         },
         "buffMap": {
           "dmgAmp%": [
@@ -2843,7 +3263,15 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDamageType": "echoSkill",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          }
+        },
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.32,
@@ -2883,10 +3311,16 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": [
-          "introSkill",
-          "resonanceSkill"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceSkill"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "heavyAttackDmgBonus%": [
             0.2,
@@ -2897,9 +3331,23 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnHas": "shield",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "shield"
+            }
+          }
+        },
         "applyCooldown": 500,
-        "useOnDamageType": "heavyAttack",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": [
             0.072,
@@ -2924,7 +3372,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
         "buffMap": {
           "atk%": [
             0.072,
@@ -2952,7 +3406,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
         "buffMap": {
           "atk%": [
             0.072,
@@ -2980,10 +3440,18 @@
     "effects": [
       {
         "applyWhen": "hit",
-        "applyOnDamageType": [
-          "basicAttack",
-          "heavyAttack"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "basicAttack",
+                  "heavyAttack"
+                ]
+              }
+            }
+          }
+        },
         "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
@@ -3021,10 +3489,16 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": [
-          "introSkill",
-          "resonanceLiberation"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceLiberation"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.2,
@@ -3036,9 +3510,23 @@
       {
         "key": "resonanceLiberationDmgIncreased",
         "applyWhen": "hit",
-        "applyOnHas": "shield",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "shield"
+            }
+          }
+        },
         "applyCooldown": 500,
-        "useOnDamageType": "resonanceLiberation",
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "resonanceLiberation"
+              }
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": [
             0.072,
@@ -3050,7 +3538,13 @@
       },
       {
         "useWhen": "before",
-        "useOnType": "introSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          }
+        },
         "onUseDoApply": {
           "resonanceLiberationDmgIncreased": 5
         }
@@ -3070,7 +3564,13 @@
     "effects": [
       {
         "applyWhen": "before",
-        "applyOnType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
         "buffMap": {
           "atk%": [
             0.072,
@@ -3141,10 +3641,16 @@
       {
         "key": "bambooCleaverReady",
         "applyWhen": "before",
-        "applyOnType": [
-          "introSkill",
-          "basicAttack"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "basicAttack"
+              ]
+            }
+          }
+        },
         "maxDuration": 10000
       },
       {
@@ -3152,16 +3658,26 @@
         "applyWhen": "before",
         "apply": {
           "filter": {
-            "action": {
-              "type": "echoSkill"
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "bambooCleaverReady"
+                }
+              },
+              {
+                "action": {
+                  "type": "echoSkill"
+                }
+              }
+            ]
           }
         },
-        "applyIfEffectStacksMin": {
-          "bambooCleaverReady": 1
-        },
         "removeWhen": "before",
-        "removeIfField": "offField",
+        "remove": {
+          "filter": {
+            "field": "offField"
+          }
+        },
         "buffMap": {
           "heavyAttackDmgBonus%": [
             0.3,
@@ -3213,7 +3729,15 @@
       {
         "key": "heavyAttackDmgIncreased",
         "applyWhen": "hit",
-        "applyOnDamageType": "echoSkill",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          }
+        },
         "buffMap": {
           "heavyAttackDmgAmp%": [
             0.24,
@@ -3225,7 +3749,15 @@
       {
         "key": "echoSkillDmgIncreased",
         "applyWhen": "hit",
-        "applyOnDamageType": "heavyAttack",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          }
+        },
         "buffMap": {
           "echoSkillDmgAmp%": [
             0.24,
@@ -3235,9 +3767,19 @@
         "maxDuration": 6000
       },
       {
-        "useIfEffectStacksMin": {
-          "heavyAttackDmgIncreased": 1,
-          "echoSkillDmgIncreased": 1
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": "heavyAttackDmgIncreased"
+                },
+                {
+                  "has": "echoSkillDmgIncreased"
+                }
+              ]
+            }
+          }
         },
         "buffMap": {
           "defIgnore%": [
@@ -3288,7 +3830,15 @@
       },
       {
         "useWhen": "inflict",
-        "useForInflictStatus": "any",
+        "use": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "*"
+              }
+            }
+          }
+        },
         "onUseDoApply": {
           "resonanceLiberationDmgIncreased": 1
         }
@@ -3296,9 +3846,21 @@
       {
         "applyBy": "$team",
         "applyWhen": "inflict",
-        "applyForInflictStatus": "any",
-        "applyIfEffectStacksMin": {
-          "resonanceLiberationDmgIncreased": 3
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "resonanceLiberationDmgIncreased": 3
+                }
+              },
+              {
+                "action": {
+                  "has": "inflictStatus"
+                }
+              }
+            ]
+          }
         },
         "applyTo": "applier",
         "buffMap": {
@@ -3332,8 +3894,24 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfInterfered": "tuneStrain",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "tune": {
+                    "interfered": "tuneStrain"
+                  }
+                }
+              }
+            ]
+          }
+        },
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.24,
@@ -3365,7 +3943,13 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnHas": "healing",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          }
+        },
         "applyTo": "$team",
         "buffMap": {
           "critDmg%": [
@@ -3398,8 +3982,24 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfInterfered": "tuneStrain",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "tune": {
+                    "interfered": "tuneStrain"
+                  }
+                }
+              }
+            ]
+          }
+        },
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.24,
@@ -3465,11 +4065,19 @@
         "apply": {
           "filter": {
             "action": {
-              "type": "introSkill"
+              "or": [
+                {
+                  "type": "introSkill"
+                },
+                {
+                  "damage": {
+                    "type": "basicAttack"
+                  }
+                }
+              ]
             }
           }
         },
-        "applyOnDamageType": "basicAttack",
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.36,
@@ -3483,14 +4091,20 @@
         "apply": {
           "filter": {
             "action": {
-              "type": "basicAttack"
+              "and": [
+                {
+                  "inflictShifting": [
+                    "tuneRupture",
+                    "tuneStrain"
+                  ]
+                },
+                {
+                  "type": "basicAttack"
+                }
+              ]
             }
           }
         },
-        "applyForInflictShifting": [
-          "tuneRupture",
-          "tuneStrain"
-        ],
         "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": [
@@ -3524,8 +4138,24 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnHas": "damage",
-        "applyIfInterfered": "tuneStrain",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "tune": {
+                    "interfered": "tuneStrain"
+                  }
+                }
+              }
+            ]
+          }
+        },
         "applyCooldown": 500,
         "buffMap": {
           "basicAttackDmgBonus%": [
@@ -3594,9 +4224,31 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictShifting": "tuneRupture",
-        "applyForInflictStatus": "fusionBurst",
-        "useOnDamageType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "inflictShifting": "tuneRupture"
+                },
+                {
+                  "inflictStatus": {
+                    "has": "fusionBurst"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "resonanceLiberation"
+              }
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": [
             0.32,
@@ -3632,7 +4284,15 @@
       },
       {
         "applyWhen": "hit",
-        "applyOnDamageType": "basicAttack",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          }
+        },
         "buffMap": {
           "spectroDmgBonus%": [
             0.2,
@@ -3643,8 +4303,22 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictShifting": "tuneStrain",
-        "useOnDamageType": "basicAttack",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictShifting": "tuneStrain"
+            }
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          }
+        },
         "buffMap": {
           "basicAttackDmgAmp%": [
             0.2,
@@ -3680,10 +4354,16 @@
       },
       {
         "applyWhen": "before",
-        "applyOnType": [
-          "introSkill",
-          "echoSkill"
-        ],
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "echoSkill"
+              ]
+            }
+          }
+        },
         "buffMap": {
           "echoSkillDmgAmp%": [
             0.32,
@@ -3694,8 +4374,24 @@
       },
       {
         "applyWhen": "before",
-        "applyOnDamageType": "echoSkill",
-        "useOnElement": "aero",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "aero"
+              }
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": [
             0.1,
@@ -3727,7 +4423,15 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictStatus": "glacioChafe",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "glacioChafe"
+              }
+            }
+          }
+        },
         "buffMap": {
           "glacioDmgAmp%": [
             0.28,
@@ -3738,8 +4442,24 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictStatus": "glacioChafe",
-        "useOnDamageType": "resonanceLiberation",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "glacioChafe"
+              }
+            }
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "resonanceLiberation"
+              }
+            }
+          }
+        },
         "buffMap": {
           "defIgnore%": [
             0.1,
@@ -3750,7 +4470,11 @@
       },
       {
         "applyWhen": "before",
-        "applyIfField": "onField",
+        "apply": {
+          "filter": {
+            "field": "onField"
+          }
+        },
         "applyCooldown": 100,
         "applyTo": "global",
         "buffMap": {
@@ -3785,8 +4509,22 @@
       {
         "key": "resonanceLiberationDmgIncreased",
         "applyWhen": "inflict",
-        "applyForInflictStatus": "fusionBurst",
-        "applyForInflictShifting": "tuneStrain",
+        "apply": {
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "inflictStatus": {
+                    "has": "fusionBurst"
+                  }
+                },
+                {
+                  "inflictShifting": "tuneStrain"
+                }
+              ]
+            }
+          }
+        },
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.36,
@@ -3798,10 +4536,30 @@
       {
         "applyBy": "$team",
         "applyWhen": "inflict",
-        "applyForInflictStatus": "fusionBurst",
-        "applyForInflictShifting": "tuneStrain",
-        "applyIfEffectStacksMin": {
-          "resonanceLiberationDmgIncreased": 1
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "resonanceLiberationDmgIncreased"
+                }
+              },
+              {
+                "action": {
+                  "or": [
+                    {
+                      "inflictStatus": {
+                        "has": "fusionBurst"
+                      }
+                    },
+                    {
+                      "inflictShifting": "tuneStrain"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         },
         "applyTo": "applier",
         "buffMap": {
@@ -3853,8 +4611,22 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictShifting": "hack",
-        "useOnDamageType": "heavyAttack",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictShifting": "hack"
+            }
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          }
+        },
         "buffMap": {
           "heavyAttackDmgAmp%": [
             0.3,
@@ -3907,7 +4679,13 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictShifting": "hack",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictShifting": "hack"
+            }
+          }
+        },
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.12,
@@ -3918,7 +4696,13 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictShifting": "hack",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictShifting": "hack"
+            }
+          }
+        },
         "applyTo": "$team",
         "buffMap": {
           "atk%": [
@@ -3951,7 +4735,15 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictStatus": "glacioChafe",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "glacioChafe"
+              }
+            }
+          }
+        },
         "buffMap": {
           "glacioDmgBonus%": [
             0.3,
@@ -3962,7 +4754,15 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictStatus": "glacioChafe",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "glacioChafe"
+              }
+            }
+          }
+        },
         "applyTo": "$team",
         "buffMap": {
           "atk%": [
@@ -3995,8 +4795,24 @@
       },
       {
         "applyWhen": "inflict",
-        "applyForInflictStatus": "havocBane",
-        "useOnDamageType": "heavyAttack",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "havocBane"
+              }
+            }
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          }
+        },
         "buffMap": {
           "heavyAttackDmgAmp%": [
             0.36,
@@ -4033,17 +4849,37 @@
       {
         "key": "snowTaint",
         "applyWhen": "inflict",
-        "applyForInflictStatus": "glacioChafe",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "glacioChafe"
+              }
+            }
+          }
+        },
         "maxDuration": 6000
       },
       {
         "key": "ripples",
         "applyWhen": "hit",
-        "applyOnHas": "healing",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          }
+        },
         "maxDuration": 6000
       },
       {
-        "useOnType": "outroSkill",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
         "onUseDoApply": {
           "snowTaint": 1,
           "ripples": 1
@@ -4051,9 +4887,19 @@
       },
       {
         "applyTo": "$team",
-        "useIfEffectStacksMin": {
-          "snowTaint": 1,
-          "ripples": 1
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": "snowTaint"
+                },
+                {
+                  "has": "ripples"
+                }
+              ]
+            }
+          }
         },
         "buffMap": {
           "atk%": [

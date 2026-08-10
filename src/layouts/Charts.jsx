@@ -73,6 +73,8 @@ const Charts = ({ team }) => {
   const color = useElementColors({ char: '$curr' });
   const handleTabs = (_, value) => setTab(value);
 
+  if(results.errorLog) console.log(results.errorLog);
+
   if (!results.userSummary) return (
     <LoadingBar
       status={results.status}
