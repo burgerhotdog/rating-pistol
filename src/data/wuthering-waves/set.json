@@ -1234,6 +1234,7 @@
           "maxDuration": 15000
         },
         {
+          "key": "critRateIncreased",
           "applyWhen": "hit",
           "apply": {
             "filter": {
@@ -1260,19 +1261,34 @@
             "critRate%": 0.25
           },
           "maxDuration": 6000,
-          "extendWhen": "hit",
-          "extend": {
+          "maxExtensions": 6
+        },
+        {
+          "useWhen": "hit",
+          "use": {
             "filter": {
-              "action": {
-                "damage": {
-                  "type": "resonanceLiberation"
+              "and": [
+                {
+                  "effectStacks": {
+                    "has": "critRateIncreased"
+                  }
+                },
+                {
+                  "action": {
+                    "damage": {
+                      "type": "resonanceLiberation"
+                    }
+                  }
                 }
-              }
+              ]
             }
           },
-          "extendCooldown": 500,
-          "extendDuration": 4000,
-          "maxExtensions": 6
+          "useCooldown": 500,
+          "onUseDoApply": {
+            "critRateIncreased": 1
+          },
+          "doApplyType": "extend",
+          "doApplyDuration": 4000
         },
         {
           "applyWhen": "before",

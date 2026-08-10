@@ -2,13 +2,11 @@ import { WW } from '@/data';
 import { toMergedObj } from '@/utils';
 import {
   onRemoveDoCommand,
-  onExtendDoCommand,
   onUseDoCommand,
   onApplyDoCommand,
 } from './commands';
 import {
   runRemoveEffect,
-  runExtendEffect,
   runUseEffect,
   runApplyEffect,
   advanceEffects,
@@ -39,22 +37,6 @@ function handleRemoveWhen(ctx, action, when) {
     if (!shouldRemove) continue;
     onRemoveDoCommand(ctx, effect);
     runRemoveEffect(state);
-  }
-}
-
-function handleExtendWhen(ctx, action, when) {
-  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
-    const { effect } = state;
-
-    const shouldExtend =
-      effect.extendWhen === when &&
-      !state.extendCooldown &&
-      ctx.eventFilter(effect.extend?.filter, action, effect);
-      state.extensionsLeft;
-
-    if (!shouldExtend) continue;
-    onExtendDoCommand(ctx, effect);
-    runExtendEffect(state);
   }
 }
 
@@ -138,7 +120,6 @@ function runAction(ctx, action, options = {}) {
 
   function runEffectsWhen(when) {
     handleRemoveWhen(ctx, action, when);
-    handleExtendWhen(ctx, action, when);
     handleUseWhen(ctx, action, when);
     handleApplyWhen(ctx, action, when);
   }

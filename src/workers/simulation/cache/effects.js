@@ -312,10 +312,6 @@ export const normalizeEffects = (gameId, member, spec) => {
       traverseFilter(effect.remove.filter, sourceId);
     }
 
-    if (effect.extend?.filter) {
-      traverseFilter(effect.extend.filter, sourceId);
-    }
-
     if (effect.use?.filter) {
       traverseFilter(effect.use.filter, sourceId);
     }

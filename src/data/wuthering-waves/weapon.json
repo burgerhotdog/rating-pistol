@@ -1919,6 +1919,7 @@
         }
       },
       {
+        "key": "adVeritatem",
         "applyWhen": "before",
         "apply": {
           "filter": {
@@ -1934,16 +1935,22 @@
           ]
         },
         "maxDuration": 8000,
-        "extendWhen": "before",
-        "extend": {
+        "maxExtensions": 3
+      },
+      {
+        "useWhen": "before",
+        "use": {
           "filter": {
             "action": {
               "type": "resonanceSkill"
             }
           }
         },
-        "extendDuration": 5000,
-        "maxExtensions": 3
+        "onUseDoApply": {
+          "adVeritatem": 1
+        },
+        "doApplyType": "extend",
+        "doApplyDuration": 5000
       }
     ]
   },
@@ -3135,6 +3142,7 @@
         }
       },
       {
+        "key": "resonanceLiberationDmgIncreased",
         "applyWhen": "before",
         "apply": {
           "filter": {
@@ -3146,20 +3154,6 @@
             }
           }
         },
-        "extendWhen": "hit",
-        "extend":{
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "heavyAttack"
-              }
-            }
-          }
-        },
-        "extendDuration": 4000,
-        "onExtendDoApply": {
-          "teamFusionDmgIncreased": 1
-        },
         "buffMap": {
           "resonanceLiberationDmgBonus%": [
             0.24,
@@ -3170,9 +3164,31 @@
         "maxExtensions": 1
       },
       {
-        "key": "teamFusionDmgIncreased",
-        "applyWhen": "command",
+        "applyWhen": "hit",
+        "apply":{
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "resonanceLiberationDmgIncreased"
+                }
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": "heavyAttack"
+                  }
+                }
+              }
+            ]
+          }
+        },
         "applyTo": "$team",
+        "onApplyDoApply": {
+          "resonanceLiberationDmgIncreased": 1
+        },
+        "doApplyType": "extend",
+        "doApplyDuration": 4000,
         "buffMap": {
           "fusionDmgBonus%": [
             0.24,

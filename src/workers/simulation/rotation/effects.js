@@ -12,15 +12,6 @@ export function runRemoveEffect(state, stacks) {
   }
 }
 
-export function runExtendEffect(state) {
-  if (!state) return;
-  const { effect } = state;
-
-  state.timeLeft += effect.extendDuration;
-  state.extendCooldown = effect.extendCooldown;
-  state.extensionsLeft--;
-}
-
 export function runUseEffect(ctx, state, spec = {}) {
   const { runtimeOffset } = spec;
   const { store, effect } = state;
@@ -46,6 +37,9 @@ export function runUseEffect(ctx, state, spec = {}) {
 export function runApplyEffect(ctx, effect, spec = {}) {
   const { applyCooldowns, memberEffects, globalEffects } = ctx.states;
   const { id, maxStacks = 1 } = effect;
+  const isExt = spec.type === 'extend';
+  const isDurationExt = isExt && spec.duration;
+  const isUsesExt = isExt && spec.uses;
 
   function updateState(store) {
     const prevState = store[id] ?? {};
@@ -53,20 +47,32 @@ export function runApplyEffect(ctx, effect, spec = {}) {
 
     const nextStacks = prevStacks + (spec.stacks ?? 1);
 
+    if (isExt && !prevState.extensionsLeft) return;
+
     store[id] = {
       store,
       effect,
       stacks: Math.min(nextStacks, maxStacks),
       ...(effect.maxDuration &&
-        { timeLeft: effect.maxDuration }),
+        { timeLeft: isDurationExt
+          ? prevState.timeLeft + spec.duration
+          : effect.maxDuration }),
       ...(effect.maxUses &&
-        { usesLeft: effect.maxUses }),
+        { usesLeft: isUsesExt
+          ? prevState.usesLeft + spec.uses
+          : effect.maxUses }),
       ...(effect.maxExtensions &&
-        { extensionsLeft: effect.maxExtensions }),
+        { extensionsLeft: isExt
+          ? prevState.extensionsLeft - 1
+          : effect.maxExtensions }),
       ...(effect.applyOffset &&
-        { useCooldown: effect.applyOffset }),
+        { useCooldown: isExt
+          ? prevState.useCooldown
+          : effect.applyOffset }),
       ...(effect.rampingInterval &&
-        { rampingTimer: effect.rampingOffset ?? 0 }),
+        { rampingTimer: isExt
+          ? prevState.rampingTimer
+          : effect.rampingOffset ?? 0 }),
     };
 
     if ( // If effect should be removed when reaching max stacks
@@ -112,11 +118,6 @@ function advanceEffectState(ctx, state, elapsed) {
   if ('buffCooldown' in state) {
     state.buffCooldown -= elapsed;
     if (state.buffCooldown <= 0) delete state.buffCooldown;
-  }
-
-  if ('extendCooldown' in state) {
-    state.extendCooldown -= elapsed;
-    if (state.extendCooldown <= 0) delete state.extendCooldown;
   }
 
   if ('rampingTimer' in state) {
