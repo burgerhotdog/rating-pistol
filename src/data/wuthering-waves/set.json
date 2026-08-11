@@ -3,1510 +3,1766 @@
     "name": "Freezing Frost",
     "version": 1,
     "id": "1",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "glacioDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "glacioDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "basicAttack",
-                  "heavyAttack"
-                ]
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "heavyAttack"
+              ]
             }
-          },
-          "buffMap": {
-            "glacioDmgBonus%": 0.1
-          },
-          "maxDuration": 15000,
-          "maxStacks": 3
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "glacioDmgBonus%": 0.1
+        },
+        "maxDuration": 15000,
+        "maxStacks": 3
+      }
+    ]
   },
   "2": {
     "name": "Molten Rift",
     "version": 1,
     "id": "2",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "fusionDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "fusionDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "resonanceSkill"
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
             }
-          },
-          "buffMap": {
-            "fusionDmgBonus%": 0.3
-          },
-          "maxDuration": 15000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "fusionDmgBonus%": 0.3
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "3": {
     "name": "Void Thunder",
     "version": 1,
     "id": "3",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "electroDmgBonus%": 0.1
-          }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "heavyAttack"
-              }
-            }
-          },
-          "buffMap": {
-            "electroDmgBonus%": 0.15
-          },
-          "maxDuration": 15000
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "resonanceSkill"
-              }
-            }
-          },
-          "buffMap": {
-            "electroDmgBonus%": 0.15
-          },
-          "maxDuration": 15000
+        "buffMap": {
+          "electroDmgBonus%": 0.1
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "heavyAttack"
+            }
+          }
+        },
+        "buffMap": {
+          "electroDmgBonus%": 0.15
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          }
+        },
+        "buffMap": {
+          "electroDmgBonus%": 0.15
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "4": {
     "name": "Sierra Gale",
     "version": 1,
     "id": "4",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "aeroDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "aeroDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "introSkill"
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "introSkill"
             }
-          },
-          "buffMap": {
-            "aeroDmgBonus%": 0.3
-          },
-          "maxDuration": 15000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "aeroDmgBonus%": 0.3
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "5": {
     "name": "Celestial Light",
     "version": 1,
     "id": "5",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "spectroDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "spectroDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "introSkill"
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "introSkill"
             }
-          },
-          "buffMap": {
-            "spectroDmgBonus%": 0.3
-          },
-          "maxDuration": 15000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "spectroDmgBonus%": 0.3
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "6": {
     "name": "Havoc Eclipse",
     "version": 1,
     "id": "6",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "havocDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "havocDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "basicAttack",
-                  "heavyAttack"
-                ]
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "heavyAttack"
+              ]
             }
-          },
-          "buffMap": {
-            "havocDmgBonus%": 0.075
-          },
-          "maxDuration": 15000,
-          "maxStacks": 4
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "havocDmgBonus%": 0.075
+        },
+        "maxDuration": 15000,
+        "maxStacks": 4
+      }
+    ]
   },
   "7": {
     "name": "Rejuvenating Glow",
     "version": 1,
     "id": "7",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "healingBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "healingBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "has": "healing"
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "healing"
             }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "atk%": 0.15
-          },
-          "maxDuration": 30000
-        }
-      ]
-    }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "atk%": 0.15
+        },
+        "maxDuration": 30000
+      }
+    ]
   },
   "8": {
     "name": "Moonlit Clouds",
     "version": 1,
     "id": "8",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "energyRegen%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "energyRegen%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "outroSkill"
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
             }
-          },
-          "applyTo": "$next",
-          "buffMap": {
-            "atk%": 0.225
-          },
-          "maxDuration": 15000
-        }
-      ]
-    }
+          }
+        },
+        "applyTo": "$next",
+        "buffMap": {
+          "atk%": 0.225
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "9": {
     "name": "Lingering Tunes",
     "version": 1,
     "id": "9",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "atk%": 0.1
-          }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "field": "onField"
-            }
-          },
-          "applyCooldown": 1500,
-          "removeWhen": "before",
-          "remove": {
-            "filter": {
-              "field": "offField"
-            }
-          },
-          "buffMap": {
-            "atk%": 0.05
-          },
-          "maxStacks": 4
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "use": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "outroSkill"
-                }
+        "buffMap": {
+          "atk%": 0.1
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "field": "onField"
+          }
+        },
+        "applyCooldown": 1500,
+        "removeWhen": "before",
+        "remove": {
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buffMap": {
+          "atk%": 0.05
+        },
+        "maxStacks": 4
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "outroSkill"
               }
             }
-          },
-          "buffMap": {
-            "dmgBonus%": 0.6
           }
+        },
+        "buffMap": {
+          "dmgBonus%": 0.6
         }
-      ]
-    }
+      }
+    ]
   },
   "10": {
     "name": "Frosty Resolve",
     "version": 2,
     "id": "10",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "resonanceSkillDmgBonus%": 0.12
-          }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "resonanceSkill"
-              }
-            }
-          },
-          "buffMap": {
-            "glacioDmgBonus%": 0.225
-          },
-          "maxDuration": 15000,
-          "maxStacks": 2
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "resonanceLiberation"
-              }
-            }
-          },
-          "buffMap": {
-            "resonanceSkillDmgBonus%": 0.18
-          },
-          "maxDuration": 5000,
-          "maxStacks": 2
+        "buffMap": {
+          "resonanceSkillDmgBonus%": 0.12
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          }
+        },
+        "buffMap": {
+          "glacioDmgBonus%": 0.225
+        },
+        "maxDuration": 15000,
+        "maxStacks": 2
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
+        "buffMap": {
+          "resonanceSkillDmgBonus%": 0.18
+        },
+        "maxDuration": 5000,
+        "maxStacks": 2
+      }
+    ]
   },
   "11": {
     "name": "Eternal Radiance",
     "version": 2,
     "id": "11",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "spectroDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "spectroDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictStatus": {
-                  "has": "spectroFrazzle"
-                }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "spectroFrazzle"
               }
             }
-          },
-          "buffMap": {
-            "critRate%": 0.2
-          },
-          "maxDuration": 15000
+          }
         },
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "and": [
-                {
-                  "action": {
-                    "has": "damage"
-                  }
-                },
-                {
-                  "states": {
-                    "negativeStatuses": {
-                      "spectroFrazzle": {
-                        "stacks": {
-                          ">=": 10
-                        }
+        "buffMap": {
+          "critRate%": 0.2
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "spectroFrazzle": {
+                      "stacks": {
+                        ">=": 10
                       }
                     }
                   }
                 }
-              ]
-            }
-          },
-          "buffMap": {
-            "spectroDmgBonus%": 0.15
-          },
-          "maxDuration": 15000
-        }
-      ]
-    }
+              }
+            ]
+          }
+        },
+        "buffMap": {
+          "spectroDmgBonus%": 0.15
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "12": {
     "name": "Midnight Veil",
     "version": 2,
     "id": "12",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "havocDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "havocDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "useWhen": "before",
-          "use": {
-            "filter": {
-              "action": {
-                "type": "outroSkill"
-              }
-            }
-          },
-          "useAction": {
-            "damage": {
-              "type": "outroSkill",
-              "element": "havoc",
-              "multipliers": [
-                {
-                  "mv": 4.8
-                }
-              ]
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "useWhen": "before",
+        "use": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
             }
           }
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "outroSkill"
+        "useAction": {
+          "damage": {
+            "type": "outroSkill",
+            "element": "havoc",
+            "multipliers": [
+              {
+                "mv": 4.8
               }
-            }
-          },
-          "applyTo": "$next",
-          "buffMap": {
-            "havocDmgBonus%": 0.15
-          },
-          "maxDuration": 15000
+            ]
+          }
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
+        "applyTo": "$next",
+        "buffMap": {
+          "havocDmgBonus%": 0.15
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "13": {
     "name": "Empyrean Anthem",
     "version": 2,
     "id": "13",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "energyRegen%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "energyRegen%": 0.1
         }
-      ],
-      "5": [
-        {
-          "use": {
-            "filter": {
-              "action": {
-                "type": "coordinatedAttack"
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "type": "coordinatedAttack"
             }
-          },
-          "buffMap": {
-            "dmgBonus%": 0.8
           }
         },
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "coordinatedAttack"
-              }
-            }
-          },
-          "applyTo": "global",
-          "use": {
-            "filter": {
-              "field": "onField"
-            }
-          },
-          "buffMap": {
-            "atk%": 0.2
-          },
-          "maxDuration": 4000
+        "buffMap": {
+          "dmgBonus%": 0.8
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "coordinatedAttack"
+            }
+          }
+        },
+        "applyTo": "global",
+        "use": {
+          "filter": {
+            "field": "onField"
+          }
+        },
+        "buffMap": {
+          "atk%": 0.2
+        },
+        "maxDuration": 4000
+      }
+    ]
   },
   "14": {
     "name": "Tidebreaking Courage",
     "version": 2,
     "id": "14",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "energyRegen%": 0.1
-          }
-        }
-      ],
-      "5": [
-        {
-          "buffMap": {
-            "atk%": 0.15
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "use": {
-            "filter": {
-              "attrMap": {
-                "energyRegen": {
-                  ">=": 2.5
-                }
+        "buffMap": {
+          "energyRegen%": 0.1
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "buffMap": {
+          "atk%": 0.15
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "use": {
+          "filter": {
+            "attrMap": {
+              "energyRegen": {
+                ">=": 2.5
               }
             }
-          },
-          "buffMap": {
-            "dmgBonus%": 0.3
           }
+        },
+        "buffMap": {
+          "dmgBonus%": 0.3
         }
-      ]
-    }
+      }
+    ]
   },
   "16": {
     "name": "Gusts of Welkin",
     "version": 2.2,
     "id": "16",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "aeroDmgBonus%": 0.1
-          }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictStatus": {
-                  "has": "aeroErosion"
-                }
-              }
-            }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "aeroDmgBonus%": 0.15
-          },
-          "maxDuration": 20000
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictStatus": {
-                  "has": "aeroErosion"
-                }
+        "buffMap": {
+          "aeroDmgBonus%": 0.1
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "aeroErosion"
               }
             }
-          },
-          "buffMap": {
-            "aeroDmgBonus%": 0.15
-          },
-          "maxDuration": 20000
-        }
-      ]
-    }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "aeroDmgBonus%": 0.15
+        },
+        "maxDuration": 20000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "aeroErosion"
+              }
+            }
+          }
+        },
+        "buffMap": {
+          "aeroDmgBonus%": 0.15
+        },
+        "maxDuration": 20000
+      }
+    ]
   },
   "17": {
     "name": "Windward Pilgrimage",
     "version": 2.4,
     "id": "17",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "aeroDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "aeroDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "and": [
-                {
-                  "action": {
-                    "has": "damage"
-                  }
-                },
-                {
-                  "states": {
-                    "negativeStatuses": {
-                      "has": "aeroErosion"
-                    }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "aeroErosion"
                   }
                 }
-              ]
-            }
-          },
-          "buffMap": {
-            "critRate%": 0.1,
-            "aeroDmgBonus%": 0.3
-          },
-          "maxDuration": 10000
-        }
-      ]
-    }
+              }
+            ]
+          }
+        },
+        "buffMap": {
+          "critRate%": 0.1,
+          "aeroDmgBonus%": 0.3
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "18": {
     "name": "Flaming Clawprint",
     "version": 2.4,
     "id": "18",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "fusionDmgBonus%": 0.1
-          }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "resonanceLiberation"
-              }
-            }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "fusionDmgBonus%": 0.15
-          },
-          "maxDuration": 35000
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "resonanceLiberation"
-              }
-            }
-          },
-          "buffMap": {
-            "resonanceLiberationDmgBonus%": 0.2
-          },
-          "maxDuration": 35000
+        "buffMap": {
+          "fusionDmgBonus%": 0.1
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "fusionDmgBonus%": 0.15
+        },
+        "maxDuration": 35000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          }
+        },
+        "buffMap": {
+          "resonanceLiberationDmgBonus%": 0.2
+        },
+        "maxDuration": 35000
+      }
+    ]
   },
   "19": {
     "name": "Dream of the Lost",
     "version": 2.5,
     "id": "19",
-    "bonusEffects": {
-      "3": [
-        {
-          "enableIf": {
-            "character": {
-              "tagged": "noEnergy"
-            }
-          },
-          "buffMap": {
-            "critRate%": 0.2,
-            "echoSkillDmgBonus%": 0.35
+    "bonuses": [
+      3
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 3,
+          "character": {
+            "tagged": "noEnergy"
           }
+        },
+        "buffMap": {
+          "critRate%": 0.2,
+          "echoSkillDmgBonus%": 0.35
         }
-      ]
-    }
+      }
+    ]
   },
   "20": {
     "name": "Crown of Valor",
     "version": 2.6,
     "id": "20",
-    "bonusEffects": {
-      "3": [
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "has": "shield"
-              }
+    "bonuses": [
+      3
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 3
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "shield"
             }
-          },
-          "applyCooldown": 500,
-          "buffMap": {
-            "atk%": 0.06,
-            "critDmg%": 0.04
-          },
-          "maxDuration": 4000,
-          "maxStacks": 5
-        }
-      ]
-    }
+          }
+        },
+        "applyCooldown": 500,
+        "buffMap": {
+          "atk%": 0.06,
+          "critDmg%": 0.04
+        },
+        "maxDuration": 4000,
+        "maxStacks": 5
+      }
+    ]
   },
   "21": {
     "name": "Law of Harmony",
     "version": 2.6,
     "id": "21",
-    "bonusEffects": {
-      "3": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "echoSkill"
-              }
-            }
-          },
-          "buffMap": {
-            "heavyAttackDmgBonus%": 0.3
-          },
-          "maxDuration": 4000
+    "bonuses": [
+      3
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 3
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "echoSkill"
-              }
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "echoSkill"
             }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "echoSkillDmgBonus%": 0.04
-          },
-          "maxDuration": 30000,
-          "maxStacks": 4
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "heavyAttackDmgBonus%": 0.3
+        },
+        "maxDuration": 4000
+      },
+      {
+        "enableIf": {
+          "bonus": 3
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "echoSkill"
+            }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "echoSkillDmgBonus%": 0.04
+        },
+        "maxDuration": 30000,
+        "maxStacks": 4
+      }
+    ]
   },
   "22": {
     "name": "Flamewing's Shadow",
     "version": 2.7,
     "id": "22",
-    "bonusEffects": {
-      "3": [
-        {
-          "key": "heavyAttackCritRateIncreased",
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "echoSkill"
-                }
-              }
-            }
-          },
-          "use": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "heavyAttack"
-                }
-              }
-            }
-          },
-          "buffMap": {
-            "critRate%": 0.2
-          },
-          "maxDuration": 6000
+    "bonuses": [
+      3
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 3
         },
-        {
-          "key": "echoSkillCritRateIncreased",
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "heavyAttack"
-                }
+        "key": "heavyAttackCritRateIncreased",
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
               }
             }
-          },
-          "use": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "echoSkill"
-                }
-              }
-            }
-          },
-          "buffMap": {
-            "critRate%": 0.2
-          },
-          "maxDuration": 6000
-        },
-        {
-          "use": {
-            "filter": {
-              "effectStacks": {
-                "and": [
-                  {
-                    "has": "heavyAttackCritRateIncreased"
-                  },
-                  {
-                    "has": "echoSkillCritRateIncreased"
-                  }
-                ]
-              }
-            }
-          },
-          "buffMap": {
-            "fusionDmgBonus%": 0.16
           }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          }
+        },
+        "buffMap": {
+          "critRate%": 0.2
+        },
+        "maxDuration": 6000
+      },
+      {
+        "enableIf": {
+          "bonus": 3
+        },
+        "key": "echoSkillCritRateIncreased",
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          }
+        },
+        "buffMap": {
+          "critRate%": 0.2
+        },
+        "maxDuration": 6000
+      },
+      {
+        "enableIf": {
+          "bonus": 3
+        },
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": "heavyAttackCritRateIncreased"
+                },
+                {
+                  "has": "echoSkillCritRateIncreased"
+                }
+              ]
+            }
+          }
+        },
+        "buffMap": {
+          "fusionDmgBonus%": 0.16
         }
-      ]
-    }
+      }
+    ]
   },
   "23": {
     "name": "Thread of Severed Fate",
     "version": 2.8,
     "id": "23",
-    "bonusEffects": {
-      "3": [
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictStatus": {
-                  "has": "havocBane"
-                }
+    "bonuses": [
+      3
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 3
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "havocBane"
               }
             }
-          },
-          "buffMap": {
-            "atk%": 0.2,
-            "resonanceLiberationDmgBonus%": 0.3
-          },
-          "maxDuration": 5000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "atk%": 0.2,
+          "resonanceLiberationDmgBonus%": 0.3
+        },
+        "maxDuration": 5000
+      }
+    ]
   },
   "24": {
     "name": "Pact of Neonlight Leap",
     "version": 3,
     "id": "24",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "spectroDmgBonus%": 0.1
-          }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "outroSkill"
-              }
-            }
-          },
-          "applyTo": "$next",
-          "removeWhen": "before",
-          "remove": {
-            "filter": {
-              "field": "offField"
-            }
-          },
-          "buffMap": {
-            "atk%": 0.15
-          },
-          "maxDuration": 15000
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "outroSkill"
-              }
-            }
-          },
-          "applyTo": "$next",
-          "removeWhen": "before",
-          "remove": {
-            "filter": {
-              "field": "offField"
-            }
-          },
-          "buffSpec": {
-            "atk%": {
-              "attr": "tuneBreakBoost",
-              "step": 1,
-              "value": 0.003,
-              "maxValue": 0.15
-            }
-          },
-          "maxDuration": 15000
+        "buffMap": {
+          "spectroDmgBonus%": 0.1
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
+        "applyTo": "$next",
+        "removeWhen": "before",
+        "remove": {
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buffMap": {
+          "atk%": 0.15
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
+        "applyTo": "$next",
+        "removeWhen": "before",
+        "remove": {
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buffSpec": {
+          "atk%": {
+            "attr": "tuneBreakBoost",
+            "step": 1,
+            "value": 0.003,
+            "maxValue": 0.15
+          }
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "25": {
     "name": "Halo of Starry Radiance",
     "version": 3,
     "id": "25",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "healingBonus%": 0.1
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "healingBonus%": 0.1
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
           }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "has": "healing"
-              }
-            }
-          },
-          "applyTo": "$team",
-          "buffSpec": {
-            "atk%": {
-              "attr": "offTuneBuildupRate%",
-              "step": 0.01,
-              "value": 0.002,
-              "maxValue": 0.25
-            }
-          },
-          "maxDuration": 4000
-        }
-      ]
-    }
+        },
+        "applyTo": "$team",
+        "buffSpec": {
+          "atk%": {
+            "attr": "offTuneBuildupRate%",
+            "step": 0.01,
+            "value": 0.002,
+            "maxValue": 0.25
+          }
+        },
+        "maxDuration": 4000
+      }
+    ]
   },
   "26": {
     "name": "Rite of Gilded Revelation",
     "version": 3,
     "id": "26",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "spectroDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "spectroDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "key": "spectroDmgIncreased",
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "basicAttack"
-                }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "key": "spectroDmgIncreased",
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
               }
             }
-          },
-          "buffMap": {
-            "spectroDmgBonus%": 0.1
-          },
-          "maxDuration": 5000,
-          "maxStacks": 3
-        },
-        {
-          "use": {
-            "filter": {
-              "and": [
-                {
-                  "action": {
-                    "type": "resonanceLiberation"
-                  }
-                },
-                {
-                  "effectStacks": {
-                    "spectroDmgIncreased": 3
-                  }
-                }
-              ]
-            }
-          },
-          "buffMap": {
-            "basicAttackDmgBonus%": 0.4
           }
+        },
+        "buffMap": {
+          "spectroDmgBonus%": 0.1
+        },
+        "maxDuration": 5000,
+        "maxStacks": 3
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": "resonanceLiberation"
+                }
+              },
+              {
+                "effectStacks": {
+                  "spectroDmgIncreased": 3
+                }
+              }
+            ]
+          }
+        },
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.4
         }
-      ]
-    }
+      }
+    ]
   },
   "27": {
     "name": "Trailblazing Star",
     "version": 3.1,
     "id": "27",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "fusionDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "fusionDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "or": [
-                  {
-                    "inflictStatus": {
-                      "has": "fusionBurst"
-                    }
-                  },
-                  {
-                    "inflictShifting": "tuneRupture"
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "inflictStatus": {
+                    "has": "fusionBurst"
                   }
-                ]
-              }
+                },
+                {
+                  "inflictShifting": "tuneRupture"
+                }
+              ]
             }
-          },
-          "buffMap": {
-            "critRate%": 0.2,
-            "fusionDmgBonus%": 0.2
-          },
-          "maxDuration": 8000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "critRate%": 0.2,
+          "fusionDmgBonus%": 0.2
+        },
+        "maxDuration": 8000
+      }
+    ]
   },
   "28": {
     "name": "Chromatic Foam",
     "version": 3.1,
     "id": "28",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "fusionDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "fusionDmgBonus%": 0.1
         }
-      ],
-      "5": [
-        {
-          "key": "fusionDmgBonusGained",
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictStatus": {
-                  "has": "fusionBurst"
-                }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "key": "fusionDmgBonusGained",
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "fusionBurst"
               }
             }
-          },
-          "buffMap": {
-            "fusionDmgBonus%": 0.1
-          },
-          "maxDuration": 15000
+          }
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "and": [
-                {
-                  "effectStacks": {
-                    "has": "fusionDmgBonusGained"
-                  }
-                },
-                {
-                  "action": {
-                    "type": "outroSkill"
-                  }
+        "buffMap": {
+          "fusionDmgBonus%": 0.1
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "fusionDmgBonusGained"
                 }
-              ]
-            }
-          },
-          "applyTo": "$next",
-          "buffMap": {
-            "fusionDmgBonus%": 0.25
-          },
-          "maxDuration": 15000
-        }
-      ]
-    }
+              },
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              }
+            ]
+          }
+        },
+        "applyTo": "$next",
+        "buffMap": {
+          "fusionDmgBonus%": 0.25
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "29": {
     "name": "Sound of True Name",
     "version": 3.1,
     "id": "29",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "aeroDmgBonus%": 0.1
-          }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "echoSkill"
-                }
-              }
-            }
-          },
-          "use": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "echoSkill"
-                }
-              }
-            }
-          },
-          "buffMap": {
-            "critRate%": 0.2
-          },
-          "maxDuration": 5000
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "echoSkill"
-                }
+        "buffMap": {
+          "aeroDmgBonus%": 0.1
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
               }
             }
-          },
-          "buffMap": {
-            "aeroDmgBonus%": 0.15
-          },
-          "maxDuration": 5000
-        }
-      ]
-    }
+          }
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          }
+        },
+        "buffMap": {
+          "critRate%": 0.2
+        },
+        "maxDuration": 5000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          }
+        },
+        "buffMap": {
+          "aeroDmgBonus%": 0.15
+        },
+        "maxDuration": 5000
+      }
+    ]
   },
   "30": {
     "name": "Wishes of Quiet Snowfall",
     "version": 3.3,
     "id": "30",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "glacioDmgBonus%": 0.1
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "glacioDmgBonus%": 0.1
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "glacioChafe"
+              }
+            }
           }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictStatus": {
-                  "has": "glacioChafe"
-                }
+        },
+        "buffMap": {
+          "glacioDmgBonus%": 0.1
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "key": "snowfall",
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "glacioChafe"
               }
             }
-          },
-          "buffMap": {
-            "glacioDmgBonus%": 0.1
-          },
-          "maxDuration": 15000
+          }
         },
-        {
-          "key": "snowfall",
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictStatus": {
-                  "has": "glacioChafe"
+        "applyCooldown": 25000,
+        "maxDuration": 15000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "key": "critRateIncreased",
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "snowfall"
+                }
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": "resonanceLiberation"
+                  }
                 }
               }
-            }
-          },
-          "applyCooldown": 25000,
-          "maxDuration": 15000
+            ]
+          }
         },
-        {
-          "key": "critRateIncreased",
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "and": [
-                {
-                  "effectStacks": {
-                    "has": "snowfall"
-                  }
-                },
-                {
-                  "action": {
-                    "damage": {
-                      "type": "resonanceLiberation"
-                    }
+        "onApplyDoRemove": {
+          "snowfall": 1
+        },
+        "buffMap": {
+          "critRate%": 0.25
+        },
+        "maxDuration": 6000,
+        "maxExtensions": 6
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "useWhen": "hit",
+        "use": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "critRateIncreased"
+                }
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": "resonanceLiberation"
                   }
                 }
-              ]
-            }
-          },
-          "onApplyDoRemove": {
-            "snowfall": 1
-          },
-          "buffMap": {
-            "critRate%": 0.25
-          },
-          "maxDuration": 6000,
-          "maxExtensions": 6
+              }
+            ]
+          }
         },
-        {
-          "useWhen": "hit",
-          "use": {
-            "filter": {
-              "and": [
-                {
-                  "effectStacks": {
-                    "has": "critRateIncreased"
-                  }
-                },
-                {
-                  "action": {
-                    "damage": {
-                      "type": "resonanceLiberation"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "useCooldown": 500,
-          "onUseDoApply": {
-            "critRateIncreased": 1
-          },
-          "doApplyType": "extend",
-          "doApplyDuration": 4000
+        "useCooldown": 500,
+        "onUseDoApply": {
+          "critRateIncreased": 1
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "and": [
-                {
-                  "effectStacks": {
-                    "has": "snowfall"
-                  }
-                },
-                {
-                  "action": {
-                    "type": "outroSkill"
-                  }
+        "doApplyType": "extend",
+        "doApplyDuration": 4000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "snowfall"
                 }
-              ]
-            }
-          },
-          "onApplyDoRemove": {
-            "snowfall": 1
-          },
-          "applyTo": "$next",
-          "buffMap": {
-            "glacioDmgBonus%": 0.25
-          },
-          "maxDuration": 15000
-        }
-      ]
-    }
+              },
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              }
+            ]
+          }
+        },
+        "onApplyDoRemove": {
+          "snowfall": 1
+        },
+        "applyTo": "$next",
+        "buffMap": {
+          "glacioDmgBonus%": 0.25
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "31": {
     "name": "Reel of Spliced Memories",
     "version": 3.3,
     "id": "31",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "atk%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "atk%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictShifting": [
-                  "tuneRupture",
-                  "tuneStrain"
-                ]
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictShifting": [
+                "tuneRupture",
+                "tuneStrain"
+              ]
             }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "tuneBreakBoost": 20
-          },
-          "maxDuration": 30000
-        }
-      ]
-    }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "tuneBreakBoost": 20
+        },
+        "maxDuration": 30000
+      }
+    ]
   },
   "32": {
     "name": "Shadow of Shattered Dreams",
     "version": 3.4,
     "id": "32",
-    "bonusEffects": {
-      "1": [
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictShifting": "hack"
-              }
+    "bonuses": [
+      1
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 1
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictShifting": "hack"
             }
-          },
-          "buffMap": {
-            "basicAttackDmgBonus%": 0.35,
-            "heavyAttackDmgBonus%": 0.35
-          },
-          "maxDuration": 15000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.35,
+          "heavyAttackDmgBonus%": 0.35
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "33": {
     "name": "Song of Feathered Trace",
     "version": 3.5,
     "id": "33",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "energyRegen%": 0.1
-          }
-        }
-      ],
-      "5": [
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictStatus": {
-                  "has": "havocBane"
-                }
-              }
-            }
-          },
-          "buffMap": {
-            "critRate%": 0.2,
-            "heavyAttackDmgBonus%": 0.35
-          },
-          "maxDuration": 15000
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictStatus": {
-                  "has": "glacioChafe"
-                }
+        "buffMap": {
+          "energyRegen%": 0.1
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "havocBane"
               }
             }
-          },
-          "applyTo": "$team",
-          "buffSpec": {
-            "atk%": {
-              "attr": "energyRegen%",
-              "step": 0.01,
-              "value": 0.001,
-              "maxValue": 0.25
+          }
+        },
+        "buffMap": {
+          "critRate%": 0.2,
+          "heavyAttackDmgBonus%": 0.35
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictStatus": {
+                "has": "glacioChafe"
+              }
             }
-          },
-          "maxDuration": 10000
-        }
-      ]
-    }
+          }
+        },
+        "applyTo": "$team",
+        "buffSpec": {
+          "atk%": {
+            "attr": "energyRegen%",
+            "step": 0.01,
+            "value": 0.001,
+            "maxValue": 0.25
+          }
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "34": {
     "name": "Heart of Evil's Purge",
     "version": 3.5,
     "id": "34",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "aeroDmg%": 0.1
-          }
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "aeroDmg%": 0.1
         }
-      ],
-      "5": [
-        {
-          "applyWhen": "inflict",
-          "apply": {
-            "filter": {
-              "action": {
-                "inflictShifting": "tuneStrain"
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "applyWhen": "inflict",
+        "apply": {
+          "filter": {
+            "action": {
+              "inflictShifting": "tuneStrain"
             }
-          },
-          "buffMap": {
-            "critDmg%": 0.2,
-            "aeroDmgBonus%": 0.3
-          },
-          "maxDuration": 15000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "critDmg%": 0.2,
+          "aeroDmgBonus%": 0.3
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "35": {
     "name": "Lamp of Nether Road",
     "version": 3.5,
     "id": "35",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "hp%": 0.1
-          }
-        }
-      ],
-      "5": [
-        {
-          "key": "critRateIncreased",
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "has": "shield"
-              }
-            }
-          },
-          "applyCooldown": 500,
-          "buffMap": {
-            "critRate%": 0.05
-          },
-          "maxDuration": 5000,
-          "maxStacks": 4
+    "bonuses": [
+      2,
+      5
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "use": {
-            "filter": {
-              "effectStacks": {
-                "critRateIncreased": 4
-              }
-            }
-          },
-          "buffMap": {
-            "fusionDmgBonus%": 0.15
-          }
+        "buffMap": {
+          "hp%": 0.1
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "key": "critRateIncreased",
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "shield"
+            }
+          }
+        },
+        "applyCooldown": 500,
+        "buffMap": {
+          "critRate%": 0.05
+        },
+        "maxDuration": 5000,
+        "maxStacks": 4
+      },
+      {
+        "enableIf": {
+          "bonus": 5
+        },
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "critRateIncreased": 4
+            }
+          }
+        },
+        "buffMap": {
+          "fusionDmgBonus%": 0.15
+        }
+      }
+    ]
   }
 }

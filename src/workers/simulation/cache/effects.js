@@ -182,12 +182,10 @@ export const normalizeEffects = (gameId, member, spec) => {
       id: weaponId,
       rawEffects: ctx.weapon.effects,
     },
-    ...Object.entries(setCounts).map(([setId, count]) => ({
+    ...Object.keys(setCounts).map((setId) => ({
       sourceType: 'set',
       id: setId,
-      rawEffects: Object.entries(SET[gameId][setId].bonusEffects)
-        .filter(([tier]) => Number(tier) <= count)
-        .flatMap(([, effects]) => effects),
+      rawEffects: SET[gameId][setId].effects,
     })),
   ];
 
@@ -208,7 +206,7 @@ export const normalizeEffects = (gameId, member, spec) => {
     ) continue;
 
     for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabled(rawEffect)) continue;
+      if (!isEnabled(rawEffect, id)) continue;
 
       const effect = toNormalizedEffect(rawEffect, {
         gameId,

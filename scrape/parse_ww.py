@@ -265,8 +265,6 @@ def parse_ww(type, version, id, data):
                 'name': str(data['name']['en']),
                 'version': float(version),
                 'id': str(id),
-                'bonusEffects': {
-                    str(num): []
-                    for num in data.get('set', {})
-                },
+                'bonuses': [num for num in data.get('set', {})],
+                'effects': [],
             }

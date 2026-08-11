@@ -163,9 +163,7 @@ export const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapa
     const tiers = new Set();
     for (const setId in SET[gameId]) {
       const set = SET[gameId][setId];
-      for (const tier in set.bonusEffects) {
-        tiers.add(Number(tier));
-      }
+      for (const tier of set.bonuses) tiers.add(tier);
     }
     return [...tiers].sort((a, b) => b - a);
   }, [gameId]);
@@ -180,10 +178,10 @@ export const SetSelectDialog = ({ gameId, open, onClose, onSelect, remainingCapa
   const entries = useMemo(() => {
     return Object.values(SET[gameId])
       .filter((setData) => {
-        const bonusKeys = Object.keys(setData?.bonusEffects ?? {}).map(Number);
+        const { bonuses } = setData;
         const hasMatchingTier = tierFilter
-          ? bonusKeys.includes(tierFilter) && enabledTiers.has(tierFilter)
-          : bonusKeys.some((k) => enabledTiers.has(k));
+          ? bonuses.includes(tierFilter) && enabledTiers.has(tierFilter)
+          : bonuses.some((k) => enabledTiers.has(k));
         return hasMatchingTier;
       })
       .sort((a, b) => a.name.localeCompare(b.name));

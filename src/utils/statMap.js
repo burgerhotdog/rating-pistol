@@ -2,7 +2,7 @@ import {
   GI, HSR, WW, ZZZ,
   CHARACTER, WEAPON, SET,
 } from '@/data';
-import { toArray, toMergedObj, toEquipMap, resolveRankedValue } from '@/utils';
+import { toMergedObj, toEquipMap, resolveRankedValue } from '@/utils';
 
 const DEFAULT = {
   [GI]: {
@@ -43,32 +43,34 @@ export function compileMenuMap(gameId, charId, member) {
   const statMap = toMergedObj(baseMap, toEquipMap(build.equipList ?? []));
 
   const allEffects = [
-    ...toArray(CHARACTER[gameId][charId].effects),
-    ...toArray(WEAPON[gameId][weaponId].effects),
+    ...CHARACTER[gameId][charId].effects,
+    ...WEAPON[gameId][weaponId].effects,
     ...Object.entries(setCounts)
       .flatMap(([setId, count]) =>
-        Object.entries(SET[gameId][setId].bonusEffects ?? {})
-          .filter(([tier]) => Number(tier) <= count)
-          .flatMap(([, effects]) => toArray(effects))),
+        (SET[gameId][setId].effects ?? [])
+          .filter((effect) =>
+            effect.enableIf?.bonus <= count)),
   ];
+
+  console.log(allEffects);
 
   const filtered = allEffects.filter((effect) => {
     if (
-      effect.rank > memberRank ||
+      effect.enableIf?.rank > memberRank ||
       effect.applyWhen ||
       (effect.applyTo && effect.applyTo !== 'team') ||
-      Object.keys(effect).some((field) => field.startsWith('useOn'))
+      'use' in effect
     ) return false;
 
-    return effect.statMap;
+    return effect.buffMap;
   });
 
   const toMerge = [];
-  for (const { statMap } of filtered) {
-    if (statMap) {
+  for (const { buffMap } of filtered) {
+    if (buffMap) {
       const resolved = {};
-      for (const [statId, value] of Object.entries(statMap)) {
-        resolved[statId] = typeof value === 'number'
+      for (const [stat, value] of Object.entries(buffMap)) {
+        resolved[stat] = typeof value === 'number'
           ? value
           : resolveRankedValue(value, weaponRank);
       }

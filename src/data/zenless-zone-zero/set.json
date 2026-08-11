@@ -3,955 +3,1147 @@
     "name": "Woodpecker Electro",
     "version": 1,
     "id": "31000",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "critRate%": 0.08
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "critRate%": 0.08
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
           }
-        }
-      ],
-      "4": [
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "basicAttack"
-                }
-              }
-            }
-          },
-          "buffMap": {
-            "combatAtk%": 0.09
-          },
-          "maxDuration": 6000
         },
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "dodgeCounter"
-                }
-              }
-            }
-          },
-          "buffMap": {
-            "combatAtk%": 0.09
-          },
-          "maxDuration": 6000
+        "buffMap": {
+          "combatAtk%": 0.09
         },
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "exSpecialAttack"
-                }
+        "maxDuration": 6000
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "dodgeCounter"
               }
             }
-          },
-          "buffMap": {
-            "combatAtk%": 0.09
-          },
-          "maxDuration": 6000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "combatAtk%": 0.09
+        },
+        "maxDuration": 6000
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "exSpecialAttack"
+              }
+            }
+          }
+        },
+        "buffMap": {
+          "combatAtk%": 0.09
+        },
+        "maxDuration": 6000
+      }
+    ]
   },
   "31100": {
     "name": "Puffer Electro",
     "version": 1,
     "id": "31100",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "penRatio%": 0.08
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "penRatio%": 0.08
         }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "ultimateDmgBonus%": 0.2
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "ultimateDmgBonus%": 0.2
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "ultimate"
+            }
           }
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "ultimate"
-              }
-            }
-          },
-          "buffMap": {
-            "combatAtk%": 0.15
-          },
-          "maxDuration": 12000
-        }
-      ]
-    }
+        "buffMap": {
+          "combatAtk%": 0.15
+        },
+        "maxDuration": 12000
+      }
+    ]
   },
   "31200": {
     "name": "Shockstar Disco",
     "version": 1,
     "id": "31200",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "impact%": 0.06
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "impact%": 0.06
         }
-      ],
-      "4": [
-        {
-          "use": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": [
-                    "basicAttack",
-                    "dashAttack",
-                    "dodgeCounter"
-                  ]
-                }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "basicAttack",
+                  "dashAttack",
+                  "dodgeCounter"
+                ]
               }
             }
-          },
-          "buffMap": {
-            "daze%": 0.2
           }
+        },
+        "buffMap": {
+          "daze%": 0.2
         }
-      ]
-    }
+      }
+    ]
   },
   "31300": {
     "name": "Freedom Blues",
     "version": 1,
     "id": "31300",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "anomalyProficiency": 30
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "anomalyProficiency": 30
         }
-      ],
-      "4": [
-        {}
-      ]
-    }
+      }
+    ]
   },
   "31400": {
     "name": "Hormone Punk",
     "version": 1,
     "id": "31400",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "atk%": 0.1
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "atk%": 0.1
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "field": "onField"
           }
-        }
-      ],
-      "4": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "field": "onField"
-            }
-          },
-          "applyCooldown": 20000,
-          "buffMap": {
-            "combatAtk%": 0.25
-          },
-          "maxDuration": 10000
-        }
-      ]
-    }
+        },
+        "applyCooldown": 20000,
+        "buffMap": {
+          "combatAtk%": 0.25
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "31500": {
     "name": "Soul Rock",
     "version": 1,
     "id": "31500",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "def%": 0.16
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "def%": 0.16
         }
-      ],
-      "4": []
-    }
+      }
+    ]
   },
   "31600": {
     "name": "Swing Jazz",
     "version": 1,
     "id": "31600",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "energyRegen%": 0.2
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "energyRegen%": 0.2
         }
-      ],
-      "4": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "chainAttack",
-                  "ultimate"
-                ]
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "chainAttack",
+                "ultimate"
+              ]
             }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "dmgBonus%": 0.15
-          },
-          "maxDuration": 12000
-        }
-      ]
-    }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "dmgBonus%": 0.15
+        },
+        "maxDuration": 12000
+      }
+    ]
   },
   "31800": {
     "name": "Chaos Jazz",
     "version": 1.2,
     "id": "31800",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "anomalyProficiency": 30
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "anomalyProficiency": 30
         }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "fireDmgBonus%": 0.15,
-            "electricDmgBonus%": 0.15
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "fireDmgBonus%": 0.15,
+          "electricDmgBonus%": 0.15
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "use": {
+          "filter": {
+            "field": "offField"
           }
         },
-        {
-          "use": {
-            "filter": {
-              "field": "offField"
-            }
-          },
-          "buffMap": {
-            "exSpecialAttackDmgBonus%": 0.2,
-            "assistAttackDmgBonus%": 0.2
+        "buffMap": {
+          "exSpecialAttackDmgBonus%": 0.2,
+          "assistAttackDmgBonus%": 0.2
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "field": "onField"
           }
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "field": "onField"
-            }
-          },
-          "applyCooldown": 7500,
-          "use": {
-            "filter": {
-              "field": "onField"
-            }
-          },
-          "buffMap": {
-            "exSpecialAttackDmgBonus%": 0.2,
-            "assistAttackDmgBonus%": 0.2
-          },
-          "maxDuration": 5000
-        }
-      ]
-    }
+        "applyCooldown": 7500,
+        "use": {
+          "filter": {
+            "field": "onField"
+          }
+        },
+        "buffMap": {
+          "exSpecialAttackDmgBonus%": 0.2,
+          "assistAttackDmgBonus%": 0.2
+        },
+        "maxDuration": 5000
+      }
+    ]
   },
   "31900": {
     "name": "Proto Punk",
     "version": 1.2,
     "id": "31900",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "shieldBonus%": 0.15
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "shieldBonus%": 0.15
         }
-      ],
-      "4": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "defensiveAssist",
-                  "evasiveAssist"
-                ]
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "defensiveAssist",
+                "evasiveAssist"
+              ]
             }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "dmgBonus%": 0.15
-          },
-          "maxDuration": 10000
-        }
-      ]
-    }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "dmgBonus%": 0.15
+        },
+        "maxDuration": 10000
+      }
+    ]
   },
   "32200": {
     "name": "Inferno Metal",
     "version": 1,
     "id": "32200",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "fireDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "fireDmgBonus%": 0.1
         }
-      ],
-      "4": [
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "has": "damage"
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "has": "damage"
             }
-          },
-          "buffMap": {
-            "critRate%": 0.28
-          },
-          "maxDuration": 8000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "critRate%": 0.28
+        },
+        "maxDuration": 8000
+      }
+    ]
   },
   "32300": {
     "name": "Chaotic Metal",
     "version": 1,
     "id": "32300",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "etherDmgBonus%": 0.1
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "critDmg%": 0.2
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "buffMap": {
-            "critDmg%": 0.33
-          }
+        "buffMap": {
+          "etherDmgBonus%": 0.1
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "critDmg%": 0.2
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "critDmg%": 0.33
+        }
+      }
+    ]
   },
   "32400": {
     "name": "Thunder Metal",
     "version": 1,
     "id": "32400",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "electricDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "electricDmgBonus%": 0.1
         }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "combatAtk%": 0.28
-          }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "combatAtk%": 0.28
         }
-      ]
-    }
+      }
+    ]
   },
   "32500": {
     "name": "Polar Metal",
     "version": 1,
     "id": "32500",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "iceDmgBonus%": 0.1
-          }
-        }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "basicAttackDmgBonus%": 0.2,
-            "dashAttackDmgBonus%": 0.2
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "buffMap": {
-            "basicAttackDmgBonus%": 0.2,
-            "dashAttackDmgBonus%": 0.2
-          }
+        "buffMap": {
+          "iceDmgBonus%": 0.1
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.2,
+          "dashAttackDmgBonus%": 0.2
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.2,
+          "dashAttackDmgBonus%": 0.2
+        }
+      }
+    ]
   },
   "32600": {
     "name": "Fanged Metal",
     "version": 1,
     "id": "32600",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "physicalDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "physicalDmgBonus%": 0.1
         }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "dmgBonus%": 0.35
-          }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "dmgBonus%": 0.35
         }
-      ]
-    }
+      }
+    ]
   },
   "32700": {
     "name": "Branch & Blade Song",
     "version": 1.4,
     "id": "32700",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "critDmg%": 0.16
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "critDmg%": 0.16
         }
-      ],
-      "4": [
-        {
-          "use": {
-            "filter": {
-              "attrMap": {
-                "anomalyMastery": {
-                  ">=": 115
-                }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "use": {
+          "filter": {
+            "attrMap": {
+              "anomalyMastery": {
+                ">=": 115
               }
             }
-          },
-          "buffMap": {
-            "critDmg%": 0.3
           }
         },
-        {
-          "buffMap": {
-            "critRate%": 0.12
-          }
+        "buffMap": {
+          "critDmg%": 0.3
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "critRate%": 0.12
+        }
+      }
+    ]
   },
   "32800": {
     "name": "Astral Voice",
     "version": 1.4,
     "id": "32800",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "atk%": 0.1
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "atk%": 0.1
         }
-      ],
-      "4": [
-        {
-          "applyTo": "$team",
-          "buffMap": {
-            "dmgBonus%": 0.24
-          }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "dmgBonus%": 0.24
         }
-      ]
-    }
+      }
+    ]
   },
   "32900": {
     "name": "Shadow Harmony",
     "version": 1.6,
     "id": "32900",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "aftershockDmgBonus%": 0.15,
-            "dashAttackDmgBonus%": 0.15
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "aftershockDmgBonus%": 0.15,
+          "dashAttackDmgBonus%": 0.15
         }
-      ],
-      "4": [
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": [
-                    "aftershock",
-                    "dashAttack"
-                  ]
-                }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "aftershock",
+                  "dashAttack"
+                ]
               }
             }
-          },
-          "buffMap": {
-            "combatAtk%": 0.04,
-            "critRate%": 0.04
-          },
-          "maxDuration": 15000,
-          "maxStacks": 3
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "combatAtk%": 0.04,
+          "critRate%": 0.04
+        },
+        "maxDuration": 15000,
+        "maxStacks": 3
+      }
+    ]
   },
   "33000": {
     "name": "Phaethon's Melody",
     "version": 1.6,
     "id": "33000",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "anomalyMastery%": 0.08
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "anomalyMastery%": 0.08
         }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "anomalyProficiency": 45,
-            "etherDmgBonus%": 0.25
-          }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "anomalyProficiency": 45,
+          "etherDmgBonus%": 0.25
         }
-      ]
-    }
+      }
+    ]
   },
   "33100": {
     "name": "Yunkui Tales",
     "version": 2,
     "id": "33100",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "hp%": 0.1
-          }
-        }
-      ],
-      "4": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "exSpecialAttack",
-                  "chainAttack",
-                  "ultimate"
-                ]
-              }
-            }
-          },
-          "buffMap": {
-            "critRate%": 0.04
-          },
-          "maxDuration": 15000,
-          "maxStacks": 3
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "buffMap": {
-            "sheerDmgBonus%": 0.1
-          }
+        "buffMap": {
+          "hp%": 0.1
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "exSpecialAttack",
+                "chainAttack",
+                "ultimate"
+              ]
+            }
+          }
+        },
+        "buffMap": {
+          "critRate%": 0.04
+        },
+        "maxDuration": 15000,
+        "maxStacks": 3
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "sheerDmgBonus%": 0.1
+        }
+      }
+    ]
   },
   "33200": {
     "name": "King of the Summit",
     "version": 2,
     "id": "33200",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "daze%": 0.06
-          }
-        }
-      ],
-      "4": [
-        {
-          "enableIf": {
-            "weapon": {
-              "type": "stun"
-            }
-          },
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "exSpecialAttack",
-                  "chainAttack"
-                ]
-              }
-            }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "critDmg%": 0.15
-          },
-          "maxDuration": 15000
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "enableIf": {
-            "weapon": {
-              "type": "stun"
-            }
-          },
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "exSpecialAttack",
-                  "chainAttack"
-                ]
-              }
-            }
-          },
-          "applyTo": "$team",
-          "use": {
-            "filter": {
-              "attrMap": {
-                "critRate%": {
-                  ">=": 0.5
-                }
-              }
-            }
-          },
-          "buffMap": {
-            "critDmg%": 0.15
-          },
-          "maxDuration": 15000
+        "buffMap": {
+          "daze%": 0.06
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 4,
+          "weapon": {
+            "type": "stun"
+          }
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "exSpecialAttack",
+                "chainAttack"
+              ]
+            }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "critDmg%": 0.15
+        },
+        "maxDuration": 15000
+      },
+      {
+        "enableIf": {
+          "bonus": 4,
+          "weapon": {
+            "type": "stun"
+          }
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "exSpecialAttack",
+                "chainAttack"
+              ]
+            }
+          }
+        },
+        "applyTo": "$team",
+        "use": {
+          "filter": {
+            "attrMap": {
+              "critRate%": {
+                ">=": 0.5
+              }
+            }
+          }
+        },
+        "buffMap": {
+          "critDmg%": 0.15
+        },
+        "maxDuration": 15000
+      }
+    ]
   },
   "33300": {
     "name": "Dawn's Bloom",
     "version": 2.2,
     "id": "33300",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "basicAttackDmgBonus%": 0.15
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.15
         }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "basicAttackDmgBonus%": 0.2
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.2
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 4,
+          "weapon": {
+            "type": "attack"
           }
         },
-        {
-          "enableIf": {
-            "weapon": {
-              "type": "attack"
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "exSpecialAttack",
+                "ultimate"
+              ]
             }
-          },
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "exSpecialAttack",
-                  "ultimate"
-                ]
-              }
-            }
-          },
-          "buffMap": {
-            "basicAttackDmgBonus%": 0.2
-          },
-          "maxDuration": 25000
-        }
-      ]
-    }
+          }
+        },
+        "buffMap": {
+          "basicAttackDmgBonus%": 0.2
+        },
+        "maxDuration": 25000
+      }
+    ]
   },
   "33400": {
     "name": "Moonlight Lullaby",
     "version": 2.2,
     "id": "33400",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "energyRegen%": 0.2
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "energyRegen%": 0.2
+        }
+      },
+      {
+        "enableIf": {
+          "bonus": 4,
+          "weapon": {
+            "type": "support"
           }
-        }
-      ],
-      "4": [
-        {
-          "enableIf": {
-            "weapon": {
-              "type": "support"
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "exSpecialAttack",
+                "ultimate"
+              ]
             }
-          },
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "exSpecialAttack",
-                  "ultimate"
-                ]
-              }
-            }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "dmgBonus%": 0.18
-          },
-          "maxDuration": 25000
-        }
-      ]
-    }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "dmgBonus%": 0.18
+        },
+        "maxDuration": 25000
+      }
+    ]
   },
   "33500": {
     "name": "White Water Ballad",
     "version": 2.5,
     "id": "33500",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "physicalDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "physicalDmgBonus%": 0.1
         }
-      ],
-      "4": [
-        {
-          "buffMap": {
-            "critRate%": 0.2,
-            "combatAtk%": 0.1
-          }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "critRate%": 0.2,
+          "combatAtk%": 0.1
         }
-      ]
-    }
+      }
+    ]
   },
   "33600": {
     "name": "Shining Aria",
     "version": 2.5,
     "id": "33600",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "etherDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "etherDmgBonus%": 0.1
         }
-      ],
-      "4": [
-        {
-          "applyWhen": "hit",
-          "apply": {
-            "filter": {
-              "action": {
-                "damage": {
-                  "type": "basicAttack"
-                }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "hit",
+        "apply": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
               }
             }
-          },
-          "buffMap": {
-            "anomalyProficiency": 36
-          },
-          "maxDuration": 8000
-        },
-        {
-          "buffMap": {
-            "dmgBonus%": 0.25
           }
+        },
+        "buffMap": {
+          "anomalyProficiency": 36
+        },
+        "maxDuration": 8000
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "dmgBonus%": 0.25
         }
-      ]
-    }
+      }
+    ]
   },
   "33700": {
     "name": "Bunny in Wonderland",
     "version": 2.7,
     "id": "33700",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "hp%": 0.1
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "hp%": 0.1
         }
-      ],
-      "4": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "exSpecialAttack"
-              }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "exSpecialAttack"
             }
-          },
-          "applyTo": "$team",
-          "buffMap": {
-            "dmgBonus%": 0.06
-          },
-          "maxDuration": 25000,
-          "maxStacks": 3
-        }
-      ]
-    }
+          }
+        },
+        "applyTo": "$team",
+        "buffMap": {
+          "dmgBonus%": 0.06
+        },
+        "maxDuration": 25000,
+        "maxStacks": 3
+      }
+    ]
   },
   "33800": {
     "name": "Notes From the Chained",
     "version": 2.7,
     "id": "33800",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "iceDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "iceDmgBonus%": 0.1
         }
-      ],
-      "4": [
-        {}
-      ]
-    }
+      }
+    ]
   },
   "33900": {
     "name": "Wuthering Salon",
     "version": 3,
     "id": "33900",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "windDmgBonus%": 0.1
-          }
-        }
-      ],
-      "4": [
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": "exSpecialAttack"
-              }
-            }
-          },
-          "buffMap": {
-            "anomalyProficiency": 25
-          },
-          "maxDuration": 40000,
-          "maxStacks": 2
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
         },
-        {
-          "buffMap": {
-            "dmgBonus%": 0.18
-          }
+        "buffMap": {
+          "windDmgBonus%": 0.1
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": "exSpecialAttack"
+            }
+          }
+        },
+        "buffMap": {
+          "anomalyProficiency": 25
+        },
+        "maxDuration": 40000,
+        "maxStacks": 2
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "buffMap": {
+          "dmgBonus%": 0.18
+        }
+      }
+    ]
   },
   "34000": {
     "name": "The Sky Ablaze",
     "version": 3,
     "id": "34000",
-    "bonusEffects": {
-      "2": [
-        {
-          "buffMap": {
-            "etherDmgBonus%": 0.1
-          }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "etherDmgBonus%": 0.1
         }
-      ],
-      "4": [
-        {
-          "enableIf": {
-            "character": {
-              "element": "ether"
-            }
-          },
-          "buffMap": {
-            "critDmg%": 0.3
+      },
+      {
+        "enableIf": {
+          "bonus": 4,
+          "character": {
+            "element": "ether"
           }
         },
-        {
-          "applyWhen": "before",
-          "apply": {
-            "filter": {
-              "action": {
-                "type": [
-                  "exSpecialAttack",
-                  "ultimate"
-                ]
-              }
-            }
-          },
-          "buffMap": {
-            "combatAtk%": 0.1
-          },
-          "maxDuration": 30000
+        "buffMap": {
+          "critDmg%": 0.3
         }
-      ]
-    }
+      },
+      {
+        "enableIf": {
+          "bonus": 4
+        },
+        "applyWhen": "before",
+        "apply": {
+          "filter": {
+            "action": {
+              "type": [
+                "exSpecialAttack",
+                "ultimate"
+              ]
+            }
+          }
+        },
+        "buffMap": {
+          "combatAtk%": 0.1
+        },
+        "maxDuration": 30000
+      }
+    ]
   },
   "34100": {
     "name": "Feathered Fate",
     "version": 3.1,
     "id": "34100",
-    "bonusEffects": {
-      "2": [],
-      "4": []
-    }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": []
   },
   "34200": {
     "name": "Thorned Rose",
     "version": 3.1,
     "id": "34200",
-    "bonusEffects": {
-      "2": [],
-      "4": []
-    }
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": []
   }
 }

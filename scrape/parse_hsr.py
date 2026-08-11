@@ -172,8 +172,6 @@ def parse_hsr(type, version, id, data):
                 'name': str(data['name']),
                 'version': float(version),
                 'id': str(id),
-                'bonusEffects': {
-                    str(num): []
-                    for num in data.get('require_num', {})
-                },
+                'bonuses': [num for num in data.get('require_num', {})],
+                'effects': [],
             }
