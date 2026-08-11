@@ -1,8 +1,9 @@
 import { toEquipMap, getTotals } from '@/utils';
-import { createRunRotation } from './rotation';
+import { runRotation } from './rotation';
 import { compileCache } from './cache';
 import { runTrials } from './runTrials';
 import { getSubRollSums, getMainConfig } from './utils';
+import { weaponTests } from './weaponTests';
 
 const buildConfigStats = (gameId, trials) => {
   const configMap = {};
@@ -41,8 +42,8 @@ function generateEquipMap(cache, team, memberId) {
   self.postMessage({ status: `Generating trial build for ${memberId}` });
 
   const equipMaps = resolveEquipMaps(cache, team, true);
-  const runRotation = createRunRotation(cache, equipMaps, memberId);
-  const { trials } = runTrials(cache, runRotation, memberId);
+  const rotationSpecs = runRotation(cache, equipMaps, memberId);
+  const { trials } = runTrials(cache, rotationSpecs, memberId);
 
   return trials.reduce((acc, { equipList }) => {
     const equipMap = toEquipMap(equipList);
@@ -74,18 +75,20 @@ self.onmessage = ({ data }) => {
   const equipMaps = resolveEquipMaps(cache, team);
 
   self.postMessage({ status: 'Running simulation' });
-  const runRotation = createRunRotation(cache, equipMaps, charId);
-  const userSummary = runRotation(cache.member[charId].statMap);
+  const rotationSpecs = runRotation(cache, equipMaps, charId);
+  const userSummary = rotationSpecs(cache.member[charId].statMap);
   const userDps = cache.getDps(getTotals(userSummary).damage);
   if (Number.isNaN(userDps)) {
     console.log(userDps);
     self.postMessage({ errorLog: cache.effects });
     throw new Error('error');
   }
-  const { trials, dpsProgression, dpsCeiling, thresholdWeeks, fit } = runTrials(cache, runRotation, charId, true);
+  const { trials, dpsProgression, dpsCeiling, thresholdWeeks, fit } = runTrials(cache, rotationSpecs, charId, true);
   const configMap = buildConfigStats(gameId, trials);
 
   const benchmarkDps = dpsProgression.at(-1).mean;
+
+  const weaponResults = weaponTests(cache, equipMaps, charId);
 
   self.postMessage({
     dpsProgression,
@@ -100,5 +103,7 @@ self.onmessage = ({ data }) => {
     userConfigKey: getMainConfig(gameId, cache.member[charId].equipList),
     userSubStats: getSubRollSums(gameId, cache.member[charId].equipList),
     memberIds: cache.memberIds,
+    weaponResults,
+    userMember: { weaponId: cache.member[charId].weaponId, weaponRank: cache.member[charId].weaponRank },
   });
 };

@@ -8,6 +8,7 @@ import {
   DistributionCard,
   MainstatsCard,
   SubstatsCard,
+  WeaponCard,
 } from '@/components';
 import { useElementColors, useSimulation } from '@/hooks';
 import { formatStr } from '@/utils';
@@ -65,13 +66,24 @@ const TabPanels = [
       </Stack>
     ),
   },
+  {
+    value: 'comparisons',
+    render: (results) => (
+      <Stack spacing={1} sx={{ flex: 1 }}>
+        <WeaponCard
+          weaponResults={results.weaponResults}
+          userDps={results.userDps}
+          userMember={results.userMember}
+        />
+      </Stack>
+    ),
+  },
 ];
 
 const Charts = ({ team }) => {
   const results = useSimulation(team);
   const [tab, setTab] = useState(TabPanels[0].value);
   const color = useElementColors({ char: '$curr' });
-  const handleTabs = (_, value) => setTab(value);
 
   if(results.errorLog) console.log(results.errorLog);
 
@@ -89,7 +101,7 @@ const Charts = ({ team }) => {
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Tabs
         value={tab}
-        onChange={handleTabs}
+        onChange={(_, value) => setTab(value)}
         textColor="inherit"
         slotProps={{ indicator: { sx: { backgroundColor: color } } }}
         centered

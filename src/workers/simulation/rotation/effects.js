@@ -65,10 +65,10 @@ export function runApplyEffect(ctx, effect, spec = {}) {
         { extensionsLeft: isExt
           ? prevState.extensionsLeft - 1
           : effect.maxExtensions }),
-      ...(effect.applyOffset &&
+      ...(effect.useOffset &&
         { useCooldown: isExt
           ? prevState.useCooldown
-          : effect.applyOffset }),
+          : effect.useOffset }),
       ...(effect.rampingInterval &&
         { rampingTimer: isExt
           ? prevState.rampingTimer
@@ -149,7 +149,7 @@ export function advanceEffects(ctx, elapsed) {
       const diff = Math.min(state.useCooldown ?? 0, remaining);
       if (advanceEffectState(ctx, state, diff)) break;
       remaining -= diff;
-      
+
       if (!state.useCooldown) {
         if (runUseEffect(ctx, state, { runtimeOffset: elapsed - remaining })) break;
       }

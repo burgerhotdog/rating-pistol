@@ -52,8 +52,6 @@ export function compileMenuMap(gameId, charId, member) {
             effect.enableIf?.bonus <= count)),
   ];
 
-  console.log(allEffects);
-
   const filtered = allEffects.filter((effect) => {
     if (
       effect.enableIf?.rank > memberRank ||

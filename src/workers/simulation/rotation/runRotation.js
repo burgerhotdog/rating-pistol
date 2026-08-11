@@ -65,6 +65,7 @@ function handleApplyWhen(ctx, action, when) {
       ctx.eventFilter(effect.apply?.filter, action, effect);
 
     if (!shouldApply) continue;
+
     onApplyDoCommand(ctx, effect);
     runApplyEffect(ctx, effect, { applier: action.ownerId });
   }
@@ -153,7 +154,7 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('after');
 }
 
-export const createRunRotation = (cache, equipMaps, specId) => {  
+export const runRotation = (cache, equipMaps, specId) => {  
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
     buildMaps[memberId] = toMergedObj(cache.member[memberId].baseMap, equipMap);

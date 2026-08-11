@@ -2183,7 +2183,14 @@
         "apply": {
           "filter": {
             "action": {
-              "type": "resonanceSkill"
+              "and": [
+                {
+                  "type": "resonanceSkill"
+                },
+                {
+                  "has": "healing"
+                }
+              ]
             }
           }
         },

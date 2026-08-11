@@ -77,7 +77,7 @@ function resolveRankMods(effect, memberRank) {
   }
 }
 
-const toNormalizedEffect = (rawEffect, spec) => {
+export const toNormalizedEffect = (rawEffect, spec) => {
   const {
     gameId, ownerId, sourceId, effectIndex,
     memberRank, weaponRank, memberIds, memberActions,
@@ -289,10 +289,7 @@ export const normalizeEffects = (gameId, member, spec) => {
     const { sourceId } = effect;
 
     for (const field in effect) {
-      if (
-        field === 'useIfEffectStacksMin' ||
-        /^on[A-Z]\w*Do[A-Z]\w*$/.test(field)
-      ) {
+      if (/^on[A-Z]\w*Do[A-Z]\w*$/.test(field)) {
         const resolved = {};
         for (const [key, stacks] of Object.entries(effect[field])) {
           const id = resolveEffectId(key, sourceId);

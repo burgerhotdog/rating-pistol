@@ -17,3 +17,5 @@ export const randomInt = (min, max) => {
 export const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
 export const diff = (a, b) => a / b - 1;
+
+export const lerp = (a, b, t) => a + (b - a) * t;

@@ -7852,7 +7852,7 @@
       },
       {
         "key": "ceaselessLandscape",
-        "applyWhen":"before",
+        "applyWhen": "before",
         "apply": {
           "filter": {
             "action": {
@@ -7864,6 +7864,7 @@
       },
       {
         "key": "roamingTranscendent",
+        "applyWhen": "before",
         "apply": {
           "filter": {
             "and": [
@@ -7890,6 +7891,10 @@
             }
           }
         },
+        "useWhen": "interval",
+        "useOffset": 6000,
+        "useCooldown": 6000,
+        "useAction": "resonanceLiberation.1",
         "maxDuration": 30000
       },
       {
@@ -7900,7 +7905,7 @@
             "and": [
               {
                 "effectStacks": {
-                  "has": "roamingTranscendent"
+                  "has": "ceaselessLandscape"
                 }
               },
               {
@@ -32962,8 +32967,8 @@
             }
           }
         },
-        "applyOffset": 3120,
         "useWhen": "interval",
+        "useOffset": 3120,
         "useAction": "resonanceLiberation.1",
         "maxUses": 1
       },
