@@ -111,6 +111,7 @@ export const compileCache = (gameId, team) => {
       equipMap,
       statMap,
       rotation,
+      duration,
     };
   }
 

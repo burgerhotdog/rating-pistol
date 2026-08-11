@@ -23,32 +23,29 @@ const penaltyMult = (current, target) => {
   return Math.exp(-relativeDeficit);
 };
 
-export function createEvaluateEquipMap(cache, evalId, runRotation) {
-  const { gameId } = cache;
-  const { noEnergy, matchAttr } = CHARACTER[gameId][evalId];
-  const { statMap } = cache.member[evalId];
-  const matchMap = {};
+export function createEvaluateEquipMap(cache, evalId, summarySpecs) {
+  const { gameId, rotationDuration } = cache;
+  const erAttrId = ENERGY_ATTR[gameId];
+  const needsEnergy = !CHARACTER[gameId][evalId].noEnergy;
 
-  for (const attr of toArray(matchAttr)) {
-    matchMap[attr] = getAttr(attr, statMap);
+  const { duration: charRotDur, baseMap, statMap } = cache.member[evalId];
+  const originalEr = getAttr(erAttrId, statMap);
+
+  function getPenalty(testMap) {
+    if (!needsEnergy) return 1;
+    const newEr = getAttr(erAttrId, testMap);
+    if (newEr >= originalEr) return 1;
+
+    const newCharRotDur = charRotDur * (originalEr / newEr);
+    const durPenalty = newCharRotDur - charRotDur;
+    return rotationDuration / (rotationDuration + durPenalty);
   }
-
-  if (!noEnergy) {
-    const energyAttr = ENERGY_ATTR[gameId];
-    matchMap[energyAttr] = getAttr(energyAttr, statMap);
-  }
-
-  const baseMap = cache.member[evalId].baseMap;
 
   return (equipMap = {}) => {
     const statMap = toMergedObj(baseMap, equipMap);
-    const penalty = Object.entries(matchMap)
-      .reduce((acc, [attr, target]) => {
-        const attrValue = getAttr(attr, statMap);
-        return acc * penaltyMult(attrValue, target);
-      }, 1);
+    const penalty = getPenalty(statMap);
 
-    const summary = runRotation(statMap);
+    const summary = summarySpecs(statMap);
     const totals = getTotals(summary);
     const baseScore = Object.values(totals)
       .reduce((acc, value) => acc + value, 0);
