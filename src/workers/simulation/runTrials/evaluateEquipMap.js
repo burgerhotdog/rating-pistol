@@ -2,25 +2,13 @@ import {
   GI, HSR, WW, ZZZ,
   CHARACTER,
 } from '@/data';
-import {
-  getAttr, getTotals,
-  toArray, toMergedObj,
-} from '@/utils';
+import { getAttr, getTotals, toMergedObj } from '@/utils';
 
 const ENERGY_ATTR = {
   [GI]: 'energyRecharge%',
   [HSR]: 'energyRegenerationRate%',
   [WW]: 'energyRegen%',
   [ZZZ]: 'energyRegen%',
-};
-
-const penaltyMult = (current, target) => {
-  if (!target) return 1;
-
-  const relativeDeficit = (target - current) / target;
-  if (relativeDeficit <= 0) return 1;
-
-  return Math.exp(-relativeDeficit);
 };
 
 export function createEvaluateEquipMap(cache, evalId, summarySpecs) {

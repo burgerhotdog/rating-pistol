@@ -3,15 +3,6 @@ import { getAttr, getTotals, compileBaseMap, toMergedObj } from '@/utils';
 import { runRotation } from './rotation';
 import { toNormalizedEffect } from './cache/effects';
 
-const penaltyMult = (current, target) => {
-  if (!target) return 1;
-
-  const relativeDeficit = (target - current) / target;
-  if (relativeDeficit <= 0) return 1;
-
-  return Math.exp(-relativeDeficit);
-};
-
 function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weaponRank, memberIds) {
   const normalized = {};
 
