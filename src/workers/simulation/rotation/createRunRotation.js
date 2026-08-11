@@ -153,7 +153,7 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('after');
 }
 
-export const createRunRotation = (cache, equipMaps, currId) => {
+export const createRunRotation = (cache, equipMaps, specId) => {  
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
     buildMaps[memberId] = toMergedObj(cache.member[memberId].baseMap, equipMap);
@@ -162,7 +162,7 @@ export const createRunRotation = (cache, equipMaps, currId) => {
   const ctx = {
     cache,
     buildMaps,
-    currId,
+    specId,
     states: {
       runtime: 0,
       onFieldId: null,
@@ -203,6 +203,10 @@ export const createRunRotation = (cache, equipMaps, currId) => {
   for (const action of actionOrder) {
     ctx.states.onFieldId = action.ownerId;
     runAction(ctx, action);
+  }
+
+  if (!specId) {
+    return ctx.snapshots;
   }
 
   return (buildMap) => ctx.snapshots.map((snapshot) => {

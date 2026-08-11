@@ -15,7 +15,7 @@ const toResolvedSpecs = (buffSpecs, sourceMap) => {
 };
 
 export const buildSnapshot = (ctx, action, options = {}) => {
-  const { cache, currId } = ctx;
+  const { cache, states } = ctx;
   const { runtimeOffset = 0 } = options;
 
   const snapshot = {
@@ -24,33 +24,32 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     ownerId: action.ownerId,
     category: action.category,
     type: action.type,
-    field: ctx.states.getField(action.ownerId),
-    runtime: ctx.states.runtime + runtimeOffset,
-    ...('damage' in action &&
+    field: states.getField(action.ownerId),
+    runtime: states.runtime + runtimeOffset,
+    ...(action.damage &&
       { damageType: action.damage.type }),
     ...(action.hitOffsets &&
       { hitOffsets: action.hitOffsets }),
   };
 
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: action.ownerId, action });
-  const currBuffMap = buffSpecs.length
-    ? getBuffMap(ctx, { memberId: currId, ignoreSpecs: true })
-    : null;
-
-  const statMap = (action.ownerId !== currId && !currBuffMap)
-    ? toMergedObj(ctx.buildMaps[action.ownerId], buffMap)
-    : null;
 
   for (const part of snapshotParts) {
-    if (!(part in action)) continue;
+    if (!action[part]) continue;
 
-    if (statMap) {
+    if (!ctx.specId || (action.ownerId !== ctx.specId && !buffSpecs.length)) {
+      const statMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
       snapshot[part] = runFormula(cache.gameId, part, action, statMap);
     } else {
+      const currBuffMap = buffSpecs.length
+        ? getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true })
+        : null;
+
       snapshot[part] = (currBuildMap) => {
-        const buildMap = action.ownerId === currId
-          ? currBuildMap
-          : ctx.buildMaps[action.ownerId];
+        const buildMap =
+          action.ownerId === ctx.specId
+            ? currBuildMap
+            : ctx.buildMaps[action.ownerId];
 
         const currBuffedMap = toMergedObj(currBuildMap, currBuffMap);
 

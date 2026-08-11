@@ -32,7 +32,7 @@ export const getBuffMap = (ctx, options = {}) => {
     }
 
     if (effect.buffSpec && !ignoreSpecs) {
-      if (effect.ownerId === ctx.currId && !resolveNow) {
+      if (effect.ownerId === ctx.specId && !resolveNow) {
         addToBuffSpecs(effect, buffMult);
         continue;
       }
