@@ -6898,7 +6898,7 @@
     },
     "effects": [
       {
-        "apply": {
+        "use": {
           "when": "start",
           "filter": {
             "action": {
@@ -6906,14 +6906,32 @@
             }
           }
         },
+        "onUseDoApply": {
+          "filmRoll": 1
+        }
+      },
+      {
+        "key": "filmRoll",
+        "scope": {
+          "from": "$ally"
+        },
         "use": {
           "when": "hit",
           "filter": {
-            "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "filmRoll"
+                }
+              },
+              {
+                "action": {
+                  "inflictStatus": {
+                    "has": "glacioChafe"
+                  }
+                }
               }
-            }
+            ]
           },
           "cooldown": 500
         },
@@ -7277,7 +7295,7 @@
             "name": "Spotlight",
             "type": "resonanceSkill",
             "inflictStatus": {
-              "glacioChafe": 1
+              "$mode": 1
             },
             "damage": {
               "multipliers": [
@@ -7389,7 +7407,10 @@
             "name": "Clear As Day",
             "type": "resonanceLiberation",
             "damage": {
-              "type": "basicAttack",
+              "type": [
+                "basicAttack",
+                "echoSkill"
+              ],
               "multipliers": [
                 {
                   "mv": [
@@ -7571,7 +7592,10 @@
             "tagged": "Reminiscence",
             "type": "resonanceLiberation",
             "damage": {
-              "type": "basicAttack",
+              "type": [
+                "basicAttack",
+                "echoSkill"
+              ],
               "multipliers": [
                 {
                   "mv": [
@@ -7724,8 +7748,14 @@
         "actions": [
           {
             "name": "Oblivion",
+            "inflictStatus": {
+              "$mode": 1
+            },
             "damage": {
-              "type": "basicAttack",
+              "type": [
+                "basicAttack",
+                "echoSkill"
+              ],
               "multipliers": [
                 {
                   "mv": [
@@ -18770,7 +18800,10 @@
           {
             "name": "Basic Attack 3",
             "type": "basicAttack",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
+            "inflictStatus": {
+              "$mode": 1
+            },
             "damage": {
               "multipliers": [
                 {
@@ -18852,7 +18885,10 @@
           {
             "name": "Basic Attack 4",
             "type": "basicAttack",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
+            "inflictStatus": {
+              "$mode": 1
+            },
             "damage": {
               "multipliers": [
                 {
@@ -19145,7 +19181,10 @@
           {
             "name": "Sync Strike: Armament Merge",
             "type": "resonanceSkill",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
+            "inflictStatus": {
+              "$mode": 1
+            },
             "damage": {
               "multipliers": [
                 {
@@ -19227,7 +19266,10 @@
             "name": "Sync Strike: Call of Dawn",
             "tagged": "Mech",
             "type": "resonanceSkill",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
+            "inflictStatus": {
+              "$mode": 1
+            },
             "damage": {
               "multipliers": [
                 {
@@ -19377,7 +19419,10 @@
             "name": "Basic Attack 3",
             "tagged": "Mech",
             "type": "basicAttack",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
+            "inflictStatus": {
+              "$mode": 1
+            },
             "damage": {
               "multipliers": [
                 {
@@ -19460,7 +19505,10 @@
             "name": "Basic Attack 4",
             "tagged": "Mech",
             "type": "basicAttack",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
+            "inflictStatus": {
+              "$mode": 1
+            },
             "damage": {
               "multipliers": [
                 {
@@ -20089,7 +20137,10 @@
           {
             "name": "Songs Across the Universe",
             "type": "introSkill",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
+            "inflictStatus": {
+              "$mode": 1
+            },
             "damage": {
               "multipliers": [
                 {
@@ -20148,7 +20199,10 @@
             "name": "Debut of Meteoric Radiance",
             "tagged": "Mech",
             "type": "introSkill",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
+            "inflictStatus": {
+              "$mode": 1
+            },
             "damage": {
               "multipliers": [
                 {
@@ -20389,6 +20443,10 @@
             "name": "Basic Attack 3",
             "tagged": "Stagecraft Form",
             "type": "basicAttack",
+            "inflictStatus": {
+              "$mode": 1
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -20423,6 +20481,10 @@
             "name": "Basic Attack 4",
             "tagged": "Stagecraft Form",
             "type": "basicAttack",
+            "inflictStatus": {
+              "$mode": 1
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -20674,6 +20736,10 @@
             "name": "Basic Attack 3",
             "tagged": "Breakdown Form",
             "type": "basicAttack",
+            "inflictStatus": {
+              "$mode": 1
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -20707,6 +20773,10 @@
             "name": "Basic Attack 4",
             "tagged": "Breakdown Form",
             "type": "basicAttack",
+            "inflictStatus": {
+              "$mode": 1
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -20890,6 +20960,10 @@
             "name": "Mid-air Attack 3",
             "tagged": "Breakdown Form",
             "type": "mid-airAttack",
+            "inflictStatus": {
+              "$mode": 1
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -20924,6 +20998,10 @@
             "name": "Mid-air Attack 4",
             "tagged": "Breakdown Form",
             "type": "mid-airAttack",
+            "inflictStatus": {
+              "$mode": 1
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -21269,6 +21347,10 @@
             "name": "Final Act",
             "tagged": "Stagecraft Form",
             "type": "resonanceLiberation",
+            "inflictStatus": {
+              "$mode": 2
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -21302,6 +21384,10 @@
             "name": "Final Act",
             "tagged": "Breakdown Form",
             "type": "resonanceLiberation",
+            "inflictStatus": {
+              "$mode": 2
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -21339,6 +21425,10 @@
         "actions": [
           {
             "name": "Erosion Field DMG per tick",
+            "inflictStatus": {
+              "$mode": 2
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -21378,6 +21468,10 @@
             "name": "It's Been A While!",
             "tagged": "Stagecraft Form",
             "type": "introSkill",
+            "inflictStatus": {
+              "$mode": 2
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -21411,6 +21505,10 @@
             "name": "Knock Knock",
             "tagged": "Breakdown Form",
             "type": "introSkill",
+            "inflictStatus": {
+              "$mode": 2
+            },
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -49037,7 +49135,7 @@
           {
             "name": "Kaleidoscopic Parade: Iridescent Splash",
             "type": "mid-airAttack",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -49071,7 +49169,7 @@
           {
             "name": "Kaleidoscopic Parade: Visual Impact",
             "type": "mid-airAttack",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -49105,7 +49203,7 @@
           {
             "name": "Kaleidoscopic Parade: Polychrome Leap 1",
             "type": "basicAttack",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -49139,7 +49237,7 @@
           {
             "name": "Kaleidoscopic Parade: Polychrome Leap 2",
             "type": "basicAttack",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -49173,7 +49271,7 @@
           {
             "name": "Kaleidoscopic Parade: Polychrome Leap 3",
             "type": "basicAttack",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -49245,7 +49343,7 @@
           {
             "name": "Time to Show Some Colors!",
             "type": "introSkill",
-            "inflictShifting": "tuneRupture",
+            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {

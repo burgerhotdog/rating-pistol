@@ -64,6 +64,13 @@ function toNormedDamage(gameId, action, spec) {
 
   const damage = { ...action.damage };
   if ('type' in action) damage.type ??= action.type;
+
+  // Resolve type array by mode
+  if (Array.isArray(damage.type)) {
+    const modeIndex = CHARACTER[gameId][spec.ownerId].modes.indexOf(spec.mode);
+    damage.type = damage.type[modeIndex];
+  }
+
   damage.element ??= isGiPhysNa ? 'physical' : charElement;
   damage.attr ??= 'atk';
   damage.compressed = getCompressed(damage.multipliers, damage.attr, { index, weaponRank });
@@ -128,6 +135,50 @@ export const toNormalizedAction = (rawAction, spec) => {
     }
   }
 
+  // Resolve inflictStatus $mode
+  if (action.inflictStatus) {
+    const shiftMode = spec.mode;
+    const isValid = (
+      shiftMode === 'glacioChafe' ||
+      shiftMode === 'fusionBurst' ||
+      shiftMode === 'electroFlare' ||
+      shiftMode === 'aeroErosion' ||
+      shiftMode === 'spectroFrazzle' ||
+      shiftMode === 'havocBane');
+
+    const resolve = (id) => {
+      if (id !== '$mode') return id;
+      if (isValid) return shiftMode;
+    };
+
+    const resolved = {};
+    for (const status in action.inflictStatus) {
+      const resolvedStatus = resolve(status);
+      if (!resolvedStatus) continue;
+      resolved[resolvedStatus] = action.inflictStatus[status];
+    }
+
+    if (Object.keys(resolved).length) {
+      action.inflictStatus = resolved;
+    } else {
+      delete action.inflictStatus;
+    }
+  }
+
+  // Resolve inflictShifting $mode
+  if (action.inflictShifting === '$mode') {
+    const shiftMode = spec.mode;
+    if (
+      shiftMode === 'tuneRupture' ||
+      shiftMode === 'tuneStrain' ||
+      shiftMode === 'hack'
+    ) {
+      action.inflictShifting = shiftMode;
+    } else {
+      delete action.inflictShifting;
+    }
+  }
+
   return action;
 }
 
@@ -165,6 +216,7 @@ export const getMemberPresetActions = (member, { gameId, teamSize }) => {
         teamSize,
         index: mvIndex,
         charElement: char.element,
+        mode: member.mode,
       });
     }
   }

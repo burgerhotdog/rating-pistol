@@ -28,6 +28,7 @@ import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
 import { WW, CHARACTER, WEAPON, SET, ECHO } from '@/data';
 import {
+  formatStr,
   getPresetSetCounts,
   getMemberPreset,
   getDefaultWeaponRank,
@@ -544,7 +545,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
               >
                 {CHARACTER[gameId][draft.id].modes.map((mode) => (
                   <ToggleButton key={mode} value={mode}>
-                    {mode}
+                    {formatStr(mode)}
                   </ToggleButton>
                 ))}
               </ToggleButtonGroup>
