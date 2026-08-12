@@ -277,7 +277,9 @@
             }
           }
         },
-        "buffCooldown": 1500,
+        "buff": {
+          "cooldown": 1500
+        },
         "buffSpec": {
           "flat": {
             "attr": "def",

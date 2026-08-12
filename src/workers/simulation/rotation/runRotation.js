@@ -28,13 +28,14 @@ import { createEventFilter } from './filter';
 function handleRemoveWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
     const { effect } = state;
+    if (!effect.remove) continue;
 
-    const shouldRemove =
-      effect.remove &&
-      effect.remove.when === when &&
-      ctx.eventFilter(effect.remove.filter, action, effect);
+    const { remove } = effect;
+    if (
+      remove.when !== when ||
+      !ctx.eventFilter(remove.filter, action, effect)
+    ) continue;
 
-    if (!shouldRemove) continue;
     onRemoveDoCommand(ctx, effect);
     runRemoveEffect(state);
   }
@@ -43,28 +44,33 @@ function handleRemoveWhen(ctx, action, when) {
 function handleUseWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
     const { effect } = state;
+    if (!effect.use) continue;
 
-    const shouldUse =
-      effect.use?.when === when &&
-      !state.useCooldown &&
-      ctx.eventFilter(effect.use?.filter, action, effect) &&
-      !state.isRunning;
+    const { use } = effect;
+    if (
+      state.isRunning ||
+      state.useCooldown ||
+      use.when !== when ||
+      !ctx.eventFilter(use.filter, action, effect)
+    ) continue;
 
-    if (!shouldUse) continue;
     onUseDoCommand(ctx, effect);
     runUseEffect(ctx, state);
   }
 }
 
 function handleApplyWhen(ctx, action, when) {
+  const { applyCooldowns } = ctx.states;
   for (const effect of Object.values(ctx.cache.effects)) {
-    const shouldApply =
-      effect.applyBy.includes(action.ownerId) &&
-      effect.apply?.when === when &&
-      !ctx.states.applyCooldowns[effect.id] &&
-      ctx.eventFilter(effect.apply?.filter, action, effect);
+    if (!effect.apply) continue;
 
-    if (!shouldApply) continue;
+    const { apply } = effect;
+    if (
+      !effect.applyBy.includes(action.ownerId) ||
+      applyCooldowns[effect.id] ||
+      apply.when !== when ||
+      !ctx.eventFilter(apply.filter, action, effect)
+    ) continue;
 
     onApplyDoCommand(ctx, effect);
     runApplyEffect(ctx, effect, { applier: action.ownerId });
@@ -75,7 +81,9 @@ function advanceCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.states;
   for (const effectId in applyCooldowns) {
     applyCooldowns[effectId] -= elapsed;
-    if (applyCooldowns[effectId] <= 0) delete applyCooldowns[effectId];
+    if (applyCooldowns[effectId] <= 0) {
+      delete applyCooldowns[effectId];
+    }
   }
 }
 
@@ -87,7 +95,10 @@ function decayBuffStates(ctx, action) {
       !ctx.eventFilter(effect.use?.filter, action, effect)
     ) continue;
 
-    if ('buffCooldown' in effect) state.buffCooldown = effect.buffCooldown;
+    if (effect.buff?.cooldown) {
+      state.buffCooldown = effect.buff.cooldown;
+    }
+
     if ('usesLeft' in state) {
       state.usesLeft--;
       if (!state.usesLeft) delete store[effect.id];

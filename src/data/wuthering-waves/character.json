@@ -7885,7 +7885,8 @@
                 }
               }
             ]
-          }
+          },
+          "offset": 6000
         },
         "remove": {
           "when": "expire",
@@ -7901,7 +7902,6 @@
           "when": "interval",
           "cooldown": 6000
         },
-        "useOffset": 6000,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 30000
       },
@@ -32991,12 +32991,12 @@
             "action": {
               "ref": "resonanceLiberation.2"
             }
-          }
+          },
+          "offset": 3120
         },
         "use": {
           "when": "interval"
         },
-        "useOffset": 3120,
         "useAction": "resonanceLiberation.1",
         "maxUses": 1
       },

@@ -65,10 +65,10 @@ export function runApplyEffect(ctx, effect, spec = {}) {
         { extensionsLeft: isExt
           ? prevState.extensionsLeft - 1
           : effect.maxExtensions }),
-      ...(effect.useOffset &&
+      ...(effect.apply?.offset &&
         { useCooldown: isExt
           ? prevState.useCooldown
-          : effect.useOffset }),
+          : effect.apply.offset }),
       ...(effect.rampingInterval &&
         { rampingTimer: isExt
           ? prevState.rampingTimer
@@ -79,8 +79,8 @@ export function runApplyEffect(ctx, effect, spec = {}) {
       effect.remove?.when === 'maxStacks' &&
       store[id].stacks === maxStacks
     ) {
-      if (effect.removeOffset) {
-        store[id].removeTimer ??= effect.removeOffset;
+      if (effect.remove?.offset) {
+        store[id].removeTimer ??= effect.remove.offset;
       } else {
         delete store[id];
       }

@@ -315,9 +315,9 @@
           "cooldown": 12000
         },
         "remove": {
-          "when": "maxStacks"
+          "when": "maxStacks",
+          "offset": 6000
         },
-        "removeOffset": 6000,
         "buffMap": {
           "atk%": [
             0.03,
@@ -547,7 +547,9 @@
             }
           }
         },
-        "buffCooldown": 8000,
+        "buff": {
+          "cooldown": 8000
+        },
         "buffMap": {
           "heavyAttackDmgBonus%": [
             0.18,
@@ -1877,9 +1879,9 @@
           "cooldown": 500
         },
         "remove": {
-          "when": "maxStacks"
+          "when": "maxStacks",
+          "offset": 12000
         },
-        "removeOffset": 12000,
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.04,
