@@ -6,7 +6,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { alpha, darken, useTheme } from '@mui/material/styles';
+import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
   Cell,
@@ -20,23 +20,38 @@ import { useWeapData, useElementColors } from '@/hooks';
 
 const Weapon = ({ weaponResults, userDps, userMember }) => {
   const { gameId } = useParams();
-  const { palette } = useTheme();
+  const { palette, qualityColors } = useTheme();
   const weapData = useWeapData();
   const color = useElementColors({ char: '$curr' });
 
-  const { weaponId, weaponRank } = userMember;
+  const dataEntries = Object.entries(weaponResults)
+    .sort(([a, [a1, a5]], [b, [b1, b5]]) => {
+      const aQual = weapData[a].quality;
+      const bQual = weapData[b].quality;
+      const aDps = aQual === 5 ? a1 : a5;
+      const bDps = bQual === 5 ? b1 : b5;
+      return bDps - aDps;
+    });
 
-  const dataEntries = Object.entries(weaponResults).sort(([, [a]], [, [b]]) => b - a);
+  const maxDps = dataEntries[0][1][weapData[dataEntries[0][0]].quality === 5 ? 0 : 1];
 
-  const data = dataEntries.map(([weaponId, dps]) => ({
-    weaponId,
-    name: weapData[weaponId].name,
-    icon: `${gameId}/weapon/${weaponId}.webp`,
-    dps,
-    dpsR1: dps[0],
-    dpsR5: dps[1],
-    pct: (dps[0] / userDps) * 100,
-  }));
+  const data = dataEntries.map(([weaponId, dps]) => {
+    const { quality } = weapData[weaponId];
+    const pctIdx = quality === 5 ? 0 : 1;
+
+    return {
+      weaponId,
+      quality,
+      name: weapData[weaponId].name,
+      icon: `${gameId}/weapon/${weaponId}.webp`,
+      equipped: weaponId === userMember.weaponId,
+      dps,
+      dpsR1: dps[0],
+      dpsR5: Math.max(dps[1] - dps[0], 0.001),
+      pct: (dps[pctIdx] / userDps) * 100,
+      opacity: (dps[pctIdx] / maxDps) ** 2,
+    };
+  });
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -62,49 +77,73 @@ const Weapon = ({ weaponResults, userDps, userMember }) => {
           <RechartsTooltip
             cursor={{ fill: alpha(palette.text.primary, 0.04) }}
             content={({ payload, label }) => {
-              const { dps = [], pct = 0 } = payload?.[0]?.payload ?? {};
+              const { dps = [] } = payload?.[0]?.payload ?? {};
               return (
                 <Card elevation={4} sx={{ minWidth: 180 }}>
                   <CardContent>
                     <Typography variant="subtitle2">
                       {label}
                     </Typography>
-                    <Stack direction="row" sx={{ justifyContent: 'space-between', gap: 1 }}>
-                      <Typography variant="body2">
-                        {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
-                      </Typography>
-                      <Typography variant="body2">
-                        {pct.toFixed(1)}%
-                      </Typography>
-                    </Stack>
+                    <Typography variant="body2">
+                      R1-5: {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
+                    </Typography>
                   </CardContent>
                 </Card>
               );
             }}
           />
 
-          <Bar dataKey="dpsR1">
+          <Bar dataKey="dpsR1" stackId="a">
             {data.map((entry) => (
               <Cell
                 key={entry.weaponId}
                 fill={color}
+                fillOpacity={entry.opacity}
+              />
+            ))}
+          </Bar>
+
+          <Bar dataKey="dpsR5" stackId="a">
+            {data.map((entry) => (
+              <Cell
+                key={entry.weaponId}
+                fill={qualityColors[entry.quality]}
+                fillOpacity={0.5}
               />
             ))}
 
             <LabelList
               content={({ x, y, width, height, index }) => {
-                const icon = data[index]?.icon;
-                if (!icon) return null;
+                const entry = data[index];
+                if (!entry?.icon) return null;
+
                 const size = height;
+                const ix = x + width + 8;
+                const iy = y;
+
                 return (
-                  <image
-                    x={x + width + 8}
-                    y={y}
-                    width={size}
-                    height={size}
-                    href={icon}
-                    xlinkHref={icon}
-                  />
+                  <g>
+                    {entry.equipped && (
+                      <rect
+                        x={ix - 2}
+                        y={iy - 2}
+                        width={size + 4}
+                        height={size + 4}
+                        rx={4}
+                        fill={alpha(palette.primary.main, 0.15)}
+                        stroke={palette.primary.main}
+                      />
+                    )}
+
+                    <image
+                      x={ix}
+                      y={iy}
+                      width={size}
+                      height={size}
+                      href={entry.icon}
+                      xlinkHref={entry.icon}
+                    />
+                  </g>
                 );
               }}
             />
