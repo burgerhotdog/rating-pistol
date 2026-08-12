@@ -95,7 +95,7 @@
           "bonus": 4
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "ultimate"
@@ -254,7 +254,7 @@
           "bonus": 4
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "skill"
@@ -563,7 +563,7 @@
           "bonus": 4
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "follow-upAttack"
@@ -1818,7 +1818,7 @@
           "bonus": 2
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "follow-upAttack"

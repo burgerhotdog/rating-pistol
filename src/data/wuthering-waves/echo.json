@@ -182,7 +182,7 @@
       {
         "key": "heronReady",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -193,7 +193,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "and": [
               {
@@ -251,7 +251,7 @@
           }
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -349,7 +349,7 @@
       {
         "key": "blessingOfTime",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -382,7 +382,7 @@
           }
         },
         "remove": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "effectStacks": {
               "not": {
@@ -442,7 +442,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -456,7 +456,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -1420,7 +1420,7 @@
       },
       {
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -1618,7 +1618,7 @@
       },
       {
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1749,7 +1749,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -2060,7 +2060,7 @@
       {
         "key": "hyvatiaSummoned",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -2071,7 +2071,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "and": [
               {
@@ -2225,7 +2225,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -2351,7 +2351,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "and": [
               {
@@ -2418,7 +2418,7 @@
           }
         },
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -2446,7 +2446,7 @@
           }
         },
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -2676,7 +2676,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"

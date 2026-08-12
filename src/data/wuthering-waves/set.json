@@ -21,7 +21,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -61,7 +61,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -97,7 +97,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "heavyAttack"
@@ -114,7 +114,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -150,7 +150,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -186,7 +186,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -222,7 +222,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -299,7 +299,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -336,14 +336,14 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "onField"
           }
         },
         "applyCooldown": 1500,
         "remove": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "offField"
           }
@@ -394,7 +394,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -412,7 +412,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -519,7 +519,7 @@
           "bonus": 5
         },
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -543,7 +543,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -787,7 +787,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -805,7 +805,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -884,7 +884,7 @@
           "bonus": 3
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "echoSkill"
@@ -901,7 +901,7 @@
           "bonus": 3
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "echoSkill"
@@ -1059,7 +1059,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -1068,7 +1068,7 @@
         },
         "applyTo": "$next",
         "remove": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "offField"
           }
@@ -1083,7 +1083,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -1092,7 +1092,7 @@
         },
         "applyTo": "$next",
         "remove": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "offField"
           }
@@ -1303,7 +1303,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "and": [
               {
@@ -1515,7 +1515,7 @@
           "bonus": 5
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "and": [
               {

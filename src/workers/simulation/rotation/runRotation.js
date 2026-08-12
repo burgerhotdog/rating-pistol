@@ -132,7 +132,7 @@ function runAction(ctx, action, options = {}) {
   }
 
   // Action timeline
-  runEffectsWhen('before');
+  runEffectsWhen('start');
   advanceTimeTo(hitOffsets[0]);
 
   if (canSnapshot(action)) {
@@ -151,7 +151,7 @@ function runAction(ctx, action, options = {}) {
   }
 
   advanceTimeTo(duration);
-  runEffectsWhen('after');
+  runEffectsWhen('end');
 }
 
 export const runRotation = (cache, equipMaps, specId) => {  

@@ -10202,7 +10202,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "elementalBurst.2"

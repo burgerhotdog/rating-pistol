@@ -60,7 +60,7 @@
           "bonus": 4
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -224,7 +224,7 @@
           "bonus": 4
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "elementalBurst"
@@ -306,7 +306,7 @@
           "bonus": 4
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "elementalSkill"
@@ -424,7 +424,7 @@
           "bonus": 4
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "elementalSkill"
@@ -566,7 +566,7 @@
           "bonus": 4
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "elementalBurst"
@@ -574,7 +574,7 @@
           }
         },
         "remove": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "offField"
           }
@@ -1266,7 +1266,7 @@
           }
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "elementalSkill"

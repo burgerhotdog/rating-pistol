@@ -54,7 +54,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -92,7 +92,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -131,7 +131,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -165,7 +165,7 @@
     "effects": [
       {
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -247,7 +247,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -306,7 +306,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -421,7 +421,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -459,7 +459,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -490,7 +490,7 @@
     "effects": [
       {
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -608,7 +608,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -659,7 +659,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -690,7 +690,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -767,7 +767,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -805,7 +805,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -836,7 +836,7 @@
     "effects": [
       {
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "dodgeCounter"
@@ -918,7 +918,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1067,7 +1067,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1203,7 +1203,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "dodgeCounter"
@@ -1220,7 +1220,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "dodgeCounter"
@@ -1293,7 +1293,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1344,7 +1344,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -1377,7 +1377,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1449,7 +1449,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1575,7 +1575,7 @@
     "effects": [
       {
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1624,7 +1624,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1666,7 +1666,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1762,7 +1762,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -1800,7 +1800,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1817,7 +1817,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1890,7 +1890,7 @@
       },
       {
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1925,7 +1925,7 @@
       {
         "key": "adVeritatem",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -1943,7 +1943,7 @@
       },
       {
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1980,7 +1980,7 @@
       {
         "key": "basicAttackDmgIncreased",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "and": [
               {
@@ -2005,7 +2005,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "and": [
               {
@@ -2052,7 +2052,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2083,7 +2083,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2114,7 +2114,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2145,7 +2145,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2184,7 +2184,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "and": [
@@ -2222,7 +2222,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2263,7 +2263,7 @@
         },
         "applyCooldown": 1000,
         "remove": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "offField"
           }
@@ -2341,7 +2341,7 @@
           }
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
@@ -2350,7 +2350,7 @@
         },
         "applyCooldown": 1000,
         "remove": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "offField"
           }
@@ -2472,7 +2472,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -2556,7 +2556,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -2632,7 +2632,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -2713,7 +2713,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -2846,7 +2846,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -2902,7 +2902,7 @@
           }
         },
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "ref": [
@@ -2950,7 +2950,7 @@
       {
         "key": "gentleDreamReady",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -2965,7 +2965,7 @@
       {
         "key": "gentleDream",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "and": [
               {
@@ -2982,7 +2982,7 @@
           }
         },
         "remove": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "offField"
           }
@@ -3112,7 +3112,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "basicAttack"
@@ -3155,7 +3155,7 @@
       {
         "key": "resonanceLiberationDmgIncreased",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -3231,7 +3231,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -3338,7 +3338,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -3399,7 +3399,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -3433,7 +3433,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -3516,7 +3516,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -3565,7 +3565,7 @@
       },
       {
         "use": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -3591,7 +3591,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -3625,7 +3625,7 @@
     "effects": [
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -3668,7 +3668,7 @@
       {
         "key": "bambooCleaverReady",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -3683,7 +3683,7 @@
       {
         "key": "bambooCleaver",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "and": [
               {
@@ -3700,7 +3700,7 @@
           }
         },
         "remove": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "offField"
           }
@@ -3716,7 +3716,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -3839,7 +3839,7 @@
       {
         "key": "resonanceLiberationDmgIncreased",
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -4385,7 +4385,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": [
@@ -4405,7 +4405,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "damage": {
@@ -4501,7 +4501,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "field": "onField"
           }
@@ -4624,7 +4624,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -4693,7 +4693,7 @@
       },
       {
         "apply": {
-          "when": "before",
+          "when": "start",
           "filter": {
             "action": {
               "type": "introSkill"
