@@ -210,6 +210,18 @@
     },
     "effects": []
   },
+  "11410": {
+    "name": "The Alley Flash",
+    "version": 1.4,
+    "id": "11410",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 620,
+      "elementalMastery": 55
+    },
+    "effects": []
+  },
   "11412": {
     "name": "Sword of Descension",
     "version": 1,
@@ -219,6 +231,252 @@
     "stats": {
       "baseAtk": 440,
       "atk%": 0.352
+    },
+    "effects": []
+  },
+  "11413": {
+    "name": "Festering Desire",
+    "version": 1.2,
+    "id": "11413",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "energyRecharge%": 0.459
+    },
+    "effects": []
+  },
+  "11414": {
+    "name": "Amenoma Kageuchi",
+    "version": 2,
+    "id": "11414",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 454,
+      "atk%": 0.551
+    },
+    "effects": []
+  },
+  "11415": {
+    "name": "Cinnabar Spindle",
+    "version": 2.3,
+    "id": "11415",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 454,
+      "def%": 0.69
+    },
+    "effects": [
+      {
+        "use": {
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          }
+        },
+        "buffCooldown": 1500,
+        "buffSpec": {
+          "flat": {
+            "attr": "def",
+            "step": 1,
+            "value": 0.4
+          }
+        }
+      }
+    ]
+  },
+  "11416": {
+    "name": "Kagotsurube Isshin",
+    "version": 2.8,
+    "id": "11416",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "atk%": 0.413
+    },
+    "effects": []
+  },
+  "11417": {
+    "name": "Sapwood Blade",
+    "version": 3,
+    "id": "11417",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 565,
+      "energyRecharge%": 0.306
+    },
+    "effects": []
+  },
+  "11418": {
+    "name": "Xiphos' Moonlight",
+    "version": 3.1,
+    "id": "11418",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "elementalMastery": 165
+    },
+    "effects": []
+  },
+  "11422": {
+    "name": "Toukabou Shigure",
+    "version": 3.3,
+    "id": "11422",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "elementalMastery": 165
+    },
+    "effects": []
+  },
+  "11424": {
+    "name": "Wolf-Fang",
+    "version": 4,
+    "id": "11424",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "critRate%": 0.276
+    },
+    "effects": []
+  },
+  "11425": {
+    "name": "Finale of the Deep",
+    "version": 4,
+    "id": "11425",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "11426": {
+    "name": "Fleuve Cendre Ferryman",
+    "version": 4,
+    "id": "11426",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "energyRecharge%": 0.459
+    },
+    "effects": []
+  },
+  "11427": {
+    "name": "The Dockhand's Assistant",
+    "version": 4.1,
+    "id": "11427",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "hp%": 0.413
+    },
+    "effects": []
+  },
+  "11428": {
+    "name": "Sword of Narzissenkreuz",
+    "version": 4.2,
+    "id": "11428",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "atk%": 0.413
+    },
+    "effects": []
+  },
+  "11430": {
+    "name": "Sturdy Bone",
+    "version": 5.1,
+    "id": "11430",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "11431": {
+    "name": "Flute of Ezpitzal",
+    "version": 5,
+    "id": "11431",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 454,
+      "def%": 0.69
+    },
+    "effects": []
+  },
+  "11432": {
+    "name": "Calamity of Eshu",
+    "version": 5.2,
+    "id": "11432",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "11433": {
+    "name": "Serenity's Call",
+    "version": 6,
+    "id": "11433",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 454,
+      "energyRecharge%": 0.613
+    },
+    "effects": []
+  },
+  "11434": {
+    "name": "Moonweaver's Dawn",
+    "version": 6,
+    "id": "11434",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "11435": {
+    "name": "Heretic's Molten Blade",
+    "version": 7.0,
+    "id": "11435",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "critRate%": 0.276
+    },
+    "effects": []
+  },
+  "11436": {
+    "name": "Emberwell",
+    "version": 7.0,
+    "id": "11436",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "elementalMastery": 165
     },
     "effects": []
   },
@@ -243,6 +501,186 @@
     "stats": {
       "baseAtk": 608,
       "energyRecharge%": 0.551
+    },
+    "effects": []
+  },
+  "11503": {
+    "name": "Freedom-Sworn",
+    "version": 1.6,
+    "id": "11503",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 608,
+      "elementalMastery": 198
+    },
+    "effects": []
+  },
+  "11504": {
+    "name": "Summit Shaper",
+    "version": 1.2,
+    "id": "11504",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 608,
+      "atk%": 0.496
+    },
+    "effects": []
+  },
+  "11505": {
+    "name": "Primordial Jade Cutter",
+    "version": 1.3,
+    "id": "11505",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 542,
+      "critRate%": 0.441
+    },
+    "effects": []
+  },
+  "11509": {
+    "name": "Mistsplitter Reforged",
+    "version": 2,
+    "id": "11509",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 674,
+      "critDmg%": 0.441
+    },
+    "effects": []
+  },
+  "11510": {
+    "name": "Haran Geppaku Futsu",
+    "version": 2.6,
+    "id": "11510",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 608,
+      "critRate%": 0.331
+    },
+    "effects": []
+  },
+  "11511": {
+    "name": "Key of Khaj-Nisut",
+    "version": 3.1,
+    "id": "11511",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 542,
+      "hp%": 0.662
+    },
+    "effects": []
+  },
+  "11512": {
+    "name": "Light of Foliar Incision",
+    "version": 3.4,
+    "id": "11512",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "11513": {
+    "name": "Splendor of Tranquil Waters",
+    "version": 4.2,
+    "id": "11513",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "11514": {
+    "name": "Uraku Misugiri",
+    "version": 4.5,
+    "id": "11514",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "11515": {
+    "name": "Absolution",
+    "version": 4.7,
+    "id": "11515",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 674,
+      "critDmg%": 0.441
+    },
+    "effects": []
+  },
+  "11516": {
+    "name": "Peak Patrol Song",
+    "version": 5.1,
+    "id": "11516",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 542,
+      "def%": 0.827
+    },
+    "effects": []
+  },
+  "11517": {
+    "name": "Azurelight",
+    "version": 5.7,
+    "id": "11517",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 674,
+      "critRate%": 0.221
+    },
+    "effects": []
+  },
+  "11518": {
+    "name": "Athame Artis",
+    "version": 6.2,
+    "id": "11518",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 608,
+      "critRate%": 0.331
+    },
+    "effects": []
+  },
+  "11519": {
+    "name": "Lightbearing Moonshard",
+    "version": 6.3,
+    "id": "11519",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "11520": {
+    "name": "Whitelake Frostfeather",
+    "version": 7.0,
+    "id": "11520",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 674,
+      "critRate%": 0.221
     },
     "effects": []
   },
@@ -436,6 +874,222 @@
     },
     "effects": []
   },
+  "12410": {
+    "name": "Lithic Blade",
+    "version": 1.3,
+    "id": "12410",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 510,
+      "atk%": 0.413
+    },
+    "effects": []
+  },
+  "12411": {
+    "name": "Snow-Tombed Starsilver",
+    "version": 1.2,
+    "id": "12411",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 565,
+      "physicalDmgBonus%": 0.345
+    },
+    "effects": []
+  },
+  "12412": {
+    "name": "Luxurious Sea-Lord",
+    "version": 2.1,
+    "id": "12412",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 454,
+      "atk%": 0.551
+    },
+    "effects": []
+  },
+  "12414": {
+    "name": "Katsuragikiri Nagamasa",
+    "version": 2,
+    "id": "12414",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 510,
+      "energyRecharge%": 0.459
+    },
+    "effects": []
+  },
+  "12415": {
+    "name": "Makhaira Aquamarine",
+    "version": 3.1,
+    "id": "12415",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 510,
+      "elementalMastery": 165
+    },
+    "effects": []
+  },
+  "12416": {
+    "name": "Akuoumaru",
+    "version": 2.2,
+    "id": "12416",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 510,
+      "atk%": 0.413
+    },
+    "effects": []
+  },
+  "12417": {
+    "name": "Forest Regalia",
+    "version": 3,
+    "id": "12417",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 565,
+      "energyRecharge%": 0.306
+    },
+    "effects": []
+  },
+  "12418": {
+    "name": "Mailed Flower",
+    "version": 3.5,
+    "id": "12418",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 565,
+      "elementalMastery": 110
+    },
+    "effects": []
+  },
+  "12424": {
+    "name": "Talking Stick",
+    "version": 4,
+    "id": "12424",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 565,
+      "critRate%": 0.184
+    },
+    "effects": []
+  },
+  "12425": {
+    "name": "Tidal Shadow",
+    "version": 4,
+    "id": "12425",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 510,
+      "atk%": 0.413
+    },
+    "effects": []
+  },
+  "12426": {
+    "name": "\"Ultimate Overlord's Mega Magic Sword\"",
+    "version": 4.3,
+    "id": "12426",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 565,
+      "energyRecharge%": 0.306
+    },
+    "effects": []
+  },
+  "12427": {
+    "name": "Portable Power Saw",
+    "version": 4.1,
+    "id": "12427",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 454,
+      "hp%": 0.551
+    },
+    "effects": []
+  },
+  "12430": {
+    "name": "Fruitful Hook",
+    "version": 5.1,
+    "id": "12430",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "12431": {
+    "name": "Earth Shaker",
+    "version": 5,
+    "id": "12431",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "12432": {
+    "name": "Flame-Forged Insight",
+    "version": 5.8,
+    "id": "12432",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 510,
+      "elementalMastery": 165
+    },
+    "effects": []
+  },
+  "12433": {
+    "name": "Master Key",
+    "version": 6,
+    "id": "12433",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 454,
+      "energyRecharge%": 0.613
+    },
+    "effects": []
+  },
+  "12435": {
+    "name": "Forged by the Golden Melody",
+    "version": 7.0,
+    "id": "12435",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 510,
+      "critRate%": 0.276
+    },
+    "effects": []
+  },
+  "12436": {
+    "name": "Blade of Atonement",
+    "version": 7.0,
+    "id": "12436",
+    "quality": 4,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
   "12501": {
     "name": "Skyward Pride",
     "version": 1,
@@ -457,6 +1111,114 @@
     "stats": {
       "baseAtk": 608,
       "atk%": 0.496
+    },
+    "effects": []
+  },
+  "12503": {
+    "name": "Song of Broken Pines",
+    "version": 1.5,
+    "id": "12503",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 741,
+      "physicalDmgBonus%": 0.207
+    },
+    "effects": []
+  },
+  "12504": {
+    "name": "The Unforged",
+    "version": 1.1,
+    "id": "12504",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 608,
+      "atk%": 0.496
+    },
+    "effects": []
+  },
+  "12510": {
+    "name": "Redhorn Stonethresher",
+    "version": 2.3,
+    "id": "12510",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "12511": {
+    "name": "Beacon of the Reed Sea",
+    "version": 3.5,
+    "id": "12511",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 608,
+      "critRate%": 0.331
+    },
+    "effects": []
+  },
+  "12512": {
+    "name": "Verdict",
+    "version": 4.3,
+    "id": "12512",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 674,
+      "critRate%": 0.221
+    },
+    "effects": []
+  },
+  "12513": {
+    "name": "Fang of the Mountain King",
+    "version": 5,
+    "id": "12513",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 741,
+      "critRate%": 0.11
+    },
+    "effects": []
+  },
+  "12514": {
+    "name": "A Thousand Blazing Suns",
+    "version": 5.3,
+    "id": "12514",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 741,
+      "critRate%": 0.11
+    },
+    "effects": []
+  },
+  "12515": {
+    "name": "Gest of the Mighty Wolf",
+    "version": 6.4,
+    "id": "12515",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 608,
+      "critRate%": 0.331
+    },
+    "effects": []
+  },
+  "12516": {
+    "name": "A Teaspoon of Transcendence",
+    "version": 6.7,
+    "id": "12516",
+    "quality": 5,
+    "type": "claymore",
+    "stats": {
+      "baseAtk": 674,
+      "critDmg%": 0.441
     },
     "effects": []
   },
@@ -578,6 +1340,18 @@
     },
     "effects": []
   },
+  "13406": {
+    "name": "Lithic Spear",
+    "version": 1.3,
+    "id": "13406",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
   "13407": {
     "name": "Favonius Lance",
     "version": 1,
@@ -587,6 +1361,234 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
+    },
+    "effects": []
+  },
+  "13408": {
+    "name": "Royal Spear",
+    "version": 1.1,
+    "id": "13408",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "13409": {
+    "name": "Dragonspine Spear",
+    "version": 1.2,
+    "id": "13409",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 454,
+      "physicalDmgBonus%": 0.69
+    },
+    "effects": []
+  },
+  "13414": {
+    "name": "Kitain Cross Spear",
+    "version": 2,
+    "id": "13414",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 565,
+      "elementalMastery": 110
+    },
+    "effects": []
+  },
+  "13415": {
+    "name": "\"The Catch\"",
+    "version": 2.1,
+    "id": "13415",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 510,
+      "energyRecharge%": 0.459
+    },
+    "effects": []
+  },
+  "13416": {
+    "name": "Wavebreaker's Fin",
+    "version": 2.2,
+    "id": "13416",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 620,
+      "atk%": 0.138
+    },
+    "effects": []
+  },
+  "13417": {
+    "name": "Moonpiercer",
+    "version": 3,
+    "id": "13417",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 565,
+      "elementalMastery": 110
+    },
+    "effects": []
+  },
+  "13419": {
+    "name": "Missive Windspear",
+    "version": 3.1,
+    "id": "13419",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 510,
+      "atk%": 0.413
+    },
+    "effects": []
+  },
+  "13424": {
+    "name": "Ballad of the Fjords",
+    "version": 4,
+    "id": "13424",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 510,
+      "critRate%": 0.276
+    },
+    "effects": []
+  },
+  "13425": {
+    "name": "Rightful Reward",
+    "version": 4,
+    "id": "13425",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 565,
+      "hp%": 0.276
+    },
+    "effects": []
+  },
+  "13426": {
+    "name": "Dialogues of the Desert Sages",
+    "version": 4.5,
+    "id": "13426",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 510,
+      "hp%": 0.413
+    },
+    "effects": []
+  },
+  "13427": {
+    "name": "Prospector's Drill",
+    "version": 4.1,
+    "id": "13427",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "13430": {
+    "name": "Mountain-Bracing Bolt",
+    "version": 5.1,
+    "id": "13430",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 565,
+      "energyRecharge%": 0.306
+    },
+    "effects": []
+  },
+  "13431": {
+    "name": "Footprint of the Rainbow",
+    "version": 5,
+    "id": "13431",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 510,
+      "def%": 0.517
+    },
+    "effects": []
+  },
+  "13432": {
+    "name": "Tamayuratei no Ohanashi",
+    "version": 5.4,
+    "id": "13432",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 565,
+      "energyRecharge%": 0.306
+    },
+    "effects": []
+  },
+  "13433": {
+    "name": "Prospector's Shovel",
+    "version": 6,
+    "id": "13433",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 510,
+      "atk%": 0.413
+    },
+    "effects": []
+  },
+  "13434": {
+    "name": "Sacrificer's Staff",
+    "version": 6.1,
+    "id": "13434",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 620,
+      "critRate%": 0.092
+    },
+    "effects": []
+  },
+  "13435": {
+    "name": "Frostbreath",
+    "version": 7.0,
+    "id": "13435",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 510,
+      "energyRecharge%": 0.459
+    },
+    "effects": []
+  },
+  "13436": {
+    "name": "Song of the Vigil",
+    "version": 7.0,
+    "id": "13436",
+    "quality": 4,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 565,
+      "elementalMastery": 110
+    },
+    "effects": []
+  },
+  "13501": {
+    "name": "Staff of Homa",
+    "version": 1.3,
+    "id": "13501",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 608,
+      "critDmg%": 0.662
     },
     "effects": []
   },
@@ -602,10 +1604,130 @@
     },
     "effects": []
   },
+  "13504": {
+    "name": "Vortex Vanquisher",
+    "version": 1.1,
+    "id": "13504",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 608,
+      "atk%": 0.496
+    },
+    "effects": []
+  },
   "13505": {
     "name": "Primordial Jade Winged-Spear",
     "version": 1,
     "id": "13505",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 674,
+      "critRate%": 0.221
+    },
+    "effects": []
+  },
+  "13507": {
+    "name": "Calamity Queller",
+    "version": 2.4,
+    "id": "13507",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 741,
+      "atk%": 0.165
+    },
+    "effects": []
+  },
+  "13509": {
+    "name": "Engulfing Lightning",
+    "version": 2.1,
+    "id": "13509",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 608,
+      "energyRecharge%": 0.551
+    },
+    "effects": []
+  },
+  "13511": {
+    "name": "Staff of the Scarlet Sands",
+    "version": 3.1,
+    "id": "13511",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 542,
+      "critRate%": 0.441
+    },
+    "effects": []
+  },
+  "13512": {
+    "name": "Crimson Moon's Semblance",
+    "version": 4.6,
+    "id": "13512",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 674,
+      "critRate%": 0.221
+    },
+    "effects": []
+  },
+  "13513": {
+    "name": "Lumidouce Elegy",
+    "version": 4.8,
+    "id": "13513",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 608,
+      "critRate%": 0.331
+    },
+    "effects": []
+  },
+  "13514": {
+    "name": "Symphonist of Scents",
+    "version": 5.6,
+    "id": "13514",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 608,
+      "critDmg%": 0.662
+    },
+    "effects": []
+  },
+  "13515": {
+    "name": "Fractured Halo",
+    "version": 5.8,
+    "id": "13515",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 608,
+      "critDmg%": 0.662
+    },
+    "effects": []
+  },
+  "13516": {
+    "name": "Bloodsoaked Ruins",
+    "version": 6,
+    "id": "13516",
+    "quality": 5,
+    "type": "polearm",
+    "stats": {
+      "baseAtk": 674,
+      "critRate%": 0.221
+    },
+    "effects": []
+  },
+  "13517": {
+    "name": "Disaster and Remorse",
+    "version": 6.6,
+    "id": "13517",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -804,6 +1926,222 @@
     },
     "effects": []
   },
+  "14410": {
+    "name": "Wine and Song",
+    "version": 1.4,
+    "id": "14410",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 565,
+      "energyRecharge%": 0.306
+    },
+    "effects": []
+  },
+  "14412": {
+    "name": "Frostbearer",
+    "version": 1.2,
+    "id": "14412",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 510,
+      "atk%": 0.413
+    },
+    "effects": []
+  },
+  "14413": {
+    "name": "Dodoco Tales",
+    "version": 1.6,
+    "id": "14413",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 454,
+      "atk%": 0.551
+    },
+    "effects": []
+  },
+  "14414": {
+    "name": "Hakushin Ring",
+    "version": 2,
+    "id": "14414",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 565,
+      "energyRecharge%": 0.306
+    },
+    "effects": []
+  },
+  "14415": {
+    "name": "Oathsworn Eye",
+    "version": 2.5,
+    "id": "14415",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "14416": {
+    "name": "Wandering Evenstar",
+    "version": 3.1,
+    "id": "14416",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 510,
+      "elementalMastery": 165
+    },
+    "effects": []
+  },
+  "14417": {
+    "name": "Fruit of Fulfillment",
+    "version": 3,
+    "id": "14417",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 510,
+      "energyRecharge%": 0.459
+    },
+    "effects": []
+  },
+  "14424": {
+    "name": "Sacrificial Jade",
+    "version": 4,
+    "id": "14424",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 454,
+      "critRate%": 0.368
+    },
+    "effects": []
+  },
+  "14425": {
+    "name": "Flowing Purity",
+    "version": 4,
+    "id": "14425",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
+  "14426": {
+    "name": "Ballad of the Boundless Blue",
+    "version": 4.1,
+    "id": "14426",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 565,
+      "energyRecharge%": 0.306
+    },
+    "effects": []
+  },
+  "14427": {
+    "name": "Ash-Graven Drinking Horn",
+    "version": 5,
+    "id": "14427",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 510,
+      "hp%": 0.413
+    },
+    "effects": []
+  },
+  "14430": {
+    "name": "Waveriding Whirl",
+    "version": 5.2,
+    "id": "14430",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 454,
+      "energyRecharge%": 0.613
+    },
+    "effects": []
+  },
+  "14431": {
+    "name": "Ring of Yaxche",
+    "version": 5,
+    "id": "14431",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 510,
+      "hp%": 0.413
+    },
+    "effects": []
+  },
+  "14432": {
+    "name": "Etherlight Spindlelute",
+    "version": 6,
+    "id": "14432",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 510,
+      "energyRecharge%": 0.459
+    },
+    "effects": []
+  },
+  "14433": {
+    "name": "Blackmarrow Lantern",
+    "version": 6,
+    "id": "14433",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 454,
+      "elementalMastery": 221
+    },
+    "effects": []
+  },
+  "14434": {
+    "name": "Dawning Frost",
+    "version": 6.1,
+    "id": "14434",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 510,
+      "critDmg%": 0.551
+    },
+    "effects": []
+  },
+  "14435": {
+    "name": "Clash of Kings",
+    "version": 7.0,
+    "id": "14435",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 510,
+      "critRate%": 0.276
+    },
+    "effects": []
+  },
+  "14436": {
+    "name": "Echoes of the Heart",
+    "version": 7.0,
+    "id": "14436",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 565,
+      "atk%": 0.276
+    },
+    "effects": []
+  },
   "14501": {
     "name": "Skyward Atlas",
     "version": 1,
@@ -825,6 +2163,210 @@
     "stats": {
       "baseAtk": 608,
       "critRate%": 0.331
+    },
+    "effects": []
+  },
+  "14504": {
+    "name": "Memory of Dust",
+    "version": 1.1,
+    "id": "14504",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 608,
+      "atk%": 0.496
+    },
+    "effects": []
+  },
+  "14505": {
+    "name": "Jadefall's Splendor",
+    "version": 3.6,
+    "id": "14505",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 608,
+      "hp%": 0.496
+    },
+    "effects": []
+  },
+  "14506": {
+    "name": "Everlasting Moonglow",
+    "version": 2.1,
+    "id": "14506",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 608,
+      "hp%": 0.496
+    },
+    "effects": []
+  },
+  "14509": {
+    "name": "Kagura's Verity",
+    "version": 2.5,
+    "id": "14509",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 608,
+      "critDmg%": 0.662
+    },
+    "effects": []
+  },
+  "14511": {
+    "name": "A Thousand Floating Dreams",
+    "version": 3.2,
+    "id": "14511",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "elementalMastery": 265
+    },
+    "effects": []
+  },
+  "14512": {
+    "name": "Tulaytullah's Remembrance",
+    "version": 3.3,
+    "id": "14512",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 674,
+      "critDmg%": 0.441
+    },
+    "effects": []
+  },
+  "14513": {
+    "name": "Cashflow Supervision",
+    "version": 4.1,
+    "id": "14513",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 674,
+      "critRate%": 0.221
+    },
+    "effects": []
+  },
+  "14514": {
+    "name": "Tome of the Eternal Flow",
+    "version": 4.1,
+    "id": "14514",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "14515": {
+    "name": "Crane's Echoing Call",
+    "version": 4.4,
+    "id": "14515",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 741,
+      "atk%": 0.165
+    },
+    "effects": []
+  },
+  "14516": {
+    "name": "Surf's Up",
+    "version": 5,
+    "id": "14516",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "14517": {
+    "name": "Starcaller's Watch",
+    "version": 5.3,
+    "id": "14517",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "elementalMastery": 265
+    },
+    "effects": []
+  },
+  "14518": {
+    "name": "Sunny Morning Sleep-In",
+    "version": 5.4,
+    "id": "14518",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "elementalMastery": 265
+    },
+    "effects": []
+  },
+  "14519": {
+    "name": "Vivid Notions",
+    "version": 5.5,
+    "id": "14519",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 674,
+      "critDmg%": 0.441
+    },
+    "effects": []
+  },
+  "14520": {
+    "name": "Nightweaver's Looking Glass",
+    "version": 6,
+    "id": "14520",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "elementalMastery": 265
+    },
+    "effects": []
+  },
+  "14521": {
+    "name": "Reliquary of Truth",
+    "version": 6.1,
+    "id": "14521",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "14522": {
+    "name": "Nocturne's Curtain Call",
+    "version": 6.3,
+    "id": "14522",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "14523": {
+    "name": "Angelos' Heptades",
+    "version": 6.6,
+    "id": "14523",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 741,
+      "atk%": 0.165
     },
     "effects": []
   },
@@ -1018,210 +2560,6 @@
     },
     "effects": []
   },
-  "15501": {
-    "name": "Skyward Harp",
-    "version": 1,
-    "id": "15501",
-    "quality": 5,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 674,
-      "critRate%": 0.221
-    },
-    "effects": []
-  },
-  "15502": {
-    "name": "Amos' Bow",
-    "version": 1,
-    "id": "15502",
-    "quality": 5,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 608,
-      "atk%": 0.496
-    },
-    "effects": []
-  },
-  "12504": {
-    "name": "The Unforged",
-    "version": 1.1,
-    "id": "12504",
-    "quality": 5,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 608,
-      "atk%": 0.496
-    },
-    "effects": []
-  },
-  "13408": {
-    "name": "Royal Spear",
-    "version": 1.1,
-    "id": "13408",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "13504": {
-    "name": "Vortex Vanquisher",
-    "version": 1.1,
-    "id": "13504",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 608,
-      "atk%": 0.496
-    },
-    "effects": []
-  },
-  "14504": {
-    "name": "Memory of Dust",
-    "version": 1.1,
-    "id": "14504",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 608,
-      "atk%": 0.496
-    },
-    "effects": []
-  },
-  "11413": {
-    "name": "Festering Desire",
-    "version": 1.2,
-    "id": "11413",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 510,
-      "energyRecharge%": 0.459
-    },
-    "effects": []
-  },
-  "11504": {
-    "name": "Summit Shaper",
-    "version": 1.2,
-    "id": "11504",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 608,
-      "atk%": 0.496
-    },
-    "effects": []
-  },
-  "12411": {
-    "name": "Snow-Tombed Starsilver",
-    "version": 1.2,
-    "id": "12411",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 565,
-      "physicalDmgBonus%": 0.345
-    },
-    "effects": []
-  },
-  "13409": {
-    "name": "Dragonspine Spear",
-    "version": 1.2,
-    "id": "13409",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 454,
-      "physicalDmgBonus%": 0.69
-    },
-    "effects": []
-  },
-  "14412": {
-    "name": "Frostbearer",
-    "version": 1.2,
-    "id": "14412",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 510,
-      "atk%": 0.413
-    },
-    "effects": []
-  },
-  "11505": {
-    "name": "Primordial Jade Cutter",
-    "version": 1.3,
-    "id": "11505",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 542,
-      "critRate%": 0.441
-    },
-    "effects": []
-  },
-  "12410": {
-    "name": "Lithic Blade",
-    "version": 1.3,
-    "id": "12410",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 510,
-      "atk%": 0.413
-    },
-    "effects": []
-  },
-  "13406": {
-    "name": "Lithic Spear",
-    "version": 1.3,
-    "id": "13406",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "13501": {
-    "name": "Staff of Homa",
-    "version": 1.3,
-    "id": "13501",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 608,
-      "critDmg%": 0.662
-    },
-    "effects": []
-  },
-  "11410": {
-    "name": "The Alley Flash",
-    "version": 1.4,
-    "id": "11410",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 620,
-      "elementalMastery": 55
-    },
-    "effects": []
-  },
-  "14410": {
-    "name": "Wine and Song",
-    "version": 1.4,
-    "id": "14410",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 565,
-      "energyRecharge%": 0.306
-    },
-    "effects": []
-  },
   "15410": {
     "name": "Alley Hunter",
     "version": 1.4,
@@ -1231,360 +2569,6 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    },
-    "effects": []
-  },
-  "15413": {
-    "name": "Windblume Ode",
-    "version": 1.4,
-    "id": "15413",
-    "quality": 4,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 510,
-      "elementalMastery": 165
-    },
-    "effects": []
-  },
-  "15503": {
-    "name": "Elegy for the End",
-    "version": 1.4,
-    "id": "15503",
-    "quality": 5,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 608,
-      "energyRecharge%": 0.551
-    },
-    "effects": []
-  },
-  "12503": {
-    "name": "Song of Broken Pines",
-    "version": 1.5,
-    "id": "12503",
-    "quality": 5,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 741,
-      "physicalDmgBonus%": 0.207
-    },
-    "effects": []
-  },
-  "11503": {
-    "name": "Freedom-Sworn",
-    "version": 1.6,
-    "id": "11503",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 608,
-      "elementalMastery": 198
-    },
-    "effects": []
-  },
-  "14413": {
-    "name": "Dodoco Tales",
-    "version": 1.6,
-    "id": "14413",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 454,
-      "atk%": 0.551
-    },
-    "effects": []
-  },
-  "15412": {
-    "name": "Mitternachts Waltz",
-    "version": 1.6,
-    "id": "15412",
-    "quality": 4,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 510,
-      "physicalDmgBonus%": 0.517
-    },
-    "effects": []
-  },
-  "11414": {
-    "name": "Amenoma Kageuchi",
-    "version": 2,
-    "id": "11414",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 454,
-      "atk%": 0.551
-    },
-    "effects": []
-  },
-  "11509": {
-    "name": "Mistsplitter Reforged",
-    "version": 2,
-    "id": "11509",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 674,
-      "critDmg%": 0.441
-    },
-    "effects": []
-  },
-  "12414": {
-    "name": "Katsuragikiri Nagamasa",
-    "version": 2,
-    "id": "12414",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 510,
-      "energyRecharge%": 0.459
-    },
-    "effects": []
-  },
-  "13414": {
-    "name": "Kitain Cross Spear",
-    "version": 2,
-    "id": "13414",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 565,
-      "elementalMastery": 110
-    },
-    "effects": []
-  },
-  "14414": {
-    "name": "Hakushin Ring",
-    "version": 2,
-    "id": "14414",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 565,
-      "energyRecharge%": 0.306
-    },
-    "effects": []
-  },
-  "15414": {
-    "name": "Hamayumi",
-    "version": 2,
-    "id": "15414",
-    "quality": 4,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 454,
-      "atk%": 0.551
-    },
-    "effects": []
-  },
-  "15509": {
-    "name": "Thundering Pulse",
-    "version": 2,
-    "id": "15509",
-    "quality": 5,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 608,
-      "critDmg%": 0.662
-    },
-    "effects": []
-  },
-  "12412": {
-    "name": "Luxurious Sea-Lord",
-    "version": 2.1,
-    "id": "12412",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 454,
-      "atk%": 0.551
-    },
-    "effects": []
-  },
-  "13415": {
-    "name": "\"The Catch\"",
-    "version": 2.1,
-    "id": "13415",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 510,
-      "energyRecharge%": 0.459
-    },
-    "effects": []
-  },
-  "13509": {
-    "name": "Engulfing Lightning",
-    "version": 2.1,
-    "id": "13509",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 608,
-      "energyRecharge%": 0.551
-    },
-    "effects": []
-  },
-  "14506": {
-    "name": "Everlasting Moonglow",
-    "version": 2.1,
-    "id": "14506",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 608,
-      "hp%": 0.496
-    },
-    "effects": []
-  },
-  "15415": {
-    "name": "Predator",
-    "version": 2.1,
-    "id": "15415",
-    "quality": 4,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 510,
-      "atk%": 0.413
-    },
-    "effects": []
-  },
-  "12416": {
-    "name": "Akuoumaru",
-    "version": 2.2,
-    "id": "12416",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 510,
-      "atk%": 0.413
-    },
-    "effects": []
-  },
-  "13416": {
-    "name": "Wavebreaker's Fin",
-    "version": 2.2,
-    "id": "13416",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 620,
-      "atk%": 0.138
-    },
-    "effects": []
-  },
-  "15416": {
-    "name": "Mouun's Moon",
-    "version": 2.2,
-    "id": "15416",
-    "quality": 4,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "15507": {
-    "name": "Polar Star",
-    "version": 2.2,
-    "id": "15507",
-    "quality": 5,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 608,
-      "critRate%": 0.331
-    },
-    "effects": []
-  },
-  "11415": {
-    "name": "Cinnabar Spindle",
-    "version": 2.3,
-    "id": "11415",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 454,
-      "def%": 0.69
-    },
-    "effects": [
-      {
-        "use": {
-          "filter": {
-            "action": {
-              "type": "elementalSkill"
-            }
-          }
-        },
-        "buffCooldown": 1500,
-        "buffSpec": {
-          "flat": {
-            "attr": "def",
-            "step": 1,
-            "value": 0.4
-          }
-        }
-      }
-    ]
-  },
-  "12510": {
-    "name": "Redhorn Stonethresher",
-    "version": 2.3,
-    "id": "12510",
-    "quality": 5,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
-    },
-    "effects": []
-  },
-  "13507": {
-    "name": "Calamity Queller",
-    "version": 2.4,
-    "id": "13507",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 741,
-      "atk%": 0.165
-    },
-    "effects": []
-  },
-  "14415": {
-    "name": "Oathsworn Eye",
-    "version": 2.5,
-    "id": "14415",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "14509": {
-    "name": "Kagura's Verity",
-    "version": 2.5,
-    "id": "14509",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 608,
-      "critDmg%": 0.662
-    },
-    "effects": []
-  },
-  "11510": {
-    "name": "Haran Geppaku Futsu",
-    "version": 2.6,
-    "id": "11510",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 608,
-      "critRate%": 0.331
     },
     "effects": []
   },
@@ -1600,75 +2584,63 @@
     },
     "effects": []
   },
-  "15508": {
-    "name": "Aqua Simulacra",
-    "version": 2.7,
-    "id": "15508",
-    "quality": 5,
+  "15412": {
+    "name": "Mitternachts Waltz",
+    "version": 1.6,
+    "id": "15412",
+    "quality": 4,
     "type": "bow",
     "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
+      "baseAtk": 510,
+      "physicalDmgBonus%": 0.517
     },
     "effects": []
   },
-  "11416": {
-    "name": "Kagotsurube Isshin",
-    "version": 2.8,
-    "id": "11416",
+  "15413": {
+    "name": "Windblume Ode",
+    "version": 1.4,
+    "id": "15413",
     "quality": 4,
-    "type": "sword",
+    "type": "bow",
+    "stats": {
+      "baseAtk": 510,
+      "elementalMastery": 165
+    },
+    "effects": []
+  },
+  "15414": {
+    "name": "Hamayumi",
+    "version": 2,
+    "id": "15414",
+    "quality": 4,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 454,
+      "atk%": 0.551
+    },
+    "effects": []
+  },
+  "15415": {
+    "name": "Predator",
+    "version": 2.1,
+    "id": "15415",
+    "quality": 4,
+    "type": "bow",
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
     },
     "effects": []
   },
-  "11417": {
-    "name": "Sapwood Blade",
-    "version": 3,
-    "id": "11417",
+  "15416": {
+    "name": "Mouun's Moon",
+    "version": 2.2,
+    "id": "15416",
     "quality": 4,
-    "type": "sword",
+    "type": "bow",
     "stats": {
       "baseAtk": 565,
-      "energyRecharge%": 0.306
-    },
-    "effects": []
-  },
-  "12417": {
-    "name": "Forest Regalia",
-    "version": 3,
-    "id": "12417",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 565,
-      "energyRecharge%": 0.306
-    },
-    "effects": []
-  },
-  "13417": {
-    "name": "Moonpiercer",
-    "version": 3,
-    "id": "13417",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 565,
-      "elementalMastery": 110
-    },
-    "effects": []
-  },
-  "14417": {
-    "name": "Fruit of Fulfillment",
-    "version": 3,
-    "id": "14417",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 510,
-      "energyRecharge%": 0.459
+      "atk%": 0.276
     },
     "effects": []
   },
@@ -1696,288 +2668,12 @@
     },
     "effects": []
   },
-  "15511": {
-    "name": "Hunter's Path",
-    "version": 3,
-    "id": "15511",
-    "quality": 5,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 542,
-      "critRate%": 0.441
-    },
-    "effects": []
-  },
-  "11418": {
-    "name": "Xiphos' Moonlight",
-    "version": 3.1,
-    "id": "11418",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 510,
-      "elementalMastery": 165
-    },
-    "effects": []
-  },
-  "11511": {
-    "name": "Key of Khaj-Nisut",
-    "version": 3.1,
-    "id": "11511",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 542,
-      "hp%": 0.662
-    },
-    "effects": []
-  },
-  "12415": {
-    "name": "Makhaira Aquamarine",
-    "version": 3.1,
-    "id": "12415",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 510,
-      "elementalMastery": 165
-    },
-    "effects": []
-  },
-  "13419": {
-    "name": "Missive Windspear",
-    "version": 3.1,
-    "id": "13419",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 510,
-      "atk%": 0.413
-    },
-    "effects": []
-  },
-  "13511": {
-    "name": "Staff of the Scarlet Sands",
-    "version": 3.1,
-    "id": "13511",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 542,
-      "critRate%": 0.441
-    },
-    "effects": []
-  },
-  "14416": {
-    "name": "Wandering Evenstar",
-    "version": 3.1,
-    "id": "14416",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 510,
-      "elementalMastery": 165
-    },
-    "effects": []
-  },
-  "14511": {
-    "name": "A Thousand Floating Dreams",
-    "version": 3.2,
-    "id": "14511",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 542,
-      "elementalMastery": 265
-    },
-    "effects": []
-  },
-  "11422": {
-    "name": "Toukabou Shigure",
-    "version": 3.3,
-    "id": "11422",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 510,
-      "elementalMastery": 165
-    },
-    "effects": []
-  },
-  "14512": {
-    "name": "Tulaytullah's Remembrance",
-    "version": 3.3,
-    "id": "14512",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 674,
-      "critDmg%": 0.441
-    },
-    "effects": []
-  },
-  "11512": {
-    "name": "Light of Foliar Incision",
-    "version": 3.4,
-    "id": "11512",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
-    },
-    "effects": []
-  },
-  "12418": {
-    "name": "Mailed Flower",
-    "version": 3.5,
-    "id": "12418",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 565,
-      "elementalMastery": 110
-    },
-    "effects": []
-  },
-  "12511": {
-    "name": "Beacon of the Reed Sea",
-    "version": 3.5,
-    "id": "12511",
-    "quality": 5,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 608,
-      "critRate%": 0.331
-    },
-    "effects": []
-  },
-  "14505": {
-    "name": "Jadefall's Splendor",
-    "version": 3.6,
-    "id": "14505",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 608,
-      "hp%": 0.496
-    },
-    "effects": []
-  },
   "15419": {
     "name": "Ibis Piercer",
     "version": 3.7,
     "id": "15419",
     "quality": 4,
     "type": "bow",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "11424": {
-    "name": "Wolf-Fang",
-    "version": 4,
-    "id": "11424",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 510,
-      "critRate%": 0.276
-    },
-    "effects": []
-  },
-  "11425": {
-    "name": "Finale of the Deep",
-    "version": 4,
-    "id": "11425",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "11426": {
-    "name": "Fleuve Cendre Ferryman",
-    "version": 4,
-    "id": "11426",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 510,
-      "energyRecharge%": 0.459
-    },
-    "effects": []
-  },
-  "12424": {
-    "name": "Talking Stick",
-    "version": 4,
-    "id": "12424",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 565,
-      "critRate%": 0.184
-    },
-    "effects": []
-  },
-  "12425": {
-    "name": "Tidal Shadow",
-    "version": 4,
-    "id": "12425",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 510,
-      "atk%": 0.413
-    },
-    "effects": []
-  },
-  "13424": {
-    "name": "Ballad of the Fjords",
-    "version": 4,
-    "id": "13424",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 510,
-      "critRate%": 0.276
-    },
-    "effects": []
-  },
-  "13425": {
-    "name": "Rightful Reward",
-    "version": 4,
-    "id": "13425",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 565,
-      "hp%": 0.276
-    },
-    "effects": []
-  },
-  "14424": {
-    "name": "Sacrificial Jade",
-    "version": 4,
-    "id": "14424",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 454,
-      "critRate%": 0.368
-    },
-    "effects": []
-  },
-  "14425": {
-    "name": "Flowing Purity",
-    "version": 4,
-    "id": "14425",
-    "quality": 4,
-    "type": "catalyst",
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
@@ -2008,87 +2704,15 @@
     },
     "effects": []
   },
-  "15512": {
-    "name": "The First Great Magic",
-    "version": 4,
-    "id": "15512",
-    "quality": 5,
+  "15426": {
+    "name": "Cloudforged",
+    "version": 4.7,
+    "id": "15426",
+    "quality": 4,
     "type": "bow",
     "stats": {
-      "baseAtk": 608,
-      "critDmg%": 0.662
-    },
-    "effects": []
-  },
-  "11427": {
-    "name": "The Dockhand's Assistant",
-    "version": 4.1,
-    "id": "11427",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
       "baseAtk": 510,
-      "hp%": 0.413
-    },
-    "effects": []
-  },
-  "12427": {
-    "name": "Portable Power Saw",
-    "version": 4.1,
-    "id": "12427",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 454,
-      "hp%": 0.551
-    },
-    "effects": []
-  },
-  "13427": {
-    "name": "Prospector's Drill",
-    "version": 4.1,
-    "id": "13427",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "14426": {
-    "name": "Ballad of the Boundless Blue",
-    "version": 4.1,
-    "id": "14426",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 565,
-      "energyRecharge%": 0.306
-    },
-    "effects": []
-  },
-  "14513": {
-    "name": "Cashflow Supervision",
-    "version": 4.1,
-    "id": "14513",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 674,
-      "critRate%": 0.221
-    },
-    "effects": []
-  },
-  "14514": {
-    "name": "Tome of the Eternal Flow",
-    "version": 4.1,
-    "id": "14514",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
+      "elementalMastery": 165
     },
     "effects": []
   },
@@ -2104,231 +2728,15 @@
     },
     "effects": []
   },
-  "11428": {
-    "name": "Sword of Narzissenkreuz",
-    "version": 4.2,
-    "id": "11428",
+  "15430": {
+    "name": "Flower-Wreathed Feathers",
+    "version": 5.2,
+    "id": "15430",
     "quality": 4,
-    "type": "sword",
+    "type": "bow",
     "stats": {
       "baseAtk": 510,
       "atk%": 0.413
-    },
-    "effects": []
-  },
-  "11513": {
-    "name": "Splendor of Tranquil Waters",
-    "version": 4.2,
-    "id": "11513",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
-    },
-    "effects": []
-  },
-  "12426": {
-    "name": "\"Ultimate Overlord's Mega Magic Sword\"",
-    "version": 4.3,
-    "id": "12426",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 565,
-      "energyRecharge%": 0.306
-    },
-    "effects": []
-  },
-  "12512": {
-    "name": "Verdict",
-    "version": 4.3,
-    "id": "12512",
-    "quality": 5,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 674,
-      "critRate%": 0.221
-    },
-    "effects": []
-  },
-  "14515": {
-    "name": "Crane's Echoing Call",
-    "version": 4.4,
-    "id": "14515",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 741,
-      "atk%": 0.165
-    },
-    "effects": []
-  },
-  "11514": {
-    "name": "Uraku Misugiri",
-    "version": 4.5,
-    "id": "11514",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
-    },
-    "effects": []
-  },
-  "13426": {
-    "name": "Dialogues of the Desert Sages",
-    "version": 4.5,
-    "id": "13426",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 510,
-      "hp%": 0.413
-    },
-    "effects": []
-  },
-  "13512": {
-    "name": "Crimson Moon's Semblance",
-    "version": 4.6,
-    "id": "13512",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 674,
-      "critRate%": 0.221
-    },
-    "effects": []
-  },
-  "11515": {
-    "name": "Absolution",
-    "version": 4.7,
-    "id": "11515",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 674,
-      "critDmg%": 0.441
-    },
-    "effects": []
-  },
-  "15426": {
-    "name": "Cloudforged",
-    "version": 4.7,
-    "id": "15426",
-    "quality": 4,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 510,
-      "elementalMastery": 165
-    },
-    "effects": []
-  },
-  "15513": {
-    "name": "Silvershower Heartstrings",
-    "version": 4.7,
-    "id": "15513",
-    "quality": 5,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 542,
-      "hp%": 0.662
-    },
-    "effects": []
-  },
-  "13513": {
-    "name": "Lumidouce Elegy",
-    "version": 4.8,
-    "id": "13513",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 608,
-      "critRate%": 0.331
-    },
-    "effects": []
-  },
-  "11431": {
-    "name": "Flute of Ezpitzal",
-    "version": 5,
-    "id": "11431",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 454,
-      "def%": 0.69
-    },
-    "effects": []
-  },
-  "12431": {
-    "name": "Earth Shaker",
-    "version": 5,
-    "id": "12431",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "12513": {
-    "name": "Fang of the Mountain King",
-    "version": 5,
-    "id": "12513",
-    "quality": 5,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 741,
-      "critRate%": 0.11
-    },
-    "effects": []
-  },
-  "13431": {
-    "name": "Footprint of the Rainbow",
-    "version": 5,
-    "id": "13431",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 510,
-      "def%": 0.517
-    },
-    "effects": []
-  },
-  "14427": {
-    "name": "Ash-Graven Drinking Horn",
-    "version": 5,
-    "id": "14427",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 510,
-      "hp%": 0.413
-    },
-    "effects": []
-  },
-  "14431": {
-    "name": "Ring of Yaxche",
-    "version": 5,
-    "id": "14431",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 510,
-      "hp%": 0.413
-    },
-    "effects": []
-  },
-  "14516": {
-    "name": "Surf's Up",
-    "version": 5,
-    "id": "14516",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
     },
     "effects": []
   },
@@ -2344,174 +2752,6 @@
     },
     "effects": []
   },
-  "11430": {
-    "name": "Sturdy Bone",
-    "version": 5.1,
-    "id": "11430",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "11516": {
-    "name": "Peak Patrol Song",
-    "version": 5.1,
-    "id": "11516",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 542,
-      "def%": 0.827
-    },
-    "effects": []
-  },
-  "12430": {
-    "name": "Fruitful Hook",
-    "version": 5.1,
-    "id": "12430",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "13430": {
-    "name": "Mountain-Bracing Bolt",
-    "version": 5.1,
-    "id": "13430",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 565,
-      "energyRecharge%": 0.306
-    },
-    "effects": []
-  },
-  "11432": {
-    "name": "Calamity of Eshu",
-    "version": 5.2,
-    "id": "11432",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "14430": {
-    "name": "Waveriding Whirl",
-    "version": 5.2,
-    "id": "14430",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 454,
-      "energyRecharge%": 0.613
-    },
-    "effects": []
-  },
-  "15430": {
-    "name": "Flower-Wreathed Feathers",
-    "version": 5.2,
-    "id": "15430",
-    "quality": 4,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 510,
-      "atk%": 0.413
-    },
-    "effects": []
-  },
-  "15514": {
-    "name": "Astral Vulture's Crimson Plumage",
-    "version": 5.2,
-    "id": "15514",
-    "quality": 5,
-    "type": "bow",
-    "stats": {
-      "baseAtk": 608,
-      "critDmg%": 0.662
-    },
-    "effects": []
-  },
-  "12514": {
-    "name": "A Thousand Blazing Suns",
-    "version": 5.3,
-    "id": "12514",
-    "quality": 5,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 741,
-      "critRate%": 0.11
-    },
-    "effects": []
-  },
-  "14517": {
-    "name": "Starcaller's Watch",
-    "version": 5.3,
-    "id": "14517",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 542,
-      "elementalMastery": 265
-    },
-    "effects": []
-  },
-  "13432": {
-    "name": "Tamayuratei no Ohanashi",
-    "version": 5.4,
-    "id": "13432",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 565,
-      "energyRecharge%": 0.306
-    },
-    "effects": []
-  },
-  "14518": {
-    "name": "Sunny Morning Sleep-In",
-    "version": 5.4,
-    "id": "14518",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 542,
-      "elementalMastery": 265
-    },
-    "effects": []
-  },
-  "14519": {
-    "name": "Vivid Notions",
-    "version": 5.5,
-    "id": "14519",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 674,
-      "critDmg%": 0.441
-    },
-    "effects": []
-  },
-  "13514": {
-    "name": "Symphonist of Scents",
-    "version": 5.6,
-    "id": "13514",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 608,
-      "critDmg%": 0.662
-    },
-    "effects": []
-  },
   "15432": {
     "name": "Sequence of Solitude",
     "version": 5.6,
@@ -2521,138 +2761,6 @@
     "stats": {
       "baseAtk": 510,
       "hp%": 0.413
-    },
-    "effects": []
-  },
-  "11517": {
-    "name": "Azurelight",
-    "version": 5.7,
-    "id": "11517",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 674,
-      "critRate%": 0.221
-    },
-    "effects": []
-  },
-  "12432": {
-    "name": "Flame-Forged Insight",
-    "version": 5.8,
-    "id": "12432",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 510,
-      "elementalMastery": 165
-    },
-    "effects": []
-  },
-  "13515": {
-    "name": "Fractured Halo",
-    "version": 5.8,
-    "id": "13515",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 608,
-      "critDmg%": 0.662
-    },
-    "effects": []
-  },
-  "11433": {
-    "name": "Serenity's Call",
-    "version": 6,
-    "id": "11433",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 454,
-      "energyRecharge%": 0.613
-    },
-    "effects": []
-  },
-  "11434": {
-    "name": "Moonweaver's Dawn",
-    "version": 6,
-    "id": "11434",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 565,
-      "atk%": 0.276
-    },
-    "effects": []
-  },
-  "12433": {
-    "name": "Master Key",
-    "version": 6,
-    "id": "12433",
-    "quality": 4,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 454,
-      "energyRecharge%": 0.613
-    },
-    "effects": []
-  },
-  "13433": {
-    "name": "Prospector's Shovel",
-    "version": 6,
-    "id": "13433",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 510,
-      "atk%": 0.413
-    },
-    "effects": []
-  },
-  "13516": {
-    "name": "Bloodsoaked Ruins",
-    "version": 6,
-    "id": "13516",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 674,
-      "critRate%": 0.221
-    },
-    "effects": []
-  },
-  "14432": {
-    "name": "Etherlight Spindlelute",
-    "version": 6,
-    "id": "14432",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 510,
-      "energyRecharge%": 0.459
-    },
-    "effects": []
-  },
-  "14433": {
-    "name": "Blackmarrow Lantern",
-    "version": 6,
-    "id": "14433",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 454,
-      "elementalMastery": 221
-    },
-    "effects": []
-  },
-  "14520": {
-    "name": "Nightweaver's Looking Glass",
-    "version": 6,
-    "id": "14520",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 542,
-      "elementalMastery": 265
     },
     "effects": []
   },
@@ -2668,54 +2776,6 @@
     },
     "effects": []
   },
-  "13434": {
-    "name": "Sacrificer's Staff",
-    "version": 6.1,
-    "id": "13434",
-    "quality": 4,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 620,
-      "critRate%": 0.092
-    },
-    "effects": []
-  },
-  "14434": {
-    "name": "Dawning Frost",
-    "version": 6.1,
-    "id": "14434",
-    "quality": 4,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 510,
-      "critDmg%": 0.551
-    },
-    "effects": []
-  },
-  "14521": {
-    "name": "Reliquary of Truth",
-    "version": 6.1,
-    "id": "14521",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
-    },
-    "effects": []
-  },
-  "11518": {
-    "name": "Athame Artis",
-    "version": 6.2,
-    "id": "11518",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 608,
-      "critRate%": 0.331
-    },
-    "effects": []
-  },
   "15434": {
     "name": "Rainbow Serpent's Rain Bow",
     "version": 6.2,
@@ -2725,6 +2785,150 @@
     "stats": {
       "baseAtk": 510,
       "energyRecharge%": 0.459
+    },
+    "effects": []
+  },
+  "15435": {
+    "name": "Jade Vista",
+    "version": 7.0,
+    "id": "15435",
+    "quality": 4,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 510,
+      "critRate%": 0.276
+    },
+    "effects": []
+  },
+  "15436": {
+    "name": "Covenant of Frost and Snow",
+    "version": 7.0,
+    "id": "15436",
+    "quality": 4,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 510,
+      "def%": 0.517
+    },
+    "effects": []
+  },
+  "15501": {
+    "name": "Skyward Harp",
+    "version": 1,
+    "id": "15501",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 674,
+      "critRate%": 0.221
+    },
+    "effects": []
+  },
+  "15502": {
+    "name": "Amos' Bow",
+    "version": 1,
+    "id": "15502",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 608,
+      "atk%": 0.496
+    },
+    "effects": []
+  },
+  "15503": {
+    "name": "Elegy for the End",
+    "version": 1.4,
+    "id": "15503",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 608,
+      "energyRecharge%": 0.551
+    },
+    "effects": []
+  },
+  "15507": {
+    "name": "Polar Star",
+    "version": 2.2,
+    "id": "15507",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 608,
+      "critRate%": 0.331
+    },
+    "effects": []
+  },
+  "15508": {
+    "name": "Aqua Simulacra",
+    "version": 2.7,
+    "id": "15508",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
+  "15509": {
+    "name": "Thundering Pulse",
+    "version": 2,
+    "id": "15509",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 608,
+      "critDmg%": 0.662
+    },
+    "effects": []
+  },
+  "15511": {
+    "name": "Hunter's Path",
+    "version": 3,
+    "id": "15511",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 542,
+      "critRate%": 0.441
+    },
+    "effects": []
+  },
+  "15512": {
+    "name": "The First Great Magic",
+    "version": 4,
+    "id": "15512",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 608,
+      "critDmg%": 0.662
+    },
+    "effects": []
+  },
+  "15513": {
+    "name": "Silvershower Heartstrings",
+    "version": 4.7,
+    "id": "15513",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 542,
+      "hp%": 0.662
+    },
+    "effects": []
+  },
+  "15514": {
+    "name": "Astral Vulture's Crimson Plumage",
+    "version": 5.2,
+    "id": "15514",
+    "quality": 5,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 608,
+      "critDmg%": 0.662
     },
     "effects": []
   },
@@ -2740,42 +2944,6 @@
     },
     "effects": []
   },
-  "11519": {
-    "name": "Lightbearing Moonshard",
-    "version": 6.3,
-    "id": "11519",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
-    },
-    "effects": []
-  },
-  "14522": {
-    "name": "Nocturne's Curtain Call",
-    "version": 6.3,
-    "id": "14522",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 542,
-      "critDmg%": 0.882
-    },
-    "effects": []
-  },
-  "12515": {
-    "name": "Gest of the Mighty Wolf",
-    "version": 6.4,
-    "id": "12515",
-    "quality": 5,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 608,
-      "critRate%": 0.331
-    },
-    "effects": []
-  },
   "15516": {
     "name": "Golden Frostbound Oath",
     "version": 6.5,
@@ -2785,42 +2953,6 @@
     "stats": {
       "baseAtk": 542,
       "critDmg%": 0.882
-    },
-    "effects": []
-  },
-  "13517": {
-    "name": "Disaster and Remorse",
-    "version": 6.6,
-    "id": "13517",
-    "quality": 5,
-    "type": "polearm",
-    "stats": {
-      "baseAtk": 674,
-      "critRate%": 0.221
-    },
-    "effects": []
-  },
-  "14523": {
-    "name": "Angelos' Heptades",
-    "version": 6.6,
-    "id": "14523",
-    "quality": 5,
-    "type": "catalyst",
-    "stats": {
-      "baseAtk": 741,
-      "atk%": 0.165
-    },
-    "effects": []
-  },
-  "12516": {
-    "name": "A Teaspoon of Transcendence",
-    "version": 6.7,
-    "id": "12516",
-    "quality": 5,
-    "type": "claymore",
-    "stats": {
-      "baseAtk": 674,
-      "critDmg%": 0.441
     },
     "effects": []
   }

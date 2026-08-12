@@ -1,4 +1,23 @@
 {
+  "14001": {
+    "name": "Blizzard Strayer",
+    "version": 1.2,
+    "id": "14001",
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": [
+      {
+        "enableIf": {
+          "bonus": 2
+        },
+        "buffMap": {
+          "cryoDmgBonus%": 0.15
+        }
+      }
+    ]
+  },
   "14002": {
     "name": "Thundersoother",
     "version": 1,
@@ -267,25 +286,6 @@
       4
     ],
     "effects": []
-  },
-  "14001": {
-    "name": "Blizzard Strayer",
-    "version": 1.2,
-    "id": "14001",
-    "bonuses": [
-      2,
-      4
-    ],
-    "effects": [
-      {
-        "enableIf": {
-          "bonus": 2
-        },
-        "buffMap": {
-          "cryoDmgBonus%": 0.15
-        }
-      }
-    ]
   },
   "15016": {
     "name": "Heart of Depth",
@@ -1297,5 +1297,25 @@
         }
       }
     ]
+  },
+  "15047": {
+    "name": "Scarlet Proof",
+    "version": 7.0,
+    "id": "15047",
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": []
+  },
+  "15048": {
+    "name": "Heart of the Furnace",
+    "version": 7.0,
+    "id": "15048",
+    "bonuses": [
+      2,
+      4
+    ],
+    "effects": []
   }
 }
