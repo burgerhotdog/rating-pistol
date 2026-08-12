@@ -9,7 +9,7 @@ function doRemove(ctx, toRemove = {}) {
   for (const [id, stacks] of Object.entries(toRemove)) {
     const effect = ctx.cache.effects[id];
 
-    for (const target of effect.applyTo) {
+    for (const target of effect.scope.to) {
       if (target === 'global') {
         runRemoveEffect(globalEffects[id], stacks);
       } else {

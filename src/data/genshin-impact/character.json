@@ -10171,6 +10171,9 @@
     },
     "effects": [
       {
+        "scope": {
+          "to": "global"
+        },
         "apply": {
           "when": "hit",
           "filter": {
@@ -10179,7 +10182,6 @@
             }
           }
         },
-        "applyTo": "global",
         "use": {
           "when": "hit",
           "cooldown": 2000
@@ -10201,6 +10203,9 @@
         }
       },
       {
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -10209,7 +10214,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "elementalMastery": 125
         },

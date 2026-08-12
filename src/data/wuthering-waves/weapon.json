@@ -806,6 +806,9 @@
         }
       },
       {
+        "scope": {
+          "to": "$next"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -814,7 +817,6 @@
             }
           }
         },
-        "applyTo": "$next",
         "buffMap": {
           "atk%": [
             0.1,
@@ -2185,6 +2187,9 @@
         }
       },
       {
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -2200,7 +2205,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "atk%": [
             0.14,
@@ -2847,6 +2851,9 @@
         "maxStacks": 3
       },
       {
+        "scope": {
+          "to": "global"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -2855,7 +2862,6 @@
             }
           }
         },
-        "applyTo": "global",
         "buffMap": {
           "spectroFrazzleDmgAmp%": [
             0.3,
@@ -2903,6 +2909,9 @@
             ]
           }
         },
+        "scope": {
+          "to": "global"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -2914,7 +2923,6 @@
             }
           }
         },
-        "applyTo": "global",
         "use": {
           "filter": {
             "field": "onField"
@@ -3063,6 +3071,9 @@
         "maxDuration": 10000
       },
       {
+        "scope": {
+          "to": "global"
+        },
         "apply": {
           "when": "hit",
           "filter": {
@@ -3082,7 +3093,6 @@
             ]
           }
         },
-        "applyTo": "global",
         "buffMap": {
           "aeroResReduction%": [
             0.1,
@@ -3177,6 +3187,9 @@
         "maxExtensions": 1
       },
       {
+        "scope": {
+          "to": "$team"
+        },
         "apply":{
           "when": "hit",
           "filter": {
@@ -3196,7 +3209,6 @@
             ]
           }
         },
-        "applyTo": "$team",
         "onApplyDoApply": {
           "resonanceLiberationDmgIncreased": 1
         },
@@ -3252,7 +3264,9 @@
         "maxDuration": 15000
       },
       {
-        "applyTo": "global",
+        "scope": {
+          "to": "global"
+        },
         "use": {
           "filter": {
             "states": {
@@ -3717,6 +3731,9 @@
         "maxStacks": 2
       },
       {
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -3725,7 +3742,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "echoSkillDmgBonus%": [
             0.2,
@@ -3873,7 +3889,10 @@
         }
       },
       {
-        "applyBy": "$team",
+        "scope": {
+          "from": "$team",
+          "to": "$applier"
+        },
         "apply": {
           "when": "inflict",
           "filter": {
@@ -3891,7 +3910,6 @@
             ]
           }
         },
-        "applyTo": "applier",
         "buffMap": {
           "dmgBonus%": [
             0.24,
@@ -3971,6 +3989,9 @@
         }
       },
       {
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "hit",
           "filter": {
@@ -3979,7 +4000,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "critDmg%": [
             0.2,
@@ -4118,6 +4138,9 @@
         "maxDuration": 4000
       },
       {
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "inflict",
           "filter": {
@@ -4136,7 +4159,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": [
             0.08,
@@ -4502,6 +4524,9 @@
         "maxDuration": 6000
       },
       {
+        "scope": {
+          "to": "global"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -4509,7 +4534,6 @@
           },
           "cooldown": 100
         },
-        "applyTo": "global",
         "buffMap": {
           "glacioChafeDmgAmp%": [
             0.2,
@@ -4567,7 +4591,10 @@
         "maxDuration": 5000
       },
       {
-        "applyBy": "$team",
+        "scope": {
+          "from": "$team",
+          "to": "$applier"
+        },
         "apply": {
           "when": "inflict",
           "filter": {
@@ -4594,7 +4621,6 @@
             ]
           }
         },
-        "applyTo": "applier",
         "buffMap": {
           "atk%": [
             0.24,
@@ -4728,6 +4754,9 @@
         "maxDuration": 14000
       },
       {
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "inflict",
           "filter": {
@@ -4736,7 +4765,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "atk%": [
             0.24,
@@ -4786,6 +4814,9 @@
         "maxDuration": 12000
       },
       {
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "inflict",
           "filter": {
@@ -4796,7 +4827,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "atk%": [
             0.24,
@@ -4919,7 +4949,9 @@
         }
       },
       {
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "use": {
           "filter": {
             "effectStacks": {

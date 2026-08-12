@@ -253,6 +253,9 @@
         "enableIf": {
           "bonus": 4
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -264,7 +267,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": 0.15
         },
@@ -357,6 +359,9 @@
         "enableIf": {
           "bonus": 4
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -368,7 +373,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": 0.15
         },
@@ -603,7 +607,9 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "buffMap": {
           "dmgBonus%": 0.24
         }
@@ -755,6 +761,9 @@
             "type": "stun"
           }
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -766,7 +775,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "critDmg%": 0.15
         },
@@ -779,6 +787,9 @@
             "type": "stun"
           }
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -790,7 +801,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "use": {
           "filter": {
             "attrMap": {
@@ -881,6 +891,9 @@
             "type": "support"
           }
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -892,7 +905,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": 0.18
         },
@@ -995,6 +1007,9 @@
         "enableIf": {
           "bonus": 4
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -1003,7 +1018,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": 0.06
         },

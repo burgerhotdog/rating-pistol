@@ -261,6 +261,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "hit",
           "filter": {
@@ -269,7 +272,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "atk%": 0.15
         },
@@ -298,6 +300,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$next"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -306,7 +311,6 @@
             }
           }
         },
-        "applyTo": "$next",
         "buffMap": {
           "atk%": 0.225
         },
@@ -542,6 +546,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$next"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -550,7 +557,6 @@
             }
           }
         },
-        "applyTo": "$next",
         "buffMap": {
           "havocDmgBonus%": 0.15
         },
@@ -594,6 +600,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "global"
+        },
         "apply": {
           "when": "hit",
           "filter": {
@@ -602,7 +611,6 @@
             }
           }
         },
-        "applyTo": "global",
         "use": {
           "filter": {
             "field": "onField"
@@ -680,6 +688,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "inflict",
           "filter": {
@@ -690,7 +701,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "aeroDmgBonus%": 0.15
         },
@@ -786,6 +796,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -794,7 +807,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "fusionDmgBonus%": 0.15
         },
@@ -900,6 +912,9 @@
         "enableIf": {
           "bonus": 3
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -908,7 +923,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "echoSkillDmgBonus%": 0.04
         },
@@ -1058,6 +1072,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$next"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -1066,7 +1083,6 @@
             }
           }
         },
-        "applyTo": "$next",
         "remove": {
           "when": "start",
           "filter": {
@@ -1082,6 +1098,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$next"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -1090,7 +1109,6 @@
             }
           }
         },
-        "applyTo": "$next",
         "remove": {
           "when": "start",
           "filter": {
@@ -1130,6 +1148,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "hit",
           "filter": {
@@ -1138,7 +1159,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffSpec": {
           "atk%": {
             "attr": "offTuneBuildupRate%",
@@ -1302,6 +1322,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$next"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -1319,7 +1342,6 @@
             ]
           }
         },
-        "applyTo": "$next",
         "buffMap": {
           "fusionDmgBonus%": 0.25
         },
@@ -1514,6 +1536,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$next"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -1534,7 +1559,6 @@
         "onApplyDoRemove": {
           "snowfall": 1
         },
-        "applyTo": "$next",
         "buffMap": {
           "glacioDmgBonus%": 0.25
         },
@@ -1563,6 +1587,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1574,7 +1601,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "tuneBreakBoost": 20
         },
@@ -1651,6 +1677,9 @@
         "enableIf": {
           "bonus": 5
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1661,7 +1690,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffSpec": {
           "atk%": {
             "attr": "energyRegen%",

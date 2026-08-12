@@ -499,7 +499,9 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "buffMap": {
           "breakEffect%": 0.3
         }
@@ -766,6 +768,9 @@
         "enableIf": {
           "bonus": 4
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "hit",
           "filter": {
@@ -774,7 +779,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "critDmg%": 0.15
         }
@@ -837,7 +841,9 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "buffMap": {
           "dmgBonus%": 0.15
         }
@@ -873,7 +879,9 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "buffMap": {
           "critDmg%": 0.15
         }
@@ -962,7 +970,9 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "buffMap": {
           "elation%": 0.1
         }
@@ -1026,7 +1036,9 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "buffMap": {
           "dmgBonus%": 0.15
         }
@@ -1088,7 +1100,9 @@
         "enableIf": {
           "bonus": 2
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "use": {
           "filter": {
             "attrMap": {
@@ -1333,7 +1347,9 @@
         "enableIf": {
           "bonus": 2
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "use": {
           "filter": {
             "attrMap": {
@@ -1536,7 +1552,9 @@
         "enableIf": {
           "bonus": 2
         },
-        "applyTo": "$first",
+        "scope": {
+          "to": "$first"
+        },
         "buffMap": {
           "atk%": 0.12
         }
@@ -1746,7 +1764,9 @@
         "enableIf": {
           "bonus": 2
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "buffMap": {
           "spd%": 0.08
         }
@@ -1833,7 +1853,9 @@
         "enableIf": {
           "bonus": 2
         },
-        "applyTo": "$team",
+        "scope": {
+          "to": "$team"
+        },
         "buffMap": {
           "critDmg%": 0.12
         }

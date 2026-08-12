@@ -2,7 +2,7 @@ import {
   GI, HSR, WW, ZZZ,
   CHARACTER, WEAPON, SET,
 } from '@/data';
-import { toMergedObj, toEquipMap, resolveRankedValue } from '@/utils';
+import { toArray, toMergedObj, toEquipMap, resolveRankedValue } from '@/utils';
 
 const DEFAULT = {
   [GI]: {
@@ -52,12 +52,18 @@ export function compileMenuMap(gameId, charId, member) {
             effect.enableIf?.bonus <= count)),
   ];
 
+  const isInScope = (scopeTo) =>
+    scopeTo == undefined
+      ? true
+      : toArray(scopeTo).some((to) =>
+        to === 'global' || to === '$team' || to === charId);
+
   const filtered = allEffects.filter((effect) => {
     if (
       effect.enableIf?.rank > memberRank ||
       effect.apply?.when ||
-      (effect.applyTo && effect.applyTo !== 'team') ||
-      'use' in effect
+      !isInScope(effect.scope?.to) ||
+      effect.use
     ) return false;
 
     return effect.buffMap;

@@ -59,6 +59,9 @@
         "enableIf": {
           "bonus": 4
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -70,7 +73,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "healingReceived%": 0.2
         },
@@ -223,6 +225,9 @@
         "enableIf": {
           "bonus": 4
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -231,7 +236,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "atk%": 0.2
         },
@@ -342,6 +346,9 @@
         "enableIf": {
           "bonus": 4
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "hit",
           "filter": {
@@ -353,7 +360,6 @@
           },
           "cooldown": 500
         },
-        "applyTo": "$team",
         "buffMap": {
           "atk%": 0.2
         },
@@ -1136,6 +1142,9 @@
         "enableIf": {
           "bonus": 4
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "hit",
           "filter": {
@@ -1144,7 +1153,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "elementalMastery": 120
         },
@@ -1265,6 +1273,9 @@
             "tagged": "hexerei"
           }
         },
+        "scope": {
+          "to": "$team"
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -1273,7 +1284,6 @@
             }
           }
         },
-        "applyTo": "$team",
         "buffMap": {
           "dmgBonus%": 0.4
         },

@@ -4,51 +4,30 @@ import { createIsEnabled } from './isEnabled';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
-function resolveApplyBy(effect, memberIds) {
-  const { applyBy, ownerId } = effect;
-  switch (applyBy) {
-    case undefined:
-      effect.applyBy = [ownerId];
-      break;
-    case '$team':
-      effect.applyBy = memberIds;
-      break;
-    case '$ally':
-      effect.applyBy = memberIds.filter((id) => id !== ownerId);
-      break;
-    case '$first':
-      effect.applyBy = [memberIds[0]];
-      break;
-    case '$next':
-      effect.applyBy = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
-      break;
-    default:
-      effect.applyBy = [applyBy];
+function toResolvedScope(effect, memberIds) {
+  const { ownerId, scope: rawScope = {} } = effect;
+  function toResolved(field) {
+    switch (rawScope[field]) {
+      case undefined:
+        return [ownerId];
+      case '$team':
+        return memberIds;
+      case '$ally':
+        return memberIds.filter((id) => id !== ownerId);
+      case '$first':
+        return [memberIds[0]];
+      case '$next':
+        return [memberIds.at(memberIds.indexOf(ownerId) - 1)];
+      default:
+        return [rawScope[field]];
+    }
   }
-};
 
-function resolveApplyTo(effect, memberIds) {
-  const { applyTo, ownerId } = effect;
-  switch (applyTo) {
-    case undefined:
-      effect.applyTo = [ownerId];
-      break;
-    case '$team':
-      effect.applyTo = memberIds;
-      break;
-    case '$ally':
-      effect.applyTo = memberIds.filter((id) => id !== ownerId);
-      break;
-    case '$first':
-      effect.applyTo = [memberIds[0]];
-      break;
-    case '$next':
-      effect.applyTo = [memberIds.at(memberIds.indexOf(ownerId) - 1)];
-      break;
-    default:
-      effect.applyTo = [applyTo];
-  }
-};
+  return {
+    from: toResolved('from'),
+    to: toResolved('to'),
+  };
+}
 
 function resolveRankMods(effect, memberRank) {
   const { rankMods } = effect;
@@ -96,8 +75,7 @@ export const toNormalizedEffect = (rawEffect, spec) => {
     index: effectIndex,
   };
 
-  resolveApplyBy(effect, memberIds);
-  resolveApplyTo(effect, memberIds);
+  effect.scope = toResolvedScope(effect, memberIds);
 
   // Resolve ranked buffMaps
   if (effect.buffMap) {

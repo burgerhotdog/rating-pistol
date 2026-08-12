@@ -64,9 +64,9 @@ function handleApplyWhen(ctx, action, when) {
   for (const effect of Object.values(ctx.cache.effects)) {
     if (!effect.apply) continue;
 
-    const { apply } = effect;
+    const { scope, apply } = effect;
     if (
-      !effect.applyBy.includes(action.ownerId) ||
+      !scope.from.includes(action.ownerId) ||
       applyCooldowns[effect.id] ||
       apply.when !== when ||
       !ctx.eventFilter(apply.filter, action, effect)
