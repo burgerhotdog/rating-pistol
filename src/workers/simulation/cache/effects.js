@@ -8,18 +8,12 @@ function toResolvedScope(effect, memberIds) {
   const { ownerId, scope: rawScope = {} } = effect;
   function toResolved(field) {
     switch (rawScope[field]) {
-      case undefined:
-        return [ownerId];
-      case '$team':
-        return memberIds;
-      case '$ally':
-        return memberIds.filter((id) => id !== ownerId);
-      case '$first':
-        return [memberIds[0]];
-      case '$next':
-        return [memberIds.at(memberIds.indexOf(ownerId) - 1)];
-      default:
-        return [rawScope[field]];
+      case undefined: return [ownerId];
+      case '$team': return memberIds;
+      case '$ally': return memberIds.filter((id) => id !== ownerId);
+      case '$first': return [memberIds[0]];
+      case '$next': return [memberIds.at(memberIds.indexOf(ownerId) - 1)];
+      default: return toArray(rawScope[field]);
     }
   }
 
