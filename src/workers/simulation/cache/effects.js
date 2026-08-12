@@ -45,7 +45,7 @@ function resolveRankMods(effect, memberRank) {
 export const toNormalizedEffect = (rawEffect, spec) => {
   const {
     gameId, ownerId, sourceId, effectIndex,
-    memberRank, weaponRank, memberIds, memberActions,
+    memberRank, weaponRank, memberIds, memberActions, memberMode,
   } = spec;
 
   const resolveStatValue = (value) =>
@@ -108,6 +108,7 @@ export const toNormalizedEffect = (rawEffect, spec) => {
           actionIndex: index,
           teamSize: memberIds.length,
           weaponRank,
+          mode: memberMode,
         }));
       }
     }
@@ -183,6 +184,7 @@ export const normalizeEffects = (gameId, member, spec) => {
         weaponRank,
         memberIds,
         memberActions: teamActions[memberId],
+        memberMode: member.mode,
       });
 
       normalized[effect.id] = effect;

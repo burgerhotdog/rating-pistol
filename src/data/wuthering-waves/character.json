@@ -47962,6 +47962,50 @@
         "useAction": "forteCircuit.5"
       },
       {
+        "scope": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
+        "buffMap": {
+          "dmgBonus%": 0.24
+        },
+        "maxDuration": 30000
+      },
+      {
+        "scope": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.4"
+            }
+          }
+        },
+        "buffMap": {
+          "tuneBreakBoost": 40
+        },
+        "maxDuration": 30000
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          }
+        },
+        "buffMap": {
+          "spectroDmgBonus%": 0.25
+        },
+        "maxDuration": 9000
+      },
+      {
         "scope": "$next",
         "apply": {
           "when": "start",
@@ -47976,6 +48020,92 @@
           "resonanceLiberationDmgAmp%": 0.25
         },
         "maxDuration": 14000
+      },
+      {
+        "enableIf": {
+          "rank": 1
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2"
+              ]
+            }
+          }
+        },
+        "buffMap": {
+          "mv%": 1.2
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 2
+        },
+        "buffMap": {
+          "dmgAmp%": 0.25
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 2
+        },
+        "scope": "$next",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
+        "buffMap": {
+          "dmgAmp%": 0.25
+        },
+        "maxDuration": 14000
+      },
+      {
+        "enableIf": {
+          "rank": 3
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.3",
+                "forteCircuit.4"
+              ]
+            }
+          }
+        },
+        "buffMap": {
+          "mv%": 0.9
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 4
+        },
+        "buffMap": {
+          "atk%": 0.2
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 5
+        },
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          }
+        },
+        "buffMap": {
+          "mv%": 0.7
+        }
       }
     ],
     "skills": {
@@ -48965,75 +49095,8 @@
         "name": "Chromaticity Modeling",
         "actions": [
           {
-            "name": "Kaleidoscopic Parade: Iridescent Splash",
-            "type": "mid-airAttack",
-            "inflictShifting": "$mode",
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    1.53,
-                    1.6555,
-                    1.781,
-                    1.9566,
-                    2.0821,
-                    2.2264,
-                    2.4271,
-                    2.6278,
-                    2.8286,
-                    3.0418,
-                    3.2928,
-                    3.5437,
-                    3.7946,
-                    4.0455,
-                    4.2964,
-                    4.5474,
-                    4.7983,
-                    5.0492,
-                    5.3001,
-                    5.551
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Kaleidoscopic Parade: Visual Impact",
-            "type": "mid-airAttack",
-            "inflictShifting": "$mode",
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    6.12,
-                    6.6219,
-                    7.1237,
-                    7.8263,
-                    8.3281,
-                    8.9053,
-                    9.7082,
-                    10.5111,
-                    11.3141,
-                    12.1672,
-                    13.1709,
-                    14.1746,
-                    15.1783,
-                    16.1819,
-                    17.1856,
-                    18.1893,
-                    19.193,
-                    20.1967,
-                    21.2003,
-                    22.204
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Kaleidoscopic Parade: Polychrome Leap 1",
+            "name": "Polychrome Leap 1",
+            "tagged": "Kaleidoscopic Parade",
             "type": "basicAttack",
             "inflictShifting": "$mode",
             "damage": {
@@ -49067,7 +49130,8 @@
             }
           },
           {
-            "name": "Kaleidoscopic Parade: Polychrome Leap 2",
+            "name": "Polychrome Leap 2",
+            "tagged": "Kaleidoscopic Parade",
             "type": "basicAttack",
             "inflictShifting": "$mode",
             "damage": {
@@ -49101,7 +49165,8 @@
             }
           },
           {
-            "name": "Kaleidoscopic Parade: Polychrome Leap 3",
+            "name": "Polychrome Leap 3",
+            "tagged": "Kaleidoscopic Parade",
             "type": "basicAttack",
             "inflictShifting": "$mode",
             "damage": {
@@ -49130,6 +49195,74 @@
                     0.2391
                   ],
                   "times": 8
+                }
+              ]
+            }
+          },
+          {
+            "name": "Iridescent Splash",
+            "tagged": "Kaleidoscopic Parade",
+            "type": "basicAttack",
+            "inflictShifting": "$mode",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.53,
+                    1.6555,
+                    1.781,
+                    1.9566,
+                    2.0821,
+                    2.2264,
+                    2.4271,
+                    2.6278,
+                    2.8286,
+                    3.0418,
+                    3.2928,
+                    3.5437,
+                    3.7946,
+                    4.0455,
+                    4.2964,
+                    4.5474,
+                    4.7983,
+                    5.0492,
+                    5.3001,
+                    5.551
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Visual Impact",
+            "tagged": "Kaleidoscopic Parade",
+            "type": "basicAttack",
+            "inflictShifting": "$mode",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    6.12,
+                    6.6219,
+                    7.1237,
+                    7.8263,
+                    8.3281,
+                    8.9053,
+                    9.7082,
+                    10.5111,
+                    11.3141,
+                    12.1672,
+                    13.1709,
+                    14.1746,
+                    15.1783,
+                    16.1819,
+                    17.1856,
+                    18.1893,
+                    19.193,
+                    20.1967,
+                    21.2003,
+                    22.204
+                  ]
                 }
               ]
             }
@@ -49242,10 +49375,10 @@
           "resonanceLiberation.0",
           "resonanceSkill.0",
           "normalAttack.7",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.4",
+          "forteCircuit.0",
           "forteCircuit.1",
+          "forteCircuit.2",
+          "forteCircuit.4",
           "outroSkill.0"
         ]
       }
