@@ -10171,9 +10171,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -10203,9 +10201,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {

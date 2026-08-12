@@ -192,9 +192,7 @@
         "maxDuration": 15000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -457,9 +455,7 @@
         "maxDuration": 20000
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -1752,9 +1748,7 @@
     "cost": 4,
     "effects": [
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -2076,9 +2070,7 @@
         "maxDuration": 15000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -2232,9 +2224,7 @@
     "cost": 3,
     "effects": [
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -2360,9 +2350,7 @@
         "maxDuration": 15000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -3127,9 +3115,7 @@
     "cost": 4,
     "effects": [
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "buffMap": {
           "dmgBonus%": 0.1
         }

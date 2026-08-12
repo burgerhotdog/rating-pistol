@@ -61,9 +61,7 @@
         "maxDuration": 8000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -151,9 +149,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "end",
           "filter": {
@@ -803,11 +799,9 @@
         "maxDuration": 15000
       },
       {
-        "scope": {
-          "from": "$first",
-          "to": "$first"
-        },
+        "scope": "$first",
         "apply": {
+          "by": "$first",
           "when": "end",
           "filter": {
             "and": [
@@ -878,9 +872,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -949,9 +941,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -1708,9 +1698,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -2555,9 +2543,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -2624,9 +2610,7 @@
         "maxStacks": 3
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -2684,9 +2668,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -3252,9 +3234,7 @@
         "maxDuration": 14000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -4350,9 +4330,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -5436,9 +5414,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "$ally"
-        },
+        "scope": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -6898,7 +6874,11 @@
     },
     "effects": [
       {
-        "use": {
+        "enableIf": {
+          "mode": "glacioChafe"
+        },
+        "key": "filmRoll",
+        "apply": {
           "when": "start",
           "filter": {
             "action": {
@@ -6906,17 +6886,18 @@
             }
           }
         },
-        "onUseDoApply": {
-          "filmRoll": 1
-        }
+        "useAction": {
+          "inflictStatus": {
+            "glacioChafe": 2
+          }
+        },
+        "maxDuration": 30000,
+        "maxUses": 4
       },
       {
-        "key": "filmRoll",
-        "scope": {
-          "from": "$ally"
-        },
-        "use": {
-          "when": "hit",
+        "apply": {
+          "by": "$ally",
+          "when": "inflict",
           "filter": {
             "and": [
               {
@@ -6935,18 +6916,17 @@
           },
           "cooldown": 500
         },
-        "useAction": {
-          "inflictStatus": {
-            "glacioChafe": 2
-          }
+        "use": {
+          "when": "interval"
         },
-        "maxDuration": 30000,
-        "maxUses": 4
+        "onUseDoUse": {
+          "filmRoll": 1
+        },
+        "useAction": [],
+        "maxUses": 1
       },
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -7918,9 +7898,7 @@
     "effects": [
       {
         "key": "enrichment",
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -7984,11 +7962,9 @@
         "maxDuration": 30000
       },
       {
-        "scope": {
-          "from": "$team",
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
+          "by": "$team",
           "when": "inflict",
           "filter": {
             "and": [
@@ -8025,11 +8001,9 @@
         "maxDuration": 15000
       },
       {
-        "scope": {
-          "from": "$team",
-          "to": "$applier"
-        },
+        "scope": "$applier",
         "apply": {
+          "by": "$team",
           "when": "inflict",
           "filter": {
             "and": [
@@ -8092,9 +8066,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -8110,9 +8082,7 @@
       },
       {
         "key": "reflectingShadows",
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -9402,9 +9372,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -10071,9 +10039,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -10888,9 +10854,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -10924,9 +10888,7 @@
         }
       },
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -11013,9 +10975,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -11066,9 +11026,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -11693,9 +11651,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -11770,9 +11726,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -12714,9 +12668,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -12780,9 +12732,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -14322,9 +14272,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -14363,9 +14311,7 @@
         "maxDuration": 8000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -14384,9 +14330,7 @@
         "maxUses": 1
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -14421,9 +14365,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -17425,9 +17367,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -17496,9 +17436,7 @@
         "maxDuration": 25000
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -17516,9 +17454,7 @@
         "maxDuration": 25000
       },
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "tuneBreak"
         },
@@ -17564,9 +17500,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -18664,9 +18598,7 @@
         "useAction": "forteCircuit.2"
       },
       {
-        "scope": {
-          "to": "$ally"
-        },
+        "scope": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -20351,9 +20283,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -21654,9 +21584,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -22784,9 +22712,7 @@
         "maxUses": 4
       },
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -22848,9 +22774,7 @@
         "maxDuration": 4000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -22902,9 +22826,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -23508,9 +23430,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -23657,9 +23577,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -24744,9 +24662,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -26057,9 +25973,7 @@
         "maxStacks": 4
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -26163,9 +26077,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -27078,9 +26990,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -28132,9 +28042,7 @@
         "maxDuration": 16000
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -28895,11 +28803,9 @@
         "maxStacks": 2
       },
       {
-        "scope": {
-          "from": "$team",
-          "to": "$applier"
-        },
+        "scope": "$applier",
         "apply": {
+          "by": "$team",
           "when": "inflict",
           "filter": {
             "action": {
@@ -28913,9 +28819,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -28930,9 +28834,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -28947,9 +28849,7 @@
         "maxDuration": 14000
       },
       {
-        "scope": {
-          "to": "1511"
-        },
+        "scope": "1511",
         "apply": {
           "when": "start",
           "filter": {
@@ -30986,9 +30886,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -31646,9 +31544,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -32334,9 +32230,7 @@
         "maxDuration": 8000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -32413,9 +32307,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -33301,9 +33193,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -34389,9 +34279,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "buffMap": {
           "aeroDmgBonus%": 0.24
         }
@@ -34425,9 +34313,7 @@
         }
       },
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -34462,9 +34348,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -35200,9 +35084,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$ally"
-        },
+        "scope": "$ally",
         "buffMap": {
           "healingBonus%": 0.2
         }
@@ -35280,9 +35162,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$ally"
-        },
+        "scope": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -35382,9 +35262,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "buffMap": {
           "dmgBonus%": 0.2
         }
@@ -37209,9 +37087,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -38454,9 +38330,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -40905,9 +40779,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -40924,9 +40796,7 @@
         "maxDuration": 12000
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -40972,9 +40842,7 @@
         "maxDuration": 6000
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -41034,9 +40902,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -42212,9 +42078,7 @@
         "maxDuration": 5000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -42288,9 +42152,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -43257,10 +43119,8 @@
       },
       {
         "key": "evolved",
-        "scope": {
-          "from": "$team"
-        },
         "apply": {
+          "by": "$team",
           "when": "start",
           "filter": {
             "and": [
@@ -43291,9 +43151,7 @@
       },
       {
         "key": "innerStellarealm",
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "use": {
           "filter": {
             "effectStacks": {
@@ -43311,9 +43169,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "use": {
           "filter": {
             "effectStacks": {
@@ -43359,9 +43215,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -44249,9 +44103,7 @@
         }
       },
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -44266,9 +44118,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -44375,9 +44225,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -44430,9 +44278,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -45369,9 +45215,7 @@
         "maxDuration": 14000
       },
       {
-        "scope": {
-          "to": "$ally"
-        },
+        "scope": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -45450,9 +45294,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -46488,9 +46330,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -46537,11 +46377,9 @@
         "maxDuration": 20000
       },
       {
-        "scope": {
-          "from": "$team",
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "and": [
@@ -46572,11 +46410,9 @@
       },
       {
         "key": "threadOfBane",
-        "scope": {
-          "from": "$team",
-          "to": "$applier"
-        },
+        "scope": "$applier",
         "apply": {
+          "by": "$team",
           "when": "inflict",
           "filter": {
             "and": [
@@ -46654,11 +46490,9 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": {
-          "from": "$team",
-          "to": "$applier"
-        },
+        "scope": "$applier",
         "apply": {
+          "by": "$team",
           "when": "inflict",
           "filter": {
             "and": [
@@ -48128,9 +47962,7 @@
         "useAction": "forteCircuit.5"
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -50530,9 +50362,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -50547,9 +50377,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -50619,9 +50447,7 @@
         "useAction": "forteCircuit.0"
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -50636,9 +50462,7 @@
         "maxDuration": 14000
       },
       {
-        "scope": {
-          "to": "1308"
-        },
+        "scope": "1308",
         "apply": {
           "when": "start",
           "filter": {
@@ -50741,9 +50565,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "buffMap": {
           "dmgBonus%": 0.2
         }
@@ -53056,9 +52878,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -53091,9 +52911,7 @@
         }
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -54042,9 +53860,7 @@
         "maxDuration": 5000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -54116,9 +53932,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -54993,9 +54807,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -55824,9 +55636,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -55864,9 +55674,7 @@
         "maxDuration": 12000
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -55891,9 +55699,7 @@
         "maxUses": 1
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -56605,9 +56411,7 @@
     },
     "effects": [
       {
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -56653,9 +56457,7 @@
         "maxStacks": 2
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -57733,9 +57535,7 @@
         "maxStacks": 24
       },
       {
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -58696,9 +58496,7 @@
       },
       {
         "key": "tonalSwitch",
-        "scope": {
-          "to": "$ally"
-        },
+        "scope": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -58710,11 +58508,9 @@
         "maxDuration": 20000
       },
       {
-        "scope": {
-          "from": "$team",
-          "to": "$applier"
-        },
+        "scope": "$applier",
         "apply": {
+          "by": "$team",
           "when": "inflict",
           "filter": {
             "and": [

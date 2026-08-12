@@ -261,9 +261,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -300,9 +298,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -546,9 +542,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -600,9 +594,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "global"
-        },
+        "scope": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -688,9 +680,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -796,9 +786,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -912,9 +900,7 @@
         "enableIf": {
           "bonus": 3
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -1072,9 +1058,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -1098,9 +1082,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -1148,9 +1130,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1322,9 +1302,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -1536,9 +1514,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$next"
-        },
+        "scope": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -1587,9 +1563,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1677,9 +1651,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "inflict",
           "filter": {

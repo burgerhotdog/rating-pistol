@@ -253,9 +253,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -359,9 +357,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -607,9 +603,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "buffMap": {
           "dmgBonus%": 0.24
         }
@@ -761,9 +755,7 @@
             "type": "stun"
           }
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -787,9 +779,7 @@
             "type": "stun"
           }
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -891,9 +881,7 @@
             "type": "support"
           }
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -1007,9 +995,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {

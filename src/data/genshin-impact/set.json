@@ -59,9 +59,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -225,9 +223,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -346,9 +342,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1142,9 +1136,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1273,9 +1265,7 @@
             "tagged": "hexerei"
           }
         },
-        "scope": {
-          "to": "$team"
-        },
+        "scope": "$team",
         "apply": {
           "when": "start",
           "filter": {

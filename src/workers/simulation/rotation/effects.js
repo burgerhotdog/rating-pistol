@@ -1,4 +1,5 @@
 import { getEffectStates } from './getEffectStates';
+import { onUseDoCommand } from './commands';
 
 export function runRemoveEffect(state, stacks) {
   if (!state) return;
@@ -13,6 +14,7 @@ export function runRemoveEffect(state, stacks) {
 }
 
 export function runUseEffect(ctx, state, spec = {}) {
+  if (!state) return;
   const { runtimeOffset } = spec;
   const { store, effect } = state;
   const runOptions = { runtimeOffset, noDuration: true };
@@ -87,7 +89,7 @@ export function runApplyEffect(ctx, effect, spec = {}) {
     }
   }
 
-  for (const target of effect.scope.to) {
+  for (const target of effect.scope) {
     if (target === '$applier') updateState(memberEffects[spec.applier]);
     else if (target === 'global') updateState(globalEffects);
     else if (target in memberEffects) updateState(memberEffects[target]);
@@ -151,6 +153,7 @@ export function advanceEffects(ctx, elapsed) {
       remaining -= diff;
 
       if (!state.useCooldown) {
+        onUseDoCommand(ctx, effect);
         if (runUseEffect(ctx, state, { runtimeOffset: elapsed - remaining })) break;
       }
     }
