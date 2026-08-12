@@ -53,8 +53,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -91,8 +91,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -130,8 +130,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -164,8 +164,8 @@
     },
     "effects": [
       {
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -246,8 +246,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -305,8 +305,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -314,7 +314,9 @@
           }
         },
         "applyCooldown": 12000,
-        "removeWhen": "maxStacks",
+        "remove": {
+          "when": "maxStacks"
+        },
         "removeOffset": 6000,
         "buffMap": {
           "atk%": [
@@ -339,8 +341,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -418,8 +420,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -456,8 +458,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -487,8 +489,8 @@
     },
     "effects": [
       {
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -554,8 +556,8 @@
         }
       },
       {
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -605,8 +607,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -656,8 +658,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -687,8 +689,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -764,8 +766,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -802,8 +804,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -833,8 +835,8 @@
     },
     "effects": [
       {
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "dodgeCounter"
@@ -915,8 +917,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -987,8 +989,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": [
@@ -1064,8 +1066,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1102,8 +1104,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1119,8 +1121,8 @@
         "maxDuration": 8000
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "basicAttack"
@@ -1149,8 +1151,8 @@
     },
     "effects": [
       {
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -1200,8 +1202,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "dodgeCounter"
@@ -1217,8 +1219,8 @@
         "maxDuration": 8000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "dodgeCounter"
@@ -1241,8 +1243,8 @@
         "maxDuration": 8000
       },
       {
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "dodgeCounter"
@@ -1290,8 +1292,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1341,8 +1343,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -1374,8 +1376,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1446,8 +1448,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1484,8 +1486,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -1526,8 +1528,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -1572,8 +1574,8 @@
     },
     "effects": [
       {
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1621,8 +1623,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1663,8 +1665,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1722,8 +1724,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -1759,8 +1761,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -1797,8 +1799,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -1814,8 +1816,8 @@
         "maxDuration": 12000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1865,8 +1867,8 @@
       },
       {
         "key": "searingFeather",
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -1874,7 +1876,9 @@
           }
         },
         "applyCooldown": 500,
-        "removeWhen": "maxStacks",
+        "remove": {
+          "when": "maxStacks"
+        },
         "removeOffset": 12000,
         "buffMap": {
           "resonanceSkillDmgBonus%": [
@@ -1885,8 +1889,8 @@
         "maxStacks": 14
       },
       {
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1920,8 +1924,8 @@
       },
       {
         "key": "adVeritatem",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -1938,8 +1942,8 @@
         "maxExtensions": 3
       },
       {
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -1975,8 +1979,8 @@
       },
       {
         "key": "basicAttackDmgIncreased",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "and": [
               {
@@ -2000,8 +2004,8 @@
         "maxStacks": 3
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "and": [
               {
@@ -2047,8 +2051,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2078,8 +2082,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2109,8 +2113,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2140,8 +2144,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2179,8 +2183,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "and": [
@@ -2217,8 +2221,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -2249,8 +2253,8 @@
     "effects": [
       {
         "key": "hiss",
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -2258,8 +2262,8 @@
           }
         },
         "applyCooldown": 1000,
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "field": "offField"
           }
@@ -2310,8 +2314,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -2336,8 +2340,8 @@
             "id": "1603"
           }
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
@@ -2345,8 +2349,8 @@
           }
         },
         "applyCooldown": 1000,
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "field": "offField"
           }
@@ -2373,8 +2377,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -2416,8 +2420,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -2467,8 +2471,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -2500,8 +2504,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -2551,8 +2555,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -2584,8 +2588,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -2627,8 +2631,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -2657,8 +2661,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -2708,8 +2712,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -2725,8 +2729,8 @@
         "maxDuration": 10000
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -2757,8 +2761,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -2808,8 +2812,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -2841,8 +2845,8 @@
         "maxStacks": 3
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -2872,8 +2876,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "healing"
@@ -2897,8 +2901,8 @@
             ]
           }
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -2945,8 +2949,8 @@
       },
       {
         "key": "gentleDreamReady",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -2960,8 +2964,8 @@
       },
       {
         "key": "gentleDream",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "and": [
               {
@@ -2977,8 +2981,8 @@
             ]
           }
         },
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "field": "offField"
           }
@@ -3038,8 +3042,8 @@
         }
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictStatus": {
@@ -3057,8 +3061,8 @@
         "maxDuration": 10000
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -3107,8 +3111,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "basicAttack"
@@ -3150,8 +3154,8 @@
       },
       {
         "key": "resonanceLiberationDmgIncreased",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -3171,8 +3175,8 @@
         "maxExtensions": 1
       },
       {
-        "applyWhen": "hit",
         "apply":{
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -3226,8 +3230,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -3285,8 +3289,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -3333,8 +3337,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -3353,8 +3357,8 @@
         "maxDuration": 15000
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "shield"
@@ -3394,8 +3398,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -3428,8 +3432,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -3462,8 +3466,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -3511,8 +3515,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -3532,8 +3536,8 @@
       },
       {
         "key": "resonanceLiberationDmgIncreased",
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "shield"
@@ -3560,8 +3564,8 @@
         "maxStacks": 5
       },
       {
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -3586,8 +3590,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
@@ -3620,8 +3624,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -3663,8 +3667,8 @@
       },
       {
         "key": "bambooCleaverReady",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -3678,8 +3682,8 @@
       },
       {
         "key": "bambooCleaver",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "and": [
               {
@@ -3695,8 +3699,8 @@
             ]
           }
         },
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "field": "offField"
           }
@@ -3711,8 +3715,8 @@
         "maxStacks": 2
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -3751,8 +3755,8 @@
       },
       {
         "key": "heavyAttackDmgIncreased",
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -3771,8 +3775,8 @@
       },
       {
         "key": "echoSkillDmgIncreased",
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -3834,8 +3838,8 @@
       },
       {
         "key": "resonanceLiberationDmgIncreased",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -3852,8 +3856,8 @@
         "maxStacks": 3
       },
       {
-        "useWhen": "inflict",
         "use": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictStatus": {
@@ -3868,8 +3872,8 @@
       },
       {
         "applyBy": "$team",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "and": [
               {
@@ -3916,8 +3920,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -3965,8 +3969,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "healing"
@@ -4004,8 +4008,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -4053,7 +4057,9 @@
         }
       },
       {
-        "applyWhen": "tuneBreak",
+        "apply": {
+          "when": "tuneBreak"
+        },
         "buffMap": {
           "dmgBonus%": [
             0.2,
@@ -4084,8 +4090,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "or": [
@@ -4110,8 +4116,8 @@
         "maxDuration": 4000
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "and": [
@@ -4160,8 +4166,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -4211,7 +4217,9 @@
         }
       },
       {
-        "applyWhen": "tuneBreak",
+        "apply": {
+          "when": "tuneBreak"
+        },
         "buffMap": {
           "atk%": [
             0.12,
@@ -4246,8 +4254,8 @@
         }
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "or": [
@@ -4306,8 +4314,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -4325,8 +4333,8 @@
         "maxDuration": 4000
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictShifting": "tuneStrain"
@@ -4376,8 +4384,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -4396,8 +4404,8 @@
         "maxDuration": 15000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "damage": {
@@ -4445,8 +4453,8 @@
         }
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictStatus": {
@@ -4464,8 +4472,8 @@
         "maxDuration": 6000
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictStatus": {
@@ -4492,8 +4500,8 @@
         "maxDuration": 6000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "field": "onField"
           }
@@ -4531,8 +4539,8 @@
       },
       {
         "key": "resonanceLiberationDmgIncreased",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "or": [
@@ -4558,8 +4566,8 @@
       },
       {
         "applyBy": "$team",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "and": [
               {
@@ -4615,8 +4623,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -4633,8 +4641,8 @@
         "maxStacks": 2
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictShifting": "hack"
@@ -4684,8 +4692,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -4701,8 +4709,8 @@
         "maxDuration": 14000
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictShifting": "hack"
@@ -4718,8 +4726,8 @@
         "maxDuration": 14000
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictShifting": "hack"
@@ -4757,8 +4765,8 @@
         }
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictStatus": {
@@ -4776,8 +4784,8 @@
         "maxDuration": 12000
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictStatus": {
@@ -4817,8 +4825,8 @@
         }
       },
       {
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictStatus": {
@@ -4871,8 +4879,8 @@
       },
       {
         "key": "snowTaint",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictStatus": {
@@ -4885,8 +4893,8 @@
       },
       {
         "key": "ripples",
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "healing"

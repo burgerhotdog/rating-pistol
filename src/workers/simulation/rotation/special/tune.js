@@ -65,10 +65,10 @@ function recordTuneBreak(ctx) {
   const { shifting } = ctx.states.tune;
   if (shifting !== 'tuneRupture' && shifting !== 'hack') return;
   for (const state of getEffectStates(ctx, { member: 'all', type: 'action' })) {
-    const { effect: { useWhen, use, useAction} } = state;
+    const { effect: { use = {} , useAction } } = state;
     if (
-      useWhen !== 'tuneResponse' ||
-      use?.filter?.states?.tune?.interfered !== shifting
+      use.when !== 'tuneResponse' ||
+      use.filter?.states?.tune?.interfered !== shifting
     ) continue;
 
     ctx.snapshots.push(buildSnapshot(useAction[0]));

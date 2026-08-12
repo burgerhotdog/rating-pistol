@@ -142,7 +142,7 @@ export const toNormalizedEffect = (rawEffect, spec) => {
       }
     }
 
-    if (effect.useWhen === 'interval') {
+    if (effect.use?.when === 'interval') {
       effect.useCooldown ??= 1000;
     }
   }

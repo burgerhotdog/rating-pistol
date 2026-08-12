@@ -10171,8 +10171,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -10180,7 +10180,9 @@
           }
         },
         "applyTo": "global",
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useCooldown": 2000,
         "useAction": "elementalSkill.1",
         "maxDuration": 30000
@@ -10199,8 +10201,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "elementalBurst.2"

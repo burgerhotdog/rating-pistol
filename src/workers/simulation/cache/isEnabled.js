@@ -23,6 +23,9 @@ export function createIsEnabled(ctx) {
       } else if (filterType === 'bonus') {
         const meetsBonus = passNumberFilter(ctx.member.setCounts[setId], filter.bonus);
         if (!meetsBonus) return false;
+      } else if (filterType === 'mode') {
+        const meetsMode = passStringFilter(ctx.member.mode, filter.mode);
+        if (!meetsMode) return false;
       } else {
         const filterFields = filter[filterType];
 

@@ -59,8 +59,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -223,8 +223,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "elementalBurst"
@@ -305,8 +305,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "elementalSkill"
@@ -342,8 +342,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -382,8 +382,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -423,8 +423,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "elementalSkill"
@@ -519,8 +519,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "healing"
@@ -528,7 +528,9 @@
           }
         },
         "applyCooldown": 3500,
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 3000,
         "useAction": {
           "element": "physical",
@@ -563,16 +565,16 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "elementalBurst"
             }
           }
         },
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "field": "offField"
           }
@@ -624,8 +626,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -692,8 +694,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -752,8 +754,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -1134,8 +1136,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -1190,8 +1192,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -1217,8 +1219,8 @@
             "tagged": "hexerei"
           }
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -1263,8 +1265,8 @@
             "tagged": "hexerei"
           }
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "elementalSkill"

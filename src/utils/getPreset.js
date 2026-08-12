@@ -36,7 +36,7 @@ export function getMemberPreset(gameId, charId, presetIndex = 0) {
     member.rotation.push(...preset.rotation);
   }
 
-  if ('modes' in character) member.resonanceMode = character.modes[0];
+  if ('modes' in character) member.mode = character.modes[0];
 
   return member;
 }

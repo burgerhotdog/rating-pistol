@@ -15,8 +15,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -36,8 +36,8 @@
         "maxDuration": 8000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "normalAttack.4"
@@ -61,8 +61,8 @@
         "maxDuration": 8000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -79,8 +79,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "normalAttack.4"
@@ -105,8 +105,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -149,8 +149,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "after",
         "apply": {
+          "when": "after",
           "filter": {
             "action": {
               "ref": [
@@ -731,15 +731,17 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 2500,
         "useAction": "resonanceLiberation.1",
         "maxUses": 4,
@@ -750,8 +752,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": [
             {
               "action": {
@@ -765,15 +767,17 @@
             }
           ]
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 2000,
         "useAction": "forteCircuit.0",
         "maxUses": 4
       },
       {
         "key": "concentration",
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "basicAttack"
@@ -784,8 +788,8 @@
       },
       {
         "key": "euphonia",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -796,8 +800,8 @@
       },
       {
         "applyBy": "$first",
-        "applyWhen": "after",
         "apply": {
+          "when": "after",
           "filter": {
             "and": [
               {
@@ -823,8 +827,8 @@
         "maxDuration": 20000
       },
       {
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "heavyAttack"
@@ -843,15 +847,17 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 3000,
         "useAction": {
           "healing": {
@@ -866,8 +872,8 @@
         "maxDuration": 30000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -884,8 +890,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -902,8 +908,8 @@
         "enableIf": {
           "rank": 3
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -935,8 +941,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -1619,8 +1625,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -1653,8 +1659,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -1682,8 +1688,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
@@ -1715,8 +1721,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.3"
@@ -2527,8 +2533,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
@@ -2536,8 +2542,8 @@
           }
         },
         "applyTo": "global",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -2562,8 +2568,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.2"
@@ -2576,8 +2582,8 @@
         "maxDuration": 27000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -2594,8 +2600,8 @@
         "maxStacks": 3
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -2613,8 +2619,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.2"
@@ -2630,8 +2636,8 @@
         "enableIf": {
           "rank": 3
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -2652,8 +2658,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
@@ -3204,8 +3210,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -3225,8 +3231,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -3258,8 +3264,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -4194,8 +4200,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -4221,16 +4227,16 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
           }
         },
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "field": "offField"
           }
@@ -4304,8 +4310,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -5388,8 +5394,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -6848,16 +6854,16 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
           }
         },
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "inflictStatus": {
@@ -6876,8 +6882,8 @@
         "maxUses": 4
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.2"
@@ -6891,8 +6897,8 @@
         "maxDuration": 30000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -7836,8 +7842,8 @@
     "effects": [
       {
         "key": "enrichment",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -7852,8 +7858,8 @@
       },
       {
         "key": "ceaselessLandscape",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -7864,8 +7870,8 @@
       },
       {
         "key": "roamingTranscendent",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "and": [
               {
@@ -7881,8 +7887,8 @@
             ]
           }
         },
-        "removeWhen": "expire",
         "remove": {
+          "when": "expire",
           "filter": {
             "effectStacks": {
               "not": {
@@ -7891,7 +7897,9 @@
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useOffset": 6000,
         "useCooldown": 6000,
         "useAction": "resonanceLiberation.1",
@@ -7899,8 +7907,8 @@
       },
       {
         "applyBy": "$team",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "and": [
               {
@@ -7938,8 +7946,8 @@
       },
       {
         "applyBy": "$team",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "and": [
               {
@@ -8002,8 +8010,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -8018,8 +8026,8 @@
       },
       {
         "key": "reflectingShadows",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "and": [
               {
@@ -9215,15 +9223,17 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "forteCircuit.2"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 100,
         "useAction": "forteCircuit.0",
         "maxUses": 30
@@ -9248,8 +9258,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
@@ -9289,8 +9299,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
@@ -9875,8 +9885,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -9892,15 +9902,17 @@
         "maxDuration": 10000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 1500,
         "useAction": {
           "damage": {
@@ -9918,8 +9930,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "basicAttack"
@@ -9954,8 +9966,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
@@ -9980,8 +9992,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "tagged": "Cosmos"
@@ -10769,8 +10781,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -10778,8 +10790,8 @@
           }
         },
         "applyTo": "global",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -10803,8 +10815,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -10812,8 +10824,8 @@
           }
         },
         "applyTo": "global",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -10841,8 +10853,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -10862,8 +10874,8 @@
         "maxDuration": 8000
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
@@ -10890,8 +10902,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -10923,8 +10935,8 @@
         "enableIf": {
           "rank": 5
         },
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -10941,8 +10953,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -11513,8 +11525,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -11566,8 +11578,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -11605,8 +11617,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": [
@@ -11641,8 +11653,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -12535,8 +12547,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -12583,8 +12595,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -12602,8 +12614,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -12647,8 +12659,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -12656,8 +12668,8 @@
           }
         },
         "applyTo": "$next",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -12712,8 +12724,8 @@
         "enableIf": {
           "rank": 4
         },
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
@@ -12736,8 +12748,8 @@
         "enableIf": {
           "rank": 5
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "damage": {
@@ -14187,8 +14199,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -14204,8 +14216,8 @@
         "maxDuration": 35000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -14226,8 +14238,8 @@
         "maxDuration": 8000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -14238,13 +14250,15 @@
           }
         },
         "applyTo": "$next",
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useAction": "forteCircuit.2",
         "maxUses": 1
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -14261,8 +14275,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -14278,8 +14292,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -14332,8 +14346,8 @@
         "enableIf": {
           "rank": 5
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -15752,8 +15766,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -17280,8 +17294,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -17295,8 +17309,8 @@
         "maxDuration": 25000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -17317,6 +17331,7 @@
       },
       {
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": [
@@ -17326,12 +17341,11 @@
             }
           }
         },
-        "useWhen": "hit",
         "useAction": "forteCircuit.1"
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": [
@@ -17341,14 +17355,16 @@
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 3000,
         "useAction": "forteCircuit.0",
         "maxDuration": 25000
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": [
@@ -17365,7 +17381,9 @@
         "maxDuration": 25000
       },
       {
-        "applyWhen": "tuneBreak",
+        "apply": {
+          "when": "tuneBreak"
+        },
         "applyTo": "global",
         "use": {
           "filter": {
@@ -17391,8 +17409,8 @@
         "maxDuration": 8000
       },
       {
-        "useWhen": "tuneResponse",
         "use": {
+          "when": "tuneResponse",
           "filter": {
             "states": {
               "tune": {
@@ -17409,8 +17427,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -18494,8 +18512,8 @@
     },
     "effects": [
       {
-        "useWhen": "tuneResponse",
         "use": {
+          "when": "tuneResponse",
           "filter": {
             "states": {
               "tune": {
@@ -18507,8 +18525,8 @@
         "useAction": "forteCircuit.2"
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -20168,8 +20186,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -21373,8 +21391,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
@@ -21390,8 +21408,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -21425,8 +21443,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
@@ -21461,8 +21479,8 @@
         "enableIf": {
           "rank": 6
         },
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
@@ -22529,16 +22547,16 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
             }
           }
         },
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": [
@@ -22553,8 +22571,8 @@
         "maxUses": 4
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
@@ -22562,8 +22580,8 @@
           }
         },
         "applyTo": "global",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -22575,8 +22593,8 @@
         "maxDuration": 18000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -22601,8 +22619,8 @@
         }
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceSkill.1"
@@ -22615,8 +22633,8 @@
         "maxDuration": 4000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -22667,8 +22685,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
@@ -22700,16 +22718,16 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
           }
         },
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "basicAttack"
@@ -23271,8 +23289,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -23280,8 +23298,8 @@
           }
         },
         "applyTo": "global",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -23300,8 +23318,8 @@
         "maxDuration": 12000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -23311,7 +23329,9 @@
             }
           }
         },
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useAction": "resonanceSkill.2",
         "maxUses": 1
       },
@@ -23328,15 +23348,17 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           }
         },
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useAction": "resonanceSkill.0",
         "maxUses": 1
       },
@@ -23374,8 +23396,8 @@
         "enableIf": {
           "rank": 4
         },
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -23397,8 +23419,8 @@
         "enableIf": {
           "rank": 5
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -23414,8 +23436,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -24446,8 +24468,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -24481,8 +24503,8 @@
         "enableIf": {
           "rank": 3
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -24499,8 +24521,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -25795,8 +25817,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "resonanceSkill"
@@ -25810,8 +25832,8 @@
         "maxStacks": 4
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -25819,8 +25841,8 @@
           }
         },
         "applyTo": "$next",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "basicAttack"
@@ -25860,8 +25882,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": [
             {
               "action": {
@@ -25884,8 +25906,8 @@
         "enableIf": {
           "rank": 3
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -25914,8 +25936,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -26806,8 +26828,8 @@
     },
     "effects": [
       {
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -26827,8 +26849,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -26842,16 +26864,16 @@
         "maxDuration": 14000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           }
         },
-        "removeWhen": "after",
         "remove": {
+          "when": "after",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.2"
@@ -27855,15 +27877,17 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 1000,
         "useAction": {
           "healing": {
@@ -27877,8 +27901,8 @@
         "maxDuration": 16000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
@@ -28591,8 +28615,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "introSkill"
@@ -28607,8 +28631,8 @@
         "maxDuration": 12000
       },
       {
-        "useWhen": "tuneResponse",
         "use": {
+          "when": "tuneResponse",
           "filter": {
             "states": {
               "tune": {
@@ -28620,8 +28644,8 @@
         "useAction": "forteCircuit.0"
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -28639,8 +28663,8 @@
       },
       {
         "applyBy": "$team",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "action": {
               "inflictShifting": "hack"
@@ -28654,8 +28678,8 @@
         "maxDuration": 30000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.4"
@@ -28669,8 +28693,8 @@
         "maxDuration": 30000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -28684,8 +28708,8 @@
         "maxDuration": 14000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -30649,8 +30673,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -30711,8 +30735,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
@@ -31331,8 +31355,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -31369,8 +31393,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -31387,8 +31411,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.1"
@@ -31404,8 +31428,8 @@
         "enableIf": {
           "rank": 3
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -31449,8 +31473,8 @@
         "enableIf": {
           "rank": 5
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
@@ -31466,8 +31490,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -31483,8 +31507,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -32027,8 +32051,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -32041,8 +32065,8 @@
         "maxDuration": 15000
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -32055,8 +32079,8 @@
         "maxDuration": 8000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -32064,8 +32088,8 @@
           }
         },
         "applyTo": "$next",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "heavyAttack"
@@ -32091,8 +32115,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -32109,8 +32133,8 @@
         "enableIf": {
           "rank": 3
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -32132,8 +32156,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -32170,8 +32194,8 @@
         "enableIf": {
           "rank": 5
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "has": "damage"
@@ -32187,8 +32211,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": [
             {
               "action": {
@@ -32945,36 +32969,40 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.2"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 250,
         "useAction": "resonanceLiberation.0",
         "maxDuration": 3120
       },
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.2"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useOffset": 3120,
         "useAction": "resonanceLiberation.1",
         "maxUses": 1
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -32986,7 +33014,9 @@
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 6000,
         "useAction": "forteCircuit.10",
         "maxDuration": 30000
@@ -33012,8 +33042,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -33030,8 +33060,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
@@ -33057,15 +33087,17 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
           }
         },
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useAction": [
           {
             "type": "resonanceSkill",
@@ -34102,15 +34134,17 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 1000,
         "useAction": "resonanceLiberation.1",
         "maxUses": 20
@@ -34135,8 +34169,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -34153,8 +34187,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "basicAttack"
@@ -34170,8 +34204,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -34213,15 +34247,17 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "normalAttack.3"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useAction": {
           "damage": {
             "type": "resonanceLiberation",
@@ -34991,8 +35027,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -36886,8 +36922,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -38129,8 +38165,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -40578,8 +40614,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -40587,14 +40623,16 @@
           }
         },
         "applyTo": "$team",
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useCooldown": 1000,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 12000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -40615,15 +40653,17 @@
         "maxDuration": 20000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 1000,
         "useAction": {
           "healing": {
@@ -40637,8 +40677,8 @@
         "maxDuration": 6000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -40655,15 +40695,17 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 5000,
         "useAction": {
           "healing": {
@@ -40695,8 +40737,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -40749,8 +40791,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -40762,7 +40804,9 @@
             }
           }
         },
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useAction": "resonanceLiberation.1",
         "maxUses": 1
       }
@@ -41821,15 +41865,17 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
             }
           }
         },
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useAction": "forteCircuit.7",
         "times": 4,
         "maxUses": 1
@@ -41850,8 +41896,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -41867,8 +41913,8 @@
         "maxDuration": 5000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -41941,8 +41987,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -42866,15 +42912,17 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useCooldown": 3000,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 30000,
@@ -42886,8 +42934,8 @@
       },
       {
         "key": "stellarealm",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -42907,8 +42955,8 @@
       {
         "key": "evolved",
         "applyBy": "$team",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "and": [
               {
@@ -42924,8 +42972,8 @@
             ]
           }
         },
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "effectStacks": {
               "not": {
@@ -42977,8 +43025,8 @@
         "enableIf": {
           "rank": -1
         },
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.1"
@@ -43002,8 +43050,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -43835,14 +43883,14 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
-          "forteCircuit.0",
-          "forteCircuit.1"
-        ]
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
             }
           }
         },
@@ -43851,15 +43899,17 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           }
         },
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useAction": {
           "damage": {
             "type": "outroSkill",
@@ -43873,8 +43923,8 @@
         "maxUses": 1
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
@@ -43895,8 +43945,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "outroSkill.1"
@@ -43910,8 +43960,8 @@
         "maxDuration": 30000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "outroSkill.1"
@@ -43955,8 +44005,8 @@
         "enableIf": {
           "rank": 1
         },
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
@@ -43973,8 +44023,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
@@ -44039,8 +44089,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": [
@@ -44060,8 +44110,8 @@
         "enableIf": {
           "rank": 5
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -44077,8 +44127,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -44094,16 +44144,16 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
           }
         },
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -44116,16 +44166,16 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
             }
           }
         },
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -44916,8 +44966,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -44965,8 +45015,8 @@
         }
       },
       {
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "forteCircuit.2"
@@ -44976,8 +45026,8 @@
         "useAction": "forteCircuit.3"
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -44990,8 +45040,8 @@
         "maxDuration": 14000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -45049,8 +45099,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -46064,8 +46114,8 @@
     },
     "effects": [
       {
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "or": [
@@ -46082,8 +46132,8 @@
           }
         },
         "applyTo": "global",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -46100,8 +46150,8 @@
       },
       {
         "key": "resonantThreadOfClosure",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -46112,8 +46162,8 @@
       },
       {
         "applyBy": "$team",
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -46145,8 +46195,8 @@
       {
         "key": "threadOfBane",
         "applyBy": "$team",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "and": [
               {
@@ -46169,8 +46219,8 @@
         "maxDuration": 15000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -46190,8 +46240,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "or": [
@@ -46225,8 +46275,8 @@
           "rank": 2
         },
         "applyBy": "$team",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "and": [
               {
@@ -47683,8 +47733,8 @@
     },
     "effects": [
       {
-        "useWhen": "tuneResponse",
         "use": {
+          "when": "tuneResponse",
           "filter": {
             "states": {
               "tune": {
@@ -47696,8 +47746,8 @@
         "useAction": "forteCircuit.5"
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -50096,8 +50146,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.2"
@@ -50111,8 +50161,8 @@
         "maxDuration": 30000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.3"
@@ -50126,8 +50176,8 @@
         "maxDuration": 30000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.3"
@@ -50154,8 +50204,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.3"
@@ -50168,8 +50218,8 @@
         "maxDuration": 8000
       },
       {
-        "useWhen": "tuneResponse",
         "use": {
+          "when": "tuneResponse",
           "filter": {
             "states": {
               "tune": {
@@ -50181,8 +50231,8 @@
         "useAction": "forteCircuit.0"
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -50196,8 +50246,8 @@
         "maxDuration": 14000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -50214,8 +50264,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -50231,15 +50281,17 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.1"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useAction": [
           {
             "damage": {
@@ -52610,8 +52662,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -52624,8 +52676,8 @@
             "field": "onField"
           }
         },
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "normalAttack.3"
@@ -52643,8 +52695,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -52696,8 +52748,8 @@
         "enableIf": {
           "rank": 4
         },
-        "useWhen": "before",
         "use": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "normalAttack.5"
@@ -52720,8 +52772,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "normalAttack.5"
@@ -52757,8 +52809,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -53528,8 +53580,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.2"
@@ -53549,8 +53601,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "normalAttack.5"
@@ -53574,8 +53626,8 @@
         "maxUses": 2
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -53592,8 +53644,8 @@
         "maxDuration": 5000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -53610,8 +53662,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -53664,8 +53716,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -54387,16 +54439,16 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
           }
         },
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "field": "offField"
           }
@@ -54448,8 +54500,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
@@ -54474,8 +54526,8 @@
         "enableIf": {
           "rank": 1
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -54522,8 +54574,8 @@
         "enableIf": {
           "rank": 3
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
@@ -54539,8 +54591,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -54589,8 +54641,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
@@ -54598,7 +54650,9 @@
           }
         },
         "applyCooldown": 25000,
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useAction": "forteCircuit.0",
         "maxDuration": 15000,
         "maxUses": 1
@@ -55366,8 +55420,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -55387,8 +55441,8 @@
         "maxDuration": 30000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": [
@@ -55404,8 +55458,8 @@
         "maxDuration": 12000
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -55413,7 +55467,9 @@
           }
         },
         "applyTo": "$next",
-        "useWhen": "hit",
+        "use": {
+          "when": "hit"
+        },
         "useAction": {
           "type": "echoSkill",
           "damage": {
@@ -55427,8 +55483,8 @@
         "maxUses": 1
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -55446,8 +55502,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -55468,8 +55524,8 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "forteCircuit.2"
@@ -55485,8 +55541,8 @@
         "enableIf": {
           "rank": 3
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "introSkill.0"
@@ -55503,8 +55559,8 @@
         "enableIf": {
           "rank": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
@@ -55561,8 +55617,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -55589,8 +55645,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -56139,8 +56195,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -56148,8 +56204,8 @@
           }
         },
         "applyTo": "global",
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "field": "onField"
           }
@@ -56177,8 +56233,8 @@
         }
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "echoSkill"
@@ -56192,8 +56248,8 @@
         "maxStacks": 2
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -56230,15 +56286,17 @@
         "enableIf": {
           "rank": 2
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
           }
         },
-        "useWhen": "interval",
+        "use": {
+          "when": "interval"
+        },
         "useAction": "resonanceSkill.2",
         "maxUses": 1
       },
@@ -56295,8 +56353,8 @@
         "enableIf": {
           "rank": 6
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
@@ -57246,8 +57304,8 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": [
@@ -57264,8 +57322,8 @@
         "maxStacks": 24
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -58179,16 +58237,16 @@
     },
     "effects": [
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
           }
         },
-        "useWhen": "hit",
         "use": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": [
@@ -58202,8 +58260,8 @@
         "maxUses": 1
       },
       {
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "and": [
               {
@@ -58225,8 +58283,8 @@
       },
       {
         "key": "tonalSwitch",
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -58238,8 +58296,8 @@
       },
       {
         "applyBy": "$team",
-        "applyWhen": "inflict",
         "apply": {
+          "when": "inflict",
           "filter": {
             "and": [
               {
@@ -58258,8 +58316,8 @@
           }
         },
         "applyTo": "$applier",
-        "removeWhen": "before",
         "remove": {
+          "when": "before",
           "filter": {
             "effectStacks": {
               "not": {

@@ -76,7 +76,7 @@ export function runApplyEffect(ctx, effect, spec = {}) {
     };
 
     if ( // If effect should be removed when reaching max stacks
-      effect.removeWhen === 'maxStacks' &&
+      effect.remove?.when === 'maxStacks' &&
       store[id].stacks === maxStacks
     ) {
       if (effect.removeOffset) {
@@ -139,7 +139,7 @@ export function advanceEffects(ctx, elapsed) {
   for (const state of getEffectStates(ctx, { member: 'all' })) {
     const { effect } = state;
 
-    if (effect.useWhen !== 'interval') {
+    if (effect.use?.when !== 'interval') {
       advanceEffectState(ctx, state, elapsed);
       continue;
     }

@@ -48,8 +48,8 @@ export function applyStoredBuild(gameId, member, storedBuild) {
     next.mainEcho = storedBuild.mainEcho;
   }
 
-  if ('resonanceMode' in storedBuild) {
-    next.resonanceMode = storedBuild.resonanceMode;
+  if ('mode' in storedBuild) {
+    next.mode = storedBuild.mode;
   }
 
   return next;

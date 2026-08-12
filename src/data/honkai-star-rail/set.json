@@ -94,8 +94,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "ultimate"
@@ -129,8 +129,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "damage"
@@ -183,8 +183,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "ultimate"
@@ -253,8 +253,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "skill"
@@ -562,8 +562,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "follow-upAttack"
@@ -625,8 +625,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "type": "ultimate"
@@ -750,8 +750,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "healing"
@@ -766,8 +766,8 @@
         "enableIf": {
           "bonus": 4
         },
-        "applyWhen": "hit",
         "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "has": "healing"
@@ -1817,8 +1817,8 @@
         "enableIf": {
           "bonus": 2
         },
-        "applyWhen": "before",
         "apply": {
+          "when": "before",
           "filter": {
             "action": {
               "type": "follow-upAttack"

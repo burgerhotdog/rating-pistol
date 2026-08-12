@@ -30,9 +30,9 @@ function handleRemoveWhen(ctx, action, when) {
     const { effect } = state;
 
     const shouldRemove =
-      effect.removeWhen === when &&
       effect.remove &&
-      ctx.eventFilter(effect.remove?.filter, action, effect);
+      effect.remove.when === when &&
+      ctx.eventFilter(effect.remove.filter, action, effect);
 
     if (!shouldRemove) continue;
     onRemoveDoCommand(ctx, effect);
@@ -45,7 +45,7 @@ function handleUseWhen(ctx, action, when) {
     const { effect } = state;
 
     const shouldUse =
-      effect.useWhen === when &&
+      effect.use?.when === when &&
       !state.useCooldown &&
       ctx.eventFilter(effect.use?.filter, action, effect) &&
       !state.isRunning;
@@ -60,7 +60,7 @@ function handleApplyWhen(ctx, action, when) {
   for (const effect of Object.values(ctx.cache.effects)) {
     const shouldApply =
       effect.applyBy.includes(action.ownerId) &&
-      effect.applyWhen === when &&
+      effect.apply?.when === when &&
       !ctx.states.applyCooldowns[effect.id] &&
       ctx.eventFilter(effect.apply?.filter, action, effect);
 
@@ -185,7 +185,7 @@ export const runRotation = (cache, equipMaps, specId) => {
 
   // Init passives into effect states
   for (const effect of Object.values(cache.effects)) {
-    if (effect.applyWhen) continue;
+    if (effect.apply?.when) continue;
     runApplyEffect(ctx, effect);
   }
 

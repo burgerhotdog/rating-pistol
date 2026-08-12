@@ -55,7 +55,7 @@ export function compileMenuMap(gameId, charId, member) {
   const filtered = allEffects.filter((effect) => {
     if (
       effect.enableIf?.rank > memberRank ||
-      effect.applyWhen ||
+      effect.apply?.when ||
       (effect.applyTo && effect.applyTo !== 'team') ||
       'use' in effect
     ) return false;
