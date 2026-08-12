@@ -339,9 +339,9 @@
           "when": "start",
           "filter": {
             "field": "onField"
-          }
+          },
+          "cooldown": 1500
         },
-        "applyCooldown": 1500,
         "remove": {
           "when": "start",
           "filter": {
@@ -859,9 +859,9 @@
             "action": {
               "has": "shield"
             }
-          }
+          },
+          "cooldown": 500
         },
-        "applyCooldown": 500,
         "buffMap": {
           "atk%": 0.06,
           "critDmg%": 0.04
@@ -1442,9 +1442,9 @@
                 "has": "glacioChafe"
               }
             }
-          }
+          },
+          "cooldown": 25000
         },
-        "applyCooldown": 25000,
         "maxDuration": 15000
       },
       {
@@ -1501,9 +1501,9 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 500
         },
-        "useCooldown": 500,
         "onUseDoApply": {
           "critRateIncreased": 1
         },
@@ -1739,9 +1739,9 @@
             "action": {
               "has": "shield"
             }
-          }
+          },
+          "cooldown": 500
         },
-        "applyCooldown": 500,
         "buffMap": {
           "critRate%": 0.05
         },

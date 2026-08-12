@@ -392,9 +392,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": {
           "damage": {
             "type": "resonanceSkill",
@@ -1757,7 +1757,6 @@
           }
         },
         "applyTo": "global",
-        "useCooldown": 500,
         "use": {
           "filter": {
             "and": [
@@ -1770,7 +1769,8 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 500
         },
         "useAction": {
           "damage": {
@@ -2691,9 +2691,9 @@
                 "has": "havocBane"
               }
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": {
           "name": "Blades of Thousand Memories",
           "damage": {

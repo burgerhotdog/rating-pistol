@@ -170,9 +170,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "cooldown": 12000
         },
-        "useCooldown": 12000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -311,9 +311,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "cooldown": 12000
         },
-        "applyCooldown": 12000,
         "remove": {
           "when": "maxStacks"
         },
@@ -352,9 +352,9 @@
                 ]
               }
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
             0.04,
@@ -495,9 +495,9 @@
             "action": {
               "type": "resonanceLiberation"
             }
-          }
+          },
+          "cooldown": 20000
         },
-        "useCooldown": 20000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -564,9 +564,9 @@
                 "type": "heavyAttack"
               }
             }
-          }
+          },
+          "cooldown": 8000
         },
-        "useCooldown": 8000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -664,9 +664,9 @@
             "action": {
               "type": "introSkill"
             }
-          }
+          },
+          "cooldown": 12000
         },
-        "applyCooldown": 12000,
         "buffMap": {
           "atk%": [
             0.07,
@@ -695,9 +695,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.2,
@@ -841,9 +841,9 @@
             "action": {
               "type": "dodgeCounter"
             }
-          }
+          },
+          "cooldown": 6000
         },
-        "useCooldown": 6000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -998,9 +998,9 @@
                 "heavyAttack"
               ]
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "resonanceSkillDmgBonus%": [
             0.07,
@@ -1159,9 +1159,9 @@
                 "type": "basicAttack"
               }
             }
-          }
+          },
+          "cooldown": 3000
         },
-        "useCooldown": 3000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -1249,9 +1249,9 @@
             "action": {
               "type": "dodgeCounter"
             }
-          }
+          },
+          "cooldown": 6000
         },
-        "useCooldown": 6000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -1494,9 +1494,9 @@
                 "type": "basicAttack"
               }
             }
-          }
+          },
+          "cooldown": 500
         },
-        "applyCooldown": 500,
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.032,
@@ -1580,9 +1580,9 @@
             "action": {
               "type": "introSkill"
             }
-          }
+          },
+          "cooldown": 20000
         },
-        "useCooldown": 20000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -1735,9 +1735,9 @@
                 ]
               }
             }
-          }
+          },
+          "cooldown": 600
         },
-        "applyCooldown": 600,
         "buffMap": {
           "healingBonus%": [
             0.03,
@@ -1873,9 +1873,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "cooldown": 500
         },
-        "applyCooldown": 500,
         "remove": {
           "when": "maxStacks"
         },
@@ -2057,9 +2057,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "cooldown": 20000
         },
-        "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
             0.1,
@@ -2088,9 +2088,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "cooldown": 20000
         },
-        "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
             0.1,
@@ -2119,9 +2119,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "cooldown": 20000
         },
-        "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
             0.1,
@@ -2150,9 +2150,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "cooldown": 20000
         },
-        "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
             0.1,
@@ -2227,9 +2227,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "cooldown": 20000
         },
-        "applyCooldown": 20000,
         "buffMap": {
           "atk%": [
             0.1,
@@ -2259,9 +2259,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "remove": {
           "when": "start",
           "filter": {
@@ -2322,9 +2322,9 @@
                 "type": "basicAttack"
               }
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.1,
@@ -2346,9 +2346,9 @@
             "action": {
               "ref": "forteCircuit.1"
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "remove": {
           "when": "start",
           "filter": {
@@ -2394,9 +2394,9 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
             0.04,
@@ -2437,9 +2437,9 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
             0.04,
@@ -2521,9 +2521,9 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
             0.04,
@@ -2605,9 +2605,9 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
             0.04,
@@ -2678,9 +2678,9 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
             0.04,
@@ -2778,9 +2778,9 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "spectroDmgBonus%": [
             0.06,
@@ -3363,9 +3363,9 @@
             "action": {
               "has": "shield"
             }
-          }
+          },
+          "cooldown": 500
         },
-        "applyCooldown": 500,
         "use": {
           "filter": {
             "action": {
@@ -3477,9 +3477,9 @@
                 ]
               }
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "applyCooldown": 1000,
         "buffMap": {
           "atk%": [
             0.022,
@@ -3542,9 +3542,9 @@
             "action": {
               "has": "shield"
             }
-          }
+          },
+          "cooldown": 500
         },
-        "applyCooldown": 500,
         "use": {
           "filter": {
             "action": {
@@ -4183,9 +4183,9 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 500
         },
-        "applyCooldown": 500,
         "buffMap": {
           "basicAttackDmgBonus%": [
             0.06,
@@ -4504,9 +4504,9 @@
           "when": "start",
           "filter": {
             "field": "onField"
-          }
+          },
+          "cooldown": 100
         },
-        "applyCooldown": 100,
         "applyTo": "global",
         "buffMap": {
           "glacioChafeDmgAmp%": [

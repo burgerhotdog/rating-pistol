@@ -141,10 +141,6 @@ export const toNormalizedEffect = (rawEffect, spec) => {
         }));
       }
     }
-
-    if (effect.use?.when === 'interval') {
-      effect.useCooldown ??= 1000;
-    }
   }
 
   if (effect.rankMods) {

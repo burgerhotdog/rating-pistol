@@ -203,9 +203,9 @@
           "when": "start",
           "filter": {
             "field": "onField"
-          }
+          },
+          "cooldown": 20000
         },
-        "applyCooldown": 20000,
         "buffMap": {
           "combatAtk%": 0.25
         },
@@ -320,9 +320,9 @@
           "when": "start",
           "filter": {
             "field": "onField"
-          }
+          },
+          "cooldown": 7500
         },
-        "applyCooldown": 7500,
         "use": {
           "filter": {
             "field": "onField"

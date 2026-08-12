@@ -350,9 +350,9 @@
                 "type": "elementalSkill"
               }
             }
-          }
+          },
+          "cooldown": 500
         },
-        "applyCooldown": 500,
         "applyTo": "$team",
         "buffMap": {
           "atk%": 0.2
@@ -390,9 +390,9 @@
                 "type": "elementalSkill"
               }
             }
-          }
+          },
+          "cooldown": 300
         },
-        "applyCooldown": 300,
         "buffMap": {
           "atk%": 0.9,
           "physicalDmgBonus%": 0.125
@@ -429,9 +429,9 @@
             "action": {
               "type": "elementalSkill"
             }
-          }
+          },
+          "cooldown": 10000
         },
-        "applyCooldown": 10000,
         "buffMap": {
           "normalAttackDmgBonus%": 0.5,
           "chargedAttackDmgBonus%": 0.5,
@@ -525,13 +525,13 @@
             "action": {
               "has": "healing"
             }
-          }
+          },
+          "cooldown": 3500
         },
-        "applyCooldown": 3500,
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 3000
         },
-        "useCooldown": 3000,
         "useAction": {
           "element": "physical",
           "multipliers": [

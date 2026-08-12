@@ -26,7 +26,7 @@ export function runUseEffect(ctx, state, spec = {}) {
     }
     delete state.isRunning;
 
-    if (effect.useCooldown) state.useCooldown = effect.useCooldown;
+    if (effect.use?.cooldown) state.useCooldown = effect.use.cooldown;
     if (state.usesLeft) {
       state.usesLeft--;
       if (!state.usesLeft) return delete store[effect.id];
@@ -93,8 +93,8 @@ export function runApplyEffect(ctx, effect, spec = {}) {
     else if (target in memberEffects) updateState(memberEffects[target]);
   }
 
-  if (effect.applyCooldown)
-    applyCooldowns[id] = effect.applyCooldown;
+  if (effect.apply?.cooldown)
+    applyCooldowns[id] = effect.apply.cooldown;
 }
 
 function advanceEffectState(ctx, state, elapsed) {

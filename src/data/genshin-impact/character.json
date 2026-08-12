@@ -10181,9 +10181,9 @@
         },
         "applyTo": "global",
         "use": {
-          "when": "hit"
+          "when": "hit",
+          "cooldown": 2000
         },
-        "useCooldown": 2000,
         "useAction": "elementalSkill.1",
         "maxDuration": 30000
       },

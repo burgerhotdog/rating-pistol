@@ -740,9 +740,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 2500
         },
-        "useCooldown": 2500,
         "useAction": "resonanceLiberation.1",
         "maxUses": 4,
         "rankMods": {
@@ -768,9 +768,9 @@
           ]
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 2000
         },
-        "useCooldown": 2000,
         "useAction": "forteCircuit.0",
         "maxUses": 4
       },
@@ -856,9 +856,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 3000
         },
-        "useCooldown": 3000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -2555,9 +2555,9 @@
                 "field": "onField"
               }
             ]
-          }
+          },
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": "resonanceLiberation.0",
         "maxDuration": 30000,
         "maxUses": 21,
@@ -6870,9 +6870,9 @@
                 "has": "glacioChafe"
               }
             }
-          }
+          },
+          "cooldown": 500
         },
-        "useCooldown": 0.5,
         "useAction": {
           "inflictStatus": {
             "glacioChafe": 2
@@ -7851,9 +7851,9 @@
                 "introSkill.0"
               ]
             }
-          }
+          },
+          "cooldown": 25000
         },
-        "applyCooldown": 25000,
         "applyTo": "$team"
       },
       {
@@ -7898,10 +7898,10 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 6000
         },
         "useOffset": 6000,
-        "useCooldown": 6000,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 30000
       },
@@ -7987,9 +7987,9 @@
             "action": {
               "ref": "resonanceSkill.1"
             }
-          }
+          },
+          "cooldown": 25000
         },
-        "useCooldown": 25000,
         "buffMap": {
           "critRate%": 0.8,
           "glacioDmgBonus%": 2.4
@@ -8001,9 +8001,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "cooldown": 25000
         },
-        "useCooldown": 25000,
         "buffMap": {
           "critRate%": 0.8,
           "glacioDmgBonus%": 2.4
@@ -9232,9 +9232,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 100
         },
-        "useCooldown": 100,
         "useAction": "forteCircuit.0",
         "maxUses": 30
       },
@@ -9911,9 +9911,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 1500
         },
-        "useCooldown": 1500,
         "useAction": {
           "damage": {
             "type": "outroSkill",
@@ -10803,9 +10803,9 @@
                 "field": "onField"
               }
             ]
-          }
+          },
+          "cooldown": 350
         },
-        "useCooldown": 350,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 10000,
         "rankMods": {
@@ -10837,9 +10837,9 @@
                 "field": "onField"
               }
             ]
-          }
+          },
+          "cooldown": 350
         },
-        "useCooldown": 350,
         "useAction": "resonanceLiberation.1",
         "times": 2,
         "maxDuration": 10000,
@@ -10880,9 +10880,9 @@
             "action": {
               "ref": "resonanceLiberation.1"
             }
-          }
+          },
+          "cooldown": 350
         },
-        "applyCooldown": 350,
         "use": {
           "filter": {
             "action": {
@@ -12674,9 +12674,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": {
           "damage": {
             "type": "basicAttack",
@@ -17356,9 +17356,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 3000
         },
-        "useCooldown": 3000,
         "useAction": "forteCircuit.0",
         "maxDuration": 25000
       },
@@ -22586,9 +22586,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": "forteCircuit.1",
         "maxDuration": 18000
       },
@@ -23311,9 +23311,9 @@
                 }
               }
             ]
-          }
+          },
+          "cooldown": 1200
         },
-        "useCooldown": 1200,
         "useAction": "resonanceSkill.1",
         "maxDuration": 12000
       },
@@ -25847,9 +25847,9 @@
             "action": {
               "type": "basicAttack"
             }
-          }
+          },
+          "cooldown": 2000
         },
-        "useCooldown": 2000,
         "useAction": {
           "damage": {
             "type": "outroSkill",
@@ -26834,9 +26834,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "cooldown": 500
         },
-        "useCooldown": 500,
         "useAction": {
           "shield": {
             "multipliers": [
@@ -27886,9 +27886,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": {
           "healing": {
             "multipliers": [
@@ -32094,9 +32094,9 @@
             "action": {
               "type": "heavyAttack"
             }
-          }
+          },
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": {
           "type": "coordinatedAttack",
           "damage": {
@@ -32121,9 +32121,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "cooldown": 15000
         },
-        "applyCooldown": 15000,
         "buffMap": {
           "atk%": 0.28
         },
@@ -32978,9 +32978,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 250
         },
-        "useCooldown": 250,
         "useAction": "resonanceLiberation.0",
         "maxDuration": 3120
       },
@@ -33015,9 +33015,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 6000
         },
-        "useCooldown": 6000,
         "useAction": "forteCircuit.10",
         "maxDuration": 30000
       },
@@ -34143,9 +34143,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": "resonanceLiberation.1",
         "maxUses": 20
       },
@@ -34247,16 +34247,13 @@
         "enableIf": {
           "rank": 6
         },
-        "apply": {
+        "use": {
           "when": "hit",
           "filter": {
             "action": {
               "ref": "normalAttack.3"
             }
           }
-        },
-        "use": {
-          "when": "interval"
         },
         "useAction": {
           "damage": {
@@ -34267,8 +34264,7 @@
               }
             ]
           }
-        },
-        "maxUses": 1
+        }
       }
     ],
     "skills": {
@@ -40624,9 +40620,9 @@
         },
         "applyTo": "$team",
         "use": {
-          "when": "hit"
+          "when": "hit",
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 12000
       },
@@ -40662,9 +40658,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": {
           "healing": {
             "multipliers": [
@@ -40704,9 +40700,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 5000
         },
-        "useCooldown": 5000,
         "useAction": {
           "healing": {
             "multipliers": [
@@ -42921,9 +42917,9 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "cooldown": 3000
         },
-        "useCooldown": 3000,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 30000,
         "rankMods": {
@@ -46138,9 +46134,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "cooldown": 2000
         },
-        "useCooldown": 2000,
         "useAction": {
           "inflictStatus": {
             "havocBane": 1
@@ -52754,9 +52750,9 @@
             "action": {
               "ref": "normalAttack.5"
             }
-          }
+          },
+          "cooldown": 15000
         },
-        "useCooldown": 15000,
         "useAction": {
           "healing": {
             "attr": "hp",
@@ -52778,9 +52774,9 @@
             "action": {
               "ref": "normalAttack.5"
             }
-          }
+          },
+          "cooldown": 15000
         },
-        "applyCooldown": 15000,
         "buffMap": {
           "def%": 0.5
         },
@@ -54532,9 +54528,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "cooldown": 25000
         },
-        "applyCooldown": 25000,
         "buffMap": {
           "critDmg%": 0.28
         },
@@ -54647,9 +54643,9 @@
             "action": {
               "ref": "forteCircuit.0"
             }
-          }
+          },
+          "cooldown": 25000
         },
-        "applyCooldown": 25000,
         "use": {
           "when": "hit"
         },
@@ -56208,9 +56204,9 @@
           "when": "hit",
           "filter": {
             "field": "onField"
-          }
+          },
+          "cooldown": 1000
         },
-        "useCooldown": 1000,
         "useAction": "resonanceLiberation.1",
         "maxDuration": 30000,
         "maxUses": 21,
@@ -56286,7 +56282,7 @@
         "enableIf": {
           "rank": 2
         },
-        "apply": {
+        "use": {
           "when": "hit",
           "filter": {
             "action": {
@@ -56294,11 +56290,7 @@
             }
           }
         },
-        "use": {
-          "when": "interval"
-        },
-        "useAction": "resonanceSkill.2",
-        "maxUses": 1
+        "useAction": "resonanceSkill.2"
       },
       {
         "enableIf": {
@@ -58273,9 +58265,9 @@
                 "field": "onField"
               }
             ]
-          }
+          },
+          "cooldown": 25000
         },
-        "applyCooldown": 25000,
         "buffMap": {
           "critDmg%": 1.6
         },
