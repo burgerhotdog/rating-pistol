@@ -28,6 +28,7 @@ import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
 import { WW, CHARACTER, WEAPON, SET, ECHO } from '@/data';
 import {
+  formatStr,
   getPresetSetCounts,
   getMemberPreset,
   getDefaultWeaponRank,
@@ -332,13 +333,11 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
 }
 
 function MainEchoAutocomplete({ charId, value, onChange, disabled }) {
-  const options = useMemo(
-    () =>
-      Object.values(ECHO)
-        .map((e) => ({ id: e.id, label: e.name, cost: e.cost }))
-        .sort((a, b) => b.cost - a.cost || a.label.localeCompare(b.label)),
-    [],
-  );
+  const options = useMemo(() => (
+    Object.values(ECHO)
+      .map((e) => ({ id: e.id, label: e.name, cost: e.cost }))
+      .sort((a, b) => b.cost - a.cost || a.label.localeCompare(b.label))
+  ), []);
 
   const selected = options.find((o) => o.id === value) ?? null;
 
@@ -540,13 +539,13 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             <Box sx={{ mt: 2 }}>
               <Typography variant="subtitle2" sx={{ mb: 1 }}>Resonance Mode</Typography>
               <ToggleButtonGroup
-                value={draft.resonanceMode ?? CHARACTER[gameId][draft.id].modes[0]}
-                onChange={(_, value) => { if (value !== null) setDraft((prev) => ({ ...prev, resonanceMode: value })); }}
+                value={draft.mode ?? CHARACTER[gameId][draft.id].modes[0]}
+                onChange={(_, value) => { if (value !== null) setDraft((prev) => ({ ...prev, mode: value })); }}
                 disabled={buildLocked}
               >
                 {CHARACTER[gameId][draft.id].modes.map((mode) => (
                   <ToggleButton key={mode} value={mode}>
-                    {mode}
+                    {formatStr(mode)}
                   </ToggleButton>
                 ))}
               </ToggleButtonGroup>

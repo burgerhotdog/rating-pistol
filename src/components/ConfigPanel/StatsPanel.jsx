@@ -49,7 +49,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CharAvatar } from '@/components';
-import { GI, HSR, WW, ZZZ, CHARACTER, ECHO } from '@/data';
+import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
 import { useElementColors, useCharData } from '@/hooks';
 import { toArray, getAttr, formatStr, compileMenuMap } from '@/utils';
 import { TeamMemberDialog } from './TeamMemberDialog';
@@ -292,12 +292,7 @@ function SortableRotationItem({ id, actionRef, charId, member, gameId, onRemove 
     transition,
   };
 
-  const allActions = {
-    ...CHARACTER[gameId][charId].skills,
-    echoSkill: {
-      actions: ECHO[member.mainEcho]?.actions ?? [],
-    },
-  };
+  const allActions = CHARACTER[gameId][charId].skills;
 
   const [category, actionIndex] = actionRef.split('.');
   const index = Number(actionIndex);

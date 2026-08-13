@@ -1,20 +1,12 @@
 import { WW } from '@/data';
 import { toMergedObj } from '@/utils';
 import {
-  matchRemoveFilter,
-  matchExtendFilter,
-  matchUseFilter,
-  matchApplyFilter,
-} from './filters';
-import {
   onRemoveDoCommand,
-  onExtendDoCommand,
   onUseDoCommand,
   onApplyDoCommand,
 } from './commands';
 import {
   runRemoveEffect,
-  runExtendEffect,
   runUseEffect,
   runApplyEffect,
   advanceEffects,
@@ -31,62 +23,55 @@ import {
 } from './special/tune';
 import { buildSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
+import { createEventFilter } from './filter';
 
 function handleRemoveWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
     const { effect } = state;
+    if (!effect.remove) continue;
 
-    const shouldRemove =
-      effect.removeWhen === when &&
-      matchRemoveFilter(effect, { ctx, action });
+    const { remove } = effect;
+    if (
+      remove.when !== when ||
+      !ctx.eventFilter(remove.filter, action, effect)
+    ) continue;
 
-    if (!shouldRemove) continue;
     onRemoveDoCommand(ctx, effect);
     runRemoveEffect(state);
-  }
-}
-
-function handleExtendWhen(ctx, action, when) {
-  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
-    const { effect } = state;
-
-    const shouldExtend =
-      effect.extendWhen === when &&
-      !state.extendCooldown &&
-      matchExtendFilter(effect, { ctx, action }) &&
-      state.extensionsLeft;
-
-    if (!shouldExtend) continue;
-    onExtendDoCommand(ctx, effect);
-    runExtendEffect(state);
   }
 }
 
 function handleUseWhen(ctx, action, when) {
   for (const state of getEffectStates(ctx, { member: action.ownerId })) {
     const { effect } = state;
+    if (!effect.use) continue;
 
-    const shouldUse =
-      effect.useWhen === when &&
-      !state.useCooldown &&
-      matchUseFilter(effect, { ctx, action }) &&
-      !state.isRunning;
+    const { use } = effect;
+    if (
+      state.isRunning ||
+      state.useCooldown ||
+      use.when !== when ||
+      !ctx.eventFilter(use.filter, action, effect)
+    ) continue;
 
-    if (!shouldUse) continue;
     onUseDoCommand(ctx, effect);
     runUseEffect(ctx, state);
   }
 }
 
 function handleApplyWhen(ctx, action, when) {
+  const { applyCooldowns } = ctx.states;
   for (const effect of Object.values(ctx.cache.effects)) {
-    const shouldApply =
-      effect.applyBy.includes(action.ownerId) &&
-      effect.applyWhen === when &&
-      !ctx.states.applyCooldowns[effect.id] &&
-      matchApplyFilter(effect, { ctx, action });
+    if (!effect.apply) continue;
 
-    if (!shouldApply) continue;
+    const { apply } = effect;
+    if (
+      !apply.by.includes(action.ownerId) ||
+      applyCooldowns[effect.id] ||
+      apply.when !== when ||
+      !ctx.eventFilter(apply.filter, action, effect)
+    ) continue;
+
     onApplyDoCommand(ctx, effect);
     runApplyEffect(ctx, effect, { applier: action.ownerId });
   }
@@ -96,16 +81,24 @@ function advanceCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.states;
   for (const effectId in applyCooldowns) {
     applyCooldowns[effectId] -= elapsed;
-    if (applyCooldowns[effectId] <= 0) delete applyCooldowns[effectId];
+    if (applyCooldowns[effectId] <= 0) {
+      delete applyCooldowns[effectId];
+    }
   }
 }
 
 function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
     const { store, effect, useCooldown } = state;
-    if (useCooldown || !matchUseFilter(effect, { ctx, action })) continue;
+    if (
+      useCooldown ||
+      !ctx.eventFilter(effect.use?.filter, action, effect)
+    ) continue;
 
-    if ('buffCooldown' in effect) state.buffCooldown = effect.buffCooldown;
+    if (effect.buff?.cooldown) {
+      state.buffCooldown = effect.buff.cooldown;
+    }
+
     if ('usesLeft' in state) {
       state.usesLeft--;
       if (!state.usesLeft) delete store[effect.id];
@@ -139,7 +132,6 @@ function runAction(ctx, action, options = {}) {
 
   function runEffectsWhen(when) {
     handleRemoveWhen(ctx, action, when);
-    handleExtendWhen(ctx, action, when);
     handleUseWhen(ctx, action, when);
     handleApplyWhen(ctx, action, when);
   }
@@ -151,7 +143,7 @@ function runAction(ctx, action, options = {}) {
   }
 
   // Action timeline
-  runEffectsWhen('before');
+  runEffectsWhen('start');
   advanceTimeTo(hitOffsets[0]);
 
   if (canSnapshot(action)) {
@@ -170,10 +162,10 @@ function runAction(ctx, action, options = {}) {
   }
 
   advanceTimeTo(duration);
-  runEffectsWhen('after');
+  runEffectsWhen('end');
 }
 
-export const createRunRotation = (cache, equipMaps, currId) => {
+export const runRotation = (cache, equipMaps, specId) => {  
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
     buildMaps[memberId] = toMergedObj(cache.member[memberId].baseMap, equipMap);
@@ -182,7 +174,7 @@ export const createRunRotation = (cache, equipMaps, currId) => {
   const ctx = {
     cache,
     buildMaps,
-    currId,
+    specId,
     states: {
       runtime: 0,
       onFieldId: null,
@@ -200,16 +192,19 @@ export const createRunRotation = (cache, equipMaps, currId) => {
     offTuneBuildup: [],
   };
 
+  ctx.eventFilter = createEventFilter(ctx);
+
   // Init passives into effect states
   for (const effect of Object.values(cache.effects)) {
-    if (effect.applyWhen) continue;
+    if (effect.apply?.when) continue;
     runApplyEffect(ctx, effect);
   }
 
   // Rotation loop
   const actionOrder = cache.memberIds
     .toReversed()
-    .flatMap((memberId) => cache.member[memberId].rotation);
+    .flatMap((memberId) =>
+      cache.member[memberId].rotation);
 
   for (const action of actionOrder) {
     ctx.states.onFieldId = action.ownerId;
@@ -220,6 +215,10 @@ export const createRunRotation = (cache, equipMaps, currId) => {
   for (const action of actionOrder) {
     ctx.states.onFieldId = action.ownerId;
     runAction(ctx, action);
+  }
+
+  if (!specId) {
+    return ctx.snapshots;
   }
 
   return (buildMap) => ctx.snapshots.map((snapshot) => {

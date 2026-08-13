@@ -38,18 +38,18 @@ function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
     : 0;
 
   const runtimeDamage = {};
-  for (const { runtime, ownerId, damage, hitOffsets } of filteredSummary) {
+  for (const { runtime, ownerId, damage, hitOffsets, name } of filteredSummary) {
     if (hitOffsets?.length) {
       const splitDamage = damage / hitOffsets.length;
       for (const offset of hitOffsets) {
         const adjustedRuntime = runtime + offset - runtimeOffset;
-        runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
+        runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime, name };
         runtimeDamage[adjustedRuntime][ownerId] ??= 0;
         runtimeDamage[adjustedRuntime][ownerId] += splitDamage;
       }
     } else {
       const adjustedRuntime = runtime - runtimeOffset;
-      runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime };
+      runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime, name };
       runtimeDamage[adjustedRuntime][ownerId] ??= 0;
       runtimeDamage[adjustedRuntime][ownerId] += damage;
     }
@@ -76,7 +76,7 @@ function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
   return data;
 }
 
-const TooltipContent = ({ time, rows }) => {
+const TooltipContent = ({ time, name, rows }) => {
   const timeStr = (time / 1000).toFixed(1);
   const total = rows.reduce((acc, { value }) => acc + value, 0);
   const totalStr = formatNum(total);
@@ -91,6 +91,7 @@ const TooltipContent = ({ time, rows }) => {
         borderColor: 'divider',
       }}
     >
+      <Typography variant="subtitle2">{name}</Typography>
       <Typography variant="subtitle2">
         Time: {timeStr}s
       </Typography>
@@ -300,6 +301,7 @@ const Timeline = ({ userSummary, memberIds }) => {
               content={({ payload }) => (
                 <TooltipContent
                   time={payload[0]?.value ?? 0}
+                  name={payload[0]?.payload?.name}
                   rows={payload[1] ? [payload[1]] : []}
                 />
               )}

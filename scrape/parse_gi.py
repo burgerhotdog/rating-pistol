@@ -150,8 +150,6 @@ def parse_gi(type, version, id, data):
                 'name': str(data['affix'][0]['name']),
                 'version': float(version),
                 'id': str(id),
-                'bonusEffects': {
-                    '2': [],
-                    '4': [],
-                },
+                'bonuses': [2, 4],
+                'effects': [],
             }

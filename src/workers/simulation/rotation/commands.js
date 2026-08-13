@@ -1,5 +1,6 @@
 import {
   runRemoveEffect,
+  runUseEffect,
   runApplyEffect,
 } from './effects';
 
@@ -9,7 +10,7 @@ function doRemove(ctx, toRemove = {}) {
   for (const [id, stacks] of Object.entries(toRemove)) {
     const effect = ctx.cache.effects[id];
 
-    for (const target of effect.applyTo) {
+    for (const target of effect.scope) {
       if (target === 'global') {
         runRemoveEffect(globalEffects[id], stacks);
       } else {
@@ -19,30 +20,45 @@ function doRemove(ctx, toRemove = {}) {
   }
 }
 
-function doApply(ctx, toApply = {}) {
-  for (const [effectId, stacks] of Object.entries(toApply)) {
+function doUse(ctx, toUse = {}) {
+  const { memberEffects, globalEffects } = ctx.states;
+
+  for (const [effectId, times] of Object.entries(toUse)) {
     const effect = ctx.cache.effects[effectId];
 
-    runApplyEffect(ctx, effect, { stacks });
+    for (const target of effect.scope) {
+      if (target === 'global') {
+        runUseEffect(ctx, globalEffects[effectId]);
+      } else {
+        runUseEffect(ctx, memberEffects[target][effectId]);
+      }
+    }
+  }
+}
+
+function doApply(ctx, toApply = {}, doApplyType = 'refresh', doApplyDuration) {
+  for (const [effectId, stacks] of Object.entries(toApply)) {
+    const effect = ctx.cache.effects[effectId];
+    const spec = { stacks, ...(doApplyDuration && { type: doApplyType, duration: doApplyDuration }) };
+
+    runApplyEffect(ctx, effect, spec);
   }
 }
 
 export function onRemoveDoCommand(ctx, effect) {
   if ('onRemoveDoRemove' in effect) doRemove(ctx, effect.onRemoveDoRemove);
-  if ('onRemoveDoApply' in effect) doApply(ctx, effect.onRemoveDoApply);
-}
-
-export function onExtendDoCommand(ctx, effect) {
-  if ('onExtendDoRemove' in effect) doRemove(ctx, effect.onExtendDoRemove);
-  if ('onExtendDoApply' in effect) doApply(ctx, effect.onExtendDoApply);
+  if ('onRemoveDoUse' in effect) doUse(ctx, effect.onRemoveDoUse);
+  if ('onRemoveDoApply' in effect) doApply(ctx, effect.onRemoveDoApply, effect.doApplyType, effect.doApplyDuration);
 }
 
 export function onUseDoCommand(ctx, effect) {
   if ('onUseDoRemove' in effect) doRemove(ctx, effect.onUseDoRemove);
-  if ('onUseDoApply' in effect) doApply(ctx, effect.onUseDoApply);
+  if ('onUseDoUse' in effect) doUse(ctx, effect.onUseDoUse);
+  if ('onUseDoApply' in effect) doApply(ctx, effect.onUseDoApply, effect.doApplyType, effect.doApplyDuration);
 }
 
 export function onApplyDoCommand(ctx, effect) {
   if ('onApplyDoRemove' in effect) doRemove(ctx, effect.onApplyDoRemove);
-  if ('onApplyDoApply' in effect) doApply(ctx, effect.onApplyDoApply);
+  if ('onApplyDoUse' in effect) doUse(ctx, effect.onApplyDoUse);
+  if ('onApplyDoApply' in effect) doApply(ctx, effect.onApplyDoApply, effect.doApplyType, effect.doApplyDuration);
 }

@@ -2,10 +2,7 @@ import {
   GI, HSR, WW, ZZZ,
   CHARACTER,
 } from '@/data';
-import {
-  getAttr, getTotals,
-  toArray, toMergedObj,
-} from '@/utils';
+import { getAttr, getTotals, toMergedObj } from '@/utils';
 
 const ENERGY_ATTR = {
   [GI]: 'energyRecharge%',
@@ -14,41 +11,29 @@ const ENERGY_ATTR = {
   [ZZZ]: 'energyRegen%',
 };
 
-const penaltyMult = (current, target) => {
-  if (!target) return 1;
+export function createEvaluateEquipMap(cache, evalId, summarySpecs) {
+  const { gameId, rotationDuration } = cache;
+  const erAttrId = ENERGY_ATTR[gameId];
+  const needsEnergy = !CHARACTER[gameId][evalId].noEnergy;
 
-  const relativeDeficit = (target - current) / target;
-  if (relativeDeficit <= 0) return 1;
+  const { duration: charRotDur, baseMap, statMap } = cache.member[evalId];
+  const originalEr = getAttr(erAttrId, statMap);
 
-  return Math.exp(-relativeDeficit);
-};
+  function getPenalty(testMap) {
+    if (!needsEnergy) return 1;
+    const newEr = getAttr(erAttrId, testMap);
+    if (newEr >= originalEr) return 1;
 
-export function createEvaluateEquipMap(cache, evalId, runRotation) {
-  const { gameId } = cache;
-  const { noEnergy, matchAttr } = CHARACTER[gameId][evalId];
-  const { statMap } = cache.member[evalId];
-  const matchMap = {};
-
-  for (const attr of toArray(matchAttr)) {
-    matchMap[attr] = getAttr(attr, statMap);
+    const newCharRotDur = charRotDur * (originalEr / newEr);
+    const durPenalty = newCharRotDur - charRotDur;
+    return rotationDuration / (rotationDuration + durPenalty);
   }
-
-  if (!noEnergy) {
-    const energyAttr = ENERGY_ATTR[gameId];
-    matchMap[energyAttr] = getAttr(energyAttr, statMap);
-  }
-
-  const baseMap = cache.member[evalId].baseMap;
 
   return (equipMap = {}) => {
     const statMap = toMergedObj(baseMap, equipMap);
-    const penalty = Object.entries(matchMap)
-      .reduce((acc, [attr, target]) => {
-        const attrValue = getAttr(attr, statMap);
-        return acc * penaltyMult(attrValue, target);
-      }, 1);
+    const penalty = getPenalty(statMap);
 
-    const summary = runRotation(statMap);
+    const summary = summarySpecs(statMap);
     const totals = getTotals(summary);
     const baseScore = Object.values(totals)
       .reduce((acc, value) => acc + value, 0);

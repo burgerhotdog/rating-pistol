@@ -17,11 +17,11 @@ function getSetCounts(gameId, equipList) {
   const resolved = {};
 
   for (const [setId, count] of Object.entries(setCounts)) {
-    const { bonusEffects = {} } = setData[setId];
+    const { bonuses = [] } = setData[setId];
 
-    for (const tier in bonusEffects) {
-      if (Number(tier) > count) continue;
-      resolved[setId] = Number(tier);
+    for (const tier of bonuses) {
+      if (tier > count) continue;
+      resolved[setId] = tier;
     }
   }
 
@@ -48,8 +48,8 @@ export function applyStoredBuild(gameId, member, storedBuild) {
     next.mainEcho = storedBuild.mainEcho;
   }
 
-  if ('resonanceMode' in storedBuild) {
-    next.resonanceMode = storedBuild.resonanceMode;
+  if ('mode' in storedBuild) {
+    next.mode = storedBuild.mode;
   }
 
   return next;

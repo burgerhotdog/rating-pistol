@@ -1,7 +1,6 @@
 import { WW } from '@/data';
 import { getAttr, toMergedObj } from '@/utils';
 import { mergeStatMap, resolveStatSpecs } from '../utils';
-import { matchUseFilter } from './filters';
 import { getEffectStates } from './getEffectStates';
 
 export const getBuffMap = (ctx, options = {}) => {
@@ -22,15 +21,18 @@ export const getBuffMap = (ctx, options = {}) => {
   }
 
   for (const { effect, stacks, buffCooldown } of getEffectStates(ctx, { member: memberId, type: 'buff' })) {
-    if (buffCooldown || !matchUseFilter(effect, { ctx, action })) continue;
+    if (
+      buffCooldown ||
+      !ctx.eventFilter(effect.use?.filter, action, effect)
+    ) continue;
     const buffMult = (effect.chance ?? 1) * stacks;
 
-    if ('buffMap' in effect) {
+    if (effect.buffMap) {
       mergeStatMap(buffMap, effect.buffMap, buffMult);
     }
 
-    if ('buffSpec' in effect && !ignoreSpecs) {
-      if (effect.ownerId === ctx.currId && !resolveNow) {
+    if (effect.buffSpec && !ignoreSpecs) {
+      if (effect.ownerId === ctx.specId && !resolveNow) {
         addToBuffSpecs(effect, buffMult);
         continue;
       }

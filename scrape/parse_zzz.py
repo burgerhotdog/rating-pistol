@@ -173,8 +173,6 @@ def parse_zzz(type, version, id, data):
                 'name': str(data['name']),
                 'version': float(version),
                 'id': str(id),
-                'bonusEffects': {
-                    '2': [],
-                    '4': [],
-                },
+                'bonuses': [],
+                'effects': [],
             }
