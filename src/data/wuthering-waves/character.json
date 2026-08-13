@@ -20283,6 +20283,28 @@
     },
     "effects": [
       {
+        "enableIf": {
+          "mode": "fusionBurst"
+        },
+        "scope": "$global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          }
+        },
+        "buffMap": {
+          "fusionBurstDmgAmp%": 0.6
+        },
+        "maxDuration": 30000
+      },
+      {
+        "enableIf": {
+          "mode": "tuneStrain"
+        },
+        "key": "tuneOutro",
         "scope": "$next",
         "apply": {
           "when": "start",
@@ -20293,7 +20315,42 @@
           }
         },
         "buffMap": {
-          "dmgAmp%": 0.4
+          "dmgAmp%": 0.15
+        },
+        "maxDuration": 16000
+      },
+      {
+        "enableIf": {
+          "mode": "tuneStrain"
+        },
+        "scope": "$next",
+        "apply": {
+          "by": "$next",
+          "when": "inflict",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "tuneOutro"
+                }
+              },
+              {
+                "action": {
+                  "inflictShifting": "tuneStrain"
+                }
+              }
+            ]
+          }
+        },
+        "use": {
+          "filter": {
+            "effectStacks": {
+              "has": "tuneOutro"
+            }
+          }
+        },
+        "buffMap": {
+          "dmgAmp%": 0.25
         },
         "maxDuration": 16000
       }
@@ -21495,6 +21552,16 @@
         ],
         "rotation": [
           "introSkill.0",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "resonanceLiberation.0",
+          "normalAttack.7",
+          "normalAttack.8",
+          "normalAttack.12",
+          "normalAttack.13",
+          "resonanceSkill.2",
+          "resonanceSkill.3",
+          "resonanceLiberation.1",
           "outroSkill.0"
         ]
       },
@@ -21511,6 +21578,16 @@
         ],
         "rotation": [
           "introSkill.0",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "resonanceLiberation.0",
+          "normalAttack.7",
+          "normalAttack.8",
+          "normalAttack.12",
+          "normalAttack.13",
+          "resonanceSkill.2",
+          "resonanceSkill.3",
+          "resonanceLiberation.1",
           "outroSkill.0"
         ]
       }
