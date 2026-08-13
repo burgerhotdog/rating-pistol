@@ -3752,7 +3752,7 @@
         }
       },
       {
-        "key": "resonanceLiberationDmgIncreased",
+        "key": "resLibDmgInc",
         "apply": {
           "when": "hit",
           "filter": {
@@ -3790,7 +3790,7 @@
           }
         },
         "onUseDoApply": {
-          "resonanceLiberationDmgIncreased": 5
+          "resLibDmgInc": 5
         }
       }
     ]

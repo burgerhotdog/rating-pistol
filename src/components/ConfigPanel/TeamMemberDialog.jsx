@@ -525,7 +525,9 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
           {gameId === WW && (
             <Box sx={{ mt: 2.5 }}>
-              <Typography variant="subtitle2" sx={{ mb: 1 }}>Main Echo</Typography>
+              <Typography variant="subtitle2" sx={{ mb: 1 }}>
+                Main Echo
+              </Typography>
               <MainEchoAutocomplete
                 charId={draft.id}
                 value={draft.mainEcho ?? null}
@@ -537,7 +539,9 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
           {gameId === WW && CHARACTER[gameId][draft.id]?.modes && (
             <Box sx={{ mt: 2 }}>
-              <Typography variant="subtitle2" sx={{ mb: 1 }}>Resonance Mode</Typography>
+              <Typography variant="subtitle2" sx={{ mb: 1 }}>
+                Resonance Mode
+              </Typography>
               <ToggleButtonGroup
                 value={draft.mode ?? CHARACTER[gameId][draft.id].modes[0]}
                 onChange={(_, value) => { if (value !== null) setDraft((prev) => ({ ...prev, mode: value })); }}
@@ -554,8 +558,12 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={handleCancel}>Cancel</Button>
-          <Button variant="contained" onClick={handleSave}>Save</Button>
+          <Button onClick={handleCancel}>
+            Cancel
+          </Button>
+          <Button variant="contained" onClick={handleSave}>
+            Save
+          </Button>
         </DialogActions>
       </Dialog>
 
