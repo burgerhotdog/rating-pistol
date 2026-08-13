@@ -30,9 +30,9 @@
                 "type": "basicAttack"
               }
             }
-          }
+          },
+          "duration": 6000
         },
-        "maxDuration": 6000,
         "buff": {
           "stats": {
             "combatAtk%": 0.09
@@ -51,9 +51,9 @@
                 "type": "dodgeCounter"
               }
             }
-          }
+          },
+          "duration": 6000
         },
-        "maxDuration": 6000,
         "buff": {
           "stats": {
             "combatAtk%": 0.09
@@ -72,9 +72,9 @@
                 "type": "exSpecialAttack"
               }
             }
-          }
+          },
+          "duration": 6000
         },
-        "maxDuration": 6000,
         "buff": {
           "stats": {
             "combatAtk%": 0.09
@@ -122,9 +122,9 @@
             "action": {
               "type": "ultimate"
             }
-          }
+          },
+          "duration": 12000
         },
-        "maxDuration": 12000,
         "buff": {
           "stats": {
             "combatAtk%": 0.15
@@ -224,9 +224,9 @@
           "filter": {
             "field": "onField"
           },
-          "cooldown": 20000
+          "cooldown": 20000,
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "combatAtk%": 0.25
@@ -289,9 +289,9 @@
                 "ultimate"
               ]
             }
-          }
+          },
+          "duration": 12000
         },
-        "maxDuration": 12000,
         "buff": {
           "stats": {
             "dmgBonus%": 0.15
@@ -353,7 +353,8 @@
           "filter": {
             "field": "onField"
           },
-          "cooldown": 7500
+          "cooldown": 7500,
+          "duration": 5000
         },
         "buff": {
           "filter": {
@@ -363,8 +364,7 @@
             "exSpecialAttackDmgBonus%": 0.2,
             "assistAttackDmgBonus%": 0.2
           }
-        },
-        "maxDuration": 5000
+        }
       }
     ]
   },
@@ -401,9 +401,9 @@
                 "evasiveAssist"
               ]
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "dmgBonus%": 0.15
@@ -441,9 +441,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "critRate%": 0.28
@@ -713,9 +713,9 @@
                 ]
               }
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "maxStacks": 3,
         "buff": {
           "stats": {
@@ -791,9 +791,9 @@
                 "ultimate"
               ]
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "maxStacks": 3,
         "buff": {
           "stats": {
@@ -849,9 +849,9 @@
                 "chainAttack"
               ]
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "critDmg%": 0.15
@@ -875,7 +875,8 @@
                 "chainAttack"
               ]
             }
-          }
+          },
+          "duration": 15000
         },
         "buff": {
           "filter": {
@@ -888,8 +889,7 @@
           "stats": {
             "critDmg%": 0.15
           }
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -938,9 +938,9 @@
                 "ultimate"
               ]
             }
-          }
+          },
+          "duration": 25000
         },
-        "maxDuration": 25000,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.2
@@ -985,9 +985,9 @@
                 "ultimate"
               ]
             }
-          }
+          },
+          "duration": 25000
         },
-        "maxDuration": 25000,
         "buff": {
           "stats": {
             "dmgBonus%": 0.18
@@ -1059,9 +1059,9 @@
                 "type": "basicAttack"
               }
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "anomalyProficiency": 36
@@ -1110,9 +1110,9 @@
             "action": {
               "type": "exSpecialAttack"
             }
-          }
+          },
+          "duration": 25000
         },
-        "maxDuration": 25000,
         "maxStacks": 3,
         "buff": {
           "stats": {
@@ -1172,9 +1172,9 @@
             "action": {
               "type": "exSpecialAttack"
             }
-          }
+          },
+          "duration": 40000
         },
-        "maxDuration": 40000,
         "maxStacks": 2,
         "buff": {
           "stats": {
@@ -1239,9 +1239,9 @@
                 "ultimate"
               ]
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "combatAtk%": 0.1

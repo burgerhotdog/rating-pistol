@@ -21,7 +21,8 @@
             "action": {
               "type": "introSkill"
             }
-          }
+          },
+          "duration": 8000
         },
         "buff": {
           "filter": {
@@ -32,8 +33,7 @@
           "stats": {
             "dmgBonus%": 0.2
           }
-        },
-        "maxDuration": 8000
+        }
       },
       {
         "apply": {
@@ -42,7 +42,8 @@
             "action": {
               "ref": "normalAttack.4"
             }
-          }
+          },
+          "duration": 8000
         },
         "buff": {
           "filter": {
@@ -57,8 +58,7 @@
           "stats": {
             "dmgBonus%": 0.2
           }
-        },
-        "maxDuration": 8000
+        }
       },
       {
         "stores": "$next",
@@ -68,9 +68,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "basicAttackDmgAmp%": 0.38
@@ -87,9 +87,9 @@
             "action": {
               "ref": "normalAttack.4"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "critRate%": 0.15
@@ -117,7 +117,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 5000
         },
         "buff": {
           "filter": {
@@ -129,7 +130,6 @@
             "dmgBonus%": 1.2
           }
         },
-        "maxDuration": 5000,
         "maxUses": 1
       },
       {
@@ -165,9 +165,9 @@
                 "forteCircuit.2"
               ]
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "maxStacks": 2,
         "buff": {
           "stats": {
@@ -753,11 +753,12 @@
         },
         "useAction": "resonanceLiberation.1",
         "maxUses": 4,
-        "rankMods": {
-          "4": {
+        "rankMods": [
+          {
+            "rank": 4,
             "maxUses": 2
           }
-        }
+        ]
       },
       {
         "apply": {
@@ -802,9 +803,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
-        },
-        "maxDuration": 15000
+          },
+          "duration": 15000
+        }
       },
       {
         "stores": "$first",
@@ -824,12 +825,12 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 20000
         },
         "onApplyDoRemove": {
           "euphonia": 1
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "atk%": 0.15
@@ -863,7 +864,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "interval",
@@ -878,8 +880,7 @@
               }
             ]
           }
-        },
-        "maxDuration": 30000
+        }
       },
       {
         "stores": "$next",
@@ -889,9 +890,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 36000
         },
-        "maxDuration": 36000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
@@ -908,9 +909,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 12000
         },
-        "maxDuration": 12000,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.15,
@@ -928,9 +929,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "hp%": 0.12
@@ -964,9 +965,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 35000
         },
-        "maxDuration": 35000,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.12
@@ -1649,9 +1650,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.5
@@ -1681,7 +1682,8 @@
                 "forteCircuit.4"
               ]
             }
-          }
+          },
+          "duration": 3000
         },
         "buff": {
           "filter": {
@@ -1693,7 +1695,6 @@
             "damageMv%": 1.5
           }
         },
-        "maxDuration": 3000,
         "maxUses": 1
       },
       {
@@ -1706,9 +1707,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.2,
@@ -1727,9 +1728,9 @@
             "action": {
               "ref": "outroSkill.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.2
@@ -1761,7 +1762,8 @@
             "action": {
               "ref": "forteCircuit.3"
             }
-          }
+          },
+          "duration": 3000
         },
         "buff": {
           "filter": {
@@ -1773,7 +1775,6 @@
             "basicAttackDmgBonus%": 1
           }
         },
-        "maxDuration": 3000,
         "maxUses": 1
       }
     ],
@@ -2574,7 +2575,8 @@
             "action": {
               "ref": "resonanceLiberation.1"
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "hit",
@@ -2593,13 +2595,13 @@
           "cooldown": 1000
         },
         "useAction": "resonanceLiberation.0",
-        "maxDuration": 30000,
         "maxUses": 21,
-        "rankMods": {
-          "2": {
+        "rankMods": [
+          {
+            "rank": 2,
             "maxUses": 6
           }
-        }
+        ]
       },
       {
         "apply": {
@@ -2608,9 +2610,9 @@
             "action": {
               "ref": "forteCircuit.2"
             }
-          }
+          },
+          "duration": 27000
         },
-        "maxDuration": 27000,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.18
@@ -2627,9 +2629,9 @@
                 "forteCircuit.2"
               ]
             }
-          }
+          },
+          "duration": 27000
         },
-        "maxDuration": 27000,
         "maxStacks": 3,
         "buff": {
           "stats": {
@@ -2645,9 +2647,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "glacioDmgAmp%": 0.2,
@@ -2665,9 +2667,9 @@
             "action": {
               "ref": "forteCircuit.2"
             }
-          }
+          },
+          "duration": 27000
         },
-        "maxDuration": 27000,
         "buff": {
           "stats": {
             "critRate%": 0.1
@@ -2688,9 +2690,9 @@
                 "forteCircuit.2"
               ]
             }
-          }
+          },
+          "duration": 27000
         },
-        "maxDuration": 27000,
         "maxStacks": 3,
         "buff": {
           "stats": {
@@ -2709,9 +2711,9 @@
             "action": {
               "ref": "resonanceLiberation.1"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -3262,9 +3264,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.15
@@ -3279,7 +3281,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 28000
         },
         "buff": {
           "filter": {
@@ -3290,8 +3293,7 @@
           "stats": {
             "dmgAmp%": 1
           }
-        },
-        "maxDuration": 28000
+        }
       },
       {
         "enableIf": {
@@ -3313,9 +3315,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "critRate%": 0.15
@@ -3337,9 +3339,9 @@
                 "resonanceSkill.4"
               ]
             }
-          }
+          },
+          "duration": 7000
         },
-        "maxDuration": 7000,
         "maxStacks": 4,
         "buff": {
           "stats": {
@@ -4276,21 +4278,22 @@
                 "forteCircuit.0"
               ]
             }
-          }
-        },
-        "maxDuration": 4000,
-        "rankMods": {
-          "1": {
-            "stats": {
-              "critRate%": 0.125
-            }
-          }
+          },
+          "duration": 4000
         },
         "buff": {
           "stats": {
             "defIgnore%": 0.18
           }
-        }
+        },
+        "rankMods": [
+          {
+            "rank": 1,
+            "stats": {
+              "critRate%": 0.125
+            }
+          }
+        ]
       },
       {
         "apply": {
@@ -4387,9 +4390,9 @@
                 "forteCircuit.0"
               ]
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": 0.25
@@ -5469,7 +5472,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 20000
         },
         "buff": {
           "filter": {
@@ -5482,8 +5486,7 @@
           "stats": {
             "glacioDmgAmp%": 0.2
           }
-        },
-        "maxDuration": 20000
+        }
       }
     ],
     "skills": {
@@ -6932,14 +6935,14 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 30000
         },
         "useAction": {
           "inflictStatus": {
             "glacioChafe": 2
           }
         },
-        "maxDuration": 30000,
         "maxUses": 4
       },
       {
@@ -6981,9 +6984,9 @@
             "action": {
               "ref": "resonanceSkill.2"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "glacioResReduction%": 0.08
@@ -6997,9 +7000,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.3
@@ -7972,9 +7975,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
-        },
-        "maxDuration": 30000
+          },
+          "duration": 30000
+        }
       },
       {
         "key": "roamingTranscendent",
@@ -7994,7 +7997,8 @@
               }
             ]
           },
-          "offset": 6000
+          "offset": 6000,
+          "duration": 30000
         },
         "remove": {
           "when": "expire",
@@ -8010,8 +8014,7 @@
           "when": "interval",
           "cooldown": 6000
         },
-        "useAction": "resonanceLiberation.1",
-        "maxDuration": 30000
+        "useAction": "resonanceLiberation.1"
       },
       {
         "stores": "global",
@@ -8039,7 +8042,8 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 15000
         },
         "gameRule": {
           "maxStacks": {
@@ -8049,8 +8053,7 @@
             "aeroErosion": 3,
             "spectroFrazzle": 3
           }
-        },
-        "maxDuration": 15000
+        }
       },
       {
         "stores": "$applier",
@@ -8072,7 +8075,8 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 30000
         },
         "buff": {
           "filter": {
@@ -8086,8 +8090,7 @@
             "defIgnore%": 0.06,
             "havocResIgnore%": 0.12
           }
-        },
-        "maxDuration": 30000
+        }
       },
       {
         "buff": {
@@ -8125,9 +8128,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.25
@@ -8155,7 +8158,8 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 6000
         },
         "buff": {
           "specs": {
@@ -8167,8 +8171,7 @@
               "maxValue": 0.12
             }
           }
-        },
-        "maxDuration": 6000
+        }
       }
     ],
     "skills": {
@@ -9370,9 +9373,9 @@
             "action": {
               "ref": "forteCircuit.0"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "maxStacks": 30,
         "buff": {
           "stats": {
@@ -9437,9 +9440,9 @@
             "action": {
               "ref": "forteCircuit.1"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.25
@@ -10027,9 +10030,9 @@
                 "resonanceLiberation.5"
               ]
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.1
@@ -10043,7 +10046,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 6000
         },
         "use": {
           "when": "interval",
@@ -10058,8 +10062,7 @@
               }
             ]
           }
-        },
-        "maxDuration": 6000
+        }
       },
       {
         "enableIf": {
@@ -10071,9 +10074,9 @@
             "action": {
               "type": "basicAttack"
             }
-          }
+          },
+          "duration": 6000
         },
-        "maxDuration": 6000,
         "maxStacks": 4,
         "buff": {
           "stats": {
@@ -10110,9 +10113,9 @@
             "action": {
               "ref": "forteCircuit.1"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.2
@@ -10139,9 +10142,9 @@
             "action": {
               "tagged": "Cosmos"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "maxStacks": 6,
         "buff": {
           "stats": {
@@ -10931,7 +10934,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
         "use": {
           "when": "hit",
@@ -10950,12 +10954,14 @@
           "cooldown": 350
         },
         "useAction": "resonanceLiberation.1",
-        "maxDuration": 10000,
-        "rankMods": {
-          "4": {
-            "maxDuration": 7000
+        "rankMods": [
+          {
+            "rank": 4,
+            "apply": {
+              "duration": 7000
+            }
           }
-        }
+        ]
       },
       {
         "stores": "global",
@@ -10965,7 +10971,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
         "use": {
           "when": "hit",
@@ -10985,15 +10992,18 @@
         },
         "useAction": "resonanceLiberation.1",
         "times": 2,
-        "maxDuration": 10000,
-        "rankMods": {
-          "1": {
+        "rankMods": [
+          {
+            "rank": 1,
             "useOnType": "resonanceSkill"
           },
-          "4": {
-            "maxDuration": 7000
+          {
+            "rank": 4,
+            "apply": {
+              "duration": 7000
+            }
           }
-        }
+        ]
       },
       {
         "apply": {
@@ -11002,7 +11012,8 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 8000
         },
         "buff": {
           "filter": {
@@ -11013,8 +11024,7 @@
           "stats": {
             "dmgBonus%": 0.25
           }
-        },
-        "maxDuration": 8000
+        }
       },
       {
         "apply": {
@@ -11024,7 +11034,8 @@
               "ref": "resonanceLiberation.1"
             }
           },
-          "cooldown": 350
+          "cooldown": 350,
+          "duration": 10000
         },
         "buff": {
           "filter": {
@@ -11036,13 +11047,15 @@
             "dmgBonus%": 0.015
           }
         },
-        "maxDuration": 10000,
         "maxStacks": 50,
-        "rankMods": {
-          "4": {
-            "maxDuration": 7000
+        "rankMods": [
+          {
+            "rank": 4,
+            "apply": {
+              "duration": 7000
+            }
           }
-        }
+        ]
       },
       {
         "stores": "$next",
@@ -11052,9 +11065,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "heavyAttackDmgAmp%": 0.38
@@ -11105,9 +11118,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -11678,7 +11691,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
         "buff": {
           "filter": {
@@ -11690,7 +11704,6 @@
             "atk%": 0.25
           }
         },
-        "maxDuration": 10000,
         "maxUses": 1
       },
       {
@@ -11732,9 +11745,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "fusionDmgAmp%": 0.2,
@@ -11776,9 +11789,9 @@
                 "resonanceLiberation.0"
               ]
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "critRate%": 0.25
@@ -11811,9 +11824,9 @@
             "action": {
               "type": "introSkill"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -12706,7 +12719,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 12000
         },
         "buff": {
           "specs": {
@@ -12718,8 +12732,7 @@
               "maxValue": 1040
             }
           }
-        },
-        "maxDuration": 12000
+        }
       },
       {
         "buff": {
@@ -12761,9 +12774,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "fusionDmgAmp%": 0.2,
@@ -12786,9 +12799,9 @@
                 "normalAttack.14"
               ]
             }
-          }
+          },
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "maxStacks": 3,
         "buff": {
           "stats": {
@@ -12829,7 +12842,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 20000
         },
         "use": {
           "when": "hit",
@@ -12850,7 +12864,6 @@
             ]
           }
         },
-        "maxDuration": 20000,
         "maxUses": 2
       },
       {
@@ -12919,9 +12932,9 @@
                 "type": "basicAttack"
               }
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.15
@@ -14371,9 +14384,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 35000
         },
-        "maxDuration": 35000,
         "buff": {
           "stats": {
             "atk%": 0.18,
@@ -14397,9 +14410,9 @@
                 "forteCircuit.1"
               ]
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "atk%": 0.12
@@ -14452,9 +14465,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "critRate%": 0.2
@@ -14477,9 +14490,9 @@
                 "normalAttack.10"
               ]
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "maxStacks": 2,
         "buff": {
           "stats": {
@@ -14530,9 +14543,9 @@
                 "introSkill.1"
               ]
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": 0.15
@@ -15949,9 +15962,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "duration": 5500
         },
-        "maxDuration": 5500,
         "maxStacks": 4,
         "buff": {
           "stats": {
@@ -17480,9 +17493,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 25000
         },
-        "maxDuration": 25000,
         "buff": {
           "stats": {
             "def%": 0.2
@@ -17496,7 +17509,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 25000
         },
         "buff": {
           "filter": {
@@ -17507,8 +17521,7 @@
           "stats": {
             "healingMv%": 0.4
           }
-        },
-        "maxDuration": 25000
+        }
       },
       {
         "use": {
@@ -17534,14 +17547,14 @@
                 "introSkill.0"
               ]
             }
-          }
+          },
+          "duration": 25000
         },
         "use": {
           "when": "interval",
           "cooldown": 3000
         },
-        "useAction": "forteCircuit.0",
-        "maxDuration": 25000
+        "useAction": "forteCircuit.0"
       },
       {
         "stores": "$team",
@@ -17554,9 +17567,9 @@
                 "introSkill.0"
               ]
             }
-          }
+          },
+          "duration": 25000
         },
-        "maxDuration": 25000,
         "buff": {
           "stats": {
             "offTuneBuildupRate%": 0.5
@@ -17566,7 +17579,8 @@
       {
         "stores": "global",
         "apply": {
-          "when": "tuneBreak"
+          "when": "tuneBreak",
+          "duration": 8000
         },
         "buff": {
           "filter": {
@@ -17588,8 +17602,7 @@
               "maxValue": 0.4
             }
           }
-        },
-        "maxDuration": 8000
+        }
       },
       {
         "use": {
@@ -17619,9 +17632,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.25
@@ -18719,9 +18732,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.2
@@ -20409,9 +20422,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "fusionBurstDmgAmp%": 0.6
@@ -20430,9 +20443,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 16000
         },
-        "maxDuration": 16000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
@@ -20460,7 +20473,8 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 16000
         },
         "buff": {
           "filter": {
@@ -20471,8 +20485,7 @@
           "stats": {
             "dmgAmp%": 0.25
           }
-        },
-        "maxDuration": 16000
+        }
       }
     ],
     "skills": {
@@ -21735,9 +21748,9 @@
             "action": {
               "ref": "forteCircuit.0"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": 0.1
@@ -21757,9 +21770,9 @@
                 "resonanceLiberation.1"
               ]
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": 0.3
@@ -21792,9 +21805,9 @@
             "action": {
               "ref": "outroSkill.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "electroDmgBonus%": 0.2
@@ -22897,7 +22910,8 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 10000
         },
         "use": {
           "when": "hit",
@@ -22911,7 +22925,6 @@
           }
         },
         "useAction": "resonanceSkill.2",
-        "maxDuration": 10000,
         "maxUses": 4
       },
       {
@@ -22922,7 +22935,8 @@
             "action": {
               "ref": "forteCircuit.0"
             }
-          }
+          },
+          "duration": 18000
         },
         "use": {
           "when": "hit",
@@ -22933,8 +22947,7 @@
           },
           "cooldown": 1000
         },
-        "useAction": "forteCircuit.1",
-        "maxDuration": 18000
+        "useAction": "forteCircuit.1"
       },
       {
         "apply": {
@@ -22943,9 +22956,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "buff": {
           "stats": {
             "critRate%": 0.15
@@ -22971,9 +22984,9 @@
             "action": {
               "ref": "resonanceSkill.1"
             }
-          }
+          },
+          "duration": 4000
         },
-        "maxDuration": 4000,
         "buff": {
           "stats": {
             "atk%": 0.1
@@ -22988,9 +23001,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "electroDmgAmp%": 0.2,
@@ -23042,9 +23055,9 @@
             "action": {
               "ref": "forteCircuit.1"
             }
-          }
+          },
+          "duration": 12000
         },
-        "maxDuration": 12000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -23076,7 +23089,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "hit",
@@ -23096,7 +23110,6 @@
             ]
           }
         },
-        "maxDuration": 30000,
         "maxUses": 4
       }
     ],
@@ -23648,7 +23661,8 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 12000
         },
         "use": {
           "when": "hit",
@@ -23666,8 +23680,7 @@
           },
           "cooldown": 1200
         },
-        "useAction": "resonanceSkill.1",
-        "maxDuration": 12000
+        "useAction": "resonanceSkill.1"
       },
       {
         "apply": {
@@ -23779,9 +23792,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 12000
         },
-        "maxDuration": 12000,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": 0.5
@@ -23799,9 +23812,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "def%": 0.32
@@ -24840,7 +24853,8 @@
                 "forteCircuit.6"
               ]
             }
-          }
+          },
+          "duration": 6000
         },
         "buff": {
           "filter": {
@@ -24856,7 +24870,6 @@
             "dmgBonus%": 0.2
           }
         },
-        "maxDuration": 6000,
         "maxStacks": 4
       },
       {
@@ -24869,9 +24882,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "maxStacks": 2,
         "buff": {
           "stats": {
@@ -24893,9 +24906,9 @@
                 "forteCircuit.7"
               ]
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "dmgBonus%": 0.2
@@ -26187,9 +26200,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "maxStacks": 4,
         "buff": {
           "stats": {
@@ -26205,7 +26218,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 8000
         },
         "use": {
           "when": "hit",
@@ -26226,7 +26240,6 @@
             ]
           }
         },
-        "maxDuration": 8000,
         "maxUses": 3
       },
       {
@@ -26261,9 +26274,9 @@
                 "ref": "resonanceLiberation.0"
               }
             }
-          ]
+          ],
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "critDmg%": 0.3
@@ -26280,7 +26293,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 24000
         },
         "buff": {
           "filter": {
@@ -26297,7 +26311,6 @@
             "dmgBonus%": 0.63
           }
         },
-        "maxDuration": 24000,
         "maxUses": 5
       },
       {
@@ -26311,9 +26324,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": 0.25
@@ -27226,9 +27239,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
@@ -28257,7 +28270,8 @@
             "action": {
               "ref": "outroSkill.0"
             }
-          }
+          },
+          "duration": 16000
         },
         "use": {
           "when": "interval",
@@ -28271,8 +28285,7 @@
               }
             ]
           }
-        },
-        "maxDuration": 16000
+        }
       },
       {
         "stores": "$team",
@@ -28282,9 +28295,9 @@
             "action": {
               "ref": "outroSkill.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
@@ -28997,9 +29010,9 @@
             "action": {
               "type": "introSkill"
             }
-          }
+          },
+          "duration": 12000
         },
-        "maxDuration": 12000,
         "buff": {
           "stats": {
             "critDmg%": 0.3,
@@ -29031,9 +29044,9 @@
                 "forteCircuit.2"
               ]
             }
-          }
+          },
+          "duration": 12000
         },
-        "maxDuration": 12000,
         "maxStacks": 2,
         "buff": {
           "stats": {
@@ -29050,9 +29063,9 @@
             "action": {
               "inflictShifting": "hack"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "tuneBreakBoost": 30
@@ -29067,9 +29080,9 @@
             "action": {
               "ref": "resonanceLiberation.4"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -29084,9 +29097,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
@@ -29101,9 +29114,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "heavyAttackDmgAmp%": 0.35
@@ -31067,9 +31080,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.08
@@ -31086,9 +31099,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.15
@@ -31146,9 +31159,9 @@
             "action": {
               "ref": "forteCircuit.1"
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -31767,7 +31780,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
         "buff": {
           "filter": {
@@ -31783,8 +31797,7 @@
           "stats": {
             "atk%": 0.1
           }
-        },
-        "maxDuration": 10000
+        }
       },
       {
         "buff": {
@@ -31806,9 +31819,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "aeroDmgAmp%": 0.23
@@ -31825,9 +31838,9 @@
             "action": {
               "ref": "resonanceSkill.1"
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "atk%": 0.15
@@ -31844,7 +31857,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
         "buff": {
           "filter": {
@@ -31858,8 +31872,7 @@
           "stats": {
             "damageMv%": 1
           }
-        },
-        "maxDuration": 10000
+        }
       },
       {
         "enableIf": {
@@ -31889,9 +31902,9 @@
             "action": {
               "ref": "forteCircuit.1"
             }
-          }
+          },
+          "duration": 6000
         },
-        "maxDuration": 6000,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.25
@@ -31908,9 +31921,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "critRate%": 0.08
@@ -31927,7 +31940,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
         "buff": {
           "filter": {
@@ -31938,8 +31952,7 @@
           "stats": {
             "dmgBonus%": 0.5
           }
-        },
-        "maxDuration": 10000
+        }
       }
     ],
     "skills": {
@@ -32471,9 +32484,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "atk%": 0.1
@@ -32487,9 +32500,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "critDmg%": 0.12
@@ -32504,7 +32517,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 8000
         },
         "use": {
           "when": "hit",
@@ -32526,7 +32540,6 @@
             ]
           }
         },
-        "maxDuration": 8000,
         "maxUses": 2
       },
       {
@@ -32540,9 +32553,9 @@
               "ref": "introSkill.0"
             }
           },
-          "cooldown": 15000
+          "cooldown": 15000,
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "atk%": 0.28
@@ -32564,9 +32577,9 @@
                 "introSkill.0"
               ]
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "critRate%": 0.16,
@@ -32588,9 +32601,9 @@
                 "forteCircuit.0"
               ]
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "heavyAttackDmgBonus%": 0.25
@@ -32624,9 +32637,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "atk%": 0.45
@@ -33401,14 +33414,14 @@
             "action": {
               "ref": "resonanceLiberation.2"
             }
-          }
+          },
+          "duration": 3120
         },
         "use": {
           "when": "interval",
           "cooldown": 250
         },
-        "useAction": "resonanceLiberation.0",
-        "maxDuration": 3120
+        "useAction": "resonanceLiberation.0"
       },
       {
         "apply": {
@@ -33438,14 +33451,14 @@
                 "forteCircuit.9"
               ]
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "interval",
           "cooldown": 6000
         },
-        "useAction": "forteCircuit.10",
-        "maxDuration": 30000
+        "useAction": "forteCircuit.10"
       },
       {
         "buff": {
@@ -33477,9 +33490,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "resonanceLiberationDmgAmp%": 0.38
@@ -33496,7 +33509,8 @@
             "action": {
               "ref": "forteCircuit.1"
             }
-          }
+          },
+          "duration": 14000
         },
         "buff": {
           "filter": {
@@ -33510,8 +33524,7 @@
           "stats": {
             "dmgBonus%": 0.8
           }
-        },
-        "maxDuration": 14000
+        }
       },
       {
         "enableIf": {
@@ -34601,9 +34614,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "aeroErosionDmgAmp%": 1
@@ -34620,9 +34633,9 @@
             "action": {
               "type": "basicAttack"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "atk%": 0.35
@@ -34640,9 +34653,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.4
@@ -35460,7 +35473,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 20000
         },
         "buff": {
           "filter": {
@@ -35473,8 +35487,7 @@
           "stats": {
             "aeroDmgAmp%": 0.175
           }
-        },
-        "maxDuration": 20000
+        }
       },
       {
         "enableIf": {
@@ -37387,9 +37400,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "heavyAttackDmgAmp%": 0.5
@@ -38632,9 +38645,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "echoSkillDmgAmp%": 0.5
@@ -41085,14 +41098,14 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 12000
         },
         "use": {
           "when": "hit",
           "cooldown": 1000
         },
-        "useAction": "resonanceLiberation.1",
-        "maxDuration": 12000
+        "useAction": "resonanceLiberation.1"
       },
       {
         "stores": "$team",
@@ -41109,9 +41122,9 @@
                 "outroSkill.0"
               ]
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -41125,7 +41138,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 6000
         },
         "use": {
           "when": "interval",
@@ -41139,8 +41153,7 @@
               }
             ]
           }
-        },
-        "maxDuration": 6000
+        }
       },
       {
         "stores": "$team",
@@ -41150,9 +41163,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
@@ -41169,7 +41182,8 @@
             "action": {
               "ref": "outroSkill.0"
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "interval",
@@ -41183,8 +41197,7 @@
               }
             ]
           }
-        },
-        "maxDuration": 30000
+        }
       },
       {
         "enableIf": {
@@ -41219,9 +41232,9 @@
                 "outroSkill.0"
               ]
             }
-          }
+          },
+          "duration": 24000
         },
-        "maxDuration": 24000,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.15
@@ -42377,9 +42390,9 @@
                 "forteCircuit.6"
               ]
             }
-          }
+          },
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "buff": {
           "stats": {
             "atk%": 0.1
@@ -42394,9 +42407,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "resonanceSkillDmgAmp%": 0.38
@@ -42472,9 +42485,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -43398,19 +43411,22 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "interval",
           "cooldown": 3000
         },
         "useAction": "resonanceLiberation.1",
-        "maxDuration": 30000,
-        "rankMods": {
-          "1": {
-            "maxDuration": 10000
+        "rankMods": [
+          {
+            "rank": 1,
+            "apply": {
+              "duration": 10000
+            }
           }
-        }
+        ]
       },
       {
         "key": "stellarealm",
@@ -43420,14 +43436,17 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
-        "rankMods": {
-          "1": {
-            "maxDuration": 10000
+        "rankMods": [
+          {
+            "rank": 1,
+            "apply": {
+              "duration": 10000
+            }
           }
-        },
+        ],
         "buff": {
           "stats": {
             "energyRegen%": 0.1
@@ -43539,9 +43558,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
@@ -44431,9 +44450,9 @@
             "action": {
               "ref": "outroSkill.1"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "spectroResReduction%": 0.1
@@ -44448,7 +44467,8 @@
             "action": {
               "ref": "outroSkill.1"
             }
-          }
+          },
+          "duration": 30000
         },
         "buff": {
           "filter": {
@@ -44457,8 +44477,7 @@
           "stats": {
             "spectroFrazzleDmgAmp%": 1
           }
-        },
-        "maxDuration": 30000
+        }
       },
       {
         "enableIf": {
@@ -44555,7 +44574,8 @@
             "action": {
               "ref": "outroSkill.1"
             }
-          }
+          },
+          "duration": 30000
         },
         "buff": {
           "filter": {
@@ -44564,8 +44584,7 @@
           "stats": {
             "spectroFrazzleDmgAmp%": 1.2
           }
-        },
-        "maxDuration": 30000
+        }
       },
       {
         "enableIf": {
@@ -44611,9 +44630,9 @@
                 "dodgeCounter"
               ]
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "spectroResReduction%": 0.1
@@ -44630,9 +44649,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.12
@@ -44649,9 +44668,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "atk%": 0.1
@@ -45493,9 +45512,9 @@
                 "resonanceSkill.3"
               ]
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "spectroFrazzleDmgAmp%": 0.2
@@ -45538,9 +45557,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.12
@@ -45555,9 +45574,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "spectroDmgAmp%": 0.2
@@ -45577,9 +45596,9 @@
                 "resonanceSkill.3"
               ]
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.5
@@ -45640,9 +45659,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -46687,7 +46706,8 @@
                 }
               ]
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "hit",
@@ -46702,8 +46722,7 @@
           "inflictStatus": {
             "havocBane": 1
           }
-        },
-        "maxDuration": 30000
+        }
       },
       {
         "key": "resonantThreadOfClosure",
@@ -46713,9 +46732,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
-        },
-        "maxDuration": 20000
+          },
+          "duration": 20000
+        }
       },
       {
         "stores": "global",
@@ -46735,7 +46754,8 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 15000
         },
         "gameRule": {
           "maxStacks": {
@@ -46746,8 +46766,7 @@
             "spectroFrazzle": 3,
             "havocBane": 3
           }
-        },
-        "maxDuration": 15000
+        }
       },
       {
         "key": "threadOfBane",
@@ -46768,9 +46787,9 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "defIgnore%": 0.18
@@ -46787,9 +46806,9 @@
                 "resonanceLiberation.0"
               ]
             }
-          }
+          },
+          "duration": 12000
         },
-        "maxDuration": 12000,
         "buff": {
           "stats": {
             "havocDmgBonus%": 0.2,
@@ -46816,9 +46835,9 @@
                 }
               ]
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "atk%": 0.3
@@ -46856,9 +46875,9 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "dmgBonus%": 0.5
@@ -48320,9 +48339,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "dmgBonus%": 0.24
@@ -48337,9 +48356,9 @@
             "action": {
               "ref": "forteCircuit.4"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "tuneBreakBoost": 40
@@ -48353,9 +48372,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 9000
         },
-        "maxDuration": 9000,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.25
@@ -48370,9 +48389,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.15,
@@ -48420,9 +48439,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.25
@@ -50869,9 +50888,9 @@
             "action": {
               "ref": "resonanceLiberation.2"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "vuln%": 0.05
@@ -50886,9 +50905,9 @@
             "action": {
               "ref": "resonanceLiberation.3"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "defReduction%": 0.05
@@ -50915,13 +50934,14 @@
           }
         },
         "maxUses": 1,
-        "rankMods": {
-          "2": {
+        "rankMods": [
+          {
+            "rank": 2,
             "stats": {
               "damageMv%": 2.9
             }
           }
-        }
+        ]
       },
       {
         "apply": {
@@ -50930,9 +50950,9 @@
             "action": {
               "ref": "resonanceSkill.3"
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.65
@@ -50960,9 +50980,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "basicAttackDmgAmp%": 0.25
@@ -50977,9 +50997,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 25000
         },
-        "maxDuration": 25000,
         "buff": {
           "stats": {
             "dmgAmp%": 0.2
@@ -50996,9 +51016,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -53399,7 +53419,8 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 15000
         },
         "buff": {
           "filter": {
@@ -53417,12 +53438,14 @@
             }
           }
         },
-        "maxDuration": 15000,
-        "rankMods": {
-          "3": {
-            "maxDuration": 15000
+        "rankMods": [
+          {
+            "rank": 3,
+            "apply": {
+              "duration": 15000
+            }
           }
-        }
+        ]
       },
       {
         "stores": "$next",
@@ -53432,9 +53455,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "resonanceSkillDmgAmp%": 0.38
@@ -53511,9 +53534,9 @@
               "ref": "normalAttack.5"
             }
           },
-          "cooldown": 15000
+          "cooldown": 15000,
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "buff": {
           "stats": {
             "def%": 0.5
@@ -53549,9 +53572,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.4,
@@ -54322,21 +54345,22 @@
             "action": {
               "ref": "resonanceSkill.2"
             }
-          }
-        },
-        "maxDuration": 12000,
-        "rankMods": {
-          "2": {
-            "stats": {
-              "dmgBonus%": 0.2
-            }
-          }
+          },
+          "duration": 12000
         },
         "buff": {
           "stats": {
             "dmgBonus%": 0.2
           }
-        }
+        },
+        "rankMods": [
+          {
+            "rank": 2,
+            "stats": {
+              "dmgBonus%": 0.2
+            }
+          }
+        ]
       },
       {
         "apply": {
@@ -54345,7 +54369,8 @@
             "action": {
               "ref": "normalAttack.5"
             }
-          }
+          },
+          "duration": 5000
         },
         "buff": {
           "filter": {
@@ -54360,7 +54385,6 @@
             "dmgBonus%": 0.2
           }
         },
-        "maxDuration": 5000,
         "maxUses": 2
       },
       {
@@ -54374,9 +54398,9 @@
                 "resonanceSkill.5"
               ]
             }
-          }
+          },
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "buff": {
           "stats": {
             "heavyAttackDmgBonus%": 0.3
@@ -54391,9 +54415,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "havocDmgAmp%": 0.23
@@ -54410,9 +54434,9 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "duration": 6000
         },
-        "maxDuration": 6000,
         "maxStacks": 6,
         "buff": {
           "stats": {
@@ -54474,9 +54498,9 @@
                 "forteCircuit.2"
               ]
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -55195,7 +55219,8 @@
             "action": {
               "ref": "forteCircuit.0"
             }
-          }
+          },
+          "duration": 15000
         },
         "remove": {
           "when": "start",
@@ -55230,14 +55255,14 @@
             "damageMv%": 1
           }
         },
-        "maxDuration": 15000,
-        "rankMods": {
-          "6": {
+        "rankMods": [
+          {
+            "rank": 6,
             "stats": {
               "damageMv%": 2
             }
           }
-        }
+        ]
       },
       {
         "buff": {
@@ -55287,9 +55312,9 @@
               "ref": "introSkill.0"
             }
           },
-          "cooldown": 25000
+          "cooldown": 25000,
+          "duration": 18000
         },
-        "maxDuration": 18000,
         "buff": {
           "stats": {
             "critDmg%": 0.28
@@ -55336,9 +55361,9 @@
             "action": {
               "ref": "forteCircuit.0"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "atk%": 0.58
@@ -55356,9 +55381,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.25
@@ -55408,13 +55433,13 @@
               "ref": "forteCircuit.0"
             }
           },
-          "cooldown": 25000
+          "cooldown": 25000,
+          "duration": 15000
         },
         "use": {
           "when": "hit"
         },
         "useAction": "forteCircuit.0",
-        "maxDuration": 15000,
         "maxUses": 1
       }
     ],
@@ -56187,7 +56212,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 30000
         },
         "buff": {
           "specs": {
@@ -56199,8 +56225,7 @@
               "maxValue": 200
             }
           }
-        },
-        "maxDuration": 30000
+        }
       },
       {
         "apply": {
@@ -56212,9 +56237,9 @@
                 "heavyAttack"
               ]
             }
-          }
+          },
+          "duration": 12000
         },
-        "maxDuration": 12000,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -56254,9 +56279,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "havocDmgAmp%": 0.2,
@@ -56278,9 +56303,9 @@
                 "forteCircuit.2"
               ]
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "maxStacks": 3,
         "buff": {
           "stats": {
@@ -56298,9 +56323,9 @@
             "action": {
               "ref": "forteCircuit.2"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "havocDmgBonus%": 0.1
@@ -56317,9 +56342,9 @@
             "action": {
               "ref": "introSkill.0"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "critRate%": 0.1,
@@ -56337,7 +56362,8 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
+          },
+          "duration": 12000
         },
         "buff": {
           "filter": {
@@ -56352,8 +56378,7 @@
           "stats": {
             "damageMv%": 0.6
           }
-        },
-        "maxDuration": 12000
+        }
       },
       {
         "enableIf": {
@@ -56395,7 +56420,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 12000
         },
         "buff": {
           "filter": {
@@ -56410,8 +56436,7 @@
           "stats": {
             "defIgnore%": 0.6
           }
-        },
-        "maxDuration": 12000
+        }
       },
       {
         "enableIf": {
@@ -56423,7 +56448,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 12000
         },
         "buff": {
           "filter": {
@@ -56434,8 +56460,7 @@
           "stats": {
             "damageMv%": 1
           }
-        },
-        "maxDuration": 12000
+        }
       }
     ],
     "skills": {
@@ -56974,7 +56999,8 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "hit",
@@ -56984,13 +57010,13 @@
           "cooldown": 1000
         },
         "useAction": "resonanceLiberation.1",
-        "maxDuration": 30000,
         "maxUses": 21,
-        "rankMods": {
-          "5": {
+        "rankMods": [
+          {
+            "rank": 5,
             "maxUses": 5
           }
-        }
+        ]
       },
       {
         "buff": {
@@ -57006,9 +57032,9 @@
             "action": {
               "type": "echoSkill"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "maxStacks": 2,
         "buff": {
           "stats": {
@@ -57024,9 +57050,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "havocDmgAmp%": 0.2,
@@ -57136,9 +57162,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "defIgnore%": 0.3
@@ -58110,9 +58136,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 14000
         },
-        "maxDuration": 14000,
         "buff": {
           "stats": {
             "havocDmgAmp%": 0.2,
@@ -59075,9 +59101,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
-        },
-        "maxDuration": 20000
+          },
+          "duration": 20000
+        }
       },
       {
         "stores": "$applier",

@@ -10178,14 +10178,14 @@
             "action": {
               "ref": "elementalSkill.0"
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "hit",
           "cooldown": 2000
         },
-        "useAction": "elementalSkill.1",
-        "maxDuration": 30000
+        "useAction": "elementalSkill.1"
       },
       {
         "chance": 0.5,
@@ -10208,14 +10208,14 @@
             "action": {
               "ref": "elementalBurst.2"
             }
-          }
+          },
+          "duration": 10000
         },
         "buff": {
           "stats": {
             "elementalMastery": 125
           }
-        },
-        "maxDuration": 10000
+        }
       }
     ],
     "skills": {

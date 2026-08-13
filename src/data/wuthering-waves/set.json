@@ -31,9 +31,9 @@
                 "heavyAttack"
               ]
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "maxStacks": 3,
         "buff": {
           "stats": {
@@ -72,9 +72,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.3
@@ -112,9 +112,9 @@
             "action": {
               "type": "heavyAttack"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "electroDmgBonus%": 0.15
@@ -131,9 +131,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "electroDmgBonus%": 0.15
@@ -171,9 +171,9 @@
             "action": {
               "type": "introSkill"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.3
@@ -211,9 +211,9 @@
             "action": {
               "type": "introSkill"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.3
@@ -254,9 +254,9 @@
                 "heavyAttack"
               ]
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "maxStacks": 4,
         "buff": {
           "stats": {
@@ -296,9 +296,9 @@
             "action": {
               "has": "healing"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "atk%": 0.15
@@ -337,9 +337,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "atk%": 0.225
@@ -439,9 +439,9 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "maxStacks": 2,
         "buff": {
           "stats": {
@@ -459,9 +459,9 @@
             "action": {
               "type": "resonanceLiberation"
             }
-          }
+          },
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "maxStacks": 2,
         "buff": {
           "stats": {
@@ -502,9 +502,9 @@
                 "has": "spectroFrazzle"
               }
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "critRate%": 0.2
@@ -536,9 +536,9 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.15
@@ -601,9 +601,9 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "havocDmgBonus%": 0.15
@@ -657,7 +657,8 @@
             "action": {
               "type": "coordinatedAttack"
             }
-          }
+          },
+          "duration": 4000
         },
         "buff": {
           "filter": {
@@ -666,8 +667,7 @@
           "stats": {
             "atk%": 0.2
           }
-        },
-        "maxDuration": 4000
+        }
       }
     ]
   },
@@ -751,9 +751,9 @@
                 "has": "aeroErosion"
               }
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.15
@@ -772,9 +772,9 @@
                 "has": "aeroErosion"
               }
             }
-          }
+          },
+          "duration": 20000
         },
-        "maxDuration": 20000,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.15
@@ -823,9 +823,9 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 10000
         },
-        "maxDuration": 10000,
         "buff": {
           "stats": {
             "critRate%": 0.1,
@@ -865,9 +865,9 @@
             "action": {
               "type": "resonanceLiberation"
             }
-          }
+          },
+          "duration": 35000
         },
-        "maxDuration": 35000,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.15
@@ -884,9 +884,9 @@
             "action": {
               "type": "resonanceLiberation"
             }
-          }
+          },
+          "duration": 35000
         },
-        "maxDuration": 35000,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": 0.2
@@ -938,9 +938,9 @@
               "has": "shield"
             }
           },
-          "cooldown": 500
+          "cooldown": 500,
+          "duration": 4000
         },
-        "maxDuration": 4000,
         "maxStacks": 5,
         "buff": {
           "stats": {
@@ -969,9 +969,9 @@
             "action": {
               "type": "echoSkill"
             }
-          }
+          },
+          "duration": 4000
         },
-        "maxDuration": 4000,
         "buff": {
           "stats": {
             "heavyAttackDmgBonus%": 0.3
@@ -989,9 +989,9 @@
             "action": {
               "type": "echoSkill"
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "maxStacks": 4,
         "buff": {
           "stats": {
@@ -1022,7 +1022,8 @@
                 "type": "echoSkill"
               }
             }
-          }
+          },
+          "duration": 6000
         },
         "buff": {
           "filter": {
@@ -1035,8 +1036,7 @@
           "stats": {
             "critRate%": 0.2
           }
-        },
-        "maxDuration": 6000
+        }
       },
       {
         "enableIf": {
@@ -1051,7 +1051,8 @@
                 "type": "heavyAttack"
               }
             }
-          }
+          },
+          "duration": 6000
         },
         "buff": {
           "filter": {
@@ -1064,8 +1065,7 @@
           "stats": {
             "critRate%": 0.2
           }
-        },
-        "maxDuration": 6000
+        }
       },
       {
         "enableIf": {
@@ -1111,9 +1111,9 @@
                 "has": "havocBane"
               }
             }
-          }
+          },
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "buff": {
           "stats": {
             "atk%": 0.2,
@@ -1153,7 +1153,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 15000
         },
         "remove": {
           "when": "start",
@@ -1161,7 +1162,6 @@
             "field": "offField"
           }
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "atk%": 0.15
@@ -1179,7 +1179,8 @@
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 15000
         },
         "remove": {
           "when": "start",
@@ -1196,8 +1197,7 @@
               "maxValue": 0.15
             }
           }
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -1231,7 +1231,8 @@
             "action": {
               "has": "healing"
             }
-          }
+          },
+          "duration": 4000
         },
         "buff": {
           "specs": {
@@ -1242,8 +1243,7 @@
               "maxValue": 0.25
             }
           }
-        },
-        "maxDuration": 4000
+        }
       }
     ]
   },
@@ -1279,9 +1279,9 @@
                 "type": "basicAttack"
               }
             }
-          }
+          },
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "maxStacks": 3,
         "buff": {
           "stats": {
@@ -1353,9 +1353,9 @@
                 }
               ]
             }
-          }
+          },
+          "duration": 8000
         },
-        "maxDuration": 8000,
         "buff": {
           "stats": {
             "critRate%": 0.2,
@@ -1397,9 +1397,9 @@
                 "has": "fusionBurst"
               }
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.1
@@ -1426,9 +1426,9 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.25
@@ -1468,7 +1468,8 @@
                 "type": "echoSkill"
               }
             }
-          }
+          },
+          "duration": 5000
         },
         "buff": {
           "filter": {
@@ -1481,8 +1482,7 @@
           "stats": {
             "critRate%": 0.2
           }
-        },
-        "maxDuration": 5000
+        }
       },
       {
         "enableIf": {
@@ -1496,9 +1496,9 @@
                 "type": "echoSkill"
               }
             }
-          }
+          },
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.15
@@ -1538,9 +1538,9 @@
                 "has": "glacioChafe"
               }
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.1
@@ -1561,9 +1561,9 @@
               }
             }
           },
-          "cooldown": 25000
-        },
-        "maxDuration": 15000
+          "cooldown": 25000,
+          "duration": 15000
+        }
       },
       {
         "enableIf": {
@@ -1587,12 +1587,12 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 6000
         },
         "onApplyDoRemove": {
           "snowfall": 1
         },
-        "maxDuration": 6000,
         "maxExtensions": 6,
         "buff": {
           "stats": {
@@ -1650,12 +1650,12 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 15000
         },
         "onApplyDoRemove": {
           "snowfall": 1
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.25
@@ -1697,9 +1697,9 @@
                 "tuneStrain"
               ]
             }
-          }
+          },
+          "duration": 30000
         },
-        "maxDuration": 30000,
         "buff": {
           "stats": {
             "tuneBreakBoost": 20
@@ -1726,9 +1726,9 @@
             "action": {
               "inflictShifting": "hack"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.35,
@@ -1769,9 +1769,9 @@
                 "has": "havocBane"
               }
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "critRate%": 0.2,
@@ -1792,7 +1792,8 @@
                 "has": "glacioChafe"
               }
             }
-          }
+          },
+          "duration": 10000
         },
         "buff": {
           "specs": {
@@ -1803,8 +1804,7 @@
               "maxValue": 0.25
             }
           }
-        },
-        "maxDuration": 10000
+        }
       }
     ]
   },
@@ -1837,9 +1837,9 @@
             "action": {
               "inflictShifting": "tuneStrain"
             }
-          }
+          },
+          "duration": 15000
         },
-        "maxDuration": 15000,
         "buff": {
           "stats": {
             "critDmg%": 0.2,
@@ -1880,9 +1880,9 @@
               "has": "shield"
             }
           },
-          "cooldown": 500
+          "cooldown": 500,
+          "duration": 5000
         },
-        "maxDuration": 5000,
         "maxStacks": 4,
         "buff": {
           "stats": {

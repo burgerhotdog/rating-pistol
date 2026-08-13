@@ -73,14 +73,14 @@
                 "elementalBurst"
               ]
             }
-          }
+          },
+          "duration": 10000
         },
         "buff": {
           "stats": {
             "healingReceived%": 0.2
           }
-        },
-        "maxDuration": 10000
+        }
       }
     ]
   },
@@ -252,14 +252,14 @@
             "action": {
               "type": "elementalBurst"
             }
-          }
+          },
+          "duration": 12000
         },
         "buff": {
           "stats": {
             "atk%": 0.2
           }
-        },
-        "maxDuration": 12000
+        }
       }
     ]
   },
@@ -341,15 +341,15 @@
             "action": {
               "type": "elementalSkill"
             }
-          }
+          },
+          "duration": 15000
         },
         "buff": {
           "stats": {
             "normalAttackDmgBonus%": 0.3,
             "chargedAttackDmgBonus%": 0.3
           }
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -386,14 +386,14 @@
               }
             }
           },
-          "cooldown": 500
+          "cooldown": 500,
+          "duration": 3000
         },
         "buff": {
           "stats": {
             "atk%": 0.2
           }
-        },
-        "maxDuration": 3000
+        }
       }
     ]
   },
@@ -429,7 +429,8 @@
               }
             }
           },
-          "cooldown": 300
+          "cooldown": 300,
+          "duration": 7000
         },
         "buff": {
           "stats": {
@@ -437,7 +438,6 @@
             "physicalDmgBonus%": 0.125
           }
         },
-        "maxDuration": 7000,
         "maxStacks": 2
       }
     ]
@@ -472,7 +472,8 @@
               "type": "elementalSkill"
             }
           },
-          "cooldown": 10000
+          "cooldown": 10000,
+          "duration": 10000
         },
         "buff": {
           "stats": {
@@ -480,8 +481,7 @@
             "chargedAttackDmgBonus%": 0.5,
             "plungeAttackDmgBonus%": 0.5
           }
-        },
-        "maxDuration": 10000
+        }
       }
     ]
   },
@@ -627,7 +627,8 @@
             "action": {
               "type": "elementalBurst"
             }
-          }
+          },
+          "duration": 16000
         },
         "remove": {
           "when": "start",
@@ -639,8 +640,7 @@
           "stats": {
             "atk%": 0.48
           }
-        },
-        "maxDuration": 16000
+        }
       }
     ]
   },
@@ -699,14 +699,14 @@
                 ]
               }
             }
-          }
+          },
+          "duration": 8000
         },
         "buff": {
           "stats": {
             "dendroResReduction%": 0.3
           }
-        },
-        "maxDuration": 8000
+        }
       }
     ]
   },
@@ -772,7 +772,8 @@
                 "type": "chargedAttack"
               }
             }
-          }
+          },
+          "duration": 15000
         },
         "buff": {
           "stats": {
@@ -781,8 +782,7 @@
             "chargedAttackDmgBonus%": 0.4,
             "plungeAttackDmgBonus%": 0.4
           }
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -844,15 +844,15 @@
                 ]
               }
             }
-          }
+          },
+          "duration": 8000
         },
         "buff": {
           "stats": {
             "atk%": 0.0833,
             "hydroDmgBonus%": 0.05
           }
-        },
-        "maxDuration": 8000
+        }
       }
     ]
   },
@@ -1263,14 +1263,14 @@
             "action": {
               "has": "damage"
             }
-          }
+          },
+          "duration": 8000
         },
         "buff": {
           "stats": {
             "elementalMastery": 120
           }
-        },
-        "maxDuration": 8000
+        }
       }
     ]
   },
@@ -1331,14 +1331,14 @@
                 ]
               }
             }
-          }
+          },
+          "duration": 6000
         },
         "buff": {
           "stats": {
             "atk%": 0.25
           }
-        },
-        "maxDuration": 6000
+        }
       },
       {
         "enableIf": {
@@ -1360,14 +1360,14 @@
                 ]
               }
             }
-          }
+          },
+          "duration": 6000
         },
         "buff": {
           "stats": {
             "critRate%": 0.2
           }
-        },
-        "maxDuration": 6000
+        }
       }
     ]
   },
@@ -1404,14 +1404,14 @@
             "action": {
               "type": "elementalSkill"
             }
-          }
+          },
+          "duration": 20000
         },
         "buff": {
           "stats": {
             "dmgBonus%": 0.4
           }
-        },
-        "maxDuration": 20000
+        }
       }
     ]
   },

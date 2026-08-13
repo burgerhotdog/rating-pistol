@@ -1,5 +1,5 @@
 import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
-import { toArray, toMergedObj } from '@/utils';
+import { toArray } from '@/utils';
 import { createIsEnabled } from './isEnabled';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
@@ -15,29 +15,54 @@ function toResolvedScope(ownerId, memberIds, rawScope) {
   }
 }
 
+function mergeValues(a, b) {
+  if (typeof a === 'number' && typeof b === 'number') {
+    return a + b;
+  }
+
+  if (typeof a === 'string' && typeof b === 'string') {
+    return [a, b];
+  }
+
+  if (Array.isArray(a) || Array.isArray(b)) {
+    return [
+      ...toArray(a),
+      ...toArray(b),
+    ];
+  }
+
+  if (
+    a &&
+    typeof a === 'object' &&
+    b &&
+    typeof b === 'object'
+  ) {
+    const merged = { ...a };
+
+    for (const [key, value] of Object.entries(b)) {
+      merged[key] =
+        key in merged
+          ? mergeValues(merged[key], value)
+          : value;
+    }
+
+    return merged;
+  }
+
+  return b;
+}
+
 function resolveRankMods(effect, memberRank) {
   const { rankMods } = effect;
 
-  for (const [rank, modSpec] of Object.entries(rankMods)) {
-    if (Number(rank) > memberRank) continue;
+  for (const { rank, ...modSpec } of rankMods) {
+    if (rank > memberRank) continue;
 
     for (const [field, add] of Object.entries(modSpec)) {
-      if (!(field in effect)) { // no previous existing field
-        effect[field] = add;
-        continue;
-      }
-
-      const prev = effect[field];
-      if (typeof prev === 'object' && !Array.isArray(prev)) { // merge objects
-        effect[field] = toMergedObj(prev, add);
-      } else if (typeof add === 'number') { // combine numbers
-        effect[field] += add;
-      } else { // merge string arrays
-        effect[field] = [
-          ...toArray(effect[field]),
-          ...toArray(add),
-        ];
-      }
+      effect[field] =
+        field in effect
+          ? mergeValues(effect[field], add)
+          : add;
     }
   }
 }
