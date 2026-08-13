@@ -400,17 +400,17 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 1000
-        },
-        "useAction": {
-          "damage": {
-            "type": "resonanceSkill",
-            "element": "spectro",
-            "multipliers": [
-              {
-                "mv": 0.16
-              }
-            ]
+          "cooldown": 1000,
+          "action": {
+            "damage": {
+              "type": "resonanceSkill",
+              "element": "spectro",
+              "multipliers": [
+                {
+                  "mv": 0.16
+                }
+              ]
+            }
           }
         }
       }
@@ -1467,16 +1467,16 @@
             "action": {
               "type": "outroSkill"
             }
-          }
-        },
-        "useAction": {
-          "damage": {
-            "element": "aero",
-            "multipliers": [
-              {
-                "mv": 4.05
-              }
-            ]
+          },
+          "action": {
+            "damage": {
+              "element": "aero",
+              "multipliers": [
+                {
+                  "mv": 4.05
+                }
+              ]
+            }
           }
         }
       }
@@ -1675,16 +1675,16 @@
             "action": {
               "type": "introSkill"
             }
-          }
-        },
-        "useAction": {
-          "damage": {
-            "element": "electro",
-            "multipliers": [
-              {
-                "mv": 4.05
-              }
-            ]
+          },
+          "action": {
+            "damage": {
+              "element": "electro",
+              "multipliers": [
+                {
+                  "mv": 4.05
+                }
+              ]
+            }
           }
         }
       }
@@ -1826,16 +1826,16 @@
               }
             ]
           },
-          "cooldown": 500
-        },
-        "useAction": {
-          "damage": {
-            "element": "havoc",
-            "multipliers": [
-              {
-                "mv": 0.2457
-              }
-            ]
+          "cooldown": 500,
+          "action": {
+            "damage": {
+              "element": "havoc",
+              "multipliers": [
+                {
+                  "mv": 0.2457
+                }
+              ]
+            }
           }
         },
         "maxUses": 8
@@ -2492,17 +2492,17 @@
             "action": {
               "ref": "echoSkill.0"
             }
-          }
-        },
-        "useAction": {
-          "type": "echoSkill",
-          "damage": {
-            "element": "spectro",
-            "multipliers": [
-              {
-                "mv": 2.736
-              }
-            ]
+          },
+          "action": {
+            "type": "echoSkill",
+            "damage": {
+              "element": "spectro",
+              "multipliers": [
+                {
+                  "mv": 2.736
+                }
+              ]
+            }
           }
         }
       },
@@ -2520,18 +2520,18 @@
             "action": {
               "ref": "echoSkill.0"
             }
-          }
-        },
-        "useAction": {
-          "type": "echoSkill",
-          "damage": {
-            "element": "electro",
-            "multipliers": [
-              {
-                "mv": 0.171,
-                "times": 16
-              }
-            ]
+          },
+          "action": {
+            "type": "echoSkill",
+            "damage": {
+              "element": "electro",
+              "multipliers": [
+                {
+                  "mv": 0.171,
+                  "times": 16
+                }
+              ]
+            }
           }
         }
       }
@@ -2766,18 +2766,18 @@
               }
             }
           },
-          "cooldown": 1000
-        },
-        "useAction": {
-          "name": "Blades of Thousand Memories",
-          "damage": {
-            "type": "echoSkill",
-            "element": "havoc",
-            "multipliers": [
-              {
-                "mv": 0.4104
-              }
-            ]
+          "cooldown": 1000,
+          "action": {
+            "name": "Blades of Thousand Memories",
+            "damage": {
+              "type": "echoSkill",
+              "element": "havoc",
+              "multipliers": [
+                {
+                  "mv": 0.4104
+                }
+              ]
+            }
           }
         },
         "maxUses": 4

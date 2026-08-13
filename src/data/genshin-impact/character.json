@@ -10183,9 +10183,9 @@
         },
         "use": {
           "when": "hit",
-          "cooldown": 2000
-        },
-        "useAction": "elementalSkill.1"
+          "cooldown": 2000,
+          "action": "elementalSkill.1"
+        }
       },
       {
         "chance": 0.5,

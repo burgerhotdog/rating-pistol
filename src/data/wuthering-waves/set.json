@@ -576,17 +576,17 @@
             "action": {
               "type": "outroSkill"
             }
-          }
-        },
-        "useAction": {
-          "damage": {
-            "type": "outroSkill",
-            "element": "havoc",
-            "multipliers": [
-              {
-                "mv": 4.8
-              }
-            ]
+          },
+          "action": {
+            "damage": {
+              "type": "outroSkill",
+              "element": "havoc",
+              "multipliers": [
+                {
+                  "mv": 4.8
+                }
+              ]
+            }
           }
         }
       },

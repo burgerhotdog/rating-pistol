@@ -580,19 +580,19 @@
               "has": "healing"
             }
           },
-          "cooldown": 3500
+          "cooldown": 3500,
+          "offset": 3000
         },
         "use": {
           "when": "interval",
-          "cooldown": 3000
-        },
-        "useAction": {
-          "element": "physical",
-          "multipliers": [
-            {
-              "flat": 27000
-            }
-          ]
+          "action": {
+            "element": "physical",
+            "multipliers": [
+              {
+                "flat": 27000
+              }
+            ]
+          }
         },
         "maxUses": 1
       }

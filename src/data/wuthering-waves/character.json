@@ -749,9 +749,9 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 2500
+          "cooldown": 2500,
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "maxUses": 4,
         "rankMods": [
           {
@@ -778,9 +778,9 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 2000
+          "cooldown": 2000,
+          "action": "forteCircuit.0"
         },
-        "useAction": "forteCircuit.0",
         "maxUses": 4
       },
       {
@@ -844,16 +844,16 @@
             "action": {
               "type": "heavyAttack"
             }
-          }
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": 0.0025
-              }
-            ]
+          },
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.0025
+                }
+              ]
+            }
           }
         }
       },
@@ -869,16 +869,16 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 3000
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": 0.0154
-              }
-            ]
+          "cooldown": 3000,
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.0154
+                }
+              ]
+            }
           }
         }
       },
@@ -2592,9 +2592,9 @@
               }
             ]
           },
-          "cooldown": 1000
+          "cooldown": 1000,
+          "action": "resonanceLiberation.0"
         },
-        "useAction": "resonanceLiberation.0",
         "maxUses": 21,
         "rankMods": [
           {
@@ -6938,9 +6938,11 @@
           },
           "duration": 30000
         },
-        "useAction": {
-          "inflictStatus": {
-            "glacioChafe": 2
+        "use": {
+          "action": {
+            "inflictStatus": {
+              "glacioChafe": 2
+            }
           }
         },
         "maxUses": 4
@@ -6968,12 +6970,12 @@
           "cooldown": 500
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "action": []
         },
         "onUseDoUse": {
           "filmRoll": 1
         },
-        "useAction": [],
         "maxUses": 1
       },
       {
@@ -8012,9 +8014,9 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 6000
-        },
-        "useAction": "resonanceLiberation.1"
+          "cooldown": 6000,
+          "action": "resonanceLiberation.1"
+        }
       },
       {
         "stores": "global",
@@ -9348,9 +9350,9 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 100
+          "cooldown": 100,
+          "action": "forteCircuit.0"
         },
-        "useAction": "forteCircuit.0",
         "maxUses": 30
       },
       {
@@ -10051,16 +10053,16 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 1500
-        },
-        "useAction": {
-          "damage": {
-            "type": "outroSkill",
-            "multipliers": [
-              {
-                "mv": 1.7676
-              }
-            ]
+          "cooldown": 1500,
+          "action": {
+            "damage": {
+              "type": "outroSkill",
+              "multipliers": [
+                {
+                  "mv": 1.7676
+                }
+              ]
+            }
           }
         }
       },
@@ -10951,9 +10953,9 @@
               }
             ]
           },
-          "cooldown": 350
+          "cooldown": 350,
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "rankMods": [
           {
             "rank": 4,
@@ -10988,9 +10990,9 @@
               }
             ]
           },
-          "cooldown": 350
+          "cooldown": 350,
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "times": 2,
         "rankMods": [
           {
@@ -11102,9 +11104,9 @@
                 "forteCircuit.0"
               ]
             }
-          }
+          },
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "times": 4
       },
       {
@@ -12852,16 +12854,16 @@
               "type": "resonanceSkill"
             }
           },
-          "cooldown": 1000
-        },
-        "useAction": {
-          "damage": {
-            "type": "basicAttack",
-            "multipliers": [
-              {
-                "mv": 4.4
-              }
-            ]
+          "cooldown": 1000,
+          "action": {
+            "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "mv": 4.4
+                }
+              ]
+            }
           }
         },
         "maxUses": 2
@@ -12906,17 +12908,17 @@
             "action": {
               "ref": "forteCircuit.0"
             }
-          }
-        },
-        "useAction": {
-          "healing": {
-            "attr": "energyRegen",
-            "multipliers": [
-              {
-                "mv": 660
-              }
-            ],
-            "times": "$teamSize"
+          },
+          "action": {
+            "healing": {
+              "attr": "energyRegen",
+              "multipliers": [
+                {
+                  "mv": 660
+                }
+              ],
+              "times": "$teamSize"
+            }
           }
         }
       },
@@ -14433,9 +14435,9 @@
           }
         },
         "use": {
-          "when": "hit"
+          "when": "hit",
+          "action": "forteCircuit.2"
         },
-        "useAction": "forteCircuit.2",
         "maxUses": 1
       },
       {
@@ -17533,9 +17535,9 @@
                 "introSkill.0"
               ]
             }
-          }
-        },
-        "useAction": "forteCircuit.1"
+          },
+          "action": "forteCircuit.1"
+        }
       },
       {
         "apply": {
@@ -17552,9 +17554,9 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 3000
-        },
-        "useAction": "forteCircuit.0"
+          "cooldown": 3000,
+          "action": "forteCircuit.0"
+        }
       },
       {
         "stores": "$team",
@@ -17613,9 +17615,9 @@
                 "interfered": "tuneRupture"
               }
             }
-          }
-        },
-        "useAction": "forteCircuit.4"
+          },
+          "action": "forteCircuit.4"
+        }
       },
       {
         "buff": {
@@ -18720,9 +18722,9 @@
                 "interfered": "tuneRupture"
               }
             }
-          }
-        },
-        "useAction": "forteCircuit.2"
+          },
+          "action": "forteCircuit.2"
+        }
       },
       {
         "stores": "$ally",
@@ -21842,17 +21844,17 @@
             "action": {
               "ref": "forteCircuit.1"
             }
-          }
-        },
-        "useAction": {
-          "type": "coordinatedAttack",
-          "damage": {
-            "type": "resonanceLiberation",
-            "multipliers": [
-              {
-                "mv": 1
-              }
-            ]
+          },
+          "action": {
+            "type": "coordinatedAttack",
+            "damage": {
+              "type": "resonanceLiberation",
+              "multipliers": [
+                {
+                  "mv": 1
+                }
+              ]
+            }
           }
         },
         "times": 2
@@ -22922,9 +22924,9 @@
                 "dodgeCounter"
               ]
             }
-          }
+          },
+          "action": "resonanceSkill.2"
         },
-        "useAction": "resonanceSkill.2",
         "maxUses": 4
       },
       {
@@ -22945,9 +22947,9 @@
               "has": "damage"
             }
           },
-          "cooldown": 1000
-        },
-        "useAction": "forteCircuit.1"
+          "cooldown": 1000,
+          "action": "forteCircuit.1"
+        }
       },
       {
         "apply": {
@@ -23098,16 +23100,16 @@
             "action": {
               "type": "basicAttack"
             }
-          }
-        },
-        "useAction": {
-          "damage": {
-            "type": "resonanceSkill",
-            "multipliers": [
-              {
-                "mv": 4.1959
-              }
-            ]
+          },
+          "action": {
+            "damage": {
+              "type": "resonanceSkill",
+              "multipliers": [
+                {
+                  "mv": 4.1959
+                }
+              ]
+            }
           }
         },
         "maxUses": 4
@@ -23678,9 +23680,9 @@
               }
             ]
           },
-          "cooldown": 1200
-        },
-        "useAction": "resonanceSkill.1"
+          "cooldown": 1200,
+          "action": "resonanceSkill.1"
+        }
       },
       {
         "apply": {
@@ -23695,9 +23697,9 @@
           }
         },
         "use": {
-          "when": "hit"
+          "when": "hit",
+          "action": "resonanceSkill.2"
         },
-        "useAction": "resonanceSkill.2",
         "maxUses": 1
       },
       {
@@ -23722,9 +23724,9 @@
           }
         },
         "use": {
-          "when": "hit"
+          "when": "hit",
+          "action": "resonanceSkill.0"
         },
-        "useAction": "resonanceSkill.0",
         "maxUses": 1
       },
       {
@@ -23769,16 +23771,16 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
-        },
-        "useAction": {
-          "shield": {
-            "attr": "def",
-            "multipliers": [
-              {
-                "mv": 2
-              }
-            ]
+          },
+          "action": {
+            "shield": {
+              "attr": "def",
+              "multipliers": [
+                {
+                  "mv": 2
+                }
+              ]
+            }
           }
         }
       },
@@ -26228,16 +26230,16 @@
               "type": "basicAttack"
             }
           },
-          "cooldown": 2000
-        },
-        "useAction": {
-          "damage": {
-            "type": "outroSkill",
-            "multipliers": [
-              {
-                "mv": 2.3763
-              }
-            ]
+          "cooldown": 2000,
+          "action": {
+            "damage": {
+              "type": "outroSkill",
+              "multipliers": [
+                {
+                  "mv": 2.3763
+                }
+              ]
+            }
           }
         },
         "maxUses": 3
@@ -27218,16 +27220,16 @@
               "has": "damage"
             }
           },
-          "cooldown": 500
-        },
-        "useAction": {
-          "shield": {
-            "multipliers": [
-              {
-                "flat": 350,
-                "mv": 0.025
-              }
-            ]
+          "cooldown": 500,
+          "action": {
+            "shield": {
+              "multipliers": [
+                {
+                  "flat": 350,
+                  "mv": 0.025
+                }
+              ]
+            }
           }
         }
       },
@@ -28275,15 +28277,15 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 1000
-        },
-        "useAction": {
-          "healing": {
-            "multipliers": [
-              {
-                "mv": 0.18
-              }
-            ]
+          "cooldown": 1000,
+          "action": {
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": 0.18
+                }
+              ]
+            }
           }
         }
       },
@@ -29030,9 +29032,9 @@
                 "interfered": "hack"
               }
             }
-          }
-        },
-        "useAction": "forteCircuit.0"
+          },
+          "action": "forteCircuit.0"
+        }
       },
       {
         "apply": {
@@ -32527,17 +32529,17 @@
               "type": "heavyAttack"
             }
           },
-          "cooldown": 1000
-        },
-        "useAction": {
-          "type": "coordinatedAttack",
-          "damage": {
-            "type": "outroSkill",
-            "multipliers": [
-              {
-                "mv": 3.134
-              }
-            ]
+          "cooldown": 1000,
+          "action": {
+            "type": "coordinatedAttack",
+            "damage": {
+              "type": "outroSkill",
+              "multipliers": [
+                {
+                  "mv": 3.134
+                }
+              ]
+            }
           }
         },
         "maxUses": 2
@@ -33419,9 +33421,9 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 250
-        },
-        "useAction": "resonanceLiberation.0"
+          "cooldown": 250,
+          "action": "resonanceLiberation.0"
+        }
       },
       {
         "apply": {
@@ -33434,9 +33436,9 @@
           "offset": 3120
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "maxUses": 1
       },
       {
@@ -33456,9 +33458,9 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 6000
-        },
-        "useAction": "forteCircuit.10"
+          "cooldown": 6000,
+          "action": "forteCircuit.10"
+        }
       },
       {
         "buff": {
@@ -33539,22 +33541,22 @@
           }
         },
         "use": {
-          "when": "hit"
+          "when": "hit",
+          "action": [
+            {
+              "type": "resonanceSkill",
+              "damage": {
+                "type": "heavyAttack",
+                "multipliers": [
+                  {
+                    "mv": 5.5667
+                  }
+                ]
+              }
+            },
+            "forteCircuit.9"
+          ]
         },
-        "useAction": [
-          {
-            "type": "resonanceSkill",
-            "damage": {
-              "type": "heavyAttack",
-              "multipliers": [
-                {
-                  "mv": 5.5667
-                }
-              ]
-            }
-          },
-          "forteCircuit.9"
-        ],
         "maxUses": 1
       }
     ],
@@ -34589,9 +34591,9 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 1000
+          "cooldown": 1000,
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "maxUses": 20
       },
       {
@@ -34706,16 +34708,16 @@
             "action": {
               "ref": "normalAttack.3"
             }
-          }
-        },
-        "useAction": {
-          "damage": {
-            "type": "resonanceLiberation",
-            "multipliers": [
-              {
-                "mv": 2.2
-              }
-            ]
+          },
+          "action": {
+            "damage": {
+              "type": "resonanceLiberation",
+              "multipliers": [
+                {
+                  "mv": 2.2
+                }
+              ]
+            }
           }
         }
       }
@@ -41103,9 +41105,9 @@
         },
         "use": {
           "when": "hit",
-          "cooldown": 1000
-        },
-        "useAction": "resonanceLiberation.1"
+          "cooldown": 1000,
+          "action": "resonanceLiberation.1"
+        }
       },
       {
         "stores": "$team",
@@ -41143,15 +41145,15 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 1000
-        },
-        "useAction": {
-          "healing": {
-            "multipliers": [
-              {
-                "mv": 0.19
-              }
-            ]
+          "cooldown": 1000,
+          "action": {
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": 0.19
+                }
+              ]
+            }
           }
         }
       },
@@ -41187,15 +41189,15 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 5000
-        },
-        "useAction": {
-          "healing": {
-            "multipliers": [
-              {
-                "mv": 0.2
-              }
-            ]
+          "cooldown": 5000,
+          "action": {
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": 0.2
+                }
+              ]
+            }
           }
         }
       },
@@ -41290,9 +41292,9 @@
           }
         },
         "use": {
-          "when": "hit"
+          "when": "hit",
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "maxUses": 1
       }
     ],
@@ -42359,9 +42361,9 @@
           }
         },
         "use": {
-          "when": "hit"
+          "when": "hit",
+          "action": "forteCircuit.7"
         },
-        "useAction": "forteCircuit.7",
         "times": 4,
         "maxUses": 1
       },
@@ -43416,9 +43418,9 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 3000
+          "cooldown": 3000,
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "rankMods": [
           {
             "rank": 1,
@@ -44406,16 +44408,16 @@
           }
         },
         "use": {
-          "when": "hit"
-        },
-        "useAction": {
-          "damage": {
-            "type": "outroSkill",
-            "multipliers": [
-              {
-                "mv": 5.2841
-              }
-            ]
+          "when": "hit",
+          "action": {
+            "damage": {
+              "type": "outroSkill",
+              "multipliers": [
+                {
+                  "mv": 5.2841
+                }
+              ]
+            }
           }
         },
         "maxUses": 1
@@ -44519,11 +44521,11 @@
             "action": {
               "ref": "resonanceLiberation.1"
             }
-          }
-        },
-        "useAction": {
-          "inflictStatus": {
-            "spectroFrazzle": 2
+          },
+          "action": {
+            "inflictStatus": {
+              "spectroFrazzle": 2
+            }
           }
         }
       },
@@ -44695,9 +44697,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
-        },
-        "useAction": "forteCircuit.2"
+          },
+          "action": "forteCircuit.2"
+        }
       },
       {
         "enableIf": {
@@ -44717,9 +44719,9 @@
             "action": {
               "ref": "resonanceSkill.0"
             }
-          }
-        },
-        "useAction": "forteCircuit.3"
+          },
+          "action": "forteCircuit.3"
+        }
       }
     ],
     "skills": {
@@ -45546,9 +45548,9 @@
             "action": {
               "ref": "forteCircuit.2"
             }
-          }
-        },
-        "useAction": "forteCircuit.3"
+          },
+          "action": "forteCircuit.3"
+        }
       },
       {
         "apply": {
@@ -46716,11 +46718,11 @@
               "has": "damage"
             }
           },
-          "cooldown": 2000
-        },
-        "useAction": {
-          "inflictStatus": {
-            "havocBane": 1
+          "cooldown": 2000,
+          "action": {
+            "inflictStatus": {
+              "havocBane": 1
+            }
           }
         }
       },
@@ -48327,9 +48329,9 @@
                 "interfered": "tuneRupture"
               }
             }
-          }
-        },
-        "useAction": "forteCircuit.5"
+          },
+          "action": "forteCircuit.5"
+        }
       },
       {
         "stores": "$team",
@@ -50968,9 +50970,9 @@
                 "interfered": "hack"
               }
             }
-          }
-        },
-        "useAction": "forteCircuit.0"
+          },
+          "action": "forteCircuit.0"
+        }
       },
       {
         "stores": "$next",
@@ -51038,22 +51040,22 @@
           }
         },
         "use": {
-          "when": "interval"
+          "when": "interval",
+          "action": [
+            {
+              "damage": {
+                "type": "heavyAttack",
+                "multipliers": [
+                  {
+                    "mv": 4.5
+                  }
+                ]
+              }
+            },
+            "resonanceLiberation.2",
+            "resonanceLiberation.3"
+          ]
         },
-        "useAction": [
-          {
-            "damage": {
-              "type": "heavyAttack",
-              "multipliers": [
-                {
-                  "mv": 4.5
-                }
-              ]
-            }
-          },
-          "resonanceLiberation.2",
-          "resonanceLiberation.3"
-        ],
         "maxUses": 1
       },
       {
@@ -53510,16 +53512,16 @@
               "ref": "normalAttack.5"
             }
           },
-          "cooldown": 15000
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": 0.25
-              }
-            ]
+          "cooldown": 15000,
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.25
+                }
+              ]
+            }
           }
         }
       },
@@ -55437,9 +55439,9 @@
           "duration": 15000
         },
         "use": {
-          "when": "hit"
+          "when": "hit",
+          "action": "forteCircuit.0"
         },
-        "useAction": "forteCircuit.0",
         "maxUses": 1
       }
     ],
@@ -56257,16 +56259,16 @@
           }
         },
         "use": {
-          "when": "hit"
-        },
-        "useAction": {
-          "type": "echoSkill",
-          "damage": {
-            "multipliers": [
-              {
-                "flat": 100
-              }
-            ]
+          "when": "hit",
+          "action": {
+            "type": "echoSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "flat": 100
+                }
+              ]
+            }
           }
         },
         "maxUses": 1
@@ -57007,9 +57009,9 @@
           "filter": {
             "field": "onField"
           },
-          "cooldown": 1000
+          "cooldown": 1000,
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "maxUses": 21,
         "rankMods": [
           {
@@ -57089,9 +57091,9 @@
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
-        },
-        "useAction": "resonanceSkill.2"
+          },
+          "action": "resonanceSkill.2"
+        }
       },
       {
         "enableIf": {
@@ -59063,9 +59065,9 @@
                 "resonanceSkill.1"
               ]
             }
-          }
+          },
+          "action": "resonanceLiberation.1"
         },
-        "useAction": "resonanceLiberation.1",
         "maxUses": 1
       },
       {

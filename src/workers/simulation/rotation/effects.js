@@ -19,10 +19,10 @@ export function runUseEffect(ctx, state, spec = {}) {
   const { store, effect } = state;
   const runOptions = { runtimeOffset, noDuration: true };
 
-  if (effect.useAction) {
+  if (effect.use?.action) {
     state.isRunning = true;
     for (let i = 0; i < (effect.times ?? 1); i++) {
-      for (const action of effect.useAction) {
+      for (const action of effect.use.action) {
         ctx.runAction(ctx, action, runOptions);
       }
     }

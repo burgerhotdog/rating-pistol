@@ -120,15 +120,16 @@ export const toNormalizedEffect = (rawEffect, spec) => {
     }
   }
 
-  if ('useAction' in effect) {
-    const effectActions = toArray(effect.useAction);
+  if (effect.use?.action) {
+    effect.use = { ...effect.use };
+    const effectActions = toArray(effect.use.action);
 
-    effect.useAction = [];
+    effect.use.action = [];
     for (const [index, rawlinkedAction] of effectActions.entries()) {
       if (typeof rawlinkedAction === 'string') { // ref
-        effect.useAction.push(memberActions[rawlinkedAction]);
+        effect.use.action.push(memberActions[rawlinkedAction]);
       } else { // inline action object
-        effect.useAction.push(toNormalizedAction(rawlinkedAction, {
+        effect.use.action.push(toNormalizedAction(rawlinkedAction, {
           gameId,
           ownerId,
           category: `${sourceId}:effect${effectIndex}`,

@@ -65,13 +65,13 @@ function recordTuneBreak(ctx) {
   const { shifting } = ctx.states.tune;
   if (shifting !== 'tuneRupture' && shifting !== 'hack') return;
   for (const state of getEffectStates(ctx, { member: 'all', type: 'action' })) {
-    const { effect: { use = {} , useAction } } = state;
+    const { effect: { use = {} } } = state;
     if (
       use.when !== 'tuneResponse' ||
       use.filter?.states?.tune?.interfered !== shifting
     ) continue;
 
-    ctx.snapshots.push(buildSnapshot(useAction[0]));
+    ctx.snapshots.push(buildSnapshot(use.action[0]));
     state.useCooldown = 8000;
   }
 }

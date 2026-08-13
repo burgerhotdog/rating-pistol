@@ -185,19 +185,19 @@
               "type": "resonanceSkill"
             }
           },
-          "cooldown": 12000
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": [
-                  0.03,
-                  0.06
-                ]
-              }
-            ]
+          "cooldown": 12000,
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.03,
+                    0.06
+                  ]
+                }
+              ]
+            }
           }
         }
       }
@@ -530,19 +530,19 @@
               "type": "resonanceLiberation"
             }
           },
-          "cooldown": 20000
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": [
-                  0.05,
-                  0.1
-                ]
-              }
-            ]
+          "cooldown": 20000,
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.05,
+                    0.1
+                  ]
+                }
+              ]
+            }
           }
         }
       }
@@ -592,19 +592,19 @@
               }
             }
           },
-          "cooldown": 8000
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": [
-                  0.05,
-                  0.1
-                ]
-              }
-            ]
+          "cooldown": 8000,
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.05,
+                    0.1
+                  ]
+                }
+              ]
+            }
           }
         }
       }
@@ -887,19 +887,19 @@
               "type": "dodgeCounter"
             }
           },
-          "cooldown": 6000
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": [
-                  0.016,
-                  0.032
-                ]
-              }
-            ]
+          "cooldown": 6000,
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.016,
+                    0.032
+                  ]
+                }
+              ]
+            }
           }
         }
       }
@@ -1227,19 +1227,19 @@
               }
             }
           },
-          "cooldown": 3000
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": [
-                  0.005,
-                  0.011
-                ]
-              }
-            ]
+          "cooldown": 3000,
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.005,
+                    0.011
+                  ]
+                }
+              ]
+            }
           }
         }
       }
@@ -1319,19 +1319,19 @@
               "type": "dodgeCounter"
             }
           },
-          "cooldown": 6000
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": [
-                  0.05,
-                  0.1
-                ]
-              }
-            ]
+          "cooldown": 6000,
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.05,
+                    0.1
+                  ]
+                }
+              ]
+            }
           }
         }
       }
@@ -1672,19 +1672,19 @@
               "type": "introSkill"
             }
           },
-          "cooldown": 20000
-        },
-        "useAction": {
-          "healing": {
-            "attr": "hp",
-            "multipliers": [
-              {
-                "mv": [
-                  0.05,
-                  0.1
-                ]
-              }
-            ]
+          "cooldown": 20000,
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.05,
+                    0.1
+                  ]
+                }
+              ]
+            }
           }
         }
       }
