@@ -10,7 +10,9 @@ export const getBuffMap = (ctx, options = {}) => {
   const buffSpecs = [];
 
   function addToBuffSpecs(effect, buffMult) {
-    const { buffSpec } = effect;
+    const { buff = {} } = effect;
+    const { buffSpec = {} } = buff;
+
     buffSpecs.push({ buffSpec, buffMult });
   };
 
@@ -23,21 +25,21 @@ export const getBuffMap = (ctx, options = {}) => {
   for (const { effect, stacks, buffCooldown } of getEffectStates(ctx, { member: memberId, type: 'buff' })) {
     if (
       buffCooldown ||
-      !ctx.eventFilter(effect.use?.filter, action, effect)
+      !ctx.eventFilter(effect.buff?.filter, action, effect)
     ) continue;
     const buffMult = (effect.chance ?? 1) * stacks;
 
-    if (effect.buffMap) {
-      mergeStatMap(buffMap, effect.buffMap, buffMult);
+    if (effect.buff?.buffMap) {
+      mergeStatMap(buffMap, effect.buff.buffMap, buffMult);
     }
 
-    if (effect.buffSpec && !ignoreSpecs) {
+    if (effect.buff?.buffSpec && !ignoreSpecs) {
       if (effect.ownerId === ctx.specId && !resolveNow) {
         addToBuffSpecs(effect, buffMult);
         continue;
       }
 
-      const resolvedStatMap = resolveStatSpecs(effect.buffSpec, getSpecsSourceMap(effect.ownerId));
+      const resolvedStatMap = resolveStatSpecs(effect.buff.buffSpec, getSpecsSourceMap(effect.ownerId));
       mergeStatMap(buffMap, resolvedStatMap, buffMult);
     }
   }

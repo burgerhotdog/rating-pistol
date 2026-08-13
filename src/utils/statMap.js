@@ -24,7 +24,7 @@ const DEFAULT = {
   [ZZZ]: {
     "baseEnergyRegen": 1.2,
     "critRate%": 0.05,
-    "critDmg%": 0.5
+    "critDmg%": 0.5,
   },
 };
 
@@ -63,14 +63,14 @@ export function compileMenuMap(gameId, charId, member) {
       effect.enableIf?.rank > memberRank ||
       effect.apply?.when ||
       !validStores(effect.stores) ||
-      effect.use?.filter
+      effect.buff?.filter
     ) return false;
 
-    return effect.buffMap;
+    return effect.buff?.buffMap;
   });
 
   const toMerge = [];
-  for (const { buffMap } of filtered) {
+  for (const { buff: { buffMap } } of filtered) {
     if (buffMap) {
       const resolved = {};
       for (const [stat, value] of Object.entries(buffMap)) {

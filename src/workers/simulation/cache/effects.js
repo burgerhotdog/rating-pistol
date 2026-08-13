@@ -70,21 +70,23 @@ export const toNormalizedEffect = (rawEffect, spec) => {
   }
 
   // Resolve ranked buffMaps
-  if (effect.buffMap) {
-    effect.buffMap = { ...effect.buffMap };
+  if (effect.buff?.buffMap) {
+    effect.buff = { ...effect.buff };
+    effect.buff.buffMap = { ...effect.buff.buffMap };
 
-    for (const [statId, value] of Object.entries(effect.buffMap)) {
-      effect.buffMap[statId] = resolveStatValue(value);
+    for (const [statId, value] of Object.entries(effect.buff.buffMap)) {
+      effect.buff.buffMap[statId] = resolveStatValue(value);
     }
   }
 
   // Resolve ranked buffSpec
-  if (effect.buffSpec) {
-    effect.buffSpec = { ...effect.buffSpec };
+  if (effect.buff?.buffSpec) {
+    effect.buff = { ...effect.buff };
+    effect.buff.buffSpec = { ...effect.buff.buffSpec };
 
-    for (const [statId, spec] of Object.entries(effect.buffSpec)) {
+    for (const [statId, spec] of Object.entries(effect.buff.buffSpec)) {
       const resolvedSpec = { ...spec };
-      effect.buffSpec[statId] = resolvedSpec;
+      effect.buff.buffSpec[statId] = resolvedSpec;
 
       for (const [field, value] of Object.entries(resolvedSpec)) {
         if (typeof value === 'string') continue;
@@ -277,6 +279,10 @@ export const normalizeEffects = (gameId, member, spec) => {
 
     if (effect.use?.filter) {
       traverseFilter(effect.use.filter, sourceId);
+    }
+
+    if (effect.buff?.filter) {
+      traverseFilter(effect.buff.filter, sourceId);
     }
   }
 

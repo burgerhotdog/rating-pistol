@@ -12,8 +12,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -31,11 +33,13 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.1
-        },
         "maxDuration": 15000,
-        "maxStacks": 3
+        "maxStacks": 3,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.1
+          }
+        }
       }
     ]
   },
@@ -52,8 +56,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -68,10 +74,12 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.3
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.3
+          }
+        }
       }
     ]
   },
@@ -88,8 +96,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "electroDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -104,10 +114,12 @@
             }
           }
         },
-        "buffMap": {
-          "electroDmgBonus%": 0.15
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -121,10 +133,12 @@
             }
           }
         },
-        "buffMap": {
-          "electroDmgBonus%": 0.15
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.15
+          }
+        }
       }
     ]
   },
@@ -141,8 +155,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -157,10 +173,12 @@
             }
           }
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.3
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.3
+          }
+        }
       }
     ]
   },
@@ -177,8 +195,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -193,10 +213,12 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.3
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.3
+          }
+        }
       }
     ]
   },
@@ -213,8 +235,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -232,11 +256,13 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.075
-        },
         "maxDuration": 15000,
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.075
+          }
+        }
       }
     ]
   },
@@ -253,8 +279,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "healingBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "healingBonus%": 0.1
+          }
         }
       },
       {
@@ -270,10 +298,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.15
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.15
+          }
+        }
       }
     ]
   },
@@ -290,8 +320,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.1
+        "buff": {
+          "buffMap": {
+            "energyRegen%": 0.1
+          }
         }
       },
       {
@@ -307,10 +339,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.225
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.225
+          }
+        }
       }
     ]
   },
@@ -327,8 +361,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.1
+        "buff": {
+          "buffMap": {
+            "atk%": 0.1
+          }
         }
       },
       {
@@ -348,26 +384,28 @@
             "field": "offField"
           }
         },
-        "buffMap": {
-          "atk%": 0.05
-        },
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.05
+          }
+        }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "outroSkill"
               }
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.6
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.6
         }
       }
     ]
@@ -385,8 +423,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "resonanceSkillDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "resonanceSkillDmgBonus%": 0.12
+          }
         }
       },
       {
@@ -401,11 +441,13 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.225
-        },
         "maxDuration": 15000,
-        "maxStacks": 2
+        "maxStacks": 2,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.225
+          }
+        }
       },
       {
         "enableIf": {
@@ -419,11 +461,13 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceSkillDmgBonus%": 0.18
-        },
         "maxDuration": 5000,
-        "maxStacks": 2
+        "maxStacks": 2,
+        "buff": {
+          "buffMap": {
+            "resonanceSkillDmgBonus%": 0.18
+          }
+        }
       }
     ]
   },
@@ -440,8 +484,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -458,10 +504,12 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.2
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
@@ -490,10 +538,12 @@
             ]
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.15
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.15
+          }
+        }
       }
     ]
   },
@@ -510,8 +560,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -551,10 +603,12 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.15
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.15
+          }
+        }
       }
     ]
   },
@@ -571,23 +625,25 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.1
+        "buff": {
+          "buffMap": {
+            "energyRegen%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "coordinatedAttack"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.8
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.8
         }
       },
       {
@@ -603,13 +659,13 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "field": "onField"
+          },
+          "buffMap": {
+            "atk%": 0.2
           }
-        },
-        "buffMap": {
-          "atk%": 0.2
         },
         "maxDuration": 4000
       }
@@ -628,33 +684,37 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.1
+        "buff": {
+          "buffMap": {
+            "energyRegen%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "buffMap": {
-          "atk%": 0.15
+        "buff": {
+          "buffMap": {
+            "atk%": 0.15
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "energyRegen": {
                 ">=": 2.5
               }
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.3
         }
       }
     ]
@@ -672,8 +732,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -691,10 +753,12 @@
             }
           }
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.15
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -710,10 +774,12 @@
             }
           }
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.15
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.15
+          }
+        }
       }
     ]
   },
@@ -730,8 +796,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -757,11 +825,13 @@
             ]
           }
         },
-        "buffMap": {
-          "critRate%": 0.1,
-          "aeroDmgBonus%": 0.3
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.1,
+            "aeroDmgBonus%": 0.3
+          }
+        }
       }
     ]
   },
@@ -778,8 +848,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -795,10 +867,12 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.15
-        },
-        "maxDuration": 35000
+        "maxDuration": 35000,
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -812,10 +886,12 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceLiberationDmgBonus%": 0.2
-        },
-        "maxDuration": 35000
+        "maxDuration": 35000,
+        "buff": {
+          "buffMap": {
+            "resonanceLiberationDmgBonus%": 0.2
+          }
+        }
       }
     ]
   },
@@ -834,9 +910,11 @@
             "tagged": "noEnergy"
           }
         },
-        "buffMap": {
-          "critRate%": 0.2,
-          "echoSkillDmgBonus%": 0.35
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.2,
+            "echoSkillDmgBonus%": 0.35
+          }
         }
       }
     ]
@@ -862,12 +940,14 @@
           },
           "cooldown": 500
         },
-        "buffMap": {
-          "atk%": 0.06,
-          "critDmg%": 0.04
-        },
         "maxDuration": 4000,
-        "maxStacks": 5
+        "maxStacks": 5,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.06,
+            "critDmg%": 0.04
+          }
+        }
       }
     ]
   },
@@ -891,10 +971,12 @@
             }
           }
         },
-        "buffMap": {
-          "heavyAttackDmgBonus%": 0.3
-        },
-        "maxDuration": 4000
+        "maxDuration": 4000,
+        "buff": {
+          "buffMap": {
+            "heavyAttackDmgBonus%": 0.3
+          }
+        }
       },
       {
         "enableIf": {
@@ -909,11 +991,13 @@
             }
           }
         },
-        "buffMap": {
-          "echoSkillDmgBonus%": 0.04
-        },
         "maxDuration": 30000,
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "buffMap": {
+            "echoSkillDmgBonus%": 0.04
+          }
+        }
       }
     ]
   },
@@ -940,17 +1024,17 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "heavyAttack"
               }
             }
+          },
+          "buffMap": {
+            "critRate%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2
         },
         "maxDuration": 6000
       },
@@ -969,17 +1053,17 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "echoSkill"
               }
             }
+          },
+          "buffMap": {
+            "critRate%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2
         },
         "maxDuration": 6000
       },
@@ -987,7 +1071,7 @@
         "enableIf": {
           "bonus": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "effectStacks": {
               "and": [
@@ -999,10 +1083,10 @@
                 }
               ]
             }
+          },
+          "buffMap": {
+            "fusionDmgBonus%": 0.16
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.16
         }
       }
     ]
@@ -1029,11 +1113,13 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2,
-          "resonanceLiberationDmgBonus%": 0.3
-        },
-        "maxDuration": 5000
+        "maxDuration": 5000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2,
+            "resonanceLiberationDmgBonus%": 0.3
+          }
+        }
       }
     ]
   },
@@ -1050,8 +1136,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1073,10 +1161,12 @@
             "field": "offField"
           }
         },
-        "buffMap": {
-          "atk%": 0.15
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -1097,12 +1187,14 @@
             "field": "offField"
           }
         },
-        "buffSpec": {
-          "atk%": {
-            "attr": "tuneBreakBoost",
-            "step": 1,
-            "value": 0.003,
-            "maxValue": 0.15
+        "buff": {
+          "buffSpec": {
+            "atk%": {
+              "attr": "tuneBreakBoost",
+              "step": 1,
+              "value": 0.003,
+              "maxValue": 0.15
+            }
           }
         },
         "maxDuration": 15000
@@ -1122,8 +1214,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "healingBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "healingBonus%": 0.1
+          }
         }
       },
       {
@@ -1139,12 +1233,14 @@
             }
           }
         },
-        "buffSpec": {
-          "atk%": {
-            "attr": "offTuneBuildupRate%",
-            "step": 0.01,
-            "value": 0.002,
-            "maxValue": 0.25
+        "buff": {
+          "buffSpec": {
+            "atk%": {
+              "attr": "offTuneBuildupRate%",
+              "step": 0.01,
+              "value": 0.002,
+              "maxValue": 0.25
+            }
           }
         },
         "maxDuration": 4000
@@ -1164,8 +1260,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1183,17 +1281,19 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
-        },
         "maxDuration": 5000,
-        "maxStacks": 3
+        "maxStacks": 3,
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "and": [
               {
@@ -1207,10 +1307,10 @@
                 }
               }
             ]
+          },
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.4
           }
-        },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.4
         }
       }
     ]
@@ -1228,8 +1328,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1253,11 +1355,13 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.2,
-          "fusionDmgBonus%": 0.2
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.2,
+            "fusionDmgBonus%": 0.2
+          }
+        }
       }
     ]
   },
@@ -1274,8 +1378,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1293,10 +1399,12 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
@@ -1320,10 +1428,12 @@
             ]
           }
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.25
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.25
+          }
+        }
       }
     ]
   },
@@ -1340,8 +1450,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1358,17 +1470,17 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "echoSkill"
               }
             }
+          },
+          "buffMap": {
+            "critRate%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2
         },
         "maxDuration": 5000
       },
@@ -1386,10 +1498,12 @@
             }
           }
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.15
-        },
-        "maxDuration": 5000
+        "maxDuration": 5000,
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.15
+          }
+        }
       }
     ]
   },
@@ -1406,8 +1520,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1424,10 +1540,12 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.1
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
@@ -1474,11 +1592,13 @@
         "onApplyDoRemove": {
           "snowfall": 1
         },
-        "buffMap": {
-          "critRate%": 0.25
-        },
         "maxDuration": 6000,
-        "maxExtensions": 6
+        "maxExtensions": 6,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
@@ -1535,10 +1655,12 @@
         "onApplyDoRemove": {
           "snowfall": 1
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.25
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.25
+          }
+        }
       }
     ]
   },
@@ -1555,8 +1677,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.1
+        "buff": {
+          "buffMap": {
+            "atk%": 0.1
+          }
         }
       },
       {
@@ -1575,10 +1699,12 @@
             }
           }
         },
-        "buffMap": {
-          "tuneBreakBoost": 20
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "tuneBreakBoost": 20
+          }
+        }
       }
     ]
   },
@@ -1602,11 +1728,13 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.35,
-          "heavyAttackDmgBonus%": 0.35
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.35,
+            "heavyAttackDmgBonus%": 0.35
+          }
+        }
       }
     ]
   },
@@ -1623,8 +1751,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.1
+        "buff": {
+          "buffMap": {
+            "energyRegen%": 0.1
+          }
         }
       },
       {
@@ -1641,11 +1771,13 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.2,
-          "heavyAttackDmgBonus%": 0.35
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.2,
+            "heavyAttackDmgBonus%": 0.35
+          }
+        }
       },
       {
         "enableIf": {
@@ -1662,12 +1794,14 @@
             }
           }
         },
-        "buffSpec": {
-          "atk%": {
-            "attr": "energyRegen%",
-            "step": 0.01,
-            "value": 0.001,
-            "maxValue": 0.25
+        "buff": {
+          "buffSpec": {
+            "atk%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "value": 0.001,
+              "maxValue": 0.25
+            }
           }
         },
         "maxDuration": 10000
@@ -1687,8 +1821,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmg%": 0.1
+        "buff": {
+          "buffMap": {
+            "aeroDmg%": 0.1
+          }
         }
       },
       {
@@ -1703,11 +1839,13 @@
             }
           }
         },
-        "buffMap": {
-          "critDmg%": 0.2,
-          "aeroDmgBonus%": 0.3
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "critDmg%": 0.2,
+            "aeroDmgBonus%": 0.3
+          }
+        }
       }
     ]
   },
@@ -1724,8 +1862,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "hp%": 0.1
+        "buff": {
+          "buffMap": {
+            "hp%": 0.1
+          }
         }
       },
       {
@@ -1742,25 +1882,27 @@
           },
           "cooldown": 500
         },
-        "buffMap": {
-          "critRate%": 0.05
-        },
         "maxDuration": 5000,
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.05
+          }
+        }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "effectStacks": {
               "critRateIncreased": 4
             }
+          },
+          "buffMap": {
+            "fusionDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.15
         }
       }
     ]

@@ -23,15 +23,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "resonanceSkill"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.2
         },
         "maxDuration": 8000
       },
@@ -44,7 +44,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -53,10 +53,10 @@
                 "forteCircuit.3"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.2
         },
         "maxDuration": 8000
       },
@@ -70,10 +70,12 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgAmp%": 0.38
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgAmp%": 0.38
+          }
+        }
       },
       {
         "enableIf": {
@@ -87,18 +89,22 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.15
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 3
         },
         "chance": 0.7,
-        "buffMap": {
-          "dmgBonus%": 0.35
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.35
+          }
         }
       },
       {
@@ -113,15 +119,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 1.2
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 1.2
         },
         "maxDuration": 5000,
         "maxUses": 1
@@ -130,7 +136,7 @@
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -139,10 +145,10 @@
                 "forteCircuit.3"
               ]
             }
+          },
+          "buffMap": {
+            "critDmg%": 1
           }
-        },
-        "buffMap": {
-          "critDmg%": 1
         }
       },
       {
@@ -161,11 +167,13 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.1
-        },
         "maxDuration": 20000,
-        "maxStacks": 2
+        "maxStacks": 2,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.1
+          }
+        }
       }
     ],
     "skills": {
@@ -821,10 +829,12 @@
         "onApplyDoRemove": {
           "euphonia": 1
         },
-        "buffMap": {
-          "atk%": 0.15
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.15
+          }
+        }
       },
       {
         "use": {
@@ -881,10 +891,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.15
-        },
-        "maxDuration": 36000
+        "maxDuration": 36000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -898,11 +910,13 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.15,
-          "healingBonus%": 0.15
-        },
-        "maxDuration": 12000
+        "maxDuration": 12000,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.15,
+            "healingBonus%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -916,25 +930,27 @@
             }
           }
         },
-        "buffMap": {
-          "hp%": 0.12
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "hp%": 0.12
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
             }
+          },
+          "buffMap": {
+            "healingMv%": 0.2,
+            "damageMv": 0.012
           }
-        },
-        "buffMap": {
-          "healingMv%": 0.2,
-          "damageMv": 0.012
         }
       },
       {
@@ -950,10 +966,12 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.12
-        },
-        "maxDuration": 35000
+        "maxDuration": 35000,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.12
+          }
+        }
       }
     ],
     "skills": {
@@ -1633,21 +1651,23 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.5
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.5
+          }
+        }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "introSkill.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.5
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.5
         }
       },
       {
@@ -1663,15 +1683,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.3"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1.5
           }
-        },
-        "buffMap": {
-          "damageMv%": 1.5
         },
         "maxDuration": 3000,
         "maxUses": 1
@@ -1688,11 +1708,13 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.2,
-          "resonanceSkillDmgBonus%": 0.1
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.2,
+            "resonanceSkillDmgBonus%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
@@ -1707,24 +1729,26 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.2
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv": 2
           }
-        },
-        "buffMap": {
-          "damageMv": 2
         }
       },
       {
@@ -1739,15 +1763,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "basicAttack"
             }
+          },
+          "buffMap": {
+            "basicAttackDmgBonus%": 1
           }
-        },
-        "buffMap": {
-          "basicAttackDmgBonus%": 1
         },
         "maxDuration": 3000,
         "maxUses": 1
@@ -2586,10 +2610,12 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.18
-        },
-        "maxDuration": 27000
+        "maxDuration": 27000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.18
+          }
+        }
       },
       {
         "apply": {
@@ -2603,11 +2629,13 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.06
-        },
         "maxDuration": 27000,
-        "maxStacks": 3
+        "maxStacks": 3,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.06
+          }
+        }
       },
       {
         "stores": "$next",
@@ -2619,11 +2647,13 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgAmp%": 0.2,
-          "resonanceSkillDmgAmp%": 0.25
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "glacioDmgAmp%": 0.2,
+            "resonanceSkillDmgAmp%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
@@ -2637,10 +2667,12 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.1
-        },
-        "maxDuration": 27000
+        "maxDuration": 27000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
@@ -2658,11 +2690,13 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.15
-        },
         "maxDuration": 27000,
-        "maxStacks": 3
+        "maxStacks": 3,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -2677,31 +2711,33 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.467
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.467
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -2709,10 +2745,10 @@
                 "forteCircuit.2"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 1.2
           }
-        },
-        "buffMap": {
-          "damageMv%": 1.2
         }
       }
     ],
@@ -3208,15 +3244,15 @@
     },
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
             }
+          },
+          "buffMap": {
+            "healingMv%": 0.3
           }
-        },
-        "buffMap": {
-          "healingMv%": 0.3
         }
       },
       {
@@ -3228,10 +3264,12 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.15
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.15
+          }
+        }
       },
       {
         "stores": "$next",
@@ -3243,15 +3281,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "coordinatedAttack"
             }
+          },
+          "buffMap": {
+            "dmgAmp%": 1
           }
-        },
-        "buffMap": {
-          "dmgAmp%": 1
         },
         "maxDuration": 28000
       },
@@ -3259,8 +3297,10 @@
         "enableIf": {
           "rank": 3
         },
-        "buffMap": {
-          "atk%": 0.2
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
         }
       },
       {
@@ -3275,10 +3315,12 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.15
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -3297,11 +3339,13 @@
             }
           }
         },
-        "buffMap": {
-          "critDmg%": 0.15
-        },
         "maxDuration": 7000,
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "buffMap": {
+            "critDmg%": 0.15
+          }
+        }
       }
     ],
     "skills": {
@@ -4234,15 +4278,17 @@
             }
           }
         },
-        "buffMap": {
-          "defIgnore%": 0.18
-        },
         "maxDuration": 4000,
         "rankMods": {
           "1": {
             "buffMap": {
               "critRate%": 0.125
             }
+          }
+        },
+        "buff": {
+          "buffMap": {
+            "defIgnore%": 0.18
           }
         }
       },
@@ -4261,7 +4307,7 @@
             "field": "offField"
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -4270,49 +4316,49 @@
                 "resonanceLiberation.2"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.8
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.8
         }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.2"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1.26
           }
-        },
-        "buffMap": {
-          "damageMv%": 1.26
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "outroSkill"
               }
             }
+          },
+          "buffMap": {
+            "damageMv": 10.3218
           }
-        },
-        "buffMap": {
-          "damageMv": 10.3218
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -4320,10 +4366,10 @@
                 "resonanceSkill.1"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.93
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.93
         }
       },
       {
@@ -4343,39 +4389,41 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceSkillDmgBonus%": 0.25
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "resonanceSkillDmgBonus%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.47
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.47
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
             }
+          },
+          "buffMap": {
+            "damageMv": 1.866
           }
-        },
-        "buffMap": {
-          "damageMv": 1.866
         }
       }
     ],
@@ -5423,17 +5471,17 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "states": {
               "negativeStatuses": {
                 "has": "glacioChafe"
               }
             }
+          },
+          "buffMap": {
+            "glacioDmgAmp%": 0.2
           }
-        },
-        "buffMap": {
-          "glacioDmgAmp%": 0.2
         },
         "maxDuration": 20000
       }
@@ -6935,10 +6983,12 @@
             }
           }
         },
-        "buffMap": {
-          "glacioResReduction%": 0.08
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "glacioResReduction%": 0.08
+          }
+        }
       },
       {
         "apply": {
@@ -6949,10 +6999,12 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.3
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.3
+          }
+        }
       }
     ],
     "skills": {
@@ -8022,47 +8074,47 @@
             ]
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "element": "havoc"
               }
             }
+          },
+          "buffMap": {
+            "defIgnore%": 0.06,
+            "havocResIgnore%": 0.12
           }
-        },
-        "buffMap": {
-          "defIgnore%": 0.06,
-          "havocResIgnore%": 0.12
         },
         "maxDuration": 30000
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceSkill.1"
             }
           },
-          "cooldown": 25000
-        },
-        "buffMap": {
-          "critRate%": 0.8,
-          "glacioDmgBonus%": 2.4
+          "cooldown": 25000,
+          "buffMap": {
+            "critRate%": 0.8,
+            "glacioDmgBonus%": 2.4
+          }
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "introSkill.0"
             }
           },
-          "cooldown": 25000
-        },
-        "buffMap": {
-          "critRate%": 0.8,
-          "glacioDmgBonus%": 2.4
+          "cooldown": 25000,
+          "buffMap": {
+            "critRate%": 0.8,
+            "glacioDmgBonus%": 2.4
+          }
         }
       },
       {
@@ -8075,10 +8127,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.25
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.25
+          }
+        }
       },
       {
         "key": "reflectingShadows",
@@ -8103,13 +8157,15 @@
             ]
           }
         },
-        "buffSpecs": {
-          "dmgBonus%": {
-            "attr": "energyRegen%",
-            "offset": 2,
-            "step": 0.01,
-            "value": 0.002,
-            "maxValue": 0.12
+        "buff": {
+          "buffSpec": {
+            "dmgBonus%": {
+              "attr": "energyRegen%",
+              "offset": 2,
+              "step": 0.01,
+              "value": 0.002,
+              "maxValue": 0.12
+            }
           }
         },
         "maxDuration": 6000
@@ -9295,15 +9351,15 @@
         "maxUses": 30
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.5
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.5
         }
       },
       {
@@ -9316,25 +9372,27 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.01
-        },
         "maxDuration": 10000,
-        "maxStacks": 30
+        "maxStacks": 30,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.01
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
             }
+          },
+          "buffMap": {
+            "critRate%": 1
           }
-        },
-        "buffMap": {
-          "critRate%": 1
         }
       },
       {
@@ -9342,30 +9400,30 @@
           "rank": 3
         },
         "chance": 0.5,
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.4
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.4
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "effectStacks": {
               "numbinglySpicy!": 30
             }
+          },
+          "buffMap": {
+            "atk%": 0.3
           }
-        },
-        "buffMap": {
-          "atk%": 0.3
         }
       },
       {
@@ -9381,10 +9439,12 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.25
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.25
+          }
+        }
       }
     ],
     "skills": {
@@ -9946,15 +10006,15 @@
     },
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "tagged": "Cosmos"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.1
         }
       },
       {
@@ -9969,10 +10029,12 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.1
+          }
+        }
       },
       {
         "apply": {
@@ -10011,17 +10073,19 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.03
-        },
         "maxDuration": 6000,
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.03
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -10029,10 +10093,10 @@
                 "forteCircuit.1"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.4
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.4
         }
       },
       {
@@ -10048,17 +10112,21 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.2
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "buffMap": {
-          "resonanceSkillDmgBonus%": 0.35
+        "buff": {
+          "buffMap": {
+            "resonanceSkillDmgBonus%": 0.35
+          }
         }
       },
       {
@@ -10073,11 +10141,13 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.05
-        },
         "maxDuration": 10000,
-        "maxStacks": 6
+        "maxStacks": 6,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.05
+          }
+        }
       }
     ],
     "skills": {
@@ -10934,15 +11004,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.25
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.25
         },
         "maxDuration": 8000
       },
@@ -10956,15 +11026,15 @@
           },
           "cooldown": 350
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.015
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.015
         },
         "maxDuration": 10000,
         "maxStacks": 50,
@@ -10984,24 +11054,26 @@
             }
           }
         },
-        "buffMap": {
-          "heavyAttackDmgAmp%": 0.38
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "heavyAttackDmgAmp%": 0.38
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
             }
+          },
+          "buffMap": {
+            "critDmg%": 0.3
           }
-        },
-        "buffMap": {
-          "critDmg%": 0.3
         }
       },
       {
@@ -11035,10 +11107,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       }
     ],
     "skills": {
@@ -11606,21 +11680,21 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "atk%": 0.25
           }
-        },
-        "buffMap": {
-          "atk%": 0.25
         },
         "maxDuration": 10000,
         "maxUses": 1
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -11628,14 +11702,14 @@
                 "resonanceSkill.2"
               ]
             }
+          },
+          "buffMap": {
+            "fusionDmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -11643,11 +11717,11 @@
                 "resonanceLiberation.0"
               ]
             }
+          },
+          "buffMap": {
+            "fusionDmgBonus%": 0.2,
+            "defIgnore%": 0.15
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.2,
-          "defIgnore%": 0.15
         }
       },
       {
@@ -11660,17 +11734,19 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgAmp%": 0.2,
-          "resonanceLiberationDmgAmp%": 0.25
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "fusionDmgAmp%": 0.2,
+            "resonanceLiberationDmgAmp%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -11680,10 +11756,10 @@
                 "forteCircuit.0"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.1
         }
       },
       {
@@ -11702,24 +11778,26 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.25
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.8
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.8
         }
       },
       {
@@ -11735,32 +11813,34 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.5,
+            "dmgBonus%": 0.5
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.5,
-          "dmgBonus%": 0.5
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -11771,10 +11851,10 @@
                 "resonanceLiberation.0"
               ]
             }
+          },
+          "buffMap": {
+            "defIgnore%": 0.4
           }
-        },
-        "buffMap": {
-          "defIgnore%": 0.4
         }
       }
     ],
@@ -12628,43 +12708,49 @@
             }
           }
         },
-        "buffSpec": {
-          "atk": {
-            "attr": "energyRegen",
-            "step": 0.01,
-            "offset": 1.5,
-            "value": 8,
-            "maxValue": 1040
+        "buff": {
+          "buffSpec": {
+            "atk": {
+              "attr": "energyRegen",
+              "step": 0.01,
+              "offset": 1.5,
+              "value": 8,
+              "maxValue": 1040
+            }
           }
         },
         "maxDuration": 12000
       },
       {
-        "buffSpec": {
-          "atk": {
-            "attr": "energyRegen",
-            "step": 0.01,
-            "offset": 1.5,
-            "value": 12,
-            "maxValue": 1560
+        "buff": {
+          "buffSpec": {
+            "atk": {
+              "attr": "energyRegen",
+              "step": 0.01,
+              "offset": 1.5,
+              "value": 12,
+              "maxValue": 1560
+            }
           }
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
             }
+          },
+          "buffMap": {
+            "healingBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "healingBonus%": 0.2
         }
       },
       {
-        "buffMap": {
-          "fusionDmgBonus%": 0.15
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.15
+          }
         }
       },
       {
@@ -12677,11 +12763,13 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgAmp%": 0.2,
-          "resonanceSkillDmgAmp%": 0.25
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "fusionDmgAmp%": 0.2,
+            "resonanceSkillDmgAmp%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
@@ -12700,17 +12788,19 @@
             }
           }
         },
-        "buffMap": {
-          "dmgBonus%": 0.2
-        },
         "maxDuration": 5000,
-        "maxStacks": 3
+        "maxStacks": 3,
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "or": [
@@ -12722,10 +12812,10 @@
                 }
               ]
             }
+          },
+          "buffMap": {
+            "critRate%": 0.3
           }
-        },
-        "buffMap": {
-          "critRate%": 0.3
         }
       },
       {
@@ -12767,30 +12857,30 @@
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.42
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.42
         }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "shieldBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "shieldBonus%": 0.2
         }
       },
       {
@@ -12831,16 +12921,18 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.15
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "or": [
@@ -12852,10 +12944,10 @@
                 }
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.3
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.3
         }
       }
     ],
@@ -14260,15 +14352,15 @@
     },
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceSkill.1"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.5
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.5
         }
       },
       {
@@ -14281,12 +14373,14 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.18,
-          "fusionDmgBonus%": 0.2,
-          "fusionResIgnore%": 0.15
-        },
-        "maxDuration": 35000
+        "maxDuration": 35000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.18,
+            "fusionDmgBonus%": 0.2,
+            "fusionResIgnore%": 0.15
+          }
+        }
       },
       {
         "apply": {
@@ -14305,10 +14399,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.12
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.12
+          }
+        }
       },
       {
         "stores": "$next",
@@ -14339,9 +14435,11 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgAmp%": 0.2,
-          "basicAttackDmgAmp%": 0.25
+        "buff": {
+          "buffMap": {
+            "fusionDmgAmp%": 0.2,
+            "basicAttackDmgAmp%": 0.25
+          }
         }
       },
       {
@@ -14356,10 +14454,12 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.2
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
@@ -14379,40 +14479,42 @@
             }
           }
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.2
-        },
         "maxDuration": 30000,
-        "maxStacks": 2
+        "maxStacks": 2,
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "introSkill.1"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1
           }
-        },
-        "buffMap": {
-          "damageMv%": 1
         }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1.25
           }
-        },
-        "buffMap": {
-          "damageMv%": 1.25
         }
       },
       {
@@ -14430,16 +14532,18 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceLiberationDmgBonus%": 0.15
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "resonanceLiberationDmgBonus%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -14448,10 +14552,10 @@
                 "introSkill.1"
               ]
             }
+          },
+          "buffMap": {
+            "defIgnore%": 0.3
           }
-        },
-        "buffMap": {
-          "defIgnore%": 0.3
         }
       }
     ],
@@ -15847,11 +15951,13 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.05
-        },
         "maxDuration": 5500,
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.05
+          }
+        }
       }
     ],
     "skills": {
@@ -17342,27 +17448,27 @@
     },
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
-          }
-        },
-        "buffSpec": {
-          "critRate%": {
-            "attr": "energyRegen%",
-            "step": 0.01,
-            "offset": 1,
-            "value": 0.005,
-            "maxValue": 0.8
           },
-          "critDmg%": {
-            "attr": "energyRegen%",
-            "step": 0.01,
-            "offset": 1,
-            "value": 0.01,
-            "maxValue": 1.6
+          "buffSpec": {
+            "critRate%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.005,
+              "maxValue": 0.8
+            },
+            "critDmg%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.01,
+              "maxValue": 1.6
+            }
           }
         }
       },
@@ -17376,10 +17482,12 @@
             }
           }
         },
-        "buffMap": {
-          "def%": 0.2
-        },
-        "maxDuration": 25000
+        "maxDuration": 25000,
+        "buff": {
+          "buffMap": {
+            "def%": 0.2
+          }
+        }
       },
       {
         "apply": {
@@ -17390,15 +17498,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "healingMv%": 0.4
           }
-        },
-        "buffMap": {
-          "healingMv%": 0.4
         },
         "maxDuration": 25000
       },
@@ -17448,17 +17556,19 @@
             }
           }
         },
-        "buffMap": {
-          "offTuneBuildupRate%": 0.5
-        },
-        "maxDuration": 25000
+        "maxDuration": 25000,
+        "buff": {
+          "buffMap": {
+            "offTuneBuildupRate%": 0.5
+          }
+        }
       },
       {
         "stores": "global",
         "apply": {
           "when": "tuneBreak"
         },
-        "use": {
+        "buff": {
           "filter": {
             "states": {
               "tune": {
@@ -17468,15 +17578,15 @@
                 ]
               }
             }
-          }
-        },
-        "buffSpec": {
-          "dmgBonus%": {
-            "attr": "energyRegen%",
-            "step": 0.01,
-            "offset": 1,
-            "value": 0.0025,
-            "maxValue": 0.4
+          },
+          "buffSpec": {
+            "dmgBonus%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.0025,
+              "maxValue": 0.4
+            }
           }
         },
         "maxDuration": 8000
@@ -17495,8 +17605,10 @@
         "useAction": "forteCircuit.4"
       },
       {
-        "buffMap": {
-          "energyRegen%": 0.1
+        "buff": {
+          "buffMap": {
+            "energyRegen%": 0.1
+          }
         }
       },
       {
@@ -17509,10 +17621,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.25
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.25
+          }
+        }
       }
     ],
     "skills": {
@@ -18607,10 +18721,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.2
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.2
+          }
+        }
       }
     ],
     "skills": {
@@ -20295,10 +20411,12 @@
             }
           }
         },
-        "buffMap": {
-          "fusionBurstDmgAmp%": 0.6
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "fusionBurstDmgAmp%": 0.6
+          }
+        }
       },
       {
         "enableIf": {
@@ -20314,10 +20432,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.15
-        },
-        "maxDuration": 16000
+        "maxDuration": 16000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -20342,15 +20462,15 @@
             ]
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "effectStacks": {
               "has": "tuneOutro"
             }
+          },
+          "buffMap": {
+            "dmgAmp%": 0.25
           }
-        },
-        "buffMap": {
-          "dmgAmp%": 0.25
         },
         "maxDuration": 16000
       }
@@ -21617,10 +21737,12 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceLiberationDmgBonus%": 0.1
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "resonanceLiberationDmgBonus%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
@@ -21637,24 +21759,26 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceSkillDmgBonus%": 0.3
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "resonanceSkillDmgBonus%": 0.3
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "tagged": "Deathblade Gear"
             }
+          },
+          "buffMap": {
+            "electroDmgBonus%": 0.25
           }
-        },
-        "buffMap": {
-          "electroDmgBonus%": 0.25
         }
       },
       {
@@ -21670,16 +21794,18 @@
             }
           }
         },
-        "buffMap": {
-          "electroDmgBonus%": 0.2
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -21687,10 +21813,10 @@
                 "resonanceLiberation.1"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.5
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.5
         }
       },
       {
@@ -22819,21 +22945,23 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.15
-        },
-        "maxDuration": 5000
+        "maxDuration": 5000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.15
+          }
+        }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceSkill.1"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.1
         }
       },
       {
@@ -22845,10 +22973,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.1
-        },
-        "maxDuration": 4000
+        "maxDuration": 4000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.1
+          }
+        }
       },
       {
         "stores": "$next",
@@ -22860,17 +22990,19 @@
             }
           }
         },
-        "buffMap": {
-          "electroDmgAmp%": 0.2,
-          "resonanceLiberationDmgAmp%": 0.25
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "electroDmgAmp%": 0.2,
+            "resonanceLiberationDmgAmp%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -22878,25 +23010,25 @@
                 "resonanceSkill.1"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.7
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.7
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.55
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.55
         }
       },
       {
@@ -22912,24 +23044,26 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 12000
+        "maxDuration": 12000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 1
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 1
         }
       },
       {
@@ -23554,15 +23688,15 @@
         "maxUses": 1
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.4
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.4
         }
       },
       {
@@ -23584,15 +23718,15 @@
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "tagged": "Lightning Infused"
             }
+          },
+          "buffMap": {
+            "attackSpd%": 0.2
           }
-        },
-        "buffMap": {
-          "attackSpd%": 0.2
         }
       },
       {
@@ -23606,8 +23740,10 @@
             }
           }
         },
-        "buffMap": {
-          "damageMv": 0.2
+        "buff": {
+          "buffMap": {
+            "damageMv": 0.2
+          }
         }
       },
       {
@@ -23645,10 +23781,12 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceLiberationDmgBonus%": 0.5
-        },
-        "maxDuration": 12000
+        "maxDuration": 12000,
+        "buff": {
+          "buffMap": {
+            "resonanceLiberationDmgBonus%": 0.5
+          }
+        }
       },
       {
         "enableIf": {
@@ -23663,10 +23801,12 @@
             }
           }
         },
-        "buffMap": {
-          "def%": 0.32
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "def%": 0.32
+          }
+        }
       }
     ],
     "skills": {
@@ -24666,20 +24806,22 @@
     },
     "effects": [
       {
-        "buffMap": {
-          "spectroDmgBonus%": 0.2
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.2
+          }
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "introSkill.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.5
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.5
         }
       },
       {
@@ -24700,7 +24842,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -24709,10 +24851,10 @@
                 "forteCircuit.9"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.2
         },
         "maxDuration": 6000,
         "maxStacks": 4
@@ -24729,11 +24871,13 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.25
-        },
         "maxDuration": 20000,
-        "maxStacks": 2
+        "maxStacks": 2,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
@@ -24751,31 +24895,33 @@
             }
           }
         },
-        "buffMap": {
-          "dmgBonus%": 0.2
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1.2
           }
-        },
-        "buffMap": {
-          "damageMv%": 1.2
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -24784,10 +24930,10 @@
                 "forteCircuit.9"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.45
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.45
         }
       }
     ],
@@ -26043,11 +26189,13 @@
             }
           }
         },
-        "buffMap": {
-          "electroDmgBonus%": 0.05
-        },
         "maxDuration": 8000,
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.05
+          }
+        }
       },
       {
         "stores": "$next",
@@ -26085,15 +26233,15 @@
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.48
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.48
         }
       },
       {
@@ -26115,10 +26263,12 @@
             }
           ]
         },
-        "buffMap": {
-          "critDmg%": 0.3
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "critDmg%": 0.3
+          }
+        }
       },
       {
         "enableIf": {
@@ -26132,7 +26282,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -26142,10 +26292,10 @@
                 "forteCircuit.1"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.63
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.63
         },
         "maxDuration": 24000,
         "maxUses": 5
@@ -26163,56 +26313,58 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceLiberationDmgBonus%": 0.25
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "resonanceLiberationDmgBonus%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "outroSkill"
               }
             }
+          },
+          "buffMap": {
+            "damageMv%": 2.22
           }
-        },
-        "buffMap": {
-          "damageMv%": 2.22
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1
           }
-        },
-        "buffMap": {
-          "damageMv%": 1
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.76
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.76
         }
       }
     ],
@@ -27076,10 +27228,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.15
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.15
+          }
+        }
       },
       {
         "apply": {
@@ -27098,8 +27252,10 @@
             }
           }
         },
-        "buffMap": {
-          "electroDmgBonus%": 0.15
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.15
+          }
         }
       }
     ],
@@ -28128,10 +28284,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.15
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.15
+          }
+        }
       }
     ],
     "skills": {
@@ -28841,12 +28999,14 @@
             }
           }
         },
-        "buffMap": {
-          "critDmg%": 0.3,
-          "defIgnore%": 0.15,
-          "atk%": 0.1
-        },
-        "maxDuration": 12000
+        "maxDuration": 12000,
+        "buff": {
+          "buffMap": {
+            "critDmg%": 0.3,
+            "defIgnore%": 0.15,
+            "atk%": 0.1
+          }
+        }
       },
       {
         "use": {
@@ -28873,11 +29033,13 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.1
-        },
         "maxDuration": 12000,
-        "maxStacks": 2
+        "maxStacks": 2,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.1
+          }
+        }
       },
       {
         "stores": "$applier",
@@ -28890,10 +29052,12 @@
             }
           }
         },
-        "buffMap": {
-          "tuneBreakBoost": 30
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "tuneBreakBoost": 30
+          }
+        }
       },
       {
         "stores": "$team",
@@ -28905,10 +29069,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       },
       {
         "stores": "$next",
@@ -28920,10 +29086,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.15
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.15
+          }
+        }
       },
       {
         "stores": "1511",
@@ -28935,10 +29103,12 @@
             }
           }
         },
-        "buffMap": {
-          "heavyAttackDmgAmp%": 0.35
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "heavyAttackDmgAmp%": 0.35
+          }
+        }
       }
     ],
     "skills": {
@@ -30899,10 +31069,12 @@
             }
           }
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.08
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.08
+          }
+        }
       },
       {
         "enableIf": {
@@ -30916,47 +31088,51 @@
             }
           }
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.15
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "buffMap": {
-          "resonanceSkillDmgBonus%": 0.4
+        "buff": {
+          "buffMap": {
+            "resonanceSkillDmgBonus%": 0.4
+          }
         }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.1"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.95
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.95
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.85
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.85
         }
       },
       {
@@ -30972,10 +31148,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       }
     ],
     "skills": {
@@ -31591,7 +31769,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": [
@@ -31601,23 +31779,23 @@
                 "dodgeCounter"
               ]
             }
+          },
+          "buffMap": {
+            "atk%": 0.1
           }
-        },
-        "buffMap": {
-          "atk%": 0.1
         },
         "maxDuration": 10000
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "heavyAttack"
             }
+          },
+          "buffMap": {
+            "critRate%": 1
           }
-        },
-        "buffMap": {
-          "critRate%": 1
         }
       },
       {
@@ -31630,10 +31808,12 @@
             }
           }
         },
-        "buffMap": {
-          "aeroDmgAmp%": 0.23
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "aeroDmgAmp%": 0.23
+          }
+        }
       },
       {
         "enableIf": {
@@ -31647,10 +31827,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.15
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -31664,7 +31846,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": [
@@ -31672,10 +31854,10 @@
                 "mid-airAttack"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 1
           }
-        },
-        "buffMap": {
-          "damageMv%": 1
         },
         "maxDuration": 10000
       },
@@ -31683,7 +31865,7 @@
         "enableIf": {
           "rank": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -31691,10 +31873,10 @@
                 "forteCircuit.0"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.3
         }
       },
       {
@@ -31709,10 +31891,12 @@
             }
           }
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.25
-        },
-        "maxDuration": 6000
+        "maxDuration": 6000,
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
@@ -31726,10 +31910,12 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.08
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.08
+          }
+        }
       },
       {
         "enableIf": {
@@ -31743,15 +31929,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "heavyAttack"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.5
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.5
         },
         "maxDuration": 10000
       }
@@ -32267,15 +32453,15 @@
     },
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.2
         }
       },
       {
@@ -32287,10 +32473,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.1
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.1
+          }
+        }
       },
       {
         "apply": {
@@ -32301,10 +32489,12 @@
             }
           }
         },
-        "buffMap": {
-          "critDmg%": 0.12
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "critDmg%": 0.12
+          }
+        }
       },
       {
         "stores": "$next",
@@ -32352,10 +32542,12 @@
           },
           "cooldown": 15000
         },
-        "buffMap": {
-          "atk%": 0.28
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.28
+          }
+        }
       },
       {
         "enableIf": {
@@ -32374,11 +32566,13 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.16,
-          "critDmg%": 0.32
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.16,
+            "critDmg%": 0.32
+          }
+        }
       },
       {
         "enableIf": {
@@ -32396,26 +32590,28 @@
             }
           }
         },
-        "buffMap": {
-          "heavyAttackDmgBonus%": 0.25
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "heavyAttackDmgBonus%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "outroSkill"
               }
             }
+          },
+          "buffMap": {
+            "damageMv%": 1.2
           }
-        },
-        "buffMap": {
-          "damageMv%": 1.2
         }
       },
       {
@@ -32430,10 +32626,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.45
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.45
+          }
+        }
       },
       {
         "enableIf": {
@@ -32457,15 +32655,15 @@
             }
           ]
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "damageMv": 1.2
           }
-        },
-        "buffMap": {
-          "damageMv": 1.2
         },
         "maxStacks": 2,
         "maxUses": 1
@@ -33250,7 +33448,7 @@
         "maxDuration": 30000
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -33258,15 +33456,17 @@
                 "resonanceLiberation.1"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.2
         }
       },
       {
-        "buffMap": {
-          "shieldBonus%": 0.2
+        "buff": {
+          "buffMap": {
+            "shieldBonus%": 0.2
+          }
         }
       },
       {
@@ -33279,10 +33479,12 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceLiberationDmgAmp%": 0.38
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "resonanceLiberationDmgAmp%": 0.38
+          }
+        }
       },
       {
         "enableIf": {
@@ -33296,7 +33498,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -33304,10 +33506,10 @@
                 "resonanceLiberation.1"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.8
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.8
         },
         "maxDuration": 14000
       },
@@ -34357,8 +34559,10 @@
     "effects": [
       {
         "stores": "$team",
-        "buffMap": {
-          "aeroDmgBonus%": 0.24
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.24
+          }
         }
       },
       {
@@ -34378,15 +34582,15 @@
         "maxUses": 20
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.3
         }
       },
       {
@@ -34399,10 +34603,12 @@
             }
           }
         },
-        "buffMap": {
-          "aeroErosionDmgAmp%": 1
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "aeroErosionDmgAmp%": 1
+          }
+        }
       },
       {
         "enableIf": {
@@ -34416,10 +34622,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.35
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.35
+          }
+        }
       },
       {
         "enableIf": {
@@ -34434,16 +34642,18 @@
             }
           }
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.4
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.4
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "or": [
@@ -34457,18 +34667,20 @@
                 }
               ]
             }
+          },
+          "buffMap": {
+            "defIgnore%": 0.45
           }
-        },
-        "buffMap": {
-          "defIgnore%": 0.45
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "buffMap": {
-          "resonanceLiberationDmgBonus%": 0.4
+        "buff": {
+          "buffMap": {
+            "resonanceLiberationDmgBonus%": 0.4
+          }
         }
       },
       {
@@ -35149,25 +35361,27 @@
     },
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 1
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 1
         }
       },
       {
         "stores": "$ally",
-        "buffMap": {
-          "healingBonus%": 0.2
+        "buff": {
+          "buffMap": {
+            "healingBonus%": 0.2
+          }
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "states": {
               "negativeStatuses": {
@@ -35178,14 +35392,14 @@
                 }
               }
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.3
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "states": {
               "negativeStatuses": {
@@ -35196,14 +35410,14 @@
                 }
               }
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.1
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "states": {
               "negativeStatuses": {
@@ -35214,14 +35428,14 @@
                 }
               }
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.1
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "states": {
               "negativeStatuses": {
@@ -35232,10 +35446,10 @@
                 }
               }
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.1
         }
       },
       {
@@ -35248,17 +35462,17 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "states": {
               "negativeStatuses": {
                 "has": "*"
               }
             }
+          },
+          "buffMap": {
+            "aeroDmgAmp%": 0.175
           }
-        },
-        "buffMap": {
-          "aeroDmgAmp%": 0.175
         },
         "maxDuration": 20000
       },
@@ -35266,22 +35480,22 @@
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "critDmg%": 1
           }
-        },
-        "buffMap": {
-          "critDmg%": 1
         }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -35294,17 +35508,17 @@
                 "introSkill.0"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.5
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.5
         }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -35314,25 +35528,25 @@
                 "normalAttack.9"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 2
           }
-        },
-        "buffMap": {
-          "damageMv%": 2
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1
           }
-        },
-        "buffMap": {
-          "damageMv%": 1
         }
       },
       {
@@ -35340,15 +35554,17 @@
           "rank": 4
         },
         "stores": "$team",
-        "buffMap": {
-          "dmgBonus%": 0.2
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -35370,10 +35586,10 @@
                 "forteCircuit.13"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.4
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.4
         }
       }
     ],
@@ -37173,10 +37389,12 @@
             }
           }
         },
-        "buffMap": {
-          "heavyAttackDmgAmp%": 0.5
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "heavyAttackDmgAmp%": 0.5
+          }
+        }
       }
     ],
     "skills": {
@@ -38416,10 +38634,12 @@
             }
           }
         },
-        "buffMap": {
-          "echoSkillDmgAmp%": 0.5
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "echoSkillDmgAmp%": 0.5
+          }
+        }
       }
     ],
     "skills": {
@@ -39600,8 +39820,10 @@
         "enableIf": {
           "rank": 6
         },
-        "buffMap": {
-          "dmgBonus%": 0.3
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.3
+          }
         }
       }
     ],
@@ -40889,10 +41111,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       },
       {
         "apply": {
@@ -40928,10 +41152,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.15
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
@@ -40964,15 +41190,15 @@
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
             }
+          },
+          "buffMap": {
+            "healingBonus%": 0.12
           }
-        },
-        "buffMap": {
-          "healingBonus%": 0.12
         }
       },
       {
@@ -40995,25 +41221,29 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.15
-        },
-        "maxDuration": 24000
+        "maxDuration": 24000,
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
         "chance": 0.5,
-        "buffMap": {
-          "healingBonus%": 0.2
+        "buff": {
+          "buffMap": {
+            "healingBonus%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -41023,10 +41253,10 @@
                 "forteCircuit.3"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.2
         }
       },
       {
@@ -42123,7 +42353,7 @@
         "maxUses": 1
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "tagged": [
@@ -42131,10 +42361,10 @@
                 "Red Spotlight"
               ]
             }
+          },
+          "buffMap": {
+            "electroDmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "electroDmgBonus%": 0.1
         }
       },
       {
@@ -42149,10 +42379,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.1
-        },
-        "maxDuration": 5000
+        "maxDuration": 5000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.1
+          }
+        }
       },
       {
         "stores": "$next",
@@ -42164,16 +42396,18 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceSkillDmgAmp%": 0.38
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "resonanceSkillDmgAmp%": 0.38
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -42181,48 +42415,50 @@
                 "forteCircuit.6"
               ]
             }
+          },
+          "buffMap": {
+            "defIgnore%": 0.2
           }
-        },
-        "buffMap": {
-          "defIgnore%": 0.2
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.3
         }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.3
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.3
+          }
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.7"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1
           }
-        },
-        "buffMap": {
-          "damageMv%": 1
         }
       },
       {
@@ -42238,10 +42474,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       }
     ],
     "skills": {
@@ -43184,13 +43422,15 @@
             }
           }
         },
-        "buffMap": {
-          "energyRegen%": 0.1
-        },
         "maxDuration": 30000,
         "rankMods": {
           "1": {
             "maxDuration": 10000
+          }
+        },
+        "buff": {
+          "buffMap": {
+            "energyRegen%": 0.1
           }
         }
       },
@@ -43229,37 +43469,37 @@
       {
         "key": "innerStellarealm",
         "stores": "$team",
-        "use": {
+        "buff": {
           "filter": {
             "effectStacks": {
               "has": "evolved"
             }
-          }
-        },
-        "buffSpec": {
-          "critRate%": {
-            "attr": "energyRegen%",
-            "step": 0.002,
-            "value": 0.0001,
-            "maxValue": 0.125
+          },
+          "buffSpec": {
+            "critRate%": {
+              "attr": "energyRegen%",
+              "step": 0.002,
+              "value": 0.0001,
+              "maxValue": 0.125
+            }
           }
         }
       },
       {
         "stores": "$team",
-        "use": {
+        "buff": {
           "filter": {
             "effectStacks": {
               "evolved": 2
             }
-          }
-        },
-        "buffSpec": {
-          "critDmg%": {
-            "attr": "energyRegen%",
-            "step": 0.001,
-            "value": 0.0001,
-            "maxValue": 0.25
+          },
+          "buffSpec": {
+            "critDmg%": {
+              "attr": "energyRegen%",
+              "step": 0.001,
+              "value": 0.0001,
+              "maxValue": 0.25
+            }
           }
         }
       },
@@ -43280,15 +43520,15 @@
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "introSkill.1"
             }
+          },
+          "buffMap": {
+            "critRate%": 1
           }
-        },
-        "buffMap": {
-          "critRate%": 1
         }
       },
       {
@@ -43301,55 +43541,57 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.15
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "effectStacks": {
               "has": "stellarealm"
             }
+          },
+          "buffMap": {
+            "atk%": 0.4
           }
-        },
-        "buffMap": {
-          "atk%": 0.4
         }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceSkill.0"
             }
+          },
+          "buffMap": {
+            "healingBonus%": 0.7
           }
-        },
-        "buffMap": {
-          "healingBonus%": 0.7
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "introSkill.1"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.42,
+            "critDmg%": 5
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.42,
-          "critDmg%": 5
         }
       }
     ],
@@ -44083,19 +44325,19 @@
     },
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 2.55
           }
-        },
-        "buffMap": {
-          "damageMv%": 2.55
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "and": [
               {
@@ -44111,10 +44353,10 @@
                 }
               }
             ]
+          },
+          "buffMap": {
+            "dmgAmp%": 2.56
           }
-        },
-        "buffMap": {
-          "dmgAmp%": 2.56
         }
       },
       {
@@ -44129,8 +44371,10 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.12
+          }
         }
       },
       {
@@ -44166,17 +44410,17 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "outroSkill"
               }
             }
+          },
+          "buffMap": {
+            "damageMv%": 2.55
           }
-        },
-        "buffMap": {
-          "damageMv%": 2.55
         }
       },
       {
@@ -44189,10 +44433,12 @@
             }
           }
         },
-        "buffMap": {
-          "spectroResReduction%": 0.1
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "spectroResReduction%": 0.1
+          }
+        }
       },
       {
         "stores": "global",
@@ -44204,13 +44450,13 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "field": "onField"
+          },
+          "buffMap": {
+            "spectroFrazzleDmgAmp%": 1
           }
-        },
-        "buffMap": {
-          "spectroFrazzleDmgAmp%": 1
         },
         "maxDuration": 30000
       },
@@ -44218,30 +44464,30 @@
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 2.25
           }
-        },
-        "buffMap": {
-          "damageMv%": 2.25
         }
       },
       {
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.9
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.9
         }
       },
       {
@@ -44274,7 +44520,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "and": [
               {
@@ -44292,10 +44538,10 @@
                 }
               }
             ]
+          },
+          "buffMap": {
+            "dmgAmp%": 1.2
           }
-        },
-        "buffMap": {
-          "dmgAmp%": 1.2
         }
       },
       {
@@ -44311,13 +44557,13 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "field": "onField"
+          },
+          "buffMap": {
+            "spectroFrazzleDmgAmp%": 1.2
           }
-        },
-        "buffMap": {
-          "spectroFrazzleDmgAmp%": 1.2
         },
         "maxDuration": 30000
       },
@@ -44325,30 +44571,30 @@
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.2"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.91
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.91
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.3"
             }
+          },
+          "buffMap": {
+            "damageMv%": 2.49
           }
-        },
-        "buffMap": {
-          "damageMv%": 2.49
         }
       },
       {
@@ -44367,10 +44613,12 @@
             }
           }
         },
-        "buffMap": {
-          "spectroResReduction%": 0.1
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "spectroResReduction%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
@@ -44384,10 +44632,12 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.12
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.12
+          }
+        }
       },
       {
         "enableIf": {
@@ -44401,10 +44651,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.1
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
@@ -45243,13 +45495,15 @@
             }
           }
         },
-        "buffMap": {
-          "spectroFrazzleDmgAmp%": 0.2
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "spectroFrazzleDmgAmp%": 0.2
+          }
+        }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -45260,10 +45514,10 @@
                 "forteCircuit.4"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.25
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.25
         }
       },
       {
@@ -45286,10 +45540,12 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.12
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.12
+          }
+        }
       },
       {
         "stores": "$ally",
@@ -45301,10 +45557,12 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgAmp%": 0.2
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "spectroDmgAmp%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
@@ -45321,24 +45579,28 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.5
-        },
-        "maxDuration": 14000
-      },
-      {
-        "enableIf": {
-          "rank": 2
-        },
-        "buffMap": {
-          "critRate%": 0.2
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.5
+          }
         }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.2
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 2
+        },
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -45346,25 +45608,25 @@
                 "resonanceSkill.3"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.8
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.8
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.1"
             }
+          },
+          "buffMap": {
+            "damageMv%": 12
           }
-        },
-        "buffMap": {
-          "damageMv%": 12
         }
       },
       {
@@ -45381,30 +45643,32 @@
           }
         },
         "maxDuration": 30000,
-        "buffMap": {
-          "atk%": 0.2
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1.2
           }
-        },
-        "buffMap": {
-          "damageMv%": 1.2
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -45415,25 +45679,25 @@
                 "forteCircuit.4"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.4
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.4
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.2"
             }
+          },
+          "buffMap": {
+            "damageMv": 16
           }
-        },
-        "buffMap": {
-          "damageMv": 16
         }
       }
     ],
@@ -46506,10 +46770,12 @@
             ]
           }
         },
-        "buffMap": {
-          "defIgnore%": 0.18
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "defIgnore%": 0.18
+          }
+        }
       },
       {
         "apply": {
@@ -46523,11 +46789,13 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.2,
-          "healingBonus%": 0.2
-        },
-        "maxDuration": 12000
+        "maxDuration": 12000,
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.2,
+            "healingBonus%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
@@ -46550,17 +46818,21 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.3
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.3
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "buffMap": {
-          "havocResIgnore%": 0.1
+        "buff": {
+          "buffMap": {
+            "havocResIgnore%": 0.1
+          }
         }
       },
       {
@@ -46586,10 +46858,12 @@
             ]
           }
         },
-        "buffMap": {
-          "dmgBonus%": 0.5
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.5
+          }
+        }
       }
     ],
     "skills": {
@@ -48048,10 +48322,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgBonus%": 0.24
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.24
+          }
+        }
       },
       {
         "stores": "$team",
@@ -48063,10 +48339,12 @@
             }
           }
         },
-        "buffMap": {
-          "tuneBreakBoost": 40
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "tuneBreakBoost": 40
+          }
+        }
       },
       {
         "apply": {
@@ -48077,10 +48355,12 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.25
-        },
-        "maxDuration": 9000
+        "maxDuration": 9000,
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.25
+          }
+        }
       },
       {
         "stores": "$next",
@@ -48092,17 +48372,19 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.15,
-          "resonanceLiberationDmgAmp%": 0.25
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.15,
+            "resonanceLiberationDmgAmp%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -48111,18 +48393,20 @@
                 "forteCircuit.2"
               ]
             }
+          },
+          "buffMap": {
+            "mv%": 1.2
           }
-        },
-        "buffMap": {
-          "mv%": 1.2
         }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "buffMap": {
-          "dmgAmp%": 0.25
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.25
+          }
         }
       },
       {
@@ -48138,16 +48422,18 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.25
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -48155,33 +48441,35 @@
                 "forteCircuit.4"
               ]
             }
+          },
+          "buffMap": {
+            "mv%": 0.9
           }
-        },
-        "buffMap": {
-          "mv%": 0.9
         }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "buffMap": {
-          "atk%": 0.2
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "mv%": 0.7
           }
-        },
-        "buffMap": {
-          "mv%": 0.7
         }
       }
     ],
@@ -49482,8 +49770,10 @@
         "enableIf": {
           "rank": 1
         },
-        "buffMap": {
-          "mid-airAttackDmgBonus%": 1.5
+        "buff": {
+          "buffMap": {
+            "mid-airAttackDmgBonus%": 1.5
+          }
         }
       }
     ],
@@ -50581,10 +50871,12 @@
             }
           }
         },
-        "buffMap": {
-          "vuln%": 0.05
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "vuln%": 0.05
+          }
+        }
       },
       {
         "stores": "global",
@@ -50596,10 +50888,12 @@
             }
           }
         },
-        "buffMap": {
-          "defReduction%": 0.05
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "defReduction%": 0.05
+          }
+        }
       },
       {
         "apply": {
@@ -50610,15 +50904,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "normalAttack.14"
             }
+          },
+          "buffMap": {
+            "damageMv%": 2.7
           }
-        },
-        "buffMap": {
-          "damageMv%": 2.7
         },
         "maxUses": 1,
         "rankMods": {
@@ -50638,10 +50932,12 @@
             }
           }
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.65
-        },
-        "maxDuration": 8000
+        "maxDuration": 8000,
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.65
+          }
+        }
       },
       {
         "use": {
@@ -50666,10 +50962,12 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgAmp%": 0.25
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgAmp%": 0.25
+          }
+        }
       },
       {
         "stores": "1308",
@@ -50681,10 +50979,12 @@
             }
           }
         },
-        "buffMap": {
-          "dmgAmp%": 0.2
-        },
-        "maxDuration": 25000
+        "maxDuration": 25000,
+        "buff": {
+          "buffMap": {
+            "dmgAmp%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
@@ -50698,10 +50998,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       },
       {
         "enableIf": {
@@ -50738,7 +51040,7 @@
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -50746,18 +51048,18 @@
                 "resonanceLiberation.7"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.5,
+            "critDmg%": 1
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.5,
-          "critDmg%": 1
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -50765,10 +51067,10 @@
                 "forteCircuit.0"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.65
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.65
         }
       },
       {
@@ -50776,15 +51078,17 @@
           "rank": 4
         },
         "stores": "$team",
-        "buffMap": {
-          "dmgBonus%": 0.2
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "states": {
               "tune": {
@@ -50798,11 +51102,11 @@
                 ]
               }
             }
+          },
+          "buffMap": {
+            "heavyAttackDmgBonus%": 0.4,
+            "hackDmgBonus%": 0.6
           }
-        },
-        "buffMap": {
-          "heavyAttackDmgBonus%": 0.4,
-          "hackDmgBonus%": 0.6
         }
       }
     ],
@@ -53097,9 +53401,12 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "field": "onField"
+          },
+          "buffMap": {
+            "def%": 0.15
           }
         },
         "remove": {
@@ -53109,9 +53416,6 @@
               "ref": "normalAttack.3"
             }
           }
-        },
-        "buffMap": {
-          "def%": 0.15
         },
         "maxDuration": 15000,
         "rankMods": {
@@ -53130,16 +53434,18 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceSkillDmgAmp%": 0.38
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "resonanceSkillDmgAmp%": 0.38
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -53148,26 +53454,26 @@
                 "forteCircuit.5"
               ]
             }
+          },
+          "buffMap": {
+            "shieldBonus%": 0.4
           }
-        },
-        "buffMap": {
-          "shieldBonus%": 0.4
         }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "critRate%": 0.2,
+            "critDmg%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2,
-          "critDmg%": 0.2
         }
       },
       {
@@ -53207,16 +53513,18 @@
           },
           "cooldown": 15000
         },
-        "buffMap": {
-          "def%": 0.5
-        },
-        "maxDuration": 5000
+        "maxDuration": 5000,
+        "buff": {
+          "buffMap": {
+            "def%": 0.5
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -53225,10 +53533,10 @@
                 "forteCircuit.2"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.5
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.5
         }
       },
       {
@@ -53243,11 +53551,13 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.4,
-          "heavyAttackDmgBonus%": 0.4
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.4,
+            "heavyAttackDmgBonus%": 0.4
+          }
+        }
       }
     ],
     "skills": {
@@ -54014,15 +54324,17 @@
             }
           }
         },
-        "buffMap": {
-          "dmgBonus%": 0.2
-        },
         "maxDuration": 12000,
         "rankMods": {
           "2": {
             "buffMap": {
               "dmgBonus%": 0.2
             }
+          }
+        },
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.2
           }
         }
       },
@@ -54035,7 +54347,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -54043,10 +54355,10 @@
                 "resonanceSkill.2"
               ]
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.2
         },
         "maxDuration": 5000,
         "maxUses": 2
@@ -54064,10 +54376,12 @@
             }
           }
         },
-        "buffMap": {
-          "heavyAttackDmgBonus%": 0.3
-        },
-        "maxDuration": 5000
+        "maxDuration": 5000,
+        "buff": {
+          "buffMap": {
+            "heavyAttackDmgBonus%": 0.3
+          }
+        }
       },
       {
         "stores": "$next",
@@ -54079,10 +54393,12 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgAmp%": 0.23
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "havocDmgAmp%": 0.23
+          }
+        }
       },
       {
         "enableIf": {
@@ -54096,25 +54412,29 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.05
-        },
         "maxDuration": 6000,
-        "maxStacks": 6
+        "maxStacks": 6,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.05
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "buffMap": {
-          "resonanceLiberationDmgBonus%": 0.3
+        "buff": {
+          "buffMap": {
+            "resonanceLiberationDmgBonus%": 0.3
+          }
         }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -54124,18 +54444,20 @@
                 "forteCircuit.3"
               ]
             }
+          },
+          "buffMap": {
+            "critRate%": 0.15
           }
-        },
-        "buffMap": {
-          "critRate%": 0.15
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.3
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.3
+          }
         }
       },
       {
@@ -54154,10 +54476,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       }
     ],
     "skills": {
@@ -54879,7 +55203,7 @@
             "field": "offField"
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -54901,10 +55225,10 @@
                 "resonanceSkill.6"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 1
           }
-        },
-        "buffMap": {
-          "damageMv%": 1
         },
         "maxDuration": 15000,
         "rankMods": {
@@ -54916,13 +55240,17 @@
         }
       },
       {
-        "buffMap": {
-          "havocDmgBonus%": 0.15
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.15
+          }
         }
       },
       {
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.15
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.15
+          }
         }
       },
       {
@@ -54934,17 +55262,17 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "outroSkill"
               }
             }
+          },
+          "buffMap": {
+            "damageMv": 4.5902
           }
-        },
-        "buffMap": {
-          "damageMv": 4.5902
         },
         "maxUses": 1
       },
@@ -54961,39 +55289,41 @@
           },
           "cooldown": 25000
         },
-        "buffMap": {
-          "critDmg%": 0.28
-        },
-        "maxDuration": 18000
+        "maxDuration": 18000,
+        "buff": {
+          "buffMap": {
+            "critDmg%": 0.28
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1.2
           }
-        },
-        "buffMap": {
-          "damageMv%": 1.2
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.5
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.5
         }
       },
       {
@@ -55008,10 +55338,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.58
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.58
+          }
+        }
       },
       {
         "enableIf": {
@@ -55026,41 +55358,43 @@
             }
           }
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.25
-        },
-        "maxDuration": 30000
-      },
-      {
-        "enableIf": {
-          "rank": 5
-        },
-        "use": {
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "basicAttackDmgBonus%": 0.25
           }
-        },
-        "buffMap": {
-          "damageMv%": 3.03
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          },
+          "buffMap": {
+            "damageMv%": 3.03
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 5
+        },
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "outroSkill"
               }
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.68
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.68
         }
       },
       {
@@ -55855,13 +56189,15 @@
             }
           }
         },
-        "buffSpec": {
-          "atk": {
-            "attr": "critRate%",
-            "step": 0.001,
-            "offset": 0.5,
-            "value": 1,
-            "maxValue": 200
+        "buff": {
+          "buffSpec": {
+            "atk": {
+              "attr": "critRate%",
+              "step": 0.001,
+              "offset": 0.5,
+              "value": 1,
+              "maxValue": 200
+            }
           }
         },
         "maxDuration": 30000
@@ -55878,10 +56214,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 12000
+        "maxDuration": 12000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.2
+          }
+        }
       },
       {
         "stores": "$next",
@@ -55918,11 +56256,13 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgAmp%": 0.2,
-          "basicAttackDmgAmp%": 0.25
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "havocDmgAmp%": 0.2,
+            "basicAttackDmgAmp%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
@@ -55940,11 +56280,13 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.1
-        },
         "maxDuration": 30000,
-        "maxStacks": 3
+        "maxStacks": 3,
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
@@ -55958,10 +56300,12 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.1
-        },
-        "maxDuration": 30000
+        "maxDuration": 30000,
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.1
+          }
+        }
       },
       {
         "enableIf": {
@@ -55975,11 +56319,13 @@
             }
           }
         },
-        "buffMap": {
-          "critRate%": 0.1,
-          "critDmg%": 0.3
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.1,
+            "critDmg%": 0.3
+          }
+        }
       },
       {
         "enableIf": {
@@ -55993,7 +56339,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -56002,10 +56348,10 @@
                 "forteCircuit.2"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.6
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.6
         },
         "maxDuration": 12000
       },
@@ -56013,30 +56359,30 @@
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.2
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.2
         }
       },
       {
         "enableIf": {
           "rank": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "heavyAttack"
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.8
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.8
         }
       },
       {
@@ -56051,7 +56397,7 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -56060,10 +56406,10 @@
                 "forteCircuit.2"
               ]
             }
+          },
+          "buffMap": {
+            "defIgnore%": 0.6
           }
-        },
-        "buffMap": {
-          "defIgnore%": 0.6
         },
         "maxDuration": 12000
       },
@@ -56079,15 +56425,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "forteCircuit.2"
             }
+          },
+          "buffMap": {
+            "damageMv%": 1
           }
-        },
-        "buffMap": {
-          "damageMv%": 1
         },
         "maxDuration": 12000
       }
@@ -56647,8 +56993,10 @@
         }
       },
       {
-        "buffMap": {
-          "healingBonus%": 0.2
+        "buff": {
+          "buffMap": {
+            "healingBonus%": 0.2
+          }
         }
       },
       {
@@ -56660,11 +57008,13 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.06
-        },
         "maxDuration": 10000,
-        "maxStacks": 2
+        "maxStacks": 2,
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.06
+          }
+        }
       },
       {
         "stores": "$next",
@@ -56676,17 +57026,19 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgAmp%": 0.2,
-          "resonanceSkillDmgAmp%": 0.25
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "havocDmgAmp%": 0.2,
+            "resonanceSkillDmgAmp%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
           "rank": 1
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -56695,10 +57047,10 @@
                 "forteCircuit.4"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.5
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.5
         }
       },
       {
@@ -56719,45 +57071,47 @@
         "enableIf": {
           "rank": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceSkill.2"
             }
+          },
+          "buffMap": {
+            "damageMv%": 2.45
           }
-        },
-        "buffMap": {
-          "damageMv%": 2.45
         }
       },
       {
         "enableIf": {
           "rank": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "resonanceLiberation.0"
             }
+          },
+          "buffMap": {
+            "damageMv%": 3.7
           }
-        },
-        "buffMap": {
-          "damageMv%": 3.7
         }
       },
       {
         "enableIf": {
           "rank": 4
         },
-        "buffMap": {
-          "healingBonus%": 0.25
+        "buff": {
+          "buffMap": {
+            "healingBonus%": 0.25
+          }
         }
       },
       {
         "enableIf": {
           "rank": 6
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -56766,10 +57120,10 @@
                 "forteCircuit.2"
               ]
             }
+          },
+          "buffMap": {
+            "damageMv%": 0.8
           }
-        },
-        "buffMap": {
-          "damageMv%": 0.8
         }
       },
       {
@@ -56784,10 +57138,12 @@
             }
           }
         },
-        "buffMap": {
-          "defIgnore%": 0.3
-        },
-        "maxDuration": 10000
+        "maxDuration": 10000,
+        "buff": {
+          "buffMap": {
+            "defIgnore%": 0.3
+          }
+        }
       }
     ],
     "skills": {
@@ -57739,10 +58095,12 @@
             }
           }
         },
-        "buffMap": {
-          "critDmg%": 0.025
-        },
-        "maxStacks": 24
+        "maxStacks": 24,
+        "buff": {
+          "buffMap": {
+            "critDmg%": 0.025
+          }
+        }
       },
       {
         "stores": "$next",
@@ -57754,11 +58112,13 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgAmp%": 0.2,
-          "heavyAttackDmgAmp%": 0.25
-        },
-        "maxDuration": 14000
+        "maxDuration": 14000,
+        "buff": {
+          "buffMap": {
+            "havocDmgAmp%": 0.2,
+            "heavyAttackDmgAmp%": 0.25
+          }
+        }
       }
     ],
     "skills": {
@@ -58699,10 +59059,12 @@
           },
           "cooldown": 25000
         },
-        "buffMap": {
-          "critDmg%": 1.6
-        },
-        "maxUses": 1
+        "maxUses": 1,
+        "buff": {
+          "buffMap": {
+            "critDmg%": 1.6
+          }
+        }
       },
       {
         "key": "tonalSwitch",
@@ -58749,8 +59111,10 @@
             }
           }
         },
-        "buffMap": {
-          "havocDmgAmp%": 0.2
+        "buff": {
+          "buffMap": {
+            "havocDmgAmp%": 0.2
+          }
         }
       }
     ],

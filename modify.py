@@ -4,37 +4,24 @@ def get_path(dirname, filename):
     return f"src/data/{dirname}/{filename}"
 
 def modify(data):
-    for id, entry in data.items():
-        presets = entry.pop("presets")
-        skills = entry.pop("skills")
-        effects = entry.pop("effects")
+    for entry in data.values():
+        for effect in entry.get("effects", []):
+            buff_map = effect.pop("buffMap", None)
 
-        ascension_stats = entry.pop("ascensionStats")
-        base_stats = entry.pop("baseStats")
-
-        stats = {**base_stats}
-        for key, value in reversed(ascension_stats.items()):
-            stats[key] = stats.get(key, 0) + value
-
-        data[id] = {
-            **entry,
-            "stats": stats,
-            "effects": effects,
-            "skills": skills,
-            "presets": presets,
-        }
+            if buff_map is not None:
+                effect.setdefault("buff", {})["buffMap"] = buff_map
 
     return True
 
 GAMES_TO_MODIFY = [
     # "genshin-impact",
     # "honkai-star-rail",
-    # "wuthering-waves",
+    "wuthering-waves",
     # "zenless-zone-zero",
 ]
 
 FILES_TO_MODIFY = [
-    "character.json",
+    # "character.json",
     # "weapon.json",
     # "set.json",
     # "echo.json",

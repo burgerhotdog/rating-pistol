@@ -112,10 +112,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.12
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.12
+          }
+        }
       }
     ],
     "action": {
@@ -213,10 +215,12 @@
         "onApplyDoRemove": {
           "heronReady": 1
         },
-        "buffMap": {
-          "dmgBonus%": 0.12
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.12
+          }
+        }
       }
     ],
     "action": {
@@ -258,15 +262,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "echoSkill.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.5
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.5
         },
         "maxDuration": 5000
       }
@@ -356,10 +360,12 @@
             }
           }
         },
-        "buffMap": {
-          "resonanceSkillDmgBonus%": 0.16
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "resonanceSkillDmgBonus%": 0.16
+          }
+        }
       },
       {
         "apply": {
@@ -449,10 +455,12 @@
             }
           }
         },
-        "buffMap": {
-          "energyRegen%": 0.1
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "energyRegen%": 0.1
+          }
+        }
       },
       {
         "stores": "$team",
@@ -464,10 +472,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.1
-        },
-        "maxDuration": 20000
+        "maxDuration": 20000,
+        "buff": {
+          "buffMap": {
+            "atk%": 0.1
+          }
+        }
       }
     ],
     "action": [
@@ -650,8 +660,10 @@
     "cost": 3,
     "effects": [
       {
-        "buffMap": {
-          "glacioDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.12
+          }
         }
       }
     ]
@@ -699,8 +711,10 @@
     "cost": 3,
     "effects": [
       {
-        "buffMap": {
-          "electroDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.12
+          }
         }
       }
     ]
@@ -725,9 +739,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "havocDmgBonus%": 0.12,
-          "basicAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.12,
+            "basicAttackDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -754,9 +770,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "glacioDmgBonus%": 0.12,
-          "resonanceSkillDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.12,
+            "resonanceSkillDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -783,9 +801,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "fusionDmgBonus%": 0.12,
-          "basicAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.12,
+            "basicAttackDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -813,15 +833,15 @@
     "cost": 4,
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "coordinatedAttack"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.4
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.4
         }
       }
     ],
@@ -849,9 +869,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "aeroDmgBonus%": 0.12,
-          "heavyAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.12,
+            "heavyAttackDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -882,9 +904,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "havocDmgBonus%": 0.12,
-          "heavyAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.12,
+            "heavyAttackDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -912,9 +936,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "electroDmgBonus%": 0.12,
-          "resonanceLiberationDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.12,
+            "resonanceLiberationDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -942,9 +968,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "electroDmgBonus%": 0.12,
-          "resonanceSkillDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.12,
+            "resonanceSkillDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -971,21 +999,23 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "havocDmgBonus%": 0.12,
-          "basicAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.12,
+            "basicAttackDmgBonus%": 0.12
+          }
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "echoSkill.0"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.2
         }
       }
     ],
@@ -1012,9 +1042,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "fusionDmgBonus%": 0.12,
-          "resonanceSkillDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.12,
+            "resonanceSkillDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -1041,7 +1073,7 @@
     "cost": 4,
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "and": [
               {
@@ -1057,15 +1089,17 @@
                 }
               }
             ]
+          },
+          "buffMap": {
+            "dmgBonus%": 1
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 1
         }
       },
       {
-        "buffMap": {
-          "spectroDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -1212,9 +1246,11 @@
     "cost": 3,
     "effects": [
       {
-        "buffMap": {
-          "spectroDmgBonus%": 0.12,
-          "heavyAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "spectroDmgBonus%": 0.12,
+            "heavyAttackDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -1246,20 +1282,22 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "glacioDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.12
+          }
         }
       },
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "coordinatedAttack"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.3
         }
       }
     ],
@@ -1383,9 +1421,11 @@
     "cost": 3,
     "effects": [
       {
-        "buffMap": {
-          "aeroDmgBonus%": 0.12,
-          "resonanceLiberationDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.12,
+            "resonanceLiberationDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -1413,9 +1453,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "glacioDmgBonus%": 0.12,
-          "aeroDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.12,
+            "aeroDmgBonus%": 0.12
+          }
         }
       },
       {
@@ -1462,9 +1504,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "fusionDmgBonus%": 0.12,
-          "resonanceLiberationDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.12,
+            "resonanceLiberationDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -1494,9 +1538,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "havocDmgBonus%": 0.12,
-          "echoSkillDmgBonus%": 0.2
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.12,
+            "echoSkillDmgBonus%": 0.2
+          }
         }
       }
     ],
@@ -1525,9 +1571,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "aeroDmgBonus%": 0.12,
-          "heavyAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.12,
+            "heavyAttackDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -1582,9 +1630,11 @@
     "cost": 3,
     "effects": [
       {
-        "buffMap": {
-          "fusionDmgBonus%": 0.12,
-          "echoSkillDmgBonus%": 0.2
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.12,
+            "echoSkillDmgBonus%": 0.2
+          }
         }
       }
     ],
@@ -1611,9 +1661,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "electroDmgBonus%": 0.12,
-          "heavyAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "electroDmgBonus%": 0.12,
+            "heavyAttackDmgBonus%": 0.12
+          }
         }
       },
       {
@@ -1660,9 +1712,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "aeroDmgBonus%": 0.12,
-          "resonanceLiberationDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "aeroDmgBonus%": 0.12,
+            "resonanceLiberationDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -1758,6 +1812,7 @@
           }
         },
         "use": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -1786,9 +1841,11 @@
         "maxUses": 8
       },
       {
-        "buffMap": {
-          "havocDmgBonus%": 0.12,
-          "resonanceLiberationDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.12,
+            "resonanceLiberationDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -2091,10 +2148,12 @@
         "onApplyDoRemove": {
           "hyvatiaSummoned": 1
         },
-        "buffMap": {
-          "dmgBonus%": 0.1
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.1
+          }
+        }
       }
     ],
     "action": {
@@ -2150,8 +2209,10 @@
             ]
           }
         },
-        "buffMap": {
-          "resonanceLiberationDmgBonus%": 0.25
+        "buff": {
+          "buffMap": {
+            "resonanceLiberationDmgBonus%": 0.25
+          }
         }
       }
     ],
@@ -2233,10 +2294,12 @@
             }
           }
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.12
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.12
+          }
+        }
       }
     ],
     "action": {
@@ -2305,9 +2368,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "glacioDmgBonus%": 0.12,
-          "resonanceLiberationDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "glacioDmgBonus%": 0.12,
+            "resonanceLiberationDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -2368,10 +2433,12 @@
             ]
           }
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.12
-        },
-        "maxDuration": 15000
+        "maxDuration": 15000,
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.12
+          }
+        }
       }
     ],
     "action": {
@@ -2405,8 +2472,10 @@
             ]
           }
         },
-        "buffMap": {
-          "critRate%": 0.15
+        "buff": {
+          "buffMap": {
+            "critRate%": 0.15
+          }
         }
       },
       {
@@ -2612,8 +2681,10 @@
     "cost": 3,
     "effects": [
       {
-        "buffMap": {
-          "healingBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "healingBonus%": 0.1
+          }
         }
       }
     ],
@@ -2641,9 +2712,11 @@
     "cost": 4,
     "effects": [
       {
-        "buffMap": {
-          "fusionDmgBonus%": 0.12,
-          "heavyAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "fusionDmgBonus%": 0.12,
+            "heavyAttackDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -2710,9 +2783,11 @@
         "maxUses": 4
       },
       {
-        "buffMap": {
-          "havocDmgBonus%": 0.12,
-          "heavyAttackDmgBonus%": 0.12
+        "buff": {
+          "buffMap": {
+            "havocDmgBonus%": 0.12,
+            "heavyAttackDmgBonus%": 0.12
+          }
         }
       }
     ],
@@ -3116,8 +3191,10 @@
     "effects": [
       {
         "stores": "$team",
-        "buffMap": {
-          "dmgBonus%": 0.1
+        "buff": {
+          "buffMap": {
+            "dmgBonus%": 0.1
+          }
         }
       }
     ],

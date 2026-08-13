@@ -10189,15 +10189,15 @@
       },
       {
         "chance": 0.5,
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "elementalSkill.1"
             }
+          },
+          "buffMap": {
+            "dmgBonus%": 0.25
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.25
         }
       },
       {
@@ -10210,8 +10210,10 @@
             }
           }
         },
-        "buffMap": {
-          "elementalMastery": 125
+        "buff": {
+          "buffMap": {
+            "elementalMastery": 125
+          }
         },
         "maxDuration": 10000
       }
