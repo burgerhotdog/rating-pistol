@@ -66,14 +66,14 @@ export function compileMenuMap(gameId, charId, member) {
       effect.buff?.filter
     ) return false;
 
-    return effect.buff?.buffMap;
+    return effect.buff?.stats;
   });
 
   const toMerge = [];
-  for (const { buff: { buffMap } } of filtered) {
-    if (buffMap) {
+  for (const { buff: { stats } } of filtered) {
+    if (stats) {
       const resolved = {};
-      for (const [stat, value] of Object.entries(buffMap)) {
+      for (const [stat, value] of Object.entries(stats)) {
         resolved[stat] = typeof value === 'number'
           ? value
           : resolveRankedValue(value, weaponRank);

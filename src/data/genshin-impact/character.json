@@ -10195,7 +10195,7 @@
               "ref": "elementalSkill.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.25
           }
         }
@@ -10211,7 +10211,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalMastery": 125
           }
         },

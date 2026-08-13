@@ -11,9 +11,9 @@ export const getBuffMap = (ctx, options = {}) => {
 
   function addToBuffSpecs(effect, buffMult) {
     const { buff = {} } = effect;
-    const { buffSpec = {} } = buff;
+    const { specs = {} } = buff;
 
-    buffSpecs.push({ buffSpec, buffMult });
+    buffSpecs.push({ specs, buffMult });
   };
 
   function getSpecsSourceMap(memberId) {
@@ -29,17 +29,17 @@ export const getBuffMap = (ctx, options = {}) => {
     ) continue;
     const buffMult = (effect.chance ?? 1) * stacks;
 
-    if (effect.buff?.buffMap) {
-      mergeStatMap(buffMap, effect.buff.buffMap, buffMult);
+    if (effect.buff?.stats) {
+      mergeStatMap(buffMap, effect.buff.stats, buffMult);
     }
 
-    if (effect.buff?.buffSpec && !ignoreSpecs) {
+    if (effect.buff?.specs && !ignoreSpecs) {
       if (effect.ownerId === ctx.specId && !resolveNow) {
         addToBuffSpecs(effect, buffMult);
         continue;
       }
 
-      const resolvedStatMap = resolveStatSpecs(effect.buff.buffSpec, getSpecsSourceMap(effect.ownerId));
+      const resolvedStatMap = resolveStatSpecs(effect.buff.specs, getSpecsSourceMap(effect.ownerId));
       mergeStatMap(buffMap, resolvedStatMap, buffMult);
     }
   }

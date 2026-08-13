@@ -29,7 +29,7 @@
               "type": "resonanceSkill"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         },
@@ -54,7 +54,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         },
@@ -72,7 +72,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgAmp%": 0.38
           }
         }
@@ -91,7 +91,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.15
           }
         }
@@ -102,7 +102,7 @@
         },
         "chance": 0.7,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.35
           }
         }
@@ -125,7 +125,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 1.2
           }
         },
@@ -146,7 +146,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "critDmg%": 1
           }
         }
@@ -170,7 +170,7 @@
         "maxDuration": 20000,
         "maxStacks": 2,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.1
           }
         }
@@ -831,7 +831,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.15
           }
         }
@@ -893,7 +893,7 @@
         },
         "maxDuration": 36000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.15
           }
         }
@@ -912,7 +912,7 @@
         },
         "maxDuration": 12000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "glacioDmgBonus%": 0.15,
             "healingBonus%": 0.15
           }
@@ -932,7 +932,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "hp%": 0.12
           }
         }
@@ -947,7 +947,7 @@
               "ref": "resonanceLiberation.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "healingMv%": 0.2,
             "damageMv": 0.012
           }
@@ -968,7 +968,7 @@
         },
         "maxDuration": 35000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "glacioDmgBonus%": 0.12
           }
         }
@@ -1653,7 +1653,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "glacioDmgBonus%": 0.5
           }
         }
@@ -1665,7 +1665,7 @@
               "ref": "introSkill.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.5
           }
         }
@@ -1689,7 +1689,7 @@
               "ref": "forteCircuit.3"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1.5
           }
         },
@@ -1710,7 +1710,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 0.2,
             "resonanceSkillDmgBonus%": 0.1
           }
@@ -1731,7 +1731,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "glacioDmgBonus%": 0.2
           }
         }
@@ -1746,7 +1746,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv": 2
           }
         }
@@ -1769,7 +1769,7 @@
               "type": "basicAttack"
             }
           },
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 1
           }
         },
@@ -2612,7 +2612,7 @@
         },
         "maxDuration": 27000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 0.18
           }
         }
@@ -2632,7 +2632,7 @@
         "maxDuration": 27000,
         "maxStacks": 3,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.06
           }
         }
@@ -2649,7 +2649,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "glacioDmgAmp%": 0.2,
             "resonanceSkillDmgAmp%": 0.25
           }
@@ -2669,7 +2669,7 @@
         },
         "maxDuration": 27000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.1
           }
         }
@@ -2693,7 +2693,7 @@
         "maxDuration": 27000,
         "maxStacks": 3,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.15
           }
         }
@@ -2713,7 +2713,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -2728,7 +2728,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.467
           }
         }
@@ -2746,7 +2746,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1.2
           }
         }
@@ -3250,7 +3250,7 @@
               "ref": "resonanceSkill.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "healingMv%": 0.3
           }
         }
@@ -3266,7 +3266,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "glacioDmgBonus%": 0.15
           }
         }
@@ -3287,7 +3287,7 @@
               "type": "coordinatedAttack"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 1
           }
         },
@@ -3298,7 +3298,7 @@
           "rank": 3
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -3317,7 +3317,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.15
           }
         }
@@ -3342,7 +3342,7 @@
         "maxDuration": 7000,
         "maxStacks": 4,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critDmg%": 0.15
           }
         }
@@ -4281,13 +4281,13 @@
         "maxDuration": 4000,
         "rankMods": {
           "1": {
-            "buffMap": {
+            "stats": {
               "critRate%": 0.125
             }
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "defIgnore%": 0.18
           }
         }
@@ -4317,7 +4317,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.8
           }
         }
@@ -4332,7 +4332,7 @@
               "ref": "resonanceLiberation.2"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1.26
           }
         }
@@ -4349,7 +4349,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv": 10.3218
           }
         }
@@ -4367,7 +4367,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.93
           }
         }
@@ -4391,7 +4391,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceSkillDmgBonus%": 0.25
           }
         }
@@ -4406,7 +4406,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.47
           }
         }
@@ -4421,7 +4421,7 @@
               "ref": "resonanceLiberation.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv": 1.866
           }
         }
@@ -5479,7 +5479,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "glacioDmgAmp%": 0.2
           }
         },
@@ -6985,7 +6985,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "glacioResReduction%": 0.08
           }
         }
@@ -7001,7 +7001,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 0.3
           }
         }
@@ -8082,7 +8082,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "defIgnore%": 0.06,
             "havocResIgnore%": 0.12
           }
@@ -8097,7 +8097,7 @@
             }
           },
           "cooldown": 25000,
-          "buffMap": {
+          "stats": {
             "critRate%": 0.8,
             "glacioDmgBonus%": 2.4
           }
@@ -8111,7 +8111,7 @@
             }
           },
           "cooldown": 25000,
-          "buffMap": {
+          "stats": {
             "critRate%": 0.8,
             "glacioDmgBonus%": 2.4
           }
@@ -8129,7 +8129,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.25
           }
         }
@@ -8158,7 +8158,7 @@
           }
         },
         "buff": {
-          "buffSpec": {
+          "specs": {
             "dmgBonus%": {
               "attr": "energyRegen%",
               "offset": 2,
@@ -9357,7 +9357,7 @@
               "ref": "forteCircuit.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.5
           }
         }
@@ -9375,7 +9375,7 @@
         "maxDuration": 10000,
         "maxStacks": 30,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.01
           }
         }
@@ -9390,7 +9390,7 @@
               "ref": "forteCircuit.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "critRate%": 1
           }
         }
@@ -9406,7 +9406,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.4
           }
         }
@@ -9421,7 +9421,7 @@
               "numbinglySpicy!": 30
             }
           },
-          "buffMap": {
+          "stats": {
             "atk%": 0.3
           }
         }
@@ -9441,7 +9441,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 0.25
           }
         }
@@ -10012,7 +10012,7 @@
               "tagged": "Cosmos"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.1
           }
         }
@@ -10031,7 +10031,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "fusionDmgBonus%": 0.1
           }
         }
@@ -10076,7 +10076,7 @@
         "maxDuration": 6000,
         "maxStacks": 4,
         "buff": {
-          "buffMap": {
+          "stats": {
             "fusionDmgBonus%": 0.03
           }
         }
@@ -10094,7 +10094,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.4
           }
         }
@@ -10114,7 +10114,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "fusionDmgBonus%": 0.2
           }
         }
@@ -10124,7 +10124,7 @@
           "rank": 5
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceSkillDmgBonus%": 0.35
           }
         }
@@ -10144,7 +10144,7 @@
         "maxDuration": 10000,
         "maxStacks": 6,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.05
           }
         }
@@ -11010,7 +11010,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.25
           }
         },
@@ -11032,7 +11032,7 @@
               "ref": "resonanceLiberation.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.015
           }
         },
@@ -11056,7 +11056,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "heavyAttackDmgAmp%": 0.38
           }
         }
@@ -11071,7 +11071,7 @@
               "ref": "resonanceLiberation.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "critDmg%": 0.3
           }
         }
@@ -11109,7 +11109,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -11686,7 +11686,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "atk%": 0.25
           }
         },
@@ -11703,7 +11703,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "fusionDmgBonus%": 0.1
           }
         }
@@ -11718,7 +11718,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "fusionDmgBonus%": 0.2,
             "defIgnore%": 0.15
           }
@@ -11736,7 +11736,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "fusionDmgAmp%": 0.2,
             "resonanceLiberationDmgAmp%": 0.25
           }
@@ -11757,7 +11757,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.1
           }
         }
@@ -11780,7 +11780,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.25
           }
         }
@@ -11795,7 +11795,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.8
           }
         }
@@ -11815,7 +11815,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -11830,7 +11830,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.5,
             "dmgBonus%": 0.5
           }
@@ -11852,7 +11852,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "defIgnore%": 0.4
           }
         }
@@ -12709,7 +12709,7 @@
           }
         },
         "buff": {
-          "buffSpec": {
+          "specs": {
             "atk": {
               "attr": "energyRegen",
               "step": 0.01,
@@ -12723,7 +12723,7 @@
       },
       {
         "buff": {
-          "buffSpec": {
+          "specs": {
             "atk": {
               "attr": "energyRegen",
               "step": 0.01,
@@ -12741,14 +12741,14 @@
               "ref": "forteCircuit.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.2
           }
         }
       },
       {
         "buff": {
-          "buffMap": {
+          "stats": {
             "fusionDmgBonus%": 0.15
           }
         }
@@ -12765,7 +12765,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "fusionDmgAmp%": 0.2,
             "resonanceSkillDmgAmp%": 0.25
           }
@@ -12791,7 +12791,7 @@
         "maxDuration": 5000,
         "maxStacks": 3,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         }
@@ -12813,7 +12813,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "critRate%": 0.3
           }
         }
@@ -12863,7 +12863,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.42
           }
         }
@@ -12878,7 +12878,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "shieldBonus%": 0.2
           }
         }
@@ -12923,7 +12923,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 0.15
           }
         }
@@ -12945,7 +12945,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.3
           }
         }
@@ -14358,7 +14358,7 @@
               "ref": "resonanceSkill.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.5
           }
         }
@@ -14375,7 +14375,7 @@
         },
         "maxDuration": 35000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18,
             "fusionDmgBonus%": 0.2,
             "fusionResIgnore%": 0.15
@@ -14401,7 +14401,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.12
           }
         }
@@ -14436,7 +14436,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "fusionDmgAmp%": 0.2,
             "basicAttackDmgAmp%": 0.25
           }
@@ -14456,7 +14456,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.2
           }
         }
@@ -14482,7 +14482,7 @@
         "maxDuration": 30000,
         "maxStacks": 2,
         "buff": {
-          "buffMap": {
+          "stats": {
             "fusionDmgBonus%": 0.2
           }
         }
@@ -14497,7 +14497,7 @@
               "ref": "introSkill.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1
           }
         }
@@ -14512,7 +14512,7 @@
               "ref": "forteCircuit.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1.25
           }
         }
@@ -14534,7 +14534,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceLiberationDmgBonus%": 0.15
           }
         }
@@ -14553,7 +14553,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "defIgnore%": 0.3
           }
         }
@@ -15954,7 +15954,7 @@
         "maxDuration": 5500,
         "maxStacks": 4,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.05
           }
         }
@@ -17454,7 +17454,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffSpec": {
+          "specs": {
             "critRate%": {
               "attr": "energyRegen%",
               "step": 0.01,
@@ -17484,7 +17484,7 @@
         },
         "maxDuration": 25000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "def%": 0.2
           }
         }
@@ -17504,7 +17504,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "healingMv%": 0.4
           }
         },
@@ -17558,7 +17558,7 @@
         },
         "maxDuration": 25000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "offTuneBuildupRate%": 0.5
           }
         }
@@ -17579,7 +17579,7 @@
               }
             }
           },
-          "buffSpec": {
+          "specs": {
             "dmgBonus%": {
               "attr": "energyRegen%",
               "step": 0.01,
@@ -17606,7 +17606,7 @@
       },
       {
         "buff": {
-          "buffMap": {
+          "stats": {
             "energyRegen%": 0.1
           }
         }
@@ -17623,7 +17623,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.25
           }
         }
@@ -18723,7 +18723,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.2
           }
         }
@@ -20413,7 +20413,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "fusionBurstDmgAmp%": 0.6
           }
         }
@@ -20434,7 +20434,7 @@
         },
         "maxDuration": 16000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.15
           }
         }
@@ -20468,7 +20468,7 @@
               "has": "tuneOutro"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.25
           }
         },
@@ -21739,7 +21739,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceLiberationDmgBonus%": 0.1
           }
         }
@@ -21761,7 +21761,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceSkillDmgBonus%": 0.3
           }
         }
@@ -21776,7 +21776,7 @@
               "tagged": "Deathblade Gear"
             }
           },
-          "buffMap": {
+          "stats": {
             "electroDmgBonus%": 0.25
           }
         }
@@ -21796,7 +21796,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "electroDmgBonus%": 0.2
           }
         }
@@ -21814,7 +21814,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.5
           }
         }
@@ -22947,7 +22947,7 @@
         },
         "maxDuration": 5000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.15
           }
         }
@@ -22959,7 +22959,7 @@
               "ref": "resonanceSkill.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.1
           }
         }
@@ -22975,7 +22975,7 @@
         },
         "maxDuration": 4000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.1
           }
         }
@@ -22992,7 +22992,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "electroDmgAmp%": 0.2,
             "resonanceLiberationDmgAmp%": 0.25
           }
@@ -23011,7 +23011,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.7
           }
         }
@@ -23026,7 +23026,7 @@
               "ref": "forteCircuit.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.55
           }
         }
@@ -23046,7 +23046,7 @@
         },
         "maxDuration": 12000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -23061,7 +23061,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 1
           }
         }
@@ -23694,7 +23694,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.4
           }
         }
@@ -23724,7 +23724,7 @@
               "tagged": "Lightning Infused"
             }
           },
-          "buffMap": {
+          "stats": {
             "attackSpd%": 0.2
           }
         }
@@ -23741,7 +23741,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "damageMv": 0.2
           }
         }
@@ -23783,7 +23783,7 @@
         },
         "maxDuration": 12000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceLiberationDmgBonus%": 0.5
           }
         }
@@ -23803,7 +23803,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "def%": 0.32
           }
         }
@@ -24807,7 +24807,7 @@
     "effects": [
       {
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroDmgBonus%": 0.2
           }
         }
@@ -24819,7 +24819,7 @@
               "ref": "introSkill.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.5
           }
         }
@@ -24852,7 +24852,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         },
@@ -24874,7 +24874,7 @@
         "maxDuration": 20000,
         "maxStacks": 2,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.25
           }
         }
@@ -24897,7 +24897,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         }
@@ -24912,7 +24912,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1.2
           }
         }
@@ -24931,7 +24931,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.45
           }
         }
@@ -26192,7 +26192,7 @@
         "maxDuration": 8000,
         "maxStacks": 4,
         "buff": {
-          "buffMap": {
+          "stats": {
             "electroDmgBonus%": 0.05
           }
         }
@@ -26239,7 +26239,7 @@
               "ref": "forteCircuit.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.48
           }
         }
@@ -26265,7 +26265,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critDmg%": 0.3
           }
         }
@@ -26293,7 +26293,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.63
           }
         },
@@ -26315,7 +26315,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceLiberationDmgBonus%": 0.25
           }
         }
@@ -26332,7 +26332,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 2.22
           }
         }
@@ -26347,7 +26347,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1
           }
         }
@@ -26362,7 +26362,7 @@
               "ref": "forteCircuit.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.76
           }
         }
@@ -27230,7 +27230,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.15
           }
         }
@@ -27253,7 +27253,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "electroDmgBonus%": 0.15
           }
         }
@@ -28286,7 +28286,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.15
           }
         }
@@ -29001,7 +29001,7 @@
         },
         "maxDuration": 12000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critDmg%": 0.3,
             "defIgnore%": 0.15,
             "atk%": 0.1
@@ -29036,7 +29036,7 @@
         "maxDuration": 12000,
         "maxStacks": 2,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.1
           }
         }
@@ -29054,7 +29054,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "tuneBreakBoost": 30
           }
         }
@@ -29071,7 +29071,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -29088,7 +29088,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.15
           }
         }
@@ -29105,7 +29105,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "heavyAttackDmgAmp%": 0.35
           }
         }
@@ -31071,7 +31071,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "aeroDmgBonus%": 0.08
           }
         }
@@ -31090,7 +31090,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "aeroDmgBonus%": 0.15
           }
         }
@@ -31100,7 +31100,7 @@
           "rank": 3
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceSkillDmgBonus%": 0.4
           }
         }
@@ -31115,7 +31115,7 @@
               "ref": "forteCircuit.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.95
           }
         }
@@ -31130,7 +31130,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.85
           }
         }
@@ -31150,7 +31150,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -31780,7 +31780,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "atk%": 0.1
           }
         },
@@ -31793,7 +31793,7 @@
               "type": "heavyAttack"
             }
           },
-          "buffMap": {
+          "stats": {
             "critRate%": 1
           }
         }
@@ -31810,7 +31810,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "aeroDmgAmp%": 0.23
           }
         }
@@ -31829,7 +31829,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.15
           }
         }
@@ -31855,7 +31855,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1
           }
         },
@@ -31874,7 +31874,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.3
           }
         }
@@ -31893,7 +31893,7 @@
         },
         "maxDuration": 6000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "aeroDmgBonus%": 0.25
           }
         }
@@ -31912,7 +31912,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.08
           }
         }
@@ -31935,7 +31935,7 @@
               "type": "heavyAttack"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.5
           }
         },
@@ -32459,7 +32459,7 @@
               "ref": "resonanceSkill.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         }
@@ -32475,7 +32475,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.1
           }
         }
@@ -32491,7 +32491,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critDmg%": 0.12
           }
         }
@@ -32544,7 +32544,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.28
           }
         }
@@ -32568,7 +32568,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.16,
             "critDmg%": 0.32
           }
@@ -32592,7 +32592,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "heavyAttackDmgBonus%": 0.25
           }
         }
@@ -32609,7 +32609,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1.2
           }
         }
@@ -32628,7 +32628,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.45
           }
         }
@@ -32661,7 +32661,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv": 1.2
           }
         },
@@ -33457,14 +33457,14 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         }
       },
       {
         "buff": {
-          "buffMap": {
+          "stats": {
             "shieldBonus%": 0.2
           }
         }
@@ -33481,7 +33481,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceLiberationDmgAmp%": 0.38
           }
         }
@@ -33507,7 +33507,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.8
           }
         },
@@ -34560,7 +34560,7 @@
       {
         "stores": "$team",
         "buff": {
-          "buffMap": {
+          "stats": {
             "aeroDmgBonus%": 0.24
           }
         }
@@ -34588,7 +34588,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.3
           }
         }
@@ -34605,7 +34605,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "aeroErosionDmgAmp%": 1
           }
         }
@@ -34624,7 +34624,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.35
           }
         }
@@ -34644,7 +34644,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "aeroDmgBonus%": 0.4
           }
         }
@@ -34668,7 +34668,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "defIgnore%": 0.45
           }
         }
@@ -34678,7 +34678,7 @@
           "rank": 5
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceLiberationDmgBonus%": 0.4
           }
         }
@@ -35367,7 +35367,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 1
           }
         }
@@ -35375,7 +35375,7 @@
       {
         "stores": "$ally",
         "buff": {
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.2
           }
         }
@@ -35393,7 +35393,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.3
           }
         }
@@ -35411,7 +35411,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.1
           }
         }
@@ -35429,7 +35429,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.1
           }
         }
@@ -35447,7 +35447,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.1
           }
         }
@@ -35470,7 +35470,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "aeroDmgAmp%": 0.175
           }
         },
@@ -35486,7 +35486,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "critDmg%": 1
           }
         }
@@ -35509,7 +35509,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.5
           }
         }
@@ -35529,7 +35529,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 2
           }
         }
@@ -35544,7 +35544,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1
           }
         }
@@ -35555,7 +35555,7 @@
         },
         "stores": "$team",
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         }
@@ -35587,7 +35587,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.4
           }
         }
@@ -37391,7 +37391,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "heavyAttackDmgAmp%": 0.5
           }
         }
@@ -38636,7 +38636,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "echoSkillDmgAmp%": 0.5
           }
         }
@@ -39821,7 +39821,7 @@
           "rank": 6
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.3
           }
         }
@@ -41113,7 +41113,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -41154,7 +41154,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.15
           }
         }
@@ -41196,7 +41196,7 @@
               "ref": "resonanceLiberation.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.12
           }
         }
@@ -41223,7 +41223,7 @@
         },
         "maxDuration": 24000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroDmgBonus%": 0.15
           }
         }
@@ -41234,7 +41234,7 @@
         },
         "chance": 0.5,
         "buff": {
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.2
           }
         }
@@ -41254,7 +41254,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         }
@@ -42362,7 +42362,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "electroDmgBonus%": 0.1
           }
         }
@@ -42381,7 +42381,7 @@
         },
         "maxDuration": 5000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.1
           }
         }
@@ -42398,7 +42398,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceSkillDmgAmp%": 0.38
           }
         }
@@ -42416,7 +42416,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "defIgnore%": 0.2
           }
         }
@@ -42431,7 +42431,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.3
           }
         }
@@ -42441,7 +42441,7 @@
           "rank": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 0.3
           }
         }
@@ -42456,7 +42456,7 @@
               "ref": "forteCircuit.7"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1
           }
         }
@@ -42476,7 +42476,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -43429,7 +43429,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "energyRegen%": 0.1
           }
         }
@@ -43475,7 +43475,7 @@
               "has": "evolved"
             }
           },
-          "buffSpec": {
+          "specs": {
             "critRate%": {
               "attr": "energyRegen%",
               "step": 0.002,
@@ -43493,7 +43493,7 @@
               "evolved": 2
             }
           },
-          "buffSpec": {
+          "specs": {
             "critDmg%": {
               "attr": "energyRegen%",
               "step": 0.001,
@@ -43526,7 +43526,7 @@
               "ref": "introSkill.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "critRate%": 1
           }
         }
@@ -43543,7 +43543,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.15
           }
         }
@@ -43558,7 +43558,7 @@
               "has": "stellarealm"
             }
           },
-          "buffMap": {
+          "stats": {
             "atk%": 0.4
           }
         }
@@ -43573,7 +43573,7 @@
               "ref": "resonanceSkill.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.7
           }
         }
@@ -43588,7 +43588,7 @@
               "ref": "introSkill.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.42,
             "critDmg%": 5
           }
@@ -44331,7 +44331,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 2.55
           }
         }
@@ -44354,7 +44354,7 @@
               }
             ]
           },
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 2.56
           }
         }
@@ -44372,7 +44372,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroDmgBonus%": 0.12
           }
         }
@@ -44418,7 +44418,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 2.55
           }
         }
@@ -44435,7 +44435,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroResReduction%": 0.1
           }
         }
@@ -44454,7 +44454,7 @@
           "filter": {
             "field": "onField"
           },
-          "buffMap": {
+          "stats": {
             "spectroFrazzleDmgAmp%": 1
           }
         },
@@ -44470,7 +44470,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 2.25
           }
         }
@@ -44485,7 +44485,7 @@
               "ref": "resonanceLiberation.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.9
           }
         }
@@ -44539,7 +44539,7 @@
               }
             ]
           },
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 1.2
           }
         }
@@ -44561,7 +44561,7 @@
           "filter": {
             "field": "onField"
           },
-          "buffMap": {
+          "stats": {
             "spectroFrazzleDmgAmp%": 1.2
           }
         },
@@ -44577,7 +44577,7 @@
               "ref": "forteCircuit.2"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.91
           }
         }
@@ -44592,7 +44592,7 @@
               "ref": "forteCircuit.3"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 2.49
           }
         }
@@ -44615,7 +44615,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroResReduction%": 0.1
           }
         }
@@ -44634,7 +44634,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroDmgBonus%": 0.12
           }
         }
@@ -44653,7 +44653,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.1
           }
         }
@@ -45497,7 +45497,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroFrazzleDmgAmp%": 0.2
           }
         }
@@ -45515,7 +45515,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.25
           }
         }
@@ -45542,7 +45542,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroDmgBonus%": 0.12
           }
         }
@@ -45559,7 +45559,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroDmgAmp%": 0.2
           }
         }
@@ -45581,7 +45581,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroDmgBonus%": 0.5
           }
         }
@@ -45591,7 +45591,7 @@
           "rank": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.2
           }
         }
@@ -45609,7 +45609,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.8
           }
         }
@@ -45624,7 +45624,7 @@
               "ref": "resonanceLiberation.1"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 12
           }
         }
@@ -45644,7 +45644,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -45659,7 +45659,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1.2
           }
         }
@@ -45680,7 +45680,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.4
           }
         }
@@ -45695,7 +45695,7 @@
               "ref": "forteCircuit.2"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv": 16
           }
         }
@@ -46772,7 +46772,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "defIgnore%": 0.18
           }
         }
@@ -46791,7 +46791,7 @@
         },
         "maxDuration": 12000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgBonus%": 0.2,
             "healingBonus%": 0.2
           }
@@ -46820,7 +46820,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.3
           }
         }
@@ -46830,7 +46830,7 @@
           "rank": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocResIgnore%": 0.1
           }
         }
@@ -46860,7 +46860,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.5
           }
         }
@@ -48324,7 +48324,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.24
           }
         }
@@ -48341,7 +48341,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "tuneBreakBoost": 40
           }
         }
@@ -48357,7 +48357,7 @@
         },
         "maxDuration": 9000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroDmgBonus%": 0.25
           }
         }
@@ -48374,7 +48374,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.15,
             "resonanceLiberationDmgAmp%": 0.25
           }
@@ -48394,7 +48394,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "mv%": 1.2
           }
         }
@@ -48404,7 +48404,7 @@
           "rank": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.25
           }
         }
@@ -48424,7 +48424,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.25
           }
         }
@@ -48442,7 +48442,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "mv%": 0.9
           }
         }
@@ -48452,7 +48452,7 @@
           "rank": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -48467,7 +48467,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "mv%": 0.7
           }
         }
@@ -49771,7 +49771,7 @@
           "rank": 1
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "mid-airAttackDmgBonus%": 1.5
           }
         }
@@ -50873,7 +50873,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "vuln%": 0.05
           }
         }
@@ -50890,7 +50890,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "defReduction%": 0.05
           }
         }
@@ -50910,14 +50910,14 @@
               "ref": "normalAttack.14"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 2.7
           }
         },
         "maxUses": 1,
         "rankMods": {
           "2": {
-            "buffMap": {
+            "stats": {
               "damageMv%": 2.9
             }
           }
@@ -50934,7 +50934,7 @@
         },
         "maxDuration": 8000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "spectroDmgBonus%": 0.65
           }
         }
@@ -50964,7 +50964,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgAmp%": 0.25
           }
         }
@@ -50981,7 +50981,7 @@
         },
         "maxDuration": 25000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgAmp%": 0.2
           }
         }
@@ -51000,7 +51000,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -51049,7 +51049,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.5,
             "critDmg%": 1
           }
@@ -51068,7 +51068,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.65
           }
         }
@@ -51079,7 +51079,7 @@
         },
         "stores": "$team",
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         }
@@ -51103,7 +51103,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "heavyAttackDmgBonus%": 0.4,
             "hackDmgBonus%": 0.6
           }
@@ -53405,7 +53405,7 @@
           "filter": {
             "field": "onField"
           },
-          "buffMap": {
+          "stats": {
             "def%": 0.15
           }
         },
@@ -53436,7 +53436,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceSkillDmgAmp%": 0.38
           }
         }
@@ -53455,7 +53455,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "shieldBonus%": 0.4
           }
         }
@@ -53470,7 +53470,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "critRate%": 0.2,
             "critDmg%": 0.2
           }
@@ -53515,7 +53515,7 @@
         },
         "maxDuration": 5000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "def%": 0.5
           }
         }
@@ -53534,7 +53534,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.5
           }
         }
@@ -53553,7 +53553,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 0.4,
             "heavyAttackDmgBonus%": 0.4
           }
@@ -54327,13 +54327,13 @@
         "maxDuration": 12000,
         "rankMods": {
           "2": {
-            "buffMap": {
+            "stats": {
               "dmgBonus%": 0.2
             }
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         }
@@ -54356,7 +54356,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.2
           }
         },
@@ -54378,7 +54378,7 @@
         },
         "maxDuration": 5000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "heavyAttackDmgBonus%": 0.3
           }
         }
@@ -54395,7 +54395,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgAmp%": 0.23
           }
         }
@@ -54415,7 +54415,7 @@
         "maxDuration": 6000,
         "maxStacks": 6,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.05
           }
         }
@@ -54425,7 +54425,7 @@
           "rank": 3
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "resonanceLiberationDmgBonus%": 0.3
           }
         }
@@ -54445,7 +54445,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "critRate%": 0.15
           }
         }
@@ -54455,7 +54455,7 @@
           "rank": 5
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgBonus%": 0.3
           }
         }
@@ -54478,7 +54478,7 @@
         },
         "maxDuration": 20000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -55226,14 +55226,14 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1
           }
         },
         "maxDuration": 15000,
         "rankMods": {
           "6": {
-            "buffMap": {
+            "stats": {
               "damageMv%": 2
             }
           }
@@ -55241,14 +55241,14 @@
       },
       {
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgBonus%": 0.15
           }
         }
       },
       {
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 0.15
           }
         }
@@ -55270,7 +55270,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv": 4.5902
           }
         },
@@ -55291,7 +55291,7 @@
         },
         "maxDuration": 18000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critDmg%": 0.28
           }
         }
@@ -55306,7 +55306,7 @@
               "ref": "forteCircuit.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1.2
           }
         }
@@ -55321,7 +55321,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.5
           }
         }
@@ -55340,7 +55340,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.58
           }
         }
@@ -55360,7 +55360,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "basicAttackDmgBonus%": 0.25
           }
         }
@@ -55375,7 +55375,7 @@
               "ref": "introSkill.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 3.03
           }
         }
@@ -55392,7 +55392,7 @@
               }
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.68
           }
         }
@@ -56190,7 +56190,7 @@
           }
         },
         "buff": {
-          "buffSpec": {
+          "specs": {
             "atk": {
               "attr": "critRate%",
               "step": 0.001,
@@ -56216,7 +56216,7 @@
         },
         "maxDuration": 12000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         }
@@ -56258,7 +56258,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgAmp%": 0.2,
             "basicAttackDmgAmp%": 0.25
           }
@@ -56283,7 +56283,7 @@
         "maxDuration": 30000,
         "maxStacks": 3,
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgBonus%": 0.1
           }
         }
@@ -56302,7 +56302,7 @@
         },
         "maxDuration": 30000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgBonus%": 0.1
           }
         }
@@ -56321,7 +56321,7 @@
         },
         "maxDuration": 15000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.1,
             "critDmg%": 0.3
           }
@@ -56349,7 +56349,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.6
           }
         },
@@ -56365,7 +56365,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.2
           }
         }
@@ -56380,7 +56380,7 @@
               "type": "heavyAttack"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.8
           }
         }
@@ -56407,7 +56407,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "defIgnore%": 0.6
           }
         },
@@ -56431,7 +56431,7 @@
               "ref": "forteCircuit.2"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 1
           }
         },
@@ -56994,7 +56994,7 @@
       },
       {
         "buff": {
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.2
           }
         }
@@ -57011,7 +57011,7 @@
         "maxDuration": 10000,
         "maxStacks": 2,
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgBonus%": 0.06
           }
         }
@@ -57028,7 +57028,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgAmp%": 0.2,
             "resonanceSkillDmgAmp%": 0.25
           }
@@ -57048,7 +57048,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.5
           }
         }
@@ -57077,7 +57077,7 @@
               "ref": "resonanceSkill.2"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 2.45
           }
         }
@@ -57092,7 +57092,7 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 3.7
           }
         }
@@ -57102,7 +57102,7 @@
           "rank": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.25
           }
         }
@@ -57121,7 +57121,7 @@
               ]
             }
           },
-          "buffMap": {
+          "stats": {
             "damageMv%": 0.8
           }
         }
@@ -57140,7 +57140,7 @@
         },
         "maxDuration": 10000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "defIgnore%": 0.3
           }
         }
@@ -58097,7 +58097,7 @@
         },
         "maxStacks": 24,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critDmg%": 0.025
           }
         }
@@ -58114,7 +58114,7 @@
         },
         "maxDuration": 14000,
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgAmp%": 0.2,
             "heavyAttackDmgAmp%": 0.25
           }
@@ -59061,7 +59061,7 @@
         },
         "maxUses": 1,
         "buff": {
-          "buffMap": {
+          "stats": {
             "critDmg%": 1.6
           }
         }
@@ -59112,7 +59112,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "havocDmgAmp%": 0.2
           }
         }

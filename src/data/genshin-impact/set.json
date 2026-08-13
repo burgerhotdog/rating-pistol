@@ -13,7 +13,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "cryoDmgBonus%": 0.15
           }
         }
@@ -54,7 +54,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.15
           }
         }
@@ -76,7 +76,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "healingReceived%": 0.2
           }
         },
@@ -98,7 +98,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18
           }
         }
@@ -115,7 +115,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "normalAttackDmgBonus%": 0.35
           }
         }
@@ -136,7 +136,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "anemoDmgBonus%": 0.15
           }
         }
@@ -157,7 +157,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalMastery": 80
           }
         }
@@ -173,7 +173,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "chargedAttackDmgBonus%": 0.35
           }
         }
@@ -194,7 +194,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "electroDmgBonus%": 0.15
           }
         }
@@ -215,7 +215,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "pyroDmgBonus%": 0.15
           }
         }
@@ -236,7 +236,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalBurstDmgBonus%": 0.2
           }
         }
@@ -255,7 +255,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         },
@@ -277,7 +277,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "physicalDmgBonus%": 0.25
           }
         }
@@ -298,7 +298,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "geoDmgBonus%": 0.15
           }
         }
@@ -326,7 +326,7 @@
     "effects": [
       {
         "buff": {
-          "buffMap": {
+          "stats": {
             "hydroDmgBonus%": 0.15
           }
         }
@@ -344,7 +344,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "normalAttackDmgBonus%": 0.3,
             "chargedAttackDmgBonus%": 0.3
           }
@@ -367,7 +367,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "hp%": 0.2
           }
         }
@@ -389,7 +389,7 @@
           "cooldown": 500
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.2
           }
         },
@@ -411,7 +411,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "physicalDmgBonus%": 0.25
           }
         }
@@ -432,7 +432,7 @@
           "cooldown": 300
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.9,
             "physicalDmgBonus%": 0.125
           }
@@ -456,7 +456,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18
           }
         }
@@ -475,7 +475,7 @@
           "cooldown": 10000
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "normalAttackDmgBonus%": 0.5,
             "chargedAttackDmgBonus%": 0.5,
             "plungeAttackDmgBonus%": 0.5
@@ -499,14 +499,14 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "energyRecharge%": 0.2
           }
         }
       },
       {
         "buff": {
-          "buffSpec": {
+          "specs": {
             "elementalBurstDmgBonus%": {
               "attr": "ER",
               "step": 0.01,
@@ -532,7 +532,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "def%": 0.3
           }
         }
@@ -542,7 +542,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "def%": 0.24,
             "geoDmgBonus%": 0.24
           }
@@ -564,7 +564,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.15
           }
         }
@@ -612,7 +612,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18
           }
         }
@@ -636,7 +636,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.48
           }
         },
@@ -658,7 +658,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18
           }
         }
@@ -679,7 +679,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "dendroDmgBonus%": 0.15
           }
         }
@@ -702,7 +702,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "dendroResReduction%": 0.3
           }
         },
@@ -724,7 +724,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalMastery": 80
           }
         }
@@ -734,7 +734,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalMastery": 150
           }
         }
@@ -755,7 +755,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "anemoDmgBonus%": 0.15
           }
         }
@@ -775,7 +775,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "attackSpd%": 0.1,
             "normalAttackDmgBonus%": 0.4,
             "chargedAttackDmgBonus%": 0.4,
@@ -800,7 +800,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalMastery": 80
           }
         }
@@ -821,7 +821,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "hydroDmgBonus%": 0.15
           }
         }
@@ -847,7 +847,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.0833,
             "hydroDmgBonus%": 0.05
           }
@@ -870,7 +870,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "hp%": 0.2
           }
         }
@@ -880,7 +880,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalSkillDmgBonus%": 0.1,
             "elementalBurstDmgBonus%": 0.1
           }
@@ -891,7 +891,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalSkillDmgBonus%": 0.4,
             "elementalBurstDmgBonus%": 0.4
           }
@@ -913,7 +913,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "normalAttackDmgBonus%": 0.15,
             "chargedAttackDmgBonus%": 0.15
           }
@@ -924,7 +924,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.36
           }
         }
@@ -945,7 +945,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalSkillDmgBonus%": 0.2
           }
         }
@@ -955,7 +955,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalSkillDmgBonus%": 0.25
           }
         }
@@ -968,7 +968,7 @@
           "filter": {
             "field": "offField"
           },
-          "buffMap": {
+          "stats": {
             "elementalSkillDmgBonus%": 0.25
           }
         }
@@ -989,7 +989,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "healingBonus%": 0.15
           }
         }
@@ -1010,7 +1010,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18
           }
         }
@@ -1020,7 +1020,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "geoDmgBonus%": 0.5
           }
         }
@@ -1041,7 +1041,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18
           }
         }
@@ -1051,7 +1051,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.54
           }
         }
@@ -1072,7 +1072,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18
           }
         }
@@ -1082,7 +1082,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.5
           }
         }
@@ -1116,7 +1116,7 @@
           "filter": {
             "field": "onField"
           },
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.15
           }
         }
@@ -1126,7 +1126,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.4
           }
         }
@@ -1147,7 +1147,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "plungeAttackDmgBonus%": 0.25
           }
         }
@@ -1157,7 +1157,7 @@
           "bonus": 4
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "plungeAttackDmgBonus%": 0.75
           }
         }
@@ -1178,7 +1178,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "cryoDmgBonus%": 0.15
           }
         }
@@ -1191,7 +1191,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "normalAttackDmgBonus%": 0.6,
             "elementalBurstDmgBonus%": 0.6
           }
@@ -1213,7 +1213,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalMastery": 80
           }
         }
@@ -1226,7 +1226,7 @@
           "filter": {
             "field": "onField"
           },
-          "buffMap": {
+          "stats": {
             "critRate%": 0.3
           }
         }
@@ -1247,7 +1247,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "energyRecharge%": 0.2
           }
         }
@@ -1266,7 +1266,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalMastery": 120
           }
         },
@@ -1288,7 +1288,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "elementalMastery": 80
           }
         }
@@ -1309,7 +1309,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18
           }
         }
@@ -1334,7 +1334,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.25
           }
         },
@@ -1363,7 +1363,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": 0.2
           }
         },
@@ -1385,7 +1385,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "energyRecharge%": 0.2
           }
         }
@@ -1407,7 +1407,7 @@
           }
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "dmgBonus%": 0.4
           }
         },
@@ -1429,7 +1429,7 @@
           "bonus": 2
         },
         "buff": {
-          "buffMap": {
+          "stats": {
             "atk%": 0.18
           }
         }

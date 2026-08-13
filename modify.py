@@ -6,10 +6,10 @@ def get_path(dirname, filename):
 def modify(data):
     for entry in data.values():
         for effect in entry.get("effects", []):
-            buff_map = effect.pop("buffMap", None)
+            buff_map = effect.pop("stats", None)
 
             if buff_map is not None:
-                effect.setdefault("buff", {})["buffMap"] = buff_map
+                effect.setdefault("buff", {})["stats"] = buff_map
 
     return True
 

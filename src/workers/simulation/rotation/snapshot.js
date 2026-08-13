@@ -7,8 +7,8 @@ const snapshotParts = ['damage', 'healing', 'shield'];
 
 const toResolvedSpecs = (buffSpecs, sourceMap) => {
   const buffMap = {};
-  for (const { buffSpec, buffMult } of buffSpecs) {
-    const resolvedStatMap = resolveStatSpecs(buffSpec, sourceMap);
+  for (const { specs, buffMult } of buffSpecs) {
+    const resolvedStatMap = resolveStatSpecs(specs, sourceMap);
     mergeStatMap(buffMap, resolvedStatMap, buffMult);
   }
   return buffMap;

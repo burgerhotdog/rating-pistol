@@ -46,7 +46,7 @@
     "effects": [
       {
         "buff": {
-          "buffMap": {
+          "stats": {
             "critRate%": [
               0.14,
               0.28
@@ -279,7 +279,7 @@
             }
           },
           "cooldown": 1500,
-          "buffSpec": {
+          "specs": {
             "flat": {
               "attr": "def",
               "step": 1,
