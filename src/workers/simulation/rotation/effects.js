@@ -19,10 +19,10 @@ export function runUseEffect(ctx, state, spec = {}) {
   const { store, effect } = state;
   const runOptions = { runtimeOffset, noDuration: true };
 
-  if (effect.useAction) {
+  if (effect.use?.action) {
     state.isRunning = true;
     for (let i = 0; i < (effect.times ?? 1); i++) {
-      for (const action of effect.useAction) {
+      for (const action of effect.use.action) {
         ctx.runAction(ctx, action, runOptions);
       }
     }
@@ -55,10 +55,10 @@ export function runApplyEffect(ctx, effect, spec = {}) {
       store,
       effect,
       stacks: Math.min(nextStacks, maxStacks),
-      ...(effect.maxDuration &&
+      ...(effect.apply?.duration &&
         { timeLeft: isDurationExt
           ? prevState.timeLeft + spec.duration
-          : effect.maxDuration }),
+          : effect.apply.duration }),
       ...(effect.maxUses &&
         { usesLeft: isUsesExt
           ? prevState.usesLeft + spec.uses
@@ -89,7 +89,7 @@ export function runApplyEffect(ctx, effect, spec = {}) {
     }
   }
 
-  for (const target of effect.scope) {
+  for (const target of effect.stores) {
     if (target === '$applier') updateState(memberEffects[spec.applier]);
     else if (target === 'global') updateState(globalEffects);
     else if (target in memberEffects) updateState(memberEffects[target]);

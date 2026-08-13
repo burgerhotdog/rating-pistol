@@ -82,7 +82,7 @@ weapons:
         21010046 Thunderflare Dominion
             activates when creating shield
         21020026 Red Spring
-            concerto energy consumed is changed to action: "1603:forteCircuit.1"
+            concerto energy consumed action is hardcoded
         21020034 Sword#18
             user hp below 40%
         21020064 Lunar Cutter
@@ -103,8 +103,6 @@ weapons:
             assume resonator never takes damage
         21050034 Rectifier#25
             user hp above 60%
-        21050036 Stellar Symphony
-            casting resonance skill doesnt check heal
         21050056 Whispers of Sirens
             some limitations removed
 

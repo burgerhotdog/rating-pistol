@@ -12,8 +12,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critRate%": 0.08
+        "buff": {
+          "stats": {
+            "critRate%": 0.08
+          }
         }
       },
       {
@@ -28,12 +30,14 @@
                 "type": "basicAttack"
               }
             }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "combatAtk%": 0.09
           }
-        },
-        "buffMap": {
-          "combatAtk%": 0.09
-        },
-        "maxDuration": 6000
+        }
       },
       {
         "enableIf": {
@@ -47,12 +51,14 @@
                 "type": "dodgeCounter"
               }
             }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "combatAtk%": 0.09
           }
-        },
-        "buffMap": {
-          "combatAtk%": 0.09
-        },
-        "maxDuration": 6000
+        }
       },
       {
         "enableIf": {
@@ -66,12 +72,14 @@
                 "type": "exSpecialAttack"
               }
             }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "combatAtk%": 0.09
           }
-        },
-        "buffMap": {
-          "combatAtk%": 0.09
-        },
-        "maxDuration": 6000
+        }
       }
     ]
   },
@@ -88,16 +96,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "penRatio%": 0.08
+        "buff": {
+          "stats": {
+            "penRatio%": 0.08
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "ultimateDmgBonus%": 0.2
+        "buff": {
+          "stats": {
+            "ultimateDmgBonus%": 0.2
+          }
         }
       },
       {
@@ -110,12 +122,14 @@
             "action": {
               "type": "ultimate"
             }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "combatAtk%": 0.15
           }
-        },
-        "buffMap": {
-          "combatAtk%": 0.15
-        },
-        "maxDuration": 12000
+        }
       }
     ]
   },
@@ -132,15 +146,17 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "impact%": 0.06
+        "buff": {
+          "stats": {
+            "impact%": 0.06
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
@@ -151,10 +167,10 @@
                 ]
               }
             }
+          },
+          "stats": {
+            "daze%": 0.2
           }
-        },
-        "buffMap": {
-          "daze%": 0.2
         }
       }
     ]
@@ -172,8 +188,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "anomalyProficiency": 30
+        "buff": {
+          "stats": {
+            "anomalyProficiency": 30
+          }
         }
       }
     ]
@@ -191,8 +209,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.1
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
         }
       },
       {
@@ -204,12 +224,14 @@
           "filter": {
             "field": "onField"
           },
-          "cooldown": 20000
+          "cooldown": 20000,
+          "duration": 10000
         },
-        "buffMap": {
-          "combatAtk%": 0.25
-        },
-        "maxDuration": 10000
+        "buff": {
+          "stats": {
+            "combatAtk%": 0.25
+          }
+        }
       }
     ]
   },
@@ -226,8 +248,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "def%": 0.16
+        "buff": {
+          "stats": {
+            "def%": 0.16
+          }
         }
       }
     ]
@@ -245,15 +269,17 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.2
+        "buff": {
+          "stats": {
+            "energyRegen%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -263,12 +289,14 @@
                 "ultimate"
               ]
             }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.15
-        },
-        "maxDuration": 12000
+        }
       }
     ]
   },
@@ -285,31 +313,35 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "anomalyProficiency": 30
+        "buff": {
+          "stats": {
+            "anomalyProficiency": 30
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "fireDmgBonus%": 0.15,
-          "electricDmgBonus%": 0.15
+        "buff": {
+          "stats": {
+            "fireDmgBonus%": 0.15,
+            "electricDmgBonus%": 0.15
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "field": "offField"
+          },
+          "stats": {
+            "exSpecialAttackDmgBonus%": 0.2,
+            "assistAttackDmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "exSpecialAttackDmgBonus%": 0.2,
-          "assistAttackDmgBonus%": 0.2
         }
       },
       {
@@ -321,18 +353,18 @@
           "filter": {
             "field": "onField"
           },
-          "cooldown": 7500
+          "cooldown": 7500,
+          "duration": 5000
         },
-        "use": {
+        "buff": {
           "filter": {
             "field": "onField"
+          },
+          "stats": {
+            "exSpecialAttackDmgBonus%": 0.2,
+            "assistAttackDmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "exSpecialAttackDmgBonus%": 0.2,
-          "assistAttackDmgBonus%": 0.2
-        },
-        "maxDuration": 5000
+        }
       }
     ]
   },
@@ -349,15 +381,17 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "shieldBonus%": 0.15
+        "buff": {
+          "stats": {
+            "shieldBonus%": 0.15
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -367,12 +401,14 @@
                 "evasiveAssist"
               ]
             }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.15
-        },
-        "maxDuration": 10000
+        }
       }
     ]
   },
@@ -389,8 +425,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fireDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "fireDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -403,12 +441,14 @@
             "action": {
               "has": "damage"
             }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.28
           }
-        },
-        "buffMap": {
-          "critRate%": 0.28
-        },
-        "maxDuration": 8000
+        }
       }
     ]
   },
@@ -425,24 +465,30 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "etherDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "etherDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critDmg%": 0.2
+        "buff": {
+          "stats": {
+            "critDmg%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critDmg%": 0.33
+        "buff": {
+          "stats": {
+            "critDmg%": 0.33
+          }
         }
       }
     ]
@@ -460,16 +506,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "electricDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "electricDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "combatAtk%": 0.28
+        "buff": {
+          "stats": {
+            "combatAtk%": 0.28
+          }
         }
       }
     ]
@@ -487,26 +537,32 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "iceDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "iceDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.2,
-          "dashAttackDmgBonus%": 0.2
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": 0.2,
+            "dashAttackDmgBonus%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.2,
-          "dashAttackDmgBonus%": 0.2
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": 0.2,
+            "dashAttackDmgBonus%": 0.2
+          }
         }
       }
     ]
@@ -524,16 +580,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "physicalDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "physicalDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "dmgBonus%": 0.35
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.35
+          }
         }
       }
     ]
@@ -551,33 +611,37 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.16
+        "buff": {
+          "stats": {
+            "critDmg%": 0.16
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "anomalyMastery": {
                 ">=": 115
               }
             }
+          },
+          "stats": {
+            "critDmg%": 0.3
           }
-        },
-        "buffMap": {
-          "critDmg%": 0.3
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critRate%": 0.12
+        "buff": {
+          "stats": {
+            "critRate%": 0.12
+          }
         }
       }
     ]
@@ -595,17 +659,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.1
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
-        "buffMap": {
-          "dmgBonus%": 0.24
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.24
+          }
         }
       }
     ]
@@ -623,9 +691,11 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aftershockDmgBonus%": 0.15,
-          "dashAttackDmgBonus%": 0.15
+        "buff": {
+          "stats": {
+            "aftershockDmgBonus%": 0.15,
+            "dashAttackDmgBonus%": 0.15
+          }
         }
       },
       {
@@ -643,14 +713,16 @@
                 ]
               }
             }
+          },
+          "duration": 15000
+        },
+        "maxStacks": 3,
+        "buff": {
+          "stats": {
+            "combatAtk%": 0.04,
+            "critRate%": 0.04
           }
-        },
-        "buffMap": {
-          "combatAtk%": 0.04,
-          "critRate%": 0.04
-        },
-        "maxDuration": 15000,
-        "maxStacks": 3
+        }
       }
     ]
   },
@@ -667,17 +739,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "anomalyMastery%": 0.08
+        "buff": {
+          "stats": {
+            "anomalyMastery%": 0.08
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "anomalyProficiency": 45,
-          "etherDmgBonus%": 0.25
+        "buff": {
+          "stats": {
+            "anomalyProficiency": 45,
+            "etherDmgBonus%": 0.25
+          }
         }
       }
     ]
@@ -695,8 +771,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "hp%": 0.1
+        "buff": {
+          "stats": {
+            "hp%": 0.1
+          }
         }
       },
       {
@@ -713,20 +791,24 @@
                 "ultimate"
               ]
             }
+          },
+          "duration": 15000
+        },
+        "maxStacks": 3,
+        "buff": {
+          "stats": {
+            "critRate%": 0.04
           }
-        },
-        "buffMap": {
-          "critRate%": 0.04
-        },
-        "maxDuration": 15000,
-        "maxStacks": 3
+        }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "sheerDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "sheerDmgBonus%": 0.1
+          }
         }
       }
     ]
@@ -744,8 +826,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "daze%": 0.06
+        "buff": {
+          "stats": {
+            "daze%": 0.06
+          }
         }
       },
       {
@@ -755,7 +839,7 @@
             "type": "stun"
           }
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -765,12 +849,14 @@
                 "chainAttack"
               ]
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": 0.15
           }
-        },
-        "buffMap": {
-          "critDmg%": 0.15
-        },
-        "maxDuration": 15000
+        }
       },
       {
         "enableIf": {
@@ -779,7 +865,7 @@
             "type": "stun"
           }
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -789,21 +875,21 @@
                 "chainAttack"
               ]
             }
-          }
+          },
+          "duration": 15000
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "critRate%": {
                 ">=": 0.5
               }
             }
+          },
+          "stats": {
+            "critDmg%": 0.15
           }
-        },
-        "buffMap": {
-          "critDmg%": 0.15
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -820,16 +906,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.15
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": 0.15
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.2
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": 0.2
+          }
         }
       },
       {
@@ -848,12 +938,14 @@
                 "ultimate"
               ]
             }
+          },
+          "duration": 25000
+        },
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.2
-        },
-        "maxDuration": 25000
+        }
       }
     ]
   },
@@ -870,8 +962,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.2
+        "buff": {
+          "stats": {
+            "energyRegen%": 0.2
+          }
         }
       },
       {
@@ -881,7 +975,7 @@
             "type": "support"
           }
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -891,12 +985,14 @@
                 "ultimate"
               ]
             }
+          },
+          "duration": 25000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.18
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.18
-        },
-        "maxDuration": 25000
+        }
       }
     ]
   },
@@ -913,17 +1009,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "physicalDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "physicalDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critRate%": 0.2,
-          "combatAtk%": 0.1
+        "buff": {
+          "stats": {
+            "critRate%": 0.2,
+            "combatAtk%": 0.1
+          }
         }
       }
     ]
@@ -941,8 +1041,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "etherDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "etherDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -957,19 +1059,23 @@
                 "type": "basicAttack"
               }
             }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "anomalyProficiency": 36
           }
-        },
-        "buffMap": {
-          "anomalyProficiency": 36
-        },
-        "maxDuration": 8000
+        }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "dmgBonus%": 0.25
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.25
+          }
         }
       }
     ]
@@ -987,28 +1093,32 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "hp%": 0.1
+        "buff": {
+          "stats": {
+            "hp%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
               "type": "exSpecialAttack"
             }
+          },
+          "duration": 25000
+        },
+        "maxStacks": 3,
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.06
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.06
-        },
-        "maxDuration": 25000,
-        "maxStacks": 3
+        }
       }
     ]
   },
@@ -1025,8 +1135,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "iceDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "iceDmgBonus%": 0.1
+          }
         }
       }
     ]
@@ -1044,8 +1156,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "windDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "windDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1058,20 +1172,24 @@
             "action": {
               "type": "exSpecialAttack"
             }
+          },
+          "duration": 40000
+        },
+        "maxStacks": 2,
+        "buff": {
+          "stats": {
+            "anomalyProficiency": 25
           }
-        },
-        "buffMap": {
-          "anomalyProficiency": 25
-        },
-        "maxDuration": 40000,
-        "maxStacks": 2
+        }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "dmgBonus%": 0.18
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.18
+          }
         }
       }
     ]
@@ -1089,8 +1207,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "etherDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "etherDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1100,8 +1220,10 @@
             "element": "ether"
           }
         },
-        "buffMap": {
-          "critDmg%": 0.3
+        "buff": {
+          "stats": {
+            "critDmg%": 0.3
+          }
         }
       },
       {
@@ -1117,12 +1239,14 @@
                 "ultimate"
               ]
             }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "combatAtk%": 0.1
           }
-        },
-        "buffMap": {
-          "combatAtk%": 0.1
-        },
-        "maxDuration": 30000
+        }
       }
     ]
   },

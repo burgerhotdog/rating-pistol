@@ -1,5 +1,5 @@
 import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
-import { toArray, toMergedObj } from '@/utils';
+import { toArray } from '@/utils';
 import { createIsEnabled } from './isEnabled';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
@@ -15,29 +15,54 @@ function toResolvedScope(ownerId, memberIds, rawScope) {
   }
 }
 
+function mergeValues(a, b) {
+  if (typeof a === 'number' && typeof b === 'number') {
+    return a + b;
+  }
+
+  if (typeof a === 'string' && typeof b === 'string') {
+    return [a, b];
+  }
+
+  if (Array.isArray(a) || Array.isArray(b)) {
+    return [
+      ...toArray(a),
+      ...toArray(b),
+    ];
+  }
+
+  if (
+    a &&
+    typeof a === 'object' &&
+    b &&
+    typeof b === 'object'
+  ) {
+    const merged = { ...a };
+
+    for (const [key, value] of Object.entries(b)) {
+      merged[key] =
+        key in merged
+          ? mergeValues(merged[key], value)
+          : value;
+    }
+
+    return merged;
+  }
+
+  return b;
+}
+
 function resolveRankMods(effect, memberRank) {
   const { rankMods } = effect;
 
-  for (const [rank, modSpec] of Object.entries(rankMods)) {
-    if (Number(rank) > memberRank) continue;
+  for (const { rank, ...modSpec } of rankMods) {
+    if (rank > memberRank) continue;
 
     for (const [field, add] of Object.entries(modSpec)) {
-      if (!(field in effect)) { // no previous existing field
-        effect[field] = add;
-        continue;
-      }
-
-      const prev = effect[field];
-      if (typeof prev === 'object' && !Array.isArray(prev)) { // merge objects
-        effect[field] = toMergedObj(prev, add);
-      } else if (typeof add === 'number') { // combine numbers
-        effect[field] += add;
-      } else { // merge string arrays
-        effect[field] = [
-          ...toArray(effect[field]),
-          ...toArray(add),
-        ];
-      }
+      effect[field] =
+        field in effect
+          ? mergeValues(effect[field], add)
+          : add;
     }
   }
 }
@@ -61,7 +86,7 @@ export const toNormalizedEffect = (rawEffect, spec) => {
     index: effectIndex,
   };
 
-  effect.scope = toResolvedScope(effect.ownerId, memberIds, effect.scope);
+  effect.stores = toResolvedScope(effect.ownerId, memberIds, effect.stores);
 
   if (effect.apply) {
     const resolved = { ...effect.apply };
@@ -70,21 +95,23 @@ export const toNormalizedEffect = (rawEffect, spec) => {
   }
 
   // Resolve ranked buffMaps
-  if (effect.buffMap) {
-    effect.buffMap = { ...effect.buffMap };
+  if (effect.buff?.stats) {
+    effect.buff = { ...effect.buff };
+    effect.buff.stats = { ...effect.buff.stats };
 
-    for (const [statId, value] of Object.entries(effect.buffMap)) {
-      effect.buffMap[statId] = resolveStatValue(value);
+    for (const [statId, value] of Object.entries(effect.buff.stats)) {
+      effect.buff.stats[statId] = resolveStatValue(value);
     }
   }
 
   // Resolve ranked buffSpec
-  if (effect.buffSpec) {
-    effect.buffSpec = { ...effect.buffSpec };
+  if (effect.buff?.specs) {
+    effect.buff = { ...effect.buff };
+    effect.buff.specs = { ...effect.buff.specs };
 
-    for (const [statId, spec] of Object.entries(effect.buffSpec)) {
+    for (const [statId, spec] of Object.entries(effect.buff.specs)) {
       const resolvedSpec = { ...spec };
-      effect.buffSpec[statId] = resolvedSpec;
+      effect.buff.specs[statId] = resolvedSpec;
 
       for (const [field, value] of Object.entries(resolvedSpec)) {
         if (typeof value === 'string') continue;
@@ -93,15 +120,16 @@ export const toNormalizedEffect = (rawEffect, spec) => {
     }
   }
 
-  if ('useAction' in effect) {
-    const effectActions = toArray(effect.useAction);
+  if (effect.use?.action) {
+    effect.use = { ...effect.use };
+    const effectActions = toArray(effect.use.action);
 
-    effect.useAction = [];
+    effect.use.action = [];
     for (const [index, rawlinkedAction] of effectActions.entries()) {
       if (typeof rawlinkedAction === 'string') { // ref
-        effect.useAction.push(memberActions[rawlinkedAction]);
+        effect.use.action.push(memberActions[rawlinkedAction]);
       } else { // inline action object
-        effect.useAction.push(toNormalizedAction(rawlinkedAction, {
+        effect.use.action.push(toNormalizedAction(rawlinkedAction, {
           gameId,
           ownerId,
           category: `${sourceId}:effect${effectIndex}`,
@@ -277,6 +305,10 @@ export const normalizeEffects = (gameId, member, spec) => {
 
     if (effect.use?.filter) {
       traverseFilter(effect.use.filter, sourceId);
+    }
+
+    if (effect.buff?.filter) {
+      traverseFilter(effect.buff.filter, sourceId);
     }
   }
 

@@ -65,13 +65,13 @@ function recordTuneBreak(ctx) {
   const { shifting } = ctx.states.tune;
   if (shifting !== 'tuneRupture' && shifting !== 'hack') return;
   for (const state of getEffectStates(ctx, { member: 'all', type: 'action' })) {
-    const { effect: { use = {} , useAction } } = state;
+    const { effect: { use = {} } } = state;
     if (
       use.when !== 'tuneResponse' ||
       use.filter?.states?.tune?.interfered !== shifting
     ) continue;
 
-    ctx.snapshots.push(buildSnapshot(useAction[0]));
+    ctx.snapshots.push(buildSnapshot(use.action[0]));
     state.useCooldown = 8000;
   }
 }
@@ -131,13 +131,13 @@ export function applyOffTuneBuildup(ctx, action) {
 }
 
 export function inflictTuneShifting(ctx, action) {
-  if (!action.inflictShifting) return;
+  if (!action.inflict?.shifting) return;
   const { tune } = ctx.states;
 
-  tune.shifting = action.inflictShifting;
+  tune.shifting = action.inflict.shifting;
   tune.shiftingTimeLeft = 25000;
 
-  if (action.inflictShifting === 'tuneStrain') {
+  if (action.inflict.shifting === 'tuneStrain') {
     tune.strainAppliers ??= new Set();
     tune.strainAppliers.add(action.ownerId);
   }

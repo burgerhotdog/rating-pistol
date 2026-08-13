@@ -45,11 +45,13 @@
     },
     "effects": [
       {
-        "buffMap": {
-          "critRate%": [
-            0.14,
-            0.28
-          ]
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.14,
+              0.28
+            ]
+          }
         }
       }
     ]
@@ -270,21 +272,19 @@
     },
     "effects": [
       {
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "elementalSkill"
             }
-          }
-        },
-        "buff": {
-          "cooldown": 1500
-        },
-        "buffSpec": {
-          "flat": {
-            "attr": "def",
-            "step": 1,
-            "value": 0.4
+          },
+          "cooldown": 1500,
+          "specs": {
+            "flat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.4
+            }
           }
         }
       }

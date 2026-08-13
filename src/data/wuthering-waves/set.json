@@ -12,8 +12,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "glacioDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -29,13 +31,15 @@
                 "heavyAttack"
               ]
             }
+          },
+          "duration": 15000
+        },
+        "maxStacks": 3,
+        "buff": {
+          "stats": {
+            "glacioDmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "glacioDmgBonus%": 0.1
-        },
-        "maxDuration": 15000,
-        "maxStacks": 3
+        }
       }
     ]
   },
@@ -52,8 +56,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -66,12 +72,14 @@
             "action": {
               "type": "resonanceSkill"
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.3
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -88,8 +96,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "electroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -102,12 +112,14 @@
             "action": {
               "type": "heavyAttack"
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "electroDmgBonus%": 0.15
-        },
-        "maxDuration": 15000
+        }
       },
       {
         "enableIf": {
@@ -119,12 +131,14 @@
             "action": {
               "type": "resonanceSkill"
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "electroDmgBonus%": 0.15
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -141,8 +155,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -155,12 +171,14 @@
             "action": {
               "type": "introSkill"
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "aeroDmgBonus%": 0.3
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -177,8 +195,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -191,12 +211,14 @@
             "action": {
               "type": "introSkill"
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "spectroDmgBonus%": 0.3
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -213,8 +235,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "havocDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -230,13 +254,15 @@
                 "heavyAttack"
               ]
             }
+          },
+          "duration": 15000
+        },
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "havocDmgBonus%": 0.075
           }
-        },
-        "buffMap": {
-          "havocDmgBonus%": 0.075
-        },
-        "maxDuration": 15000,
-        "maxStacks": 4
+        }
       }
     ]
   },
@@ -253,27 +279,31 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "healingBonus%": 0.1
+        "buff": {
+          "stats": {
+            "healingBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
             "action": {
               "has": "healing"
             }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.15
           }
-        },
-        "buffMap": {
-          "atk%": 0.15
-        },
-        "maxDuration": 30000
+        }
       }
     ]
   },
@@ -290,27 +320,31 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.1
+        "buff": {
+          "stats": {
+            "energyRegen%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.225
           }
-        },
-        "buffMap": {
-          "atk%": 0.225
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -327,8 +361,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.1
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
         }
       },
       {
@@ -348,26 +384,28 @@
             "field": "offField"
           }
         },
-        "buffMap": {
-          "atk%": 0.05
-        },
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "atk%": 0.05
+          }
+        }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "outroSkill"
               }
             }
+          },
+          "stats": {
+            "dmgBonus%": 0.6
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.6
         }
       }
     ]
@@ -385,8 +423,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "resonanceSkillDmgBonus%": 0.12
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": 0.12
+          }
         }
       },
       {
@@ -399,13 +439,15 @@
             "action": {
               "type": "resonanceSkill"
             }
+          },
+          "duration": 15000
+        },
+        "maxStacks": 2,
+        "buff": {
+          "stats": {
+            "glacioDmgBonus%": 0.225
           }
-        },
-        "buffMap": {
-          "glacioDmgBonus%": 0.225
-        },
-        "maxDuration": 15000,
-        "maxStacks": 2
+        }
       },
       {
         "enableIf": {
@@ -417,13 +459,15 @@
             "action": {
               "type": "resonanceLiberation"
             }
+          },
+          "duration": 5000
+        },
+        "maxStacks": 2,
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": 0.18
           }
-        },
-        "buffMap": {
-          "resonanceSkillDmgBonus%": 0.18
-        },
-        "maxDuration": 5000,
-        "maxStacks": 2
+        }
       }
     ]
   },
@@ -440,8 +484,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -452,16 +498,20 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "spectroFrazzle"
+              "inflict": {
+                "status": {
+                  "has": "spectroFrazzle"
+                }
               }
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2
-        },
-        "maxDuration": 15000
+        }
       },
       {
         "enableIf": {
@@ -488,12 +538,14 @@
                 }
               }
             ]
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "spectroDmgBonus%": 0.15
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -510,8 +562,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "havocDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "havocDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -524,17 +578,17 @@
             "action": {
               "type": "outroSkill"
             }
-          }
-        },
-        "useAction": {
-          "damage": {
-            "type": "outroSkill",
-            "element": "havoc",
-            "multipliers": [
-              {
-                "mv": 4.8
-              }
-            ]
+          },
+          "action": {
+            "damage": {
+              "type": "outroSkill",
+              "element": "havoc",
+              "multipliers": [
+                {
+                  "mv": 4.8
+                }
+              ]
+            }
           }
         }
       },
@@ -542,19 +596,21 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "havocDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "havocDmgBonus%": 0.15
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -571,47 +627,49 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.1
+        "buff": {
+          "stats": {
+            "energyRegen%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "type": "coordinatedAttack"
             }
+          },
+          "stats": {
+            "dmgBonus%": 0.8
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.8
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
             "action": {
               "type": "coordinatedAttack"
             }
-          }
+          },
+          "duration": 4000
         },
-        "use": {
+        "buff": {
           "filter": {
             "field": "onField"
+          },
+          "stats": {
+            "atk%": 0.2
           }
-        },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxDuration": 4000
+        }
       }
     ]
   },
@@ -628,33 +686,37 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.1
+        "buff": {
+          "stats": {
+            "energyRegen%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "buffMap": {
-          "atk%": 0.15
+        "buff": {
+          "stats": {
+            "atk%": 0.15
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "energyRegen": {
                 ">=": 2.5
               }
             }
+          },
+          "stats": {
+            "dmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.3
         }
       }
     ]
@@ -672,29 +734,35 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "aeroErosion"
+              "inflict": {
+                "status": {
+                  "has": "aeroErosion"
+                }
               }
             }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "aeroDmgBonus%": 0.15
-        },
-        "maxDuration": 20000
+        }
       },
       {
         "enableIf": {
@@ -704,16 +772,20 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "aeroErosion"
+              "inflict": {
+                "status": {
+                  "has": "aeroErosion"
+                }
               }
             }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "aeroDmgBonus%": 0.15
-        },
-        "maxDuration": 20000
+        }
       }
     ]
   },
@@ -730,8 +802,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -755,13 +829,15 @@
                 }
               }
             ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.1,
+            "aeroDmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "critRate%": 0.1,
-          "aeroDmgBonus%": 0.3
-        },
-        "maxDuration": 10000
+        }
       }
     ]
   },
@@ -778,27 +854,31 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
               "type": "resonanceLiberation"
             }
+          },
+          "duration": 35000
+        },
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.15
-        },
-        "maxDuration": 35000
+        }
       },
       {
         "enableIf": {
@@ -810,12 +890,14 @@
             "action": {
               "type": "resonanceLiberation"
             }
+          },
+          "duration": 35000
+        },
+        "buff": {
+          "stats": {
+            "resonanceLiberationDmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "resonanceLiberationDmgBonus%": 0.2
-        },
-        "maxDuration": 35000
+        }
       }
     ]
   },
@@ -834,9 +916,11 @@
             "tagged": "noEnergy"
           }
         },
-        "buffMap": {
-          "critRate%": 0.2,
-          "echoSkillDmgBonus%": 0.35
+        "buff": {
+          "stats": {
+            "critRate%": 0.2,
+            "echoSkillDmgBonus%": 0.35
+          }
         }
       }
     ]
@@ -860,14 +944,16 @@
               "has": "shield"
             }
           },
-          "cooldown": 500
+          "cooldown": 500,
+          "duration": 4000
         },
-        "buffMap": {
-          "atk%": 0.06,
-          "critDmg%": 0.04
-        },
-        "maxDuration": 4000,
-        "maxStacks": 5
+        "maxStacks": 5,
+        "buff": {
+          "stats": {
+            "atk%": 0.06,
+            "critDmg%": 0.04
+          }
+        }
       }
     ]
   },
@@ -889,31 +975,35 @@
             "action": {
               "type": "echoSkill"
             }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "heavyAttackDmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "heavyAttackDmgBonus%": 0.3
-        },
-        "maxDuration": 4000
+        }
       },
       {
         "enableIf": {
           "bonus": 3
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
               "type": "echoSkill"
             }
+          },
+          "duration": 30000
+        },
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "echoSkillDmgBonus%": 0.04
           }
-        },
-        "buffMap": {
-          "echoSkillDmgBonus%": 0.04
-        },
-        "maxDuration": 30000,
-        "maxStacks": 4
+        }
       }
     ]
   },
@@ -938,21 +1028,21 @@
                 "type": "echoSkill"
               }
             }
-          }
+          },
+          "duration": 6000
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "heavyAttack"
               }
             }
+          },
+          "stats": {
+            "critRate%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2
-        },
-        "maxDuration": 6000
+        }
       },
       {
         "enableIf": {
@@ -967,27 +1057,27 @@
                 "type": "heavyAttack"
               }
             }
-          }
+          },
+          "duration": 6000
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "echoSkill"
               }
             }
+          },
+          "stats": {
+            "critRate%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2
-        },
-        "maxDuration": 6000
+        }
       },
       {
         "enableIf": {
           "bonus": 3
         },
-        "use": {
+        "buff": {
           "filter": {
             "effectStacks": {
               "and": [
@@ -999,10 +1089,10 @@
                 }
               ]
             }
+          },
+          "stats": {
+            "fusionDmgBonus%": 0.16
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.16
         }
       }
     ]
@@ -1023,17 +1113,21 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "havocBane"
+              "inflict": {
+                "status": {
+                  "has": "havocBane"
+                }
               }
             }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.2,
+            "resonanceLiberationDmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "atk%": 0.2,
-          "resonanceLiberationDmgBonus%": 0.3
-        },
-        "maxDuration": 5000
+        }
       }
     ]
   },
@@ -1050,22 +1144,25 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 15000
         },
         "remove": {
           "when": "start",
@@ -1073,23 +1170,25 @@
             "field": "offField"
           }
         },
-        "buffMap": {
-          "atk%": 0.15
-        },
-        "maxDuration": 15000
+        "buff": {
+          "stats": {
+            "atk%": 0.15
+          }
+        }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
-          }
+          },
+          "duration": 15000
         },
         "remove": {
           "when": "start",
@@ -1097,15 +1196,16 @@
             "field": "offField"
           }
         },
-        "buffSpec": {
-          "atk%": {
-            "attr": "tuneBreakBoost",
-            "step": 1,
-            "value": 0.003,
-            "maxValue": 0.15
+        "buff": {
+          "specs": {
+            "atk%": {
+              "attr": "tuneBreakBoost",
+              "step": 1,
+              "value": 0.003,
+              "maxValue": 0.15
+            }
           }
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -1122,32 +1222,36 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "healingBonus%": 0.1
+        "buff": {
+          "stats": {
+            "healingBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
             "action": {
               "has": "healing"
             }
-          }
+          },
+          "duration": 4000
         },
-        "buffSpec": {
-          "atk%": {
-            "attr": "offTuneBuildupRate%",
-            "step": 0.01,
-            "value": 0.002,
-            "maxValue": 0.25
+        "buff": {
+          "specs": {
+            "atk%": {
+              "attr": "offTuneBuildupRate%",
+              "step": 0.01,
+              "value": 0.002,
+              "maxValue": 0.25
+            }
           }
-        },
-        "maxDuration": 4000
+        }
       }
     ]
   },
@@ -1164,8 +1268,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1181,19 +1287,21 @@
                 "type": "basicAttack"
               }
             }
+          },
+          "duration": 5000
+        },
+        "maxStacks": 3,
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "spectroDmgBonus%": 0.1
-        },
-        "maxDuration": 5000,
-        "maxStacks": 3
+        }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "and": [
               {
@@ -1207,10 +1315,10 @@
                 }
               }
             ]
+          },
+          "stats": {
+            "basicAttackDmgBonus%": 0.4
           }
-        },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.4
         }
       }
     ]
@@ -1228,8 +1336,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1242,22 +1352,28 @@
             "action": {
               "or": [
                 {
-                  "inflictStatus": {
-                    "has": "fusionBurst"
+                  "inflict": {
+                    "status": {
+                      "has": "fusionBurst"
+                    }
                   }
                 },
                 {
-                  "inflictShifting": "tuneRupture"
+                  "inflict": {
+                    "shifting": "tuneRupture"
+                  }
                 }
               ]
             }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.2,
+            "fusionDmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2,
-          "fusionDmgBonus%": 0.2
-        },
-        "maxDuration": 8000
+        }
       }
     ]
   },
@@ -1274,8 +1390,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1287,22 +1405,26 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "fusionBurst"
+              "inflict": {
+                "status": {
+                  "has": "fusionBurst"
+                }
               }
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.1
-        },
-        "maxDuration": 15000
+        }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -1318,12 +1440,14 @@
                 }
               }
             ]
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.25
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.25
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -1340,8 +1464,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1356,21 +1482,21 @@
                 "type": "echoSkill"
               }
             }
-          }
+          },
+          "duration": 5000
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "damage": {
                 "type": "echoSkill"
               }
             }
+          },
+          "stats": {
+            "critRate%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2
-        },
-        "maxDuration": 5000
+        }
       },
       {
         "enableIf": {
@@ -1384,12 +1510,14 @@
                 "type": "echoSkill"
               }
             }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "aeroDmgBonus%": 0.15
-        },
-        "maxDuration": 5000
+        }
       }
     ]
   },
@@ -1406,8 +1534,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "glacioDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -1418,16 +1548,20 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "glacioDmgBonus%": 0.1
           }
-        },
-        "buffMap": {
-          "glacioDmgBonus%": 0.1
-        },
-        "maxDuration": 15000
+        }
       },
       {
         "enableIf": {
@@ -1438,14 +1572,16 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
           },
-          "cooldown": 25000
-        },
-        "maxDuration": 15000
+          "cooldown": 25000,
+          "duration": 15000
+        }
       },
       {
         "enableIf": {
@@ -1469,16 +1605,18 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 6000
         },
         "onApplyDoRemove": {
           "snowfall": 1
         },
-        "buffMap": {
-          "critRate%": 0.25
-        },
-        "maxDuration": 6000,
-        "maxExtensions": 6
+        "maxExtensions": 6,
+        "buff": {
+          "stats": {
+            "critRate%": 0.25
+          }
+        }
       },
       {
         "enableIf": {
@@ -1514,7 +1652,7 @@
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -1530,15 +1668,17 @@
                 }
               }
             ]
-          }
+          },
+          "duration": 15000
         },
         "onApplyDoRemove": {
           "snowfall": 1
         },
-        "buffMap": {
-          "glacioDmgBonus%": 0.25
-        },
-        "maxDuration": 15000
+        "buff": {
+          "stats": {
+            "glacioDmgBonus%": 0.25
+          }
+        }
       }
     ]
   },
@@ -1555,30 +1695,36 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.1
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": [
-                "tuneRupture",
-                "tuneStrain"
-              ]
+              "inflict": {
+                "shifting": [
+                  "tuneRupture",
+                  "tuneStrain"
+                ]
+              }
             }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "tuneBreakBoost": 20
           }
-        },
-        "buffMap": {
-          "tuneBreakBoost": 20
-        },
-        "maxDuration": 30000
+        }
       }
     ]
   },
@@ -1598,15 +1744,19 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": "hack"
+              "inflict": {
+                "shifting": "hack"
+              }
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": 0.35,
+            "heavyAttackDmgBonus%": 0.35
           }
-        },
-        "buffMap": {
-          "basicAttackDmgBonus%": 0.35,
-          "heavyAttackDmgBonus%": 0.35
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -1623,8 +1773,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegen%": 0.1
+        "buff": {
+          "stats": {
+            "energyRegen%": 0.1
+          }
         }
       },
       {
@@ -1635,42 +1787,50 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "havocBane"
+              "inflict": {
+                "status": {
+                  "has": "havocBane"
+                }
               }
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.2,
+            "heavyAttackDmgBonus%": 0.35
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2,
-          "heavyAttackDmgBonus%": 0.35
-        },
-        "maxDuration": 15000
+        }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
-          }
+          },
+          "duration": 10000
         },
-        "buffSpec": {
-          "atk%": {
-            "attr": "energyRegen%",
-            "step": 0.01,
-            "value": 0.001,
-            "maxValue": 0.25
+        "buff": {
+          "specs": {
+            "atk%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "value": 0.001,
+              "maxValue": 0.25
+            }
           }
-        },
-        "maxDuration": 10000
+        }
       }
     ]
   },
@@ -1687,8 +1847,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "aeroDmg%": 0.1
+        "buff": {
+          "stats": {
+            "aeroDmg%": 0.1
+          }
         }
       },
       {
@@ -1699,15 +1861,19 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": "tuneStrain"
+              "inflict": {
+                "shifting": "tuneStrain"
+              }
             }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": 0.2,
+            "aeroDmgBonus%": 0.3
           }
-        },
-        "buffMap": {
-          "critDmg%": 0.2,
-          "aeroDmgBonus%": 0.3
-        },
-        "maxDuration": 15000
+        }
       }
     ]
   },
@@ -1724,8 +1890,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "hp%": 0.1
+        "buff": {
+          "stats": {
+            "hp%": 0.1
+          }
         }
       },
       {
@@ -1740,27 +1908,29 @@
               "has": "shield"
             }
           },
-          "cooldown": 500
+          "cooldown": 500,
+          "duration": 5000
         },
-        "buffMap": {
-          "critRate%": 0.05
-        },
-        "maxDuration": 5000,
-        "maxStacks": 4
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "critRate%": 0.05
+          }
+        }
       },
       {
         "enableIf": {
           "bonus": 5
         },
-        "use": {
+        "buff": {
           "filter": {
             "effectStacks": {
               "critRateIncreased": 4
             }
+          },
+          "stats": {
+            "fusionDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "fusionDmgBonus%": 0.15
         }
       }
     ]

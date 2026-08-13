@@ -10171,49 +10171,51 @@
     },
     "effects": [
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
             }
-          }
+          },
+          "duration": 30000
         },
         "use": {
           "when": "hit",
-          "cooldown": 2000
-        },
-        "useAction": "elementalSkill.1",
-        "maxDuration": 30000
+          "cooldown": 2000,
+          "action": "elementalSkill.1"
+        }
       },
       {
         "chance": 0.5,
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "ref": "elementalSkill.1"
             }
+          },
+          "stats": {
+            "dmgBonus%": 0.25
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.25
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
               "ref": "elementalBurst.2"
             }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 125
           }
-        },
-        "buffMap": {
-          "elementalMastery": 125
-        },
-        "maxDuration": 10000
+        }
       }
     ],
     "skills": {

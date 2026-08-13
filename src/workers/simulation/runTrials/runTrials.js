@@ -58,8 +58,8 @@ function smooth(history) {
   return mean(history.slice(start));
 }
 
-export function runTrials(cache, runRotation, currId, logWeeks = false) {
-  const evaluateEquipMap = createEvaluateEquipMap(cache, currId, runRotation);
+export function runTrials(cache, equipMaps, currId, logWeeks = false) {
+  const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
 
   const bestEquipMap = findBestPossibleEquipMap(evaluateEquipMap);
   const dpsCeiling = cache.getDps(bestEquipMap.totals.damage);

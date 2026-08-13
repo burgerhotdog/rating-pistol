@@ -1,4 +1,3 @@
-switchable chars resonanace modes
 batch compute snapshot damage, but spread out hits
 
 for algo, check derivatives and see when confidence bands converge
@@ -9,7 +8,8 @@ have new tab that compares diff weapons/sets/teammates?
 
 use solver to filter only variable stat maps that actually affect damage
 also batch hits that have same buffmaps but different hit times for chart
-buf saturation index
+buff saturation index
+comapre echo sets and teammates
 
 
           "use": {

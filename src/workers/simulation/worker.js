@@ -42,8 +42,7 @@ function generateEquipMap(cache, team, memberId) {
   self.postMessage({ status: `Generating trial build for ${memberId}` });
 
   const equipMaps = resolveEquipMaps(cache, team, true);
-  const rotationSpecs = runRotation(cache, equipMaps, memberId);
-  const { trials } = runTrials(cache, rotationSpecs, memberId);
+  const { trials } = runTrials(cache, equipMaps, memberId);
 
   return trials.reduce((acc, { equipList }) => {
     const equipMap = toEquipMap(equipList);
@@ -75,27 +74,27 @@ self.onmessage = ({ data }) => {
   const equipMaps = resolveEquipMaps(cache, team);
 
   self.postMessage({ status: 'Running simulation' });
-  const rotationSpecs = runRotation(cache, equipMaps, charId);
-  const userSummary = rotationSpecs(cache.member[charId].statMap);
+
+  const userSummary = runRotation(cache, equipMaps);
   const userDps = cache.getDps(getTotals(userSummary).damage);
   if (Number.isNaN(userDps)) {
     console.log(userDps);
     self.postMessage({ errorLog: cache.effects });
     throw new Error('error');
   }
-  const { trials, dpsProgression, dpsCeiling, thresholdWeeks, fit } = runTrials(cache, rotationSpecs, charId, true);
-  const configMap = buildConfigStats(gameId, trials);
 
-  const benchmarkDps = dpsProgression.at(-1).mean;
+  const results = runTrials(cache, equipMaps, charId, true);
 
+  const configMap = buildConfigStats(gameId, results.trials);
+  const benchmarkDps = results.dpsProgression.at(-1).mean;
   const weaponResults = weaponTests(cache, equipMaps, charId);
 
   self.postMessage({
-    dpsProgression,
-    dpsCeiling,
-    thresholdWeeks,
+    dpsProgression: results.dpsProgression,
+    dpsCeiling: results.dpsCeiling,
+    thresholdWeeks: results.thresholdWeeks,
     // fit's predict/weekForRemaining closures can't cross postMessage, only q/A are needed downstream
-    fit: fit ? { q: fit.q, A: fit.A } : null,
+    fit: results.fit ? { q: results.fit.q, A: results.fit.A } : null,
     configMap,
     userSummary,
     userDps,

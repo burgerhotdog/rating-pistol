@@ -12,11 +12,11 @@ export function getEffectStates(ctx, { member, type }) {
 
   switch (type) {
     case 'gameRule':
-      return states.filter(({ effect: e }) => 'gameRule' in e);
+      return states.filter(({ effect }) => effect.gameRule);
     case 'buff':
-      return states.filter(({ effect: e }) => 'buffMap' in e || 'buffSpec' in e);
+      return states.filter(({ effect }) => effect.buff?.stats || effect.buff?.specs);
     case 'action':
-      return states.filter(({ effect: e }) => 'useAction' in e);
+      return states.filter(({ effect }) => effect.use?.action);
     default:
       return states;
   }

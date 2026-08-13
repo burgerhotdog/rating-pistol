@@ -6,81 +6,78 @@ import { toArray, toMergedObj, toEquipMap, resolveRankedValue } from '@/utils';
 
 const DEFAULT = {
   [GI]: {
-    "critRate%": 0.05,
-    "critDmg%": 0.5,
-    "energyRecharge%": 1,
+    'critRate%': 0.05,
+    'critDmg%': 0.5,
+    'energyRecharge%': 1,
   },
   [HSR]: {
-    "critRate%": 0.05,
-    "critDmg%": 0.5,
-    "energyRegenerationRate%": 1,
+    'critRate%': 0.05,
+    'critDmg%': 0.5,
+    'energyRegenerationRate%': 1,
   },
   [WW]: {
-    "critRate%": 0.05,
-    "critDmg%": 0.5,
-    "energyRegen%": 1,
-    "offTuneBuildupRate%": 1,
+    'critRate%': 0.05,
+    'critDmg%': 0.5,
+    'energyRegen%': 1,
+    'offTuneBuildupRate%': 1,
   },
   [ZZZ]: {
-    "baseEnergyRegen": 1.2,
-    "critRate%": 0.05,
-    "critDmg%": 0.5
+    'baseEnergyRegen': 1.2,
+    'critRate%': 0.05,
+    'critDmg%': 0.5,
   },
 };
 
 export function compileBaseMap(gameId, charId, weapId) {
-  const { stats: charStats } = CHARACTER[gameId][charId];
-  const { stats: weapStats } = WEAPON[gameId][weapId];
+  const gameStats = DEFAULT[gameId];
+  const charStats = CHARACTER[gameId][charId].stats;
+  const weapStats = WEAPON[gameId][weapId].stats;
 
-  return toMergedObj(DEFAULT[gameId], charStats, weapStats);
+  return toMergedObj(gameStats, charStats, weapStats);
 }
 
 export function compileMenuMap(gameId, charId, member) {
-  const { rank: memberRank = 0, weaponId, weaponRank = 1, setCounts = {}, build = {}} = member;
+  const {
+    rank: charRank = 0,
+    weaponId,
+    weaponRank = 1,
+    setCounts = {},
+  } = member;
 
   const baseMap = compileBaseMap(gameId, charId, weaponId);
+  const equipMap = toEquipMap(member.build?.equipList ?? []);
+  const effectMaps = [];
 
-  const statMap = toMergedObj(baseMap, toEquipMap(build.equipList ?? []));
+  const validEffect = (effect) => (
+    effect.buff?.stats &&
+    !effect.buff?.filter &&
+    !(effect.enableIf?.rank > charRank) &&
+    !effect.apply?.when &&
+    toArray(effect.stores ?? charId)
+      .some((store) => ['global', '$team', charId].includes(store))
+  );
 
   const allEffects = [
     ...CHARACTER[gameId][charId].effects,
     ...WEAPON[gameId][weaponId].effects,
     ...Object.entries(setCounts)
       .flatMap(([setId, count]) =>
-        (SET[gameId][setId].effects ?? [])
-          .filter((effect) =>
-            effect.enableIf?.bonus <= count)),
+        SET[gameId][setId].effects
+          .filter(({ enableIf: { bonus } }) => bonus <= count)),
   ];
 
-  const validScope = (scope) =>
-    scope == undefined
-      ? true
-      : toArray(scope).some((useBy) =>
-        useBy === 'global' || useBy === '$team' || useBy === charId);
+  for (const effect of allEffects.filter(validEffect)) {
+    const effectMap = {};
 
-  const filtered = allEffects.filter((effect) => {
-    if (
-      effect.enableIf?.rank > memberRank ||
-      effect.apply?.when ||
-      !validScope(effect.scope) ||
-      effect.use?.filter
-    ) return false;
-
-    return effect.buffMap;
-  });
-
-  const toMerge = [];
-  for (const { buffMap } of filtered) {
-    if (buffMap) {
-      const resolved = {};
-      for (const [stat, value] of Object.entries(buffMap)) {
-        resolved[stat] = typeof value === 'number'
+    for (const [stat, value] of Object.entries(effect.buff.stats)) {
+      effectMap[stat] =
+        typeof value === 'number'
           ? value
           : resolveRankedValue(value, weaponRank);
-      }
-      toMerge.push(resolved);
     }
+
+    effectMaps.push(effectMap);
   }
 
-  return toMergedObj(statMap, ...toMerge);
+  return toMergedObj(baseMap, equipMap, ...effectMaps);
 }

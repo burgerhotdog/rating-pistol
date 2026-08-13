@@ -12,8 +12,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "outgoingHealingBoost%": 0.1
+        "buff": {
+          "stats": {
+            "outgoingHealingBoost%": 0.1
+          }
         }
       }
     ]
@@ -31,17 +33,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.12
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "spd%": 0.06,
-          "basicAtkDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "spd%": 0.06,
+            "basicAtkDmgBonus%": 0.1
+          }
         }
       }
     ]
@@ -59,16 +65,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "def%": 0.15
+        "buff": {
+          "stats": {
+            "def%": 0.15
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "shieldBonus%": 0.2
+        "buff": {
+          "stats": {
+            "shieldBonus%": 0.2
+          }
         }
       }
     ]
@@ -86,8 +96,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "iceDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "iceDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -102,8 +114,10 @@
             }
           }
         },
-        "buffMap": {
-          "critDmg%": 0.25
+        "buff": {
+          "stats": {
+            "critDmg%": 0.25
+          }
         }
       }
     ]
@@ -121,8 +135,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "physicalDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "physicalDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -137,10 +153,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.05
-        },
-        "maxStacks": 5
+        "maxStacks": 5,
+        "buff": {
+          "stats": {
+            "atk%": 0.05
+          }
+        }
       }
     ]
   },
@@ -167,16 +185,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "fireDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "fireDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "skillDmgBonus%": 0.12
+        "buff": {
+          "stats": {
+            "skillDmgBonus%": 0.12
+          }
         }
       },
       {
@@ -191,15 +213,15 @@
             }
           }
         },
-        "use": {
+        "buff": {
           "filter": {
             "action": {
               "has": "damage"
             }
+          },
+          "stats": {
+            "fireDmgBonus%": 0.12
           }
-        },
-        "buffMap": {
-          "fireDmgBonus%": 0.12
         },
         "maxUses": 1
       }
@@ -218,16 +240,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "quantumDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "quantumDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "defIgnore%": 0.2
+        "buff": {
+          "stats": {
+            "defIgnore%": 0.2
+          }
         }
       }
     ]
@@ -245,8 +271,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "lightningDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "lightningDmgBonus%": 0.1
+          }
         }
       },
       {
@@ -261,10 +289,12 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.2
-        },
-        "maxUses": 1
+        "maxUses": 1,
+        "buff": {
+          "stats": {
+            "atk%": 0.2
+          }
+        }
       }
     ]
   },
@@ -281,8 +311,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "windDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "windDmgBonus%": 0.1
+          }
         }
       }
     ]
@@ -300,16 +332,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "breakEffect%": 0.16
+        "buff": {
+          "stats": {
+            "breakEffect%": 0.16
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "breakEffect%": 0.16
+        "buff": {
+          "stats": {
+            "breakEffect%": 0.16
+          }
         }
       }
     ]
@@ -327,17 +363,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "imaginaryDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "imaginaryDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critRate%": 0.1,
-          "critDmg%": 0.2
+        "buff": {
+          "stats": {
+            "critRate%": 0.1,
+            "critDmg%": 0.2
+          }
         }
       }
     ]
@@ -355,16 +395,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "hp%": 0.2
+        "buff": {
+          "stats": {
+            "hp%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critRate%": 0.16
+        "buff": {
+          "stats": {
+            "critRate%": 0.16
+          }
         }
       }
     ]
@@ -382,8 +426,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spd%": 0.06
+        "buff": {
+          "stats": {
+            "spd%": 0.06
+          }
         }
       }
     ]
@@ -401,16 +447,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "follow-upAttackDmgBonus%": 0.2
+        "buff": {
+          "stats": {
+            "follow-upAttackDmgBonus%": 0.2
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "atk%": 0.48
+        "buff": {
+          "stats": {
+            "atk%": 0.48
+          }
         }
       }
     ]
@@ -428,16 +478,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.12
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "defIgnore%": 0.18
+        "buff": {
+          "stats": {
+            "defIgnore%": 0.18
+          }
         }
       }
     ]
@@ -455,25 +509,31 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "dmgBonus%": 0.12
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critRate%": 0.04
+        "buff": {
+          "stats": {
+            "critRate%": 0.04
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critRate%": 0.04,
-          "critDmg%": 0.24
+        "buff": {
+          "stats": {
+            "critRate%": 0.04,
+            "critDmg%": 0.24
+          }
         }
       }
     ]
@@ -491,17 +551,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "breakEffect%": 0.16
+        "buff": {
+          "stats": {
+            "breakEffect%": 0.16
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
-        "buffMap": {
-          "breakEffect%": 0.3
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "breakEffect%": 0.3
+          }
         }
       }
     ]
@@ -519,16 +583,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "breakEffect%": 0.16
+        "buff": {
+          "stats": {
+            "breakEffect%": 0.16
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "defIgnore%": 0.25
+        "buff": {
+          "stats": {
+            "defIgnore%": 0.25
+          }
         }
       }
     ]
@@ -546,16 +614,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.12
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critRate%": 0.06
+        "buff": {
+          "stats": {
+            "critRate%": 0.06
+          }
         }
       },
       {
@@ -570,8 +642,10 @@
             }
           }
         },
-        "buffMap": {
-          "ultimateDmgBonus%": 0.36
+        "buff": {
+          "stats": {
+            "ultimateDmgBonus%": 0.36
+          }
         }
       }
     ]
@@ -589,8 +663,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spd%": 0.06
+        "buff": {
+          "stats": {
+            "spd%": 0.06
+          }
         }
       }
     ]
@@ -608,17 +684,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critRate%": 0.08
+        "buff": {
+          "stats": {
+            "critRate%": 0.08
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "skillDmgBonus%": 0.2,
-          "ultimateDmgBonus%": 0.2
+        "buff": {
+          "stats": {
+            "skillDmgBonus%": 0.2,
+            "ultimateDmgBonus%": 0.2
+          }
         }
       },
       {
@@ -633,10 +713,12 @@
             }
           }
         },
-        "buffMap": {
-          "skillDmgBonus%": 0.25
-        },
-        "maxUses": 1
+        "maxUses": 1,
+        "buff": {
+          "stats": {
+            "skillDmgBonus%": 0.25
+          }
+        }
       }
     ]
   },
@@ -653,17 +735,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.12
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "spd%": 0.06,
-          "critDmg%": 0.3
+        "buff": {
+          "stats": {
+            "spd%": 0.06,
+            "critDmg%": 0.3
+          }
         }
       }
     ]
@@ -681,50 +767,54 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "quantumDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "quantumDmgBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "spd%": -0.08
+        "buff": {
+          "stats": {
+            "spd%": -0.08
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 "<": 110
               }
             }
+          },
+          "stats": {
+            "critRate%": 0.2
           }
-        },
-        "buffMap": {
-          "critRate%": 0.2
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 "<": 195
               }
             }
+          },
+          "stats": {
+            "critRate%": 0.12
           }
-        },
-        "buffMap": {
-          "critRate%": 0.12
         }
       }
     ]
@@ -742,8 +832,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spd%": 0.06
+        "buff": {
+          "stats": {
+            "spd%": 0.06
+          }
         }
       },
       {
@@ -758,15 +850,17 @@
             }
           }
         },
-        "buffMap": {
-          "spd%": 0.06
+        "buff": {
+          "stats": {
+            "spd%": 0.06
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -775,8 +869,10 @@
             }
           }
         },
-        "buffMap": {
-          "critDmg%": 0.15
+        "buff": {
+          "stats": {
+            "critDmg%": 0.15
+          }
         }
       }
     ]
@@ -794,16 +890,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.16
+        "buff": {
+          "stats": {
+            "critDmg%": 0.16
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "atk%": 0.48
+        "buff": {
+          "stats": {
+            "atk%": 0.48
+          }
         }
       }
     ]
@@ -821,25 +921,31 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critRate%": 0.08
+        "buff": {
+          "stats": {
+            "critRate%": 0.08
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "hp%": 0.24
+        "buff": {
+          "stats": {
+            "hp%": 0.24
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
-        "buffMap": {
-          "dmgBonus%": 0.15
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.15
+          }
         }
       }
     ]
@@ -857,25 +963,31 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "shieldBonus%": 0.1
+        "buff": {
+          "stats": {
+            "shieldBonus%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "shieldBonus%": 0.12
+        "buff": {
+          "stats": {
+            "shieldBonus%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
-        "buffMap": {
-          "critDmg%": 0.15
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "critDmg%": 0.15
+          }
         }
       }
     ]
@@ -893,16 +1005,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.16
+        "buff": {
+          "stats": {
+            "critDmg%": 0.16
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "defIgnore%": 0.2
+        "buff": {
+          "stats": {
+            "defIgnore%": 0.2
+          }
         }
       }
     ]
@@ -920,51 +1036,55 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spd%": 0.06
+        "buff": {
+          "stats": {
+            "spd%": 0.06
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 ">=": 120
               }
             }
+          },
+          "stats": {
+            "critRate%": 0.1
           }
-        },
-        "buffMap": {
-          "critRate%": 0.1
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 ">=": 160
               }
             }
+          },
+          "stats": {
+            "critRate%": 0.08
           }
-        },
-        "buffMap": {
-          "critRate%": 0.08
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
-        "buffMap": {
-          "elation%": 0.1
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "elation%": 0.1
+          }
         }
       }
     ]
@@ -982,17 +1102,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.12
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "skillDmgBonus%": 0.54,
-          "ultimateDmgBonus%": 0.54
+        "buff": {
+          "stats": {
+            "skillDmgBonus%": 0.54,
+            "ultimateDmgBonus%": 0.54
+          }
         }
       }
     ]
@@ -1010,25 +1134,31 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "hp%": 0.12
+        "buff": {
+          "stats": {
+            "hp%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "buffMap": {
-          "critDmg%": 0.28
+        "buff": {
+          "stats": {
+            "critDmg%": 0.28
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
-        "buffMap": {
-          "dmgBonus%": 0.15
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.15
+          }
         }
       }
     ]
@@ -1045,25 +1175,27 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.12
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 ">=": 120
               }
             }
+          },
+          "stats": {
+            "atk%": 0.12
           }
-        },
-        "buffMap": {
-          "atk%": 0.12
         }
       }
     ]
@@ -1080,26 +1212,28 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "hp%": 0.12
+        "buff": {
+          "stats": {
+            "hp%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$team",
-        "use": {
+        "stores": "$team",
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 ">=": 120
               }
             }
+          },
+          "stats": {
+            "atk%": 0.08
           }
-        },
-        "buffMap": {
-          "atk%": 0.08
         }
       }
     ]
@@ -1116,20 +1250,24 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "effectHitRate%": 0.1
+        "buff": {
+          "stats": {
+            "effectHitRate%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "buffSpec": {
-          "atk%": {
-            "attr": "effectHitRate%",
-            "step": 0.01,
-            "value": 0.0025,
-            "max": 0.25
+        "buff": {
+          "specs": {
+            "atk%": {
+              "attr": "effectHitRate%",
+              "step": 0.01,
+              "value": 0.0025,
+              "max": 0.25
+            }
           }
         }
       }
@@ -1147,25 +1285,27 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "def%": 0.15
+        "buff": {
+          "stats": {
+            "def%": 0.15
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "effectHitRate%": {
                 ">=": 0.5
               }
             }
+          },
+          "stats": {
+            "def%": 0.15
           }
-        },
-        "buffMap": {
-          "def%": 0.15
         }
       }
     ]
@@ -1182,8 +1322,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.16
+        "buff": {
+          "stats": {
+            "critDmg%": 0.16
+          }
         }
       }
     ]
@@ -1200,26 +1342,28 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critRate%": 0.08
+        "buff": {
+          "stats": {
+            "critRate%": 0.08
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "critRate%": {
                 ">=": 0.5
               }
             }
+          },
+          "stats": {
+            "ultimateDmgBonus%": 0.15,
+            "follow-upAttackDmgBonus%": 0.15
           }
-        },
-        "buffMap": {
-          "ultimateDmgBonus%": 0.15,
-          "follow-upAttackDmgBonus%": 0.15
         }
       }
     ]
@@ -1236,25 +1380,27 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "breakEffect%": 0.16
+        "buff": {
+          "stats": {
+            "breakEffect%": 0.16
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 ">=": 145
               }
             }
+          },
+          "stats": {
+            "breakEffect%": 0.2
           }
-        },
-        "buffMap": {
-          "breakEffect%": 0.2
         }
       }
     ]
@@ -1271,8 +1417,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegenerationRate%": 0.05
+        "buff": {
+          "stats": {
+            "energyRegenerationRate%": 0.05
+          }
         }
       }
     ]
@@ -1289,26 +1437,28 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critRate%": 0.08
+        "buff": {
+          "stats": {
+            "critRate%": 0.08
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "critRate%": {
                 ">=": 0.7
               }
             }
+          },
+          "stats": {
+            "basicAtkDmgBonus%": 0.2,
+            "skillDmgBonus%": 0.2
           }
-        },
-        "buffMap": {
-          "basicAtkDmgBonus%": 0.2,
-          "skillDmgBonus%": 0.2
         }
       }
     ]
@@ -1325,26 +1475,28 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "effectRes%": 0.1
+        "buff": {
+          "stats": {
+            "effectRes%": 0.1
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$team",
-        "use": {
+        "stores": "$team",
+        "buff": {
           "filter": {
             "attrMap": {
               "effectRes%": {
                 ">=": 0.3
               }
             }
+          },
+          "stats": {
+            "critDmg%": 0.1
           }
-        },
-        "buffMap": {
-          "critDmg%": 0.1
         }
       }
     ]
@@ -1361,42 +1513,44 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.12
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 ">=": 135
               }
             }
+          },
+          "stats": {
+            "dmgBonus%": 0.12
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.12
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 ">=": 160
               }
             }
+          },
+          "stats": {
+            "dmgBonus%": 0.06
           }
-        },
-        "buffMap": {
-          "dmgBonus%": 0.06
         }
       }
     ]
@@ -1413,8 +1567,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegenerationRate%": 0.05
+        "buff": {
+          "stats": {
+            "energyRegenerationRate%": 0.05
+          }
         }
       }
     ]
@@ -1431,16 +1587,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critRate%": 0.04
+        "buff": {
+          "stats": {
+            "critRate%": 0.04
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.4
+        "buff": {
+          "stats": {
+            "critDmg%": 0.4
+          }
         }
       }
     ]
@@ -1457,16 +1617,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.12
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critRate%": 0.12
+        "buff": {
+          "stats": {
+            "critRate%": 0.12
+          }
         }
       }
     ]
@@ -1483,9 +1647,11 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "follow-upAttackDmgBonus%": 0.25,
-          "critDmg%": 0.25
+        "buff": {
+          "stats": {
+            "follow-upAttackDmgBonus%": 0.25,
+            "critDmg%": 0.25
+          }
         }
       }
     ]
@@ -1502,16 +1668,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spd%": 0.06
+        "buff": {
+          "stats": {
+            "spd%": 0.06
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "breakEffect%": 0.4
+        "buff": {
+          "stats": {
+            "breakEffect%": 0.4
+          }
         }
       }
     ]
@@ -1528,17 +1698,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "energyRegenerationRate%": 0.05
+        "buff": {
+          "stats": {
+            "energyRegenerationRate%": 0.05
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$first",
-        "buffMap": {
-          "atk%": 0.12
+        "stores": "$first",
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       }
     ]
@@ -1555,16 +1729,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.16
+        "buff": {
+          "stats": {
+            "critDmg%": 0.16
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.32
+        "buff": {
+          "stats": {
+            "critDmg%": 0.32
+          }
         }
       }
     ]
@@ -1581,25 +1759,27 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "hp%": 0.12
+        "buff": {
+          "stats": {
+            "hp%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "hp": {
                 ">=": 5000
               }
             }
+          },
+          "stats": {
+            "critDmg%": 0.28
           }
-        },
-        "buffMap": {
-          "critDmg%": 0.28
         }
       }
     ]
@@ -1616,42 +1796,44 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "spd%": 0.06
+        "buff": {
+          "stats": {
+            "spd%": 0.06
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 ">=": 135
               }
             }
+          },
+          "stats": {
+            "outgoingHealingBoost%": 0.12
           }
-        },
-        "buffMap": {
-          "outgoingHealingBoost%": 0.12
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "spd": {
                 ">=": 180
               }
             }
+          },
+          "stats": {
+            "outgoingHealingBoost%": 0.08
           }
-        },
-        "buffMap": {
-          "outgoingHealingBoost%": 0.08
         }
       }
     ]
@@ -1668,8 +1850,10 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "dmgBonus%": 0.36
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.36
+          }
         }
       }
     ]
@@ -1686,42 +1870,44 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "atk%": 0.12
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "atk": {
                 ">=": 2400
               }
             }
+          },
+          "stats": {
+            "dotDmgBonus%": 0.12
           }
-        },
-        "buffMap": {
-          "dotDmgBonus%": 0.12
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "use": {
+        "buff": {
           "filter": {
             "attrMap": {
               "atk": {
                 ">=": 3600
               }
             }
+          },
+          "stats": {
+            "dotDmgBonus%": 0.12
           }
-        },
-        "buffMap": {
-          "dotDmgBonus%": 0.12
         }
       }
     ]
@@ -1738,17 +1924,21 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critRate%": 0.08
+        "buff": {
+          "stats": {
+            "critRate%": 0.08
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$team",
-        "buffMap": {
-          "spd%": 0.08
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "spd%": 0.08
+          }
         }
       }
     ]
@@ -1765,16 +1955,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.16
+        "buff": {
+          "stats": {
+            "critDmg%": 0.16
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.32
+        "buff": {
+          "stats": {
+            "critDmg%": 0.32
+          }
         }
       }
     ]
@@ -1791,16 +1985,20 @@
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "elation%": 0.08
+        "buff": {
+          "stats": {
+            "elation%": 0.08
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "buffMap": {
-          "critDmg%": 0.32
+        "buff": {
+          "stats": {
+            "critDmg%": 0.32
+          }
         }
       }
     ]
@@ -1825,17 +2023,21 @@
             }
           }
         },
-        "buffMap": {
-          "atk%": 0.24
+        "buff": {
+          "stats": {
+            "atk%": 0.24
+          }
         }
       },
       {
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$team",
-        "buffMap": {
-          "critDmg%": 0.12
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "critDmg%": 0.12
+          }
         }
       }
     ]

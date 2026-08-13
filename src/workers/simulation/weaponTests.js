@@ -106,6 +106,10 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
     if (effect.use?.filter) {
       traverseFilter(effect.use.filter, sourceId);
     }
+
+    if (effect.buff?.filter) {
+      traverseFilter(effect.buff.filter, sourceId);
+    }
   }
 
 
