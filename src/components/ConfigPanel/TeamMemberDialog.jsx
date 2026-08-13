@@ -107,7 +107,7 @@ function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false })
   );
 }
 
-function SetCountsEditor({ gameId, id, setCounts = {}, onChange, disabled = false }) {
+function SetCountsEditor({ gameId, id, setCounts = {}, mainEcho, onChange, disabled = false }) {
   const capacity = (gameId === 'genshin-impact' || gameId === 'wuthering-waves') ? 5 : 6;
   const [dialogOpen, setDialogOpen] = useState(false);
   // Index of the set being replaced; null means we're adding a new one
@@ -154,7 +154,10 @@ function SetCountsEditor({ gameId, id, setCounts = {}, onChange, disabled = fals
   const handleRemove = (setId) => {
     const next = { ...setCounts };
     delete next[setId];
-    onChange(next);
+    onChange({
+      setCounts: next,
+      ...(ECHO[mainEcho]?.sets.includes(setId) && { mainEcho: null }),
+    });
   };
 
   const currentRemainingCapacity =
@@ -332,25 +335,23 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
   );
 }
 
-function MainEchoAutocomplete({ charId, value, onChange, disabled }) {
+function MainEchoAutocomplete({ charId, setCounts, value, onChange, disabled }) {
   const options = useMemo(() => (
     Object.values(ECHO)
-      .map((e) => ({ id: e.id, label: e.name, cost: e.cost }))
-      .sort((a, b) => b.cost - a.cost || a.label.localeCompare(b.label))
-  ), []);
+      .filter((echo) => echo.sets.some((set) => set in setCounts))
+      .sort((a, b) => b.cost - a.cost || a.name.localeCompare(b.name))
+  ), [setCounts]);
 
-  const selected = options.find((o) => o.id === value) ?? null;
+  const selected = options.find((option) => option.id === value) ?? null;
 
   return (
     <Autocomplete
       options={options}
-      getOptionLabel={(o) => o.label}
+      getOptionLabel={(option) => option.name}
       value={selected}
       onChange={(_, option) => onChange(option?.id ?? null)}
       disabled={disabled || !charId}
-      size="small"
-      renderInput={(params) => <TextField {...params} label="Main Echo" />
-      }
+      renderInput={(params) => (<TextField {...params} label="Main Echo" />)}
     />
   );
 }
@@ -517,7 +518,8 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                 gameId={gameId}
                 id={draft.id}
                 setCounts={draft.setCounts}
-                onChange={(setCounts) => setDraft((prev) => ({ ...prev, setCounts }))}
+                mainEcho={draft.mainEcho}
+                onChange={(value) => setDraft((prev) => ({ ...prev, ...value }))}
                 disabled={buildLocked}
               />
             </Box>
@@ -530,6 +532,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
               </Typography>
               <MainEchoAutocomplete
                 charId={draft.id}
+                setCounts={draft.setCounts}
                 value={draft.mainEcho ?? null}
                 onChange={(mainEcho) => setDraft((prev) => ({ ...prev, mainEcho }))}
                 disabled={buildLocked}
