@@ -6940,8 +6940,10 @@
         },
         "use": {
           "action": {
-            "inflictStatus": {
-              "glacioChafe": 2
+            "inflict": {
+              "status": {
+                "glacioChafe": 2
+              }
             }
           }
         },
@@ -6960,8 +6962,10 @@
               },
               {
                 "action": {
-                  "inflictStatus": {
-                    "has": "glacioChafe"
+                  "inflict": {
+                    "status": {
+                      "has": "glacioChafe"
+                    }
                   }
                 }
               }
@@ -7331,8 +7335,10 @@
           {
             "name": "Spotlight",
             "type": "resonanceSkill",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -7785,8 +7791,10 @@
         "actions": [
           {
             "name": "Oblivion",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              }
             },
             "damage": {
               "type": [
@@ -7829,8 +7837,10 @@
           {
             "name": "Clip It",
             "type": "introSkill",
-            "inflictStatus": {
-              "glacioChafe": 1
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -7865,8 +7875,10 @@
             "name": "Clip It: Hard Cut",
             "tagged": "Reminiscence",
             "type": "introSkill",
-            "inflictStatus": {
-              "glacioChafe": 1
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -8032,14 +8044,16 @@
               },
               {
                 "action": {
-                  "inflictStatus": {
-                    "has": [
-                      "spectroFrazzle",
-                      "fusionBurst",
-                      "glacioChafe",
-                      "aeroErosion",
-                      "electroFlare"
-                    ]
+                  "inflict": {
+                    "status": {
+                      "has": [
+                        "spectroFrazzle",
+                        "fusionBurst",
+                        "glacioChafe",
+                        "aeroErosion",
+                        "electroFlare"
+                      ]
+                    }
                   }
                 }
               }
@@ -8071,8 +8085,10 @@
               },
               {
                 "action": {
-                  "consumeStatus": {
-                    "has": "havocBane"
+                  "consume": {
+                    "status": {
+                      "has": "havocBane"
+                    }
                   }
                 }
               }
@@ -8568,8 +8584,10 @@
             "name": "Awakening Spring",
             "tagged": "Zephyr Stance",
             "type": "resonanceSkill",
-            "inflictStatus": {
-              "glacioChafe": 1
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
             },
             "damage": {
               "attr": "hp",
@@ -8726,8 +8744,10 @@
           },
           {
             "name": "Plume Step",
-            "inflictStatus": {
-              "glacioChafe": 1
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
             },
             "healing": {
               "attr": "hp",
@@ -9091,8 +9111,10 @@
             "name": "Basic Attack 4",
             "tagged": "Drizzle Stance",
             "type": "basicAttack",
-            "inflictStatus": {
-              "glacioChafe": 1
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -9254,8 +9276,10 @@
           {
             "name": "Tinkling Jade",
             "type": "introSkill",
-            "inflictStatus": {
-              "glacioChafe": 1
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
             },
             "damage": {
               "attr": "hp",
@@ -18863,9 +18887,11 @@
           {
             "name": "Basic Attack 3",
             "type": "basicAttack",
-            "inflictShifting": "$mode",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
             "damage": {
               "multipliers": [
@@ -18948,9 +18974,11 @@
           {
             "name": "Basic Attack 4",
             "type": "basicAttack",
-            "inflictShifting": "$mode",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
             "damage": {
               "multipliers": [
@@ -19244,9 +19272,11 @@
           {
             "name": "Sync Strike: Armament Merge",
             "type": "resonanceSkill",
-            "inflictShifting": "$mode",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
             "damage": {
               "multipliers": [
@@ -19329,9 +19359,11 @@
             "name": "Sync Strike: Call of Dawn",
             "tagged": "Mech",
             "type": "resonanceSkill",
-            "inflictShifting": "$mode",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
             "damage": {
               "multipliers": [
@@ -19482,9 +19514,11 @@
             "name": "Basic Attack 3",
             "tagged": "Mech",
             "type": "basicAttack",
-            "inflictShifting": "$mode",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
             "damage": {
               "multipliers": [
@@ -19568,9 +19602,11 @@
             "name": "Basic Attack 4",
             "tagged": "Mech",
             "type": "basicAttack",
-            "inflictShifting": "$mode",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
             "damage": {
               "multipliers": [
@@ -20200,9 +20236,11 @@
           {
             "name": "Songs Across the Universe",
             "type": "introSkill",
-            "inflictShifting": "$mode",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
             "damage": {
               "multipliers": [
@@ -20262,9 +20300,11 @@
             "name": "Debut of Meteoric Radiance",
             "tagged": "Mech",
             "type": "introSkill",
-            "inflictShifting": "$mode",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
             "damage": {
               "multipliers": [
@@ -20471,7 +20511,9 @@
               },
               {
                 "action": {
-                  "inflictShifting": "tuneStrain"
+                  "inflict": {
+                    "shifting": "tuneStrain"
+                  }
                 }
               }
             ]
@@ -20565,10 +20607,12 @@
             "name": "Basic Attack 3",
             "tagged": "Stagecraft Form",
             "type": "basicAttack",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -20603,10 +20647,12 @@
             "name": "Basic Attack 4",
             "tagged": "Stagecraft Form",
             "type": "basicAttack",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -20858,10 +20904,12 @@
             "name": "Basic Attack 3",
             "tagged": "Breakdown Form",
             "type": "basicAttack",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -20895,10 +20943,12 @@
             "name": "Basic Attack 4",
             "tagged": "Breakdown Form",
             "type": "basicAttack",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -21082,10 +21132,12 @@
             "name": "Mid-air Attack 3",
             "tagged": "Breakdown Form",
             "type": "mid-airAttack",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -21120,10 +21172,12 @@
             "name": "Mid-air Attack 4",
             "tagged": "Breakdown Form",
             "type": "mid-airAttack",
-            "inflictStatus": {
-              "$mode": 1
+            "inflict": {
+              "status": {
+                "$mode": 1
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -21469,10 +21523,12 @@
             "name": "Final Act",
             "tagged": "Stagecraft Form",
             "type": "resonanceLiberation",
-            "inflictStatus": {
-              "$mode": 2
+            "inflict": {
+              "status": {
+                "$mode": 2
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -21506,10 +21562,12 @@
             "name": "Final Act",
             "tagged": "Breakdown Form",
             "type": "resonanceLiberation",
-            "inflictStatus": {
-              "$mode": 2
+            "inflict": {
+              "status": {
+                "$mode": 2
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -21547,10 +21605,12 @@
         "actions": [
           {
             "name": "Erosion Field DMG per tick",
-            "inflictStatus": {
-              "$mode": 2
+            "inflict": {
+              "status": {
+                "$mode": 2
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -21590,10 +21650,12 @@
             "name": "It's Been A While!",
             "tagged": "Stagecraft Form",
             "type": "introSkill",
-            "inflictStatus": {
-              "$mode": 2
+            "inflict": {
+              "status": {
+                "$mode": 2
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -21627,10 +21689,12 @@
             "name": "Knock Knock",
             "tagged": "Breakdown Form",
             "type": "introSkill",
-            "inflictStatus": {
-              "$mode": 2
+            "inflict": {
+              "status": {
+                "$mode": 2
+              },
+              "shifting": "$mode"
             },
-            "inflictShifting": "$mode",
             "damage": {
               "multipliers": [
                 {
@@ -29063,7 +29127,9 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": "hack"
+              "inflict": {
+                "shifting": "hack"
+              }
             }
           },
           "duration": 30000
@@ -30377,7 +30443,9 @@
           {
             "name": "BOOM! Fireworks!",
             "type": "resonanceLiberation",
-            "inflictShifting": "hack",
+            "inflict": {
+              "shifting": "hack"
+            },
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -30478,7 +30546,9 @@
             "name": "Rat-tat-tat!",
             "tagged": "Huntress",
             "type": "heavyAttack",
-            "inflictShifting": "hack",
+            "inflict": {
+              "shifting": "hack"
+            },
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -30609,7 +30679,9 @@
             "name": "Bang-bang-bang!",
             "tagged": "Guts",
             "type": "heavyAttack",
-            "inflictShifting": "hack",
+            "inflict": {
+              "shifting": "hack"
+            },
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -30649,7 +30721,9 @@
             "name": "Yo, It's Big Boomin' Time!",
             "tagged": "Huntress",
             "type": "introSkill",
-            "inflictShifting": "hack",
+            "inflict": {
+              "shifting": "hack"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -30851,7 +30925,9 @@
             "name": "Hey, Leadhead, Come 'n' Get Me!",
             "tagged": "Guts",
             "type": "introSkill",
-            "inflictShifting": "hack",
+            "inflict": {
+              "shifting": "hack"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -31017,9 +31093,9 @@
       {
         "weaponId": "21030066",
         "setCounts": {
-          "32": 1,
+          "3": 2,
           "9": 2,
-          "3": 2
+          "32": 1
         },
         "mainEcho": "6000201",
         "team": [
@@ -34875,8 +34951,10 @@
           {
             "name": "Basic Attack 4",
             "type": "basicAttack",
-            "inflictStatus": {
-              "aeroErosion": 1
+            "inflict": {
+              "status": {
+                "aeroErosion": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -35114,8 +35192,10 @@
           {
             "name": "Harmonic Allegro",
             "type": "resonanceSkill",
-            "inflictStatus": {
-              "aeroErosion": 1
+            "inflict": {
+              "status": {
+                "aeroErosion": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -35186,8 +35266,10 @@
           },
           {
             "name": "Symphonic Poem: Tonic",
-            "inflictStatus": {
-              "aeroErosion": 1
+            "inflict": {
+              "status": {
+                "aeroErosion": 1
+              }
             },
             "damage": {
               "type": "resonanceLiberation",
@@ -35289,8 +35371,10 @@
           {
             "name": "Roaming with the Wind",
             "type": "introSkill",
-            "inflictStatus": {
-              "aeroErosion": 1
+            "inflict": {
+              "status": {
+                "aeroErosion": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -37217,8 +37301,10 @@
           {
             "name": "Sword to Mark Tide's Trace",
             "type": "introSkill",
-            "inflictStatus": {
-              "aeroErosion": 2
+            "inflict": {
+              "status": {
+                "aeroErosion": 2
+              }
             },
             "damage": {
               "attr": "hp",
@@ -44523,8 +44609,10 @@
             }
           },
           "action": {
-            "inflictStatus": {
-              "spectroFrazzle": 2
+            "inflict": {
+              "status": {
+                "spectroFrazzle": 2
+              }
             }
           }
         }
@@ -45199,8 +45287,10 @@
             "name": "Dawn of Enlightenment",
             "tagged": "Confession",
             "type": "resonanceLiberation",
-            "inflictStatus": {
-              "spectroFrazzle": 8
+            "inflict": {
+              "status": {
+                "spectroFrazzle": 8
+              }
             },
             "damage": {
               "multipliers": [
@@ -45239,8 +45329,10 @@
           {
             "name": "Absolution Litany",
             "type": "heavyAttack",
-            "inflictStatus": {
-              "spectroFrazzle": 1
+            "inflict": {
+              "status": {
+                "spectroFrazzle": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -45274,8 +45366,10 @@
           {
             "name": "Utter Confession",
             "type": "resonanceSkill",
-            "inflictStatus": {
-              "spectroFrazzle": 1
+            "inflict": {
+              "status": {
+                "spectroFrazzle": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -45344,8 +45438,10 @@
             "name": "Starflash",
             "tagged": "Confession",
             "type": "heavyAttack",
-            "inflictStatus": {
-              "spectroFrazzle": 5
+            "inflict": {
+              "status": {
+                "spectroFrazzle": 5
+              }
             },
             "damage": {
               "multipliers": [
@@ -46720,8 +46816,10 @@
           },
           "cooldown": 2000,
           "action": {
-            "inflictStatus": {
-              "havocBane": 1
+            "inflict": {
+              "status": {
+                "havocBane": 1
+              }
             }
           }
         }
@@ -46785,7 +46883,9 @@
               },
               {
                 "action": {
-                  "has": "inflictStatus"
+                  "inflict": {
+                    "has": "status"
+                  }
                 }
               }
             ]
@@ -46873,7 +46973,9 @@
               },
               {
                 "action": {
-                  "has": "inflictStatus"
+                  "inflict": {
+                    "has": "status"
+                  }
                 }
               }
             ]
@@ -49484,7 +49586,9 @@
             "name": "Polychrome Leap 1",
             "tagged": "Kaleidoscopic Parade",
             "type": "basicAttack",
-            "inflictShifting": "$mode",
+            "inflict": {
+              "shifting": "$mode"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -49519,7 +49623,9 @@
             "name": "Polychrome Leap 2",
             "tagged": "Kaleidoscopic Parade",
             "type": "basicAttack",
-            "inflictShifting": "$mode",
+            "inflict": {
+              "shifting": "$mode"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -49554,7 +49660,9 @@
             "name": "Polychrome Leap 3",
             "tagged": "Kaleidoscopic Parade",
             "type": "basicAttack",
-            "inflictShifting": "$mode",
+            "inflict": {
+              "shifting": "$mode"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -49589,7 +49697,9 @@
             "name": "Iridescent Splash",
             "tagged": "Kaleidoscopic Parade",
             "type": "basicAttack",
-            "inflictShifting": "$mode",
+            "inflict": {
+              "shifting": "$mode"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -49623,7 +49733,9 @@
             "name": "Visual Impact",
             "tagged": "Kaleidoscopic Parade",
             "type": "basicAttack",
-            "inflictShifting": "$mode",
+            "inflict": {
+              "shifting": "$mode"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -49694,7 +49806,9 @@
           {
             "name": "Time to Show Some Colors!",
             "type": "introSkill",
-            "inflictShifting": "$mode",
+            "inflict": {
+              "shifting": "$mode"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -50209,7 +50323,9 @@
           {
             "name": "Mid-air Attack 2 Scythe: Resection",
             "type": "mid-airAttack",
-            "inflictShifting": "tuneStrain",
+            "inflict": {
+              "shifting": "tuneStrain"
+            },
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -50267,7 +50383,9 @@
           {
             "name": "Mid-air Attack 3 Scythe: Resection",
             "type": "mid-airAttack",
-            "inflictShifting": "tuneStrain",
+            "inflict": {
+              "shifting": "tuneStrain"
+            },
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -50452,7 +50570,9 @@
           {
             "name": "Golden Reflux",
             "type": "resonanceSkill",
-            "inflictShifting": "tuneStrain",
+            "inflict": {
+              "shifting": "tuneStrain"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -50485,7 +50605,9 @@
           {
             "name": "Aureole of Execution: Ring",
             "type": "resonanceSkill",
-            "inflictShifting": "tuneStrain",
+            "inflict": {
+              "shifting": "tuneStrain"
+            },
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -50544,7 +50666,9 @@
           {
             "name": "Aureole of Execution: Breach",
             "type": "resonanceSkill",
-            "inflictShifting": "tuneStrain",
+            "inflict": {
+              "shifting": "tuneStrain"
+            },
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -50579,7 +50703,9 @@
           {
             "name": "Aureole of Execution: Glare",
             "type": "resonanceSkill",
-            "inflictShifting": "tuneStrain",
+            "inflict": {
+              "shifting": "tuneStrain"
+            },
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -52517,7 +52643,9 @@
             "name": "Multithreading",
             "tagged": "Algorithm Compaction",
             "type": "heavyAttack",
-            "inflictShifting": "hack",
+            "inflict": {
+              "shifting": "hack"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -52766,9 +52894,11 @@
         "name": "Protocol Breach",
         "actions": [
           {
-            "name": "Payload: Charge",
+            "name": "Payload 1",
             "type": "resonanceSkill",
-            "inflictShifting": "hack",
+            "inflict": {
+              "shifting": "hack"
+            },
             "damage": {
               "multipliers": [
                 {
@@ -52823,7 +52953,7 @@
             }
           },
           {
-            "name": "Payload: Follow-up Attack",
+            "name": "Payload 2",
             "damage": {
               "type": "resonanceSkill",
               "multipliers": [
@@ -52988,7 +53118,9 @@
             "name": "Deadlock",
             "tagged": "Algorithm Compaction",
             "type": "resonanceSkill",
-            "inflictShifting": "hack",
+            "inflict": {
+              "shifting": "hack"
+            },
             "damage": {
               "type": "heavyAttack",
               "multipliers": [
@@ -53361,9 +53493,9 @@
       {
         "weaponId": "21030056",
         "setCounts": {
-          "32": 1,
+          "24": 2,
           "26": 2,
-          "24": 2
+          "32": 1
         },
         "mainEcho": "6000201",
         "team": [
@@ -59121,8 +59253,10 @@
               },
               {
                 "action": {
-                  "inflictStatus": {
-                    "has": "havocBane"
+                  "inflict": {
+                    "status": {
+                      "has": "havocBane"
+                    }
                   }
                 }
               }
@@ -59325,8 +59459,10 @@
             "name": "Basic Attack 4",
             "tagged": "Azure Sword Stance",
             "type": "basicAttack",
-            "inflictStatus": {
-              "havocBane": 1
+            "inflict": {
+              "status": {
+                "havocBane": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -59582,8 +59718,10 @@
             "name": "Basic Attack 4",
             "tagged": "Feather Sword Stance",
             "type": "basicAttack",
-            "inflictStatus": {
-              "havocBane": 1
+            "inflict": {
+              "status": {
+                "havocBane": 1
+              }
             },
             "damage": {
               "multipliers": [
@@ -60025,8 +60163,10 @@
             "name": "Sword Stance Flow: Feather",
             "tagged": "Azure Sword Stance",
             "type": "resonanceSkill",
-            "consumeStatus": {
-              "havocBane": 1
+            "consume": {
+              "status": {
+                "havocBane": 1
+              }
             },
             "damage": {
               "type": "heavyAttack",
@@ -60063,8 +60203,10 @@
             "name": "Sword Stance Flow: Azure",
             "tagged": "Feather Sword Stance",
             "type": "resonanceSkill",
-            "consumeStatus": {
-              "havocBane": 1
+            "consume": {
+              "status": {
+                "havocBane": 1
+              }
             },
             "damage": {
               "type": "heavyAttack",
@@ -60125,8 +60267,10 @@
             "name": "Heavy Attack",
             "tagged": "Azure Sword Stance",
             "type": "heavyAttack",
-            "inflictStatus": {
-              "havocBane": 2
+            "inflict": {
+              "status": {
+                "havocBane": 2
+              }
             },
             "damage": {
               "multipliers": [
@@ -60209,8 +60353,10 @@
             "name": "Heavy Attack",
             "tagged": "Feather Sword Stance",
             "type": "heavyAttack",
-            "inflictStatus": {
-              "havocBane": 2
+            "inflict": {
+              "status": {
+                "havocBane": 2
+              }
             },
             "damage": {
               "multipliers": [
@@ -60684,8 +60830,10 @@
           {
             "name": "Skybound Feather",
             "type": "introSkill",
-            "inflictStatus": {
-              "havocBane": 1
+            "inflict": {
+              "status": {
+                "havocBane": 1
+              }
             },
             "damage": {
               "multipliers": [

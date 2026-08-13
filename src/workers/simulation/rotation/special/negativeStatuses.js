@@ -255,8 +255,8 @@ const STATUSES = {
 };
 
 export function inflictNegativeStatuses(ctx, action) {
-  if (!action.inflictStatus) return;
-  for (const [statusId, stacks] of Object.entries(action.inflictStatus)) {
+  if (!action.inflict?.status) return;
+  for (const [statusId, stacks] of Object.entries(action.inflict.status)) {
     const status = STATUSES[statusId];
     status.inflict(ctx, status, stacks);
   }

@@ -3227,8 +3227,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "aeroErosion"
+              "inflict": {
+                "status": {
+                  "has": "aeroErosion"
+                }
               }
             }
           },
@@ -4097,8 +4099,8 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "*"
+              "inflict": {
+                "has": "status"
               }
             }
           }
@@ -4121,7 +4123,9 @@
               },
               {
                 "action": {
-                  "has": "inflictStatus"
+                  "inflict": {
+                    "has": "status"
+                  }
                 }
               }
             ]
@@ -4382,10 +4386,12 @@
             "action": {
               "and": [
                 {
-                  "inflictShifting": [
-                    "tuneRupture",
-                    "tuneStrain"
-                  ]
+                  "inflict": {
+                    "shifting": [
+                      "tuneRupture",
+                      "tuneStrain"
+                    ]
+                  }
                 },
                 {
                   "type": "basicAttack"
@@ -4531,11 +4537,15 @@
             "action": {
               "or": [
                 {
-                  "inflictShifting": "tuneRupture"
+                  "inflict": {
+                    "shifting": "tuneRupture"
+                  }
                 },
                 {
-                  "inflictStatus": {
-                    "has": "fusionBurst"
+                  "inflict": {
+                    "status": {
+                      "has": "fusionBurst"
+                    }
                   }
                 }
               ]
@@ -4612,7 +4622,9 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": "tuneStrain"
+              "inflict": {
+                "shifting": "tuneStrain"
+              }
             }
           },
           "duration": 6000
@@ -4738,8 +4750,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
           },
@@ -4759,8 +4773,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
           },
@@ -4832,12 +4848,16 @@
             "action": {
               "or": [
                 {
-                  "inflictStatus": {
-                    "has": "fusionBurst"
+                  "inflict": {
+                    "status": {
+                      "has": "fusionBurst"
+                    }
                   }
                 },
                 {
-                  "inflictShifting": "tuneStrain"
+                  "inflict": {
+                    "shifting": "tuneStrain"
+                  }
                 }
               ]
             }
@@ -4869,12 +4889,16 @@
                 "action": {
                   "or": [
                     {
-                      "inflictStatus": {
-                        "has": "fusionBurst"
+                      "inflict": {
+                        "status": {
+                          "has": "fusionBurst"
+                        }
                       }
                     },
                     {
-                      "inflictShifting": "tuneStrain"
+                      "inflict": {
+                        "shifting": "tuneStrain"
+                      }
                     }
                   ]
                 }
@@ -4940,7 +4964,9 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": "hack"
+              "inflict": {
+                "shifting": "hack"
+              }
             }
           },
           "duration": 14000
@@ -5012,7 +5038,9 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": "hack"
+              "inflict": {
+                "shifting": "hack"
+              }
             }
           },
           "duration": 14000
@@ -5032,7 +5060,9 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": "hack"
+              "inflict": {
+                "shifting": "hack"
+              }
             }
           },
           "duration": 30000
@@ -5074,8 +5104,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
           },
@@ -5096,8 +5128,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
           },
@@ -5140,8 +5174,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "havocBane"
+              "inflict": {
+                "status": {
+                  "has": "havocBane"
+                }
               }
             }
           },
@@ -5196,8 +5232,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
           },

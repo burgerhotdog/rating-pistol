@@ -2761,8 +2761,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "havocBane"
+              "inflict": {
+                "status": {
+                  "has": "havocBane"
+                }
               }
             }
           },

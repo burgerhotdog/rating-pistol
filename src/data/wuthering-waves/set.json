@@ -498,8 +498,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "spectroFrazzle"
+              "inflict": {
+                "status": {
+                  "has": "spectroFrazzle"
+                }
               }
             }
           },
@@ -747,8 +749,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "aeroErosion"
+              "inflict": {
+                "status": {
+                  "has": "aeroErosion"
+                }
               }
             }
           },
@@ -768,8 +772,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "aeroErosion"
+              "inflict": {
+                "status": {
+                  "has": "aeroErosion"
+                }
               }
             }
           },
@@ -1107,8 +1113,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "havocBane"
+              "inflict": {
+                "status": {
+                  "has": "havocBane"
+                }
               }
             }
           },
@@ -1344,12 +1352,16 @@
             "action": {
               "or": [
                 {
-                  "inflictStatus": {
-                    "has": "fusionBurst"
+                  "inflict": {
+                    "status": {
+                      "has": "fusionBurst"
+                    }
                   }
                 },
                 {
-                  "inflictShifting": "tuneRupture"
+                  "inflict": {
+                    "shifting": "tuneRupture"
+                  }
                 }
               ]
             }
@@ -1393,8 +1405,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "fusionBurst"
+              "inflict": {
+                "status": {
+                  "has": "fusionBurst"
+                }
               }
             }
           },
@@ -1534,8 +1548,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
           },
@@ -1556,8 +1572,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
           },
@@ -1692,10 +1710,12 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": [
-                "tuneRupture",
-                "tuneStrain"
-              ]
+              "inflict": {
+                "shifting": [
+                  "tuneRupture",
+                  "tuneStrain"
+                ]
+              }
             }
           },
           "duration": 30000
@@ -1724,7 +1744,9 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": "hack"
+              "inflict": {
+                "shifting": "hack"
+              }
             }
           },
           "duration": 15000
@@ -1765,8 +1787,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "havocBane"
+              "inflict": {
+                "status": {
+                  "has": "havocBane"
+                }
               }
             }
           },
@@ -1788,8 +1812,10 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictStatus": {
-                "has": "glacioChafe"
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
               }
             }
           },
@@ -1835,7 +1861,9 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "inflictShifting": "tuneStrain"
+              "inflict": {
+                "shifting": "tuneStrain"
+              }
             }
           },
           "duration": 15000

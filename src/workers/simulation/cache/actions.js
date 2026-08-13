@@ -135,8 +135,10 @@ export const toNormalizedAction = (rawAction, spec) => {
     }
   }
 
-  // Resolve inflictStatus $mode
-  if (action.inflictStatus) {
+  // Resolve inflict status $mode
+  if (action.inflict?.status) {
+    action.inflict = { ...action.inflict };
+
     const shiftMode = spec.mode;
     const isValid = (
       shiftMode === 'glacioChafe' ||
@@ -152,30 +154,31 @@ export const toNormalizedAction = (rawAction, spec) => {
     };
 
     const resolved = {};
-    for (const status in action.inflictStatus) {
+    for (const status in action.inflict.status) {
       const resolvedStatus = resolve(status);
       if (!resolvedStatus) continue;
-      resolved[resolvedStatus] = action.inflictStatus[status];
+      resolved[resolvedStatus] = action.inflict.status[status];
     }
 
     if (Object.keys(resolved).length) {
-      action.inflictStatus = resolved;
+      action.inflict.status = resolved;
     } else {
-      delete action.inflictStatus;
+      delete action.inflict.status;
     }
   }
 
-  // Resolve inflictShifting $mode
-  if (action.inflictShifting === '$mode') {
-    const shiftMode = spec.mode;
+  // Resolve inflict shifting $mode
+  if (action.inflict?.shifting === '$mode') {
+    action.inflict = { ...action.inflict };
+
     if (
-      shiftMode === 'tuneRupture' ||
-      shiftMode === 'tuneStrain' ||
-      shiftMode === 'hack'
+      spec.mode === 'tuneRupture' ||
+      spec.mode === 'tuneStrain' ||
+      spec.mode === 'hack'
     ) {
-      action.inflictShifting = shiftMode;
+      action.inflict.shifting = spec.mode;
     } else {
-      delete action.inflictShifting;
+      delete action.inflict.shifting;
     }
   }
 
