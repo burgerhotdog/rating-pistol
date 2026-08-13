@@ -254,18 +254,35 @@ const STATUSES = {
   }
 };
 
+export function consumeNegativeStatuses(ctx, action) {
+  const store = ctx.states.negativeStatuses;
+  const toConsume = action.consume?.status ?? {};
+
+  for (const [id, stacks] of Object.entries(toConsume)) {
+    const state = store[id];
+    if (!state) continue;
+
+    state.stacks -= stacks;
+    if (state.stacks <= 0) {
+      delete store[id];
+    }
+  }
+}
+
 export function inflictNegativeStatuses(ctx, action) {
-  if (!action.inflict?.status) return;
-  for (const [statusId, stacks] of Object.entries(action.inflict.status)) {
-    const status = STATUSES[statusId];
+  const toInflict = action.inflict?.status ?? {};
+
+  for (const [id, stacks] of Object.entries(toInflict)) {
+    const status = STATUSES[id];
     status.inflict(ctx, status, stacks);
   }
 }
 
 export function advanceNegativeStatuses(ctx, elapsed) {
-  const { negativeStatuses } = ctx.states;
-  for (const statusState of Object.values(negativeStatuses)) {
-    const { status } = statusState;
+  const toAdvance = ctx.states.negativeStatuses;
+
+  for (const state of Object.values(toAdvance)) {
+    const { status } = state;
     status.advance(ctx, elapsed);
   }
 }
