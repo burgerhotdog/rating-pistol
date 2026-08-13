@@ -61,7 +61,7 @@ export const toNormalizedEffect = (rawEffect, spec) => {
     index: effectIndex,
   };
 
-  effect.scope = toResolvedScope(effect.ownerId, memberIds, effect.scope);
+  effect.stores = toResolvedScope(effect.ownerId, memberIds, effect.stores);
 
   if (effect.apply) {
     const resolved = { ...effect.apply };

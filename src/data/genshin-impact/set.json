@@ -59,7 +59,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -223,7 +223,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -342,7 +342,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1136,7 +1136,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1265,7 +1265,7 @@
             "tagged": "hexerei"
           }
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {

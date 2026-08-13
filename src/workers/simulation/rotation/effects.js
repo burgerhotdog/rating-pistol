@@ -89,7 +89,7 @@ export function runApplyEffect(ctx, effect, spec = {}) {
     }
   }
 
-  for (const target of effect.scope) {
+  for (const target of effect.stores) {
     if (target === '$applier') updateState(memberEffects[spec.applier]);
     else if (target === 'global') updateState(globalEffects);
     else if (target in memberEffects) updateState(memberEffects[target]);

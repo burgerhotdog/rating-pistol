@@ -2,6 +2,7 @@ import {
   GI, HSR, WW, ZZZ,
   CHARACTER,
 } from '@/data';
+import { runRotation } from '../rotation';
 import { getAttr, getTotals, toMergedObj } from '@/utils';
 
 const ENERGY_ATTR = {
@@ -11,7 +12,9 @@ const ENERGY_ATTR = {
   [ZZZ]: 'energyRegen%',
 };
 
-export function createEvaluateEquipMap(cache, evalId, summarySpecs) {
+export function createEvaluateEquipMap(cache, equipMaps, evalId) {
+  const rotationSpecs = runRotation(cache, equipMaps, evalId);
+
   const { gameId, rotationDuration } = cache;
   const erAttrId = ENERGY_ATTR[gameId];
   const needsEnergy = !CHARACTER[gameId][evalId].noEnergy;
@@ -33,7 +36,7 @@ export function createEvaluateEquipMap(cache, evalId, summarySpecs) {
     const statMap = toMergedObj(baseMap, equipMap);
     const penalty = getPenalty(statMap);
 
-    const summary = summarySpecs(statMap);
+    const summary = rotationSpecs(statMap);
     const totals = getTotals(summary);
     const baseScore = Object.values(totals)
       .reduce((acc, value) => acc + value, 0);

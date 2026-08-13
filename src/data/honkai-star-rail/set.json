@@ -499,7 +499,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "breakEffect%": 0.3
         }
@@ -766,7 +766,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -837,7 +837,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "dmgBonus%": 0.15
         }
@@ -873,7 +873,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "critDmg%": 0.15
         }
@@ -962,7 +962,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "elation%": 0.1
         }
@@ -1026,7 +1026,7 @@
         "enableIf": {
           "bonus": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "dmgBonus%": 0.15
         }
@@ -1088,7 +1088,7 @@
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$team",
+        "stores": "$team",
         "use": {
           "filter": {
             "attrMap": {
@@ -1333,7 +1333,7 @@
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$team",
+        "stores": "$team",
         "use": {
           "filter": {
             "attrMap": {
@@ -1536,7 +1536,7 @@
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$first",
+        "stores": "$first",
         "buffMap": {
           "atk%": 0.12
         }
@@ -1746,7 +1746,7 @@
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "spd%": 0.08
         }
@@ -1833,7 +1833,7 @@
         "enableIf": {
           "bonus": 2
         },
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "critDmg%": 0.12
         }

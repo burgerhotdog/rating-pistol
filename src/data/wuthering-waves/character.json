@@ -61,7 +61,7 @@
         "maxDuration": 8000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -149,7 +149,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "end",
           "filter": {
@@ -799,7 +799,7 @@
         "maxDuration": 15000
       },
       {
-        "scope": "$first",
+        "stores": "$first",
         "apply": {
           "by": "$first",
           "when": "end",
@@ -872,7 +872,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -941,7 +941,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -1698,7 +1698,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -2543,7 +2543,7 @@
     },
     "effects": [
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -2610,7 +2610,7 @@
         "maxStacks": 3
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -2668,7 +2668,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -3234,7 +3234,7 @@
         "maxDuration": 14000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -4330,7 +4330,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -5414,7 +5414,7 @@
     },
     "effects": [
       {
-        "scope": "$ally",
+        "stores": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -6926,7 +6926,7 @@
         "maxUses": 1
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -7898,7 +7898,7 @@
     "effects": [
       {
         "key": "enrichment",
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -7962,7 +7962,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -8001,7 +8001,7 @@
         "maxDuration": 15000
       },
       {
-        "scope": "$applier",
+        "stores": "$applier",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -8066,7 +8066,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -8082,7 +8082,7 @@
       },
       {
         "key": "reflectingShadows",
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -9372,7 +9372,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -10039,7 +10039,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -10854,7 +10854,7 @@
     },
     "effects": [
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -10888,7 +10888,7 @@
         }
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -10975,7 +10975,7 @@
         }
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -11026,7 +11026,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -11651,7 +11651,7 @@
         }
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -11726,7 +11726,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -12668,7 +12668,7 @@
         }
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -12732,7 +12732,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -14272,7 +14272,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -14311,7 +14311,7 @@
         "maxDuration": 8000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -14330,7 +14330,7 @@
         "maxUses": 1
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -14365,7 +14365,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -17367,7 +17367,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -17436,7 +17436,7 @@
         "maxDuration": 25000
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -17454,7 +17454,7 @@
         "maxDuration": 25000
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "tuneBreak"
         },
@@ -17500,7 +17500,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -18598,7 +18598,7 @@
         "useAction": "forteCircuit.2"
       },
       {
-        "scope": "$ally",
+        "stores": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -20286,7 +20286,7 @@
         "enableIf": {
           "mode": "fusionBurst"
         },
-        "scope": "$global",
+        "stores": "$global",
         "apply": {
           "when": "start",
           "filter": {
@@ -20305,7 +20305,7 @@
           "mode": "tuneStrain"
         },
         "key": "tuneOutro",
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -20323,7 +20323,7 @@
         "enableIf": {
           "mode": "tuneStrain"
         },
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "by": "$next",
           "when": "inflict",
@@ -21661,7 +21661,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -22789,7 +22789,7 @@
         "maxUses": 4
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -22851,7 +22851,7 @@
         "maxDuration": 4000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -22903,7 +22903,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -23507,7 +23507,7 @@
     },
     "effects": [
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -23654,7 +23654,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -24739,7 +24739,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -26050,7 +26050,7 @@
         "maxStacks": 4
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -26154,7 +26154,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -27067,7 +27067,7 @@
         }
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -28119,7 +28119,7 @@
         "maxDuration": 16000
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -28880,7 +28880,7 @@
         "maxStacks": 2
       },
       {
-        "scope": "$applier",
+        "stores": "$applier",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -28896,7 +28896,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -28911,7 +28911,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -28926,7 +28926,7 @@
         "maxDuration": 14000
       },
       {
-        "scope": "1511",
+        "stores": "1511",
         "apply": {
           "when": "start",
           "filter": {
@@ -30963,7 +30963,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -31621,7 +31621,7 @@
         }
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -32307,7 +32307,7 @@
         "maxDuration": 8000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -32384,7 +32384,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -33270,7 +33270,7 @@
         }
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -34356,7 +34356,7 @@
     },
     "effects": [
       {
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "aeroDmgBonus%": 0.24
         }
@@ -34390,7 +34390,7 @@
         }
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -34425,7 +34425,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -35161,7 +35161,7 @@
         }
       },
       {
-        "scope": "$ally",
+        "stores": "$ally",
         "buffMap": {
           "healingBonus%": 0.2
         }
@@ -35239,7 +35239,7 @@
         }
       },
       {
-        "scope": "$ally",
+        "stores": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -35339,7 +35339,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "dmgBonus%": 0.2
         }
@@ -37164,7 +37164,7 @@
     },
     "effects": [
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -38407,7 +38407,7 @@
     },
     "effects": [
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -40856,7 +40856,7 @@
     },
     "effects": [
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -40873,7 +40873,7 @@
         "maxDuration": 12000
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -40919,7 +40919,7 @@
         "maxDuration": 6000
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -40979,7 +40979,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -42155,7 +42155,7 @@
         "maxDuration": 5000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -42229,7 +42229,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -43228,7 +43228,7 @@
       },
       {
         "key": "innerStellarealm",
-        "scope": "$team",
+        "stores": "$team",
         "use": {
           "filter": {
             "effectStacks": {
@@ -43246,7 +43246,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "use": {
           "filter": {
             "effectStacks": {
@@ -43292,7 +43292,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -44180,7 +44180,7 @@
         }
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -44195,7 +44195,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -44302,7 +44302,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -44355,7 +44355,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -45292,7 +45292,7 @@
         "maxDuration": 14000
       },
       {
-        "scope": "$ally",
+        "stores": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -45371,7 +45371,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -46407,7 +46407,7 @@
     },
     "effects": [
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -46454,7 +46454,7 @@
         "maxDuration": 20000
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "by": "$team",
           "when": "hit",
@@ -46487,7 +46487,7 @@
       },
       {
         "key": "threadOfBane",
-        "scope": "$applier",
+        "stores": "$applier",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -46567,7 +46567,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": "$applier",
+        "stores": "$applier",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -48039,7 +48039,7 @@
         "useAction": "forteCircuit.5"
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -48054,7 +48054,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -48083,7 +48083,7 @@
         "maxDuration": 9000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -48129,7 +48129,7 @@
         "enableIf": {
           "rank": 2
         },
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -50572,7 +50572,7 @@
     },
     "effects": [
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -50587,7 +50587,7 @@
         "maxDuration": 30000
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -50657,7 +50657,7 @@
         "useAction": "forteCircuit.0"
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -50672,7 +50672,7 @@
         "maxDuration": 14000
       },
       {
-        "scope": "1308",
+        "stores": "1308",
         "apply": {
           "when": "start",
           "filter": {
@@ -50775,7 +50775,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "buffMap": {
           "dmgBonus%": 0.2
         }
@@ -53088,7 +53088,7 @@
     },
     "effects": [
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -53121,7 +53121,7 @@
         }
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -54070,7 +54070,7 @@
         "maxDuration": 5000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -54142,7 +54142,7 @@
         "enableIf": {
           "rank": 6
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -55017,7 +55017,7 @@
         "enableIf": {
           "rank": 4
         },
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -55846,7 +55846,7 @@
     },
     "effects": [
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -55884,7 +55884,7 @@
         "maxDuration": 12000
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -55909,7 +55909,7 @@
         "maxUses": 1
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -56621,7 +56621,7 @@
     },
     "effects": [
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -56667,7 +56667,7 @@
         "maxStacks": 2
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -57745,7 +57745,7 @@
         "maxStacks": 24
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -58706,7 +58706,7 @@
       },
       {
         "key": "tonalSwitch",
-        "scope": "$ally",
+        "stores": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -58718,7 +58718,7 @@
         "maxDuration": 20000
       },
       {
-        "scope": "$applier",
+        "stores": "$applier",
         "apply": {
           "by": "$team",
           "when": "inflict",

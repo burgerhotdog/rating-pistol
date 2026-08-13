@@ -806,7 +806,7 @@
         }
       },
       {
-        "scope": "$next",
+        "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
@@ -2185,7 +2185,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -2847,7 +2847,7 @@
         "maxStacks": 3
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -2903,7 +2903,7 @@
             ]
           }
         },
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -3063,7 +3063,7 @@
         "maxDuration": 10000
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -3177,7 +3177,7 @@
         "maxExtensions": 1
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply":{
           "when": "hit",
           "filter": {
@@ -3252,7 +3252,7 @@
         "maxDuration": 15000
       },
       {
-        "scope": "global",
+        "stores": "global",
         "use": {
           "filter": {
             "states": {
@@ -3717,7 +3717,7 @@
         "maxStacks": 2
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -3873,7 +3873,7 @@
         }
       },
       {
-        "scope": "$applier",
+        "stores": "$applier",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -3971,7 +3971,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -4118,7 +4118,7 @@
         "maxDuration": 4000
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -4502,7 +4502,7 @@
         "maxDuration": 6000
       },
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -4567,7 +4567,7 @@
         "maxDuration": 5000
       },
       {
-        "scope": "$applier",
+        "stores": "$applier",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -4728,7 +4728,7 @@
         "maxDuration": 14000
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -4786,7 +4786,7 @@
         "maxDuration": 12000
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -4919,7 +4919,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "use": {
           "filter": {
             "effectStacks": {

@@ -10171,7 +10171,7 @@
     },
     "effects": [
       {
-        "scope": "global",
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -10201,7 +10201,7 @@
         }
       },
       {
-        "scope": "$team",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {

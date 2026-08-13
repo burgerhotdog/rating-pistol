@@ -10,7 +10,7 @@ function doRemove(ctx, toRemove = {}) {
   for (const [id, stacks] of Object.entries(toRemove)) {
     const effect = ctx.cache.effects[id];
 
-    for (const target of effect.scope) {
+    for (const target of effect.stores) {
       if (target === 'global') {
         runRemoveEffect(globalEffects[id], stacks);
       } else {
@@ -26,7 +26,7 @@ function doUse(ctx, toUse = {}) {
   for (const [effectId, times] of Object.entries(toUse)) {
     const effect = ctx.cache.effects[effectId];
 
-    for (const target of effect.scope) {
+    for (const target of effect.stores) {
       if (target === 'global') {
         runUseEffect(ctx, globalEffects[effectId]);
       } else {

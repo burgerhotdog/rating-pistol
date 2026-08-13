@@ -52,17 +52,17 @@ export function compileMenuMap(gameId, charId, member) {
             effect.enableIf?.bonus <= count)),
   ];
 
-  const validScope = (scope) =>
-    scope == undefined
+  const validStores = (stores) =>
+    stores == undefined
       ? true
-      : toArray(scope).some((useBy) =>
+      : toArray(stores).some((useBy) =>
         useBy === 'global' || useBy === '$team' || useBy === charId);
 
   const filtered = allEffects.filter((effect) => {
     if (
       effect.enableIf?.rank > memberRank ||
       effect.apply?.when ||
-      !validScope(effect.scope) ||
+      !validStores(effect.stores) ||
       effect.use?.filter
     ) return false;
 
