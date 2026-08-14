@@ -27419,6 +27419,50 @@
     },
     "effects": [
       {
+        "key": "rulersRealm",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "use": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "rulersRealm"
+                }
+              },
+              {
+                "action": {
+                  "type": "introSkill"
+                }
+              }
+            ]
+          },
+          "action": {
+            "shield": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.05,
+                  "flat": 650
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "key": "glorysFavor",
         "use": {
           "when": "hit",
           "filter": {
@@ -27429,10 +27473,11 @@
           "cooldown": 500,
           "action": {
             "shield": {
+              "attr": "hp",
               "multipliers": [
                 {
-                  "flat": 350,
-                  "mv": 0.025
+                  "mv": 0.025,
+                  "flat": 350
                 }
               ]
             }
@@ -27440,12 +27485,13 @@
         }
       },
       {
+        "key": "battlesongOfTheUnyielding",
         "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 14000
@@ -27457,19 +27503,30 @@
         }
       },
       {
+        "key": "crownOfWills",
         "apply": {
+          "by": "$next",
           "when": "start",
           "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "battlesongOfTheUnyielding"
+                }
+              },
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              }
+            ]
           }
         },
         "remove": {
           "when": "end",
           "filter": {
             "action": {
-              "ref": "resonanceLiberation.2"
+              "ref": "resonanceLiberation.3"
             }
           }
         },
@@ -27649,6 +27706,104 @@
             }
           },
           {
+            "name": "Thunderoar: Backstep",
+            "type": "heavyAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.27,
+                    0.2922,
+                    0.3143,
+                    0.3453,
+                    0.3675,
+                    0.3929,
+                    0.4284,
+                    0.4638,
+                    0.4992,
+                    0.5368,
+                    0.5811,
+                    0.6254,
+                    0.6697,
+                    0.714,
+                    0.7582,
+                    0.8025,
+                    0.8468,
+                    0.8911,
+                    0.9354,
+                    0.9796
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Thunderoar: Spinslash",
+            "type": "heavyAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.7128,
+                    0.7713,
+                    0.8297,
+                    0.9116,
+                    0.97,
+                    1.0372,
+                    1.1308,
+                    1.2243,
+                    1.3178,
+                    1.4172,
+                    1.5341,
+                    1.651,
+                    1.7679,
+                    1.8848,
+                    2.0017,
+                    2.1186,
+                    2.2355,
+                    2.3524,
+                    2.4693,
+                    2.5862
+                  ],
+                  "times": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "Thunderoar: Uppercut",
+            "type": "heavyAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.9,
+                    0.9738,
+                    1.0476,
+                    1.151,
+                    1.2248,
+                    1.3096,
+                    1.4277,
+                    1.5458,
+                    1.6639,
+                    1.7893,
+                    1.9369,
+                    2.0845,
+                    2.2321,
+                    2.3797,
+                    2.5273,
+                    2.6749,
+                    2.8225,
+                    2.9701,
+                    3.1177,
+                    3.2653
+                  ],
+                  "times": 2
+                }
+              ]
+            }
+          },
+          {
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
@@ -27717,7 +27872,7 @@
             }
           },
           {
-            "name": "Mid-air Dodge Counter",
+            "name": "Dodge Counter: Mid-air",
             "type": "dodgeCounter",
             "damage": {
               "type": "basicAttack",
@@ -27751,105 +27906,7 @@
             }
           },
           {
-            "name": "Thunderoar - Backstep",
-            "type": "heavyAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.27,
-                    0.2922,
-                    0.3143,
-                    0.3453,
-                    0.3675,
-                    0.3929,
-                    0.4284,
-                    0.4638,
-                    0.4992,
-                    0.5368,
-                    0.5811,
-                    0.6254,
-                    0.6697,
-                    0.714,
-                    0.7582,
-                    0.8025,
-                    0.8468,
-                    0.8911,
-                    0.9354,
-                    0.9796
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thunderoar - Spinslash",
-            "type": "heavyAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.7128,
-                    0.7713,
-                    0.8297,
-                    0.9116,
-                    0.97,
-                    1.0372,
-                    1.1308,
-                    1.2243,
-                    1.3178,
-                    1.4172,
-                    1.5341,
-                    1.651,
-                    1.7679,
-                    1.8848,
-                    2.0017,
-                    2.1186,
-                    2.2355,
-                    2.3524,
-                    2.4693,
-                    2.5862
-                  ],
-                  "times": 3
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thunderoar - Uppercut",
-            "type": "heavyAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.9,
-                    0.9738,
-                    1.0476,
-                    1.151,
-                    1.2248,
-                    1.3096,
-                    1.4277,
-                    1.5458,
-                    1.6639,
-                    1.7893,
-                    1.9369,
-                    2.0845,
-                    2.2321,
-                    2.3797,
-                    2.5273,
-                    2.6749,
-                    2.8225,
-                    2.9701,
-                    3.1177,
-                    3.2653
-                  ],
-                  "times": 2
-                }
-              ]
-            }
-          },
-          {
-            "name": "Steelclash",
+            "name": "Dodge Counter: Steelclash",
             "type": "dodgeCounter",
             "damage": {
               "type": "heavyAttack",
@@ -27883,7 +27940,7 @@
             }
           },
           {
-            "name": "Thunderoar - Backstep",
+            "name": "Dodge Counter: Thunderoar: Backstep",
             "type": "dodgeCounter",
             "damage": {
               "type": "heavyAttack",
@@ -28064,10 +28121,15 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1000
           },
           {
-            "name": "Sublime is the Sun - Sunborne (x9)",
+            "name": "Sublime is the Sun",
+            "type": "resonanceLiberation"
+          },
+          {
+            "name": "Sublime is the Sun: Sunborne",
             "type": "resonanceLiberation",
             "damage": {
               "type": "heavyAttack",
@@ -28100,7 +28162,7 @@
             }
           },
           {
-            "name": "Sublime is the Sun - Everbright Protector",
+            "name": "Sublime is the Sun: Everbright Protector",
             "type": "resonanceLiberation",
             "damage": {
               "type": "heavyAttack",
@@ -28335,7 +28397,7 @@
           },
           {
             "name": "Undying Sunlight: Strike",
-            "type": "MDC",
+            "type": "dodgeCounter",
             "damage": {
               "type": "resonanceSkill",
               "multipliers": [
@@ -28432,25 +28494,26 @@
         ],
         "rotation": [
           "introSkill.0",
-          "normalAttack.8",
-          "normalAttack.9",
+          "normalAttack.5",
+          "normalAttack.6",
           "resonanceSkill.0",
-          "normalAttack.8",
-          "normalAttack.9",
+          "normalAttack.5",
+          "normalAttack.6",
           "resonanceLiberation.0",
           "forteCircuit.0",
           "forteCircuit.1",
           "forteCircuit.2",
           "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
           "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
           "outroSkill.0"
         ]
       }
