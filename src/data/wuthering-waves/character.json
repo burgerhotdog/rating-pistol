@@ -719,7 +719,8 @@
           "forteCircuit.1",
           "forteCircuit.2",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 2840
       }
     ]
   },
@@ -1626,7 +1627,8 @@
           "outroSkill.0"
         ]
       }
-    ]
+    ],
+    "duration": 4310
   },
   "1104": {
     "name": "Lingyang",
@@ -2550,7 +2552,8 @@
           "outroSkill.0"
         ]
       }
-    ]
+    ],
+    "duration": 12700
   },
   "1105": {
     "name": "Zhezhi",
@@ -3226,7 +3229,8 @@
           "resonanceLiberation.1",
           "forteCircuit.2",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7020
       }
     ]
   },
@@ -4246,7 +4250,8 @@
           "resonanceSkill.0",
           "resonanceSkill.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 6500
       }
     ]
   },
@@ -5445,7 +5450,8 @@
           "resonanceSkill.0",
           "resonanceSkill.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 13300
       }
     ]
   },
@@ -6884,13 +6890,14 @@
           "normalAttack.2",
           "normalAttack.3",
           "resonanceLiberation.0",
+          "normalAttack.6",
+          "normalAttack.7",
+          "normalAttack.8",
           "resonanceSkill.1",
           "resonanceSkill.2",
           "normalAttack.6",
           "normalAttack.7",
           "normalAttack.8",
-          "normalAttack.9",
-          "normalAttack.10",
           "forteCircuit.0",
           "forteCircuit.0",
           "forteCircuit.0",
@@ -6899,8 +6906,10 @@
           "resonanceLiberation.2",
           "resonanceLiberation.2",
           "resonanceLiberation.2",
+          "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 10500
       }
     ]
   },
@@ -7946,7 +7955,8 @@
           "forteCircuit.0",
           "resonanceLiberation.4",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7530
       }
     ]
   },
@@ -10015,7 +10025,8 @@
           "forteCircuit.2",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8830
       }
     ]
   },
@@ -10933,7 +10944,8 @@
           "resonanceLiberation.5",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11690
       }
     ]
   },
@@ -11691,7 +11703,8 @@
           "forteCircuit.0",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5620
       }
     ]
   },
@@ -12719,7 +12732,8 @@
           "resonanceLiberation.0",
           "forteCircuit.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 9780
       }
     ]
   },
@@ -14371,7 +14385,8 @@
           "forteCircuit.1",
           "forteCircuit.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8200
       }
     ]
   },
@@ -15962,7 +15977,8 @@
           "normalAttack.6",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8140
       }
     ]
   },
@@ -17614,7 +17630,8 @@
           "forteCircuit.3",
           "forteCircuit.4",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12200
       }
     ]
   },
@@ -20548,7 +20565,8 @@
           "resonanceSkill.7",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11690
       },
       {
         "team": [
@@ -20577,7 +20595,8 @@
           "resonanceSkill.7",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11690
       }
     ]
   },
@@ -21911,7 +21930,8 @@
           "resonanceSkill.3",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5630
       },
       {
         "weaponId": "21050076",
@@ -21937,7 +21957,8 @@
           "resonanceSkill.3",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5630
       }
     ]
   },
@@ -23099,7 +23120,8 @@
           "resonanceLiberation.2",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 13400
       }
     ]
   },
@@ -23849,7 +23871,8 @@
           "normalAttack.0",
           "forteCircuit.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 6460
       }
     ]
   },
@@ -25014,7 +25037,8 @@
           "resonanceSkill.3",
           "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 2960
       }
     ]
   },
@@ -26389,7 +26413,8 @@
           "forteCircuit.8",
           "forteCircuit.9",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 10200
       }
     ]
   },
@@ -27406,7 +27431,8 @@
           "forteCircuit.2",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 13300
       }
     ]
   },
@@ -32046,7 +32072,8 @@
           "resonanceSkill.0",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5030
       }
     ]
   },
@@ -32738,7 +32765,8 @@
           "forteCircuit.1",
           "forteCircuit.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5500
       }
     ]
   },
@@ -33680,7 +33708,8 @@
           "resonanceLiberation.2",
           "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12170
       }
     ]
   },
@@ -35654,7 +35683,8 @@
           "forteCircuit.0",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 4500
       }
     ]
   },
@@ -37675,7 +37705,8 @@
           "forteCircuit.4",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 13230
       }
     ]
   },
@@ -41613,7 +41644,8 @@
           "forteCircuit.1",
           "forteCircuit.4",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11090
       }
     ]
   },
@@ -42872,7 +42904,8 @@
           "forteCircuit.2",
           "forteCircuit.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 2350
       }
     ]
   },
@@ -43927,7 +43960,8 @@
           "forteCircuit.0",
           "forteCircuit.5",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12410
       }
     ]
   },
@@ -46008,7 +46042,8 @@
           "resonanceSkill.4",
           "forteCircuit.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11600
       },
       {
         "team": [
@@ -46035,7 +46070,8 @@
           "resonanceSkill.4",
           "forteCircuit.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11600
       }
     ]
   },
@@ -47222,7 +47258,8 @@
           "forteCircuit.2",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12640
       }
     ]
   },
@@ -48851,7 +48888,8 @@
           "forteCircuit.6",
           "forteCircuit.9",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7210
       }
     ]
   },
@@ -50334,7 +50372,8 @@
           "forteCircuit.2",
           "forteCircuit.4",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7100
       }
     ]
   },
@@ -51442,7 +51481,8 @@
           "forteCircuit.0",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12400
       }
     ]
   },
@@ -54908,7 +54948,8 @@
           "resonanceSkill.0",
           "resonanceSkill.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8440
       }
     ]
   },
@@ -55782,7 +55823,8 @@
           "forteCircuit.0",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7610
       }
     ]
   },
@@ -56774,7 +56816,8 @@
           "resonanceSkill.4",
           "resonanceSkill.6",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 15500
       }
     ]
   },
@@ -57561,7 +57604,8 @@
           "forteCircuit.2",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 6650
       }
     ]
   },
@@ -58684,7 +58728,8 @@
           "forteCircuit.7",
           "resonanceSkill.2",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7060
       }
     ]
   },
@@ -61607,7 +61652,8 @@
           "forteCircuit.1",
           "forteCircuit.2",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 10140
       }
     ]
   }
