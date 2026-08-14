@@ -51,18 +51,12 @@ characters:
 
     simplified:
         1102 Sanhua
-            s2 stamina
             s4 energy
         1103 Baizhi
             euphonia to first
             s1 energy
-        1508 Chisa
-            no cons
         1208 Galbrena
-            Afterflame always max
             Fated End doesnt need to be unique
-            no cons
-        1411 Qiuyuan
             no cons
         1511 Lucy
             teammates inflicting hack: outro, rank 4

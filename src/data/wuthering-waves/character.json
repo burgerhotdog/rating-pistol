@@ -15991,27 +15991,57 @@
             }
           }
         },
-        "buff": {
+        "remove": {
+          "when": "start",
           "filter": {
             "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2",
-                "forteCircuit.3",
-                "forteCircuit.4",
-                "forteCircuit.5",
-                "forteCircuit.6",
-                "forteCircuit.7",
-                "forteCircuit.8",
-                "forteCircuit.9",
-                "forteCircuit.10",
-                "forteCircuit.11"
-              ]
+              "ref": "outroSkill.0"
+            }
+          }
+        }
+      },
+      {
+        "key": "afterflame",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "echoSkill"
             }
           },
+          "stacks": 8
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "demonHypostasis"
+                }
+              },
+              {
+                "action": {
+                  "ref": [
+                    "forteCircuit.0",
+                    "forteCircuit.1",
+                    "forteCircuit.2",
+                    "forteCircuit.3",
+                    "forteCircuit.4",
+                    "forteCircuit.5",
+                    "forteCircuit.6",
+                    "forteCircuit.7",
+                    "forteCircuit.8",
+                    "forteCircuit.9",
+                    "forteCircuit.10",
+                    "forteCircuit.11"
+                  ]
+                }
+              }
+            ]
+          },
           "stats": {
-            "dmgBonus%": 0.6
+            "dmgBonus%": 0.015
           }
         },
         "remove": {
@@ -16021,7 +16051,8 @@
               "ref": "outroSkill.0"
             }
           }
-        }
+        },
+        "maxStacks": 40
       },
       {
         "apply": {
