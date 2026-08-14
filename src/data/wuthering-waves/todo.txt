@@ -12,7 +12,6 @@ characters:
         1205 Changli
         1206 Brant
         1207 Lupa
-        1208 Galbrena
         1209 Mornye
         1210 Aemeath
         1211 Denia
@@ -31,7 +30,6 @@ characters:
         1407 Ciaccona
         1409 Cartethyia
         1410 Iuno
-        1411 Qiuyuan
         1412 Sigrika
         1503 Verina
         1504 Lumi
@@ -59,11 +57,13 @@ characters:
             euphonia to first
             s1 energy
         1508 Chisa
-            s1 true damage
-            s3
-            s4
-            s5
-            s6
+            no cons
+        1208 Galbrena
+            Afterflame always max
+            Fated End doesnt need to be unique
+            no cons
+        1411 Qiuyuan
+            no cons
         1511 Lucy
             teammates inflicting hack: outro, rank 4
 

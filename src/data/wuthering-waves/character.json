@@ -38837,12 +38837,134 @@
     },
     "effects": [
       {
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "specs": {
+            "critDmg%": {
+              "attr": "critRate%",
+              "step": 0.01,
+              "offset": 0.5,
+              "value": 0.02,
+              "maxValue": 0.3
+            }
+          }
+        }
+      },
+      {
+        "key": "bamboosShade",
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "echoSkillDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "key": "quietudeWithin",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.4"
+            }
+          },
+          "cooldown": 22000,
+          "duration": 10000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.5
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "field": "offField"
+          }
+        }
+      },
+      {
+        "key": "flowingPanaceaReady",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "echoSkill"
+            }
+          }
+        }
+      },
+      {
+        "key": "flowingPanacea",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "flowingPanaceaReady"
+                }
+              },
+              {
+                "action": {
+                  "ref": [
+                    "normalAttack.2",
+                    "forteCircuit.0",
+                    "forteCircuit.1",
+                    "forteCircuit.2",
+                    "forteCircuit.3",
+                    "normalAttack.5",
+                    "introSkill.0"
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 20000
+        },
+        "onApplyDoRemove": {
+          "flowingPanaceaReady": 1
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
+        }
+      },
+      {
         "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 14000
@@ -39075,39 +39197,6 @@
             }
           },
           {
-            "name": "Mid-air Attack DMG",
-            "type": "mid-airAttack",
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.588,
-                    0.6363,
-                    0.6845,
-                    0.752,
-                    0.8002,
-                    0.8556,
-                    0.9328,
-                    1.0099,
-                    1.0871,
-                    1.1691,
-                    1.2655,
-                    1.3619,
-                    1.4583,
-                    1.5548,
-                    1.6512,
-                    1.7476,
-                    1.8441,
-                    1.9405,
-                    2.0369,
-                    2.1334
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Heavy Attack",
             "type": "heavyAttack",
             "damage": {
@@ -39134,6 +39223,39 @@
                     2.749,
                     2.8856,
                     3.0223
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Mid-air Attack",
+            "type": "mid-airAttack",
+            "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.588,
+                    0.6363,
+                    0.6845,
+                    0.752,
+                    0.8002,
+                    0.8556,
+                    0.9328,
+                    1.0099,
+                    1.0871,
+                    1.1691,
+                    1.2655,
+                    1.3619,
+                    1.4583,
+                    1.5548,
+                    1.6512,
+                    1.7476,
+                    1.8441,
+                    1.9405,
+                    2.0369,
+                    2.1334
                   ]
                 }
               ]
@@ -39617,6 +39739,7 @@
           {
             "name": "Thus Spoke the Blade: To Teach",
             "type": "heavyAttack",
+            "extraType": "echoSkill",
             "damage": {
               "multipliers": [
                 {
@@ -39745,6 +39868,7 @@
           {
             "name": "Thus Spoke the Blade: To Save",
             "type": "heavyAttack",
+            "extraType": "echoSkill",
             "damage": {
               "multipliers": [
                 {
@@ -39850,6 +39974,7 @@
           {
             "name": "Thus Spoke the Blade: To Sacrifice",
             "type": "heavyAttack",
+            "extraType": "echoSkill",
             "damage": {
               "multipliers": [
                 {
@@ -40003,11 +40128,11 @@
           "introSkill.0",
           "forteCircuit.2",
           "forteCircuit.3",
+          "resonanceSkill.0",
           "resonanceLiberation.0",
           "forteCircuit.4",
           "forteCircuit.5",
           "forteCircuit.6",
-          "resonanceSkill.0",
           "outroSkill.0"
         ]
       }

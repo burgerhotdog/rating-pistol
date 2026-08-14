@@ -35,7 +35,11 @@ import {
   applyStoredBuild,
 } from '@/utils';
 import { useBuild } from '@/contexts';
-import { CharacterSelectDialog, WeaponSelectDialog, SetSelectDialog } from './GridSelect';
+import {
+  CharacterSelectDialog,
+  WeaponSelectDialog,
+  SetSelectDialog,
+} from './GridSelect';
 
 function SetIcon({ gameId, setId, pieces, onRemove, onClick, disabled = false }) {
   const [hovered, setHovered] = useState(false);
@@ -148,7 +152,7 @@ function SetCountsEditor({ gameId, id, setCounts = {}, mainEcho, onChange, disab
     }
 
     next[setId] = pieces;
-    onChange(next);
+    onChange({ setCounts: next });
   };
 
   const handleRemove = (setId) => {
@@ -229,7 +233,7 @@ function SetCountsEditor({ gameId, id, setCounts = {}, mainEcho, onChange, disab
         <Button
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(getPresetSetCounts(gameId, id))}
+          onClick={() => onChange({ setCounts: getPresetSetCounts(gameId, id) })}
           disabled={disabled}
         >
           Reset Default
@@ -238,7 +242,7 @@ function SetCountsEditor({ gameId, id, setCounts = {}, mainEcho, onChange, disab
         <Button
           variant="outlined"
           startIcon={<ClearAllIcon />}
-          onClick={() => onChange({})}
+          onClick={() => onChange({ setCounts: {} })}
           disabled={disabled}
         >
           Clear
