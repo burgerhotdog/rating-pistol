@@ -18921,7 +18921,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 20000
@@ -19200,7 +19200,7 @@
             }
           },
           {
-            "name": "Heavy Attack Charged I",
+            "name": "Heavy Attack: Charged I",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -19257,7 +19257,7 @@
             }
           },
           {
-            "name": "Heavy Attack Charged II",
+            "name": "Heavy Attack: Charged II",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -19827,7 +19827,7 @@
             }
           },
           {
-            "name": "Heavy Attack Charged I",
+            "name": "Heavy Attack: Charged I",
             "tagged": "Mech",
             "type": "heavyAttack",
             "damage": {
@@ -19861,7 +19861,7 @@
             }
           },
           {
-            "name": "Heavy Attack Charged II",
+            "name": "Heavy Attack: Charged II",
             "tagged": "Mech",
             "type": "heavyAttack",
             "damage": {
@@ -20136,90 +20136,6 @@
         "name": "To Sculpt the Silence",
         "actions": [
           {
-            "name": "Seraphic Duet: Encore",
-            "tagged": "Mech",
-            "type": "resonanceSkill",
-            "damage": {
-              "type": "resonanceLiberation",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.09,
-                    0.0974,
-                    0.1048,
-                    0.1151,
-                    0.1225,
-                    0.131,
-                    0.1428,
-                    0.1546,
-                    0.1664,
-                    0.179,
-                    0.1937,
-                    0.2085,
-                    0.2233,
-                    0.238,
-                    0.2528,
-                    0.2675,
-                    0.2823,
-                    0.2971,
-                    0.3118,
-                    0.3266
-                  ],
-                  "times": 4
-                },
-                {
-                  "mv": [
-                    0.18,
-                    0.1948,
-                    0.2096,
-                    0.2302,
-                    0.245,
-                    0.262,
-                    0.2856,
-                    0.3092,
-                    0.3328,
-                    0.3579,
-                    0.3874,
-                    0.4169,
-                    0.4465,
-                    0.476,
-                    0.5055,
-                    0.535,
-                    0.5645,
-                    0.5941,
-                    0.6236,
-                    0.6531
-                  ],
-                  "times": 3
-                },
-                {
-                  "mv": [
-                    0.9,
-                    0.9738,
-                    1.0476,
-                    1.151,
-                    1.2248,
-                    1.3096,
-                    1.4277,
-                    1.5458,
-                    1.6639,
-                    1.7893,
-                    1.9369,
-                    2.0845,
-                    2.2321,
-                    2.3797,
-                    2.5273,
-                    2.6749,
-                    2.8225,
-                    2.9701,
-                    3.1177,
-                    3.2653
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Seraphic Duet: Overture",
             "type": "resonanceSkill",
             "damage": {
@@ -20323,6 +20239,90 @@
                     1.0885
                   ],
                   "times": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "Seraphic Duet: Encore",
+            "tagged": "Mech",
+            "type": "resonanceSkill",
+            "damage": {
+              "type": "resonanceLiberation",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.09,
+                    0.0974,
+                    0.1048,
+                    0.1151,
+                    0.1225,
+                    0.131,
+                    0.1428,
+                    0.1546,
+                    0.1664,
+                    0.179,
+                    0.1937,
+                    0.2085,
+                    0.2233,
+                    0.238,
+                    0.2528,
+                    0.2675,
+                    0.2823,
+                    0.2971,
+                    0.3118,
+                    0.3266
+                  ],
+                  "times": 4
+                },
+                {
+                  "mv": [
+                    0.18,
+                    0.1948,
+                    0.2096,
+                    0.2302,
+                    0.245,
+                    0.262,
+                    0.2856,
+                    0.3092,
+                    0.3328,
+                    0.3579,
+                    0.3874,
+                    0.4169,
+                    0.4465,
+                    0.476,
+                    0.5055,
+                    0.535,
+                    0.5645,
+                    0.5941,
+                    0.6236,
+                    0.6531
+                  ],
+                  "times": 3
+                },
+                {
+                  "mv": [
+                    0.9,
+                    0.9738,
+                    1.0476,
+                    1.151,
+                    1.2248,
+                    1.3096,
+                    1.4277,
+                    1.5458,
+                    1.6639,
+                    1.7893,
+                    1.9369,
+                    2.0845,
+                    2.2321,
+                    2.3797,
+                    2.5273,
+                    2.6749,
+                    2.8225,
+                    2.9701,
+                    3.1177,
+                    3.2653
+                  ]
                 }
               ]
             }
@@ -20556,11 +20556,11 @@
           "resonanceSkill.3",
           "resonanceSkill.4",
           "resonanceSkill.5",
-          "forteCircuit.0",
+          "forteCircuit.1",
           "normalAttack.1",
           "normalAttack.2",
           "normalAttack.3",
-          "forteCircuit.1",
+          "forteCircuit.0",
           "resonanceSkill.7",
           "resonanceLiberation.1",
           "outroSkill.0"
@@ -20586,11 +20586,11 @@
           "resonanceSkill.3",
           "resonanceSkill.4",
           "resonanceSkill.5",
-          "forteCircuit.0",
+          "forteCircuit.1",
           "normalAttack.1",
           "normalAttack.2",
           "normalAttack.3",
-          "forteCircuit.1",
+          "forteCircuit.0",
           "resonanceSkill.7",
           "resonanceLiberation.1",
           "outroSkill.0"
