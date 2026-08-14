@@ -1,4 +1,4 @@
-import { WW, ECHO } from '@/data';
+import { WW, CHARACTER, ECHO } from '@/data';
 import { toMergedObj, toEquipMap, compileBaseMap } from '@/utils';
 import { getMemberPresetActions } from './actions';
 import { normalizeEffects } from './effects';
@@ -135,6 +135,8 @@ export const compileCache = (gameId, team) => {
       statMap,
       rotation,
       duration,
+      ...(CHARACTER[gameId][memberId].noEnergy && 
+        { noEnergy: true }),
     };
   }
 

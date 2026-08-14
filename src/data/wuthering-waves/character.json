@@ -20620,6 +20620,154 @@
     },
     "effects": [
       {
+        "key": "darkCore",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.3"
+            }
+          },
+          "stats": {
+            "mv%": 1.5
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "key": "entropyShiftBreakdownForm",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 12000
+        },
+        "onApplyDoApply": {
+          "generateDarkCore": 1
+        },
+        "doApplyDuration": 12000,
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.3
+          }
+        }
+      },
+      {
+        "key": "generateDarkCore",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 12000,
+          "action": []
+        },
+        "onUseDoApply": {
+          "darkCore": 1
+        }
+      },
+      {
+        "key": "erosionField",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "forteCircuit.0"
+        }
+      },
+      {
+        "key": "voidParticle",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.7",
+                "normalAttack.8",
+                "normalAttack.9",
+                "normalAttack.10",
+                "normalAttack.11",
+                "normalAttack.12",
+                "normalAttack.13",
+                "normalAttack.14",
+                "normalAttack.15",
+                "normalAttack.16",
+                "normalAttack.17"
+              ]
+            }
+          },
+          "stats": {
+            "mv%": 0.5
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "mode": "fusionBurst"
+        },
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "mode": "tuneStrain"
+        },
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "tuneBreakBoost": 10
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "mode": "tuneStrain"
+        },
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "tuneBreakBoost": 40
+          }
+        }
+      },
+      {
         "enableIf": {
           "mode": "fusionBurst"
         },
@@ -20628,7 +20776,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 30000
@@ -20649,7 +20797,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 16000
@@ -21770,7 +21918,7 @@
         "name": "\"Flawless\"",
         "actions": [
           {
-            "name": "Erosion Field DMG per tick",
+            "name": "Erosion Field Tick",
             "inflict": {
               "status": {
                 "$mode": 2

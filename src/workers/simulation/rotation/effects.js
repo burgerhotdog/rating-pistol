@@ -153,7 +153,7 @@ export function advanceEffects(ctx, elapsed) {
       remaining -= diff;
 
       if (!state.useCooldown) {
-        onUseDoCommand(ctx, effect);
+        onUseDoCommand(ctx, effect, effect.ownerId);
         if (runUseEffect(ctx, state, { runtimeOffset: elapsed - remaining })) break;
       }
     }
