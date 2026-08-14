@@ -28522,7 +28522,8 @@
           "resonanceLiberation.2",
           "resonanceLiberation.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11170
       }
     ]
   },
@@ -31344,7 +31345,8 @@
           "resonanceLiberation.2",
           "resonanceLiberation.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7890
       }
     ]
   },
@@ -39024,7 +39026,8 @@
           "forteCircuit.6",
           "forteCircuit.7",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8430
       }
     ]
   },
@@ -40348,7 +40351,8 @@
           "forteCircuit.5",
           "forteCircuit.6",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 6350
       }
     ]
   },
@@ -53976,7 +53980,8 @@
           "resonanceLiberation.5",
           "resonanceLiberation.7",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11830
       }
     ]
   },
@@ -59851,7 +59856,8 @@
           "normalAttack.4",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 9450
       }
     ]
   },

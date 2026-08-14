@@ -4,6 +4,25 @@ import { getMemberPresetActions } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
 
+function adjustTimings(rotation, actual, expected) {
+  if (!expected) return;
+  const ratio = expected / actual;
+
+  const adjusted = new Set([]);
+
+  for (const action of rotation) {
+    if (adjusted.has(action.id)) continue;
+    adjusted.add(action.id);
+
+    action.duration = Math.round(action.duration * ratio);
+    if (action.hitOffsets) {
+      for (const [index, offset] of action.hitOffsets.entries()) {
+        action.hitOffsets[index] = Math.round(offset * ratio);
+      }
+    }
+  }
+}
+
 const getConvertedRotation = (rawRotation, spec) => {
   const { gameId, memberId, memberActions, memberIds, mainEcho } = spec;
   const teamSize = memberIds.length;
@@ -59,7 +78,10 @@ const getConvertedRotation = (rawRotation, spec) => {
     }
   }
 
-  return { rotation, duration };
+  if (!spec.rotationDuration) return { rotation, duration };
+
+  adjustTimings(rotation, duration, spec.rotationDuration)
+  return { rotation, duration: spec.rotationDuration };
 };
 
 export const compileCache = (gameId, team) => {
@@ -97,6 +119,7 @@ export const compileCache = (gameId, team) => {
       memberActions: teamActions[memberId],
       memberIds,
       mainEcho,
+      rotationDuration: member.duration, 
     });
 
     rotationDuration += duration;

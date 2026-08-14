@@ -11,6 +11,8 @@ also batch hits that have same buffmaps but different hit times for chart
 buff saturation index
 comapre echo sets and teammates
 
+editing rot doesnt update duration
+
 
           "use": {
             "filter": {
