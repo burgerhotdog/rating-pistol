@@ -37592,12 +37592,103 @@
     },
     "effects": [
       {
+        "key": "fullMoonDomain",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.7"
+            }
+          },
+          "cooldown": 25000,
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 5000,
+          "action": "forteCircuit.8"
+        }
+      },
+      {
+        "stores": "$applier",
+        "key": "blessingOfTheWanLight",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "fullMoonDomain"
+                }
+              },
+              {
+                "action": {
+                  "has": "shield"
+                }
+              }
+            ]
+          },
+          "cooldown": 500,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "dmgAmp%": 0.04
+          }
+        },
+        "maxStacks": 10
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "heavyAttack",
+                "dodgeCounter",
+                "resonanceSkill",
+                "resonanceLiberation",
+                "introSkill"
+              ]
+            }
+          },
+          "action": {
+            "shield": {
+              "multipliers": [
+                {
+                  "mv": 0.32
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceLiberation"
+              ]
+            }
+          },
+          "action": []
+        },
+        "onUseDoApply": {
+          "blessingOfTheWanLight": 5
+        }
+      },
+      {
         "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 14000
@@ -37615,6 +37706,7 @@
         "actions": [
           {
             "name": "Moonring: Basic Attack 1",
+            "tagged": "Half Moon",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -37647,6 +37739,7 @@
           },
           {
             "name": "Moonring: Basic Attack 2",
+            "tagged": "Half Moon",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -37704,6 +37797,7 @@
           },
           {
             "name": "Moonring: Basic Attack 3",
+            "tagged": "Half Moon",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -37795,6 +37889,7 @@
           },
           {
             "name": "Moonring: Dodge Counter",
+            "tagged": "Half Moon",
             "type": "dodgeCounter",
             "damage": {
               "type": "basicAttack",
@@ -37853,6 +37948,7 @@
           },
           {
             "name": "Moonbow: Basic Attack 1",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -37886,6 +37982,7 @@
           },
           {
             "name": "Moonbow: Basic Attack 2",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -37920,6 +38017,7 @@
           },
           {
             "name": "Moonbow: Basic Attack 3",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -37954,6 +38052,7 @@
           },
           {
             "name": "Moonbow: Dodge Counter",
+            "tagged": "New Moon",
             "type": "dodgeCounter",
             "damage": {
               "type": "resonanceLiberation",
@@ -38240,6 +38339,7 @@
         "actions": [
           {
             "name": "Flux: Moonbow",
+            "tagged": "Half Moon",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38273,6 +38373,7 @@
           },
           {
             "name": "Flux: Moonring",
+            "tagged": "New Moon",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38307,6 +38408,7 @@
           },
           {
             "name": "Enhanced Moonbow: Basic Attack 1",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38369,6 +38471,7 @@
           },
           {
             "name": "Enhanced Moonbow: Basic Attack 2",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38432,6 +38535,7 @@
           },
           {
             "name": "Enhanced Moonbow: Basic Attack 3",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38495,6 +38599,7 @@
           },
           {
             "name": "Enhanced Moonbow: Dodge Counter",
+            "tagged": "New Moon",
             "type": "dodgeCounter",
             "damage": {
               "type": "resonanceLiberation",
@@ -38558,6 +38663,7 @@
           },
           {
             "name": "Enhanced Arc Beyond the Edge",
+            "tagged": "New Moon",
             "type": "resonanceSkill",
             "damage": {
               "type": "resonanceLiberation",

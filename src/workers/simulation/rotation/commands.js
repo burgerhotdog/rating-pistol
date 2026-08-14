@@ -36,29 +36,29 @@ function doUse(ctx, toUse = {}) {
   }
 }
 
-function doApply(ctx, toApply = {}, doApplyType = 'refresh', doApplyDuration) {
+function doApply(ctx, action, toApply = {}, doApplyType = 'refresh', doApplyDuration) {
   for (const [effectId, stacks] of Object.entries(toApply)) {
     const effect = ctx.cache.effects[effectId];
-    const spec = { stacks, ...(doApplyDuration && { type: doApplyType, duration: doApplyDuration }) };
+    const spec = { stacks, applier: action.ownerId, ...(doApplyDuration && { type: doApplyType, duration: doApplyDuration }) };
 
     runApplyEffect(ctx, effect, spec);
   }
 }
 
-export function onRemoveDoCommand(ctx, effect) {
+export function onRemoveDoCommand(ctx, effect, action) {
   if ('onRemoveDoRemove' in effect) doRemove(ctx, effect.onRemoveDoRemove);
   if ('onRemoveDoUse' in effect) doUse(ctx, effect.onRemoveDoUse);
-  if ('onRemoveDoApply' in effect) doApply(ctx, effect.onRemoveDoApply, effect.doApplyType, effect.doApplyDuration);
+  if ('onRemoveDoApply' in effect) doApply(ctx, action, effect.onRemoveDoApply, effect.doApplyType, effect.doApplyDuration);
 }
 
-export function onUseDoCommand(ctx, effect) {
+export function onUseDoCommand(ctx, effect, action) {
   if ('onUseDoRemove' in effect) doRemove(ctx, effect.onUseDoRemove);
   if ('onUseDoUse' in effect) doUse(ctx, effect.onUseDoUse);
-  if ('onUseDoApply' in effect) doApply(ctx, effect.onUseDoApply, effect.doApplyType, effect.doApplyDuration);
+  if ('onUseDoApply' in effect) doApply(ctx, action, effect.onUseDoApply, effect.doApplyType, effect.doApplyDuration);
 }
 
-export function onApplyDoCommand(ctx, effect) {
+export function onApplyDoCommand(ctx, effect, action) {
   if ('onApplyDoRemove' in effect) doRemove(ctx, effect.onApplyDoRemove);
   if ('onApplyDoUse' in effect) doUse(ctx, effect.onApplyDoUse);
-  if ('onApplyDoApply' in effect) doApply(ctx, effect.onApplyDoApply, effect.doApplyType, effect.doApplyDuration);
+  if ('onApplyDoApply' in effect) doApply(ctx, action, effect.onApplyDoApply, effect.doApplyType, effect.doApplyDuration);
 }
