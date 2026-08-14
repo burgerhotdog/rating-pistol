@@ -16007,7 +16007,14 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "echoSkill"
+              "or": [
+                {
+                  "type": "echoSkill"
+                },
+                {
+                  "extraType": "echoSkill"
+                }
+              ]
             }
           },
           "stacks": 8
@@ -39116,7 +39123,14 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "echoSkill"
+              "or": [
+                {
+                  "type": "echoSkill"
+                },
+                {
+                  "extraType": "echoSkill"
+                }
+              ]
             }
           }
         }
@@ -57600,7 +57614,14 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "echoSkill"
+              "or": [
+                {
+                  "type": "echoSkill"
+                },
+                {
+                  "extraType": "echoSkill"
+                }
+              ]
             }
           },
           "duration": 10000
@@ -58679,24 +58700,245 @@
     },
     "effects": [
       {
+        "key": "maestro",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
               "ref": [
-                "resonanceLiberation.2",
-                "resonanceLiberation.3",
-                "resonanceLiberation.4"
+                "introSkill.0",
+                "introSkill.1"
               ]
             }
           }
         },
-        "maxStacks": 24,
+        "buff": {
+          "stats": {
+            "atk%": 1.2
+          }
+        }
+      },
+      {
+        "key": "maestroHecateBasic1",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000,
+          "offset": 1000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "resonanceLiberation.1"
+        }
+      },
+      {
+        "key": "maestroHecateBasic2",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000,
+          "offset": 3000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "resonanceLiberation.2"
+        }
+      },
+      {
+        "key": "maestroHecateEnhanced",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "resonanceLiberation.3"
+        }
+      },
+      {
+        "key": "maestroHecateEnhancedFollowUp",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "action": "resonanceLiberation.4"
+        },
+        "maxUses": 10
+      },
+      {
+        "stores": "$ally",
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "maestroHecateEnhancedFollowUp"
+                }
+              },
+              {
+                "action": {
+                  "or": [
+                    {
+                      "type": "echoSkill"
+                    },
+                    {
+                      "extraType": "echoSkill"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "action": []
+        },
+        "onUseDoUse": {
+          "maestroHecateEnhancedFollowUp": 1
+        }
+      },
+      {
+        "key": "aftersound",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "offField"
+              },
+              {
+                "action": {
+                  "ref": [
+                    "resonanceLiberation.3",
+                    "resonanceLiberation.4",
+                    "resonanceLiberation.5"
+                  ]
+                }
+              }
+            ]
+          }
+        },
         "buff": {
           "stats": {
             "critDmg%": 0.025
           }
+        },
+        "maxStacks": 14
+      },
+      {
+        "key": "aftersoundStarting",
+        "buff": {
+          "stats": {
+            "critDmg%": 0.25
+          }
         }
+      },
+      {
+        "key": "aftersoundOverflow",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "offField"
+              },
+              {
+                "action": {
+                  "ref": [
+                    "resonanceLiberation.3",
+                    "resonanceLiberation.4",
+                    "resonanceLiberation.5"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "aftersound": 14
+                }
+              }
+            ]
+          }
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": 0.01
+          }
+        },
+        "maxStacks": 100
       },
       {
         "stores": "$next",
@@ -58704,7 +58946,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 14000
@@ -58714,6 +58956,18 @@
             "havocDmgAmp%": 0.2,
             "heavyAttackDmgAmp%": 0.25
           }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "action": "resonanceLiberation.4",
+          "times": 2
         }
       }
     ],
@@ -59046,9 +59300,12 @@
         "name": "Waltz of Forsaken Depths",
         "actions": [
           {
+            "name": "Waltz of Forsaken Depths",
+            "type": "resonanceLiberation"
+          },
+          {
             "name": "Basic Attack 1",
             "tagged": "Hecate",
-            "type": "basicAttack",
             "damage": {
               "type": "echoSkill",
               "multipliers": [
@@ -59077,13 +59334,11 @@
                   ]
                 }
               ]
-            },
-            "duration": 0
+            }
           },
           {
             "name": "Basic Attack 2",
             "tagged": "Hecate",
-            "type": "basicAttack",
             "damage": {
               "type": "echoSkill",
               "multipliers": [
@@ -59113,8 +59368,7 @@
                   "times": 2
                 }
               ]
-            },
-            "duration": 0
+            }
           },
           {
             "name": "Enhanced Attack: Strings",
@@ -59585,16 +59839,17 @@
         ],
         "rotation": [
           "introSkill.1",
+          "normalAttack.1",
           "normalAttack.2",
-          "resonanceLiberation.2",
+          "forteCircuit.1",
           "resonanceSkill.0",
-          "resonanceLiberation.2",
+          "forteCircuit.1",
           "normalAttack.0",
           "normalAttack.1",
           "normalAttack.2",
-          "resonanceLiberation.2",
+          "forteCircuit.1",
           "normalAttack.4",
-          "forteCircuit.0",
+          "resonanceLiberation.0",
           "outroSkill.0"
         ]
       }

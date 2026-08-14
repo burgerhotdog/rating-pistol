@@ -26,11 +26,11 @@ function doUse(ctx, toUse = {}) {
   for (const [effectId, times] of Object.entries(toUse)) {
     const effect = ctx.cache.effects[effectId];
 
-    for (const target of effect.stores) {
-      if (target === 'global') {
+    for (const store of effect.stores) {
+      if (store === 'global') {
         runUseEffect(ctx, globalEffects[effectId]);
       } else {
-        runUseEffect(ctx, memberEffects[target][effectId]);
+        runUseEffect(ctx, memberEffects[store][effectId]);
       }
     }
   }

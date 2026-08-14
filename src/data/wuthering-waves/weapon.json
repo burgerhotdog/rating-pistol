@@ -3154,7 +3154,14 @@
               },
               {
                 "action": {
-                  "type": "echoSkill"
+                  "or": [
+                    {
+                      "type": "echoSkill"
+                    },
+                    {
+                      "extraType": "echoSkill"
+                    }
+                  ]
                 }
               }
             ]
@@ -3918,7 +3925,14 @@
               },
               {
                 "action": {
-                  "type": "echoSkill"
+                  "or": [
+                    {
+                      "type": "echoSkill"
+                    },
+                    {
+                      "extraType": "echoSkill"
+                    }
+                  ]
                 }
               }
             ]
