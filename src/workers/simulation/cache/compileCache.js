@@ -138,17 +138,18 @@ export const compileCache = (gameId, team) => {
     };
   }
 
-  const tuneStrainMaxStacks = cacheTuneResponses(memberCache);
-
-  return {
+  const cache = {
     gameId,
     memberIds,
     member: memberCache,
     effects: effectsCache,
-    tuneStrainMaxStacks,
     rotationDuration,
     getDps(damage) {
       return damage / rotationDuration * 1000;
     },
-  };
+  }
+
+  cacheTuneResponses(cache);
+
+  return cache;
 };
