@@ -1812,7 +1812,8 @@
               "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 8
         },
         "use": {
           "when": "hit",
@@ -1839,8 +1840,7 @@
               ]
             }
           }
-        },
-        "maxUses": 8
+        }
       },
       {
         "buff": {
@@ -2757,7 +2757,8 @@
               "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 4
         },
         "use": {
           "when": "inflict",
@@ -2783,8 +2784,7 @@
               ]
             }
           }
-        },
-        "maxUses": 4
+        }
       },
       {
         "buff": {

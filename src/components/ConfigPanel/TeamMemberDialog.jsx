@@ -31,7 +31,7 @@ import {
   formatStr,
   getPresetSetCounts,
   getMemberPreset,
-  getDefaultWeaponRank,
+  getDefaultWeapRank,
   applyStoredBuild,
 } from '@/utils';
 import { useBuild } from '@/contexts';
@@ -596,7 +596,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
         onSelect={(weaponId) => setDraft((prev) => ({
           ...prev,
           weaponId,
-          weaponRank: getDefaultWeaponRank(gameId, weaponId),
+          weaponRank: getDefaultWeapRank(gameId, weaponId),
         }))}
       />
     </>

@@ -13,13 +13,24 @@ const statusMaxStacks = {
   havocBane: 3,
 };
 
+const hasShimmer = (ctx) => {
+  for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
+    if (state.effect.gameRule === 'shimmer') return true;
+  }
+};
+
 const getStatusMaxStacks = (ctx, statusId) => {
   let maxStacks = statusMaxStacks[statusId];
 
   for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
-    const { effect: { gameRule } } = state;
-    if ('maxStacks' in gameRule) {
-      maxStacks += gameRule.maxStacks[statusId] ?? 0;
+    const gameRuleKey = state.effect.gameRule;
+
+    if (gameRuleKey === 'chisa') {
+      maxStacks += 3;
+    }
+
+    if (gameRuleKey === 'suisui' && statusId !== 'havocBane') {
+      maxStacks += 3;
     }
   }
 
@@ -213,7 +224,9 @@ const STATUSES = {
         if (!currState.timer) {
           if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
 
-          currState.stacks--;
+          if (!hasShimmer(ctx)) {
+            currState.stacks--;
+          }
           currState.timer = 3000;
 
           if (!currState.stacks) {

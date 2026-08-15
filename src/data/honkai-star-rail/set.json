@@ -211,7 +211,8 @@
             "action": {
               "type": "ultimate"
             }
-          }
+          },
+          "uses": 1
         },
         "buff": {
           "filter": {
@@ -222,8 +223,7 @@
           "stats": {
             "fireDmgBonus%": 0.12
           }
-        },
-        "maxUses": 1
+        }
       }
     ]
   },
@@ -287,9 +287,9 @@
             "action": {
               "type": "skill"
             }
-          }
+          },
+          "uses": 1
         },
-        "maxUses": 1,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -711,9 +711,9 @@
             "action": {
               "type": "ultimate"
             }
-          }
+          },
+          "uses": 1
         },
-        "maxUses": 1,
         "buff": {
           "stats": {
             "skillDmgBonus%": 0.25

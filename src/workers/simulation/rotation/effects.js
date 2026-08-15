@@ -59,10 +59,10 @@ export function runApplyEffect(ctx, effect, spec = {}) {
         { timeLeft: isDurationExt
           ? prevState.timeLeft + spec.duration
           : effect.apply.duration }),
-      ...(effect.maxUses &&
+      ...(effect.apply?.uses &&
         { usesLeft: isUsesExt
           ? prevState.usesLeft + spec.uses
-          : effect.maxUses }),
+          : effect.apply.uses }),
       ...(effect.maxExtensions &&
         { extensionsLeft: isExt
           ? prevState.extensionsLeft - 1

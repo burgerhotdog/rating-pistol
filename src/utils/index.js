@@ -3,6 +3,7 @@ export * from './format';
 export * from './getAttr';
 export * from './getPreset';
 export * from './getTotals';
+export * from './getDefault';
 export * from './math';
 export * from './merge';
 export * from './resolveRanked';
