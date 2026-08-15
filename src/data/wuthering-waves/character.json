@@ -9354,7 +9354,8 @@
           "forteCircuit.3",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7800
       }
     ]
   },
@@ -43051,7 +43052,7 @@
           "forteCircuit.3",
           "outroSkill.0"
         ],
-        "duration": 2350
+        "duration": 3350
       }
     ]
   },
