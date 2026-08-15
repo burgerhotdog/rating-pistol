@@ -295,6 +295,22 @@ export function inflictNegativeStatuses(ctx, action) {
   }
 }
 
+export function replaceNegativeStatuses(ctx, action) {
+  const store = ctx.states.negativeStatuses;
+  const toReplace = action.replace?.status ?? {};
+
+  for (const [fromId, toId] of Object.entries(toReplace)) {
+    const fromState = store[fromId];
+    if (!fromState) continue;
+
+    const fromStacks = fromState.stacks;
+    delete store[fromId];
+
+    const toStatus = STATUSES[toId];
+    toStatus.inflict(ctx, toStatus, fromStacks);
+  }
+}
+
 export function advanceNegativeStatuses(ctx, elapsed) {
   const toAdvance = ctx.states.negativeStatuses;
 

@@ -38380,7 +38380,17 @@
               "ref": "resonanceSkill.1"
             }
           },
-          "action": []
+          "action": {
+            "replace": {
+              "status": {
+                "glacioChafe": "aeroErosion",
+                "fusionBurst": "aeroErosion",
+                "electroFlare": "aeroErosion",
+                "spectroFrazzle": "aeroErosion",
+                "havocBane": "aeroErosion"
+              }
+            }
+          }
         }
       },
       {
@@ -40266,7 +40276,17 @@
               "ref": "resonanceSkill.1"
             }
           },
-          "action": []
+          "action": {
+            "replace": {
+              "status": {
+                "glacioChafe": "aeroErosion",
+                "fusionBurst": "aeroErosion",
+                "electroFlare": "aeroErosion",
+                "spectroFrazzle": "aeroErosion",
+                "havocBane": "aeroErosion"
+              }
+            }
+          }
         }
       },
       {
