@@ -94,6 +94,7 @@ export function runTuneBreak(ctx) {
   tune.interfered = tune.shifting;
   switch (tune.shifting) {
     case 'tuneRupture':
+    case 'hack':
       tune.interferedTimeLeft = 8000;
       break;
     case 'tuneStrain':
@@ -101,10 +102,8 @@ export function runTuneBreak(ctx) {
       tune.interferedStacks = tune.strainAppliers.size;
       delete tune.strainAppliers;
       break;
-    case 'hack':
-      tune.interferedTimeLeft = 8000;
-      break;
   }
+  if (ctx.cache.member["1510"]) tune.interferedStacks += 2;
   delete tune.shifting;
   delete tune.shiftingTimeLeft;
 }
@@ -148,7 +147,8 @@ export function advanceTune(ctx, elapsed) {
 
   if (tune.offTuneCooldown) {
     tune.offTuneCooldown -= elapsed;
-    if (tune.offTuneCooldown <= 0) delete tune.offTuneCooldown;
+    if (tune.offTuneCooldown <= 0)
+      delete tune.offTuneCooldown;
   }
 
   if (tune.shiftingTimeLeft) {

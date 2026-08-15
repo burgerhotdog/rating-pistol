@@ -50539,12 +50539,86 @@
     },
     "effects": [
       {
-        "enableIf": {
-          "rank": 1
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          },
+          "action": "resonanceSkill.5"
+        }
+      },
+      {
+        "key": "aureateJudge",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.1",
+                "resonanceSkill.2",
+                "resonanceSkill.3",
+                "forteCircuit.0",
+                "resonanceSkill.5"
+              ]
+            }
+          },
+          "stats": {
+            "mv%": 1.1
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "tuneStrain"
+              }
+            }
+          },
+          "specs": {
+            "dmgAmp%": {
+              "attr": "tuneBreakBoost",
+              "step": 10,
+              "value": 0.05,
+              "maxValue": 0.3
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "inflict": {
+                    "shifting": "tuneStrain"
+                  }
+                },
+                {
+                  "damage": {
+                    "type": "tuneBreak"
+                  }
+                }
+              ]
+            }
+          },
+          "cooldown": 20000
         },
         "buff": {
           "stats": {
-            "mid-airAttackDmgBonus%": 1.5
+            "atk%": 0.25
           }
         }
       }
@@ -50877,6 +50951,66 @@
             }
           },
           {
+            "name": "Mid-air Attack 2 Scythe: Resection",
+            "type": "mid-airAttack",
+            "inflict": {
+              "shifting": "tuneStrain"
+            },
+            "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.2536,
+                    0.2744,
+                    0.2952,
+                    0.3243,
+                    0.3451,
+                    0.369,
+                    0.4023,
+                    0.4356,
+                    0.4688,
+                    0.5042,
+                    0.5458,
+                    0.5874,
+                    0.629,
+                    0.6705,
+                    0.7121,
+                    0.7537,
+                    0.7953,
+                    0.8369,
+                    0.8785,
+                    0.9201
+                  ]
+                },
+                {
+                  "mv": [
+                    0.2536,
+                    0.2744,
+                    0.2952,
+                    0.3243,
+                    0.3451,
+                    0.369,
+                    0.4023,
+                    0.4356,
+                    0.4688,
+                    0.5042,
+                    0.5458,
+                    0.5874,
+                    0.629,
+                    0.6705,
+                    0.7121,
+                    0.7537,
+                    0.7953,
+                    0.8369,
+                    0.8785,
+                    0.9201
+                  ]
+                }
+              ]
+            }
+          },
+          {
             "name": "Mid-air Attack 3 Scythe: Dissection",
             "type": "mid-airAttack",
             "damage": {
@@ -50952,66 +51086,6 @@
                     0.95,
                     0.9972,
                     1.0445
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Mid-air Attack 2 Scythe: Resection",
-            "type": "mid-airAttack",
-            "inflict": {
-              "shifting": "tuneStrain"
-            },
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2536,
-                    0.2744,
-                    0.2952,
-                    0.3243,
-                    0.3451,
-                    0.369,
-                    0.4023,
-                    0.4356,
-                    0.4688,
-                    0.5042,
-                    0.5458,
-                    0.5874,
-                    0.629,
-                    0.6705,
-                    0.7121,
-                    0.7537,
-                    0.7953,
-                    0.8369,
-                    0.8785,
-                    0.9201
-                  ]
-                },
-                {
-                  "mv": [
-                    0.2536,
-                    0.2744,
-                    0.2952,
-                    0.3243,
-                    0.3451,
-                    0.369,
-                    0.4023,
-                    0.4356,
-                    0.4688,
-                    0.5042,
-                    0.5458,
-                    0.5874,
-                    0.629,
-                    0.6705,
-                    0.7121,
-                    0.7537,
-                    0.7953,
-                    0.8369,
-                    0.8785,
-                    0.9201
                   ]
                 }
               ]
@@ -51168,9 +51242,10 @@
             }
           },
           {
-            "name": "Mid-air Dodge Counter",
-            "type": "MDC",
+            "name": "Dodge Counter: Mid-air",
+            "type": "dodgeCounter",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -51609,21 +51684,22 @@
         ],
         "rotation": [
           "introSkill.0",
-          "normalAttack.8",
+          "normalAttack.7",
           "normalAttack.9",
           "resonanceSkill.1",
           "resonanceSkill.4",
           "normalAttack.5",
-          "normalAttack.8",
+          "normalAttack.7",
           "normalAttack.9",
           "resonanceSkill.2",
           "resonanceSkill.4",
           "normalAttack.5",
-          "normalAttack.8",
+          "normalAttack.7",
           "normalAttack.9",
           "resonanceSkill.3",
           "forteCircuit.0",
           "resonanceLiberation.0",
+          "resonanceSkill.0",
           "outroSkill.0"
         ],
         "duration": 12400
