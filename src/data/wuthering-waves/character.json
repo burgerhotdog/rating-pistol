@@ -38371,13 +38371,191 @@
       "atk%": 0.12,
       "healingBonus%": 0.12
     },
-    "effects": [],
+    "effects": [
+      {
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.1"
+            }
+          },
+          "action": []
+        }
+      },
+      {
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          },
+          "action": "forteCircuit.3"
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.2
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "stats": {
+            "healingBonus%": 0.2
+          }
+        }
+      },
+      {
+        "key": "aeolianRealm",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "aeolianRealm"
+                }
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "gameRule": "roverAero2"
+      },
+      {
+        "enableIf": {
+          "rank": 2
+        },
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.2"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "action": {
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": 0.2
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 3
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 4
+        },
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 5
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "stats": {
+            "mv%": 0.2
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 6
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.2",
+                "forteCircuit.3"
+              ]
+            }
+          },
+          "stats": {
+            "mv%": 0.3
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "",
+        "name": "Wind Cutter",
         "actions": [
           {
-            "name": "Stage 1 DMG",
+            "name": "Basic Attack 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -38409,7 +38587,7 @@
             }
           },
           {
-            "name": "Stage 2 DMG",
+            "name": "Basic Attack 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -38442,7 +38620,7 @@
             }
           },
           {
-            "name": "Stage 3 DMG",
+            "name": "Basic Attack 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -38499,7 +38677,7 @@
             }
           },
           {
-            "name": "Stage 4 DMG",
+            "name": "Basic Attack 4",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -38531,8 +38709,8 @@
             }
           },
           {
-            "name": "Heavy Attack DMG",
-            "type": "basicAttack",
+            "name": "Heavy Attack",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -38564,8 +38742,8 @@
             }
           },
           {
-            "name": "Razor Wind DMG",
-            "type": "basicAttack",
+            "name": "Heavy Attack: Razor Wind",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -38620,9 +38798,10 @@
             }
           },
           {
-            "name": "Mid-air Attack DMG",
-            "type": "basicAttack",
+            "name": "Mid-air Attack",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -38652,9 +38831,10 @@
             }
           },
           {
-            "name": "Dodge Counter DMG",
-            "type": "basicAttack",
+            "name": "Dodge Counter",
+            "type": "dodgeCounter",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -38711,10 +38891,10 @@
         ]
       },
       "resonanceSkill": {
-        "name": "",
+        "name": "Illusion Breaker",
         "actions": [
           {
-            "name": "Awakening Gale DMG",
+            "name": "Awakening Gale",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -38770,7 +38950,7 @@
             }
           },
           {
-            "name": "Skyfall Severance DMG",
+            "name": "Skyfall Severance",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -38829,10 +39009,10 @@
         ]
       },
       "resonanceLiberation": {
-        "name": "",
+        "name": "Omega Storm",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Resonance Liberation",
             "type": "resonanceLiberation",
             "damage": {
               "multipliers": [
@@ -38861,38 +39041,9 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Healing",
-            "type": "resonanceLiberation",
-            "damage": {
-              "attr": "atk",
+            },
+            "healing": {
               "multipliers": [
-                {
-                  "flat": [
-                    1100,
-                    1232,
-                    1375,
-                    1540,
-                    1738,
-                    1925,
-                    1958,
-                    2002,
-                    2035,
-                    2090,
-                    2262,
-                    2434,
-                    2607,
-                    2779,
-                    2952,
-                    3124,
-                    3296,
-                    3469,
-                    3641,
-                    3814
-                  ]
-                },
                 {
                   "mv": [
                     0.3667,
@@ -38915,20 +39066,44 @@
                     1.2781,
                     1.3417,
                     1.4052
+                  ],
+                  "flat": [
+                    1100,
+                    1232,
+                    1375,
+                    1540,
+                    1738,
+                    1925,
+                    1958,
+                    2002,
+                    2035,
+                    2090,
+                    2262,
+                    2434,
+                    2607,
+                    2779,
+                    2952,
+                    3124,
+                    3296,
+                    3469,
+                    3641,
+                    3814
                   ]
                 }
-              ]
+              ],
+              "times": "$teamSize"
             }
           }
         ]
       },
       "forteCircuit": {
-        "name": "",
+        "name": "Cycle of Wind",
         "actions": [
           {
-            "name": "Cloudburst Dance Stage 1 DMG",
-            "type": "forteCircuit",
+            "name": "Cloudburst Dance 1",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -38955,12 +39130,63 @@
                   ]
                 }
               ]
+            },
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.11,
+                    0.1144,
+                    0.1188,
+                    0.1254,
+                    0.1342,
+                    0.143,
+                    0.1595,
+                    0.1782,
+                    0.198,
+                    0.231,
+                    0.2501,
+                    0.2691,
+                    0.2882,
+                    0.3072,
+                    0.3263,
+                    0.3453,
+                    0.3644,
+                    0.3834,
+                    0.4025,
+                    0.4216
+                  ],
+                  "flat": [
+                    330,
+                    369,
+                    412,
+                    462,
+                    521,
+                    577,
+                    587,
+                    600,
+                    610,
+                    627,
+                    678,
+                    730,
+                    782,
+                    833,
+                    885,
+                    937,
+                    989,
+                    1040,
+                    1092,
+                    1144
+                  ]
+                }
+              ]
             }
           },
           {
-            "name": "Cloudburst Dance Stage 2 DMG",
-            "type": "forteCircuit",
+            "name": "Cloudburst Dance 2",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -38987,38 +39213,9 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Cloudburst Dance Healing",
-            "type": "forteCircuit",
-            "damage": {
-              "attr": "atk",
+            },
+            "healing": {
               "multipliers": [
-                {
-                  "flat": [
-                    330,
-                    369,
-                    412,
-                    462,
-                    521,
-                    577,
-                    587,
-                    600,
-                    610,
-                    627,
-                    678,
-                    730,
-                    782,
-                    833,
-                    885,
-                    937,
-                    989,
-                    1040,
-                    1092,
-                    1144
-                  ]
-                },
                 {
                   "mv": [
                     0.11,
@@ -39041,14 +39238,36 @@
                     0.3834,
                     0.4025,
                     0.4216
+                  ],
+                  "flat": [
+                    330,
+                    369,
+                    412,
+                    462,
+                    521,
+                    577,
+                    587,
+                    600,
+                    610,
+                    627,
+                    678,
+                    730,
+                    782,
+                    833,
+                    885,
+                    937,
+                    989,
+                    1040,
+                    1092,
+                    1144
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Unbound Flow Stage 1 DMG",
-            "type": "forteCircuit",
+            "name": "Unbound Flow 1",
+            "type": "resonanceSkill",
             "damage": {
               "multipliers": [
                 {
@@ -39080,9 +39299,9 @@
             }
           },
           {
-            "name": "Unbound Flow Stage 2 DMG",
-            "type": "forteCircuit",
+            "name": "Unbound Flow 2",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -39114,10 +39333,10 @@
         ]
       },
       "introSkill": {
-        "name": "",
+        "name": "Relentless Squall",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Intro Skill",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -39178,13 +39397,39 @@
         "name": "Storm's Echo",
         "actions": [
           {
-            "name": "Storm's Echo",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
       }
     },
-    "presets": []
+    "presets": [
+      {
+        "weaponId": "21020046",
+        "setCounts": {
+          "17": 5
+        },
+        "mainEcho": "6000106",
+        "team": [
+          "1409",
+          "1407",
+          "1406"
+        ],
+        "rotation": [
+          "introSkill.0",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "resonanceLiberation.0",
+          "resonanceSkill.0",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "normalAttack.6",
+          "forteCircuit.2",
+          "outroSkill.0"
+        ],
+        "duration": 5960
+      }
+    ]
   },
   "1407": {
     "name": "Ciaccona",
@@ -40012,13 +40257,191 @@
       "atk%": 0.12,
       "healingBonus%": 0.12
     },
-    "effects": [],
+    "effects": [
+      {
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.1"
+            }
+          },
+          "action": []
+        }
+      },
+      {
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          },
+          "action": "forteCircuit.3"
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.2
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "stats": {
+            "healingBonus%": 0.2
+          }
+        }
+      },
+      {
+        "key": "aeolianRealm",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "aeolianRealm"
+                }
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "gameRule": "roverAero2"
+      },
+      {
+        "enableIf": {
+          "rank": 2
+        },
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.2"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "action": {
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": 0.2
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 3
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 4
+        },
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 5
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "stats": {
+            "mv%": 0.2
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 6
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.2",
+                "forteCircuit.3"
+              ]
+            }
+          },
+          "stats": {
+            "mv%": 0.3
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "",
+        "name": "Wind Cutter",
         "actions": [
           {
-            "name": "Stage 1 DMG",
+            "name": "Basic Attack 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -40050,7 +40473,7 @@
             }
           },
           {
-            "name": "Stage 2 DMG",
+            "name": "Basic Attack 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -40083,7 +40506,7 @@
             }
           },
           {
-            "name": "Stage 3 DMG",
+            "name": "Basic Attack 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -40140,7 +40563,7 @@
             }
           },
           {
-            "name": "Stage 4 DMG",
+            "name": "Basic Attack 4",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -40172,8 +40595,8 @@
             }
           },
           {
-            "name": "Heavy Attack DMG",
-            "type": "basicAttack",
+            "name": "Heavy Attack",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -40205,8 +40628,8 @@
             }
           },
           {
-            "name": "Razor Wind DMG",
-            "type": "basicAttack",
+            "name": "Heavy Attack: Razor Wind",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -40261,9 +40684,10 @@
             }
           },
           {
-            "name": "Mid-air Attack DMG",
-            "type": "basicAttack",
+            "name": "Mid-air Attack",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40293,9 +40717,10 @@
             }
           },
           {
-            "name": "Dodge Counter DMG",
-            "type": "basicAttack",
+            "name": "Dodge Counter",
+            "type": "dodgeCounter",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40352,10 +40777,10 @@
         ]
       },
       "resonanceSkill": {
-        "name": "",
+        "name": "Illusion Breaker",
         "actions": [
           {
-            "name": "Awakening Gale DMG",
+            "name": "Awakening Gale",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -40411,7 +40836,7 @@
             }
           },
           {
-            "name": "Skyfall Severance DMG",
+            "name": "Skyfall Severance",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -40470,10 +40895,10 @@
         ]
       },
       "resonanceLiberation": {
-        "name": "",
+        "name": "Omega Storm",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Resonance Liberation",
             "type": "resonanceLiberation",
             "damage": {
               "multipliers": [
@@ -40502,38 +40927,9 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Healing",
-            "type": "resonanceLiberation",
-            "damage": {
-              "attr": "atk",
+            },
+            "healing": {
               "multipliers": [
-                {
-                  "flat": [
-                    1100,
-                    1232,
-                    1375,
-                    1540,
-                    1738,
-                    1925,
-                    1958,
-                    2002,
-                    2035,
-                    2090,
-                    2262,
-                    2434,
-                    2607,
-                    2779,
-                    2952,
-                    3124,
-                    3296,
-                    3469,
-                    3641,
-                    3814
-                  ]
-                },
                 {
                   "mv": [
                     0.3667,
@@ -40556,20 +40952,44 @@
                     1.2781,
                     1.3417,
                     1.4052
+                  ],
+                  "flat": [
+                    1100,
+                    1232,
+                    1375,
+                    1540,
+                    1738,
+                    1925,
+                    1958,
+                    2002,
+                    2035,
+                    2090,
+                    2262,
+                    2434,
+                    2607,
+                    2779,
+                    2952,
+                    3124,
+                    3296,
+                    3469,
+                    3641,
+                    3814
                   ]
                 }
-              ]
+              ],
+              "times": "$teamSize"
             }
           }
         ]
       },
       "forteCircuit": {
-        "name": "",
+        "name": "Cycle of Wind",
         "actions": [
           {
-            "name": "Cloudburst Dance Stage 1 DMG",
-            "type": "forteCircuit",
+            "name": "Cloudburst Dance 1",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -40596,12 +41016,63 @@
                   ]
                 }
               ]
+            },
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.11,
+                    0.1144,
+                    0.1188,
+                    0.1254,
+                    0.1342,
+                    0.143,
+                    0.1595,
+                    0.1782,
+                    0.198,
+                    0.231,
+                    0.2501,
+                    0.2691,
+                    0.2882,
+                    0.3072,
+                    0.3263,
+                    0.3453,
+                    0.3644,
+                    0.3834,
+                    0.4025,
+                    0.4216
+                  ],
+                  "flat": [
+                    330,
+                    369,
+                    412,
+                    462,
+                    521,
+                    577,
+                    587,
+                    600,
+                    610,
+                    627,
+                    678,
+                    730,
+                    782,
+                    833,
+                    885,
+                    937,
+                    989,
+                    1040,
+                    1092,
+                    1144
+                  ]
+                }
+              ]
             }
           },
           {
-            "name": "Cloudburst Dance Stage 2 DMG",
-            "type": "forteCircuit",
+            "name": "Cloudburst Dance 2",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -40628,38 +41099,9 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Cloudburst Dance Healing",
-            "type": "forteCircuit",
-            "damage": {
-              "attr": "atk",
+            },
+            "healing": {
               "multipliers": [
-                {
-                  "flat": [
-                    330,
-                    369,
-                    412,
-                    462,
-                    521,
-                    577,
-                    587,
-                    600,
-                    610,
-                    627,
-                    678,
-                    730,
-                    782,
-                    833,
-                    885,
-                    937,
-                    989,
-                    1040,
-                    1092,
-                    1144
-                  ]
-                },
                 {
                   "mv": [
                     0.11,
@@ -40682,14 +41124,36 @@
                     0.3834,
                     0.4025,
                     0.4216
+                  ],
+                  "flat": [
+                    330,
+                    369,
+                    412,
+                    462,
+                    521,
+                    577,
+                    587,
+                    600,
+                    610,
+                    627,
+                    678,
+                    730,
+                    782,
+                    833,
+                    885,
+                    937,
+                    989,
+                    1040,
+                    1092,
+                    1144
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Unbound Flow Stage 1 DMG",
-            "type": "forteCircuit",
+            "name": "Unbound Flow 1",
+            "type": "resonanceSkill",
             "damage": {
               "multipliers": [
                 {
@@ -40721,9 +41185,9 @@
             }
           },
           {
-            "name": "Unbound Flow Stage 2 DMG",
-            "type": "forteCircuit",
+            "name": "Unbound Flow 2",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -40755,10 +41219,10 @@
         ]
       },
       "introSkill": {
-        "name": "",
+        "name": "Relentless Squall",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Intro Skill",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -40819,13 +41283,39 @@
         "name": "Storm's Echo",
         "actions": [
           {
-            "name": "Storm's Echo",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
       }
     },
-    "presets": []
+    "presets": [
+      {
+        "weaponId": "21020046",
+        "setCounts": {
+          "17": 5
+        },
+        "mainEcho": "6000106",
+        "team": [
+          "1409",
+          "1407",
+          "1408"
+        ],
+        "rotation": [
+          "introSkill.0",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "resonanceLiberation.0",
+          "resonanceSkill.0",
+          "forteCircuit.0",
+          "forteCircuit.1",
+          "normalAttack.6",
+          "forteCircuit.2",
+          "outroSkill.0"
+        ],
+        "duration": 5960
+      }
+    ]
   },
   "1409": {
     "name": "Cartethyia",
@@ -46035,8 +46525,9 @@
           },
           {
             "name": "Mid-air Dodge Counter",
-            "type": "MDC",
+            "type": "dodgeCounter",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [

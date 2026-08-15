@@ -25,6 +25,10 @@ const getStatusMaxStacks = (ctx, statusId) => {
   for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
     const gameRuleKey = state.effect.gameRule;
 
+    if (gameRuleKey === 'roverAero2' && statusId !== 'aeroErosion') {
+      maxStacks += 3;
+    }
+
     if (gameRuleKey === 'chisa') {
       maxStacks += 3;
     }
