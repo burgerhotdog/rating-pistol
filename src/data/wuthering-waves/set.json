@@ -973,7 +973,14 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "echoSkill"
+              "or": [
+                {
+                  "type": "echoSkill"
+                },
+                {
+                  "extraType": "echoSkill"
+                }
+              ]
             }
           },
           "duration": 4000
@@ -993,7 +1000,14 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "echoSkill"
+              "or": [
+                {
+                  "type": "echoSkill"
+                },
+                {
+                  "extraType": "echoSkill"
+                }
+              ]
             }
           },
           "duration": 30000

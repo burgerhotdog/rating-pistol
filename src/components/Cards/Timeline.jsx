@@ -33,16 +33,18 @@ function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
     return damage > 0;
   });
 
-  const runtimeOffset = isCurrOnly && filteredSummary.length
+  const runtimeOffset = (isCurrOnly && filteredSummary.length)
     ? filteredSummary[0].runtime
     : 0;
 
   const runtimeDamage = {};
   for (const { runtime, ownerId, damage, hitOffsets, name } of filteredSummary) {
     if (hitOffsets?.length) {
+      const initOffset = hitOffsets[0];
       const splitDamage = damage / hitOffsets.length;
       for (const offset of hitOffsets) {
-        const adjustedRuntime = runtime + offset - runtimeOffset;
+        const offsetDiff = offset - initOffset;
+        const adjustedRuntime = runtime + offsetDiff - runtimeOffset;
         runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime, name };
         runtimeDamage[adjustedRuntime][ownerId] ??= 0;
         runtimeDamage[adjustedRuntime][ownerId] += splitDamage;

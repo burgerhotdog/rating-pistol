@@ -36,7 +36,7 @@ function handleRemoveWhen(ctx, action, when) {
       !ctx.eventFilter(remove.filter, action, effect)
     ) continue;
 
-    onRemoveDoCommand(ctx, effect);
+    onRemoveDoCommand(ctx, effect, action.ownerId);
     runRemoveEffect(state);
   }
 }
@@ -54,7 +54,7 @@ function handleUseWhen(ctx, action, when) {
       !ctx.eventFilter(use.filter, action, effect)
     ) continue;
 
-    onUseDoCommand(ctx, effect);
+    onUseDoCommand(ctx, effect, action.ownerId);
     runUseEffect(ctx, state);
   }
 }
@@ -72,7 +72,7 @@ function handleApplyWhen(ctx, action, when) {
       !ctx.eventFilter(apply.filter, action, effect)
     ) continue;
 
-    onApplyDoCommand(ctx, effect);
+    onApplyDoCommand(ctx, effect, action.ownerId);
     runApplyEffect(ctx, effect, { applier: action.ownerId });
   }
 }

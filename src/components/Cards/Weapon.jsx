@@ -18,12 +18,7 @@ import {
 import { BarChart } from '@/components';
 import { useWeapData, useElementColors } from '@/hooks';
 
-const Weapon = ({ weaponResults, userDps, userMember }) => {
-  const { gameId } = useParams();
-  const { palette, qualityColors } = useTheme();
-  const weapData = useWeapData();
-  const color = useElementColors({ char: '$curr' });
-
+function buildData(gameId, weapData, weaponResults, userDps, userMember) {
   const dataEntries = Object.entries(weaponResults)
     .sort(([a, [a1, a5]], [b, [b1, b5]]) => {
       const aQual = weapData[a].quality;
@@ -33,9 +28,10 @@ const Weapon = ({ weaponResults, userDps, userMember }) => {
       return bDps - aDps;
     });
 
-  const maxDps = dataEntries[0][1][weapData[dataEntries[0][0]].quality === 5 ? 0 : 1];
+  const refIndex = weapData[dataEntries[0][0]].quality === 5 ? 0 : 1;
+  const maxDps = dataEntries[0][1][refIndex];
 
-  const data = dataEntries.map(([weaponId, dps]) => {
+  return dataEntries.map(([weaponId, dps]) => {
     const { quality } = weapData[weaponId];
     const pctIdx = quality === 5 ? 0 : 1;
 
@@ -52,6 +48,15 @@ const Weapon = ({ weaponResults, userDps, userMember }) => {
       opacity: (dps[pctIdx] / maxDps) ** 2,
     };
   });
+}
+
+const Weapon = ({ weaponResults, userDps, userMember }) => {
+  const { gameId } = useParams();
+  const { palette, qualityColors } = useTheme();
+  const weapData = useWeapData();
+  const color = useElementColors({ char: '$curr' });
+
+  const data = buildData(gameId, weapData, weaponResults, userDps, userMember);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>

@@ -719,7 +719,8 @@
           "forteCircuit.1",
           "forteCircuit.2",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 2840
       }
     ]
   },
@@ -1624,7 +1625,8 @@
           "normalAttack.3",
           "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 4310
       }
     ]
   },
@@ -2548,7 +2550,8 @@
           "forteCircuit.4",
           "forteCircuit.5",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12700
       }
     ]
   },
@@ -3226,7 +3229,8 @@
           "resonanceLiberation.1",
           "forteCircuit.2",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7020
       }
     ]
   },
@@ -4246,7 +4250,8 @@
           "resonanceSkill.0",
           "resonanceSkill.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 6500
       }
     ]
   },
@@ -5445,7 +5450,8 @@
           "resonanceSkill.0",
           "resonanceSkill.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 13300
       }
     ]
   },
@@ -6884,13 +6890,14 @@
           "normalAttack.2",
           "normalAttack.3",
           "resonanceLiberation.0",
+          "normalAttack.6",
+          "normalAttack.7",
+          "normalAttack.8",
           "resonanceSkill.1",
           "resonanceSkill.2",
           "normalAttack.6",
           "normalAttack.7",
           "normalAttack.8",
-          "normalAttack.9",
-          "normalAttack.10",
           "forteCircuit.0",
           "forteCircuit.0",
           "forteCircuit.0",
@@ -6899,8 +6906,10 @@
           "resonanceLiberation.2",
           "resonanceLiberation.2",
           "resonanceLiberation.2",
+          "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 10500
       }
     ]
   },
@@ -7946,7 +7955,8 @@
           "forteCircuit.0",
           "resonanceLiberation.4",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7530
       }
     ]
   },
@@ -10015,7 +10025,8 @@
           "forteCircuit.2",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8830
       }
     ]
   },
@@ -10933,7 +10944,8 @@
           "resonanceLiberation.5",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11690
       }
     ]
   },
@@ -11691,7 +11703,8 @@
           "forteCircuit.0",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5620
       }
     ]
   },
@@ -12719,7 +12732,8 @@
           "resonanceLiberation.0",
           "forteCircuit.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 9780
       }
     ]
   },
@@ -14371,7 +14385,8 @@
           "forteCircuit.1",
           "forteCircuit.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8200
       }
     ]
   },
@@ -15962,7 +15977,8 @@
           "normalAttack.6",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8140
       }
     ]
   },
@@ -15982,6 +15998,144 @@
     },
     "effects": [
       {
+        "key": "demonHypostasis",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.1"
+            }
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          }
+        }
+      },
+      {
+        "key": "afterflame",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "type": "echoSkill"
+                },
+                {
+                  "extraType": "echoSkill"
+                }
+              ]
+            }
+          },
+          "stacks": 8
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "demonHypostasis"
+                }
+              },
+              {
+                "action": {
+                  "ref": [
+                    "forteCircuit.0",
+                    "forteCircuit.1",
+                    "forteCircuit.2",
+                    "forteCircuit.3",
+                    "forteCircuit.4",
+                    "forteCircuit.5",
+                    "forteCircuit.6",
+                    "forteCircuit.7",
+                    "forteCircuit.8",
+                    "forteCircuit.9",
+                    "forteCircuit.10",
+                    "forteCircuit.11"
+                  ]
+                }
+              }
+            ]
+          },
+          "stats": {
+            "dmgBonus%": 0.015
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          }
+        },
+        "maxStacks": 40
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6",
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9",
+                "forteCircuit.10"
+              ]
+            }
+          },
+          "stats": {
+            "mv%": 0.85
+          }
+        }
+      },
+      {
+        "key": "burningDrive",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "forteCircuit.12",
+                "forteCircuit.3",
+                "resonanceSkill.0",
+                "resonanceSkill.1",
+                "forteCircuit.11"
+              ]
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.2
+          }
+        }
+      },
+      {
+        "key": "fatedEnd",
         "apply": {
           "when": "hit",
           "filter": {
@@ -15991,12 +16145,12 @@
           },
           "duration": 5500
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "dmgAmp%": 0.05
           }
-        }
+        },
+        "maxStacks": 4
       }
     ],
     "skills": {
@@ -16256,177 +16410,6 @@
             }
           },
           {
-            "name": "Blood for Blood",
-            "type": "dodgeCounter",
-            "damage": {
-              "type": "heavyAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2065,
-                    0.2234,
-                    0.2404,
-                    0.2641,
-                    0.281,
-                    0.3005,
-                    0.3276,
-                    0.3546,
-                    0.3817,
-                    0.4105,
-                    0.4444,
-                    0.4782,
-                    0.5121,
-                    0.546,
-                    0.5798,
-                    0.6137,
-                    0.6475,
-                    0.6814,
-                    0.7152,
-                    0.7491
-                  ]
-                },
-                {
-                  "mv": [
-                    0.2065,
-                    0.2234,
-                    0.2404,
-                    0.2641,
-                    0.281,
-                    0.3005,
-                    0.3276,
-                    0.3546,
-                    0.3817,
-                    0.4105,
-                    0.4444,
-                    0.4782,
-                    0.5121,
-                    0.546,
-                    0.5798,
-                    0.6137,
-                    0.6475,
-                    0.6814,
-                    0.7152,
-                    0.7491
-                  ]
-                },
-                {
-                  "mv": [
-                    0.3097,
-                    0.3351,
-                    0.3605,
-                    0.3961,
-                    0.4215,
-                    0.4507,
-                    0.4913,
-                    0.5319,
-                    0.5726,
-                    0.6157,
-                    0.6665,
-                    0.7173,
-                    0.7681,
-                    0.8189,
-                    0.8697,
-                    0.9205,
-                    0.9713,
-                    1.0221,
-                    1.0728,
-                    1.1236
-                  ]
-                },
-                {
-                  "mv": [
-                    0.3097,
-                    0.3351,
-                    0.3605,
-                    0.3961,
-                    0.4215,
-                    0.4507,
-                    0.4913,
-                    0.5319,
-                    0.5726,
-                    0.6157,
-                    0.6665,
-                    0.7173,
-                    0.7681,
-                    0.8189,
-                    0.8697,
-                    0.9205,
-                    0.9713,
-                    1.0221,
-                    1.0728,
-                    1.1236
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Ashfall Barrage Plunging Attack",
-            "type": "mid-airAttack",
-            "damage": {
-              "type": "heavyAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.72,
-                    0.7791,
-                    0.8381,
-                    0.9208,
-                    0.9798,
-                    1.0477,
-                    1.1422,
-                    1.2366,
-                    1.3311,
-                    1.4315,
-                    1.5496,
-                    1.6676,
-                    1.7857,
-                    1.9038,
-                    2.0219,
-                    2.14,
-                    2.258,
-                    2.3761,
-                    2.4942,
-                    2.6123
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Ashfall Barrage Sustained Fire",
-            "type": "mid-airAttack",
-            "damage": {
-              "type": "heavyAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.135,
-                    0.1461,
-                    0.1572,
-                    0.1727,
-                    0.1838,
-                    0.1965,
-                    0.2142,
-                    0.2319,
-                    0.2496,
-                    0.2684,
-                    0.2906,
-                    0.3127,
-                    0.3349,
-                    0.357,
-                    0.3791,
-                    0.4013,
-                    0.4234,
-                    0.4456,
-                    0.4677,
-                    0.4898
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Volley of Death 1",
             "type": "heavyAttack",
             "damage": {
@@ -16568,6 +16551,177 @@
                     1.9485,
                     2.0454,
                     2.1422
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Ashfall Barrage: Plunging Attack",
+            "type": "mid-airAttack",
+            "damage": {
+              "type": "heavyAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.72,
+                    0.7791,
+                    0.8381,
+                    0.9208,
+                    0.9798,
+                    1.0477,
+                    1.1422,
+                    1.2366,
+                    1.3311,
+                    1.4315,
+                    1.5496,
+                    1.6676,
+                    1.7857,
+                    1.9038,
+                    2.0219,
+                    2.14,
+                    2.258,
+                    2.3761,
+                    2.4942,
+                    2.6123
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Ashfall Barrage: Sustained Fire",
+            "type": "mid-airAttack",
+            "damage": {
+              "type": "heavyAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.135,
+                    0.1461,
+                    0.1572,
+                    0.1727,
+                    0.1838,
+                    0.1965,
+                    0.2142,
+                    0.2319,
+                    0.2496,
+                    0.2684,
+                    0.2906,
+                    0.3127,
+                    0.3349,
+                    0.357,
+                    0.3791,
+                    0.4013,
+                    0.4234,
+                    0.4456,
+                    0.4677,
+                    0.4898
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Blood for Blood",
+            "type": "dodgeCounter",
+            "damage": {
+              "type": "heavyAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.2065,
+                    0.2234,
+                    0.2404,
+                    0.2641,
+                    0.281,
+                    0.3005,
+                    0.3276,
+                    0.3546,
+                    0.3817,
+                    0.4105,
+                    0.4444,
+                    0.4782,
+                    0.5121,
+                    0.546,
+                    0.5798,
+                    0.6137,
+                    0.6475,
+                    0.6814,
+                    0.7152,
+                    0.7491
+                  ]
+                },
+                {
+                  "mv": [
+                    0.2065,
+                    0.2234,
+                    0.2404,
+                    0.2641,
+                    0.281,
+                    0.3005,
+                    0.3276,
+                    0.3546,
+                    0.3817,
+                    0.4105,
+                    0.4444,
+                    0.4782,
+                    0.5121,
+                    0.546,
+                    0.5798,
+                    0.6137,
+                    0.6475,
+                    0.6814,
+                    0.7152,
+                    0.7491
+                  ]
+                },
+                {
+                  "mv": [
+                    0.3097,
+                    0.3351,
+                    0.3605,
+                    0.3961,
+                    0.4215,
+                    0.4507,
+                    0.4913,
+                    0.5319,
+                    0.5726,
+                    0.6157,
+                    0.6665,
+                    0.7173,
+                    0.7681,
+                    0.8189,
+                    0.8697,
+                    0.9205,
+                    0.9713,
+                    1.0221,
+                    1.0728,
+                    1.1236
+                  ]
+                },
+                {
+                  "mv": [
+                    0.3097,
+                    0.3351,
+                    0.3605,
+                    0.3961,
+                    0.4215,
+                    0.4507,
+                    0.4913,
+                    0.5319,
+                    0.5726,
+                    0.6157,
+                    0.6665,
+                    0.7173,
+                    0.7681,
+                    0.8189,
+                    0.8697,
+                    0.9205,
+                    0.9713,
+                    1.0221,
+                    1.0728,
+                    1.1236
                   ]
                 }
               ]
@@ -17195,6 +17349,72 @@
             }
           },
           {
+            "name": "Hellsent Barrage: Plunging Attack",
+            "type": "mid-airAttack",
+            "damage": {
+              "type": "heavyAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.8,
+                    0.8656,
+                    0.9312,
+                    1.0231,
+                    1.0887,
+                    1.1641,
+                    1.2691,
+                    1.374,
+                    1.479,
+                    1.5905,
+                    1.7217,
+                    1.8529,
+                    1.9841,
+                    2.1153,
+                    2.2465,
+                    2.3777,
+                    2.5089,
+                    2.6401,
+                    2.7713,
+                    2.9025
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Hellsent Barrage: Sustained Fire",
+            "type": "mid-airAttack",
+            "damage": {
+              "type": "heavyAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.15,
+                    0.1623,
+                    0.1746,
+                    0.1919,
+                    0.2042,
+                    0.2183,
+                    0.238,
+                    0.2577,
+                    0.2774,
+                    0.2983,
+                    0.3229,
+                    0.3475,
+                    0.3721,
+                    0.3967,
+                    0.4213,
+                    0.4459,
+                    0.4705,
+                    0.4951,
+                    0.5197,
+                    0.5443
+                  ]
+                }
+              ]
+            }
+          },
+          {
             "name": "Purgatory Scourge",
             "type": "dodgeCounter",
             "damage": {
@@ -17253,72 +17473,6 @@
             }
           },
           {
-            "name": "Hellsent Barrage Plunging Attack",
-            "type": "mid-airAttack",
-            "damage": {
-              "type": "heavyAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.8,
-                    0.8656,
-                    0.9312,
-                    1.0231,
-                    1.0887,
-                    1.1641,
-                    1.2691,
-                    1.374,
-                    1.479,
-                    1.5905,
-                    1.7217,
-                    1.8529,
-                    1.9841,
-                    2.1153,
-                    2.2465,
-                    2.3777,
-                    2.5089,
-                    2.6401,
-                    2.7713,
-                    2.9025
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Hellsent Barrage Sustained Fire",
-            "type": "mid-airAttack",
-            "damage": {
-              "type": "heavyAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.15,
-                    0.1623,
-                    0.1746,
-                    0.1919,
-                    0.2042,
-                    0.2183,
-                    0.238,
-                    0.2577,
-                    0.2774,
-                    0.2983,
-                    0.3229,
-                    0.3475,
-                    0.3721,
-                    0.3967,
-                    0.4213,
-                    0.4459,
-                    0.4705,
-                    0.4951,
-                    0.5197,
-                    0.5443
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Ravage",
             "type": "resonanceSkill",
             "damage": {
@@ -17371,6 +17525,17 @@
                     0.4363,
                     0.457
                   ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Hellstride",
+            "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "flat": 666
                 }
               ]
             }
@@ -17465,7 +17630,8 @@
           "forteCircuit.3",
           "forteCircuit.4",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12200
       }
     ]
   },
@@ -17476,7 +17642,6 @@
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
-    "tagged": "tuneStrain",
     "stats": {
       "baseHp": 15375,
       "baseAtk": 287,
@@ -18756,7 +18921,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 20000
@@ -19035,7 +19200,7 @@
             }
           },
           {
-            "name": "Heavy Attack Charged I",
+            "name": "Heavy Attack: Charged I",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -19092,7 +19257,7 @@
             }
           },
           {
-            "name": "Heavy Attack Charged II",
+            "name": "Heavy Attack: Charged II",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -19662,7 +19827,7 @@
             }
           },
           {
-            "name": "Heavy Attack Charged I",
+            "name": "Heavy Attack: Charged I",
             "tagged": "Mech",
             "type": "heavyAttack",
             "damage": {
@@ -19696,7 +19861,7 @@
             }
           },
           {
-            "name": "Heavy Attack Charged II",
+            "name": "Heavy Attack: Charged II",
             "tagged": "Mech",
             "type": "heavyAttack",
             "damage": {
@@ -19971,90 +20136,6 @@
         "name": "To Sculpt the Silence",
         "actions": [
           {
-            "name": "Seraphic Duet: Encore",
-            "tagged": "Mech",
-            "type": "resonanceSkill",
-            "damage": {
-              "type": "resonanceLiberation",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.09,
-                    0.0974,
-                    0.1048,
-                    0.1151,
-                    0.1225,
-                    0.131,
-                    0.1428,
-                    0.1546,
-                    0.1664,
-                    0.179,
-                    0.1937,
-                    0.2085,
-                    0.2233,
-                    0.238,
-                    0.2528,
-                    0.2675,
-                    0.2823,
-                    0.2971,
-                    0.3118,
-                    0.3266
-                  ],
-                  "times": 4
-                },
-                {
-                  "mv": [
-                    0.18,
-                    0.1948,
-                    0.2096,
-                    0.2302,
-                    0.245,
-                    0.262,
-                    0.2856,
-                    0.3092,
-                    0.3328,
-                    0.3579,
-                    0.3874,
-                    0.4169,
-                    0.4465,
-                    0.476,
-                    0.5055,
-                    0.535,
-                    0.5645,
-                    0.5941,
-                    0.6236,
-                    0.6531
-                  ],
-                  "times": 3
-                },
-                {
-                  "mv": [
-                    0.9,
-                    0.9738,
-                    1.0476,
-                    1.151,
-                    1.2248,
-                    1.3096,
-                    1.4277,
-                    1.5458,
-                    1.6639,
-                    1.7893,
-                    1.9369,
-                    2.0845,
-                    2.2321,
-                    2.3797,
-                    2.5273,
-                    2.6749,
-                    2.8225,
-                    2.9701,
-                    3.1177,
-                    3.2653
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Seraphic Duet: Overture",
             "type": "resonanceSkill",
             "damage": {
@@ -20158,6 +20239,90 @@
                     1.0885
                   ],
                   "times": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "Seraphic Duet: Encore",
+            "tagged": "Mech",
+            "type": "resonanceSkill",
+            "damage": {
+              "type": "resonanceLiberation",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.09,
+                    0.0974,
+                    0.1048,
+                    0.1151,
+                    0.1225,
+                    0.131,
+                    0.1428,
+                    0.1546,
+                    0.1664,
+                    0.179,
+                    0.1937,
+                    0.2085,
+                    0.2233,
+                    0.238,
+                    0.2528,
+                    0.2675,
+                    0.2823,
+                    0.2971,
+                    0.3118,
+                    0.3266
+                  ],
+                  "times": 4
+                },
+                {
+                  "mv": [
+                    0.18,
+                    0.1948,
+                    0.2096,
+                    0.2302,
+                    0.245,
+                    0.262,
+                    0.2856,
+                    0.3092,
+                    0.3328,
+                    0.3579,
+                    0.3874,
+                    0.4169,
+                    0.4465,
+                    0.476,
+                    0.5055,
+                    0.535,
+                    0.5645,
+                    0.5941,
+                    0.6236,
+                    0.6531
+                  ],
+                  "times": 3
+                },
+                {
+                  "mv": [
+                    0.9,
+                    0.9738,
+                    1.0476,
+                    1.151,
+                    1.2248,
+                    1.3096,
+                    1.4277,
+                    1.5458,
+                    1.6639,
+                    1.7893,
+                    1.9369,
+                    2.0845,
+                    2.2321,
+                    2.3797,
+                    2.5273,
+                    2.6749,
+                    2.8225,
+                    2.9701,
+                    3.1177,
+                    3.2653
+                  ]
                 }
               ]
             }
@@ -20391,15 +20556,16 @@
           "resonanceSkill.3",
           "resonanceSkill.4",
           "resonanceSkill.5",
-          "forteCircuit.0",
+          "forteCircuit.1",
           "normalAttack.1",
           "normalAttack.2",
           "normalAttack.3",
-          "forteCircuit.1",
+          "forteCircuit.0",
           "resonanceSkill.7",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11690
       },
       {
         "team": [
@@ -20420,15 +20586,16 @@
           "resonanceSkill.3",
           "resonanceSkill.4",
           "resonanceSkill.5",
-          "forteCircuit.0",
+          "forteCircuit.1",
           "normalAttack.1",
           "normalAttack.2",
           "normalAttack.3",
-          "forteCircuit.1",
+          "forteCircuit.0",
           "resonanceSkill.7",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11690
       }
     ]
   },
@@ -20439,7 +20606,6 @@
     "quality": 5,
     "element": "fusion",
     "type": "rectifier",
-    "tagged": "tuneStrain",
     "modes": [
       "fusionBurst",
       "tuneStrain"
@@ -20454,6 +20620,154 @@
     },
     "effects": [
       {
+        "key": "darkCore",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.3"
+            }
+          },
+          "stats": {
+            "mv%": 1.5
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "key": "entropyShiftBreakdownForm",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 12000
+        },
+        "onApplyDoApply": {
+          "generateDarkCore": 1
+        },
+        "doApplyDuration": 12000,
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.3
+          }
+        }
+      },
+      {
+        "key": "generateDarkCore",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 12000,
+          "action": []
+        },
+        "onUseDoApply": {
+          "darkCore": 1
+        }
+      },
+      {
+        "key": "erosionField",
+        "apply": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "forteCircuit.0"
+        }
+      },
+      {
+        "key": "voidParticle",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.7",
+                "normalAttack.8",
+                "normalAttack.9",
+                "normalAttack.10",
+                "normalAttack.11",
+                "normalAttack.12",
+                "normalAttack.13",
+                "normalAttack.14",
+                "normalAttack.15",
+                "normalAttack.16",
+                "normalAttack.17"
+              ]
+            }
+          },
+          "stats": {
+            "mv%": 0.5
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "mode": "fusionBurst"
+        },
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "mode": "tuneStrain"
+        },
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "tuneBreakBoost": 10
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "mode": "tuneStrain"
+        },
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "tuneBreakBoost": 40
+          }
+        }
+      },
+      {
         "enableIf": {
           "mode": "fusionBurst"
         },
@@ -20462,7 +20776,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 30000
@@ -20483,7 +20797,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 16000
@@ -21604,7 +21918,7 @@
         "name": "\"Flawless\"",
         "actions": [
           {
-            "name": "Erosion Field DMG per tick",
+            "name": "Erosion Field Tick",
             "inflict": {
               "status": {
                 "$mode": 2
@@ -21762,7 +22076,8 @@
           "resonanceSkill.3",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5630
       },
       {
         "weaponId": "21050076",
@@ -21788,7 +22103,8 @@
           "resonanceSkill.3",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5630
       }
     ]
   },
@@ -22950,7 +23266,8 @@
           "resonanceLiberation.2",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 13400
       }
     ]
   },
@@ -23700,7 +24017,8 @@
           "normalAttack.0",
           "forteCircuit.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 6460
       }
     ]
   },
@@ -24865,7 +25183,8 @@
           "resonanceSkill.3",
           "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 2960
       }
     ]
   },
@@ -26240,7 +26559,8 @@
           "forteCircuit.8",
           "forteCircuit.9",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 10200
       }
     ]
   },
@@ -27257,7 +27577,8 @@
           "forteCircuit.2",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 13300
       }
     ]
   },
@@ -27277,6 +27598,50 @@
     },
     "effects": [
       {
+        "key": "rulersRealm",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "use": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "rulersRealm"
+                }
+              },
+              {
+                "action": {
+                  "type": "introSkill"
+                }
+              }
+            ]
+          },
+          "action": {
+            "shield": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.05,
+                  "flat": 650
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "key": "glorysFavor",
         "use": {
           "when": "hit",
           "filter": {
@@ -27287,10 +27652,11 @@
           "cooldown": 500,
           "action": {
             "shield": {
+              "attr": "hp",
               "multipliers": [
                 {
-                  "flat": 350,
-                  "mv": 0.025
+                  "mv": 0.025,
+                  "flat": 350
                 }
               ]
             }
@@ -27298,12 +27664,13 @@
         }
       },
       {
+        "key": "battlesongOfTheUnyielding",
         "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 14000
@@ -27315,19 +27682,30 @@
         }
       },
       {
+        "key": "crownOfWills",
         "apply": {
+          "by": "$next",
           "when": "start",
           "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "battlesongOfTheUnyielding"
+                }
+              },
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              }
+            ]
           }
         },
         "remove": {
           "when": "end",
           "filter": {
             "action": {
-              "ref": "resonanceLiberation.2"
+              "ref": "resonanceLiberation.3"
             }
           }
         },
@@ -27507,6 +27885,104 @@
             }
           },
           {
+            "name": "Thunderoar: Backstep",
+            "type": "heavyAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.27,
+                    0.2922,
+                    0.3143,
+                    0.3453,
+                    0.3675,
+                    0.3929,
+                    0.4284,
+                    0.4638,
+                    0.4992,
+                    0.5368,
+                    0.5811,
+                    0.6254,
+                    0.6697,
+                    0.714,
+                    0.7582,
+                    0.8025,
+                    0.8468,
+                    0.8911,
+                    0.9354,
+                    0.9796
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Thunderoar: Spinslash",
+            "type": "heavyAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.7128,
+                    0.7713,
+                    0.8297,
+                    0.9116,
+                    0.97,
+                    1.0372,
+                    1.1308,
+                    1.2243,
+                    1.3178,
+                    1.4172,
+                    1.5341,
+                    1.651,
+                    1.7679,
+                    1.8848,
+                    2.0017,
+                    2.1186,
+                    2.2355,
+                    2.3524,
+                    2.4693,
+                    2.5862
+                  ],
+                  "times": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "Thunderoar: Uppercut",
+            "type": "heavyAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.9,
+                    0.9738,
+                    1.0476,
+                    1.151,
+                    1.2248,
+                    1.3096,
+                    1.4277,
+                    1.5458,
+                    1.6639,
+                    1.7893,
+                    1.9369,
+                    2.0845,
+                    2.2321,
+                    2.3797,
+                    2.5273,
+                    2.6749,
+                    2.8225,
+                    2.9701,
+                    3.1177,
+                    3.2653
+                  ],
+                  "times": 2
+                }
+              ]
+            }
+          },
+          {
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
@@ -27575,7 +28051,7 @@
             }
           },
           {
-            "name": "Mid-air Dodge Counter",
+            "name": "Dodge Counter: Mid-air",
             "type": "dodgeCounter",
             "damage": {
               "type": "basicAttack",
@@ -27609,105 +28085,7 @@
             }
           },
           {
-            "name": "Thunderoar - Backstep",
-            "type": "heavyAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.27,
-                    0.2922,
-                    0.3143,
-                    0.3453,
-                    0.3675,
-                    0.3929,
-                    0.4284,
-                    0.4638,
-                    0.4992,
-                    0.5368,
-                    0.5811,
-                    0.6254,
-                    0.6697,
-                    0.714,
-                    0.7582,
-                    0.8025,
-                    0.8468,
-                    0.8911,
-                    0.9354,
-                    0.9796
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thunderoar - Spinslash",
-            "type": "heavyAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.7128,
-                    0.7713,
-                    0.8297,
-                    0.9116,
-                    0.97,
-                    1.0372,
-                    1.1308,
-                    1.2243,
-                    1.3178,
-                    1.4172,
-                    1.5341,
-                    1.651,
-                    1.7679,
-                    1.8848,
-                    2.0017,
-                    2.1186,
-                    2.2355,
-                    2.3524,
-                    2.4693,
-                    2.5862
-                  ],
-                  "times": 3
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thunderoar - Uppercut",
-            "type": "heavyAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.9,
-                    0.9738,
-                    1.0476,
-                    1.151,
-                    1.2248,
-                    1.3096,
-                    1.4277,
-                    1.5458,
-                    1.6639,
-                    1.7893,
-                    1.9369,
-                    2.0845,
-                    2.2321,
-                    2.3797,
-                    2.5273,
-                    2.6749,
-                    2.8225,
-                    2.9701,
-                    3.1177,
-                    3.2653
-                  ],
-                  "times": 2
-                }
-              ]
-            }
-          },
-          {
-            "name": "Steelclash",
+            "name": "Dodge Counter: Steelclash",
             "type": "dodgeCounter",
             "damage": {
               "type": "heavyAttack",
@@ -27741,7 +28119,7 @@
             }
           },
           {
-            "name": "Thunderoar - Backstep",
+            "name": "Dodge Counter: Thunderoar: Backstep",
             "type": "dodgeCounter",
             "damage": {
               "type": "heavyAttack",
@@ -27922,10 +28300,15 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1000
           },
           {
-            "name": "Sublime is the Sun - Sunborne (x9)",
+            "name": "Sublime is the Sun",
+            "type": "resonanceLiberation"
+          },
+          {
+            "name": "Sublime is the Sun: Sunborne",
             "type": "resonanceLiberation",
             "damage": {
               "type": "heavyAttack",
@@ -27958,7 +28341,7 @@
             }
           },
           {
-            "name": "Sublime is the Sun - Everbright Protector",
+            "name": "Sublime is the Sun: Everbright Protector",
             "type": "resonanceLiberation",
             "damage": {
               "type": "heavyAttack",
@@ -28193,7 +28576,7 @@
           },
           {
             "name": "Undying Sunlight: Strike",
-            "type": "MDC",
+            "type": "dodgeCounter",
             "damage": {
               "type": "resonanceSkill",
               "multipliers": [
@@ -28290,27 +28673,29 @@
         ],
         "rotation": [
           "introSkill.0",
-          "normalAttack.8",
-          "normalAttack.9",
+          "normalAttack.5",
+          "normalAttack.6",
           "resonanceSkill.0",
-          "normalAttack.8",
-          "normalAttack.9",
+          "normalAttack.5",
+          "normalAttack.6",
           "resonanceLiberation.0",
           "forteCircuit.0",
           "forteCircuit.1",
           "forteCircuit.2",
           "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
           "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.2",
+          "resonanceLiberation.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11170
       }
     ]
   },
@@ -31132,7 +31517,8 @@
           "resonanceLiberation.2",
           "resonanceLiberation.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7890
       }
     ]
   },
@@ -31832,7 +32218,8 @@
           "resonanceSkill.0",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5030
       }
     ]
   },
@@ -32524,7 +32911,8 @@
           "forteCircuit.1",
           "forteCircuit.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 5500
       }
     ]
   },
@@ -33466,7 +33854,8 @@
           "resonanceLiberation.2",
           "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12170
       }
     ]
   },
@@ -35440,7 +35829,8 @@
           "forteCircuit.0",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 4500
       }
     ]
   },
@@ -37461,7 +37851,8 @@
           "forteCircuit.4",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 13230
       }
     ]
   },
@@ -37481,12 +37872,103 @@
     },
     "effects": [
       {
+        "key": "fullMoonDomain",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.7"
+            }
+          },
+          "cooldown": 25000,
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 5000,
+          "action": "forteCircuit.8"
+        }
+      },
+      {
+        "stores": "$applier",
+        "key": "blessingOfTheWanLight",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "fullMoonDomain"
+                }
+              },
+              {
+                "action": {
+                  "has": "shield"
+                }
+              }
+            ]
+          },
+          "cooldown": 500,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "dmgAmp%": 0.04
+          }
+        },
+        "maxStacks": 10
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "heavyAttack",
+                "dodgeCounter",
+                "resonanceSkill",
+                "resonanceLiberation",
+                "introSkill"
+              ]
+            }
+          },
+          "action": {
+            "shield": {
+              "multipliers": [
+                {
+                  "mv": 0.32
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceLiberation"
+              ]
+            }
+          },
+          "action": []
+        },
+        "onUseDoApply": {
+          "blessingOfTheWanLight": 5
+        }
+      },
+      {
         "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 14000
@@ -37504,6 +37986,7 @@
         "actions": [
           {
             "name": "Moonring: Basic Attack 1",
+            "tagged": "Half Moon",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -37536,6 +38019,7 @@
           },
           {
             "name": "Moonring: Basic Attack 2",
+            "tagged": "Half Moon",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -37593,6 +38077,7 @@
           },
           {
             "name": "Moonring: Basic Attack 3",
+            "tagged": "Half Moon",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -37684,6 +38169,7 @@
           },
           {
             "name": "Moonring: Dodge Counter",
+            "tagged": "Half Moon",
             "type": "dodgeCounter",
             "damage": {
               "type": "basicAttack",
@@ -37742,6 +38228,7 @@
           },
           {
             "name": "Moonbow: Basic Attack 1",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -37775,6 +38262,7 @@
           },
           {
             "name": "Moonbow: Basic Attack 2",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -37809,6 +38297,7 @@
           },
           {
             "name": "Moonbow: Basic Attack 3",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -37843,6 +38332,7 @@
           },
           {
             "name": "Moonbow: Dodge Counter",
+            "tagged": "New Moon",
             "type": "dodgeCounter",
             "damage": {
               "type": "resonanceLiberation",
@@ -38129,6 +38619,7 @@
         "actions": [
           {
             "name": "Flux: Moonbow",
+            "tagged": "Half Moon",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38162,6 +38653,7 @@
           },
           {
             "name": "Flux: Moonring",
+            "tagged": "New Moon",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38196,6 +38688,7 @@
           },
           {
             "name": "Enhanced Moonbow: Basic Attack 1",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38258,6 +38751,7 @@
           },
           {
             "name": "Enhanced Moonbow: Basic Attack 2",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38321,6 +38815,7 @@
           },
           {
             "name": "Enhanced Moonbow: Basic Attack 3",
+            "tagged": "New Moon",
             "type": "basicAttack",
             "damage": {
               "type": "resonanceLiberation",
@@ -38384,6 +38879,7 @@
           },
           {
             "name": "Enhanced Moonbow: Dodge Counter",
+            "tagged": "New Moon",
             "type": "dodgeCounter",
             "damage": {
               "type": "resonanceLiberation",
@@ -38447,6 +38943,7 @@
           },
           {
             "name": "Enhanced Arc Beyond the Edge",
+            "tagged": "New Moon",
             "type": "resonanceSkill",
             "damage": {
               "type": "resonanceLiberation",
@@ -38706,7 +39203,8 @@
           "forteCircuit.6",
           "forteCircuit.7",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8430
       }
     ]
   },
@@ -38726,12 +39224,141 @@
     },
     "effects": [
       {
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "specs": {
+            "critDmg%": {
+              "attr": "critRate%",
+              "step": 0.01,
+              "offset": 0.5,
+              "value": 0.02,
+              "maxValue": 0.3
+            }
+          }
+        }
+      },
+      {
+        "key": "bamboosShade",
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "echoSkillDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "key": "quietudeWithin",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.4"
+            }
+          },
+          "cooldown": 22000,
+          "duration": 10000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.5
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "field": "offField"
+          }
+        }
+      },
+      {
+        "key": "flowingPanaceaReady",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "type": "echoSkill"
+                },
+                {
+                  "extraType": "echoSkill"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "key": "flowingPanacea",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "flowingPanaceaReady"
+                }
+              },
+              {
+                "action": {
+                  "ref": [
+                    "normalAttack.2",
+                    "forteCircuit.0",
+                    "forteCircuit.1",
+                    "forteCircuit.2",
+                    "forteCircuit.3",
+                    "normalAttack.5",
+                    "introSkill.0"
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 20000
+        },
+        "onApplyDoRemove": {
+          "flowingPanaceaReady": 1
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
+        }
+      },
+      {
         "stores": "$next",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 14000
@@ -38964,39 +39591,6 @@
             }
           },
           {
-            "name": "Mid-air Attack DMG",
-            "type": "mid-airAttack",
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.588,
-                    0.6363,
-                    0.6845,
-                    0.752,
-                    0.8002,
-                    0.8556,
-                    0.9328,
-                    1.0099,
-                    1.0871,
-                    1.1691,
-                    1.2655,
-                    1.3619,
-                    1.4583,
-                    1.5548,
-                    1.6512,
-                    1.7476,
-                    1.8441,
-                    1.9405,
-                    2.0369,
-                    2.1334
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Heavy Attack",
             "type": "heavyAttack",
             "damage": {
@@ -39023,6 +39617,39 @@
                     2.749,
                     2.8856,
                     3.0223
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Mid-air Attack",
+            "type": "mid-airAttack",
+            "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.588,
+                    0.6363,
+                    0.6845,
+                    0.752,
+                    0.8002,
+                    0.8556,
+                    0.9328,
+                    1.0099,
+                    1.0871,
+                    1.1691,
+                    1.2655,
+                    1.3619,
+                    1.4583,
+                    1.5548,
+                    1.6512,
+                    1.7476,
+                    1.8441,
+                    1.9405,
+                    2.0369,
+                    2.1334
                   ]
                 }
               ]
@@ -39506,6 +40133,7 @@
           {
             "name": "Thus Spoke the Blade: To Teach",
             "type": "heavyAttack",
+            "extraType": "echoSkill",
             "damage": {
               "multipliers": [
                 {
@@ -39634,6 +40262,7 @@
           {
             "name": "Thus Spoke the Blade: To Save",
             "type": "heavyAttack",
+            "extraType": "echoSkill",
             "damage": {
               "multipliers": [
                 {
@@ -39739,6 +40368,7 @@
           {
             "name": "Thus Spoke the Blade: To Sacrifice",
             "type": "heavyAttack",
+            "extraType": "echoSkill",
             "damage": {
               "multipliers": [
                 {
@@ -39892,13 +40522,14 @@
           "introSkill.0",
           "forteCircuit.2",
           "forteCircuit.3",
+          "resonanceSkill.0",
           "resonanceLiberation.0",
           "forteCircuit.4",
           "forteCircuit.5",
           "forteCircuit.6",
-          "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 6350
       }
     ]
   },
@@ -41159,7 +41790,8 @@
           "forteCircuit.1",
           "forteCircuit.4",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11090
       }
     ]
   },
@@ -42418,7 +43050,8 @@
           "forteCircuit.2",
           "forteCircuit.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 2350
       }
     ]
   },
@@ -43473,7 +44106,8 @@
           "forteCircuit.0",
           "forteCircuit.5",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12410
       }
     ]
   },
@@ -45554,7 +46188,8 @@
           "resonanceSkill.4",
           "forteCircuit.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11600
       },
       {
         "team": [
@@ -45581,7 +46216,8 @@
           "resonanceSkill.4",
           "forteCircuit.3",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11600
       }
     ]
   },
@@ -46768,7 +47404,8 @@
           "forteCircuit.2",
           "resonanceLiberation.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12640
       }
     ]
   },
@@ -48397,7 +49034,8 @@
           "forteCircuit.6",
           "forteCircuit.9",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7210
       }
     ]
   },
@@ -48408,7 +49046,6 @@
     "quality": 5,
     "element": "spectro",
     "type": "pistols",
-    "tagged": "tuneStrain",
     "modes": [
       "tuneRupture",
       "tuneStrain"
@@ -49880,7 +50517,8 @@
           "forteCircuit.2",
           "forteCircuit.4",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7100
       }
     ]
   },
@@ -49891,7 +50529,6 @@
     "quality": 5,
     "element": "spectro",
     "type": "gauntlets",
-    "tagged": "tuneStrain",
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -49902,12 +50539,86 @@
     },
     "effects": [
       {
-        "enableIf": {
-          "rank": 1
+        "use": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          },
+          "action": "resonanceSkill.5"
+        }
+      },
+      {
+        "key": "aureateJudge",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.1",
+                "resonanceSkill.2",
+                "resonanceSkill.3",
+                "forteCircuit.0",
+                "resonanceSkill.5"
+              ]
+            }
+          },
+          "stats": {
+            "mv%": 1.1
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "tuneStrain"
+              }
+            }
+          },
+          "specs": {
+            "dmgAmp%": {
+              "attr": "tuneBreakBoost",
+              "step": 10,
+              "value": 0.05,
+              "maxValue": 0.3
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "inflict": {
+                    "shifting": "tuneStrain"
+                  }
+                },
+                {
+                  "damage": {
+                    "type": "tuneBreak"
+                  }
+                }
+              ]
+            }
+          },
+          "cooldown": 20000
         },
         "buff": {
           "stats": {
-            "mid-airAttackDmgBonus%": 1.5
+            "atk%": 0.25
           }
         }
       }
@@ -50240,6 +50951,66 @@
             }
           },
           {
+            "name": "Mid-air Attack 2 Scythe: Resection",
+            "type": "mid-airAttack",
+            "inflict": {
+              "shifting": "tuneStrain"
+            },
+            "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.2536,
+                    0.2744,
+                    0.2952,
+                    0.3243,
+                    0.3451,
+                    0.369,
+                    0.4023,
+                    0.4356,
+                    0.4688,
+                    0.5042,
+                    0.5458,
+                    0.5874,
+                    0.629,
+                    0.6705,
+                    0.7121,
+                    0.7537,
+                    0.7953,
+                    0.8369,
+                    0.8785,
+                    0.9201
+                  ]
+                },
+                {
+                  "mv": [
+                    0.2536,
+                    0.2744,
+                    0.2952,
+                    0.3243,
+                    0.3451,
+                    0.369,
+                    0.4023,
+                    0.4356,
+                    0.4688,
+                    0.5042,
+                    0.5458,
+                    0.5874,
+                    0.629,
+                    0.6705,
+                    0.7121,
+                    0.7537,
+                    0.7953,
+                    0.8369,
+                    0.8785,
+                    0.9201
+                  ]
+                }
+              ]
+            }
+          },
+          {
             "name": "Mid-air Attack 3 Scythe: Dissection",
             "type": "mid-airAttack",
             "damage": {
@@ -50315,66 +51086,6 @@
                     0.95,
                     0.9972,
                     1.0445
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Mid-air Attack 2 Scythe: Resection",
-            "type": "mid-airAttack",
-            "inflict": {
-              "shifting": "tuneStrain"
-            },
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2536,
-                    0.2744,
-                    0.2952,
-                    0.3243,
-                    0.3451,
-                    0.369,
-                    0.4023,
-                    0.4356,
-                    0.4688,
-                    0.5042,
-                    0.5458,
-                    0.5874,
-                    0.629,
-                    0.6705,
-                    0.7121,
-                    0.7537,
-                    0.7953,
-                    0.8369,
-                    0.8785,
-                    0.9201
-                  ]
-                },
-                {
-                  "mv": [
-                    0.2536,
-                    0.2744,
-                    0.2952,
-                    0.3243,
-                    0.3451,
-                    0.369,
-                    0.4023,
-                    0.4356,
-                    0.4688,
-                    0.5042,
-                    0.5458,
-                    0.5874,
-                    0.629,
-                    0.6705,
-                    0.7121,
-                    0.7537,
-                    0.7953,
-                    0.8369,
-                    0.8785,
-                    0.9201
                   ]
                 }
               ]
@@ -50531,9 +51242,10 @@
             }
           },
           {
-            "name": "Mid-air Dodge Counter",
-            "type": "MDC",
+            "name": "Dodge Counter: Mid-air",
+            "type": "dodgeCounter",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -50972,23 +51684,25 @@
         ],
         "rotation": [
           "introSkill.0",
-          "normalAttack.8",
+          "normalAttack.7",
           "normalAttack.9",
           "resonanceSkill.1",
           "resonanceSkill.4",
           "normalAttack.5",
-          "normalAttack.8",
+          "normalAttack.7",
           "normalAttack.9",
           "resonanceSkill.2",
           "resonanceSkill.4",
           "normalAttack.5",
-          "normalAttack.8",
+          "normalAttack.7",
           "normalAttack.9",
           "resonanceSkill.3",
           "forteCircuit.0",
           "resonanceLiberation.0",
+          "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12400
       }
     ]
   },
@@ -53526,7 +54240,8 @@
           "resonanceLiberation.5",
           "resonanceLiberation.7",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 11830
       }
     ]
   },
@@ -54453,7 +55168,8 @@
           "resonanceSkill.0",
           "resonanceSkill.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 8440
       }
     ]
   },
@@ -55327,7 +56043,8 @@
           "forteCircuit.0",
           "forteCircuit.1",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7610
       }
     ]
   },
@@ -56319,7 +57036,8 @@
           "resonanceSkill.4",
           "resonanceSkill.6",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 15500
       }
     ]
   },
@@ -57106,7 +57824,8 @@
           "forteCircuit.2",
           "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 6650
       }
     ]
   },
@@ -57164,7 +57883,14 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "echoSkill"
+              "or": [
+                {
+                  "type": "echoSkill"
+                },
+                {
+                  "extraType": "echoSkill"
+                }
+              ]
             }
           },
           "duration": 10000
@@ -58222,7 +58948,8 @@
           "forteCircuit.7",
           "resonanceSkill.2",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 7060
       }
     ]
   },
@@ -58243,24 +58970,245 @@
     },
     "effects": [
       {
+        "key": "maestro",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
               "ref": [
-                "resonanceLiberation.2",
-                "resonanceLiberation.3",
-                "resonanceLiberation.4"
+                "introSkill.0",
+                "introSkill.1"
               ]
             }
           }
         },
-        "maxStacks": 24,
+        "buff": {
+          "stats": {
+            "atk%": 1.2
+          }
+        }
+      },
+      {
+        "key": "maestroHecateBasic1",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000,
+          "offset": 1000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "resonanceLiberation.1"
+        }
+      },
+      {
+        "key": "maestroHecateBasic2",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000,
+          "offset": 3000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "resonanceLiberation.2"
+        }
+      },
+      {
+        "key": "maestroHecateEnhanced",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "resonanceLiberation.3"
+        }
+      },
+      {
+        "key": "maestroHecateEnhancedFollowUp",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 24000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "action": "resonanceLiberation.4"
+        },
+        "maxUses": 10
+      },
+      {
+        "stores": "$ally",
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "maestroHecateEnhancedFollowUp"
+                }
+              },
+              {
+                "action": {
+                  "or": [
+                    {
+                      "type": "echoSkill"
+                    },
+                    {
+                      "extraType": "echoSkill"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "action": []
+        },
+        "onUseDoUse": {
+          "maestroHecateEnhancedFollowUp": 1
+        }
+      },
+      {
+        "key": "aftersound",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "offField"
+              },
+              {
+                "action": {
+                  "ref": [
+                    "resonanceLiberation.3",
+                    "resonanceLiberation.4",
+                    "resonanceLiberation.5"
+                  ]
+                }
+              }
+            ]
+          }
+        },
         "buff": {
           "stats": {
             "critDmg%": 0.025
           }
+        },
+        "maxStacks": 14
+      },
+      {
+        "key": "aftersoundStarting",
+        "buff": {
+          "stats": {
+            "critDmg%": 0.25
+          }
         }
+      },
+      {
+        "key": "aftersoundOverflow",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "offField"
+              },
+              {
+                "action": {
+                  "ref": [
+                    "resonanceLiberation.3",
+                    "resonanceLiberation.4",
+                    "resonanceLiberation.5"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "aftersound": 14
+                }
+              }
+            ]
+          }
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": 0.01
+          }
+        },
+        "maxStacks": 100
       },
       {
         "stores": "$next",
@@ -58268,7 +59216,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 14000
@@ -58278,6 +59226,18 @@
             "havocDmgAmp%": 0.2,
             "heavyAttackDmgAmp%": 0.25
           }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "action": "resonanceLiberation.4",
+          "times": 2
         }
       }
     ],
@@ -58610,9 +59570,12 @@
         "name": "Waltz of Forsaken Depths",
         "actions": [
           {
+            "name": "Waltz of Forsaken Depths",
+            "type": "resonanceLiberation"
+          },
+          {
             "name": "Basic Attack 1",
             "tagged": "Hecate",
-            "type": "basicAttack",
             "damage": {
               "type": "echoSkill",
               "multipliers": [
@@ -58641,13 +59604,11 @@
                   ]
                 }
               ]
-            },
-            "duration": 0
+            }
           },
           {
             "name": "Basic Attack 2",
             "tagged": "Hecate",
-            "type": "basicAttack",
             "damage": {
               "type": "echoSkill",
               "multipliers": [
@@ -58677,8 +59638,7 @@
                   "times": 2
                 }
               ]
-            },
-            "duration": 0
+            }
           },
           {
             "name": "Enhanced Attack: Strings",
@@ -59149,18 +60109,20 @@
         ],
         "rotation": [
           "introSkill.1",
+          "normalAttack.1",
           "normalAttack.2",
-          "resonanceLiberation.2",
+          "forteCircuit.1",
           "resonanceSkill.0",
-          "resonanceLiberation.2",
+          "forteCircuit.1",
           "normalAttack.0",
           "normalAttack.1",
           "normalAttack.2",
-          "resonanceLiberation.2",
+          "forteCircuit.1",
           "normalAttack.4",
-          "forteCircuit.0",
+          "resonanceLiberation.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 9450
       }
     ]
   },
@@ -60910,7 +61872,8 @@
           "forteCircuit.1",
           "forteCircuit.2",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 10140
       }
     ]
   }

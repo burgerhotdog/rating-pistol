@@ -36,6 +36,10 @@ export function getMemberPreset(gameId, charId, presetIndex = 0) {
     member.rotation.push(...preset.rotation);
   }
 
+  if ('duration' in preset) {
+    member.duration = preset.duration;
+  }
+
   if ('modes' in character) member.mode = character.modes[0];
 
   return member;

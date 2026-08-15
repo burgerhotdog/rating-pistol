@@ -1,7 +1,4 @@
-import {
-  GI, HSR, WW, ZZZ,
-  CHARACTER,
-} from '@/data';
+import { GI, HSR, WW, ZZZ } from '@/data';
 import { runRotation } from '../rotation';
 import { getAttr, getTotals, toMergedObj } from '@/utils';
 
@@ -17,13 +14,13 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
 
   const { gameId, rotationDuration } = cache;
   const erAttrId = ENERGY_ATTR[gameId];
-  const needsEnergy = !CHARACTER[gameId][evalId].noEnergy;
 
-  const { duration: charRotDur, baseMap, statMap } = cache.member[evalId];
+  const { duration: charRotDur, baseMap, statMap, noEnergy } = cache.member[evalId];
   const originalEr = getAttr(erAttrId, statMap);
 
   function getPenalty(testMap) {
-    if (!needsEnergy) return 1;
+    if (noEnergy) return 1;
+
     const newEr = getAttr(erAttrId, testMap);
     if (newEr >= originalEr) return 1;
 

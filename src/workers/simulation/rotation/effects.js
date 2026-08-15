@@ -21,7 +21,7 @@ export function runUseEffect(ctx, state, spec = {}) {
 
   if (effect.use?.action) {
     state.isRunning = true;
-    for (let i = 0; i < (effect.times ?? 1); i++) {
+    for (let i = 0; i < (effect.use.times ?? 1); i++) {
       for (const action of effect.use.action) {
         ctx.runAction(ctx, action, runOptions);
       }
@@ -47,7 +47,7 @@ export function runApplyEffect(ctx, effect, spec = {}) {
     const prevState = store[id] ?? {};
     const prevStacks = prevState.stacks ?? 0;
 
-    const nextStacks = prevStacks + (spec.stacks ?? 1);
+    const nextStacks = prevStacks + (spec.stacks ?? effect?.apply?.stacks ?? 1);
 
     if (isExt && !prevState.extensionsLeft) return;
 
@@ -153,7 +153,7 @@ export function advanceEffects(ctx, elapsed) {
       remaining -= diff;
 
       if (!state.useCooldown) {
-        onUseDoCommand(ctx, effect);
+        onUseDoCommand(ctx, effect, effect.ownerId);
         if (runUseEffect(ctx, state, { runtimeOffset: elapsed - remaining })) break;
       }
     }

@@ -1,8 +1,27 @@
-import { WW, ECHO } from '@/data';
+import { WW, CHARACTER, ECHO } from '@/data';
 import { toMergedObj, toEquipMap, compileBaseMap } from '@/utils';
 import { getMemberPresetActions } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
+
+function adjustTimings(rotation, actual, expected) {
+  if (!expected) return;
+  const ratio = expected / actual;
+
+  const adjusted = new Set([]);
+
+  for (const action of rotation) {
+    if (adjusted.has(action.id)) continue;
+    adjusted.add(action.id);
+
+    action.duration = Math.round(action.duration * ratio);
+    if (action.hitOffsets) {
+      for (const [index, offset] of action.hitOffsets.entries()) {
+        action.hitOffsets[index] = Math.round(offset * ratio);
+      }
+    }
+  }
+}
 
 const getConvertedRotation = (rawRotation, spec) => {
   const { gameId, memberId, memberActions, memberIds, mainEcho } = spec;
@@ -59,7 +78,10 @@ const getConvertedRotation = (rawRotation, spec) => {
     }
   }
 
-  return { rotation, duration };
+  if (!spec.rotationDuration) return { rotation, duration };
+
+  adjustTimings(rotation, duration, spec.rotationDuration)
+  return { rotation, duration: spec.rotationDuration };
 };
 
 export const compileCache = (gameId, team) => {
@@ -97,6 +119,7 @@ export const compileCache = (gameId, team) => {
       memberActions: teamActions[memberId],
       memberIds,
       mainEcho,
+      rotationDuration: member.duration, 
     });
 
     rotationDuration += duration;
@@ -112,20 +135,23 @@ export const compileCache = (gameId, team) => {
       statMap,
       rotation,
       duration,
+      ...(CHARACTER[gameId][memberId].noEnergy && 
+        { noEnergy: true }),
     };
   }
 
-  const tuneStrainMaxStacks = cacheTuneResponses(memberCache);
-
-  return {
+  const cache = {
     gameId,
     memberIds,
     member: memberCache,
     effects: effectsCache,
-    tuneStrainMaxStacks,
     rotationDuration,
     getDps(damage) {
       return damage / rotationDuration * 1000;
     },
-  };
+  }
+
+  cacheTuneResponses(cache);
+
+  return cache;
 };

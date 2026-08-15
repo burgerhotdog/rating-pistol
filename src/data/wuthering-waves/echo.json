@@ -1590,7 +1590,8 @@
           }
         ]
       }
-    }
+    },
+    "timing": "afterIntro"
   },
   "6000117": {
     "name": "Nightmare: Havoc Warrior",
@@ -1649,7 +1650,8 @@
           }
         ]
       }
-    }
+    },
+    "timing": "afterIntro"
   },
   "6000121": {
     "name": "The False Sovereign",

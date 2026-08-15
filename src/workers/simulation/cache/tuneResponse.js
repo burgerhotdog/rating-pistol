@@ -1,15 +1,27 @@
-import { WW, CHARACTER } from '@/data';
-import { toArray } from '@/utils';
+const alwaysTuneStrain = [
+  '1209',
+  '1510'
+];
 
-export function cacheTuneResponses(memberCache) {
-  let tuneStrainMaxStacks = 1;
+const sometimesTuneStrain = [
+  '1509',
+  '1211'
+];
 
-  for (const [memberId, member] of Object.entries(memberCache)) {
-    if (toArray(CHARACTER[WW][memberId].tagged).includes('tuneStrain')) {
-      member.tuneStrainResponse = true;
-      tuneStrainMaxStacks++;
-    }
+export function cacheTuneResponses(cache) {
+  cache.tuneStrainMaxStacks = 1;
+
+  const respondsToTuneStrain = (memberId) =>
+    alwaysTuneStrain.includes(memberId) ||
+    (
+      sometimesTuneStrain.includes(memberId) &&
+      cache.member[memberId].mode === 'tuneStrain'
+    )
+
+  for (const memberId in cache.member) {
+    if (!respondsToTuneStrain(memberId)) continue;
+
+    cache.member[memberId].tuneStrainResponse = true;
+    cache.tuneStrainMaxStacks++;
   }
-
-  return tuneStrainMaxStacks;
 }
