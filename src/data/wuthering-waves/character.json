@@ -1625,10 +1625,10 @@
           "normalAttack.3",
           "resonanceSkill.0",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 4310
       }
-    ],
-    "duration": 4310
+    ]
   },
   "1104": {
     "name": "Lingyang",
@@ -2550,10 +2550,10 @@
           "forteCircuit.4",
           "forteCircuit.5",
           "outroSkill.0"
-        ]
+        ],
+        "duration": 12700
       }
-    ],
-    "duration": 12700
+    ]
   },
   "1105": {
     "name": "Zhezhi",
