@@ -31533,13 +31533,229 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
-    "effects": [],
+    "effects": [
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6",
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9",
+                "forteCircuit.10",
+                "forteCircuit.11",
+                "forteCircuit.12",
+                "forteCircuit.13",
+                "forteCircuit.14",
+                "forteCircuit.15"
+              ]
+            }
+          },
+          "action": "forteCircuit.16"
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "key": "electroCore",
+        "stores": "$next",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "duration": 20000
+        }
+      },
+      {
+        "stores": "$applier",
+        "apply": {
+          "by": "$team",
+          "when": "inflict",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "electroCore"
+                }
+              },
+              {
+                "action": {
+                  "inflict": {
+                    "has": "status"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "dmgAmp%": 0.25
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 2
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "action": {
+            "inflict": {
+              "status": {
+                "electroFlare": 5
+              }
+            }
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 3
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
+            }
+          },
+          "stats": {
+            "mv%": 0.2
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 4
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "stats": {
+            "mv%": 0.2
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 5
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6",
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9",
+                "forteCircuit.10",
+                "forteCircuit.11",
+                "forteCircuit.12",
+                "forteCircuit.13",
+                "forteCircuit.14",
+                "forteCircuit.15"
+              ]
+            }
+          },
+          "stats": {
+            "critDmg%": 0.2
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 6
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6",
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9",
+                "forteCircuit.10",
+                "forteCircuit.11",
+                "forteCircuit.12",
+                "forteCircuit.13",
+                "forteCircuit.14",
+                "forteCircuit.15",
+                "forteCircuit.16"
+              ]
+            }
+          },
+          "stats": {
+            "mv%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "",
+        "name": "Deterrence",
         "actions": [
           {
-            "name": "Basic Attack Stage 1 DMG",
+            "name": "Basic Attack 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -31571,7 +31787,7 @@
             }
           },
           {
-            "name": "Basic Attack Stage 2 DMG",
+            "name": "Basic Attack 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -31627,7 +31843,7 @@
             }
           },
           {
-            "name": "Basic Attack Stage 3 DMG",
+            "name": "Basic Attack 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -31660,7 +31876,7 @@
             }
           },
           {
-            "name": "Basic Attack Stage 4 DMG",
+            "name": "Basic Attack 4",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -31716,7 +31932,7 @@
             }
           },
           {
-            "name": "Basic Attack - Riposte Strike DMG",
+            "name": "Basic Attack: Riposte Strike",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -31748,7 +31964,7 @@
             }
           },
           {
-            "name": "Basic Attack - Riposte Strike: Crumble DMG",
+            "name": "Basic Attack: Riposte Strike: Crumble",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -31780,9 +31996,43 @@
             }
           },
           {
-            "name": "Mid-air Attack - Havoc Stage 1 DMG",
-            "type": "basicAttack",
+            "name": "Mid-air Attack",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5278,
+                    0.5711,
+                    0.6144,
+                    0.675,
+                    0.7183,
+                    0.7681,
+                    0.8373,
+                    0.9065,
+                    0.9758,
+                    1.0494,
+                    1.1359,
+                    1.2225,
+                    1.309,
+                    1.3956,
+                    1.4822,
+                    1.5687,
+                    1.6553,
+                    1.7418,
+                    1.8284,
+                    1.915
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Mid-air Attack: Havoc 1",
+            "type": "mid-airAttack",
+            "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31812,9 +32062,10 @@
             }
           },
           {
-            "name": "Mid-air Attack - Havoc Stage 2 DMG",
-            "type": "basicAttack",
+            "name": "Mid-air Attack: Havoc 2",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31844,9 +32095,10 @@
             }
           },
           {
-            "name": "Mid-air Attack - Havoc Stage 3 DMG",
-            "type": "basicAttack",
+            "name": "Mid-air Attack: Havoc 3",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31924,41 +32176,10 @@
             }
           },
           {
-            "name": "Mid-air Attack DMG",
-            "type": "basicAttack",
+            "name": "Dodge Counter",
+            "type": "dodgeCounter",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5278,
-                    0.5711,
-                    0.6144,
-                    0.675,
-                    0.7183,
-                    0.7681,
-                    0.8373,
-                    0.9065,
-                    0.9758,
-                    1.0494,
-                    1.1359,
-                    1.2225,
-                    1.309,
-                    1.3956,
-                    1.4822,
-                    1.5687,
-                    1.6553,
-                    1.7418,
-                    1.8284,
-                    1.915
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Dodge Counter DMG",
-            "type": "basicAttack",
-            "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -32012,9 +32233,10 @@
             }
           },
           {
-            "name": "Mid-air Dodge Counter DMG",
-            "type": "basicAttack",
+            "name": "Dodge Counter: Mid-air",
+            "type": "dodgeCounter",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -32046,10 +32268,10 @@
         ]
       },
       "resonanceSkill": {
-        "name": "",
+        "name": "Thunderclap",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Resonance Skill",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -32082,8 +32304,8 @@
             }
           },
           {
-            "name": "Basic Attack - Repel DMG",
-            "type": "resonanceSkill",
+            "name": "Basic Attack: Repel",
+            "type": "basicAttack",
             "damage": {
               "multipliers": [
                 {
@@ -32140,10 +32362,10 @@
         ]
       },
       "resonanceLiberation": {
-        "name": "",
+        "name": "Ultimate Tactics",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Resonance Liberation",
             "type": "resonanceLiberation",
             "damage": {
               "multipliers": [
@@ -32177,11 +32399,16 @@
         ]
       },
       "forteCircuit": {
-        "name": "",
+        "name": "Myriad Omens' Mandate",
         "actions": [
           {
-            "name": "Overshock DMG",
-            "type": "forteCircuit",
+            "name": "Overshock",
+            "type": "resonanceSkill",
+            "inflict": {
+              "status": {
+                "electroFlare": 10
+              }
+            },
             "damage": {
               "multipliers": [
                 {
@@ -32261,1596 +32488,13 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Spectro Stage 1 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4986,
-                    0.5395,
-                    0.5804,
-                    0.6376,
-                    0.6785,
-                    0.7255,
-                    0.7909,
-                    0.8563,
-                    0.9217,
-                    0.9912,
-                    1.073,
-                    1.1547,
-                    1.2365,
-                    1.3183,
-                    1.4,
-                    1.4818,
-                    1.5635,
-                    1.6453,
-                    1.7271,
-                    1.8088
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Spectro Stage 2 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2468,
-                    0.267,
-                    0.2873,
-                    0.3156,
-                    0.3358,
-                    0.3591,
-                    0.3915,
-                    0.4238,
-                    0.4562,
-                    0.4906,
-                    0.5311,
-                    0.5715,
-                    0.612,
-                    0.6525,
-                    0.6929,
-                    0.7334,
-                    0.7738,
-                    0.8143,
-                    0.8548,
-                    0.8952
-                  ]
-                },
-                {
-                  "mv": [
-                    0.2468,
-                    0.267,
-                    0.2873,
-                    0.3156,
-                    0.3358,
-                    0.3591,
-                    0.3915,
-                    0.4238,
-                    0.4562,
-                    0.4906,
-                    0.5311,
-                    0.5715,
-                    0.612,
-                    0.6525,
-                    0.6929,
-                    0.7334,
-                    0.7738,
-                    0.8143,
-                    0.8548,
-                    0.8952
-                  ]
-                },
-                {
-                  "mv": [
-                    0.329,
-                    0.356,
-                    0.383,
-                    0.4208,
-                    0.4477,
-                    0.4788,
-                    0.5219,
-                    0.5651,
-                    0.6082,
-                    0.6541,
-                    0.7081,
-                    0.762,
-                    0.816,
-                    0.8699,
-                    0.9239,
-                    0.9778,
-                    1.0318,
-                    1.0857,
-                    1.1397,
-                    1.1936
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Spectro Stage 3 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5134,
-                    0.5554,
-                    0.5975,
-                    0.6565,
-                    0.6986,
-                    0.747,
-                    0.8143,
-                    0.8817,
-                    0.949,
-                    1.0206,
-                    1.1047,
-                    1.1889,
-                    1.2731,
-                    1.3573,
-                    1.4415,
-                    1.5256,
-                    1.6098,
-                    1.694,
-                    1.7782,
-                    1.8624
-                  ]
-                },
-                {
-                  "mv": [
-                    0.77,
-                    0.8331,
-                    0.8963,
-                    0.9847,
-                    1.0478,
-                    1.1204,
-                    1.2214,
-                    1.3225,
-                    1.4235,
-                    1.5308,
-                    1.6571,
-                    1.7834,
-                    1.9096,
-                    2.0359,
-                    2.1622,
-                    2.2884,
-                    2.4147,
-                    2.541,
-                    2.6673,
-                    2.7935
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Havoc Stage 1 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0754,
-                    0.0815,
-                    0.0877,
-                    0.0964,
-                    0.1025,
-                    0.1096,
-                    0.1195,
-                    0.1294,
-                    0.1393,
-                    0.1498,
-                    0.1621,
-                    0.1745,
-                    0.1868,
-                    0.1992,
-                    0.2116,
-                    0.2239,
-                    0.2363,
-                    0.2486,
-                    0.261,
-                    0.2733
-                  ],
-                  "times": 3
-                },
-                {
-                  "mv": [
-                    0.5273,
-                    0.5705,
-                    0.6138,
-                    0.6743,
-                    0.7175,
-                    0.7672,
-                    0.8364,
-                    0.9056,
-                    0.9748,
-                    1.0482,
-                    1.1347,
-                    1.2212,
-                    1.3076,
-                    1.3941,
-                    1.4806,
-                    1.567,
-                    1.6535,
-                    1.74,
-                    1.8264,
-                    1.9129
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Havoc Stage 2 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0696,
-                    0.0753,
-                    0.081,
-                    0.089,
-                    0.0947,
-                    0.1013,
-                    0.1104,
-                    0.1195,
-                    0.1287,
-                    0.1383,
-                    0.1498,
-                    0.1612,
-                    0.1726,
-                    0.184,
-                    0.1954,
-                    0.2068,
-                    0.2182,
-                    0.2296,
-                    0.241,
-                    0.2524
-                  ],
-                  "times": 4
-                },
-                {
-                  "mv": [
-                    0.4174,
-                    0.4517,
-                    0.4859,
-                    0.5338,
-                    0.568,
-                    0.6074,
-                    0.6621,
-                    0.7169,
-                    0.7717,
-                    0.8298,
-                    0.8983,
-                    0.9667,
-                    1.0352,
-                    1.1036,
-                    1.1721,
-                    1.2406,
-                    1.309,
-                    1.3775,
-                    1.4459,
-                    1.5144
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Havoc Stage 3 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.3145,
-                    0.3402,
-                    0.366,
-                    0.4021,
-                    0.4279,
-                    0.4575,
-                    0.4988,
-                    0.5401,
-                    0.5813,
-                    0.6251,
-                    0.6767,
-                    0.7283,
-                    0.7798,
-                    0.8314,
-                    0.8829,
-                    0.9345,
-                    0.9861,
-                    1.0376,
-                    1.0892,
-                    1.1408
-                  ]
-                },
-                {
-                  "mv": [
-                    0.3145,
-                    0.3402,
-                    0.366,
-                    0.4021,
-                    0.4279,
-                    0.4575,
-                    0.4988,
-                    0.5401,
-                    0.5813,
-                    0.6251,
-                    0.6767,
-                    0.7283,
-                    0.7798,
-                    0.8314,
-                    0.8829,
-                    0.9345,
-                    0.9861,
-                    1.0376,
-                    1.0892,
-                    1.1408
-                  ]
-                },
-                {
-                  "mv": [
-                    0.1049,
-                    0.1134,
-                    0.122,
-                    0.1341,
-                    0.1427,
-                    0.1525,
-                    0.1663,
-                    0.1801,
-                    0.1938,
-                    0.2084,
-                    0.2256,
-                    0.2428,
-                    0.26,
-                    0.2772,
-                    0.2943,
-                    0.3115,
-                    0.3287,
-                    0.3459,
-                    0.3631,
-                    0.3803
-                  ]
-                },
-                {
-                  "mv": [
-                    0.1049,
-                    0.1134,
-                    0.122,
-                    0.1341,
-                    0.1427,
-                    0.1525,
-                    0.1663,
-                    0.1801,
-                    0.1938,
-                    0.2084,
-                    0.2256,
-                    0.2428,
-                    0.26,
-                    0.2772,
-                    0.2943,
-                    0.3115,
-                    0.3287,
-                    0.3459,
-                    0.3631,
-                    0.3803
-                  ]
-                },
-                {
-                  "mv": [
-                    0.1049,
-                    0.1134,
-                    0.122,
-                    0.1341,
-                    0.1427,
-                    0.1525,
-                    0.1663,
-                    0.1801,
-                    0.1938,
-                    0.2084,
-                    0.2256,
-                    0.2428,
-                    0.26,
-                    0.2772,
-                    0.2943,
-                    0.3115,
-                    0.3287,
-                    0.3459,
-                    0.3631,
-                    0.3803
-                  ]
-                },
-                {
-                  "mv": [
-                    0.1049,
-                    0.1134,
-                    0.122,
-                    0.1341,
-                    0.1427,
-                    0.1525,
-                    0.1663,
-                    0.1801,
-                    0.1938,
-                    0.2084,
-                    0.2256,
-                    0.2428,
-                    0.26,
-                    0.2772,
-                    0.2943,
-                    0.3115,
-                    0.3287,
-                    0.3459,
-                    0.3631,
-                    0.3803
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Silencing Blade DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2368,
-                    0.2562,
-                    0.2756,
-                    0.3028,
-                    0.3222,
-                    0.3445,
-                    0.3756,
-                    0.4066,
-                    0.4377,
-                    0.4707,
-                    0.5095,
-                    0.5484,
-                    0.5872,
-                    0.626,
-                    0.6648,
-                    0.7037,
-                    0.7425,
-                    0.7813,
-                    0.8201,
-                    0.859
-                  ],
-                  "times": 5
-                },
-                {
-                  "mv": [
-                    1.1837,
-                    1.2808,
-                    1.3779,
-                    1.5137,
-                    1.6108,
-                    1.7224,
-                    1.8777,
-                    2.033,
-                    2.1883,
-                    2.3533,
-                    2.5475,
-                    2.7416,
-                    2.9357,
-                    3.1298,
-                    3.324,
-                    3.5181,
-                    3.7122,
-                    3.9063,
-                    4.1005,
-                    4.2946
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Aero DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.7952,
-                    0.8604,
-                    0.9256,
-                    1.0169,
-                    1.0821,
-                    1.1571,
-                    1.2614,
-                    1.3657,
-                    1.47,
-                    1.5809,
-                    1.7113,
-                    1.8417,
-                    1.9721,
-                    2.1025,
-                    2.2329,
-                    2.3633,
-                    2.4937,
-                    2.6241,
-                    2.7545,
-                    2.8849
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Havoc Mid-air Attack Stage 1 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2547,
-                    0.2756,
-                    0.2965,
-                    0.3257,
-                    0.3466,
-                    0.3706,
-                    0.404,
-                    0.4374,
-                    0.4708,
-                    0.5063,
-                    0.5481,
-                    0.5898,
-                    0.6316,
-                    0.6733,
-                    0.7151,
-                    0.7569,
-                    0.7986,
-                    0.8404,
-                    0.8822,
-                    0.9239
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Havoc Mid-air Attack Stage 2 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.321,
-                    0.3474,
-                    0.3737,
-                    0.4105,
-                    0.4368,
-                    0.4671,
-                    0.5092,
-                    0.5513,
-                    0.5935,
-                    0.6382,
-                    0.6908,
-                    0.7435,
-                    0.7961,
-                    0.8488,
-                    0.9014,
-                    0.954,
-                    1.0067,
-                    1.0593,
-                    1.112,
-                    1.1646
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Havoc Mid-air Attack Stage 3 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4603,
-                    0.4981,
-                    0.5358,
-                    0.5886,
-                    0.6264,
-                    0.6698,
-                    0.7302,
-                    0.7906,
-                    0.851,
-                    0.9151,
-                    0.9906,
-                    1.0661,
-                    1.1416,
-                    1.217,
-                    1.2925,
-                    1.368,
-                    1.4435,
-                    1.519,
-                    1.5945,
-                    1.67
-                  ]
-                },
-                {
-                  "mv": [
-                    0.4603,
-                    0.4981,
-                    0.5358,
-                    0.5886,
-                    0.6264,
-                    0.6698,
-                    0.7302,
-                    0.7906,
-                    0.851,
-                    0.9151,
-                    0.9906,
-                    1.0661,
-                    1.1416,
-                    1.217,
-                    1.2925,
-                    1.368,
-                    1.4435,
-                    1.519,
-                    1.5945,
-                    1.67
-                  ]
-                },
-                {
-                  "mv": [
-                    0.4743,
-                    0.5132,
-                    0.552,
-                    0.6065,
-                    0.6454,
-                    0.6901,
-                    0.7523,
-                    0.8145,
-                    0.8767,
-                    0.9428,
-                    1.0206,
-                    1.0984,
-                    1.1762,
-                    1.2539,
-                    1.3317,
-                    1.4095,
-                    1.4872,
-                    1.565,
-                    1.6428,
-                    1.7206
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Aero Mid-air Attack Stage 1 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4256,
-                    0.4605,
-                    0.4954,
-                    0.5443,
-                    0.5792,
-                    0.6193,
-                    0.6751,
-                    0.731,
-                    0.7868,
-                    0.8461,
-                    0.9159,
-                    0.9857,
-                    1.0555,
-                    1.1253,
-                    1.1951,
-                    1.2649,
-                    1.3347,
-                    1.4045,
-                    1.4743,
-                    1.5441
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Aero Mid-air Attack Stage 2 DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.49,
-                    0.5302,
-                    0.5704,
-                    0.6266,
-                    0.6668,
-                    0.713,
-                    0.7773,
-                    0.8416,
-                    0.9058,
-                    0.9741,
-                    1.0545,
-                    1.1349,
-                    1.2152,
-                    1.2956,
-                    1.3759,
-                    1.4563,
-                    1.5366,
-                    1.617,
-                    1.6973,
-                    1.7777
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Aero Mid-air Attack Healing",
-            "type": "forteCircuit",
-            "damage": {
-              "attr": "atk",
-              "multipliers": [
-                {
-                  "flat": [
-                    330,
-                    369,
-                    412,
-                    462,
-                    521,
-                    577,
-                    587,
-                    600,
-                    610,
-                    627,
-                    678,
-                    730,
-                    782,
-                    833,
-                    885,
-                    937,
-                    989,
-                    1040,
-                    1092,
-                    1144
-                  ]
-                },
-                {
-                  "mv": [
-                    0.11,
-                    0.1144,
-                    0.1188,
-                    0.1254,
-                    0.1342,
-                    0.143,
-                    0.1595,
-                    0.1782,
-                    0.198,
-                    0.231,
-                    0.2501,
-                    0.2691,
-                    0.2882,
-                    0.3072,
-                    0.3263,
-                    0.3453,
-                    0.3644,
-                    0.3834,
-                    0.4025,
-                    0.4216
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Aero Plunging Attack DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.4209,
-                    1.5374,
-                    1.6539,
-                    1.817,
-                    1.9335,
-                    2.0675,
-                    2.2539,
-                    2.4403,
-                    2.6267,
-                    2.8248,
-                    3.0578,
-                    3.2908,
-                    3.5238,
-                    3.7568,
-                    3.9898,
-                    4.2228,
-                    4.4558,
-                    4.6889,
-                    4.9219,
-                    5.1549
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Thunder Bane DMG",
-            "type": "forteCircuit",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2,
-                    0.2164,
-                    0.2328,
-                    0.2558,
-                    0.2722,
-                    0.2911,
-                    0.3173,
-                    0.3435,
-                    0.3698,
-                    0.3977,
-                    0.4305,
-                    0.4633,
-                    0.4961,
-                    0.5289,
-                    0.5617,
-                    0.5945,
-                    0.6273,
-                    0.6601,
-                    0.6929,
-                    0.7257
-                  ]
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "introSkill": {
-        "name": "",
-        "actions": [
-          {
-            "name": "Skill DMG",
-            "type": "introSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.168,
-                    0.1818,
-                    0.1956,
-                    0.2149,
-                    0.2287,
-                    0.2445,
-                    0.2665,
-                    0.2886,
-                    0.3106,
-                    0.3341,
-                    0.3616,
-                    0.3892,
-                    0.4167,
-                    0.4443,
-                    0.4718,
-                    0.4994,
-                    0.5269,
-                    0.5545,
-                    0.582,
-                    0.6096
-                  ],
-                  "times": 2
-                },
-                {
-                  "mv": [
-                    0.504,
-                    0.5454,
-                    0.5867,
-                    0.6446,
-                    0.6859,
-                    0.7334,
-                    0.7995,
-                    0.8657,
-                    0.9318,
-                    1.0021,
-                    1.0847,
-                    1.1674,
-                    1.25,
-                    1.3327,
-                    1.4153,
-                    1.498,
-                    1.5806,
-                    1.6633,
-                    1.746,
-                    1.8286
-                  ]
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "outroSkill": {
-        "name": "Rumbling Thunders",
-        "actions": [
-          {
-            "name": "Rumbling Thunders",
-            "type": "outroSkill"
-          }
-        ]
-      }
-    },
-    "presets": []
-  },
-  "1310": {
-    "name": "Rover: Electro",
-    "version": 3.5,
-    "id": "1310",
-    "quality": 5,
-    "element": "electro",
-    "type": "sword",
-    "stats": {
-      "baseHp": 10775,
-      "baseAtk": 437,
-      "baseDef": 1136,
-      "atk%": 0.12,
-      "critRate%": 0.08
-    },
-    "effects": [],
-    "skills": {
-      "normalAttack": {
-        "name": "",
-        "actions": [
-          {
-            "name": "Basic Attack Stage 1 DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2569,
-                    0.278,
-                    0.2991,
-                    0.3286,
-                    0.3496,
-                    0.3739,
-                    0.4076,
-                    0.4413,
-                    0.475,
-                    0.5108,
-                    0.5529,
-                    0.5951,
-                    0.6372,
-                    0.6793,
-                    0.7215,
-                    0.7636,
-                    0.8057,
-                    0.8478,
-                    0.89,
-                    0.9321
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack Stage 2 DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.1308,
-                    0.1415,
-                    0.1523,
-                    0.1673,
-                    0.178,
-                    0.1903,
-                    0.2075,
-                    0.2246,
-                    0.2418,
-                    0.26,
-                    0.2815,
-                    0.3029,
-                    0.3243,
-                    0.3458,
-                    0.3672,
-                    0.3887,
-                    0.4101,
-                    0.4316,
-                    0.453,
-                    0.4745
-                  ]
-                },
-                {
-                  "mv": [
-                    0.1962,
-                    0.2123,
-                    0.2284,
-                    0.2509,
-                    0.267,
-                    0.2855,
-                    0.3112,
-                    0.3369,
-                    0.3627,
-                    0.39,
-                    0.4222,
-                    0.4543,
-                    0.4865,
-                    0.5187,
-                    0.5508,
-                    0.583,
-                    0.6152,
-                    0.6473,
-                    0.6795,
-                    0.7117
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack Stage 3 DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0667,
-                    0.0722,
-                    0.0777,
-                    0.0853,
-                    0.0908,
-                    0.0971,
-                    0.1059,
-                    0.1146,
-                    0.1234,
-                    0.1327,
-                    0.1436,
-                    0.1545,
-                    0.1655,
-                    0.1764,
-                    0.1874,
-                    0.1983,
-                    0.2092,
-                    0.2202,
-                    0.2311,
-                    0.242
-                  ],
-                  "times": 7
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack Stage 4 DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.3663,
-                    0.3963,
-                    0.4264,
-                    0.4684,
-                    0.4984,
-                    0.533,
-                    0.581,
-                    0.6291,
-                    0.6771,
-                    0.7282,
-                    0.7882,
-                    0.8483,
-                    0.9084,
-                    0.9684,
-                    1.0285,
-                    1.0886,
-                    1.1486,
-                    1.2087,
-                    1.2687,
-                    1.3288
-                  ]
-                },
-                {
-                  "mv": [
-                    0.5494,
-                    0.5945,
-                    0.6395,
-                    0.7026,
-                    0.7476,
-                    0.7994,
-                    0.8715,
-                    0.9436,
-                    1.0157,
-                    1.0922,
-                    1.1823,
-                    1.2724,
-                    1.3625,
-                    1.4526,
-                    1.5427,
-                    1.6328,
-                    1.7229,
-                    1.813,
-                    1.9031,
-                    1.9932
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack - Riposte Strike DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2814,
-                    0.3045,
-                    0.3276,
-                    0.3599,
-                    0.383,
-                    0.4095,
-                    0.4464,
-                    0.4834,
-                    0.5203,
-                    0.5595,
-                    0.6057,
-                    0.6518,
-                    0.698,
-                    0.7441,
-                    0.7902,
-                    0.8364,
-                    0.8825,
-                    0.9287,
-                    0.9748,
-                    1.021
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack - Riposte Strike: Crumble DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2989,
-                    0.3235,
-                    0.348,
-                    0.3823,
-                    0.4068,
-                    0.435,
-                    0.4742,
-                    0.5134,
-                    0.5526,
-                    0.5943,
-                    0.6433,
-                    0.6923,
-                    0.7414,
-                    0.7904,
-                    0.8394,
-                    0.8884,
-                    0.9374,
-                    0.9864,
-                    1.0355,
-                    1.0845
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Mid-air Attack - Havoc Stage 1 DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.1631,
-                    0.1765,
-                    0.1899,
-                    0.2086,
-                    0.222,
-                    0.2374,
-                    0.2588,
-                    0.2802,
-                    0.3016,
-                    0.3243,
-                    0.3511,
-                    0.3778,
-                    0.4046,
-                    0.4313,
-                    0.4581,
-                    0.4848,
-                    0.5115,
-                    0.5383,
-                    0.565,
-                    0.5918
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Mid-air Attack - Havoc Stage 2 DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.1869,
-                    0.2023,
-                    0.2176,
-                    0.2391,
-                    0.2544,
-                    0.272,
-                    0.2965,
-                    0.3211,
-                    0.3456,
-                    0.3716,
-                    0.4023,
-                    0.4329,
-                    0.4636,
-                    0.4942,
-                    0.5249,
-                    0.5555,
-                    0.5862,
-                    0.6168,
-                    0.6475,
-                    0.6781
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Mid-air Attack - Havoc Stage 3 DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.1888,
-                    0.2043,
-                    0.2198,
-                    0.2415,
-                    0.257,
-                    0.2748,
-                    0.2995,
-                    0.3243,
-                    0.3491,
-                    0.3754,
-                    0.4064,
-                    0.4373,
-                    0.4683,
-                    0.4992,
-                    0.5302,
-                    0.5612,
-                    0.5921,
-                    0.6231,
-                    0.6541,
-                    0.685
-                  ]
-                },
-                {
-                  "mv": [
-                    0.1888,
-                    0.2043,
-                    0.2198,
-                    0.2415,
-                    0.257,
-                    0.2748,
-                    0.2995,
-                    0.3243,
-                    0.3491,
-                    0.3754,
-                    0.4064,
-                    0.4373,
-                    0.4683,
-                    0.4992,
-                    0.5302,
-                    0.5612,
-                    0.5921,
-                    0.6231,
-                    0.6541,
-                    0.685
-                  ]
-                },
-                {
-                  "mv": [
-                    0.1946,
-                    0.2105,
-                    0.2265,
-                    0.2488,
-                    0.2647,
-                    0.2831,
-                    0.3086,
-                    0.3341,
-                    0.3597,
-                    0.3868,
-                    0.4187,
-                    0.4506,
-                    0.4825,
-                    0.5144,
-                    0.5463,
-                    0.5782,
-                    0.6101,
-                    0.642,
-                    0.6739,
-                    0.7058
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Mid-air Attack DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5278,
-                    0.5711,
-                    0.6144,
-                    0.675,
-                    0.7183,
-                    0.7681,
-                    0.8373,
-                    0.9065,
-                    0.9758,
-                    1.0494,
-                    1.1359,
-                    1.2225,
-                    1.309,
-                    1.3956,
-                    1.4822,
-                    1.5687,
-                    1.6553,
-                    1.7418,
-                    1.8284,
-                    1.915
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Dodge Counter DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.3735,
-                    0.4041,
-                    0.4347,
-                    0.4776,
-                    0.5082,
-                    0.5435,
-                    0.5925,
-                    0.6415,
-                    0.6904,
-                    0.7425,
-                    0.8038,
-                    0.865,
-                    0.9262,
-                    0.9875,
-                    1.0487,
-                    1.11,
-                    1.1712,
-                    1.2325,
-                    1.2937,
-                    1.355
-                  ]
-                },
-                {
-                  "mv": [
-                    0.3735,
-                    0.4041,
-                    0.4347,
-                    0.4776,
-                    0.5082,
-                    0.5435,
-                    0.5925,
-                    0.6415,
-                    0.6904,
-                    0.7425,
-                    0.8038,
-                    0.865,
-                    0.9262,
-                    0.9875,
-                    1.0487,
-                    1.11,
-                    1.1712,
-                    1.2325,
-                    1.2937,
-                    1.355
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Mid-air Dodge Counter DMG",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.9478,
-                    1.0256,
-                    1.1033,
-                    1.2121,
-                    1.2898,
-                    1.3792,
-                    1.5035,
-                    1.6279,
-                    1.7522,
-                    1.8844,
-                    2.0398,
-                    2.1952,
-                    2.3507,
-                    2.5061,
-                    2.6616,
-                    2.817,
-                    2.9724,
-                    3.1279,
-                    3.2833,
-                    3.4388
-                  ]
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "resonanceSkill": {
-        "name": "",
-        "actions": [
-          {
-            "name": "Skill DMG",
+            "name": "Overshock: Hold",
             "type": "resonanceSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.504,
-                    0.5453,
-                    0.5867,
-                    0.6445,
-                    0.6859,
-                    0.7334,
-                    0.7995,
-                    0.8656,
-                    0.9317,
-                    1.002,
-                    1.0846,
-                    1.1673,
-                    1.2499,
-                    1.3326,
-                    1.4152,
-                    1.4979,
-                    1.5805,
-                    1.6632,
-                    1.7458,
-                    1.8285
-                  ],
-                  "times": 2
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack - Repel DMG",
-            "type": "resonanceSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2823,
-                    0.3054,
-                    0.3286,
-                    0.361,
-                    0.3841,
-                    0.4107,
-                    0.4478,
-                    0.4848,
-                    0.5218,
-                    0.5612,
-                    0.6075,
-                    0.6537,
-                    0.7,
-                    0.7463,
-                    0.7926,
-                    0.8389,
-                    0.8852,
-                    0.9315,
-                    0.9778,
-                    1.024
-                  ]
-                },
-                {
-                  "mv": [
-                    0.4234,
-                    0.4581,
-                    0.4928,
-                    0.5414,
-                    0.5762,
-                    0.6161,
-                    0.6716,
-                    0.7272,
-                    0.7827,
-                    0.8417,
-                    0.9112,
-                    0.9806,
-                    1.05,
-                    1.1195,
-                    1.1889,
-                    1.2583,
-                    1.3277,
-                    1.3972,
-                    1.4666,
-                    1.536
-                  ]
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "resonanceLiberation": {
-        "name": "",
-        "actions": [
-          {
-            "name": "Skill DMG",
-            "type": "resonanceLiberation",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    6.0,
-                    6.492,
-                    6.984,
-                    7.6728,
-                    8.1648,
-                    8.7306,
-                    9.5178,
-                    10.305,
-                    11.0922,
-                    11.9286,
-                    12.9126,
-                    13.8966,
-                    14.8806,
-                    15.8646,
-                    16.8486,
-                    17.8326,
-                    18.8166,
-                    19.8006,
-                    20.7846,
-                    21.7686
-                  ]
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "forteCircuit": {
-        "name": "",
-        "actions": [
-          {
-            "name": "Overshock DMG",
-            "type": "forteCircuit",
+            "inflict": {
+              "status": {
+                "electroFlare": 10
+              }
+            },
             "damage": {
               "multipliers": [
                 {
@@ -33930,9 +32574,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Spectro Stage 1 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Spectro 1",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "spectro",
               "multipliers": [
                 {
                   "mv": [
@@ -33962,9 +32607,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Spectro Stage 2 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Spectro 2",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "spectro",
               "multipliers": [
                 {
                   "mv": [
@@ -34042,9 +32688,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Spectro Stage 3 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Spectro 3",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "spectro",
               "multipliers": [
                 {
                   "mv": [
@@ -34098,9 +32745,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Havoc Stage 1 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Havoc 1",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "havoc",
               "multipliers": [
                 {
                   "mv": [
@@ -34155,9 +32803,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Havoc Stage 2 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Havoc 2",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "havoc",
               "multipliers": [
                 {
                   "mv": [
@@ -34212,9 +32861,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Havoc Stage 3 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Havoc 3",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "havoc",
               "multipliers": [
                 {
                   "mv": [
@@ -34364,9 +33014,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Silencing Blade DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Silencing Blade",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "aero",
               "multipliers": [
                 {
                   "mv": [
@@ -34421,9 +33072,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Aero DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Aero",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "aero",
               "multipliers": [
                 {
                   "mv": [
@@ -34453,9 +33105,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Havoc Mid-air Attack Stage 1 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Havoc Mid-air Attack 1",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "havoc",
               "multipliers": [
                 {
                   "mv": [
@@ -34485,9 +33138,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Havoc Mid-air Attack Stage 2 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Havoc Mid-air Attack 2",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "havoc",
               "multipliers": [
                 {
                   "mv": [
@@ -34517,9 +33171,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Havoc Mid-air Attack Stage 3 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Havoc Mid-air Attack 3",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "havoc",
               "multipliers": [
                 {
                   "mv": [
@@ -34597,9 +33252,10 @@
             }
           },
           {
-            "name": "Thrum of All Sounds: Aero Mid-air Attack Stage 1 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Aero Mid-air Attack 1",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "aero",
               "multipliers": [
                 {
                   "mv": [
@@ -34626,12 +33282,63 @@
                   ]
                 }
               ]
+            },
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.11,
+                    0.1144,
+                    0.1188,
+                    0.1254,
+                    0.1342,
+                    0.143,
+                    0.1595,
+                    0.1782,
+                    0.198,
+                    0.231,
+                    0.2501,
+                    0.2691,
+                    0.2882,
+                    0.3072,
+                    0.3263,
+                    0.3453,
+                    0.3644,
+                    0.3834,
+                    0.4025,
+                    0.4216
+                  ],
+                  "flat": [
+                    330,
+                    369,
+                    412,
+                    462,
+                    521,
+                    577,
+                    587,
+                    600,
+                    610,
+                    627,
+                    678,
+                    730,
+                    782,
+                    833,
+                    885,
+                    937,
+                    989,
+                    1040,
+                    1092,
+                    1144
+                  ]
+                }
+              ]
             }
           },
           {
-            "name": "Thrum of All Sounds: Aero Mid-air Attack Stage 2 DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Aero Mid-air Attack 2",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "aero",
               "multipliers": [
                 {
                   "mv": [
@@ -34658,38 +33365,9 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Thrum of All Sounds: Aero Mid-air Attack Healing",
-            "type": "forteCircuit",
-            "damage": {
-              "attr": "atk",
+            },
+            "healing": {
               "multipliers": [
-                {
-                  "flat": [
-                    330,
-                    369,
-                    412,
-                    462,
-                    521,
-                    577,
-                    587,
-                    600,
-                    610,
-                    627,
-                    678,
-                    730,
-                    782,
-                    833,
-                    885,
-                    937,
-                    989,
-                    1040,
-                    1092,
-                    1144
-                  ]
-                },
                 {
                   "mv": [
                     0.11,
@@ -34712,15 +33390,38 @@
                     0.3834,
                     0.4025,
                     0.4216
+                  ],
+                  "flat": [
+                    330,
+                    369,
+                    412,
+                    462,
+                    521,
+                    577,
+                    587,
+                    600,
+                    610,
+                    627,
+                    678,
+                    730,
+                    782,
+                    833,
+                    885,
+                    937,
+                    989,
+                    1040,
+                    1092,
+                    1144
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Thrum of All Sounds: Aero Plunging Attack DMG",
-            "type": "forteCircuit",
+            "name": "Thrum of All Sounds: Aero Plunging Attack",
+            "type": "resonanceSkill",
             "damage": {
+              "element": "aero",
               "multipliers": [
                 {
                   "mv": [
@@ -34750,8 +33451,7 @@
             }
           },
           {
-            "name": "Thunder Bane DMG",
-            "type": "forteCircuit",
+            "name": "Thunder Bane",
             "damage": {
               "multipliers": [
                 {
@@ -34784,10 +33484,10 @@
         ]
       },
       "introSkill": {
-        "name": "",
+        "name": "Thunderous Fury",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Intro Skill",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -34849,13 +33549,39 @@
         "name": "Rumbling Thunders",
         "actions": [
           {
-            "name": "Rumbling Thunders",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
       }
     },
-    "presets": []
+    "presets": [
+      {
+        "weaponId": "21020015",
+        "setCounts": {
+          "8": 5
+        },
+        "mainEcho": "6000052",
+        "team": [
+          null,
+          "1309",
+          "1508"
+        ],
+        "rotation": [
+          "introSkill.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.3",
+          "resonanceSkill.0",
+          "resonanceSkill.1",
+          "resonanceLiberation.0",
+          "forteCircuit.0",
+          "outroSkill.0"
+        ],
+        "duration": 7690
+      }
+    ]
   },
   "1402": {
     "name": "Yangyang",
