@@ -50168,6 +50168,7 @@
     },
     "effects": [
       {
+        "key": "sunburst",
         "apply": {
           "when": "start",
           "filter": {
@@ -50187,6 +50188,7 @@
         }
       },
       {
+        "key": "infernoMode",
         "buff": {
           "filter": {
             "action": {
@@ -50202,6 +50204,13 @@
           "stats": {
             "damageMv%": 0.25
           }
+        }
+      },
+      {
+        "key": "heliacalEmber",
+        "apply": {
+          "by": "$team",
+          "filter": {}
         }
       },
       {
@@ -50237,7 +50246,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 20000

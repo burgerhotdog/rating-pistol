@@ -21,7 +21,7 @@ import { getDefaultWeapRank } from '@/utils';
 
 function getDpsIndex(gameId, weapId) {
   const rank = getDefaultWeapRank(gameId, weapId);
-  return rank === 5 ? 0: 1;
+  return rank === 5 ? 1: 0;
 }
 
 function buildData(gameId, weapData, weaponResults, userDps, userMember) {
