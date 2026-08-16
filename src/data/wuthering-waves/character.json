@@ -60986,13 +60986,113 @@
       "atk%": 0.12,
       "havocDmgBonus%": 0.12
     },
-    "effects": [],
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "tagged": "Umbra"
+            }
+          },
+          "stats": {
+            "havocDmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "duration": 6000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": 1.433
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 1
+        },
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 4
+        },
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "resonanceLiberation.0"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "havocResReduction%": 0.1
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 5
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.5"
+            }
+          },
+          "stats": {
+            "mv%": 0.5
+          }
+        }
+      },
+      {
+        "enableIf": {
+          "rank": 6
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "tagged": "Umbra"
+            }
+          },
+          "stats": {
+            "critRate%": 0.25
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "",
+        "name": "Tuneslayer",
         "actions": [
           {
-            "name": "Stage 1 DMG",
+            "name": "Basic Attack 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -61024,7 +61124,7 @@
             }
           },
           {
-            "name": "Stage 2 DMG",
+            "name": "Basic Attack 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -61057,7 +61157,7 @@
             }
           },
           {
-            "name": "Stage 3 DMG",
+            "name": "Basic Attack 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -61089,7 +61189,7 @@
             }
           },
           {
-            "name": "Stage 4 DMG",
+            "name": "Basic Attack 4",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -61122,7 +61222,7 @@
             }
           },
           {
-            "name": "Stage 5 DMG",
+            "name": "Basic Attack 5",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -61155,8 +61255,8 @@
             }
           },
           {
-            "name": "Heavy Attack DMG",
-            "type": "basicAttack",
+            "name": "Heavy Attack",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -61187,9 +61287,10 @@
             }
           },
           {
-            "name": "Mid-air Attack DMG",
-            "type": "basicAttack",
+            "name": "Mid-air Attack",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -61219,9 +61320,10 @@
             }
           },
           {
-            "name": "Dodge Counter DMG",
-            "type": "basicAttack",
+            "name": "Dodge Counter",
+            "type": "dodgeCounter",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -61253,10 +61355,10 @@
         ]
       },
       "resonanceSkill": {
-        "name": "",
+        "name": "Wingblade",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Resonance Skill",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -61291,10 +61393,10 @@
         ]
       },
       "resonanceLiberation": {
-        "name": "",
+        "name": "Deadening Abyss",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Resonance Liberation",
             "type": "resonanceLiberation",
             "damage": {
               "multipliers": [
@@ -61328,11 +61430,11 @@
         ]
       },
       "forteCircuit": {
-        "name": "",
+        "name": "Umbra Eclipse",
         "actions": [
           {
-            "name": "Devastation Damage",
-            "type": "forteCircuit",
+            "name": "Devastation",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -61363,8 +61465,9 @@
             }
           },
           {
-            "name": "Umbra: Basic Attack Stage 1 DMG",
-            "type": "forteCircuit",
+            "name": "Basic Attack 1",
+            "tagged": "Umbra",
+            "type": "basicAttack",
             "damage": {
               "multipliers": [
                 {
@@ -61395,8 +61498,9 @@
             }
           },
           {
-            "name": "Umbra: Basic Attack Stage 2 DMG",
-            "type": "forteCircuit",
+            "name": "Basic Attack 2",
+            "tagged": "Umbra",
+            "type": "basicAttack",
             "damage": {
               "multipliers": [
                 {
@@ -61427,8 +61531,9 @@
             }
           },
           {
-            "name": "Umbra: Basic Attack Stage 3 DMG",
-            "type": "forteCircuit",
+            "name": "Basic Attack 3",
+            "tagged": "Umbra",
+            "type": "basicAttack",
             "damage": {
               "multipliers": [
                 {
@@ -61459,8 +61564,9 @@
             }
           },
           {
-            "name": "Umbra: Basic Attack Stage 4 DMG",
-            "type": "forteCircuit",
+            "name": "Basic Attack 4",
+            "tagged": "Umbra",
+            "type": "basicAttack",
             "damage": {
               "multipliers": [
                 {
@@ -61516,8 +61622,9 @@
             }
           },
           {
-            "name": "Umbra: Basic Attack Stage 5 DMG",
-            "type": "forteCircuit",
+            "name": "Basic Attack 5",
+            "tagged": "Umbra",
+            "type": "basicAttack",
             "damage": {
               "multipliers": [
                 {
@@ -61573,8 +61680,9 @@
             }
           },
           {
-            "name": "Umbra: Heavy Attack DMG",
-            "type": "forteCircuit",
+            "name": "Heavy Attack",
+            "tagged": "Umbra",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -61605,8 +61713,9 @@
             }
           },
           {
-            "name": "Umbra: Thwackblade Damage",
-            "type": "forteCircuit",
+            "name": "Heavy Attack: Thwackblade",
+            "tagged": "Umbra",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -61662,9 +61771,11 @@
             }
           },
           {
-            "name": "Umbra: Plunging Attack DMG",
-            "type": "forteCircuit",
+            "name": "Mid-air Attack",
+            "tagged": "Umbra",
+            "type": "mid-airAttack",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -61694,9 +61805,11 @@
             }
           },
           {
-            "name": "Umbra: Dodge Counter DMG",
-            "type": "forteCircuit",
+            "name": "Dodge Counter",
+            "tagged": "Umbra",
+            "type": "dodgeCounter",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -61726,8 +61839,9 @@
             }
           },
           {
-            "name": "Umbra: Lifetaker Damage",
-            "type": "forteCircuit",
+            "name": "Lifetaker",
+            "tagged": "Umbra",
+            "type": "resonanceSkill",
             "damage": {
               "multipliers": [
                 {
@@ -61786,10 +61900,10 @@
         ]
       },
       "introSkill": {
-        "name": "",
+        "name": "Instant of Annihilation",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Intro Skill",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -61826,7 +61940,7 @@
         "name": "Soundweaver",
         "actions": [
           {
-            "name": "Soundweaver",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
