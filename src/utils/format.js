@@ -1,3 +1,5 @@
+import { WW } from '@/data';
+
 const SPECIAL_CASES = {
   Hp: 'HP',
   Atk: 'ATK',
@@ -35,4 +37,13 @@ export function formatDmg(num) {
   if (num >= 1_000_000) return `${(num / 1_000_000).toFixed(1)}M`;
   if (num >= 1_000) return `${(num / 1_000).toFixed(0)}K`;
   return num.toFixed(0);
+}
+
+export function formatAttr(gameId, attrId, attrValue) {
+  const valueOffset = (gameId === WW && attrId === 'critDmg%') ? 1 : 0;
+  const isPercent = attrId.endsWith('%');
+  const percentMult = isPercent ? 100 : 1;
+  const toFixedValue = isPercent ? 1 : 0;
+  const value = (attrValue + valueOffset) * percentMult;
+  return value.toFixed(toFixedValue) + (isPercent ? '%' : '');
 }

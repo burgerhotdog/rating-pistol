@@ -49,56 +49,11 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CharAvatar } from '@/components';
-import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
+import { CHARACTER } from '@/data';
 import { useElementColors, useCharData } from '@/hooks';
-import { toArray, getAttr, formatStr, compileMenuMap } from '@/utils';
+import { toArray, formatStr } from '@/utils';
 import { TeamMemberDialog } from './TeamMemberDialog';
-
-const MENU_STATS = {
-  [GI]: [
-    "hp",
-    "atk",
-    "def",
-    "elementalMastery",
-    "critRate%",
-    "critDmg%",
-    "healingBonus%",
-    "energyRecharge%"
-  ],
-  [HSR]: [
-    "hp",
-    "atk",
-    "def",
-    "spd",
-    "critRate%",
-    "critDmg%",
-    "breakEffect%",
-    "outgoingHealingBoost%",
-    "energyRegenerationRate%",
-    "effectHitRate%",
-    "effectRes%"
-  ],
-  [WW]: [
-    "hp",
-    "atk",
-    "def",
-    "energyRegen%",
-    "critRate%",
-    "critDmg%"
-  ],
-  [ZZZ]: [
-    "hp",
-    "atk",
-    "def",
-    "impact",
-    "critRate%",
-    "critDmg%",
-    "anomalyMastery",
-    "anomalyProficiency",
-    "penRatio%",
-    "energyRegen"
-  ],
-};
+import { MenuAttrs } from './MenuAttrs';
 
 function getRelativeTime(dateString) {
   if (!dateString) return 'Unknown';
@@ -521,7 +476,6 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
   const rotationMemberIndex = Math.max(0, team.findIndex((m) => m.id === rotationMemberId));
 
   const currChar = charData[charId];
-  const statMap = compileMenuMap(gameId, charId, member);
 
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
@@ -546,33 +500,7 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
       />
 
       <CardContent component={Stack} spacing={1} sx={{ flex: 1 }}>
-        <Stack spacing={0.5} sx={{ flex: 1 }}>
-          {MENU_STATS[gameId].map((id) => {
-            const totalValue = getAttr(id, statMap) +
-              ((gameId === WW && id === 'critDmg%') ? 1 : 0);
-            const isPercent = id.endsWith('%');
-            const displayValue = isPercent ? totalValue * 100 : totalValue;
-            const toFixedValue = isPercent ? 1 : 0;
-            if (id !== 'elementalMastery' && displayValue === 0) return;
-            return (
-              <Box
-                key={id}
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <Typography variant="body2" color="textSecondary">
-                  {formatStr(id)}
-                </Typography>
-                <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                  {displayValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
-                </Typography>
-              </Box>
-            );
-          })}
-        </Stack>
+        <MenuAttrs team={team} />
 
         <Divider />
 
