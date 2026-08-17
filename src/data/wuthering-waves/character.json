@@ -2180,7 +2180,7 @@
         "name": "Strive: Lion's Vigor",
         "actions": [
           {
-            "name": "Strive - Lion's Vigor",
+            "name": "Strive: Lion's Vigor",
             "type": "resonanceLiberation",
             "damage": {
               "multipliers": [
@@ -10046,7 +10046,16 @@
         "buff": {
           "filter": {
             "action": {
-              "tagged": "Cosmos"
+              "ref": [
+                "resonanceLiberation.1",
+                "resonanceLiberation.2",
+                "resonanceLiberation.3",
+                "resonanceLiberation.4",
+                "resonanceLiberation.5",
+                "resonanceLiberation.6",
+                "resonanceLiberation.7",
+                "forteCircuit.1"
+              ]
             }
           },
           "stats": {
@@ -10174,7 +10183,16 @@
           "when": "hit",
           "filter": {
             "action": {
-              "tagged": "Cosmos"
+              "ref": [
+                "resonanceLiberation.1",
+                "resonanceLiberation.2",
+                "resonanceLiberation.3",
+                "resonanceLiberation.4",
+                "resonanceLiberation.5",
+                "resonanceLiberation.6",
+                "resonanceLiberation.7",
+                "forteCircuit.1"
+              ]
             }
           },
           "duration": 10000
@@ -10528,6 +10546,10 @@
         "name": "Cosmos Rave",
         "actions": [
           {
+            "name": "Cosmos Rave",
+            "type": "resonanceLiberation"
+          },
+          {
             "name": "Frolicking 1",
             "tagged": "Cosmos",
             "type": "basicAttack",
@@ -10764,10 +10786,6 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Cosmos Rave",
-            "type": "resonanceLiberation"
           }
         ]
       },
@@ -10927,18 +10945,18 @@
         ],
         "rotation": [
           "introSkill.0",
-          "resonanceLiberation.7",
-          "resonanceLiberation.5",
           "resonanceLiberation.0",
+          "resonanceLiberation.6",
           "resonanceLiberation.1",
           "resonanceLiberation.2",
           "resonanceLiberation.3",
-          "resonanceLiberation.5",
-          "resonanceLiberation.0",
+          "resonanceLiberation.4",
+          "resonanceLiberation.6",
           "resonanceLiberation.1",
           "resonanceLiberation.2",
           "resonanceLiberation.3",
-          "resonanceLiberation.5",
+          "resonanceLiberation.4",
+          "resonanceLiberation.6",
           "forteCircuit.1",
           "outroSkill.0"
         ],
@@ -22165,7 +22183,15 @@
         "buff": {
           "filter": {
             "action": {
-              "tagged": "Deathblade Gear"
+              "ref": [
+                "resonanceLiberation.1",
+                "resonanceLiberation.2",
+                "resonanceLiberation.3",
+                "resonanceLiberation.4",
+                "resonanceLiberation.5",
+                "resonanceLiberation.6",
+                "resonanceLiberation.7"
+              ]
             }
           },
           "stats": {
@@ -22734,39 +22760,6 @@
             }
           },
           {
-            "name": "\"Necessary Means\"",
-            "type": "introSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1,
-                    1.082,
-                    1.164,
-                    1.2788,
-                    1.3608,
-                    1.4551,
-                    1.5863,
-                    1.7175,
-                    1.8487,
-                    1.9881,
-                    2.1521,
-                    2.3161,
-                    2.4801,
-                    2.6441,
-                    2.8081,
-                    2.9721,
-                    3.1361,
-                    3.3001,
-                    3.4641,
-                    3.6281
-                  ],
-                  "times": 2
-                }
-              ]
-            }
-          },
-          {
             "name": "Hounds Roar 1",
             "tagged": "Deathblade Gear",
             "type": "basicAttack",
@@ -23027,6 +23020,39 @@
                 }
               ]
             }
+          },
+          {
+            "name": "\"Necessary Means\"",
+            "type": "introSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1,
+                    1.082,
+                    1.164,
+                    1.2788,
+                    1.3608,
+                    1.4551,
+                    1.5863,
+                    1.7175,
+                    1.8487,
+                    1.9881,
+                    2.1521,
+                    2.3161,
+                    2.4801,
+                    2.6441,
+                    2.8081,
+                    2.9721,
+                    3.1361,
+                    3.3001,
+                    3.4641,
+                    3.6281
+                  ],
+                  "times": 2
+                }
+              ]
+            }
           }
         ]
       },
@@ -23247,20 +23273,20 @@
           "1505"
         ],
         "rotation": [
-          "resonanceLiberation.1",
+          "resonanceLiberation.8",
           "resonanceLiberation.0",
           "forteCircuit.1",
+          "resonanceLiberation.1",
           "resonanceLiberation.2",
-          "resonanceLiberation.3",
+          "resonanceLiberation.1",
           "resonanceLiberation.2",
-          "resonanceLiberation.3",
-          "resonanceLiberation.2",
+          "resonanceLiberation.1",
           "forteCircuit.1",
+          "resonanceLiberation.1",
           "resonanceLiberation.2",
-          "resonanceLiberation.3",
+          "resonanceLiberation.1",
           "resonanceLiberation.2",
-          "resonanceLiberation.3",
-          "resonanceLiberation.2",
+          "resonanceLiberation.1",
           "forteCircuit.1",
           "outroSkill.0"
         ],
@@ -24115,7 +24141,16 @@
         "buff": {
           "filter": {
             "action": {
-              "tagged": "Lightning Infused"
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6",
+                "forteCircuit.7",
+                "forteCircuit.8"
+              ]
             }
           },
           "stats": {
@@ -60991,7 +61026,18 @@
         "buff": {
           "filter": {
             "action": {
-              "tagged": "Umbra"
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6",
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9",
+                "forteCircuit.10"
+              ]
             }
           },
           "stats": {
@@ -61078,7 +61124,18 @@
         "buff": {
           "filter": {
             "action": {
-              "tagged": "Umbra"
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6",
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9",
+                "forteCircuit.10"
+              ]
             }
           },
           "stats": {

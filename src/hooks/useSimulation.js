@@ -11,13 +11,10 @@ export function useSimulation(team) {
   const [result, setResult] = useState({});
 
   const payload = useMemo(() => {
-    if (!team?.members?.length) return;
+    if (!team?.length) return;
     if (!VALID_GAME_IDS.has(gameId)) return;
 
-    const filteredTeam = team.members.filter((member) => member.id);
-    if (filteredTeam.some((member) => !member.rotation?.length)) return;
-
-    return { gameId, charId, team: filteredTeam };
+    return { gameId, charId, team };
   }, [gameId, charId, team]);
 
   if (prevPayloadRef.current !== payload) {
@@ -30,7 +27,10 @@ export function useSimulation(team) {
     workerRef.current = null;
     if (!payload) return;
 
-    const worker = new Worker(new URL('../workers/simulation/worker.js', import.meta.url), { type: 'module' });
+    const worker = new Worker(
+      new URL('../workers/simulation/worker.js', import.meta.url),
+      { type: 'module' },
+    );
     workerRef.current = worker;
 
     worker.onmessage = ({ data }) => {
