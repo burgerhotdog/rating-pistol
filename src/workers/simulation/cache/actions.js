@@ -55,8 +55,8 @@ const getCompressed = (multipliers, attr, { index, weaponRank }) => {
   return compressed;
 };
 
-function toNormedDamage(gameId, action, spec) {
-  const { category, charElement, weaponType, index, weaponRank } = spec;
+function normDamage(gameId, action, spec) {
+  const { category, charElement, weaponType, mvIndex, weaponRank } = spec;
   const isGiPhysNa =
     gameId === GI &&
     category === 'normalAttack' &&
@@ -73,44 +73,42 @@ function toNormedDamage(gameId, action, spec) {
 
   damage.element ??= isGiPhysNa ? 'physical' : charElement;
   damage.attr ??= 'atk';
-  damage.compressed = getCompressed(damage.multipliers, damage.attr, { index, weaponRank });
+  damage.compressed = getCompressed(damage.multipliers, damage.attr, { index: mvIndex, weaponRank });
   return damage;
 }
 
-function toNormedHealing(gameId, action, spec) {
-  const { index, weaponRank, teamSize } = spec;
+function normHealing(action, spec) {
+  const { mvIndex, weaponRank, teamSize } = spec;
 
   const healing = { ...action.healing };
   healing.attr ??= 'atk';
-  healing.compressed = getCompressed(healing.multipliers, healing.attr, { index, weaponRank });
+  healing.compressed = getCompressed(healing.multipliers, healing.attr, { index: mvIndex, weaponRank });
   if (healing.times === '$teamSize') healing.times = teamSize;
   return healing;
 }
 
-function toNormedShield(gameId, action, spec) {
-  const { index, weaponRank } = spec;
+function normShield(action, spec) {
+  const { mvIndex, weaponRank } = spec;
 
   const shield = { ...action.shield };
   shield.attr ??= 'atk';
-  shield.compressed = getCompressed(shield.multipliers, shield.attr, { index, weaponRank });
+  shield.compressed = getCompressed(shield.multipliers, shield.attr, { index: mvIndex, weaponRank });
   return shield;
 }
 
-export const toNormalizedAction = (rawAction, spec) => {
-  const { gameId, ownerId, category, actionIndex } = spec;
-
+export const normAction = (gameId, rawAction, spec) => {
+  const { ownerId, category, index } = spec;
   const action = {
     ...rawAction,
-    ownerId,
-    id: `${ownerId}:${category}.${actionIndex}`,
-    ref: `${category}.${actionIndex}`,
-    category,
-    index: actionIndex,
+    ownerId, category, index,
+    ref: `${category}.${index}`,
+    id: `${ownerId}:${category}.${index}`,
   };
 
-  if ('damage' in action) action.damage = toNormedDamage(gameId, action, spec);
-  if ('healing' in action) action.healing = toNormedHealing(gameId, action, spec);
-  if ('shield' in action) action.shield = toNormedShield(gameId, action, spec);
+  // Parts
+  if ('damage' in action) action.damage = normDamage(gameId, action, spec);
+  if ('healing' in action) action.healing = normHealing(action, spec);
+  if ('shield' in action) action.shield = normShield(action, spec);
 
   // Init duration
   action.duration ??= DEFAULT_DURATIONS[gameId][action.type] ?? 0;
@@ -185,7 +183,7 @@ export const toNormalizedAction = (rawAction, spec) => {
   return action;
 }
 
-const createIndexGetter = (gameId, memberId, memberRank) => {
+function createMvIndexGetter(gameId, memberId, memberRank) {
   const defaultIndex = gameId === ZZZ ? 11 : 9;
 
   const { rankMods = {} } = CHARACTER[gameId][memberId];
@@ -199,40 +197,44 @@ const createIndexGetter = (gameId, memberId, memberRank) => {
   }
 
   return (category) => defaultIndex + (addByCategory[category] ?? 0);
-};
+}
 
 export const getActionDefs = (gameId, member, teamSize) => {
+  const getMvIndex = createMvIndexGetter(gameId, member.id, member.rank);
   const charData = CHARACTER[gameId][member.id];
-  const getIndex = createIndexGetter(gameId, member.id, member.rank);
+  const actionDefs = {};
 
-  const memberActions = {};
+  // Character actions
   for (const [category, { actions }] of Object.entries(charData.skills)) {
-    const mvIndex = getIndex(category);
+    const spec = {
+      ownerId: member.id,
+      category,
+      teamSize,
+      mvIndex: getMvIndex(category),
+      charElement: charData.element,
+      mode: member.mode,
+    }
 
     for (const [index, rawAction] of actions.entries()) {
-      memberActions[`${category}.${index}`] = toNormalizedAction(rawAction, {
-        gameId,
-        ownerId: member.id,
-        category,
-        actionIndex: index,
-        teamSize,
-        index: mvIndex,
-        charElement: charData.element,
-        mode: member.mode,
-      });
+      const action = normAction(gameId, rawAction, { ...spec, index });
+      actionDefs[action.ref] = action;
     }
   }
 
-  const echoData = ECHO[member.mainEcho];
-  if (echoData?.action) {
-    memberActions['echoSkill.0'] = toNormalizedAction(echoData.action, {
-      gameId,
-      ownerId: member.id,
-      category: 'echoSkill',
-      actionIndex: 0,
-      teamSize,
-    });
+  // Echo action
+  if (gameId === WW) {
+    const echoAction = ECHO[member.mainEcho]?.action;
+    if (echoAction) {
+      const spec = {
+        ownerId: member.id,
+        category: 'echoSkill',
+        index: 0,
+        teamSize,
+      };
+      const action = normAction(WW, echoAction, spec);
+      actionDefs[action.ref] = action;
+    }
   }
 
-  return memberActions;
+  return actionDefs;
 };

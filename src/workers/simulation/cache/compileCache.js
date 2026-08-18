@@ -123,7 +123,7 @@ export const compileCache = ({ gameId, charId, team }) => {
     mCache.duration = duration;
     cache.rotationDuration += duration;
 
-    const effectDefs = normalizeEffects(gameId, member, { memberIds: cache.memberIds, teamActions: actionDefs });
+    const effectDefs = normalizeEffects(gameId, member, { memberIds: cache.memberIds, actionDefs });
     Object.assign(cache.effects, effectDefs);
 
     const charData = CHARACTER[gameId][member.id];

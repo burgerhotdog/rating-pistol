@@ -1,21 +1,32 @@
 import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON } from '@/data';
-import { getAttr, getTotals, compileBaseMap, toMergedObj } from '@/utils';
+import {
+  compileBaseMap,
+  getAttr,
+  getTotals,
+  isEnabledWeap,
+  toMergedObj,
+} from '@/utils';
 import { runRotation } from './rotation';
-import { toNormalizedEffect } from './cache/effects';
+import { normEffect } from './cache/effects';
 
 function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weaponRank, memberIds) {
   const normalized = {};
+  const sharedNormCtx = {
+    gameId,
+    ownerId,
+    sourceId,
+    sourceType: 'weapon',
+    weaponRank,
+    memberIds,
+  };
 
+  const charData = CHARACTER[gameId][ownerId];
+  const weapData = WEAPON[gameId][sourceId];
   for (const [index, rawEffect] of rawEffects.entries()) {
-    const effect = toNormalizedEffect(rawEffect, {
-      gameId,
-      ownerId,
-      sourceId,
-      effectIndex: index,
-      weaponRank,
-      memberIds,
-    });
+    if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
 
+    const normCtx = { ...sharedNormCtx, index };
+    const effect = normEffect(normCtx, rawEffect);
     normalized[effect.id] = effect;
   }
 
