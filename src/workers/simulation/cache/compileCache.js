@@ -126,8 +126,9 @@ export const compileCache = ({ gameId, charId, team }) => {
     const effectDefs = normalizeEffects(gameId, member, { memberIds: cache.memberIds, teamActions: actionDefs });
     Object.assign(cache.effects, effectDefs);
 
-    if (CHARACTER[gameId][member.id].noEnergy) {
-      mCache.noEnergy = true;
+    const charData = CHARACTER[gameId][member.id];
+    if (charData.energy) {
+      mCache.energy = charData.energy;
     }
 
     cache.member[member.id] = mCache;

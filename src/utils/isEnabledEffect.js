@@ -48,6 +48,15 @@ export const isEnabledSet = (effect, pcCount, charData) => {
     if (!allowed.some((tag) => charTagged.includes(tag))) return false;
   }
 
+  if ('energy' in enable) {
+    if (enable.energy === -1) {
+      if (charData.energy) return false;
+    } else {
+      const reqEnergy = enable.energy;
+      if (reqEnergy > charData.energy) return false;
+    }
+  }
+
   return true;
 };
 

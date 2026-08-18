@@ -154,14 +154,14 @@ const ENERGY_ATTR = {
 
 export function weaponTests(cache, equipMaps, charId) {
   // er penalty
-  const needsEnergy = !cache.member[charId].noEnergy;
+  const charEnergy = cache.member[charId].energy;
   const { duration: charRotDur, statMap } = cache.member[charId];
   const { rotationDuration } = cache;
   const erAttrId = ENERGY_ATTR[cache.gameId];
   const originalEr = getAttr(erAttrId, statMap);
 
   function getPenalty(statMap) {
-    if (!needsEnergy) return 1;
+    if (!charEnergy) return 1;
     const newEr = getAttr(erAttrId, statMap);
     if (newEr >= originalEr) return 1;
 

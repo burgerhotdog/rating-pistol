@@ -182,7 +182,6 @@ export const normalizeEffects = (gameId, member, spec) => {
   const weapData = WEAPON[gameId][member.weaponId];
   const weapEffects = weapData.effects ?? [];
   for (const [index, rawEffect] of weapEffects.entries()) {
-    if (charData.type !== weapData.type) continue;
     if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
 
     const effect = toNormalizedEffect(rawEffect, {

@@ -6,6 +6,7 @@
     "quality": 4,
     "element": "glacio",
     "type": "sword",
+    "energy": 100,
     "stats": {
       "baseHp": 10062,
       "baseAtk": 275,
@@ -721,6 +722,7 @@
     "quality": 4,
     "element": "glacio",
     "type": "rectifier",
+    "energy": 175,
     "stats": {
       "baseHp": 12812,
       "baseAtk": 212,
@@ -1621,6 +1623,7 @@
     "quality": 5,
     "element": "glacio",
     "type": "gauntlets",
+    "energy": 125,
     "stats": {
       "baseHp": 10387,
       "baseAtk": 437,
@@ -2538,6 +2541,7 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
+    "energy": 125,
     "stats": {
       "baseHp": 12250,
       "baseAtk": 375,
@@ -3209,6 +3213,7 @@
     "quality": 4,
     "element": "glacio",
     "type": "gauntlets",
+    "energy": 100,
     "stats": {
       "baseHp": 9975,
       "baseAtk": 262,
@@ -4224,6 +4229,7 @@
     "quality": 5,
     "element": "glacio",
     "type": "pistols",
+    "energy": 125,
     "stats": {
       "baseHp": 12450,
       "baseAtk": 462,
@@ -5412,6 +5418,7 @@
     "quality": 5,
     "element": "glacio",
     "type": "sword",
+    "energy": 125,
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -6870,7 +6877,6 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
-    "noEnergy": true,
     "modes": [
       "glacioChafe",
       "echo"
@@ -7915,6 +7921,7 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
+    "energy": 175,
     "stats": {
       "baseHp": 16712,
       "baseAtk": 287,
@@ -9306,6 +9313,7 @@
     "quality": 4,
     "element": "fusion",
     "type": "pistols",
+    "energy": 150,
     "stats": {
       "baseHp": 9087,
       "baseAtk": 300,
@@ -9970,6 +9978,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "rectifier",
+    "energy": 125,
     "stats": {
       "baseHp": 10512,
       "baseAtk": 425,
@@ -10897,6 +10906,7 @@
     "quality": 4,
     "element": "fusion",
     "type": "pistols",
+    "energy": 125,
     "stats": {
       "baseHp": 10025,
       "baseAtk": 250,
@@ -11650,6 +11660,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
+    "energy": 125,
     "stats": {
       "baseHp": 10387,
       "baseAtk": 462,
@@ -12667,6 +12678,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
+    "energy": 175,
     "stats": {
       "baseHp": 11675,
       "baseAtk": 375,
@@ -14304,6 +14316,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
+    "energy": 125,
     "stats": {
       "baseHp": 11912,
       "baseAtk": 387,
@@ -15884,6 +15897,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "pistols",
+    "energy": 125,
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -17537,6 +17551,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
+    "energy": 175,
     "stats": {
       "baseHp": 15375,
       "baseAtk": 287,
@@ -18784,10 +18799,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
-    "modes": [
-      "tuneRupture",
-      "fusionBurst"
-    ],
+    "energy": 125,
     "stats": {
       "baseHp": 11025,
       "baseAtk": 425,
@@ -18796,6 +18808,10 @@
       "critRate%": 0.08,
       "tuneBreakBoost": 10
     },
+    "modes": [
+      "tuneRupture",
+      "fusionBurst"
+    ],
     "effects": [
       {
         "use": {
@@ -20501,10 +20517,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "rectifier",
-    "modes": [
-      "fusionBurst",
-      "tuneStrain"
-    ],
+    "energy": 125,
     "stats": {
       "baseHp": 11025,
       "baseAtk": 425,
@@ -20513,6 +20526,10 @@
       "critDmg%": 0.16,
       "tuneBreakBoost": 10
     },
+    "modes": [
+      "fusionBurst",
+      "tuneStrain"
+    ],
     "effects": [
       {
         "key": "darkCore",
@@ -21998,6 +22015,7 @@
     "quality": 5,
     "element": "electro",
     "type": "broadblade",
+    "energy": 125,
     "stats": {
       "baseHp": 10500,
       "baseAtk": 437,
@@ -23159,6 +23177,7 @@
     "quality": 5,
     "element": "electro",
     "type": "rectifier",
+    "energy": 125,
     "stats": {
       "baseHp": 11000,
       "baseAtk": 400,
@@ -23900,6 +23919,7 @@
     "quality": 4,
     "element": "electro",
     "type": "gauntlets",
+    "energy": 125,
     "stats": {
       "baseHp": 8525,
       "baseAtk": 225,
@@ -25065,6 +25085,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "broadblade",
+    "energy": 150,
     "stats": {
       "baseHp": 10825,
       "baseAtk": 412,
@@ -26431,6 +26452,7 @@
     "quality": 5,
     "element": "electro",
     "type": "gauntlets",
+    "energy": 125,
     "stats": {
       "baseHp": 10625,
       "baseAtk": 425,
@@ -27435,6 +27457,7 @@
     "quality": 5,
     "element": "electro",
     "type": "broadblade",
+    "energy": 125,
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -28552,6 +28575,7 @@
     "quality": 4,
     "element": "electro",
     "type": "rectifier",
+    "energy": 150,
     "stats": {
       "baseHp": 10625,
       "baseAtk": 225,
@@ -29291,6 +29315,7 @@
     "quality": 5,
     "element": "electro",
     "type": "pistols",
+    "energy": 125,
     "stats": {
       "baseHp": 11600,
       "baseAtk": 400,
@@ -31375,6 +31400,7 @@
     "quality": 5,
     "element": "electro",
     "type": "sword",
+    "energy": 125,
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -33429,6 +33455,7 @@
     "quality": 4,
     "element": "aero",
     "type": "sword",
+    "energy": 100,
     "stats": {
       "baseHp": 10200,
       "baseAtk": 250,
@@ -34120,6 +34147,7 @@
     "quality": 4,
     "element": "aero",
     "type": "pistols",
+    "energy": 150,
     "stats": {
       "baseHp": 9850,
       "baseAtk": 262,
@@ -34801,6 +34829,7 @@
     "quality": 5,
     "element": "aero",
     "type": "broadblade",
+    "energy": 125,
     "stats": {
       "baseHp": 10487,
       "baseAtk": 437,
@@ -35732,6 +35761,7 @@
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
+    "energy": 150,
     "stats": {
       "baseHp": 14112,
       "baseAtk": 337,
@@ -36891,6 +36921,7 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
+    "energy": 150,
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -37965,6 +37996,7 @@
     "quality": 5,
     "element": "aero",
     "type": "pistols",
+    "energy": 125,
     "stats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -38767,6 +38799,7 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
+    "energy": 125,
     "stats": {
       "baseHp": 14800,
       "baseAtk": 312,
@@ -40777,6 +40810,7 @@
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
+    "energy": 125,
     "stats": {
       "baseHp": 10525,
       "baseAtk": 450,
@@ -42129,6 +42163,7 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
+    "energy": 125,
     "stats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -43454,6 +43489,7 @@
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
+    "energy": 125,
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -44715,6 +44751,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "sword",
+    "energy": 125,
     "stats": {
       "baseHp": 11400,
       "baseAtk": 375,
@@ -45488,6 +45525,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
+    "energy": 175,
     "stats": {
       "baseHp": 14237,
       "baseAtk": 337,
@@ -46736,6 +46774,7 @@
     "quality": 4,
     "element": "electro",
     "type": "broadblade",
+    "energy": 125,
     "stats": {
       "baseHp": 8500,
       "baseAtk": 337,
@@ -47782,6 +47821,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
+    "energy": 175,
     "stats": {
       "baseHp": 16712,
       "baseAtk": 287,
@@ -48712,6 +48752,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
+    "energy": 125,
     "stats": {
       "baseHp": 10825,
       "baseAtk": 412,
@@ -49859,6 +49900,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "gauntlets",
+    "energy": 125,
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -51040,6 +51082,7 @@
     "quality": 5,
     "element": "havoc",
     "type": "broadblade",
+    "energy": 125,
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -52655,10 +52698,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "pistols",
-    "modes": [
-      "tuneRupture",
-      "tuneStrain"
-    ],
+    "energy": 125,
     "stats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -52667,6 +52707,10 @@
       "critRate%": 0.08,
       "tuneBreakBoost": 10
     },
+    "modes": [
+      "tuneRupture",
+      "tuneStrain"
+    ],
     "effects": [
       {
         "use": {
@@ -54126,6 +54170,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "gauntlets",
+    "energy": 125,
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -55310,6 +55355,7 @@
     "quality": 5,
     "element": "spectro",
     "type": "pistols",
+    "energy": 125,
     "stats": {
       "baseHp": 11025,
       "baseAtk": 425,
@@ -57837,6 +57883,7 @@
     "quality": 4,
     "element": "havoc",
     "type": "broadblade",
+    "energy": 125,
     "stats": {
       "baseHp": 8950,
       "baseAtk": 225,
@@ -58753,6 +58800,7 @@
     "quality": 4,
     "element": "havoc",
     "type": "sword",
+    "energy": 100,
     "stats": {
       "baseHp": 9437,
       "baseAtk": 262,
@@ -59618,6 +59666,7 @@
     "quality": 5,
     "element": "havoc",
     "type": "sword",
+    "energy": 125,
     "stats": {
       "baseHp": 10325,
       "baseAtk": 450,
@@ -60595,6 +60644,7 @@
     "quality": 5,
     "element": "havoc",
     "type": "sword",
+    "energy": 125,
     "stats": {
       "baseHp": 10825,
       "baseAtk": 412,
@@ -61617,6 +61667,7 @@
     "quality": 5,
     "element": "havoc",
     "type": "gauntlets",
+    "energy": 125,
     "stats": {
       "baseHp": 12250,
       "baseAtk": 375,
@@ -62389,6 +62440,7 @@
     "quality": 5,
     "element": "havoc",
     "type": "rectifier",
+    "energy": 125,
     "stats": {
       "baseHp": 11600,
       "baseAtk": 400,
@@ -63501,7 +63553,6 @@
     "quality": 5,
     "element": "havoc",
     "type": "rectifier",
-    "noEnergy": true,
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -64674,6 +64725,7 @@
     "quality": 5,
     "element": "havoc",
     "type": "sword",
+    "energy": 125,
     "stats": {
       "baseHp": 11025,
       "baseAtk": 425,

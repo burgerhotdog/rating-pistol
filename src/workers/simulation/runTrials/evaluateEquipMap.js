@@ -15,22 +15,22 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   const { gameId, rotationDuration } = cache;
   const erAttrId = ENERGY_ATTR[gameId];
 
-  const { duration: charRotDur, baseMap, statMap, noEnergy } = cache.member[evalId];
-  const originalEr = getAttr(erAttrId, statMap);
+  const mCache = cache.member[evalId];
+  const originalEr = getAttr(erAttrId, mCache.statMap);
 
   function getPenalty(testMap) {
-    if (noEnergy) return 1;
+    if (!mCache.energy) return 1;
 
     const newEr = getAttr(erAttrId, testMap);
     if (newEr >= originalEr) return 1;
 
-    const newCharRotDur = charRotDur * (originalEr / newEr);
-    const durPenalty = newCharRotDur - charRotDur;
+    const newCharRotDur = mCache.duration * (originalEr / newEr);
+    const durPenalty = newCharRotDur - mCache.duration;
     return rotationDuration / (rotationDuration + durPenalty);
   }
 
   return (equipMap = {}) => {
-    const statMap = toMergedObj(baseMap, equipMap);
+    const statMap = toMergedObj(mCache.baseMap, equipMap);
     const penalty = getPenalty(statMap);
 
     const summary = rotationSpecs(statMap);

@@ -826,7 +826,7 @@
       {
         "bonus": 3,
         "enable": {
-          "tagged": "noEnergy"
+          "energy": -1
         },
         "buff": {
           "stats": {
