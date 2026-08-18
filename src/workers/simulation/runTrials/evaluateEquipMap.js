@@ -16,7 +16,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   const erAttrId = ENERGY_ATTR[gameId];
 
   const mCache = cache.member[evalId];
-  const originalEr = getAttr(erAttrId, mCache.statMap);
+  const originalEr = getAttr(erAttrId, mCache.statMap ?? mCache.baseMap);
 
   function getPenalty(testMap) {
     if (!mCache.energy) return 1;
