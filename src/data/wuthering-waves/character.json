@@ -78,9 +78,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -97,9 +95,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "chance": 0.7,
         "buff": {
           "stats": {
@@ -108,9 +104,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "apply": {
           "when": "start",
           "filter": {
@@ -133,9 +127,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -152,9 +144,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "stores": "$team",
         "apply": {
           "when": "end",
@@ -903,9 +893,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": {
@@ -923,9 +911,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -942,9 +928,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "filter": {
             "action": {
@@ -958,9 +942,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -1702,9 +1684,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -1722,9 +1702,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -1742,9 +1720,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -1757,9 +1733,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -2665,9 +2639,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -2684,9 +2656,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -2708,9 +2678,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -2728,9 +2696,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -2743,9 +2709,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -3304,9 +3268,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -3314,9 +3276,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -3333,9 +3293,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -4335,9 +4293,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "action": {
@@ -4350,9 +4306,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -4367,9 +4321,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -4385,9 +4337,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -4409,9 +4359,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -4424,9 +4372,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -6938,9 +6884,7 @@
     },
     "effects": [
       {
-        "enableIf": {
-          "mode": "glacioChafe"
-        },
+        "mode": "glacioChafe",
         "key": "filmRoll",
         "apply": {
           "when": "start",
@@ -9417,9 +9361,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -9432,9 +9374,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "chance": 0.5,
         "buff": {
           "filter": {
@@ -9448,9 +9388,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "effectStacks": {
@@ -9463,9 +9401,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -10108,9 +10044,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "hit",
           "filter": {
@@ -10128,9 +10062,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -10146,9 +10078,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -10166,9 +10096,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": 0.35
@@ -10176,9 +10104,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "hit",
           "filter": {
@@ -11128,9 +11054,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -11143,9 +11067,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "use": {
           "when": "start",
           "filter": {
@@ -11161,9 +11083,7 @@
         "times": 4
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -11810,9 +11730,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -11830,9 +11748,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "hit",
           "filter": {
@@ -11853,9 +11769,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -11868,9 +11782,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -11888,9 +11800,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -11904,9 +11814,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -12840,9 +12748,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -12865,9 +12771,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "action": {
@@ -12887,9 +12791,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -12922,9 +12824,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -12937,9 +12837,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "filter": {
             "action": {
@@ -12952,9 +12850,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "use": {
           "when": "start",
           "filter": {
@@ -12976,9 +12872,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "apply": {
           "when": "hit",
           "filter": {
@@ -12997,9 +12891,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -14512,9 +14404,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -14531,9 +14421,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -14557,9 +14445,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -14572,9 +14458,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "filter": {
             "action": {
@@ -14587,9 +14471,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -14609,9 +14491,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -20750,9 +20630,7 @@
         }
       },
       {
-        "enableIf": {
-          "mode": "fusionBurst"
-        },
+        "mode": "fusionBurst",
         "stores": "$team",
         "buff": {
           "stats": {
@@ -20761,9 +20639,7 @@
         }
       },
       {
-        "enableIf": {
-          "mode": "tuneStrain"
-        },
+        "mode": "tuneStrain",
         "stores": "$team",
         "buff": {
           "stats": {
@@ -20772,9 +20648,7 @@
         }
       },
       {
-        "enableIf": {
-          "mode": "tuneStrain"
-        },
+        "mode": "tuneStrain",
         "stores": "$team",
         "buff": {
           "stats": {
@@ -20783,9 +20657,7 @@
         }
       },
       {
-        "enableIf": {
-          "mode": "fusionBurst"
-        },
+        "mode": "fusionBurst",
         "stores": "global",
         "apply": {
           "when": "start",
@@ -20803,9 +20675,7 @@
         }
       },
       {
-        "enableIf": {
-          "mode": "tuneStrain"
-        },
+        "mode": "tuneStrain",
         "key": "tuneOutro",
         "stores": "$next",
         "apply": {
@@ -20824,9 +20694,7 @@
         }
       },
       {
-        "enableIf": {
-          "mode": "tuneStrain"
-        },
+        "mode": "tuneStrain",
         "stores": "$next",
         "apply": {
           "by": "$next",
@@ -22155,9 +22023,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": {
@@ -22177,9 +22043,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -22200,9 +22064,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -22220,9 +22082,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -22238,9 +22098,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "use": {
           "when": "start",
           "filter": {
@@ -23418,9 +23276,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -23436,9 +23292,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -23451,9 +23305,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "hit",
@@ -23471,9 +23323,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -23486,9 +23336,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -24135,9 +23983,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -24159,9 +24005,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "filter": {
             "action": {
@@ -24176,9 +24020,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "use": {
           "when": "start",
           "filter": {
@@ -24199,9 +24041,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "apply": {
           "when": "hit",
           "filter": {
@@ -24218,9 +24058,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "stores": "$team",
         "apply": {
           "when": "hit",
@@ -25255,9 +25093,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -25290,9 +25126,7 @@
         "maxStacks": 4
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -25310,9 +25144,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -25333,9 +25165,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -25348,9 +25178,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -26661,9 +26489,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -26676,9 +26502,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": [
@@ -26702,9 +26526,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -26732,9 +26554,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -26752,9 +26572,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -26769,9 +26587,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -26784,9 +26600,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -31671,9 +31485,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "use": {
           "when": "hit",
           "filter": {
@@ -31691,9 +31503,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -31709,9 +31519,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "filter": {
             "action": {
@@ -31724,9 +31532,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -31754,9 +31560,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -33650,9 +33454,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -33669,9 +33471,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": 0.4
@@ -33679,9 +33479,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "filter": {
             "action": {
@@ -33694,9 +33492,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -33709,9 +33505,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -34390,9 +34184,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": {
@@ -34409,9 +34201,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -34436,9 +34226,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "filter": {
             "action": {
@@ -34454,9 +34242,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -34473,9 +34259,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -34492,9 +34276,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -35105,9 +34887,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": {
@@ -35125,9 +34905,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -35150,9 +34928,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -35173,9 +34949,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -35190,9 +34964,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -35209,9 +34981,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": [
@@ -36063,9 +35833,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "apply": {
           "when": "start",
           "filter": {
@@ -36090,9 +35858,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -37229,9 +36995,7 @@
         "gameRule": "roverAero2"
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": {
@@ -37256,9 +37020,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.15
@@ -37266,9 +37028,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "apply": {
           "when": "start",
           "filter": {
@@ -37288,9 +37048,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -37303,9 +37061,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -38271,9 +38027,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -38290,9 +38044,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -38310,9 +38062,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "filter": {
             "action": {
@@ -38334,9 +38084,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": 0.4
@@ -38344,9 +38092,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "use": {
           "when": "hit",
           "filter": {
@@ -39146,9 +38892,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -39161,9 +38905,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "action": {
@@ -39184,9 +38926,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "action": {
@@ -39204,9 +38944,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -39219,9 +38957,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "buff": {
           "stats": {
@@ -39230,9 +38966,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -43729,9 +43463,7 @@
     },
     "effects": [
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "stats": {
             "dmgBonus%": 0.3
@@ -45050,9 +44782,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -45072,9 +44802,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.2
@@ -45082,9 +44810,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "stats": {
             "energyRegen%": 0.2
@@ -45092,9 +44818,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "apply": {
           "when": "start",
           "filter": {
@@ -45120,9 +44844,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": 0.4
@@ -45130,9 +44852,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "stores": "global",
         "apply": {
           "when": "hit",
@@ -45859,9 +45579,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -45886,9 +45604,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -45901,9 +45617,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -45928,9 +45642,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "chance": 0.5,
         "buff": {
           "stats": {
@@ -45939,9 +45651,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -45959,9 +45669,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -47104,9 +46812,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "action": {
@@ -47122,9 +46828,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -47137,9 +46841,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.3
@@ -47147,9 +46849,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -47162,9 +46862,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -48211,9 +47909,6 @@
         }
       },
       {
-        "enableIf": {
-          "rank": -1
-        },
         "use": {
           "when": "start",
           "filter": {
@@ -48256,9 +47951,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "effectStacks": {
@@ -48271,9 +47964,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "filter": {
             "action": {
@@ -48286,9 +47977,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -49168,9 +48857,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -49183,9 +48870,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -49198,9 +48883,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "use": {
           "when": "hit",
           "filter": {
@@ -49218,9 +48901,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": {
@@ -49254,9 +48935,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "stores": "global",
         "apply": {
           "when": "start",
@@ -49277,9 +48956,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -49292,9 +48969,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -49307,9 +48982,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "global",
         "apply": {
           "when": "hit",
@@ -49330,9 +49003,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -49349,9 +49020,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -49368,9 +49037,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -49390,9 +49057,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -50293,9 +49958,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -50315,9 +49978,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "stats": {
             "critRate%": 0.2
@@ -50325,9 +49986,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "action": {
@@ -50343,9 +50002,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -50358,9 +50015,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -50378,9 +50033,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -50393,9 +50046,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -50414,9 +50065,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -51522,9 +51171,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "hit",
           "filter": {
@@ -51550,9 +51197,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "stats": {
             "havocResIgnore%": 0.1
@@ -51560,9 +51205,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "stores": "$applier",
         "apply": {
           "by": "$team",
@@ -53107,9 +52750,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -53126,9 +52767,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "stats": {
             "dmgAmp%": 0.25
@@ -53136,9 +52775,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -53156,9 +52793,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -53174,9 +52809,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "stats": {
             "atk%": 0.2
@@ -53184,9 +52817,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -55815,9 +55446,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -55834,9 +55463,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": {
@@ -55865,9 +55492,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -55884,9 +55509,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -55902,9 +55525,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "buff": {
           "stats": {
@@ -55913,9 +55534,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "states": {
@@ -58280,9 +57899,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -58299,9 +57916,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "action": {
@@ -58315,9 +57930,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "use": {
           "when": "start",
           "filter": {
@@ -58339,9 +57952,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "apply": {
           "when": "start",
           "filter": {
@@ -58359,9 +57970,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -58378,9 +57987,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -59241,9 +58848,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "hit",
           "filter": {
@@ -59261,9 +58866,7 @@
         "maxStacks": 6
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": 0.3
@@ -59271,9 +58874,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "filter": {
             "action": {
@@ -59291,9 +58892,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "stats": {
             "havocDmgBonus%": 0.3
@@ -59301,9 +58900,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -60119,9 +59716,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "apply": {
           "when": "start",
           "filter": {
@@ -60139,9 +59734,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "action": {
@@ -60154,9 +59747,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -60169,9 +59760,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -60188,9 +59777,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -60208,9 +59795,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -60223,9 +59808,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -60240,9 +59823,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -61070,9 +60651,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": 0.3
@@ -61080,9 +60659,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "stores": "global",
         "apply": {
           "when": "hit",
@@ -61103,9 +60680,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -61118,9 +60693,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -62138,9 +61711,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": {
@@ -62162,9 +61733,7 @@
         "maxStacks": 3
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "apply": {
           "when": "start",
           "filter": {
@@ -62181,9 +61750,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -62201,9 +61768,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "apply": {
           "when": "start",
           "filter": {
@@ -62229,9 +61794,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -62244,9 +61807,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 5
-        },
+        "rank": 5,
         "buff": {
           "filter": {
             "action": {
@@ -62259,9 +61820,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -62287,9 +61846,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {
@@ -62919,9 +62476,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 1
-        },
+        "rank": 1,
         "buff": {
           "filter": {
             "action": {
@@ -62938,9 +62493,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "use": {
           "when": "hit",
           "filter": {
@@ -62952,9 +62505,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 2
-        },
+        "rank": 2,
         "buff": {
           "filter": {
             "action": {
@@ -62967,9 +62518,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 3
-        },
+        "rank": 3,
         "buff": {
           "filter": {
             "action": {
@@ -62982,9 +62531,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 4
-        },
+        "rank": 4,
         "buff": {
           "stats": {
             "healingBonus%": 0.25
@@ -62992,9 +62539,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "buff": {
           "filter": {
             "action": {
@@ -63011,9 +62556,7 @@
         }
       },
       {
-        "enableIf": {
-          "rank": 6
-        },
+        "rank": 6,
         "apply": {
           "when": "start",
           "filter": {

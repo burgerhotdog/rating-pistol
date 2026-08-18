@@ -38,10 +38,10 @@ const buildConfigStats = (gameId, trials) => {
   return configMap;
 };
 
-function generateEquipMap(cache, team, memberId) {
+function generateEquipMap(cache, memberId) {
   self.postMessage({ status: `Generating trial build for ${memberId}` });
 
-  const equipMaps = resolveEquipMaps(cache, team, true);
+  const equipMaps = resolveEquipMaps(cache, 'allowBlank');
   const { trials } = runTrials(cache, equipMaps, memberId);
 
   return trials.reduce((acc, { equipList }) => {
@@ -54,40 +54,42 @@ function generateEquipMap(cache, team, memberId) {
   }, {});
 }
 
-function resolveEquipMaps(cache, team, allowBlank) {
+function resolveEquipMaps(cache, allowBlank) {
   const equipMaps = {};
-  for (const member of team) {
-    if ('build' in member) {
-      equipMaps[member.id] = cache.member[member.id].equipMap;
-    } else if (allowBlank) {
-      equipMaps[member.id] = {};
-    } else {
-      equipMaps[member.id] = generateEquipMap(cache, team, member.id);
+
+  for (const member of Object.values(cache.member)) {
+    if ('equipList' in member) {
+      equipMaps[member.id] = member.equipMap;
+      continue;
     }
+
+    equipMaps[member.id] = allowBlank
+      ? {}
+      : generateEquipMap(cache, member.id);
   }
+
   return equipMaps;
 }
 
 self.onmessage = ({ data }) => {
-  const { gameId, charId, team } = data;
-  const cache = compileCache(gameId, team);
-  const equipMaps = resolveEquipMaps(cache, team);
+  const cache = compileCache(data);
+  const equipMaps = resolveEquipMaps(cache);
 
   self.postMessage({ status: 'Running simulation' });
 
   const userSummary = runRotation(cache, equipMaps);
-  const userDps = cache.getDps(getTotals(userSummary).damage);
+  const userDps = getTotals(userSummary).damage / cache.rotationDuration * 1000
   if (Number.isNaN(userDps)) {
     console.log(userDps);
     self.postMessage({ errorLog: cache.effects });
     throw new Error('error');
   }
 
-  const results = runTrials(cache, equipMaps, charId, true);
+  const results = runTrials(cache, equipMaps, cache.charId, true);
 
-  const configMap = buildConfigStats(gameId, results.trials);
+  const configMap = buildConfigStats(cache.gameId, results.trials);
   const benchmarkDps = results.dpsProgression.at(-1).mean;
-  const weaponResults = weaponTests(cache, equipMaps, charId);
+  const weaponResults = weaponTests(cache, equipMaps, cache.charId);
 
   self.postMessage({
     dpsProgression: results.dpsProgression,
@@ -99,10 +101,13 @@ self.onmessage = ({ data }) => {
     userSummary,
     userDps,
     benchmarkDps,
-    userConfigKey: getMainConfig(gameId, cache.member[charId].equipList),
-    userSubStats: getSubRollSums(gameId, cache.member[charId].equipList),
+    userConfigKey: getMainConfig(cache.gameId, cache.member[cache.charId].equipList),
+    userSubStats: getSubRollSums(cache.gameId, cache.member[cache.charId].equipList),
     memberIds: cache.memberIds,
     weaponResults,
-    userMember: { weaponId: cache.member[charId].weaponId, weaponRank: cache.member[charId].weaponRank },
+    userMember: {
+      weaponId: cache.member[cache.charId].weaponId,
+      weaponRank: cache.member[cache.charId].weaponRank,
+    },
   });
 };

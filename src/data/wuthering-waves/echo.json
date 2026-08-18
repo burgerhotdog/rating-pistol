@@ -246,13 +246,11 @@
     "cost": 4,
     "effects": [
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1604",
-              "1605"
-            ]
-          }
+        "enable": {
+          "id": [
+            "1604",
+            "1605"
+          ]
         },
         "apply": {
           "when": "start",
@@ -1328,14 +1326,12 @@
         "aeroDmgBonus%": 0.1
       },
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1406",
-              "1408",
-              "1409"
-            ]
-          }
+        "enable": {
+          "id": [
+            "1406",
+            "1408",
+            "1409"
+          ]
         },
         "aeroDmgBonus%": 0.1
       }
@@ -2204,12 +2200,8 @@
     "cost": 4,
     "effects": [
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1210"
-            ]
-          }
+        "enable": {
+          "id": "1210"
         },
         "buff": {
           "stats": {
@@ -2466,13 +2458,11 @@
     "cost": 4,
     "effects": [
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1511",
-              "1308"
-            ]
-          }
+        "enable": {
+          "id": [
+            "1511",
+            "1308"
+          ]
         },
         "buff": {
           "stats": {
@@ -2481,12 +2471,8 @@
         }
       },
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1511"
-            ]
-          }
+        "enable": {
+          "id": "1511"
         },
         "use": {
           "when": "start",
@@ -2509,12 +2495,8 @@
         }
       },
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1308"
-            ]
-          }
+        "enable": {
+          "id": "1308"
         },
         "use": {
           "when": "start",

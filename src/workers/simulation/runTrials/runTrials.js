@@ -62,7 +62,7 @@ export function runTrials(cache, equipMaps, currId, logWeeks = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
 
   const bestEquipMap = findBestPossibleEquipMap(evaluateEquipMap);
-  const dpsCeiling = cache.getDps(bestEquipMap.totals.damage);
+  const dpsCeiling = bestEquipMap.totals.damage / cache.rotationDuration * 1000;
 
   const advanceTrial = createAdvanceTrial(cache, evaluateEquipMap);
   const trials = [];
@@ -70,7 +70,7 @@ export function runTrials(cache, equipMaps, currId, logWeeks = false) {
 
   // Week 0
   const { summary, totals, score } = evaluateEquipMap();
-  const baseDps = cache.getDps(totals.damage);
+  const baseDps = totals.damage / cache.rotationDuration * 1000
   dpsProgression.push({
     mean: baseDps,
     p10: baseDps,

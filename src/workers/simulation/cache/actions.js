@@ -201,33 +201,33 @@ const createIndexGetter = (gameId, memberId, memberRank) => {
   return (category) => defaultIndex + (addByCategory[category] ?? 0);
 };
 
-export const getMemberPresetActions = (member, { gameId, teamSize }) => {
-  const { id: memberId, mainEcho } = member;
-  const char = CHARACTER[gameId][memberId];
-  const getIndex = createIndexGetter(gameId, memberId, member.rank);
+export const getActionDefs = (gameId, member, teamSize) => {
+  const charData = CHARACTER[gameId][member.id];
+  const getIndex = createIndexGetter(gameId, member.id, member.rank);
 
   const memberActions = {};
-  for (const [category, { actions }] of Object.entries(char.skills)) {
+  for (const [category, { actions }] of Object.entries(charData.skills)) {
     const mvIndex = getIndex(category);
 
     for (const [index, rawAction] of actions.entries()) {
       memberActions[`${category}.${index}`] = toNormalizedAction(rawAction, {
         gameId,
-        ownerId: memberId,
+        ownerId: member.id,
         category,
         actionIndex: index,
         teamSize,
         index: mvIndex,
-        charElement: char.element,
+        charElement: charData.element,
         mode: member.mode,
       });
     }
   }
 
-  if (ECHO[mainEcho]?.action) {
-    memberActions['echoSkill.0'] = toNormalizedAction(ECHO[mainEcho].action, {
+  const echoData = ECHO[member.mainEcho];
+  if (echoData?.action) {
+    memberActions['echoSkill.0'] = toNormalizedAction(echoData.action, {
       gameId,
-      ownerId: memberId,
+      ownerId: member.id,
       category: 'echoSkill',
       actionIndex: 0,
       teamSize,

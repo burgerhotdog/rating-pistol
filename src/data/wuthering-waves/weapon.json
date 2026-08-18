@@ -2474,10 +2474,8 @@
         }
       },
       {
-        "enableIf": {
-          "character": {
-            "id": "1603"
-          }
+        "enable": {
+          "id": "1603"
         },
         "apply": {
           "when": "start",
@@ -3070,13 +3068,11 @@
         }
       },
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1406",
-              "1408"
-            ]
-          }
+        "enable": {
+          "id": [
+            "1406",
+            "1408"
+          ]
         },
         "stores": "global",
         "apply": {

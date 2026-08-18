@@ -154,7 +154,7 @@ const ENERGY_ATTR = {
 
 export function weaponTests(cache, equipMaps, charId) {
   // er penalty
-  const needsEnergy = !CHARACTER[cache.gameId][charId].noEnergy;
+  const needsEnergy = !cache.member[charId].noEnergy;
   const { duration: charRotDur, statMap } = cache.member[charId];
   const { rotationDuration } = cache;
   const erAttrId = ENERGY_ATTR[cache.gameId];
@@ -181,13 +181,13 @@ export function weaponTests(cache, equipMaps, charId) {
     // R1
     const moddedCacheR1 = getModifiedCache(cache, charId, weapon, 1);
     const testSummaryR1 = runRotation(moddedCacheR1, equipMaps);
-    const rawDpsR1 = cache.getDps(getTotals(testSummaryR1).damage);
+    const rawDpsR1 = getTotals(testSummaryR1).damage / cache.rotationDuration * 1000
     const dpsR1 = rawDpsR1 * getPenalty(moddedCacheR1.member[charId].statMap);
 
     // R5
     const moddedCacheR5 = getModifiedCache(cache, charId, weapon, 5);
     const testSummaryR5 = runRotation(moddedCacheR5, equipMaps);
-    const rawDpsR5 = cache.getDps(getTotals(testSummaryR5).damage);
+    const rawDpsR5 = getTotals(testSummaryR5).damage / cache.rotationDuration * 1000
     const dpsR5 = rawDpsR5 * getPenalty(moddedCacheR5.member[charId].statMap);
 
     weaponResults[weapon.id] = [dpsR1, dpsR5];

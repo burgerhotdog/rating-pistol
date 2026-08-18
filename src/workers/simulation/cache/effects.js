@@ -1,6 +1,11 @@
 import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
-import { toArray } from '@/utils';
-import { createIsEnabled } from './isEnabled';
+import {
+  isEnabledChar,
+  isEnabledWeap,
+  isEnabledSet,
+  isEnabledEcho,
+  toArray,
+} from '@/utils';
 import { toNormalizedAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
@@ -151,72 +156,92 @@ export const toNormalizedEffect = (rawEffect, spec) => {
 
 export const normalizeEffects = (gameId, member, spec) => {
   const { memberIds, teamActions } = spec;
-  const {
-    id: memberId, rank: memberRank,
-    weaponId, weaponRank,
-    setCounts, mainEcho,
-  } = member;
-
-  const ctx = {
-    member,
-    character: CHARACTER[gameId][memberId],
-    weapon: WEAPON[gameId][weaponId],
-    echo: ECHO[mainEcho],
-  };
-
-  const isEnabled = createIsEnabled(ctx);
-
-  const toNormalize = [
-    {
-      sourceType: 'character',
-      id: memberId,
-      rawEffects: ctx.character.effects,
-    },
-    {
-      sourceType: 'weapon',
-      id: weaponId,
-      rawEffects: ctx.weapon.effects,
-    },
-    ...Object.keys(setCounts).map((setId) => ({
-      sourceType: 'set',
-      id: setId,
-      rawEffects: SET[gameId][setId].effects,
-    })),
-  ];
-
-  if (ECHO[mainEcho]?.effects) {
-    toNormalize.push({
-      sourceType: 'echo',
-      id: mainEcho,
-      rawEffects: ECHO[mainEcho].effects,
-    });
-  }
-
   const normalized = {};
 
-  for (const { sourceType, id, rawEffects } of toNormalize) {
-    if (
-      sourceType === 'weapon' &&
-      ctx.character.type !== ctx.weapon.type
-    ) continue;
+  // Character effects
+  const charData = CHARACTER[gameId][member.id];
+  for (const [index, rawEffect] of charData.effects.entries()) {
+    if (!isEnabledChar(rawEffect, member)) continue;
 
-    for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabled(rawEffect, id)) continue;
+    const effect = toNormalizedEffect(rawEffect, {
+      gameId,
+      ownerId: member.id,
+      sourceId: member.id,
+      effectIndex: index,
+      memberRank: member.rank,
+      weaponRank: member.weaponRank,
+      memberIds,
+      memberActions: teamActions,
+      memberMode: member.mode,
+    });
+
+    normalized[effect.id] = effect;
+  }
+
+  // Weapon effects
+  const weapData = WEAPON[gameId][member.weaponId];
+  const weapEffects = weapData.effects ?? [];
+  for (const [index, rawEffect] of weapEffects.entries()) {
+    if (charData.type !== weapData.type) continue;
+    if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
+
+    const effect = toNormalizedEffect(rawEffect, {
+      gameId,
+      ownerId: member.id,
+      sourceId: member.weaponId,
+      effectIndex: index,
+      memberRank: member.rank,
+      weaponRank: member.weaponRank,
+      memberIds,
+      memberActions: teamActions,
+      memberMode: member.mode,
+    });
+
+    normalized[effect.id] = effect;
+  }
+
+  // Set effects
+  for (const [setId, pcCount] of Object.entries(member.setCounts)) {
+    const setData = SET[gameId][setId];
+    const setEffects = setData.effects ?? [];
+    for (const [index, rawEffect] of setEffects.entries()) {
+      if (!isEnabledSet(rawEffect, pcCount, charData)) continue;
 
       const effect = toNormalizedEffect(rawEffect, {
         gameId,
-        ownerId: memberId,
-        sourceId: id,
+        ownerId: member.id,
+        sourceId: setId,
         effectIndex: index,
-        memberRank,
-        weaponRank,
+        memberRank: member.rank,
+        weaponRank: member.weaponRank,
         memberIds,
-        memberActions: teamActions[memberId],
+        memberActions: teamActions,
         memberMode: member.mode,
       });
 
       normalized[effect.id] = effect;
     }
+  }
+
+  // Echo effects
+  const echoData = ECHO[member.mainEcho];
+  const echoEffects = echoData?.effects ?? [];
+  for (const [index, rawEffect] of echoEffects.entries()) {
+    if (!isEnabledEcho(rawEffect, charData)) continue;
+
+    const effect = toNormalizedEffect(rawEffect, {
+      gameId,
+      ownerId: member.id,
+      sourceId: member.mainEcho,
+      effectIndex: index,
+      memberRank: member.rank,
+      weaponRank: member.weaponRank,
+      memberIds,
+      memberActions: teamActions,
+      memberMode: member.mode,
+    });
+
+    normalized[effect.id] = effect;
   }
 
   // Resolve tokens

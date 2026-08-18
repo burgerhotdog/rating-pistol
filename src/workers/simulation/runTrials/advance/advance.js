@@ -11,7 +11,7 @@ function createEquipEvaluator(cache, evaluateEquipMap) {
       const { summary, totals, score } = evaluateEquipMap(toEquipMap(equipList));
 
       if (score > next.score) {
-        const dps = cache.getDps(totals.damage);
+        const dps = totals.damage / cache.rotationDuration * 1000;
         Object.assign(next, { equipList, summary, score, dps });
       }
     }
