@@ -19,6 +19,12 @@ const hasShimmer = (ctx) => {
   }
 };
 
+const hasGlacioBite = (ctx) => {
+  for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
+    if (state.effect.gameRule === 'glacioBite') return true;
+  }
+};
+
 const getStatusMaxStacks = (ctx, statusId) => {
   let maxStacks = statusMaxStacks[statusId];
 
@@ -63,7 +69,15 @@ const STATUSES = {
       }
 
       const currState = negativeStatuses.glacioChafe;
-      if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState));
+      if (ctx.saveSnapshots) {
+        const snapshot = buildSnapshot(
+          ctx,
+          hasGlacioBite(ctx)
+            ? { ...currState, stacks: maxStacks }
+            : currState,
+        );
+        ctx.snapshots.push(snapshot);
+      }
       if (currState.stacks === maxStacks) delete negativeStatuses.glacioChafe;
     },
     advance: (ctx, elapsed) => {

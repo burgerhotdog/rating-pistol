@@ -5439,12 +5439,115 @@
     },
     "effects": [
       {
+        "stores": "global",
+        "gameRule": "glacioBite"
+      },
+      {
+        "key": "snowRust",
+        "apply": {
+          "by": "$team",
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": [
+                    "glacioChafe",
+                    "havocBane"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "snowRust": {
+                ">=": 1
+              }
+            }
+          },
+          "stats": {
+            "glacioChafeDmgAmp%": 0.3
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "snowRust": {
+                ">=": 1
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": 0.4
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "snowRust": {
+                    ">=": 2
+                  }
+                }
+              },
+              {
+                "action": {
+                  "inflict": {
+                    "status": {
+                      "has": "glacioChafe"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "action": {
+            "damage": {
+              "type": "glacioChafe", 
+              "multipliers": [
+                {
+                  "mv": 1.02
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "snowRust": {
+                ">=": 3
+              }
+            }
+          },
+          "stats": {
+            "glacioChafeDmgAmp%": 0.3
+          }
+        }
+      },
+      {
         "stores": "$ally",
         "apply": {
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 20000
@@ -5558,6 +5661,11 @@
           {
             "name": "Basic Attack 3",
             "type": "basicAttack",
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
+            },
             "damage": {
               "multipliers": [
                 {
@@ -5613,8 +5721,13 @@
             }
           },
           {
-            "name": "Frost Splinter",
+            "name": "Heavy Attack: Frost Splinter",
             "type": "heavyAttack",
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
+            },
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -5832,6 +5945,11 @@
             "name": "Basic Attack 3",
             "tagged": "Foreclaimed Self",
             "type": "basicAttack",
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
+            },
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -5891,6 +6009,11 @@
             "name": "Basic Attack 4",
             "tagged": "Foreclaimed Self",
             "type": "basicAttack",
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
+            },
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -6021,6 +6144,11 @@
             "name": "Basic Attack 5",
             "tagged": "Foreclaimed Self",
             "type": "basicAttack",
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
+            },
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -6110,9 +6238,14 @@
             }
           },
           {
-            "name": "Bitterfrost",
+            "name": "Heavy Attack: Bitterfrost",
             "tagged": "Foreclaimed Self",
             "type": "heavyAttack",
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
+            },
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -6254,6 +6387,11 @@
             "name": "Mid-air Attack 2",
             "tagged": "Foreclaimed Self",
             "type": "mid-airAttack",
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
+            },
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -6360,6 +6498,11 @@
             "name": "Mid-air Attack 3",
             "tagged": "Foreclaimed Self",
             "type": "mid-airAttack",
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
+            },
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -6454,7 +6597,7 @@
         "name": "Frostblight",
         "actions": [
           {
-            "name": "Frostblight",
+            "name": "Resonance Skill",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -6610,6 +6753,11 @@
           {
             "name": "Foreclaiming: Inward Vision",
             "type": "resonanceLiberation",
+            "inflict": {
+              "status": {
+                "glacioChafe": 4
+              }
+            },
             "damage": {
               "multipliers": [
                 {
@@ -6697,8 +6845,8 @@
           },
           {
             "name": "Total Foreclaiming: Blade Liberation DMG Increase per Snowforged Blade",
-            "type": "resonanceLiberation",
             "damage": {
+              "type": "resonanceLiberation",
               "multipliers": [
                 {
                   "mv": [
@@ -6799,6 +6947,11 @@
           {
             "name": "Frostedge",
             "type": "introSkill",
+            "inflict": {
+              "status": {
+                "glacioChafe": 1
+              }
+            },
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -6912,7 +7065,7 @@
             }
           },
           "duration": 30000,
-          "uses": 4
+          "uses": 10
         },
         "use": {
           "action": {
@@ -6950,14 +7103,14 @@
           "uses": 1
         },
         "use": {
-          "when": "interval",
-          "action": []
+          "when": "interval"
         },
         "onUseDoUse": {
           "filmRoll": 1
         }
       },
       {
+        "mode": "glacioChafe",
         "stores": "global",
         "apply": {
           "when": "start",
@@ -6975,6 +7128,24 @@
         }
       },
       {
+        "mode": "echo",
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.2"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "echoSkillDmgBonus%": 0.25
+          }
+        }
+      },
+      {
         "apply": {
           "when": "start",
           "filter": {
@@ -6987,6 +7158,42 @@
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "mode": "glacioChafe",
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "glacioChafeDmgAmp%": 0.6
+          }
+        }
+      },
+      {
+        "mode": "echo",
+        "stores": "$next",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "echoSkillDmgAmp%": 0.5
           }
         }
       }
@@ -20625,8 +20832,7 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 12000,
-          "action": []
+          "cooldown": 12000
         },
         "onUseDoApply": {
           "darkCore": 1
@@ -40949,8 +41155,7 @@
                 "resonanceLiberation"
               ]
             }
-          },
-          "action": []
+          }
         },
         "onUseDoApply": {
           "blessingOfTheWanLight": 5
@@ -63827,8 +64032,7 @@
                 }
               }
             ]
-          },
-          "action": []
+          }
         },
         "onUseDoUse": {
           "maestroHecateEnhancedFollowUp": 1
