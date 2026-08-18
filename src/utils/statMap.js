@@ -72,7 +72,7 @@ export function compileMenuMap(gameId, charId, member) {
   ];
 
   const echoData = ECHO[member.mainEcho];
-  if (echoData.effects) {
+  if (echoData?.effects) {
     const filtered = echoData.effects.filter((effect) => isEnabledEcho(effect, charData));
     allEffects.push(...filtered);
   }

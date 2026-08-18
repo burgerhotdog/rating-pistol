@@ -139,7 +139,7 @@
         ]
       }
     },
-    "timing": "afterIntro"
+    "timing": "start"
   },
   "6000049": {
     "name": "Autopuppet Scout",
@@ -430,7 +430,7 @@
         ]
       }
     },
-    "timing": "afterIntro"
+    "timing": "start"
   },
   "6000060": {
     "name": "Fallacy of No Return",
@@ -1583,7 +1583,7 @@
         ]
       }
     },
-    "timing": "afterIntro"
+    "timing": "start"
   },
   "6000117": {
     "name": "Nightmare: Havoc Warrior",
@@ -1643,7 +1643,7 @@
         ]
       }
     },
-    "timing": "afterIntro"
+    "timing": "start"
   },
   "6000121": {
     "name": "The False Sovereign",
@@ -2784,7 +2784,8 @@
           }
         ]
       }
-    }
+    },
+    "timing": "start"
   },
   "390070051": {
     "name": "Vanguard Junrock",

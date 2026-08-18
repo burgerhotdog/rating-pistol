@@ -53,7 +53,7 @@ const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
     if (ECHO[mainEcho]?.action) {
       let insertAtIndex = rotation.length;
 
-      if (ECHO[mainEcho]?.timing === 'afterIntro') {
+      if (ECHO[mainEcho]?.timing === 'start') {
         insertAtIndex = rotation[0]?.type === 'introSkill' ? 1 : 0;
       } else {
         if (rotation.at(-1)?.type === 'outroSkill') insertAtIndex = -1;
