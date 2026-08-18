@@ -10,32 +10,29 @@ const ENERGY_ATTR = {
 };
 
 export function createEvaluateEquipMap(cache, equipMaps, evalId) {
-  const rotationSpecs = runRotation(cache, equipMaps, evalId);
-
-  const { gameId, rotationDuration } = cache;
-  const erAttrId = ENERGY_ATTR[gameId];
-
+  const energyAttr = ENERGY_ATTR[cache.gameId];
   const mCache = cache.member[evalId];
-  const originalEr = getAttr(erAttrId, mCache.statMap ?? mCache.baseMap);
 
-  function getPenalty(testMap) {
-    if (!mCache.energy) return 1;
+  const energyReq = getAttr(energyAttr, mCache.statMap ?? mCache.baseMap);
+  const evalRotationSpecs = runRotation(cache, equipMaps, evalId);
 
-    const newEr = getAttr(erAttrId, testMap);
-    if (newEr >= originalEr) return 1;
+  function getPenalty(testStatMap) {
+    if (!mCache.energy) return 1; // no energy req
 
-    const newCharRotDur = mCache.duration * (originalEr / newEr);
-    const durPenalty = newCharRotDur - mCache.duration;
-    return rotationDuration / (rotationDuration + durPenalty);
+    const testEnergy = getAttr(energyAttr, testStatMap);
+    if (testEnergy >= energyReq) return 1; // energy req passed
+
+    const testCharDuration = mCache.duration * (energyReq / testEnergy);
+    const addedTime = testCharDuration - mCache.duration;
+    return cache.rotationDuration / (cache.rotationDuration + addedTime);
   }
 
   return (evalEquipMap = {}) => {
     const evalStatMap = toMergedObj(mCache.baseMap, evalEquipMap);
-    const penalty = getPenalty(evalStatMap);
 
-    const summary = rotationSpecs(evalStatMap);
+    const summary = evalRotationSpecs(evalStatMap);
     const totals = getTotals(summary);
-    const score = (totals.damage + totals.healing + totals.shield) * penalty;
+    const score = (totals.damage + totals.healing + totals.shield) * getPenalty(evalStatMap);
 
     return { summary, totals, score };
   };
