@@ -47887,6 +47887,24 @@
     },
     "effects": [
       {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceSkill.0"
+            }
+          },
+          "offset": 1000,
+          "action": [
+            "resonanceSkill.1",
+            "resonanceSkill.1",
+            "resonanceSkill.1",
+            "resonanceSkill.1",
+            "resonanceSkill.1"
+          ]
+        }
+      },
+      {
         "apply": {
           "when": "start",
           "filter": {
@@ -47921,6 +47939,11 @@
           },
           "duration": 30000
         },
+        "buff": {
+          "stats": {
+            "energyRegen%": 0.1
+          }
+        },
         "rankMods": [
           {
             "rank": 1,
@@ -47928,12 +47951,7 @@
               "duration": 10000
             }
           }
-        ],
-        "buff": {
-          "stats": {
-            "energyRegen%": 0.1
-          }
-        }
+        ]
       },
       {
         "key": "evolved",
@@ -48002,6 +48020,26 @@
               "maxValue": 0.25
             }
           }
+        }
+      },
+      {
+        "use": {
+          "filter": {
+            "when": "start",
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
+            }
+          },
+          "offset": 1000,
+          "action": [
+            "forteCircuit.2",
+            "forteCircuit.2",
+            "forteCircuit.2",
+            "forteCircuit.2"
+          ]
         }
       },
       {
@@ -48326,7 +48364,7 @@
         "name": "Chaos Theory",
         "actions": [
           {
-            "name": "Chaos Theory",
+            "name": "Resonance Skill",
             "type": "resonanceSkill",
             "healing": {
               "attr": "hp",
@@ -48382,7 +48420,7 @@
             }
           },
           {
-            "name": "Dim Star Butterfly (x5)",
+            "name": "Dim Star Butterfly",
             "damage": {
               "type": "resonanceSkill",
               "multipliers": [
@@ -48411,8 +48449,7 @@
                   ]
                 }
               ]
-            },
-            "times": 5
+            }
           }
         ]
       },
@@ -48483,39 +48520,7 @@
         "name": "Astral Chord",
         "actions": [
           {
-            "name": "Flare Star Butterfly",
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.1876,
-                    0.2029,
-                    0.2183,
-                    0.2399,
-                    0.2552,
-                    0.2729,
-                    0.2975,
-                    0.3221,
-                    0.3467,
-                    0.3729,
-                    0.4036,
-                    0.4344,
-                    0.4651,
-                    0.4959,
-                    0.5266,
-                    0.5574,
-                    0.5881,
-                    0.6189,
-                    0.6496,
-                    0.6804
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Illation",
+            "name": "Heavy Attack: Illation",
             "type": "heavyAttack",
             "damage": {
               "multipliers": [
@@ -48548,7 +48553,7 @@
             }
           },
           {
-            "name": "Transmutation",
+            "name": "Mid-air Attack: Transmutation",
             "type": "mid-airAttack",
             "damage": {
               "type": "basicAttack",
@@ -48575,6 +48580,38 @@
                     1.2277,
                     1.2887,
                     1.3497
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Flare Star Butterfly",
+            "damage": {
+              "type": "basicAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.1876,
+                    0.2029,
+                    0.2183,
+                    0.2399,
+                    0.2552,
+                    0.2729,
+                    0.2975,
+                    0.3221,
+                    0.3467,
+                    0.3729,
+                    0.4036,
+                    0.4344,
+                    0.4651,
+                    0.4959,
+                    0.5266,
+                    0.5574,
+                    0.5881,
+                    0.6189,
+                    0.6496,
+                    0.6804
                   ]
                 }
               ]
@@ -48764,7 +48801,7 @@
         "name": "Binary Butterfly",
         "actions": [
           {
-            "name": "Binary Butterfly",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
@@ -48788,13 +48825,8 @@
           "normalAttack.1",
           "normalAttack.2",
           "normalAttack.3",
-          "forteCircuit.1",
-          "forteCircuit.0",
-          "forteCircuit.0",
-          "forteCircuit.0",
           "forteCircuit.0",
           "resonanceSkill.0",
-          "resonanceSkill.1",
           "resonanceLiberation.0",
           "outroSkill.0"
         ]
