@@ -13,19 +13,13 @@ const statusMaxStacks = {
   havocBane: 3,
 };
 
-const hasShimmer = (ctx) => {
+function hasGameRule(ctx, key) {
   for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
-    if (state.effect.gameRule === 'shimmer') return true;
+    if (state.effect.gameRule === key) return true;
   }
-};
+}
 
-const hasGlacioBite = (ctx) => {
-  for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
-    if (state.effect.gameRule === 'glacioBite') return true;
-  }
-};
-
-const getStatusMaxStacks = (ctx, statusId) => {
+function getStatusMaxStacks(ctx, statusId) {
   let maxStacks = statusMaxStacks[statusId];
 
   for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
@@ -45,7 +39,7 @@ const getStatusMaxStacks = (ctx, statusId) => {
   }
 
   return maxStacks;
-};
+}
 
 const STATUSES = {
   glacioChafe: {
@@ -72,7 +66,7 @@ const STATUSES = {
       if (ctx.saveSnapshots) {
         const snapshot = buildSnapshot(
           ctx,
-          hasGlacioBite(ctx)
+          hasGameRule(ctx, 'glacioBite')
             ? { ...currState, stacks: maxStacks }
             : currState,
         );
@@ -242,7 +236,7 @@ const STATUSES = {
         if (!currState.timer) {
           if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
 
-          if (!hasShimmer(ctx)) {
+          if (!hasGameRule(ctx, 'shimmer')) {
             currState.stacks--;
           }
           currState.timer = 3000;
@@ -306,6 +300,16 @@ export function inflictNegativeStatuses(ctx, action) {
   for (const [id, stacks] of Object.entries(toInflict)) {
     const status = STATUSES[id];
     status.inflict(ctx, status, stacks);
+
+    if ( // Hiyuki 2 special handling
+      id === 'glacioChafe' &&
+      action.ownerId === '1108' &&
+      hasGameRule(ctx, 'hiyuki2') &&
+      ctx.saveSnapshots
+    ) {
+      const snapshot = buildSnapshot(ctx, { status: STATUSES.glacioChafe }, 0, 10200 * stacks);
+      ctx.snapshots.push(snapshot);
+    }
   }
 }
 
@@ -336,12 +340,12 @@ export function advanceNegativeStatuses(ctx, elapsed) {
 
 const LEVEL_MODIFIER = 3674;
 
-export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
+export const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
   const { stacks, rage, status } = statusState;
 
   const { buffMap } = getBuffMap(ctx);
 
-  const mv = status.mv[stacks - 1];
+  const mv = fixedMv ?? status.mv[stacks - 1];
   const rageMv = rage ? status.mv[rage - 1] : 0;
   const baseDmg = LEVEL_MODIFIER * ((mv + rageMv) / 10000);
 

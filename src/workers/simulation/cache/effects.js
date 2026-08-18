@@ -168,7 +168,7 @@ export const normalizeEffects = (gameId, member, spec) => {
   const charData = CHARACTER[gameId][member.id];
   const charEffects = charData.effects ?? [];
   for (const [index, rawEffect] of charEffects.entries()) {
-    if (!isEnabledChar(rawEffect, member)) continue;
+    if (!isEnabledChar(rawEffect, member, gameId, spec.memberIds)) continue;
 
     const sourceId = member.id;
     const sourceType = 'character';

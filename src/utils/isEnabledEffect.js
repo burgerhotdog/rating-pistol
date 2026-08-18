@@ -1,12 +1,49 @@
+import { CHARACTER } from '@/data';
 import { toArray } from './toArray';
 
-export const isEnabledChar = (effect, member) => {
+export const isEnabledChar = (effect, member, gameId, memberIds) => {
   if ('rank' in effect) {
     if (effect.rank > member.rank) return false;
   }
 
   if ('mode' in effect) {
     if (effect.mode !== member.mode) return false;
+  }
+
+  const { enable } = effect;
+  if (!enable) return true;
+
+  if ('team' in enable) {
+    const [specialKey, countReq] = enable.team;
+
+    if (specialKey === 'lupa') {
+      // Count fusion members
+      let count = 0;
+      for (const memberId of memberIds) {
+        const charData = CHARACTER[gameId][memberId];
+        if (charData?.element === 'fusion') count++;
+      }
+      if (count < countReq) return false;
+    }
+
+    if (specialKey === 'hiyuki') {
+      // Count members that can inflict glacio chafe or havoc bane
+      let count = 0;
+      for (const memberId of memberIds) {
+        const charData = CHARACTER[gameId][memberId];
+        const found = Object.values(charData.skills).some(({ actions }) =>
+          actions.some(({ inflict }) => {
+            const statuses = Object.keys(inflict?.status ?? {});
+            return (
+              statuses.includes('glacioChafe') ||
+              statuses.includes('havocBane')
+            );
+          })
+        );
+        if (found) count++;
+      }
+      if (count < countReq) return false;
+    }
   }
 
   return true;

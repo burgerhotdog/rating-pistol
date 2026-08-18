@@ -45,7 +45,7 @@ export function compileBaseMap(gameId, charId, weapId) {
   return toMergedObj(gameStats, charStats, weapStats);
 }
 
-export function compileMenuMap(gameId, charId, member) {
+export function compileMenuMap(gameId, charId, member, team) {
   const baseMap = compileBaseMap(gameId, charId, member.weaponId);
   const equipMap = toEquipMap(member.build?.equipList ?? []);
   const effectMaps = [];
@@ -58,16 +58,17 @@ export function compileMenuMap(gameId, charId, member) {
       .some((store) => ['global', '$team', charId].includes(store))
   );
 
+  const memberIds = team.filter((member) => member.id).map((member) => member.id);
+
   const charData = CHARACTER[gameId][charId];
   const weapData = WEAPON[gameId][member.weaponId];
-  const allSetData = SET[gameId];
 
   const allEffects = [
-    ...charData.effects.filter((effect) => isEnabledChar(effect, member)),
+    ...charData.effects.filter((effect) => isEnabledChar(effect, member, gameId, memberIds)),
     ...weapData.effects.filter((effect) => isEnabledWeap(effect, charData, weapData)),
     ...Object.entries(member.setCounts)
       .flatMap(([setId, pcCount]) =>
-        allSetData[setId].effects.filter((effect) => isEnabledSet(effect, pcCount, charData))
+        SET[gameId][setId].effects.filter((effect) => isEnabledSet(effect, pcCount, charData))
       ),
   ];
 

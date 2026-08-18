@@ -5443,99 +5443,51 @@
         "gameRule": "glacioBite"
       },
       {
-        "key": "snowRust",
-        "apply": {
-          "by": "$team",
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "status": {
-                  "has": [
-                    "glacioChafe",
-                    "havocBane"
-                  ]
-                }
-              }
-            }
-          }
+        "enable": {
+          "team": [
+            "hiyuki",
+            1
+          ]
         },
-        "maxStacks": 3
-      },
-      {
         "stores": "global",
         "buff": {
-          "filter": {
-            "effectStacks": {
-              "snowRust": {
-                ">=": 1
-              }
-            }
-          },
           "stats": {
             "glacioChafeDmgAmp%": 0.3
           }
         }
       },
       {
+        "enable": {
+          "team": [
+            "hiyuki",
+            1
+          ]
+        },
         "buff": {
-          "filter": {
-            "effectStacks": {
-              "snowRust": {
-                ">=": 1
-              }
-            }
-          },
           "stats": {
             "critDmg%": 0.4
           }
         }
       },
       {
-        "use": {
-          "when": "inflict",
-          "filter": {
-            "and": [
-              {
-                "effectStacks": {
-                  "snowRust": {
-                    ">=": 2
-                  }
-                }
-              },
-              {
-                "action": {
-                  "inflict": {
-                    "status": {
-                      "has": "glacioChafe"
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          "action": {
-            "damage": {
-              "type": "glacioChafe", 
-              "multipliers": [
-                {
-                  "mv": 1.02
-                }
-              ]
-            }
-          }
-        }
+        "enable": {
+          "team": [
+            "hiyuki",
+            2
+          ]
+        },
+        "stores": "global",
+        "gameRule": "hiyuki2"
       },
       {
+        "enable": {
+          "team": [
+            "hiyuki",
+            3
+          ]
+        },
         "stores": "global",
         "buff": {
-          "filter": {
-            "effectStacks": {
-              "snowRust": {
-                ">=": 3
-              }
-            }
-          },
           "stats": {
             "glacioChafeDmgAmp%": 0.3
           }
@@ -6884,6 +6836,11 @@
             "name": "Iai",
             "tagged": "Foreclaimed Self",
             "type": "basicAttack",
+            "inflict": {
+              "status": {
+                "glacioChafe": 3
+              }
+            },
             "damage": {
               "type": "resonanceLiberation",
               "multipliers": [
@@ -7024,8 +6981,6 @@
           "forteCircuit.0",
           "normalAttack.12",
           "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
           "resonanceLiberation.2",
           "resonanceSkill.0",
           "outroSkill.0"
@@ -14566,6 +14521,7 @@
         }
       },
       {
+        "key": "packHunt",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -14579,8 +14535,103 @@
         "buff": {
           "stats": {
             "atk%": 0.18,
-            "fusionDmgBonus%": 0.2,
-            "fusionResIgnore%": 0.15
+            "fusionDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "key": "packHunt3",
+        "enable": {
+          "team": [
+            "lupa",
+            3
+          ]
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 35000
+        },
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "key": "glory1",
+        "enable": {
+          "team": [
+            "lupa",
+            1
+          ]
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 35000
+        },
+        "buff": {
+          "stats": {
+            "fusionResIgnore%": 0.03
+          }
+        }
+      },
+      {
+        "key": "glory2",
+        "enable": {
+          "team": [
+            "lupa",
+            2
+          ]
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 35000
+        },
+        "buff": {
+          "stats": {
+            "fusionResIgnore%": 0.03
+          }
+        }
+      },
+      {
+        "key": "glory3",
+        "enable": {
+          "team": [
+            "lupa",
+            3
+          ]
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 35000
+        },
+        "buff": {
+          "stats": {
+            "fusionResIgnore%": 0.09
           }
         }
       },

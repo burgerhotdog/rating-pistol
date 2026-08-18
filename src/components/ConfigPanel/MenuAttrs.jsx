@@ -53,7 +53,7 @@ export const MenuAttrs = ({ team = [] }) => {
   const { gameId, charId } = useParams();
 
   const member = team.find((member) => member.id === charId);
-  const menuMap = compileMenuMap(gameId, charId, member);
+  const menuMap = compileMenuMap(gameId, charId, member, team);
   const data = ATTR_ROWS[gameId].map((attr) => {
     const attrValue = getAttr(attr, menuMap);
     return {
