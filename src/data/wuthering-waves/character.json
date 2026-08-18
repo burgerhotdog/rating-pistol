@@ -64837,6 +64837,7 @@
     },
     "effects": [
       {
+        "key": "voiceUponVoice",
         "apply": {
           "when": "start",
           "filter": {
@@ -64860,8 +64861,8 @@
         }
       },
       {
-        "apply": {
-          "when": "start",
+        "key": "basedBreath",
+        "buff": {
           "filter": {
             "and": [
               {
@@ -64875,17 +64876,255 @@
             ]
           },
           "cooldown": 25000,
-          "uses": 1
-        },
-        "buff": {
           "stats": {
             "critDmg%": 1.6
           }
         }
       },
       {
+        "key": "streamingStorm",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.3"
+            }
+          },
+          "cooldown": 25000,
+          "duration": 15000
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "forteCircuit.3",
+                    "forteCircuit.4",
+                    "forteCircuit.5",
+                    "forteCircuit.6",
+                    "forteCircuit.7",
+                    "forteCircuit.8",
+                    "forteCircuit.9",
+                    "forteCircuit.10"
+                  ]
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          },
+          "stats": {
+            "critDmg%": 1.6
+          }
+        }
+      },
+      {
+        "key": "featheredOath",
+        "apply": {
+          "by": "$team",
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "havocBane"
+                }
+              }
+            }
+          },
+          "cooldown": 1000,
+          "duration": 4000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4",
+                "forteCircuit.5",
+                "forteCircuit.6",
+                "forteCircuit.7",
+                "forteCircuit.8",
+                "forteCircuit.9",
+                "forteCircuit.10"
+              ]
+            }
+          },
+          "stats": {
+            "critDmg%": 0.25
+          }
+        },
+        "maxStacks": 6
+      },
+      {
+        "key": "unbrokenVow1",
+        "buff": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "havocBane": {
+                  "stacks": {
+                    ">=": 1
+                  }
+                }
+              }
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.1
+          }
+        }
+      },
+      {
+        "key": "unbrokenVow2",
+        "buff": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "havocBane": {
+                  "stacks": {
+                    ">=": 2
+                  }
+                }
+              }
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.1
+          }
+        }
+      },
+      {
+        "key": "unbrokenVow3",
+        "buff": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "havocBane": {
+                  "stacks": {
+                    ">=": 3
+                  }
+                }
+              }
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.1
+          }
+        }
+      },
+      {
+        "key": "unbrokenVow4",
+        "buff": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "havocBane": {
+                  "stacks": {
+                    ">=": 4
+                  }
+                }
+              }
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.12
+          }
+        }
+      },
+      {
+        "key": "unbrokenVow5",
+        "buff": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "havocBane": {
+                  "stacks": {
+                    ">=": 5
+                  }
+                }
+              }
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.12
+          }
+        }
+      },
+      {
+        "key": "unbrokenVow6",
+        "buff": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "havocBane": {
+                  "stacks": {
+                    ">=": 6
+                  }
+                }
+              }
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.12
+          }
+        }
+      },
+      {
+        "key": "windbound",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "havocBane"
+                }
+              }
+            }
+          }
+        },
+        "maxStacks": 6
+      },
+      {
+        "key": "oneWithTheWind",
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "windbound": 6
+                }
+              },
+              {
+                "action": {
+                  "ref": [
+                    "forteCircuit.0",
+                    "forteCircuit.1"
+                  ]
+                }
+              }
+            ]
+          },
+          "action": {
+            "inflict": {
+              "status": {
+                "havocBane": 6
+              }
+            }
+          }
+        },
+        "onUseDoRemove": {
+          "windbound": 6
+        }
+      },
+      {
         "key": "tonalSwitch",
-        "stores": "$ally",
         "apply": {
           "when": "start",
           "filter": {
@@ -64899,7 +65138,7 @@
       {
         "stores": "$applier",
         "apply": {
-          "by": "$team",
+          "by": "$ally",
           "when": "inflict",
           "filter": {
             "and": [
@@ -65749,6 +65988,11 @@
           {
             "name": "Hush of a Thousand Voices",
             "type": "resonanceLiberation",
+            "inflict": {
+              "status": {
+                "havocBane": 6
+              }
+            },
             "damage": {
               "type": "heavyAttack",
               "multipliers": [
