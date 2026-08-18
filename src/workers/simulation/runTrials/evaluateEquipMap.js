@@ -10,13 +10,22 @@ const ENERGY_ATTR = {
 };
 
 export function createEvaluateEquipMap(cache, equipMaps, evalId) {
-  const energyAttr = ENERGY_ATTR[cache.gameId];
   const mCache = cache.member[evalId];
-
-  const energyReq = getAttr(energyAttr, mCache.statMap ?? mCache.baseMap);
   const evalRotationSpecs = runRotation(cache, equipMaps, evalId);
 
-  function getPenalty(testStatMap) {
+  const evalHealing = mCache.healing;
+  const evalShield = mCache.shield;
+  function baseScore(testTotals) {
+    const { damage, healing, shield } = testTotals;
+    let baseScore = damage;
+    if (evalHealing) baseScore += healing;
+    if (evalShield) baseScore += shield;
+    return baseScore;
+  }
+
+  const energyAttr = ENERGY_ATTR[cache.gameId];
+  const energyReq = getAttr(energyAttr, mCache.statMap ?? mCache.baseMap);
+  function energyPenalty(testStatMap) {
     if (!mCache.energy) return 1; // no energy req
 
     const testEnergy = getAttr(energyAttr, testStatMap);
@@ -32,7 +41,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
 
     const summary = evalRotationSpecs(evalStatMap);
     const totals = getTotals(summary);
-    const score = (totals.damage + totals.healing + totals.shield) * getPenalty(evalStatMap);
+    const score = baseScore(totals) * energyPenalty(evalStatMap);
 
     return { summary, totals, score };
   };
