@@ -29,15 +29,13 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
     return rotationDuration / (rotationDuration + durPenalty);
   }
 
-  return (equipMap = {}) => {
-    const statMap = toMergedObj(mCache.baseMap, equipMap);
-    const penalty = getPenalty(statMap);
+  return (evalEquipMap = {}) => {
+    const evalStatMap = toMergedObj(mCache.baseMap, evalEquipMap);
+    const penalty = getPenalty(evalStatMap);
 
-    const summary = rotationSpecs(statMap);
+    const summary = rotationSpecs(evalStatMap);
     const totals = getTotals(summary);
-    const baseScore = Object.values(totals)
-      .reduce((acc, value) => acc + value, 0);
-    const score = baseScore * penalty;
+    const score = (totals.damage + totals.healing + totals.shield) * penalty;
 
     return { summary, totals, score };
   };

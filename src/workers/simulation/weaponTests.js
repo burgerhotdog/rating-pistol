@@ -153,21 +153,20 @@ const ENERGY_ATTR = {
 };
 
 export function weaponTests(cache, equipMaps, charId) {
+  const mCache = cache.member[charId];
+
   // er penalty
-  const charEnergy = cache.member[charId].energy;
-  const { duration: charRotDur, statMap } = cache.member[charId];
-  const { rotationDuration } = cache;
   const erAttrId = ENERGY_ATTR[cache.gameId];
-  const originalEr = getAttr(erAttrId, statMap);
+  const originalEr = getAttr(erAttrId, mCache.statMap);
 
   function getPenalty(statMap) {
-    if (!charEnergy) return 1;
+    if (!mCache.energy) return 1;
     const newEr = getAttr(erAttrId, statMap);
     if (newEr >= originalEr) return 1;
 
-    const newCharRotDur = charRotDur * (originalEr / newEr);
-    const durPenalty = newCharRotDur - charRotDur;
-    return rotationDuration / (rotationDuration + durPenalty);
+    const newCharRotDur = mCache.duration * (originalEr / newEr);
+    const durPenalty = newCharRotDur - mCache.duration;
+    return cache.rotationDuration / (cache.rotationDuration + durPenalty);
   }
 
   // weapons to test

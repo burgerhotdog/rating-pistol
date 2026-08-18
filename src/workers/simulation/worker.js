@@ -77,6 +77,7 @@ self.onmessage = ({ data }) => {
 
   self.postMessage({ status: 'Running simulation' });
 
+  // Sanity check
   const userSummary = runRotation(cache, equipMaps);
   const userDps = getTotals(userSummary).damage / cache.rotationDuration * 1000
   if (Number.isNaN(userDps)) {
