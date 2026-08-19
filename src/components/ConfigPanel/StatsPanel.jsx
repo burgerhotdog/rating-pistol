@@ -52,7 +52,7 @@ import { CharAvatar } from '@/components';
 import { CHARACTER } from '@/data';
 import { useElementColors, useCharData } from '@/hooks';
 import { toArray, formatStr } from '@/utils';
-import { TeamMemberDialog } from './TeamMemberDialog';
+import { TeamMemberDialog } from './MemberConfig';
 import { MenuAttrs } from './MenuAttrs';
 
 function getRelativeTime(dateString) {
