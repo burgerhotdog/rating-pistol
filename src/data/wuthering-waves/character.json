@@ -7011,6 +7011,40 @@
     "effects": [
       {
         "mode": "glacioChafe",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "mode": "echo",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "echoSkillDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "mode": "glacioChafe",
         "key": "filmRoll",
         "apply": {
           "when": "start",
@@ -7029,6 +7063,39 @@
                 "glacioChafe": 2
               }
             }
+          }
+        }
+      },
+      {
+        "mode": "echo",
+        "key": "zoom",
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": "echoSkill"
+                  }
+                }
+              }
+            ]
+          },
+          "stats": {
+            "critDmg%": 0.4
           }
         }
       },
@@ -7065,6 +7132,23 @@
         }
       },
       {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.3"
+            }
+          },
+          "offset": 500,
+          "uses": 3
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "forteCircuit.0"
+        }
+      },
+      {
         "mode": "glacioChafe",
         "stores": "global",
         "apply": {
@@ -7097,22 +7181,6 @@
         "buff": {
           "stats": {
             "echoSkillDmgBonus%": 0.25
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": 0.3
           }
         }
       },
@@ -8078,9 +8146,6 @@
           "resonanceLiberation.1",
           "resonanceLiberation.2",
           "resonanceLiberation.3",
-          "forteCircuit.0",
-          "forteCircuit.0",
-          "forteCircuit.0",
           "resonanceLiberation.4",
           "outroSkill.0"
         ],
