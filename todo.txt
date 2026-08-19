@@ -12,6 +12,7 @@ buff saturation index
 comapre echo sets and teammates
 
 editing rot doesnt update duration
+per resin not per week
 
 
           "use": {

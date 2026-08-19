@@ -6,6 +6,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12858,
       "baseAtk": 342,
@@ -363,6 +364,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 14695,
       "baseAtk": 239,
@@ -806,6 +808,7 @@
     "quality": 4,
     "element": "electro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 9570,
       "baseAtk": 232,
@@ -1221,6 +1224,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 9787,
       "baseAtk": 159,
@@ -1636,6 +1640,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 11636,
       "baseAtk": 223,
@@ -1989,6 +1994,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 12981,
       "baseAtk": 335,
@@ -2427,7 +2433,9 @@
     "quality": 4,
     "element": "electro",
     "type": "claymore",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 11962,
       "baseAtk": 234,
@@ -2839,6 +2847,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9461,
       "baseAtk": 223,
@@ -3255,7 +3264,9 @@
     "quality": 5,
     "element": "anemo",
     "type": "bow",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 10531,
       "baseAtk": 263,
@@ -3765,6 +3776,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 10875,
       "baseAtk": 225,
@@ -4199,6 +4211,7 @@
     "quality": 4,
     "element": "electro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 13050,
       "baseAtk": 225,
@@ -4682,6 +4695,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 10222,
       "baseAtk": 202,
@@ -5120,6 +5134,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 12736,
       "baseAtk": 349,
@@ -5542,6 +5557,7 @@
     "quality": 4,
     "element": "geo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 9787,
       "baseAtk": 212,
@@ -5823,7 +5839,9 @@
     "quality": 5,
     "element": "pyro",
     "type": "catalyst",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 10287,
       "baseAtk": 311,
@@ -6131,6 +6149,7 @@
     "quality": 5,
     "element": "geo",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 14695,
       "baseAtk": 251,
@@ -6615,7 +6634,9 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 9189,
       "baseAtk": 244,
@@ -7001,6 +7022,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12397,
       "baseAtk": 191,
@@ -7542,6 +7564,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 13103,
       "baseAtk": 301,
@@ -8289,6 +8312,7 @@
     "quality": 4,
     "element": "geo",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 12071,
       "baseAtk": 191,
@@ -8789,6 +8813,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12368,
       "baseAtk": 287,
@@ -9332,6 +9357,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 10984,
       "baseAtk": 223,
@@ -9689,6 +9715,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9797,
       "baseAtk": 335,
@@ -10154,7 +10181,9 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "rankMods": {
       "3": {
         "elementalSkill": 3
@@ -10625,6 +10654,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9570,
       "baseAtk": 212,
@@ -11129,7 +11159,9 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 10409,
       "baseAtk": 287,
@@ -11518,6 +11550,7 @@
     "quality": 5,
     "element": "electro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 13103,
       "baseAtk": 323,
@@ -11994,7 +12027,9 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 9244,
       "baseAtk": 170,
@@ -12329,6 +12364,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 11201,
       "baseAtk": 249,
@@ -12851,6 +12887,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 12289,
       "baseAtk": 240,
@@ -13265,6 +13302,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 15552,
       "baseAtk": 106,
@@ -13750,6 +13788,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 13348,
       "baseAtk": 297,
@@ -14199,6 +14238,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 9352,
       "baseAtk": 240,
@@ -14578,6 +14618,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 10164,
       "baseAtk": 323,
@@ -14990,6 +15031,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 10331,
       "baseAtk": 202,
@@ -15458,6 +15500,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 13226,
       "baseAtk": 342,
@@ -16015,6 +16058,7 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 12907,
       "baseAtk": 337,
@@ -16799,6 +16843,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 11854,
       "baseAtk": 244,
@@ -17375,6 +17420,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 13471,
       "baseAtk": 234,
@@ -17826,6 +17872,7 @@
     "quality": 4,
     "element": "geo",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9570,
       "baseAtk": 183,
@@ -18211,6 +18258,7 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9570,
       "baseAtk": 195,
@@ -18623,6 +18671,7 @@
     "quality": 5,
     "element": "geo",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 12858,
       "baseAtk": 227,
@@ -18980,6 +19029,7 @@
     "quality": 5,
     "element": "electro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 10372,
       "baseAtk": 340,
@@ -19364,6 +19414,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 10657,
       "baseAtk": 225,
@@ -19813,6 +19864,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 14450,
       "baseAtk": 244,
@@ -20217,6 +20269,7 @@
     "quality": 4,
     "element": "dendro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12180,
       "baseAtk": 223,
@@ -20750,6 +20803,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 10899,
       "baseAtk": 234,
@@ -21246,6 +21300,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 12993,
       "baseAtk": 304,
@@ -21703,6 +21758,7 @@
     "quality": 4,
     "element": "geo",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 10657,
       "baseAtk": 191,
@@ -22198,6 +22254,7 @@
     "quality": 4,
     "element": "electro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12289,
       "baseAtk": 212,
@@ -22639,6 +22696,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 13715,
       "baseAtk": 299,
@@ -23104,6 +23162,7 @@
     "quality": 4,
     "element": "dendro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9787,
       "baseAtk": 200,
@@ -23462,6 +23521,7 @@
     "quality": 4,
     "element": "electro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 12397,
       "baseAtk": 223,
@@ -23884,6 +23944,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 10850,
       "baseAtk": 268,
@@ -24295,6 +24356,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 15185,
       "baseAtk": 230,
@@ -24755,6 +24817,7 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 12491,
       "baseAtk": 318,
@@ -25340,6 +25403,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 10875,
       "baseAtk": 212,
@@ -25762,6 +25826,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 10360,
       "baseAtk": 299,
@@ -26273,6 +26338,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 11092,
       "baseAtk": 217,
@@ -26641,6 +26707,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 10164,
       "baseAtk": 328,
@@ -26990,6 +27057,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9570,
       "baseAtk": 196,
@@ -27375,6 +27443,7 @@
     "quality": 4,
     "element": "dendro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 12289,
       "baseAtk": 212,
@@ -27816,6 +27885,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 13348,
       "baseAtk": 313,
@@ -28360,6 +28430,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 15675,
       "baseAtk": 265,
@@ -28855,6 +28926,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 12506,
       "baseAtk": 223,
@@ -29350,6 +29422,7 @@
     "quality": 4,
     "element": "dendro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 11962,
       "baseAtk": 234,
@@ -29707,6 +29780,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 13348,
       "baseAtk": 193,
@@ -30148,6 +30222,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12397,
       "baseAtk": 232,
@@ -30570,6 +30645,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 11021,
       "baseAtk": 318,
@@ -31081,6 +31157,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 12071,
       "baseAtk": 255,
@@ -31657,6 +31734,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 13593,
       "baseAtk": 311,
@@ -32033,6 +32111,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 14695,
       "baseAtk": 208,
@@ -32390,6 +32469,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 10766,
       "baseAtk": 173,
@@ -32893,6 +32973,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 15307,
       "baseAtk": 244,
@@ -33404,6 +33485,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 11962,
       "baseAtk": 193,
@@ -33880,6 +33962,7 @@
     "quality": 5,
     "element": "geo",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 12650,
       "baseAtk": 352,
@@ -34264,6 +34347,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 11419,
       "baseAtk": 302,
@@ -34594,6 +34678,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 10409,
       "baseAtk": 335,
@@ -35081,6 +35166,7 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 11438,
       "baseAtk": 323,
@@ -35506,6 +35592,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 13348,
       "baseAtk": 193,
@@ -35910,6 +35997,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 13103,
       "baseAtk": 342,
@@ -36367,6 +36455,7 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9787,
       "baseAtk": 227,
@@ -36735,6 +36824,7 @@
     "quality": 5,
     "element": "electro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12956,
       "baseAtk": 337,
@@ -37260,6 +37350,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 13568,
       "baseAtk": 335,
@@ -37644,6 +37735,7 @@
     "quality": 4,
     "element": "geo",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 11799,
       "baseAtk": 217,
@@ -37993,6 +38085,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 12858,
       "baseAtk": 332,
@@ -38350,6 +38443,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 15185,
       "baseAtk": 182,
@@ -38680,6 +38774,7 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12405,
       "baseAtk": 275,
@@ -39183,6 +39278,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9797,
       "baseAtk": 347,
@@ -39649,6 +39745,7 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9244,
       "baseAtk": 244,
@@ -39980,6 +40077,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 12552,
       "baseAtk": 359,
@@ -40634,6 +40732,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 11634,
       "baseAtk": 127,
@@ -41010,6 +41109,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 9244,
       "baseAtk": 251,
@@ -41397,6 +41497,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 12736,
       "baseAtk": 215,
@@ -41800,6 +41901,7 @@
     "quality": 4,
     "element": "electro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 10657,
       "baseAtk": 257,
@@ -42130,6 +42232,7 @@
     "quality": 5,
     "element": "electro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 12699,
       "baseAtk": 356,
@@ -42668,6 +42771,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 13348,
       "baseAtk": 347,
@@ -43063,6 +43167,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 10081,
       "baseAtk": 178,
@@ -43412,6 +43517,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12417,
       "baseAtk": 359,
@@ -44153,6 +44259,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12506,
       "baseAtk": 189,
@@ -44540,6 +44647,7 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 12613,
       "baseAtk": 330,
@@ -44935,6 +45043,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 10654,
       "baseAtk": 255,
@@ -45365,6 +45474,7 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 12491,
       "baseAtk": 352,
@@ -45965,6 +46075,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 11201,
       "baseAtk": 242,
@@ -46295,6 +46406,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 12704,
       "baseAtk": 344,
@@ -46883,7 +46995,9 @@
     "quality": 5,
     "element": "pyro",
     "type": "sword",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 12430,
       "baseAtk": 347,
@@ -47455,6 +47569,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9646,
       "baseAtk": 223,
@@ -47959,6 +48074,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 14695,
       "baseAtk": 96,
@@ -48397,6 +48513,7 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12919,
       "baseAtk": 225,
@@ -48992,6 +49109,7 @@
     "quality": 4,
     "element": "geo",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 11962,
       "baseAtk": 191,
@@ -49452,7 +49570,9 @@
     "quality": 5,
     "element": "anemo",
     "type": "claymore",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 12613,
       "baseAtk": 353,
@@ -50254,7 +50374,9 @@
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 12858,
       "baseAtk": 344,
@@ -50866,6 +50988,7 @@
     "quality": 5,
     "element": "geo",
     "type": "bow",
+    "tagged": [],
     "stats": {
       "baseHp": 9895,
       "baseAtk": 144,
@@ -51289,7 +51412,9 @@
     "quality": 5,
     "element": "pyro",
     "type": "catalyst",
-    "tagged": "Hexerei",
+    "tagged": [
+      "hexerei"
+    ],
     "stats": {
       "baseHp": 10409,
       "baseAtk": 342,
@@ -51693,6 +51818,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
+    "tagged": [],
     "stats": {
       "baseHp": 9679,
       "baseAtk": 221,
@@ -52023,6 +52149,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "claymore",
+    "tagged": [],
     "stats": {
       "baseHp": 13226,
       "baseAtk": 342,
@@ -52534,6 +52661,7 @@
     "quality": 4,
     "element": "electro",
     "type": "polearm",
+    "tagged": [],
     "stats": {
       "baseHp": 11962,
       "baseAtk": 265,
@@ -53118,6 +53246,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
+    "tagged": [],
     "stats": {
       "baseHp": 12981,
       "baseAtk": 335,
