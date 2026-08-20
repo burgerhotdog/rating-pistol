@@ -3,6 +3,7 @@
     "name": "Hooscamp",
     "version": 1,
     "id": "6000038",
+    "icon": "wuthering-waves/echo/6000038.webp",
     "sets": [
       "4",
       "9"
@@ -13,6 +14,7 @@
     "name": "Tempest Mephis",
     "version": 1,
     "id": "6000039",
+    "icon": "wuthering-waves/echo/6000039.webp",
     "sets": [
       "3"
     ],
@@ -22,6 +24,7 @@
     "name": "Hoochief",
     "version": 1,
     "id": "6000040",
+    "icon": "wuthering-waves/echo/6000040.webp",
     "sets": [
       "4",
       "7"
@@ -32,6 +35,7 @@
     "name": "Diamondclaw",
     "version": 1,
     "id": "6000041",
+    "icon": "wuthering-waves/echo/6000041.webp",
     "sets": [
       "8",
       "9"
@@ -42,6 +46,7 @@
     "name": "Crownless",
     "version": 1,
     "id": "6000042",
+    "icon": "wuthering-waves/echo/6000042.webp",
     "sets": [
       "6"
     ],
@@ -51,6 +56,7 @@
     "name": "Feilian Beringal",
     "version": 1,
     "id": "6000043",
+    "icon": "wuthering-waves/echo/6000043.webp",
     "sets": [
       "4"
     ],
@@ -60,6 +66,7 @@
     "name": "Lampylumen Myriad",
     "version": 1,
     "id": "6000044",
+    "icon": "wuthering-waves/echo/6000044.webp",
     "sets": [
       "1"
     ],
@@ -69,6 +76,7 @@
     "name": "Mourning Aix",
     "version": 1,
     "id": "6000045",
+    "icon": "wuthering-waves/echo/6000045.webp",
     "sets": [
       "5"
     ],
@@ -78,6 +86,7 @@
     "name": "Carapace",
     "version": 1,
     "id": "6000046",
+    "icon": "wuthering-waves/echo/6000046.webp",
     "sets": [
       "4",
       "8"
@@ -88,6 +97,7 @@
     "name": "Chirpuff",
     "version": 1,
     "id": "6000047",
+    "icon": "wuthering-waves/echo/6000047.webp",
     "sets": [
       "4",
       "6"
@@ -98,6 +108,7 @@
     "name": "Mech Abomination",
     "version": 1,
     "id": "6000048",
+    "icon": "wuthering-waves/echo/6000048.webp",
     "sets": [
       "9"
     ],
@@ -145,6 +156,7 @@
     "name": "Autopuppet Scout",
     "version": 1,
     "id": "6000049",
+    "icon": "wuthering-waves/echo/6000049.webp",
     "sets": [
       "1",
       "5"
@@ -155,6 +167,7 @@
     "name": "Traffic Illuminator",
     "version": 1,
     "id": "6000050",
+    "icon": "wuthering-waves/echo/6000050.webp",
     "sets": [
       "2",
       "3",
@@ -166,6 +179,7 @@
     "name": "Clang Bang",
     "version": 1.1,
     "id": "6000051",
+    "icon": "wuthering-waves/echo/6000051.webp",
     "sets": [
       "1",
       "5"
@@ -176,6 +190,7 @@
     "name": "Impermanence Heron",
     "version": 1,
     "id": "6000052",
+    "icon": "wuthering-waves/echo/6000052.webp",
     "sets": [
       "8"
     ],
@@ -240,6 +255,7 @@
     "name": "Dreamless",
     "version": 1,
     "id": "6000053",
+    "icon": "wuthering-waves/echo/6000053.webp",
     "sets": [
       "6"
     ],
@@ -291,6 +307,7 @@
     "name": "Lava Larva",
     "version": 1.1,
     "id": "6000054",
+    "icon": "wuthering-waves/echo/6000054.webp",
     "sets": [
       "2",
       "9"
@@ -301,6 +318,7 @@
     "name": "Dwarf Cassowary",
     "version": 1.1,
     "id": "6000055",
+    "icon": "wuthering-waves/echo/6000055.webp",
     "sets": [
       "4",
       "7"
@@ -311,6 +329,7 @@
     "name": "Glacio Dreadmane",
     "version": 1.1,
     "id": "6000056",
+    "icon": "wuthering-waves/echo/6000056.webp",
     "sets": [
       "1",
       "8"
@@ -321,6 +340,7 @@
     "name": "Lumiscale Construct",
     "version": 1.1,
     "id": "6000057",
+    "icon": "wuthering-waves/echo/6000057.webp",
     "sets": [
       "1",
       "3"
@@ -331,6 +351,7 @@
     "name": "Lightcrusher",
     "version": 1.1,
     "id": "6000058",
+    "icon": "wuthering-waves/echo/6000058.webp",
     "sets": [
       "5"
     ],
@@ -340,6 +361,7 @@
     "name": "Ju\u00e9",
     "version": 1.1,
     "id": "6000059",
+    "icon": "wuthering-waves/echo/6000059.webp",
     "sets": [
       "5"
     ],
@@ -436,6 +458,7 @@
     "name": "Fallacy of No Return",
     "version": 1.3,
     "id": "6000060",
+    "icon": "wuthering-waves/echo/6000060.webp",
     "sets": [
       "7"
     ],
@@ -495,6 +518,7 @@
     "name": "Galescourge Stalker",
     "version": 2,
     "id": "6000061",
+    "icon": "wuthering-waves/echo/6000061.webp",
     "sets": [
       "10",
       "13"
@@ -505,6 +529,7 @@
     "name": "Voltscourge Stalker",
     "version": 2,
     "id": "6000062",
+    "icon": "wuthering-waves/echo/6000062.webp",
     "sets": [
       "12",
       "13"
@@ -515,6 +540,7 @@
     "name": "Frostscourge Stalker",
     "version": 2,
     "id": "6000063",
+    "icon": "wuthering-waves/echo/6000063.webp",
     "sets": [
       "11",
       "12"
@@ -525,6 +551,7 @@
     "name": "Chop Chop: Headless",
     "version": 2,
     "id": "6000064",
+    "icon": "wuthering-waves/echo/6000064.webp",
     "sets": [
       "11",
       "14"
@@ -535,6 +562,7 @@
     "name": "Chop Chop: Leftless",
     "version": 2,
     "id": "6000065",
+    "icon": "wuthering-waves/echo/6000065.webp",
     "sets": [
       "10",
       "14"
@@ -545,6 +573,7 @@
     "name": "Chop Chop: Rightless",
     "version": 2,
     "id": "6000066",
+    "icon": "wuthering-waves/echo/6000066.webp",
     "sets": [
       "10",
       "14"
@@ -555,6 +584,7 @@
     "name": "Fae Ignis",
     "version": 2,
     "id": "6000067",
+    "icon": "wuthering-waves/echo/6000067.webp",
     "sets": [
       "11",
       "12",
@@ -566,6 +596,7 @@
     "name": "Nimbus Wraith",
     "version": 2,
     "id": "6000068",
+    "icon": "wuthering-waves/echo/6000068.webp",
     "sets": [
       "12",
       "13",
@@ -577,6 +608,7 @@
     "name": "Hocus Pocus",
     "version": 2,
     "id": "6000069",
+    "icon": "wuthering-waves/echo/6000069.webp",
     "sets": [
       "10",
       "13"
@@ -587,6 +619,7 @@
     "name": "Lottie Lost",
     "version": 2,
     "id": "6000070",
+    "icon": "wuthering-waves/echo/6000070.webp",
     "sets": [
       "10",
       "14"
@@ -597,6 +630,7 @@
     "name": "Diggy Duggy",
     "version": 2,
     "id": "6000071",
+    "icon": "wuthering-waves/echo/6000071.webp",
     "sets": [
       "11",
       "14"
@@ -607,6 +641,7 @@
     "name": "Chest Mimic",
     "version": 2,
     "id": "6000072",
+    "icon": "wuthering-waves/echo/6000072.webp",
     "sets": [
       "10",
       "12",
@@ -618,6 +653,7 @@
     "name": "Questless Knight",
     "version": 2,
     "id": "6000073",
+    "icon": "wuthering-waves/echo/6000073.webp",
     "sets": [
       "10",
       "12"
@@ -628,6 +664,7 @@
     "name": "Diurnus Knight",
     "version": 2,
     "id": "6000074",
+    "icon": "wuthering-waves/echo/6000074.webp",
     "sets": [
       "11",
       "14"
@@ -638,6 +675,7 @@
     "name": "Nocturnus Knight",
     "version": 2,
     "id": "6000075",
+    "icon": "wuthering-waves/echo/6000075.webp",
     "sets": [
       "12",
       "13"
@@ -648,6 +686,7 @@
     "name": "Abyssal Patricius",
     "version": 2,
     "id": "6000076",
+    "icon": "wuthering-waves/echo/6000076.webp",
     "sets": [
       "10",
       "13"
@@ -667,6 +706,7 @@
     "name": "Abyssal Gladius",
     "version": 2,
     "id": "6000077",
+    "icon": "wuthering-waves/echo/6000077.webp",
     "sets": [
       "12",
       "14",
@@ -678,6 +718,7 @@
     "name": "Abyssal Mercator",
     "version": 2,
     "id": "6000078",
+    "icon": "wuthering-waves/echo/6000078.webp",
     "sets": [
       "10",
       "11"
@@ -688,6 +729,7 @@
     "name": "Chop Chop",
     "version": 2,
     "id": "6000079",
+    "icon": "wuthering-waves/echo/6000079.webp",
     "sets": [
       "13",
       "14",
@@ -699,6 +741,7 @@
     "name": "Vitreum Dancer",
     "version": 2,
     "id": "6000080",
+    "icon": "wuthering-waves/echo/6000080.webp",
     "sets": [
       "11",
       "13"
@@ -718,6 +761,7 @@
     "name": "Cuddle Wuddle",
     "version": 2,
     "id": "6000081",
+    "icon": "wuthering-waves/echo/6000081.webp",
     "sets": [
       "10",
       "12"
@@ -728,6 +772,7 @@
     "name": "Lorelei",
     "version": 2,
     "id": "6000082",
+    "icon": "wuthering-waves/echo/6000082.webp",
     "sets": [
       "12"
     ],
@@ -759,6 +804,7 @@
     "name": "Sentry Construct",
     "version": 2,
     "id": "6000083",
+    "icon": "wuthering-waves/echo/6000083.webp",
     "sets": [
       "10"
     ],
@@ -790,6 +836,7 @@
     "name": "Dragon of Dirge",
     "version": 2,
     "id": "6000084",
+    "icon": "wuthering-waves/echo/6000084.webp",
     "sets": [
       "14"
     ],
@@ -822,6 +869,7 @@
     "name": "Hecate",
     "version": 2,
     "id": "6000085",
+    "icon": "wuthering-waves/echo/6000085.webp",
     "sets": [
       "13"
     ],
@@ -858,6 +906,7 @@
     "name": "Nightmare: Feilian Beringal",
     "version": 2,
     "id": "6000086",
+    "icon": "wuthering-waves/echo/6000086.webp",
     "sets": [
       "4"
     ],
@@ -893,6 +942,7 @@
     "name": "Nightmare: Impermanence Heron",
     "version": 2,
     "id": "6000087",
+    "icon": "wuthering-waves/echo/6000087.webp",
     "sets": [
       "12"
     ],
@@ -925,6 +975,7 @@
     "name": "Nightmare: Thundering Mephis",
     "version": 2,
     "id": "6000088",
+    "icon": "wuthering-waves/echo/6000088.webp",
     "sets": [
       "3"
     ],
@@ -956,6 +1007,7 @@
     "name": "Nightmare: Tempest Mephis",
     "version": 2,
     "id": "6000089",
+    "icon": "wuthering-waves/echo/6000089.webp",
     "sets": [
       "3",
       "13"
@@ -988,6 +1040,7 @@
     "name": "Nightmare: Crownless",
     "version": 2,
     "id": "6000090",
+    "icon": "wuthering-waves/echo/6000090.webp",
     "sets": [
       "6"
     ],
@@ -1031,6 +1084,7 @@
     "name": "Nightmare: Inferno Rider",
     "version": 2,
     "id": "6000091",
+    "icon": "wuthering-waves/echo/6000091.webp",
     "sets": [
       "2"
     ],
@@ -1062,6 +1116,7 @@
     "name": "Nightmare: Mourning Aix",
     "version": 2,
     "id": "6000092",
+    "icon": "wuthering-waves/echo/6000092.webp",
     "sets": [
       "11"
     ],
@@ -1115,6 +1170,7 @@
     "name": "Golden Junrock",
     "version": 2.1,
     "id": "6000093",
+    "icon": "wuthering-waves/echo/6000093.webp",
     "sets": [
       "10",
       "11",
@@ -1126,6 +1182,7 @@
     "name": "Calcified Junrock",
     "version": 2.1,
     "id": "6000094",
+    "icon": "wuthering-waves/echo/6000094.webp",
     "sets": [
       "13",
       "14",
@@ -1137,6 +1194,7 @@
     "name": "Aero Prism",
     "version": 2.1,
     "id": "6000095",
+    "icon": "wuthering-waves/echo/6000095.webp",
     "sets": [
       "11",
       "14"
@@ -1147,6 +1205,7 @@
     "name": "Rage Against the Statue",
     "version": 2.1,
     "id": "6000096",
+    "icon": "wuthering-waves/echo/6000096.webp",
     "sets": [
       "11",
       "16",
@@ -1158,6 +1217,7 @@
     "name": "Hurriclaw",
     "version": 2.1,
     "id": "6000097",
+    "icon": "wuthering-waves/echo/6000097.webp",
     "sets": [
       "14",
       "16",
@@ -1169,6 +1229,7 @@
     "name": "La Guardia",
     "version": 2.2,
     "id": "6000098",
+    "icon": "wuthering-waves/echo/6000098.webp",
     "sets": [
       "12",
       "16",
@@ -1180,6 +1241,7 @@
     "name": "Sagittario",
     "version": 2.2,
     "id": "6000099",
+    "icon": "wuthering-waves/echo/6000099.webp",
     "sets": [
       "11",
       "16",
@@ -1191,6 +1253,7 @@
     "name": "Sacerdos",
     "version": 2.2,
     "id": "6000100",
+    "icon": "wuthering-waves/echo/6000100.webp",
     "sets": [
       "16",
       "17"
@@ -1201,6 +1264,7 @@
     "name": "Aero Drake",
     "version": 2.2,
     "id": "6000101",
+    "icon": "wuthering-waves/echo/6000101.webp",
     "sets": [
       "14",
       "16",
@@ -1212,6 +1276,7 @@
     "name": "Electro Drake",
     "version": 2.2,
     "id": "6000102",
+    "icon": "wuthering-waves/echo/6000102.webp",
     "sets": [
       "12",
       "16",
@@ -1223,6 +1288,7 @@
     "name": "Glacio Drake",
     "version": 2.2,
     "id": "6000103",
+    "icon": "wuthering-waves/echo/6000103.webp",
     "sets": [
       "16",
       "17"
@@ -1233,6 +1299,7 @@
     "name": "Capitaneus",
     "version": 2.2,
     "id": "6000104",
+    "icon": "wuthering-waves/echo/6000104.webp",
     "sets": [
       "11",
       "16",
@@ -1270,6 +1337,7 @@
     "name": "Nightmare: Lampylumen Myriad",
     "version": 2.2,
     "id": "6000105",
+    "icon": "wuthering-waves/echo/6000105.webp",
     "sets": [
       "10",
       "13"
@@ -1313,6 +1381,7 @@
     "name": "Reminiscence: Fleurdelys",
     "version": 2.2,
     "id": "6000106",
+    "icon": "wuthering-waves/echo/6000106.webp",
     "sets": [
       "16",
       "17"
@@ -1353,6 +1422,7 @@
     "name": "Fusion Drake",
     "version": 2.4,
     "id": "6000107",
+    "icon": "wuthering-waves/echo/6000107.webp",
     "sets": [
       "17",
       "18"
@@ -1363,6 +1433,7 @@
     "name": "Spectro Drake",
     "version": 2.4,
     "id": "6000108",
+    "icon": "wuthering-waves/echo/6000108.webp",
     "sets": [
       "17",
       "18"
@@ -1373,6 +1444,7 @@
     "name": "Havoc Drake",
     "version": 2.4,
     "id": "6000109",
+    "icon": "wuthering-waves/echo/6000109.webp",
     "sets": [
       "17",
       "18",
@@ -1384,6 +1456,7 @@
     "name": "Devotee's Flesh",
     "version": 2.4,
     "id": "6000110",
+    "icon": "wuthering-waves/echo/6000110.webp",
     "sets": [
       "16",
       "17",
@@ -1395,6 +1468,7 @@
     "name": "Pilgrim's Shell",
     "version": 2.4,
     "id": "6000111",
+    "icon": "wuthering-waves/echo/6000111.webp",
     "sets": [
       "17",
       "18"
@@ -1405,6 +1479,7 @@
     "name": "Kerasaur",
     "version": 2.4,
     "id": "6000112",
+    "icon": "wuthering-waves/echo/6000112.webp",
     "sets": [
       "17",
       "18",
@@ -1438,6 +1513,7 @@
     "name": "Nightmare: Kelpie",
     "version": 2.4,
     "id": "6000113",
+    "icon": "wuthering-waves/echo/6000113.webp",
     "sets": [
       "16",
       "17"
@@ -1490,6 +1566,7 @@
     "name": "Lioness of Glory",
     "version": 2.4,
     "id": "6000114",
+    "icon": "wuthering-waves/echo/6000114.webp",
     "sets": [
       "18"
     ],
@@ -1524,6 +1601,7 @@
     "name": "Nightmare: Hecate",
     "version": 2.5,
     "id": "6000115",
+    "icon": "wuthering-waves/echo/6000115.webp",
     "sets": [
       "19"
     ],
@@ -1556,6 +1634,7 @@
     "name": "Reminiscence: Fenrico",
     "version": 2.5,
     "id": "6000116",
+    "icon": "wuthering-waves/echo/6000116.webp",
     "sets": [
       "19",
       "21"
@@ -1589,6 +1668,7 @@
     "name": "Nightmare: Havoc Warrior",
     "version": 2.5,
     "id": "6000117",
+    "icon": "wuthering-waves/echo/6000117.webp",
     "sets": [
       "19"
     ],
@@ -1598,6 +1678,7 @@
     "name": "Nightmare: Glacio Predator",
     "version": 2.5,
     "id": "6000118",
+    "icon": "wuthering-waves/echo/6000118.webp",
     "sets": [
       "19"
     ],
@@ -1607,6 +1688,7 @@
     "name": "Nightmare: Tambourinist",
     "version": 2.5,
     "id": "6000119",
+    "icon": "wuthering-waves/echo/6000119.webp",
     "sets": [
       "19"
     ],
@@ -1616,6 +1698,7 @@
     "name": "Corrosaurus",
     "version": 2.6,
     "id": "6000120",
+    "icon": "wuthering-waves/echo/6000120.webp",
     "sets": [
       "18",
       "22"
@@ -1649,6 +1732,7 @@
     "name": "The False Sovereign",
     "version": 2.6,
     "id": "6000121",
+    "icon": "wuthering-waves/echo/6000121.webp",
     "sets": [
       "20"
     ],
@@ -1700,6 +1784,7 @@
     "name": "Lady of the Sea",
     "version": 2.6,
     "id": "6000160",
+    "icon": "wuthering-waves/echo/6000160.webp",
     "sets": [
       "20"
     ],
@@ -1735,6 +1820,7 @@
     "name": "Nightmare: Violet-Feathered Heron",
     "version": 2.6,
     "id": "6000161",
+    "icon": "wuthering-waves/echo/6000161.webp",
     "sets": [
       "20"
     ],
@@ -1744,6 +1830,7 @@
     "name": "Nightmare: Cyan-Feathered Heron",
     "version": 2.6,
     "id": "6000162",
+    "icon": "wuthering-waves/echo/6000162.webp",
     "sets": [
       "21"
     ],
@@ -1753,6 +1840,7 @@
     "name": "Nightmare: Electro Predator",
     "version": 2.6,
     "id": "6000163",
+    "icon": "wuthering-waves/echo/6000163.webp",
     "sets": [
       "20"
     ],
@@ -1762,6 +1850,7 @@
     "name": "Nightmare: Aero Predator",
     "version": 2.6,
     "id": "6000164",
+    "icon": "wuthering-waves/echo/6000164.webp",
     "sets": [
       "20"
     ],
@@ -1771,6 +1860,7 @@
     "name": "Nightmare: Gulpuff",
     "version": 2.6,
     "id": "6000165",
+    "icon": "wuthering-waves/echo/6000165.webp",
     "sets": [
       "21"
     ],
@@ -1780,6 +1870,7 @@
     "name": "Nightmare: Chirpuff",
     "version": 2.6,
     "id": "6000166",
+    "icon": "wuthering-waves/echo/6000166.webp",
     "sets": [
       "21"
     ],
@@ -1789,6 +1880,7 @@
     "name": "Reminiscence: Threnodian - Leviathan",
     "version": 2.7,
     "id": "6000167",
+    "icon": "wuthering-waves/echo/6000167.webp",
     "sets": [
       "22",
       "23"
@@ -1861,6 +1953,7 @@
     "name": "Nightmare: Viridblaze Saurian",
     "version": 2.7,
     "id": "6000168",
+    "icon": "wuthering-waves/echo/6000168.webp",
     "sets": [
       "22"
     ],
@@ -1870,6 +1963,7 @@
     "name": "Nightmare: Baby Viridblaze Saurian",
     "version": 2.7,
     "id": "6000169",
+    "icon": "wuthering-waves/echo/6000169.webp",
     "sets": [
       "22"
     ],
@@ -1879,6 +1973,7 @@
     "name": "Nightmare: Baby Roseshroom",
     "version": 2.7,
     "id": "6000170",
+    "icon": "wuthering-waves/echo/6000170.webp",
     "sets": [
       "22"
     ],
@@ -1888,6 +1983,7 @@
     "name": "Nightmare: Tick Tack",
     "version": 2.8,
     "id": "6000171",
+    "icon": "wuthering-waves/echo/6000171.webp",
     "sets": [
       "23"
     ],
@@ -1897,6 +1993,7 @@
     "name": "Nightmare: Dwarf Cassowary",
     "version": 2.8,
     "id": "6000172",
+    "icon": "wuthering-waves/echo/6000172.webp",
     "sets": [
       "23"
     ],
@@ -1906,6 +2003,7 @@
     "name": "Nightmare: Roseshroom",
     "version": 2.8,
     "id": "6000173",
+    "icon": "wuthering-waves/echo/6000173.webp",
     "sets": [
       "23"
     ],
@@ -1915,6 +2013,7 @@
     "name": "Tremor Warrior",
     "version": 3,
     "id": "6000174",
+    "icon": "wuthering-waves/echo/6000174.webp",
     "sets": [
       "25",
       "28",
@@ -1926,6 +2025,7 @@
     "name": "Flora Drone",
     "version": 3,
     "id": "6000175",
+    "icon": "wuthering-waves/echo/6000175.webp",
     "sets": [
       "24",
       "26",
@@ -1938,6 +2038,7 @@
     "name": "Mining Drone",
     "version": 3,
     "id": "6000176",
+    "icon": "wuthering-waves/echo/6000176.webp",
     "sets": [
       "25",
       "26",
@@ -1950,6 +2051,7 @@
     "name": "Geospider S4",
     "version": 3,
     "id": "6000177",
+    "icon": "wuthering-waves/echo/6000177.webp",
     "sets": [
       "24",
       "25",
@@ -1961,6 +2063,7 @@
     "name": "Zip Zap",
     "version": 3,
     "id": "6000178",
+    "icon": "wuthering-waves/echo/6000178.webp",
     "sets": [
       "24",
       "26",
@@ -1973,6 +2076,7 @@
     "name": "Twin Nova: Nebulous Cannon",
     "version": 3,
     "id": "6000179",
+    "icon": "wuthering-waves/echo/6000179.webp",
     "sets": [
       "26",
       "28"
@@ -1995,6 +2099,7 @@
     "name": "Twin Nova: Collapsar Blade",
     "version": 3,
     "id": "6000180",
+    "icon": "wuthering-waves/echo/6000180.webp",
     "sets": [
       "26",
       "27",
@@ -2018,6 +2123,7 @@
     "name": "Flora Reindeer",
     "version": 3,
     "id": "6000181",
+    "icon": "wuthering-waves/echo/6000181.webp",
     "sets": [
       "26",
       "31"
@@ -2028,6 +2134,7 @@
     "name": "Mining Reindeer",
     "version": 3,
     "id": "6000182",
+    "icon": "wuthering-waves/echo/6000182.webp",
     "sets": [
       "24",
       "31"
@@ -2038,6 +2145,7 @@
     "name": "Ironhoof",
     "version": 3,
     "id": "6000183",
+    "icon": "wuthering-waves/echo/6000183.webp",
     "sets": [
       "24",
       "30",
@@ -2049,6 +2157,7 @@
     "name": "Spacetrek Explorer",
     "version": 3,
     "id": "6000184",
+    "icon": "wuthering-waves/echo/6000184.webp",
     "sets": [
       "25",
       "28",
@@ -2060,6 +2169,7 @@
     "name": "Sabercat Reaver",
     "version": 3,
     "id": "6000185",
+    "icon": "wuthering-waves/echo/6000185.webp",
     "sets": [
       "24",
       "25",
@@ -2071,6 +2181,7 @@
     "name": "Sabercat Prowler",
     "version": 3,
     "id": "6000186",
+    "icon": "wuthering-waves/echo/6000186.webp",
     "sets": [
       "24",
       "25",
@@ -2082,6 +2193,7 @@
     "name": "Frostbite Coleoid",
     "version": 3,
     "id": "6000187",
+    "icon": "wuthering-waves/echo/6000187.webp",
     "sets": [
       "25",
       "30"
@@ -2092,6 +2204,7 @@
     "name": "Windlash Coleoid",
     "version": 3,
     "id": "6000188",
+    "icon": "wuthering-waves/echo/6000188.webp",
     "sets": [
       "26",
       "30"
@@ -2102,6 +2215,7 @@
     "name": "Hyvatia",
     "version": 3,
     "id": "6000189",
+    "icon": "wuthering-waves/echo/6000189.webp",
     "sets": [
       "24",
       "26"
@@ -2168,6 +2282,7 @@
     "name": "Reactor Husk",
     "version": 3,
     "id": "6000190",
+    "icon": "wuthering-waves/echo/6000190.webp",
     "sets": [
       "25",
       "28"
@@ -2190,6 +2305,7 @@
     "name": "Sigillum",
     "version": 3.1,
     "id": "6000191",
+    "icon": "wuthering-waves/echo/6000191.webp",
     "sets": [
       "27"
     ],
@@ -2226,6 +2342,7 @@
     "name": "Nameless Explorer",
     "version": 3.1,
     "id": "6000192",
+    "icon": "wuthering-waves/echo/6000192.webp",
     "sets": [
       "29",
       "31"
@@ -2248,6 +2365,7 @@
     "name": "Kronablight",
     "version": 3.1,
     "id": "6000193",
+    "icon": "wuthering-waves/echo/6000193.webp",
     "sets": [
       "27",
       "28"
@@ -2258,6 +2376,7 @@
     "name": "Reminiscence: Kronaclaw",
     "version": 3.1,
     "id": "6000194",
+    "icon": "wuthering-waves/echo/6000194.webp",
     "sets": [
       "27",
       "28"
@@ -2268,6 +2387,7 @@
     "name": "Glommoth",
     "version": 3.1,
     "id": "6000195",
+    "icon": "wuthering-waves/echo/6000195.webp",
     "sets": [
       "27",
       "30"
@@ -2309,6 +2429,7 @@
     "name": "Iceglint Dancer",
     "version": 3.1,
     "id": "6000196",
+    "icon": "wuthering-waves/echo/6000196.webp",
     "sets": [
       "27",
       "30",
@@ -2320,6 +2441,7 @@
     "name": "Shadow Stepper",
     "version": 3.1,
     "id": "6000197",
+    "icon": "wuthering-waves/echo/6000197.webp",
     "sets": [
       "27",
       "28",
@@ -2331,6 +2453,7 @@
     "name": "Voidwing Moth",
     "version": 3.3,
     "id": "6000198",
+    "icon": "wuthering-waves/echo/6000198.webp",
     "sets": [
       "31"
     ],
@@ -2352,6 +2475,7 @@
     "name": "Reminiscence: Threnodian - Voidborne Construct",
     "version": 3.3,
     "id": "6000199",
+    "icon": "wuthering-waves/echo/6000199.webp",
     "sets": [
       "30"
     ],
@@ -2387,6 +2511,7 @@
     "name": "Reminiscence: Denia",
     "version": 3.3,
     "id": "6000200",
+    "icon": "wuthering-waves/echo/6000200.webp",
     "sets": [
       "28"
     ],
@@ -2448,6 +2573,7 @@
     "name": "Reminiscence - Nightmare: Adam Smasher",
     "version": 3.4,
     "id": "6000201",
+    "icon": "wuthering-waves/echo/6000201.webp",
     "sets": [
       "32"
     ],
@@ -2525,6 +2651,7 @@
     "name": "Smiter",
     "version": 3.5,
     "id": "6000202",
+    "icon": "wuthering-waves/echo/6000202.webp",
     "sets": [
       "33"
     ],
@@ -2534,6 +2661,7 @@
     "name": "Porcelain Picket",
     "version": 3.5,
     "id": "6000203",
+    "icon": "wuthering-waves/echo/6000203.webp",
     "sets": [
       "35"
     ],
@@ -2543,6 +2671,7 @@
     "name": "Stone Picket",
     "version": 3.5,
     "id": "6000204",
+    "icon": "wuthering-waves/echo/6000204.webp",
     "sets": [
       "35"
     ],
@@ -2552,6 +2681,7 @@
     "name": "Aureate Picket",
     "version": 3.5,
     "id": "6000205",
+    "icon": "wuthering-waves/echo/6000205.webp",
     "sets": [
       "34"
     ],
@@ -2561,6 +2691,7 @@
     "name": "Kernel Puppet: Joy",
     "version": 3.5,
     "id": "6000206",
+    "icon": "wuthering-waves/echo/6000206.webp",
     "sets": [
       "33"
     ],
@@ -2570,6 +2701,7 @@
     "name": "Kernel Puppet: Anger",
     "version": 3.5,
     "id": "6000207",
+    "icon": "wuthering-waves/echo/6000207.webp",
     "sets": [
       "34"
     ],
@@ -2579,6 +2711,7 @@
     "name": "Kernel Puppet: Worry",
     "version": 3.5,
     "id": "6000208",
+    "icon": "wuthering-waves/echo/6000208.webp",
     "sets": [
       "34"
     ],
@@ -2588,6 +2721,7 @@
     "name": "Kernel Puppet: Reflection",
     "version": 3.5,
     "id": "6000209",
+    "icon": "wuthering-waves/echo/6000209.webp",
     "sets": [
       "34"
     ],
@@ -2597,6 +2731,7 @@
     "name": "Kernel Puppet: Grief",
     "version": 3.5,
     "id": "6000210",
+    "icon": "wuthering-waves/echo/6000210.webp",
     "sets": [
       "35"
     ],
@@ -2606,6 +2741,7 @@
     "name": "Kernel Puppet: Fright",
     "version": 3.5,
     "id": "6000211",
+    "icon": "wuthering-waves/echo/6000211.webp",
     "sets": [
       "35"
     ],
@@ -2615,6 +2751,7 @@
     "name": "Fog Lionarch: Body",
     "version": 3.5,
     "id": "6000212",
+    "icon": "wuthering-waves/echo/6000212.webp",
     "sets": [
       "33"
     ],
@@ -2624,6 +2761,7 @@
     "name": "Fog Lionarch: Head",
     "version": 3.5,
     "id": "6000213",
+    "icon": "wuthering-waves/echo/6000213.webp",
     "sets": [
       "33"
     ],
@@ -2633,6 +2771,7 @@
     "name": "Smolder",
     "version": 3.5,
     "id": "6000214",
+    "icon": "wuthering-waves/echo/6000214.webp",
     "sets": [
       "33"
     ],
@@ -2642,6 +2781,7 @@
     "name": "Fog Lionarch",
     "version": 3.5,
     "id": "6000215",
+    "icon": "wuthering-waves/echo/6000215.webp",
     "sets": [
       "33",
       "34",
@@ -2653,6 +2793,7 @@
     "name": "Forbidden Bastion",
     "version": 3.5,
     "id": "6000216",
+    "icon": "wuthering-waves/echo/6000216.webp",
     "sets": [
       "33",
       "34",
@@ -2685,6 +2826,7 @@
     "name": "Myriad Snare: Rustfire Chassis",
     "version": 3.5,
     "id": "6000217",
+    "icon": "wuthering-waves/echo/6000217.webp",
     "sets": [
       "34",
       "35"
@@ -2722,6 +2864,7 @@
     "name": "Thousand-Puppet Pavilion",
     "version": 3.5,
     "id": "6000218",
+    "icon": "wuthering-waves/echo/6000218.webp",
     "sets": [
       "33"
     ],
@@ -2791,6 +2934,7 @@
     "name": "Calamity Effigy",
     "version": 3.6,
     "id": "6000221",
+    "icon": "wuthering-waves/echo/6000221.webp",
     "sets": [
       "34",
       "35"
@@ -2840,6 +2984,7 @@
     "name": "Vanguard Junrock",
     "version": 1,
     "id": "390070051",
+    "icon": "wuthering-waves/echo/390070051.webp",
     "sets": [
       "3",
       "7",
@@ -2851,6 +2996,7 @@
     "name": "Fission Junrock",
     "version": 1,
     "id": "390070052",
+    "icon": "wuthering-waves/echo/390070052.webp",
     "sets": [
       "3",
       "7",
@@ -2862,6 +3008,7 @@
     "name": "Electro Predator",
     "version": 1,
     "id": "390070053",
+    "icon": "wuthering-waves/echo/390070053.webp",
     "sets": [
       "2",
       "3"
@@ -2872,6 +3019,7 @@
     "name": "Fusion Warrior",
     "version": 1,
     "id": "390070064",
+    "icon": "wuthering-waves/echo/390070064.webp",
     "sets": [
       "2",
       "3",
@@ -2883,6 +3031,7 @@
     "name": "Havoc Warrior",
     "version": 1,
     "id": "390070065",
+    "icon": "wuthering-waves/echo/390070065.webp",
     "sets": [
       "5",
       "6"
@@ -2893,6 +3042,7 @@
     "name": "Snip Snap",
     "version": 1,
     "id": "390070066",
+    "icon": "wuthering-waves/echo/390070066.webp",
     "sets": [
       "2",
       "7",
@@ -2904,6 +3054,7 @@
     "name": "Zig Zag",
     "version": 1,
     "id": "390070067",
+    "icon": "wuthering-waves/echo/390070067.webp",
     "sets": [
       "5",
       "8",
@@ -2915,6 +3066,7 @@
     "name": "Whiff Whaff",
     "version": 1,
     "id": "390070068",
+    "icon": "wuthering-waves/echo/390070068.webp",
     "sets": [
       "4",
       "7",
@@ -2926,6 +3078,7 @@
     "name": "Tick Tack",
     "version": 1,
     "id": "390070069",
+    "icon": "wuthering-waves/echo/390070069.webp",
     "sets": [
       "6",
       "7",
@@ -2937,6 +3090,7 @@
     "name": "Glacio Predator",
     "version": 1,
     "id": "390070070",
+    "icon": "wuthering-waves/echo/390070070.webp",
     "sets": [
       "1",
       "5"
@@ -2947,6 +3101,7 @@
     "name": "Aero Predator",
     "version": 1,
     "id": "390070071",
+    "icon": "wuthering-waves/echo/390070071.webp",
     "sets": [
       "3",
       "4"
@@ -2957,6 +3112,7 @@
     "name": "Cruisewing",
     "version": 1,
     "id": "390070074",
+    "icon": "wuthering-waves/echo/390070074.webp",
     "sets": [
       "5",
       "7",
@@ -2968,6 +3124,7 @@
     "name": "Sabyr Boar",
     "version": 1,
     "id": "390070075",
+    "icon": "wuthering-waves/echo/390070075.webp",
     "sets": [
       "1",
       "4",
@@ -2979,6 +3136,7 @@
     "name": "Gulpuff",
     "version": 1,
     "id": "390070076",
+    "icon": "wuthering-waves/echo/390070076.webp",
     "sets": [
       "1",
       "5"
@@ -2989,6 +3147,7 @@
     "name": "Excarat",
     "version": 1,
     "id": "390070077",
+    "icon": "wuthering-waves/echo/390070077.webp",
     "sets": [
       "1",
       "6"
@@ -2999,6 +3158,7 @@
     "name": "Baby Viridblaze Saurian",
     "version": 1,
     "id": "390070078",
+    "icon": "wuthering-waves/echo/390070078.webp",
     "sets": [
       "2",
       "3",
@@ -3010,6 +3170,7 @@
     "name": "Baby Roseshroom",
     "version": 1,
     "id": "390070079",
+    "icon": "wuthering-waves/echo/390070079.webp",
     "sets": [
       "4",
       "6"
@@ -3020,6 +3181,7 @@
     "name": "Fusion Dreadmane",
     "version": 1,
     "id": "390070100",
+    "icon": "wuthering-waves/echo/390070100.webp",
     "sets": [
       "2",
       "7"
@@ -3030,6 +3192,7 @@
     "name": "Hoartoise",
     "version": 1,
     "id": "390070105",
+    "icon": "wuthering-waves/echo/390070105.webp",
     "sets": [
       "1",
       "5"
@@ -3040,6 +3203,7 @@
     "name": "Violet-Feathered Heron",
     "version": 1,
     "id": "390077004",
+    "icon": "wuthering-waves/echo/390077004.webp",
     "sets": [
       "2",
       "3"
@@ -3050,6 +3214,7 @@
     "name": "Cyan-Feathered Heron",
     "version": 1,
     "id": "390077005",
+    "icon": "wuthering-waves/echo/390077005.webp",
     "sets": [
       "4",
       "5"
@@ -3060,6 +3225,7 @@
     "name": "Fusion Prism",
     "version": 1,
     "id": "390077012",
+    "icon": "wuthering-waves/echo/390077012.webp",
     "sets": [
       "1",
       "2",
@@ -3071,6 +3237,7 @@
     "name": "Glacio Prism",
     "version": 1,
     "id": "390077013",
+    "icon": "wuthering-waves/echo/390077013.webp",
     "sets": [
       "1",
       "6",
@@ -3082,6 +3249,7 @@
     "name": "Spectro Prism",
     "version": 1,
     "id": "390077016",
+    "icon": "wuthering-waves/echo/390077016.webp",
     "sets": [
       "2",
       "3",
@@ -3093,6 +3261,7 @@
     "name": "Havoc Prism",
     "version": 1,
     "id": "390077017",
+    "icon": "wuthering-waves/echo/390077017.webp",
     "sets": [
       "3",
       "5",
@@ -3104,6 +3273,7 @@
     "name": "Stonewall Bracer",
     "version": 1,
     "id": "390077021",
+    "icon": "wuthering-waves/echo/390077021.webp",
     "sets": [
       "7",
       "8"
@@ -3114,6 +3284,7 @@
     "name": "Flautist",
     "version": 1,
     "id": "390077022",
+    "icon": "wuthering-waves/echo/390077022.webp",
     "sets": [
       "3",
       "9"
@@ -3124,6 +3295,7 @@
     "name": "Tambourinist",
     "version": 1,
     "id": "390077023",
+    "icon": "wuthering-waves/echo/390077023.webp",
     "sets": [
       "1",
       "6"
@@ -3134,6 +3306,7 @@
     "name": "Rocksteady Guardian",
     "version": 1,
     "id": "390077024",
+    "icon": "wuthering-waves/echo/390077024.webp",
     "sets": [
       "5",
       "7"
@@ -3144,6 +3317,7 @@
     "name": "Chasm Guardian",
     "version": 1,
     "id": "390077025",
+    "icon": "wuthering-waves/echo/390077025.webp",
     "sets": [
       "7",
       "9"
@@ -3154,6 +3328,7 @@
     "name": "Viridblaze Saurian",
     "version": 1,
     "id": "390077028",
+    "icon": "wuthering-waves/echo/390077028.webp",
     "sets": [
       "2",
       "8"
@@ -3164,6 +3339,7 @@
     "name": "Roseshroom",
     "version": 1,
     "id": "390077029",
+    "icon": "wuthering-waves/echo/390077029.webp",
     "sets": [
       "1",
       "6"
@@ -3174,6 +3350,7 @@
     "name": "Havoc Dreadmane",
     "version": 1,
     "id": "390077033",
+    "icon": "wuthering-waves/echo/390077033.webp",
     "sets": [
       "2",
       "6"
@@ -3184,6 +3361,7 @@
     "name": "Spearback",
     "version": 1,
     "id": "390077038",
+    "icon": "wuthering-waves/echo/390077038.webp",
     "sets": [
       "8",
       "9"
@@ -3194,6 +3372,7 @@
     "name": "Thundering Mephis",
     "version": 1,
     "id": "390080003",
+    "icon": "wuthering-waves/echo/390080003.webp",
     "sets": [
       "3"
     ],
@@ -3215,6 +3394,7 @@
     "name": "Bell-Borne Geochelone",
     "version": 1,
     "id": "390080005",
+    "icon": "wuthering-waves/echo/390080005.webp",
     "sets": [
       "7",
       "8"
@@ -3248,6 +3428,7 @@
     "name": "Inferno Rider",
     "version": 1,
     "id": "390080007",
+    "icon": "wuthering-waves/echo/390080007.webp",
     "sets": [
       "2"
     ],

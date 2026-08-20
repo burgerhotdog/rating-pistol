@@ -3,6 +3,7 @@
     "name": "Freezing Frost",
     "version": 1,
     "id": "1",
+    "icon": "wuthering-waves/set/1.webp",
     "bonuses": [
       2,
       5
@@ -43,6 +44,7 @@
     "name": "Molten Rift",
     "version": 1,
     "id": "2",
+    "icon": "wuthering-waves/set/2.webp",
     "bonuses": [
       2,
       5
@@ -79,6 +81,7 @@
     "name": "Void Thunder",
     "version": 1,
     "id": "3",
+    "icon": "wuthering-waves/set/3.webp",
     "bonuses": [
       2,
       5
@@ -132,6 +135,7 @@
     "name": "Sierra Gale",
     "version": 1,
     "id": "4",
+    "icon": "wuthering-waves/set/4.webp",
     "bonuses": [
       2,
       5
@@ -168,6 +172,7 @@
     "name": "Celestial Light",
     "version": 1,
     "id": "5",
+    "icon": "wuthering-waves/set/5.webp",
     "bonuses": [
       2,
       5
@@ -204,6 +209,7 @@
     "name": "Havoc Eclipse",
     "version": 1,
     "id": "6",
+    "icon": "wuthering-waves/set/6.webp",
     "bonuses": [
       2,
       5
@@ -244,6 +250,7 @@
     "name": "Rejuvenating Glow",
     "version": 1,
     "id": "7",
+    "icon": "wuthering-waves/set/7.webp",
     "bonuses": [
       2,
       5
@@ -281,6 +288,7 @@
     "name": "Moonlit Clouds",
     "version": 1,
     "id": "8",
+    "icon": "wuthering-waves/set/8.webp",
     "bonuses": [
       2,
       5
@@ -318,6 +326,7 @@
     "name": "Lingering Tunes",
     "version": 1,
     "id": "9",
+    "icon": "wuthering-waves/set/9.webp",
     "bonuses": [
       2,
       5
@@ -374,6 +383,7 @@
     "name": "Frosty Resolve",
     "version": 2,
     "id": "10",
+    "icon": "wuthering-waves/set/10.webp",
     "bonuses": [
       2,
       5
@@ -429,6 +439,7 @@
     "name": "Eternal Radiance",
     "version": 2,
     "id": "11",
+    "icon": "wuthering-waves/set/11.webp",
     "bonuses": [
       2,
       5
@@ -501,6 +512,7 @@
     "name": "Midnight Veil",
     "version": 2,
     "id": "12",
+    "icon": "wuthering-waves/set/12.webp",
     "bonuses": [
       2,
       5
@@ -560,6 +572,7 @@
     "name": "Empyrean Anthem",
     "version": 2,
     "id": "13",
+    "icon": "wuthering-waves/set/13.webp",
     "bonuses": [
       2,
       5
@@ -613,6 +626,7 @@
     "name": "Tidebreaking Courage",
     "version": 2,
     "id": "14",
+    "icon": "wuthering-waves/set/14.webp",
     "bonuses": [
       2,
       5
@@ -655,6 +669,7 @@
     "name": "Gusts of Welkin",
     "version": 2.2,
     "id": "16",
+    "icon": "wuthering-waves/set/16.webp",
     "bonuses": [
       2,
       5
@@ -717,6 +732,7 @@
     "name": "Windward Pilgrimage",
     "version": 2.4,
     "id": "17",
+    "icon": "wuthering-waves/set/17.webp",
     "bonuses": [
       2,
       5
@@ -765,6 +781,7 @@
     "name": "Flaming Clawprint",
     "version": 2.4,
     "id": "18",
+    "icon": "wuthering-waves/set/18.webp",
     "bonuses": [
       2,
       5
@@ -819,6 +836,7 @@
     "name": "Dream of the Lost",
     "version": 2.5,
     "id": "19",
+    "icon": "wuthering-waves/set/19.webp",
     "bonuses": [
       3
     ],
@@ -841,6 +859,7 @@
     "name": "Crown of Valor",
     "version": 2.6,
     "id": "20",
+    "icon": "wuthering-waves/set/20.webp",
     "bonuses": [
       3
     ],
@@ -871,6 +890,7 @@
     "name": "Law of Harmony",
     "version": 2.6,
     "id": "21",
+    "icon": "wuthering-waves/set/21.webp",
     "bonuses": [
       3
     ],
@@ -931,6 +951,7 @@
     "name": "Flamewing's Shadow",
     "version": 2.7,
     "id": "22",
+    "icon": "wuthering-waves/set/22.webp",
     "bonuses": [
       3
     ],
@@ -1015,6 +1036,7 @@
     "name": "Thread of Severed Fate",
     "version": 2.8,
     "id": "23",
+    "icon": "wuthering-waves/set/23.webp",
     "bonuses": [
       3
     ],
@@ -1047,6 +1069,7 @@
     "name": "Pact of Neonlight Leap",
     "version": 3,
     "id": "24",
+    "icon": "wuthering-waves/set/24.webp",
     "bonuses": [
       2,
       5
@@ -1119,6 +1142,7 @@
     "name": "Halo of Starry Radiance",
     "version": 3,
     "id": "25",
+    "icon": "wuthering-waves/set/25.webp",
     "bonuses": [
       2,
       5
@@ -1161,6 +1185,7 @@
     "name": "Rite of Gilded Revelation",
     "version": 3,
     "id": "26",
+    "icon": "wuthering-waves/set/26.webp",
     "bonuses": [
       2,
       5
@@ -1223,6 +1248,7 @@
     "name": "Trailblazing Star",
     "version": 3.1,
     "id": "27",
+    "icon": "wuthering-waves/set/27.webp",
     "bonuses": [
       2,
       5
@@ -1273,6 +1299,7 @@
     "name": "Chromatic Foam",
     "version": 3.1,
     "id": "28",
+    "icon": "wuthering-waves/set/28.webp",
     "bonuses": [
       2,
       5
@@ -1341,6 +1368,7 @@
     "name": "Sound of True Name",
     "version": 3.1,
     "id": "29",
+    "icon": "wuthering-waves/set/29.webp",
     "bonuses": [
       2,
       5
@@ -1405,6 +1433,7 @@
     "name": "Wishes of Quiet Snowfall",
     "version": 3.3,
     "id": "30",
+    "icon": "wuthering-waves/set/30.webp",
     "bonuses": [
       2,
       5
@@ -1554,6 +1583,7 @@
     "name": "Reel of Spliced Memories",
     "version": 3.3,
     "id": "31",
+    "icon": "wuthering-waves/set/31.webp",
     "bonuses": [
       2,
       5
@@ -1596,6 +1626,7 @@
     "name": "Shadow of Shattered Dreams",
     "version": 3.4,
     "id": "32",
+    "icon": "wuthering-waves/set/32.webp",
     "bonuses": [
       1
     ],
@@ -1626,6 +1657,7 @@
     "name": "Song of Feathered Trace",
     "version": 3.5,
     "id": "33",
+    "icon": "wuthering-waves/set/33.webp",
     "bonuses": [
       2,
       5
@@ -1694,6 +1726,7 @@
     "name": "Heart of Evil's Purge",
     "version": 3.5,
     "id": "34",
+    "icon": "wuthering-waves/set/34.webp",
     "bonuses": [
       2,
       5
@@ -1733,6 +1766,7 @@
     "name": "Lamp of Nether Road",
     "version": 3.5,
     "id": "35",
+    "icon": "wuthering-waves/set/35.webp",
     "bonuses": [
       2,
       5

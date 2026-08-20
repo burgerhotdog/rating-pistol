@@ -29,7 +29,6 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
 
   const entries = useMemo(
     () => Object.values(CHARACTER[gameId])
-      .map((char) => ({ ...char, icon: `${gameId}/character/${char.id}.webp` }))
       .sort((a, b) =>
         b.quality - a.quality ||
         b.version - a.version ||
