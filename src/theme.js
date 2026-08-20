@@ -20,6 +20,11 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiAvatar: {
+      defaultProps: {
+        alt: '',
+      },
+    },
     MuiButton: {
       defaultProps: {
         size: 'small',

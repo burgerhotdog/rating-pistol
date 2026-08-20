@@ -12,9 +12,7 @@ import { GI, WW, WEAPON, SET, ECHO } from '@/data';
 
 const ICON_SIZE = 24;
 
-const Icon = ({ src }) => (
-  <img src={src} alt="" width={ICON_SIZE} height={ICON_SIZE} />
-);
+const Icon = ({ src }) => <img src={src} alt="" width={ICON_SIZE} height={ICON_SIZE} />;
 
 const renderOption = (props, option) => {
   const { key, ...optionProps } = props;
@@ -56,7 +54,7 @@ export const Autocomplete = ({ options, value, label, onChange, ...props }) => {
   );
 };
 
-export const MultiAutocomplete = ({
+const MultiAutocomplete = ({
   options,
   value,
   label,
@@ -70,14 +68,16 @@ export const MultiAutocomplete = ({
       return (
         <Chip
           key={key}
-          avatar={<Avatar src={option.iconSrc} alt="" />}
-          label={`(${option.bonus}) ${option.name}`}
+          avatar={<Avatar src={option.iconSrc} />}
+          label={option.bonus}
           {...tagProps}
         />
       );
     });
 
-  const renderInput = (params) => <TextField {...params} label={label} />;
+  const renderInput = (params) => (
+    <TextField {...params} label={label} />
+  );
 
   return (
     <MuiAutocomplete
@@ -116,57 +116,37 @@ export const WeapAutocomplete = ({ gameId, type, selected, ...props }) => {
   );
 };
 
-function buildOptions(gameId, maxBonus) {
-  const options = [];
-  for (let bonus = maxBonus; bonus > 0; bonus--) {
-    for (const setId in SET[gameId]) {
-      const set = SET[gameId][setId];
-      if (set.bonuses.includes(bonus)) {
-        options.push({
-          id: setId,
-          name: set.name,
-          iconSrc: `${gameId}/set/${setId}.webp`,
-          bonus,
-        });
-      }
-    }
-  }
-
-  return options.sort((a, b) => b.bonus - a.bonus || a.name.localeCompare(b.name));
-}
-
-function highestActiveBonus(bonuses, count) {
-  return bonuses
-    .filter((bonus) => bonus <= count)
-    .sort((a, b) => b - a)[0];
-}
-
 export const SetAutocomplete = ({ gameId, setCounts, onChange, ...props }) => {
   const numUsedPieces = Object.values(setCounts).reduce((acc, count) => acc + count, 0);
   const totalPieces = gameId === GI || gameId === WW ? 5 : 6;
   const maxBonus = totalPieces - numUsedPieces;
 
-  const options = useMemo(
-    () => buildOptions(gameId, maxBonus),
-    [gameId, maxBonus],
-  );
-
-  const value = useMemo(() => {
-    const selected = [];
-    for (const [setId, count] of Object.entries(setCounts)) {
-      const set = SET[gameId][setId];
-      if (!set) continue;
-      const bonus = highestActiveBonus(set.bonuses, count);
-      if (bonus === undefined) continue;
-      selected.push({
-        id: setId,
-        name: set.name,
-        iconSrc: `${gameId}/set/${setId}.webp`,
-        bonus,
-      });
+  const options = useMemo(() => {
+    const options = [];
+    for (let bonus = maxBonus; bonus > 0; bonus--) {
+      for (const [id, { version, name, bonuses }] of Object.entries(SET[gameId])) {
+        if (!bonuses.includes(bonus)) continue;
+        const iconSrc = `${gameId}/set/${id}.webp`;
+        options.push({ id, bonus, version, name, iconSrc });
+      }
     }
-    return selected;
-  }, [gameId, setCounts]);
+
+    return options.sort((a, b) =>
+      b.bonus - a.bonus ||
+      b.version - a.version ||
+      Number(b.id) - Number(a.id)
+    );
+  }, [gameId, maxBonus]);
+
+  const value = useMemo(
+    () => Object.entries(setCounts)
+      .map(([id, bonus]) => ({ id, bonus,
+        name: SET[gameId][id].name,
+        iconSrc: `${gameId}/set/${id}.webp`,
+      }))
+      .sort((a, b) => Number(b.id) - Number(a.id)),
+    [gameId, setCounts],
+  );
 
   const handleChange = (newValue) => {
     const nextCounts = { ...setCounts };

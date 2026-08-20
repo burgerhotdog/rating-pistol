@@ -1,31 +1,26 @@
 import { SET } from '@/data';
 import { getDefaultWeapRank } from '@/utils';
 
-function getSetCounts(gameId, equipList) {
-  const setData = SET[gameId];
-  const setCounts = {};
-
+function buildSetCounts(gameId, equipList) {
+  // Tally set ids in equipList
+  const setTallys = {};
   for (const equip of equipList) {
-    if (!equip) continue;
-
-    const { setId } = equip;
-    if (!setId) continue;
-    
-    setCounts[setId] = (setCounts[setId] ?? 0) + 1;
+    const id = equip?.setId;
+    if (!id) continue;
+    setTallys[id] = (setTallys[id] ?? 0) + 1;
   }
 
-  const resolved = {};
-
-  for (const [setId, count] of Object.entries(setCounts)) {
-    const { bonuses = [] } = setData[setId];
-
-    for (const tier of bonuses) {
-      if (tier > count) continue;
-      resolved[setId] = tier;
+  // Resolve tally against set bonuses
+  const setCounts = {};
+  for (const [id, tally] of Object.entries(setTallys)) {
+    const bonuses = SET[gameId][id]?.bonuses ?? [];
+    for (const bonus of bonuses.sort((a, b) => a - b)) {
+      if (bonus > tally) break;
+      setCounts[id] = bonus;
     }
   }
 
-  return resolved;
+  return setCounts;
 }
 
 export function applyStoredBuild(gameId, member, storedBuild) {
@@ -41,7 +36,7 @@ export function applyStoredBuild(gameId, member, storedBuild) {
   }
 
   if ('equipList' in storedBuild) {
-    next.setCounts = getSetCounts(gameId, storedBuild.equipList);
+    next.setCounts = buildSetCounts(gameId, storedBuild.equipList);
   }
 
   if ('mainEcho' in storedBuild) {

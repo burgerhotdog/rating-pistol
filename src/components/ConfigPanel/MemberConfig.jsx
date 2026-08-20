@@ -30,77 +30,6 @@ import {
 import { useBuild } from '@/contexts';
 import { CharacterSelectDialog } from './GridSelect';
 
-function PickerButton({ imageUrl, name, onClick, onClear, disabled = false }) {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <Box
-      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <Box sx={{ position: 'relative' }}>
-        <Card sx={{ width: 80 }}>
-          <CardActionArea onClick={onClick} disabled={disabled}>
-            {imageUrl ? (
-              <CardMedia
-                image={imageUrl}
-                title={name}
-                sx={{ width: 80, height: 80 }}
-              />
-            ) : (
-              <Box
-                sx={{
-                  width: 80,
-                  height: 80,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  bgcolor: 'action.hover',
-                }}
-              >
-                <Typography
-                  variant="caption"
-                  color="textSecondary"
-                  sx={{ textAlign: 'center' }}
-                >
-                  None
-                </Typography>
-              </Box>
-            )}
-          </CardActionArea>
-        </Card>
-
-        {hovered && onClear && !disabled && (name || imageUrl) && (
-          <IconButton
-            onClick={(e) => { e.stopPropagation(); onClear(); }}
-            sx={{
-              position: 'absolute',
-              top: -6,
-              right: -6,
-              bgcolor: 'background.paper',
-              border: '1px solid',
-              borderColor: 'divider',
-              width: 18,
-              height: 18,
-              '&:hover': { bgcolor: 'error.main', color: '#fff', borderColor: 'error.main' },
-            }}
-          >
-            <CloseIcon sx={{ fontSize: 11 }} />
-          </IconButton>
-        )}
-      </Box>
-      <Typography
-        variant="caption"
-        color={disabled && "textDisabled"}
-        noWrap
-        sx={{ maxWidth: 80 }}
-      >
-        {name ?? '—'}
-      </Typography>
-    </Box>
-  );
-}
-
 export const MemberConfig = ({ member, onChange }) => {
   const { gameId, charId } = useParams();
   const allBuilds = useBuild().getBuilds(gameId);
@@ -126,25 +55,67 @@ export const MemberConfig = ({ member, onChange }) => {
     }
   };
 
+  const [hovered, setHovered] = useState(false);
+
   return (
     <>
       <Card sx={{ width: 300 }}>
         <CardContent component={Stack} spacing={2}>
-          <PickerButton
-            imageUrl={`${gameId}/character/${member.id}.webp`}
-            name={memberData?.name ?? null}
-            onClick={() => setCharDialogOpen(true)}
-            onClear={() => onChange({
-              ...member,
-              id: null,
-              rank: null,
-              weaponId: null,
-              weaponRank: null,
-              setCounts: {},
-              rotation: [],
-              useUserBuild: false,
-            })}
-          />
+          <Box
+            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            <Box sx={{ position: 'relative' }}>
+              <Card sx={{ width: 80 }}>
+                <CardActionArea onClick={() => setCharDialogOpen(true)}>
+                  <CardMedia
+                    image={`${gameId}/character/${member.id}.webp`}
+                    title={memberData?.name ?? null}
+                    sx={{ width: 80, height: 80 }}
+                  />
+                </CardActionArea>
+              </Card>
+
+              {hovered && (
+                <IconButton
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onChange({
+                      ...member,
+                      id: null,
+                      rank: null,
+                      weaponId: null,
+                      weaponRank: null,
+                      setCounts: {},
+                      rotation: [],
+                      useUserBuild: false,
+                    });
+                  }}
+                  sx={{
+                    position: 'absolute',
+                    top: -6,
+                    right: -6,
+                    bgcolor: 'background.paper',
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    width: 18,
+                    height: 18,
+                    '&:hover': {
+                      bgcolor: 'error.main',
+                      color: '#fff',
+                      borderColor: 'error.main',
+                    },
+                  }}
+                >
+                  <CloseIcon sx={{ fontSize: 11 }} />
+                </IconButton>
+              )}
+            </Box>
+            <Typography variant="caption">
+              {memberData?.name ?? '—'}
+            </Typography>
+          </Box>
 
           {showToggle && (
             <FormControlLabel
