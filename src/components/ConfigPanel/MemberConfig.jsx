@@ -28,7 +28,7 @@ import {
   applyStoredBuild,
 } from '@/utils';
 import { useBuild } from '@/contexts';
-import { CharacterSelectDialog } from './GridSelect';
+import CharacterSelect from './CharacterSelect';
 
 export const MemberConfig = ({ member, onChange }) => {
   const { gameId, charId } = useParams();
@@ -135,6 +135,7 @@ export const MemberConfig = ({ member, onChange }) => {
               onChange({ ...member, rank: value })
             }
             disabled={buildLocked || !member.id}
+            exclusive
             fullWidth
           >
             {[0, 1, 2, 3, 4, 5, 6].map((rank) => (
@@ -165,6 +166,7 @@ export const MemberConfig = ({ member, onChange }) => {
                 onChange({ ...member, weaponRank: value })
               }
               disabled={buildLocked || !member.weaponId}
+              exclusive
               fullWidth
             >
               {[1, 2, 3, 4, 5].map((rank) => (
@@ -205,6 +207,7 @@ export const MemberConfig = ({ member, onChange }) => {
                     onChange({ ...member, mode: value });
                   }
                 }}
+                exclusive
                 disabled={buildLocked}
               >
                 {CHARACTER[gameId][member.id].modes.map((mode) => (
@@ -218,8 +221,7 @@ export const MemberConfig = ({ member, onChange }) => {
         </CardContent>
       </Card>
 
-      <CharacterSelectDialog
-        gameId={gameId}
+      <CharacterSelect
         open={charDialogOpen}
         onClose={() => setCharDialogOpen(false)}
         onSelect={(charId) => {

@@ -40,8 +40,14 @@ export { default as ECHO } from './wuthering-waves/echo.json';
 export { default as VERSION } from './version.json';
 
 import {
-  MAINSTAT_GI, MAINSTAT_HSR, MAINSTAT_WW, MAINSTAT_ZZZ,
-  SUBSTAT_GI, SUBSTAT_HSR, SUBSTAT_WW, SUBSTAT_ZZZ,
+  MAINSTAT_GI,
+  MAINSTAT_HSR,
+  MAINSTAT_WW,
+  MAINSTAT_ZZZ,
+  SUBSTAT_GI,
+  SUBSTAT_HSR,
+  SUBSTAT_WW,
+  SUBSTAT_ZZZ,
 } from './stats';
 
 export const MAINSTAT = {
@@ -56,4 +62,159 @@ export const SUBSTAT = {
   [HSR]: SUBSTAT_HSR,
   [WW]: SUBSTAT_WW,
   [ZZZ]: SUBSTAT_ZZZ,
+};
+
+export const ELEMENT = {
+  [GI]: {
+    anemo: '#80FFD7',
+    cryo: '#99FFFF',
+    dendro: '#99FF88',
+    electro: '#FFACFF',
+    geo: '#FFE699',
+    hydro: '#80C0FF',
+    pyro: '#FF9999',
+  },
+  [HSR]: {
+    fire: '#EE473D',
+    ice: '#2692D3',
+    imaginary: '#E6D863',
+    lightning: '#C65ADE',
+    physical: '#979797',
+    quantum: '#7E74EB',
+    wind: '#61CF93',
+  },
+  [WW]: {
+    glacio: {
+      id: 'glacio',
+      icon: 'wuthering-waves/element/glacio.webp',
+      color: '#41AEFB',
+    },
+    fusion: {
+      id: 'fusion',
+      icon: 'wuthering-waves/element/fusion.webp',
+      color: '#F0744E',
+    },
+    electro: {
+      id: 'electro',
+      icon: 'wuthering-waves/element/electro.webp',
+      color: '#B45BFF',
+    },
+    aero: {
+      id: 'aero',
+      icon: 'wuthering-waves/element/aero.webp',
+      color: '#53F9B1',
+    },
+    spectro: {
+      id: 'spectro',
+      icon: 'wuthering-waves/element/spectro.webp',
+      color: '#F8E56C',
+    },
+    havoc: {
+      id: 'havoc',
+      icon: 'wuthering-waves/element/havoc.webp',
+      color: '#E649A6',
+    },
+  },
+  [ZZZ]: {
+    electric: '#2EB6FF',
+    ether: '#FE437E',
+    fire: '#FF5521',
+    ice: '#98EFF0',
+    physical: '#F0D12B',
+    wind: '#A6C5FD',
+  },
+};
+
+export const TYPE = {
+  [GI]: {
+    sword: {
+      icon: '',
+    },
+    claymore: {
+      icon: '',
+    },
+    polearm: {
+      icon: '',
+    },
+    catalyst: {
+      icon: '',
+    },
+    bow: {
+      icon: '',
+    },
+  },
+  [HSR]: {
+    hunt: {
+      icon: '',
+    },
+    abundance: {
+      icon: '',
+    },
+    destruction: {
+      icon: '',
+    },
+    preservation: {
+      icon: '',
+    },
+    nihility: {
+      icon: '',
+    },
+    harmony: {
+      icon: '',
+    },
+    erudition: {
+      icon: '',
+    },
+    remembrance: {
+      icon: '',
+    },
+    elation: {
+      icon: '',
+    },
+  },
+  [WW]: {
+    broadblade: {
+      id: 'broadblade',
+      icon: 'wuthering-waves/type/broadblade.webp',
+    },
+    sword: {
+      id: 'sword',
+      icon: 'wuthering-waves/type/sword.webp',
+    },
+    pistols: {
+      id: 'pistols',
+      icon: 'wuthering-waves/type/pistols.webp',
+    },
+    gauntlets: {
+      id: 'gauntlets',
+      icon: 'wuthering-waves/type/gauntlets.webp',
+    },
+    rectifier: {
+      id: 'rectifier',
+      icon: 'wuthering-waves/type/rectifier.webp',
+    },
+  },
+  [ZZZ]: {
+    attack: {
+      icon: '',
+    },
+    support: {
+      icon: '',
+    },
+    stun: {
+      icon: '',
+    },
+    anomaly: {
+      icon: '',
+    },
+    defense: {
+      icon: '',
+    },
+    rupture: {
+      icon: '',
+    },
+    armorer: {
+      icon: '',
+    },
+  },
 };

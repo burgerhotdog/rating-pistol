@@ -113,7 +113,6 @@ const theme = createTheme({
     MuiToggleButtonGroup: {
       defaultProps: {
         size: 'small',
-        exclusive: true,
       },
     },
   },

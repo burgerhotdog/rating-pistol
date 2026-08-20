@@ -373,17 +373,9 @@ function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
           borderColor: 'divider',
           borderRadius: 1,
           mb: 1,
+          scrollbarGutter: 'stable',
           scrollbarWidth: 'thin',
-          scrollbarColor: 'rgba(255,255,255,0.18) transparent',
-          '&::-webkit-scrollbar': { width: 5 },
-          '&::-webkit-scrollbar-track': { background: 'transparent' },
-          '&::-webkit-scrollbar-thumb': {
-            background: 'rgba(255,255,255,0.18)',
-            borderRadius: 3,
-          },
-          '&::-webkit-scrollbar-thumb:hover': {
-            background: 'rgba(255,255,255,0.32)',
-          },
+          scrollbarColor: (theme) => `${theme.palette.grey[600]} transparent`,
         }}
       >
         {rotation.length > 0 ? (
