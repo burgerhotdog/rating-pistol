@@ -17,7 +17,7 @@ const initMember = (gameId, builds, presetKey) => {
 };
 
 const initTeam = (gameId, charId, builds) => {
-  if (!charId) return { members: [], rotation: {} };
+  if (!charId) return [];
   const char = CHARACTER[gameId][charId];
 
   const teamSize = (gameId === GI || gameId === HSR) ? 4 : 3;
@@ -29,7 +29,7 @@ const initTeam = (gameId, charId, builds) => {
     ? initMember(gameId, builds, presetKey)
     : {});
 
-  return { members, rotation: {} };
+  return members;
 };
 
 export function useTeam() {
@@ -37,11 +37,8 @@ export function useTeam() {
   const builds = useBuild().getBuilds(gameId);
   const [team, setTeam] = useState(() => initTeam(gameId, charId, builds));
 
-  function updateTeam(index, member) {
-    setTeam(({ members, rotation }) => ({
-      members: members.with(index, member),
-      rotation,
-    }));
+  function updateTeam(next) {
+    setTeam(next);
   }
 
   return { team, updateTeam };

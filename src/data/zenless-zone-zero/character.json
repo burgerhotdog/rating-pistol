@@ -6,6 +6,7 @@
     "quality": 4,
     "element": "electric",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 7501,
       "baseAtk": 659,
@@ -870,6 +871,7 @@
     "quality": 5,
     "element": "physical",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7560,
       "baseAtk": 911,
@@ -1796,6 +1798,7 @@
     "quality": 4,
     "element": "ether",
     "type": "support",
+    "tagged": [],
     "stats": {
       "baseHp": 8146,
       "baseAtk": 649,
@@ -3056,6 +3059,7 @@
     "quality": 5,
     "element": "fire",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 889,
@@ -4346,6 +4350,7 @@
     "quality": 5,
     "element": "ice",
     "type": "rupture",
+    "tagged": [],
     "stats": {
       "baseHp": 8497,
       "baseAtk": 860,
@@ -5644,6 +5649,7 @@
     "quality": 4,
     "element": "physical",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 6977,
       "baseAtk": 807,
@@ -6739,6 +6745,7 @@
     "quality": 5,
     "element": "physical",
     "type": "defense",
+    "tagged": [],
     "stats": {
       "baseHp": 9526,
       "baseAtk": 712,
@@ -8086,6 +8093,7 @@
     "quality": 4,
     "element": "physical",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 6907,
       "baseAtk": 787,
@@ -9096,6 +9104,7 @@
     "quality": 5,
     "element": "ice",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 881,
@@ -10189,6 +10198,7 @@
     "quality": 5,
     "element": "fire",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 8127,
       "baseAtk": 736,
@@ -11449,6 +11459,7 @@
     "quality": 4,
     "element": "electric",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7219,
       "baseAtk": 792,
@@ -12596,6 +12607,7 @@
     "quality": 4,
     "element": "fire",
     "type": "defense",
+    "tagged": [],
     "stats": {
       "baseHp": 8578,
       "baseAtk": 653,
@@ -13574,6 +13586,7 @@
     "quality": 4,
     "element": "ice",
     "type": "support",
+    "tagged": [],
     "stats": {
       "baseHp": 8026,
       "baseAtk": 666,
@@ -14835,6 +14848,7 @@
     "quality": 5,
     "element": "ice",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 8416,
       "baseAtk": 729,
@@ -16209,6 +16223,7 @@
     "quality": 4,
     "element": "fire",
     "type": "support",
+    "tagged": [],
     "stats": {
       "baseHp": 8026,
       "baseAtk": 659,
@@ -17437,6 +17452,7 @@
     "quality": 5,
     "element": "fire",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 8253,
       "baseAtk": 798,
@@ -18980,6 +18996,7 @@
     "quality": 5,
     "element": "fire",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7368,
       "baseAtk": 863,
@@ -20245,6 +20262,7 @@
     "quality": 5,
     "element": "electric",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7483,
       "baseAtk": 826,
@@ -21137,6 +21155,7 @@
     "quality": 5,
     "element": "ice",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 938,
@@ -22628,6 +22647,7 @@
     "quality": 5,
     "element": "electric",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7406,
       "baseAtk": 916,
@@ -23947,6 +23967,7 @@
     "quality": 5,
     "element": "electric",
     "type": "support",
+    "tagged": [],
     "stats": {
       "baseHp": 8609,
       "baseAtk": 717,
@@ -24727,6 +24748,7 @@
     "quality": 5,
     "element": "electric",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7789,
       "baseAtk": 873,
@@ -25986,6 +26008,7 @@
     "quality": 5,
     "element": "ether",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7483,
       "baseAtk": 919,
@@ -27221,6 +27244,7 @@
     "quality": 5,
     "element": "electric",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 8251,
       "baseAtk": 758,
@@ -28312,6 +28336,7 @@
     "quality": 5,
     "element": "physical",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7789,
       "baseAtk": 881,
@@ -29635,6 +29660,7 @@
     "quality": 4,
     "element": "electric",
     "type": "defense",
+    "tagged": [],
     "stats": {
       "baseHp": 8701,
       "baseAtk": 643,
@@ -30614,6 +30640,7 @@
     "quality": 4,
     "element": "physical",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 6977,
       "baseAtk": 758,
@@ -31651,6 +31678,7 @@
     "quality": 5,
     "element": "ice",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7941,
       "baseAtk": 919,
@@ -32973,6 +33001,7 @@
     "quality": 5,
     "element": "fire",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7789,
       "baseAtk": 930,
@@ -34181,6 +34210,7 @@
     "quality": 5,
     "element": "ether",
     "type": "support",
+    "tagged": [],
     "stats": {
       "baseHp": 8609,
       "baseAtk": 716,
@@ -35446,6 +35476,7 @@
     "quality": 5,
     "element": "fire",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7789,
       "baseAtk": 930,
@@ -36650,6 +36681,7 @@
     "quality": 5,
     "element": "ether",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 881,
@@ -37601,6 +37633,7 @@
     "quality": 5,
     "element": "ice",
     "type": "defense",
+    "tagged": [],
     "stats": {
       "baseHp": 9117,
       "baseAtk": 766,
@@ -38662,6 +38695,7 @@
     "quality": 4,
     "element": "physical",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 7613,
       "baseAtk": 666,
@@ -39504,6 +39538,7 @@
     "quality": 5,
     "element": "electric",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 7923,
       "baseAtk": 751,
@@ -40653,6 +40688,7 @@
     "quality": 5,
     "element": "ether",
     "type": "rupture",
+    "tagged": [],
     "stats": {
       "baseHp": 8374,
       "baseAtk": 873,
@@ -42037,6 +42073,7 @@
     "quality": 5,
     "element": "electric",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 930,
@@ -43190,6 +43227,7 @@
     "quality": 5,
     "element": "fire",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 8251,
       "baseAtk": 766,
@@ -44281,6 +44319,7 @@
     "quality": 5,
     "element": "physical",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 881,
@@ -45436,6 +45475,7 @@
     "quality": 5,
     "element": "physical",
     "type": "support",
+    "tagged": [],
     "stats": {
       "baseHp": 8829,
       "baseAtk": 758,
@@ -46719,6 +46759,7 @@
     "quality": 4,
     "element": "physical",
     "type": "defense",
+    "tagged": [],
     "stats": {
       "baseHp": 8454,
       "baseAtk": 662,
@@ -47755,6 +47796,7 @@
     "quality": 5,
     "element": "physical",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 938,
@@ -49696,6 +49738,7 @@
     "quality": 4,
     "element": "fire",
     "type": "rupture",
+    "tagged": [],
     "stats": {
       "baseHp": 7725,
       "baseAtk": 755,
@@ -50987,6 +51030,7 @@
     "quality": 5,
     "element": "ether",
     "type": "support",
+    "tagged": [],
     "stats": {
       "baseHp": 8477,
       "baseAtk": 758,
@@ -52307,6 +52351,7 @@
     "quality": 5,
     "element": "electric",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 930,
@@ -53345,6 +53390,7 @@
     "quality": 5,
     "element": "fire",
     "type": "rupture",
+    "tagged": [],
     "stats": {
       "baseHp": 8497,
       "baseAtk": 860,
@@ -54871,6 +54917,7 @@
     "quality": 5,
     "element": "physical",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 8251,
       "baseAtk": 758,
@@ -56082,6 +56129,7 @@
     "quality": 5,
     "element": "physical",
     "type": "support",
+    "tagged": [],
     "stats": {
       "baseHp": 8477,
       "baseAtk": 751,
@@ -57119,6 +57167,7 @@
     "quality": 5,
     "element": "ether",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7750,
       "baseAtk": 863,
@@ -58387,6 +58436,7 @@
     "quality": 5,
     "element": "ether",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 8374,
       "baseAtk": 747,
@@ -59371,6 +59421,7 @@
     "quality": 5,
     "element": "electric",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 938,
@@ -60355,6 +60406,7 @@
     "quality": 5,
     "element": "physical",
     "type": "rupture",
+    "tagged": [],
     "stats": {
       "baseHp": 8497,
       "baseAtk": 860,
@@ -61454,6 +61506,7 @@
     "quality": 5,
     "element": "ice",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7789,
       "baseAtk": 873,
@@ -62580,6 +62633,7 @@
     "quality": 5,
     "element": "ether",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7674,
       "baseAtk": 924,
@@ -63764,6 +63818,7 @@
     "quality": 5,
     "element": "wind",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7789,
       "baseAtk": 873,
@@ -64891,6 +64946,7 @@
     "quality": 5,
     "element": "fire",
     "type": "stun",
+    "tagged": [],
     "stats": {
       "baseHp": 7800,
       "baseAtk": 762,
@@ -66218,6 +66274,7 @@
     "quality": 5,
     "element": "lumiflux",
     "type": "anomaly",
+    "tagged": [],
     "stats": {
       "baseHp": 7483,
       "baseAtk": 823,
@@ -67419,6 +67476,7 @@
     "quality": 5,
     "element": "ice",
     "type": "attack",
+    "tagged": [],
     "stats": {
       "baseHp": 7789,
       "baseAtk": 938,

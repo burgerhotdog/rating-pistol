@@ -13,18 +13,33 @@ const statusMaxStacks = {
   havocBane: 3,
 };
 
-const getStatusMaxStacks = (ctx, statusId) => {
+function hasGameRule(ctx, key) {
+  for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
+    if (state.effect.gameRule === key) return true;
+  }
+}
+
+function getStatusMaxStacks(ctx, statusId) {
   let maxStacks = statusMaxStacks[statusId];
 
   for (const state of getEffectStates(ctx, { member: 'all', type: 'gameRule' })) {
-    const { effect: { gameRule } } = state;
-    if ('maxStacks' in gameRule) {
-      maxStacks += gameRule.maxStacks[statusId] ?? 0;
+    const gameRuleKey = state.effect.gameRule;
+
+    if (gameRuleKey === 'roverAero2' && statusId !== 'aeroErosion') {
+      maxStacks += 3;
+    }
+
+    if (gameRuleKey === 'chisa') {
+      maxStacks += 3;
+    }
+
+    if (gameRuleKey === 'suisui' && statusId !== 'havocBane') {
+      maxStacks += 3;
     }
   }
 
   return maxStacks;
-};
+}
 
 const STATUSES = {
   glacioChafe: {
@@ -48,7 +63,15 @@ const STATUSES = {
       }
 
       const currState = negativeStatuses.glacioChafe;
-      if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState));
+      if (ctx.saveSnapshots) {
+        const snapshot = buildSnapshot(
+          ctx,
+          hasGameRule(ctx, 'glacioBite')
+            ? { ...currState, stacks: maxStacks }
+            : currState,
+        );
+        ctx.snapshots.push(snapshot);
+      }
       if (currState.stacks === maxStacks) delete negativeStatuses.glacioChafe;
     },
     advance: (ctx, elapsed) => {
@@ -213,7 +236,9 @@ const STATUSES = {
         if (!currState.timer) {
           if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
 
-          currState.stacks--;
+          if (!hasGameRule(ctx, 'shimmer')) {
+            currState.stacks--;
+          }
           currState.timer = 3000;
 
           if (!currState.stacks) {
@@ -275,6 +300,32 @@ export function inflictNegativeStatuses(ctx, action) {
   for (const [id, stacks] of Object.entries(toInflict)) {
     const status = STATUSES[id];
     status.inflict(ctx, status, stacks);
+
+    if ( // Hiyuki 2 special handling
+      id === 'glacioChafe' &&
+      action.ownerId === '1108' &&
+      hasGameRule(ctx, 'hiyuki2') &&
+      ctx.saveSnapshots
+    ) {
+      const snapshot = buildSnapshot(ctx, { status: STATUSES.glacioChafe }, 0, 10200 * stacks);
+      ctx.snapshots.push(snapshot);
+    }
+  }
+}
+
+export function replaceNegativeStatuses(ctx, action) {
+  const store = ctx.states.negativeStatuses;
+  const toReplace = action.replace?.status ?? {};
+
+  for (const [fromId, toId] of Object.entries(toReplace)) {
+    const fromState = store[fromId];
+    if (!fromState) continue;
+
+    const fromStacks = fromState.stacks;
+    delete store[fromId];
+
+    const toStatus = STATUSES[toId];
+    toStatus.inflict(ctx, toStatus, fromStacks);
   }
 }
 
@@ -289,12 +340,12 @@ export function advanceNegativeStatuses(ctx, elapsed) {
 
 const LEVEL_MODIFIER = 3674;
 
-export const buildSnapshot = (ctx, statusState, runtimeOffset = 0) => {
+export const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
   const { stacks, rage, status } = statusState;
 
   const { buffMap } = getBuffMap(ctx);
 
-  const mv = status.mv[stacks - 1];
+  const mv = fixedMv ?? status.mv[stacks - 1];
   const rageMv = rage ? status.mv[rage - 1] : 0;
   const baseDmg = LEVEL_MODIFIER * ((mv + rageMv) / 10000);
 

@@ -50,7 +50,7 @@ def main():
     if echoes:
         save_data(game, 'echo', echoes)
 
-    save_version(game, version)
+    save_version(game, version.partition("+")[0])
     print('Update complete')
 
 if __name__ == '__main__':

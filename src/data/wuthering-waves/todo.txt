@@ -45,7 +45,6 @@ characters:
 
     incomplete:
         1110 Suisui
-        1610 Yangyang: Xuanling
 
     simplified:
         1102 Sanhua

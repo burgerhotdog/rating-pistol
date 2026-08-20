@@ -1,10 +1,15 @@
-import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
-import { toArray } from '@/utils';
-import { createIsEnabled } from './isEnabled';
-import { toNormalizedAction } from './actions';
+import { WW, CHARACTER, WEAPON, SET, ECHO } from '@/data';
+import {
+  isEnabledChar,
+  isEnabledWeap,
+  isEnabledSet,
+  isEnabledEcho,
+  toArray,
+} from '@/utils';
+import { normAction } from './actions';
 import { resolveRankedValue } from './resolveRanked';
 
-function toResolvedScope(ownerId, memberIds, rawScope) {
+function normScope(ownerId, memberIds, rawScope) {
   switch (rawScope) {
     case undefined: return [ownerId];
     case '$team': return memberIds;
@@ -32,10 +37,8 @@ function mergeValues(a, b) {
   }
 
   if (
-    a &&
-    typeof a === 'object' &&
-    b &&
-    typeof b === 'object'
+    a && typeof a === 'object' &&
+    b && typeof b === 'object'
   ) {
     const merged = { ...a };
 
@@ -67,165 +70,163 @@ function resolveRankMods(effect, memberRank) {
   }
 }
 
-export const toNormalizedEffect = (rawEffect, spec) => {
-  const {
-    gameId, ownerId, sourceId, effectIndex,
-    memberRank, weaponRank, memberIds, memberActions, memberMode,
-  } = spec;
-
-  const resolveStatValue = (value) =>
-    typeof value === 'number'
-      ? value
-      : resolveRankedValue(value, weaponRank);
-
+export const normEffect = (ctx, rawEffect) => {
+  const { ownerId, sourceId, index } = ctx;
   const effect = {
     ...rawEffect,
-    ownerId,
-    sourceId,
-    id: `${ownerId}.${sourceId}:effect${effectIndex}`,
-    index: effectIndex,
+    ownerId, sourceId, index,
+    category: `${sourceId}:effect${index}`,
+    id: `${ownerId}.${sourceId}:effect${index}`,
   };
 
-  effect.stores = toResolvedScope(effect.ownerId, memberIds, effect.stores);
-
+  // Scope
+  effect.stores = normScope(ownerId, ctx.memberIds, rawEffect.stores);
   if (effect.apply) {
     const resolved = { ...effect.apply };
-    resolved.by = toResolvedScope(effect.ownerId, memberIds, resolved.by);
+    resolved.by = normScope(ownerId, ctx.memberIds, resolved.by);
     effect.apply = resolved;
   }
 
-  // Resolve ranked buffMaps
-  if (effect.buff?.stats) {
-    effect.buff = { ...effect.buff };
-    effect.buff.stats = { ...effect.buff.stats };
+  // Resolve ranked buff stats/specs
+  if (ctx.sourceType === 'weapon' && effect.buff) {
+    const resolvedBuff = { ...effect.buff };
 
-    for (const [statId, value] of Object.entries(effect.buff.stats)) {
-      effect.buff.stats[statId] = resolveStatValue(value);
-    }
-  }
-
-  // Resolve ranked buffSpec
-  if (effect.buff?.specs) {
-    effect.buff = { ...effect.buff };
-    effect.buff.specs = { ...effect.buff.specs };
-
-    for (const [statId, spec] of Object.entries(effect.buff.specs)) {
-      const resolvedSpec = { ...spec };
-      effect.buff.specs[statId] = resolvedSpec;
-
-      for (const [field, value] of Object.entries(resolvedSpec)) {
-        if (typeof value === 'string') continue;
-        resolvedSpec[field] = resolveStatValue(value);
+    // Stats
+    if (effect.buff.stats) {
+      const resolvedStats = {};
+      for (const [stat, value] of Object.entries(effect.buff.stats)) {
+        resolvedStats[stat] = resolveRankedValue(value, ctx.weaponRank);
       }
+      resolvedBuff.stats = resolvedStats;
     }
+
+    // Specs
+    if (effect.buff.specs) {
+      const resolvedSpecs = {};
+      for (const [stat, spec] of Object.entries(effect.buff.specs)) {
+        const resolvedSpec = { ...spec };
+        for (const [field, value] of Object.entries(spec)) {
+          if (typeof value === 'string') continue;
+          resolvedSpec[field] = resolveRankedValue(value, ctx.weaponRank);
+        }
+        resolvedSpecs[stat] = resolvedSpec;
+      }
+      resolvedBuff.specs = resolvedSpecs;
+    }
+    effect.buff = resolvedBuff;
   }
 
   if (effect.use?.action) {
     effect.use = { ...effect.use };
-    const effectActions = toArray(effect.use.action);
+    const useActions = toArray(effect.use.action);
 
     effect.use.action = [];
-    for (const [index, rawlinkedAction] of effectActions.entries()) {
-      if (typeof rawlinkedAction === 'string') { // ref
-        effect.use.action.push(memberActions[rawlinkedAction]);
-      } else { // inline action object
-        effect.use.action.push(toNormalizedAction(rawlinkedAction, {
-          gameId,
-          ownerId,
-          category: `${sourceId}:effect${effectIndex}`,
-          actionIndex: index,
-          teamSize: memberIds.length,
-          weaponRank,
-          mode: memberMode,
-        }));
+    for (const [index, rawUseAction] of useActions.entries()) {
+      if (typeof rawUseAction === 'string') {
+        const ref = rawUseAction;
+        const action = ctx.actionDefs[ref];
+        effect.use.action.push(action);
+        continue;
       }
+
+      // Inline action
+      const inlineSpec = {
+        ownerId,
+        category: effect.category,
+        index,
+        teamSize: ctx.memberIds.length,
+        weaponRank: ctx.weaponRank,
+        mode: ctx.memberMode,
+      };
+
+      const action = normAction(ctx.gameId, rawUseAction, inlineSpec);
+      effect.use.action.push(action);
     }
   }
 
   if (effect.rankMods) {
-    resolveRankMods(effect, memberRank);
+    resolveRankMods(effect, ctx.memberRank);
   }
 
   return effect;
 };
 
 export const normalizeEffects = (gameId, member, spec) => {
-  const { memberIds, teamActions } = spec;
-  const {
-    id: memberId, rank: memberRank,
-    weaponId, weaponRank,
-    setCounts, mainEcho,
-  } = member;
-
-  const ctx = {
-    member,
-    character: CHARACTER[gameId][memberId],
-    weapon: WEAPON[gameId][weaponId],
-    echo: ECHO[mainEcho],
-  };
-
-  const isEnabled = createIsEnabled(ctx);
-
-  const toNormalize = [
-    {
-      sourceType: 'character',
-      id: memberId,
-      rawEffects: ctx.character.effects,
-    },
-    {
-      sourceType: 'weapon',
-      id: weaponId,
-      rawEffects: ctx.weapon.effects,
-    },
-    ...Object.keys(setCounts).map((setId) => ({
-      sourceType: 'set',
-      id: setId,
-      rawEffects: SET[gameId][setId].effects,
-    })),
-  ];
-
-  if (ECHO[mainEcho]?.effects) {
-    toNormalize.push({
-      sourceType: 'echo',
-      id: mainEcho,
-      rawEffects: ECHO[mainEcho].effects,
-    });
-  }
-
   const normalized = {};
 
-  for (const { sourceType, id, rawEffects } of toNormalize) {
-    if (
-      sourceType === 'weapon' &&
-      ctx.character.type !== ctx.weapon.type
-    ) continue;
+  const sharedNormCtx = {
+    gameId,
+    ownerId: member.id,
+    memberRank: member.rank,
+    weaponRank: member.weaponRank,
+    memberMode: member.mode,
+    memberIds: spec.memberIds,
+    actionDefs: spec.actionDefs,
+  };
 
-    for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabled(rawEffect, id)) continue;
+  // Character effects
+  const charData = CHARACTER[gameId][member.id];
+  const charEffects = charData.effects ?? [];
+  for (const [index, rawEffect] of charEffects.entries()) {
+    if (!isEnabledChar(rawEffect, member, gameId, spec.memberIds)) continue;
 
-      const effect = toNormalizedEffect(rawEffect, {
-        gameId,
-        ownerId: memberId,
-        sourceId: id,
-        effectIndex: index,
-        memberRank,
-        weaponRank,
-        memberIds,
-        memberActions: teamActions[memberId],
-        memberMode: member.mode,
-      });
+    const sourceId = member.id;
+    const sourceType = 'character';
+    const normCtx = { ...sharedNormCtx, sourceId, sourceType, index };
+    const effect = normEffect(normCtx, rawEffect);
+    normalized[effect.id] = effect;
+  }
 
+  // Weapon effects
+  const weapData = WEAPON[gameId][member.weaponId];
+  const weapEffects = weapData.effects ?? [];
+  for (const [index, rawEffect] of weapEffects.entries()) {
+    if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
+
+    const sourceId = member.weaponId;
+    const sourceType = 'weapon';
+    const normCtx = { ...sharedNormCtx, sourceId, sourceType, index };
+    const effect = normEffect(normCtx, rawEffect);
+    normalized[effect.id] = effect;
+  }
+
+  // Set effects
+  for (const [setId, pcCount] of Object.entries(member.setCounts)) {
+    const setEffects = SET[gameId][setId]?.effects ?? [];
+    for (const [index, rawEffect] of setEffects.entries()) {
+      if (!isEnabledSet(rawEffect, pcCount, charData)) continue;
+
+      const sourceId = setId;
+      const sourceType = 'set';
+      const normCtx = { ...sharedNormCtx, sourceId, sourceType, index };
+      const effect = normEffect(normCtx, rawEffect);
+      normalized[effect.id] = effect;
+    }
+  }
+
+  // Echo effects
+  if (gameId === WW) {
+    const echoEffects = ECHO[member.mainEcho]?.effects ?? [];
+    for (const [index, rawEffect] of echoEffects.entries()) {
+      if (!isEnabledEcho(rawEffect, charData)) continue;
+
+      const sourceId = member.mainEcho;
+      const sourceType = 'echo';
+      const normCtx = { ...sharedNormCtx, sourceId, sourceType, index };
+      const effect = normEffect(normCtx, rawEffect);
       normalized[effect.id] = effect;
     }
   }
 
   // Resolve tokens
-  const resolveEffectId = (key, sourceId) =>
+  const resolveEffectId = (key, ownerId, sourceId) =>
     key.includes(':')
       ? key
       : Object.values(normalized)
-        .filter((effect) => effect.sourceId === sourceId)
-        .find((effect) => effect.key === key).id;
+        .find((effect) =>
+          effect.ownerId === ownerId &&
+          effect.sourceId === sourceId &&
+          effect.key === key).id;
 
   function walkBooleanTree(node, onLeaf) {
     if (node == null || typeof node !== 'object') return;
@@ -248,26 +249,26 @@ export const normalizeEffects = (gameId, member, spec) => {
     onLeaf(node);
   }
 
-  function traverseFilter(node, sourceId) {
+  function traverseFilter(node, ownerId, sourceId) {
     walkBooleanTree(node, (leaf) => {
       if ('has' in leaf) return; // generic has (e.g. action.has) - not an effect reference
 
       const [key, value] = Object.entries(leaf)[0];
       if (key === 'effectStacks') {
-        resolveEffectStacksKeys(value, sourceId);
+        resolveEffectStacksKeys(value, ownerId, sourceId);
         return;
       }
-      traverseFilter(value, sourceId);
+      traverseFilter(value, ownerId, sourceId);
     });
   }
 
-  function resolveEffectStacksKeys(value, sourceId) {
+  function resolveEffectStacksKeys(value, ownerId, sourceId) {
     walkBooleanTree(value, (leaf) => {
       if ('has' in leaf) {
         if (Array.isArray(leaf.has)) {
-          leaf.has = leaf.has.map((key) => resolveEffectId(key, sourceId));
+          leaf.has = leaf.has.map((key) => resolveEffectId(key, ownerId, sourceId));
         } else if (leaf.has !== '*') {
-          leaf.has = resolveEffectId(leaf.has, sourceId);
+          leaf.has = resolveEffectId(leaf.has, ownerId, sourceId);
         }
         return;
       }
@@ -276,19 +277,19 @@ export const normalizeEffects = (gameId, member, spec) => {
       for (const key of Object.keys(leaf)) {
         const comparison = leaf[key];
         delete leaf[key];
-        leaf[resolveEffectId(key, sourceId)] = comparison;
+        leaf[resolveEffectId(key, ownerId, sourceId)] = comparison;
       }
     });
   }
 
   for (const effect of Object.values(normalized)) {
-    const { sourceId } = effect;
+    const { ownerId, sourceId } = effect;
 
     for (const field in effect) {
       if (/^on[A-Z]\w*Do[A-Z]\w*$/.test(field)) {
         const resolved = {};
         for (const [key, stacks] of Object.entries(effect[field])) {
-          const id = resolveEffectId(key, sourceId);
+          const id = resolveEffectId(key, ownerId, sourceId);
           resolved[id] = stacks;
         }
         effect[field] = resolved;
@@ -296,21 +297,26 @@ export const normalizeEffects = (gameId, member, spec) => {
     }
 
     if (effect.apply?.filter) {
-      traverseFilter(effect.apply.filter, sourceId);
+      effect.apply.filter = structuredClone(effect.apply.filter);
+      traverseFilter(effect.apply.filter, ownerId, sourceId);
     }
 
     if (effect.remove?.filter) {
-      traverseFilter(effect.remove.filter, sourceId);
+      effect.remove.filter = structuredClone(effect.remove.filter);
+      traverseFilter(effect.remove.filter, ownerId, sourceId);
     }
 
     if (effect.use?.filter) {
-      traverseFilter(effect.use.filter, sourceId);
+      effect.use.filter = structuredClone(effect.use.filter);
+      traverseFilter(effect.use.filter, ownerId, sourceId);
     }
 
     if (effect.buff?.filter) {
-      traverseFilter(effect.buff.filter, sourceId);
+      effect.buff.filter = structuredClone(effect.buff.filter);
+      traverseFilter(effect.buff.filter, ownerId, sourceId);
     }
   }
+
 
   return normalized;
 };

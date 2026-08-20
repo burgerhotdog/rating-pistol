@@ -10,34 +10,38 @@ const ENERGY_ATTR = {
 };
 
 export function createEvaluateEquipMap(cache, equipMaps, evalId) {
-  const rotationSpecs = runRotation(cache, equipMaps, evalId);
+  const mCache = cache.member[evalId];
+  const evalRotationSpecs = runRotation(cache, equipMaps, evalId);
 
-  const { gameId, rotationDuration } = cache;
-  const erAttrId = ENERGY_ATTR[gameId];
-
-  const { duration: charRotDur, baseMap, statMap, noEnergy } = cache.member[evalId];
-  const originalEr = getAttr(erAttrId, statMap);
-
-  function getPenalty(testMap) {
-    if (noEnergy) return 1;
-
-    const newEr = getAttr(erAttrId, testMap);
-    if (newEr >= originalEr) return 1;
-
-    const newCharRotDur = charRotDur * (originalEr / newEr);
-    const durPenalty = newCharRotDur - charRotDur;
-    return rotationDuration / (rotationDuration + durPenalty);
+  const evalHealing = mCache.healing;
+  const evalShield = mCache.shield;
+  function baseScore(testTotals) {
+    const { damage, healing, shield } = testTotals;
+    let baseScore = damage;
+    if (evalHealing) baseScore += healing;
+    if (evalShield) baseScore += shield;
+    return baseScore;
   }
 
-  return (equipMap = {}) => {
-    const statMap = toMergedObj(baseMap, equipMap);
-    const penalty = getPenalty(statMap);
+  const energyAttr = ENERGY_ATTR[cache.gameId];
+  const energyReq = getAttr(energyAttr, mCache.statMap ?? mCache.baseMap);
+  function energyPenalty(testStatMap) {
+    if (!mCache.energy) return 1; // no energy req
 
-    const summary = rotationSpecs(statMap);
+    const testEnergy = getAttr(energyAttr, testStatMap);
+    if (testEnergy >= energyReq) return 1; // energy req passed
+
+    const testCharDuration = mCache.duration * (energyReq / testEnergy);
+    const addedTime = testCharDuration - mCache.duration;
+    return cache.rotationDuration / (cache.rotationDuration + addedTime);
+  }
+
+  return (evalEquipMap = {}) => {
+    const evalStatMap = toMergedObj(mCache.baseMap, evalEquipMap);
+
+    const summary = evalRotationSpecs(evalStatMap);
     const totals = getTotals(summary);
-    const baseScore = Object.values(totals)
-      .reduce((acc, value) => acc + value, 0);
-    const score = baseScore * penalty;
+    const score = baseScore(totals) * energyPenalty(evalStatMap);
 
     return { summary, totals, score };
   };

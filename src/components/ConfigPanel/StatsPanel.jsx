@@ -6,6 +6,7 @@ import {
   AccordionSummary,
   Box,
   Button,
+  ButtonBase,
   Card,
   CardContent,
   CardHeader,
@@ -49,56 +50,11 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CharAvatar } from '@/components';
-import { GI, HSR, WW, ZZZ, CHARACTER } from '@/data';
+import { CHARACTER } from '@/data';
 import { useElementColors, useCharData } from '@/hooks';
-import { toArray, getAttr, formatStr, compileMenuMap } from '@/utils';
-import { TeamMemberDialog } from './TeamMemberDialog';
-
-const MENU_STATS = {
-  [GI]: [
-    "hp",
-    "atk",
-    "def",
-    "elementalMastery",
-    "critRate%",
-    "critDmg%",
-    "healingBonus%",
-    "energyRecharge%"
-  ],
-  [HSR]: [
-    "hp",
-    "atk",
-    "def",
-    "spd",
-    "critRate%",
-    "critDmg%",
-    "breakEffect%",
-    "outgoingHealingBoost%",
-    "energyRegenerationRate%",
-    "effectHitRate%",
-    "effectRes%"
-  ],
-  [WW]: [
-    "hp",
-    "atk",
-    "def",
-    "energyRegen%",
-    "critRate%",
-    "critDmg%"
-  ],
-  [ZZZ]: [
-    "hp",
-    "atk",
-    "def",
-    "impact",
-    "critRate%",
-    "critDmg%",
-    "anomalyMastery",
-    "anomalyProficiency",
-    "penRatio%",
-    "energyRegen"
-  ],
-};
+import { toArray, formatStr } from '@/utils';
+import { TeamConfig } from './TeamConfig';
+import { MenuAttrs } from './MenuAttrs';
 
 function getRelativeTime(dateString) {
   if (!dateString) return 'Unknown';
@@ -499,9 +455,9 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
   const { gameId, charId } = useParams();
   const color = useElementColors({ char: '$curr' });
   const charData = useCharData();
-  const [dialogIndex, setDialogIndex] = useState(null);
   const [rotationMemberId, setRotationMemberId] = useState(charId);
   const [prevCharId, setPrevCharId] = useState(charId);
+  const [teamConfigOpen, setTeamConfigOpen] = useState(false);
 
   const member = team.find((member) => member.id === charId);
   if (!charId || !member) return (
@@ -521,7 +477,6 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
   const rotationMemberIndex = Math.max(0, team.findIndex((m) => m.id === rotationMemberId));
 
   const currChar = charData[charId];
-  const statMap = compileMenuMap(gameId, charId, member);
 
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
@@ -529,7 +484,7 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
         avatar={<CharAvatar gameId={gameId} charId={charId} />}
         title={currChar?.name ?? ''}
         subheader={
-          <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
+          <Stack direction="row" spacing={0.5}>
             <Chip
               variant="outlined"
               label={formatStr(currChar.element)}
@@ -546,33 +501,7 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
       />
 
       <CardContent component={Stack} spacing={1} sx={{ flex: 1 }}>
-        <Stack spacing={0.5} sx={{ flex: 1 }}>
-          {MENU_STATS[gameId].map((id) => {
-            const totalValue = getAttr(id, statMap) +
-              ((gameId === WW && id === 'critDmg%') ? 1 : 0);
-            const isPercent = id.endsWith('%');
-            const displayValue = isPercent ? totalValue * 100 : totalValue;
-            const toFixedValue = isPercent ? 1 : 0;
-            if (id !== 'elementalMastery' && displayValue === 0) return;
-            return (
-              <Box
-                key={id}
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <Typography variant="body2" color="textSecondary">
-                  {formatStr(id)}
-                </Typography>
-                <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                  {displayValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
-                </Typography>
-              </Box>
-            );
-          })}
-        </Stack>
+        <MenuAttrs team={team} />
 
         <Divider />
 
@@ -581,26 +510,28 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
             Team Configuration
           </Typography>
 
-          <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
-            {team.map((member, index) => (
-              <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
-                <CharAvatar
-                  gameId={gameId}
-                  charId={member?.id ?? null}
-                />
-              </Box>
-            ))}
-          </Stack>
+          <IconButton
+            onClick={() => setTeamConfigOpen(true)}
+            sx={{ justifyContent: 'center', p: 1, borderRadius: 1 }}
+          >
+            <Stack direction="row" spacing={1}>
+              {team.map((member, index) => (
+                <Box key={index}>
+                  <CharAvatar
+                    gameId={gameId}
+                    charId={member?.id ?? null}
+                  />
+                </Box>
+              ))}
+            </Stack>
+          </IconButton>
 
-          {dialogIndex !== null && (
-            <TeamMemberDialog
-              gameId={gameId}
-              member={team[dialogIndex]}
-              open={dialogIndex !== null}
-              onClose={() => setDialogIndex(null)}
-              onSave={(updatedMember) => updateTeam(dialogIndex, updatedMember)}
-            />
-          )}
+          <TeamConfig
+            team={team}
+            open={teamConfigOpen}
+            onClose={() => setTeamConfigOpen(false)}
+            onSave={updateTeam}
+          />
         </Stack>
 
         <Divider />
@@ -633,7 +564,7 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
                 charId={rotMember?.id ?? null}
                 member={rotMember}
                 rotation={rotMember?.rotation ?? []}
-                onChange={(rotation) => updateTeam(idx, { ...rotMember, rotation })}
+                onChange={(rotation) => updateTeam((prev) => prev.with(idx, { ...rotMember, rotation }))}
               />
             );
           })()}

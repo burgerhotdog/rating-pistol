@@ -1,21 +1,32 @@
 import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON } from '@/data';
-import { getAttr, getTotals, compileBaseMap, toMergedObj } from '@/utils';
+import {
+  compileBaseMap,
+  getAttr,
+  getTotals,
+  isEnabledWeap,
+  toMergedObj,
+} from '@/utils';
 import { runRotation } from './rotation';
-import { toNormalizedEffect } from './cache/effects';
+import { normEffect } from './cache/effects';
 
 function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weaponRank, memberIds) {
   const normalized = {};
+  const sharedNormCtx = {
+    gameId,
+    ownerId,
+    sourceId,
+    sourceType: 'weapon',
+    weaponRank,
+    memberIds,
+  };
 
+  const charData = CHARACTER[gameId][ownerId];
+  const weapData = WEAPON[gameId][sourceId];
   for (const [index, rawEffect] of rawEffects.entries()) {
-    const effect = toNormalizedEffect(rawEffect, {
-      gameId,
-      ownerId,
-      sourceId,
-      effectIndex: index,
-      weaponRank,
-      memberIds,
-    });
+    if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
 
+    const normCtx = { ...sharedNormCtx, index };
+    const effect = normEffect(normCtx, rawEffect);
     normalized[effect.id] = effect;
   }
 
@@ -154,20 +165,20 @@ const ENERGY_ATTR = {
 
 export function weaponTests(cache, equipMaps, charId) {
   // er penalty
-  const needsEnergy = !CHARACTER[cache.gameId][charId].noEnergy;
-  const { duration: charRotDur, statMap } = cache.member[charId];
-  const { rotationDuration } = cache;
-  const erAttrId = ENERGY_ATTR[cache.gameId];
-  const originalEr = getAttr(erAttrId, statMap);
+  const energyAttr = ENERGY_ATTR[cache.gameId];
+  const mCache = cache.member[charId];
 
-  function getPenalty(statMap) {
-    if (!needsEnergy) return 1;
-    const newEr = getAttr(erAttrId, statMap);
-    if (newEr >= originalEr) return 1;
+  const energyReq = getAttr(energyAttr, mCache.statMap);
 
-    const newCharRotDur = charRotDur * (originalEr / newEr);
-    const durPenalty = newCharRotDur - charRotDur;
-    return rotationDuration / (rotationDuration + durPenalty);
+  function getPenalty(testStatMap) {
+    if (!mCache.energy) return 1;
+
+    const testEnergy = getAttr(energyAttr, testStatMap);
+    if (testEnergy >= energyReq) return 1;
+
+    const testCharDuration = mCache.duration * (energyReq / testEnergy);
+    const addedTime = testCharDuration - mCache.duration;
+    return cache.rotationDuration / (cache.rotationDuration + addedTime);
   }
 
   // weapons to test
@@ -181,13 +192,13 @@ export function weaponTests(cache, equipMaps, charId) {
     // R1
     const moddedCacheR1 = getModifiedCache(cache, charId, weapon, 1);
     const testSummaryR1 = runRotation(moddedCacheR1, equipMaps);
-    const rawDpsR1 = cache.getDps(getTotals(testSummaryR1).damage);
+    const rawDpsR1 = getTotals(testSummaryR1).damage / cache.rotationDuration * 1000
     const dpsR1 = rawDpsR1 * getPenalty(moddedCacheR1.member[charId].statMap);
 
     // R5
     const moddedCacheR5 = getModifiedCache(cache, charId, weapon, 5);
     const testSummaryR5 = runRotation(moddedCacheR5, equipMaps);
-    const rawDpsR5 = cache.getDps(getTotals(testSummaryR5).damage);
+    const rawDpsR5 = getTotals(testSummaryR5).damage / cache.rotationDuration * 1000
     const dpsR5 = rawDpsR5 * getPenalty(moddedCacheR5.member[charId].statMap);
 
     weaponResults[weapon.id] = [dpsR1, dpsR5];

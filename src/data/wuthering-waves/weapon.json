@@ -215,6 +215,67 @@
     },
     "effects": []
   },
+  "21010026": {
+    "name": "Ages of Harvest",
+    "version": 1.1,
+    "id": "21010026",
+    "quality": 5,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21010034": {
     "name": "Broadblade#41",
     "version": 1,
@@ -232,6 +293,89 @@
             "atk%": [
               0.12,
               0.24
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21010036": {
+    "name": "Wildfire Mark",
+    "version": 2.4,
+    "id": "21010036",
+    "quality": 5,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 587,
+      "critDmg%": 0.486
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "key": "resonanceLiberationDmgIncreased",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceLiberation"
+              ]
+            }
+          },
+          "duration": 6000
+        },
+        "maxExtensions": 1,
+        "buff": {
+          "stats": {
+            "resonanceLiberationDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "resonanceLiberationDmgIncreased"
+                }
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": "heavyAttack"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 30000
+        },
+        "onApplyDoApply": {
+          "resonanceLiberationDmgIncreased": 1
+        },
+        "doApplyType": "extend",
+        "doApplyDuration": 4000,
+        "buff": {
+          "stats": {
+            "fusionDmgBonus%": [
+              0.24,
+              0.48
             ]
           }
         }
@@ -286,6 +430,132 @@
       }
     ]
   },
+  "21010045": {
+    "name": "Radiance Cleaver",
+    "version": 3,
+    "id": "21010045",
+    "quality": 5,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 587,
+      "critDmg%": 0.486
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "tune": {
+                    "interfered": "tuneStrain"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "stats": {
+            "resonanceLiberationDmgBonus%": [
+              0.24,
+              0.36
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21010046": {
+    "name": "Thunderflare Dominion",
+    "version": 2.6,
+    "id": "21010046",
+    "quality": 5,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 675,
+      "critRate%": 0.121
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceSkill"
+              ]
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "heavyAttackDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "shield"
+            }
+          },
+          "cooldown": 500,
+          "duration": 7000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          },
+          "stats": {
+            "defIgnore%": [
+              0.072,
+              0.12
+            ]
+          }
+        },
+        "maxStacks": 5
+      }
+    ]
+  },
   "21010053": {
     "name": "Guardian Broadblade",
     "version": 1,
@@ -312,6 +582,109 @@
         }
       }
     ]
+  },
+  "21010056": {
+    "name": "Kumokiri",
+    "version": 2.8,
+    "id": "21010056",
+    "quality": 5,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 500,
+      "critRate%": 0.36
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "key": "resonanceLiberationDmgIncreased",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          },
+          "duration": 15000
+        },
+        "maxStacks": 3,
+        "buff": {
+          "stats": {
+            "resonanceLiberationDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "has": "status"
+              }
+            }
+          }
+        },
+        "onUseDoApply": {
+          "resonanceLiberationDmgIncreased": 1
+        }
+      },
+      {
+        "stores": "$applier",
+        "apply": {
+          "by": "$team",
+          "when": "inflict",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "resonanceLiberationDmgIncreased": 3
+                }
+              },
+              {
+                "action": {
+                  "inflict": {
+                    "has": "status"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21010063": {
+    "name": "Beguiling Melody",
+    "version": 1.1,
+    "id": "21010063",
+    "quality": 3,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 300,
+      "atk%": 0.303
+    },
+    "effects": []
   },
   "21010064": {
     "name": "Helios Cleaver",
@@ -351,6 +724,49 @@
       }
     ]
   },
+  "21010066": {
+    "name": "Starfield Calibrator",
+    "version": 3,
+    "id": "21010066",
+    "quality": 5,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 412,
+      "energyRegen%": 0.77
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "def%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21010074": {
     "name": "Autumntrace",
     "version": 1,
@@ -384,6 +800,295 @@
             "atk%": [
               0.04,
               0.128
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21010076": {
+    "name": "Thousandfold Deliverance",
+    "version": 3.6,
+    "id": "21010076",
+    "quality": 5,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 412,
+      "hp%": 0.722
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "key": "naturesOrder",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "type": "introSkill"
+                },
+                {
+                  "has": "shield"
+                }
+              ]
+            }
+          },
+          "cooldown": 1000,
+          "duration": 7000
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.04,
+              0.08
+            ]
+          }
+        },
+        "maxStacks": 6
+      },
+      {
+        "key": "naturesOrderMax",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "naturesOrder": 6
+                }
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": "heavyAttack"
+                  }
+                }
+              }
+            ]
+          },
+          "stats": {
+            "critRate%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "key": "cradleOfLife",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "type": "introSkill"
+                },
+                {
+                  "has": "shield"
+                }
+              ]
+            }
+          },
+          "cooldown": 1000,
+          "duration": 7000
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "cradleOfLife"
+                }
+              },
+              {
+                "action": {
+                  "type": "heavyAttack"
+                }
+              }
+            ]
+          },
+          "duration": 2000
+        },
+        "onApplyDoRemove": {
+          "cradleOfLife": 1
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          },
+          "stats": {
+            "defIgnore%": [
+              0.15,
+              0.25
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "cradleOfLife"
+                }
+              },
+              {
+                "action": {
+                  "type": "heavyAttack"
+                }
+              }
+            ]
+          },
+          "duration": 2000
+        },
+        "onApplyDoRemove": {
+          "cradleOfLife": 1
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          },
+          "stats": {
+            "defIgnore%": [
+              0.15,
+              0.25
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21010084": {
+    "name": "Waning Redshift",
+    "version": 1.3,
+    "id": "21010084",
+    "quality": 4,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 462,
+      "atk%": 0.182
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "duration": 16000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21010094": {
+    "name": "Meditations on Mercy",
+    "version": 2,
+    "id": "21010094",
+    "quality": 4,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 462,
+      "atk%": 0.182
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "duration": 10000
+        },
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21010104": {
+    "name": "Aureate Zenith",
+    "version": 2.6,
+    "id": "21010104",
+    "quality": 4,
+    "type": "broadblade",
+    "stats": {
+      "baseAtk": 412,
+      "critDmg%": 0.405
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.072,
+              0.23
+            ],
+            "heavyAttackDmgBonus%": [
+              0.108,
+              0.345
             ]
           }
         }
@@ -511,6 +1216,123 @@
       }
     ]
   },
+  "21020016": {
+    "name": "Blazing Brilliance",
+    "version": 1.1,
+    "id": "21020016",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 587,
+      "critDmg%": 0.486
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "key": "searingFeather",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 500
+        },
+        "remove": {
+          "when": "maxStacks",
+          "offset": 12000
+        },
+        "maxStacks": 14,
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          }
+        },
+        "onUseDoApply": {
+          "searingFeather": 5
+        }
+      }
+    ]
+  },
+  "21020017": {
+    "name": "Somnoire Anchor",
+    "version": 1.4,
+    "id": "21020017",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 462,
+      "atk%": 0.182
+    },
+    "effects": [
+      {
+        "key": "hiss",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 1000,
+          "duration": 3000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "maxStacks": 10,
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.02,
+              0.04
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "hiss": 10
+            }
+          },
+          "stats": {
+            "critRate%": [
+              0.06,
+              0.12
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21020023": {
     "name": "Originite: Type II",
     "version": 1,
@@ -559,6 +1381,81 @@
       "energyRegen%": 0.518
     },
     "effects": []
+  },
+  "21020026": {
+    "name": "Red Spring",
+    "version": 1.4,
+    "id": "21020026",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          },
+          "cooldown": 1000,
+          "duration": 14000
+        },
+        "maxStacks": 3,
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "id": "1603"
+        },
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.1"
+            }
+          },
+          "cooldown": 1000,
+          "duration": 10000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "21020034": {
     "name": "Sword#18",
@@ -610,6 +1507,69 @@
       }
     ]
   },
+  "21020036": {
+    "name": "Unflickering Valor",
+    "version": 2.1,
+    "id": "21020036",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 412,
+      "energyRegen%": 0.77
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21020043": {
     "name": "Sword of Voyager",
     "version": 1,
@@ -654,6 +1614,120 @@
       }
     ]
   },
+  "21020045": {
+    "name": "Laser Shearer",
+    "version": 3,
+    "id": "21020045",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 587,
+      "energyRegen%": 0.388
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "tune": {
+                    "interfered": "tuneStrain"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": [
+              0.24,
+              0.36
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21020046": {
+    "name": "Bloodpact's Pledge",
+    "version": 2.2,
+    "id": "21020046",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 587,
+      "energyRegen%": 0.388
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": [
+              0.1,
+              0.26
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "id": "1406"
+        },
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.4",
+                "forteCircuit.4"
+              ]
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "aeroDmgAmp%": [
+              0.1,
+              0.26
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21020053": {
     "name": "Guardian Sword",
     "version": 1,
@@ -671,6 +1745,69 @@
             "resonanceSkillDmgBonus%": [
               0.12,
               0.24
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21020056": {
+    "name": "Defier's Thorn",
+    "version": 2.4,
+    "id": "21020056",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 412,
+      "hp%": 0.722
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "basicAttack"
+              ]
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "defIgnore%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "has": "aeroErosion"
+              }
+            }
+          },
+          "stats": {
+            "dmgAmp%": [
+              0.2,
+              0.4
             ]
           }
         }
@@ -710,6 +1847,107 @@
       }
     ]
   },
+  "21020066": {
+    "name": "Emerald Sentence",
+    "version": 2.7,
+    "id": "21020066",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "key": "bambooCleaverReady",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "basicAttack"
+              ]
+            }
+          },
+          "duration": 10000
+        }
+      },
+      {
+        "key": "bambooCleaver",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "bambooCleaverReady"
+                }
+              },
+              {
+                "action": {
+                  "or": [
+                    {
+                      "type": "echoSkill"
+                    },
+                    {
+                      "extraType": "echoSkill"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 12000
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "maxStacks": 2,
+        "buff": {
+          "stats": {
+            "heavyAttackDmgBonus%": [
+              0.3,
+              0.6
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "echoSkillDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21020074": {
     "name": "Lumingloss",
     "version": 1,
@@ -741,6 +1979,438 @@
             "heavyAttackDmgBonus%": [
               0.2,
               0.64
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21020076": {
+    "name": "Everbright Polestar",
+    "version": 3.1,
+    "id": "21020076",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "inflict": {
+                    "shifting": "tuneRupture"
+                  }
+                },
+                {
+                  "inflict": {
+                    "status": {
+                      "has": "fusionBurst"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "resonanceLiberation"
+              }
+            }
+          },
+          "stats": {
+            "defIgnore%": [
+              0.32,
+              0.64
+            ],
+            "fusionResIgnore%": [
+              0.1,
+              0.3
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21020084": {
+    "name": "Endless Collapse",
+    "version": 1.3,
+    "id": "21020084",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 462,
+      "atk%": 0.182
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "duration": 16000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21020086": {
+    "name": "Frostburn",
+    "version": 3.3,
+    "id": "21020086",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "glacioDmgAmp%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "glacioChafe"
+                }
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "resonanceLiberation"
+              }
+            }
+          },
+          "stats": {
+            "defIgnore%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "field": "onField"
+          },
+          "cooldown": 100,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "glacioChafeDmgAmp%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21020094": {
+    "name": "Fables of Wisdom",
+    "version": 2,
+    "id": "21020094",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 462,
+      "atk%": 0.182
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "duration": 10000
+        },
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21020096": {
+    "name": "Azure Oath",
+    "version": 3.5,
+    "id": "21020096",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "havocBane"
+                }
+              }
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          },
+          "stats": {
+            "heavyAttackDmgAmp%": [
+              0.36,
+              0.72
+            ],
+            "defIgnore%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21020104": {
+    "name": "Feather Edge",
+    "version": 2.6,
+    "id": "21020104",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 412,
+      "critRate%": 0.202
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.072,
+              0.23
+            ],
+            "resonanceLiberationDmgBonus%": [
+              0.108,
+              0.345
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21020106": {
+    "name": "Glint of Clouds",
+    "version": 3.6,
+    "id": "21020106",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 500,
+      "critRate%": 0.36
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "key": "aeroBonus",
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "shifting": "tuneStrain"
+              }
+            }
+          },
+          "cooldown": 500,
+          "duration": 2000
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": [
+              0.112,
+              0.224
+            ]
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "aeroBonus": {
+                    ">=": 4
+                  }
+                }
+              },
+              {
+                "action": {
+                  "inflict": {
+                    "shifting": "tuneStrain"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "onUseDoApply": {
+          "aeroBonus": 1
+        },
+        "doApplyDuration": 30000
+      },
+      {
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "aeroBonus": 5
+                }
+              },
+              {
+                "action": {
+                  "damage": {
+                    "element": "aero"
+                  }
+                }
+              }
+            ]
+          },
+          "stats": {
+            "defIgnore%": [
+              0.1,
+              0.2
             ]
           }
         }
@@ -868,6 +2538,51 @@
       }
     ]
   },
+  "21030016": {
+    "name": "The Last Dance",
+    "version": 2,
+    "id": "21030016",
+    "quality": 5,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 500,
+      "critDmg%": 0.72
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceLiberation"
+              ]
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "resonanceSkillDmgBonus%": [
+              0.48,
+              0.96
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21030023": {
     "name": "Originite: Type III",
     "version": 1,
@@ -917,6 +2632,83 @@
     },
     "effects": []
   },
+  "21030026": {
+    "name": "Woodland Aria",
+    "version": 2.3,
+    "id": "21030026",
+    "quality": 5,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 500,
+      "critRate%": 0.36
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "aeroErosion"
+                }
+              }
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "aeroErosion"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "aeroResReduction%": [
+              0.1,
+              0.16
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21030034": {
     "name": "Pistols#26",
     "version": 1,
@@ -934,6 +2726,95 @@
             "atk%": [
               0.12,
               0.24
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21030036": {
+    "name": "Lux & Umbra",
+    "version": 2.7,
+    "id": "21030036",
+    "quality": 5,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 587,
+      "critDmg%": 0.486
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "key": "heavyAttackDmgIncreased",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "heavyAttackDmgAmp%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "key": "echoSkillDmgIncreased",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "echoSkillDmgAmp%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": "heavyAttackDmgIncreased"
+                },
+                {
+                  "has": "echoSkillDmgIncreased"
+                }
+              ]
+            }
+          },
+          "stats": {
+            "defIgnore%": [
+              0.08,
+              0.16
             ]
           }
         }
@@ -984,6 +2865,127 @@
       }
     ]
   },
+  "21030045": {
+    "name": "Phasic Homogenizer",
+    "version": 3,
+    "id": "21030045",
+    "quality": 5,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 587,
+      "critDmg%": 0.486
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "tuneBreak",
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.2,
+              0.3
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21030046": {
+    "name": "Spectrum Blaster",
+    "version": 3,
+    "id": "21030046",
+    "quality": 5,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "type": "introSkill"
+                },
+                {
+                  "damage": {
+                    "type": "basicAttack"
+                  }
+                }
+              ]
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": [
+              0.36,
+              0.72
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "and": [
+                {
+                  "inflict": {
+                    "shifting": [
+                      "tuneRupture",
+                      "tuneStrain"
+                    ]
+                  }
+                },
+                {
+                  "type": "basicAttack"
+                }
+              ]
+            }
+          },
+          "duration": 30000
+        },
+        "maxStacks": 3,
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21030053": {
     "name": "Guardian Pistols",
     "version": 1,
@@ -1007,6 +3009,81 @@
       }
     ]
   },
+  "21030056": {
+    "name": "Spectral Trigger",
+    "version": 3.4,
+    "id": "21030056",
+    "quality": 5,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 587,
+      "critDmg%": 0.486
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "duration": 14000
+        },
+        "maxStacks": 2,
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "shifting": "hack"
+              }
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "heavyAttack"
+              }
+            }
+          },
+          "stats": {
+            "heavyAttackDmgAmp%": [
+              0.3,
+              0.6
+            ],
+            "defIgnore%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21030064": {
     "name": "Novaburst",
     "version": 1,
@@ -1024,6 +3101,91 @@
             "atk%": [
               0.12,
               0.24
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21030066": {
+    "name": "Skull Thrasher",
+    "version": 3.4,
+    "id": "21030066",
+    "quality": 5,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 500,
+      "critDmg%": 0.72
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "shifting": "hack"
+              }
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "shifting": "hack"
+              }
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
             ]
           }
         }
@@ -1061,6 +3223,127 @@
             "resonanceSkillDmgBonus%": [
               0.07,
               0.23
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21030084": {
+    "name": "Relativistic Jet",
+    "version": 1.3,
+    "id": "21030084",
+    "quality": 4,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 462,
+      "atk%": 0.182
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "duration": 16000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21030094": {
+    "name": "Romance in Farewell",
+    "version": 2,
+    "id": "21030094",
+    "quality": 4,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 462,
+      "atk%": 0.182
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "duration": 10000
+        },
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21030104": {
+    "name": "Solar Flame",
+    "version": 2.6,
+    "id": "21030104",
+    "quality": 4,
+    "type": "pistols",
+    "stats": {
+      "baseAtk": 412,
+      "critRate%": 0.202
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "basicAttack",
+                  "heavyAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 1000,
+          "duration": 7000
+        },
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.022,
+              0.072
+            ],
+            "heavyAttackDmgBonus%": [
+              0.022,
+              0.072
             ]
           }
         }
@@ -1206,6 +3489,65 @@
       }
     ]
   },
+  "21040016": {
+    "name": "Verity's Handle",
+    "version": 1.2,
+    "id": "21040016",
+    "quality": 5,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "key": "adVeritatem",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          },
+          "duration": 8000
+        },
+        "maxExtensions": 3,
+        "buff": {
+          "stats": {
+            "resonanceLiberationDmgBonus%": [
+              0.48,
+              0.96
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          }
+        },
+        "onUseDoApply": {
+          "adVeritatem": 1
+        },
+        "doApplyType": "extend",
+        "doApplyDuration": 5000
+      }
+    ]
+  },
   "21040023": {
     "name": "Originite: Type IV",
     "version": 1,
@@ -1256,6 +3598,51 @@
       "energyRegen%": 0.518
     },
     "effects": []
+  },
+  "21040026": {
+    "name": "Tragicomedy",
+    "version": 2,
+    "id": "21040026",
+    "quality": 5,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "basicAttack",
+                "introSkill"
+              ]
+            }
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "stats": {
+            "heavyAttackDmgBonus%": [
+              0.48,
+              0.96
+            ]
+          }
+        }
+      }
+    ]
   },
   "21040034": {
     "name": "Gauntlets#21D",
@@ -1337,6 +3724,52 @@
       }
     ]
   },
+  "21040036": {
+    "name": "Blazing Justice",
+    "version": 2.3,
+    "id": "21040036",
+    "quality": 5,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 587,
+      "critDmg%": 0.486
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "basicAttack"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "defIgnore%": [
+              0.08,
+              0.16
+            ],
+            "spectroFrazzleDmgAmp%": [
+              0.5,
+              1
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21040043": {
     "name": "Gauntlets of Voyager",
     "version": 1,
@@ -1381,6 +3814,148 @@
       }
     ]
   },
+  "21040045": {
+    "name": "Pulsation Bracer",
+    "version": 3,
+    "id": "21040045",
+    "quality": 5,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "tune": {
+                    "interfered": "tuneStrain"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 500,
+          "duration": 3000
+        },
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "basicAttackDmgBonus%": [
+              0.06,
+              0.09
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21040046": {
+    "name": "Moongazer's Sigil",
+    "version": 2.6,
+    "id": "21040046",
+    "quality": 5,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 500,
+      "critRate%": 0.36
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "resonanceLiberation"
+              ]
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "resonanceLiberationDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "key": "resLibDmgInc",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "shield"
+            }
+          },
+          "cooldown": 500,
+          "duration": 7000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "resonanceLiberation"
+              }
+            }
+          },
+          "stats": {
+            "defIgnore%": [
+              0.072,
+              0.12
+            ]
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          }
+        },
+        "onUseDoApply": {
+          "resLibDmgInc": 5
+        }
+      }
+    ]
+  },
   "21040053": {
     "name": "Guardian Gauntlets",
     "version": 1,
@@ -1398,6 +3973,82 @@
             "resonanceLiberationDmgBonus%": [
               0.12,
               0.24
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21040056": {
+    "name": "Daybreaker's Spine",
+    "version": 3.1,
+    "id": "21040056",
+    "quality": 5,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 587,
+      "critRate%": 0.243
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "shifting": "tuneStrain"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          },
+          "stats": {
+            "basicAttackDmgAmp%": [
+              0.2,
+              0.4
+            ],
+            "defIgnore%": [
+              0.1,
+              0.2
             ]
           }
         }
@@ -1439,6 +4090,79 @@
       }
     ]
   },
+  "21040066": {
+    "name": "Solsworn Ciphers",
+    "version": 3.2,
+    "id": "21040066",
+    "quality": 5,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 587,
+      "critDmg%": 0.486
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "introSkill",
+                "echoSkill"
+              ]
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "echoSkillDmgAmp%": [
+              0.32,
+              0.64
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "aero"
+              }
+            }
+          },
+          "stats": {
+            "defIgnore%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21040074": {
     "name": "Stonard",
     "version": 1,
@@ -1465,6 +4189,120 @@
             "resonanceLiberationDmgBonus%": [
               0.18,
               0.54
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21040084": {
+    "name": "Celestial Spiral",
+    "version": 1.3,
+    "id": "21040084",
+    "quality": 4,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 462,
+      "atk%": 0.182
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "duration": 16000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21040094": {
+    "name": "Legend of Drunken Hero",
+    "version": 2,
+    "id": "21040094",
+    "quality": 4,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 462,
+      "atk%": 0.182
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "duration": 10000
+        },
+        "maxStacks": 4,
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21040104": {
+    "name": "Aether Strike",
+    "version": 2.6,
+    "id": "21040104",
+    "quality": 4,
+    "type": "gauntlets",
+    "stats": {
+      "baseAtk": 412,
+      "critDmg%": 0.405
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.072,
+              0.23
+            ],
+            "resonanceLiberationDmgBonus%": [
+              0.108,
+              0.345
             ]
           }
         }
@@ -1653,6 +4491,38 @@
       }
     ]
   },
+  "21050017": {
+    "name": "Call of the Abyss",
+    "version": 2,
+    "id": "21050017",
+    "quality": 4,
+    "type": "rectifier",
+    "stats": {
+      "baseAtk": 337,
+      "energyRegen%": 0.518
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "healingBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21050023": {
     "name": "Originite: Type V",
     "version": 1,
@@ -1701,377 +4571,6 @@
       "energyRegen%": 0.518
     },
     "effects": []
-  },
-  "21050034": {
-    "name": "Rectifier#25",
-    "version": 1,
-    "id": "21050034",
-    "quality": 4,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 337,
-      "energyRegen%": 0.518
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21050043": {
-    "name": "Rectifier of Voyager",
-    "version": 1,
-    "id": "21050043",
-    "quality": 3,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 300,
-      "energyRegen%": 0.324
-    },
-    "effects": []
-  },
-  "21050044": {
-    "name": "Jinzhou Keeper",
-    "version": 1,
-    "id": "21050044",
-    "quality": 4,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 387,
-      "atk%": 0.364
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "introSkill"
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.08,
-              0.16
-            ],
-            "hp%": [
-              0.1,
-              0.2
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21050053": {
-    "name": "Guardian Rectifier",
-    "version": 1,
-    "id": "21050053",
-    "quality": 3,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 325,
-      "atk%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": [
-              0.12,
-              0.24
-            ],
-            "heavyAttackDmgBonus%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21050064": {
-    "name": "Comet Flare",
-    "version": 1,
-    "id": "21050064",
-    "quality": 4,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 412,
-      "hp%": 0.303
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": [
-                  "basicAttack",
-                  "heavyAttack"
-                ]
-              }
-            }
-          },
-          "cooldown": 600,
-          "duration": 8000
-        },
-        "maxStacks": 3,
-        "buff": {
-          "stats": {
-            "healingBonus%": [
-              0.03,
-              0.06
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21050074": {
-    "name": "Augment",
-    "version": 1,
-    "id": "21050074",
-    "quality": 4,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 412,
-      "critRate%": 0.202
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceLiberation"
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.15,
-              0.48
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21010026": {
-    "name": "Ages of Harvest",
-    "version": 1.1,
-    "id": "21010026",
-    "quality": 5,
-    "type": "broadblade",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "dmgBonus%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "introSkill"
-            }
-          },
-          "duration": 12000
-        },
-        "buff": {
-          "stats": {
-            "resonanceSkillDmgBonus%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
-          },
-          "duration": 12000
-        },
-        "buff": {
-          "stats": {
-            "resonanceSkillDmgBonus%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21010063": {
-    "name": "Beguiling Melody",
-    "version": 1.1,
-    "id": "21010063",
-    "quality": 3,
-    "type": "broadblade",
-    "stats": {
-      "baseAtk": 300,
-      "atk%": 0.303
-    },
-    "effects": []
-  },
-  "21020016": {
-    "name": "Blazing Brilliance",
-    "version": 1.1,
-    "id": "21020016",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 587,
-      "critDmg%": 0.486
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "key": "searingFeather",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "has": "damage"
-            }
-          },
-          "cooldown": 500
-        },
-        "remove": {
-          "when": "maxStacks",
-          "offset": 12000
-        },
-        "maxStacks": 14,
-        "buff": {
-          "stats": {
-            "resonanceSkillDmgBonus%": [
-              0.04,
-              0.08
-            ]
-          }
-        }
-      },
-      {
-        "use": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
-          }
-        },
-        "onUseDoApply": {
-          "searingFeather": 5
-        }
-      }
-    ]
-  },
-  "21040016": {
-    "name": "Verity's Handle",
-    "version": 1.2,
-    "id": "21040016",
-    "quality": 5,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "dmgBonus%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "key": "adVeritatem",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceLiberation"
-            }
-          },
-          "duration": 8000
-        },
-        "maxExtensions": 3,
-        "buff": {
-          "stats": {
-            "resonanceLiberationDmgBonus%": [
-              0.48,
-              0.96
-            ]
-          }
-        }
-      },
-      {
-        "use": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
-          }
-        },
-        "onUseDoApply": {
-          "adVeritatem": 1
-        },
-        "doApplyType": "extend",
-        "doApplyDuration": 5000
-      }
-    ]
   },
   "21050026": {
     "name": "Rime-Draped Sprouts",
@@ -2158,12 +4657,12 @@
       }
     ]
   },
-  "21010084": {
-    "name": "Waning Redshift",
-    "version": 1.3,
-    "id": "21010084",
+  "21050027": {
+    "name": "Ocean's Gift",
+    "version": 2.1,
+    "id": "21050027",
     "quality": 4,
-    "type": "broadblade",
+    "type": "rectifier",
     "stats": {
       "baseAtk": 462,
       "atk%": 0.182
@@ -2171,35 +4670,47 @@
     "effects": [
       {
         "apply": {
-          "when": "start",
+          "when": "hit",
           "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "spectroFrazzle"
+                  }
+                }
+              }
+            ]
           },
-          "cooldown": 20000,
-          "duration": 16000
+          "cooldown": 1000,
+          "duration": 6000
         },
+        "maxStacks": 4,
         "buff": {
           "stats": {
-            "atk%": [
-              0.1,
-              0.2
+            "spectroDmgBonus%": [
+              0.06,
+              0.1
             ]
           }
         }
       }
     ]
   },
-  "21020084": {
-    "name": "Endless Collapse",
-    "version": 1.3,
-    "id": "21020084",
+  "21050034": {
+    "name": "Rectifier#25",
+    "version": 1,
+    "id": "21050034",
     "quality": 4,
-    "type": "sword",
+    "type": "rectifier",
     "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
+      "baseAtk": 337,
+      "energyRegen%": 0.518
     },
     "effects": [
       {
@@ -2210,80 +4721,13 @@
               "type": "resonanceSkill"
             }
           },
-          "cooldown": 20000,
-          "duration": 16000
+          "duration": 10000
         },
         "buff": {
           "stats": {
             "atk%": [
-              0.1,
-              0.2
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21030084": {
-    "name": "Relativistic Jet",
-    "version": 1.3,
-    "id": "21030084",
-    "quality": 4,
-    "type": "pistols",
-    "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
-          },
-          "cooldown": 20000,
-          "duration": 16000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.1,
-              0.2
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21040084": {
-    "name": "Celestial Spiral",
-    "version": 1.3,
-    "id": "21040084",
-    "quality": 4,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
-          },
-          "cooldown": 20000,
-          "duration": 16000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.1,
-              0.2
+              0.12,
+              0.24
             ]
           }
         }
@@ -2340,15 +4784,27 @@
       }
     ]
   },
-  "21050084": {
-    "name": "Fusion Accretion",
-    "version": 1.3,
-    "id": "21050084",
+  "21050043": {
+    "name": "Rectifier of Voyager",
+    "version": 1,
+    "id": "21050043",
+    "quality": 3,
+    "type": "rectifier",
+    "stats": {
+      "baseAtk": 300,
+      "energyRegen%": 0.324
+    },
+    "effects": []
+  },
+  "21050044": {
+    "name": "Jinzhou Keeper",
+    "version": 1,
+    "id": "21050044",
     "quality": 4,
     "type": "rectifier",
     "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
+      "baseAtk": 387,
+      "atk%": 0.364
     },
     "effects": [
       {
@@ -2356,605 +4812,61 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "resonanceSkill"
-            }
-          },
-          "cooldown": 20000,
-          "duration": 16000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.1,
-              0.2
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020017": {
-    "name": "Somnoire Anchor",
-    "version": 1.4,
-    "id": "21020017",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
-    },
-    "effects": [
-      {
-        "key": "hiss",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "has": "damage"
-            }
-          },
-          "cooldown": 1000,
-          "duration": 3000
-        },
-        "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
-        },
-        "maxStacks": 10,
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.02,
-              0.04
-            ]
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "effectStacks": {
-              "hiss": 10
-            }
-          },
-          "stats": {
-            "critRate%": [
-              0.06,
-              0.12
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020026": {
-    "name": "Red Spring",
-    "version": 1.4,
-    "id": "21020026",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "basicAttack"
-              }
-            }
-          },
-          "cooldown": 1000,
-          "duration": 14000
-        },
-        "maxStacks": 3,
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": [
-              0.1,
-              0.2
-            ]
-          }
-        }
-      },
-      {
-        "enableIf": {
-          "character": {
-            "id": "1603"
-          }
-        },
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.1"
-            }
-          },
-          "cooldown": 1000,
-          "duration": 10000
-        },
-        "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
-        },
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": [
-              0.4,
-              0.8
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21010094": {
-    "name": "Meditations on Mercy",
-    "version": 2,
-    "id": "21010094",
-    "quality": 4,
-    "type": "broadblade",
-    "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "negativeStatuses": {
-                    "has": "*"
-                  }
-                }
-              }
-            ]
-          },
-          "cooldown": 1000,
-          "duration": 10000
-        },
-        "maxStacks": 4,
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.04,
-              0.08
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020094": {
-    "name": "Fables of Wisdom",
-    "version": 2,
-    "id": "21020094",
-    "quality": 4,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "negativeStatuses": {
-                    "has": "*"
-                  }
-                }
-              }
-            ]
-          },
-          "cooldown": 1000,
-          "duration": 10000
-        },
-        "maxStacks": 4,
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.04,
-              0.08
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21030016": {
-    "name": "The Last Dance",
-    "version": 2,
-    "id": "21030016",
-    "quality": 5,
-    "type": "pistols",
-    "stats": {
-      "baseAtk": 500,
-      "critDmg%": 0.72
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": [
-                "introSkill",
-                "resonanceLiberation"
-              ]
-            }
-          },
-          "duration": 5000
-        },
-        "buff": {
-          "stats": {
-            "resonanceSkillDmgBonus%": [
-              0.48,
-              0.96
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21030094": {
-    "name": "Romance in Farewell",
-    "version": 2,
-    "id": "21030094",
-    "quality": 4,
-    "type": "pistols",
-    "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "negativeStatuses": {
-                    "has": "*"
-                  }
-                }
-              }
-            ]
-          },
-          "cooldown": 1000,
-          "duration": 10000
-        },
-        "maxStacks": 4,
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.04,
-              0.08
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21040026": {
-    "name": "Tragicomedy",
-    "version": 2,
-    "id": "21040026",
-    "quality": 5,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": [
-                "basicAttack",
-                "introSkill"
-              ]
-            }
-          },
-          "duration": 3000
-        },
-        "buff": {
-          "stats": {
-            "heavyAttackDmgBonus%": [
-              0.48,
-              0.96
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21040094": {
-    "name": "Legend of Drunken Hero",
-    "version": 2,
-    "id": "21040094",
-    "quality": 4,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "negativeStatuses": {
-                    "has": "*"
-                  }
-                }
-              }
-            ]
-          },
-          "cooldown": 1000,
-          "duration": 10000
-        },
-        "maxStacks": 4,
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.04,
-              0.08
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21050017": {
-    "name": "Call of the Abyss",
-    "version": 2,
-    "id": "21050017",
-    "quality": 4,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 337,
-      "energyRegen%": 0.518
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceLiberation"
+              "type": "introSkill"
             }
           },
           "duration": 15000
         },
         "buff": {
           "stats": {
-            "healingBonus%": [
-              0.16,
-              0.32
+            "atk%": [
+              0.08,
+              0.16
+            ],
+            "hp%": [
+              0.1,
+              0.2
             ]
           }
         }
       }
     ]
   },
-  "21050094": {
-    "name": "Waltz in Masquerade",
-    "version": 2,
-    "id": "21050094",
-    "quality": 4,
+  "21050045": {
+    "name": "Boson Astrolabe",
+    "version": 3,
+    "id": "21050045",
+    "quality": 5,
     "type": "rectifier",
     "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
+      "baseAtk": 525,
+      "energyRegen%": 0.388
     },
     "effects": [
       {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "negativeStatuses": {
-                    "has": "*"
-                  }
-                }
-              }
-            ]
-          },
-          "cooldown": 1000,
-          "duration": 10000
-        },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
-              0.04,
-              0.08
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020036": {
-    "name": "Unflickering Valor",
-    "version": 2.1,
-    "id": "21020036",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 412,
-      "energyRegen%": 0.77
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "critRate%": [
-              0.08,
-              0.16
+              0.12,
+              0.24
             ]
           }
         }
       },
       {
         "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceLiberation"
-            }
-          },
-          "duration": 10000
+          "when": "tuneBreak",
+          "duration": 14000
         },
         "buff": {
           "stats": {
+            "atk%": [
+              0.12,
+              0.18
+            ],
             "basicAttackDmgBonus%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "basicAttack"
-              }
-            }
-          },
-          "duration": 4000
-        },
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21050027": {
-    "name": "Ocean's Gift",
-    "version": 2.1,
-    "id": "21050027",
-    "quality": 4,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 462,
-      "atk%": 0.182
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "negativeStatuses": {
-                    "has": "spectroFrazzle"
-                  }
-                }
-              }
-            ]
-          },
-          "cooldown": 1000,
-          "duration": 6000
-        },
-        "maxStacks": 4,
-        "buff": {
-          "stats": {
-            "spectroDmgBonus%": [
-              0.06,
-              0.1
+              0.12,
+              0.18
             ]
           }
         }
@@ -3039,66 +4951,27 @@
       }
     ]
   },
-  "21020046": {
-    "name": "Bloodpact's Pledge",
-    "version": 2.2,
-    "id": "21020046",
-    "quality": 5,
-    "type": "sword",
+  "21050053": {
+    "name": "Guardian Rectifier",
+    "version": 1,
+    "id": "21050053",
+    "quality": 3,
+    "type": "rectifier",
     "stats": {
-      "baseAtk": 587,
-      "energyRegen%": 0.388
+      "baseAtk": 325,
+      "atk%": 0.243
     },
     "effects": [
       {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "has": "healing"
-            }
-          },
-          "duration": 6000
-        },
         "buff": {
           "stats": {
-            "resonanceSkillDmgBonus%": [
-              0.1,
-              0.26
-            ]
-          }
-        }
-      },
-      {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1406",
-              "1408"
-            ]
-          }
-        },
-        "stores": "global",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.4",
-                "forteCircuit.4"
-              ]
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "aeroDmgAmp%": [
-              0.1,
-              0.26
+            "basicAttackDmgBonus%": [
+              0.12,
+              0.24
+            ],
+            "heavyAttackDmgBonus%": [
+              0.12,
+              0.24
             ]
           }
         }
@@ -3208,269 +5081,39 @@
       }
     ]
   },
-  "21030026": {
-    "name": "Woodland Aria",
-    "version": 2.3,
-    "id": "21030026",
-    "quality": 5,
-    "type": "pistols",
-    "stats": {
-      "baseAtk": 500,
-      "critRate%": 0.36
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "status": {
-                  "has": "aeroErosion"
-                }
-              }
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "aeroDmgBonus%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      },
-      {
-        "stores": "global",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "negativeStatuses": {
-                    "has": "aeroErosion"
-                  }
-                }
-              }
-            ]
-          },
-          "duration": 20000
-        },
-        "buff": {
-          "stats": {
-            "aeroResReduction%": [
-              0.1,
-              0.16
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21040036": {
-    "name": "Blazing Justice",
-    "version": 2.3,
-    "id": "21040036",
-    "quality": 5,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 587,
-      "critDmg%": 0.486
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "basicAttack"
-            }
-          },
-          "duration": 6000
-        },
-        "buff": {
-          "stats": {
-            "defIgnore%": [
-              0.08,
-              0.16
-            ],
-            "spectroFrazzleDmgAmp%": [
-              0.5,
-              1
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21010036": {
-    "name": "Wildfire Mark",
-    "version": 2.4,
-    "id": "21010036",
-    "quality": 5,
-    "type": "broadblade",
-    "stats": {
-      "baseAtk": 587,
-      "critDmg%": 0.486
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "key": "resonanceLiberationDmgIncreased",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": [
-                "introSkill",
-                "resonanceLiberation"
-              ]
-            }
-          },
-          "duration": 6000
-        },
-        "maxExtensions": 1,
-        "buff": {
-          "stats": {
-            "resonanceLiberationDmgBonus%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      },
-      {
-        "stores": "$team",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "effectStacks": {
-                  "has": "resonanceLiberationDmgIncreased"
-                }
-              },
-              {
-                "action": {
-                  "damage": {
-                    "type": "heavyAttack"
-                  }
-                }
-              }
-            ]
-          },
-          "duration": 30000
-        },
-        "onApplyDoApply": {
-          "resonanceLiberationDmgIncreased": 1
-        },
-        "doApplyType": "extend",
-        "doApplyDuration": 4000,
-        "buff": {
-          "stats": {
-            "fusionDmgBonus%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020056": {
-    "name": "Defier's Thorn",
-    "version": 2.4,
-    "id": "21020056",
-    "quality": 5,
-    "type": "sword",
+  "21050064": {
+    "name": "Comet Flare",
+    "version": 1,
+    "id": "21050064",
+    "quality": 4,
+    "type": "rectifier",
     "stats": {
       "baseAtk": 412,
-      "hp%": 0.722
+      "hp%": 0.303
     },
     "effects": [
       {
-        "buff": {
-          "stats": {
-            "hp%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
         "apply": {
-          "when": "start",
+          "when": "hit",
           "filter": {
             "action": {
-              "type": [
-                "introSkill",
-                "basicAttack"
-              ]
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "defIgnore%": [
-              0.08,
-              0.16
-            ]
-          }
-        }
-      },
-      {
-        "stores": "global",
-        "buff": {
-          "filter": {
-            "states": {
-              "negativeStatuses": {
-                "has": "aeroErosion"
+              "damage": {
+                "type": [
+                  "basicAttack",
+                  "heavyAttack"
+                ]
               }
             }
           },
+          "cooldown": 600,
+          "duration": 8000
+        },
+        "maxStacks": 3,
+        "buff": {
           "stats": {
-            "dmgAmp%": [
-              0.2,
-              0.4
+            "healingBonus%": [
+              0.03,
+              0.06
             ]
           }
         }
@@ -3529,121 +5172,12 @@
       }
     ]
   },
-  "21010046": {
-    "name": "Thunderflare Dominion",
-    "version": 2.6,
-    "id": "21010046",
-    "quality": 5,
-    "type": "broadblade",
-    "stats": {
-      "baseAtk": 675,
-      "critRate%": 0.121
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": [
-                "introSkill",
-                "resonanceSkill"
-              ]
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "heavyAttackDmgBonus%": [
-              0.2,
-              0.4
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "has": "shield"
-            }
-          },
-          "cooldown": 500,
-          "duration": 7000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "heavyAttack"
-              }
-            }
-          },
-          "stats": {
-            "defIgnore%": [
-              0.072,
-              0.12
-            ]
-          }
-        },
-        "maxStacks": 5
-      }
-    ]
-  },
-  "21010104": {
-    "name": "Aureate Zenith",
-    "version": 2.6,
-    "id": "21010104",
+  "21050074": {
+    "name": "Augment",
+    "version": 1,
+    "id": "21050074",
     "quality": 4,
-    "type": "broadblade",
-    "stats": {
-      "baseAtk": 412,
-      "critDmg%": 0.405
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceLiberation"
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.072,
-              0.23
-            ],
-            "heavyAttackDmgBonus%": [
-              0.108,
-              0.345
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020104": {
-    "name": "Feather Edge",
-    "version": 2.6,
-    "id": "21020104",
-    "quality": 4,
-    "type": "sword",
+    "type": "rectifier",
     "stats": {
       "baseAtk": 412,
       "critRate%": 0.202
@@ -3662,1171 +5196,8 @@
         "buff": {
           "stats": {
             "atk%": [
-              0.072,
-              0.23
-            ],
-            "resonanceLiberationDmgBonus%": [
-              0.108,
-              0.345
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21030104": {
-    "name": "Solar Flame",
-    "version": 2.6,
-    "id": "21030104",
-    "quality": 4,
-    "type": "pistols",
-    "stats": {
-      "baseAtk": 412,
-      "critRate%": 0.202
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": [
-                  "basicAttack",
-                  "heavyAttack"
-                ]
-              }
-            }
-          },
-          "cooldown": 1000,
-          "duration": 7000
-        },
-        "maxStacks": 4,
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.022,
-              0.072
-            ],
-            "heavyAttackDmgBonus%": [
-              0.022,
-              0.072
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21040046": {
-    "name": "Moongazer's Sigil",
-    "version": 2.6,
-    "id": "21040046",
-    "quality": 5,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 500,
-      "critRate%": 0.36
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": [
-                "introSkill",
-                "resonanceLiberation"
-              ]
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "resonanceLiberationDmgBonus%": [
-              0.2,
-              0.4
-            ]
-          }
-        }
-      },
-      {
-        "key": "resLibDmgInc",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "has": "shield"
-            }
-          },
-          "cooldown": 500,
-          "duration": 7000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "resonanceLiberation"
-              }
-            }
-          },
-          "stats": {
-            "defIgnore%": [
-              0.072,
-              0.12
-            ]
-          }
-        },
-        "maxStacks": 5
-      },
-      {
-        "use": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "introSkill"
-            }
-          }
-        },
-        "onUseDoApply": {
-          "resLibDmgInc": 5
-        }
-      }
-    ]
-  },
-  "21040104": {
-    "name": "Aether Strike",
-    "version": 2.6,
-    "id": "21040104",
-    "quality": 4,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 412,
-      "critDmg%": 0.405
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceLiberation"
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.072,
-              0.23
-            ],
-            "resonanceLiberationDmgBonus%": [
-              0.108,
-              0.345
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21050104": {
-    "name": "Radiant Dawn",
-    "version": 2.6,
-    "id": "21050104",
-    "quality": 4,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 412,
-      "critDmg%": 0.405
-    },
-    "effects": [
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.09,
-              0.288
-            ],
-            "basicAttackDmgBonus%": [
-              0.09,
-              0.288
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020066": {
-    "name": "Emerald Sentence",
-    "version": 2.7,
-    "id": "21020066",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "key": "bambooCleaverReady",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": [
-                "introSkill",
-                "basicAttack"
-              ]
-            }
-          },
-          "duration": 10000
-        }
-      },
-      {
-        "key": "bambooCleaver",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "and": [
-              {
-                "effectStacks": {
-                  "has": "bambooCleaverReady"
-                }
-              },
-              {
-                "action": {
-                  "or": [
-                    {
-                      "type": "echoSkill"
-                    },
-                    {
-                      "extraType": "echoSkill"
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          "duration": 12000
-        },
-        "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
-        },
-        "maxStacks": 2,
-        "buff": {
-          "stats": {
-            "heavyAttackDmgBonus%": [
-              0.3,
-              0.6
-            ]
-          }
-        }
-      },
-      {
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "introSkill"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "echoSkillDmgBonus%": [
-              0.2,
-              0.4
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21030036": {
-    "name": "Lux & Umbra",
-    "version": 2.7,
-    "id": "21030036",
-    "quality": 5,
-    "type": "pistols",
-    "stats": {
-      "baseAtk": 587,
-      "critDmg%": 0.486
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "key": "heavyAttackDmgIncreased",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "echoSkill"
-              }
-            }
-          },
-          "duration": 6000
-        },
-        "buff": {
-          "stats": {
-            "heavyAttackDmgAmp%": [
-              0.24,
+              0.15,
               0.48
-            ]
-          }
-        }
-      },
-      {
-        "key": "echoSkillDmgIncreased",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "heavyAttack"
-              }
-            }
-          },
-          "duration": 6000
-        },
-        "buff": {
-          "stats": {
-            "echoSkillDmgAmp%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "effectStacks": {
-              "and": [
-                {
-                  "has": "heavyAttackDmgIncreased"
-                },
-                {
-                  "has": "echoSkillDmgIncreased"
-                }
-              ]
-            }
-          },
-          "stats": {
-            "defIgnore%": [
-              0.08,
-              0.16
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21010056": {
-    "name": "Kumokiri",
-    "version": 2.8,
-    "id": "21010056",
-    "quality": 5,
-    "type": "broadblade",
-    "stats": {
-      "baseAtk": 500,
-      "critRate%": 0.36
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "key": "resonanceLiberationDmgIncreased",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "introSkill"
-            }
-          },
-          "duration": 15000
-        },
-        "maxStacks": 3,
-        "buff": {
-          "stats": {
-            "resonanceLiberationDmgBonus%": [
-              0.08,
-              0.16
-            ]
-          }
-        }
-      },
-      {
-        "use": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "has": "status"
-              }
-            }
-          }
-        },
-        "onUseDoApply": {
-          "resonanceLiberationDmgIncreased": 1
-        }
-      },
-      {
-        "stores": "$applier",
-        "apply": {
-          "by": "$team",
-          "when": "inflict",
-          "filter": {
-            "and": [
-              {
-                "effectStacks": {
-                  "resonanceLiberationDmgIncreased": 3
-                }
-              },
-              {
-                "action": {
-                  "inflict": {
-                    "has": "status"
-                  }
-                }
-              }
-            ]
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "dmgBonus%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21010045": {
-    "name": "Radiance Cleaver",
-    "version": 3,
-    "id": "21010045",
-    "quality": 5,
-    "type": "broadblade",
-    "stats": {
-      "baseAtk": 587,
-      "critDmg%": 0.486
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "tune": {
-                    "interfered": "tuneStrain"
-                  }
-                }
-              }
-            ]
-          },
-          "duration": 3000
-        },
-        "buff": {
-          "stats": {
-            "resonanceLiberationDmgBonus%": [
-              0.24,
-              0.36
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21010066": {
-    "name": "Starfield Calibrator",
-    "version": 3,
-    "id": "21010066",
-    "quality": 5,
-    "type": "broadblade",
-    "stats": {
-      "baseAtk": 412,
-      "energyRegen%": 0.77
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "def%": [
-              0.16,
-              0.32
-            ]
-          }
-        }
-      },
-      {
-        "stores": "$team",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "has": "healing"
-            }
-          },
-          "duration": 4000
-        },
-        "buff": {
-          "stats": {
-            "critDmg%": [
-              0.2,
-              0.4
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020045": {
-    "name": "Laser Shearer",
-    "version": 3,
-    "id": "21020045",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 587,
-      "energyRegen%": 0.388
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "tune": {
-                    "interfered": "tuneStrain"
-                  }
-                }
-              }
-            ]
-          },
-          "duration": 3000
-        },
-        "buff": {
-          "stats": {
-            "resonanceSkillDmgBonus%": [
-              0.24,
-              0.36
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21030045": {
-    "name": "Phasic Homogenizer",
-    "version": 3,
-    "id": "21030045",
-    "quality": 5,
-    "type": "pistols",
-    "stats": {
-      "baseAtk": 587,
-      "critDmg%": 0.486
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "tuneBreak",
-          "duration": 14000
-        },
-        "buff": {
-          "stats": {
-            "dmgBonus%": [
-              0.2,
-              0.3
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21030046": {
-    "name": "Spectrum Blaster",
-    "version": 3,
-    "id": "21030046",
-    "quality": 5,
-    "type": "pistols",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "or": [
-                {
-                  "type": "introSkill"
-                },
-                {
-                  "damage": {
-                    "type": "basicAttack"
-                  }
-                }
-              ]
-            }
-          },
-          "duration": 4000
-        },
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": [
-              0.36,
-              0.72
-            ]
-          }
-        }
-      },
-      {
-        "stores": "$team",
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "and": [
-                {
-                  "inflict": {
-                    "shifting": [
-                      "tuneRupture",
-                      "tuneStrain"
-                    ]
-                  }
-                },
-                {
-                  "type": "basicAttack"
-                }
-              ]
-            }
-          },
-          "duration": 30000
-        },
-        "maxStacks": 3,
-        "buff": {
-          "stats": {
-            "dmgBonus%": [
-              0.08,
-              0.16
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21040045": {
-    "name": "Pulsation Bracer",
-    "version": 3,
-    "id": "21040045",
-    "quality": 5,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "has": "damage"
-                }
-              },
-              {
-                "states": {
-                  "tune": {
-                    "interfered": "tuneStrain"
-                  }
-                }
-              }
-            ]
-          },
-          "cooldown": 500,
-          "duration": 3000
-        },
-        "maxStacks": 4,
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": [
-              0.06,
-              0.09
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21050045": {
-    "name": "Boson Astrolabe",
-    "version": 3,
-    "id": "21050045",
-    "quality": 5,
-    "type": "rectifier",
-    "stats": {
-      "baseAtk": 525,
-      "energyRegen%": 0.388
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "tuneBreak",
-          "duration": 14000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.18
-            ],
-            "basicAttackDmgBonus%": [
-              0.12,
-              0.18
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020076": {
-    "name": "Everbright Polestar",
-    "version": 3.1,
-    "id": "21020076",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "dmgBonus%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "or": [
-                {
-                  "inflict": {
-                    "shifting": "tuneRupture"
-                  }
-                },
-                {
-                  "inflict": {
-                    "status": {
-                      "has": "fusionBurst"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "duration": 8000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "resonanceLiberation"
-              }
-            }
-          },
-          "stats": {
-            "defIgnore%": [
-              0.32,
-              0.64
-            ],
-            "fusionResIgnore%": [
-              0.1,
-              0.3
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21040056": {
-    "name": "Daybreaker's Spine",
-    "version": 3.1,
-    "id": "21040056",
-    "quality": 5,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "basicAttack"
-              }
-            }
-          },
-          "duration": 4000
-        },
-        "buff": {
-          "stats": {
-            "spectroDmgBonus%": [
-              0.2,
-              0.4
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "shifting": "tuneStrain"
-              }
-            }
-          },
-          "duration": 6000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "basicAttack"
-              }
-            }
-          },
-          "stats": {
-            "basicAttackDmgAmp%": [
-              0.2,
-              0.4
-            ],
-            "defIgnore%": [
-              0.1,
-              0.2
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21040066": {
-    "name": "Solsworn Ciphers",
-    "version": 3.2,
-    "id": "21040066",
-    "quality": 5,
-    "type": "gauntlets",
-    "stats": {
-      "baseAtk": 587,
-      "critDmg%": 0.486
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": [
-                "introSkill",
-                "echoSkill"
-              ]
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "echoSkillDmgAmp%": [
-              0.32,
-              0.64
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "echoSkill"
-              }
-            }
-          },
-          "duration": 6000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "element": "aero"
-              }
-            }
-          },
-          "stats": {
-            "defIgnore%": [
-              0.1,
-              0.2
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21020086": {
-    "name": "Frostburn",
-    "version": 3.3,
-    "id": "21020086",
-    "quality": 5,
-    "type": "sword",
-    "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "status": {
-                  "has": "glacioChafe"
-                }
-              }
-            }
-          },
-          "duration": 6000
-        },
-        "buff": {
-          "stats": {
-            "glacioDmgAmp%": [
-              0.28,
-              0.56
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "status": {
-                  "has": "glacioChafe"
-                }
-              }
-            }
-          },
-          "duration": 6000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "resonanceLiberation"
-              }
-            }
-          },
-          "stats": {
-            "defIgnore%": [
-              0.1,
-              0.2
-            ]
-          }
-        }
-      },
-      {
-        "stores": "global",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "field": "onField"
-          },
-          "cooldown": 100,
-          "duration": 6000
-        },
-        "buff": {
-          "stats": {
-            "glacioChafeDmgAmp%": [
-              0.2,
-              0.4
             ]
           }
         }
@@ -4932,27 +5303,17 @@
       }
     ]
   },
-  "21030056": {
-    "name": "Spectral Trigger",
-    "version": 3.4,
-    "id": "21030056",
-    "quality": 5,
-    "type": "pistols",
+  "21050084": {
+    "name": "Fusion Accretion",
+    "version": 1.3,
+    "id": "21050084",
+    "quality": 4,
+    "type": "rectifier",
     "stats": {
-      "baseAtk": 587,
-      "critDmg%": 0.486
+      "baseAtk": 462,
+      "atk%": 0.182
     },
     "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
       {
         "apply": {
           "when": "start",
@@ -4961,131 +5322,14 @@
               "type": "resonanceSkill"
             }
           },
-          "duration": 14000
-        },
-        "maxStacks": 2,
-        "buff": {
-          "stats": {
-            "spectroDmgBonus%": [
-              0.2,
-              0.4
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "shifting": "hack"
-              }
-            }
-          },
-          "duration": 14000
+          "cooldown": 20000,
+          "duration": 16000
         },
         "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "heavyAttack"
-              }
-            }
-          },
           "stats": {
-            "heavyAttackDmgAmp%": [
-              0.3,
-              0.6
-            ],
-            "defIgnore%": [
+            "atk%": [
               0.1,
               0.2
-            ]
-          }
-        }
-      }
-    ]
-  },
-  "21030066": {
-    "name": "Skull Thrasher",
-    "version": 3.4,
-    "id": "21030066",
-    "quality": 5,
-    "type": "pistols",
-    "stats": {
-      "baseAtk": 500,
-      "critDmg%": 0.72
-    },
-    "effects": [
-      {
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "introSkill"
-            }
-          },
-          "duration": 14000
-        },
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      },
-      {
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "shifting": "hack"
-              }
-            }
-          },
-          "duration": 14000
-        },
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "stores": "$team",
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "shifting": "hack"
-              }
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.24,
-              0.48
             ]
           }
         }
@@ -5162,57 +5406,45 @@
       }
     ]
   },
-  "21020096": {
-    "name": "Azure Oath",
-    "version": 3.5,
-    "id": "21020096",
-    "quality": 5,
-    "type": "sword",
+  "21050094": {
+    "name": "Waltz in Masquerade",
+    "version": 2,
+    "id": "21050094",
+    "quality": 4,
+    "type": "rectifier",
     "stats": {
-      "baseAtk": 587,
-      "critRate%": 0.243
+      "baseAtk": 462,
+      "atk%": 0.182
     },
     "effects": [
       {
-        "buff": {
-          "stats": {
-            "dmgBonus%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
         "apply": {
-          "when": "inflict",
+          "when": "hit",
           "filter": {
-            "action": {
-              "inflict": {
-                "status": {
-                  "has": "havocBane"
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "states": {
+                  "negativeStatuses": {
+                    "has": "*"
+                  }
                 }
               }
-            }
+            ]
           },
-          "duration": 8000
+          "cooldown": 1000,
+          "duration": 10000
         },
+        "maxStacks": 4,
         "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "heavyAttack"
-              }
-            }
-          },
           "stats": {
-            "heavyAttackDmgAmp%": [
-              0.36,
-              0.72
-            ],
-            "defIgnore%": [
-              0.12,
-              0.24
+            "atk%": [
+              0.04,
+              0.08
             ]
           }
         }
@@ -5300,6 +5532,42 @@
             "atk%": [
               0.2,
               0.4
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "21050104": {
+    "name": "Radiant Dawn",
+    "version": 2.6,
+    "id": "21050104",
+    "quality": 4,
+    "type": "rectifier",
+    "stats": {
+      "baseAtk": 412,
+      "critDmg%": 0.405
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.09,
+              0.288
+            ],
+            "basicAttackDmgBonus%": [
+              0.09,
+              0.288
             ]
           }
         }

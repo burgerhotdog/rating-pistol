@@ -139,7 +139,7 @@
         ]
       }
     },
-    "timing": "afterIntro"
+    "timing": "start"
   },
   "6000049": {
     "name": "Autopuppet Scout",
@@ -246,13 +246,8 @@
     "cost": 4,
     "effects": [
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1604",
-              "1605"
-            ]
-          }
+        "enable": {
+          "id": "1605"
         },
         "apply": {
           "when": "start",
@@ -435,7 +430,7 @@
         ]
       }
     },
-    "timing": "afterIntro"
+    "timing": "start"
   },
   "6000060": {
     "name": "Fallacy of No Return",
@@ -1328,14 +1323,11 @@
         "aeroDmgBonus%": 0.1
       },
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1406",
-              "1408",
-              "1409"
-            ]
-          }
+        "enable": {
+          "id": [
+            "1406",
+            "1409"
+          ]
         },
         "aeroDmgBonus%": 0.1
       }
@@ -1591,7 +1583,7 @@
         ]
       }
     },
-    "timing": "afterIntro"
+    "timing": "start"
   },
   "6000117": {
     "name": "Nightmare: Havoc Warrior",
@@ -1651,7 +1643,7 @@
         ]
       }
     },
-    "timing": "afterIntro"
+    "timing": "start"
   },
   "6000121": {
     "name": "The False Sovereign",
@@ -1812,7 +1804,8 @@
               "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 8
         },
         "use": {
           "when": "hit",
@@ -1839,8 +1832,7 @@
               ]
             }
           }
-        },
-        "maxUses": 8
+        }
       },
       {
         "buff": {
@@ -2204,12 +2196,8 @@
     "cost": 4,
     "effects": [
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1210"
-            ]
-          }
+        "enable": {
+          "id": "1210"
         },
         "buff": {
           "stats": {
@@ -2466,13 +2454,11 @@
     "cost": 4,
     "effects": [
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1511",
-              "1308"
-            ]
-          }
+        "enable": {
+          "id": [
+            "1511",
+            "1308"
+          ]
         },
         "buff": {
           "stats": {
@@ -2481,12 +2467,8 @@
         }
       },
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1511"
-            ]
-          }
+        "enable": {
+          "id": "1511"
         },
         "use": {
           "when": "start",
@@ -2509,12 +2491,8 @@
         }
       },
       {
-        "enableIf": {
-          "character": {
-            "id": [
-              "1308"
-            ]
-          }
+        "enable": {
+          "id": "1308"
         },
         "use": {
           "when": "start",
@@ -2757,7 +2735,8 @@
               "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 4
         },
         "use": {
           "when": "inflict",
@@ -2783,8 +2762,7 @@
               ]
             }
           }
-        },
-        "maxUses": 4
+        }
       },
       {
         "buff": {
@@ -2803,6 +2781,56 @@
         "multipliers": [
           {
             "mv": 1.0944
+          }
+        ]
+      }
+    },
+    "timing": "start"
+  },
+  "6000221": {
+    "name": "Calamity Effigy",
+    "version": 3.6,
+    "id": "6000221",
+    "sets": [
+      "34",
+      "35"
+    ],
+    "cost": 4,
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "shifting": "tuneStrain"
+              }
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
+        }
+      }
+    ],
+    "action": {
+      "name": "Echo Skill: Calamity Effigy",
+      "type": "echoSkill",
+      "damage": {
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 4.05
           }
         ]
       }

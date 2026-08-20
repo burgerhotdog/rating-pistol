@@ -19,16 +19,21 @@ export function runUseEffect(ctx, state, spec = {}) {
   const { store, effect } = state;
   const runOptions = { runtimeOffset, noDuration: true };
 
-  if (effect.use?.action) {
-    state.isRunning = true;
-    for (let i = 0; i < (effect.use.times ?? 1); i++) {
-      for (const action of effect.use.action) {
-        ctx.runAction(ctx, action, runOptions);
-      }
-    }
-    delete state.isRunning;
+  if (effect.use) {
+    if (effect.use.action) {
+      const useTimes = effect.use.times ?? 1;
+      state.isRunning = true;
 
-    if (effect.use?.cooldown) state.useCooldown = effect.use.cooldown;
+      for (let i = 0; i < useTimes; i++) {
+        for (const action of effect.use.action) {
+          ctx.runAction(ctx, action, runOptions);
+        }
+      }
+
+      delete state.isRunning;
+    }
+
+    if (effect.use.cooldown) state.useCooldown = effect.use.cooldown;
     if (state.usesLeft) {
       state.usesLeft--;
       if (!state.usesLeft) return delete store[effect.id];
@@ -58,11 +63,13 @@ export function runApplyEffect(ctx, effect, spec = {}) {
       ...(effect.apply?.duration &&
         { timeLeft: isDurationExt
           ? prevState.timeLeft + spec.duration
-          : effect.apply.duration }),
-      ...(effect.maxUses &&
+          : prevState.timeLeft > effect.apply.duration
+            ? prevState.timeLeft
+            : effect.apply.duration }),
+      ...(effect.apply?.uses &&
         { usesLeft: isUsesExt
           ? prevState.usesLeft + spec.uses
-          : effect.maxUses }),
+          : effect.apply.uses }),
       ...(effect.maxExtensions &&
         { extensionsLeft: isExt
           ? prevState.extensionsLeft - 1

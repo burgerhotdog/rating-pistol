@@ -14,9 +14,9 @@ export function getEffectStates(ctx, { member, type }) {
     case 'gameRule':
       return states.filter(({ effect }) => effect.gameRule);
     case 'buff':
-      return states.filter(({ effect }) => effect.buff?.stats || effect.buff?.specs);
+      return states.filter(({ effect }) => effect.buff);
     case 'action':
-      return states.filter(({ effect }) => effect.use?.action);
+      return states.filter(({ effect }) => effect.use);
     default:
       return states;
   }

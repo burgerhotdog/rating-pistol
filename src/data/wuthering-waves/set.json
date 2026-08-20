@@ -9,9 +9,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.1
@@ -19,9 +17,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -53,9 +49,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.1
@@ -63,9 +57,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -93,9 +85,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "electroDmgBonus%": 0.1
@@ -103,9 +93,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -122,9 +110,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -152,9 +138,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.1
@@ -162,9 +146,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -192,9 +174,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.1
@@ -202,9 +182,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -232,9 +210,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "havocDmgBonus%": 0.1
@@ -242,9 +218,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -276,9 +250,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "healingBonus%": 0.1
@@ -286,9 +258,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$team",
         "apply": {
           "when": "hit",
@@ -317,9 +287,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "energyRegen%": 0.1
@@ -327,9 +295,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -358,9 +324,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "atk%": 0.1
@@ -368,9 +332,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -392,9 +354,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "buff": {
           "filter": {
             "action": {
@@ -420,9 +380,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": 0.12
@@ -430,9 +388,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -450,9 +406,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -481,9 +435,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.1
@@ -491,9 +443,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "inflict",
           "filter": {
@@ -514,9 +464,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "hit",
           "filter": {
@@ -559,9 +507,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "havocDmgBonus%": 0.1
@@ -569,9 +515,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "use": {
           "when": "start",
           "filter": {
@@ -593,9 +537,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -624,9 +566,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "energyRegen%": 0.1
@@ -634,9 +574,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "buff": {
           "filter": {
             "action": {
@@ -649,9 +587,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "global",
         "apply": {
           "when": "hit",
@@ -683,9 +619,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "energyRegen%": 0.1
@@ -693,9 +627,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "buff": {
           "stats": {
             "atk%": 0.15
@@ -703,9 +635,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "buff": {
           "filter": {
             "attrMap": {
@@ -731,9 +661,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.1
@@ -741,9 +669,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$team",
         "apply": {
           "when": "inflict",
@@ -765,9 +691,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "inflict",
           "filter": {
@@ -799,9 +723,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.1
@@ -809,9 +731,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "hit",
           "filter": {
@@ -851,9 +771,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.1
@@ -861,9 +779,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -881,9 +797,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "start",
           "filter": {
@@ -910,11 +824,9 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 3,
-          "character": {
-            "tagged": "noEnergy"
-          }
+        "bonus": 3,
+        "enable": {
+          "energy": -1
         },
         "buff": {
           "stats": {
@@ -934,9 +846,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 3
-        },
+        "bonus": 3,
         "apply": {
           "when": "hit",
           "filter": {
@@ -966,9 +876,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 3
-        },
+        "bonus": 3,
         "apply": {
           "when": "start",
           "filter": {
@@ -992,9 +900,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 3
-        },
+        "bonus": 3,
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -1030,9 +936,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 3
-        },
+        "bonus": 3,
         "key": "heavyAttackCritRateIncreased",
         "apply": {
           "when": "hit",
@@ -1059,9 +963,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 3
-        },
+        "bonus": 3,
         "key": "echoSkillCritRateIncreased",
         "apply": {
           "when": "hit",
@@ -1088,9 +990,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 3
-        },
+        "bonus": 3,
         "buff": {
           "filter": {
             "effectStacks": {
@@ -1120,9 +1020,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 3
-        },
+        "bonus": 3,
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1155,9 +1053,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.1
@@ -1165,9 +1061,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -1191,9 +1085,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -1233,9 +1125,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "healingBonus%": 0.1
@@ -1243,9 +1133,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$team",
         "apply": {
           "when": "hit",
@@ -1279,9 +1167,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.1
@@ -1289,9 +1175,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "key": "spectroDmgIncreased",
         "apply": {
           "when": "hit",
@@ -1312,9 +1196,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "buff": {
           "filter": {
             "and": [
@@ -1347,9 +1229,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.1
@@ -1357,9 +1237,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1401,9 +1279,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.1
@@ -1411,9 +1287,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "key": "fusionDmgBonusGained",
         "apply": {
           "when": "inflict",
@@ -1435,9 +1309,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -1475,9 +1347,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "aeroDmgBonus%": 0.1
@@ -1485,9 +1355,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "hit",
           "filter": {
@@ -1513,9 +1381,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "hit",
           "filter": {
@@ -1545,9 +1411,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.1
@@ -1555,9 +1419,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1578,9 +1440,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "key": "snowfall",
         "apply": {
           "when": "inflict",
@@ -1598,9 +1458,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "key": "critRateIncreased",
         "apply": {
           "when": "hit",
@@ -1633,9 +1491,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "use": {
           "when": "hit",
           "filter": {
@@ -1663,9 +1519,7 @@
         "doApplyDuration": 4000
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -1706,9 +1560,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "atk%": 0.1
@@ -1716,9 +1568,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$team",
         "apply": {
           "when": "inflict",
@@ -1751,9 +1601,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 1
-        },
+        "bonus": 1,
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1784,9 +1632,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "energyRegen%": 0.1
@@ -1794,9 +1640,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1818,9 +1662,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "stores": "$team",
         "apply": {
           "when": "inflict",
@@ -1858,9 +1700,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "aeroDmg%": 0.1
@@ -1868,9 +1708,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1901,9 +1739,7 @@
     ],
     "effects": [
       {
-        "enableIf": {
-          "bonus": 2
-        },
+        "bonus": 2,
         "buff": {
           "stats": {
             "hp%": 0.1
@@ -1911,9 +1747,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "key": "critRateIncreased",
         "apply": {
           "when": "hit",
@@ -1933,9 +1767,7 @@
         }
       },
       {
-        "enableIf": {
-          "bonus": 5
-        },
+        "bonus": 5,
         "buff": {
           "filter": {
             "effectStacks": {

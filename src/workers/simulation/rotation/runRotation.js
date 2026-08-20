@@ -12,8 +12,10 @@ import {
   advanceEffects,
 } from './effects';
 import {
+  consumeNegativeStatuses,
   inflictNegativeStatuses,
   advanceNegativeStatuses,
+  replaceNegativeStatuses,
 } from './special/negativeStatuses';
 import {
   runTuneBreak,
@@ -152,9 +154,14 @@ function runAction(ctx, action, options = {}) {
     decayBuffStates(ctx, action);
   }
 
-  if (ctx.cache.gameId === WW) inflictNegativeStatuses(ctx, action);
-  if (ctx.cache.gameId === WW) inflictTuneShifting(ctx, action);
-  if (ctx.cache.gameId === WW) runEffectsWhen('inflict');
+  if (ctx.cache.gameId === WW) {
+    consumeNegativeStatuses(ctx, action);
+    inflictNegativeStatuses(ctx, action);
+    replaceNegativeStatuses(ctx, action);
+
+    inflictTuneShifting(ctx, action);
+    runEffectsWhen('inflict');
+  }
 
   for (const offset of hitOffsets) {
     advanceTimeTo(offset);

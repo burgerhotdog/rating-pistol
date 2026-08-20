@@ -18,7 +18,7 @@ const PageLayout = ({ sortedKeys }) => {
       >
         <Navbar sorted={sortedKeys} />
         <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-          <StatsPanel team={team.members} updateTeam={updateTeam}/>
+          <StatsPanel team={team} updateTeam={updateTeam} />
           <Charts team={team} />
         </Stack>
       </Stack>

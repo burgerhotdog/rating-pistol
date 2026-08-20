@@ -61,7 +61,7 @@ def enter_ids(game, version, type):
         entries.append((
             input_id,
             parse_image(game, type, input_id, input_data),
-            parse_data(game, type, version, input_id, input_data),
+            parse_data(game, type, version.partition("+")[0], input_id, input_data),
         ))
 
     return entries

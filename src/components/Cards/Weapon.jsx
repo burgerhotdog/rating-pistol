@@ -17,35 +17,37 @@ import {
 } from 'recharts';
 import { BarChart } from '@/components';
 import { useWeapData, useElementColors } from '@/hooks';
+import { getDefaultWeapRank } from '@/utils';
+
+function getDpsIndex(gameId, weapId) {
+  const rank = getDefaultWeapRank(gameId, weapId);
+  return rank === 5 ? 1: 0;
+}
 
 function buildData(gameId, weapData, weaponResults, userDps, userMember) {
   const dataEntries = Object.entries(weaponResults)
-    .sort(([a, [a1, a5]], [b, [b1, b5]]) => {
-      const aQual = weapData[a].quality;
-      const bQual = weapData[b].quality;
-      const aDps = aQual === 5 ? a1 : a5;
-      const bDps = bQual === 5 ? b1 : b5;
-      return bDps - aDps;
+    .sort(([aId, aDps], [bId, bDps]) => {
+      const aIndex = getDpsIndex(gameId, aId);
+      const bIndex = getDpsIndex(gameId, bId);
+      return bDps[bIndex] - aDps[aIndex];
     });
 
-  const refIndex = weapData[dataEntries[0][0]].quality === 5 ? 0 : 1;
+  const refIndex = getDpsIndex(gameId, dataEntries[0][0]);
   const maxDps = dataEntries[0][1][refIndex];
 
   return dataEntries.map(([weaponId, dps]) => {
-    const { quality } = weapData[weaponId];
-    const pctIdx = quality === 5 ? 0 : 1;
-
+    const pctDps = dps[getDpsIndex(gameId, weaponId)];
     return {
       weaponId,
-      quality,
+      quality: weapData[weaponId].quality,
       name: weapData[weaponId].name,
       icon: `${gameId}/weapon/${weaponId}.webp`,
       equipped: weaponId === userMember.weaponId,
       dps,
       dpsR1: dps[0],
       dpsR5: Math.max(dps[1] - dps[0], 0.001),
-      pct: (dps[pctIdx] / userDps) * 100,
-      opacity: (dps[pctIdx] / maxDps) ** 2,
+      pct: (pctDps / userDps) * 100,
+      opacity: (pctDps / maxDps) ** 2,
     };
   });
 }

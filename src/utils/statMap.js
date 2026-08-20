@@ -1,8 +1,17 @@
 import {
   GI, HSR, WW, ZZZ,
-  CHARACTER, WEAPON, SET,
+  CHARACTER, WEAPON, SET, ECHO,
 } from '@/data';
-import { toArray, toMergedObj, toEquipMap, resolveRankedValue } from '@/utils';
+import {
+  isEnabledChar,
+  isEnabledWeap,
+  isEnabledSet,
+  isEnabledEcho,
+  toArray,
+  toMergedObj,
+  toEquipMap,
+  resolveRankedValue,
+} from '@/utils';
 
 const DEFAULT = {
   [GI]: {
@@ -36,44 +45,47 @@ export function compileBaseMap(gameId, charId, weapId) {
   return toMergedObj(gameStats, charStats, weapStats);
 }
 
-export function compileMenuMap(gameId, charId, member) {
-  const {
-    rank: charRank = 0,
-    weaponId,
-    weaponRank = 1,
-    setCounts = {},
-  } = member;
-
-  const baseMap = compileBaseMap(gameId, charId, weaponId);
+export function compileMenuMap(gameId, charId, member, team) {
+  const baseMap = compileBaseMap(gameId, charId, member.weaponId);
   const equipMap = toEquipMap(member.build?.equipList ?? []);
   const effectMaps = [];
 
-  const validEffect = (effect) => (
+  const isStaticBuff = (effect) => (
     effect.buff?.stats &&
     !effect.buff?.filter &&
-    !(effect.enableIf?.rank > charRank) &&
-    !effect.apply?.when &&
+    !effect.apply &&
     toArray(effect.stores ?? charId)
       .some((store) => ['global', '$team', charId].includes(store))
   );
 
+  const memberIds = team.filter((member) => member.id).map((member) => member.id);
+
+  const charData = CHARACTER[gameId][charId];
+  const weapData = WEAPON[gameId][member.weaponId];
+
   const allEffects = [
-    ...CHARACTER[gameId][charId].effects,
-    ...WEAPON[gameId][weaponId].effects,
-    ...Object.entries(setCounts)
-      .flatMap(([setId, count]) =>
-        SET[gameId][setId].effects
-          .filter(({ enableIf: { bonus } }) => bonus <= count)),
+    ...charData.effects.filter((effect) => isEnabledChar(effect, member, gameId, memberIds)),
+    ...weapData.effects.filter((effect) => isEnabledWeap(effect, charData, weapData)),
+    ...Object.entries(member.setCounts)
+      .flatMap(([setId, pcCount]) =>
+        SET[gameId][setId].effects.filter((effect) => isEnabledSet(effect, pcCount, charData))
+      ),
   ];
 
-  for (const effect of allEffects.filter(validEffect)) {
+  const echoData = ECHO[member.mainEcho];
+  if (echoData?.effects) {
+    const filtered = echoData.effects.filter((effect) => isEnabledEcho(effect, charData));
+    allEffects.push(...filtered);
+  }
+
+  for (const effect of allEffects.filter(isStaticBuff)) {
     const effectMap = {};
 
     for (const [stat, value] of Object.entries(effect.buff.stats)) {
       effectMap[stat] =
         typeof value === 'number'
           ? value
-          : resolveRankedValue(value, weaponRank);
+          : resolveRankedValue(value, member.weaponRank);
     }
 
     effectMaps.push(effectMap);
