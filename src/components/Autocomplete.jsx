@@ -19,7 +19,7 @@ const renderOption = (props, option) => {
   return (
     <ListItem key={key} {...optionProps}>
       <ListItemIcon>
-        <Icon src={option.iconSrc} />
+        <Icon src={option.icon} />
       </ListItemIcon>
       <ListItemText primary={option.name} />
     </ListItem>
@@ -35,7 +35,7 @@ export const Autocomplete = ({ options, value, label, onChange, ...props }) => {
         ...params.slotProps,
         input: {
           ...params.slotProps?.input,
-          startAdornment: value && <Icon src={value.iconSrc} />,
+          startAdornment: value && <Icon src={value.icon} />,
         },
       }}
     />
@@ -68,7 +68,7 @@ const MultiAutocomplete = ({
       return (
         <Chip
           key={key}
-          avatar={<Avatar src={option.iconSrc} />}
+          avatar={<Avatar src={option.icon} />}
           label={option.bonus}
           {...tagProps}
         />
@@ -99,8 +99,7 @@ export const WeapAutocomplete = ({ gameId, type, selected, ...props }) => {
   const options = useMemo(
     () => Object.values(WEAPON[gameId])
       .filter((weap) => weap.type === type)
-      .sort((a, b) => b.quality - a.quality || a.name.localeCompare(b.name))
-      .map((weap) => ({ ...weap, iconSrc: `${gameId}/weapon/${weap.id}.webp` })),
+      .sort((a, b) => b.quality - a.quality || a.name.localeCompare(b.name)),
     [gameId, type],
   );
 
@@ -124,10 +123,9 @@ export const SetAutocomplete = ({ gameId, setCounts, onChange, ...props }) => {
   const options = useMemo(() => {
     const options = [];
     for (let bonus = maxBonus; bonus > 0; bonus--) {
-      for (const [id, { version, name, bonuses }] of Object.entries(SET[gameId])) {
+      for (const { name, version, id, icon, bonuses } of Object.values(SET[gameId])) {
         if (!bonuses.includes(bonus)) continue;
-        const iconSrc = `${gameId}/set/${id}.webp`;
-        options.push({ id, bonus, version, name, iconSrc });
+        options.push({ id, bonus, version, name, icon });
       }
     }
 
@@ -142,7 +140,7 @@ export const SetAutocomplete = ({ gameId, setCounts, onChange, ...props }) => {
     () => Object.entries(setCounts)
       .map(([id, bonus]) => ({ id, bonus,
         name: SET[gameId][id].name,
-        iconSrc: `${gameId}/set/${id}.webp`,
+        icon: SET[gameId][id].icon,
       }))
       .sort((a, b) => Number(b.id) - Number(a.id)),
     [gameId, setCounts],
@@ -181,8 +179,7 @@ export const EchoAutocomplete = ({ sets, selected, ...props }) => {
   const options = useMemo(
     () => Object.values(ECHO)
       .filter((echo) => echo.sets.some((set) => sets.includes(set)))
-      .sort((a, b) => b.cost - a.cost || a.name.localeCompare(b.name))
-      .map((echo) => ({ ...echo, iconSrc: `${WW}/echo/${echo.id}.webp` })),
+      .sort((a, b) => b.cost - a.cost || a.name.localeCompare(b.name)),
     [sets],
   );
 

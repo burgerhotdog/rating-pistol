@@ -24,8 +24,11 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
   const [elementFilter, setElementFilter] = useState([]);
   const [typeFilter, setTypeFilter] = useState([]);
-
-  const searchLower = search.toLowerCase();
+  const resetStates = () => {
+    setSearch('');
+    setElementFilter([]);
+    setTypeFilter([]);
+  };
 
   const entries = useMemo(
     () => Object.values(CHARACTER[gameId])
@@ -37,6 +40,7 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
     [gameId],
   );
 
+  const searchLower = search.toLowerCase();
   const options = useMemo(
     () => entries.filter(({ name, element, type }) =>
       (!elementFilter.length || elementFilter.includes(element)) &&
@@ -45,12 +49,6 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
     ),
     [entries, elementFilter, typeFilter, searchLower],
   );
-
-  const resetStates = () => {
-    setSearch('');
-    setElementFilter([]);
-    setTypeFilter([]);
-  };
 
   const handleSelect = (id) => {
     onSelect(id);
