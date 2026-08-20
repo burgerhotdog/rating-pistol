@@ -8,10 +8,8 @@ import {
   CardMedia,
   FormControlLabel,
   IconButton,
-  MenuItem,
   Stack,
   Switch,
-  TextField,
   ToggleButton,
   ToggleButtonGroup,
   Typography,
@@ -131,7 +129,7 @@ export const MemberConfig = ({ member, onChange }) => {
   return (
     <>
       <Card sx={{ width: 300 }}>
-        <CardContent component={Stack} spacing={1}>
+        <CardContent component={Stack} spacing={2}>
           <PickerButton
             imageUrl={`${gameId}/character/${member.id}.webp`}
             name={memberData?.name ?? null}
@@ -148,35 +146,34 @@ export const MemberConfig = ({ member, onChange }) => {
             })}
           />
 
-          <Stack direction="row" spacing={1}>
-            <TextField
-              select
-              value={member.rank ?? ''}
-              onChange={(e) => onChange({ ...member, rank: Number(e.target.value) })}
-              disabled={!member.id || buildLocked}
-              sx={{ width: 120 }}
-            >
-              {[0, 1, 2, 3, 4, 5, 6].map((rank) => (
-                <MenuItem key={rank} value={rank}>
-                  {`S${rank}`}
-                </MenuItem>
-              ))}
-            </TextField>
+          {showToggle && (
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={buildLocked}
+                  onChange={(e) => handleToggleUserBuild(e.target.checked)}
+                />
+              }
+              label={buildLocked ? 'Using own build' : 'Using trial build'}
+            />
+          )}
 
-            {showToggle && (
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={buildLocked}
-                    onChange={(e) => handleToggleUserBuild(e.target.checked)}
-                  />
-                }
-                label={buildLocked ? 'Using own build' : 'Using trial build'}
-              />
-            )}
-          </Stack>
+          <ToggleButtonGroup
+            value={member.rank ?? ''}
+            onChange={(_, value) => value !== null &&
+              onChange({ ...member, rank: value })
+            }
+            disabled={buildLocked || !member.id}
+            fullWidth
+          >
+            {[0, 1, 2, 3, 4, 5, 6].map((rank) => (
+              <ToggleButton key={rank} value={rank}>
+                {`S${rank}`}
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
 
-          <Stack direction="row" spacing={1}>
+          <Stack spacing={1}>
             <WeapAutocomplete
               gameId={gameId}
               type={weaponType}
@@ -191,19 +188,20 @@ export const MemberConfig = ({ member, onChange }) => {
               fullWidth
             />
 
-            <TextField
-              select
+            <ToggleButtonGroup
               value={member.weaponRank ?? ''}
-              onChange={(e) => onChange({ ...member, weaponRank: Number(e.target.value) })}
-              disabled={!member.weaponId || buildLocked}
-              sx={{ width: 120 }}
+              onChange={(_, value) => value !== null &&
+                onChange({ ...member, weaponRank: value })
+              }
+              disabled={buildLocked || !member.weaponId}
+              fullWidth
             >
               {[1, 2, 3, 4, 5].map((rank) => (
-                <MenuItem key={`weapon-rank-${rank}`} value={rank}>
+                <ToggleButton key={rank} value={rank}>
                   {`S${rank}`}
-                </MenuItem>
+                </ToggleButton>
               ))}
-            </TextField>
+            </ToggleButtonGroup>
           </Stack>
 
           <SetAutocomplete
@@ -226,7 +224,7 @@ export const MemberConfig = ({ member, onChange }) => {
 
           {gameId === WW && CHARACTER[gameId][member.id]?.modes && (
             <Box>
-              <Typography variant="subtitle2" sx={{ mb: 1 }}>
+              <Typography variant="subtitle2">
                 Resonance Mode
               </Typography>
               <ToggleButtonGroup
