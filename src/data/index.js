@@ -64,157 +64,289 @@ export const SUBSTAT = {
   [ZZZ]: SUBSTAT_ZZZ,
 };
 
-export const ELEMENT = {
-  [GI]: {
-    anemo: '#80FFD7',
-    cryo: '#99FFFF',
-    dendro: '#99FF88',
-    electro: '#FFACFF',
-    geo: '#FFE699',
-    hydro: '#80C0FF',
-    pyro: '#FF9999',
-  },
-  [HSR]: {
-    fire: '#EE473D',
-    ice: '#2692D3',
-    imaginary: '#E6D863',
-    lightning: '#C65ADE',
-    physical: '#979797',
-    quantum: '#7E74EB',
-    wind: '#61CF93',
-  },
-  [WW]: {
-    glacio: {
-      id: 'glacio',
+export const ELEMENTS = {
+  [GI]: [
+    {
+      key: 'anemo',
+      icon: 'genshin-impact/element/anemo.webp',
+      color: '#80FFD7',
+    },
+    {
+      key: 'cryo',
+      icon: 'genshin-impact/element/cryo.webp',
+      color: '#99FFFF',
+    },
+    {
+      key: 'dendro',
+      icon: 'genshin-impact/element/dendro.webp',
+      color: '#99FF88',
+    },
+    {
+      key: 'electro',
+      icon: 'genshin-impact/element/electro.webp',
+      color: '#FFACFF',
+    },
+    {
+      key: 'geo',
+      icon: 'genshin-impact/element/geo.webp',
+      color: '#FFE699',
+    },
+    {
+      key: 'hydro',
+      icon: 'genshin-impact/element/hydro.webp',
+      color: '#80C0FF',
+    },
+    {
+      key: 'pyro',
+      icon: 'genshin-impact/element/pyro.webp',
+      color: '#FF9999',
+    },
+  ],
+  [HSR]: [
+    {
+      key: 'fire',
+      icon: 'honkai-star-rail/element/fire.webp',
+      color: '#EE473D',
+    },
+    {
+      key: 'ice',
+      icon: 'honkai-star-rail/element/ice.webp',
+      color: '#2692D3',
+    },
+    {
+      key: 'imaginary',
+      icon: 'honkai-star-rail/element/imaginary.webp',
+      color: '#E6D863',
+    },
+    {
+      key: 'lightning',
+      icon: 'honkai-star-rail/element/lightning.webp',
+      color: '#C65ADE',
+    },
+    {
+      key: 'physical',
+      icon: 'honkai-star-rail/element/physical.webp',
+      color: '#979797',
+    },
+    {
+      key: 'quantum',
+      icon: 'honkai-star-rail/element/quantum.webp',
+      color: '#7E74EB',
+    },
+    {
+      key: 'wind',
+      icon: 'honkai-star-rail/element/wind.webp',
+      color: '#61CF93',
+    },
+  ],
+  [WW]: [
+    {
+      key: 'glacio',
       icon: 'wuthering-waves/element/glacio.webp',
       color: '#41AEFB',
     },
-    fusion: {
-      id: 'fusion',
+    {
+      key: 'fusion',
       icon: 'wuthering-waves/element/fusion.webp',
       color: '#F0744E',
     },
-    electro: {
-      id: 'electro',
+    {
+      key: 'electro',
       icon: 'wuthering-waves/element/electro.webp',
       color: '#B45BFF',
     },
-    aero: {
-      id: 'aero',
+    {
+      key: 'aero',
       icon: 'wuthering-waves/element/aero.webp',
       color: '#53F9B1',
     },
-    spectro: {
-      id: 'spectro',
+    {
+      key: 'spectro',
       icon: 'wuthering-waves/element/spectro.webp',
       color: '#F8E56C',
     },
-    havoc: {
-      id: 'havoc',
+    {
+      key: 'havoc',
       icon: 'wuthering-waves/element/havoc.webp',
       color: '#E649A6',
     },
-  },
-  [ZZZ]: {
-    electric: '#2EB6FF',
-    ether: '#FE437E',
-    fire: '#FF5521',
-    ice: '#98EFF0',
-    physical: '#F0D12B',
-    wind: '#A6C5FD',
-  },
+  ],
+  [ZZZ]: [
+    {
+      key: 'electric',
+      icon: 'zenless-zone-zero/element/electric.webp',
+      color: '#2EB6FF',
+    },
+    {
+      key: 'ether',
+      icon: 'zenless-zone-zero/element/ether.webp',
+      color: '#FE437E',
+    },
+    {
+      key: 'fire',
+      icon: 'zenless-zone-zero/element/fire.webp',
+      color: '#FF5521',
+    },
+    {
+      key: 'ice',
+      icon: 'zenless-zone-zero/element/ice.webp',
+      color: '#98EFF0',
+    },
+    {
+      key: 'physical',
+      icon: 'zenless-zone-zero/element/physical.webp',
+      color: '#F0D12B',
+    },
+    {
+      key: 'wind',
+      icon: 'zenless-zone-zero/element/wind.webp',
+      color: '#A6C5FD',
+    },
+    {
+      key: 'lumiflux',
+      icon: 'zenless-zone-zero/element/lumiflux.webp',
+      color: '#ffa9dd',
+    },
+  ],
 };
 
-export const TYPE = {
-  [GI]: {
-    sword: {
-      icon: '',
+export const TYPES = {
+  [GI]: [
+    {
+      id: 1,
+      key: 'sword',
+      icon: 'genshin-impact/type/sword.webp',
     },
-    claymore: {
-      icon: '',
+    {
+      id: 2,
+      key: 'claymore',
+      icon: 'genshin-impact/type/claymore.webp',
     },
-    polearm: {
-      icon: '',
+    {
+      id: 3,
+      key: 'polearm',
+      icon: 'genshin-impact/type/polearm.webp',
     },
-    catalyst: {
-      icon: '',
+    {
+      id: 4,
+      key: 'catalyst',
+      icon: 'genshin-impact/type/catalyst.webp',
     },
-    bow: {
-      icon: '',
+    {
+      id: 5,
+      key: 'bow',
+      icon: 'genshin-impact/type/bow.webp',
     },
-  },
-  [HSR]: {
-    hunt: {
-      icon: '',
+  ],
+  [HSR]: [
+    {
+      id: 1,
+      key: 'hunt',
+      icon: 'honkai-star-rail/type/hunt.webp',
     },
-    abundance: {
-      icon: '',
+    {
+      id: 2,
+      key: 'abundance',
+      icon: 'honkai-star-rail/type/abundance.webp',
     },
-    destruction: {
-      icon: '',
+    {
+      id: 3,
+      key: 'destruction',
+      icon: 'honkai-star-rail/type/destruction.webp',
     },
-    preservation: {
-      icon: '',
+    {
+      id: 4,
+      key: 'preservation',
+      icon: 'honkai-star-rail/type/preservation.webp',
     },
-    nihility: {
-      icon: '',
+    {
+      id: 5,
+      key: 'nihility',
+      icon: 'honkai-star-rail/type/nihility.webp',
     },
-    harmony: {
-      icon: '',
+    {
+      id: 6,
+      key: 'harmony',
+      icon: 'honkai-star-rail/type/harmony.webp',
     },
-    erudition: {
-      icon: '',
+    {
+      id: 7,
+      key: 'erudition',
+      icon: 'honkai-star-rail/type/erudition.webp',
     },
-    remembrance: {
-      icon: '',
+    {
+      id: 8,
+      key: 'remembrance',
+      icon: 'honkai-star-rail/type/remembrance.webp',
     },
-    elation: {
-      icon: '',
+    {
+      id: 9,
+      key: 'elation',
+      icon: 'honkai-star-rail/type/elation.webp',
     },
-  },
-  [WW]: {
-    broadblade: {
-      id: 'broadblade',
+  ],
+  [WW]: [
+    {
+      id: 1,
+      key: 'broadblade',
       icon: 'wuthering-waves/type/broadblade.webp',
     },
-    sword: {
-      id: 'sword',
+    {
+      id: 2,
+      key: 'sword',
       icon: 'wuthering-waves/type/sword.webp',
     },
-    pistols: {
-      id: 'pistols',
+    {
+      id: 3,
+      key: 'pistols',
       icon: 'wuthering-waves/type/pistols.webp',
     },
-    gauntlets: {
-      id: 'gauntlets',
+    {
+      id: 4,
+      key: 'gauntlets',
       icon: 'wuthering-waves/type/gauntlets.webp',
     },
-    rectifier: {
-      id: 'rectifier',
+    {
+      id: 5,
+      key: 'rectifier',
       icon: 'wuthering-waves/type/rectifier.webp',
     },
-  },
-  [ZZZ]: {
-    attack: {
-      icon: '',
+  ],
+  [ZZZ]: [
+    {
+      id: 1,
+      key: 'attack',
+      icon: 'zenless-zone-zero/type/attack.webp',
     },
-    support: {
-      icon: '',
+    {
+      id: 2,
+      key: 'support',
+      icon: 'zenless-zone-zero/type/support.webp',
     },
-    stun: {
-      icon: '',
+    {
+      id: 3,
+      key: 'stun',
+      icon: 'zenless-zone-zero/type/stun.webp',
     },
-    anomaly: {
-      icon: '',
+    {
+      id: 4,
+      key: 'anomaly',
+      icon: 'zenless-zone-zero/type/anomaly.webp',
     },
-    defense: {
-      icon: '',
+    {
+      id: 5,
+      key: 'defense',
+      icon: 'zenless-zone-zero/type/defense.webp',
     },
-    rupture: {
-      icon: '',
+    {
+      id: 6,
+      key: 'rupture',
+      icon: 'zenless-zone-zero/type/rupture.webp',
     },
-    armorer: {
-      icon: '',
+    {
+      id: 7,
+      key: 'armorer',
+      icon: 'zenless-zone-zero/type/armorer.webp',
     },
-  },
+  ],
 };

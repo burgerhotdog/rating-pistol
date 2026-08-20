@@ -15,22 +15,21 @@ import {
   ToggleButtonGroup,
   Typography,
 } from '@mui/material';
-import { CHARACTER, ELEMENT, TYPE } from '@/data';
+import { CHARACTER, ELEMENTS, TYPES } from '@/data';
+import { formatStr } from '@/utils';
 
 const CharacterSelect = ({ open, onClose, onSelect }) => {
   const { gameId } = useParams();
-  const elements = Object.values(ELEMENT[gameId]);
-  const types = Object.values(TYPE[gameId]);
 
   const [search, setSearch] = useState('');
-  const searchLower = search.toLowerCase();
-
   const [elementFilter, setElementFilter] = useState([]);
   const [typeFilter, setTypeFilter] = useState([]);
 
+  const searchLower = search.toLowerCase();
+
   const entries = useMemo(
     () => Object.values(CHARACTER[gameId])
-      .map((char) => ({ ...char, iconSrc: `${gameId}/character/${char.id}.webp` }))
+      .map((char) => ({ ...char, icon: `${gameId}/character/${char.id}.webp` }))
       .sort((a, b) =>
         b.quality - a.quality ||
         b.version - a.version ||
@@ -48,9 +47,15 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
     [entries, elementFilter, typeFilter, searchLower],
   );
 
+  const resetStates = () => {
+    setSearch('');
+    setElementFilter([]);
+    setTypeFilter([]);
+  };
+
   const handleSelect = (id) => {
     onSelect(id);
-    setSearch('');
+    resetStates();
     onClose();
   };
 
@@ -62,13 +67,13 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
       fullWidth 
       slotProps={{
         transition: {
-          onExited: () => setSearch(''),
+          onExited: resetStates,
         },
       }}
     >
       <DialogTitle>
         Select a character
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
           <TextField
             fullWidth
             placeholder="Search character name"
@@ -80,9 +85,14 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
             value={elementFilter}
             onChange={(_, value) => setElementFilter(value)}
           >
-            {elements.map(({ id, icon }) => (
-              <ToggleButton key={id} value={id}>
-                <img src={icon} alt="" width={24} height={24} />
+            {ELEMENTS[gameId].map(({ key, icon }) => (
+              <ToggleButton key={key} value={key} title={formatStr(key)}>
+                <img
+                  src={icon}
+                  alt=""
+                  width={24}
+                  height={24}
+                />
               </ToggleButton>
             ))}
           </ToggleButtonGroup>
@@ -91,9 +101,14 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
             value={typeFilter}
             onChange={(_, value) => setTypeFilter(value)}
           >
-            {types.map(({ id, icon }) => (
-              <ToggleButton key={id} value={id}>
-                <img src={icon} alt="" width={24} height={24} />
+            {TYPES[gameId].map(({ key, icon }) => (
+              <ToggleButton key={key} value={key} title={formatStr(key)}>
+                <img
+                  src={icon}
+                  alt=""
+                  width={24}
+                  height={24}
+                />
               </ToggleButton>
             ))}
           </ToggleButtonGroup>
@@ -117,26 +132,26 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
             gap: 1,
           }}
         >
-          {options.map(({ id, name, iconSrc }) => (
-            <Card key={id}>
+          {options.map(({ id, name, icon }) => (
+            <Card key={id} title={name}>
               <CardActionArea onClick={() => handleSelect(id)}>
                 <CardMedia
-                  image={iconSrc}
-                  title={name}
+                  component="img"
+                  src={icon}
+                  alt={name}
+                  loading="lazy"
                   sx={{ width: 100, height: 100 }}
                 />
-                <Typography variant="body2" sx={{ textAlign: 'center', px: 0.5 }} noWrap>
+                <Typography
+                  variant="body2"
+                  noWrap
+                  sx={{ textAlign: 'center', px: 1 }}
+                >
                   {name}
                 </Typography>
               </CardActionArea>
             </Card>
           ))}
-
-          {options.length === 0 && (
-            <Typography variant="body2" color="textSecondary">
-              No results available.
-            </Typography>
-          )}
         </Box>
       </DialogContent>
 
