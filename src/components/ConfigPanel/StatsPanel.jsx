@@ -6,6 +6,7 @@ import {
   AccordionSummary,
   Box,
   Button,
+  ButtonBase,
   Card,
   CardContent,
   CardHeader,
@@ -52,7 +53,7 @@ import { CharAvatar } from '@/components';
 import { CHARACTER } from '@/data';
 import { useElementColors, useCharData } from '@/hooks';
 import { toArray, formatStr } from '@/utils';
-import { TeamMemberDialog } from './MemberConfig';
+import { TeamConfig } from './TeamConfig';
 import { MenuAttrs } from './MenuAttrs';
 
 function getRelativeTime(dateString) {
@@ -454,9 +455,9 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
   const { gameId, charId } = useParams();
   const color = useElementColors({ char: '$curr' });
   const charData = useCharData();
-  const [dialogIndex, setDialogIndex] = useState(null);
   const [rotationMemberId, setRotationMemberId] = useState(charId);
   const [prevCharId, setPrevCharId] = useState(charId);
+  const [teamConfigOpen, setTeamConfigOpen] = useState(false);
 
   const member = team.find((member) => member.id === charId);
   if (!charId || !member) return (
@@ -483,7 +484,7 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
         avatar={<CharAvatar gameId={gameId} charId={charId} />}
         title={currChar?.name ?? ''}
         subheader={
-          <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
+          <Stack direction="row" spacing={0.5}>
             <Chip
               variant="outlined"
               label={formatStr(currChar.element)}
@@ -509,26 +510,28 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
             Team Configuration
           </Typography>
 
-          <Stack direction="row" spacing={1} sx={{ justifyContent: 'center' }}>
-            {team.map((member, index) => (
-              <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
-                <CharAvatar
-                  gameId={gameId}
-                  charId={member?.id ?? null}
-                />
-              </Box>
-            ))}
-          </Stack>
+          <IconButton
+            onClick={() => setTeamConfigOpen(true)}
+            sx={{ justifyContent: 'center', p: 1, borderRadius: 1 }}
+          >
+            <Stack direction="row" spacing={1}>
+              {team.map((member, index) => (
+                <Box key={index}>
+                  <CharAvatar
+                    gameId={gameId}
+                    charId={member?.id ?? null}
+                  />
+                </Box>
+              ))}
+            </Stack>
+          </IconButton>
 
-          {dialogIndex !== null && (
-            <TeamMemberDialog
-              gameId={gameId}
-              member={team[dialogIndex]}
-              open={dialogIndex !== null}
-              onClose={() => setDialogIndex(null)}
-              onSave={(updatedMember) => updateTeam(dialogIndex, updatedMember)}
-            />
-          )}
+          <TeamConfig
+            team={team}
+            open={teamConfigOpen}
+            onClose={() => setTeamConfigOpen(false)}
+            onSave={updateTeam}
+          />
         </Stack>
 
         <Divider />
@@ -561,7 +564,7 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
                 charId={rotMember?.id ?? null}
                 member={rotMember}
                 rotation={rotMember?.rotation ?? []}
-                onChange={(rotation) => updateTeam(idx, { ...rotMember, rotation })}
+                onChange={(rotation) => updateTeam((prev) => prev.with(idx, { ...rotMember, rotation }))}
               />
             );
           })()}
