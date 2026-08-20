@@ -104,6 +104,7 @@ export function runTuneBreak(ctx) {
       break;
   }
   if (ctx.cache.member["1510"]) tune.interferedStacks += 2;
+  if (ctx.cache.member["1413"]) tune.interferedStacks += 1;
   delete tune.shifting;
   delete tune.shiftingTimeLeft;
 }

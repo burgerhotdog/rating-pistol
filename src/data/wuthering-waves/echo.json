@@ -2787,6 +2787,55 @@
     },
     "timing": "start"
   },
+  "6000221": {
+    "name": "Calamity Effigy",
+    "version": 3.6,
+    "id": "6000221",
+    "sets": [
+      "34",
+      "35"
+    ],
+    "cost": 4,
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "shifting": "tuneStrain"
+              }
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
+        }
+      }
+    ],
+    "action": {
+      "name": "Echo Skill: Calamity Effigy",
+      "type": "echoSkill",
+      "damage": {
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 4.05
+          }
+        ]
+      }
+    }
+  },
   "390070051": {
     "name": "Vanguard Junrock",
     "version": 1,

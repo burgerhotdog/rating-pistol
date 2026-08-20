@@ -204,7 +204,7 @@ def parse_weapon(version, id, data):
         'type': list_type[int(data['type']) - 1],
         'stats': {
             'baseAtk': math.floor(data['stats']['6']['90'][0]['value']),
-            stat: value / 10000 if data['stats']['6']['90'][1]['is_percent'] else int(value),
+            stat: value / 10000 if data['stats']['6']['90'][1]['is_ratio'] else int(value),
         },
         'effects': [],
     }

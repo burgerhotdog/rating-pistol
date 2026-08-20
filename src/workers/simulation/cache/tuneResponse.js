@@ -1,6 +1,7 @@
 const alwaysTuneStrain = [
   '1209',
-  '1510'
+  '1510',
+  '1413'
 ];
 
 const sometimesTuneStrain = [
