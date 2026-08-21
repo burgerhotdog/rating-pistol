@@ -3,6 +3,7 @@
     "name": "Dull Blade",
     "version": 1,
     "id": "11101",
+    "icon": "genshin-impact/weapon/11101.webp",
     "quality": 1,
     "type": "sword",
     "stats": {
@@ -14,6 +15,7 @@
     "name": "Silver Sword",
     "version": 1,
     "id": "11201",
+    "icon": "genshin-impact/weapon/11201.webp",
     "quality": 2,
     "type": "sword",
     "stats": {
@@ -25,6 +27,7 @@
     "name": "Cool Steel",
     "version": 1,
     "id": "11301",
+    "icon": "genshin-impact/weapon/11301.webp",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -37,6 +40,7 @@
     "name": "Harbinger of Dawn",
     "version": 1,
     "id": "11302",
+    "icon": "genshin-impact/weapon/11302.webp",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -60,6 +64,7 @@
     "name": "Traveler's Handy Sword",
     "version": 1,
     "id": "11303",
+    "icon": "genshin-impact/weapon/11303.webp",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -72,6 +77,7 @@
     "name": "Dark Iron Sword",
     "version": 1,
     "id": "11304",
+    "icon": "genshin-impact/weapon/11304.webp",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -84,6 +90,7 @@
     "name": "Fillet Blade",
     "version": 1,
     "id": "11305",
+    "icon": "genshin-impact/weapon/11305.webp",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -96,6 +103,7 @@
     "name": "Skyrider Sword",
     "version": 1,
     "id": "11306",
+    "icon": "genshin-impact/weapon/11306.webp",
     "quality": 3,
     "type": "sword",
     "stats": {
@@ -108,6 +116,7 @@
     "name": "Favonius Sword",
     "version": 1,
     "id": "11401",
+    "icon": "genshin-impact/weapon/11401.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -120,6 +129,7 @@
     "name": "The Flute",
     "version": 1,
     "id": "11402",
+    "icon": "genshin-impact/weapon/11402.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -132,6 +142,7 @@
     "name": "Sacrificial Sword",
     "version": 1,
     "id": "11403",
+    "icon": "genshin-impact/weapon/11403.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -144,6 +155,7 @@
     "name": "Royal Longsword",
     "version": 1,
     "id": "11404",
+    "icon": "genshin-impact/weapon/11404.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -156,6 +168,7 @@
     "name": "Lion's Roar",
     "version": 1,
     "id": "11405",
+    "icon": "genshin-impact/weapon/11405.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -168,6 +181,7 @@
     "name": "Prototype Rancour",
     "version": 1,
     "id": "11406",
+    "icon": "genshin-impact/weapon/11406.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -180,6 +194,7 @@
     "name": "Iron Sting",
     "version": 1,
     "id": "11407",
+    "icon": "genshin-impact/weapon/11407.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -192,6 +207,7 @@
     "name": "Blackcliff Longsword",
     "version": 1,
     "id": "11408",
+    "icon": "genshin-impact/weapon/11408.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -204,6 +220,7 @@
     "name": "The Black Sword",
     "version": 1,
     "id": "11409",
+    "icon": "genshin-impact/weapon/11409.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -216,6 +233,7 @@
     "name": "The Alley Flash",
     "version": 1.4,
     "id": "11410",
+    "icon": "genshin-impact/weapon/11410.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -228,6 +246,7 @@
     "name": "Sword of Descension",
     "version": 1,
     "id": "11412",
+    "icon": "genshin-impact/weapon/11412.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -240,6 +259,7 @@
     "name": "Festering Desire",
     "version": 1.2,
     "id": "11413",
+    "icon": "genshin-impact/weapon/11413.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -252,6 +272,7 @@
     "name": "Amenoma Kageuchi",
     "version": 2,
     "id": "11414",
+    "icon": "genshin-impact/weapon/11414.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -264,6 +285,7 @@
     "name": "Cinnabar Spindle",
     "version": 2.3,
     "id": "11415",
+    "icon": "genshin-impact/weapon/11415.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -294,6 +316,7 @@
     "name": "Kagotsurube Isshin",
     "version": 2.8,
     "id": "11416",
+    "icon": "genshin-impact/weapon/11416.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -306,6 +329,7 @@
     "name": "Sapwood Blade",
     "version": 3,
     "id": "11417",
+    "icon": "genshin-impact/weapon/11417.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -318,6 +342,7 @@
     "name": "Xiphos' Moonlight",
     "version": 3.1,
     "id": "11418",
+    "icon": "genshin-impact/weapon/11418.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -330,6 +355,7 @@
     "name": "Toukabou Shigure",
     "version": 3.3,
     "id": "11422",
+    "icon": "genshin-impact/weapon/11422.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -342,6 +368,7 @@
     "name": "Wolf-Fang",
     "version": 4,
     "id": "11424",
+    "icon": "genshin-impact/weapon/11424.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -354,6 +381,7 @@
     "name": "Finale of the Deep",
     "version": 4,
     "id": "11425",
+    "icon": "genshin-impact/weapon/11425.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -366,6 +394,7 @@
     "name": "Fleuve Cendre Ferryman",
     "version": 4,
     "id": "11426",
+    "icon": "genshin-impact/weapon/11426.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -378,6 +407,7 @@
     "name": "The Dockhand's Assistant",
     "version": 4.1,
     "id": "11427",
+    "icon": "genshin-impact/weapon/11427.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -390,6 +420,7 @@
     "name": "Sword of Narzissenkreuz",
     "version": 4.2,
     "id": "11428",
+    "icon": "genshin-impact/weapon/11428.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -402,6 +433,7 @@
     "name": "Sturdy Bone",
     "version": 5.1,
     "id": "11430",
+    "icon": "genshin-impact/weapon/11430.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -414,6 +446,7 @@
     "name": "Flute of Ezpitzal",
     "version": 5,
     "id": "11431",
+    "icon": "genshin-impact/weapon/11431.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -426,6 +459,7 @@
     "name": "Calamity of Eshu",
     "version": 5.2,
     "id": "11432",
+    "icon": "genshin-impact/weapon/11432.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -438,6 +472,7 @@
     "name": "Serenity's Call",
     "version": 6,
     "id": "11433",
+    "icon": "genshin-impact/weapon/11433.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -450,6 +485,7 @@
     "name": "Moonweaver's Dawn",
     "version": 6,
     "id": "11434",
+    "icon": "genshin-impact/weapon/11434.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -462,6 +498,7 @@
     "name": "Heretic's Molten Blade",
     "version": 7.0,
     "id": "11435",
+    "icon": "genshin-impact/weapon/11435.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -474,6 +511,7 @@
     "name": "Emberwell",
     "version": 7.0,
     "id": "11436",
+    "icon": "genshin-impact/weapon/11436.webp",
     "quality": 4,
     "type": "sword",
     "stats": {
@@ -486,6 +524,7 @@
     "name": "Aquila Favonia",
     "version": 1,
     "id": "11501",
+    "icon": "genshin-impact/weapon/11501.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -498,6 +537,7 @@
     "name": "Skyward Blade",
     "version": 1,
     "id": "11502",
+    "icon": "genshin-impact/weapon/11502.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -510,6 +550,7 @@
     "name": "Freedom-Sworn",
     "version": 1.6,
     "id": "11503",
+    "icon": "genshin-impact/weapon/11503.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -522,6 +563,7 @@
     "name": "Summit Shaper",
     "version": 1.2,
     "id": "11504",
+    "icon": "genshin-impact/weapon/11504.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -534,6 +576,7 @@
     "name": "Primordial Jade Cutter",
     "version": 1.3,
     "id": "11505",
+    "icon": "genshin-impact/weapon/11505.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -546,6 +589,7 @@
     "name": "Mistsplitter Reforged",
     "version": 2,
     "id": "11509",
+    "icon": "genshin-impact/weapon/11509.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -558,6 +602,7 @@
     "name": "Haran Geppaku Futsu",
     "version": 2.6,
     "id": "11510",
+    "icon": "genshin-impact/weapon/11510.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -570,6 +615,7 @@
     "name": "Key of Khaj-Nisut",
     "version": 3.1,
     "id": "11511",
+    "icon": "genshin-impact/weapon/11511.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -582,6 +628,7 @@
     "name": "Light of Foliar Incision",
     "version": 3.4,
     "id": "11512",
+    "icon": "genshin-impact/weapon/11512.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -594,6 +641,7 @@
     "name": "Splendor of Tranquil Waters",
     "version": 4.2,
     "id": "11513",
+    "icon": "genshin-impact/weapon/11513.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -606,6 +654,7 @@
     "name": "Uraku Misugiri",
     "version": 4.5,
     "id": "11514",
+    "icon": "genshin-impact/weapon/11514.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -618,6 +667,7 @@
     "name": "Absolution",
     "version": 4.7,
     "id": "11515",
+    "icon": "genshin-impact/weapon/11515.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -630,6 +680,7 @@
     "name": "Peak Patrol Song",
     "version": 5.1,
     "id": "11516",
+    "icon": "genshin-impact/weapon/11516.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -642,6 +693,7 @@
     "name": "Azurelight",
     "version": 5.7,
     "id": "11517",
+    "icon": "genshin-impact/weapon/11517.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -654,6 +706,7 @@
     "name": "Athame Artis",
     "version": 6.2,
     "id": "11518",
+    "icon": "genshin-impact/weapon/11518.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -666,6 +719,7 @@
     "name": "Lightbearing Moonshard",
     "version": 6.3,
     "id": "11519",
+    "icon": "genshin-impact/weapon/11519.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -678,6 +732,7 @@
     "name": "Whitelake Frostfeather",
     "version": 7.0,
     "id": "11520",
+    "icon": "genshin-impact/weapon/11520.webp",
     "quality": 5,
     "type": "sword",
     "stats": {
@@ -690,6 +745,7 @@
     "name": "Waster Greatsword",
     "version": 1,
     "id": "12101",
+    "icon": "genshin-impact/weapon/12101.webp",
     "quality": 1,
     "type": "claymore",
     "stats": {
@@ -701,6 +757,7 @@
     "name": "Old Merc's Pal",
     "version": 1,
     "id": "12201",
+    "icon": "genshin-impact/weapon/12201.webp",
     "quality": 2,
     "type": "claymore",
     "stats": {
@@ -712,6 +769,7 @@
     "name": "Ferrous Shadow",
     "version": 1,
     "id": "12301",
+    "icon": "genshin-impact/weapon/12301.webp",
     "quality": 3,
     "type": "claymore",
     "stats": {
@@ -724,6 +782,7 @@
     "name": "Bloodtainted Greatsword",
     "version": 1,
     "id": "12302",
+    "icon": "genshin-impact/weapon/12302.webp",
     "quality": 3,
     "type": "claymore",
     "stats": {
@@ -736,6 +795,7 @@
     "name": "White Iron Greatsword",
     "version": 1,
     "id": "12303",
+    "icon": "genshin-impact/weapon/12303.webp",
     "quality": 3,
     "type": "claymore",
     "stats": {
@@ -748,6 +808,7 @@
     "name": "Debate Club",
     "version": 1,
     "id": "12305",
+    "icon": "genshin-impact/weapon/12305.webp",
     "quality": 3,
     "type": "claymore",
     "stats": {
@@ -760,6 +821,7 @@
     "name": "Skyrider Greatsword",
     "version": 1,
     "id": "12306",
+    "icon": "genshin-impact/weapon/12306.webp",
     "quality": 3,
     "type": "claymore",
     "stats": {
@@ -772,6 +834,7 @@
     "name": "Favonius Greatsword",
     "version": 1,
     "id": "12401",
+    "icon": "genshin-impact/weapon/12401.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -784,6 +847,7 @@
     "name": "The Bell",
     "version": 1,
     "id": "12402",
+    "icon": "genshin-impact/weapon/12402.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -796,6 +860,7 @@
     "name": "Sacrificial Greatsword",
     "version": 1,
     "id": "12403",
+    "icon": "genshin-impact/weapon/12403.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -808,6 +873,7 @@
     "name": "Royal Greatsword",
     "version": 1,
     "id": "12404",
+    "icon": "genshin-impact/weapon/12404.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -820,6 +886,7 @@
     "name": "Rainslasher",
     "version": 1,
     "id": "12405",
+    "icon": "genshin-impact/weapon/12405.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -832,6 +899,7 @@
     "name": "Prototype Archaic",
     "version": 1,
     "id": "12406",
+    "icon": "genshin-impact/weapon/12406.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -844,6 +912,7 @@
     "name": "Whiteblind",
     "version": 1,
     "id": "12407",
+    "icon": "genshin-impact/weapon/12407.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -856,6 +925,7 @@
     "name": "Blackcliff Slasher",
     "version": 1,
     "id": "12408",
+    "icon": "genshin-impact/weapon/12408.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -868,6 +938,7 @@
     "name": "Serpent Spine",
     "version": 1,
     "id": "12409",
+    "icon": "genshin-impact/weapon/12409.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -880,6 +951,7 @@
     "name": "Lithic Blade",
     "version": 1.3,
     "id": "12410",
+    "icon": "genshin-impact/weapon/12410.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -892,6 +964,7 @@
     "name": "Snow-Tombed Starsilver",
     "version": 1.2,
     "id": "12411",
+    "icon": "genshin-impact/weapon/12411.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -904,6 +977,7 @@
     "name": "Luxurious Sea-Lord",
     "version": 2.1,
     "id": "12412",
+    "icon": "genshin-impact/weapon/12412.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -916,6 +990,7 @@
     "name": "Katsuragikiri Nagamasa",
     "version": 2,
     "id": "12414",
+    "icon": "genshin-impact/weapon/12414.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -928,6 +1003,7 @@
     "name": "Makhaira Aquamarine",
     "version": 3.1,
     "id": "12415",
+    "icon": "genshin-impact/weapon/12415.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -940,6 +1016,7 @@
     "name": "Akuoumaru",
     "version": 2.2,
     "id": "12416",
+    "icon": "genshin-impact/weapon/12416.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -952,6 +1029,7 @@
     "name": "Forest Regalia",
     "version": 3,
     "id": "12417",
+    "icon": "genshin-impact/weapon/12417.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -964,6 +1042,7 @@
     "name": "Mailed Flower",
     "version": 3.5,
     "id": "12418",
+    "icon": "genshin-impact/weapon/12418.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -976,6 +1055,7 @@
     "name": "Talking Stick",
     "version": 4,
     "id": "12424",
+    "icon": "genshin-impact/weapon/12424.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -988,6 +1068,7 @@
     "name": "Tidal Shadow",
     "version": 4,
     "id": "12425",
+    "icon": "genshin-impact/weapon/12425.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -1000,6 +1081,7 @@
     "name": "\"Ultimate Overlord's Mega Magic Sword\"",
     "version": 4.3,
     "id": "12426",
+    "icon": "genshin-impact/weapon/12426.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -1012,6 +1094,7 @@
     "name": "Portable Power Saw",
     "version": 4.1,
     "id": "12427",
+    "icon": "genshin-impact/weapon/12427.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -1024,6 +1107,7 @@
     "name": "Fruitful Hook",
     "version": 5.1,
     "id": "12430",
+    "icon": "genshin-impact/weapon/12430.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -1036,6 +1120,7 @@
     "name": "Earth Shaker",
     "version": 5,
     "id": "12431",
+    "icon": "genshin-impact/weapon/12431.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -1048,6 +1133,7 @@
     "name": "Flame-Forged Insight",
     "version": 5.8,
     "id": "12432",
+    "icon": "genshin-impact/weapon/12432.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1060,6 +1146,7 @@
     "name": "Master Key",
     "version": 6,
     "id": "12433",
+    "icon": "genshin-impact/weapon/12433.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -1072,6 +1159,7 @@
     "name": "Forged by the Golden Melody",
     "version": 7.0,
     "id": "12435",
+    "icon": "genshin-impact/weapon/12435.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -1084,6 +1172,7 @@
     "name": "Blade of Atonement",
     "version": 7.0,
     "id": "12436",
+    "icon": "genshin-impact/weapon/12436.webp",
     "quality": 4,
     "type": "claymore",
     "stats": {
@@ -1096,6 +1185,7 @@
     "name": "Skyward Pride",
     "version": 1,
     "id": "12501",
+    "icon": "genshin-impact/weapon/12501.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1108,6 +1198,7 @@
     "name": "Wolf's Gravestone",
     "version": 1,
     "id": "12502",
+    "icon": "genshin-impact/weapon/12502.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1120,6 +1211,7 @@
     "name": "Song of Broken Pines",
     "version": 1.5,
     "id": "12503",
+    "icon": "genshin-impact/weapon/12503.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1132,6 +1224,7 @@
     "name": "The Unforged",
     "version": 1.1,
     "id": "12504",
+    "icon": "genshin-impact/weapon/12504.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1144,6 +1237,7 @@
     "name": "Redhorn Stonethresher",
     "version": 2.3,
     "id": "12510",
+    "icon": "genshin-impact/weapon/12510.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1156,6 +1250,7 @@
     "name": "Beacon of the Reed Sea",
     "version": 3.5,
     "id": "12511",
+    "icon": "genshin-impact/weapon/12511.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1168,6 +1263,7 @@
     "name": "Verdict",
     "version": 4.3,
     "id": "12512",
+    "icon": "genshin-impact/weapon/12512.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1180,6 +1276,7 @@
     "name": "Fang of the Mountain King",
     "version": 5,
     "id": "12513",
+    "icon": "genshin-impact/weapon/12513.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1192,6 +1289,7 @@
     "name": "A Thousand Blazing Suns",
     "version": 5.3,
     "id": "12514",
+    "icon": "genshin-impact/weapon/12514.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1204,6 +1302,7 @@
     "name": "Gest of the Mighty Wolf",
     "version": 6.4,
     "id": "12515",
+    "icon": "genshin-impact/weapon/12515.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1216,6 +1315,7 @@
     "name": "A Teaspoon of Transcendence",
     "version": 6.7,
     "id": "12516",
+    "icon": "genshin-impact/weapon/12516.webp",
     "quality": 5,
     "type": "claymore",
     "stats": {
@@ -1228,6 +1328,7 @@
     "name": "Beginner's Protector",
     "version": 1,
     "id": "13101",
+    "icon": "genshin-impact/weapon/13101.webp",
     "quality": 1,
     "type": "polearm",
     "stats": {
@@ -1239,6 +1340,7 @@
     "name": "Iron Point",
     "version": 1,
     "id": "13201",
+    "icon": "genshin-impact/weapon/13201.webp",
     "quality": 2,
     "type": "polearm",
     "stats": {
@@ -1250,6 +1352,7 @@
     "name": "White Tassel",
     "version": 1,
     "id": "13301",
+    "icon": "genshin-impact/weapon/13301.webp",
     "quality": 3,
     "type": "polearm",
     "stats": {
@@ -1262,6 +1365,7 @@
     "name": "Halberd",
     "version": 1,
     "id": "13302",
+    "icon": "genshin-impact/weapon/13302.webp",
     "quality": 3,
     "type": "polearm",
     "stats": {
@@ -1274,6 +1378,7 @@
     "name": "Black Tassel",
     "version": 1,
     "id": "13303",
+    "icon": "genshin-impact/weapon/13303.webp",
     "quality": 3,
     "type": "polearm",
     "stats": {
@@ -1286,6 +1391,7 @@
     "name": "Dragon's Bane",
     "version": 1,
     "id": "13401",
+    "icon": "genshin-impact/weapon/13401.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1298,6 +1404,7 @@
     "name": "Prototype Starglitter",
     "version": 1,
     "id": "13402",
+    "icon": "genshin-impact/weapon/13402.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1310,6 +1417,7 @@
     "name": "Crescent Pike",
     "version": 1,
     "id": "13403",
+    "icon": "genshin-impact/weapon/13403.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1322,6 +1430,7 @@
     "name": "Blackcliff Pole",
     "version": 1,
     "id": "13404",
+    "icon": "genshin-impact/weapon/13404.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1334,6 +1443,7 @@
     "name": "Deathmatch",
     "version": 1,
     "id": "13405",
+    "icon": "genshin-impact/weapon/13405.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1346,6 +1456,7 @@
     "name": "Lithic Spear",
     "version": 1.3,
     "id": "13406",
+    "icon": "genshin-impact/weapon/13406.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1358,6 +1469,7 @@
     "name": "Favonius Lance",
     "version": 1,
     "id": "13407",
+    "icon": "genshin-impact/weapon/13407.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1370,6 +1482,7 @@
     "name": "Royal Spear",
     "version": 1.1,
     "id": "13408",
+    "icon": "genshin-impact/weapon/13408.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1382,6 +1495,7 @@
     "name": "Dragonspine Spear",
     "version": 1.2,
     "id": "13409",
+    "icon": "genshin-impact/weapon/13409.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1394,6 +1508,7 @@
     "name": "Kitain Cross Spear",
     "version": 2,
     "id": "13414",
+    "icon": "genshin-impact/weapon/13414.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1406,6 +1521,7 @@
     "name": "\"The Catch\"",
     "version": 2.1,
     "id": "13415",
+    "icon": "genshin-impact/weapon/13415.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1418,6 +1534,7 @@
     "name": "Wavebreaker's Fin",
     "version": 2.2,
     "id": "13416",
+    "icon": "genshin-impact/weapon/13416.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1430,6 +1547,7 @@
     "name": "Moonpiercer",
     "version": 3,
     "id": "13417",
+    "icon": "genshin-impact/weapon/13417.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1442,6 +1560,7 @@
     "name": "Missive Windspear",
     "version": 3.1,
     "id": "13419",
+    "icon": "genshin-impact/weapon/13419.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1454,6 +1573,7 @@
     "name": "Ballad of the Fjords",
     "version": 4,
     "id": "13424",
+    "icon": "genshin-impact/weapon/13424.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1466,6 +1586,7 @@
     "name": "Rightful Reward",
     "version": 4,
     "id": "13425",
+    "icon": "genshin-impact/weapon/13425.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1478,6 +1599,7 @@
     "name": "Dialogues of the Desert Sages",
     "version": 4.5,
     "id": "13426",
+    "icon": "genshin-impact/weapon/13426.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1490,6 +1612,7 @@
     "name": "Prospector's Drill",
     "version": 4.1,
     "id": "13427",
+    "icon": "genshin-impact/weapon/13427.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1502,6 +1625,7 @@
     "name": "Mountain-Bracing Bolt",
     "version": 5.1,
     "id": "13430",
+    "icon": "genshin-impact/weapon/13430.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1514,6 +1638,7 @@
     "name": "Footprint of the Rainbow",
     "version": 5,
     "id": "13431",
+    "icon": "genshin-impact/weapon/13431.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1526,6 +1651,7 @@
     "name": "Tamayuratei no Ohanashi",
     "version": 5.4,
     "id": "13432",
+    "icon": "genshin-impact/weapon/13432.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1538,6 +1664,7 @@
     "name": "Prospector's Shovel",
     "version": 6,
     "id": "13433",
+    "icon": "genshin-impact/weapon/13433.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1550,6 +1677,7 @@
     "name": "Sacrificer's Staff",
     "version": 6.1,
     "id": "13434",
+    "icon": "genshin-impact/weapon/13434.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1562,6 +1690,7 @@
     "name": "Frostbreath",
     "version": 7.0,
     "id": "13435",
+    "icon": "genshin-impact/weapon/13435.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1574,6 +1703,7 @@
     "name": "Song of the Vigil",
     "version": 7.0,
     "id": "13436",
+    "icon": "genshin-impact/weapon/13436.webp",
     "quality": 4,
     "type": "polearm",
     "stats": {
@@ -1586,6 +1716,7 @@
     "name": "Staff of Homa",
     "version": 1.3,
     "id": "13501",
+    "icon": "genshin-impact/weapon/13501.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1598,6 +1729,7 @@
     "name": "Skyward Spine",
     "version": 1,
     "id": "13502",
+    "icon": "genshin-impact/weapon/13502.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1610,6 +1742,7 @@
     "name": "Vortex Vanquisher",
     "version": 1.1,
     "id": "13504",
+    "icon": "genshin-impact/weapon/13504.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1622,6 +1755,7 @@
     "name": "Primordial Jade Winged-Spear",
     "version": 1,
     "id": "13505",
+    "icon": "genshin-impact/weapon/13505.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1634,6 +1768,7 @@
     "name": "Calamity Queller",
     "version": 2.4,
     "id": "13507",
+    "icon": "genshin-impact/weapon/13507.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1646,6 +1781,7 @@
     "name": "Engulfing Lightning",
     "version": 2.1,
     "id": "13509",
+    "icon": "genshin-impact/weapon/13509.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1658,6 +1794,7 @@
     "name": "Staff of the Scarlet Sands",
     "version": 3.1,
     "id": "13511",
+    "icon": "genshin-impact/weapon/13511.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1670,6 +1807,7 @@
     "name": "Crimson Moon's Semblance",
     "version": 4.6,
     "id": "13512",
+    "icon": "genshin-impact/weapon/13512.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1682,6 +1820,7 @@
     "name": "Lumidouce Elegy",
     "version": 4.8,
     "id": "13513",
+    "icon": "genshin-impact/weapon/13513.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1694,6 +1833,7 @@
     "name": "Symphonist of Scents",
     "version": 5.6,
     "id": "13514",
+    "icon": "genshin-impact/weapon/13514.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1706,6 +1846,7 @@
     "name": "Fractured Halo",
     "version": 5.8,
     "id": "13515",
+    "icon": "genshin-impact/weapon/13515.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1718,6 +1859,7 @@
     "name": "Bloodsoaked Ruins",
     "version": 6,
     "id": "13516",
+    "icon": "genshin-impact/weapon/13516.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1730,6 +1872,7 @@
     "name": "Disaster and Remorse",
     "version": 6.6,
     "id": "13517",
+    "icon": "genshin-impact/weapon/13517.webp",
     "quality": 5,
     "type": "polearm",
     "stats": {
@@ -1742,6 +1885,7 @@
     "name": "Apprentice's Notes",
     "version": 1,
     "id": "14101",
+    "icon": "genshin-impact/weapon/14101.webp",
     "quality": 1,
     "type": "catalyst",
     "stats": {
@@ -1753,6 +1897,7 @@
     "name": "Pocket Grimoire",
     "version": 1,
     "id": "14201",
+    "icon": "genshin-impact/weapon/14201.webp",
     "quality": 2,
     "type": "catalyst",
     "stats": {
@@ -1764,6 +1909,7 @@
     "name": "Magic Guide",
     "version": 1,
     "id": "14301",
+    "icon": "genshin-impact/weapon/14301.webp",
     "quality": 3,
     "type": "catalyst",
     "stats": {
@@ -1776,6 +1922,7 @@
     "name": "Thrilling Tales of Dragon Slayers",
     "version": 1,
     "id": "14302",
+    "icon": "genshin-impact/weapon/14302.webp",
     "quality": 3,
     "type": "catalyst",
     "stats": {
@@ -1788,6 +1935,7 @@
     "name": "Otherworldly Story",
     "version": 1,
     "id": "14303",
+    "icon": "genshin-impact/weapon/14303.webp",
     "quality": 3,
     "type": "catalyst",
     "stats": {
@@ -1800,6 +1948,7 @@
     "name": "Emerald Orb",
     "version": 1,
     "id": "14304",
+    "icon": "genshin-impact/weapon/14304.webp",
     "quality": 3,
     "type": "catalyst",
     "stats": {
@@ -1812,6 +1961,7 @@
     "name": "Twin Nephrite",
     "version": 1,
     "id": "14305",
+    "icon": "genshin-impact/weapon/14305.webp",
     "quality": 3,
     "type": "catalyst",
     "stats": {
@@ -1824,6 +1974,7 @@
     "name": "Favonius Codex",
     "version": 1,
     "id": "14401",
+    "icon": "genshin-impact/weapon/14401.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1836,6 +1987,7 @@
     "name": "The Widsith",
     "version": 1,
     "id": "14402",
+    "icon": "genshin-impact/weapon/14402.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1848,6 +2000,7 @@
     "name": "Sacrificial Fragments",
     "version": 1,
     "id": "14403",
+    "icon": "genshin-impact/weapon/14403.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1860,6 +2013,7 @@
     "name": "Royal Grimoire",
     "version": 1,
     "id": "14404",
+    "icon": "genshin-impact/weapon/14404.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1872,6 +2026,7 @@
     "name": "Solar Pearl",
     "version": 1,
     "id": "14405",
+    "icon": "genshin-impact/weapon/14405.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1884,6 +2039,7 @@
     "name": "Prototype Amber",
     "version": 1,
     "id": "14406",
+    "icon": "genshin-impact/weapon/14406.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1896,6 +2052,7 @@
     "name": "Mappa Mare",
     "version": 1,
     "id": "14407",
+    "icon": "genshin-impact/weapon/14407.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1908,6 +2065,7 @@
     "name": "Blackcliff Agate",
     "version": 1,
     "id": "14408",
+    "icon": "genshin-impact/weapon/14408.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1920,6 +2078,7 @@
     "name": "Eye of Perception",
     "version": 1,
     "id": "14409",
+    "icon": "genshin-impact/weapon/14409.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1932,6 +2091,7 @@
     "name": "Wine and Song",
     "version": 1.4,
     "id": "14410",
+    "icon": "genshin-impact/weapon/14410.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1944,6 +2104,7 @@
     "name": "Frostbearer",
     "version": 1.2,
     "id": "14412",
+    "icon": "genshin-impact/weapon/14412.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1956,6 +2117,7 @@
     "name": "Dodoco Tales",
     "version": 1.6,
     "id": "14413",
+    "icon": "genshin-impact/weapon/14413.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1968,6 +2130,7 @@
     "name": "Hakushin Ring",
     "version": 2,
     "id": "14414",
+    "icon": "genshin-impact/weapon/14414.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1980,6 +2143,7 @@
     "name": "Oathsworn Eye",
     "version": 2.5,
     "id": "14415",
+    "icon": "genshin-impact/weapon/14415.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -1992,6 +2156,7 @@
     "name": "Wandering Evenstar",
     "version": 3.1,
     "id": "14416",
+    "icon": "genshin-impact/weapon/14416.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2004,6 +2169,7 @@
     "name": "Fruit of Fulfillment",
     "version": 3,
     "id": "14417",
+    "icon": "genshin-impact/weapon/14417.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2016,6 +2182,7 @@
     "name": "Sacrificial Jade",
     "version": 4,
     "id": "14424",
+    "icon": "genshin-impact/weapon/14424.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2028,6 +2195,7 @@
     "name": "Flowing Purity",
     "version": 4,
     "id": "14425",
+    "icon": "genshin-impact/weapon/14425.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2040,6 +2208,7 @@
     "name": "Ballad of the Boundless Blue",
     "version": 4.1,
     "id": "14426",
+    "icon": "genshin-impact/weapon/14426.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2052,6 +2221,7 @@
     "name": "Ash-Graven Drinking Horn",
     "version": 5,
     "id": "14427",
+    "icon": "genshin-impact/weapon/14427.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2064,6 +2234,7 @@
     "name": "Waveriding Whirl",
     "version": 5.2,
     "id": "14430",
+    "icon": "genshin-impact/weapon/14430.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2076,6 +2247,7 @@
     "name": "Ring of Yaxche",
     "version": 5,
     "id": "14431",
+    "icon": "genshin-impact/weapon/14431.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2088,6 +2260,7 @@
     "name": "Etherlight Spindlelute",
     "version": 6,
     "id": "14432",
+    "icon": "genshin-impact/weapon/14432.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2100,6 +2273,7 @@
     "name": "Blackmarrow Lantern",
     "version": 6,
     "id": "14433",
+    "icon": "genshin-impact/weapon/14433.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2112,6 +2286,7 @@
     "name": "Dawning Frost",
     "version": 6.1,
     "id": "14434",
+    "icon": "genshin-impact/weapon/14434.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2124,6 +2299,7 @@
     "name": "Clash of Kings",
     "version": 7.0,
     "id": "14435",
+    "icon": "genshin-impact/weapon/14435.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2136,6 +2312,7 @@
     "name": "Echoes of the Heart",
     "version": 7.0,
     "id": "14436",
+    "icon": "genshin-impact/weapon/14436.webp",
     "quality": 4,
     "type": "catalyst",
     "stats": {
@@ -2148,6 +2325,7 @@
     "name": "Skyward Atlas",
     "version": 1,
     "id": "14501",
+    "icon": "genshin-impact/weapon/14501.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2160,6 +2338,7 @@
     "name": "Lost Prayer to the Sacred Winds",
     "version": 1,
     "id": "14502",
+    "icon": "genshin-impact/weapon/14502.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2172,6 +2351,7 @@
     "name": "Memory of Dust",
     "version": 1.1,
     "id": "14504",
+    "icon": "genshin-impact/weapon/14504.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2184,6 +2364,7 @@
     "name": "Jadefall's Splendor",
     "version": 3.6,
     "id": "14505",
+    "icon": "genshin-impact/weapon/14505.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2196,6 +2377,7 @@
     "name": "Everlasting Moonglow",
     "version": 2.1,
     "id": "14506",
+    "icon": "genshin-impact/weapon/14506.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2208,6 +2390,7 @@
     "name": "Kagura's Verity",
     "version": 2.5,
     "id": "14509",
+    "icon": "genshin-impact/weapon/14509.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2220,6 +2403,7 @@
     "name": "A Thousand Floating Dreams",
     "version": 3.2,
     "id": "14511",
+    "icon": "genshin-impact/weapon/14511.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2232,6 +2416,7 @@
     "name": "Tulaytullah's Remembrance",
     "version": 3.3,
     "id": "14512",
+    "icon": "genshin-impact/weapon/14512.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2244,6 +2429,7 @@
     "name": "Cashflow Supervision",
     "version": 4.1,
     "id": "14513",
+    "icon": "genshin-impact/weapon/14513.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2256,6 +2442,7 @@
     "name": "Tome of the Eternal Flow",
     "version": 4.1,
     "id": "14514",
+    "icon": "genshin-impact/weapon/14514.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2268,6 +2455,7 @@
     "name": "Crane's Echoing Call",
     "version": 4.4,
     "id": "14515",
+    "icon": "genshin-impact/weapon/14515.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2280,6 +2468,7 @@
     "name": "Surf's Up",
     "version": 5,
     "id": "14516",
+    "icon": "genshin-impact/weapon/14516.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2292,6 +2481,7 @@
     "name": "Starcaller's Watch",
     "version": 5.3,
     "id": "14517",
+    "icon": "genshin-impact/weapon/14517.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2304,6 +2494,7 @@
     "name": "Sunny Morning Sleep-In",
     "version": 5.4,
     "id": "14518",
+    "icon": "genshin-impact/weapon/14518.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2316,6 +2507,7 @@
     "name": "Vivid Notions",
     "version": 5.5,
     "id": "14519",
+    "icon": "genshin-impact/weapon/14519.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2328,6 +2520,7 @@
     "name": "Nightweaver's Looking Glass",
     "version": 6,
     "id": "14520",
+    "icon": "genshin-impact/weapon/14520.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2340,6 +2533,7 @@
     "name": "Reliquary of Truth",
     "version": 6.1,
     "id": "14521",
+    "icon": "genshin-impact/weapon/14521.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2352,6 +2546,7 @@
     "name": "Nocturne's Curtain Call",
     "version": 6.3,
     "id": "14522",
+    "icon": "genshin-impact/weapon/14522.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2364,6 +2559,7 @@
     "name": "Angelos' Heptades",
     "version": 6.6,
     "id": "14523",
+    "icon": "genshin-impact/weapon/14523.webp",
     "quality": 5,
     "type": "catalyst",
     "stats": {
@@ -2376,6 +2572,7 @@
     "name": "Hunter's Bow",
     "version": 1,
     "id": "15101",
+    "icon": "genshin-impact/weapon/15101.webp",
     "quality": 1,
     "type": "bow",
     "stats": {
@@ -2387,6 +2584,7 @@
     "name": "Seasoned Hunter's Bow",
     "version": 1,
     "id": "15201",
+    "icon": "genshin-impact/weapon/15201.webp",
     "quality": 2,
     "type": "bow",
     "stats": {
@@ -2398,6 +2596,7 @@
     "name": "Raven Bow",
     "version": 1,
     "id": "15301",
+    "icon": "genshin-impact/weapon/15301.webp",
     "quality": 3,
     "type": "bow",
     "stats": {
@@ -2410,6 +2609,7 @@
     "name": "Sharpshooter's Oath",
     "version": 1,
     "id": "15302",
+    "icon": "genshin-impact/weapon/15302.webp",
     "quality": 3,
     "type": "bow",
     "stats": {
@@ -2422,6 +2622,7 @@
     "name": "Recurve Bow",
     "version": 1,
     "id": "15303",
+    "icon": "genshin-impact/weapon/15303.webp",
     "quality": 3,
     "type": "bow",
     "stats": {
@@ -2434,6 +2635,7 @@
     "name": "Slingshot",
     "version": 1,
     "id": "15304",
+    "icon": "genshin-impact/weapon/15304.webp",
     "quality": 3,
     "type": "bow",
     "stats": {
@@ -2446,6 +2648,7 @@
     "name": "Messenger",
     "version": 1,
     "id": "15305",
+    "icon": "genshin-impact/weapon/15305.webp",
     "quality": 3,
     "type": "bow",
     "stats": {
@@ -2458,6 +2661,7 @@
     "name": "Favonius Warbow",
     "version": 1,
     "id": "15401",
+    "icon": "genshin-impact/weapon/15401.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2470,6 +2674,7 @@
     "name": "The Stringless",
     "version": 1,
     "id": "15402",
+    "icon": "genshin-impact/weapon/15402.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2482,6 +2687,7 @@
     "name": "Sacrificial Bow",
     "version": 1,
     "id": "15403",
+    "icon": "genshin-impact/weapon/15403.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2494,6 +2700,7 @@
     "name": "Royal Bow",
     "version": 1,
     "id": "15404",
+    "icon": "genshin-impact/weapon/15404.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2506,6 +2713,7 @@
     "name": "Rust",
     "version": 1,
     "id": "15405",
+    "icon": "genshin-impact/weapon/15405.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2518,6 +2726,7 @@
     "name": "Prototype Crescent",
     "version": 1,
     "id": "15406",
+    "icon": "genshin-impact/weapon/15406.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2530,6 +2739,7 @@
     "name": "Compound Bow",
     "version": 1,
     "id": "15407",
+    "icon": "genshin-impact/weapon/15407.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2542,6 +2752,7 @@
     "name": "Blackcliff Warbow",
     "version": 1,
     "id": "15408",
+    "icon": "genshin-impact/weapon/15408.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2554,6 +2765,7 @@
     "name": "The Viridescent Hunt",
     "version": 1,
     "id": "15409",
+    "icon": "genshin-impact/weapon/15409.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2566,6 +2778,7 @@
     "name": "Alley Hunter",
     "version": 1.4,
     "id": "15410",
+    "icon": "genshin-impact/weapon/15410.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2578,6 +2791,7 @@
     "name": "Fading Twilight",
     "version": 2.7,
     "id": "15411",
+    "icon": "genshin-impact/weapon/15411.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2590,6 +2804,7 @@
     "name": "Mitternachts Waltz",
     "version": 1.6,
     "id": "15412",
+    "icon": "genshin-impact/weapon/15412.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2602,6 +2817,7 @@
     "name": "Windblume Ode",
     "version": 1.4,
     "id": "15413",
+    "icon": "genshin-impact/weapon/15413.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2614,6 +2830,7 @@
     "name": "Hamayumi",
     "version": 2,
     "id": "15414",
+    "icon": "genshin-impact/weapon/15414.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2626,6 +2843,7 @@
     "name": "Predator",
     "version": 2.1,
     "id": "15415",
+    "icon": "genshin-impact/weapon/15415.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2638,6 +2856,7 @@
     "name": "Mouun's Moon",
     "version": 2.2,
     "id": "15416",
+    "icon": "genshin-impact/weapon/15416.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2650,6 +2869,7 @@
     "name": "King's Squire",
     "version": 3,
     "id": "15417",
+    "icon": "genshin-impact/weapon/15417.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2662,6 +2882,7 @@
     "name": "End of the Line",
     "version": 3,
     "id": "15418",
+    "icon": "genshin-impact/weapon/15418.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2674,6 +2895,7 @@
     "name": "Ibis Piercer",
     "version": 3.7,
     "id": "15419",
+    "icon": "genshin-impact/weapon/15419.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2686,6 +2908,7 @@
     "name": "Scion of the Blazing Sun",
     "version": 4,
     "id": "15424",
+    "icon": "genshin-impact/weapon/15424.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2698,6 +2921,7 @@
     "name": "Song of Stillness",
     "version": 4,
     "id": "15425",
+    "icon": "genshin-impact/weapon/15425.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2710,6 +2934,7 @@
     "name": "Cloudforged",
     "version": 4.7,
     "id": "15426",
+    "icon": "genshin-impact/weapon/15426.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2722,6 +2947,7 @@
     "name": "Range Gauge",
     "version": 4.1,
     "id": "15427",
+    "icon": "genshin-impact/weapon/15427.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2734,6 +2960,7 @@
     "name": "Flower-Wreathed Feathers",
     "version": 5.2,
     "id": "15430",
+    "icon": "genshin-impact/weapon/15430.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2746,6 +2973,7 @@
     "name": "Chain Breaker",
     "version": 5,
     "id": "15431",
+    "icon": "genshin-impact/weapon/15431.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2758,6 +2986,7 @@
     "name": "Sequence of Solitude",
     "version": 5.6,
     "id": "15432",
+    "icon": "genshin-impact/weapon/15432.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2770,6 +2999,7 @@
     "name": "Snare Hook",
     "version": 6,
     "id": "15433",
+    "icon": "genshin-impact/weapon/15433.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2782,6 +3012,7 @@
     "name": "Rainbow Serpent's Rain Bow",
     "version": 6.2,
     "id": "15434",
+    "icon": "genshin-impact/weapon/15434.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2794,6 +3025,7 @@
     "name": "Jade Vista",
     "version": 7.0,
     "id": "15435",
+    "icon": "genshin-impact/weapon/15435.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2806,6 +3038,7 @@
     "name": "Covenant of Frost and Snow",
     "version": 7.0,
     "id": "15436",
+    "icon": "genshin-impact/weapon/15436.webp",
     "quality": 4,
     "type": "bow",
     "stats": {
@@ -2818,6 +3051,7 @@
     "name": "Skyward Harp",
     "version": 1,
     "id": "15501",
+    "icon": "genshin-impact/weapon/15501.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2830,6 +3064,7 @@
     "name": "Amos' Bow",
     "version": 1,
     "id": "15502",
+    "icon": "genshin-impact/weapon/15502.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2842,6 +3077,7 @@
     "name": "Elegy for the End",
     "version": 1.4,
     "id": "15503",
+    "icon": "genshin-impact/weapon/15503.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2854,6 +3090,7 @@
     "name": "Polar Star",
     "version": 2.2,
     "id": "15507",
+    "icon": "genshin-impact/weapon/15507.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2866,6 +3103,7 @@
     "name": "Aqua Simulacra",
     "version": 2.7,
     "id": "15508",
+    "icon": "genshin-impact/weapon/15508.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2878,6 +3116,7 @@
     "name": "Thundering Pulse",
     "version": 2,
     "id": "15509",
+    "icon": "genshin-impact/weapon/15509.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2890,6 +3129,7 @@
     "name": "Hunter's Path",
     "version": 3,
     "id": "15511",
+    "icon": "genshin-impact/weapon/15511.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2902,6 +3142,7 @@
     "name": "The First Great Magic",
     "version": 4,
     "id": "15512",
+    "icon": "genshin-impact/weapon/15512.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2914,6 +3155,7 @@
     "name": "Silvershower Heartstrings",
     "version": 4.7,
     "id": "15513",
+    "icon": "genshin-impact/weapon/15513.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2926,6 +3168,7 @@
     "name": "Astral Vulture's Crimson Plumage",
     "version": 5.2,
     "id": "15514",
+    "icon": "genshin-impact/weapon/15514.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2938,6 +3181,7 @@
     "name": "The Daybreak Chronicles",
     "version": 6.2,
     "id": "15515",
+    "icon": "genshin-impact/weapon/15515.webp",
     "quality": 5,
     "type": "bow",
     "stats": {
@@ -2950,6 +3194,7 @@
     "name": "Golden Frostbound Oath",
     "version": 6.5,
     "id": "15516",
+    "icon": "genshin-impact/weapon/15516.webp",
     "quality": 5,
     "type": "bow",
     "stats": {

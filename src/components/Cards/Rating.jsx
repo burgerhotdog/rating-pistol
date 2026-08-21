@@ -116,6 +116,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
               value={gradeBasis}
               onChange={(_, next) => next && setGradeBasis(next)}
               size="small"
+              exclusive
             >
               <ToggleButton value="benchmark">
                 <Tooltip title="Grade against the realistic long-term farming benchmark">

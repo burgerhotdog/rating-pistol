@@ -97,6 +97,7 @@ const Distribution = ({ userSummary }) => {
           <ToggleButtonGroup
             value={distributionMode}
             onChange={handleToggleButtonGroup}
+            exclusive
           >
             {DISTRIBUTION_MODES.map((mode) => (
               <ToggleButton key={mode} value={mode}>

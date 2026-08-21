@@ -50,3 +50,8 @@ export function useElementColors(options) {
   const charElement = CHARACTER[gameId][lookupChar]?.element;
   return elementColors[charElement] ?? '#ffffff';
 }
+
+export function useElements() {
+  const { gameId } = useParams();
+  return Object.keys(ELEMENT_COLORS_BY_GAME[gameId]);
+}

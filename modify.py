@@ -3,18 +3,18 @@ import json, shutil
 def get_path(dirname, filename):
     return f"src/data/{dirname}/{filename}"
 
-def modify(data):
+def modify(data, game_id, filetype):
     for entry in data.values():
-        for effect in entry.get("effects", []):
-            max_duration = effect.pop("maxDuration", None)
+        char_id = entry["id"]
+        icon = f"{game_id}/{filetype}/{char_id}.webp"
+        new_entry = {}
+        for key, value in entry.items():
+            new_entry[key] = value
+            if key == "id":
+                new_entry["icon"] = icon
 
-            if max_duration is not None:
-                apply = effect.get("apply")
-
-                if apply is None:
-                    raise ValueError("Effect with maxDuration is missing apply")
-
-                apply["duration"] = max_duration
+        entry.clear()
+        entry.update(new_entry)
     return True
 
 GAMES_TO_MODIFY = [
@@ -41,9 +41,9 @@ def main():
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-            was_changed = modify(data)
+            was_changed = modify(data, dirname, filename.removesuffix(".json"))
             if was_changed:
-                shutil.copy2(path, f"{path}.bak")
+                #shutil.copy2(path, f"{path}.bak")
                 with open(path, "w", encoding="utf-8") as f:
                     json.dump(data, f, indent=2)
 
