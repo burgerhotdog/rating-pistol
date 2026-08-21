@@ -1,9 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { Tab, Tabs } from '@mui/material';
 import { CharAvatar } from '@/components';
+import { useSortedBuilds } from '@/hooks';
 
-const Navbar = ({ sorted }) => {
+const Navbar = () => {
   const { gameId, charId } = useParams();
+  const { sortedKeys } = useSortedBuilds(gameId);
   const navigate = useNavigate();
 
   const handleTabs = (_, id) => {
@@ -23,7 +25,7 @@ const Navbar = ({ sorted }) => {
         },
       }}
     >
-      {sorted.map((id) => (
+      {sortedKeys.map((id) => (
         <Tab
           key={id}
           value={id}

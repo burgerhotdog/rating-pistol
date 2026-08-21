@@ -37,9 +37,5 @@ export function useTeam() {
   const builds = useBuild().getBuilds(gameId);
   const [team, setTeam] = useState(() => initTeam(gameId, charId, builds));
 
-  function updateTeam(next) {
-    setTeam(next);
-  }
-
-  return { team, updateTeam };
+  return { team, setTeam };
 }

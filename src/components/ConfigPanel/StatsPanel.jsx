@@ -442,7 +442,7 @@ function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
   );
 }
 
-export const StatsPanel = ({ team = [], updateTeam }) => {
+export const StatsPanel = ({ team = [], setTeam }) => {
   const { gameId, charId } = useParams();
   const color = useElementColors({ char: '$curr' });
   const charData = useCharData();
@@ -521,7 +521,7 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
             team={team}
             open={teamConfigOpen}
             onClose={() => setTeamConfigOpen(false)}
-            onSave={updateTeam}
+            onSave={setTeam}
           />
         </Stack>
 
@@ -555,7 +555,7 @@ export const StatsPanel = ({ team = [], updateTeam }) => {
                 charId={rotMember?.id ?? null}
                 member={rotMember}
                 rotation={rotMember?.rotation ?? []}
-                onChange={(rotation) => updateTeam((prev) => prev.with(idx, { ...rotMember, rotation }))}
+                onChange={(rotation) => setTeam((prev) => prev.with(idx, { ...rotMember, rotation }))}
               />
             );
           })()}
