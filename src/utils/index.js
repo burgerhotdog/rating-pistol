@@ -10,3 +10,4 @@ export * from './resolveRanked';
 export * from './statMap';
 export * from './toArray';
 export * from './isEnabledEffect';
+export * from './team';

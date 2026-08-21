@@ -21,26 +21,26 @@ import {
   EchoAutocomplete,
 } from '../Autocomplete';
 import CloseIcon from '@mui/icons-material/Close';
-import { WW, CHARACTER } from '@/data';
+import { WW } from '@/data';
 import {
-  getMemberPreset,
+  initMember,
   getDefaultWeapRank,
   applyStoredBuild,
 } from '@/utils';
-import { useBuild } from '@/contexts';
+import { useBuilds, useData } from '@/hooks';
 import CharacterSelect from './CharacterSelect';
 
 export const MemberConfig = ({ member, onChange }) => {
   const { gameId, charId } = useParams();
-  const allBuilds = useBuild().getBuilds(gameId);
+  const builds = useBuilds();
   const [characterSelectOpen, setCharacterSelectOpen] = useState(false);
 
-  const memberData = CHARACTER[gameId][member.id];
+  const memberData = useData('character')[member.id];
   const weaponType = memberData?.type ?? null;
 
   // Stored build for the current member member (only meaningful for teammates)
   const storedBuild = member.id && member.id !== charId
-    ? allBuilds[member.id] ?? null
+    ? builds[member.id] ?? null
     : null;
   const isMainCharacter = member.id === charId;
   const showToggle = storedBuild !== null;
@@ -232,14 +232,7 @@ export const MemberConfig = ({ member, onChange }) => {
       <CharacterSelect
         open={characterSelectOpen}
         onClose={() => setCharacterSelectOpen(false)}
-        onSelect={(charId) => {
-          let nextMember = getMemberPreset(gameId, charId);
-          const nextStoredBuild = allBuilds[charId] ?? null;
-          if (nextStoredBuild) {
-            nextMember = applyStoredBuild(gameId, nextMember, nextStoredBuild);
-          }
-          onChange(nextMember);
-        }}
+        onSelect={(id) => onChange(initMember(id, gameId, builds))}
       />
     </Card>
   );

@@ -1,41 +1,20 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { useBuild } from '@/contexts';
 import { GI, HSR, CHARACTER } from '@/data';
-import { getMemberPreset, applyStoredBuild } from '@/utils';
-
-const initMember = (gameId, builds, presetKey) => {
-  const [memberId, presetIndex = 0] = presetKey.split('.');
-
-  let member = getMemberPreset(gameId, memberId, presetIndex);
-
-  if (memberId in builds) {
-    member = applyStoredBuild(gameId, member, builds[memberId]);
-  }
-
-  return member;
-};
-
-const initTeam = (gameId, charId, builds) => {
-  if (!charId) return [];
-  const char = CHARACTER[gameId][charId];
-
-  const teamSize = (gameId === GI || gameId === HSR) ? 4 : 3;
-  const teamPreset =
-    char?.presets?.[0]?.team ??
-    [charId, ...Array(teamSize - 1).fill(null)];
-
-  const members = teamPreset.map((presetKey) => presetKey
-    ? initMember(gameId, builds, presetKey)
-    : {});
-
-  return members;
-};
+import { initMember } from '@/utils';
+import { useBuilds } from './useBuilds';
 
 export function useTeam() {
   const { gameId, charId } = useParams();
-  const builds = useBuild().getBuilds(gameId);
-  const [team, setTeam] = useState(() => initTeam(gameId, charId, builds));
+  const builds = useBuilds();
 
-  return { team, setTeam };
+  return useState(() => {
+    const charPresets = CHARACTER[gameId][charId].presets ?? [];
+    const charPreset = charPresets[0] ?? {};
+    const allyCount = (gameId === GI || gameId === HSR) ? 3 : 2;
+    const teamPreset = charPreset.team ??
+      [charId, ...Array(allyCount).fill(null)];
+
+    return teamPreset.map((key) => initMember(key, gameId, builds));
+  });
 }

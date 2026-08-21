@@ -85,7 +85,7 @@ const Charts = ({ team }) => {
   const [tab, setTab] = useState(TabPanels[0].value);
   const color = useElementColors({ char: '$curr' });
 
-  if(results.errorLog) console.log(results.errorLog);
+  if (results.errorLog) console.log(results.errorLog);
 
   if (!results.userSummary) return (
     <LoadingBar

@@ -17,7 +17,7 @@ const DefaultPage = () => {
 };
 
 const CharacterPage = () => {
-  const { team, setTeam } = useTeam();
+  const [team, setTeam] = useTeam();
   return (
     <Stack sx={{ height: '100dvh', px: 3 }}>
       <Header />
@@ -36,7 +36,7 @@ const CharacterPage = () => {
 
 const GamePage = () => {
   const { gameId, charId } = useParams();
-  const { builds, sortedKeys } = useSortedBuilds(gameId);
+  const { builds, sortedKeys } = useSortedBuilds();
 
   if (!charId) {
     return !sortedKeys.length
