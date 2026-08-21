@@ -477,14 +477,6 @@ export const StatsPanel = ({ team = [], setTeam }) => {
             variant="rounded"
             src={CHARACTER[gameId][charId].icon}
             alt={CHARACTER[gameId][charId].name}
-            slotProps={{
-              img: {
-                style: {
-                  objectFit: 'cover',
-                  objectPosition: 'top center',
-                },
-              },
-            }}
           />
         )}
         title={currChar?.name ?? ''}
@@ -526,14 +518,6 @@ export const StatsPanel = ({ team = [], setTeam }) => {
                     variant="rounded"
                     src={CHARACTER[gameId][member?.id]?.icon}
                     alt={CHARACTER[gameId][member?.id]?.name}
-                    slotProps={{
-                      img: {
-                        style: {
-                          objectFit: 'cover',
-                          objectPosition: 'top center',
-                        },
-                      },
-                    }}
                   />
                 </Box>
               ))}
@@ -541,10 +525,10 @@ export const StatsPanel = ({ team = [], setTeam }) => {
           </IconButton>
 
           <TeamConfig
-            team={team}
             open={teamConfigOpen}
             onClose={() => setTeamConfigOpen(false)}
-            onSave={setTeam}
+            team={team}
+            setTeam={setTeam}
           />
         </Stack>
 

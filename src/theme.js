@@ -24,6 +24,11 @@ const theme = createTheme({
       defaultProps: {
         alt: '',
       },
+      styleOverrides: {
+        img: {
+          objectPosition: 'top center',
+        },
+      },
     },
     MuiButton: {
       defaultProps: {

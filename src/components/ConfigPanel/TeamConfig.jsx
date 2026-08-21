@@ -44,7 +44,6 @@ function SortableMemberConfig({ id, member, onChange }) {
         opacity: isDragging ? 0.6 : 1,
       }}
     >
-      {/* Drag handle */}
       <Box
         {...attributes}
         {...listeners}
@@ -64,7 +63,7 @@ function SortableMemberConfig({ id, member, onChange }) {
   );
 }
 
-export const TeamConfig = ({ team, open, onClose, onSave }) => {
+export const TeamConfig = ({ open, onClose, team, setTeam }) => {
   const [draft, setDraft] = useState(team);
   const [dragging, setDragging] = useState(false);
 
@@ -72,13 +71,9 @@ export const TeamConfig = ({ team, open, onClose, onSave }) => {
   const ids = draft.map((member) => member.id);
 
   const handleDragEnd = ({ active, over }) => {
+    setDragging(false);
     if (!over || active.id === over.id) return;
     setDraft((prev) => arrayMove(prev, ids.indexOf(active.id), ids.indexOf(over.id)));
-  };
-
-  const handleSave = () => {
-    onSave(draft);
-    onClose();
   };
 
   const handleCancel = () => {
@@ -87,7 +82,11 @@ export const TeamConfig = ({ team, open, onClose, onSave }) => {
   };
 
   return (
-    <Dialog open={open} onClose={handleCancel} maxWidth="lg">
+    <Dialog
+      open={open}
+      onClose={handleCancel}
+      maxWidth="lg"
+    >
       <DialogTitle>
         Team Configuration
       </DialogTitle>
@@ -104,7 +103,10 @@ export const TeamConfig = ({ team, open, onClose, onSave }) => {
           onDragEnd={handleDragEnd}
           onDragCancel={() => setDragging(false)}
         >
-          <SortableContext items={ids} strategy={horizontalListSortingStrategy}>
+          <SortableContext
+            items={ids}
+            strategy={horizontalListSortingStrategy}
+          >
             <Stack direction="row" spacing={2}>
               {draft.map((member, index) => (
                 <SortableMemberConfig
@@ -123,7 +125,13 @@ export const TeamConfig = ({ team, open, onClose, onSave }) => {
         <Button onClick={handleCancel}>
           Cancel
         </Button>
-        <Button variant="contained" onClick={handleSave}>
+        <Button
+          variant="contained"
+          onClick={() => {
+            setTeam(draft);
+            onClose();
+          }}
+        >
           Save
         </Button>
       </DialogActions>

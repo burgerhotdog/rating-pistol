@@ -32,14 +32,6 @@ const Navbar = () => {
               variant="rounded"
               src={characterData[id].icon}
               alt={characterData[id].name}
-              slotProps={{
-                img: {
-                  style: {
-                    objectFit: 'cover',
-                    objectPosition: 'top center',
-                  },
-                },
-              }}
             />
           )}
           sx={{

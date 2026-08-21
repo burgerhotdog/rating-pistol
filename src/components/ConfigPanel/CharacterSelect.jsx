@@ -59,7 +59,7 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
     <Dialog
       open={open}
       onClose={onClose}
-      maxWidth="lg"
+      maxWidth="xl"
       fullWidth 
       slotProps={{
         transition: {
