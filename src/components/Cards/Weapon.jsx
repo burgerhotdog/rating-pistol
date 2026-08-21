@@ -16,7 +16,7 @@ import {
   YAxis,
 } from 'recharts';
 import { BarChart } from '@/components';
-import { useWeapData, useElementColors } from '@/hooks';
+import { useData, useElementColors } from '@/hooks';
 import { getDefaultWeapRank } from '@/utils';
 
 function getDpsIndex(gameId, weapId) {
@@ -55,10 +55,10 @@ function buildData(gameId, weapData, weaponResults, userDps, userMember) {
 const Weapon = ({ weaponResults, userDps, userMember }) => {
   const { gameId } = useParams();
   const { palette, qualityColors } = useTheme();
-  const weapData = useWeapData();
+  const weapons = useData('weapon');
   const color = useElementColors({ char: '$curr' });
 
-  const data = buildData(gameId, weapData, weaponResults, userDps, userMember);
+  const data = buildData(gameId, weapons, weaponResults, userDps, userMember);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>

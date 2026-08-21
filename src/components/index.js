@@ -4,6 +4,5 @@ export * from './Header';
 
 export { default as Navbar } from './Navbar';
 export * from './LoadingBar';
-export * from './CharAvatar';
 export * from './Dot';
 export * from './Charts';

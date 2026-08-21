@@ -22,7 +22,7 @@ import {
   YAxis,
 } from 'recharts';
 import { AreaChart, Dot, ScatterChart } from '@/components';
-import { useCharData, useElementColors } from '@/hooks';
+import { useData, useElementColors } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
 function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
@@ -171,16 +171,16 @@ const Timeline = ({ userSummary, memberIds }) => {
   const [isRunningTotal, setIsRunningTotal] = useState(true);
   const [isCurrOnly, setIsCurrOnly] = useState(false);
   const handleCheckbox = (setter) => (event) => setter(event.target.checked);
-  const charData = useCharData();
+  const characters = useData('character');
   const elementColors = useElementColors();
-  const accentColor = elementColors[charData[charId].element];
+  const accentColor = elementColors[characters[charId].element];
 
   const memberStack = [...memberIds];
   if (userSummary.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
 
   const memberColors = Object.fromEntries(
     memberStack.map((id) => {
-      const element = charData[id]?.element;
+      const element = characters[id]?.element;
       return [id, elementColors[element] ?? '#ffffff'];
     })
   );
@@ -263,7 +263,7 @@ const Timeline = ({ userSummary, memberIds }) => {
                   activeDot={false}
                   fill={`url(#gradient${color})`}
                   hide={isCurrOnly && id !== charId}
-                  name={charData[id]?.name ?? 'Other'}
+                  name={characters[id]?.name ?? 'Other'}
                   stackId="members"
                   stroke={color}
                   strokeOpacity={0}
@@ -292,7 +292,7 @@ const Timeline = ({ userSummary, memberIds }) => {
                   key={id}
                   dataKey={id}
                   animationInterpolateFn={popCrossfade}
-                  name={charData[id]?.name ?? 'Other'}
+                  name={characters[id]?.name ?? 'Other'}
                   fill={color}
                 />
               );

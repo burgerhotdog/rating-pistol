@@ -4,6 +4,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Avatar,
   Box,
   Button,
   Card,
@@ -48,9 +49,8 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { CharAvatar } from '@/components';
 import { CHARACTER } from '@/data';
-import { useElementColors, useCharData } from '@/hooks';
+import { useElementColors, useData } from '@/hooks';
 import { toArray, formatStr } from '@/utils';
 import { TeamConfig } from './TeamConfig';
 import { MenuAttrs } from './MenuAttrs';
@@ -445,7 +445,7 @@ function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
 export const StatsPanel = ({ team = [], setTeam }) => {
   const { gameId, charId } = useParams();
   const color = useElementColors({ char: '$curr' });
-  const charData = useCharData();
+  const characters = useData('character');
   const [rotationMemberId, setRotationMemberId] = useState(charId);
   const [prevCharId, setPrevCharId] = useState(charId);
   const [teamConfigOpen, setTeamConfigOpen] = useState(false);
@@ -467,12 +467,26 @@ export const StatsPanel = ({ team = [], setTeam }) => {
   }
   const rotationMemberIndex = Math.max(0, team.findIndex((m) => m.id === rotationMemberId));
 
-  const currChar = charData[charId];
+  const currChar = characters[charId];
 
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
-        avatar={<CharAvatar gameId={gameId} charId={charId} />}
+        avatar={(
+          <Avatar
+            variant="rounded"
+            src={CHARACTER[gameId][charId].icon}
+            alt={CHARACTER[gameId][charId].name}
+            slotProps={{
+              img: {
+                style: {
+                  objectFit: 'cover',
+                  objectPosition: 'top center',
+                },
+              },
+            }}
+          />
+        )}
         title={currChar?.name ?? ''}
         subheader={
           <Stack direction="row" spacing={0.5}>
@@ -508,9 +522,18 @@ export const StatsPanel = ({ team = [], setTeam }) => {
             <Stack direction="row" spacing={1}>
               {team.map((member, index) => (
                 <Box key={index}>
-                  <CharAvatar
-                    gameId={gameId}
-                    charId={member?.id ?? null}
+                  <Avatar
+                    variant="rounded"
+                    src={CHARACTER[gameId][member?.id]?.icon}
+                    alt={CHARACTER[gameId][member?.id]?.name}
+                    slotProps={{
+                      img: {
+                        style: {
+                          objectFit: 'cover',
+                          objectPosition: 'top center',
+                        },
+                      },
+                    }}
                   />
                 </Box>
               ))}
@@ -541,7 +564,7 @@ export const StatsPanel = ({ team = [], setTeam }) => {
           >
             {team.map((m, i) => (
               <MenuItem key={i} value={i} disabled={!m.id}>
-                {m.id ? (charData[m.id]?.name ?? m.id) : `Slot ${i + 1} (empty)`}
+                {m.id ? (characters[m.id]?.name ?? m.id) : `Slot ${i + 1} (empty)`}
               </MenuItem>
             ))}
           </TextField>
