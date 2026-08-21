@@ -6,7 +6,6 @@ import {
   CardActionArea,
   CardMedia,
   Dialog,
-  DialogActions,
   DialogContent,
   DialogTitle,
   Stack,
@@ -151,10 +150,6 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
           ))}
         </Box>
       </DialogContent>
-
-      <DialogActions>
-
-      </DialogActions>
     </Dialog>
   );
 };
