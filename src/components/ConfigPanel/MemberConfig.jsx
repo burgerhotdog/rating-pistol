@@ -23,7 +23,6 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import { WW, CHARACTER } from '@/data';
 import {
-  formatStr,
   getMemberPreset,
   getDefaultWeapRank,
   applyStoredBuild,
