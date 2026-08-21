@@ -87,50 +87,46 @@ export const TeamConfig = ({ team, open, onClose, onSave }) => {
   };
 
   return (
-    <>
-      <Dialog open={open} onClose={handleCancel} maxWidth="lg">
-        <DialogTitle>
-          Team Configuration
-        </DialogTitle>
+    <Dialog open={open} onClose={handleCancel} maxWidth="lg">
+      <DialogTitle>
+        Team Configuration
+      </DialogTitle>
 
-        <DialogContent dividers>
-          {dragging && <GlobalStyles styles={{ '*': { cursor: 'grabbing !important' } }} />}
+      <DialogContent dividers>
+        {dragging && <GlobalStyles styles={{ '*': { cursor: 'grabbing !important' } }} />}
 
-          <DndContext
-            sensors={sensors}
-            collisionDetection={closestCenter}
-            modifiers={[restrictToHorizontalAxis]}
-            autoScroll={false}
-            onDragStart={() => setDragging(true)}
-            onDragEnd={handleDragEnd}
-            onDragCancel={() => setDragging(false)}
-          >
-            <SortableContext items={ids} strategy={horizontalListSortingStrategy}>
-              <Stack direction="row" spacing={2}>
-                {draft.map((member, index) => (
-                  <SortableMemberConfig
-                    key={member.id}
-                    id={member.id}
-                    member={member}
-                    onChange={(nextMember) =>
-                      setDraft((prev) => prev.with(index, nextMember))
-                    }
-                  />
-                ))}
-              </Stack>
-            </SortableContext>
-          </DndContext>
-        </DialogContent>
+        <DndContext
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          modifiers={[restrictToHorizontalAxis]}
+          autoScroll={false}
+          onDragStart={() => setDragging(true)}
+          onDragEnd={handleDragEnd}
+          onDragCancel={() => setDragging(false)}
+        >
+          <SortableContext items={ids} strategy={horizontalListSortingStrategy}>
+            <Stack direction="row" spacing={2}>
+              {draft.map((member, index) => (
+                <SortableMemberConfig
+                  key={member.id}
+                  id={member.id}
+                  member={member}
+                  onChange={(next) => setDraft((prev) => prev.with(index, next))}
+                />
+              ))}
+            </Stack>
+          </SortableContext>
+        </DndContext>
+      </DialogContent>
 
-        <DialogActions>
-          <Button onClick={handleCancel}>
-            Cancel
-          </Button>
-          <Button variant="contained" onClick={handleSave}>
-            Save
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </>
+      <DialogActions>
+        <Button onClick={handleCancel}>
+          Cancel
+        </Button>
+        <Button variant="contained" onClick={handleSave}>
+          Save
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };

@@ -1,17 +1,8 @@
-import {
-  GI, HSR, WW, ZZZ,
-  CHARACTER, WEAPON, SET, ECHO,
-} from '@/data';
-import {
-  isEnabledChar,
-  isEnabledWeap,
-  isEnabledSet,
-  isEnabledEcho,
-  toArray,
-  toMergedObj,
-  toEquipMap,
-  resolveRankedValue,
-} from '@/utils';
+import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET, ECHO, } from '@/data';
+import { isEnabledChar, isEnabledWeap, isEnabledSet, isEnabledEcho } from './isEnabledEffect';
+import { toMergedObj, toEquipMap } from './merge';
+import { resolveRankedValue } from './resolveRanked';
+import { toArray } from './toArray';
 
 const DEFAULT = {
   [GI]: {

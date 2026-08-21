@@ -1,54 +1,58 @@
-import { CHARACTER } from '@/data';
+import { WW, CHARACTER, SET } from '@/data';
 import { getDefaultCharRank, getDefaultWeapRank } from './getDefault';
-import { applyStoredBuild } from './applyStoredBuild';
 
-function getMemberPreset(gameId, charId, presetIndex = 0) {
-  const character = CHARACTER[gameId][charId];
-  const { presets = [] } = character;
-  const preset = presets[presetIndex];
-  if (!preset) return { id: charId };
-
-  const member = {
-    useUserBuild: false,
-    id: charId,
-    rank: getDefaultCharRank(gameId, charId),
-    rotation: [],
-  };
-
-  if ('weaponId' in preset) {
-    member.weaponId = preset.weaponId;
-    member.weaponRank = getDefaultWeapRank(gameId, member.weaponId);
+function buildSetCounts(gameId, equipList) {
+  // Tally set ids in equipList
+  const setTallys = {};
+  for (const equip of equipList) {
+    const id = equip?.setId;
+    if (!id) continue;
+    setTallys[id] = (setTallys[id] ?? 0) + 1;
   }
 
-  if ('setCounts' in preset) {
-    member.setCounts = preset.setCounts;
+  // Resolve tally against set bonuses
+  const setCounts = {};
+  for (const [id, tally] of Object.entries(setTallys)) {
+    const bonuses = SET[gameId][id]?.bonuses ?? [];
+    for (const bonus of bonuses.sort((a, b) => a - b)) {
+      if (bonus > tally) break;
+      setCounts[id] = bonus;
+    }
   }
 
-  if ('mainEcho' in preset) {
-    member.mainEcho = preset.mainEcho;
-  }
-
-  if ('rotation' in preset) {
-    member.rotation.push(...preset.rotation);
-  }
-
-  if ('duration' in preset) {
-    member.duration = preset.duration;
-  }
-
-  if ('modes' in character) member.mode = character.modes[0];
-
-  return member;
+  return setCounts;
 }
 
 export function initMember(key, gameId, builds) {
   if (!key) return {};
-
   const [id, index = 0] = key.split('.');
+  const character = CHARACTER[gameId][id];
+  if (!character) return {};
 
-  let member = getMemberPreset(gameId, id, index);
-  if (id in builds) {
-    member = applyStoredBuild(gameId, member, builds[id]);
+  const member = { id };
+  const build = builds[id];
+  if (build) member.build = build;
+  const preset = character.presets?.[index];
+
+  member.rank = build?.rank ?? getDefaultCharRank(gameId, id);
+  member.weaponId = build?.weaponId ?? preset?.weaponId;
+  if (member.weaponId) {
+    member.weaponRank = build?.weaponRank ?? getDefaultWeapRank(gameId, member.weaponId);
+  }
+
+  member.setCounts = build?.equipList
+    ? buildSetCounts(gameId, build.equipList)
+    : preset?.setCounts ?? {};
+
+  if (gameId === WW) {
+    member.mainEcho = build?.mainEcho ?? preset?.mainEcho;
+  }
+
+  member.rotation = [...(preset?.rotation ?? [])];
+  member.duration = preset?.duration;
+
+  if ('modes' in character) {
+    member.mode = build?.mode ?? preset?.mode ?? character.modes[0];
   }
 
   return member;

@@ -7,53 +7,30 @@ import {
   CardContent,
   CardMedia,
   Divider,
-  FormControlLabel,
   IconButton,
   Stack,
-  Switch,
   ToggleButton,
   ToggleButtonGroup,
   Typography,
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { WW } from '@/data';
+import { useBuilds, useData } from '@/hooks';
+import { initMember, getDefaultWeapRank } from '@/utils';
 import {
   WeapAutocomplete,
   SetAutocomplete,
   EchoAutocomplete,
 } from '../Autocomplete';
-import CloseIcon from '@mui/icons-material/Close';
-import { WW } from '@/data';
-import {
-  initMember,
-  getDefaultWeapRank,
-  applyStoredBuild,
-} from '@/utils';
-import { useBuilds, useData } from '@/hooks';
 import CharacterSelect from './CharacterSelect';
 
 export const MemberConfig = ({ member, onChange }) => {
-  const { gameId, charId } = useParams();
+  const { gameId } = useParams();
   const builds = useBuilds();
   const [characterSelectOpen, setCharacterSelectOpen] = useState(false);
 
   const memberData = useData('character')[member.id];
   const weaponType = memberData?.type ?? null;
-
-  // Stored build for the current member member (only meaningful for teammates)
-  const storedBuild = member.id && member.id !== charId
-    ? builds[member.id] ?? null
-    : null;
-  const isMainCharacter = member.id === charId;
-  const showToggle = storedBuild !== null;
-  const buildLocked = !isMainCharacter && member.useUserBuild === true;
-
-  const handleToggleUserBuild = (useUserBuild) => {
-    if (useUserBuild && storedBuild) {
-      onChange(applyStoredBuild(gameId, member, storedBuild));
-    } else {
-      const { build: _, ...rest } = member;
-      onChange({ ...rest, useUserBuild: false });
-    }
-  };
 
   const [hovered, setHovered] = useState(false);
 
@@ -80,16 +57,7 @@ export const MemberConfig = ({ member, onChange }) => {
               <IconButton
                 onClick={(e) => {
                   e.stopPropagation();
-                  onChange({
-                    ...member,
-                    id: null,
-                    rank: null,
-                    weaponId: null,
-                    weaponRank: null,
-                    setCounts: {},
-                    rotation: [],
-                    useUserBuild: false,
-                  });
+                  onChange({});
                 }}
                 sx={{
                   position: 'absolute',
@@ -111,10 +79,7 @@ export const MemberConfig = ({ member, onChange }) => {
               </IconButton>
             )}
           </Box>
-          <Typography
-            variant="caption"
-            color={buildLocked && "textSecondary"}
-          >
+          <Typography variant="caption">
             {memberData?.name ?? '—'}
           </Typography>
         </Box>
@@ -124,7 +89,7 @@ export const MemberConfig = ({ member, onChange }) => {
           onChange={(_, value) => value !== null &&
             onChange({ ...member, rank: value })
           }
-          disabled={buildLocked || !member.id}
+          disabled={!member.id}
           exclusive
           fullWidth
         >
@@ -148,7 +113,7 @@ export const MemberConfig = ({ member, onChange }) => {
               weaponRank: weaponId && getDefaultWeapRank(gameId, weaponId),
             })}
             label="Weapon"
-            disabled={buildLocked || !member.id}
+            disabled={!member.id}
             fullWidth
           />
 
@@ -157,7 +122,7 @@ export const MemberConfig = ({ member, onChange }) => {
             onChange={(_, value) => value !== null &&
               onChange({ ...member, weaponRank: value })
             }
-            disabled={buildLocked || !member.weaponId}
+            disabled={!member.weaponId}
             exclusive
             fullWidth
           >
@@ -177,7 +142,7 @@ export const MemberConfig = ({ member, onChange }) => {
             setCounts={member.setCounts}
             onChange={(value) => onChange({ ...member, setCounts: value })}
             label="Set Bonuses"
-            disabled={buildLocked || !member.id}
+            disabled={!member.id}
           />
 
           {gameId === WW && (
@@ -186,24 +151,12 @@ export const MemberConfig = ({ member, onChange }) => {
               selected={member.mainEcho ?? null}
               onChange={(mainEcho) => onChange({ ...member, mainEcho })}
               label="Main Echo"
-              disabled={buildLocked || !member.id}
+              disabled={!member.id}
             />
           )}
         </Stack>
 
         <Stack direction="row">
-          {showToggle && (
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={buildLocked}
-                  onChange={(e) => handleToggleUserBuild(e.target.checked)}
-                />
-              }
-              label={buildLocked ? 'Using own build' : 'Using trial build'}
-            />
-          )}
-
           {gameId === WW && memberData?.modes && (
             <ToggleButtonGroup
               value={member.mode ?? memberData.modes[0]}
