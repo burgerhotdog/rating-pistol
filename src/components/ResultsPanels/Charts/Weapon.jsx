@@ -9,13 +9,13 @@ import {
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
+  BarChart,
   Cell,
   LabelList,
   Tooltip as RechartsTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { BarChart } from '@/components';
 import { useData, useElementColors } from '@/hooks';
 import { getDefaultWeapRank } from '@/utils';
 
@@ -68,6 +68,9 @@ const Weapon = ({ weaponResults, userDps, userMember }) => {
           layout="vertical"
           data={data}
           margin={{ right: 32 }}
+          width="100%"
+          height="100%"
+          responsive
         >
           <XAxis
             type="number"

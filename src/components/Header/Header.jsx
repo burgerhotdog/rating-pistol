@@ -6,7 +6,7 @@ import HeaderNav from './HeaderNav';
 import HeaderOcr from './Ocr/HeaderOcr';
 import HeaderUser from './HeaderUser';
 
-export const Header = () => {
+const Header = () => {
   const { gameId } = useParams();
 
   return (
@@ -30,3 +30,5 @@ export const Header = () => {
     </Box>
   );
 };
+
+export default Header;

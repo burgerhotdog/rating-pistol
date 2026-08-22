@@ -15,13 +15,14 @@ import {
 import { useTheme } from '@mui/material/styles';
 import {
   Area,
+  AreaChart,
   CartesianGrid,
   Scatter,
+  ScatterChart,
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { AreaChart, ScatterChart } from '@/components';
 import { useData, useElementColors } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
@@ -259,7 +260,7 @@ const Timeline = ({ userSummary, memberIds }) => {
 
       <CardContent component={Stack} sx={{ flex: 1 }}>
         {isRunningTotal ? (
-          <AreaChart data={data}>
+          <AreaChart data={data} width="100%" height="100%" responsive>
             {axisProps}
 
             {memberStack.toReversed().map((id) => {
@@ -290,7 +291,7 @@ const Timeline = ({ userSummary, memberIds }) => {
             />
           </AreaChart>
         ) : (
-          <ScatterChart data={data}>
+          <ScatterChart data={data} width="100%" height="100%" responsive>
             {axisProps}
 
             {memberStack.map((id) => {

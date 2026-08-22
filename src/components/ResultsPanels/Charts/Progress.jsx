@@ -10,13 +10,13 @@ import {
 import { useTheme } from '@mui/material/styles';
 import {
   Area,
+  ComposedChart,
   CartesianGrid,
   ReferenceLine,
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { ComposedChart } from '@/components';
 import { useElementColors } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
@@ -121,7 +121,7 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader title="Simulated Trajectory" />
       <CardContent component={Stack} sx={{ flex: 1 }}>
-        <ComposedChart data={chartData} margin={{ top: 16 }}>
+        <ComposedChart data={chartData} margin={{ top: 16 }} width="100%" height="100%" responsive>
           <defs>
             <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor={color} stopOpacity={0.5} />

@@ -11,17 +11,18 @@ import {
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
+  BarChart,
   Cell,
   Legend,
   LabelList,
   PolarAngleAxis,
   PolarGrid,
   Radar,
+  RadarChart,
   Tooltip as RechartsTooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { BarChart, RadarChart } from '@/components';
 import { WW, SUBSTAT } from '@/data';
 import { useElementColors } from '@/hooks';
 import { formatStr } from '@/utils';
@@ -187,7 +188,7 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader title="Substat Distribution" />
       <CardContent component={Stack} direction="row" sx={{ flex: 1 }}>
-        <RadarChart data={data}>
+        <RadarChart data={data} width="100%" height="100%" responsive>
           <PolarGrid />
           <PolarAngleAxis dataKey="stat" tick={<CustomPolarAngleAxisTick color={palette.text.disabled} />} />
           <Radar
@@ -201,6 +202,9 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
         <BarChart
           layout="vertical"
           data={data}
+          width="100%"
+          height="100%"
+          responsive
         >
           <XAxis
             type="number"
