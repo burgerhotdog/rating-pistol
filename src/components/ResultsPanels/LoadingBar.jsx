@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Box, LinearProgress, Stack, Typography } from '@mui/material';
 
-export const LoadingBar = ({ status, week, diff }) => {
+const LoadingBar = ({ status, week, diff }) => {
   const initialDiffRef = useRef(null);
 
   // const value = diff != null ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
@@ -43,3 +43,5 @@ export const LoadingBar = ({ status, week, diff }) => {
     </Box>
   );
 };
+
+export default LoadingBar;

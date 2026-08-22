@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Stack, Tab, Tabs } from '@mui/material';
+import { useElementColors, useSimulation } from '@/hooks';
+import { formatStr } from '@/utils';
 import {
-  LoadingBar,
   RatingCard,
   ProgressCard,
   TimelineCard,
@@ -9,9 +10,8 @@ import {
   MainstatsCard,
   SubstatsCard,
   WeaponCard,
-} from '@/components';
-import { useElementColors, useSimulation } from '@/hooks';
-import { formatStr } from '@/utils';
+} from './Charts';
+import LoadingBar from './LoadingBar';
 
 const TabPanels = [
   {
@@ -80,7 +80,7 @@ const TabPanels = [
   },
 ];
 
-const Charts = ({ team }) => {
+const ResultsPanels = ({ team }) => {
   const results = useSimulation(team);
   const [tab, setTab] = useState(TabPanels[0].value);
   const color = useElementColors({ char: '$curr' });
@@ -120,4 +120,4 @@ const Charts = ({ team }) => {
   );
 };
 
-export default Charts;
+export default ResultsPanels;

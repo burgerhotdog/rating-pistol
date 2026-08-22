@@ -1,9 +1,8 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { Stack } from '@mui/material';
-import { Header, Navbar, ConfigPanel } from '@/components';
+import { Header, Navbar, ConfigPanel, ResultsPanels } from '@/components';
 import { CHARACTER } from '@/data';
 import { useSortedBuilds, useTeam } from '@/hooks';
-import { Charts } from '@/layouts';
 
 const DefaultPage = () => {
   return (
@@ -28,7 +27,7 @@ const CharacterPage = () => {
       >
         <Navbar />
         <ConfigPanel team={team} setTeam={setTeam} />
-        <Charts team={team} />
+        <ResultsPanels team={team} />
       </Stack>
     </Stack>
   );

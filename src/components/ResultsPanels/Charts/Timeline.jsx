@@ -21,7 +21,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { AreaChart, Dot, ScatterChart } from '@/components';
+import { AreaChart, ScatterChart } from '@/components';
 import { useData, useElementColors } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
@@ -109,7 +109,15 @@ const TooltipContent = ({ time, name, rows }) => {
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-            <Dot color={color} />
+            <Box
+              sx={{
+                width: 8,
+                height: 8,
+                borderRadius: '50%',
+                bgcolor: color,
+                flexShrink: 0,
+              }}
+            />
             <Typography variant="body2">{name}:</Typography>
           </Box>
 
