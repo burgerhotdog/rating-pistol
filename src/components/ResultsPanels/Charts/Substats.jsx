@@ -195,7 +195,11 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader title="Substat Distribution" />
       <CardContent component={Stack} direction="row" sx={{ flex: 1 }}>
-        <RadarChart data={data} width="100%" height="100%" responsive>
+        <RadarChart
+          data={data}
+          style={{ width: '100%', height: '100%' }}
+          responsive
+        >
           <PolarGrid />
           <PolarAngleAxis dataKey="stat" tick={<CustomPolarAngleAxisTick color={palette.text.disabled} />} />
           <Radar
@@ -207,8 +211,8 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
         </RadarChart>
 
         <BarChart
-          layout="vertical"
           data={data}
+          layout="vertical"
           style={{ width: '100%', height: '100%' }}
           responsive
         >

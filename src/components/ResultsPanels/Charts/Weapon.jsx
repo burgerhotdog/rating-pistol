@@ -77,11 +77,10 @@ const Weapon = ({ weaponResults, userDps, userMember }) => {
       <CardHeader title="Weapon Rankings" />
       <CardContent component={Stack} sx={{ flex: 1 }}>
         <BarChart
-          layout="vertical"
           data={data}
+          layout="vertical"
           margin={{ right: 32 }}
-          width="100%"
-          height="100%"
+          style={{ width: '100%', height: '100%' }}
           responsive
         >
           <XAxis

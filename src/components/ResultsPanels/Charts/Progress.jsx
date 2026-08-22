@@ -121,7 +121,12 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader title="Simulated Trajectory" />
       <CardContent component={Stack} sx={{ flex: 1 }}>
-        <ComposedChart data={chartData} margin={{ top: 16 }} width="100%" height="100%" responsive>
+        <ComposedChart
+          data={chartData}
+          margin={{ top: 16 }}
+          style={{ width: '100%', height: '100%' }}
+          responsive
+        >
           <defs>
             <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor={color} stopOpacity={0.5} />

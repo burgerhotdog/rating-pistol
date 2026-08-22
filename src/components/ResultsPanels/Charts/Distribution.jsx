@@ -117,7 +117,10 @@ const Distribution = ({ userSummary }) => {
 
       <CardContent component={Stack} sx={{ flex: 1 }}> 
         <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-          <PieChart width="100%" height="100%" responsive>
+          <PieChart
+            style={{ width: '100%', height: '100%' }}
+            responsive
+          >
             <Pie
               data={data}
               dataKey="value"
@@ -143,10 +146,9 @@ const Distribution = ({ userSummary }) => {
           </PieChart>
 
           <BarChart
-            layout="vertical"
             data={data}
-            width="100%"
-            height="100%"
+            layout="vertical"
+            style={{ width: '100%', height: '100%' }}
             responsive
           >
             <XAxis domain={[0, 1]} type="number" />
