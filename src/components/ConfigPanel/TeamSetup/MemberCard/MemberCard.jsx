@@ -22,24 +22,24 @@ const MemberCard = ({ member, onChange }) => {
 
   return (
     <Card sx={{ width: 340 }}>
-      <CardContent component={Stack} spacing={2}>
-        <CharacterPicker member={member} onChange={onChange} />
+      <CardContent component={Stack} divider={<Divider />} spacing={2}>
+        <Stack spacing={1}>
+          <CharacterPicker member={member} onChange={onChange} />
 
-        <ToggleButtonGroup
-          value={member.rank ?? ''}
-          onChange={(_, rank) => rank !== null && onChange({ ...member, rank })}
-          disabled={!member.id}
-          exclusive
-          fullWidth
-        >
-          {[0, 1, 2, 3, 4, 5, 6].map((rank) => (
-            <ToggleButton key={rank} value={rank}>
-              {`S${rank}`}
-            </ToggleButton>
-          ))}
-        </ToggleButtonGroup>
-
-        <Divider />
+          <ToggleButtonGroup
+            value={member.rank ?? ''}
+            onChange={(_, rank) => rank !== null && onChange({ ...member, rank })}
+            disabled={!member.id}
+            exclusive
+            fullWidth
+          >
+            {[0, 1, 2, 3, 4, 5, 6].map((rank) => (
+              <ToggleButton key={rank} value={rank}>
+                {`S${rank}`}
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
+        </Stack>
 
         <Stack spacing={1}>
           <WeapAutocomplete
@@ -70,8 +70,6 @@ const MemberCard = ({ member, onChange }) => {
             ))}
           </ToggleButtonGroup>
         </Stack>
-
-        <Divider />
 
         <Stack spacing={1}>
           <SetAutocomplete
@@ -109,8 +107,7 @@ const MemberCard = ({ member, onChange }) => {
                   <img
                     src={`wuthering-waves/mode/${mode}.webp`}
                     alt=""
-                    width={20}
-                    height={20}
+                    style={{ width: 14, height: 14 }}
                   />
                 </ToggleButton>
               ))}
