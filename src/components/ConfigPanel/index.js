@@ -1,1 +1,1 @@
-export * from './StatsPanel';
+export { default as ConfigPanel } from './ConfigPanel';

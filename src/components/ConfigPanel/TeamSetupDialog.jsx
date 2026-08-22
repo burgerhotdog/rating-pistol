@@ -49,7 +49,7 @@ function SortableMemberConfig({ id, member, onChange }) {
   );
 }
 
-export const TeamConfig = ({ open, onClose, team, setTeam }) => {
+const TeamSetupDialog = ({ open, onClose, team, setTeam }) => {
   const [draft, setDraft] = useState(team);
 
   const sensors = useSensors(useSensor(PointerSensor));
@@ -63,7 +63,7 @@ export const TeamConfig = ({ open, onClose, team, setTeam }) => {
   return (
     <Dialog open={open} onClose={handleCancel} maxWidth="lg">
       <DialogTitle>
-        Team Configuration
+        Team Setup
       </DialogTitle>
 
       <DialogContent dividers>
@@ -109,3 +109,5 @@ export const TeamConfig = ({ open, onClose, team, setTeam }) => {
     </Dialog>
   );
 };
+
+export default TeamSetupDialog;

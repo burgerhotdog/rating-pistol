@@ -1,6 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { Stack } from '@mui/material';
-import { Header, Navbar, StatsPanel } from '@/components';
+import { Header, Navbar, ConfigPanel } from '@/components';
 import { CHARACTER } from '@/data';
 import { useSortedBuilds, useTeam } from '@/hooks';
 import { Charts } from '@/layouts';
@@ -27,7 +27,7 @@ const CharacterPage = () => {
         sx={{ flex: 1, overflow: 'hidden', pb: 3 }}
       >
         <Navbar />
-        <StatsPanel team={team} setTeam={setTeam} />
+        <ConfigPanel team={team} setTeam={setTeam} />
         <Charts team={team} />
       </Stack>
     </Stack>
