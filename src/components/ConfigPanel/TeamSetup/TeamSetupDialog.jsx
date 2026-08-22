@@ -24,9 +24,9 @@ import {
   useSortable,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { MemberConfig } from './MemberConfig';
+import MemberCard from './MemberCard';
 
-function SortableMemberConfig({ id, member, onChange }) {
+function SortableMemberCard({ id, member, onChange }) {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
 
   const style = {
@@ -44,7 +44,7 @@ function SortableMemberConfig({ id, member, onChange }) {
         <DragIndicatorIcon sx={{ fontSize: 18, transform: 'rotate(90deg)' }} />
       </Box>
 
-      <MemberConfig member={member} onChange={onChange} />
+      <MemberCard member={member} onChange={onChange} />
     </Box>
   );
 }
@@ -80,7 +80,7 @@ const TeamSetupDialog = ({ open, onClose, team, setTeam }) => {
           <SortableContext items={ids} strategy={horizontalListSortingStrategy}>
             <Stack direction="row" spacing={2}>
               {draft.map((member, index) => (
-                <SortableMemberConfig
+                <SortableMemberCard
                   key={member.id}
                   id={member.id}
                   member={member}

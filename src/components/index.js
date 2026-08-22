@@ -1,5 +1,5 @@
 export * from './Cards';
-export * from './ConfigPanel';
+export { default as ConfigPanel } from './ConfigPanel';
 export * from './Header';
 
 export { default as Navbar } from './Navbar';

@@ -16,7 +16,7 @@ import {
 import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
 
-const CharacterSelect = ({ open, onClose, onSelect }) => {
+const CharacterPickerDialog = ({ open, onClose, onSelect }) => {
   const characters = useData('character');
   const elements = useData('element');
   const types = useData('type');
@@ -155,4 +155,4 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
   );
 };
 
-export default CharacterSelect;
+export default CharacterPickerDialog;
