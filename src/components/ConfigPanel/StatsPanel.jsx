@@ -50,7 +50,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CHARACTER } from '@/data';
-import { useElementColors, useData } from '@/hooks';
+import { useData } from '@/hooks';
 import { toArray, formatStr } from '@/utils';
 import { TeamConfig } from './TeamConfig';
 import { MenuAttrs } from './MenuAttrs';
@@ -444,8 +444,9 @@ function RotationEditor({ gameId, charId, member, rotation = [], onChange }) {
 
 export const StatsPanel = ({ team = [], setTeam }) => {
   const { gameId, charId } = useParams();
-  const color = useElementColors({ char: '$curr' });
   const characters = useData('character');
+  const elements = useData('element');
+  const types = useData('type');
   const [rotationMemberId, setRotationMemberId] = useState(charId);
   const [prevCharId, setPrevCharId] = useState(charId);
   const [teamConfigOpen, setTeamConfigOpen] = useState(false);
@@ -467,30 +468,25 @@ export const StatsPanel = ({ team = [], setTeam }) => {
   }
   const rotationMemberIndex = Math.max(0, team.findIndex((m) => m.id === rotationMemberId));
 
-  const currChar = characters[charId];
+  const { name, icon, type, element } = characters[charId];
 
   return (
     <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
-        avatar={(
-          <Avatar
-            variant="rounded"
-            src={CHARACTER[gameId][charId].icon}
-            alt={CHARACTER[gameId][charId].name}
-          />
-        )}
-        title={currChar?.name ?? ''}
+        avatar={<Avatar variant="rounded" src={icon} alt={name} />}
+        title={name}
         subheader={
           <Stack direction="row" spacing={0.5}>
             <Chip
               variant="outlined"
-              label={formatStr(currChar.element)}
-              sx={{ fontWeight: 'bold', color }}
+              avatar={<Avatar src={elements[element].icon} />}
+              label={formatStr(element)}
+              sx={{ fontWeight: 'bold', color: elements[element].color }}
             />
-
             <Chip
               variant="outlined"
-              label={formatStr(currChar?.type)}
+              avatar={<Avatar src={types[type].icon} />}
+              label={formatStr(type)}
               sx={{ fontWeight: 'bold' }}
             />
           </Stack>

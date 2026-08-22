@@ -26,7 +26,7 @@ const renderOption = (props, option) => {
   );
 };
 
-export const Autocomplete = ({ options, value, label, onChange, ...props }) => {
+const Autocomplete = ({ options, value, label, onChange, ...props }) => {
   const renderInput = (params) => (
     <TextField
       {...params}

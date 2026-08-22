@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   Box,
   Card,
@@ -14,11 +13,13 @@ import {
   ToggleButtonGroup,
   Typography,
 } from '@mui/material';
-import { CHARACTER, ELEMENTS, TYPES } from '@/data';
+import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
 
 const CharacterSelect = ({ open, onClose, onSelect }) => {
-  const { gameId } = useParams();
+  const characters = useData('character');
+  const elements = useData('element');
+  const types = useData('type');
 
   const [search, setSearch] = useState('');
   const [elementFilter, setElementFilter] = useState([]);
@@ -30,13 +31,13 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
   };
 
   const entries = useMemo(
-    () => Object.values(CHARACTER[gameId])
+    () => Object.values(characters)
       .sort((a, b) =>
         b.quality - a.quality ||
         b.version - a.version ||
         Number(b.id) - Number(a.id)
       ),
-    [gameId],
+    [characters],
   );
 
   const searchLower = search.toLowerCase();
@@ -81,7 +82,7 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
             value={elementFilter}
             onChange={(_, value) => setElementFilter(value)}
           >
-            {ELEMENTS[gameId].map(({ key, icon }) => (
+            {Object.values(elements).map(({ key, icon }) => (
               <ToggleButton key={key} value={key} title={formatStr(key)}>
                 <img
                   src={icon}
@@ -97,7 +98,7 @@ const CharacterSelect = ({ open, onClose, onSelect }) => {
             value={typeFilter}
             onChange={(_, value) => setTypeFilter(value)}
           >
-            {TYPES[gameId].map(({ key, icon }) => (
+            {Object.values(types).map(({ key, icon }) => (
               <ToggleButton key={key} value={key} title={formatStr(key)}>
                 <img
                   src={icon}

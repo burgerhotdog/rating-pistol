@@ -32,15 +32,20 @@ export const MemberConfig = ({ member, onChange }) => {
   const memberData = useData('character')[member.id];
   const weaponType = memberData?.type ?? null;
 
-  const [hovered, setHovered] = useState(false);
-
   return (
     <Card sx={{ width: 340 }}>
       <CardContent component={Stack} spacing={2}>
         <Box
-          sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.5 }}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 0.5,
+            '&:hover .member-remove-btn': {
+              opacity: 1,
+              pointerEvents: 'auto',
+            },
+          }}
         >
           <Box sx={{ position: 'relative' }}>
             <Card sx={{ width: 80 }}>
@@ -53,31 +58,33 @@ export const MemberConfig = ({ member, onChange }) => {
               </CardActionArea>
             </Card>
 
-            {hovered && (
-              <IconButton
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onChange({});
-                }}
-                sx={{
-                  position: 'absolute',
-                  top: -6,
-                  right: -6,
-                  bgcolor: 'background.paper',
-                  border: '1px solid',
-                  borderColor: 'divider',
-                  width: 18,
-                  height: 18,
-                  '&:hover': {
-                    bgcolor: 'error.main',
-                    color: '#fff',
-                    borderColor: 'error.main',
-                  },
-                }}
-              >
-                <CloseIcon sx={{ fontSize: 11 }} />
-              </IconButton>
-            )}
+            <IconButton
+              className="member-remove-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                onChange({});
+              }}
+              sx={{
+                position: 'absolute',
+                top: -6,
+                right: -6,
+                bgcolor: 'background.paper',
+                border: '1px solid',
+                borderColor: 'divider',
+                width: 18,
+                height: 18,
+                opacity: 0,
+                pointerEvents: 'none',
+                transition: 'opacity 0.15s',
+                '&:hover': {
+                  bgcolor: 'error.main',
+                  color: '#fff',
+                  borderColor: 'error.main',
+                },
+              }}
+            >
+              <CloseIcon sx={{ fontSize: 11 }} />
+            </IconButton>
           </Box>
           <Typography variant="caption">
             {memberData?.name ?? '—'}
