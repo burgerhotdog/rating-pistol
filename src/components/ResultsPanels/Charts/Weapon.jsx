@@ -10,8 +10,8 @@ import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
   BarChart,
-  Cell,
   LabelList,
+  Rectangle,
   Tooltip as RechartsTooltip,
   XAxis,
   YAxis,
@@ -60,6 +60,18 @@ const Weapon = ({ weaponResults, userDps, userMember }) => {
 
   const data = buildData(gameId, weapons, weaponResults, userDps, userMember);
 
+  const renderR1Bar = (props) => {
+    const { index, ...rest } = props;
+    const entry = data[index];
+    return <Rectangle {...rest} fill={color} fillOpacity={entry.opacity} />;
+  };
+
+  const renderR5Bar = (props) => {
+    const { index, ...rest } = props;
+    const entry = data[index];
+    return <Rectangle {...rest} fill={qualityColors[entry.quality]} fillOpacity={0.5} />;
+  };
+
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader title="Weapon Rankings" />
@@ -103,25 +115,8 @@ const Weapon = ({ weaponResults, userDps, userMember }) => {
             }}
           />
 
-          <Bar dataKey="dpsR1" stackId="a">
-            {data.map((entry) => (
-              <Cell
-                key={entry.weaponId}
-                fill={color}
-                fillOpacity={entry.opacity}
-              />
-            ))}
-          </Bar>
-
-          <Bar dataKey="dpsR5" stackId="a">
-            {data.map((entry) => (
-              <Cell
-                key={entry.weaponId}
-                fill={qualityColors[entry.quality]}
-                fillOpacity={0.5}
-              />
-            ))}
-
+          <Bar dataKey="dpsR1" stackId="a" shape={renderR1Bar} />
+          <Bar dataKey="dpsR5" stackId="a" shape={renderR5Bar}>
             <LabelList
               content={({ x, y, width, height, index }) => {
                 const entry = data[index];

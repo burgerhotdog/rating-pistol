@@ -14,9 +14,9 @@ import { alpha, darken } from '@mui/material/styles';
 import {
   Bar,
   BarChart,
-  Cell,
   Pie,
   PieChart,
+  Sector,
   Tooltip as ChartTooltip,
   XAxis,
   YAxis,
@@ -89,6 +89,12 @@ const Distribution = ({ userSummary }) => {
   const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
   const dps = duration > 0 ? totalDamage / (duration / 1000) : null;
 
+  const renderSlice = (props) => {
+    const { percent } = props;
+    const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
+    return <Sector {...props} fill={fill} stroke="none" />;
+  };
+
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
@@ -116,25 +122,17 @@ const Distribution = ({ userSummary }) => {
               data={data}
               dataKey="value"
               animationBegin={0}
-              label={({ percent }) => `${(percent * 100).toFixed()}%`}
-              labelLine={false}
-            >
-              {data.map(({ name, percent }) => {
-                const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
-                return (<Cell key={name} fill={fill} stroke="none" />);
-              })}
-            </Pie>
+              shape={renderSlice}
+            />
 
             <ChartTooltip
               content={({ payload }) => {
                 const { name = '', value = 0 } = payload?.[0]?.payload ?? {};
-
                 return (
                   <Paper sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
                     <Typography variant="subtitle2">
                       {formatStr(name)}
                     </Typography>
-
                     <Typography variant="body2" color="textSecondary">
                       {formatNum(value)} damage
                     </Typography>

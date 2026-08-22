@@ -12,13 +12,13 @@ import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
   BarChart,
-  Cell,
   Legend,
   LabelList,
   PolarAngleAxis,
   PolarGrid,
   Radar,
   RadarChart,
+  Rectangle,
   Tooltip as RechartsTooltip,
   XAxis,
   YAxis,
@@ -184,6 +184,13 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
     })
     .sort((a, b) => b.avg - a.avg);
 
+  const renderUserBar = (props) => {
+    const { index, ...rest } = props;
+    const entry = data[index];
+    const fill = entry.pct >= 100 ? palette.success.main : palette.error.main;
+    return <Rectangle {...rest} fill={fill} />;
+  };
+
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader title="Substat Distribution" />
@@ -202,37 +209,17 @@ const Substats = ({ configMap, userConfigKey, userSubStats }) => {
         <BarChart
           layout="vertical"
           data={data}
-          width="100%"
-          height="100%"
+          style={{ width: '100%', height: '100%' }}
           responsive
         >
-          <XAxis
-            type="number"
-            tickFormatter={(v) => v.toFixed(1)}
-          />
-
-          <YAxis
-            type="category"
-            dataKey="stat"
-            tick={{ fontSize: 11 }}
-          />
+          <XAxis type="number" tickFormatter={(v) => v.toFixed(1)} />
+          <YAxis type="category" dataKey="stat" tick={{ fontSize: 11 }} />
 
           <RechartsTooltip content={CustomTooltip} />
           <Legend wrapperStyle={{ fontSize: 11 }} />
 
-          <Bar
-            dataKey="avg"
-            name="Benchmark"
-            fill={alpha(color, 0.6)}
-          />
-          <Bar
-            dataKey="user"
-            name="Your Rolls"
-            fill={color}
-          >
-            {data.map((entry) => (
-              <Cell key={entry.stat} fill={entry.pct >= 100 ? palette.success.main : palette.error.main} />
-            ))}
+          <Bar dataKey="avg" name="Benchmark" fill={alpha(color, 0.6)} />
+          <Bar dataKey="user" name="Your Rolls" shape={renderUserBar}>
             <LabelList
               dataKey="pct"
               position="right"
