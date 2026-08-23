@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@mui/material';
 import { formatDate, formatTime } from '@/utils';
-import PanelHeader from './PanelHeader';
+import Header from './Header';
 import MenuAttrs from './MenuAttrs';
 import TeamSetup from './TeamSetup';
 
@@ -17,8 +17,8 @@ const ConfigPanel = ({ team, setTeam }) => {
   const member = team.find((member) => member.id === charId);
 
   return (
-    <Card component={Stack} sx={{ width: 300 }}>
-      <PanelHeader />
+    <Card component={Stack} sx={{ width: 350 }}>
+      <Header />
       <CardContent
         component={Stack}
         divider={<Divider />}
