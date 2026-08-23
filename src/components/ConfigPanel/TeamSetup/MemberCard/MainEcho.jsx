@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { useData } from '@/hooks';
 import { Autocomplete } from './Autocomplete';
 
-const MainEchoAutocomplete = ({ memberId, setCounts = {}, mainEcho, onChange }) => {
+const MainEcho = ({ memberId, setCounts = {}, mainEcho, onChange }) => {
   const echoData = useData('echo');
 
   const options = useMemo(
@@ -30,4 +30,4 @@ const MainEchoAutocomplete = ({ memberId, setCounts = {}, mainEcho, onChange }) 
   );
 };
 
-export default MainEchoAutocomplete;
+export default MainEcho;

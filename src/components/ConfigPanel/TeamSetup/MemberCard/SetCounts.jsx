@@ -4,7 +4,7 @@ import { GI, WW } from '@/data';
 import { useData } from '@/hooks';
 import { MultiAutocomplete } from './Autocomplete';
 
-const SetCountsAutocomplete = ({ memberId, setCounts = {}, onChange }) => {
+const SetCounts = ({ memberId, setCounts = {}, onChange }) => {
   const { gameId } = useParams();
   const totalPieces = gameId === GI || gameId === WW ? 5 : 6;
   const numUsedPieces = Object.values(setCounts).reduce((acc, count) => acc + count, 0);
@@ -67,4 +67,4 @@ const SetCountsAutocomplete = ({ memberId, setCounts = {}, onChange }) => {
   );
 };
 
-export default SetCountsAutocomplete;
+export default SetCounts;

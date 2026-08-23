@@ -17,6 +17,7 @@ const RotationEditor = ({ member, onChange }) => {
         charId={member.id}
         member={member}
         rotation={member.rotation}
+        onChange={onChange}
       />
     </>
   );

@@ -11,15 +11,15 @@ import { WW } from '@/data';
 import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
 import CharacterPicker from './CharacterPicker';
+import Rank from './Rank';
 import WeaponId from './WeaponId';
 import WeaponRank from './WeaponRank';
-import SetCountsAutocomplete from './SetCountsAutocomplete';
-import MainEchoAutocomplete from './MainEchoAutocomplete';
+import SetCounts from './SetCounts';
+import MainEcho from './MainEcho';
 import RotationEditor from './RotationEditor';
 
 const MemberCard = ({ member, setMember }) => {
   const { gameId } = useParams();
-
   const memberData = useData('character')[member.id];
 
   return (
@@ -30,22 +30,12 @@ const MemberCard = ({ member, setMember }) => {
             member={member}
             setMember={setMember}
           />
-
-          <ToggleButtonGroup
-            value={member.rank ?? ''}
-            onChange={(_, rank) => rank !== null && setMember({ ...member, rank })}
-            disabled={!member.id}
-            exclusive
-            fullWidth
-          >
-            {[0, 1, 2, 3, 4, 5, 6].map((rank) => (
-              <ToggleButton key={rank} value={rank}>
-                {`S${rank}`}
-              </ToggleButton>
-            ))}
-          </ToggleButtonGroup>
+          <Rank
+            memberId={member.id}
+            memberRank={member.rank}
+            onChange={(rank) => setMember({ ...member, rank })}
+          />
         </Stack>
-
         <Stack spacing={1}>
           <WeaponId
             memberId={member.id}
@@ -59,16 +49,14 @@ const MemberCard = ({ member, setMember }) => {
             onChange={(weaponRank) => setMember({ ...member, weaponRank })}
           />
         </Stack>
-
         <Stack spacing={1}>
-          <SetCountsAutocomplete
+          <SetCounts
             memberId={member.id}
             setCounts={member.setCounts}
             onChange={(setCounts) => setMember({ ...member, setCounts })}
           />
-
           {gameId === WW && (
-            <MainEchoAutocomplete
+            <MainEcho
               memberId={member.id}
               setCounts={member.setCounts}
               mainEcho={member.mainEcho}
@@ -76,12 +64,13 @@ const MemberCard = ({ member, setMember }) => {
             />
           )}
         </Stack>
-
         <Stack direction="row" spacing={1}>
           {member.id && (
-            <RotationEditor member={member} />
+            <RotationEditor
+              member={member}
+              onChange={(rotation) => setMember({ ...member, rotation })}
+            />
           )}
-
           {gameId === WW && memberData?.modes && (
             <ToggleButtonGroup
               value={member.mode ?? memberData.modes[0]}
