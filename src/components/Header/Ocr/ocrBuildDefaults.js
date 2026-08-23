@@ -1,24 +1,24 @@
 import {
   weaponNameToId,
-  mainStatNameToIdByCost,
-  subStatValueOptionsById,
+  mainstatNameToIdByCost,
+  valueOptionsById,
 } from '@/workers/ocr/helpers/maps';
 
 export const weaponIdToName = Object.fromEntries(
   Object.entries(weaponNameToId).map(([name, id]) => [id, name])
 );
 
-export const mainStatIdToNameByCost = Object.fromEntries(
-  Object.entries(mainStatNameToIdByCost).map(([cost, nameToId]) => [
+export const mainstatIdToNameByCost = Object.fromEntries(
+  Object.entries(mainstatNameToIdByCost).map(([cost, nameToId]) => [
     cost,
     Object.fromEntries(Object.entries(nameToId).map(([name, id]) => [id, name])),
   ])
 );
 
-export const subStatIds = Object.keys(subStatValueOptionsById);
+export const stats = Object.keys(valueOptionsById);
 
 export const createBlankEquip = () => ({
-  subStatList: Array.from({ length: 5 }, () => ({ subStatId: '', subStatValue: null })),
+  substats: Array.from({ length: 5 }, () => ({ id: '', value: null })),
 });
 
 export const createBlankBuild = () => ({

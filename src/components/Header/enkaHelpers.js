@@ -181,11 +181,11 @@ const template = (gameId) => ({
   weaponId: null,
   equipList: Array(gameId === GI ? 5 : 6).fill().map(() => ({
     setId: null,
-    mainStatId: null,
-    mainStatValue: null,
-    subStatList: Array(4).fill().map(() => ({
-      subStatId: null,
-      subStatValue: null
+    mainstatId: null,
+    mainstatValue: null,
+    substats: Array(4).fill().map(() => ({
+      id: null,
+      value: null
     }))
   })),
 });
@@ -212,24 +212,24 @@ export function parseEnkaObj(gameId, enkaObj) {
     avatarData.equipList[indexMain].setId = PARSE_SETID[gameId](equipObj);
 
     // main stat
-    const mainStat = PARSE_MAIN_STAT[gameId](equipObj);
-    avatarData.equipList[indexMain].mainStatId = ENKA_LOOKUP[gameId][mainStat];
+    const mainstatProp = PARSE_MAIN_STAT[gameId](equipObj);
+    avatarData.equipList[indexMain].mainstatId = ENKA_LOOKUP[gameId][mainstatProp];
 
     // main value
-    const mainValue = PARSE_MAIN_VALUE[gameId](equipObj);
-    avatarData.equipList[indexMain].mainStatValue = Number(mainValue);
+    const mainstatValue = PARSE_MAIN_VALUE[gameId](equipObj);
+    avatarData.equipList[indexMain].mainstatValue = Number(mainstatValue);
 
     // sub stats
-    const subStatList = PARSE_SUBLIST[gameId](equipObj);
-    if (!subStatList) continue;
-    for (const [indexSub, subObj] of subStatList.entries()) {
+    const substats = PARSE_SUBLIST[gameId](equipObj);
+    if (!substats) continue;
+    for (const [indexSub, subObj] of substats.entries()) {
       // stat
-      const subStat = PARSE_SUB_STAT[gameId](subObj);
-      avatarData.equipList[indexMain].subStatList[indexSub].subStatId = ENKA_LOOKUP[gameId][subStat];
+      const substat = PARSE_SUB_STAT[gameId](subObj);
+      avatarData.equipList[indexMain].substats[indexSub].id = ENKA_LOOKUP[gameId][substat];
 
       // value
       const subValue = PARSE_SUB_VALUE[gameId](subObj);
-      avatarData.equipList[indexMain].subStatList[indexSub].subStatValue = Number(subValue);
+      avatarData.equipList[indexMain].substats[indexSub].value = Number(subValue);
     }
   }
 

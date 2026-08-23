@@ -11,20 +11,20 @@ export function buildEquipMap(equipList = [], isTrialBuild = false) {
   for (const equip of equipList) {
     if (!equip) continue;
 
-    if ('mainStatId' in equip && equip.mainStatValue) {
-      addToEquipMap(equip.mainStatId, equip.mainStatValue);
+    if ('mainstatId' in equip && equip.mainstatValue) {
+      addToEquipMap(equip.mainstatId, equip.mainstatValue);
     }
 
-    if ('mainStatFlatId' in equip && equip.mainStatFlatValue) {
-      addToEquipMap(equip.mainStatFlatId, equip.mainStatFlatValue);
+    if ('mainstatSubId' in equip && equip.mainstatSubValue) {
+      addToEquipMap(equip.mainstatSubId, equip.mainstatSubValue);
     }
 
-    if ('subStatList' in equip) {
-      for (const line of equip.subStatList) {
+    if ('substats' in equip) {
+      for (const line of equip.substats) {
         if (!line) continue;
 
-        if ('subStatId' in line && line.subStatValue) {
-          addToEquipMap(line.subStatId, line.subStatValue);
+        if ('id' in line && line.value) {
+          addToEquipMap(line.id, line.value);
         }
       }
     }

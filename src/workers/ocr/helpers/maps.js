@@ -7,7 +7,7 @@ export const weaponNameToId = Object.fromEntries(
   Object.entries(WEAPON[WW]).map(([id, { name }]) => ([name, id]))
 );
 
-export const mainStatNameToIdByCost = {
+export const mainstatNameToIdByCost = {
   4: {
     'HP': 'hp%',
     'ATK': 'atk%',
@@ -35,7 +35,7 @@ export const mainStatNameToIdByCost = {
   },
 };
 
-export const subStatFragmentToSuffix = {
+export const substatFragmentToSuffix = {
   'HP': 'hp',
   'ATK': 'atk',
   'DEF': 'def',
@@ -48,7 +48,7 @@ export const subStatFragmentToSuffix = {
   'Resonance Liberation': 'resonanceLiberationDmgBonus',
 };
 
-export const subStatValueOptionsById = {
+export const valueOptionsById = {
   'hp': [320, 360, 390, 430, 470, 510, 540, 580],
   'atk': [30, 40, 50, 60],
   'def': [40, 50, 60, 70],

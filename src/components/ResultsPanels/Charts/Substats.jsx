@@ -96,12 +96,12 @@ function createSubFilter(gameId, configKey = '', subDist = {}) {
     return (stat) => getFrequency(stat) > unbiasedFrequency;
   }
 
-  const mainStatsList = configKey.split('|');
+  const mainstatsList = configKey.split('|');
 
   return (stat) => {
-    const baseChances = mainStatsList.map((mainStat) => {
+    const baseChances = mainstatsList.map((mainstat) => {
       const weights = Object.values(SUBSTAT[gameId])
-        .filter(({ id }) => id !== mainStat)
+        .filter(({ id }) => id !== mainstat)
         .map(({ id, weight }) => [id, weight]);
       return chanceOfStat(weights, stat);
     });

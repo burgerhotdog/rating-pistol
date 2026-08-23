@@ -2,9 +2,9 @@ import { GI, HSR, WW, ZZZ, MAINSTAT, SUBSTAT } from '@/data';
 import { weightedLottery } from './weightedLottery';
 
 const FLATS_BY_COST = {
-  4: { mainStatFlatId: 'atk', mainStatFlatValue: 150 },
-  3: { mainStatFlatId: 'atk', mainStatFlatValue: 100 },
-  1: { mainStatFlatId: 'hp', mainStatFlatValue: 2280 },
+  4: { mainstatSubId: 'atk', mainstatSubValue: 150 },
+  3: { mainstatSubId: 'atk', mainstatSubValue: 100 },
+  1: { mainstatSubId: 'hp', mainstatSubValue: 2280 },
 };
 
 function createInitEquip(gameId) {
@@ -43,10 +43,10 @@ function createAssignMainstat(keyType, mainData) {
       .map(({ weight }) => weight);
 
     const winnerIndex = weightedLottery(weights);
-    const [stat, { value }] = Object.entries(mainstats)[winnerIndex];
+    const [id, { value }] = Object.entries(mainstats)[winnerIndex];
 
-    equip.mainStatId = stat;
-    equip.mainStatValue = value;
+    equip.mainstatId = id;
+    equip.mainstatValue = value;
   };
 }
 
@@ -54,12 +54,12 @@ function createCheckMainstat(keyType, skippableMainstats) {
   return function hasBadMainstat(equip) {
     const key = equip[keyType];
     const skippableSet = skippableMainstats[key];
-    return skippableSet.has(equip.mainStatId);
+    return skippableSet.has(equip.mainstatId);
   };
 }
 
-function revealSubStatWuwa(subStatList) {
-  const existingStatIds = subStatList.map((line) => line.subStatId);
+function revealSubStatWuwa(substats) {
+  const existingStatIds = substats.map((line) => line.id);
   const statPool = Object.values(SUBSTAT[WW])
     .filter(({ id }) => !existingStatIds.includes(id));
 
@@ -67,9 +67,9 @@ function revealSubStatWuwa(subStatList) {
   const { id, rollWeights, rollValues } = statPool[randomIndex];
 
   const index = weightedLottery(rollWeights);
-  subStatList.push({
-    subStatId: id,
-    subStatValue: rollValues[index],
+  substats.push({
+    id,
+    value: rollValues[index],
   });
 }
 
@@ -82,29 +82,29 @@ const randomRoll = (gameId, statId) => {
   return maxValue * mult;
 };
 
-function revealSubStatsHoyo(subStatList, gameId, mainStatId) {
+function revealSubStatsHoyo(substats, gameId, mainstatId) {
   const statPool = Object.values(SUBSTAT[gameId])
-    .filter(({ id }) => id !== mainStatId);
+    .filter(({ id }) => id !== mainstatId);
 
   for (let i = 0; i < 4; i++) {
     const winnerIndex = weightedLottery(statPool.map(({ weight }) => weight));
-    const { id: subStatId } = statPool[winnerIndex];
+    const { id } = statPool[winnerIndex];
 
-    subStatList.push({ subStatId, subStatValue: randomRoll(gameId, subStatId) });
+    substats.push({ id, value: randomRoll(gameId, id) });
     statPool.splice(winnerIndex, 1);
   }
 }
 
-function upgradeSubStats(subStatList, gameId) {
+function upgradeSubStats(substats, gameId) {
   const upgradeTimes = Math.random() < 0.2 ? 5 : 4;
 
   for (let i = 0; i < upgradeTimes; i++) {
     const upgradeIndex = Math.floor(Math.random() * 4);
-    const prev = subStatList[upgradeIndex];
+    const prev = substats[upgradeIndex];
 
-    subStatList[upgradeIndex] = {
-      subStatId: prev.subStatId,
-      subStatValue: prev.subStatValue + randomRoll(gameId, prev.subStatId),
+    substats[upgradeIndex] = {
+      id: prev.id,
+      value: prev.value + randomRoll(gameId, prev.id),
     };
   }
 }
@@ -117,11 +117,11 @@ export function createEquipGenerator(gameId, skippable) {
   const assignMainstat = createAssignMainstat(keyType, mainData);
   const hasBadMainstat = createCheckMainstat(keyType, skippable.mainstats);
 
-  function hasGoodSubs(subStatList, numGood) {
+  function hasGoodSubs(substats, numGood) {
     let count = 0;
 
-    for (const { subStatId } of subStatList) {
-      if (!skippable.substats.has(subStatId)) count++;
+    for (const { id } of substats) {
+      if (!skippable.substats.has(id)) count++;
     }
 
     return count >= numGood;
@@ -133,24 +133,24 @@ export function createEquipGenerator(gameId, skippable) {
     assignMainstat(equip);
     if (hasBadMainstat(equip)) return; // Skip if bad mainstat
 
-    const subStatList = [];
+    const substats = [];
     if (gameId === WW) {
-      revealSubStatWuwa(subStatList);
-      if (!hasGoodSubs(subStatList, 1)) return; // Sub 1 is bad
+      revealSubStatWuwa(substats);
+      if (!hasGoodSubs(substats, 1)) return; // Sub 1 is bad
 
-      revealSubStatWuwa(subStatList);
-      revealSubStatWuwa(subStatList);
-      if (!hasGoodSubs(subStatList, 2)) return; // Sub 2 and 3 are both bad
+      revealSubStatWuwa(substats);
+      revealSubStatWuwa(substats);
+      if (!hasGoodSubs(substats, 2)) return; // Sub 2 and 3 are both bad
 
-      revealSubStatWuwa(subStatList);
-      revealSubStatWuwa(subStatList);
+      revealSubStatWuwa(substats);
+      revealSubStatWuwa(substats);
     } else {
-      revealSubStatsHoyo(subStatList, gameId, equip.mainStatId);
-      if (!hasGoodSubs(subStatList, 2)) return; // Bad starting 4 stats
+      revealSubStatsHoyo(substats, gameId, equip.mainstatId);
+      if (!hasGoodSubs(substats, 2)) return; // Bad starting 4 stats
 
-      upgradeSubStats(subStatList, gameId);
+      upgradeSubStats(substats, gameId);
     }
 
-    return { ...equip, subStatList };
+    return { ...equip, substats };
   };
 }

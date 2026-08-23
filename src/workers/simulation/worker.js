@@ -22,10 +22,9 @@ const buildConfigStats = (gameId, trials) => {
     entry.count++;
 
     const { subDist } = entry;
-    const rollMap = getSubRollSums(gameId, trial.equipList);
+    const rollMap = getSubRollSums(gameId, trial.equipList, true);
     for (const [stat, rolls] of Object.entries(rollMap)) {
-      subDist[stat] ??= 0;
-      subDist[stat] += rolls;
+      subDist[stat] = (subDist[stat] ?? 0) + rolls;
     }
   }
 
