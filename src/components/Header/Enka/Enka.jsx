@@ -24,6 +24,7 @@ const Enka = () => {
   const { gameId } = useParams();
   const { savedUids, updateSavedUids } = useUser();
   const { saveBuildEntries } = useBuild();
+
   const [uid, setUid] = useState('');
   const [isSyncLoading, setIsSyncLoading] = useState(false);
   const [error, setError] = useState(null);

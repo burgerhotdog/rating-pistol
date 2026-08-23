@@ -1,17 +1,16 @@
 import { useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Box, Typography } from '@mui/material';
-import { useBuild, useAuth } from '@/contexts';
+import { Box, Button, Typography } from '@mui/material';
+import { useBuild } from '@/contexts';
+import { WW } from '@/data';
 import { useOcrWorker } from './useOcrWorker';
 import ModeSelectDialog from './ModeSelectDialog';
 import { ConfirmDialog } from './ConfirmDialog';
 import { createBlankBuild } from './ocrBuildDefaults';
-import { WW } from '@/data';
 
 const Ocr = () => {
   const navigate = useNavigate();
   const { gameId } = useParams();
-  const { user } = useAuth();
   const { saveBuildEntries } = useBuild();
 
   const [menuOpen, setMenuOpen] = useState(false);
