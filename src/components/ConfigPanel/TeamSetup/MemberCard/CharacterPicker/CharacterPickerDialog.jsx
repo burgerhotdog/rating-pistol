@@ -24,11 +24,6 @@ const CharacterPickerDialog = ({ open, onClose, onSelect }) => {
   const [search, setSearch] = useState('');
   const [elementFilter, setElementFilter] = useState([]);
   const [typeFilter, setTypeFilter] = useState([]);
-  const resetStates = () => {
-    setSearch('');
-    setElementFilter([]);
-    setTypeFilter([]);
-  };
 
   const entries = useMemo(
     () => Object.values(characters)
@@ -50,12 +45,6 @@ const CharacterPickerDialog = ({ open, onClose, onSelect }) => {
     [entries, elementFilter, typeFilter, searchLower],
   );
 
-  const handleSelect = (id) => {
-    onSelect(id);
-    resetStates();
-    onClose();
-  };
-
   return (
     <Dialog
       open={open}
@@ -64,7 +53,11 @@ const CharacterPickerDialog = ({ open, onClose, onSelect }) => {
       fullWidth 
       slotProps={{
         transition: {
-          onExited: resetStates,
+          onEnter: () => {
+            setSearch('');
+            setElementFilter([]);
+            setTypeFilter([]);
+          },
         },
       }}
     >
@@ -87,8 +80,7 @@ const CharacterPickerDialog = ({ open, onClose, onSelect }) => {
                 <img
                   src={icon}
                   alt=""
-                  width={24}
-                  height={24}
+                  style={{ width: 24, height: 24 }}
                 />
               </ToggleButton>
             ))}
@@ -103,8 +95,7 @@ const CharacterPickerDialog = ({ open, onClose, onSelect }) => {
                 <img
                   src={icon}
                   alt=""
-                  width={24}
-                  height={24}
+                  style={{ width: 24, height: 24 }}
                 />
               </ToggleButton>
             ))}
@@ -131,7 +122,12 @@ const CharacterPickerDialog = ({ open, onClose, onSelect }) => {
         >
           {options.map(({ id, name, icon }) => (
             <Card key={id} title={name}>
-              <CardActionArea onClick={() => handleSelect(id)}>
+              <CardActionArea
+                onClick={() => {
+                  onSelect(id);
+                  onClose();
+                }}
+              >
                 <CardMedia
                   component="img"
                   src={icon}

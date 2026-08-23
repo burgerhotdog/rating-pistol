@@ -26,42 +26,60 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import MemberCard from './MemberCard';
 
-function SortableMemberCard({ id, member, onChange }) {
+function SortableMemberCard({ id, member, setMember }) {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
 
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  };
-
   return (
-    <Box ref={setNodeRef} style={style}>
+    <Box
+      ref={setNodeRef}
+      style={{
+        transform: CSS.Transform.toString(transform),
+        transition,
+      }}
+    >
       <Box
         {...attributes}
         {...listeners}
-        sx={{ display: 'flex', justifyContent: 'center', cursor: 'grab', py: 0.5 }}
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          cursor: 'grab',
+          py: 0.5,
+        }}
       >
-        <DragIndicatorIcon sx={{ fontSize: 18, transform: 'rotate(90deg)' }} />
+        <DragIndicatorIcon sx={{ transform: 'rotate(90deg)' }} />
       </Box>
 
-      <MemberCard member={member} onChange={onChange} />
+      <MemberCard member={member} setMember={setMember} />
     </Box>
   );
 }
 
-const TeamSetupDialog = ({ open, onClose, team, setTeam }) => {
-  const [draft, setDraft] = useState(team);
-
+const TeamSetupDialog = ({ team, setTeam, open, onClose }) => {
   const sensors = useSensors(useSensor(PointerSensor));
-  const ids = draft.map((member) => member.id);
+  const [draft, setDraft] = useState(team);
+  const [ids, setIds] = useState(() => team.map(() => crypto.randomUUID()));
 
-  const handleCancel = () => {
+  const onEnter = () => {
     setDraft(team);
-    onClose();
+    setIds(team.map(() => crypto.randomUUID()));
+  };
+
+  const onDragEnd = ({ active, over }) => {
+    if (!over || active.id === over.id) return;
+    const oldIndex = ids.indexOf(active.id);
+    const newIndex = ids.indexOf(over.id);
+    setDraft((prev) => arrayMove(prev, oldIndex, newIndex));
+    setIds((prev) => arrayMove(prev, oldIndex, newIndex));
   };
 
   return (
-    <Dialog open={open} onClose={handleCancel} maxWidth="lg">
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth="xl"
+      slotProps={{ transition: { onEnter } }}
+    >
       <DialogTitle>
         Team Setup
       </DialogTitle>
@@ -72,19 +90,16 @@ const TeamSetupDialog = ({ open, onClose, team, setTeam }) => {
           collisionDetection={closestCenter}
           modifiers={[restrictToHorizontalAxis]}
           autoScroll={false}
-          onDragEnd={({ active, over }) => {
-            if (!over || active.id === over.id) return;
-            setDraft((prev) => arrayMove(prev, ids.indexOf(active.id), ids.indexOf(over.id)));
-          }}
+          onDragEnd={onDragEnd}
         >
           <SortableContext items={ids} strategy={horizontalListSortingStrategy}>
             <Stack direction="row" spacing={2}>
               {draft.map((member, index) => (
                 <SortableMemberCard
-                  key={member.id}
-                  id={member.id}
+                  key={ids[index]}
+                  id={ids[index]}
                   member={member}
-                  onChange={(next) => setDraft((prev) => prev.with(index, next))}
+                  setMember={(next) => setDraft((prev) => prev.with(index, next))}
                 />
               ))}
             </Stack>
@@ -93,7 +108,7 @@ const TeamSetupDialog = ({ open, onClose, team, setTeam }) => {
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={handleCancel}>
+        <Button onClick={onClose}>
           Cancel
         </Button>
         <Button

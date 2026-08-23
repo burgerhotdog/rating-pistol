@@ -13,7 +13,7 @@ const PanelHeader = () => {
 
   return (
     <CardHeader
-      avatar={<Avatar variant="rounded" src={icon} alt={name} />}
+      avatar={<Avatar src={icon} alt={name} />}
       title={name}
       subheader={(
         <Stack direction="row" spacing={0.5}>

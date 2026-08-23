@@ -29,7 +29,6 @@ const Navbar = () => {
           value={id}
           icon={(
             <Avatar
-              variant="rounded"
               src={characterData[id].icon}
               alt={characterData[id].name}
             />

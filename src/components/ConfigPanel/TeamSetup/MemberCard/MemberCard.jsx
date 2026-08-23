@@ -9,26 +9,31 @@ import {
 } from '@mui/material';
 import { WW } from '@/data';
 import { useData } from '@/hooks';
-import { formatStr, getDefaultWeapRank } from '@/utils';
-import { WeapAutocomplete, SetAutocomplete, EchoAutocomplete } from './Autocomplete';
+import { formatStr } from '@/utils';
 import CharacterPicker from './CharacterPicker';
+import WeaponId from './WeaponId';
+import WeaponRank from './WeaponRank';
+import SetCountsAutocomplete from './SetCountsAutocomplete';
+import MainEchoAutocomplete from './MainEchoAutocomplete';
 import RotationEditor from './RotationEditor';
 
-const MemberCard = ({ member, onChange }) => {
+const MemberCard = ({ member, setMember }) => {
   const { gameId } = useParams();
 
   const memberData = useData('character')[member.id];
-  const weaponType = memberData?.type ?? null;
 
   return (
     <Card sx={{ width: 340 }}>
       <CardContent component={Stack} divider={<Divider />} spacing={2}>
         <Stack spacing={1}>
-          <CharacterPicker member={member} onChange={onChange} />
+          <CharacterPicker
+            member={member}
+            setMember={setMember}
+          />
 
           <ToggleButtonGroup
             value={member.rank ?? ''}
-            onChange={(_, rank) => rank !== null && onChange({ ...member, rank })}
+            onChange={(_, rank) => rank !== null && setMember({ ...member, rank })}
             disabled={!member.id}
             exclusive
             fullWidth
@@ -42,51 +47,32 @@ const MemberCard = ({ member, onChange }) => {
         </Stack>
 
         <Stack spacing={1}>
-          <WeapAutocomplete
-            gameId={gameId}
-            type={weaponType}
-            selected={member.weaponId}
-            onChange={(weaponId) => onChange({
-              ...member,
-              weaponId,
-              weaponRank: weaponId && getDefaultWeapRank(gameId, weaponId),
-            })}
-            label="Weapon"
-            disabled={!member.id}
-            fullWidth
+          <WeaponId
+            memberId={member.id}
+            weaponId={member.weaponId}
+            member={member}
+            setMember={setMember}
           />
-
-          <ToggleButtonGroup
-            value={member.weaponRank ?? ''}
-            onChange={(_, weaponRank) => weaponRank !== null && onChange({ ...member, weaponRank })}
-            disabled={!member.weaponId}
-            exclusive
-            fullWidth
-          >
-            {[1, 2, 3, 4, 5].map((rank) => (
-              <ToggleButton key={rank} value={rank}>
-                {`S${rank}`}
-              </ToggleButton>
-            ))}
-          </ToggleButtonGroup>
+          <WeaponRank
+            weaponId={member.weaponId}
+            weaponRank={member.weaponRank}
+            onChange={(weaponRank) => setMember({ ...member, weaponRank })}
+          />
         </Stack>
 
         <Stack spacing={1}>
-          <SetAutocomplete
-            gameId={gameId}
+          <SetCountsAutocomplete
+            memberId={member.id}
             setCounts={member.setCounts}
-            onChange={(value) => onChange({ ...member, setCounts: value })}
-            label="Set Bonuses"
-            disabled={!member.id}
+            onChange={(setCounts) => setMember({ ...member, setCounts })}
           />
 
           {gameId === WW && (
-            <EchoAutocomplete
-              sets={Object.keys(member.setCounts)}
-              selected={member.mainEcho ?? null}
-              onChange={(mainEcho) => onChange({ ...member, mainEcho })}
-              label="Main Echo"
-              disabled={!member.id}
+            <MainEchoAutocomplete
+              memberId={member.id}
+              setCounts={member.setCounts}
+              mainEcho={member.mainEcho}
+              onChange={(mainEcho) => setMember({ ...member, mainEcho })}
             />
           )}
         </Stack>
@@ -99,7 +85,7 @@ const MemberCard = ({ member, onChange }) => {
           {gameId === WW && memberData?.modes && (
             <ToggleButtonGroup
               value={member.mode ?? memberData.modes[0]}
-              onChange={(_, mode) => mode !== null && onChange({ ...member, mode })}
+              onChange={(_, mode) => mode !== null && setMember({ ...member, mode })}
               exclusive
             >
               {memberData.modes.map((mode) => (

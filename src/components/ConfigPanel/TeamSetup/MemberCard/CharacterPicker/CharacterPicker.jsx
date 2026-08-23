@@ -13,10 +13,10 @@ import { useBuilds, useData } from '@/hooks';
 import { initMember } from '@/utils';
 import CharacterPickerDialog from './CharacterPickerDialog';
 
-const CharacterPicker = ({ member, onChange }) => {
+const CharacterPicker = ({ member, setMember }) => {
   const { gameId } = useParams();
   const builds = useBuilds();
-  const [characterSelectOpen, setCharacterSelectOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const memberData = useData('character')[member.id];
 
@@ -36,7 +36,7 @@ const CharacterPicker = ({ member, onChange }) => {
       >
         <Box sx={{ position: 'relative' }}>
           <Card sx={{ width: 80 }}>
-            <CardActionArea onClick={() => setCharacterSelectOpen(true)}>
+            <CardActionArea onClick={() => setOpen(true)}>
               <CardMedia
                 image={memberData?.icon}
                 title={memberData?.name ?? null}
@@ -49,7 +49,7 @@ const CharacterPicker = ({ member, onChange }) => {
             className="member-remove-btn"
             onClick={(e) => {
               e.stopPropagation();
-              onChange({});
+              setMember({});
             }}
             sx={{
               position: 'absolute',
@@ -79,9 +79,9 @@ const CharacterPicker = ({ member, onChange }) => {
       </Box>
 
       <CharacterPickerDialog
-        open={characterSelectOpen}
-        onClose={() => setCharacterSelectOpen(false)}
-        onSelect={(id) => onChange(initMember(id, gameId, builds))}
+        open={open}
+        onClose={() => setOpen(false)}
+        onSelect={(id) => setMember(initMember(id, gameId, builds))}
       />
     </>
   );

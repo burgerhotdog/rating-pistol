@@ -7,9 +7,17 @@ const TeamSetup = ({ team, setTeam }) => {
   const [open, setOpen] = useState(false);
   const charData = useData('character');
 
+  const renderAvatar = ({ id }, index) => (
+    <Avatar
+      key={index}
+      src={charData[id]?.icon}
+      alt={charData[id]?.name}
+    />
+  );
+
   return (
     <Stack>
-      <Typography variant="subtitle2" color="textSecondary">
+      <Typography variant="subtitle2">
         Team Setup
       </Typography>
 
@@ -18,18 +26,15 @@ const TeamSetup = ({ team, setTeam }) => {
         sx={{ justifyContent: 'center', p: 1, borderRadius: 1 }}
       >
         <Stack direction="row" spacing={1}>
-          {team.map((member, idx) => {
-            const { icon, name } = charData[member.id] ?? {};
-            return <Avatar key={idx} variant="rounded" src={icon} alt={name} />;
-          })}
+          {team.map(renderAvatar)}
         </Stack>
       </IconButton>
 
       <TeamSetupDialog
-        open={open}
-        onClose={() => setOpen(false)}
         team={team}
         setTeam={setTeam}
+        open={open}
+        onClose={() => setOpen(false)}
       />
     </Stack>
   );
