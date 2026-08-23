@@ -16,10 +16,11 @@ import {
 } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
 import { useBuild, useUser } from '@/contexts';
-import { fetchEnka, parseEnkaObj } from './enkaHelpers';
 import { GI, HSR, ZZZ, CHARACTER } from '@/data';
+import { fetchEnka } from './fetchEnka';
+import { parseEnka } from './parseEnka';
 
-const HeaderEnka = () => {
+const Enka = () => {
   const { gameId } = useParams();
   const { savedUids, updateSavedUids } = useUser();
   const { saveBuildEntries } = useBuild();
@@ -60,7 +61,7 @@ const HeaderEnka = () => {
   const handleSave = async () => {
     const charBuffer = selectedList.map((verdict, index) => {
       if (!verdict) return null;
-      return parseEnkaObj(gameId, enkaList[index]);
+      return parseEnka(gameId, enkaList[index]);
     }).filter(Boolean);
 
     if (charBuffer.length) {
@@ -159,7 +160,9 @@ const HeaderEnka = () => {
           },
         }}
       >
-        <DialogTitle>Select Characters to Import</DialogTitle>
+        <DialogTitle>
+          Select Characters to Import
+        </DialogTitle>
 
         <DialogContent>
           {enkaList.map((char, index) => (
@@ -184,7 +187,6 @@ const HeaderEnka = () => {
           <Button onClick={closeDialog}>
             Cancel
           </Button>
-
           <Button onClick={handleSave} variant="contained" color="primary">
             Save
           </Button>
@@ -194,4 +196,4 @@ const HeaderEnka = () => {
   );
 };
 
-export default HeaderEnka;
+export default Enka;

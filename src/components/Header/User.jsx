@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useAuth } from '@/contexts';
 
-const HeaderUser = () => {
+const User = () => {
   const { user, signIn, signOut } = useAuth();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -79,4 +79,4 @@ const HeaderUser = () => {
   );
 };
 
-export default HeaderUser;
+export default User;

@@ -4,7 +4,7 @@ import { Stack, Box, Typography } from '@mui/material';
 import { ICON_ASSETS } from '@/assets';
 import { VERSION } from '@/data';
 
-const HeaderNav = () => {
+const Nav = () => {
   const { gameId } = useParams();
   const [isFanHovered, setIsFanHovered] = useState(false);
 
@@ -78,4 +78,4 @@ const HeaderNav = () => {
   );
 };
 
-export default HeaderNav;
+export default Nav;

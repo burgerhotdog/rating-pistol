@@ -1,33 +1,26 @@
 import { useParams } from 'react-router-dom';
-import { Box, Divider, Stack } from '@mui/material';
+import { Divider, Stack } from '@mui/material';
 import { WW } from '@/data';
-import HeaderEnka from './HeaderEnka';
-import HeaderNav from './HeaderNav';
-import HeaderOcr from './Ocr/HeaderOcr';
-import HeaderUser from './HeaderUser';
+import Nav from './Nav';
+import Ocr from './Ocr';
+import Enka from './Enka';
+import User from './User';
 
 const Header = () => {
   const { gameId } = useParams();
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        py: 2,
-      }}
+    <Stack
+      direction="row"
+      sx={{ justifyContent: 'space-between', alignItems: 'center', py: 2 }}
     >
-      <HeaderNav />
-
+      <Nav />
       <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-        {gameId === WW ? <HeaderOcr /> : <HeaderEnka />}
-
+        {gameId === WW ? <Ocr /> : <Enka />}
         <Divider orientation="vertical" flexItem />
-
-        <HeaderUser />
+        <User />
       </Stack>
-    </Box>
+    </Stack>
   );
 };
 

@@ -8,7 +8,7 @@ import { ConfirmDialog } from './ConfirmDialog';
 import { createBlankBuild } from './ocrBuildDefaults';
 import { WW } from '@/data';
 
-const HeaderOcr = () => {
+const Ocr = () => {
   const navigate = useNavigate();
   const { gameId } = useParams();
   const { user } = useAuth();
@@ -218,4 +218,4 @@ const HeaderOcr = () => {
   );
 };
 
-export default HeaderOcr;
+export default Ocr;
