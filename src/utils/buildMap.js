@@ -3,7 +3,7 @@ export function buildEquipMap(equipList = [], isTrialBuild = false) {
 
   function addToEquipMap(stat, value) {
     const normalized = !isTrialBuild && stat.endsWith('%')
-      ? value / 1000
+      ? value / 10000
       : value;
     equipMap[stat] = (equipMap[stat] ?? 0) + normalized;
   }

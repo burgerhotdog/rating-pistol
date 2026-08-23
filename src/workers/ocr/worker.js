@@ -101,7 +101,7 @@ self.onmessage = async ({ data }) => {
         h: 24,
       };
       const mainStatValueString = await ocrRegion(mainStatValueRegion, 8, whitelistValue);
-      const mainStatValue = Math.round(Number(mainStatValueString) * 10);
+      const mainStatValue = Math.round(Number(mainStatValueString) * 100);
 
       // mainStatFlatId
       const mainStatFlatId = cost === 1 ? 'hp' : 'atk';
@@ -145,7 +145,7 @@ self.onmessage = async ({ data }) => {
         // finalize value
         const noPercentStr = subStatValueString.endsWith('%') ? subStatValueString.slice(0, -1) : subStatValueString;
         const subStatValueRaw = matchString(noPercentStr, subStatValueOptionsById[subStatId]);
-        const subStatValue = Math.round(isPercent ? subStatValueRaw * 10 : subStatValueRaw);
+        const subStatValue = Math.round(isPercent ? subStatValueRaw * 100 : subStatValueRaw);
 
         subStatList.push({ subStatId, subStatValue });
       }

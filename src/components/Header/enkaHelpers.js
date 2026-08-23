@@ -124,20 +124,18 @@ const PARSE_MAIN_VALUE = {
   [GI]: (equip) => {
     const { mainPropId, statValue } = equip.flat.reliquaryMainstat;
     return ENKA_LOOKUP[GI][mainPropId].endsWith('%')
-      ? statValue * 10
+      ? statValue * 100
       : statValue;
   },
   [HSR]: (equip) => {
     const { type, value } = equip._flat.props[0];
     return ENKA_LOOKUP[HSR][type].endsWith('%')
-      ? value * 1000
+      ? value * 10000
       : value;
   },
   [ZZZ]: (equip) => {
-    const { PropertyId, PropertyValue } = equip.Equipment.MainPropertyList[0];
-    return ENKA_LOOKUP[ZZZ][PropertyId].endsWith('%')
-      ? PropertyValue * 4 * 0.1
-      : PropertyValue * 4;
+    const { PropertyValue } = equip.Equipment.MainPropertyList[0];
+    return PropertyValue * 4;
   },
 };
 
@@ -163,20 +161,18 @@ const PARSE_SUB_VALUE = {
   [GI]: (sub) => {
     const { appendPropId, statValue } = sub;
     return ENKA_LOOKUP[GI][appendPropId].endsWith('%')
-      ? statValue * 10
+      ? statValue * 100
       : statValue;
   },
   [HSR]: (sub) => {
     const { type, value } = sub;
     return ENKA_LOOKUP[HSR][type].endsWith('%')
-      ? value * 1000
+      ? value * 10000
       : value;
   },
   [ZZZ]: (sub) => {
-    const { PropertyId, PropertyValue, PropertyLevel } = sub;
-    return ENKA_LOOKUP[ZZZ][PropertyId].endsWith('%')
-      ? PropertyValue * PropertyLevel * 0.1
-      : PropertyValue * PropertyLevel;
+    const { PropertyValue, PropertyLevel } = sub;
+    return PropertyValue * PropertyLevel;
   },
 };
 
