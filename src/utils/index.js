@@ -1,3 +1,4 @@
+export * from './buildMap';
 export * from './format';
 export * from './getAttr';
 export * from './getDefault';

@@ -122,15 +122,22 @@ const PARSE_MAIN_STAT = {
 
 const PARSE_MAIN_VALUE = {
   [GI]: (equip) => {
-    const key = equip.flat.reliquaryMainstat.mainPropId;
-    const valueRatio = ENKA_LOOKUP[GI][key].endsWith('%') ? 0.01 : 1;
-    return equip.flat.reliquaryMainstat.statValue * valueRatio;
+    const { mainPropId, statValue } = equip.flat.reliquaryMainstat;
+    return ENKA_LOOKUP[GI][mainPropId].endsWith('%')
+      ? statValue * 10
+      : statValue;
   },
-  [HSR]: (equip) => equip._flat.props[0].value,
+  [HSR]: (equip) => {
+    const { type, value } = equip._flat.props[0];
+    return ENKA_LOOKUP[HSR][type].endsWith('%')
+      ? value * 1000
+      : value;
+  },
   [ZZZ]: (equip) => {
-    const key = ENKA_LOOKUP[ZZZ][equip.Equipment.MainPropertyList[0].PropertyId];
-    const valueRatio = key.endsWith('%') ? 0.0001 : 1;
-    return equip.Equipment.MainPropertyList[0].PropertyValue * 4 * valueRatio;
+    const { PropertyId, PropertyValue } = equip.Equipment.MainPropertyList[0];
+    return ENKA_LOOKUP[ZZZ][PropertyId].endsWith('%')
+      ? PropertyValue * 4 * 0.1
+      : PropertyValue * 4;
   },
 };
 
@@ -154,17 +161,22 @@ const PARSE_SUB_STAT = {
 
 const PARSE_SUB_VALUE = {
   [GI]: (sub) => {
-    const key = sub.appendPropId;
-    const valueRatio = ENKA_LOOKUP[GI][key].endsWith('%') ? 0.01 : 1;
-    return sub.statValue * valueRatio;
+    const { appendPropId, statValue } = sub;
+    return ENKA_LOOKUP[GI][appendPropId].endsWith('%')
+      ? statValue * 10
+      : statValue;
   },
-  [HSR]: (sub) => sub.value,
+  [HSR]: (sub) => {
+    const { type, value } = sub;
+    return ENKA_LOOKUP[HSR][type].endsWith('%')
+      ? value * 1000
+      : value;
+  },
   [ZZZ]: (sub) => {
-    const key = ENKA_LOOKUP[ZZZ][sub.PropertyId];
-    const value = sub.PropertyValue;
-    const valueRatio = key.endsWith('%') ? 0.0001 : 1;
-    const timesAppeared = sub.PropertyLevel;
-    return value * valueRatio * timesAppeared;
+    const { PropertyId, PropertyValue, PropertyLevel } = sub;
+    return ENKA_LOOKUP[ZZZ][PropertyId].endsWith('%')
+      ? PropertyValue * PropertyLevel * 0.1
+      : PropertyValue * PropertyLevel;
   },
 };
 

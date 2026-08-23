@@ -1,15 +1,13 @@
 import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  TextField,
-  MenuItem,
-  Grid,
-  Typography,
-  Divider,
   Autocomplete,
+  Card,
+  CardContent,
+  CardHeader,
+  MenuItem,
+  Stack,
+  TextField,
+  Typography,
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { WW, SET } from '@/data';
 import { mainStatNameToIdByCost } from '@/workers/ocr/helpers/maps';
 import { mainStatRange, subStatRange } from './statValueRange';
@@ -40,149 +38,128 @@ const EquipEditor = ({ equip, index, onChange }) => {
     onChange(index, { ...equip, subStatList: nextList });
   };
 
-  const hasError =
-    !mainStatId || mainStatValue == null || Number.isNaN(mainStatValue) ||
-    subStatList.some((line) => !line.subStatId || line.subStatValue == null || Number.isNaN(line.subStatValue));
+  const mainIsPercent = mainStatId && mainStatId.endsWith('%');
 
   return (
-    <Accordion defaultExpanded={hasError}>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography>
-          Echo {index + 1}
-        </Typography>
-      </AccordionSummary>
+    <Card>
+      <CardHeader title={`Echo ${index + 1}`} />
 
-      <AccordionDetails>
-        <Grid container spacing={2}>
-          <Grid size={8}>
-            <Autocomplete
-              options={Object.values(SET[WW])}
-              getOptionLabel={(option) => option.name ?? ''}
-              isOptionEqualToValue={(option, value) => option.id === value.id}
-              value={SET[WW][setId] ?? null}
-              onChange={(e, newValue) => updateField('setId', newValue?.id)}
-              fullWidth
-              renderInput={(params) => (
-                <TextField {...params} label="Set" error={!setId} />
-              )}
-            />
-          </Grid>
+      <CardContent component={Stack} spacing={1}>
+        <Stack direction="row" spacing={1}>
+          <Autocomplete
+            options={Object.values(SET[WW])}
+            getOptionLabel={(option) => option.name ?? ''}
+            isOptionEqualToValue={(option, value) => option.id === value.id}
+            value={SET[WW][setId] ?? null}
+            onChange={(_, newValue) => updateField('setId', newValue?.id)}
+            renderInput={(params) => (
+              <TextField {...params} label="Set" error={!setId} />
+            )}
+            sx={{ flex: 2 }}
+          />
+          <TextField
+            select
+            label="Cost"
+            value={cost ?? ''}
+            onChange={(e) => updateCost(e.target.value)}
+            error={!cost}
+            sx={{ flex: 1 }}
+          >
+            {[4, 3, 1].map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Stack>
 
-          <Grid size={4}>
-            <TextField
-              select
-              label="Cost"
-              value={cost ?? ''}
-              onChange={(e) => updateCost(e.target.value)}
-              fullWidth
-              error={!cost}
-            >
-              {[4, 3, 1].map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
+        <Stack direction="row" spacing={1}>
+          <TextField
+            select
+            label="Mainstat"
+            value={mainStatId ?? ''}
+            onChange={(e) => updateField('mainStatId', e.target.value)}
+            error={!mainStatId}
+            sx={{ flex: 2 }}
+          >
+            {Object.entries(mainStatOptions).map(([name, id]) => (
+              <MenuItem key={id} value={id}>
+                {name}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            type="number"
+            value={
+              mainStatValue
+                ? (mainStatValue * (mainIsPercent ? 0.1 : 1))
+                : ''
+            }
+            onChange={(e) =>
+              updateField('mainStatValue', e.target.value === '' ? null : (Number(e.target.value) * (mainIsPercent ? 10 : 1)))
+            }
+            error={mainStatValue == null || Number.isNaN(mainStatValue)}
+            sx={{ flex: 1 }}
+          />
+        </Stack>
 
-          <Grid size={8}>
-            <TextField
-              select
-              label="Main Stat"
-              value={mainStatId ?? ''}
-              onChange={(e) => updateField('mainStatId', e.target.value)}
-              fullWidth
-              error={!mainStatId}
-            >
-              {Object.entries(mainStatOptions).map(([name, id]) => (
-                <MenuItem key={id} value={id}>
-                  {name}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
+        <Stack direction="row" spacing={1}>
+          <TextField
+            value={mainStatFlatId ?? ''}
+            disabled
+            sx={{ flex: 2 }}
+          />
+          <TextField
+            value={mainStatFlatValue ?? ''}
+            error={!isInRange(mainStatFlatValue, mainStatRange[cost]?.[mainStatFlatId])}
+            disabled={!mainStatFlatId}
+            sx={{ flex: 1 }}
+          />
+        </Stack>
 
-          <Grid size={4}>
-            <TextField
-              label="Main Stat Value (%)"
-              type="number"
-              value={mainStatValue ?? ''}
-              onChange={(e) => updateField('mainStatValue', e.target.value === '' ? null : Number(e.target.value))}
-              fullWidth
-              error={mainStatValue == null || Number.isNaN(mainStatValue)}
-            />
-          </Grid>
-
-          <Grid size={8}>
-            <TextField
-              value={mainStatFlatId ?? ''}
-              fullWidth
-              disabled
-            />
-          </Grid>
-
-          <Grid size={4}>
-            <TextField
-              value={mainStatFlatValue ?? ''}
-              fullWidth
-              error={!isInRange(mainStatFlatValue, mainStatRange[cost]?.[mainStatFlatId])}
-              disabled={!mainStatFlatId}
-            />
-          </Grid>
-
-          <Grid size={12}>
-            <Divider sx={{ my: 1 }} />
-            <Typography variant="subtitle2" gutterBottom>
-              Sub Stats
-            </Typography>
-          </Grid>
+        <Stack spacing={1}>
+          <Typography variant="subtitle2">
+            Substats
+          </Typography>
 
           {subStatList.map((sub, subIndex) => {
             const { subStatId, subStatValue } = sub;
-            
+            const isPercent = subStatId && subStatId.endsWith('%');
             return (
-              <Grid size={12} key={subIndex}>
-                <Grid container spacing={1}>
-                  <Grid size={8}>
-                    <TextField
-                      select
-                      label={`Sub Stat ${subIndex + 1}`}
-                      value={subStatId ?? ''}
-                      onChange={(e) => updateSubStat(subIndex, 'subStatId', e.target.value)}
-                      fullWidth
-                      error={!subStatId}
-                    >
-                      {Object.keys(subStatRange).map((id) => (
-                        <MenuItem key={id} value={id}>
-                          {id}
-                        </MenuItem>
-                      ))}
-                    </TextField>
-                  </Grid>
+              <Stack key={subIndex} direction="row" spacing={1}>
+                <TextField
+                  select
+                  value={subStatId ?? ''}
+                  onChange={(e) => updateSubStat(subIndex, 'subStatId', e.target.value)}
+                  error={!subStatId}
+                  sx={{ flex: 2 }}
+                >
+                  {Object.keys(subStatRange).map((id) => (
+                    <MenuItem key={id} value={id}>
+                      {id}
+                    </MenuItem>
+                  ))}
+                </TextField>
 
-                  <Grid size={4}>
-                    <TextField
-                      label="Value"
-                      type="number"
-                      value={subStatValue ?? ''}
-                      onChange={(e) =>
-                        updateSubStat(
-                          subIndex,
-                          'subStatValue',
-                          e.target.value === '' ? null : Number(e.target.value)
-                        )
-                      }
-                      fullWidth
-                      error={!isInRange(subStatValue, subStatRange[subStatId]) || Number.isNaN(subStatValue)}
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
+                <TextField
+                  type="number"
+                  value={subStatValue ? (subStatValue * (isPercent ? 0.1: 1)): ''}
+                  onChange={(e) =>
+                    updateSubStat(
+                      subIndex,
+                      'subStatValue',
+                      e.target.value === '' ? null : (Number(e.target.value) * (isPercent ? 10: 1))
+                    )
+                  }
+                  error={!isInRange(subStatValue, subStatRange[subStatId]) || Number.isNaN(subStatValue)}
+                  sx={{ flex: 1 }}
+                />
+              </Stack>
             );
           })}
-        </Grid>
-      </AccordionDetails>
-    </Accordion>
+        </Stack>
+      </CardContent>
+    </Card>
   );
 };
 

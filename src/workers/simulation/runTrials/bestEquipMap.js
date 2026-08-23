@@ -1,12 +1,12 @@
 import { WW, MAINSTAT, SUBSTAT } from '@/data';
-import { toEquipMap } from '@/utils';
+import { buildEquipMap } from '@/utils';
 
 const COST_PATTERN = [4, 3, 3, 1, 1];
 
 const FLAT_STAT_BY_COST = {
-  4: { mainStatFlatId: 'ATK', mainStatFlatValue: 150 },
-  3: { mainStatFlatId: 'ATK', mainStatFlatValue: 100 },
-  1: { mainStatFlatId: 'HP', mainStatFlatValue: 2280 },
+  4: { mainStatFlatId: 'atk', mainStatFlatValue: 150 },
+  3: { mainStatFlatId: 'atk', mainStatFlatValue: 100 },
+  1: { mainStatFlatId: 'hp', mainStatFlatValue: 2280 },
 };
 
 const toEquip = (cost, mainstat, substats = []) => ({
@@ -41,7 +41,7 @@ function greedyFillSubstats(evaluateEquipMap, equips) {
           i === e
             ? toEquip(eq.cost, eq.mainStatId, [...chosen[i], substat])
             : eq);
-        const { score } = evaluateEquipMap(toEquipMap(trialEquips));
+        const { score } = evaluateEquipMap(buildEquipMap(trialEquips, true));
 
         if (!best || score > best.score) best = { score, equipIndex: e, substat };
       }
@@ -78,7 +78,7 @@ export function findBestPossibleEquipMap(evaluateEquipMap) {
   const rankedCombos = [];
   for (const combo of mainstatCombos(COST_PATTERN)) {
     const equipList = COST_PATTERN.map((cost, i) => toEquip(cost, combo[i]));
-    const { score } = evaluateEquipMap(toEquipMap(equipList));
+    const { score } = evaluateEquipMap(buildEquipMap(equipList, true));
     rankedCombos.push({ combo, score });
   }
   rankedCombos.sort((a, b) => b.score - a.score);
@@ -92,7 +92,7 @@ export function findBestPossibleEquipMap(evaluateEquipMap) {
   for (const { combo } of rankedCombos.slice(0, SHORTLIST_SIZE)) {
     const bareEquips = COST_PATTERN.map((cost, i) => toEquip(cost, combo[i]));
     const equipList = greedyFillSubstats(evaluateEquipMap, bareEquips);
-    const { score, totals } = evaluateEquipMap(toEquipMap(equipList));
+    const { score, totals } = evaluateEquipMap(buildEquipMap(equipList, true));
 
     if (!best || score > best.score) best = { score, equipList, totals };
   }

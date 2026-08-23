@@ -1,6 +1,7 @@
 import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET, ECHO, } from '@/data';
+import { buildEquipMap } from './buildMap';
 import { isEnabledChar, isEnabledWeap, isEnabledSet, isEnabledEcho } from './isEnabledEffect';
-import { toMergedObj, toEquipMap } from './merge';
+import { toMergedObj } from './merge';
 import { resolveRankedValue } from './resolveRanked';
 import { toArray } from './toArray';
 
@@ -38,7 +39,7 @@ export function compileBaseMap(gameId, charId, weapId) {
 
 export function compileMenuMap(gameId, charId, member, team) {
   const baseMap = compileBaseMap(gameId, charId, member.weaponId);
-  const equipMap = toEquipMap(member.build?.equipList ?? []);
+  const equipMap = buildEquipMap(member.build?.equipList ?? []);
   const effectMaps = [];
 
   const isStaticBuff = (effect) => (

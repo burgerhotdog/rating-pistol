@@ -1,7 +1,4 @@
-import {
-  GI, HSR, WW, ZZZ,
-  MAINSTAT, SUBSTAT,
-} from '@/data';
+import { GI, HSR, WW, ZZZ, MAINSTAT, SUBSTAT } from '@/data';
 import { weightedLottery } from './weightedLottery';
 
 const FLATS_BY_COST = {
