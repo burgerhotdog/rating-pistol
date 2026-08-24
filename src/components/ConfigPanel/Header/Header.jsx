@@ -1,14 +1,20 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Avatar, CardHeader, Chip, Stack } from '@mui/material';
+import { Avatar, CardHeader, Checkbox, Chip, IconButton, Stack } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import Star from '@mui/icons-material/Star';
+import StarBorder from '@mui/icons-material/StarBorder';
 import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
-import HeaderActions from './HeaderActions';
+import EditDialog from './EditDialog';
 
 const Header = () => {
   const { charId } = useParams();
   const character = useData('character')[charId];
   const element = useData('element')[character.element];
   const type = useData('type')[character.type];
+
+  const [editOpen, setEditOpen] = useState(false);
 
   return (
     <CardHeader
@@ -30,7 +36,24 @@ const Header = () => {
           />
         </Stack>
       )}
-      action={<HeaderActions />}
+      action={(
+        <Stack direction="row" spacing={0.5}>
+          <Checkbox
+            icon={<StarBorder />}
+            checkedIcon={<Star />}
+          />
+          <IconButton
+            onClick={() => setEditOpen(true)}
+            sx={{ alignSelf: 'center' }}
+          >
+            <EditIcon />
+          </IconButton>
+          <EditDialog
+            open={editOpen}
+            onClose={() => setEditOpen(false)}
+          />
+        </Stack>
+      )}
     />
   );
 };

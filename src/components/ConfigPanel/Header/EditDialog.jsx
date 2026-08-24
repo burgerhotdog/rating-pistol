@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { useBuilds, useData } from '@/hooks';
 import BuildEditor from '../../BuildEditor';
+import DeleteDialog from './DeleteDialog';
 
 const EditDialog = ({ open, onClose }) => {
   const { charId } = useParams();
@@ -17,6 +18,7 @@ const EditDialog = ({ open, onClose }) => {
   const character = useData('character')[charId];
 
   const [draft, setDraft] = useState(build);
+  const [deleteOpen, setDeleteOpen] = useState(false);
 
   return (
     <Dialog
@@ -38,7 +40,10 @@ const EditDialog = ({ open, onClose }) => {
       </DialogContent>
 
       <DialogActions component={Stack} direction="row" sx={{ justifyContent: 'space-between' }}>
-        <Button onClick={onClose} color="secondary">
+        <Button
+          onClick={() => setDeleteOpen(true)}
+          color="secondary"
+        >
           Delete
         </Button>
         <Stack direction="row" spacing={0.5}>
@@ -56,6 +61,11 @@ const EditDialog = ({ open, onClose }) => {
           </Button>
         </Stack>
       </DialogActions>
+
+      <DeleteDialog
+        open={deleteOpen}
+        onClose={() => setDeleteOpen(false)}
+      />
     </Dialog>
   );
 };

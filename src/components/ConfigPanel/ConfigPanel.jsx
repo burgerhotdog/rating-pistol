@@ -17,7 +17,7 @@ const ConfigPanel = ({ team, setTeam }) => {
   const member = team.find((member) => member.id === charId);
 
   return (
-    <Card component={Stack} sx={{ width: 350 }}>
+    <Card component={Stack} sx={{ width: 320 }}>
       <Header />
       <CardContent
         component={Stack}
