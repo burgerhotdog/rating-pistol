@@ -1,6 +1,6 @@
 import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON } from '@/data';
 import {
-  compileBaseMap,
+  buildBaseMap,
   getAttr,
   getTotals,
   isEnabledWeap,
@@ -130,7 +130,7 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
 function getModifiedCache(cache, charId, weapon, weaponRank) {
   const moddedCache = { ...cache };
 
-  const baseMap = compileBaseMap(cache.gameId, charId, weapon.id);
+  const baseMap = buildBaseMap(cache.gameId, charId, weapon.id);
   const equipMap = cache.member[charId].equipMap;
   const statMap = toMergedObj(baseMap, equipMap);
 

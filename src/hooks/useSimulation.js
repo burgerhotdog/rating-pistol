@@ -1,19 +1,38 @@
 import { useMemo, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { WW } from '@/data';
+import { WW, CHARACTER, WEAPON, SET, ECHO } from '@/data';
 
-const VALID_GAME_IDS = new Set([WW]);
+const VALID_GAMES = new Set([WW]);
 
-export function useSimulation(team = []) {
+function validTeam(gameId, charId, team) {
+  if (!VALID_GAMES.has(gameId)) return;
+
+  const fTeam = team.filter((member) => member?.id);
+  if (!fTeam.length) return;
+  return fTeam.every((member) => {
+    // Check all ids are valid
+    if (!(member.id in CHARACTER[gameId])) return;
+    if (!(member.weaponId in WEAPON[gameId])) return;
+    if (Object.keys(member.setCounts).some((setId) => !(setId in SET[gameId]))) return;
+    if (member.mainEcho && !(member.mainEcho in ECHO)) return;
+
+    // charId must have build
+    if (member.id === charId) {
+      if (!member.build) return;
+    }
+
+    return true;
+  });
+}
+
+export function useSimulation(team) {
   const { gameId, charId } = useParams();
   const workerRef = useRef(null);
   const prevPayloadRef = useRef(undefined);
   const [result, setResult] = useState({});
 
   const payload = useMemo(() => {
-    if (!team.length) return;
-    if (!VALID_GAME_IDS.has(gameId)) return;
-
+    if (!validTeam(gameId, charId, team)) return;
     return { gameId, charId, team };
   }, [gameId, charId, team]);
 

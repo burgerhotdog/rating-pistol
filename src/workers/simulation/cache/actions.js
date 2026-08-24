@@ -1,6 +1,6 @@
 import { GI, WW, ZZZ, ECHO } from '@/data';
 import { CHARACTER } from '@/data';
-import { resolveRankedValue } from './resolveRanked';
+import { resolveRankedValue } from '@/utils';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
