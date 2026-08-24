@@ -1,5 +1,7 @@
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 
+const RANK_OPTIONS = [0, 1, 2, 3, 4, 5, 6];
+
 const Rank = ({ memberId, memberRank, onChange }) => {
   return (
     <ToggleButtonGroup
@@ -9,7 +11,7 @@ const Rank = ({ memberId, memberRank, onChange }) => {
       exclusive
       fullWidth
     >
-      {[0, 1, 2, 3, 4, 5, 6].map((rank) => (
+      {RANK_OPTIONS.map((rank) => (
         <ToggleButton key={rank} value={rank}>
           {`S${rank}`}
         </ToggleButton>

@@ -1,21 +1,14 @@
 import { useParams } from 'react-router-dom';
-import {
-  Card,
-  CardContent,
-  Divider,
-  Stack,
-  ToggleButton,
-  ToggleButtonGroup,
-} from '@mui/material';
+import { Card, CardContent, Divider, Stack } from '@mui/material';
 import { WW } from '@/data';
 import { useData } from '@/hooks';
-import { formatStr } from '@/utils';
 import CharacterPicker from './CharacterPicker';
 import Rank from './Rank';
 import WeaponId from './WeaponId';
 import WeaponRank from './WeaponRank';
 import SetCounts from './SetCounts';
 import MainEcho from './MainEcho';
+import Mode from './Mode';
 import RotationEditor from './RotationEditor';
 
 const MemberCard = ({ member, setMember }) => {
@@ -71,22 +64,11 @@ const MemberCard = ({ member, setMember }) => {
               onChange={(rotation) => setMember({ ...member, rotation })}
             />
           )}
-          {gameId === WW && memberData?.modes && (
-            <ToggleButtonGroup
-              value={member.mode ?? memberData.modes[0]}
-              onChange={(_, mode) => mode !== null && setMember({ ...member, mode })}
-              exclusive
-            >
-              {memberData.modes.map((mode) => (
-                <ToggleButton key={mode} value={mode} title={formatStr(mode)}>
-                  <img
-                    src={`wuthering-waves/mode/${mode}.webp`}
-                    alt=""
-                    style={{ width: 14, height: 14 }}
-                  />
-                </ToggleButton>
-              ))}
-            </ToggleButtonGroup>
+          {gameId === WW && 'modes' in memberData && (
+            <Mode
+              member={member}
+              onChange={(mode) => setMember({ ...member, mode })}
+            />
           )}
         </Stack>
       </CardContent>

@@ -4,14 +4,14 @@ import { WW } from '@/data';
 
 const VALID_GAME_IDS = new Set([WW]);
 
-export function useSimulation(team) {
+export function useSimulation(team = []) {
   const { gameId, charId } = useParams();
   const workerRef = useRef(null);
   const prevPayloadRef = useRef(undefined);
   const [result, setResult] = useState({});
 
   const payload = useMemo(() => {
-    if (!team?.length) return;
+    if (!team.length) return;
     if (!VALID_GAME_IDS.has(gameId)) return;
 
     return { gameId, charId, team };
