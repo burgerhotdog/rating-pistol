@@ -6,10 +6,12 @@ import {
   DialogContent,
   DialogTitle,
 } from '@mui/material';
+import { useBuild } from '@/contexts';
 import { useData } from '@/hooks';
 
 const DeleteDialog = ({ open, onClose }) => {
-  const { charId } = useParams();
+  const { gameId, charId } = useParams();
+  const { deleteBuildId } = useBuild();
   const charData = useData('character');
 
   return (
@@ -29,7 +31,10 @@ const DeleteDialog = ({ open, onClose }) => {
         <Button
           variant="contained"
           color="secondary"
-          onClick={() => onClose()}
+          onClick={() => {
+            deleteBuildId(gameId, charId);
+            onClose();
+          }}
         >
           Delete
         </Button>

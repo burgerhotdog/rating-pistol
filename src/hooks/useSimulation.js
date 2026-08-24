@@ -18,7 +18,7 @@ function validTeam(gameId, charId, team) {
 
     // charId must have build
     if (member.id === charId) {
-      if (!member.build) return;
+      if (!member.build?.equipList) return;
     }
 
     return true;
