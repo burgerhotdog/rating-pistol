@@ -31,6 +31,24 @@ function getGrade(pct) {
   return { grade: 'E', color: '#ef4444' };
 }
 
+function formatWeeks(weeks) {
+  if (weeks < (52 / 12)) {
+    return `${weeks.toFixed(1)} weeks`;
+  }
+
+  if (weeks < 52) {
+    return `${(weeks / (52 / 12)).toFixed()} months`;
+  }
+
+  const years = weeks / 52;
+
+  if (years < 10) {
+    return `${years.toFixed(1)} years`; 
+  }
+
+  return `${years.toFixed()} years`;
+}
+
 // Inverts the fitted power-law decay (remaining = A * week^-q) to find the farming week equivalent to userDps
 function estimateEquivalentWeek(userDps, dpsCeiling, fit) {
   if (!fit || !dpsCeiling) return null;
@@ -153,7 +171,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                   {formatNum(userDps)} dps (current)
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                  ~ {equivalentWeek.toFixed()} weeks
+                  ~ {formatWeeks(equivalentWeek)}
                 </Typography>
               </Stack>
 
@@ -163,10 +181,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Typography variant="body2" color="textSecondary">
-                    (+{(timePercentMore1 - equivalentWeek).toFixed()})
-                  </Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                    ~ {timePercentMore1.toFixed()} weeks
+                    + {formatWeeks(timePercentMore1 - equivalentWeek)}
                   </Typography>
                 </Stack>
               </Stack>
@@ -177,10 +192,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Typography variant="body2" color="textSecondary">
-                    (+{(timePercentMore5 - equivalentWeek).toFixed()})
-                  </Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                    ~ {timePercentMore5.toFixed()} weeks
+                    + {formatWeeks(timePercentMore5 - equivalentWeek)}
                   </Typography>
                 </Stack>
               </Stack>
@@ -191,10 +203,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Typography variant="body2" color="textSecondary">
-                    (+{(timePercentMore10 - equivalentWeek).toFixed()})
-                  </Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                    ~ {timePercentMore10.toFixed()} weeks
+                    + {formatWeeks(timePercentMore10 - equivalentWeek)}
                   </Typography>
                 </Stack>
               </Stack>
@@ -213,7 +222,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                       {Math.round(m.threshold * 100)}% of max
                     </Typography>
                     <Typography variant="caption">
-                      {m.isExtrapolated ? '*' : ''}{formatNum(m.week)} weeks
+                      {m.isExtrapolated ? '*' : ''}{formatWeeks(m.week)}
                     </Typography>
                   </Stack>
                 ))}

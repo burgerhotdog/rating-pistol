@@ -19,6 +19,7 @@ import Star from '@mui/icons-material/Star';
 import StarBorder from '@mui/icons-material/StarBorder';
 import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
+import DeleteDialog from './DeleteDialog';
 
 const Header = () => {
   const { charId } = useParams();
@@ -28,6 +29,7 @@ const Header = () => {
   const { icon: elementIcon, color } = useData('element')[element];
   const { icon: typeIcon } = useData('type')[type];
 
+  const [deleteOpen, setDeleteOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const menuOpen = Boolean(anchorEl);
 
@@ -42,7 +44,7 @@ const Header = () => {
 
   const handleDelete = () => {
     handleMenuClose();
-    // your delete handler here
+    setDeleteOpen(true);
   };
 
   const renderChips = () => (
@@ -97,12 +99,18 @@ const Header = () => {
   );
 
   return (
-    <CardHeader
-      avatar={<Avatar src={icon} alt={name} />}
-      title={name}
-      subheader={renderChips()}
-      action={renderAction()}
-    />
+    <>
+      <CardHeader
+        avatar={<Avatar src={icon} alt={name} />}
+        title={name}
+        subheader={renderChips()}
+        action={renderAction()}
+      />
+      <DeleteDialog
+        open={deleteOpen}
+        onClose={() => setDeleteOpen(false)}
+      />
+    </>
   );
 };
 
