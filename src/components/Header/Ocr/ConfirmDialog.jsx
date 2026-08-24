@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   Autocomplete,
   Button,
+  Card,
   Dialog,
   DialogActions,
   DialogContent,
@@ -73,6 +74,7 @@ export const ConfirmDialog = ({
                 label="Rank"
                 value={build.rank ?? ''}
                 onChange={(e) => onUpdateTopField('rank', e.target.value)}
+                disabled={!charId}
                 fullWidth
                 sx={{ flex: 1 }}
               >
@@ -89,17 +91,19 @@ export const ConfirmDialog = ({
               getOptionLabel={(option) => option.name}
               isOptionEqualToValue={(option, value) => option.id === value.id}
               value={WEAPON[WW][build.weaponId] ?? null}
-              onChange={(e, newValue) => onUpdateTopField('weaponId', newValue?.id)}
+              onChange={(_, newValue) => onUpdateTopField('weaponId', newValue?.id)}
+              disabled={!charId}
               fullWidth
               renderInput={(params) => (
-                <TextField {...params} label="Weapon" error={!build.weaponId} />
+                <TextField {...params} label="Weapon" />
               )}
             />
           </Stack>
         )}
 
-        <Stack>
+        <Stack spacing={1}>
           <Tabs
+            component={Card}
             value={tab}
             onChange={(_, value) => setTab(value)}
             centered
@@ -108,7 +112,7 @@ export const ConfirmDialog = ({
               <Tab
                 key={index}
                 value={index}
-                label={index}
+                label={index + 1}
               />
             ))}
           </Tabs>

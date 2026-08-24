@@ -1,20 +1,13 @@
-import { useState } from 'react';
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
   Box,
   Card,
   CardContent,
   CardHeader,
   Divider,
   Stack,
-  ToggleButton,
-  ToggleButtonGroup,
   Tooltip,
   Typography,
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { clamp, formatNum } from '@/utils';
 
 const GRADE_BANDS = [
@@ -24,8 +17,8 @@ const GRADE_BANDS = [
   { floor: 60, letter: 'D', color: '#f97316' },
 ];
 
-function getGrade(pct, allowSuper) {
-  if (allowSuper && pct > 100) return { grade: 'S', color: '#FFD700' };
+function getGrade(pct) {
+  if (pct > 100) return { grade: 'S', color: '#FFD700' };
 
   for (const { floor, letter, color } of GRADE_BANDS) {
     if (pct >= floor) {
@@ -42,7 +35,7 @@ function getGrade(pct, allowSuper) {
 function estimateEquivalentWeek(userDps, dpsCeiling, fit) {
   if (!fit || !dpsCeiling) return null;
   const remaining = dpsCeiling - userDps;
-  if (remaining <= 0) return null;
+  if (remaining <= 0) return Infinity;
   return (fit.A / remaining) ** (1 / fit.q);
 }
 
@@ -86,21 +79,22 @@ const Stat = ({ label, value, valueColor, tooltip }) => {
 };
 
 const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) => {
-  const [gradeBasis, setGradeBasis] = useState('benchmark');
-  const [milestonesOpen, setMilestonesOpen] = useState(false);
-
   const finalBands = dpsProgression?.at(-1);
 
   const benchmarkPct = userDps / benchmarkDps * 100;
   const pctOfCeiling = dpsCeiling ? clamp(userDps / dpsCeiling * 100, 0, 100) : null;
-  const activePct = gradeBasis === 'ceiling' && pctOfCeiling != null ? pctOfCeiling : benchmarkPct;
-  const { grade, color: gradeColor } = getGrade(activePct, gradeBasis === 'benchmark');
+  const { grade, color: gradeColor } = getGrade(benchmarkPct);
 
   const equivalentWeek = estimateEquivalentWeek(userDps, dpsCeiling, fit);
   const milestones = getMilestones(thresholdWeeks);
   const nextMilestone = pctOfCeiling != null
     ? milestones.find((m) => m.threshold * 100 > pctOfCeiling)
     : null;
+
+  const timePercentMore1 = estimateEquivalentWeek(userDps * 1.01, dpsCeiling, fit);
+  const timePercentMore5 = estimateEquivalentWeek(userDps * 1.05, dpsCeiling, fit);
+  const timePercentMore10 = estimateEquivalentWeek(userDps * 1.1, dpsCeiling, fit);
+
   const hasExtrapolated = milestones.some((m) => m.isExtrapolated);
 
   const efficiency = getEfficiencyLabel(fit?.q);
@@ -108,137 +102,130 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader
-        title="Overall Rating"
-        action={
-          pctOfCeiling != null && (
-            <ToggleButtonGroup
-              value={gradeBasis}
-              onChange={(_, next) => next && setGradeBasis(next)}
-              size="small"
-              exclusive
-            >
-              <ToggleButton value="benchmark">
-                <Tooltip title="Grade against the realistic long-term farming benchmark">
-                  <span>Benchmark</span>
-                </Tooltip>
-              </ToggleButton>
-              <ToggleButton value="ceiling">
-                <Tooltip title="Grade against the theoretical best-possible build">
-                  <span>Ceiling</span>
-                </Tooltip>
-              </ToggleButton>
-            </ToggleButtonGroup>
-          )
-        }
-      />
+      <CardHeader title="Overall Rating" />
 
-      <CardContent component={Stack} spacing={1.5}>
-        <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1 }}>
+      <CardContent component={Stack} divider={<Divider />} spacing={2}>
+        <Stack direction="row" spacing={1} sx={{ alignItems: 'baseline' }}>
           <Typography variant="h4" sx={{ color: gradeColor, fontWeight: 'bold' }}>
             {grade}
           </Typography>
           <Typography variant="body1" sx={{ color: gradeColor, opacity: 0.7 }}>
-            ({activePct.toFixed()}%)
+            ({benchmarkPct.toFixed()}%)
           </Typography>
           <Typography variant="caption" color="textSecondary">
-            vs {gradeBasis === 'ceiling' ? 'theoretical max' : 'benchmark'}
+            of benchmark
           </Typography>
-        </Box>
+        </Stack>
 
-        <Divider />
+        <Stack direction="row" divider={<Divider orientation="vertical" />} spacing={2}>
+          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1, flex: 1 }}>
+            <Stat label="Team DPS" value={formatNum(userDps)} />
+            <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
+            {dpsCeiling != null && (
+              <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
+            )}
+            {confidence && (
+              <Stat
+                label="Simulation Confidence"
+                value={confidence.label}
+                valueColor={confidence.color}
+                tooltip="How tightly the final week's simulated outcomes cluster around the mean"
+              />
+            )}
+            {efficiency && (
+              <Stat
+                label="Farming Curve"
+                value={efficiency.label}
+                valueColor={efficiency.color}
+                tooltip={`Diminishing-returns rate (q = ${fit.q.toFixed(2)}). Faster curves front-load most of the value early.`}
+              />
+            )}
+          </Box>
 
-        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1.5 }}>
-          <Stat label="Team DPS" value={formatNum(userDps)} />
-          <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
-          {dpsCeiling != null && (
-            <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
-          )}
-          {confidence && (
-            <Stat
-              label="Simulation Confidence"
-              value={confidence.label}
-              valueColor={confidence.color}
-              tooltip="How tightly the final week's simulated outcomes cluster around the mean"
-            />
-          )}
-          {efficiency && (
-            <Stat
-              label="Farming Curve"
-              value={efficiency.label}
-              valueColor={efficiency.color}
-              tooltip={`Diminishing-returns rate (q = ${fit.q.toFixed(2)}). Faster curves front-load most of the value early.`}
-            />
-          )}
-        </Box>
+          {(equivalentWeek != null || nextMilestone) && (
+            <Stack spacing={1} sx={{ flex: 1 }}>
+              <Typography>
+                Estimated farming time
+              </Typography>
 
-        {(equivalentWeek != null || nextMilestone) && (
-          <>
-            <Divider />
-            <Stack spacing={0.75}>
-              {equivalentWeek != null && (
-                <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="textSecondary">
+                  {formatNum(userDps)} dps (current)
+                </Typography>
+                <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                  ~ {equivalentWeek.toFixed()} weeks
+                </Typography>
+              </Stack>
+
+              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="textSecondary">
+                  {formatNum(userDps * 1.01)} dps (+1%)
+                </Typography>
+                <Stack direction="row" spacing={1}>
                   <Typography variant="body2" color="textSecondary">
-                    Equivalent Farming Time
+                    (+{(timePercentMore1 - equivalentWeek).toFixed()})
                   </Typography>
                   <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                    ~{equivalentWeek.toFixed(1)} wks
+                    ~ {timePercentMore1.toFixed()} weeks
                   </Typography>
                 </Stack>
-              )}
-              {nextMilestone && (
-                <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-                  <Typography variant="body2" color="textSecondary">
-                    Next Milestone ({Math.round(nextMilestone.threshold * 100)}%)
-                  </Typography>
-                  <Tooltip title={nextMilestone.isExtrapolated ? 'Extrapolated from fitted trend' : 'Observed in simulation'}>
-                    <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                      ~wk {nextMilestone.week.toFixed(1)}{nextMilestone.isExtrapolated ? '*' : ''}
-                    </Typography>
-                  </Tooltip>
-                </Stack>
-              )}
-            </Stack>
-          </>
-        )}
+              </Stack>
 
-        {milestones.length > 0 && (
-          <>
-            <Divider />
-            <Accordion
-              expanded={milestonesOpen}
-              onChange={(_, expanded) => setMilestonesOpen(expanded)}
-              disableGutters
-              square
-              sx={{ boxShadow: 'none', bgcolor: 'transparent', '&:before': { display: 'none' } }}
-            >
-              <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 0, minHeight: 0 }}>
-                <Typography variant="overline" color="textSecondary">
-                  Farming Milestones
+              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="textSecondary">
+                  {formatNum(userDps * 1.05)} dps (+5%)
                 </Typography>
-              </AccordionSummary>
-              <AccordionDetails sx={{ px: 0 }}>
-                <Stack spacing={0.5}>
-                  {milestones.map((m) => (
-                    <Stack key={m.threshold} direction="row" sx={{ justifyContent: 'space-between' }}>
-                      <Typography variant="caption" color="textSecondary">
-                        {Math.round(m.threshold * 100)}% of max
-                      </Typography>
-                      <Typography variant="caption">
-                        wk {m.week.toFixed(1)}{m.isExtrapolated ? '*' : ''}
-                      </Typography>
-                    </Stack>
-                  ))}
-                  {hasExtrapolated && (
-                    <Typography variant="caption" color="textSecondary" sx={{ opacity: 0.7 }}>
-                      * extrapolated from fitted trend, not directly observed
-                    </Typography>
-                  )}
+                <Stack direction="row" spacing={1}>
+                  <Typography variant="body2" color="textSecondary">
+                    (+{(timePercentMore5 - equivalentWeek).toFixed()})
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                    ~ {timePercentMore5.toFixed()} weeks
+                  </Typography>
                 </Stack>
-              </AccordionDetails>
-            </Accordion>
-          </>
-        )}
+              </Stack>
+
+              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+                <Typography variant="body2" color="textSecondary">
+                  {formatNum(userDps * 1.1)} dps (+10%)
+                </Typography>
+                <Stack direction="row" spacing={1}>
+                  <Typography variant="body2" color="textSecondary">
+                    (+{(timePercentMore10 - equivalentWeek).toFixed()})
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                    ~ {timePercentMore10.toFixed()} weeks
+                  </Typography>
+                </Stack>
+              </Stack>
+            </Stack>
+          )}
+
+          {milestones.length > 0 && (
+            <Stack sx={{ flex: 1 }}>
+              <Typography variant="overline" color="textSecondary">
+                Milestones
+              </Typography>
+              <Stack>
+                {milestones.map((m) => (
+                  <Stack key={m.threshold} direction="row" sx={{ justifyContent: 'space-between' }}>
+                    <Typography variant="caption" color="textSecondary">
+                      {Math.round(m.threshold * 100)}% of max
+                    </Typography>
+                    <Typography variant="caption">
+                      {m.isExtrapolated ? '*' : ''}{formatNum(m.week)} weeks
+                    </Typography>
+                  </Stack>
+                ))}
+                {hasExtrapolated && (
+                  <Typography variant="caption" color="textSecondary" sx={{ opacity: 0.7 }}>
+                    * extrapolated from fitted trend, not directly observed
+                  </Typography>
+                )}
+              </Stack>
+            </Stack>
+          )}
+        </Stack>
       </CardContent>
     </Card>
   );
