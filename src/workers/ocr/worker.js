@@ -158,7 +158,7 @@ self.onmessage = async ({ data }) => {
     const mainEchoCost = equipList[0].cost;
     const mainEcho = await getMainEcho(imageBitmap, mainEchoSet, mainEchoCost);
 
-    const build = { rank, weaponId, equipList, mainEcho };
+    const build = { id: charId, rank, weaponId, equipList, mainEcho };
     self.postMessage({ success: true, entry: [charId, build] });
   } catch (error) {
     console.error(error);
