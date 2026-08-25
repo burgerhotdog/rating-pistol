@@ -3,10 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
 import { useBuild } from '@/contexts';
 import { WW } from '@/data';
+import { initBuild } from '@/utils';
 import { useOcrWorker } from './useOcrWorker';
 import ModeSelectDialog from './ModeSelectDialog';
 import { ConfirmDialog } from './ConfirmDialog';
-import { createBlankBuild } from './ocrBuildDefaults';
 
 const Ocr = () => {
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ const Ocr = () => {
 
   const handleSelectScratch = () => {
     setMenuOpen(false);
-    setPendingEntry(['', createBlankBuild()]);
+    setPendingEntry(['', initBuild(WW)]);
     setDialogOpen(true);
   };
 

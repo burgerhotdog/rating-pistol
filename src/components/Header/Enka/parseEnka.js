@@ -1,4 +1,5 @@
 import { GI, HSR, ZZZ, WEAPON } from '@/data';
+import { initBuild } from '@/utils';
 import ENKA_LOOKUP from './enkaLookup';
 
 const PARSERS = {
@@ -88,23 +89,6 @@ const PARSERS = {
     },
   },
 };
-
-function initBuild(gameId) {
-  const equipListLength = gameId === GI ? 5 : 6;
-  return {
-    lastUpdated: null,
-    weaponId: null,
-    equipList: Array(equipListLength).fill().map(() => ({
-      setId: null,
-      mainstatId: null,
-      mainstatValue: null,
-      substats: Array(4).fill().map(() => ({
-        id: null,
-        value: null
-      }))
-    })),
-  };
-}
 
 export function parseEnka(gameId, enkaObj) {
   const parsers = PARSERS[gameId];
