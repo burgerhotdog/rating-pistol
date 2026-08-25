@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useData } from '@/hooks';
 import { getDefaultWeapRank } from '@/utils';
-import { Autocomplete } from './Autocomplete';
+import { Autocomplete } from '../../../Autocomplete';
 
 const WeaponId = ({ memberId, weaponId, member, setMember }) => {
   const { gameId } = useParams();
@@ -18,13 +18,11 @@ const WeaponId = ({ memberId, weaponId, member, setMember }) => {
     [weaponData, memberType],
   );
 
-  const value = options.find((weapon) => weapon.id === weaponId);
-
   return (
     <Autocomplete
       options={options}
       groupBy={(weapon) => weapon.quality}
-      value={value ?? null}
+      valueId={weaponId}
       onChange={(weaponId) => setMember({
         ...member,
         weaponId,

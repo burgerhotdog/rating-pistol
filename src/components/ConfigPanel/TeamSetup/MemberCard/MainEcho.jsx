@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useData } from '@/hooks';
-import { Autocomplete } from './Autocomplete';
+import { Autocomplete } from '../../../Autocomplete';
 
 const MainEcho = ({ memberId, setCounts = {}, mainEcho, onChange }) => {
   const echoData = useData('echo');
@@ -12,17 +12,17 @@ const MainEcho = ({ memberId, setCounts = {}, mainEcho, onChange }) => {
     [echoData, setCounts],
   );
 
-  const value = options.find((echo) => echo.id === mainEcho);
 
   useEffect(() => {
+    const value = options.find((echo) => echo.id === mainEcho);
     if (mainEcho && !value) onChange(null);
-  }, [mainEcho, value, onChange]);
+  }, [options, mainEcho, onChange]);
 
   return (
     <Autocomplete
       options={options}
       groupBy={(echo) => echo.cost}
-      value={value ?? null}
+      valueId={mainEcho}
       onChange={onChange}
       label="Main Echo"
       disabled={!memberId}

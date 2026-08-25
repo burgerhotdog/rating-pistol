@@ -17,9 +17,9 @@ const renderOption = (props, option) => {
   return (
     <ListItem key={key} {...optionProps}>
       <ListItemIcon>
-        <Icon src={option.icon} />
+        <Icon src={option?.icon} />
       </ListItemIcon>
-      <ListItemText primary={option.name} />
+      <ListItemText primary={option?.name ?? ''} />
     </ListItem>
   );
 };
@@ -30,7 +30,7 @@ export const Autocomplete = ({ options, valueId, label, onChange, ...props }) =>
     <MuiAutocomplete
       {...props}
       options={options}
-      getOptionLabel={(option) => option.name}
+      getOptionLabel={(option) => option?.name ?? ''}
       value={value ?? null}
       onChange={(_, option) => onChange(option?.id ?? null)}
       renderOption={renderOption}
@@ -51,31 +51,7 @@ export const Autocomplete = ({ options, valueId, label, onChange, ...props }) =>
   );
 };
 
-export const MultiAutocomplete = ({
-  options,
-  value,
-  label,
-  onChange,
-  getOptionKey = (option) => option.id,
-  ...props
-}) => {
-  const renderValue = (tagValue, getTagProps) =>
-    tagValue.map((option, index) => {
-      const { key, ...tagProps } = getTagProps({ index });
-      return (
-        <Chip
-          key={key}
-          avatar={<Avatar src={option.icon} />}
-          label={option.bonus}
-          {...tagProps}
-        />
-      );
-    });
-
-  const renderInput = (params) => (
-    <TextField {...params} label={label} />
-  );
-
+export const MultiAutocomplete = ({ options, value, label, onChange, getOptionKey = (option) => option.id, ...props }) => {
   return (
     <MuiAutocomplete
       {...props}
@@ -86,8 +62,18 @@ export const MultiAutocomplete = ({
       value={value}
       onChange={(_, newValue) => onChange(newValue)}
       renderOption={renderOption}
-      renderValue={renderValue}
-      renderInput={renderInput}
+      renderValue={(tagValue, getTagProps) => tagValue.map((option, index) => {
+        const { key, ...tagProps } = getTagProps({ index });
+        return (
+          <Chip
+            key={key}
+            avatar={<Avatar src={option.icon} />}
+            label={option.bonus}
+            {...tagProps}
+          />
+        );
+      })}
+      renderInput={(params) => <TextField {...params} label={label} />}
     />
   );
 };

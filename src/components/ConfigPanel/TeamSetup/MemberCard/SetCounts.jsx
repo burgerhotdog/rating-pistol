@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { GI, WW } from '@/data';
 import { useData } from '@/hooks';
-import { MultiAutocomplete } from './Autocomplete';
+import { MultiAutocomplete } from '../../../Autocomplete';
 
 const SetCounts = ({ memberId, setCounts = {}, onChange }) => {
   const { gameId } = useParams();
