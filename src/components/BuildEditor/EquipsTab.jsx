@@ -18,27 +18,23 @@ import { Autocomplete } from '../Autocomplete';
 const EquipsTab = ({ draft, setDraft }) => {
   const { gameId } = useParams();
   const [tab, setTab] = useState(0);
-  const sets = useData('set');
-  const echoes = useData('echo');
-  const mainstats = useData('mainstat');
-  const substatsData = useData('substat');
 
-  const equipList = draft?.equipList;
+  const equipList = draft?.equipList ?? [];
   const equip = equipList?.[tab];
 
-  const mainstatIsPercent = equip?.mainstatId?.endsWith('%') ?? false;
-
+  const setData = useData('set');
   const setOptions = useMemo(
-    () => Object.values(sets)
+    () => Object.values(setData)
       .sort((a, b) =>
         b.version - a.version ||
         Number(b.id) - Number(a.id)
       ),
-    [sets],
+    [setData],
   );
 
+  const echoData = useData('echo');
   const echoOptions = useMemo(
-    () => Object.values(echoes)
+    () => Object.values(echoData)
       .filter((echo) =>
         echo.sets.includes(equip?.setId)
       )
@@ -47,10 +43,17 @@ const EquipsTab = ({ draft, setDraft }) => {
         b.version - a.version ||
         Number(b.id) - Number(a.id)
       ),
-    [echoes, equip],
+    [echoData, equip],
   );
 
-  const mainstatOptions = Object.keys(mainstats[equip?.cost] ?? {});
+  const mainstatData = useData('mainstat');
+  const mainstatKey = gameId === WW ? equip?.cost : tab;
+  const mainstatOptions = Object.keys(mainstatData[mainstatKey] ?? {});
+  const mainstatIsPercent = equip?.mainstatId?.endsWith('%') ?? false;
+
+  const substats = equip?.substats ?? [];
+  const substatData = useData('substat');
+  const substatOptions = Object.keys(substatData);
 
   const updateEquip = (key, value) => {
     setDraft((prev) => {
@@ -76,7 +79,7 @@ const EquipsTab = ({ draft, setDraft }) => {
           : Number(value);
 
   return (
-    <Stack spacing={1}>
+    <Stack spacing={2}>
       <Tabs
         component={Card}
         value={tab}
@@ -96,29 +99,33 @@ const EquipsTab = ({ draft, setDraft }) => {
             sx={{ flex: 2 }}
           />
 
-          <TextField
-            select
-            label="Cost"
-            value={equip?.cost ?? ''}
-            onChange={(e) => updateEquip('cost', parseValue(e.target.value))}
-            sx={{ flex: 1 }}
-          >
-            {[4, 3, 1].map((cost) => (
-              <MenuItem key={cost} value={cost}>
-                {cost}
-              </MenuItem>
-            ))}
-          </TextField>
+          {gameId === WW && (
+            <>
+              <TextField
+                select
+                label="Cost"
+                value={equip?.cost ?? ''}
+                onChange={(e) => updateEquip('cost', parseValue(e.target.value))}
+                sx={{ flex: 1 }}
+              >
+                {[4, 3, 1].map((cost) => (
+                  <MenuItem key={cost} value={cost}>
+                    {cost}
+                  </MenuItem>
+                ))}
+              </TextField>
 
-          <Autocomplete
-            options={echoOptions}
-            groupBy={(echo) => echo.cost}
-            valueId={equip?.echoId}
-            onChange={(echoId) => updateEquip('echoId', echoId)}
-            label="Echo"
-            sx={{ flex: 2 }}
-            disabled={!equip}
-          />
+              <Autocomplete
+                options={echoOptions}
+                groupBy={(echo) => echo.cost}
+                valueId={equip?.echoId}
+                onChange={(echoId) => updateEquip('echoId', echoId)}
+                label="Echo"
+                sx={{ flex: 2 }}
+                disabled={!equip}
+              />
+            </>
+          )}
         </Stack>
 
         <Typography variant="subtitle2">
@@ -185,7 +192,7 @@ const EquipsTab = ({ draft, setDraft }) => {
             Substats
           </Typography>
 
-          {equip.substats.map((substat, subIndex) => {
+          {substats.map((substat, subIndex) => {
             const isPercent = substat?.id && substat.id.endsWith('%');
             const updateSubstat = (key, value) => {
               setDraft((prev) => {
@@ -213,7 +220,7 @@ const EquipsTab = ({ draft, setDraft }) => {
                   onChange={(e) => updateSubstat('id', parseValue(e.target.value))}
                   sx={{ flex: 3 }}
                 >
-                  {Object.keys(substatsData).map((id) => (
+                  {substatOptions.map((id) => (
                     <MenuItem key={id} value={id}>
                       {formatStr(id)}
                     </MenuItem>
