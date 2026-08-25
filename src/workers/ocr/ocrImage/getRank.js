@@ -1,6 +1,6 @@
 import { bitmapToPixels } from './bitmapToPixels';
 import { comparePixels } from './compare';
-import { LOCK_TEMPLATES } from '@/assets/ocr/rank/templates';
+import { LOCK_TEMPLATES } from './templates/rank/templates';
 
 const CROPS = [
   { x: 187, y: 578, w: 5, h: 6 },

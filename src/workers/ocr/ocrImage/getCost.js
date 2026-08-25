@@ -1,11 +1,11 @@
 import { bitmapToPixels } from './bitmapToPixels';
 import { comparePixels } from './compare';
 
-import { COST_TEMPLATES as cost0 } from '@/assets/ocr/cost/0/templates';
-import { COST_TEMPLATES as cost1 } from '@/assets/ocr/cost/1/templates';
-import { COST_TEMPLATES as cost2 } from '@/assets/ocr/cost/2/templates';
-import { COST_TEMPLATES as cost3 } from '@/assets/ocr/cost/3/templates';
-import { COST_TEMPLATES as cost4 } from '@/assets/ocr/cost/4/templates';
+import { COST_TEMPLATES as cost0 } from './templates/cost/0/templates';
+import { COST_TEMPLATES as cost1 } from './templates/cost/1/templates';
+import { COST_TEMPLATES as cost2 } from './templates/cost/2/templates';
+import { COST_TEMPLATES as cost3 } from './templates/cost/3/templates';
+import { COST_TEMPLATES as cost4 } from './templates/cost/4/templates';
 
 const costPixelDataOptions = [cost0, cost1, cost2, cost3, cost4];
 
