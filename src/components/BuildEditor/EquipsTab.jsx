@@ -1,4 +1,4 @@
-import { useState } from 'react'; 
+import { useMemo, useState } from 'react'; 
 import {
   Card,
   InputAdornment,
@@ -21,9 +21,29 @@ const EquipsTab = ({ draft, setDraft }) => {
   const substatsData = useData('substat');
 
   const equipList = draft.equipList;
-  const setsLock = new Set(equipList.map((equip) => equip.setId));
-
   const equip = equipList[tab];
+
+  const setOptions = useMemo(
+    () => Object.values(sets)
+      .sort((a, b) =>
+        b.version - a.version ||
+        Number(b.id) - Number(a.id)
+      ),
+    [sets],
+  );
+
+  const echoOptions = useMemo(
+    () => Object.values(echoes)
+      .filter((echo) =>
+        echo.sets.includes(equip?.setId)
+      )
+      .sort((a, b) =>
+        b.cost - a.cost ||
+        b.version - a.version ||
+        Number(b.id) - Number(a.id)
+      ),
+    [echoes, equip],
+  );
 
   return (
     <Stack spacing={1}>
@@ -39,7 +59,7 @@ const EquipsTab = ({ draft, setDraft }) => {
       <Stack spacing={1}>
         <Stack direction="row" spacing={1}>
           <Autocomplete
-            options={Object.values(sets)}
+            options={setOptions}
             valueId={equip?.setId ?? null}
             onChange={(setId) => setDraft((prev) => {
               const equip = prev.equipList[tab];
@@ -51,8 +71,10 @@ const EquipsTab = ({ draft, setDraft }) => {
                 }),
               };
             })}
+            label="Set"
             sx={{ flex: 2 }}
           />
+
           <TextField
             select
             label="Cost"
@@ -77,12 +99,34 @@ const EquipsTab = ({ draft, setDraft }) => {
               </MenuItem>
             ))}
           </TextField>
+
+          <Autocomplete
+            options={echoOptions}
+            groupBy={(echo) => echo.cost}
+            valueId={equip?.echoId}
+            onChange={(echoId) => setDraft((prev) => {
+              const equip = prev.equipList[tab];
+              return {
+                ...prev,
+                equipList: prev.equipList.with(tab, {
+                  ...equip,
+                  echoId,
+                }),
+              };
+            })}
+            label="Echo"
+            sx={{ flex: 2 }}
+            disabled={!equip}
+          />
         </Stack>
+
+        <Typography variant="subtitle2">
+          Mainstat
+        </Typography>
 
         <Stack direction="row" spacing={1}>
           <TextField
             select
-            label="Mainstat"
             value={equip?.mainstatId ?? ''}
             onChange={(e) => setDraft((prev) => {
               const equip = prev.equipList[tab];
@@ -96,7 +140,7 @@ const EquipsTab = ({ draft, setDraft }) => {
                 }),
               };
             })}
-            sx={{ flex: 2 }}
+            sx={{ flex: 3 }}
           >
             {Object.keys(mainstats[equip?.cost] ?? {}).map((id) => (
               <MenuItem key={id} value={id}>
@@ -104,6 +148,7 @@ const EquipsTab = ({ draft, setDraft }) => {
               </MenuItem>
             ))}
           </TextField>
+
           <TextField
             type="number"
             value={!equip.mainstatValue
@@ -141,7 +186,7 @@ const EquipsTab = ({ draft, setDraft }) => {
           <TextField
             value={formatStr(equip.mainstatSubId ?? '')}
             disabled
-            sx={{ flex: 2 }}
+            sx={{ flex: 3 }}
           />
           <TextField
             value={equip.mainstatSubValue ?? ''}
@@ -178,7 +223,7 @@ const EquipsTab = ({ draft, setDraft }) => {
                       }),
                     };
                   })}
-                  sx={{ flex: 2 }}
+                  sx={{ flex: 3 }}
                 >
                   {Object.keys(substatsData).map((id) => (
                     <MenuItem key={id} value={id}>
@@ -232,21 +277,6 @@ const EquipsTab = ({ draft, setDraft }) => {
           })}
         </Stack>
       </Stack>
-
-      <Autocomplete
-        options={Object.values(echoes)
-          .filter((echo) => echo.sets.some((set) => setsLock.has(set)))
-          .sort((a, b) =>
-            b.cost - a.cost ||
-            b.version - a.version ||
-            Number(b.id) - Number(a.id)
-          )
-        }
-        groupBy={(echo) => echo.cost}
-        valueId={draft.mainEcho}
-        onChange={(mainEcho) => setDraft((prev) => ({ ...prev, mainEcho }))}
-        disabled={!draft.id}
-      />
     </Stack>
   );
 };

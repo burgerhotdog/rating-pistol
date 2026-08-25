@@ -1,7 +1,16 @@
 import { ECHO } from '@/data';
 import { bitmapToPixels } from './helpers';
 
-const CROP = { x: 22, y: 651, w: 190, h: 180 };
+const CROP_W = 190;
+const CROP_H = 180;
+
+const CROPS = [
+  { x: 22, y: 651, w: CROP_W, h: CROP_H },
+  { x: 397, y: 651, w: CROP_W, h: CROP_H },
+  { x: 771, y: 651, w: CROP_W, h: CROP_H },
+  { x: 1145, y: 651, w: CROP_W, h: CROP_H },
+  { x: 1518, y: 651, w: CROP_W, h: CROP_H },
+];
 
 function compareIgnoringTransparency(cropPixels, templatePixels, alphaThreshold = 16) {
   let sad = 0;
@@ -24,20 +33,20 @@ function compareIgnoringTransparency(cropPixels, templatePixels, alphaThreshold 
 }
 
 // Comparison resolution — keep it proportional to the crop's aspect ratio
-const COMPARE_SIZE = { w: 50, h: Math.round((50 * CROP.h) / CROP.w) }; // 50x47
+const COMPARE_SIZE = { w: 50, h: Math.round((50 * CROP_H) / CROP_W) }; // 50x47
 
 // Figure out the source region of a 256x256 template that, once scaled
 // down to CROP.w wide, matches the same vertical window CROP captures
 // (i.e. scaled to CROP.w x CROP.w, then 5px trimmed off top and bottom).
 function templateRegionFor(bitmap) {
-  const scale = bitmap.width / CROP.w; // e.g. 256 / 190
-  const yTrim = (CROP.w - CROP.h) / 2; // 5, in "scaled to CROP.w" space
+  const scale = bitmap.width / CROP_W; // e.g. 256 / 190
+  const yTrim = (CROP_W - CROP_H) / 2; // 5, in "scaled to CROP.w" space
 
   return {
     x: 0,
     y: yTrim * scale,      // trim, translated back into original template pixels
     w: bitmap.width,
-    h: CROP.h * scale,     // 180's worth, translated back into original template pixels
+    h: CROP_H * scale,     // 180's worth, translated back into original template pixels
   };
 }
 
@@ -65,14 +74,15 @@ async function loadTemplates(allowedNames = []) {
   return templates;
 }
 
-export async function getMainEcho(imageBitmap, mainEchoSet, mainEchoCost) {
-  const allowedNames =
-    Object.values(ECHO)
-      .filter(({ sets, cost }) => sets.includes(mainEchoSet) && cost === mainEchoCost)
-      .map(({ id }) => id);
+export async function getMainEcho(imageBitmap, index, setId, cost) {
+  const crop = CROPS[index];
+
+  const allowedNames = Object.values(ECHO)
+    .filter((echo) => echo.sets.includes(setId) && echo.cost === cost)
+    .map((echo) => echo.id);
 
   const templates = await loadTemplates(allowedNames);
-  const cropPixels = bitmapToPixels(imageBitmap, CROP, COMPARE_SIZE);
+  const cropPixels = bitmapToPixels(imageBitmap, crop, COMPARE_SIZE);
 
   let bestMatch = null;
   let bestScore = -Infinity;

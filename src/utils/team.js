@@ -45,7 +45,7 @@ export function initMember(key, gameId, builds) {
     : preset?.setCounts ?? {};
 
   if (gameId === WW) {
-    member.mainEcho = build?.mainEcho ?? preset?.mainEcho;
+    member.mainEcho = build?.equipList?.[0]?.echoId ?? preset?.mainEcho;
   }
 
   member.rotation = [...(preset?.rotation ?? [])];

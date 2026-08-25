@@ -60,11 +60,12 @@ self.onmessage = async ({ data }) => {
       return shortest <= threshold ? bestMatch : null;
     }
 
-    // charId
-    const charId = await getId(imageBitmap, ocrWorker);
+    // character
+    const id = await getId(imageBitmap, ocrWorker);
+    const level = 90;
     const rank = getRank(imageBitmap);
 
-    // weaponId
+    // weapon
     const weaponRegion = { x: 1600, y: 450, w: 250, h: 30};
     const weaponNameRaw = await ocrRegion(weaponRegion);
     const weaponName = matchString(weaponNameRaw, Object.keys(weaponNameToId));
@@ -138,10 +139,12 @@ self.onmessage = async ({ data }) => {
           h: 21,
         };
         const substatValueString = await ocrRegion(substatValueRegion, 13, whitelistValue);
+
         // finalize stat
         const isPercent = substatValueString.endsWith('%');
         const substatSuffix = isPercent ? '%' : '';
         const substatId = `${substatPrefix}${substatSuffix}`;
+
         // finalize value
         const noPercentStr = substatValueString.endsWith('%') ? substatValueString.slice(0, -1) : substatValueString;
         const substatValueRaw = matchString(noPercentStr, valueOptionsById[substatId]);
@@ -150,16 +153,16 @@ self.onmessage = async ({ data }) => {
         substats.push({ id: substatId, value: substatValue });
       }
 
-      equipList.push({ cost, setId, mainstatId, mainstatValue, mainstatSubId, mainstatSubValue, substats });
+      const equip = { cost, setId, mainstatId, mainstatValue, mainstatSubId, mainstatSubValue, substats };
+
+      // echoId
+      equip.echoId = await getMainEcho(imageBitmap, equipIndex, setId, cost);
+
+      equipList.push(equip);
     }
 
-    // Main Echo
-    const mainEchoSet = equipList[0].setId;
-    const mainEchoCost = equipList[0].cost;
-    const mainEcho = await getMainEcho(imageBitmap, mainEchoSet, mainEchoCost);
-
-    const build = { id: charId, rank, weaponId, equipList, mainEcho };
-    self.postMessage({ success: true, entry: [charId, build] });
+    const build = { id, level, rank, weaponId, equipList };
+    self.postMessage({ success: true, entry: [id, build] });
   } catch (error) {
     console.error(error);
   }
