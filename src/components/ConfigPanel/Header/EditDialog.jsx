@@ -38,7 +38,7 @@ const EditDialog = ({ open, onClose }) => {
       </DialogTitle>
 
       <DialogContent dividers>
-        <BuildEditor draft={draft} setDraft={setDraft} />
+        <BuildEditor draft={draft} setDraft={setDraft} edit />
       </DialogContent>
 
       <DialogActions component={Stack} direction="row" sx={{ justifyContent: 'space-between' }}>

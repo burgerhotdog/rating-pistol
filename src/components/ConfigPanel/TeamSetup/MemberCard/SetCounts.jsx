@@ -1,14 +1,11 @@
 import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
-import { GI, WW } from '@/data';
 import { useData } from '@/hooks';
 import { MultiAutocomplete } from '../../../Autocomplete';
 
 const SetCounts = ({ memberId, setCounts = {}, onChange }) => {
-  const { gameId } = useParams();
-  const totalPieces = gameId === GI || gameId === WW ? 5 : 6;
-  const numUsedPieces = Object.values(setCounts).reduce((acc, count) => acc + count, 0);
-  const maxBonus = totalPieces - numUsedPieces;
+  const { maxEquips } = useData('misc');
+  const usedEquips = Object.values(setCounts).reduce((acc, count) => acc + count, 0);
+  const maxBonus = maxEquips - usedEquips;
 
   const setData = useData('set');
   const options = useMemo(() => {

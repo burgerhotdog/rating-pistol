@@ -350,3 +350,5 @@ export const TYPE = {
     },
   },
 };
+
+export { default as MISC } from './misc.json';

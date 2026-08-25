@@ -11,33 +11,7 @@ import {
 } from '@mui/material';
 import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
-import { Autocomplete } from './Autocomplete';
-
-const WeaponTab = ({ draft, setDraft }) => {
-  const character = useData('character')[draft.id];
-  const weapons = useData('weapon');
-
-  const typeLock = character?.type;
-
-  return (
-    <Stack>
-      <Autocomplete
-        options={Object.values(weapons)
-          .filter((weapon) => !typeLock || weapon.type === typeLock)
-          .sort((a, b) =>
-            b.quality - a.quality ||
-            b.version - a.version ||
-            Number(b.id) - Number(a.id)
-          )
-        }
-        groupBy={(weapon) => weapon.quality}
-        valueId={draft.weaponId}
-        onChange={(weaponId) => setDraft((prev) => ({ ...prev, weaponId }))}
-        disabled={!draft.id}
-      />
-    </Stack>
-  );
-};
+import { Autocomplete } from '../Autocomplete';
 
 const EquipsTab = ({ draft, setDraft }) => {
   const [tab, setTab] = useState(0);
@@ -277,33 +251,4 @@ const EquipsTab = ({ draft, setDraft }) => {
   );
 };
 
-const SkillsTab = () => {
-  return (
-    <Stack>
-    </Stack>
-  );
-};
-
-const BuildEditor = ({ ...props }) => {
-  const [tab, setTab] = useState('weapon');
-
-  return (
-    <Stack spacing={1}>
-      <Tabs
-        component={Card}
-        value={tab}
-        onChange={(_, value) => setTab(value)}
-        centered
-      >
-        <Tab value="weapon" label="Weapon" />
-        <Tab value="equips" label="Equips" />
-        <Tab value="skills" label="Skills" />
-      </Tabs>
-      {tab === 'weapon' && <WeaponTab {...props} />}
-      {tab === 'equips' && <EquipsTab {...props} />}
-      {tab === 'skills' && <SkillsTab {...props} />}
-    </Stack>
-  );
-};
-
-export default BuildEditor;
+export default EquipsTab;
