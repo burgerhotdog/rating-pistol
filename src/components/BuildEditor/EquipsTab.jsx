@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react'; 
+import { useMemo, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   Card,
   InputAdornment,
@@ -9,19 +10,23 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { WW } from '@/data';
 import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
 import { Autocomplete } from '../Autocomplete';
 
 const EquipsTab = ({ draft, setDraft }) => {
+  const { gameId } = useParams();
   const [tab, setTab] = useState(0);
   const sets = useData('set');
   const echoes = useData('echo');
   const mainstats = useData('mainstat');
   const substatsData = useData('substat');
 
-  const equipList = draft.equipList;
-  const equip = equipList[tab];
+  const equipList = draft?.equipList;
+  const equip = equipList?.[tab];
+
+  const mainstatIsPercent = equip?.mainstatId?.endsWith('%') ?? false;
 
   const setOptions = useMemo(
     () => Object.values(sets)
@@ -45,6 +50,31 @@ const EquipsTab = ({ draft, setDraft }) => {
     [echoes, equip],
   );
 
+  const mainstatOptions = Object.keys(mainstats[equip?.cost] ?? {});
+
+  const updateEquip = (key, value) => {
+    setDraft((prev) => {
+      const equip = prev.equipList[tab];
+
+      return {
+        ...prev,
+        equipList: prev.equipList.with(tab, {
+          ...equip,
+          [key]: value,
+        }),
+      };
+    });
+  };
+
+  const parseValue = (value, isPercent = 'str') =>
+    value === ''
+      ? null
+      : isPercent === 'str'
+        ? value
+        : isPercent
+          ? Number(value) * 100
+          : Number(value);
+
   return (
     <Stack spacing={1}>
       <Tabs
@@ -61,16 +91,7 @@ const EquipsTab = ({ draft, setDraft }) => {
           <Autocomplete
             options={setOptions}
             valueId={equip?.setId ?? null}
-            onChange={(setId) => setDraft((prev) => {
-              const equip = prev.equipList[tab];
-              return {
-                ...prev,
-                equipList: prev.equipList.with(tab, {
-                  ...equip,
-                  setId,
-                }),
-              };
-            })}
+            onChange={(setId) => updateEquip('setId', setId)}
             label="Set"
             sx={{ flex: 2 }}
           />
@@ -79,18 +100,7 @@ const EquipsTab = ({ draft, setDraft }) => {
             select
             label="Cost"
             value={equip?.cost ?? ''}
-            onChange={(e) => setDraft((prev) => {
-              const equip = prev.equipList[tab];
-              return {
-                ...prev,
-                equipList: prev.equipList.with(tab, {
-                  ...equip,
-                  cost: e.target.value === ''
-                    ? null
-                    : e.target.value,
-                }),
-              };
-            })}
+            onChange={(e) => updateEquip('cost', parseValue(e.target.value))}
             sx={{ flex: 1 }}
           >
             {[4, 3, 1].map((cost) => (
@@ -104,16 +114,7 @@ const EquipsTab = ({ draft, setDraft }) => {
             options={echoOptions}
             groupBy={(echo) => echo.cost}
             valueId={equip?.echoId}
-            onChange={(echoId) => setDraft((prev) => {
-              const equip = prev.equipList[tab];
-              return {
-                ...prev,
-                equipList: prev.equipList.with(tab, {
-                  ...equip,
-                  echoId,
-                }),
-              };
-            })}
+            onChange={(echoId) => updateEquip('echoId', echoId)}
             label="Echo"
             sx={{ flex: 2 }}
             disabled={!equip}
@@ -128,21 +129,10 @@ const EquipsTab = ({ draft, setDraft }) => {
           <TextField
             select
             value={equip?.mainstatId ?? ''}
-            onChange={(e) => setDraft((prev) => {
-              const equip = prev.equipList[tab];
-              return {
-                ...prev,
-                equipList: prev.equipList.with(tab, {
-                  ...equip,
-                  mainstatId: e.target.value === ''
-                    ? null
-                    : e.target.value,
-                }),
-              };
-            })}
+            onChange={(e) => updateEquip('mainstatId', parseValue(e.target.value))}
             sx={{ flex: 3 }}
           >
-            {Object.keys(mainstats[equip?.cost] ?? {}).map((id) => (
+            {mainstatOptions.map((id) => (
               <MenuItem key={id} value={id}>
                 {formatStr(id)}
               </MenuItem>
@@ -151,49 +141,44 @@ const EquipsTab = ({ draft, setDraft }) => {
 
           <TextField
             type="number"
-            value={!equip.mainstatValue
+            value={!equip?.mainstatValue
               ? ''
-              : equip.mainstatId.endsWith('%')
-                ? (equip.mainstatValue / 100).toFixed(1)
-                : equip.mainstatValue.toFixed()
+              : mainstatIsPercent
+                ? (equip?.mainstatValue / 100).toFixed(1)
+                : equip?.mainstatValue.toFixed()
             }
-            onChange={(e) => setDraft((prev) => {
-              const equip = prev.equipList[tab];
-              return {
-                ...prev,
-                equipList: prev.equipList.with(tab, {
-                  ...equip,
-                  mainstatValue: e.target.value === ''
-                    ? null
-                    : equip.mainstatId.endsWith('%')
-                      ? Number(e.target.value) * 100
-                      : Number(e.target.value),
-                }),
-              };
-            })}
+            onChange={(e) => updateEquip('mainstatValue', parseValue(e.target.value, mainstatIsPercent))}
             slotProps={{
               input: {
-                endAdornment: equip.mainstatId.endsWith('%')
-                  ? <InputAdornment position="end">%</InputAdornment>
-                  : null,
+                endAdornment: (
+                  <InputAdornment
+                    position="end"
+                    sx={{ visibility: mainstatIsPercent ? 'visible' : 'hidden' }}
+                  >
+                    %
+                  </InputAdornment>
+                ),
               },
             }}
             sx={{ flex: 1 }}
           />
         </Stack>
 
-        <Stack direction="row" spacing={1}>
-          <TextField
-            value={formatStr(equip.mainstatSubId ?? '')}
-            disabled
-            sx={{ flex: 3 }}
-          />
-          <TextField
-            value={equip.mainstatSubValue ?? ''}
-            disabled={!equip.mainstatSubId}
-            sx={{ flex: 1 }}
-          />
-        </Stack>
+        {gameId === WW && (
+          <Stack direction="row" spacing={1}>
+            <TextField
+              value={formatStr(equip?.mainstatSubId ?? '')}
+              disabled
+              sx={{ flex: 3 }}
+            />
+            <TextField
+              value={equip?.mainstatSubValue ?? ''}
+              onChange={(e) => updateEquip('mainstatSubValue', parseValue(e.target.value, false))}
+              disabled={!equip?.mainstatSubId}
+              sx={{ flex: 1 }}
+            />
+          </Stack>
+        )}
 
         <Stack spacing={1}>
           <Typography variant="subtitle2">
@@ -202,27 +187,30 @@ const EquipsTab = ({ draft, setDraft }) => {
 
           {equip.substats.map((substat, subIndex) => {
             const isPercent = substat?.id && substat.id.endsWith('%');
+            const updateSubstat = (key, value) => {
+              setDraft((prev) => {
+                const equip = prev.equipList[tab];
+                const substat = equip.substats[subIndex];
+
+                return {
+                  ...prev,
+                  equipList: prev.equipList.with(tab, {
+                    ...equip,
+                    substats: equip.substats.with(subIndex, {
+                      ...substat,
+                      [key]: value,
+                    }),
+                  }),
+                };
+              });
+            }
+
             return (
               <Stack key={subIndex} direction="row" spacing={1}>
                 <TextField
                   select
                   value={substat?.id ?? ''}
-                  onChange={(e) => setDraft((prev) => {
-                    const equip = prev.equipList[tab];
-                    const substat = equip.substats[subIndex];
-                    return {
-                      ...prev,
-                      equipList: prev.equipList.with(tab, {
-                        ...equip,
-                        substats: equip.substats.with(subIndex, {
-                          ...substat,
-                          id: e.target.value === ''
-                            ? null
-                            : e.target.value,
-                        }),
-                      }),
-                    };
-                  })}
+                  onChange={(e) => updateSubstat('id', parseValue(e.target.value))}
                   sx={{ flex: 3 }}
                 >
                   {Object.keys(substatsData).map((id) => (
@@ -240,30 +228,13 @@ const EquipsTab = ({ draft, setDraft }) => {
                       ? (substat.value / 100).toFixed(1)
                       : substat.value.toFixed()
                   }
-                  onChange={(e) => setDraft((prev) => {
-                    const equip = prev.equipList[tab];
-                    const substat = equip.substats[subIndex];
-                    return {
-                      ...prev,
-                      equipList: prev.equipList.with(tab, {
-                        ...equip,
-                        substats: equip.substats.with(subIndex, {
-                          ...substat,
-                          value: e.target.value === ''
-                            ? null
-                            : isPercent
-                              ? Number(e.target.value) * 100
-                              : Number(e.target.value),
-                        }),
-                      }),
-                    };
-                  })}
+                  onChange={(e) => updateSubstat('value', parseValue(e.target.value, isPercent))}
                   slotProps={{
                     input: {
                       endAdornment: (
                         <InputAdornment
                           position="end"
-                          sx={{ visibility: substat?.id.endsWith('%') ? 'visible' : 'hidden' }}
+                          sx={{ visibility: isPercent ? 'visible' : 'hidden' }}
                         >
                           %
                         </InputAdornment>
