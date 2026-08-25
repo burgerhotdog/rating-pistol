@@ -8,12 +8,14 @@ import {
   DialogTitle,
   Stack,
 } from '@mui/material';
+import { useBuild } from '@/contexts';
 import { useBuilds, useData } from '@/hooks';
 import BuildEditor from '../../BuildEditor';
 import DeleteDialog from './DeleteDialog';
 
 const EditDialog = ({ open, onClose }) => {
-  const { charId } = useParams();
+  const { gameId, charId } = useParams();
+  const { saveBuildEntries } = useBuild();
   const build = useBuilds()[charId];
   const character = useData('character')[charId];
 
@@ -54,7 +56,7 @@ const EditDialog = ({ open, onClose }) => {
             variant="contained"
             onClick={() => {
               onClose();
-              console.log(draft);
+              saveBuildEntries(gameId, [[charId, draft]]);
             }}
           >
             Save

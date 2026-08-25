@@ -14,7 +14,7 @@ const Header = () => {
   const element = useData('element')[character.element];
   const type = useData('type')[character.type];
 
-  const [editOpen, setEditOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <CardHeader
@@ -43,14 +43,14 @@ const Header = () => {
             checkedIcon={<Star />}
           />
           <IconButton
-            onClick={() => setEditOpen(true)}
+            onClick={() => setOpen(true)}
             sx={{ alignSelf: 'center' }}
           >
             <EditIcon />
           </IconButton>
           <EditDialog
-            open={editOpen}
-            onClose={() => setEditOpen(false)}
+            open={open}
+            onClose={() => setOpen(false)}
           />
         </Stack>
       )}

@@ -111,6 +111,7 @@ export function parseEnka(gameId, enkaObj) {
   const id = String(enkaObj.avatarId);
   const build = initBuild(gameId);
 
+  build.id = id;
   build.level = parsers.level(enkaObj);
   build.rank = parsers.rank(enkaObj);
 
