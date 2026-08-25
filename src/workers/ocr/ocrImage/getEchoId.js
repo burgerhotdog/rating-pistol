@@ -1,5 +1,5 @@
 import { ECHO } from '@/data';
-import { bitmapToPixels } from './helpers';
+import { bitmapToPixels } from './bitmapToPixels';
 
 const CROP_W = 190;
 const CROP_H = 180;
@@ -74,7 +74,7 @@ async function loadTemplates(allowedNames = []) {
   return templates;
 }
 
-export async function getMainEcho(imageBitmap, index, setId, cost) {
+export async function getEchoId(imageBitmap, index, setId, cost) {
   const crop = CROPS[index];
 
   const allowedNames = Object.values(ECHO)

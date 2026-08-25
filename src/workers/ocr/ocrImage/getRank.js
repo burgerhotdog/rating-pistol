@@ -1,4 +1,5 @@
-import { comparePixels, bitmapToPixels } from './helpers';
+import { bitmapToPixels } from './bitmapToPixels';
+import { comparePixels } from './compare';
 import { LOCK_TEMPLATES } from '@/assets/ocr/rank/templates';
 
 const CROPS = [
