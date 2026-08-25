@@ -22,13 +22,6 @@ export const EQUIP_ASSETS = {
   [ZZZ]: short(import.meta.glob('./equip/zzz/*.webp', { eager: true })),
 };
 
-export const FILTER_ASSETS = { 
-  [GI]: short(import.meta.glob('./filter/gi/*.webp', { eager: true })),
-  [HSR]: short(import.meta.glob('./filter/hsr/*.webp', { eager: true })),
-  [WW]: short(import.meta.glob('./filter/ww/*.webp', { eager: true })),
-  [ZZZ]: short(import.meta.glob('./filter/zzz/*.webp', { eager: true })),
-};
-
 export const STAT_ASSETS = { 
   [GI]: short(import.meta.glob('./stat/gi/*.webp', { eager: true })),
   [HSR]: short(import.meta.glob('./stat/hsr/*.webp', { eager: true })),
