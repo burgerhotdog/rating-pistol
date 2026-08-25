@@ -1,4 +1,4 @@
-export const mainStatRange = {
+export const mainstatRange = {
   4: {
     'hp%': [0.041, 0.33],
     'atk%': [0.041, 0.33],
@@ -29,7 +29,7 @@ export const mainStatRange = {
   },
 };
 
-export const subStatRange = {
+export const substatRange = {
   'hp': [320, 580],
   'atk': [30, 60],
   'def': [40, 70],

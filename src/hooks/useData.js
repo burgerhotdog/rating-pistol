@@ -1,30 +1,27 @@
 import { useParams } from 'react-router-dom';
-import { CHARACTER, WEAPON, SET } from '@/data';
+import { CHARACTER, WEAPON, SET, ECHO, ELEMENT, TYPE, MAINSTAT, SUBSTAT, MISC } from '@/data';
 
-export function useCharData(id) {
-  const { gameId, charId } = useParams();
-  const charData = CHARACTER[gameId];
-
-  if (!id) return charData;
-
-  const lookupId = id === '$curr' ? charId : id;
-  return charData[lookupId];
-}
-
-export function useWeapData(id) {
+export function useData(type) {
   const { gameId } = useParams();
-  const weapData = WEAPON[gameId];
 
-  if (!id) return weapData;
-
-  return weapData[id];
-}
-
-export function useSetData(id) {
-  const { gameId } = useParams();
-  const setData = SET[gameId];
-
-  if (!id) return setData;
-
-  return setData[id];
+  switch (type) {
+    case 'character':
+      return CHARACTER[gameId];
+    case 'weapon':
+      return WEAPON[gameId];
+    case 'set':
+      return SET[gameId];
+    case 'echo':
+      return ECHO;
+    case 'element':
+      return ELEMENT[gameId];
+    case 'type':
+      return TYPE[gameId];
+    case 'mainstat':
+      return MAINSTAT[gameId];
+    case 'substat':
+      return SUBSTAT[gameId];
+    case 'misc':
+      return MISC[gameId];
+  }
 }

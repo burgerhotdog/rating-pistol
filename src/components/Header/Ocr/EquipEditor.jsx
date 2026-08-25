@@ -1,18 +1,16 @@
 import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  TextField,
-  MenuItem,
-  Grid,
-  Typography,
-  Divider,
   Autocomplete,
+  Card,
+  CardContent,
+  CardHeader,
+  MenuItem,
+  Stack,
+  TextField,
+  Typography,
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { WW, SET } from '@/data';
-import { mainStatNameToIdByCost } from '@/workers/ocr/helpers/maps';
-import { mainStatRange, subStatRange } from './statValueRange';
+import { mainstatNameToIdByCost } from '@/workers/ocr/helpers/maps';
+import { mainstatRange, substatRange } from './statValueRange';
 
 const isInRange = (value = 0, range = []) => {
   const [min = 0, max = 0] = range;
@@ -21,14 +19,14 @@ const isInRange = (value = 0, range = []) => {
 };
 
 const EquipEditor = ({ equip, index, onChange }) => {
-  const { cost, setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList } = equip;
+  const { cost, setId, mainstatId, mainstatValue, mainstatSubId, mainstatSubValue, substats } = equip;
 
-  const mainStatOptions = mainStatNameToIdByCost[cost] || {};
+  const mainstatOptions = mainstatNameToIdByCost[cost] || {};
 
   const updateCost = (newCost) => {
-    const mainStatFlatId = newCost === 1 ? 'hp' : 'atk';
-    const mainStatFlatValue = mainStatRange[newCost][mainStatFlatId][1];
-    onChange(index, { ...equip, cost: newCost, mainStatFlatId, mainStatFlatValue });
+    const mainstatSubId = newCost === 1 ? 'hp' : 'atk';
+    const mainstatSubValue = mainstatRange[newCost][mainstatSubId][1];
+    onChange(index, { ...equip, cost: newCost, mainstatSubId, mainstatSubValue });
   };
 
   const updateField = (field, value) => {
@@ -36,153 +34,132 @@ const EquipEditor = ({ equip, index, onChange }) => {
   };
 
   const updateSubStat = (subIndex, field, value) => {
-    const nextList = subStatList.map((s, i) => (i === subIndex ? { ...s, [field]: value } : s));
-    onChange(index, { ...equip, subStatList: nextList });
+    const nextList = substats.map((s, i) => (i === subIndex ? { ...s, [field]: value } : s));
+    onChange(index, { ...equip, substats: nextList });
   };
 
-  const hasError =
-    !mainStatId || mainStatValue == null || Number.isNaN(mainStatValue) ||
-    subStatList.some((line) => !line.subStatId || line.subStatValue == null || Number.isNaN(line.subStatValue));
+  const mainIsPercent = mainstatId && mainstatId.endsWith('%');
 
   return (
-    <Accordion defaultExpanded={hasError}>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography>
-          Echo {index + 1}
-        </Typography>
-      </AccordionSummary>
+    <Card>
+      <CardHeader title={`Echo ${index + 1}`} />
 
-      <AccordionDetails>
-        <Grid container spacing={2}>
-          <Grid size={8}>
-            <Autocomplete
-              options={Object.values(SET[WW])}
-              getOptionLabel={(option) => option.name ?? ''}
-              isOptionEqualToValue={(option, value) => option.id === value.id}
-              value={SET[WW][setId] ?? null}
-              onChange={(e, newValue) => updateField('setId', newValue?.id)}
-              fullWidth
-              renderInput={(params) => (
-                <TextField {...params} label="Set" error={!setId} />
-              )}
-            />
-          </Grid>
+      <CardContent component={Stack} spacing={1}>
+        <Stack direction="row" spacing={1}>
+          <Autocomplete
+            options={Object.values(SET[WW])}
+            getOptionLabel={(option) => option.name ?? ''}
+            isOptionEqualToValue={(option, value) => option.id === value.id}
+            value={SET[WW][setId] ?? null}
+            onChange={(_, newValue) => updateField('setId', newValue?.id)}
+            renderInput={(params) => (
+              <TextField {...params} label="Set" error={!setId} />
+            )}
+            sx={{ flex: 2 }}
+          />
+          <TextField
+            select
+            label="Cost"
+            value={cost ?? ''}
+            onChange={(e) => updateCost(e.target.value)}
+            error={!cost}
+            sx={{ flex: 1 }}
+          >
+            {[4, 3, 1].map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Stack>
 
-          <Grid size={4}>
-            <TextField
-              select
-              label="Cost"
-              value={cost ?? ''}
-              onChange={(e) => updateCost(e.target.value)}
-              fullWidth
-              error={!cost}
-            >
-              {[4, 3, 1].map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
+        <Stack direction="row" spacing={1}>
+          <TextField
+            select
+            label="Mainstat"
+            value={mainstatId ?? ''}
+            onChange={(e) => updateField('mainstatId', e.target.value)}
+            error={!mainstatId}
+            sx={{ flex: 2 }}
+          >
+            {Object.entries(mainstatOptions).map(([name, id]) => (
+              <MenuItem key={id} value={id}>
+                {name}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            type="number"
+            value={
+              mainstatValue
+                ? (mainstatValue * (mainIsPercent ? 0.1 : 1))
+                : ''
+            }
+            onChange={(e) =>
+              updateField('mainstatValue', e.target.value === '' ? null : (Number(e.target.value) * (mainIsPercent ? 10 : 1)))
+            }
+            error={mainstatValue == null || Number.isNaN(mainstatValue)}
+            sx={{ flex: 1 }}
+          />
+        </Stack>
 
-          <Grid size={8}>
-            <TextField
-              select
-              label="Main Stat"
-              value={mainStatId ?? ''}
-              onChange={(e) => updateField('mainStatId', e.target.value)}
-              fullWidth
-              error={!mainStatId}
-            >
-              {Object.entries(mainStatOptions).map(([name, id]) => (
-                <MenuItem key={id} value={id}>
-                  {name}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
+        <Stack direction="row" spacing={1}>
+          <TextField
+            value={mainstatSubId ?? ''}
+            disabled
+            sx={{ flex: 2 }}
+          />
+          <TextField
+            value={mainstatSubValue ?? ''}
+            error={!isInRange(mainstatSubValue, mainstatRange[cost]?.[mainstatSubId])}
+            disabled={!mainstatSubId}
+            sx={{ flex: 1 }}
+          />
+        </Stack>
 
-          <Grid size={4}>
-            <TextField
-              label="Main Stat Value (%)"
-              type="number"
-              value={mainStatValue ?? ''}
-              onChange={(e) => updateField('mainStatValue', e.target.value === '' ? null : Number(e.target.value))}
-              fullWidth
-              error={mainStatValue == null || Number.isNaN(mainStatValue)}
-            />
-          </Grid>
+        <Stack spacing={1}>
+          <Typography variant="subtitle2">
+            Substats
+          </Typography>
 
-          <Grid size={8}>
-            <TextField
-              value={mainStatFlatId ?? ''}
-              fullWidth
-              disabled
-            />
-          </Grid>
-
-          <Grid size={4}>
-            <TextField
-              value={mainStatFlatValue ?? ''}
-              fullWidth
-              error={!isInRange(mainStatFlatValue, mainStatRange[cost]?.[mainStatFlatId])}
-              disabled={!mainStatFlatId}
-            />
-          </Grid>
-
-          <Grid size={12}>
-            <Divider sx={{ my: 1 }} />
-            <Typography variant="subtitle2" gutterBottom>
-              Sub Stats
-            </Typography>
-          </Grid>
-
-          {subStatList.map((sub, subIndex) => {
-            const { subStatId, subStatValue } = sub;
-            
+          {substats.map((sub, subIndex) => {
+            const { id, value } = sub;
+            const isPercent = id && id.endsWith('%');
             return (
-              <Grid size={12} key={subIndex}>
-                <Grid container spacing={1}>
-                  <Grid size={8}>
-                    <TextField
-                      select
-                      label={`Sub Stat ${subIndex + 1}`}
-                      value={subStatId ?? ''}
-                      onChange={(e) => updateSubStat(subIndex, 'subStatId', e.target.value)}
-                      fullWidth
-                      error={!subStatId}
-                    >
-                      {Object.keys(subStatRange).map((id) => (
-                        <MenuItem key={id} value={id}>
-                          {id}
-                        </MenuItem>
-                      ))}
-                    </TextField>
-                  </Grid>
+              <Stack key={subIndex} direction="row" spacing={1}>
+                <TextField
+                  select
+                  value={id ?? ''}
+                  onChange={(e) => updateSubStat(subIndex, 'stat', e.target.value)}
+                  error={!id}
+                  sx={{ flex: 2 }}
+                >
+                  {Object.keys(substatRange).map((id) => (
+                    <MenuItem key={id} value={id}>
+                      {id}
+                    </MenuItem>
+                  ))}
+                </TextField>
 
-                  <Grid size={4}>
-                    <TextField
-                      label="Value"
-                      type="number"
-                      value={subStatValue ?? ''}
-                      onChange={(e) =>
-                        updateSubStat(
-                          subIndex,
-                          'subStatValue',
-                          e.target.value === '' ? null : Number(e.target.value)
-                        )
-                      }
-                      fullWidth
-                      error={!isInRange(subStatValue, subStatRange[subStatId]) || Number.isNaN(subStatValue)}
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
+                <TextField
+                  type="number"
+                  value={value ? (value * (isPercent ? 0.1: 1)): ''}
+                  onChange={(e) =>
+                    updateSubStat(
+                      subIndex,
+                      'value',
+                      e.target.value === '' ? null : (Number(e.target.value) * (isPercent ? 10: 1))
+                    )
+                  }
+                  error={!isInRange(value, substatRange[id]) || Number.isNaN(value)}
+                  sx={{ flex: 1 }}
+                />
+              </Stack>
             );
           })}
-        </Grid>
-      </AccordionDetails>
-    </Accordion>
+        </Stack>
+      </CardContent>
+    </Card>
   );
 };
 

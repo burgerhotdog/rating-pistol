@@ -1,4 +1,4 @@
-import { toEquipMap, getTotals } from '@/utils';
+import { buildEquipMap, getTotals } from '@/utils';
 import { runRotation } from './rotation';
 import { compileCache } from './cache';
 import { runTrials } from './runTrials';
@@ -22,10 +22,9 @@ const buildConfigStats = (gameId, trials) => {
     entry.count++;
 
     const { subDist } = entry;
-    const rollMap = getSubRollSums(gameId, trial.equipList);
+    const rollMap = getSubRollSums(gameId, trial.equipList, true);
     for (const [stat, rolls] of Object.entries(rollMap)) {
-      subDist[stat] ??= 0;
-      subDist[stat] += rolls;
+      subDist[stat] = (subDist[stat] ?? 0) + rolls;
     }
   }
 
@@ -45,7 +44,7 @@ function generateEquipMap(cache, memberId) {
   const { trials } = runTrials(cache, equipMaps, memberId);
 
   return trials.reduce((acc, { equipList }) => {
-    const equipMap = toEquipMap(equipList);
+    const equipMap = buildEquipMap(equipList, true);
     for (const stat in equipMap) {
       const value = equipMap[stat] / trials.length;
       acc[stat] = (acc[stat] ?? 0) + value;

@@ -1,5 +1,5 @@
 import { GI, HSR, WW, ZZZ } from '@/data';
-import { toEquipMap } from '@/utils';
+import { buildEquipMap } from '@/utils';
 import { getSkippableStats } from './getSkippableStats';
 import { createEquipGenerator } from './generateEquip';
 
@@ -8,7 +8,7 @@ function createEquipEvaluator(cache, evaluateEquipMap) {
     const next = { ...prev };
     for (const equipIndex of slots) {
       const equipList = prev.equipList.with(equipIndex, equip);
-      const { summary, totals, score } = evaluateEquipMap(toEquipMap(equipList));
+      const { summary, totals, score } = evaluateEquipMap(buildEquipMap(equipList, true));
 
       if (score > next.score) {
         const dps = totals.damage / cache.rotationDuration * 1000;

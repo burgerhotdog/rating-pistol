@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Stack, Typography } from '@mui/material';
 import { GI, HSR, WW, ZZZ } from '@/data';
-import { compileMenuMap, formatAttr, formatStr, getAttr } from '@/utils';
+import { buildMenuMap, formatAttr, formatStr, getAttr } from '@/utils';
 
 const ATTR_ROWS = {
   [GI]: [
@@ -49,12 +49,10 @@ const ATTR_ROWS = {
   ],
 };
 
-export const MenuAttrs = ({ team = [] }) => {
+const MenuAttrs = ({ team }) => {
   const { gameId, charId } = useParams();
-
-  const member = team.find((member) => member.id === charId);
-  const menuMap = compileMenuMap(gameId, charId, member, team);
-  const data = ATTR_ROWS[gameId].map((attr) => {
+  const menuMap = buildMenuMap(gameId, charId, team);
+  const rows = ATTR_ROWS[gameId].map((attr) => {
     const attrValue = getAttr(attr, menuMap);
     return {
       label: formatStr(attr),
@@ -64,8 +62,9 @@ export const MenuAttrs = ({ team = [] }) => {
 
   return (
     <Stack sx={{ flex: 1 }}>
-      {data.map(({ label, value }) => (
-        <Stack key={label}
+      {rows.map(({ label, value }) => (
+        <Stack
+          key={label}
           direction="row"
           sx={{ justifyContent: 'space-between' }}
         >
@@ -80,3 +79,5 @@ export const MenuAttrs = ({ team = [] }) => {
     </Stack>
   );
 };
+
+export default MenuAttrs;

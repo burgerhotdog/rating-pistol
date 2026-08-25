@@ -7,7 +7,7 @@ lookup_url = {
         'set': lambda _, data: data['icon'],
     },
     'hsr': {
-        'character': lambda id, _: f'avatarshopicon/{id}',
+        'character': lambda id, _: f'avataricon/avatar/{id}',
         'weapon': lambda id, _: f'lightconemediumicon/{id}',
         'set': lambda _, data: f'itemfigures/{data['icon'][22:data['icon'].rindex('.')]}',
     },
@@ -18,7 +18,7 @@ lookup_url = {
         'echo': lambda _, data: data['icon'][13:data['icon'].rindex('.')],
     },
     'zzz': {
-        'character': lambda _, data: data['icon'],
+        'character': lambda _, data: data['icon'].replace('IconRole', 'IconRoleSelect', 1),
         'weapon': lambda _, data: data['code_name'],
         'set': lambda _, data: data['icon'][41:data['icon'].rindex('.')],
     },

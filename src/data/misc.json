@@ -1,0 +1,26 @@
+{
+  "genshin-impact": {
+    "maxMembers": 4,
+    "maxLevel": 90,
+    "maxEquips": 5,
+    "maxSubstats": 4
+  },
+  "honkai-star-rail": {
+    "maxMembers": 4,
+    "maxLevel": 80,
+    "maxEquips": 6,
+    "maxSubstats": 4
+  },
+  "wuthering-waves": {
+    "maxMembers": 3,
+    "maxLevel": 90,
+    "maxEquips": 5,
+    "maxSubstats": 5
+  },
+  "zenless-zone-zero": {
+    "maxMembers": 3,
+    "maxLevel": 60,
+    "maxEquips": 6,
+    "maxSubstats": 4
+  }
+}

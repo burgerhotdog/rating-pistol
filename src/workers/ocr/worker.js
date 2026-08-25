@@ -3,9 +3,9 @@ import {
   whitelistStat,
   whitelistValue,
   weaponNameToId,
-  mainStatNameToIdByCost,
-  subStatFragmentToSuffix,
-  subStatValueOptionsById,
+  mainstatNameToIdByCost,
+  substatFragmentToSuffix,
+  valueOptionsById,
 } from './helpers/maps';
 import { compareStrings } from './helpers';
 import { validateBitmap } from './validateBitmap';
@@ -60,11 +60,11 @@ self.onmessage = async ({ data }) => {
       return shortest <= threshold ? bestMatch : null;
     }
 
-    // charId
-    const charId = await getId(imageBitmap, ocrWorker);
+    // character
+    const id = await getId(imageBitmap, ocrWorker);
     const rank = getRank(imageBitmap);
 
-    // weaponId
+    // weapon
     const weaponRegion = { x: 1600, y: 450, w: 250, h: 30};
     const weaponNameRaw = await ocrRegion(weaponRegion);
     const weaponName = matchString(weaponNameRaw, Object.keys(weaponNameToId));
@@ -82,84 +82,86 @@ self.onmessage = async ({ data }) => {
       // setId
       const setId = await getSetId(imageBitmap, equipIndex);
 
-      // mainStatId
-      const mainStatRegion = { 
+      // mainstatId
+      const mainstatRegion = { 
         x: 219 + equipIndex * 374 + offset,
         y: 724,
         w: 153,
         h: 20,
       };
-      const mainStatNameRaw = await ocrRegion(mainStatRegion, 7, whitelistStat);
-      const mainStatName = matchString(mainStatNameRaw, Object.keys(mainStatNameToIdByCost[cost]));
-      const mainStatId = mainStatNameToIdByCost[cost][mainStatName];
+      const mainstatNameRaw = await ocrRegion(mainstatRegion, 7, whitelistStat);
+      const mainstatName = matchString(mainstatNameRaw, Object.keys(mainstatNameToIdByCost[cost]));
+      const mainstatId = mainstatNameToIdByCost[cost][mainstatName];
 
-      // mainStatValue
-      const mainStatValueRegion = { 
+      // mainstatValue
+      const mainstatValueRegion = { 
         x: 315 + equipIndex * 374 + valueOffset,
         y: 756,
         w: 31,
         h: 24,
       };
-      const mainStatValueString = await ocrRegion(mainStatValueRegion, 8, whitelistValue);
-      const mainStatValue = Number(mainStatValueString) / 100;
+      const mainstatValueString = await ocrRegion(mainstatValueRegion, 8, whitelistValue);
+      const mainstatValue = Math.round(Number(mainstatValueString) * 100);
 
-      // mainStatFlatId
-      const mainStatFlatId = cost === 1 ? 'hp' : 'atk';
+      // mainstatSubId
+      const mainstatSubId = cost === 1 ? 'hp' : 'atk';
 
-      // mainStatFlatValue
-      const mainStatFlatRegion = { 
+      // mainstatSubValue
+      const mainstatSubRegion = { 
         x: 329 + equipIndex * 374 + offset,
         y: 846,
         w: 43,
         h: 18,
       };
-      const mainStatFlatString = await ocrRegion(mainStatFlatRegion, 8, whitelistValue);
-      const mainStatFlatValue = Number(mainStatFlatString)
+      const mainstatSubString = await ocrRegion(mainstatSubRegion, 8, whitelistValue);
+      const mainstatSubValue = Number(mainstatSubString)
 
-      // subStatList
-      let subStatList = [];
+      // substats
+      let substats = [];
       for (let lineIndex = 0; lineIndex < 5; lineIndex++) {
-        // subStatId
-        const subStatRegion = {
+        // stat
+        const substatRegion = {
           x: 64 + equipIndex * 374 + offset,
           y: 882 + lineIndex * 34,
           w: 218,
           h: 21,
         };
-        const subStatFragmentRaw = await ocrRegion(subStatRegion, 7, whitelistStat);
-        const subStatFragment = matchString(subStatFragmentRaw, Object.keys(subStatFragmentToSuffix));
-        const subStatPrefix = subStatFragmentToSuffix[subStatFragment];
+        const substatFragmentRaw = await ocrRegion(substatRegion, 7, whitelistStat);
+        const substatFragment = matchString(substatFragmentRaw, Object.keys(substatFragmentToSuffix));
+        const substatPrefix = substatFragmentToSuffix[substatFragment];
 
-        // subStatValue
-        const subStatValueRegion = {
+        // value
+        const substatValueRegion = {
           x: 315 + equipIndex * 374 + offset,
           y: 882 + lineIndex * 34,
           w: 58,
           h: 21,
         };
-        const subStatValueString = await ocrRegion(subStatValueRegion, 13, whitelistValue);
-        // finalize id
-        const isPercent = subStatValueString.endsWith('%');
-        const subStatSuffix = isPercent ? '%' : '';
-        const subStatId = `${subStatPrefix}${subStatSuffix}`;
-        // finalize value
-        const noPercentStr = subStatValueString.endsWith('%') ? subStatValueString.slice(0, -1) : subStatValueString;
-        const subStatValueRaw = matchString(noPercentStr, subStatValueOptionsById[subStatId]);
-        const subStatValue = isPercent ? subStatValueRaw / 100 : subStatValueRaw;
+        const substatValueString = await ocrRegion(substatValueRegion, 13, whitelistValue);
 
-        subStatList.push({ subStatId, subStatValue });
+        // finalize stat
+        const isPercent = substatValueString.endsWith('%');
+        const substatSuffix = isPercent ? '%' : '';
+        const substatId = `${substatPrefix}${substatSuffix}`;
+
+        // finalize value
+        const noPercentStr = substatValueString.endsWith('%') ? substatValueString.slice(0, -1) : substatValueString;
+        const substatValueRaw = matchString(noPercentStr, valueOptionsById[substatId]);
+        const substatValue = Math.round(isPercent ? substatValueRaw * 100 : substatValueRaw);
+
+        substats.push({ id: substatId, value: substatValue });
       }
 
-      equipList.push({ cost, setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList });
+      const equip = { cost, setId, mainstatId, mainstatValue, mainstatSubId, mainstatSubValue, substats };
+
+      // echoId
+      equip.echoId = await getMainEcho(imageBitmap, equipIndex, setId, cost);
+
+      equipList.push(equip);
     }
 
-    // Main Echo
-    const mainEchoSet = equipList[0].setId;
-    const mainEchoCost = equipList[0].cost;
-    const mainEcho = await getMainEcho(imageBitmap, mainEchoSet, mainEchoCost);
-
-    const build = { rank, weaponId, equipList, mainEcho };
-    self.postMessage({ success: true, entry: [charId, build] });
+    const build = { id, rank, weaponId, equipList };
+    self.postMessage({ success: true, entry: build });
   } catch (error) {
     console.error(error);
   }

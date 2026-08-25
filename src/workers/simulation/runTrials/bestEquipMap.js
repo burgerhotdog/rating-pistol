@@ -1,22 +1,22 @@
 import { WW, MAINSTAT, SUBSTAT } from '@/data';
-import { toEquipMap } from '@/utils';
+import { buildEquipMap } from '@/utils';
 
 const COST_PATTERN = [4, 3, 3, 1, 1];
 
 const FLAT_STAT_BY_COST = {
-  4: { mainStatFlatId: 'ATK', mainStatFlatValue: 150 },
-  3: { mainStatFlatId: 'ATK', mainStatFlatValue: 100 },
-  1: { mainStatFlatId: 'HP', mainStatFlatValue: 2280 },
+  4: { mainstatSubId: 'atk', mainstatSubValue: 150 },
+  3: { mainstatSubId: 'atk', mainstatSubValue: 100 },
+  1: { mainstatSubId: 'hp', mainstatSubValue: 2280 },
 };
 
 const toEquip = (cost, mainstat, substats = []) => ({
   cost,
-  mainStatId: mainstat,
-  mainStatValue: MAINSTAT[WW][cost][mainstat].value,
+  mainstatId: mainstat,
+  mainstatValue: MAINSTAT[WW][cost][mainstat].value,
   ...FLAT_STAT_BY_COST[cost],
-  subStatList: substats.map((stat) => ({
-    subStatId: stat,
-    subStatValue: SUBSTAT[WW][stat].value,
+  substats: substats.map((id) => ({
+    id,
+    value: SUBSTAT[WW][id].value,
   })),
 });
 
@@ -39,9 +39,9 @@ function greedyFillSubstats(evaluateEquipMap, equips) {
 
         const trialEquips = equips.map((eq, i) =>
           i === e
-            ? toEquip(eq.cost, eq.mainStatId, [...chosen[i], substat])
+            ? toEquip(eq.cost, eq.mainstatId, [...chosen[i], substat])
             : eq);
-        const { score } = evaluateEquipMap(toEquipMap(trialEquips));
+        const { score } = evaluateEquipMap(buildEquipMap(trialEquips, true));
 
         if (!best || score > best.score) best = { score, equipIndex: e, substat };
       }
@@ -49,7 +49,7 @@ function greedyFillSubstats(evaluateEquipMap, equips) {
 
     if (!best) break; // no legal moves left (shouldn't happen before totalSlots)
     chosen[best.equipIndex] = [...chosen[best.equipIndex], best.substat];
-    equips[best.equipIndex] = toEquip(equips[best.equipIndex].cost, equips[best.equipIndex].mainStatId, chosen[best.equipIndex]);
+    equips[best.equipIndex] = toEquip(equips[best.equipIndex].cost, equips[best.equipIndex].mainstatId, chosen[best.equipIndex]);
   }
 
   return equips;
@@ -78,7 +78,7 @@ export function findBestPossibleEquipMap(evaluateEquipMap) {
   const rankedCombos = [];
   for (const combo of mainstatCombos(COST_PATTERN)) {
     const equipList = COST_PATTERN.map((cost, i) => toEquip(cost, combo[i]));
-    const { score } = evaluateEquipMap(toEquipMap(equipList));
+    const { score } = evaluateEquipMap(buildEquipMap(equipList, true));
     rankedCombos.push({ combo, score });
   }
   rankedCombos.sort((a, b) => b.score - a.score);
@@ -92,7 +92,7 @@ export function findBestPossibleEquipMap(evaluateEquipMap) {
   for (const { combo } of rankedCombos.slice(0, SHORTLIST_SIZE)) {
     const bareEquips = COST_PATTERN.map((cost, i) => toEquip(cost, combo[i]));
     const equipList = greedyFillSubstats(evaluateEquipMap, bareEquips);
-    const { score, totals } = evaluateEquipMap(toEquipMap(equipList));
+    const { score, totals } = evaluateEquipMap(buildEquipMap(equipList, true));
 
     if (!best || score > best.score) best = { score, equipList, totals };
   }
@@ -100,11 +100,11 @@ export function findBestPossibleEquipMap(evaluateEquipMap) {
   // console.log
   for (const e of best.equipList) {
     const lines = [];
-    lines.push(`\nMain\n${e.mainStatId}: ${e.mainStatValue}`);
-    lines.push(`\nMainFlat\n${e.mainStatFlatId}: ${e.mainStatFlatValue}`);
+    lines.push(`\nMain\n${e.mainstatId}: ${e.mainstatValue}`);
+    lines.push(`\nMainSub\n${e.mainstatSubId}: ${e.mainstatSubValue}`);
 
-    for (const ss of e.subStatList) {
-      lines.push(`\nSub\n${ss.subStatId}: ${ss.subStatValue}`);
+    for (const ss of e.substats) {
+      lines.push(`\nSub\n${ss.id}: ${ss.value}`);
     }
 
     // console.log(lines.join());

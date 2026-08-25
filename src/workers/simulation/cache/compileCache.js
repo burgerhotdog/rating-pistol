@@ -1,5 +1,5 @@
 import { WW, CHARACTER, ECHO } from '@/data';
-import { toMergedObj, toEquipMap, compileBaseMap } from '@/utils';
+import { toMergedObj, buildEquipMap, buildBaseMap } from '@/utils';
 import { getActionDefs } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
@@ -109,10 +109,10 @@ export const compileCache = ({ gameId, charId, team }) => {
     mCache.setCounts = member.setCounts;
     mCache.mainEcho = member.mainEcho;
 
-    mCache.baseMap = compileBaseMap(gameId, member.id, member.weaponId);
+    mCache.baseMap = buildBaseMap(gameId, member.id, member.weaponId);
     if (member.build?.equipList) {
       mCache.equipList = member.build.equipList;
-      mCache.equipMap = toEquipMap(mCache.equipList);
+      mCache.equipMap = buildEquipMap(mCache.equipList);
       mCache.statMap = toMergedObj(mCache.baseMap, mCache.equipMap);
     }
 

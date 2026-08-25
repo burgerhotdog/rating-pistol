@@ -1,48 +1,53 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { Stack } from '@mui/material';
-import { Header, Navbar, StatsPanel } from '@/components';
+import { Header, Navbar, ConfigPanel, ResultsPanels } from '@/components';
 import { CHARACTER } from '@/data';
 import { useSortedBuilds, useTeam } from '@/hooks';
-import { Charts } from '@/layouts';
 
-const PageLayout = ({ sortedKeys }) => {
-  const { team, updateTeam } = useTeam();
-
+const DefaultPage = () => {
   return (
-    <>
+    <Stack sx={{ height: '100dvh', px: 3 }}>
+      <Header />
+      <Stack sx={{ flex: 1 }}>
+        {/* Unfinished */}
+      </Stack>
+    </Stack>
+  );
+};
+
+const CharacterPage = () => {
+  const [team, setTeam] = useTeam();
+  return (
+    <Stack sx={{ height: '100dvh', px: 3 }}>
       <Header />
       <Stack
         direction="row"
         spacing={1}
-        sx={{ flex: 1, overflow: 'hidden', pb: 4 }}
+        sx={{ flex: 1, overflow: 'hidden', pb: 3 }}
       >
-        <Navbar sorted={sortedKeys} />
-        <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-          <StatsPanel team={team} updateTeam={updateTeam} />
-          <Charts team={team} />
-        </Stack>
+        <Navbar />
+        <ConfigPanel team={team} setTeam={setTeam} />
+        <ResultsPanels team={team} />
       </Stack>
-    </>
+    </Stack>
   );
 };
 
 const GamePage = () => {
   const { gameId, charId } = useParams();
-  const { builds, sortedKeys } = useSortedBuilds(gameId);
-  const charData = CHARACTER[gameId];
+  const { builds, sortedKeys } = useSortedBuilds();
 
-  const isBadCharId = charId && (!charData[charId] || !builds[charId]);
-  if (isBadCharId) return (
-    <Navigate to={`/${gameId}`} replace />
-  );
+  if (!charId) {
+    return !sortedKeys.length
+      ? <DefaultPage key={gameId} />
+      : <Navigate to={`/${gameId}/${sortedKeys[0]}`} replace />;
+  }
 
-  if (!charId && sortedKeys.length) return (
-    <Navigate to={`/${gameId}/${sortedKeys[0]}`} replace />
-  );
+  const validCharId = charId in CHARACTER[gameId] && charId in builds;
 
-  return (
-    <PageLayout key={`${gameId}-${charId}`} sortedKeys={sortedKeys} />
-  );
+  return validCharId
+    ? <CharacterPage key={`${gameId}-${charId}`} />
+    : <Navigate to={`/${gameId}`} replace />;
 };
 
 export default GamePage;

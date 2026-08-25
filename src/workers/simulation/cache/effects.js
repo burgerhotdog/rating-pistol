@@ -5,9 +5,9 @@ import {
   isEnabledSet,
   isEnabledEcho,
   toArray,
+  resolveRankedValue,
 } from '@/utils';
 import { normAction } from './actions';
-import { resolveRankedValue } from './resolveRanked';
 
 function normScope(ownerId, memberIds, rawScope) {
   switch (rawScope) {

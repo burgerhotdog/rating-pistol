@@ -1,8 +1,4 @@
-export * from './ConfigPanel';
-export * from './Cards';
-export * from './Header';
-
-export * from './LoadingBar';
-export * from './CharAvatar';
-export * from './Dot';
-export * from './Charts';
+export { default as Header } from './Header';
+export { default as Navbar } from './Navbar';
+export { default as ConfigPanel } from './ConfigPanel';
+export { default as ResultsPanels } from './ResultsPanels';

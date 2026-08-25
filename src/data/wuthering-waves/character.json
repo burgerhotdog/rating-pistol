@@ -53193,37 +53193,9 @@
     },
     "presets": [
       {
-        "weaponId": "21050046",
-        "setCounts": {
-          "11": 5
-        },
-        "mainEcho": "6000104",
         "team": [
           "1507",
           "1506",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "forteCircuit.1",
-          "resonanceLiberation.1",
-          "resonanceSkill.2",
-          "resonanceSkill.3",
-          "resonanceSkill.4",
-          "forteCircuit.3",
-          "resonanceSkill.2",
-          "resonanceSkill.3",
-          "resonanceSkill.4",
-          "forteCircuit.3",
-          "outroSkill.0"
-        ],
-        "duration": 11600
-      },
-      {
-        "team": [
-          "1507",
-          "1506.1",
           "1505"
         ],
         "weaponId": "21050046",
@@ -54412,7 +54384,7 @@
         "mainEcho": "6000104",
         "team": [
           "1507",
-          "1506.1",
+          "1506",
           "1505"
         ],
         "rotation": [

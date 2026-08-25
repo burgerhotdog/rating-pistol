@@ -1,2 +1,1 @@
-export * from './StatsPanel';
-export { default as Navbar } from './Navbar';
+export { default } from './ConfigPanel';

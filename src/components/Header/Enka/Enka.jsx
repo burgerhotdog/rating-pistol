@@ -1,0 +1,200 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import {
+  Box,
+  Button,
+  Checkbox,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  FormControlLabel,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+} from '@mui/material';
+import SyncIcon from '@mui/icons-material/Sync';
+import { useBuild, useUser } from '@/contexts';
+import { GI, HSR, ZZZ, CHARACTER } from '@/data';
+import { fetchEnka } from './fetchEnka';
+import { parseEnka } from './parseEnka';
+
+const Enka = () => {
+  const { gameId } = useParams();
+  const { savedUids, updateSavedUids } = useUser();
+  const { saveBuildEntries } = useBuild();
+
+  const [uid, setUid] = useState('');
+  const [isSyncLoading, setIsSyncLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [enkaList, setEnkaList] = useState([]);
+  const [selectedList, setSelectedList] = useState([]);
+
+  useEffect(() => setUid(savedUids[gameId] ?? ''), [savedUids, gameId]);
+
+  const isValidLength = (gameId, input) => {
+    if (gameId === GI || gameId === HSR) return /^\d{9,10}$/.test(input);
+    if (gameId === ZZZ) return /^\d{10,11}$/.test(input);
+    return false;
+  };
+
+  const handleSync = async () => {
+    setIsSyncLoading(true);
+    setError(null);
+
+    const [status, result] = await fetchEnka(gameId, uid);
+
+    if (status !== 200) {
+      setError(result);
+      setIsSyncLoading(false);
+      return;
+    } else {
+      setEnkaList(result);
+      setSelectedList(result.map(() => true));
+      setDialogOpen(true);
+      updateSavedUids(gameId, uid);
+      setIsSyncLoading(false);
+    }
+  };
+
+  const handleSave = async () => {
+    const charBuffer = selectedList.map((verdict, index) => {
+      if (!verdict) return null;
+      return parseEnka(gameId, enkaList[index]);
+    }).filter(Boolean);
+
+    if (charBuffer.length) {
+      saveBuildEntries(gameId, charBuffer);
+    }
+
+    closeDialog();
+  };
+
+  const closeDialog = () => {
+    setDialogOpen(false);
+  };
+
+  const handleDialogExited = () => {
+    setSelectedList([]);
+    setEnkaList([]);
+  };
+
+  return (
+    <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+      <TextField
+        label="Enter UID..."
+        value={uid}
+        slotProps={{
+          inputLabel: {
+            shrink: false,
+            sx: {
+              opacity: uid ? 0 : 1,
+              '&.Mui-focused': {
+                color: 'text.secondary',
+              },
+            },
+          },
+          input: {
+            inputMode: 'numeric',
+            onBeforeInput: (e) => {
+              if (!/^\d*$/.test(e.data)) {
+                e.preventDefault();
+              }
+            },
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={() => handleSync()}
+                  disabled={!isValidLength(gameId, uid) || isSyncLoading}
+                >
+                  <SyncIcon
+                    sx={{
+                      '@keyframes spin': {
+                        from: {
+                          transform: 'rotate(180deg)',
+                        },
+                        to: {
+                          transform: 'rotate(0deg)',
+                        },
+                      },
+                      animation: isSyncLoading
+                        ? 'spin 1s ease-in-out infinite'
+                        : 'none',
+                    }}
+                  />
+                </IconButton>
+              </InputAdornment>
+            ),
+          },
+        }}
+        onChange={(e) => {
+          if (error) setError(null);
+          setUid(e.target.value);
+        }}
+        error={!!error}
+        disabled={isSyncLoading}
+      />
+
+      {error && (
+        <Typography
+          variant="caption"
+          color="error"
+          sx={{
+            position: 'absolute',
+            bottom: '-1.5rem',
+            left: '14px',
+            pointerEvents: 'none',
+          }}
+        >
+          {error}
+        </Typography>
+      )}
+
+      <Dialog
+        open={dialogOpen}
+        onClose={closeDialog}
+        slotProps={{
+          transition: {
+            onExited: handleDialogExited,
+          },
+        }}
+      >
+        <DialogTitle>
+          Select Characters to Import
+        </DialogTitle>
+
+        <DialogContent>
+          {enkaList.map((char, index) => (
+            <FormControlLabel
+              key={char.avatarId}
+              control={
+                <Checkbox
+                  checked={selectedList[index]}
+                  onChange={() => setSelectedList((prev) => {
+                    const newSelected = [...prev];
+                    newSelected[index] = !newSelected[index];
+                    return newSelected;
+                  })}
+                />
+              }
+              label={CHARACTER[gameId][char.avatarId].name}
+            />
+          ))}
+        </DialogContent>
+
+        <DialogActions>
+          <Button onClick={closeDialog}>
+            Cancel
+          </Button>
+          <Button onClick={handleSave} variant="contained" color="primary">
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </Box>
+  );
+};
+
+export default Enka;
