@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
-import { Autocomplete } from '../Forms/Autocomplete';
+import { Autocomplete } from './Autocomplete';
 
 const WeaponTab = ({ draft, setDraft }) => {
   const character = useData('character')[draft.id];
