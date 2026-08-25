@@ -62,7 +62,6 @@ self.onmessage = async ({ data }) => {
 
     // character
     const id = await getId(imageBitmap, ocrWorker);
-    const level = 90;
     const rank = getRank(imageBitmap);
 
     // weapon
@@ -161,7 +160,7 @@ self.onmessage = async ({ data }) => {
       equipList.push(equip);
     }
 
-    const build = { id, level, rank, weaponId, equipList };
+    const build = { id, rank, weaponId, equipList };
     self.postMessage({ success: true, entry: [id, build] });
   } catch (error) {
     console.error(error);
