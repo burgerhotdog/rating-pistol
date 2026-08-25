@@ -15,7 +15,7 @@ const Ocr = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [pendingEntry, setPendingEntry] = useState(null);
+  const [draft, setDraft] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
   const [batchEntries, setBatchEntries] = useState([]);
   const [batchCursor, setBatchCursor] = useState(0);
@@ -31,7 +31,7 @@ const Ocr = () => {
     startFiles,
   } = useOcrWorker({
     onSuccess: (entry) => {
-      setPendingEntry(entry);
+      setDraft(entry);
       setDialogOpen(true);
     },
     onBatchSuccess: (entries) => {
@@ -39,7 +39,7 @@ const Ocr = () => {
       setConfirmedBatchEntries([]);
       setBatchEntries(entries);
       setBatchCursor(0);
-      setPendingEntry(entries[0]);
+      setDraft(entries[0]);
       setDialogOpen(true);
     },
   });
@@ -58,7 +58,7 @@ const Ocr = () => {
 
   const handleSelectScratch = () => {
     setMenuOpen(false);
-    setPendingEntry(['', initBuild(WW)]);
+    setDraft(initBuild(WW));
     setDialogOpen(true);
   };
 
@@ -70,34 +70,18 @@ const Ocr = () => {
     startFiles(fileList);
   };
 
-  // --- Confirm dialog field editors ---
-  const updateTopField = (field, value) => {
-    setPendingEntry(([charId, build]) => [charId, { ...build, [field]: value }]);
-  };
-
-  const updateCharacterId = (value) => {
-    setPendingEntry(([, build]) => [value, build]);
-  };
-
-  const updateEquip = (index, nextEquip) => {
-    setPendingEntry(([charId, build]) => {
-      const equipList = build.equipList.map((eq, i) => (i === index ? nextEquip : eq));
-      return [charId, { ...build, equipList }];
-    });
-  };
-
   const advanceBatchConfirm = () => {
     const nextIndex = batchCursor + 1;
     if (nextIndex < batchEntries.length) {
       setBatchCursor(nextIndex);
-      setPendingEntry(batchEntries[nextIndex]);
+      setDraft(batchEntries[nextIndex]);
       return;
     }
 
     setConfirmedBatchEntries([]);
     setBatchEntries([]);
     setBatchCursor(0);
-    setPendingEntry(null);
+    setDraft(null);
     setDialogOpen(false);
   };
 
@@ -130,14 +114,16 @@ const Ocr = () => {
     }
 
     setDialogOpen(false);
-    setPendingEntry(null);
+    setDraft(null);
   };
 
   const handleConfirm = async () => {
-    if (!pendingEntry) return;
-    const [charId] = pendingEntry;
+    if (!draft) return;
+
+    const entry = [draft.id, draft];
+
     if (isBatchMode) {
-      const nextConfirmedEntries = [...confirmedBatchEntries, pendingEntry];
+      const nextConfirmedEntries = [...confirmedBatchEntries, entry];
       if (batchIndex === batchTotal) {
         await finalizeBatchSave(nextConfirmedEntries);
       } else {
@@ -149,10 +135,10 @@ const Ocr = () => {
 
     setIsSaving(true);
     try {
-      await saveBuildEntries(WW, [pendingEntry]);
-      setPendingEntry(null);
+      await saveBuildEntries(WW, [entry]);
+      setDraft(null);
       setDialogOpen(false);
-      navigate(`/${gameId}/${charId}`, { replace: true });
+      navigate(`/${gameId}/${draft.id}`, { replace: true });
     } catch (err) {
       console.log(err);
     } finally {
@@ -202,16 +188,14 @@ const Ocr = () => {
 
       <ConfirmDialog
         open={dialogOpen}
-        pendingEntry={pendingEntry}
         isLoading={isLoading}
         isBatchMode={isBatchMode}
         batchIndex={batchIndex}
         batchTotal={batchTotal}
-        onUpdateCharacterId={updateCharacterId}
-        onUpdateTopField={updateTopField}
-        onUpdateEquip={updateEquip}
         onCancel={handleCancel}
         onConfirm={handleConfirm}
+        draft={draft}
+        setDraft={setDraft}
       />
     </Box>
   );

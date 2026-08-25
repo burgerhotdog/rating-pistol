@@ -161,7 +161,7 @@ self.onmessage = async ({ data }) => {
     }
 
     const build = { id, rank, weaponId, equipList };
-    self.postMessage({ success: true, entry: [id, build] });
+    self.postMessage({ success: true, entry: build });
   } catch (error) {
     console.error(error);
   }
