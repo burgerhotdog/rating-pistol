@@ -22254,11 +22254,11 @@
       }
     },
     "memberPreset": {
-      "weaponId": "21050076",
+      "weaponId": 21050076,
       "setCounts": {
         "28": 5
       },
-      "mainEcho": "6000200",
+      "mainEcho": 6000200,
       "rotation": [
         "introSkill.0",
         "normalAttack.3",
@@ -47914,7 +47914,14 @@
     },
     "teamPreset": [
       1413,
-      1211,
+      {
+        "id": 1211,
+        "setCounts": {
+          "31": 5
+        },
+        "mainEcho": 6000198,
+        "mode": "tuneStrain"
+      },
       1209
     ]
   },
@@ -58526,7 +58533,14 @@
     },
     "teamPreset": [
       1510,
-      1211,
+      {
+        "id": 1211,
+        "setCounts": {
+          "31": 5
+        },
+        "mainEcho": 6000198,
+        "mode": "tuneStrain"
+      },
       1209
     ]
   },
