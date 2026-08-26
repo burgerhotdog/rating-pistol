@@ -1,4 +1,5 @@
 import { GI, HSR, WW, ZZZ, MAINSTAT, SUBSTAT } from '@/data';
+import { randomInt } from '@/utils';
 import { weightedLottery } from './weightedLottery';
 
 const FLATS_BY_COST = {
@@ -11,25 +12,26 @@ function createInitEquip(gameId) {
   switch (gameId) {
     case GI:
       return function initEquip() {
-        const index = Math.floor(Math.random() * 5);
-        return { index };
+        return { index: randomInt(0, 4) };
       };
     case HSR:
-      return function initEquip(spec) {
-        const index = spec === 'relic'
-          ? Math.floor(Math.random() * 4)
-          : Math.random() < 0.5 ? 4 : 5;
-        return { index };
+      return function initEquip() {
+        return { index: randomInt(0, 5) };
       };
     case WW:
-      return function initEquip(spec) {
-        const cost = spec ?? (Math.random() < 0.5 ? 3 : 1);
+      return function initEquip() {
+        const randomI = randomInt(0, 2);
+        const cost =
+          randomI === 0
+            ? 4
+            : randomI === 1
+              ? 3
+              : 1;
         return { cost, ...FLATS_BY_COST[cost] };
       };
     case ZZZ:
       return function initEquip() {
-        const index = Math.floor(Math.random() * 6);
-        return { index };
+        return { index: randomInt(0, 5) };
       };
   }
 }

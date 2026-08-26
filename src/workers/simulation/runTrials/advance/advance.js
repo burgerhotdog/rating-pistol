@@ -42,9 +42,9 @@ export function createAdvanceTrial(cache, evaluateEquipMap) {
 
   const passes = {
     [GI]: [{ count: 66 }],
-    [HSR]: [{ count: 84, type: 'relic' }],
+    [HSR]: [{ count: 84 }],
     [ZZZ]: [{ count: 120 }],
-    [WW]: [{ count: 20, cost: 4 }, { count: 60 }],
+    [WW]: [{ count: 60 }],
   }[gameId];
 
   return (trial) => {
