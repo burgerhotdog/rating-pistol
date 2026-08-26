@@ -63,4 +63,4 @@ def temp():
                 f.write(image)
 
 if __name__ == "__main__":
-    temp()
+    main()
