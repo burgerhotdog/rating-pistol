@@ -27,7 +27,7 @@ const EquipsTab = ({ draft, setDraft }) => {
     () => Object.values(setData)
       .sort((a, b) =>
         b.version - a.version ||
-        Number(b.id) - Number(a.id)
+        b.id - a.id
       ),
     [setData],
   );
@@ -41,7 +41,7 @@ const EquipsTab = ({ draft, setDraft }) => {
       .sort((a, b) =>
         b.cost - a.cost ||
         b.version - a.version ||
-        Number(b.id) - Number(a.id)
+        b.id - a.id
       ),
     [echoData, equip],
   );

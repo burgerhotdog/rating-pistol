@@ -5,16 +5,7 @@ def get_path(dirname, filename):
 
 def modify(data, game_id, filetype):
     for entry in data.values():
-        char_id = entry["id"]
-        icon = f"{game_id}/{filetype}/{char_id}.webp"
-        new_entry = {}
-        for key, value in entry.items():
-            new_entry[key] = value
-            if key == "id":
-                new_entry["icon"] = icon
-
-        entry.clear()
-        entry.update(new_entry)
+        entry["sets"] = [int(set_id) for set_id in entry["sets"]]
     return True
 
 GAMES_TO_MODIFY = [
@@ -25,9 +16,9 @@ GAMES_TO_MODIFY = [
 ]
 
 FILES_TO_MODIFY = [
-    "character.json",
-    "weapon.json",
-    "set.json",
+    #"character.json",
+    #"weapon.json",
+    #"set.json",
     "echo.json",
 ]
 
@@ -43,7 +34,7 @@ def main():
 
             was_changed = modify(data, dirname, filename.removesuffix(".json"))
             if was_changed:
-                #shutil.copy2(path, f"{path}.bak")
+                shutil.copy2(path, f"{path}.bak")
                 with open(path, "w", encoding="utf-8") as f:
                     json.dump(data, f, indent=2)
 

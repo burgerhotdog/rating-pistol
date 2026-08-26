@@ -96,5 +96,5 @@ export async function getEchoId(imageBitmap, index, setId, cost) {
     }
   }
 
-  return bestMatch;
+  return Number(bestMatch);
 }

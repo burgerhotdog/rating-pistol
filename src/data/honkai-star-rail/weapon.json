@@ -2,7 +2,7 @@
   "20000": {
     "name": "Arrows",
     "version": 1,
-    "id": "20000",
+    "id": 20000,
     "icon": "honkai-star-rail/weapon/20000.webp",
     "quality": 3,
     "type": "hunt",
@@ -16,7 +16,7 @@
   "20001": {
     "name": "Cornucopia",
     "version": 1,
-    "id": "20001",
+    "id": 20001,
     "icon": "honkai-star-rail/weapon/20001.webp",
     "quality": 3,
     "type": "abundance",
@@ -30,7 +30,7 @@
   "20002": {
     "name": "Collapsing Sky",
     "version": 1,
-    "id": "20002",
+    "id": 20002,
     "icon": "honkai-star-rail/weapon/20002.webp",
     "quality": 3,
     "type": "destruction",
@@ -44,7 +44,7 @@
   "20003": {
     "name": "Amber",
     "version": 1,
-    "id": "20003",
+    "id": 20003,
     "icon": "honkai-star-rail/weapon/20003.webp",
     "quality": 3,
     "type": "preservation",
@@ -58,7 +58,7 @@
   "20004": {
     "name": "Void",
     "version": 1,
-    "id": "20004",
+    "id": 20004,
     "icon": "honkai-star-rail/weapon/20004.webp",
     "quality": 3,
     "type": "nihility",
@@ -72,7 +72,7 @@
   "20005": {
     "name": "Chorus",
     "version": 1,
-    "id": "20005",
+    "id": 20005,
     "icon": "honkai-star-rail/weapon/20005.webp",
     "quality": 3,
     "type": "harmony",
@@ -86,7 +86,7 @@
   "20006": {
     "name": "Data Bank",
     "version": 1,
-    "id": "20006",
+    "id": 20006,
     "icon": "honkai-star-rail/weapon/20006.webp",
     "quality": 3,
     "type": "erudition",
@@ -100,7 +100,7 @@
   "20007": {
     "name": "Darting Arrow",
     "version": 1,
-    "id": "20007",
+    "id": 20007,
     "icon": "honkai-star-rail/weapon/20007.webp",
     "quality": 3,
     "type": "hunt",
@@ -114,7 +114,7 @@
   "20008": {
     "name": "Fine Fruit",
     "version": 1,
-    "id": "20008",
+    "id": 20008,
     "icon": "honkai-star-rail/weapon/20008.webp",
     "quality": 3,
     "type": "abundance",
@@ -128,7 +128,7 @@
   "20009": {
     "name": "Shattered Home",
     "version": 1,
-    "id": "20009",
+    "id": 20009,
     "icon": "honkai-star-rail/weapon/20009.webp",
     "quality": 3,
     "type": "destruction",
@@ -142,7 +142,7 @@
   "20010": {
     "name": "Defense",
     "version": 1,
-    "id": "20010",
+    "id": 20010,
     "icon": "honkai-star-rail/weapon/20010.webp",
     "quality": 3,
     "type": "preservation",
@@ -156,7 +156,7 @@
   "20011": {
     "name": "Loop",
     "version": 1,
-    "id": "20011",
+    "id": 20011,
     "icon": "honkai-star-rail/weapon/20011.webp",
     "quality": 3,
     "type": "nihility",
@@ -170,7 +170,7 @@
   "20012": {
     "name": "Meshing Cogs",
     "version": 1,
-    "id": "20012",
+    "id": 20012,
     "icon": "honkai-star-rail/weapon/20012.webp",
     "quality": 3,
     "type": "harmony",
@@ -184,7 +184,7 @@
   "20013": {
     "name": "Passkey",
     "version": 1,
-    "id": "20013",
+    "id": 20013,
     "icon": "honkai-star-rail/weapon/20013.webp",
     "quality": 3,
     "type": "erudition",
@@ -198,7 +198,7 @@
   "20014": {
     "name": "Adversarial",
     "version": 1,
-    "id": "20014",
+    "id": 20014,
     "icon": "honkai-star-rail/weapon/20014.webp",
     "quality": 3,
     "type": "hunt",
@@ -212,7 +212,7 @@
   "20015": {
     "name": "Multiplication",
     "version": 1,
-    "id": "20015",
+    "id": 20015,
     "icon": "honkai-star-rail/weapon/20015.webp",
     "quality": 3,
     "type": "abundance",
@@ -226,7 +226,7 @@
   "20016": {
     "name": "Mutual Demise",
     "version": 1,
-    "id": "20016",
+    "id": 20016,
     "icon": "honkai-star-rail/weapon/20016.webp",
     "quality": 3,
     "type": "destruction",
@@ -240,7 +240,7 @@
   "20017": {
     "name": "Pioneering",
     "version": 1,
-    "id": "20017",
+    "id": 20017,
     "icon": "honkai-star-rail/weapon/20017.webp",
     "quality": 3,
     "type": "preservation",
@@ -254,7 +254,7 @@
   "20018": {
     "name": "Hidden Shadow",
     "version": 1,
-    "id": "20018",
+    "id": 20018,
     "icon": "honkai-star-rail/weapon/20018.webp",
     "quality": 3,
     "type": "nihility",
@@ -268,7 +268,7 @@
   "20019": {
     "name": "Mediation",
     "version": 1,
-    "id": "20019",
+    "id": 20019,
     "icon": "honkai-star-rail/weapon/20019.webp",
     "quality": 3,
     "type": "harmony",
@@ -282,7 +282,7 @@
   "20020": {
     "name": "Sagacity",
     "version": 1,
-    "id": "20020",
+    "id": 20020,
     "icon": "honkai-star-rail/weapon/20020.webp",
     "quality": 3,
     "type": "erudition",
@@ -296,7 +296,7 @@
   "20021": {
     "name": "Shadowburn",
     "version": 3,
-    "id": "20021",
+    "id": 20021,
     "icon": "honkai-star-rail/weapon/20021.webp",
     "quality": 3,
     "type": "remembrance",
@@ -310,7 +310,7 @@
   "20022": {
     "name": "Reminiscence",
     "version": 3,
-    "id": "20022",
+    "id": 20022,
     "icon": "honkai-star-rail/weapon/20022.webp",
     "quality": 3,
     "type": "remembrance",
@@ -324,7 +324,7 @@
   "20023": {
     "name": "Sneering",
     "version": 4,
-    "id": "20023",
+    "id": 20023,
     "icon": "honkai-star-rail/weapon/20023.webp",
     "quality": 3,
     "type": "elation",
@@ -338,7 +338,7 @@
   "20024": {
     "name": "Lingering Tear",
     "version": 4,
-    "id": "20024",
+    "id": 20024,
     "icon": "honkai-star-rail/weapon/20024.webp",
     "quality": 3,
     "type": "elation",
@@ -352,7 +352,7 @@
   "21000": {
     "name": "Post-Op Conversation",
     "version": 1,
-    "id": "21000",
+    "id": 21000,
     "icon": "honkai-star-rail/weapon/21000.webp",
     "quality": 4,
     "type": "abundance",
@@ -366,7 +366,7 @@
   "21001": {
     "name": "Good Night and Sleep Well",
     "version": 1,
-    "id": "21001",
+    "id": 21001,
     "icon": "honkai-star-rail/weapon/21001.webp",
     "quality": 4,
     "type": "nihility",
@@ -380,7 +380,7 @@
   "21002": {
     "name": "Day One of My New Life",
     "version": 1,
-    "id": "21002",
+    "id": 21002,
     "icon": "honkai-star-rail/weapon/21002.webp",
     "quality": 4,
     "type": "preservation",
@@ -394,7 +394,7 @@
   "21003": {
     "name": "Only Silence Remains",
     "version": 1,
-    "id": "21003",
+    "id": 21003,
     "icon": "honkai-star-rail/weapon/21003.webp",
     "quality": 4,
     "type": "hunt",
@@ -408,7 +408,7 @@
   "21004": {
     "name": "Memories of the Past",
     "version": 1,
-    "id": "21004",
+    "id": 21004,
     "icon": "honkai-star-rail/weapon/21004.webp",
     "quality": 4,
     "type": "harmony",
@@ -422,7 +422,7 @@
   "21005": {
     "name": "The Moles Welcome You",
     "version": 1,
-    "id": "21005",
+    "id": 21005,
     "icon": "honkai-star-rail/weapon/21005.webp",
     "quality": 4,
     "type": "destruction",
@@ -436,7 +436,7 @@
   "21006": {
     "name": "The Birth of the Self",
     "version": 1,
-    "id": "21006",
+    "id": 21006,
     "icon": "honkai-star-rail/weapon/21006.webp",
     "quality": 4,
     "type": "erudition",
@@ -450,7 +450,7 @@
   "21007": {
     "name": "Shared Feeling",
     "version": 1,
-    "id": "21007",
+    "id": 21007,
     "icon": "honkai-star-rail/weapon/21007.webp",
     "quality": 4,
     "type": "abundance",
@@ -464,7 +464,7 @@
   "21008": {
     "name": "Eyes of the Prey",
     "version": 1,
-    "id": "21008",
+    "id": 21008,
     "icon": "honkai-star-rail/weapon/21008.webp",
     "quality": 4,
     "type": "nihility",
@@ -478,7 +478,7 @@
   "21009": {
     "name": "Landau's Choice",
     "version": 1,
-    "id": "21009",
+    "id": 21009,
     "icon": "honkai-star-rail/weapon/21009.webp",
     "quality": 4,
     "type": "preservation",
@@ -492,7 +492,7 @@
   "21010": {
     "name": "Swordplay",
     "version": 1,
-    "id": "21010",
+    "id": 21010,
     "icon": "honkai-star-rail/weapon/21010.webp",
     "quality": 4,
     "type": "hunt",
@@ -506,7 +506,7 @@
   "21011": {
     "name": "Planetary Rendezvous",
     "version": 1,
-    "id": "21011",
+    "id": 21011,
     "icon": "honkai-star-rail/weapon/21011.webp",
     "quality": 4,
     "type": "harmony",
@@ -520,7 +520,7 @@
   "21012": {
     "name": "A Secret Vow",
     "version": 1,
-    "id": "21012",
+    "id": 21012,
     "icon": "honkai-star-rail/weapon/21012.webp",
     "quality": 4,
     "type": "destruction",
@@ -534,7 +534,7 @@
   "21013": {
     "name": "Make the World Clamor",
     "version": 1,
-    "id": "21013",
+    "id": 21013,
     "icon": "honkai-star-rail/weapon/21013.webp",
     "quality": 4,
     "type": "erudition",
@@ -548,7 +548,7 @@
   "21014": {
     "name": "Perfect Timing",
     "version": 1,
-    "id": "21014",
+    "id": 21014,
     "icon": "honkai-star-rail/weapon/21014.webp",
     "quality": 4,
     "type": "abundance",
@@ -562,7 +562,7 @@
   "21015": {
     "name": "Resolution Shines As Pearls of Sweat",
     "version": 1,
-    "id": "21015",
+    "id": 21015,
     "icon": "honkai-star-rail/weapon/21015.webp",
     "quality": 4,
     "type": "nihility",
@@ -576,7 +576,7 @@
   "21016": {
     "name": "Trend of the Universal Market",
     "version": 1,
-    "id": "21016",
+    "id": 21016,
     "icon": "honkai-star-rail/weapon/21016.webp",
     "quality": 4,
     "type": "preservation",
@@ -590,7 +590,7 @@
   "21017": {
     "name": "Subscribe for More!",
     "version": 1,
-    "id": "21017",
+    "id": 21017,
     "icon": "honkai-star-rail/weapon/21017.webp",
     "quality": 4,
     "type": "hunt",
@@ -604,7 +604,7 @@
   "21018": {
     "name": "Dance! Dance! Dance!",
     "version": 1,
-    "id": "21018",
+    "id": 21018,
     "icon": "honkai-star-rail/weapon/21018.webp",
     "quality": 4,
     "type": "harmony",
@@ -618,7 +618,7 @@
   "21019": {
     "name": "Under the Blue Sky",
     "version": 1,
-    "id": "21019",
+    "id": 21019,
     "icon": "honkai-star-rail/weapon/21019.webp",
     "quality": 4,
     "type": "destruction",
@@ -632,7 +632,7 @@
   "21020": {
     "name": "Geniuses' Repose",
     "version": 1,
-    "id": "21020",
+    "id": 21020,
     "icon": "honkai-star-rail/weapon/21020.webp",
     "quality": 4,
     "type": "erudition",
@@ -646,7 +646,7 @@
   "21021": {
     "name": "Quid Pro Quo",
     "version": 1,
-    "id": "21021",
+    "id": 21021,
     "icon": "honkai-star-rail/weapon/21021.webp",
     "quality": 4,
     "type": "abundance",
@@ -660,7 +660,7 @@
   "21022": {
     "name": "Fermata",
     "version": 1,
-    "id": "21022",
+    "id": 21022,
     "icon": "honkai-star-rail/weapon/21022.webp",
     "quality": 4,
     "type": "nihility",
@@ -674,7 +674,7 @@
   "21023": {
     "name": "We Are Wildfire",
     "version": 1,
-    "id": "21023",
+    "id": 21023,
     "icon": "honkai-star-rail/weapon/21023.webp",
     "quality": 4,
     "type": "preservation",
@@ -688,7 +688,7 @@
   "21024": {
     "name": "River Flows in Spring",
     "version": 1,
-    "id": "21024",
+    "id": 21024,
     "icon": "honkai-star-rail/weapon/21024.webp",
     "quality": 4,
     "type": "hunt",
@@ -702,7 +702,7 @@
   "21025": {
     "name": "Past and Future",
     "version": 1,
-    "id": "21025",
+    "id": 21025,
     "icon": "honkai-star-rail/weapon/21025.webp",
     "quality": 4,
     "type": "harmony",
@@ -716,7 +716,7 @@
   "21026": {
     "name": "Woof! Walk Time!",
     "version": 1,
-    "id": "21026",
+    "id": 21026,
     "icon": "honkai-star-rail/weapon/21026.webp",
     "quality": 4,
     "type": "destruction",
@@ -730,7 +730,7 @@
   "21027": {
     "name": "The Seriousness of Breakfast",
     "version": 1,
-    "id": "21027",
+    "id": 21027,
     "icon": "honkai-star-rail/weapon/21027.webp",
     "quality": 4,
     "type": "erudition",
@@ -744,7 +744,7 @@
   "21028": {
     "name": "Warmth Shortens Cold Nights",
     "version": 1,
-    "id": "21028",
+    "id": 21028,
     "icon": "honkai-star-rail/weapon/21028.webp",
     "quality": 4,
     "type": "abundance",
@@ -758,7 +758,7 @@
   "21029": {
     "name": "We Will Meet Again",
     "version": 1,
-    "id": "21029",
+    "id": 21029,
     "icon": "honkai-star-rail/weapon/21029.webp",
     "quality": 4,
     "type": "nihility",
@@ -772,7 +772,7 @@
   "21030": {
     "name": "This Is Me!",
     "version": 1,
-    "id": "21030",
+    "id": 21030,
     "icon": "honkai-star-rail/weapon/21030.webp",
     "quality": 4,
     "type": "preservation",
@@ -786,7 +786,7 @@
   "21031": {
     "name": "Return to Darkness",
     "version": 1,
-    "id": "21031",
+    "id": 21031,
     "icon": "honkai-star-rail/weapon/21031.webp",
     "quality": 4,
     "type": "hunt",
@@ -800,7 +800,7 @@
   "21032": {
     "name": "Carve the Moon, Weave the Clouds",
     "version": 1,
-    "id": "21032",
+    "id": 21032,
     "icon": "honkai-star-rail/weapon/21032.webp",
     "quality": 4,
     "type": "harmony",
@@ -814,7 +814,7 @@
   "21033": {
     "name": "Nowhere to Run",
     "version": 1,
-    "id": "21033",
+    "id": 21033,
     "icon": "honkai-star-rail/weapon/21033.webp",
     "quality": 4,
     "type": "destruction",
@@ -828,7 +828,7 @@
   "21034": {
     "name": "Today Is Another Peaceful Day",
     "version": 1,
-    "id": "21034",
+    "id": 21034,
     "icon": "honkai-star-rail/weapon/21034.webp",
     "quality": 4,
     "type": "erudition",
@@ -842,7 +842,7 @@
   "21035": {
     "name": "What Is Real?",
     "version": 2,
-    "id": "21035",
+    "id": 21035,
     "icon": "honkai-star-rail/weapon/21035.webp",
     "quality": 4,
     "type": "abundance",
@@ -856,7 +856,7 @@
   "21036": {
     "name": "Dreamville Adventure",
     "version": 2,
-    "id": "21036",
+    "id": 21036,
     "icon": "honkai-star-rail/weapon/21036.webp",
     "quality": 4,
     "type": "harmony",
@@ -870,7 +870,7 @@
   "21037": {
     "name": "Final Victor",
     "version": 2,
-    "id": "21037",
+    "id": 21037,
     "icon": "honkai-star-rail/weapon/21037.webp",
     "quality": 4,
     "type": "hunt",
@@ -884,7 +884,7 @@
   "21038": {
     "name": "Flames Afar",
     "version": 2,
-    "id": "21038",
+    "id": 21038,
     "icon": "honkai-star-rail/weapon/21038.webp",
     "quality": 4,
     "type": "destruction",
@@ -898,7 +898,7 @@
   "21039": {
     "name": "Destiny's Threads Forewoven",
     "version": 2,
-    "id": "21039",
+    "id": 21039,
     "icon": "honkai-star-rail/weapon/21039.webp",
     "quality": 4,
     "type": "preservation",
@@ -912,7 +912,7 @@
   "21040": {
     "name": "The Day The Cosmos Fell",
     "version": 2,
-    "id": "21040",
+    "id": 21040,
     "icon": "honkai-star-rail/weapon/21040.webp",
     "quality": 4,
     "type": "erudition",
@@ -926,7 +926,7 @@
   "21041": {
     "name": "It's Showtime",
     "version": 2,
-    "id": "21041",
+    "id": 21041,
     "icon": "honkai-star-rail/weapon/21041.webp",
     "quality": 4,
     "type": "nihility",
@@ -940,7 +940,7 @@
   "21042": {
     "name": "Indelible Promise",
     "version": 2,
-    "id": "21042",
+    "id": 21042,
     "icon": "honkai-star-rail/weapon/21042.webp",
     "quality": 4,
     "type": "destruction",
@@ -954,7 +954,7 @@
   "21043": {
     "name": "Concert for Two",
     "version": 2.1,
-    "id": "21043",
+    "id": 21043,
     "icon": "honkai-star-rail/weapon/21043.webp",
     "quality": 4,
     "type": "preservation",
@@ -968,7 +968,7 @@
   "21044": {
     "name": "Boundless Choreo",
     "version": 2.2,
-    "id": "21044",
+    "id": 21044,
     "icon": "honkai-star-rail/weapon/21044.webp",
     "quality": 4,
     "type": "nihility",
@@ -982,7 +982,7 @@
   "21045": {
     "name": "After the Charmony Fall",
     "version": 2.3,
-    "id": "21045",
+    "id": 21045,
     "icon": "honkai-star-rail/weapon/21045.webp",
     "quality": 4,
     "type": "erudition",
@@ -996,7 +996,7 @@
   "21046": {
     "name": "Poised to Bloom",
     "version": 2.4,
-    "id": "21046",
+    "id": 21046,
     "icon": "honkai-star-rail/weapon/21046.webp",
     "quality": 4,
     "type": "harmony",
@@ -1010,7 +1010,7 @@
   "21047": {
     "name": "Shadowed by Night",
     "version": 2.5,
-    "id": "21047",
+    "id": 21047,
     "icon": "honkai-star-rail/weapon/21047.webp",
     "quality": 4,
     "type": "hunt",
@@ -1024,7 +1024,7 @@
   "21048": {
     "name": "Dream's Montage",
     "version": 2.6,
-    "id": "21048",
+    "id": 21048,
     "icon": "honkai-star-rail/weapon/21048.webp",
     "quality": 4,
     "type": "abundance",
@@ -1038,7 +1038,7 @@
   "21050": {
     "name": "Victory In a Blink",
     "version": 3,
-    "id": "21050",
+    "id": 21050,
     "icon": "honkai-star-rail/weapon/21050.webp",
     "quality": 4,
     "type": "remembrance",
@@ -1052,7 +1052,7 @@
   "21051": {
     "name": "Geniuses' Greetings",
     "version": 3,
-    "id": "21051",
+    "id": 21051,
     "icon": "honkai-star-rail/weapon/21051.webp",
     "quality": 4,
     "type": "remembrance",
@@ -1066,7 +1066,7 @@
   "21052": {
     "name": "Sweat Now, Cry Less",
     "version": 3,
-    "id": "21052",
+    "id": 21052,
     "icon": "honkai-star-rail/weapon/21052.webp",
     "quality": 4,
     "type": "remembrance",
@@ -1080,7 +1080,7 @@
   "21053": {
     "name": "Journey, Forever Peaceful",
     "version": 3.4,
-    "id": "21053",
+    "id": 21053,
     "icon": "honkai-star-rail/weapon/21053.webp",
     "quality": 4,
     "type": "preservation",
@@ -1094,7 +1094,7 @@
   "21054": {
     "name": "The Story's Next Page",
     "version": 3.4,
-    "id": "21054",
+    "id": 21054,
     "icon": "honkai-star-rail/weapon/21054.webp",
     "quality": 4,
     "type": "remembrance",
@@ -1108,7 +1108,7 @@
   "21055": {
     "name": "Unto Tomorrow's Morrow",
     "version": 3.4,
-    "id": "21055",
+    "id": 21055,
     "icon": "honkai-star-rail/weapon/21055.webp",
     "quality": 4,
     "type": "abundance",
@@ -1122,7 +1122,7 @@
   "21056": {
     "name": "In Pursuit of the Wind",
     "version": 3.4,
-    "id": "21056",
+    "id": 21056,
     "icon": "honkai-star-rail/weapon/21056.webp",
     "quality": 4,
     "type": "harmony",
@@ -1136,7 +1136,7 @@
   "21057": {
     "name": "The Flower Remembers",
     "version": 3.4,
-    "id": "21057",
+    "id": 21057,
     "icon": "honkai-star-rail/weapon/21057.webp",
     "quality": 4,
     "type": "remembrance",
@@ -1150,7 +1150,7 @@
   "21058": {
     "name": "A Trail of Bygone Blood",
     "version": 3.4,
-    "id": "21058",
+    "id": 21058,
     "icon": "honkai-star-rail/weapon/21058.webp",
     "quality": 4,
     "type": "destruction",
@@ -1164,7 +1164,7 @@
   "21060": {
     "name": "A Dream Scented in Wheat",
     "version": 3.4,
-    "id": "21060",
+    "id": 21060,
     "icon": "honkai-star-rail/weapon/21060.webp",
     "quality": 4,
     "type": "erudition",
@@ -1178,7 +1178,7 @@
   "21061": {
     "name": "Holiday Thermae Escapade",
     "version": 3.4,
-    "id": "21061",
+    "id": 21061,
     "icon": "honkai-star-rail/weapon/21061.webp",
     "quality": 4,
     "type": "nihility",
@@ -1192,7 +1192,7 @@
   "21062": {
     "name": "See You at the End",
     "version": 3.4,
-    "id": "21062",
+    "id": 21062,
     "icon": "honkai-star-rail/weapon/21062.webp",
     "quality": 4,
     "type": "hunt",
@@ -1206,7 +1206,7 @@
   "21064": {
     "name": "Mushy Shroomy's Adventures",
     "version": 4,
-    "id": "21064",
+    "id": 21064,
     "icon": "honkai-star-rail/weapon/21064.webp",
     "quality": 4,
     "type": "elation",
@@ -1220,7 +1220,7 @@
   "21065": {
     "name": "Today's Good Luck",
     "version": 4,
-    "id": "21065",
+    "id": 21065,
     "icon": "honkai-star-rail/weapon/21065.webp",
     "quality": 4,
     "type": "elation",
@@ -1234,7 +1234,7 @@
   "22000": {
     "name": "Before the Tutorial Mission Starts",
     "version": 1.1,
-    "id": "22000",
+    "id": 22000,
     "icon": "honkai-star-rail/weapon/22000.webp",
     "quality": 4,
     "type": "nihility",
@@ -1248,7 +1248,7 @@
   "22001": {
     "name": "Hey, Over Here",
     "version": 1.5,
-    "id": "22001",
+    "id": 22001,
     "icon": "honkai-star-rail/weapon/22001.webp",
     "quality": 4,
     "type": "abundance",
@@ -1262,7 +1262,7 @@
   "22002": {
     "name": "For Tomorrow's Journey",
     "version": 2.2,
-    "id": "22002",
+    "id": 22002,
     "icon": "honkai-star-rail/weapon/22002.webp",
     "quality": 4,
     "type": "harmony",
@@ -1276,7 +1276,7 @@
   "22003": {
     "name": "Ninja Record: Sound Hunt",
     "version": 2.6,
-    "id": "22003",
+    "id": 22003,
     "icon": "honkai-star-rail/weapon/22003.webp",
     "quality": 4,
     "type": "destruction",
@@ -1290,7 +1290,7 @@
   "22004": {
     "name": "The Great Cosmic Enterprise",
     "version": 3.2,
-    "id": "22004",
+    "id": 22004,
     "icon": "honkai-star-rail/weapon/22004.webp",
     "quality": 4,
     "type": "erudition",
@@ -1304,7 +1304,7 @@
   "22005": {
     "name": "The Forever Victual",
     "version": 3.5,
-    "id": "22005",
+    "id": 22005,
     "icon": "honkai-star-rail/weapon/22005.webp",
     "quality": 4,
     "type": "harmony",
@@ -1318,7 +1318,7 @@
   "22006": {
     "name": "Fly Into a Pink Tomorrow",
     "version": 3.7,
-    "id": "22006",
+    "id": 22006,
     "icon": "honkai-star-rail/weapon/22006.webp",
     "quality": 4,
     "type": "remembrance",
@@ -1332,7 +1332,7 @@
   "22007": {
     "name": "Tomorrow, Together",
     "version": 4.2,
-    "id": "22007",
+    "id": 22007,
     "icon": "honkai-star-rail/weapon/22007.webp",
     "quality": 4,
     "type": "elation",
@@ -1346,7 +1346,7 @@
   "23000": {
     "name": "Night on the Milky Way",
     "version": 1,
-    "id": "23000",
+    "id": 23000,
     "icon": "honkai-star-rail/weapon/23000.webp",
     "quality": 5,
     "type": "erudition",
@@ -1360,7 +1360,7 @@
   "23001": {
     "name": "In the Night",
     "version": 1,
-    "id": "23001",
+    "id": 23001,
     "icon": "honkai-star-rail/weapon/23001.webp",
     "quality": 5,
     "type": "hunt",
@@ -1374,7 +1374,7 @@
   "23002": {
     "name": "Something Irreplaceable",
     "version": 1,
-    "id": "23002",
+    "id": 23002,
     "icon": "honkai-star-rail/weapon/23002.webp",
     "quality": 5,
     "type": "destruction",
@@ -1388,7 +1388,7 @@
   "23003": {
     "name": "But the Battle Isn't Over",
     "version": 1,
-    "id": "23003",
+    "id": 23003,
     "icon": "honkai-star-rail/weapon/23003.webp",
     "quality": 5,
     "type": "harmony",
@@ -1402,7 +1402,7 @@
   "23004": {
     "name": "In the Name of the World",
     "version": 1,
-    "id": "23004",
+    "id": 23004,
     "icon": "honkai-star-rail/weapon/23004.webp",
     "quality": 5,
     "type": "nihility",
@@ -1416,7 +1416,7 @@
   "23005": {
     "name": "Moment of Victory",
     "version": 1,
-    "id": "23005",
+    "id": 23005,
     "icon": "honkai-star-rail/weapon/23005.webp",
     "quality": 5,
     "type": "preservation",
@@ -1430,7 +1430,7 @@
   "23006": {
     "name": "Patience Is All You Need",
     "version": 1.2,
-    "id": "23006",
+    "id": 23006,
     "icon": "honkai-star-rail/weapon/23006.webp",
     "quality": 5,
     "type": "nihility",
@@ -1444,7 +1444,7 @@
   "23007": {
     "name": "Incessant Rain",
     "version": 1.1,
-    "id": "23007",
+    "id": 23007,
     "icon": "honkai-star-rail/weapon/23007.webp",
     "quality": 5,
     "type": "nihility",
@@ -1458,7 +1458,7 @@
   "23008": {
     "name": "Echoes of the Coffin",
     "version": 1.1,
-    "id": "23008",
+    "id": 23008,
     "icon": "honkai-star-rail/weapon/23008.webp",
     "quality": 5,
     "type": "abundance",
@@ -1472,7 +1472,7 @@
   "23009": {
     "name": "The Unreachable Side",
     "version": 1.2,
-    "id": "23009",
+    "id": 23009,
     "icon": "honkai-star-rail/weapon/23009.webp",
     "quality": 5,
     "type": "destruction",
@@ -1486,7 +1486,7 @@
   "23010": {
     "name": "Before Dawn",
     "version": 1,
-    "id": "23010",
+    "id": 23010,
     "icon": "honkai-star-rail/weapon/23010.webp",
     "quality": 5,
     "type": "erudition",
@@ -1500,7 +1500,7 @@
   "23011": {
     "name": "She Already Shut Her Eyes",
     "version": 1.3,
-    "id": "23011",
+    "id": 23011,
     "icon": "honkai-star-rail/weapon/23011.webp",
     "quality": 5,
     "type": "preservation",
@@ -1514,7 +1514,7 @@
   "23012": {
     "name": "Sleep Like the Dead",
     "version": 1,
-    "id": "23012",
+    "id": 23012,
     "icon": "honkai-star-rail/weapon/23012.webp",
     "quality": 5,
     "type": "hunt",
@@ -1528,7 +1528,7 @@
   "23013": {
     "name": "Time Waits for No One",
     "version": 1,
-    "id": "23013",
+    "id": 23013,
     "icon": "honkai-star-rail/weapon/23013.webp",
     "quality": 5,
     "type": "abundance",
@@ -1542,7 +1542,7 @@
   "23014": {
     "name": "I Shall Be My Own Sword",
     "version": 1.4,
-    "id": "23014",
+    "id": 23014,
     "icon": "honkai-star-rail/weapon/23014.webp",
     "quality": 5,
     "type": "destruction",
@@ -1556,7 +1556,7 @@
   "23015": {
     "name": "Brighter Than the Sun",
     "version": 1.3,
-    "id": "23015",
+    "id": 23015,
     "icon": "honkai-star-rail/weapon/23015.webp",
     "quality": 5,
     "type": "destruction",
@@ -1570,7 +1570,7 @@
   "23016": {
     "name": "Worrisome, Blissful",
     "version": 1.4,
-    "id": "23016",
+    "id": 23016,
     "icon": "honkai-star-rail/weapon/23016.webp",
     "quality": 5,
     "type": "hunt",
@@ -1584,7 +1584,7 @@
   "23017": {
     "name": "Night of Fright",
     "version": 1.5,
-    "id": "23017",
+    "id": 23017,
     "icon": "honkai-star-rail/weapon/23017.webp",
     "quality": 5,
     "type": "abundance",
@@ -1598,7 +1598,7 @@
   "23018": {
     "name": "An Instant Before A Gaze",
     "version": 1.5,
-    "id": "23018",
+    "id": 23018,
     "icon": "honkai-star-rail/weapon/23018.webp",
     "quality": 5,
     "type": "erudition",
@@ -1612,7 +1612,7 @@
   "23019": {
     "name": "Past Self in Mirror",
     "version": 1.6,
-    "id": "23019",
+    "id": 23019,
     "icon": "honkai-star-rail/weapon/23019.webp",
     "quality": 5,
     "type": "harmony",
@@ -1626,7 +1626,7 @@
   "23020": {
     "name": "Baptism of Pure Thought",
     "version": 1.6,
-    "id": "23020",
+    "id": 23020,
     "icon": "honkai-star-rail/weapon/23020.webp",
     "quality": 5,
     "type": "hunt",
@@ -1640,7 +1640,7 @@
   "23021": {
     "name": "Earthly Escapade",
     "version": 2,
-    "id": "23021",
+    "id": 23021,
     "icon": "honkai-star-rail/weapon/23021.webp",
     "quality": 5,
     "type": "harmony",
@@ -1654,7 +1654,7 @@
   "23022": {
     "name": "Reforged Remembrance",
     "version": 2,
-    "id": "23022",
+    "id": 23022,
     "icon": "honkai-star-rail/weapon/23022.webp",
     "quality": 5,
     "type": "nihility",
@@ -1668,7 +1668,7 @@
   "23023": {
     "name": "Inherently Unjust Destiny",
     "version": 2.1,
-    "id": "23023",
+    "id": 23023,
     "icon": "honkai-star-rail/weapon/23023.webp",
     "quality": 5,
     "type": "preservation",
@@ -1682,7 +1682,7 @@
   "23024": {
     "name": "Along the Passing Shore",
     "version": 2.1,
-    "id": "23024",
+    "id": 23024,
     "icon": "honkai-star-rail/weapon/23024.webp",
     "quality": 5,
     "type": "nihility",
@@ -1696,7 +1696,7 @@
   "23025": {
     "name": "Whereabouts Should Dreams Rest",
     "version": 2.3,
-    "id": "23025",
+    "id": 23025,
     "icon": "honkai-star-rail/weapon/23025.webp",
     "quality": 5,
     "type": "destruction",
@@ -1710,7 +1710,7 @@
   "23026": {
     "name": "Flowing Nightglow",
     "version": 2.2,
-    "id": "23026",
+    "id": 23026,
     "icon": "honkai-star-rail/weapon/23026.webp",
     "quality": 5,
     "type": "harmony",
@@ -1724,7 +1724,7 @@
   "23027": {
     "name": "Sailing Towards a Second Life",
     "version": 2.2,
-    "id": "23027",
+    "id": 23027,
     "icon": "honkai-star-rail/weapon/23027.webp",
     "quality": 5,
     "type": "hunt",
@@ -1738,7 +1738,7 @@
   "23028": {
     "name": "Yet Hope Is Priceless",
     "version": 2.3,
-    "id": "23028",
+    "id": 23028,
     "icon": "honkai-star-rail/weapon/23028.webp",
     "quality": 5,
     "type": "erudition",
@@ -1752,7 +1752,7 @@
   "23029": {
     "name": "Those Many Springs",
     "version": 2.4,
-    "id": "23029",
+    "id": 23029,
     "icon": "honkai-star-rail/weapon/23029.webp",
     "quality": 5,
     "type": "nihility",
@@ -1766,7 +1766,7 @@
   "23030": {
     "name": "Dance at Sunset",
     "version": 2.4,
-    "id": "23030",
+    "id": 23030,
     "icon": "honkai-star-rail/weapon/23030.webp",
     "quality": 5,
     "type": "destruction",
@@ -1780,7 +1780,7 @@
   "23031": {
     "name": "I Venture Forth to Hunt",
     "version": 2.5,
-    "id": "23031",
+    "id": 23031,
     "icon": "honkai-star-rail/weapon/23031.webp",
     "quality": 5,
     "type": "hunt",
@@ -1794,7 +1794,7 @@
   "23032": {
     "name": "Scent Alone Stays True",
     "version": 2.5,
-    "id": "23032",
+    "id": 23032,
     "icon": "honkai-star-rail/weapon/23032.webp",
     "quality": 5,
     "type": "abundance",
@@ -1808,7 +1808,7 @@
   "23033": {
     "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
     "version": 2.6,
-    "id": "23033",
+    "id": 23033,
     "icon": "honkai-star-rail/weapon/23033.webp",
     "quality": 5,
     "type": "erudition",
@@ -1822,7 +1822,7 @@
   "23034": {
     "name": "A Grounded Ascent",
     "version": 2.7,
-    "id": "23034",
+    "id": 23034,
     "icon": "honkai-star-rail/weapon/23034.webp",
     "quality": 5,
     "type": "harmony",
@@ -1836,7 +1836,7 @@
   "23035": {
     "name": "Long Road Leads Home",
     "version": 2.7,
-    "id": "23035",
+    "id": 23035,
     "icon": "honkai-star-rail/weapon/23035.webp",
     "quality": 5,
     "type": "nihility",
@@ -1850,7 +1850,7 @@
   "23036": {
     "name": "Time Woven Into Gold",
     "version": 3,
-    "id": "23036",
+    "id": 23036,
     "icon": "honkai-star-rail/weapon/23036.webp",
     "quality": 5,
     "type": "remembrance",
@@ -1864,7 +1864,7 @@
   "23037": {
     "name": "Into the Unreachable Veil",
     "version": 3,
-    "id": "23037",
+    "id": 23037,
     "icon": "honkai-star-rail/weapon/23037.webp",
     "quality": 5,
     "type": "erudition",
@@ -1878,7 +1878,7 @@
   "23038": {
     "name": "If Time Were a Flower",
     "version": 3.1,
-    "id": "23038",
+    "id": 23038,
     "icon": "honkai-star-rail/weapon/23038.webp",
     "quality": 5,
     "type": "harmony",
@@ -1892,7 +1892,7 @@
   "23039": {
     "name": "Flame of Blood, Blaze My Path",
     "version": 3.1,
-    "id": "23039",
+    "id": 23039,
     "icon": "honkai-star-rail/weapon/23039.webp",
     "quality": 5,
     "type": "destruction",
@@ -1906,7 +1906,7 @@
   "23040": {
     "name": "Make Farewells More Beautiful",
     "version": 3.2,
-    "id": "23040",
+    "id": 23040,
     "icon": "honkai-star-rail/weapon/23040.webp",
     "quality": 5,
     "type": "remembrance",
@@ -1920,7 +1920,7 @@
   "23041": {
     "name": "Life Should Be Cast to Flames",
     "version": 3.2,
-    "id": "23041",
+    "id": 23041,
     "icon": "honkai-star-rail/weapon/23041.webp",
     "quality": 5,
     "type": "erudition",
@@ -1934,7 +1934,7 @@
   "23042": {
     "name": "Long May Rainbows Adorn the Sky",
     "version": 3.3,
-    "id": "23042",
+    "id": 23042,
     "icon": "honkai-star-rail/weapon/23042.webp",
     "quality": 5,
     "type": "remembrance",
@@ -1948,7 +1948,7 @@
   "23043": {
     "name": "Lies Dance on the Breeze",
     "version": 3.3,
-    "id": "23043",
+    "id": 23043,
     "icon": "honkai-star-rail/weapon/23043.webp",
     "quality": 5,
     "type": "nihility",
@@ -1962,7 +1962,7 @@
   "23044": {
     "name": "Thus Burns the Dawn",
     "version": 3.4,
-    "id": "23044",
+    "id": 23044,
     "icon": "honkai-star-rail/weapon/23044.webp",
     "quality": 5,
     "type": "destruction",
@@ -1976,7 +1976,7 @@
   "23045": {
     "name": "A Thankless Coronation",
     "version": 3.4,
-    "id": "23045",
+    "id": 23045,
     "icon": "honkai-star-rail/weapon/23045.webp",
     "quality": 5,
     "type": "destruction",
@@ -1990,7 +1990,7 @@
   "23046": {
     "name": "The Hell Where Ideals Burn",
     "version": 3.4,
-    "id": "23046",
+    "id": 23046,
     "icon": "honkai-star-rail/weapon/23046.webp",
     "quality": 5,
     "type": "hunt",
@@ -2004,7 +2004,7 @@
   "23047": {
     "name": "Why Does the Ocean Sing",
     "version": 3.5,
-    "id": "23047",
+    "id": 23047,
     "icon": "honkai-star-rail/weapon/23047.webp",
     "quality": 5,
     "type": "nihility",
@@ -2018,7 +2018,7 @@
   "23048": {
     "name": "Epoch Etched in Golden Blood",
     "version": 3.5,
-    "id": "23048",
+    "id": 23048,
     "icon": "honkai-star-rail/weapon/23048.webp",
     "quality": 5,
     "type": "harmony",
@@ -2032,7 +2032,7 @@
   "23049": {
     "name": "To Evernight's Stars",
     "version": 3.6,
-    "id": "23049",
+    "id": 23049,
     "icon": "honkai-star-rail/weapon/23049.webp",
     "quality": 5,
     "type": "remembrance",
@@ -2046,7 +2046,7 @@
   "23050": {
     "name": "Never Forget Her Flame",
     "version": 3.8,
-    "id": "23050",
+    "id": 23050,
     "icon": "honkai-star-rail/weapon/23050.webp",
     "quality": 5,
     "type": "nihility",
@@ -2060,7 +2060,7 @@
   "23051": {
     "name": "Though Worlds Apart",
     "version": 3.6,
-    "id": "23051",
+    "id": 23051,
     "icon": "honkai-star-rail/weapon/23051.webp",
     "quality": 5,
     "type": "preservation",
@@ -2074,7 +2074,7 @@
   "23052": {
     "name": "This Love, Forever",
     "version": 3.7,
-    "id": "23052",
+    "id": 23052,
     "icon": "honkai-star-rail/weapon/23052.webp",
     "quality": 5,
     "type": "remembrance",
@@ -2088,7 +2088,7 @@
   "23053": {
     "name": "Dazzled by a Flowery World",
     "version": 4,
-    "id": "23053",
+    "id": 23053,
     "icon": "honkai-star-rail/weapon/23053.webp",
     "quality": 5,
     "type": "elation",
@@ -2102,7 +2102,7 @@
   "23054": {
     "name": "When She Decided to See",
     "version": 4,
-    "id": "23054",
+    "id": 23054,
     "icon": "honkai-star-rail/weapon/23054.webp",
     "quality": 5,
     "type": "elation",
@@ -2116,7 +2116,7 @@
   "23056": {
     "name": "The Finale of a Lie",
     "version": 4.1,
-    "id": "23056",
+    "id": 23056,
     "icon": "honkai-star-rail/weapon/23056.webp",
     "quality": 5,
     "type": "hunt",
@@ -2130,7 +2130,7 @@
   "23057": {
     "name": "Welcome to the Cosmic City",
     "version": 4.2,
-    "id": "23057",
+    "id": 23057,
     "icon": "honkai-star-rail/weapon/23057.webp",
     "quality": 5,
     "type": "elation",
@@ -2144,7 +2144,7 @@
   "23058": {
     "name": "Until the Flowers Bloom Again",
     "version": 4.2,
-    "id": "23058",
+    "id": 23058,
     "icon": "honkai-star-rail/weapon/23058.webp",
     "quality": 5,
     "type": "elation",
@@ -2158,7 +2158,7 @@
   "23059": {
     "name": "Reforged in Hellfire",
     "version": 4.3,
-    "id": "23059",
+    "id": 23059,
     "icon": "honkai-star-rail/weapon/23059.webp",
     "quality": 5,
     "type": "nihility",
@@ -2172,7 +2172,7 @@
   "23060": {
     "name": "A Star That Lights the Night",
     "version": 4.4,
-    "id": "23060",
+    "id": 23060,
     "icon": "honkai-star-rail/weapon/23060.webp",
     "quality": 5,
     "type": "erudition",
@@ -2186,7 +2186,7 @@
   "23061": {
     "name": "Flickering Stars",
     "version": 4.4,
-    "id": "23061",
+    "id": 23061,
     "icon": "honkai-star-rail/weapon/23061.webp",
     "quality": 5,
     "type": "erudition",
@@ -2200,7 +2200,7 @@
   "23062": {
     "name": "I Am As You Behold",
     "version": 4.4,
-    "id": "23062",
+    "id": 23062,
     "icon": "honkai-star-rail/weapon/23062.webp",
     "quality": 5,
     "type": "destruction",
@@ -2214,7 +2214,7 @@
   "24000": {
     "name": "On the Fall of an Aeon",
     "version": 1,
-    "id": "24000",
+    "id": 24000,
     "icon": "honkai-star-rail/weapon/24000.webp",
     "quality": 5,
     "type": "destruction",
@@ -2228,7 +2228,7 @@
   "24001": {
     "name": "Cruising in the Stellar Sea",
     "version": 1,
-    "id": "24001",
+    "id": 24001,
     "icon": "honkai-star-rail/weapon/24001.webp",
     "quality": 5,
     "type": "hunt",
@@ -2242,7 +2242,7 @@
   "24002": {
     "name": "Texture of Memories",
     "version": 1,
-    "id": "24002",
+    "id": 24002,
     "icon": "honkai-star-rail/weapon/24002.webp",
     "quality": 5,
     "type": "preservation",
@@ -2256,7 +2256,7 @@
   "24003": {
     "name": "Solitary Healing",
     "version": 1.3,
-    "id": "24003",
+    "id": 24003,
     "icon": "honkai-star-rail/weapon/24003.webp",
     "quality": 5,
     "type": "nihility",
@@ -2270,7 +2270,7 @@
   "24004": {
     "name": "Eternal Calculus",
     "version": 2.3,
-    "id": "24004",
+    "id": 24004,
     "icon": "honkai-star-rail/weapon/24004.webp",
     "quality": 5,
     "type": "erudition",
@@ -2284,7 +2284,7 @@
   "24005": {
     "name": "Memory's Curtain Never Falls",
     "version": 3.1,
-    "id": "24005",
+    "id": 24005,
     "icon": "honkai-star-rail/weapon/24005.webp",
     "quality": 5,
     "type": "remembrance",
@@ -2298,7 +2298,7 @@
   "24006": {
     "name": "Elation Brimming With Blessings",
     "version": 4.1,
-    "id": "24006",
+    "id": 24006,
     "icon": "honkai-star-rail/weapon/24006.webp",
     "quality": 5,
     "type": "elation",

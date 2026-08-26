@@ -12,7 +12,7 @@ const CharacterTab = ({ draft, setDraft, edit }) => {
     () => Object.values(characters)
       .sort((a, b) =>
         b.version - a.version ||
-        Number(b.id) - Number(a.id)
+        b.id - a.id
       ),
     [characters],
   );

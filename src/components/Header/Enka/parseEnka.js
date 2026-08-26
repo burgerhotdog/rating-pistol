@@ -6,12 +6,12 @@ const PARSERS = {
   [GI]: {
     level: (iter) => Number(iter.propMap['4001'].val),
     rank: (iter) => (iter.talentIdList ?? []).length,
-    weaponId: (iter) => String(iter.equipList.at(-1)?.itemId),
+    weaponId: (iter) => Number(iter.equipList.at(-1)?.itemId),
     weaponLevel: (iter) => Number(iter.equipList.at(-1).weapon.level),
     weaponRank: (iter) => Number(Object.values(iter.equipList.at(-1).weapon.affixMap)[0]) + 1,
     iterEquips: (iter) => iter.equipList.slice(0, -1) ?? [],
     equipIndex: (equipIter) => ['EQUIP_BRACER', 'EQUIP_NECKLACE', 'EQUIP_SHOES', 'EQUIP_RING', 'EQUIP_DRESS'].indexOf(equipIter.flat.equipType),
-    setId: (equipIter) => String(equipIter.flat.setId),
+    setId: (equipIter) => Number(equipIter.flat.setId),
     mainstatId: (equipIter) => {
       const { mainPropId } = equipIter.flat.reliquaryMainstat;
       return ENKA_LOOKUP[GI][mainPropId];
@@ -35,12 +35,12 @@ const PARSERS = {
   [HSR]: {
     level: (iter) => Number(iter.level),
     rank: (iter) => Number(iter.rank ?? 0),
-    weaponId: (iter) => String(iter.equipment?.tid),
+    weaponId: (iter) => Number(iter.equipment?.tid),
     weaponLevel: (iter) => Number(iter.equipment.level),
     weaponRank: (iter) => Number(iter.equipment.rank),
     iterEquips: (iter) => iter.relicList ?? [],
     equipIndex: (equipIter) => Number(equipIter.type) - 1,
-    setId: (equipIter) => String(equipIter._flat.setID),
+    setId: (equipIter) => Number(equipIter._flat.setID),
     mainstatId: (equipIter) => {
       const { type } = equipIter._flat.props[0];
       return ENKA_LOOKUP[HSR][type];
@@ -64,12 +64,12 @@ const PARSERS = {
   [ZZZ]: {
     level: (iter) => Number(iter.Level),
     rank: (iter) => Number(iter.TalentLevel),
-    weaponId: (iter) => String(iter.Weapon?.Id),
+    weaponId: (iter) => Number(iter.Weapon?.Id),
     weaponLevel: (iter) => Number(iter.Weapon.Level),
     weaponRank: (iter) => Number(iter.Weapon.UpgradeLevel),
     iterEquips: (iter) => iter.EquippedList ?? [],
     equipIndex: (equipIter) => Number(equipIter.Slot) - 1,
-    setId: (equipIter) => `${String(equipIter.Equipment.Id).slice(0, 3)}00`,
+    setId: (equipIter) => Number(`${String(equipIter.Equipment.Id).slice(0, 3)}00`),
     mainstatId: (equipIter) => {
       const { PropertyId } = equipIter.Equipment.MainPropertyList[0];
       return ENKA_LOOKUP[ZZZ][PropertyId];
@@ -92,7 +92,7 @@ const PARSERS = {
 
 export function parseEnka(gameId, enkaObj) {
   const parsers = PARSERS[gameId];
-  const id = String(enkaObj.avatarId);
+  const id = Number(enkaObj.avatarId);
   const build = initBuild(gameId);
 
   build.id = id;

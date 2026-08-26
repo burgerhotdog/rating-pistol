@@ -20,7 +20,7 @@ const SetCounts = ({ memberId, setCounts = {}, onChange }) => {
     return options.sort((a, b) =>
       b.bonus - a.bonus ||
       b.version - a.version ||
-      Number(b.id) - Number(a.id)
+      b.id - a.id
     );
   }, [setData, maxBonus]);
 

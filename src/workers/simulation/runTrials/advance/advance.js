@@ -51,7 +51,9 @@ export function createAdvanceTrial(cache, evaluateEquipMap) {
     for (const pass of passes) {
       let spec;
       if (gameId === WW) {
-        if ('cost' in pass) spec = pass.cost;
+        if ('cost' in pass) {
+          spec = pass.cost;
+        }
       } else if (gameId === HSR) {
         spec = pass.type;
       }
