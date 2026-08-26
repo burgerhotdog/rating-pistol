@@ -5,7 +5,7 @@ import { useSortedBuilds, useData } from '@/hooks';
 const Navbar = () => {
   const { gameId, charId } = useParams();
   const { sortedKeys } = useSortedBuilds();
-  const characterData = useData('character');
+  const charDatas = useData('character');
 
   const navigate = useNavigate();
 
@@ -29,8 +29,8 @@ const Navbar = () => {
           value={id}
           icon={(
             <Avatar
-              src={characterData[id].icon}
-              alt={characterData[id].name}
+              src={charDatas[id].icon}
+              alt={charDatas[id].name}
             />
           )}
           sx={{

@@ -23,7 +23,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useData, useElementColors } from '@/hooks';
+import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
 function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
@@ -180,21 +180,21 @@ const Timeline = ({ userSummary, memberIds }) => {
   const [isRunningTotal, setIsRunningTotal] = useState(true);
   const [isCurrOnly, setIsCurrOnly] = useState(false);
   const handleCheckbox = (setter) => (event) => setter(event.target.checked);
-  const characters = useData('character');
-  const elementColors = useElementColors();
-  const accentColor = elementColors[characters[charId].element];
+  const charDatas = useData('character');
+  const elementDatas = useData('element');
+  const accentColor = elementDatas[charDatas[charId].element].color;
 
   const memberStack = [...memberIds];
   if (userSummary.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
 
   const memberColors = Object.fromEntries(
     memberStack.map((id) => {
-      const element = characters[id]?.element;
-      return [id, elementColors[element] ?? '#ffffff'];
+      const element = charDatas[id]?.element;
+      return [id, elementDatas[element]?.color ?? '#ffffff'];
     })
   );
 
-  const data = buildData(userSummary, memberStack, isRunningTotal, isCurrOnly, charId);
+  const data = buildData(userSummary, memberStack, isRunningTotal, isCurrOnly, Number(charId));
   const totalDamage = userSummary.reduce((acc, { damage = 0 }) => acc + damage, 0);
   const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
   const teamDps = duration > 0 ? totalDamage / (duration / 1000) : null;
@@ -275,8 +275,8 @@ const Timeline = ({ userSummary, memberIds }) => {
                   dataKey={id}
                   activeDot={false}
                   fill={`url(#gradient${color})`}
-                  hide={isCurrOnly && id !== charId}
-                  name={characters[id]?.name ?? 'Other'}
+                  hide={isCurrOnly && id !== Number(charId)}
+                  name={charDatas[id]?.name ?? 'Other'}
                   stackId="members"
                   stroke={color}
                   strokeOpacity={0}
@@ -309,7 +309,7 @@ const Timeline = ({ userSummary, memberIds }) => {
                   key={id}
                   dataKey={id}
                   animationInterpolateFn={popCrossfade}
-                  name={characters[id]?.name ?? 'Other'}
+                  name={charDatas[id]?.name ?? 'Other'}
                   fill={color}
                 />
               );

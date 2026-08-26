@@ -22,7 +22,7 @@ import {
   YAxis,
   matchByDataKey,
 } from 'recharts';
-import { useElementColors } from '@/hooks';
+import { useData } from '@/hooks';
 import { formatNum, formatStr } from '@/utils';
 
 const VALID_CATEGORIES = new Set([
@@ -78,13 +78,14 @@ const buildData = (summary, currId, distributionMode) => {
 
 const Distribution = ({ userSummary }) => {
   const { charId } = useParams();
+  const { element } = useData('character')[charId];
+  const { color } = useData('element')[element];
+
   const [distributionMode, setDistributionMode] = useState('damageType');
 
   const handleToggleButtonGroup = (_, value) => value && setDistributionMode(value);
 
-  const color = useElementColors({ char: '$curr' });
-
-  const data = buildData(userSummary, charId, distributionMode);
+  const data = buildData(userSummary, Number(charId), distributionMode);
   const totalDamage = data.reduce((acc, entry) => acc + entry.value, 0);
   const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
   const dps = duration > 0 ? totalDamage / (duration / 1000) : null;

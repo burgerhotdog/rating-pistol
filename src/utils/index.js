@@ -1,3 +1,6 @@
+export * from './init';
+export * from './resolve';
+
 export * from './buildMap';
 export * from './format';
 export * from './getAttr';
@@ -7,6 +10,3 @@ export * from './math';
 export * from './merge';
 export * from './toArray';
 export * from './isEnabledEffect';
-export * from './team';
-export * from './resolve';
-export * from './initBuild';

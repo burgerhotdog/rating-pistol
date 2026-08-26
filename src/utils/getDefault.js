@@ -2,21 +2,16 @@ import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON } from '@/data';
 
 const freeChars = {
   [GI]: new Set(),
-  [HSR]: new Set(),
-  [WW]: new Set([
-    '1501', '1502',
-    '1604', '1605',
-    '1406', '1408',
-    '1309', '1310',
-  ]),
-  [ZZZ]: new Set(),
+  [HSR]: new Set([8001, 8003, 8005, 8007, 8009]),
+  [WW]: new Set([1501, 1605, 1406, 1309]),
+  [ZZZ]: new Set([1551]),
 };
 
 const freeWeaps = {
-  [GI]: new Set(),
-  [HSR]: new Set(),
-  [WW]: new Set(),
-  [ZZZ]: new Set(),
+  [GI]: new Set([11521]),
+  [HSR]: new Set([24000, 24001, 24002, 24003, 24004, 24005, 24006]),
+  [WW]: new Set([21020046]),
+  [ZZZ]: new Set([14155]),
 };
 
 export function getDefaultCharRank(gameId, charId) {

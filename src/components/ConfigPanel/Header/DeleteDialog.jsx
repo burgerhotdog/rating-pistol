@@ -12,12 +12,12 @@ import { useData } from '@/hooks';
 const DeleteDialog = ({ open, onClose }) => {
   const { gameId, charId } = useParams();
   const { deleteBuildId } = useBuild();
-  const charData = useData('character');
+  const charDatas = useData('character');
 
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>
-        Delete {charData[charId].name}?
+        Delete {charDatas[charId].name}?
       </DialogTitle>
 
       <DialogContent dividers>

@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -17,7 +18,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useElementColors } from '@/hooks';
+import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
 const PROJECTED_WEEKS = 5;
@@ -46,8 +47,10 @@ function estimateEquivalentWeek(userDps, dpsCeiling, fit) {
 }
 
 const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) => {
+  const { charId } = useParams();
+  const { element } = useData('character')[charId];
+  const { color } = useData('element')[element];
   const { palette } = useTheme();
-  const color = useElementColors({ char: '$curr' });
 
   const levelsSeries = useMemo(() => dpsProgression.map((entry, index) => ({
     ...entry,

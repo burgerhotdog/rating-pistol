@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Stack, Tab, Tabs } from '@mui/material';
-import { useElementColors, useSimulation } from '@/hooks';
+import { useData, useSimulation } from '@/hooks';
 import { formatStr } from '@/utils';
 import {
   RatingCard,
@@ -81,9 +82,12 @@ const TabPanels = [
 ];
 
 const ResultsPanels = ({ team }) => {
-  const results = useSimulation(team);
+  const { charId } = useParams();
+  const { element } = useData('character')[charId];
+  const { color } = useData('element')[element];
+
   const [tab, setTab] = useState(TabPanels[0].value);
-  const color = useElementColors({ char: '$curr' });
+  const results = useSimulation(team);
 
   if (results.errorLog) console.log(results.errorLog);
 

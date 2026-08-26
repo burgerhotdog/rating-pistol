@@ -5,21 +5,31 @@ def get_path(dirname, filename):
 
 def modify(data, game_id, filetype):
     for entry in data.values():
-        entry["sets"] = [int(set_id) for set_id in entry["sets"]]
+        team = entry.get("team", [])
+
+        for i, member in enumerate(team):
+            if member is None:
+                continue
+            try:
+                team[i] = int(member)
+            except ValueError:
+                if "." in member:
+                    print(entry.get("name", []), member)
+
     return True
 
 GAMES_TO_MODIFY = [
-    "genshin-impact",
-    "honkai-star-rail",
+    #"genshin-impact",
+    #"honkai-star-rail",
     "wuthering-waves",
-    "zenless-zone-zero",
+    #"zenless-zone-zero",
 ]
 
 FILES_TO_MODIFY = [
-    #"character.json",
+    "character.json",
     #"weapon.json",
     #"set.json",
-    "echo.json",
+    #"echo.json",
 ]
 
 def main():

@@ -32,8 +32,9 @@ export function useSimulation(team) {
   const [result, setResult] = useState({});
 
   const payload = useMemo(() => {
-    if (!validTeam(gameId, charId, team)) return;
-    return { gameId, charId, team };
+    const charIdNum = Number(charId);
+    if (!validTeam(gameId, charIdNum, team)) return;
+    return { gameId, charId: charIdNum, team };
   }, [gameId, charId, team]);
 
   if (prevPayloadRef.current !== payload) {

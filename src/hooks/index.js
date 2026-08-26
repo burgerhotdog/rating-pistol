@@ -1,5 +1,4 @@
-export * from './useData.js';
-export * from './useElementColors.js';
-export * from './useTeam.js';
+export * from './useData';
+export * from './useTeam';
 export * from './useSimulation';
 export * from './useBuilds';

@@ -16,7 +16,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useData, useElementColors } from '@/hooks';
+import { useData } from '@/hooks';
 import { getDefaultWeapRank } from '@/utils';
 
 function getDpsIndex(gameId, weapId) {
@@ -53,10 +53,11 @@ function buildData(gameId, weapData, weaponResults, userDps, userMember) {
 }
 
 const Weapon = ({ weaponResults, userDps, userMember }) => {
-  const { gameId } = useParams();
+  const { gameId, charId } = useParams();
+  const { element } = useData('character')[charId];
+  const { color } = useData('element')[element];
   const { palette, qualityColors } = useTheme();
   const weapons = useData('weapon');
-  const color = useElementColors({ char: '$curr' });
 
   const data = buildData(gameId, weapons, weaponResults, userDps, userMember);
 

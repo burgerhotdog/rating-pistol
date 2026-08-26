@@ -43,7 +43,7 @@ const GamePage = () => {
       : <Navigate to={`/${gameId}/${sortedKeys[0]}`} replace />;
   }
 
-  const validCharId = charId in CHARACTER[gameId] && charId in builds;
+  const validCharId = CHARACTER[gameId][charId] && builds[charId];
 
   return validCharId
     ? <CharacterPage key={`${gameId}-${charId}`} />
