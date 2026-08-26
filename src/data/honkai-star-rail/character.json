@@ -18602,7 +18602,7 @@
     "memberPreset": {}
   },
   "1506": {
-    "name": "Silver Wolf LV.999",
+    "name": "Silver Wolf: LV.999",
     "version": 4.2,
     "id": 1506,
     "icon": "honkai-star-rail/character/1506.webp",
@@ -19728,7 +19728,7 @@
     "memberPreset": {}
   },
   "1510": {
-    "name": "Himeko \u2022 Nova",
+    "name": "Himeko: Nova",
     "version": 4.4,
     "id": 1510,
     "icon": "honkai-star-rail/character/1510.webp",
@@ -20086,5 +20086,577 @@
       }
     },
     "memberPreset": {}
+  },
+  "1512": {
+    "name": "Robin: Summeretto",
+    "version": 4.5,
+    "id": 1512,
+    "icon": "honkai-star-rail/character/1512.webp",
+    "quality": 5,
+    "element": "wind",
+    "type": "remembrance",
+    "stats": {
+      "baseHp": 1203,
+      "baseAtk": 602,
+      "baseDef": 485,
+      "baseSpd": 95,
+      "spd": 14,
+      "hp%": 0.18,
+      "critRate%": 0.067
+    },
+    "effects": [],
+    "skills": {
+      "basicAtk": {
+        "name": "The Sea Sings in My Key",
+        "actions": [
+          {
+            "name": "The Sea Sings in My Key",
+            "type": "basicAtk",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.25,
+                    0.3,
+                    0.35,
+                    0.4,
+                    0.45,
+                    0.5,
+                    0.55,
+                    0.6,
+                    0.65,
+                    0.7
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "skill": {
+        "name": "Summer Strums the Soul",
+        "actions": [
+          {
+            "name": "Summer Strums the Soul",
+            "type": "skill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5,
+                    0.55,
+                    0.6,
+                    0.65,
+                    0.7,
+                    0.75,
+                    0.8125,
+                    0.875,
+                    0.9375,
+                    1,
+                    1.05,
+                    1.1,
+                    1.15,
+                    1.2,
+                    1.25
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "ultimate": {
+        "name": "Ascend That Rhapsody in Blue",
+        "actions": [
+          {
+            "name": "Ascend That Rhapsody in Blue",
+            "type": "ultimate",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.12,
+                    0.128,
+                    0.136,
+                    0.144,
+                    0.152,
+                    0.16,
+                    0.17,
+                    0.18,
+                    0.19,
+                    0.2,
+                    0.208,
+                    0.216,
+                    0.224,
+                    0.232,
+                    0.24
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "talent": {
+        "name": "Wings Heed No Borders",
+        "actions": [
+          {
+            "name": "Wings Heed No Borders",
+            "type": "talent",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.1,
+                    0.105,
+                    0.11,
+                    0.115,
+                    0.12,
+                    0.125,
+                    0.13125,
+                    0.1375,
+                    0.14375,
+                    0.15,
+                    0.155,
+                    0.16,
+                    0.165,
+                    0.17,
+                    0.175
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "memospriteSkill": {
+        "name": "Chirrup Quartet",
+        "actions": [
+          {
+            "name": "Chirrup Quartet",
+            "type": "memospriteSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.75,
+                    0.9,
+                    1.05,
+                    1.2,
+                    1.35,
+                    1.5,
+                    1.65,
+                    1.8,
+                    1.95,
+                    2.1
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "memospriteTalent": {
+        "name": "A Warble of Wings",
+        "actions": [
+          {
+            "name": "A Warble of Wings",
+            "type": "memospriteTalent",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.3,
+                    0.36,
+                    0.42,
+                    0.48,
+                    0.54,
+                    0.6,
+                    0.66,
+                    0.72,
+                    0.78,
+                    0.84
+                  ]
+                },
+                {
+                  "mv": [
+                    0.01,
+                    0.012,
+                    0.014,
+                    0.016,
+                    0.018,
+                    0.02,
+                    0.022,
+                    0.024,
+                    0.026,
+                    0.028
+                  ]
+                },
+                {
+                  "mv": [
+                    0.04,
+                    0.048,
+                    0.056,
+                    0.064,
+                    0.072,
+                    0.08,
+                    0.088,
+                    0.096,
+                    0.104,
+                    0.112
+                  ]
+                },
+                {
+                  "mv": [
+                    0.06,
+                    0.072,
+                    0.084,
+                    0.096,
+                    0.108,
+                    0.12,
+                    0.132,
+                    0.144,
+                    0.156,
+                    0.168
+                  ]
+                },
+                {
+                  "mv": [
+                    0.08,
+                    0.096,
+                    0.112,
+                    0.128,
+                    0.144,
+                    0.16,
+                    0.176,
+                    0.192,
+                    0.208,
+                    0.224
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Near the Sea's Heartbeat",
+            "type": "memospriteTalent",
+            "damage": {
+              "multipliers": []
+            }
+          },
+          {
+            "name": "Astride Summer's Nightwind",
+            "type": "memospriteTalent",
+            "damage": {
+              "multipliers": []
+            }
+          }
+        ]
+      }
+    },
+    "memberPreset": {
+      "weaponId": 23063
+    }
+  },
+  "1513": {
+    "name": "Aventurine: Waveflair",
+    "version": 4.5,
+    "id": 1513,
+    "icon": "honkai-star-rail/character/1513.webp",
+    "quality": 5,
+    "element": "quantum",
+    "type": "elation",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 485,
+      "baseDef": 606,
+      "baseSpd": 107,
+      "critRate%": 0.187,
+      "spd": 9,
+      "elation%": 0.1
+    },
+    "effects": [],
+    "skills": {
+      "basicAtk": {
+        "name": "Dead Center, the Torrent Hits",
+        "actions": [
+          {
+            "name": "Dead Center, the Torrent Hits",
+            "type": "basicAtk",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5,
+                    0.6,
+                    0.7,
+                    0.8,
+                    0.9,
+                    1,
+                    1.1,
+                    1.2,
+                    1.3,
+                    1.4
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "skill": {
+        "name": "Kill Shot, the Sands Boil",
+        "actions": [
+          {
+            "name": "Kill Shot, the Sands Boil",
+            "type": "skill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.2,
+                    1.32,
+                    1.44,
+                    1.56,
+                    1.68,
+                    1.8,
+                    1.95,
+                    2.1,
+                    2.25,
+                    2.4,
+                    2.52,
+                    2.64,
+                    2.76,
+                    2.88,
+                    3
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "ultimate": {
+        "name": "Grand Slam, Crest That High Tide",
+        "actions": [
+          {
+            "name": "Grand Slam, Crest That High Tide",
+            "type": "ultimate",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.4,
+                    2.56,
+                    2.72,
+                    2.88,
+                    3.04,
+                    3.2,
+                    3.4,
+                    3.6,
+                    3.8,
+                    4,
+                    4.16,
+                    4.32,
+                    4.48,
+                    4.64,
+                    4.8
+                  ]
+                },
+                {
+                  "mv": [
+                    0.12,
+                    0.138,
+                    0.156,
+                    0.174,
+                    0.192,
+                    0.21,
+                    0.2325,
+                    0.255,
+                    0.2775,
+                    0.3,
+                    0.318,
+                    0.336,
+                    0.354,
+                    0.372,
+                    0.39
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "talent": {
+        "name": "Ante Up, the Abyss Answers",
+        "actions": [
+          {
+            "name": "Ante Up, the Abyss Answers",
+            "type": "talent",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.2,
+                    0.22,
+                    0.24,
+                    0.26,
+                    0.28,
+                    0.3,
+                    0.325,
+                    0.35,
+                    0.375,
+                    0.4,
+                    0.42,
+                    0.44,
+                    0.46,
+                    0.48,
+                    0.5
+                  ]
+                },
+                {
+                  "mv": [
+                    0.36,
+                    0.396,
+                    0.432,
+                    0.468,
+                    0.504,
+                    0.54,
+                    0.585,
+                    0.63,
+                    0.675,
+                    0.72,
+                    0.756,
+                    0.792,
+                    0.828,
+                    0.864,
+                    0.9
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "elationSkill": {
+        "name": "Cheers! To Summer's Blaze",
+        "actions": [
+          {
+            "name": "Cheers! To Summer's Blaze",
+            "type": "elationSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.3,
+                    0.33,
+                    0.36,
+                    0.39,
+                    0.42,
+                    0.45,
+                    0.4875,
+                    0.525,
+                    0.5625,
+                    0.6,
+                    0.63,
+                    0.66,
+                    0.69,
+                    0.72,
+                    0.75
+                  ]
+                },
+                {
+                  "mv": [
+                    0.09,
+                    0.099,
+                    0.108,
+                    0.117,
+                    0.126,
+                    0.135,
+                    0.14625,
+                    0.1575,
+                    0.16875,
+                    0.18,
+                    0.189,
+                    0.198,
+                    0.207,
+                    0.216,
+                    0.225
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "All In! To Summer's Blaze",
+            "type": "elationSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.3,
+                    0.33,
+                    0.36,
+                    0.39,
+                    0.42,
+                    0.45,
+                    0.4875,
+                    0.525,
+                    0.5625,
+                    0.6,
+                    0.63,
+                    0.66,
+                    0.69,
+                    0.72,
+                    0.75
+                  ]
+                },
+                {
+                  "mv": [
+                    0.105,
+                    0.1155,
+                    0.126,
+                    0.1365,
+                    0.147,
+                    0.1575,
+                    0.170625,
+                    0.18375,
+                    0.196875,
+                    0.21,
+                    0.2205,
+                    0.231,
+                    0.2415,
+                    0.252,
+                    0.2625
+                  ]
+                },
+                {
+                  "mv": [
+                    0.09,
+                    0.099,
+                    0.108,
+                    0.117,
+                    0.126,
+                    0.135,
+                    0.14625,
+                    0.1575,
+                    0.16875,
+                    0.18,
+                    0.189,
+                    0.198,
+                    0.207,
+                    0.216,
+                    0.225
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "memberPreset": {
+      "weaponId": 23064
+    }
   }
 }

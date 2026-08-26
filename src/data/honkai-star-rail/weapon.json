@@ -1231,6 +1231,20 @@
     },
     "effects": []
   },
+  "21066": {
+    "name": "A Little Getaway",
+    "version": 4.5,
+    "id": 21066,
+    "icon": "honkai-star-rail/weapon/21066.webp",
+    "quality": 4,
+    "type": "elation",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 423,
+      "baseDef": 397
+    },
+    "effects": []
+  },
   "22000": {
     "name": "Before the Tutorial Mission Starts",
     "version": 1.1,
@@ -1340,6 +1354,20 @@
       "baseHp": 953,
       "baseAtk": 476,
       "baseDef": 331
+    },
+    "effects": []
+  },
+  "22008": {
+    "name": "Race to the Horizon",
+    "version": 4.5,
+    "id": 22008,
+    "icon": "honkai-star-rail/weapon/22008.webp",
+    "quality": 4,
+    "type": "hunt",
+    "stats": {
+      "baseHp": 847,
+      "baseAtk": 476,
+      "baseDef": 397
     },
     "effects": []
   },
@@ -2208,6 +2236,34 @@
       "baseHp": 953,
       "baseAtk": 635,
       "baseDef": 463
+    },
+    "effects": []
+  },
+  "23063": {
+    "name": "Rise and Sing",
+    "version": 4.5,
+    "id": 23063,
+    "icon": "honkai-star-rail/weapon/23063.webp",
+    "quality": 5,
+    "type": "remembrance",
+    "stats": {
+      "baseHp": 1164,
+      "baseAtk": 582,
+      "baseDef": 397
+    },
+    "effects": []
+  },
+  "23064": {
+    "name": "Summer Rides the Surf",
+    "version": 4.5,
+    "id": 23064,
+    "icon": "honkai-star-rail/weapon/23064.webp",
+    "quality": 5,
+    "type": "elation",
+    "stats": {
+      "baseHp": 953,
+      "baseAtk": 582,
+      "baseDef": 529
     },
     "effects": []
   },

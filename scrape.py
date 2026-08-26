@@ -58,19 +58,9 @@ def temp():
         data = json.load(f)
         for id in data.keys():
             print(id)
-            image = requests.get(f"https://static.nanoka.cc/assets/hsr/avataricon/avatar/{id}.webp").content
-            with open(f"public/honkai-star-rail/character2/{id}.webp", "wb") as f:
-                f.write(image)
-
-    with open("src/data/zenless-zone-zero/character.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-        for id in data.keys():
-            print(id)
-            response = requests.get(f"https://static.nanoka.cc/zzz/3.2.3+18283617/en/character/{id}.json").json()
-            image_url = response["icon"].replace("IconRole", "IconRoleSelect", 1)
-            image = requests.get(f"https://static.nanoka.cc/assets/zzz/{image_url}.webp").content
-            with open(f"public/zenless-zone-zero/character2/{id}.webp", "wb") as f:
+            image = requests.get(f"https://static.nanoka.cc/assets/hsr/avatarroundicon/{id}.webp").content
+            with open(f"public/honkai-star-rail/character/{id}.webp", "wb") as f:
                 f.write(image)
 
 if __name__ == "__main__":
-    main()
+    temp()
