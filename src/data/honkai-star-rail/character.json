@@ -181,7 +181,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1002": {
     "name": "Dan Heng",
@@ -346,7 +346,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1003": {
     "name": "Himeko",
@@ -511,7 +511,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1004": {
     "name": "Welt",
@@ -695,7 +695,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1005": {
     "name": "Kafka",
@@ -917,7 +917,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1006": {
     "name": "Silver Wolf",
@@ -1196,7 +1196,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1008": {
     "name": "Arlan",
@@ -1361,7 +1361,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1009": {
     "name": "Asta",
@@ -1507,7 +1507,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1013": {
     "name": "Herta",
@@ -1653,7 +1653,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1014": {
     "name": "Saber",
@@ -1925,7 +1925,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1015": {
     "name": "Archer",
@@ -2096,7 +2096,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1101": {
     "name": "Bronya",
@@ -2280,7 +2280,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1102": {
     "name": "Seele",
@@ -2426,7 +2426,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1103": {
     "name": "Serval",
@@ -2610,7 +2610,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1104": {
     "name": "Gepard",
@@ -2794,7 +2794,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1105": {
     "name": "Natasha",
@@ -3016,7 +3016,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1106": {
     "name": "Pela",
@@ -3181,7 +3181,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1107": {
     "name": "Clara",
@@ -3365,7 +3365,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1108": {
     "name": "Sampo",
@@ -3530,7 +3530,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1109": {
     "name": "Hook",
@@ -3760,7 +3760,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1110": {
     "name": "Lynx",
@@ -4039,7 +4039,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1111": {
     "name": "Luka",
@@ -4259,7 +4259,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1112": {
     "name": "Topaz & Numby",
@@ -4443,7 +4443,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1201": {
     "name": "Qingque",
@@ -4625,7 +4625,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1202": {
     "name": "Tingyun",
@@ -4809,7 +4809,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1203": {
     "name": "Luocha",
@@ -4993,7 +4993,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1204": {
     "name": "Jing Yuan",
@@ -5139,7 +5139,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1205": {
     "name": "Blade",
@@ -5463,7 +5463,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1206": {
     "name": "Sushang",
@@ -5647,7 +5647,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1207": {
     "name": "Yukong",
@@ -5831,7 +5831,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1208": {
     "name": "Fu Xuan",
@@ -6015,7 +6015,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1209": {
     "name": "Yanqing",
@@ -6256,7 +6256,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1210": {
     "name": "Guinaifen",
@@ -6459,7 +6459,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1211": {
     "name": "Bailu",
@@ -6700,7 +6700,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1212": {
     "name": "Jingliu",
@@ -6930,7 +6930,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1213": {
     "name": "Dan Heng: Imbibitor Lunae",
@@ -7196,7 +7196,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1214": {
     "name": "Xueyi",
@@ -7399,7 +7399,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1215": {
     "name": "Hanya",
@@ -7564,7 +7564,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1217": {
     "name": "Huohuo",
@@ -7805,7 +7805,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1218": {
     "name": "Jiaoqiu",
@@ -8046,7 +8046,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1220": {
     "name": "Feixiao",
@@ -8368,7 +8368,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1221": {
     "name": "Yunli",
@@ -8647,7 +8647,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1222": {
     "name": "Lingsha",
@@ -8945,7 +8945,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1223": {
     "name": "Moze",
@@ -9110,7 +9110,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1224": {
     "name": "March 7th",
@@ -9297,7 +9297,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1225": {
     "name": "Fugue",
@@ -9498,7 +9498,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1301": {
     "name": "Gallagher",
@@ -9699,7 +9699,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1302": {
     "name": "Argenti",
@@ -9891,7 +9891,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1303": {
     "name": "Ruan Mei",
@@ -10075,7 +10075,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1304": {
     "name": "Aventurine",
@@ -10278,7 +10278,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1305": {
     "name": "Dr. Ratio",
@@ -10424,7 +10424,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1306": {
     "name": "Sparkle",
@@ -10589,7 +10589,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1307": {
     "name": "Black Swan",
@@ -10858,7 +10858,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1308": {
     "name": "Acheron",
@@ -11340,7 +11340,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1309": {
     "name": "Robin",
@@ -11524,7 +11524,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1310": {
     "name": "Firefly",
@@ -11795,7 +11795,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1312": {
     "name": "Misha",
@@ -11998,7 +11998,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1313": {
     "name": "Sunday",
@@ -12182,7 +12182,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1314": {
     "name": "Jade",
@@ -12380,7 +12380,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1315": {
     "name": "Boothill",
@@ -12605,7 +12605,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1317": {
     "name": "Rappa",
@@ -12928,7 +12928,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1321": {
     "name": "The Dahlia",
@@ -13131,7 +13131,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1401": {
     "name": "The Herta",
@@ -13361,7 +13361,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1402": {
     "name": "Aglaea",
@@ -13722,7 +13722,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1403": {
     "name": "Tribbie",
@@ -13920,7 +13920,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1404": {
     "name": "Mydei",
@@ -14215,7 +14215,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1405": {
     "name": "Anaxa",
@@ -14361,7 +14361,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1406": {
     "name": "Cipher",
@@ -14545,7 +14545,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1407": {
     "name": "Castorice",
@@ -14974,7 +14974,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1408": {
     "name": "Phainon",
@@ -15332,7 +15332,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1409": {
     "name": "Hyacine",
@@ -15744,7 +15744,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1410": {
     "name": "Hysilens",
@@ -15966,7 +15966,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1412": {
     "name": "Cerydra",
@@ -16150,7 +16150,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1413": {
     "name": "Evernight",
@@ -16484,7 +16484,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1414": {
     "name": "Dan Heng: Permansor Terrae",
@@ -16744,7 +16744,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1415": {
     "name": "Cyrene",
@@ -17538,7 +17538,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1501": {
     "name": "Sparxie",
@@ -17891,7 +17891,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1502": {
     "name": "Yao Guang",
@@ -18103,7 +18103,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1504": {
     "name": "Ashveil",
@@ -18306,7 +18306,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1505": {
     "name": "Evanescia",
@@ -18599,7 +18599,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1506": {
     "name": "Silver Wolf LV.999",
@@ -18881,7 +18881,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1507": {
     "name": "Mortenax Blade",
@@ -19140,7 +19140,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1508": {
     "name": "Rin Tohsaka",
@@ -19416,7 +19416,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1509": {
     "name": "Gilgamesh",
@@ -19725,7 +19725,7 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "1510": {
     "name": "Himeko \u2022 Nova",
@@ -20085,6 +20085,6 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   }
 }

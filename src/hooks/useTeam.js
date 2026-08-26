@@ -6,11 +6,15 @@ import { useBuilds } from './useBuilds';
 
 export function useTeam() {
   const { gameId, charId } = useParams();
-  const { teamPreset = [Number(charId)] } = useData('character')[charId];
+  const charData = useData('character')[charId];
   const { maxMembers } = useData('misc');
   const builds = useBuilds();
 
   return useState(() => {
+    const teamPreset =
+      charData.teamPreset ??
+      [Number(charId)];
+
     const presets = [
       ...teamPreset,
       ...Array(maxMembers - teamPreset.length).fill(null),

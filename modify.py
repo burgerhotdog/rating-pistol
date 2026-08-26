@@ -5,16 +5,11 @@ def get_path(dirname, filename):
 
 def modify(data, game_id, filetype):
     for entry in data.values():
-        team = entry.get("team", [])
-
-        for i, member in enumerate(team):
-            if member is None:
-                continue
-            try:
-                team[i] = int(member)
-            except ValueError:
-                if "." in member:
-                    print(entry.get("name", []), member)
+        memberPreset = entry.get("memberPreset", {})
+        if memberPreset.get("weaponId") is not None:
+            memberPreset["weaponId"] = int(memberPreset["weaponId"])
+        if memberPreset.get("mainEcho") is not None:
+            memberPreset["mainEcho"] = int(memberPreset["mainEcho"])
 
     return True
 

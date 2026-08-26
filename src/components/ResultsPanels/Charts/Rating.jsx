@@ -241,4 +241,3 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
 };
 
 export default Rating;
-

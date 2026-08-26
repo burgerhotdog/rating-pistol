@@ -6,18 +6,18 @@ from .parse_ww import parse_ww
 from .parse_zzz import parse_zzz
 
 lang = {
-    'gi': {
-        'set': 'artifact',
+    "gi": {
+        "set": "artifact",
     },
-    'hsr': {
-        'weapon': 'lightcone',
-        'set': 'relicset',
+    "hsr": {
+        "weapon": "lightcone",
+        "set": "relicset",
     },
-    'ww': {
-        'set': 'sonata',
+    "ww": {
+        "set": "sonata",
     },
-    'zzz': {
-        'set': 'equipment',
+    "zzz": {
+        "set": "equipment",
     },
 }
 
@@ -33,12 +33,12 @@ def parse_data(game, *args):
 
 def enter_ids(game, version, type):
     mapped_type = lang[game].get(type, type)
-    url_base = f'https://static.nanoka.cc/{game}/{version}/'
-    response = requests.get(f'{url_base}{mapped_type}.json').json()
+    url_base = f"https://static.nanoka.cc/{game}/{version}/"
+    response = requests.get(f"{url_base}{mapped_type}.json").json()
 
     while True:
-        raw_input = input(f'Enter new {type} IDs (separated by space, or press Enter to skip): ')
-        if raw_input == '':
+        raw_input = input(f"Enter new {type} IDs (separated by space, or press Enter to skip): ")
+        if raw_input == "":
             return []
 
         inputs = raw_input.split()
@@ -46,17 +46,17 @@ def enter_ids(game, version, type):
         if not invalid_ids:
             break
 
-        print(f'Invalid IDs: ({", ".join(invalid_ids)}). Please try again.')
+        print(f"Invalid IDs: ({', '.join(invalid_ids)}). Please try again.")
 
     inputs = sorted(inputs, key=int)
     entries = []
 
     for input_id in inputs:
         print(input_id)
-        if mapped_type == 'sonata':
+        if mapped_type == "sonata":
             input_data = response[input_id]
         else:
-            input_data = requests.get(f'{url_base}en/{mapped_type}/{input_id}.json').json()
+            input_data = requests.get(f"{url_base}en/{mapped_type}/{input_id}.json").json()
 
         entries.append((
             input_id,
