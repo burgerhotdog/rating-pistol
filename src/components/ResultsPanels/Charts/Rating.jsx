@@ -8,7 +8,7 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import { clamp, formatNum } from '@/utils';
+import { formatNum } from '@/utils';
 
 const GRADE_BANDS = [
   { floor: 90, letter: 'A', color: '#4ade80' },
@@ -65,15 +65,6 @@ function estimateEquivalentWeek(userDps, dpsCeiling, fit) {
   return (fit.A / remaining) ** (1 / fit.q);
 }
 
-const THRESHOLD_ORDER = [0.5, 0.75, 0.9, 0.95, 0.99];
-
-function getMilestones(thresholdWeeks) {
-  if (!thresholdWeeks) return [];
-  return THRESHOLD_ORDER
-    .map((threshold) => ({ threshold, ...thresholdWeeks[threshold] }))
-    .filter((entry) => entry.week != null);
-}
-
 function getEfficiencyLabel(q) {
   if (q == null) return null;
   if (q >= 1.5) return { label: 'Fast', color: 'success.main' };
@@ -96,24 +87,17 @@ const Stat = ({ label, value, valueColor, tooltip }) => {
   return tooltip ? <Tooltip title={tooltip}>{content}</Tooltip> : content;
 };
 
-const Rating = ({ userDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) => {
-  const benchmark = Math.max(dpsProgression[0], dpsCeiling * (9 / 11));
+const Rating = ({ userDps, dpsCeiling, fit, dpsProgression }) => {
+  const benchmark = Math.max(dpsProgression[0].mean, dpsCeiling * (9 / 11));
 
   const benchmarkPct = userDps / benchmark * 100;
-  const pctOfCeiling = dpsCeiling ? clamp(userDps / dpsCeiling * 100, 0, 100) : null;
   const { grade, color: gradeColor } = getGrade(benchmarkPct);
 
   const equivalentWeek = estimateEquivalentWeek(userDps, dpsCeiling, fit);
-  const milestones = getMilestones(thresholdWeeks);
-  const nextMilestone = pctOfCeiling != null
-    ? milestones.find((m) => m.threshold * 100 > pctOfCeiling)
-    : null;
 
   const timePercentMore1 = estimateEquivalentWeek(userDps * 1.01, dpsCeiling, fit);
   const timePercentMore5 = estimateEquivalentWeek(userDps * 1.05, dpsCeiling, fit);
   const timePercentMore10 = estimateEquivalentWeek(userDps * 1.1, dpsCeiling, fit);
-
-  const hasExtrapolated = milestones.some((m) => m.isExtrapolated);
 
   const efficiency = getEfficiencyLabel(fit?.q);
 
@@ -151,7 +135,7 @@ const Rating = ({ userDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) =>
             )}
           </Box>
 
-          {(equivalentWeek != null || nextMilestone) && (
+          {(equivalentWeek != null) && (
             <Stack spacing={1} sx={{ flex: 1 }}>
               <Typography>
                 Estimated farming time
@@ -197,31 +181,6 @@ const Rating = ({ userDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) =>
                     + {formatDays(timePercentMore10 - equivalentWeek)}
                   </Typography>
                 </Stack>
-              </Stack>
-            </Stack>
-          )}
-
-          {milestones.length > 0 && (
-            <Stack sx={{ flex: 1 }}>
-              <Typography variant="overline" color="textSecondary">
-                Milestones
-              </Typography>
-              <Stack>
-                {milestones.map((m) => (
-                  <Stack key={m.threshold} direction="row" sx={{ justifyContent: 'space-between' }}>
-                    <Typography variant="caption" color="textSecondary">
-                      {Math.round(m.threshold * 100)}% of max
-                    </Typography>
-                    <Typography variant="caption">
-                      {m.isExtrapolated ? '*' : ''}{formatDays(m.week)}
-                    </Typography>
-                  </Stack>
-                ))}
-                {hasExtrapolated && (
-                  <Typography variant="caption" color="textSecondary" sx={{ opacity: 0.7 }}>
-                    * extrapolated from fitted trend, not directly observed
-                  </Typography>
-                )}
               </Stack>
             </Stack>
           )}

@@ -23,7 +23,6 @@ const TabPanels = [
           userDps={results.userDps}
           benchmarkDps={results.benchmarkDps}
           dpsCeiling={results.dpsCeiling}
-          thresholdWeeks={results.thresholdWeeks}
           fit={results.fit}
           dpsProgression={results.dpsProgression}
         />
@@ -31,7 +30,6 @@ const TabPanels = [
           dpsProgression={results.dpsProgression}
           userDps={results.userDps}
           dpsCeiling={results.dpsCeiling}
-          thresholdWeeks={results.thresholdWeeks}
           fit={results.fit}
         />
       </Stack>
@@ -58,6 +56,7 @@ const TabPanels = [
         <MainstatsCard
           configMap={results.configMap}
           userConfigKey={results.userConfigKey}
+          dpsProgression={results.dpsProgression}
         />
         <SubstatsCard
           configMap={results.configMap}
