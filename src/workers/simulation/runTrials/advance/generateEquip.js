@@ -1,53 +1,6 @@
-import { GI, HSR, WW, ZZZ, MAINSTAT, SUBSTAT } from '@/data';
-import { randomInt } from '@/utils';
+import { GI, WW, ZZZ, SUBSTAT } from '@/data';
+import { randomMainstat } from '@/utils';
 import { weightedLottery } from './weightedLottery';
-
-const FLATS_BY_COST = {
-  4: { mainstatSubId: 'atk', mainstatSubValue: 150 },
-  3: { mainstatSubId: 'atk', mainstatSubValue: 100 },
-  1: { mainstatSubId: 'hp', mainstatSubValue: 2280 },
-};
-
-function createInitEquip(gameId) {
-  switch (gameId) {
-    case GI:
-      return () => ({ index: randomInt(0, 4) });
-    case HSR:
-      return () => ({ index: randomInt(0, 5) });
-    case WW:
-      return () => {
-        const i = randomInt(0, 2);
-        const cost = (i === 0) ? 4 : (i === 1) ? 3 : 1;
-        return { cost, ...FLATS_BY_COST[cost] };
-      };
-    case ZZZ:
-      return () => ({ index: randomInt(0, 5) });
-  }
-}
-
-function createAssignMainstat(keyType, mainData) {
-  return (equip) => {
-    const key = equip[keyType];
-    const mainstats = mainData[key];
-
-    const weights = Object.values(mainstats)
-      .map(({ weight }) => weight);
-
-    const winnerIndex = weightedLottery(weights);
-    const [id, { value }] = Object.entries(mainstats)[winnerIndex];
-
-    equip.mainstatId = id;
-    equip.mainstatValue = value;
-  };
-}
-
-function createCheckMainstat(keyType, skippableMainstats) {
-  return (equip) => {
-    const key = equip[keyType];
-    const skippableSet = skippableMainstats[key];
-    return skippableSet.has(equip.mainstatId);
-  };
-}
 
 function revealSubStatWuwa(substats) {
   const existingStatIds = substats.map((line) => line.id);
@@ -100,29 +53,25 @@ function upgradeSubStats(substats, gameId) {
   }
 }
 
-export function createEquipGenerator(gameId, skippable) {
-  const initEquip = createInitEquip(gameId);
-
-  const keyType = gameId === WW ? 'cost' : 'index';
-  const mainData = MAINSTAT[gameId];
-  const assignMainstat = createAssignMainstat(keyType, mainData);
-  const hasBadMainstat = createCheckMainstat(keyType, skippable.mainstats);
-
+export function createEquipGenerator(skippable) {
   function hasGoodSubs(substats, numGood) {
     let count = 0;
 
     for (const { id } of substats) {
-      if (!skippable.substats.has(id)) count++;
+      if (!skippable.substats.has(id)) {
+        count++;
+      }
     }
 
     return count >= numGood;
   }
 
-  return function generateEquip(spec) {
-    const equip = initEquip(spec); // New obj with key
-    if (Math.random() < 0.5) return; // Simplified: Return early if wrong set
-    assignMainstat(equip);
-    if (hasBadMainstat(equip)) return; // Skip if bad mainstat
+  return (gameId) => {
+    // Simplified: Return early if wrong set
+    if (Math.random() < 0.5) return;
+
+    const { keyId, keyValue, mainstat } = randomMainstat(gameId);
+    if (skippable.mainstats[keyValue].has(mainstat.mainstatId)) return;
 
     const substats = [];
     if (gameId === WW) {
@@ -136,12 +85,16 @@ export function createEquipGenerator(gameId, skippable) {
       revealSubStatWuwa(substats);
       revealSubStatWuwa(substats);
     } else {
-      revealSubStatsHoyo(substats, gameId, equip.mainstatId);
+      revealSubStatsHoyo(substats, gameId, mainstat.mainstatId);
       if (!hasGoodSubs(substats, 2)) return; // Bad starting 4 stats
 
       upgradeSubStats(substats, gameId);
     }
 
-    return { ...equip, substats };
+    return {
+      [keyId]: keyValue,
+      ...mainstat,
+      substats,
+    };
   };
 }

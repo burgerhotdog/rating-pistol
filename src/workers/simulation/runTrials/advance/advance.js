@@ -1,4 +1,4 @@
-import { GI, HSR, WW, ZZZ } from '@/data';
+import { MISC } from '@/data';
 import { buildEquipMap } from '@/utils';
 import { getSkippableStats } from './getSkippableStats';
 import { createEquipGenerator } from './generateEquip';
@@ -37,19 +37,14 @@ export function createAdvanceTrial(cache, evaluateEquipMap) {
   const { gameId } = cache;
   const { score } = evaluateEquipMap();
   const skippable = getSkippableStats(gameId, score, evaluateEquipMap);
-  const generateEquip = createEquipGenerator(gameId, skippable);
+  const generateEquip = createEquipGenerator(skippable);
   const evaluateEquip = createEquipEvaluator(cache, evaluateEquipMap);
 
-  const artifactsPerDay = {
-    [GI]: 9,
-    [HSR]: 10,
-    [WW]: 17,
-    [ZZZ]: 15,
-  }[gameId];
+  const { equipsPerDay } = MISC[gameId];
 
   return (trial) => {
-    for (let i = 0; i < artifactsPerDay; i++) {
-      const equip = generateEquip();
+    for (let i = 0; i < equipsPerDay; i++) {
+      const equip = generateEquip(gameId);
       if (!equip) continue;
 
       Object.assign(trial, evaluateEquip(equip, trial));
