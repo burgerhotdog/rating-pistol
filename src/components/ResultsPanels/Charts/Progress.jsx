@@ -26,8 +26,8 @@ function estimateEquivalentDay(dpsCeiling, userDps, fit) {
   return (fit.A / remaining) ** (1 / fit.q);
 }
 
-function buildData(dpsProgression, estimatedDay, estimatedBenchmarkDay, dpsCeiling, fit) {
-  const data = dpsProgression.map(({ day, mean }) => {
+function buildData(dpsProgression, estimatedDay, upperBound, dpsCeiling, fit) {
+  const data = dpsProgression.filter(({ day }) => day <= upperBound).map(({ day, mean }) => {
     if (day < estimatedDay) {
       return { day, mean };
     } else if (day > estimatedDay) {
@@ -39,9 +39,7 @@ function buildData(dpsProgression, estimatedDay, estimatedBenchmarkDay, dpsCeili
 
   // fit line
   const fitLineStart = dpsProgression.at(-1).day + 7;
-  const highestSignificantDay = Math.max(estimatedDay, estimatedBenchmarkDay);
-  const fitLineEnd = highestSignificantDay * 1.25;
-  for (let day = fitLineStart; day <= fitLineEnd; day += 7) {
+  for (let day = fitLineStart; day <= upperBound; day += 7) {
     const mean = dpsCeiling - fit.A * day ** -fit.q;
 
     if (day < estimatedDay) {
@@ -63,38 +61,27 @@ function buildData(dpsProgression, estimatedDay, estimatedBenchmarkDay, dpsCeili
     const t = (estimatedDay - lo.day) / (hi.day - lo.day);
     const mean = lo.mean + (hi.extrapolatedMean - lo.mean) * t;
 
-    data.push({ day: estimatedDay, mean, extrapolatedMean: mean });
+    data.splice(hiIndex, 0, {
+      day: estimatedDay,
+      mean,
+      extrapolatedMean: mean,
+    });
   }
 
-  return data.sort((a, b) => a.day - b.day);
+  return data;
 }
 
-function findInefficientDay(dpsProgression, fit) {
-  let today = 0;
-  let todayDps = dpsProgression[0].mean;
-  while (true) {
-    const tomorrow = today + 1;
-    if (tomorrow <= dpsProgression.at(-1).day) {
-      const tomorrowDataPoint = dpsProgression.find(({ day }) => day === tomorrow);
-    }
-
-    today++;
-  }
-}
-
-const Progress = ({ dpsProgression, userDps, dpsCeiling, fit }) => {
+const Progress = ({ dpsProgression, userDay, userDps, dpsCeiling, fit, benchmarkDay, benchmarkDps }) => {
   const { charId } = useParams();
   const { element } = useData('character')[charId];
   const { color } = useData('element')[element];
   const { palette } = useTheme();
 
-  const estimatedDay = estimateEquivalentDay(dpsCeiling, userDps, fit);
-
-  const estimatedBenchmarkDay = findInefficientDay(dpsProgression, fit);
+  const upperBound = Math.max(userDay, benchmarkDay) * 1.25;
 
   const chartData = useMemo(
-    () => buildData(dpsProgression, estimatedDay, estimatedBenchmarkDay, dpsCeiling, fit),
-    [dpsProgression, estimatedDay, estimatedBenchmarkDay, dpsCeiling, fit]
+    () => buildData(dpsProgression, userDay, upperBound, dpsCeiling, fit),
+    [dpsProgression, userDay, upperBound, dpsCeiling, fit]
   );
 
   return (
@@ -157,7 +144,7 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, fit }) => {
           />
 
           <ReferenceLine
-            x={estimatedDay}
+            x={userDay}
             stroke={palette.divider}
             label={{
               value: 'projected trend →',
@@ -168,7 +155,7 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, fit }) => {
           />
 
           <ReferenceLine
-            x={estimatedBenchmarkDay}
+            x={benchmarkDay}
             label={{
               value: 'Benchmark',
               position: 'insideTop',

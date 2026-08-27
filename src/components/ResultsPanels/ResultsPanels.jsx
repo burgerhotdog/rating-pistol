@@ -20,7 +20,9 @@ const TabPanels = [
     render: (results) => (
       <Stack spacing={1} sx={{ flex: 1 }}>
         <RatingCard
+          userDay={results.userDay}
           userDps={results.userDps}
+          benchmarkDay={results.benchmarkDay}
           benchmarkDps={results.benchmarkDps}
           dpsCeiling={results.dpsCeiling}
           fit={results.fit}
@@ -28,9 +30,12 @@ const TabPanels = [
         />
         <ProgressCard
           dpsProgression={results.dpsProgression}
+          userDay={results.userDay}
           userDps={results.userDps}
           dpsCeiling={results.dpsCeiling}
           fit={results.fit}
+          benchmarkDay={results.benchmarkDay}
+          benchmarkDps={results.benchmarkDps}
         />
       </Stack>
     ),

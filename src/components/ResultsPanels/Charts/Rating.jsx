@@ -87,13 +87,9 @@ const Stat = ({ label, value, valueColor, tooltip }) => {
   return tooltip ? <Tooltip title={tooltip}>{content}</Tooltip> : content;
 };
 
-const Rating = ({ userDps, dpsCeiling, fit, dpsProgression }) => {
-  const benchmark = Math.max(dpsProgression[0].mean, dpsCeiling * (9 / 11));
-
-  const benchmarkPct = userDps / benchmark * 100;
+const Rating = ({ userDay, userDps, dpsCeiling, fit, dpsProgression, benchmarkDay, benchmarkDps }) => {
+  const benchmarkPct = userDps / benchmarkDps * 100;
   const { grade, color: gradeColor } = getGrade(benchmarkPct);
-
-  const equivalentWeek = estimateEquivalentWeek(userDps, dpsCeiling, fit);
 
   const timePercentMore1 = estimateEquivalentWeek(userDps * 1.01, dpsCeiling, fit);
   const timePercentMore5 = estimateEquivalentWeek(userDps * 1.05, dpsCeiling, fit);
@@ -121,7 +117,7 @@ const Rating = ({ userDps, dpsCeiling, fit, dpsProgression }) => {
         <Stack direction="row" divider={<Divider orientation="vertical" />} spacing={2}>
           <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1, flex: 1 }}>
             <Stat label="Team DPS" value={formatNum(userDps)} />
-            <Stat label="Benchmark" value={formatNum(benchmark)} />
+            <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
             {dpsCeiling != null && (
               <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
             )}
@@ -135,55 +131,53 @@ const Rating = ({ userDps, dpsCeiling, fit, dpsProgression }) => {
             )}
           </Box>
 
-          {(equivalentWeek != null) && (
-            <Stack spacing={1} sx={{ flex: 1 }}>
-              <Typography>
-                Estimated farming time
+          <Stack spacing={1} sx={{ flex: 1 }}>
+            <Typography>
+              Estimated farming time
+            </Typography>
+
+            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+              <Typography variant="body2" color="textSecondary">
+                {formatNum(userDps)} dps (current)
               </Typography>
+              <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                ~ {formatDays(userDay)}
+              </Typography>
+            </Stack>
 
-              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+              <Typography variant="body2" color="textSecondary">
+                {formatNum(userDps * 1.01)} dps (+1%)
+              </Typography>
+              <Stack direction="row" spacing={1}>
                 <Typography variant="body2" color="textSecondary">
-                  {formatNum(userDps)} dps (current)
+                  + {formatDays(timePercentMore1 - userDay)}
                 </Typography>
-                <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                  ~ {formatDays(equivalentWeek)}
-                </Typography>
-              </Stack>
-
-              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-                <Typography variant="body2" color="textSecondary">
-                  {formatNum(userDps * 1.01)} dps (+1%)
-                </Typography>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body2" color="textSecondary">
-                    + {formatDays(timePercentMore1 - equivalentWeek)}
-                  </Typography>
-                </Stack>
-              </Stack>
-
-              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-                <Typography variant="body2" color="textSecondary">
-                  {formatNum(userDps * 1.05)} dps (+5%)
-                </Typography>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body2" color="textSecondary">
-                    + {formatDays(timePercentMore5 - equivalentWeek)}
-                  </Typography>
-                </Stack>
-              </Stack>
-
-              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-                <Typography variant="body2" color="textSecondary">
-                  {formatNum(userDps * 1.1)} dps (+10%)
-                </Typography>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body2" color="textSecondary">
-                    + {formatDays(timePercentMore10 - equivalentWeek)}
-                  </Typography>
-                </Stack>
               </Stack>
             </Stack>
-          )}
+
+            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+              <Typography variant="body2" color="textSecondary">
+                {formatNum(userDps * 1.05)} dps (+5%)
+              </Typography>
+              <Stack direction="row" spacing={1}>
+                <Typography variant="body2" color="textSecondary">
+                  + {formatDays(timePercentMore5 - userDay)}
+                </Typography>
+              </Stack>
+            </Stack>
+
+            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+              <Typography variant="body2" color="textSecondary">
+                {formatNum(userDps * 1.1)} dps (+10%)
+              </Typography>
+              <Stack direction="row" spacing={1}>
+                <Typography variant="body2" color="textSecondary">
+                  + {formatDays(timePercentMore10 - userDay)}
+                </Typography>
+              </Stack>
+            </Stack>
+          </Stack>
         </Stack>
       </CardContent>
     </Card>
