@@ -31,16 +31,24 @@ function getGrade(pct) {
   return { grade: 'E', color: '#ef4444' };
 }
 
-function formatWeeks(weeks) {
-  if (weeks < (52 / 12)) {
-    return `${weeks.toFixed(1)} weeks`;
+function formatDays(days) {
+  if (days < 14) {
+    return `${days.toFixed()} days`;
   }
 
-  if (weeks < 52) {
-    return `${(weeks / (52 / 12)).toFixed()} months`;
+  const weeks = days / 7;
+
+  if (days < 30) {
+    return `${weeks.toFixed()} weeks`;
   }
 
-  const years = weeks / 52;
+  const months = days / 30;
+
+  if (months < 12) {
+    return `${months.toFixed()} months`;
+  }
+
+  const years = months / 12;
 
   if (years < 10) {
     return `${years.toFixed(1)} years`; 
@@ -96,10 +104,12 @@ const Stat = ({ label, value, valueColor, tooltip }) => {
   return tooltip ? <Tooltip title={tooltip}>{content}</Tooltip> : content;
 };
 
-const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) => {
+const Rating = ({ userDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) => {
   const finalBands = dpsProgression?.at(-1);
 
-  const benchmarkPct = userDps / benchmarkDps * 100;
+  const benchmark = Math.max(dpsProgression[0].mean, dpsCeiling * (9 / 11));
+
+  const benchmarkPct = userDps / benchmark * 100;
   const pctOfCeiling = dpsCeiling ? clamp(userDps / dpsCeiling * 100, 0, 100) : null;
   const { grade, color: gradeColor } = getGrade(benchmarkPct);
 
@@ -138,7 +148,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
         <Stack direction="row" divider={<Divider orientation="vertical" />} spacing={2}>
           <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1, flex: 1 }}>
             <Stat label="Team DPS" value={formatNum(userDps)} />
-            <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
+            <Stat label="Benchmark" value={formatNum(benchmark)} />
             {dpsCeiling != null && (
               <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
             )}
@@ -147,7 +157,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                 label="Simulation Confidence"
                 value={confidence.label}
                 valueColor={confidence.color}
-                tooltip="How tightly the final week's simulated outcomes cluster around the mean"
+                tooltip="How tightly the final day's simulated outcomes cluster around the mean"
               />
             )}
             {efficiency && (
@@ -171,7 +181,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                   {formatNum(userDps)} dps (current)
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                  ~ {formatWeeks(equivalentWeek)}
+                  ~ {formatDays(equivalentWeek)}
                 </Typography>
               </Stack>
 
@@ -181,7 +191,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Typography variant="body2" color="textSecondary">
-                    + {formatWeeks(timePercentMore1 - equivalentWeek)}
+                    + {formatDays(timePercentMore1 - equivalentWeek)}
                   </Typography>
                 </Stack>
               </Stack>
@@ -192,7 +202,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Typography variant="body2" color="textSecondary">
-                    + {formatWeeks(timePercentMore5 - equivalentWeek)}
+                    + {formatDays(timePercentMore5 - equivalentWeek)}
                   </Typography>
                 </Stack>
               </Stack>
@@ -203,7 +213,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Typography variant="body2" color="textSecondary">
-                    + {formatWeeks(timePercentMore10 - equivalentWeek)}
+                    + {formatDays(timePercentMore10 - equivalentWeek)}
                   </Typography>
                 </Stack>
               </Stack>
@@ -222,7 +232,7 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
                       {Math.round(m.threshold * 100)}% of max
                     </Typography>
                     <Typography variant="caption">
-                      {m.isExtrapolated ? '*' : ''}{formatWeeks(m.week)}
+                      {m.isExtrapolated ? '*' : ''}{formatDays(m.week)}
                     </Typography>
                   </Stack>
                 ))}

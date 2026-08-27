@@ -40,30 +40,19 @@ export function createAdvanceTrial(cache, evaluateEquipMap) {
   const generateEquip = createEquipGenerator(gameId, skippable);
   const evaluateEquip = createEquipEvaluator(cache, evaluateEquipMap);
 
-  const passes = {
-    [GI]: [{ count: 66 }],
-    [HSR]: [{ count: 84 }],
-    [ZZZ]: [{ count: 120 }],
-    [WW]: [{ count: 60 }],
+  const artifactsPerDay = {
+    [GI]: 9,
+    [HSR]: 10,
+    [WW]: 17,
+    [ZZZ]: 15,
   }[gameId];
 
   return (trial) => {
-    for (const pass of passes) {
-      let spec;
-      if (gameId === WW) {
-        if ('cost' in pass) {
-          spec = pass.cost;
-        }
-      } else if (gameId === HSR) {
-        spec = pass.type;
-      }
+    for (let i = 0; i < artifactsPerDay; i++) {
+      const equip = generateEquip();
+      if (!equip) continue;
 
-      for (let i = 0; i < pass.count; i++) {
-        const equip = generateEquip(spec);
-        if (!equip) continue;
-
-        Object.assign(trial, evaluateEquip(equip, trial));
-      }
+      Object.assign(trial, evaluateEquip(equip, trial));
     }
   };
 }

@@ -7,15 +7,15 @@ import { createDistribution } from './distribution';
 import { initTrials } from './initTrials';
 import { findBestPossibleEquipMap } from './bestEquipMap';
 
-const MIN_WEEKS = 3;
-const MAX_WEEKS = 50;
+const MIN_WEEKS = 21;
+const MAX_WEEKS = 350;
 const THRESHOLDS = [0.5, 0.75, 0.9, 0.95, 0.99];
 
-const FIT_START_WEEK = 5;
-const MIN_FIT_POINTS = 5;
+const FIT_START_WEEK = 35;
+const MIN_FIT_POINTS = 35;
 
-const Q_STABILITY_WINDOW = 5;
-const Q_STABILITY_TOLERANCE = 0.01;
+const Q_STABILITY_WINDOW = 35;
+const Q_STABILITY_TOLERANCE = 0.05;
 
 function isFitStable(qHistory) {
   if (qHistory.length < Q_STABILITY_WINDOW) return false;

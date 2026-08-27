@@ -147,7 +147,7 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
             tick={{ fontSize: 12 }}
             tickCount={chartData.length - 1}
             label={{
-              value: 'Weeks',
+              value: 'Days',
               position: 'insideBottomRight',
               fontSize: 12,
             }}
@@ -225,7 +225,7 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
                 <Card elevation={4}>
                   <CardContent component={Stack} spacing={1}>
                     <Typography variant="subtitle2">
-                      Week {week}:
+                      Day {week}:
                     </Typography>
 
                     <Divider />

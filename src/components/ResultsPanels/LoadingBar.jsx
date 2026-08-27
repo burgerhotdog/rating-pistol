@@ -36,7 +36,7 @@ const LoadingBar = ({ status, week, diff }) => {
             color="textSecondary"
             sx={{ visibility: week ? 'visible' : 'hidden' }}
           >
-            {`Week ${week}`}
+            {`Day ${week}`}
           </Typography>
         </Box>
       </Stack>

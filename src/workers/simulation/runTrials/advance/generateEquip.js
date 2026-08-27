@@ -11,33 +11,22 @@ const FLATS_BY_COST = {
 function createInitEquip(gameId) {
   switch (gameId) {
     case GI:
-      return function initEquip() {
-        return { index: randomInt(0, 4) };
-      };
+      return () => ({ index: randomInt(0, 4) });
     case HSR:
-      return function initEquip() {
-        return { index: randomInt(0, 5) };
-      };
+      return () => ({ index: randomInt(0, 5) });
     case WW:
-      return function initEquip() {
-        const randomI = randomInt(0, 2);
-        const cost =
-          randomI === 0
-            ? 4
-            : randomI === 1
-              ? 3
-              : 1;
+      return () => {
+        const i = randomInt(0, 2);
+        const cost = (i === 0) ? 4 : (i === 1) ? 3 : 1;
         return { cost, ...FLATS_BY_COST[cost] };
       };
     case ZZZ:
-      return function initEquip() {
-        return { index: randomInt(0, 5) };
-      };
+      return () => ({ index: randomInt(0, 5) });
   }
 }
 
 function createAssignMainstat(keyType, mainData) {
-  return function assignMainstat(equip) {
+  return (equip) => {
     const key = equip[keyType];
     const mainstats = mainData[key];
 
@@ -53,7 +42,7 @@ function createAssignMainstat(keyType, mainData) {
 }
 
 function createCheckMainstat(keyType, skippableMainstats) {
-  return function hasBadMainstat(equip) {
+  return (equip) => {
     const key = equip[keyType];
     const skippableSet = skippableMainstats[key];
     return skippableSet.has(equip.mainstatId);
