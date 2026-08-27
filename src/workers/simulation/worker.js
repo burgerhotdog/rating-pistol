@@ -1,7 +1,7 @@
 import { buildEquipMap, getTotals } from '@/utils';
 import { runRotation } from './rotation';
 import { compileCache } from './cache';
-import { runTrials } from './runTrials';
+import { runTrials, runTrialsParallel } from './runTrials';
 import { getSubRollSums, getMainConfig } from './utils';
 import { weaponTests } from './weaponTests';
 
@@ -70,7 +70,7 @@ function resolveEquipMaps(cache, allowBlank) {
   return equipMaps;
 }
 
-self.onmessage = ({ data }) => {
+self.onmessage = async ({ data }) => {
   const cache = compileCache(data);
   const equipMaps = resolveEquipMaps(cache);
 
@@ -85,10 +85,16 @@ self.onmessage = ({ data }) => {
     throw new Error('error');
   }
 
+  console.time('runTrials');
   const results = runTrials(cache, equipMaps, cache.charId, true);
+  console.timeEnd('runTrials');
+
+  console.time('runTrialsParallel');
+  const resultsParallel = await runTrialsParallel(cache, equipMaps, cache.charId, true);
+  console.timeEnd('runTrialsParallel');
 
   const configMap = buildConfigStats(cache.gameId, results.trials);
-  const benchmarkDps = results.dpsProgression.at(-1).mean;
+  const benchmarkDps = results.dpsProgression.at(-1);
   const weaponResults = weaponTests(cache, equipMaps, cache.charId);
 
   self.postMessage({

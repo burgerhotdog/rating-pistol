@@ -1,7 +1,7 @@
 import { clamp } from '@/utils';
 import { createDistribution } from './distribution';
 
-const MIN_TRIALS = 100;
+const MIN_TRIALS = 1000;
 const MAX_TRIALS = 1000;
 const MAX_ITERATIONS = 15;
 const TARGET_RELATIVE_ERROR = 0.005;

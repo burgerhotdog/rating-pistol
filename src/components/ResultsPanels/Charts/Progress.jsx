@@ -52,10 +52,13 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
   const { color } = useData('element')[element];
   const { palette } = useTheme();
 
-  const levelsSeries = useMemo(() => dpsProgression.map((entry, index) => ({
-    ...entry,
-    week: index,
-  })), [dpsProgression]);
+  const levelsSeries = useMemo(
+    () => dpsProgression.map((dps, index) => ({
+      mean: dps,
+      week: index,
+    })),
+    [dpsProgression],
+  );
 
   const levels = useMemo(() => buildData(levelsSeries), [levelsSeries]);
 
@@ -153,7 +156,7 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
             }}
           />
           <YAxis
-            domain={[0, Math.max(levelsSeries.at(-1).p90, dpsCeiling ?? 0, userDps ?? 0)]}
+            domain={[0, dpsCeiling]}
             tick={{ fontSize: 12 }}
             tickFormatter={formatDmg}
             label={{

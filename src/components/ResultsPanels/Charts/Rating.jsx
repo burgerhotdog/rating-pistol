@@ -81,14 +81,6 @@ function getEfficiencyLabel(q) {
   return { label: 'Slow', color: 'error.main' };
 }
 
-function getConfidenceLabel(bands) {
-  if (!bands?.mean) return null;
-  const spread = (bands.p90 - bands.p10) / bands.mean;
-  if (spread < 0.1) return { label: 'High', color: 'success.main' };
-  if (spread < 0.25) return { label: 'Medium', color: 'warning.main' };
-  return { label: 'Low', color: 'error.main' };
-}
-
 const Stat = ({ label, value, valueColor, tooltip }) => {
   const content = (
     <Box>
@@ -105,9 +97,7 @@ const Stat = ({ label, value, valueColor, tooltip }) => {
 };
 
 const Rating = ({ userDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) => {
-  const finalBands = dpsProgression?.at(-1);
-
-  const benchmark = Math.max(dpsProgression[0].mean, dpsCeiling * (9 / 11));
+  const benchmark = Math.max(dpsProgression[0], dpsCeiling * (9 / 11));
 
   const benchmarkPct = userDps / benchmark * 100;
   const pctOfCeiling = dpsCeiling ? clamp(userDps / dpsCeiling * 100, 0, 100) : null;
@@ -126,7 +116,6 @@ const Rating = ({ userDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) =>
   const hasExtrapolated = milestones.some((m) => m.isExtrapolated);
 
   const efficiency = getEfficiencyLabel(fit?.q);
-  const confidence = getConfidenceLabel(finalBands);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -151,14 +140,6 @@ const Rating = ({ userDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) =>
             <Stat label="Benchmark" value={formatNum(benchmark)} />
             {dpsCeiling != null && (
               <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
-            )}
-            {confidence && (
-              <Stat
-                label="Simulation Confidence"
-                value={confidence.label}
-                valueColor={confidence.color}
-                tooltip="How tightly the final day's simulated outcomes cluster around the mean"
-              />
             )}
             {efficiency && (
               <Stat

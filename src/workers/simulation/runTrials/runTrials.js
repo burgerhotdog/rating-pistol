@@ -71,14 +71,7 @@ export function runTrials(cache, equipMaps, currId, logWeeks = false) {
   // Week 0
   const { summary, totals, score } = evaluateEquipMap();
   const baseDps = totals.damage / cache.rotationDuration * 1000
-  dpsProgression.push({
-    mean: baseDps,
-    p10: baseDps,
-    p25: baseDps,
-    p50: baseDps,
-    p75: baseDps,
-    p90: baseDps,
-  });
+  dpsProgression.push(baseDps);
 
   const equipListLength = (cache.gameId === GI || cache.gameId === WW) ? 5 : 6;
   const createEquipList = () => new Array(equipListLength).fill(null);
@@ -86,7 +79,7 @@ export function runTrials(cache, equipMaps, currId, logWeeks = false) {
 
   // Week 1
   const initialDist = initTrials(trials, createTrial, advanceTrial);
-  dpsProgression.push(initialDist.bands);
+  dpsProgression.push(initialDist.mean);
   if (logWeeks) self.postMessage({ week: 1, diff: diff(initialDist.mean, baseDps) });
 
   // Week 2+
@@ -106,7 +99,7 @@ export function runTrials(cache, equipMaps, currId, logWeeks = false) {
       currDist.add(trial.dps);
     }
 
-    dpsProgression.push(currDist.bands);
+    dpsProgression.push(currDist.mean);
 
     const currMean = currDist.mean;
     if (logWeeks) self.postMessage({ week, diff: diff(currMean, meanHistory.at(-1)) });
