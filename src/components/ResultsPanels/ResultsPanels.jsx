@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Stack, Tab, Tabs } from '@mui/material';
-import { useData, useSimulation } from '@/hooks';
+import { useAccent, useSimulation } from '@/hooks';
 import { formatStr } from '@/utils';
 import {
   RatingCard,
@@ -53,9 +52,7 @@ const TabPanels = [
 ];
 
 const ResultsPanels = ({ team }) => {
-  const { charId } = useParams();
-  const { element } = useData('character')[charId];
-  const { color } = useData('element')[element];
+  const accent = useAccent();
 
   const [tab, setTab] = useState(TabPanels[0].value);
   const results = useSimulation(team);
@@ -77,7 +74,7 @@ const ResultsPanels = ({ team }) => {
         value={tab}
         onChange={(_, value) => setTab(value)}
         textColor="inherit"
-        slotProps={{ indicator: { sx: { backgroundColor: color } } }}
+        slotProps={{ indicator: { sx: { backgroundColor: accent } } }}
         centered
       >
         {TabPanels.map(({ value }) => (

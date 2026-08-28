@@ -1,7 +1,6 @@
 import { mean, linearRegression } from 'simple-statistics';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { findBestPossibleEquipMap } from './bestEquipMap';
-import { estimateDps } from '@/utils';
 
 function fitRemainingCurve(remainingHistory) {
   // Transform:
@@ -19,53 +18,116 @@ function fitRemainingCurve(remainingHistory) {
   return { q, A };
 }
 
-const createWorker = () => new Worker(
-  new URL('./trialsWorker.js', import.meta.url),
-  { type: 'module' },
-);
-
-const waitForReady = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'ready') resolve();
-  };
-});
-
-const runPhase1 = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'phase1') resolve(data.means);
-  };
-  worker.postMessage({ type: 'runPhase1' });
-});
-
-const buildMeanEquipMap = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'meanEquipMap') resolve(data.meanEquipMap);
-  };
-  worker.postMessage({ type: 'buildMeanEquipMap' });
-});
-
-const runPhase2 = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'phase2') resolve(data.meanDps);
-  };
-  worker.postMessage({ type: 'runPhase2' });
-});
-
-const tallyConfigMap = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'configMap') resolve(data.configMap);
-  };
-  worker.postMessage({ type: 'tallyConfigMap' });
-});
-
 async function initWorkers(payload) {
-  const workers = Array.from({ length: 4 }, createWorker);
-  const readyPromises = workers.map(waitForReady);
+  const workers = Array.from({ length: 4 }, () => new Worker(
+    new URL('./trialsWorker.js', import.meta.url),
+    { type: 'module' },
+  ));
+
+  const readyPromises = workers.map((worker) => new Promise((resolve) => {
+    worker.onmessage = ({ data }) => {
+      if (data.type === 'ready') resolve();
+    };
+  }));
+
   for (const worker of workers) {
     worker.postMessage(payload);
   }
+
   await Promise.all(readyPromises);
   return workers;
+}
+
+function runContinuous(workers, maxDay, dpsCeil, logDays) {
+  return new Promise((resolve) => {
+    const pending = new Map(); // day -> meanDps values collected so far
+    const dpsUpdates = [];
+    const remainingHistory = [];
+    let doneCount = 0;
+    let meanEquipMap = null;
+    let configMap = null;
+
+    const mergeMeanEquipMap = (partial) => {
+      meanEquipMap ??= {};
+      for (const id in partial) {
+        meanEquipMap[id] = (meanEquipMap[id] ?? 0) + partial[id] / workers.length;
+      }
+    };
+
+    const mergeConfigMap = (partial) => {
+      configMap ??= {};
+      for (const configKey in partial) {
+        const src = partial[configKey];
+        configMap[configKey] ??= { count: 0, subDist: {} };
+        const dst = configMap[configKey];
+        dst.count += src.count;
+
+        for (const id in src.subDist) {
+          dst.subDist[id] = (dst.subDist[id] ?? 0) + src.subDist[id];
+        }
+      }
+    };
+
+    const handleMessage = ({ data }) => {
+      switch (data.type) {
+        case 'progress': {
+          const { day, meanDps } = data;
+
+          if (!pending.has(day)) pending.set(day, []);
+          const bucket = pending.get(day);
+          bucket.push(meanDps);
+
+          if (bucket.length === workers.length) {
+            const avgDps = mean(bucket);
+            dpsUpdates.push({ day, mean: avgDps });
+
+            if (maxDay === 100) {
+              const remaining = dpsCeil - avgDps;
+              if (day >= 95) remainingHistory.push({ day, remaining });
+              if (logDays) self.postMessage({ progressDay: day });
+            }
+
+            pending.delete(day);
+          }
+
+          break;
+        }
+
+        case 'meanEquipMap': {
+          mergeMeanEquipMap(data.meanEquipMap);
+          doneCount++;
+
+          if (doneCount === workers.length) {
+            resolve({ dpsUpdates, meanEquipMap });
+          }
+
+          break;
+        }
+
+        case 'configMap': {
+          mergeConfigMap(data.configMap);
+          doneCount++;
+
+          if (doneCount === workers.length) {
+            for (const configKey in configMap) {
+              const config = configMap[configKey];
+              for (const id in config.subDist) {
+                config.subDist[id] /= config.count;
+              }
+            }
+            resolve({ dpsUpdates, remainingHistory, configMap });
+          }
+
+          break;
+        }
+      }
+    };
+
+    workers.forEach((worker) => {
+      worker.onmessage = handleMessage;
+      worker.postMessage({ type: 'run', maxDay });
+    });
+  });
 }
 
 export async function runTrials(cache, equipMaps, currId, logDays = false) {
@@ -77,10 +139,9 @@ export async function runTrials(cache, equipMaps, currId, logDays = false) {
 
   // Initialize trials
   if (logDays) {
-    self.postMessage({
-      status: `Initializing Trials`,
-    });
+    self.postMessage({ status: `Initializing Trials` });
   }
+
   const { summary, totals, score } = evaluateEquipMap();
   const baseDps = totals.damage / cache.rotationDuration * 1000;
   dpsProgression.push({ day: 0, mean: baseDps });
@@ -89,88 +150,25 @@ export async function runTrials(cache, equipMaps, currId, logDays = false) {
 
   // Phase 1
   if (logDays) {
-    self.postMessage({
-      status: `Phase 1`,
-    });
-  }
-  const workerMeans = await Promise.all(workers.map(runPhase1));
-  for (let day = 1; day < 31; day++) {
-    dpsProgression.push({
-      day,
-      mean: mean(workerMeans.map((means) => means[day - 1])),
-    });
+    self.postMessage({ status: `Running Trials` });
   }
 
-  // Early exit for non charId
-  if (!logDays) {
-    const workerMeanEquipMaps = await Promise.all(workers.map(buildMeanEquipMap));
-    const meanEquipMap = {};
+  const maxDay = logDays ? 100 : 30;
+  const result = await runContinuous(workers, maxDay, dpsCeil, logDays);
 
-    for (const workerMeanEquipMap of workerMeanEquipMaps) {
-      for (const id in workerMeanEquipMap) {
-        const value = workerMeanEquipMap[id] / workers.length;
-        meanEquipMap[id] = (meanEquipMap[id] ?? 0) + value;
-      }
-    }
-
-    workers.forEach((worker) => worker.terminate());
-    return meanEquipMap;
-  }
-
-  // Phase 2
-  if (logDays) {
-    self.postMessage({
-      status: `Phase 2`,
-    });
-  }
-  const remainingHistory = [];
-  for (let day = 40; day <= 100; day += 10) {
-    if (logDays) {
-      self.postMessage({
-        status: `Phase 2: Day ${day}`,
-      });
-    }
-
-    const workerMeanDps = await Promise.all(workers.map(runPhase2));
-    const meanDps = mean(workerMeanDps);
-    dpsProgression.push({ day, mean: meanDps });
-
-    const remaining = dpsCeil - meanDps;
-    if (day >= 90) {
-      remainingHistory.push({ day, remaining });
-    }
-  }
-
-  const fit = fitRemainingCurve(remainingHistory);
-
-  // Configs
-  const workerConfigMaps = await Promise.all(workers.map(tallyConfigMap));
-  const configMap = {};
-  for (const workerConfigMap of workerConfigMaps) {
-    for (const configKey in workerConfigMap) {
-      const workerConfig = workerConfigMap[configKey];
-
-      configMap[configKey] ??= { count: 0, subDist: {} };
-      configMap[configKey].count += workerConfig.count;
-      const dist = configMap[configKey].subDist;
-
-      for (const id in workerConfig.subDist) {
-        const value = workerConfig.subDist[id];
-        dist[id] = (dist[id] ?? 0) + value;
-      }
-    }
-  }
-
-  for (const configKey in configMap) {
-    const config = configMap[configKey];
-    const dist = config.subDist;
-
-    for (const id in dist) {
-      const value = dist[id];
-      dist[id] = value / config.count;
-    }
-  }
-
+  dpsProgression.push(...result.dpsUpdates);
   workers.forEach((worker) => worker.terminate());
-  return { dpsProgression, dpsCeiling: dpsCeil, fit, configMap };
+
+  if (!logDays) {
+    return result.meanEquipMap;
+  }
+
+  const fit = fitRemainingCurve(result.remainingHistory);
+
+  return {
+    dpsProgression,
+    dpsCeiling: dpsCeil,
+    fit,
+    configMap: result.configMap,
+  };
 }

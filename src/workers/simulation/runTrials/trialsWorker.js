@@ -31,48 +31,35 @@ self.onmessage = ({ data }) => {
       return self.postMessage({ type: 'ready' });
     }
 
-    case 'runPhase1': {
-      const means = [];
+    case 'run': {
+      const { maxDay } = data;
 
-      for (let day = 0; day < 30; day++) {
+      for (let day = 1; day <= maxDay; day++) {
         for (const trial of trials) {
           advanceTrial(trial);
         }
 
-        means.push(mean(trials.map((trial) => trial.dps)));
+        const meanDps = mean(trials.map((trial) => trial.dps));
+        self.postMessage({ type: 'progress', day, meanDps });
       }
 
-      return self.postMessage({ type: 'phase1', means });
-    }
+      // Early-exit path (non-logDays): report the mean equip map at day 30
+      if (maxDay === 30) {
+        const meanEquipMap = {};
 
-    case 'buildMeanEquipMap': {
-      const meanEquipMap = {};
-
-      for (const trial of trials) {
-        const equipMap = buildEquipMap(trial.equipList, true);
-
-        for (const id in equipMap) {
-          const value = equipMap[id] / trials.length;
-          meanEquipMap[id] = (meanEquipMap[id] ?? 0) + value;
-        }
-      }
-
-      return self.postMessage({ type: 'meanEquipMap', meanEquipMap });
-    }
-
-    case 'runPhase2': {
-      for (let day = 0; day < 10; day++) {
         for (const trial of trials) {
-          advanceTrial(trial);
+          const equipMap = buildEquipMap(trial.equipList, true);
+
+          for (const id in equipMap) {
+            const value = equipMap[id] / trials.length;
+            meanEquipMap[id] = (meanEquipMap[id] ?? 0) + value;
+          }
         }
+
+        return self.postMessage({ type: 'meanEquipMap', meanEquipMap });
       }
 
-      const meanDps = mean(trials.map((trial) => trial.dps));
-
-      return self.postMessage({ type: 'phase2', meanDps });
-    }
-
-    case 'tallyConfigMap': {
+      // Full run: report the config tally at day 100
       const configMap = {};
 
       for (const trial of trials) {

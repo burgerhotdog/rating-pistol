@@ -20,7 +20,7 @@ import {
   YAxis,
 } from 'recharts';
 import { WW, SUBSTAT } from '@/data';
-import { useData } from '@/hooks';
+import { useAccent, useData } from '@/hooks';
 import { formatStr } from '@/utils';
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -114,9 +114,8 @@ function createSubFilter(gameId, configKey = '', subDist = {}) {
 
 const Substats = ({ results }) => {
   const { configMap, userConfigKey, userSubStats } = results;
-  const { gameId, charId } = useParams();
-  const { element } = useData('character')[charId];
-  const { color } = useData('element')[element];
+  const { gameId } = useParams();
+  const accent = useAccent();
   const { palette } = useTheme();
   if (!configMap) return null;
 
@@ -162,7 +161,7 @@ const Substats = ({ results }) => {
           <RechartsTooltip content={CustomTooltip} />
           <Legend wrapperStyle={{ fontSize: 11 }} />
 
-          <Bar dataKey="avg" name="Benchmark" fill={alpha(color, 0.6)} />
+          <Bar dataKey="avg" name="Benchmark" fill={alpha(accent, 0.6)} />
           <Bar dataKey="user" name="Your Rolls" shape={renderUserBar}>
             <LabelList
               dataKey="pct"

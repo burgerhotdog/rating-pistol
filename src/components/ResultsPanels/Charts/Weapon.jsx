@@ -16,7 +16,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useData } from '@/hooks';
+import { useAccent, useData } from '@/hooks';
 import { getDefaultWeapRank } from '@/utils';
 
 function getDpsIndex(gameId, weapId) {
@@ -54,9 +54,8 @@ function buildData(gameId, weapData, weaponResults, userDps, userMember) {
 
 const Weapon = ({ results }) => {
   const { weaponResults, userDps, userMember } = results;
-  const { gameId, charId } = useParams();
-  const { element } = useData('character')[charId];
-  const { color } = useData('element')[element];
+  const { gameId } = useParams();
+  const accent = useAccent();
   const { palette, qualityColors } = useTheme();
   const weapons = useData('weapon');
 
@@ -65,7 +64,7 @@ const Weapon = ({ results }) => {
   const renderR1Bar = (props) => {
     const { index, ...rest } = props;
     const entry = data[index];
-    return <Rectangle {...rest} fill={color} fillOpacity={entry.opacity} />;
+    return <Rectangle {...rest} fill={accent} fillOpacity={entry.opacity} />;
   };
 
   const renderR5Bar = (props) => {

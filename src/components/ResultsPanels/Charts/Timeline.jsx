@@ -23,7 +23,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useData } from '@/hooks';
+import { useAccent, useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
 function buildData(summary, memberStack, isRunningTotal, isCurrOnly, currId) {
@@ -184,7 +184,7 @@ const Timeline = ({ results }) => {
   const handleCheckbox = (setter) => (event) => setter(event.target.checked);
   const charDatas = useData('character');
   const elementDatas = useData('element');
-  const accentColor = elementDatas[charDatas[charId].element].color;
+  const accent = useAccent();
 
   const memberStack = [...memberIds];
   if (userSummary.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
@@ -241,7 +241,7 @@ const Timeline = ({ results }) => {
                 <Checkbox
                   checked={isRunningTotal}
                   onChange={handleCheckbox(setIsRunningTotal)}
-                  sx={{ '&.Mui-checked': { color: accentColor } }}
+                  sx={{ '&.Mui-checked': { color: accent } }}
                 />
               }
               label="Show Running Total"
@@ -251,7 +251,7 @@ const Timeline = ({ results }) => {
                 <Checkbox
                   checked={isCurrOnly}
                   onChange={handleCheckbox(setIsCurrOnly)}
-                  sx={{ '&.Mui-checked': { color: accentColor } }}
+                  sx={{ '&.Mui-checked': { color: accent } }}
                 />
               }
               label="Hide Teammates"

@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -18,7 +17,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useData } from '@/hooks';
+import { useAccent } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
 function buildData(dpsProgression, userDay, userDps, upperBound, dpsCeiling, fit) {
@@ -70,10 +69,8 @@ function buildData(dpsProgression, userDay, userDps, upperBound, dpsCeiling, fit
 const Progress = ({ results }) => {
   const { dpsProgression, userDay, userDps, dpsCeiling, fit, benchmarkDay } = results;
   
-  const { charId } = useParams();
-  const { element } = useData('character')[charId];
-  const { color } = useData('element')[element];
   const { palette } = useTheme();
+  const accent = useAccent();
 
   const upperBound = Math.max(userDay, benchmarkDay) * 1.25;
 
@@ -94,8 +91,8 @@ const Progress = ({ results }) => {
         >
           <defs>
             <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={color} stopOpacity={0.5} />
-              <stop offset="100%" stopColor={color} stopOpacity={0} />
+              <stop offset="0%" stopColor={accent} stopOpacity={0.5} />
+              <stop offset="100%" stopColor={accent} stopOpacity={0} />
             </linearGradient>
           </defs>
 
@@ -165,7 +162,7 @@ const Progress = ({ results }) => {
           <Area
             type="monotone"
             dataKey="mean"
-            stroke={color}
+            stroke={accent}
             strokeWidth={1.5}
             fill="url(#gradient)"
             activeDot={false}
@@ -175,7 +172,7 @@ const Progress = ({ results }) => {
             <Area
               type="monotone"
               dataKey="extrapolatedMean"
-              stroke={color}
+              stroke={accent}
               strokeWidth={1.5}
               strokeDasharray="5 3"
               fill="none"

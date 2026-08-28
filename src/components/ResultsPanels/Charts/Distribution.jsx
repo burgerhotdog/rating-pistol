@@ -22,7 +22,7 @@ import {
   YAxis,
   matchByDataKey,
 } from 'recharts';
-import { useData } from '@/hooks';
+import { useAccent } from '@/hooks';
 import { formatNum, formatStr } from '@/utils';
 
 const VALID_CATEGORIES = new Set([
@@ -79,8 +79,7 @@ const buildData = (summary, currId, distributionMode) => {
 const Distribution = ({ results }) => {
   const { userSummary } = results;
   const { charId } = useParams();
-  const { element } = useData('character')[charId];
-  const { color } = useData('element')[element];
+  const accent = useAccent();
 
   const [distributionMode, setDistributionMode] = useState('damageType');
 
@@ -93,7 +92,7 @@ const Distribution = ({ results }) => {
 
   const renderSlice = (props) => {
     const { percent } = props;
-    const fill = alpha(darken(color, (1 - percent) * 0.7), 0.9);
+    const fill = alpha(darken(accent, (1 - percent) * 0.7), 0.9);
     return <Sector {...props} fill={fill} stroke="none" />;
   };
 
@@ -164,7 +163,7 @@ const Distribution = ({ results }) => {
             <Bar
               dataKey="percent"
               animationMatchBy={matchByDataKey('name')}
-              fill={color}
+              fill={accent}
             />
           </BarChart>
         </Stack>
