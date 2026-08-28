@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardHeader,
+  Paper,
   Stack,
   Typography,
 } from '@mui/material';
@@ -12,7 +13,7 @@ import {
   BarChart,
   LabelList,
   Rectangle,
-  Tooltip as RechartsTooltip,
+  Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
@@ -75,7 +76,7 @@ const Weapon = ({ results }) => {
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader title="Weapon Rankings" />
+      <CardHeader title="Weapon Comparisons" />
       <CardContent component={Stack} sx={{ flex: 1 }}>
         <BarChart
           data={data}
@@ -96,21 +97,16 @@ const Weapon = ({ results }) => {
             axisLine={false}
           />
 
-          <RechartsTooltip
+          <Tooltip
             cursor={{ fill: alpha(palette.text.primary, 0.04) }}
             content={({ payload, label }) => {
               const { dps = [] } = payload?.[0]?.payload ?? {};
               return (
-                <Card elevation={4} sx={{ minWidth: 180 }}>
-                  <CardContent>
-                    <Typography variant="subtitle2">
-                      {label}
-                    </Typography>
-                    <Typography variant="body2">
-                      R1-5: {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
-                    </Typography>
-                  </CardContent>
-                </Card>
+                <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+                  <Typography variant="caption">
+                    {label}: {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
+                  </Typography>
+                </Paper>
               );
             }}
           />

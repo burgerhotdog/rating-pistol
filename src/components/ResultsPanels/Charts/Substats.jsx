@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import {
-  Box,
   Card,
   CardContent,
   CardHeader,
@@ -12,43 +11,15 @@ import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
   BarChart,
-  Legend,
   LabelList,
   Rectangle,
-  Tooltip as RechartsTooltip,
+  Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
 import { WW, SUBSTAT } from '@/data';
-import { useAccent, useData } from '@/hooks';
+import { useAccent } from '@/hooks';
 import { formatStr } from '@/utils';
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (!active || !payload?.length) return null;
-  return (
-    <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider', minWidth: 160 }}>
-      <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
-        {label}
-      </Typography>
-
-      {payload.map((p) => (
-        <Box key={p.name} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1.5 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-            <Box sx={{ width: 8, height: 8, borderRadius: 0.5, bgcolor: p.fill }} />
-
-            <Typography variant="body2" color="textSecondary">
-              {p.name}
-            </Typography>
-          </Box>
-
-          <Typography variant="body2" sx={{ fontFamily: 'monospace' }}>
-            {Number(p.value).toFixed(1)} rolls
-          </Typography>
-        </Box>
-      ))}
-    </Paper>
-  );
-};
 
 const chanceOfStat = (weights, stat) => {
   const dfs = (pool, remainingDraws, prob) => {
@@ -115,9 +86,8 @@ function createSubFilter(gameId, configKey = '', subDist = {}) {
 const Substats = ({ results }) => {
   const { configMap, userConfigKey, userSubStats } = results;
   const { gameId } = useParams();
-  const accent = useAccent();
   const { palette } = useTheme();
-  if (!configMap) return null;
+  const accent = useAccent();
 
   const { subDist = {} } = configMap[userConfigKey] ?? {};
 
@@ -138,31 +108,34 @@ const Substats = ({ results }) => {
     })
     .sort((a, b) => b.avg - a.avg);
 
-  const renderUserBar = (props) => {
-    const { index, ...rest } = props;
-    const entry = data[index];
-    const fill = entry.pct >= 100 ? palette.success.main : palette.error.main;
-    return <Rectangle {...rest} fill={fill} />;
-  };
-
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader title="Substat Distribution" />
       <CardContent component={Stack} direction="row" sx={{ flex: 1 }}>
         <BarChart
           data={data}
-          layout="vertical"
           style={{ width: '100%', height: '100%' }}
           responsive
         >
-          <XAxis type="number" tickFormatter={(v) => v.toFixed(1)} />
-          <YAxis type="category" dataKey="stat" tick={{ fontSize: 11 }} />
+          <XAxis type="category" dataKey="stat" tick={{ fontSize: 11 }} />
+          <YAxis type="number" />
 
-          <RechartsTooltip content={CustomTooltip} />
-          <Legend wrapperStyle={{ fontSize: 11 }} />
+          <Bar
+            dataKey="avg"
+            name="Benchmark"
+            fill={alpha(accent, 0.6)}
+          />
 
-          <Bar dataKey="avg" name="Benchmark" fill={alpha(accent, 0.6)} />
-          <Bar dataKey="user" name="Your Rolls" shape={renderUserBar}>
+          <Bar
+            dataKey="user"
+            name="Your Rolls"
+            shape={(props) => {
+              const { index, ...rest } = props;
+              const entry = data[index];
+              const fill = entry.pct >= 100 ? palette.success.main : palette.error.main;
+              return <Rectangle {...rest} fill={fill} />;
+            }}
+          >
             <LabelList
               dataKey="pct"
               position="right"
@@ -170,6 +143,31 @@ const Substats = ({ results }) => {
               style={{ fontSize: 10, fill: palette.text.secondary }}
             />
           </Bar>
+
+          <Tooltip
+            content={({ payload, label }) => (
+              <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+                <Typography variant="subtitle2">
+                  {label}
+                </Typography>
+                {payload.map((p) => (
+                  <Stack
+                    key={p?.name}
+                    direction="row"
+                    spacing={1}
+                    sx={{ justifyContent: 'space-between' }}
+                  >
+                    <Typography variant="caption" color="textSecondary">
+                      {p?.name}:
+                    </Typography>
+                    <Typography variant="caption">
+                      {Number(p?.value).toFixed(1)} rolls
+                    </Typography>
+                  </Stack>
+                ))}
+              </Paper>
+            )}
+          />
         </BarChart>
       </CardContent>
     </Card>
