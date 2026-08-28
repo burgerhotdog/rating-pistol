@@ -8,7 +8,7 @@ import { weaponTests } from './weaponTests';
 async function generateEquipMap(cache, memberId) {
   self.postMessage({ status: `Generating trial build for ${memberId}` });
 
-  const equipMaps = resolveEquipMaps(cache, 'allowBlank');
+  const equipMaps = await resolveEquipMaps(cache, 'allowBlank');
   const meanEquipMap = await runTrials(cache, equipMaps, memberId);
   return meanEquipMap;
 }
