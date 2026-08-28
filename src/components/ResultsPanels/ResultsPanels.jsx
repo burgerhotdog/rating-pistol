@@ -60,15 +60,14 @@ const ResultsPanels = ({ team }) => {
   const [tab, setTab] = useState(TabPanels[0].value);
   const results = useSimulation(team);
 
-  if (results.errorLog) console.log(results.errorLog);
+  if (results.errorLog) {
+    console.log(results.errorLog);
+    return;
+  }
 
-  if (!results.userSummary) return (
-    <LoadingBar
-      status={results.status}
-      week={results.week}
-      diff={results.diff}
-    />
-  );
+  if (!results.userSummary) {
+    return <LoadingBar results={results} />;
+  }
 
   const activeTab = TabPanels.find((t) => t.value === tab);
 
@@ -82,11 +81,7 @@ const ResultsPanels = ({ team }) => {
         centered
       >
         {TabPanels.map(({ value }) => (
-          <Tab
-            key={value}
-            value={value}
-            label={formatStr(value)}
-          />
+          <Tab key={value} value={value} label={formatStr(value)} />
         ))}
       </Tabs>
 
