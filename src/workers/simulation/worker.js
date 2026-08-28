@@ -30,7 +30,48 @@ async function resolveEquipMaps(cache, allowBlank) {
   return equipMaps;
 }
 
-function findInefficientDay(dpsProgression, fit, dpsCeiling) {
+self.onmessage = async ({ data }) => {
+  const cache = compileCache(data);
+  const equipMaps = await resolveEquipMaps(cache);
+
+  self.postMessage({ status: 'Running simulation' });
+
+  // Sanity check
+  const userSummary = runRotation(cache, equipMaps);
+  const userDps = getTotals(userSummary).damage / cache.rotationDuration * 1000
+  if (Number.isNaN(userDps)) {
+    console.log(userDps);
+    self.postMessage({ errorLog: cache.effects });
+    throw new Error('error');
+  }
+
+  const results = await runTrials(cache, equipMaps, cache.charId, true);
+
+  const { benchmarkDay, benchmarkDps } = findBenchmark(results.dpsProgression, results.fit, results.dpsCeiling);
+  const weaponResults = weaponTests(cache, equipMaps, cache.charId);
+
+  self.postMessage({
+    dpsProgression: results.dpsProgression,
+    dpsCeiling: results.dpsCeiling,
+    fit: results.fit,
+    configMap: results.configMap,
+    userSummary,
+    userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
+    userDps,
+    benchmarkDay,
+    benchmarkDps,
+    userConfigKey: getMainConfig(cache.gameId, cache.member[cache.charId].equipList),
+    userSubStats: getSubRollSums(cache.gameId, cache.member[cache.charId].equipList),
+    memberIds: cache.memberIds,
+    weaponResults,
+    userMember: {
+      weaponId: cache.member[cache.charId].weaponId,
+      weaponRank: cache.member[cache.charId].weaponRank,
+    },
+  });
+};
+
+function findBenchmark(dpsProgression, fit, dpsCeiling) {
   let today = 0;
   let todayDps = dpsProgression[0].mean;
 
@@ -59,44 +100,3 @@ function findInefficientDay(dpsProgression, fit, dpsCeiling) {
     todayDps = tomorrowDps;
   }
 }
-
-self.onmessage = async ({ data }) => {
-  const cache = compileCache(data);
-  const equipMaps = await resolveEquipMaps(cache);
-
-  self.postMessage({ status: 'Running simulation' });
-
-  // Sanity check
-  const userSummary = runRotation(cache, equipMaps);
-  const userDps = getTotals(userSummary).damage / cache.rotationDuration * 1000
-  if (Number.isNaN(userDps)) {
-    console.log(userDps);
-    self.postMessage({ errorLog: cache.effects });
-    throw new Error('error');
-  }
-
-  const results = await runTrials(cache, equipMaps, cache.charId, true);
-
-  const { benchmarkDay, benchmarkDps } = findInefficientDay(results.dpsProgression, results.fit, results.dpsCeiling);
-  const weaponResults = weaponTests(cache, equipMaps, cache.charId);
-
-  self.postMessage({
-    dpsProgression: results.dpsProgression,
-    dpsCeiling: results.dpsCeiling,
-    fit: results.fit,
-    configMap: results.configMap,
-    userSummary,
-    userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
-    userDps,
-    benchmarkDay,
-    benchmarkDps,
-    userConfigKey: getMainConfig(cache.gameId, cache.member[cache.charId].equipList),
-    userSubStats: getSubRollSums(cache.gameId, cache.member[cache.charId].equipList),
-    memberIds: cache.memberIds,
-    weaponResults,
-    userMember: {
-      weaponId: cache.member[cache.charId].weaponId,
-      weaponRank: cache.member[cache.charId].weaponRank,
-    },
-  });
-};

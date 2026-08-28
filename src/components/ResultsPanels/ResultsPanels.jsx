@@ -19,24 +19,8 @@ const TabPanels = [
     value: 'overview',
     render: (results) => (
       <Stack spacing={1} sx={{ flex: 1 }}>
-        <RatingCard
-          userDay={results.userDay}
-          userDps={results.userDps}
-          benchmarkDay={results.benchmarkDay}
-          benchmarkDps={results.benchmarkDps}
-          dpsCeiling={results.dpsCeiling}
-          fit={results.fit}
-          dpsProgression={results.dpsProgression}
-        />
-        <ProgressCard
-          dpsProgression={results.dpsProgression}
-          userDay={results.userDay}
-          userDps={results.userDps}
-          dpsCeiling={results.dpsCeiling}
-          fit={results.fit}
-          benchmarkDay={results.benchmarkDay}
-          benchmarkDps={results.benchmarkDps}
-        />
+        <RatingCard results={results} />
+        <ProgressCard results={results} />
       </Stack>
     ),
   },
@@ -44,13 +28,8 @@ const TabPanels = [
     value: 'damageProfile',
     render: (results) => (
       <Stack spacing={1} sx={{ flex: 1 }}>
-        <TimelineCard
-          userSummary={results.userSummary}
-          memberIds={results.memberIds}
-        />
-        <DistributionCard
-          userSummary={results.userSummary}
-        />
+        <TimelineCard results={results} />
+        <DistributionCard results={results} />
       </Stack>
     ),
   },
@@ -58,16 +37,8 @@ const TabPanels = [
     value: 'buildDetails',
     render: (results) => (
       <Stack spacing={1} sx={{ flex: 1 }}>
-        <MainstatsCard
-          configMap={results.configMap}
-          userConfigKey={results.userConfigKey}
-          dpsProgression={results.dpsProgression}
-        />
-        <SubstatsCard
-          configMap={results.configMap}
-          userConfigKey={results.userConfigKey}
-          userSubStats={results.userSubStats}
-        />
+        <MainstatsCard results={results} />
+        <SubstatsCard results={results} />
       </Stack>
     ),
   },
@@ -75,11 +46,7 @@ const TabPanels = [
     value: 'comparisons',
     render: (results) => (
       <Stack spacing={1} sx={{ flex: 1 }}>
-        <WeaponCard
-          weaponResults={results.weaponResults}
-          userDps={results.userDps}
-          userMember={results.userMember}
-        />
+        <WeaponCard results={results} />
       </Stack>
     ),
   },

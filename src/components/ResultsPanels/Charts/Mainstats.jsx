@@ -104,7 +104,8 @@ const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
   );
 };
 
-const Mainstats = ({ configMap, userConfigKey, dpsProgression }) => {
+const Mainstats = ({ results }) => {
+  const { configMap, userConfigKey, dpsProgression } = results;
   const { gameId } = useParams();
   if (!configMap) return null;
 

@@ -79,10 +79,12 @@ const Stat = ({ label, value, valueColor, tooltip }) => {
   return tooltip ? <Tooltip title={tooltip}>{content}</Tooltip> : content;
 };
 
-const Rating = ({ userDay, userDps, dpsCeiling, fit, dpsProgression, benchmarkDay, benchmarkDps }) => {
+const Rating = ({ results }) => {
+  const { userDay, userDps, dpsCeiling, fit, dpsProgression, benchmarkDps } = results;
+
   const benchmarkPct = userDps / benchmarkDps * 100;
   const { grade, color: gradeColor } = getGrade(benchmarkPct);
-  
+
   const timePercentMore1 = estimateDay(userDps * 1.01, dpsCeiling, dpsProgression, fit);
   const timePercentMore5 = estimateDay(userDps * 1.05, dpsCeiling, dpsProgression, fit);
   const timePercentMore10 = estimateDay(userDps * 1.1, dpsCeiling, dpsProgression, fit);

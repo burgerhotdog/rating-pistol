@@ -52,7 +52,8 @@ function buildData(gameId, weapData, weaponResults, userDps, userMember) {
   });
 }
 
-const Weapon = ({ weaponResults, userDps, userMember }) => {
+const Weapon = ({ results }) => {
+  const { weaponResults, userDps, userMember } = results;
   const { gameId, charId } = useParams();
   const { element } = useData('character')[charId];
   const { color } = useData('element')[element];

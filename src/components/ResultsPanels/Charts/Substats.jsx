@@ -159,7 +159,8 @@ function CustomPolarAngleAxisTick({ x, y, payload, textAnchor, color }) {
   );
 }
 
-const Substats = ({ configMap, userConfigKey, userSubStats }) => {
+const Substats = ({ results }) => {
+  const { configMap, userConfigKey, userSubStats } = results;
   const { gameId, charId } = useParams();
   const { element } = useData('character')[charId];
   const { color } = useData('element')[element];

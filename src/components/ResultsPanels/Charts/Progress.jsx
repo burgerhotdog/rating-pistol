@@ -66,7 +66,9 @@ function buildData(dpsProgression, estimatedDay, upperBound, dpsCeiling, fit) {
   return data;
 }
 
-const Progress = ({ dpsProgression, userDay, userDps, dpsCeiling, fit, benchmarkDay, benchmarkDps }) => {
+const Progress = ({ results }) => {
+  const { dpsProgression, userDay, userDps, dpsCeiling, fit, benchmarkDay, benchmarkDps } = results;
+  
   const { charId } = useParams();
   const { element } = useData('character')[charId];
   const { color } = useData('element')[element];
