@@ -32,15 +32,15 @@ const LoadingBar = ({ results }) => {
           />
         )}
 
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
           <Typography
             variant="caption"
             color="textSecondary"
             sx={{ visibility: progressDay ? 'visible' : 'hidden' }}
           >
-            {`Day ${progressDay}`}
+            Day {progressDay}
           </Typography>
-        </Box>
+        </Stack>
       </Stack>
     </Box>
   );

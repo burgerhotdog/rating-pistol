@@ -29,12 +29,14 @@ async function resolveEquipMaps(cache, allowBlank = false) {
 }
 
 self.onmessage = async ({ data }) => {
+  self.postMessage({ status: 'Starting simulation' });
+
+  self.postMessage({ status: 'Compiling cache' });
   const cache = compileCache(data);
   const equipMaps = await resolveEquipMaps(cache);
 
-  self.postMessage({ status: 'Running simulation' });
-
   // Sanity check
+  self.postMessage({ status: 'Checking rotation' });
   const userSummary = runRotation(cache, equipMaps);
   const userDps = getTotals(userSummary).damage / cache.rotationDuration * 1000
   if (Number.isNaN(userDps)) {
