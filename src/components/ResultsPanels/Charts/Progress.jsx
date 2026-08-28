@@ -21,11 +21,11 @@ import {
 import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
-function buildData(dpsProgression, estimatedDay, upperBound, dpsCeiling, fit) {
+function buildData(dpsProgression, userDay, userDps, upperBound, dpsCeiling, fit) {
   const data = dpsProgression.filter(({ day }) => day <= upperBound).map(({ day, mean }) => {
-    if (day < estimatedDay) {
+    if (day < userDay) {
       return { day, mean };
-    } else if (day > estimatedDay) {
+    } else if (day > userDay) {
       return { day, extrapolatedMean: mean };
     } else {
       return { day, mean, extrapolatedMean: mean };
@@ -33,13 +33,13 @@ function buildData(dpsProgression, estimatedDay, upperBound, dpsCeiling, fit) {
   });
 
   // fit line
-  const fitLineStart = dpsProgression.at(-1).day + 7;
-  for (let day = fitLineStart; day <= upperBound; day += 7) {
+  const fitLineStart = dpsProgression.at(-1).day + 10;
+  for (let day = fitLineStart; day <= upperBound; day += 10) {
     const mean = dpsCeiling - fit.A * day ** -fit.q;
 
-    if (day < estimatedDay) {
+    if (day < userDay) {
       data.push({ day, mean });
-    } else if (day > estimatedDay) {
+    } else if (day > userDay) {
       data.push({ day, extrapolatedMean: mean });
     } else {
       data.push({ day, mean, extrapolatedMean: mean });
@@ -47,27 +47,28 @@ function buildData(dpsProgression, estimatedDay, upperBound, dpsCeiling, fit) {
   }
 
   // lerp estimatedDay point
-  if (!Number.isInteger(estimatedDay)) {
-    const hiIndex = data.findIndex(({ day }) => day > estimatedDay);
-
-    const hi = data[hiIndex];
-    const lo = data[hiIndex - 1];
-
-    const t = (estimatedDay - lo.day) / (hi.day - lo.day);
-    const mean = lo.mean + (hi.extrapolatedMean - lo.mean) * t;
-
-    data.splice(hiIndex, 0, {
-      day: estimatedDay,
-      mean,
-      extrapolatedMean: mean,
-    });
+  if (!Number.isInteger(userDay)) {
+    const hiIndex = data.findIndex(({ day }) => day > userDay);
+    if (hiIndex) {
+      data.splice(hiIndex, 0, {
+        day: userDay,
+        mean: userDps,
+        extrapolatedMean: userDps,
+      });
+    } else {
+      data.push({
+        day: userDay,
+        mean: userDps,
+        extrapolatedMean: userDps,
+      });
+    }
   }
 
   return data;
 }
 
 const Progress = ({ results }) => {
-  const { dpsProgression, userDay, dpsCeiling, fit, benchmarkDay } = results;
+  const { dpsProgression, userDay, userDps, dpsCeiling, fit, benchmarkDay } = results;
   
   const { charId } = useParams();
   const { element } = useData('character')[charId];
@@ -77,8 +78,8 @@ const Progress = ({ results }) => {
   const upperBound = Math.max(userDay, benchmarkDay) * 1.25;
 
   const chartData = useMemo(
-    () => buildData(dpsProgression, userDay, upperBound, dpsCeiling, fit),
-    [dpsProgression, userDay, upperBound, dpsCeiling, fit]
+    () => buildData(dpsProgression, userDay, userDps, upperBound, dpsCeiling, fit),
+    [dpsProgression, userDay, userDps, upperBound, dpsCeiling, fit]
   );
 
   return (

@@ -13,8 +13,10 @@ self.onmessage = ({ data }) => {
   switch (data.type) {
     case 'init': {
       const { cache, equipMaps, currId, summary, score, baseDps } = data;
+
       gameId = cache.gameId;
-      const equipListLength = MISC[cache.gameId].maxEquips;
+
+      const equipListLength = MISC[gameId].maxEquips;
       const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
 
       advanceTrial = createAdvanceTrial(cache, evaluateEquipMap);
@@ -32,7 +34,7 @@ self.onmessage = ({ data }) => {
     case 'runPhase1': {
       const means = [];
 
-      for (let day = 0; day < 21; day++) {
+      for (let day = 0; day < 30; day++) {
         for (const trial of trials) {
           advanceTrial(trial);
         }
@@ -59,7 +61,7 @@ self.onmessage = ({ data }) => {
     }
 
     case 'runPhase2': {
-      for (let day = 0; day < 7; day++) {
+      for (let day = 0; day < 10; day++) {
         for (const trial of trials) {
           advanceTrial(trial);
         }

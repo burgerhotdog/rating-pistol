@@ -19,7 +19,9 @@ async function resolveEquipMaps(cache, allowBlank = false) {
       continue;
     }
 
-    self.postMessage({ status: `Generating trial build for ${member.id}` });
+    self.postMessage({
+      status: `Generating trial build for ${member.id}`,
+    });
 
     const trialEquipMaps = await resolveEquipMaps(cache, true);
     equipMaps[member.id] = await runTrials(cache, trialEquipMaps, member.id);
@@ -32,7 +34,9 @@ self.onmessage = async ({ data }) => {
   const cache = compileCache(data);
   const equipMaps = await resolveEquipMaps(cache);
 
-  self.postMessage({ status: 'Running simulation' });
+  self.postMessage({
+    status: 'Running simulation',
+  });
 
   // Sanity check
   const userSummary = runRotation(cache, equipMaps);

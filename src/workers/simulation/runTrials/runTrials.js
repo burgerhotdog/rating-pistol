@@ -1,20 +1,9 @@
 import { mean, linearRegression } from 'simple-statistics';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { findBestPossibleEquipMap } from './bestEquipMap';
-
-const Q_STABILITY_WINDOW = 5;
-const Q_STABILITY_TOLERANCE = 0.05;
-
-function isFitStable(qHistory) {
-  if (qHistory.length < Q_STABILITY_WINDOW) return false;
-  const recent = qHistory.slice(-Q_STABILITY_WINDOW);
-  const spread = Math.max(...recent) - Math.min(...recent);
-  return spread < Q_STABILITY_TOLERANCE;
-}
+import { estimateDps } from '@/utils';
 
 function fitRemainingCurve(remainingHistory) {
-  if (remainingHistory.length < 3) return;
-
   // Transform:
   // ln(remaining) = ln(A) + B * ln(day)
   const logPoints = remainingHistory.map(({ day, remaining }) => [
@@ -85,10 +74,13 @@ export async function runTrials(cache, equipMaps, currId, logDays = false) {
   const dpsCeil = bestEquipMap.totals.damage / cache.rotationDuration * 1000;
 
   const dpsProgression = [];
-  const qHistory = [];
-  let lastFit = null;
 
   // Initialize trials
+  if (logDays) {
+    self.postMessage({
+      status: `Initializing Trials`,
+    });
+  }
   const { summary, totals, score } = evaluateEquipMap();
   const baseDps = totals.damage / cache.rotationDuration * 1000;
   dpsProgression.push({ day: 0, mean: baseDps });
@@ -96,8 +88,13 @@ export async function runTrials(cache, equipMaps, currId, logDays = false) {
   const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, summary, score, baseDps });
 
   // Phase 1
+  if (logDays) {
+    self.postMessage({
+      status: `Phase 1`,
+    });
+  }
   const workerMeans = await Promise.all(workers.map(runPhase1));
-  for (let day = 1; day < 22; day++) {
+  for (let day = 1; day < 31; day++) {
     dpsProgression.push({
       day,
       mean: mean(workerMeans.map((means) => means[day - 1])),
@@ -121,23 +118,30 @@ export async function runTrials(cache, equipMaps, currId, logDays = false) {
   }
 
   // Phase 2
+  if (logDays) {
+    self.postMessage({
+      status: `Phase 2`,
+    });
+  }
   const remainingHistory = [];
-  for (let day = 28; day <= 700; day += 7) {
+  for (let day = 40; day <= 100; day += 10) {
+    if (logDays) {
+      self.postMessage({
+        status: `Phase 2: Day ${day}`,
+      });
+    }
+
     const workerMeanDps = await Promise.all(workers.map(runPhase2));
     const meanDps = mean(workerMeanDps);
     dpsProgression.push({ day, mean: meanDps });
 
     const remaining = dpsCeil - meanDps;
-    remainingHistory.push({ day, remaining });
-
-    const fit = fitRemainingCurve(remainingHistory);
-    if (!fit) continue;
-
-    lastFit = fit;
-    qHistory.push(fit.q);
-
-    if (isFitStable(qHistory)) break;
+    if (day >= 90) {
+      remainingHistory.push({ day, remaining });
+    }
   }
+
+  const fit = fitRemainingCurve(remainingHistory);
 
   // Configs
   const workerConfigMaps = await Promise.all(workers.map(tallyConfigMap));
@@ -168,5 +172,5 @@ export async function runTrials(cache, equipMaps, currId, logDays = false) {
   }
 
   workers.forEach((worker) => worker.terminate());
-  return { dpsProgression, dpsCeiling: dpsCeil, fit: lastFit, configMap };
+  return { dpsProgression, dpsCeiling: dpsCeil, fit, configMap };
 }
