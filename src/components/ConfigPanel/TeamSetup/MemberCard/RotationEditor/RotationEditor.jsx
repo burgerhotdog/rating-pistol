@@ -7,8 +7,12 @@ const RotationEditor = ({ member, onChange }) => {
 
   return (
     <>
-      <Button variant="outlined" onClick={() => setOpen(true)}>
-        Edit Rotation
+      <Button
+        variant="outlined"
+        onClick={() => setOpen(true)}
+        disabled
+      >
+        Edit Rotation (WIP)
       </Button>
 
       <RotationEditorDialog

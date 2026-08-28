@@ -76,7 +76,8 @@ const buildData = (summary, currId, distributionMode) => {
   });
 };
 
-const Distribution = ({ userSummary }) => {
+const Distribution = ({ results }) => {
+  const { userSummary } = results;
   const { charId } = useParams();
   const { element } = useData('character')[charId];
   const { color } = useData('element')[element];

@@ -174,7 +174,9 @@ const popCrossfade = (items, animationElapsedTime) => {
   return result;
 };
 
-const Timeline = ({ userSummary, memberIds }) => {
+const Timeline = ({ results }) => {
+  const { userSummary, memberIds } = results;
+
   const { charId } = useParams();
   const { palette } = useTheme();
   const [isRunningTotal, setIsRunningTotal] = useState(true);
