@@ -5,26 +5,24 @@ import { runTrials } from './runTrials';
 import { getSubRollSums, getMainConfig } from './utils';
 import { weaponTests } from './weaponTests';
 
-async function generateEquipMap(cache, memberId) {
-  self.postMessage({ status: `Generating trial build for ${memberId}` });
-
-  const equipMaps = await resolveEquipMaps(cache, 'allowBlank');
-  const meanEquipMap = await runTrials(cache, equipMaps, memberId);
-  return meanEquipMap;
-}
-
-async function resolveEquipMaps(cache, allowBlank) {
+async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
 
   for (const member of Object.values(cache.member)) {
-    if ('equipList' in member) {
+    if (member.equipList) {
       equipMaps[member.id] = member.equipMap;
       continue;
     }
 
-    equipMaps[member.id] = allowBlank
-      ? {}
-      : await generateEquipMap(cache, member.id);
+    if (allowBlank) {
+      equipMaps[member.id] = {};
+      continue;
+    }
+
+    self.postMessage({ status: `Generating trial build for ${member.id}` });
+
+    const trialEquipMaps = await resolveEquipMaps(cache, true);
+    equipMaps[member.id] = await runTrials(cache, trialEquipMaps, member.id);
   }
 
   return equipMaps;
