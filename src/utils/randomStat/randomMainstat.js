@@ -11,17 +11,13 @@ const MAINSTAT_SUB = {
 function randomMainstatKey(gameId) {
   if (gameId === WW) {
     const i = randomInt(0, 2);
-    return {
-      keyId: 'cost',
-      keyValue: (i === 0) ? 4 : (i === 1) ? 3 : 1,
-    };
+    const cost = (i === 0) ? 4 : (i === 1) ? 3 : 1;
+    return { keyId: 'cost', keyValue: cost };
   }
 
   const { maxEquips } = MISC[gameId];
-  return {
-    keyId: 'index',
-    keyValue: randomInt(0, maxEquips - 1),
-  };
+  const index = randomInt(0, maxEquips - 1);
+  return { keyId: 'index', keyValue: index };
 }
 
 export function randomMainstat(gameId) {
