@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Stack, Tab, Tabs } from '@mui/material';
-import { useElementColors, useSimulation } from '@/hooks';
+import { useData, useSimulation } from '@/hooks';
 import { formatStr } from '@/utils';
 import {
   RatingCard,
@@ -19,19 +20,22 @@ const TabPanels = [
     render: (results) => (
       <Stack spacing={1} sx={{ flex: 1 }}>
         <RatingCard
+          userDay={results.userDay}
           userDps={results.userDps}
+          benchmarkDay={results.benchmarkDay}
           benchmarkDps={results.benchmarkDps}
           dpsCeiling={results.dpsCeiling}
-          thresholdWeeks={results.thresholdWeeks}
           fit={results.fit}
           dpsProgression={results.dpsProgression}
         />
         <ProgressCard
           dpsProgression={results.dpsProgression}
+          userDay={results.userDay}
           userDps={results.userDps}
           dpsCeiling={results.dpsCeiling}
-          thresholdWeeks={results.thresholdWeeks}
           fit={results.fit}
+          benchmarkDay={results.benchmarkDay}
+          benchmarkDps={results.benchmarkDps}
         />
       </Stack>
     ),
@@ -57,6 +61,7 @@ const TabPanels = [
         <MainstatsCard
           configMap={results.configMap}
           userConfigKey={results.userConfigKey}
+          dpsProgression={results.dpsProgression}
         />
         <SubstatsCard
           configMap={results.configMap}
@@ -81,9 +86,12 @@ const TabPanels = [
 ];
 
 const ResultsPanels = ({ team }) => {
-  const results = useSimulation(team);
+  const { charId } = useParams();
+  const { element } = useData('character')[charId];
+  const { color } = useData('element')[element];
+
   const [tab, setTab] = useState(TabPanels[0].value);
-  const color = useElementColors({ char: '$curr' });
+  const results = useSimulation(team);
 
   if (results.errorLog) console.log(results.errorLog);
 

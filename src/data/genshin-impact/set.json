@@ -2,7 +2,7 @@
   "14001": {
     "name": "Blizzard Strayer",
     "version": 1.2,
-    "id": "14001",
+    "id": 14001,
     "icon": "genshin-impact/set/14001.webp",
     "bonuses": [
       2,
@@ -22,7 +22,7 @@
   "14002": {
     "name": "Thundersoother",
     "version": 1,
-    "id": "14002",
+    "id": 14002,
     "icon": "genshin-impact/set/14002.webp",
     "bonuses": [
       2,
@@ -33,7 +33,7 @@
   "14003": {
     "name": "Lavawalker",
     "version": 1,
-    "id": "14003",
+    "id": 14003,
     "icon": "genshin-impact/set/14003.webp",
     "bonuses": [
       2,
@@ -44,7 +44,7 @@
   "14004": {
     "name": "Maiden Beloved",
     "version": 1,
-    "id": "14004",
+    "id": 14004,
     "icon": "genshin-impact/set/14004.webp",
     "bonuses": [
       2,
@@ -85,7 +85,7 @@
   "15001": {
     "name": "Gladiator's Finale",
     "version": 1,
-    "id": "15001",
+    "id": 15001,
     "icon": "genshin-impact/set/15001.webp",
     "bonuses": [
       2,
@@ -120,7 +120,7 @@
   "15002": {
     "name": "Viridescent Venerer",
     "version": 1,
-    "id": "15002",
+    "id": 15002,
     "icon": "genshin-impact/set/15002.webp",
     "bonuses": [
       2,
@@ -140,7 +140,7 @@
   "15003": {
     "name": "Wanderer's Troupe",
     "version": 1,
-    "id": "15003",
+    "id": 15003,
     "icon": "genshin-impact/set/15003.webp",
     "bonuses": [
       2,
@@ -174,7 +174,7 @@
   "15005": {
     "name": "Thundering Fury",
     "version": 1,
-    "id": "15005",
+    "id": 15005,
     "icon": "genshin-impact/set/15005.webp",
     "bonuses": [
       2,
@@ -194,7 +194,7 @@
   "15006": {
     "name": "Crimson Witch of Flames",
     "version": 1,
-    "id": "15006",
+    "id": 15006,
     "icon": "genshin-impact/set/15006.webp",
     "bonuses": [
       2,
@@ -214,7 +214,7 @@
   "15007": {
     "name": "Noblesse Oblige",
     "version": 1,
-    "id": "15007",
+    "id": 15007,
     "icon": "genshin-impact/set/15007.webp",
     "bonuses": [
       2,
@@ -252,7 +252,7 @@
   "15008": {
     "name": "Bloodstained Chivalry",
     "version": 1,
-    "id": "15008",
+    "id": 15008,
     "icon": "genshin-impact/set/15008.webp",
     "bonuses": [
       2,
@@ -272,7 +272,7 @@
   "15014": {
     "name": "Archaic Petra",
     "version": 1,
-    "id": "15014",
+    "id": 15014,
     "icon": "genshin-impact/set/15014.webp",
     "bonuses": [
       2,
@@ -292,7 +292,7 @@
   "15015": {
     "name": "Retracing Bolide",
     "version": 1,
-    "id": "15015",
+    "id": 15015,
     "icon": "genshin-impact/set/15015.webp",
     "bonuses": [
       2,
@@ -303,7 +303,7 @@
   "15016": {
     "name": "Heart of Depth",
     "version": 1.2,
-    "id": "15016",
+    "id": 15016,
     "icon": "genshin-impact/set/15016.webp",
     "bonuses": [
       2,
@@ -340,7 +340,7 @@
   "15017": {
     "name": "Tenacity of the Millelith",
     "version": 1.5,
-    "id": "15017",
+    "id": 15017,
     "icon": "genshin-impact/set/15017.webp",
     "bonuses": [
       2,
@@ -381,7 +381,7 @@
   "15018": {
     "name": "Pale Flame",
     "version": 1.5,
-    "id": "15018",
+    "id": 15018,
     "icon": "genshin-impact/set/15018.webp",
     "bonuses": [
       2,
@@ -423,7 +423,7 @@
   "15019": {
     "name": "Shimenawa's Reminiscence",
     "version": 2,
-    "id": "15019",
+    "id": 15019,
     "icon": "genshin-impact/set/15019.webp",
     "bonuses": [
       2,
@@ -463,7 +463,7 @@
   "15020": {
     "name": "Emblem of Severed Fate",
     "version": 2,
-    "id": "15020",
+    "id": 15020,
     "icon": "genshin-impact/set/15020.webp",
     "bonuses": [
       2,
@@ -495,7 +495,7 @@
   "15021": {
     "name": "Husk of Opulent Dreams",
     "version": 2.3,
-    "id": "15021",
+    "id": 15021,
     "icon": "genshin-impact/set/15021.webp",
     "bonuses": [
       2,
@@ -524,7 +524,7 @@
   "15022": {
     "name": "Ocean-Hued Clam",
     "version": 2.3,
-    "id": "15022",
+    "id": 15022,
     "icon": "genshin-impact/set/15022.webp",
     "bonuses": [
       2,
@@ -569,7 +569,7 @@
   "15023": {
     "name": "Vermillion Hereafter",
     "version": 2.6,
-    "id": "15023",
+    "id": 15023,
     "icon": "genshin-impact/set/15023.webp",
     "bonuses": [
       2,
@@ -612,7 +612,7 @@
   "15024": {
     "name": "Echoes of an Offering",
     "version": 2.6,
-    "id": "15024",
+    "id": 15024,
     "icon": "genshin-impact/set/15024.webp",
     "bonuses": [
       2,
@@ -632,7 +632,7 @@
   "15025": {
     "name": "Deepwood Memories",
     "version": 3,
-    "id": "15025",
+    "id": 15025,
     "icon": "genshin-impact/set/15025.webp",
     "bonuses": [
       2,
@@ -674,7 +674,7 @@
   "15026": {
     "name": "Gilded Dreams",
     "version": 3,
-    "id": "15026",
+    "id": 15026,
     "icon": "genshin-impact/set/15026.webp",
     "bonuses": [
       2,
@@ -702,7 +702,7 @@
   "15027": {
     "name": "Desert Pavilion Chronicle",
     "version": 3.3,
-    "id": "15027",
+    "id": 15027,
     "icon": "genshin-impact/set/15027.webp",
     "bonuses": [
       2,
@@ -744,7 +744,7 @@
   "15028": {
     "name": "Flower of Paradise Lost",
     "version": 3.3,
-    "id": "15028",
+    "id": 15028,
     "icon": "genshin-impact/set/15028.webp",
     "bonuses": [
       2,
@@ -764,7 +764,7 @@
   "15029": {
     "name": "Nymph's Dream",
     "version": 3.6,
-    "id": "15029",
+    "id": 15029,
     "icon": "genshin-impact/set/15029.webp",
     "bonuses": [
       2,
@@ -810,7 +810,7 @@
   "15030": {
     "name": "Vourukasha's Glow",
     "version": 3.6,
-    "id": "15030",
+    "id": 15030,
     "icon": "genshin-impact/set/15030.webp",
     "bonuses": [
       2,
@@ -848,7 +848,7 @@
   "15031": {
     "name": "Marechaussee Hunter",
     "version": 4,
-    "id": "15031",
+    "id": 15031,
     "icon": "genshin-impact/set/15031.webp",
     "bonuses": [
       2,
@@ -877,7 +877,7 @@
   "15032": {
     "name": "Golden Troupe",
     "version": 4,
-    "id": "15032",
+    "id": 15032,
     "icon": "genshin-impact/set/15032.webp",
     "bonuses": [
       2,
@@ -916,7 +916,7 @@
   "15033": {
     "name": "Song of Days Past",
     "version": 4.3,
-    "id": "15033",
+    "id": 15033,
     "icon": "genshin-impact/set/15033.webp",
     "bonuses": [
       2,
@@ -936,7 +936,7 @@
   "15034": {
     "name": "Nighttime Whispers in the Echoing Woods",
     "version": 4.3,
-    "id": "15034",
+    "id": 15034,
     "icon": "genshin-impact/set/15034.webp",
     "bonuses": [
       2,
@@ -964,7 +964,7 @@
   "15035": {
     "name": "Fragment of Harmonic Whimsy",
     "version": 4.6,
-    "id": "15035",
+    "id": 15035,
     "icon": "genshin-impact/set/15035.webp",
     "bonuses": [
       2,
@@ -992,7 +992,7 @@
   "15036": {
     "name": "Unfinished Reverie",
     "version": 4.6,
-    "id": "15036",
+    "id": 15036,
     "icon": "genshin-impact/set/15036.webp",
     "bonuses": [
       2,
@@ -1020,7 +1020,7 @@
   "15037": {
     "name": "Scroll of the Hero of Cinder City",
     "version": 5,
-    "id": "15037",
+    "id": 15037,
     "icon": "genshin-impact/set/15037.webp",
     "bonuses": [
       2,
@@ -1031,7 +1031,7 @@
   "15038": {
     "name": "Obsidian Codex",
     "version": 5,
-    "id": "15038",
+    "id": 15038,
     "icon": "genshin-impact/set/15038.webp",
     "bonuses": [
       2,
@@ -1062,7 +1062,7 @@
   "15039": {
     "name": "Long Night's Oath",
     "version": 5.5,
-    "id": "15039",
+    "id": 15039,
     "icon": "genshin-impact/set/15039.webp",
     "bonuses": [
       2,
@@ -1090,7 +1090,7 @@
   "15040": {
     "name": "Finale of the Deep Galleries",
     "version": 5.5,
-    "id": "15040",
+    "id": 15040,
     "icon": "genshin-impact/set/15040.webp",
     "bonuses": [
       2,
@@ -1122,7 +1122,7 @@
   "15041": {
     "name": "Night of the Sky's Unveiling",
     "version": 6,
-    "id": "15041",
+    "id": 15041,
     "icon": "genshin-impact/set/15041.webp",
     "bonuses": [
       2,
@@ -1153,7 +1153,7 @@
   "15042": {
     "name": "Silken Moon's Serenade",
     "version": 6,
-    "id": "15042",
+    "id": 15042,
     "icon": "genshin-impact/set/15042.webp",
     "bonuses": [
       2,
@@ -1191,7 +1191,7 @@
   "15043": {
     "name": "Aubade of Morningstar and Moon",
     "version": 6.3,
-    "id": "15043",
+    "id": 15043,
     "icon": "genshin-impact/set/15043.webp",
     "bonuses": [
       2,
@@ -1211,7 +1211,7 @@
   "15044": {
     "name": "A Day Carved From Rising Winds",
     "version": 6.3,
-    "id": "15044",
+    "id": 15044,
     "icon": "genshin-impact/set/15044.webp",
     "bonuses": [
       2,
@@ -1282,7 +1282,7 @@
   "15045": {
     "name": "Celestial Gift",
     "version": 6.6,
-    "id": "15045",
+    "id": 15045,
     "icon": "genshin-impact/set/15045.webp",
     "bonuses": [
       2,
@@ -1323,7 +1323,7 @@
   "15046": {
     "name": "Disenchantment in Deep Shadow",
     "version": 6.6,
-    "id": "15046",
+    "id": 15046,
     "icon": "genshin-impact/set/15046.webp",
     "bonuses": [
       2,
@@ -1343,7 +1343,7 @@
   "15047": {
     "name": "Scarlet Proof",
     "version": 7.0,
-    "id": "15047",
+    "id": 15047,
     "icon": "genshin-impact/set/15047.webp",
     "bonuses": [
       2,
@@ -1354,7 +1354,7 @@
   "15048": {
     "name": "Heart of the Furnace",
     "version": 7.0,
-    "id": "15048",
+    "id": 15048,
     "icon": "genshin-impact/set/15048.webp",
     "bonuses": [
       2,

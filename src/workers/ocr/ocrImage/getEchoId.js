@@ -50,16 +50,19 @@ function templateRegionFor(bitmap) {
   };
 }
 
-async function loadTemplates(allowedNames = []) {
-  const allowed = new Set(allowedNames);
+async function loadTemplates(allowedIds = []) {
+  const allowed = new Set(allowedIds);
 
   const res = await fetch('/rating-pistol/wuthering-waves/echo/manifest.json');
   const paths = await res.json();
 
   const templates = [];
+
   for (const path of paths) {
     const filename = path.split('/').pop().split('.')[0];
-    if (allowed.size > 0 && !allowed.has(filename)) {
+    const id = Number(filename);
+
+    if (allowed.size > 0 && !allowed.has(id)) {
       continue;
     }
 
@@ -69,19 +72,20 @@ async function loadTemplates(allowedNames = []) {
     const region = templateRegionFor(bitmap);
     const pixels = bitmapToPixels(bitmap, region, COMPARE_SIZE);
 
-    templates.push({ name: filename, pixels });
+    templates.push({ id, pixels });
   }
+
   return templates;
 }
 
 export async function getEchoId(imageBitmap, index, setId, cost) {
   const crop = CROPS[index];
 
-  const allowedNames = Object.values(ECHO)
+  const allowedIds = Object.values(ECHO)
     .filter((echo) => echo.sets.includes(setId) && echo.cost === cost)
     .map((echo) => echo.id);
 
-  const templates = await loadTemplates(allowedNames);
+  const templates = await loadTemplates(allowedIds);
   const cropPixels = bitmapToPixels(imageBitmap, crop, COMPARE_SIZE);
 
   let bestMatch = null;
@@ -92,7 +96,7 @@ export async function getEchoId(imageBitmap, index, setId, cost) {
 
     if (score > bestScore) {
       bestScore = score;
-      bestMatch = template.name;
+      bestMatch = template.id;
     }
   }
 

@@ -1,21 +1,9 @@
 import { mean, linearRegression } from 'simple-statistics';
-import { GI, WW } from '@/data';
-import { diff } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
-import { createAdvanceTrial } from './advance';
-import { createDistribution } from './distribution';
-import { initTrials } from './initTrials';
 import { findBestPossibleEquipMap } from './bestEquipMap';
 
-const MIN_WEEKS = 3;
-const MAX_WEEKS = 50;
-const THRESHOLDS = [0.5, 0.75, 0.9, 0.95, 0.99];
-
-const FIT_START_WEEK = 5;
-const MIN_FIT_POINTS = 5;
-
 const Q_STABILITY_WINDOW = 5;
-const Q_STABILITY_TOLERANCE = 0.01;
+const Q_STABILITY_TOLERANCE = 0.05;
 
 function isFitStable(qHistory) {
   if (qHistory.length < Q_STABILITY_WINDOW) return false;
@@ -24,157 +12,161 @@ function isFitStable(qHistory) {
   return spread < Q_STABILITY_TOLERANCE;
 }
 
-function fitRemainingCurve(weekHistory, remainingHistory) {
-  const points = weekHistory
-    .map((week, i) => ({ week, remaining: remainingHistory[i] }))
-    .filter((pt) => pt.week >= FIT_START_WEEK && pt.remaining > 0);
-
-  if (points.length < MIN_FIT_POINTS) return null;
+function fitRemainingCurve(remainingHistory) {
+  if (remainingHistory.length < 3) return;
 
   // Transform:
-  // ln(remaining) = ln(A) + B * ln(week)
-  const logPoints = points.map(({ week, remaining }) => [
-    Math.log(week),
+  // ln(remaining) = ln(A) + B * ln(day)
+  const logPoints = remainingHistory.map(({ day, remaining }) => [
+    Math.log(day),
     Math.log(remaining),
   ]);
 
   const { m, b } = linearRegression(logPoints);
   const q = -m;
-  if (!(q > 0)) return null;
+  if (!(q > 0)) return;
+
   const A = Math.exp(b);
+  return { q, A };
+}
 
-  return {
-    q,
-    A,
-    predict: (week) => A * week ** -q,
-    weekForRemaining: (remaining) => (A / remaining) ** (1 / q),
+const createWorker = () => new Worker(
+  new URL('./trialsWorker.js', import.meta.url),
+  { type: 'module' },
+);
+
+const waitForReady = (worker) => new Promise((resolve) => {
+  worker.onmessage = ({ data }) => {
+    if (data.type === 'ready') resolve();
   };
+});
+
+const runPhase1 = (worker) => new Promise((resolve) => {
+  worker.onmessage = ({ data }) => {
+    if (data.type === 'phase1') resolve(data.means);
+  };
+  worker.postMessage({ type: 'runPhase1' });
+});
+
+const buildMeanEquipMap = (worker) => new Promise((resolve) => {
+  worker.onmessage = ({ data }) => {
+    if (data.type === 'meanEquipMap') resolve(data.meanEquipMap);
+  };
+  worker.postMessage({ type: 'buildMeanEquipMap' });
+});
+
+const runPhase2 = (worker) => new Promise((resolve) => {
+  worker.onmessage = ({ data }) => {
+    if (data.type === 'phase2') resolve(data.meanDps);
+  };
+  worker.postMessage({ type: 'runPhase2' });
+});
+
+const tallyConfigMap = (worker) => new Promise((resolve) => {
+  worker.onmessage = ({ data }) => {
+    if (data.type === 'configMap') resolve(data.configMap);
+  };
+  worker.postMessage({ type: 'tallyConfigMap' });
+});
+
+async function initWorkers(payload) {
+  const workers = Array.from({ length: 4 }, createWorker);
+  const readyPromises = workers.map(waitForReady);
+  for (const worker of workers) {
+    worker.postMessage(payload);
+  }
+  await Promise.all(readyPromises);
+  return workers;
 }
 
-const SMOOTHING_WINDOW = 3;
-
-function smooth(history) {
-  const start = Math.max(0, history.length - SMOOTHING_WINDOW);
-  return mean(history.slice(start));
-}
-
-export function runTrials(cache, equipMaps, currId, logWeeks = false) {
+export async function runTrials(cache, equipMaps, currId, logDays = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
-
   const bestEquipMap = findBestPossibleEquipMap(evaluateEquipMap);
-  const dpsCeiling = bestEquipMap.totals.damage / cache.rotationDuration * 1000;
+  const dpsCeil = bestEquipMap.totals.damage / cache.rotationDuration * 1000;
 
-  const advanceTrial = createAdvanceTrial(cache, evaluateEquipMap);
-  const trials = [];
   const dpsProgression = [];
-
-  // Week 0
-  const { summary, totals, score } = evaluateEquipMap();
-  const baseDps = totals.damage / cache.rotationDuration * 1000
-  dpsProgression.push({
-    mean: baseDps,
-    p10: baseDps,
-    p25: baseDps,
-    p50: baseDps,
-    p75: baseDps,
-    p90: baseDps,
-  });
-
-  const equipListLength = (cache.gameId === GI || cache.gameId === WW) ? 5 : 6;
-  const createEquipList = () => new Array(equipListLength).fill(null);
-  const createTrial = () => ({ equipList: createEquipList(), summary, score, dps: baseDps });
-
-  // Week 1
-  const initialDist = initTrials(trials, createTrial, advanceTrial);
-  dpsProgression.push(initialDist.bands);
-  if (logWeeks) self.postMessage({ week: 1, diff: diff(initialDist.mean, baseDps) });
-
-  // Week 2+
-  const meanHistory = [baseDps, initialDist.mean];
-  const weekHistory = [0, 1];
-  const remainingHistory = [dpsCeiling - baseDps, dpsCeiling - initialDist.mean];
   const qHistory = [];
-
-  const thresholdWeeks = {};
   let lastFit = null;
 
-  for (let week = 2; week <= MAX_WEEKS; week++) {
-    const currDist = createDistribution();
+  // Initialize trials
+  const { summary, totals, score } = evaluateEquipMap();
+  const baseDps = totals.damage / cache.rotationDuration * 1000;
+  dpsProgression.push({ day: 0, mean: baseDps });
 
-    for (const trial of trials) {
-      advanceTrial(trial);
-      currDist.add(trial.dps);
-    }
+  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, summary, score, baseDps });
 
-    dpsProgression.push(currDist.bands);
+  // Phase 1
+  const workerMeans = await Promise.all(workers.map(runPhase1));
+  for (let day = 1; day < 22; day++) {
+    dpsProgression.push({
+      day,
+      mean: mean(workerMeans.map((means) => means[day - 1])),
+    });
+  }
 
-    const currMean = currDist.mean;
-    if (logWeeks) self.postMessage({ week, diff: diff(currMean, meanHistory.at(-1)) });
+  // Early exit for non charId
+  if (!logDays) {
+    const workerMeanEquipMaps = await Promise.all(workers.map(buildMeanEquipMap));
+    const meanEquipMap = {};
 
-    const prevSmoothedMean = smooth(meanHistory);
-    meanHistory.push(currMean);
-    const smoothedMean = smooth(meanHistory);
-    const smoothedRemaining = dpsCeiling - smoothedMean;
-
-    if (smoothedRemaining < 0 && logWeeks) {
-      console.warn(`Week ${week}: smoothed mean (${smoothedMean}) exceeds dps ceiling (${dpsCeiling})`);
-    }
-
-    weekHistory.push(week);
-    remainingHistory.push(smoothedRemaining);
-
-    for (const threshold of THRESHOLDS) {
-      if (thresholdWeeks[threshold]) continue; // already resolved
-
-      const target = threshold * dpsCeiling;
-      if (smoothedMean >= target) {
-        const prevWeek = week - 1;
-        const frac = (target - prevSmoothedMean) / (smoothedMean - prevSmoothedMean);
-        thresholdWeeks[threshold] = {
-          week: prevWeek + Math.max(0, Math.min(1, frac)),
-          isExtrapolated: false,
-        };
+    for (const workerMeanEquipMap of workerMeanEquipMaps) {
+      for (const id in workerMeanEquipMap) {
+        const value = workerMeanEquipMap[id] / workers.length;
+        meanEquipMap[id] = (meanEquipMap[id] ?? 0) + value;
       }
     }
 
-    if (week < MIN_WEEKS) continue;
-    const fit = fitRemainingCurve(weekHistory, remainingHistory);
+    workers.forEach((worker) => worker.terminate());
+    return meanEquipMap;
+  }
+
+  // Phase 2
+  const remainingHistory = [];
+  for (let day = 28; day <= 700; day += 7) {
+    const workerMeanDps = await Promise.all(workers.map(runPhase2));
+    const meanDps = mean(workerMeanDps);
+    dpsProgression.push({ day, mean: meanDps });
+
+    const remaining = dpsCeil - meanDps;
+    remainingHistory.push({ day, remaining });
+
+    const fit = fitRemainingCurve(remainingHistory);
     if (!fit) continue;
 
     lastFit = fit;
     qHistory.push(fit.q);
-    if (logWeeks) self.postMessage({ week, q: fit.q, A: fit.A });
-
-    const allResolved = THRESHOLDS.every((t) => thresholdWeeks[t]);
-    if (allResolved) break;
 
     if (isFitStable(qHistory)) break;
   }
 
-  if (lastFit) {
-    for (const threshold of THRESHOLDS) {
-      if (thresholdWeeks[threshold]) continue;
+  // Configs
+  const workerConfigMaps = await Promise.all(workers.map(tallyConfigMap));
+  const configMap = {};
+  for (const workerConfigMap of workerConfigMaps) {
+    for (const configKey in workerConfigMap) {
+      const workerConfig = workerConfigMap[configKey];
 
-      const targetRemaining = (1 - threshold) * dpsCeiling;
-      thresholdWeeks[threshold] = {
-        week: lastFit.weekForRemaining(targetRemaining),
-        isExtrapolated: true,
-      };
+      configMap[configKey] ??= { count: 0, subDist: {} };
+      configMap[configKey].count += workerConfig.count;
+      const dist = configMap[configKey].subDist;
+
+      for (const id in workerConfig.subDist) {
+        const value = workerConfig.subDist[id];
+        dist[id] = (dist[id] ?? 0) + value;
+      }
     }
   }
 
-  console.log(
-    `\nTrials: ${trials.length}`,
-    `\nWeeks: ${dpsProgression.length - 1}`,
-    `\ndpsCeiling: ${dpsCeiling.toFixed()}`,
-    `\nq: ${lastFit?.q.toFixed(4)}`,
-    `\nA: ${lastFit?.A.toFixed(4)}`,
-    ...THRESHOLDS.map((t) => {
-      const entry = thresholdWeeks[t];
-      const label = entry?.isExtrapolated ? 'extrapolated' : 'actual';
-      return `\nweeksTo${Math.round(t * 100)}%: ${entry?.week.toFixed(1) ?? 'unresolved'} (${label})`;
-    }),
-  );
+  for (const configKey in configMap) {
+    const config = configMap[configKey];
+    const dist = config.subDist;
 
-  return { dpsProgression, trials, dpsCeiling, thresholdWeeks, fit: lastFit };
+    for (const id in dist) {
+      const value = dist[id];
+      dist[id] = value / config.count;
+    }
+  }
+
+  workers.forEach((worker) => worker.terminate());
+  return { dpsProgression, dpsCeiling: dpsCeil, fit: lastFit, configMap };
 }

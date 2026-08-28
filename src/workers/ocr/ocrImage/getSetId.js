@@ -42,5 +42,5 @@ export async function getSetId(imageBitmap, index) {
     }
   }
 
-  return bestMatch;
+  return Number(bestMatch);
 }

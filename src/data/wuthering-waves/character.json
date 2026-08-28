@@ -2,7 +2,7 @@
   "1102": {
     "name": "Sanhua",
     "version": 1,
-    "id": "1102",
+    "id": 1102,
     "icon": "wuthering-waves/character/1102.webp",
     "quality": 4,
     "element": "glacio",
@@ -691,36 +691,34 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020015",
-        "setCounts": {
-          "8": 5
-        },
-        "mainEcho": "6000052",
-        "team": [
-          "1603",
-          "1102",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceLiberation.0",
-          "resonanceSkill.0",
-          "forteCircuit.0",
-          "forteCircuit.3",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "outroSkill.0"
-        ],
-        "duration": 2840
-      }
+    "memberPreset": {
+      "weaponId": 21020015,
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": 6000052,
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.3",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "outroSkill.0"
+      ],
+      "duration": 2840
+    },
+    "teamPreset": [
+      1603,
+      1102,
+      1505
     ]
   },
   "1103": {
     "name": "Baizhi",
     "version": 1,
-    "id": "1103",
+    "id": 1103,
     "icon": "wuthering-waves/character/1103.webp",
     "quality": 4,
     "element": "glacio",
@@ -1596,36 +1594,34 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050024",
-        "setCounts": {
-          "7": 5
-        },
-        "mainEcho": "390080005",
-        "team": [
-          "1104",
-          "1102",
-          "1103"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceLiberation.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "outroSkill.0"
-        ],
-        "duration": 4310
-      }
+    "memberPreset": {
+      "weaponId": 21050024,
+      "setCounts": {
+        "7": 5
+      },
+      "mainEcho": 390080005,
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "outroSkill.0"
+      ],
+      "duration": 4310
+    },
+    "teamPreset": [
+      1104,
+      1102,
+      1103
     ]
   },
   "1104": {
     "name": "Lingyang",
     "version": 1,
-    "id": "1104",
+    "id": 1104,
     "icon": "wuthering-waves/character/1104.webp",
     "quality": 5,
     "element": "glacio",
@@ -2509,43 +2505,41 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21040015",
-        "setCounts": {
-          "1": 5
-        },
-        "mainEcho": "6000044",
-        "team": [
-          "1104",
-          "1105",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceLiberation.0",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.3",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.1",
-          "forteCircuit.3",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.1",
-          "forteCircuit.4",
-          "forteCircuit.5",
-          "outroSkill.0"
-        ],
-        "duration": 12700
-      }
+    "memberPreset": {
+      "weaponId": 21040015,
+      "setCounts": {
+        "1": 5
+      },
+      "mainEcho": 6000044,
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.3",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.1",
+        "forteCircuit.3",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "forteCircuit.5",
+        "outroSkill.0"
+      ],
+      "duration": 12700
+    },
+    "teamPreset": [
+      1104,
+      1105,
+      1505
     ]
   },
   "1105": {
     "name": "Zhezhi",
     "version": 1.2,
-    "id": "1105",
+    "id": 1105,
     "icon": "wuthering-waves/character/1105.webp",
     "quality": 5,
     "element": "glacio",
@@ -3187,39 +3181,37 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050026",
-        "setCounts": {
-          "13": 5
-        },
-        "mainEcho": "6000105",
-        "team": [
-          "1107",
-          "1105",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "resonanceSkill.0",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "resonanceLiberation.1",
-          "forteCircuit.2",
-          "outroSkill.0"
-        ],
-        "duration": 7020
-      }
+    "memberPreset": {
+      "weaponId": 21050026,
+      "setCounts": {
+        "13": 5
+      },
+      "mainEcho": 6000105,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "resonanceLiberation.1",
+        "forteCircuit.2",
+        "outroSkill.0"
+      ],
+      "duration": 7020
+    },
+    "teamPreset": [
+      1107,
+      1105,
+      1505
     ]
   },
   "1106": {
     "name": "Youhu",
     "version": 1.3,
-    "id": "1106",
+    "id": 1106,
     "icon": "wuthering-waves/character/1106.webp",
     "quality": 4,
     "element": "glacio",
@@ -4207,39 +4199,37 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21040024",
-        "setCounts": {
-          "7": 5
-        },
-        "mainEcho": "390080005",
-        "team": [
-          "1301",
-          "1302",
-          "1106"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.1",
-          "resonanceLiberation.0",
-          "resonanceSkill.2",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "resonanceSkill.3",
-          "outroSkill.0"
-        ],
-        "duration": 6500
-      }
+    "memberPreset": {
+      "weaponId": 21040024,
+      "setCounts": {
+        "7": 5
+      },
+      "mainEcho": 390080005,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.1",
+        "resonanceLiberation.0",
+        "resonanceSkill.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "resonanceSkill.3",
+        "outroSkill.0"
+      ],
+      "duration": 6500
+    },
+    "teamPreset": [
+      1301,
+      1302,
+      1106
     ]
   },
   "1107": {
     "name": "Carlotta",
     "version": 2,
-    "id": "1107",
+    "id": 1107,
     "icon": "wuthering-waves/character/1107.webp",
     "quality": 5,
     "element": "glacio",
@@ -5395,42 +5385,40 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21030016",
-        "setCounts": {
-          "10": 5
-        },
-        "mainEcho": "6000083",
-        "team": [
-          "1107",
-          "1105",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "normalAttack.7",
-          "forteCircuit.0",
-          "resonanceLiberation.0",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "outroSkill.0"
-        ],
-        "duration": 13300
-      }
+    "memberPreset": {
+      "weaponId": 21030016,
+      "setCounts": {
+        "10": 5
+      },
+      "mainEcho": 6000083,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "normalAttack.7",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "outroSkill.0"
+      ],
+      "duration": 13300
+    },
+    "teamPreset": [
+      1107,
+      1105,
+      1505
     ]
   },
   "1108": {
     "name": "Hiyuki",
     "version": 3.3,
-    "id": "1108",
+    "id": 1108,
     "icon": "wuthering-waves/character/1108.webp",
     "quality": 5,
     "element": "glacio",
@@ -6958,48 +6946,46 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020086",
-        "setCounts": {
-          "30": 5
-        },
-        "mainEcho": "6000199",
-        "team": [
-          "1108",
-          "1109",
-          "1110"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceLiberation.0",
-          "normalAttack.6",
-          "normalAttack.7",
-          "normalAttack.8",
-          "resonanceSkill.1",
-          "resonanceSkill.2",
-          "normalAttack.6",
-          "normalAttack.7",
-          "normalAttack.8",
-          "forteCircuit.0",
-          "forteCircuit.0",
-          "forteCircuit.0",
-          "normalAttack.12",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceSkill.0",
-          "outroSkill.0"
-        ],
-        "duration": 10500
-      }
+    "memberPreset": {
+      "weaponId": 21020086,
+      "setCounts": {
+        "30": 5
+      },
+      "mainEcho": 6000199,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceLiberation.0",
+        "normalAttack.6",
+        "normalAttack.7",
+        "normalAttack.8",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "normalAttack.6",
+        "normalAttack.7",
+        "normalAttack.8",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "normalAttack.12",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceSkill.0",
+        "outroSkill.0"
+      ],
+      "duration": 10500
+    },
+    "teamPreset": [
+      1108,
+      1109,
+      1110
     ]
   },
   "1109": {
     "name": "Lucilla",
     "version": 3.4,
-    "id": "1109",
+    "id": 1109,
     "icon": "wuthering-waves/character/1109.webp",
     "quality": 5,
     "element": "glacio",
@@ -8134,37 +8120,35 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050086",
-        "setCounts": {
-          "30": 5
-        },
-        "mainEcho": "6000195",
-        "team": [
-          "1108",
-          "1109",
-          "1110"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "resonanceSkill.2",
-          "resonanceLiberation.0",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.3",
-          "resonanceLiberation.4",
-          "outroSkill.0"
-        ],
-        "duration": 7530
-      }
+    "memberPreset": {
+      "weaponId": 21050086,
+      "setCounts": {
+        "30": 5
+      },
+      "mainEcho": 6000195,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceSkill.2",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "outroSkill.0"
+      ],
+      "duration": 7530
+    },
+    "teamPreset": [
+      1108,
+      1109,
+      1110
     ]
   },
   "1110": {
     "name": "Suisui",
     "version": 3.5,
-    "id": "1110",
+    "id": 1110,
     "icon": "wuthering-waves/character/1110.webp",
     "quality": 5,
     "element": "glacio",
@@ -9531,36 +9515,34 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050096",
-        "setCounts": {
-          "33": 5
-        },
-        "mainEcho": "6000216",
-        "team": [
-          "1610",
-          "1508",
-          "1110"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.2",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ],
-        "duration": 7800
-      }
+    "memberPreset": {
+      "weaponId": 21050096,
+      "setCounts": {
+        "33": 5
+      },
+      "mainEcho": 6000216,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.2",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ],
+      "duration": 7800
+    },
+    "teamPreset": [
+      1610,
+      1508,
+      1110
     ]
   },
   "1202": {
     "name": "Chixia",
     "version": 1,
-    "id": "1202",
+    "id": 1202,
     "icon": "wuthering-waves/character/1202.webp",
     "quality": 4,
     "element": "fusion",
@@ -10199,35 +10181,33 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21030045",
-        "setCounts": {
-          "2": 5
-        },
-        "mainEcho": "6000091",
-        "team": [
-          "1202",
-          "1206",
-          "1207"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "forteCircuit.2",
-          "forteCircuit.1",
-          "resonanceLiberation.0",
-          "forteCircuit.2",
-          "forteCircuit.1",
-          "outroSkill.0"
-        ],
-        "duration": 8830
-      }
+    "memberPreset": {
+      "weaponId": 21030045,
+      "setCounts": {
+        "2": 5
+      },
+      "mainEcho": 6000091,
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.2",
+        "forteCircuit.1",
+        "resonanceLiberation.0",
+        "forteCircuit.2",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ],
+      "duration": 8830
+    },
+    "teamPreset": [
+      1202,
+      1206,
+      1207
     ]
   },
   "1203": {
     "name": "Encore",
     "version": 1,
-    "id": "1203",
+    "id": 1203,
     "icon": "wuthering-waves/character/1203.webp",
     "quality": 5,
     "element": "fusion",
@@ -11121,43 +11101,41 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050015",
-        "setCounts": {
-          "2": 5
-        },
-        "mainEcho": "6000091",
-        "team": [
-          "1203",
-          "1207",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceLiberation.0",
-          "resonanceLiberation.6",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.3",
-          "resonanceLiberation.4",
-          "resonanceLiberation.6",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.3",
-          "resonanceLiberation.4",
-          "resonanceLiberation.6",
-          "forteCircuit.1",
-          "outroSkill.0"
-        ],
-        "duration": 11690
-      }
+    "memberPreset": {
+      "weaponId": 21050015,
+      "setCounts": {
+        "2": 5
+      },
+      "mainEcho": 6000091,
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.6",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "resonanceLiberation.6",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "resonanceLiberation.6",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ],
+      "duration": 11690
+    },
+    "teamPreset": [
+      1203,
+      1207,
+      1505
     ]
   },
   "1204": {
     "name": "Mortefi",
     "version": 1,
-    "id": "1204",
+    "id": 1204,
     "icon": "wuthering-waves/character/1204.webp",
     "quality": 4,
     "element": "fusion",
@@ -11882,38 +11860,36 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21030015",
-        "setCounts": {
-          "8": 5
-        },
-        "mainEcho": "6000052",
-        "team": [
-          "1404",
-          "1204",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "forteCircuit.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "forteCircuit.0",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ],
-        "duration": 5620
-      }
+    "memberPreset": {
+      "weaponId": 21030015,
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": 6000052,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ],
+      "duration": 5620
+    },
+    "teamPreset": [
+      1404,
+      1204,
+      1505
     ]
   },
   "1205": {
     "name": "Changli",
     "version": 1.1,
-    "id": "1205",
+    "id": 1205,
     "icon": "wuthering-waves/character/1205.webp",
     "quality": 5,
     "element": "fusion",
@@ -12898,42 +12874,40 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020016",
-        "setCounts": {
-          "2": 5
-        },
-        "mainEcho": "6000091",
-        "team": [
-          "1205",
-          "1206",
-          "1207"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.2",
-          "normalAttack.9",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceSkill.1",
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "forteCircuit.0",
-          "resonanceLiberation.0",
-          "forteCircuit.0",
-          "outroSkill.0"
-        ],
-        "duration": 9780
-      }
+    "memberPreset": {
+      "weaponId": 21020016,
+      "setCounts": {
+        "2": 5
+      },
+      "mainEcho": 6000091,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.2",
+        "normalAttack.9",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.1",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ],
+      "duration": 9780
+    },
+    "teamPreset": [
+      1205,
+      1206,
+      1207
     ]
   },
   "1206": {
     "name": "Brant",
     "version": 2.1,
-    "id": "1206",
+    "id": 1206,
     "icon": "wuthering-waves/character/1206.webp",
     "quality": 5,
     "element": "fusion",
@@ -14539,41 +14513,39 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020036",
-        "setCounts": {
-          "14": 5
-        },
-        "mainEcho": "6000084",
-        "team": [
-          "1205",
-          "1206",
-          "1207"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "forteCircuit.1",
-          "resonanceLiberation.0",
-          "forteCircuit.1",
-          "normalAttack.10",
-          "normalAttack.11",
-          "normalAttack.12",
-          "forteCircuit.1",
-          "normalAttack.13",
-          "normalAttack.14",
-          "forteCircuit.1",
-          "forteCircuit.0",
-          "outroSkill.0"
-        ],
-        "duration": 8200
-      }
+    "memberPreset": {
+      "weaponId": 21020036,
+      "setCounts": {
+        "14": 5
+      },
+      "mainEcho": 6000084,
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.1",
+        "resonanceLiberation.0",
+        "forteCircuit.1",
+        "normalAttack.10",
+        "normalAttack.11",
+        "normalAttack.12",
+        "forteCircuit.1",
+        "normalAttack.13",
+        "normalAttack.14",
+        "forteCircuit.1",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ],
+      "duration": 8200
+    },
+    "teamPreset": [
+      1205,
+      1206,
+      1207
     ]
   },
   "1207": {
     "name": "Lupa",
     "version": 2.4,
-    "id": "1207",
+    "id": 1207,
     "icon": "wuthering-waves/character/1207.webp",
     "quality": 5,
     "element": "fusion",
@@ -16223,36 +16195,34 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010036",
-        "setCounts": {
-          "18": 5
-        },
-        "team": [
-          "1205",
-          "1206",
-          "1207"
-        ],
-        "rotation": [
-          "introSkill.1",
-          "resonanceLiberation.0",
-          "resonanceLiberation.1",
-          "normalAttack.7",
-          "normalAttack.8",
-          "normalAttack.10",
-          "normalAttack.6",
-          "forteCircuit.1",
-          "outroSkill.0"
-        ],
-        "duration": 8140
-      }
+    "memberPreset": {
+      "weaponId": 21010036,
+      "setCounts": {
+        "18": 5
+      },
+      "rotation": [
+        "introSkill.1",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "normalAttack.7",
+        "normalAttack.8",
+        "normalAttack.10",
+        "normalAttack.6",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ],
+      "duration": 8140
+    },
+    "teamPreset": [
+      1205,
+      1206,
+      1207
     ]
   },
   "1208": {
     "name": "Galbrena",
     "version": 2.7,
-    "id": "1208",
+    "id": 1208,
     "icon": "wuthering-waves/character/1208.webp",
     "quality": 5,
     "element": "fusion",
@@ -17870,45 +17840,43 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21030036",
-        "setCounts": {
-          "2": 2,
-          "22": 3
-        },
-        "mainEcho": "6000120",
-        "team": [
-          "1208",
-          "1411",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "normalAttack.1",
-          "normalAttack.2",
-          "resonanceSkill.1",
-          "resonanceLiberation.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "outroSkill.0"
-        ],
-        "duration": 12200
-      }
+    "memberPreset": {
+      "weaponId": 21030036,
+      "setCounts": {
+        "2": 2,
+        "22": 3
+      },
+      "mainEcho": 6000120,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.1",
+        "normalAttack.2",
+        "resonanceSkill.1",
+        "resonanceLiberation.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "outroSkill.0"
+      ],
+      "duration": 12200
+    },
+    "teamPreset": [
+      1208,
+      1411,
+      1505
     ]
   },
   "1209": {
     "name": "Mornye",
     "version": 3,
-    "id": "1209",
+    "id": 1209,
     "icon": "wuthering-waves/character/1209.webp",
     "quality": 5,
     "element": "fusion",
@@ -19131,36 +19099,34 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010066",
-        "setCounts": {
-          "25": 5
-        },
-        "mainEcho": "6000190",
-        "team": [
-          "1210",
-          "1509",
-          "1209"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.4",
-          "normalAttack.5",
-          "normalAttack.6",
-          "resonanceSkill.3",
-          "resonanceSkill.0",
-          "forteCircuit.3",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ]
-      }
+    "memberPreset": {
+      "weaponId": 21010066,
+      "setCounts": {
+        "25": 5
+      },
+      "mainEcho": 6000190,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.4",
+        "normalAttack.5",
+        "normalAttack.6",
+        "resonanceSkill.3",
+        "resonanceSkill.0",
+        "forteCircuit.3",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    },
+    "teamPreset": [
+      1210,
+      1509,
+      1209
     ]
   },
   "1210": {
     "name": "Aemeath",
     "version": 3.1,
-    "id": "1210",
+    "id": 1210,
     "icon": "wuthering-waves/character/1210.webp",
     "quality": 5,
     "element": "fusion",
@@ -20814,73 +20780,41 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020076",
-        "setCounts": {
-          "27": 5
-        },
-        "mainEcho": "6000191",
-        "team": [
-          "1210",
-          "1509",
-          "1209"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceLiberation.0",
-          "resonanceSkill.3",
-          "resonanceSkill.4",
-          "resonanceSkill.5",
-          "forteCircuit.1",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "forteCircuit.0",
-          "resonanceSkill.7",
-          "resonanceLiberation.1",
-          "outroSkill.0"
-        ],
-        "duration": 11690
+    "memberPreset": {
+      "weaponId": 21020076,
+      "setCounts": {
+        "27": 5
       },
-      {
-        "team": [
-          "1210.1",
-          "1211",
-          "1508"
-        ],
-        "weaponId": "21020076",
-        "setCounts": {
-          "27": 5
-        },
-        "mainEcho": "6000191",
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceLiberation.0",
-          "resonanceSkill.3",
-          "resonanceSkill.4",
-          "resonanceSkill.5",
-          "forteCircuit.1",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "forteCircuit.0",
-          "resonanceSkill.7",
-          "resonanceLiberation.1",
-          "outroSkill.0"
-        ],
-        "duration": 11690
-      }
+      "mainEcho": 6000191,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceLiberation.0",
+        "resonanceSkill.3",
+        "resonanceSkill.4",
+        "resonanceSkill.5",
+        "forteCircuit.1",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.0",
+        "resonanceSkill.7",
+        "resonanceLiberation.1",
+        "outroSkill.0"
+      ],
+      "duration": 11690
+    },
+    "teamPreset": [
+      1210,
+      1509,
+      1209
     ]
   },
   "1211": {
     "name": "Denia",
     "version": 3.3,
-    "id": "1211",
+    "id": 1211,
     "icon": "wuthering-waves/character/1211.webp",
     "quality": 5,
     "element": "fusion",
@@ -22319,67 +22253,38 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050076",
-        "setCounts": {
-          "28": 5
-        },
-        "mainEcho": "6000200",
-        "team": [
-          "1210.1",
-          "1211",
-          "1508"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "resonanceLiberation.0",
-          "normalAttack.7",
-          "normalAttack.8",
-          "normalAttack.12",
-          "normalAttack.13",
-          "resonanceSkill.2",
-          "resonanceSkill.3",
-          "resonanceLiberation.1",
-          "outroSkill.0"
-        ],
-        "duration": 5630
+    "memberPreset": {
+      "weaponId": 21050076,
+      "setCounts": {
+        "28": 5
       },
-      {
-        "weaponId": "21050076",
-        "setCounts": {
-          "31": 5
-        },
-        "mainEcho": "6000198",
-        "team": [
-          "1510",
-          "1211.1",
-          "1209"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "resonanceLiberation.0",
-          "normalAttack.7",
-          "normalAttack.8",
-          "normalAttack.12",
-          "normalAttack.13",
-          "resonanceSkill.2",
-          "resonanceSkill.3",
-          "resonanceLiberation.1",
-          "outroSkill.0"
-        ],
-        "duration": 5630
-      }
+      "mainEcho": 6000200,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "normalAttack.7",
+        "normalAttack.8",
+        "normalAttack.12",
+        "normalAttack.13",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "resonanceLiberation.1",
+        "outroSkill.0"
+      ],
+      "duration": 5630
+    },
+    "teamPreset": [
+      1210,
+      1211,
+      1508
     ]
   },
   "1212": {
     "name": "Jingran",
     "version": 3.6,
-    "id": "1212",
+    "id": 1212,
     "icon": "wuthering-waves/character/1212.webp",
     "quality": 5,
     "element": "fusion",
@@ -23948,29 +23853,27 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010076",
-        "setCounts": {
-          "35": 5
-        },
-        "mainEcho": "6000217",
-        "team": [
-          "1212",
-          "1410",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "outroSkill.0"
-        ]
-      }
+    "memberPreset": {
+      "weaponId": 21010076,
+      "setCounts": {
+        "35": 5
+      },
+      "mainEcho": 6000217,
+      "rotation": [
+        "introSkill.0",
+        "outroSkill.0"
+      ]
+    },
+    "teamPreset": [
+      1212,
+      1410,
+      1505
     ]
   },
   "1301": {
     "name": "Calcharo",
     "version": 1,
-    "id": "1301",
+    "id": 1301,
     "icon": "wuthering-waves/character/1301.webp",
     "quality": 5,
     "element": "electro",
@@ -25097,44 +25000,42 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010015",
-        "setCounts": {
-          "3": 5
-        },
-        "mainEcho": "6000088",
-        "team": [
-          "1301",
-          "1302",
-          "1505"
-        ],
-        "rotation": [
-          "resonanceLiberation.8",
-          "resonanceLiberation.0",
-          "forteCircuit.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.1",
-          "forteCircuit.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.1",
-          "forteCircuit.1",
-          "outroSkill.0"
-        ],
-        "duration": 13400
-      }
+    "memberPreset": {
+      "weaponId": 21010015,
+      "setCounts": {
+        "3": 5
+      },
+      "mainEcho": 6000088,
+      "rotation": [
+        "resonanceLiberation.8",
+        "resonanceLiberation.0",
+        "forteCircuit.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.1",
+        "forteCircuit.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.1",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ],
+      "duration": 13400
+    },
+    "teamPreset": [
+      1301,
+      1302,
+      1505
     ]
   },
   "1302": {
     "name": "Yinlin",
     "version": 1,
-    "id": "1302",
+    "id": 1302,
     "icon": "wuthering-waves/character/1302.webp",
     "quality": 5,
     "element": "electro",
@@ -25848,37 +25749,35 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050016",
-        "setCounts": {
-          "13": 5
-        },
-        "mainEcho": "6000089",
-        "team": [
-          "1305",
-          "1302",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "normalAttack.4",
-          "resonanceSkill.1",
-          "resonanceLiberation.0",
-          "normalAttack.0",
-          "forteCircuit.0",
-          "outroSkill.0"
-        ],
-        "duration": 6460
-      }
+    "memberPreset": {
+      "weaponId": 21050016,
+      "setCounts": {
+        "13": 5
+      },
+      "mainEcho": 6000089,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "normalAttack.4",
+        "resonanceSkill.1",
+        "resonanceLiberation.0",
+        "normalAttack.0",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ],
+      "duration": 6460
+    },
+    "teamPreset": [
+      1305,
+      1302,
+      1505
     ]
   },
   "1303": {
     "name": "Yuanwu",
     "version": 1,
-    "id": "1303",
+    "id": 1303,
     "icon": "wuthering-waves/character/1303.webp",
     "quality": 4,
     "element": "electro",
@@ -27019,34 +26918,32 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21040044",
-        "setCounts": {
-          "13": 5
-        },
-        "mainEcho": "6000089",
-        "team": [
-          "1304",
-          "1303",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "resonanceLiberation.0",
-          "resonanceSkill.3",
-          "resonanceSkill.0",
-          "outroSkill.0"
-        ],
-        "duration": 2960
-      }
+    "memberPreset": {
+      "weaponId": 21040044,
+      "setCounts": {
+        "13": 5
+      },
+      "mainEcho": 6000089,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "resonanceSkill.3",
+        "resonanceSkill.0",
+        "outroSkill.0"
+      ],
+      "duration": 2960
+    },
+    "teamPreset": [
+      1304,
+      1303,
+      1505
     ]
   },
   "1304": {
     "name": "Jinhsi",
     "version": 1.1,
-    "id": "1304",
+    "id": 1304,
     "icon": "wuthering-waves/character/1304.webp",
     "quality": 5,
     "element": "spectro",
@@ -28382,40 +28279,38 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010026",
-        "setCounts": {
-          "5": 5
-        },
-        "mainEcho": "6000059",
-        "team": [
-          "1304",
-          "1105",
-          "1503"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.1",
-          "resonanceLiberation.0",
-          "forteCircuit.6",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.7",
-          "forteCircuit.8",
-          "forteCircuit.9",
-          "outroSkill.0"
-        ],
-        "duration": 10200
-      }
+    "memberPreset": {
+      "weaponId": 21010026,
+      "setCounts": {
+        "5": 5
+      },
+      "mainEcho": 6000059,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.1",
+        "resonanceLiberation.0",
+        "forteCircuit.6",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.7",
+        "forteCircuit.8",
+        "forteCircuit.9",
+        "outroSkill.0"
+      ],
+      "duration": 10200
+    },
+    "teamPreset": [
+      1304,
+      1105,
+      1503
     ]
   },
   "1305": {
     "name": "Xiangli Yao",
     "version": 1.2,
-    "id": "1305",
+    "id": 1305,
     "icon": "wuthering-waves/character/1305.webp",
     "quality": 5,
     "element": "electro",
@@ -29387,42 +29282,40 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21040016",
-        "setCounts": {
-          "3": 5
-        },
-        "mainEcho": "6000088",
-        "team": [
-          "1305",
-          "1302",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "resonanceLiberation.0",
-          "resonanceLiberation.4",
-          "forteCircuit.2",
-          "forteCircuit.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.3",
-          "forteCircuit.1",
-          "resonanceLiberation.4",
-          "forteCircuit.2",
-          "forteCircuit.1",
-          "outroSkill.0"
-        ],
-        "duration": 13300
-      }
+    "memberPreset": {
+      "weaponId": 21040016,
+      "setCounts": {
+        "3": 5
+      },
+      "mainEcho": 6000088,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.4",
+        "forteCircuit.2",
+        "forteCircuit.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "forteCircuit.1",
+        "resonanceLiberation.4",
+        "forteCircuit.2",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ],
+      "duration": 13300
+    },
+    "teamPreset": [
+      1305,
+      1302,
+      1505
     ]
   },
   "1306": {
     "name": "Augusta",
     "version": 2.6,
-    "id": "1306",
+    "id": 1306,
     "icon": "wuthering-waves/character/1306.webp",
     "quality": 5,
     "element": "electro",
@@ -30498,51 +30391,49 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010046",
-        "setCounts": {
-          "3": 2,
-          "20": 3
-        },
-        "mainEcho": "6000121",
-        "team": [
-          "1306",
-          "1410",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.5",
-          "normalAttack.6",
-          "resonanceSkill.0",
-          "normalAttack.5",
-          "normalAttack.6",
-          "resonanceLiberation.0",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.3",
-          "outroSkill.0"
-        ],
-        "duration": 11170
-      }
+    "memberPreset": {
+      "weaponId": 21010046,
+      "setCounts": {
+        "3": 2,
+        "20": 3
+      },
+      "mainEcho": 6000121,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.5",
+        "normalAttack.6",
+        "resonanceSkill.0",
+        "normalAttack.5",
+        "normalAttack.6",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "outroSkill.0"
+      ],
+      "duration": 11170
+    },
+    "teamPreset": [
+      1306,
+      1410,
+      1505
     ]
   },
   "1307": {
     "name": "Buling",
     "version": 2.8,
-    "id": "1307",
+    "id": 1307,
     "icon": "wuthering-waves/character/1307.webp",
     "quality": 4,
     "element": "electro",
@@ -31256,37 +31147,35 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050024",
-        "setCounts": {
-          "7": 5
-        },
-        "mainEcho": "6000060",
-        "team": [
-          "1107",
-          "1105",
-          "1307"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.4",
-          "resonanceSkill.0",
-          "normalAttack.3",
-          "normalAttack.6",
-          "normalAttack.9",
-          "forteCircuit.0",
-          "outroSkill.0"
-        ]
-      }
+    "memberPreset": {
+      "weaponId": 21050024,
+      "setCounts": {
+        "7": 5
+      },
+      "mainEcho": 6000060,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.4",
+        "resonanceSkill.0",
+        "normalAttack.3",
+        "normalAttack.6",
+        "normalAttack.9",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ]
+    },
+    "teamPreset": [
+      1107,
+      1105,
+      1307
     ]
   },
   "1308": {
     "name": "Rebecca",
     "version": 3.4,
-    "id": "1308",
+    "id": 1308,
     "icon": "wuthering-waves/character/1308.webp",
     "quality": 5,
     "element": "electro",
@@ -33322,58 +33211,56 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21030066",
-        "setCounts": {
-          "3": 2,
-          "9": 2,
-          "32": 1
-        },
-        "mainEcho": "6000201",
-        "team": [
-          "1511",
-          "1308",
-          "1209"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.9",
-          "normalAttack.10",
-          "normalAttack.11",
-          "resonanceSkill.1",
-          "forteCircuit.1",
-          "resonanceLiberation.4",
-          "resonanceLiberation.0",
-          "resonanceLiberation.0",
-          "resonanceLiberation.0",
-          "resonanceLiberation.0",
-          "resonanceLiberation.0",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.2",
-          "resonanceLiberation.3",
-          "outroSkill.0"
-        ],
-        "duration": 7890
-      }
+    "memberPreset": {
+      "weaponId": 21030066,
+      "setCounts": {
+        "3": 2,
+        "9": 2,
+        "32": 1
+      },
+      "mainEcho": 6000201,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.9",
+        "normalAttack.10",
+        "normalAttack.11",
+        "resonanceSkill.1",
+        "forteCircuit.1",
+        "resonanceLiberation.4",
+        "resonanceLiberation.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "outroSkill.0"
+      ],
+      "duration": 7890
+    },
+    "teamPreset": [
+      1511,
+      1308,
+      1209
     ]
   },
   "1309": {
     "name": "Rover: Electro",
     "version": 3.5,
-    "id": "1309",
+    "id": 1309,
     "icon": "wuthering-waves/character/1309.webp",
     "quality": 5,
     "element": "electro",
@@ -35399,38 +35286,36 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020015",
-        "setCounts": {
-          "8": 5
-        },
-        "mainEcho": "6000052",
-        "team": [
-          null,
-          "1309",
-          "1508"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "resonanceLiberation.0",
-          "forteCircuit.0",
-          "outroSkill.0"
-        ],
-        "duration": 7690
-      }
+    "memberPreset": {
+      "weaponId": 21020015,
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": 6000052,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ],
+      "duration": 7690
+    },
+    "teamPreset": [
+      null,
+      1309,
+      1508
     ]
   },
   "1402": {
     "name": "Yangyang",
     "version": 1,
-    "id": "1402",
+    "id": 1402,
     "icon": "wuthering-waves/character/1402.webp",
     "quality": 4,
     "element": "aero",
@@ -36090,41 +35975,39 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020015",
-        "setCounts": {
-          "8": 5
-        },
-        "mainEcho": "6000052",
-        "team": [
-          "1107",
-          "1402",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.4",
-          "normalAttack.6",
-          "resonanceLiberation.0",
-          "normalAttack.0",
-          "normalAttack.4",
-          "normalAttack.6",
-          "resonanceSkill.0",
-          "forteCircuit.1",
-          "outroSkill.0"
-        ],
-        "duration": 5030
-      }
+    "memberPreset": {
+      "weaponId": 21020015,
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": 6000052,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.4",
+        "normalAttack.6",
+        "resonanceLiberation.0",
+        "normalAttack.0",
+        "normalAttack.4",
+        "normalAttack.6",
+        "resonanceSkill.0",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ],
+      "duration": 5030
+    },
+    "teamPreset": [
+      1107,
+      1402,
+      1505
     ]
   },
   "1403": {
     "name": "Aalto",
     "version": 1,
-    "id": "1403",
+    "id": 1403,
     "icon": "wuthering-waves/character/1403.webp",
     "quality": 4,
     "element": "aero",
@@ -36775,40 +36658,38 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21030015",
-        "setCounts": {
-          "8": 5
-        },
-        "mainEcho": "6000052",
-        "team": [
-          "1404",
-          "1403",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceLiberation.0",
-          "resonanceSkill.1",
-          "resonanceSkill.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "normalAttack.4",
-          "forteCircuit.1",
-          "forteCircuit.0",
-          "outroSkill.0"
-        ],
-        "duration": 5500
-      }
+    "memberPreset": {
+      "weaponId": 21030015,
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": 6000052,
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "resonanceSkill.1",
+        "resonanceSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "forteCircuit.1",
+        "forteCircuit.0",
+        "outroSkill.0"
+      ],
+      "duration": 5500
+    },
+    "teamPreset": [
+      1404,
+      1403,
+      1505
     ]
   },
   "1404": {
     "name": "Jiyan",
     "version": 1,
-    "id": "1404",
+    "id": 1404,
     "icon": "wuthering-waves/character/1404.webp",
     "quality": 5,
     "element": "aero",
@@ -37710,39 +37591,37 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010016",
-        "setCounts": {
-          "4": 5
-        },
-        "mainEcho": "6000086",
-        "team": [
-          "1404",
-          "1204",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "forteCircuit.0",
-          "resonanceSkill.0",
-          "resonanceLiberation.0",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.0",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceSkill.0",
-          "outroSkill.0"
-        ],
-        "duration": 12170
-      }
+    "memberPreset": {
+      "weaponId": 21010016,
+      "setCounts": {
+        "4": 5
+      },
+      "mainEcho": 6000086,
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.0",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceSkill.0",
+        "outroSkill.0"
+      ],
+      "duration": 12170
+    },
+    "teamPreset": [
+      1404,
+      1204,
+      1505
     ]
   },
   "1405": {
     "name": "Jianxin",
     "version": 1,
-    "id": "1405",
+    "id": 1405,
     "icon": "wuthering-waves/character/1405.webp",
     "quality": 5,
     "element": "aero",
@@ -38854,57 +38733,55 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21040024",
-        "setCounts": {
-          "8": 5
-        },
-        "mainEcho": "6000052",
-        "team": [
-          "1410",
-          "1405",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.1",
-          "resonanceLiberation.2",
-          "forteCircuit.6",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.7",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.3",
-          "forteCircuit.8",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.1",
-          "forteCircuit.4",
-          "forteCircuit.9",
-          "outroSkill.0"
-        ]
-      }
+    "memberPreset": {
+      "weaponId": 21040024,
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": 6000052,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.1",
+        "resonanceLiberation.2",
+        "forteCircuit.6",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.7",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.3",
+        "forteCircuit.8",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "forteCircuit.9",
+        "outroSkill.0"
+      ]
+    },
+    "teamPreset": [
+      1410,
+      1405,
+      1505
     ]
   },
   "1406": {
     "name": "Rover: Aero",
     "version": 2.2,
-    "id": "1406",
+    "id": 1406,
     "icon": "wuthering-waves/character/1406.webp",
     "quality": 5,
     "element": "aero",
@@ -39950,38 +39827,36 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020046",
-        "setCounts": {
-          "17": 5
-        },
-        "mainEcho": "6000106",
-        "team": [
-          "1409",
-          "1407",
-          "1406"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "resonanceLiberation.0",
-          "resonanceSkill.0",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "normalAttack.6",
-          "forteCircuit.2",
-          "outroSkill.0"
-        ],
-        "duration": 5960
-      }
+    "memberPreset": {
+      "weaponId": 21020046,
+      "setCounts": {
+        "17": 5
+      },
+      "mainEcho": 6000106,
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "resonanceLiberation.0",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "normalAttack.6",
+        "forteCircuit.2",
+        "outroSkill.0"
+      ],
+      "duration": 5960
+    },
+    "teamPreset": [
+      1409,
+      1407,
+      1406
     ]
   },
   "1407": {
     "name": "Ciaccona",
     "version": 2.3,
-    "id": "1407",
+    "id": 1407,
     "icon": "wuthering-waves/character/1407.webp",
     "quality": 5,
     "element": "aero",
@@ -40755,38 +40630,36 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21030026",
-        "setCounts": {
-          "16": 5
-        },
-        "mainEcho": "6000113",
-        "team": [
-          "1409",
-          "1407",
-          "1508"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.2",
-          "normalAttack.3",
-          "normalAttack.7",
-          "normalAttack.8",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "forteCircuit.0",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ],
-        "duration": 4500
-      }
+    "memberPreset": {
+      "weaponId": 21030026,
+      "setCounts": {
+        "16": 5
+      },
+      "mainEcho": 6000113,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.7",
+        "normalAttack.8",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ],
+      "duration": 4500
+    },
+    "teamPreset": [
+      1409,
+      1407,
+      1508
     ]
   },
   "1409": {
     "name": "Cartethyia",
     "version": 2.4,
-    "id": "1409",
+    "id": 1409,
     "icon": "wuthering-waves/character/1409.webp",
     "quality": 5,
     "element": "aero",
@@ -42760,46 +42633,44 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020056",
-        "setCounts": {
-          "17": 5
-        },
-        "mainEcho": "6000106",
-        "team": [
-          "1409",
-          "1407",
-          "1508"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "normalAttack.9",
-          "resonanceLiberation.0",
-          "forteCircuit.12",
-          "forteCircuit.11",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "forteCircuit.13",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ],
-        "duration": 13230
-      }
+    "memberPreset": {
+      "weaponId": 21020056,
+      "setCounts": {
+        "17": 5
+      },
+      "mainEcho": 6000106,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "normalAttack.9",
+        "resonanceLiberation.0",
+        "forteCircuit.12",
+        "forteCircuit.11",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.13",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ],
+      "duration": 13230
+    },
+    "teamPreset": [
+      1409,
+      1407,
+      1508
     ]
   },
   "1410": {
     "name": "Iuno",
     "version": 2.6,
-    "id": "1410",
+    "id": 1410,
     "icon": "wuthering-waves/character/1410.webp",
     "quality": 5,
     "element": "aero",
@@ -44121,39 +43992,37 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21040046",
-        "setCounts": {
-          "4": 2,
-          "20": 3
-        },
-        "mainEcho": "6000160",
-        "team": [
-          "1306",
-          "1410",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceLiberation.0",
-          "forteCircuit.0",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "forteCircuit.6",
-          "forteCircuit.6",
-          "forteCircuit.7",
-          "outroSkill.0"
-        ],
-        "duration": 8430
-      }
+    "memberPreset": {
+      "weaponId": 21040046,
+      "setCounts": {
+        "4": 2,
+        "20": 3
+      },
+      "mainEcho": 6000160,
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.6",
+        "forteCircuit.6",
+        "forteCircuit.7",
+        "outroSkill.0"
+      ],
+      "duration": 8430
+    },
+    "teamPreset": [
+      1306,
+      1410,
+      1505
     ]
   },
   "1411": {
     "name": "Qiuyuan",
     "version": 2.7,
-    "id": "1411",
+    "id": 1411,
     "icon": "wuthering-waves/character/1411.webp",
     "quality": 5,
     "element": "aero",
@@ -45450,38 +45319,36 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020066",
-        "setCounts": {
-          "4": 2,
-          "21": 3
-        },
-        "mainEcho": "6000116",
-        "team": [
-          "1208",
-          "1411",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "resonanceSkill.0",
-          "resonanceLiberation.0",
-          "forteCircuit.4",
-          "forteCircuit.5",
-          "forteCircuit.6",
-          "outroSkill.0"
-        ],
-        "duration": 6350
-      }
+    "memberPreset": {
+      "weaponId": 21020066,
+      "setCounts": {
+        "4": 2,
+        "21": 3
+      },
+      "mainEcho": 6000116,
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.4",
+        "forteCircuit.5",
+        "forteCircuit.6",
+        "outroSkill.0"
+      ],
+      "duration": 6350
+    },
+    "teamPreset": [
+      1208,
+      1411,
+      1505
     ]
   },
   "1412": {
     "name": "Sigrika",
     "version": 3.2,
-    "id": "1412",
+    "id": 1412,
     "icon": "wuthering-waves/character/1412.webp",
     "quality": 5,
     "element": "aero",
@@ -46710,42 +46577,40 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21040066",
-        "setCounts": {
-          "29": 5
-        },
-        "mainEcho": "6000192",
-        "team": [
-          "1412",
-          "1411",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "normalAttack.4",
-          "forteCircuit.2",
-          "resonanceLiberation.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "normalAttack.4",
-          "forteCircuit.1",
-          "forteCircuit.4",
-          "outroSkill.0"
-        ],
-        "duration": 11090
-      }
+    "memberPreset": {
+      "weaponId": 21040066,
+      "setCounts": {
+        "29": 5
+      },
+      "mainEcho": 6000192,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "forteCircuit.2",
+        "resonanceLiberation.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "outroSkill.0"
+      ],
+      "duration": 11090
+    },
+    "teamPreset": [
+      1412,
+      1411,
+      1505
     ]
   },
   "1413": {
     "name": "Qingxiao",
     "version": 3.6,
-    "id": "1413",
+    "id": 1413,
     "icon": "wuthering-waves/character/1413.webp",
     "quality": 5,
     "element": "aero",
@@ -48022,43 +47887,48 @@
         ]
       }
     },
-    "presets": [
+    "memberPreset": {
+      "weaponId": 21020106,
+      "setCounts": {
+        "34": 5
+      },
+      "mainEcho": 6000221,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.5",
+        "normalAttack.6",
+        "normalAttack.7",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "normalAttack.4",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ],
+      "duration": 12400
+    },
+    "teamPreset": [
+      1413,
       {
-        "weaponId": "21020106",
+        "id": 1211,
         "setCounts": {
-          "34": 5
+          "31": 5
         },
-        "mainEcho": "6000221",
-        "team": [
-          "1413",
-          "1211.1",
-          "1209"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.5",
-          "normalAttack.6",
-          "normalAttack.7",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "normalAttack.4",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ],
-        "duration": 12400
-      }
+        "mainEcho": 6000198,
+        "mode": "tuneStrain"
+      },
+      1209
     ]
   },
   "1501": {
     "name": "Rover: Spectro",
     "version": 1,
-    "id": "1501",
+    "id": 1501,
     "icon": "wuthering-waves/character/1501.webp",
     "quality": 5,
     "element": "spectro",
@@ -48802,39 +48672,37 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020015",
-        "setCounts": {
-          "7": 5
-        },
-        "mainEcho": "6000060",
-        "team": [
-          "1507",
-          "1506",
-          "1501"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.4",
-          "normalAttack.5",
-          "normalAttack.6",
-          "resonanceLiberation.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "outroSkill.0"
-        ],
-        "duration": 5560
-      }
+    "memberPreset": {
+      "weaponId": 21020015,
+      "setCounts": {
+        "7": 5
+      },
+      "mainEcho": 6000060,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.4",
+        "normalAttack.5",
+        "normalAttack.6",
+        "resonanceLiberation.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "outroSkill.0"
+      ],
+      "duration": 5560
+    },
+    "teamPreset": [
+      1507,
+      1506,
+      1501
     ]
   },
   "1503": {
     "name": "Verina",
     "version": 1,
-    "id": "1503",
+    "id": 1503,
     "icon": "wuthering-waves/character/1503.webp",
     "quality": 5,
     "element": "spectro",
@@ -50059,35 +49927,33 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050024",
-        "setCounts": {
-          "7": 5
-        },
-        "mainEcho": "390080005",
-        "team": [
-          "1304",
-          "1105",
-          "1503"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "resonanceLiberation.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "outroSkill.0"
-        ],
-        "duration": 3350
-      }
+    "memberPreset": {
+      "weaponId": 21050024,
+      "setCounts": {
+        "7": 5
+      },
+      "mainEcho": 390080005,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "outroSkill.0"
+      ],
+      "duration": 3350
+    },
+    "teamPreset": [
+      1304,
+      1105,
+      1503
     ]
   },
   "1504": {
     "name": "Lumi",
     "version": 1.4,
-    "id": "1504",
+    "id": 1504,
     "icon": "wuthering-waves/character/1504.webp",
     "quality": 4,
     "element": "electro",
@@ -51099,44 +50965,42 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010045",
-        "setCounts": {
-          "8": 5
-        },
-        "mainEcho": "6000052",
-        "team": [
-          "1304",
-          "1504",
-          "1503"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceLiberation.0",
-          "forteCircuit.5",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.3",
-          "forteCircuit.6",
-          "normalAttack.0",
-          "forteCircuit.0",
-          "forteCircuit.0",
-          "forteCircuit.0",
-          "forteCircuit.0",
-          "forteCircuit.0",
-          "forteCircuit.0",
-          "forteCircuit.5",
-          "outroSkill.0"
-        ],
-        "duration": 12410
-      }
+    "memberPreset": {
+      "weaponId": 21010045,
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": 6000052,
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.5",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.3",
+        "forteCircuit.6",
+        "normalAttack.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.0",
+        "forteCircuit.5",
+        "outroSkill.0"
+      ],
+      "duration": 12410
+    },
+    "teamPreset": [
+      1304,
+      1504,
+      1503
     ]
   },
   "1505": {
     "name": "Shorekeeper",
     "version": 1.3,
-    "id": "1505",
+    "id": 1505,
     "icon": "wuthering-waves/character/1505.webp",
     "quality": 5,
     "element": "spectro",
@@ -52074,36 +51938,34 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050036",
-        "setCounts": {
-          "7": 5
-        },
-        "mainEcho": "6000060",
-        "team": [
-          "1306",
-          "1410",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.1",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "forteCircuit.0",
-          "resonanceSkill.0",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ]
-      }
+    "memberPreset": {
+      "weaponId": 21050036,
+      "setCounts": {
+        "7": 5
+      },
+      "mainEcho": 6000060,
+      "rotation": [
+        "introSkill.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.0",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    },
+    "teamPreset": [
+      1306,
+      1410,
+      1505
     ]
   },
   "1506": {
     "name": "Phoebe",
     "version": 2.1,
-    "id": "1506",
+    "id": 1506,
     "icon": "wuthering-waves/character/1506.webp",
     "quality": 5,
     "element": "spectro",
@@ -53191,41 +53053,39 @@
         ]
       }
     },
-    "presets": [
-      {
-        "team": [
-          "1507",
-          "1506",
-          "1505"
-        ],
-        "weaponId": "21050046",
-        "setCounts": {
-          "8": 5
-        },
-        "mainEcho": "6000052",
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "forteCircuit.1",
-          "resonanceLiberation.1",
-          "resonanceSkill.2",
-          "resonanceSkill.3",
-          "resonanceSkill.4",
-          "forteCircuit.3",
-          "resonanceSkill.2",
-          "resonanceSkill.3",
-          "resonanceSkill.4",
-          "forteCircuit.3",
-          "outroSkill.0"
-        ],
-        "duration": 11600
-      }
+    "memberPreset": {
+      "weaponId": 21050046,
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": 6000052,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "forteCircuit.1",
+        "resonanceLiberation.1",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "resonanceSkill.4",
+        "forteCircuit.3",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "resonanceSkill.4",
+        "forteCircuit.3",
+        "outroSkill.0"
+      ],
+      "duration": 11600
+    },
+    "teamPreset": [
+      1507,
+      1506,
+      1505
     ]
   },
   "1507": {
     "name": "Zani",
     "version": 2.3,
-    "id": "1507",
+    "id": 1507,
     "icon": "wuthering-waves/character/1507.webp",
     "quality": 5,
     "element": "spectro",
@@ -54375,41 +54235,39 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21040036",
-        "setCounts": {
-          "11": 5
-        },
-        "mainEcho": "6000104",
-        "team": [
-          "1507",
-          "1506",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "normalAttack.2",
-          "resonanceSkill.2",
-          "resonanceLiberation.0",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "resonanceLiberation.1",
-          "outroSkill.0"
-        ],
-        "duration": 12640
-      }
+    "memberPreset": {
+      "weaponId": 21040036,
+      "setCounts": {
+        "11": 5
+      },
+      "mainEcho": 6000104,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "normalAttack.2",
+        "resonanceSkill.2",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "resonanceLiberation.1",
+        "outroSkill.0"
+      ],
+      "duration": 12640
+    },
+    "teamPreset": [
+      1507,
+      1506,
+      1505
     ]
   },
   "1508": {
     "name": "Chisa",
     "version": 2.8,
-    "id": "1508",
+    "id": 1508,
     "icon": "wuthering-waves/character/1508.webp",
     "quality": 5,
     "element": "havoc",
@@ -55994,40 +55852,38 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010056",
-        "setCounts": {
-          "6": 2,
-          "23": 3
-        },
-        "mainEcho": "6000199",
-        "team": [
-          "1610",
-          "1508",
-          "1110"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceLiberation.0",
-          "resonanceSkill.1",
-          "forteCircuit.1",
-          "forteCircuit.4",
-          "forteCircuit.6",
-          "forteCircuit.9",
-          "outroSkill.0"
-        ],
-        "duration": 7210
-      }
+    "memberPreset": {
+      "weaponId": 21010056,
+      "setCounts": {
+        "6": 2,
+        "23": 3
+      },
+      "mainEcho": 6000199,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceLiberation.0",
+        "resonanceSkill.1",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "forteCircuit.6",
+        "forteCircuit.9",
+        "outroSkill.0"
+      ],
+      "duration": 7210
+    },
+    "teamPreset": [
+      1610,
+      1508,
+      1110
     ]
   },
   "1509": {
     "name": "Lynae",
     "version": 3,
-    "id": "1509",
+    "id": 1509,
     "icon": "wuthering-waves/character/1509.webp",
     "quality": 5,
     "element": "spectro",
@@ -57471,37 +57327,35 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21030046",
-        "setCounts": {
-          "24": 5
-        },
-        "mainEcho": "6000189",
-        "team": [
-          "1210",
-          "1509",
-          "1209"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceLiberation.0",
-          "resonanceSkill.0",
-          "normalAttack.7",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "forteCircuit.4",
-          "outroSkill.0"
-        ],
-        "duration": 7100
-      }
+    "memberPreset": {
+      "weaponId": 21030046,
+      "setCounts": {
+        "24": 5
+      },
+      "mainEcho": 6000189,
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "resonanceSkill.0",
+        "normalAttack.7",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "forteCircuit.4",
+        "outroSkill.0"
+      ],
+      "duration": 7100
+    },
+    "teamPreset": [
+      1210,
+      1509,
+      1209
     ]
   },
   "1510": {
     "name": "Luuk Herssen",
     "version": 3.1,
-    "id": "1510",
+    "id": 1510,
     "icon": "wuthering-waves/character/1510.webp",
     "quality": 5,
     "element": "spectro",
@@ -58649,46 +58503,51 @@
         ]
       }
     },
-    "presets": [
+    "memberPreset": {
+      "weaponId": 21040056,
+      "setCounts": {
+        "26": 5
+      },
+      "mainEcho": 6000179,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.7",
+        "normalAttack.9",
+        "resonanceSkill.1",
+        "resonanceSkill.4",
+        "normalAttack.5",
+        "normalAttack.7",
+        "normalAttack.9",
+        "resonanceSkill.2",
+        "resonanceSkill.4",
+        "normalAttack.5",
+        "normalAttack.7",
+        "normalAttack.9",
+        "resonanceSkill.3",
+        "forteCircuit.0",
+        "resonanceLiberation.0",
+        "resonanceSkill.0",
+        "outroSkill.0"
+      ],
+      "duration": 12400
+    },
+    "teamPreset": [
+      1510,
       {
-        "weaponId": "21040056",
+        "id": 1211,
         "setCounts": {
-          "26": 5
+          "31": 5
         },
-        "mainEcho": "6000179",
-        "team": [
-          "1510",
-          "1211.1",
-          "1209"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.7",
-          "normalAttack.9",
-          "resonanceSkill.1",
-          "resonanceSkill.4",
-          "normalAttack.5",
-          "normalAttack.7",
-          "normalAttack.9",
-          "resonanceSkill.2",
-          "resonanceSkill.4",
-          "normalAttack.5",
-          "normalAttack.7",
-          "normalAttack.9",
-          "resonanceSkill.3",
-          "forteCircuit.0",
-          "resonanceLiberation.0",
-          "resonanceSkill.0",
-          "outroSkill.0"
-        ],
-        "duration": 12400
-      }
+        "mainEcho": 6000198,
+        "mode": "tuneStrain"
+      },
+      1209
     ]
   },
   "1511": {
     "name": "Lucy",
     "version": 3.4,
-    "id": "1511",
+    "id": 1511,
     "icon": "wuthering-waves/character/1511.webp",
     "quality": 5,
     "element": "spectro",
@@ -61173,52 +61032,50 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21030056",
-        "setCounts": {
-          "24": 2,
-          "26": 2,
-          "32": 1
-        },
-        "mainEcho": "6000201",
-        "team": [
-          "1511",
-          "1308",
-          "1209"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "resonanceSkill.2",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceSkill.3",
-          "normalAttack.8",
-          "normalAttack.9",
-          "normalAttack.10",
-          "normalAttack.11",
-          "normalAttack.13",
-          "normalAttack.14",
-          "resonanceLiberation.0",
-          "resonanceLiberation.1",
-          "resonanceLiberation.2",
-          "resonanceLiberation.3",
-          "resonanceLiberation.4",
-          "resonanceLiberation.5",
-          "resonanceLiberation.7",
-          "outroSkill.0"
-        ],
-        "duration": 11830
-      }
+    "memberPreset": {
+      "weaponId": 21030056,
+      "setCounts": {
+        "24": 2,
+        "26": 2,
+        "32": 1
+      },
+      "mainEcho": 6000201,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.3",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.10",
+        "normalAttack.11",
+        "normalAttack.13",
+        "normalAttack.14",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceLiberation.2",
+        "resonanceLiberation.3",
+        "resonanceLiberation.4",
+        "resonanceLiberation.5",
+        "resonanceLiberation.7",
+        "outroSkill.0"
+      ],
+      "duration": 11830
+    },
+    "teamPreset": [
+      1511,
+      1308,
+      1209
     ]
   },
   "1601": {
     "name": "Taoqi",
     "version": 1,
-    "id": "1601",
+    "id": 1601,
     "icon": "wuthering-waves/character/1601.webp",
     "quality": 4,
     "element": "havoc",
@@ -62101,43 +61958,41 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21010024",
-        "setCounts": {
-          "8": 5
-        },
-        "mainEcho": "6000052",
-        "team": [
-          "1107",
-          "1601",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "forteCircuit.0",
-          "forteCircuit.3",
-          "forteCircuit.1",
-          "forteCircuit.4",
-          "forteCircuit.2",
-          "forteCircuit.5",
-          "resonanceLiberation.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "outroSkill.0"
-        ],
-        "duration": 8440
-      }
+    "memberPreset": {
+      "weaponId": 21010024,
+      "setCounts": {
+        "8": 5
+      },
+      "mainEcho": 6000052,
+      "rotation": [
+        "introSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.3",
+        "forteCircuit.1",
+        "forteCircuit.4",
+        "forteCircuit.2",
+        "forteCircuit.5",
+        "resonanceLiberation.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "outroSkill.0"
+      ],
+      "duration": 8440
+    },
+    "teamPreset": [
+      1107,
+      1601,
+      1505
     ]
   },
   "1602": {
     "name": "Danjin",
     "version": 1,
-    "id": "1602",
+    "id": 1602,
     "icon": "wuthering-waves/character/1602.webp",
     "quality": 4,
     "element": "havoc",
@@ -62970,42 +62825,40 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020015",
-        "setCounts": {
-          "12": 5
-        },
-        "mainEcho": "6000087",
-        "team": [
-          "1603",
-          "1602",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.1",
-          "resonanceSkill.2",
-          "resonanceLiberation.0",
-          "resonanceLiberation.1",
-          "resonanceSkill.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "resonanceSkill.3",
-          "resonanceSkill.4",
-          "resonanceSkill.5",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "outroSkill.0"
-        ],
-        "duration": 7610
-      }
+    "memberPreset": {
+      "weaponId": 21020015,
+      "setCounts": {
+        "12": 5
+      },
+      "mainEcho": 6000087,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "resonanceLiberation.0",
+        "resonanceLiberation.1",
+        "resonanceSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "resonanceSkill.3",
+        "resonanceSkill.4",
+        "resonanceSkill.5",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "outroSkill.0"
+      ],
+      "duration": 7610
+    },
+    "teamPreset": [
+      1603,
+      1602,
+      1505
     ]
   },
   "1603": {
     "name": "Camellya",
     "version": 1.4,
-    "id": "1603",
+    "id": 1603,
     "icon": "wuthering-waves/character/1603.webp",
     "quality": 5,
     "element": "havoc",
@@ -63948,44 +63801,42 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020026",
-        "setCounts": {
-          "6": 5
-        },
-        "mainEcho": "6000090",
-        "team": [
-          "1603",
-          "1606",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "resonanceSkill.1",
-          "resonanceSkill.2",
-          "resonanceSkill.3",
-          "resonanceSkill.5",
-          "resonanceSkill.4",
-          "resonanceLiberation.0",
-          "forteCircuit.0",
-          "resonanceSkill.1",
-          "resonanceSkill.2",
-          "resonanceSkill.3",
-          "resonanceSkill.5",
-          "resonanceSkill.4",
-          "resonanceSkill.6",
-          "outroSkill.0"
-        ],
-        "duration": 15500
-      }
+    "memberPreset": {
+      "weaponId": 21020026,
+      "setCounts": {
+        "6": 5
+      },
+      "mainEcho": 6000090,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "resonanceSkill.5",
+        "resonanceSkill.4",
+        "resonanceLiberation.0",
+        "forteCircuit.0",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "resonanceSkill.3",
+        "resonanceSkill.5",
+        "resonanceSkill.4",
+        "resonanceSkill.6",
+        "outroSkill.0"
+      ],
+      "duration": 15500
+    },
+    "teamPreset": [
+      1603,
+      1606,
+      1505
     ]
   },
   "1605": {
     "name": "Rover: Havoc",
     "version": 1,
-    "id": "1605",
+    "id": 1605,
     "icon": "wuthering-waves/character/1605.webp",
     "quality": 5,
     "element": "havoc",
@@ -64973,44 +64824,42 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21020015",
-        "setCounts": {
-          "6": 5
-        },
-        "mainEcho": "6000053",
-        "team": [
-          "1605",
-          "1606",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "resonanceSkill.0",
-          "forteCircuit.0",
-          "forteCircuit.10",
-          "forteCircuit.6",
-          "forteCircuit.7",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "forteCircuit.5",
-          "forteCircuit.6",
-          "forteCircuit.7",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "forteCircuit.5",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ],
-        "duration": 11300
-      }
+    "memberPreset": {
+      "weaponId": 21020015,
+      "setCounts": {
+        "6": 5
+      },
+      "mainEcho": 6000053,
+      "rotation": [
+        "introSkill.0",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.10",
+        "forteCircuit.6",
+        "forteCircuit.7",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.5",
+        "forteCircuit.6",
+        "forteCircuit.7",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.5",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ],
+      "duration": 11300
+    },
+    "teamPreset": [
+      1605,
+      1606,
+      1505
     ]
   },
   "1606": {
     "name": "Roccia",
     "version": 2,
-    "id": "1606",
+    "id": 1606,
     "icon": "wuthering-waves/character/1606.webp",
     "quality": 5,
     "element": "havoc",
@@ -65756,36 +65605,34 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21040026",
-        "setCounts": {
-          "12": 5
-        },
-        "mainEcho": "6000087",
-        "team": [
-          "1603",
-          "1606",
-          "1505"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.3",
-          "resonanceSkill.0",
-          "forteCircuit.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ],
-        "duration": 6650
-      }
+    "memberPreset": {
+      "weaponId": 21040026,
+      "setCounts": {
+        "12": 5
+      },
+      "mainEcho": 6000087,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.3",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ],
+      "duration": 6650
+    },
+    "teamPreset": [
+      1603,
+      1606,
+      1505
     ]
   },
   "1607": {
     "name": "Cantarella",
     "version": 2.2,
-    "id": "1607",
+    "id": 1607,
     "icon": "wuthering-waves/character/1607.webp",
     "quality": 5,
     "element": "havoc",
@@ -66862,45 +66709,43 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050056",
-        "setCounts": {
-          "12": 5
-        },
-        "mainEcho": "6000082",
-        "team": [
-          "1608",
-          "1607",
-          "1411"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.2",
-          "resonanceSkill.0",
-          "resonanceLiberation.0",
-          "normalAttack.4",
-          "resonanceSkill.1",
-          "resonanceSkill.2",
-          "forteCircuit.0",
-          "forteCircuit.6",
-          "forteCircuit.1",
-          "forteCircuit.6",
-          "forteCircuit.2",
-          "forteCircuit.6",
-          "forteCircuit.4",
-          "forteCircuit.7",
-          "resonanceSkill.2",
-          "outroSkill.0"
-        ],
-        "duration": 7060
-      }
+    "memberPreset": {
+      "weaponId": 21050056,
+      "setCounts": {
+        "12": 5
+      },
+      "mainEcho": 6000082,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.2",
+        "resonanceSkill.0",
+        "resonanceLiberation.0",
+        "normalAttack.4",
+        "resonanceSkill.1",
+        "resonanceSkill.2",
+        "forteCircuit.0",
+        "forteCircuit.6",
+        "forteCircuit.1",
+        "forteCircuit.6",
+        "forteCircuit.2",
+        "forteCircuit.6",
+        "forteCircuit.4",
+        "forteCircuit.7",
+        "resonanceSkill.2",
+        "outroSkill.0"
+      ],
+      "duration": 7060
+    },
+    "teamPreset": [
+      1608,
+      1607,
+      1411
     ]
   },
   "1608": {
     "name": "Phrolova",
     "version": 2.5,
-    "id": "1608",
+    "id": 1608,
     "icon": "wuthering-waves/character/1608.webp",
     "quality": 5,
     "element": "havoc",
@@ -68038,42 +67883,40 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "21050066",
-        "setCounts": {
-          "6": 2,
-          "19": 3
-        },
-        "mainEcho": "6000115",
-        "team": [
-          "1608",
-          "1607",
-          "1411"
-        ],
-        "rotation": [
-          "introSkill.1",
-          "normalAttack.1",
-          "normalAttack.2",
-          "forteCircuit.1",
-          "resonanceSkill.0",
-          "forteCircuit.1",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "forteCircuit.1",
-          "normalAttack.4",
-          "resonanceLiberation.0",
-          "outroSkill.0"
-        ],
-        "duration": 9450
-      }
+    "memberPreset": {
+      "weaponId": 21050066,
+      "setCounts": {
+        "6": 2,
+        "19": 3
+      },
+      "mainEcho": 6000115,
+      "rotation": [
+        "introSkill.1",
+        "normalAttack.1",
+        "normalAttack.2",
+        "forteCircuit.1",
+        "resonanceSkill.0",
+        "forteCircuit.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "forteCircuit.1",
+        "normalAttack.4",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ],
+      "duration": 9450
+    },
+    "teamPreset": [
+      1608,
+      1607,
+      1411
     ]
   },
   "1610": {
     "name": "Yangyang: Xuanling",
     "version": 3.5,
-    "id": "1610",
+    "id": 1610,
     "icon": "wuthering-waves/character/1610.webp",
     "quality": 5,
     "element": "havoc",
@@ -70036,36 +69879,34 @@
         ]
       }
     },
-    "presets": [
-      {
-        "setCounts": {
-          "33": 5
-        },
-        "mainEcho": "6000218",
-        "team": [
-          "1610",
-          "1508",
-          "1110"
-        ],
-        "rotation": [
-          "introSkill.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.3",
-          "forteCircuit.0",
-          "forteCircuit.3",
-          "forteCircuit.4",
-          "forteCircuit.5",
-          "forteCircuit.6",
-          "forteCircuit.7",
-          "resonanceLiberation.0",
-          "forteCircuit.1",
-          "forteCircuit.2",
-          "outroSkill.0"
-        ],
-        "duration": 10140
-      }
+    "memberPreset": {
+      "setCounts": {
+        "33": 5
+      },
+      "mainEcho": 6000218,
+      "rotation": [
+        "introSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.0",
+        "forteCircuit.3",
+        "forteCircuit.4",
+        "forteCircuit.5",
+        "forteCircuit.6",
+        "forteCircuit.7",
+        "resonanceLiberation.0",
+        "forteCircuit.1",
+        "forteCircuit.2",
+        "outroSkill.0"
+      ],
+      "duration": 10140
+    },
+    "teamPreset": [
+      1610,
+      1508,
+      1110
     ]
   }
 }

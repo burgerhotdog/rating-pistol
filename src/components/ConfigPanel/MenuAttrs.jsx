@@ -51,7 +51,7 @@ const ATTR_ROWS = {
 
 const MenuAttrs = ({ team }) => {
   const { gameId, charId } = useParams();
-  const menuMap = buildMenuMap(gameId, charId, team);
+  const menuMap = buildMenuMap(gameId, Number(charId), team);
   const rows = ATTR_ROWS[gameId].map((attr) => {
     const attrValue = getAttr(attr, menuMap);
     return {

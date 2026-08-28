@@ -14,7 +14,8 @@ import TeamSetup from './TeamSetup';
 
 const ConfigPanel = ({ team, setTeam }) => {
   const { charId } = useParams();
-  const member = team.find((member) => member.id === charId);
+
+  const member = team.find((member) => member.id === Number(charId));
 
   return (
     <Card component={Stack} sx={{ width: 320 }}>

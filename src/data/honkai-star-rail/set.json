@@ -2,7 +2,7 @@
   "101": {
     "name": "Passerby of Wandering Cloud",
     "version": 1,
-    "id": "101",
+    "id": 101,
     "icon": "honkai-star-rail/set/101.webp",
     "bonuses": [
       2,
@@ -22,7 +22,7 @@
   "102": {
     "name": "Musketeer of Wild Wheat",
     "version": 1,
-    "id": "102",
+    "id": 102,
     "icon": "honkai-star-rail/set/102.webp",
     "bonuses": [
       2,
@@ -51,7 +51,7 @@
   "103": {
     "name": "Knight of Purity Palace",
     "version": 1,
-    "id": "103",
+    "id": 103,
     "icon": "honkai-star-rail/set/103.webp",
     "bonuses": [
       2,
@@ -79,7 +79,7 @@
   "104": {
     "name": "Hunter of Glacial Forest",
     "version": 1,
-    "id": "104",
+    "id": 104,
     "icon": "honkai-star-rail/set/104.webp",
     "bonuses": [
       2,
@@ -115,7 +115,7 @@
   "105": {
     "name": "Champion of Streetwise Boxing",
     "version": 1,
-    "id": "105",
+    "id": 105,
     "icon": "honkai-star-rail/set/105.webp",
     "bonuses": [
       2,
@@ -152,7 +152,7 @@
   "106": {
     "name": "Guard of Wuthering Snow",
     "version": 1,
-    "id": "106",
+    "id": 106,
     "icon": "honkai-star-rail/set/106.webp",
     "bonuses": [
       2,
@@ -163,7 +163,7 @@
   "107": {
     "name": "Firesmith of Lava-Forging",
     "version": 1,
-    "id": "107",
+    "id": 107,
     "icon": "honkai-star-rail/set/107.webp",
     "bonuses": [
       2,
@@ -213,7 +213,7 @@
   "108": {
     "name": "Genius of Brilliant Stars",
     "version": 1,
-    "id": "108",
+    "id": 108,
     "icon": "honkai-star-rail/set/108.webp",
     "bonuses": [
       2,
@@ -241,7 +241,7 @@
   "109": {
     "name": "Band of Sizzling Thunder",
     "version": 1,
-    "id": "109",
+    "id": 109,
     "icon": "honkai-star-rail/set/109.webp",
     "bonuses": [
       2,
@@ -278,7 +278,7 @@
   "110": {
     "name": "Eagle of Twilight Line",
     "version": 1,
-    "id": "110",
+    "id": 110,
     "icon": "honkai-star-rail/set/110.webp",
     "bonuses": [
       2,
@@ -298,7 +298,7 @@
   "111": {
     "name": "Thief of Shooting Meteor",
     "version": 1,
-    "id": "111",
+    "id": 111,
     "icon": "honkai-star-rail/set/111.webp",
     "bonuses": [
       2,
@@ -326,7 +326,7 @@
   "112": {
     "name": "Wastelander of Banditry Desert",
     "version": 1,
-    "id": "112",
+    "id": 112,
     "icon": "honkai-star-rail/set/112.webp",
     "bonuses": [
       2,
@@ -355,7 +355,7 @@
   "113": {
     "name": "Longevous Disciple",
     "version": 1.2,
-    "id": "113",
+    "id": 113,
     "icon": "honkai-star-rail/set/113.webp",
     "bonuses": [
       2,
@@ -383,7 +383,7 @@
   "114": {
     "name": "Messenger Traversing Hackerspace",
     "version": 1.2,
-    "id": "114",
+    "id": 114,
     "icon": "honkai-star-rail/set/114.webp",
     "bonuses": [
       2,
@@ -403,7 +403,7 @@
   "115": {
     "name": "The Ashblazing Grand Duke",
     "version": 1.5,
-    "id": "115",
+    "id": 115,
     "icon": "honkai-star-rail/set/115.webp",
     "bonuses": [
       2,
@@ -431,7 +431,7 @@
   "116": {
     "name": "Prisoner in Deep Confinement",
     "version": 1.5,
-    "id": "116",
+    "id": 116,
     "icon": "honkai-star-rail/set/116.webp",
     "bonuses": [
       2,
@@ -459,7 +459,7 @@
   "117": {
     "name": "Pioneer Diver of Dead Waters",
     "version": 2,
-    "id": "117",
+    "id": 117,
     "icon": "honkai-star-rail/set/117.webp",
     "bonuses": [
       2,
@@ -496,7 +496,7 @@
   "118": {
     "name": "Watchmaker, Master of Dream Machinations",
     "version": 2,
-    "id": "118",
+    "id": 118,
     "icon": "honkai-star-rail/set/118.webp",
     "bonuses": [
       2,
@@ -525,7 +525,7 @@
   "119": {
     "name": "Iron Cavalry Against the Scourge",
     "version": 2.3,
-    "id": "119",
+    "id": 119,
     "icon": "honkai-star-rail/set/119.webp",
     "bonuses": [
       2,
@@ -553,7 +553,7 @@
   "120": {
     "name": "The Wind-Soaring Valorous",
     "version": 2.3,
-    "id": "120",
+    "id": 120,
     "icon": "honkai-star-rail/set/120.webp",
     "bonuses": [
       2,
@@ -597,7 +597,7 @@
   "121": {
     "name": "Sacerdos' Relived Ordeal",
     "version": 2.6,
-    "id": "121",
+    "id": 121,
     "icon": "honkai-star-rail/set/121.webp",
     "bonuses": [
       2,
@@ -617,7 +617,7 @@
   "122": {
     "name": "Scholar Lost in Erudition",
     "version": 2.6,
-    "id": "122",
+    "id": 122,
     "icon": "honkai-star-rail/set/122.webp",
     "bonuses": [
       2,
@@ -663,7 +663,7 @@
   "123": {
     "name": "Hero of Triumphant Song",
     "version": 3,
-    "id": "123",
+    "id": 123,
     "icon": "honkai-star-rail/set/123.webp",
     "bonuses": [
       2,
@@ -692,7 +692,7 @@
   "124": {
     "name": "Poet of Mourning Collapse",
     "version": 3,
-    "id": "124",
+    "id": 124,
     "icon": "honkai-star-rail/set/124.webp",
     "bonuses": [
       2,
@@ -750,7 +750,7 @@
   "125": {
     "name": "Warrior Goddess of Sun and Thunder",
     "version": 3.3,
-    "id": "125",
+    "id": 125,
     "icon": "honkai-star-rail/set/125.webp",
     "bonuses": [
       2,
@@ -803,7 +803,7 @@
   "126": {
     "name": "Wavestrider Captain",
     "version": 3.3,
-    "id": "126",
+    "id": 126,
     "icon": "honkai-star-rail/set/126.webp",
     "bonuses": [
       2,
@@ -831,7 +831,7 @@
   "127": {
     "name": "World-Remaking Deliverer",
     "version": 3.6,
-    "id": "127",
+    "id": 127,
     "icon": "honkai-star-rail/set/127.webp",
     "bonuses": [
       2,
@@ -868,7 +868,7 @@
   "128": {
     "name": "Self-Enshrouded Recluse",
     "version": 3.6,
-    "id": "128",
+    "id": 128,
     "icon": "honkai-star-rail/set/128.webp",
     "bonuses": [
       2,
@@ -905,7 +905,7 @@
   "129": {
     "name": "Ever-Glorious Magical Girl",
     "version": 4,
-    "id": "129",
+    "id": 129,
     "icon": "honkai-star-rail/set/129.webp",
     "bonuses": [
       2,
@@ -933,7 +933,7 @@
   "130": {
     "name": "Diviner of Distant Reach",
     "version": 4,
-    "id": "130",
+    "id": 130,
     "icon": "honkai-star-rail/set/130.webp",
     "bonuses": [
       2,
@@ -992,7 +992,7 @@
   "131": {
     "name": "As Navigator Isee Sees It",
     "version": 4.3,
-    "id": "131",
+    "id": 131,
     "icon": "honkai-star-rail/set/131.webp",
     "bonuses": [
       2,
@@ -1021,7 +1021,7 @@
   "132": {
     "name": "Divine-Querying Master Smith",
     "version": 4.3,
-    "id": "132",
+    "id": 132,
     "icon": "honkai-star-rail/set/132.webp",
     "bonuses": [
       2,
@@ -1058,7 +1058,7 @@
   "301": {
     "name": "Space Sealing Station",
     "version": 1,
-    "id": "301",
+    "id": 301,
     "icon": "honkai-star-rail/set/301.webp",
     "bonuses": [
       2
@@ -1092,7 +1092,7 @@
   "302": {
     "name": "Fleet of the Ageless",
     "version": 1,
-    "id": "302",
+    "id": 302,
     "icon": "honkai-star-rail/set/302.webp",
     "bonuses": [
       2
@@ -1127,7 +1127,7 @@
   "303": {
     "name": "Pan-Cosmic Commercial Enterprise",
     "version": 1,
-    "id": "303",
+    "id": 303,
     "icon": "honkai-star-rail/set/303.webp",
     "bonuses": [
       2
@@ -1159,7 +1159,7 @@
   "304": {
     "name": "Belobog of the Architects",
     "version": 1,
-    "id": "304",
+    "id": 304,
     "icon": "honkai-star-rail/set/304.webp",
     "bonuses": [
       2
@@ -1193,7 +1193,7 @@
   "305": {
     "name": "Celestial Differentiator",
     "version": 1,
-    "id": "305",
+    "id": 305,
     "icon": "honkai-star-rail/set/305.webp",
     "bonuses": [
       2
@@ -1212,7 +1212,7 @@
   "306": {
     "name": "Inert Salsotto",
     "version": 1,
-    "id": "306",
+    "id": 306,
     "icon": "honkai-star-rail/set/306.webp",
     "bonuses": [
       2
@@ -1247,7 +1247,7 @@
   "307": {
     "name": "Talia: Kingdom of Banditry",
     "version": 1,
-    "id": "307",
+    "id": 307,
     "icon": "honkai-star-rail/set/307.webp",
     "bonuses": [
       2
@@ -1281,7 +1281,7 @@
   "308": {
     "name": "Sprightly Vonwacq",
     "version": 1,
-    "id": "308",
+    "id": 308,
     "icon": "honkai-star-rail/set/308.webp",
     "bonuses": [
       2
@@ -1300,7 +1300,7 @@
   "309": {
     "name": "Rutilant Arena",
     "version": 1.2,
-    "id": "309",
+    "id": 309,
     "icon": "honkai-star-rail/set/309.webp",
     "bonuses": [
       2
@@ -1335,7 +1335,7 @@
   "310": {
     "name": "Broken Keel",
     "version": 1.2,
-    "id": "310",
+    "id": 310,
     "icon": "honkai-star-rail/set/310.webp",
     "bonuses": [
       2
@@ -1370,7 +1370,7 @@
   "311": {
     "name": "Firmament Frontline: Glamoth",
     "version": 1.5,
-    "id": "311",
+    "id": 311,
     "icon": "honkai-star-rail/set/311.webp",
     "bonuses": [
       2
@@ -1419,7 +1419,7 @@
   "312": {
     "name": "Penacony, Land of the Dreams",
     "version": 1.5,
-    "id": "312",
+    "id": 312,
     "icon": "honkai-star-rail/set/312.webp",
     "bonuses": [
       2
@@ -1438,7 +1438,7 @@
   "313": {
     "name": "Sigonia, the Unclaimed Desolation",
     "version": 2.1,
-    "id": "313",
+    "id": 313,
     "icon": "honkai-star-rail/set/313.webp",
     "bonuses": [
       2
@@ -1465,7 +1465,7 @@
   "314": {
     "name": "Izumo Gensei and Takama Divine Realm",
     "version": 2.1,
-    "id": "314",
+    "id": 314,
     "icon": "honkai-star-rail/set/314.webp",
     "bonuses": [
       2
@@ -1492,7 +1492,7 @@
   "315": {
     "name": "Duran, Dynasty of Running Wolves",
     "version": 2.3,
-    "id": "315",
+    "id": 315,
     "icon": "honkai-star-rail/set/315.webp",
     "bonuses": [
       2
@@ -1512,7 +1512,7 @@
   "316": {
     "name": "Forge of the Kalpagni Lantern",
     "version": 2.3,
-    "id": "316",
+    "id": 316,
     "icon": "honkai-star-rail/set/316.webp",
     "bonuses": [
       2
@@ -1539,7 +1539,7 @@
   "317": {
     "name": "Lushaka, the Sunken Seas",
     "version": 2.5,
-    "id": "317",
+    "id": 317,
     "icon": "honkai-star-rail/set/317.webp",
     "bonuses": [
       2
@@ -1567,7 +1567,7 @@
   "318": {
     "name": "The Wondrous BananAmusement Park",
     "version": 2.5,
-    "id": "318",
+    "id": 318,
     "icon": "honkai-star-rail/set/318.webp",
     "bonuses": [
       2
@@ -1594,7 +1594,7 @@
   "319": {
     "name": "Bone Collection's Serene Demesne",
     "version": 3.1,
-    "id": "319",
+    "id": 319,
     "icon": "honkai-star-rail/set/319.webp",
     "bonuses": [
       2
@@ -1628,7 +1628,7 @@
   "320": {
     "name": "Giant Tree of Rapt Brooding",
     "version": 3.1,
-    "id": "320",
+    "id": 320,
     "icon": "honkai-star-rail/set/320.webp",
     "bonuses": [
       2
@@ -1677,7 +1677,7 @@
   "321": {
     "name": "Arcadia of Woven Dreams",
     "version": 3.4,
-    "id": "321",
+    "id": 321,
     "icon": "honkai-star-rail/set/321.webp",
     "bonuses": [
       2
@@ -1696,7 +1696,7 @@
   "322": {
     "name": "Revelry by the Sea",
     "version": 3.4,
-    "id": "322",
+    "id": 322,
     "icon": "honkai-star-rail/set/322.webp",
     "bonuses": [
       2
@@ -1745,7 +1745,7 @@
   "323": {
     "name": "Amphoreus, The Eternal Land",
     "version": 3.7,
-    "id": "323",
+    "id": 323,
     "icon": "honkai-star-rail/set/323.webp",
     "bonuses": [
       2
@@ -1773,7 +1773,7 @@
   "324": {
     "name": "Tengoku@Livestream",
     "version": 3.7,
-    "id": "324",
+    "id": 324,
     "icon": "honkai-star-rail/set/324.webp",
     "bonuses": [
       2
@@ -1800,7 +1800,7 @@
   "325": {
     "name": "Punklorde Stage Zero",
     "version": 4.1,
-    "id": "325",
+    "id": 325,
     "icon": "honkai-star-rail/set/325.webp",
     "bonuses": [
       2
@@ -1827,7 +1827,7 @@
   "326": {
     "name": "City of Converging Stars",
     "version": 4.1,
-    "id": "326",
+    "id": 326,
     "icon": "honkai-star-rail/set/326.webp",
     "bonuses": [
       2
@@ -1863,7 +1863,7 @@
   "327": {
     "name": "Fallen Star Anchorage",
     "version": 4.4,
-    "id": "327",
+    "id": 327,
     "icon": "honkai-star-rail/set/327.webp",
     "bonuses": [
       2
@@ -1873,7 +1873,7 @@
   "328": {
     "name": "Cosmic Life Sciences Institute",
     "version": 4.4,
-    "id": "328",
+    "id": 328,
     "icon": "honkai-star-rail/set/328.webp",
     "bonuses": [
       2

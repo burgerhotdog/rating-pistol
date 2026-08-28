@@ -2,7 +2,7 @@
   "12001": {
     "name": "[Lunar] Pleniluna",
     "version": 1,
-    "id": "12001",
+    "id": 12001,
     "icon": "zenless-zone-zero/weapon/12001.webp",
     "quality": 3,
     "type": "attack",
@@ -15,7 +15,7 @@
   "12002": {
     "name": "[Lunar] Decrescent",
     "version": 1,
-    "id": "12002",
+    "id": 12002,
     "icon": "zenless-zone-zero/weapon/12002.webp",
     "quality": 3,
     "type": "attack",
@@ -28,7 +28,7 @@
   "12003": {
     "name": "[Lunar] Noviluna",
     "version": 1,
-    "id": "12003",
+    "id": 12003,
     "icon": "zenless-zone-zero/weapon/12003.webp",
     "quality": 3,
     "type": "attack",
@@ -41,7 +41,7 @@
   "12004": {
     "name": "[Reverb] Mark I",
     "version": 1,
-    "id": "12004",
+    "id": 12004,
     "icon": "zenless-zone-zero/weapon/12004.webp",
     "quality": 3,
     "type": "support",
@@ -54,7 +54,7 @@
   "12005": {
     "name": "[Reverb] Mark II",
     "version": 1,
-    "id": "12005",
+    "id": 12005,
     "icon": "zenless-zone-zero/weapon/12005.webp",
     "quality": 3,
     "type": "support",
@@ -67,7 +67,7 @@
   "12006": {
     "name": "[Reverb] Mark III",
     "version": 1,
-    "id": "12006",
+    "id": 12006,
     "icon": "zenless-zone-zero/weapon/12006.webp",
     "quality": 3,
     "type": "support",
@@ -80,7 +80,7 @@
   "12007": {
     "name": "[Vortex] Revolver",
     "version": 1,
-    "id": "12007",
+    "id": 12007,
     "icon": "zenless-zone-zero/weapon/12007.webp",
     "quality": 3,
     "type": "stun",
@@ -93,7 +93,7 @@
   "12008": {
     "name": "[Vortex] Arrow",
     "version": 1,
-    "id": "12008",
+    "id": 12008,
     "icon": "zenless-zone-zero/weapon/12008.webp",
     "quality": 3,
     "type": "stun",
@@ -106,7 +106,7 @@
   "12009": {
     "name": "[Vortex] Hatchet",
     "version": 1,
-    "id": "12009",
+    "id": 12009,
     "icon": "zenless-zone-zero/weapon/12009.webp",
     "quality": 3,
     "type": "stun",
@@ -119,7 +119,7 @@
   "12010": {
     "name": "[Magnetic Storm] Alpha",
     "version": 1,
-    "id": "12010",
+    "id": 12010,
     "icon": "zenless-zone-zero/weapon/12010.webp",
     "quality": 3,
     "type": "anomaly",
@@ -132,7 +132,7 @@
   "12011": {
     "name": "[Magnetic Storm] Bravo",
     "version": 1,
-    "id": "12011",
+    "id": 12011,
     "icon": "zenless-zone-zero/weapon/12011.webp",
     "quality": 3,
     "type": "anomaly",
@@ -145,7 +145,7 @@
   "12012": {
     "name": "[Magnetic Storm] Charlie",
     "version": 1,
-    "id": "12012",
+    "id": 12012,
     "icon": "zenless-zone-zero/weapon/12012.webp",
     "quality": 3,
     "type": "anomaly",
@@ -158,7 +158,7 @@
   "12013": {
     "name": "[Identity] Base",
     "version": 1,
-    "id": "12013",
+    "id": 12013,
     "icon": "zenless-zone-zero/weapon/12013.webp",
     "quality": 3,
     "type": "defense",
@@ -171,7 +171,7 @@
   "12014": {
     "name": "[Identity] Inflection",
     "version": 1,
-    "id": "12014",
+    "id": 12014,
     "icon": "zenless-zone-zero/weapon/12014.webp",
     "quality": 3,
     "type": "defense",
@@ -184,7 +184,7 @@
   "12015": {
     "name": "[Cinder] Cobalt",
     "version": 2,
-    "id": "12015",
+    "id": 12015,
     "icon": "zenless-zone-zero/weapon/12015.webp",
     "quality": 3,
     "type": "rupture",
@@ -197,7 +197,7 @@
   "13001": {
     "name": "Street Superstar",
     "version": 1,
-    "id": "13001",
+    "id": 13001,
     "icon": "zenless-zone-zero/weapon/13001.webp",
     "quality": 4,
     "type": "attack",
@@ -210,7 +210,7 @@
   "13002": {
     "name": "Slice of Time",
     "version": 1,
-    "id": "13002",
+    "id": 13002,
     "icon": "zenless-zone-zero/weapon/13002.webp",
     "quality": 4,
     "type": "support",
@@ -223,7 +223,7 @@
   "13003": {
     "name": "Rainforest Gourmet",
     "version": 1,
-    "id": "13003",
+    "id": 13003,
     "icon": "zenless-zone-zero/weapon/13003.webp",
     "quality": 4,
     "type": "anomaly",
@@ -236,7 +236,7 @@
   "13004": {
     "name": "Starlight Engine",
     "version": 1,
-    "id": "13004",
+    "id": 13004,
     "icon": "zenless-zone-zero/weapon/13004.webp",
     "quality": 4,
     "type": "attack",
@@ -249,7 +249,7 @@
   "13005": {
     "name": "Steam Oven",
     "version": 1,
-    "id": "13005",
+    "id": 13005,
     "icon": "zenless-zone-zero/weapon/13005.webp",
     "quality": 4,
     "type": "stun",
@@ -262,7 +262,7 @@
   "13006": {
     "name": "Precious Fossilized Core",
     "version": 1,
-    "id": "13006",
+    "id": 13006,
     "icon": "zenless-zone-zero/weapon/13006.webp",
     "quality": 4,
     "type": "stun",
@@ -275,7 +275,7 @@
   "13007": {
     "name": "Original Transmorpher",
     "version": 1,
-    "id": "13007",
+    "id": 13007,
     "icon": "zenless-zone-zero/weapon/13007.webp",
     "quality": 4,
     "type": "defense",
@@ -288,7 +288,7 @@
   "13008": {
     "name": "Weeping Gemini",
     "version": 1,
-    "id": "13008",
+    "id": 13008,
     "icon": "zenless-zone-zero/weapon/13008.webp",
     "quality": 4,
     "type": "anomaly",
@@ -301,7 +301,7 @@
   "13009": {
     "name": "Electro-Lip Gloss",
     "version": 1,
-    "id": "13009",
+    "id": 13009,
     "icon": "zenless-zone-zero/weapon/13009.webp",
     "quality": 4,
     "type": "anomaly",
@@ -314,7 +314,7 @@
   "13010": {
     "name": "Bunny Band",
     "version": 1,
-    "id": "13010",
+    "id": 13010,
     "icon": "zenless-zone-zero/weapon/13010.webp",
     "quality": 4,
     "type": "defense",
@@ -327,7 +327,7 @@
   "13011": {
     "name": "Spring Embrace",
     "version": 1,
-    "id": "13011",
+    "id": 13011,
     "icon": "zenless-zone-zero/weapon/13011.webp",
     "quality": 4,
     "type": "defense",
@@ -340,7 +340,7 @@
   "13012": {
     "name": "Puzzle Sphere",
     "version": 2,
-    "id": "13012",
+    "id": 13012,
     "icon": "zenless-zone-zero/weapon/13012.webp",
     "quality": 4,
     "type": "rupture",
@@ -353,7 +353,7 @@
   "13013": {
     "name": "Gilded Blossom",
     "version": 1.1,
-    "id": "13013",
+    "id": 13013,
     "icon": "zenless-zone-zero/weapon/13013.webp",
     "quality": 4,
     "type": "attack",
@@ -366,7 +366,7 @@
   "13014": {
     "name": "Radiowave Journey",
     "version": 2,
-    "id": "13014",
+    "id": 13014,
     "icon": "zenless-zone-zero/weapon/13014.webp",
     "quality": 4,
     "type": "rupture",
@@ -379,7 +379,7 @@
   "13015": {
     "name": "Marcato Desire",
     "version": 1.4,
-    "id": "13015",
+    "id": 13015,
     "icon": "zenless-zone-zero/weapon/13015.webp",
     "quality": 4,
     "type": "attack",
@@ -392,7 +392,7 @@
   "13016": {
     "name": "Reel Projector",
     "version": 2,
-    "id": "13016",
+    "id": 13016,
     "icon": "zenless-zone-zero/weapon/13016.webp",
     "quality": 4,
     "type": "defense",
@@ -405,7 +405,7 @@
   "13019": {
     "name": "Cauldron of Clarity",
     "version": 2.5,
-    "id": "13019",
+    "id": 13019,
     "icon": "zenless-zone-zero/weapon/13019.webp",
     "quality": 4,
     "type": "rupture",
@@ -418,7 +418,7 @@
   "13020": {
     "name": "The Simmering Pot",
     "version": 2.7,
-    "id": "13020",
+    "id": 13020,
     "icon": "zenless-zone-zero/weapon/13020.webp",
     "quality": 4,
     "type": "stun",
@@ -431,7 +431,7 @@
   "13101": {
     "name": "Demara Battery Mark II",
     "version": 1,
-    "id": "13101",
+    "id": 13101,
     "icon": "zenless-zone-zero/weapon/13101.webp",
     "quality": 4,
     "type": "stun",
@@ -444,7 +444,7 @@
   "13103": {
     "name": "The Vault",
     "version": 1,
-    "id": "13103",
+    "id": 13103,
     "icon": "zenless-zone-zero/weapon/13103.webp",
     "quality": 4,
     "type": "support",
@@ -457,7 +457,7 @@
   "13106": {
     "name": "Housekeeper",
     "version": 1,
-    "id": "13106",
+    "id": 13106,
     "icon": "zenless-zone-zero/weapon/13106.webp",
     "quality": 4,
     "type": "attack",
@@ -470,7 +470,7 @@
   "13108": {
     "name": "Starlight Engine Replica",
     "version": 1,
-    "id": "13108",
+    "id": 13108,
     "icon": "zenless-zone-zero/weapon/13108.webp",
     "quality": 4,
     "type": "attack",
@@ -483,7 +483,7 @@
   "13111": {
     "name": "Drill Rig - Red Axis",
     "version": 1,
-    "id": "13111",
+    "id": 13111,
     "icon": "zenless-zone-zero/weapon/13111.webp",
     "quality": 4,
     "type": "attack",
@@ -496,7 +496,7 @@
   "13112": {
     "name": "Big Cylinder",
     "version": 1,
-    "id": "13112",
+    "id": 13112,
     "icon": "zenless-zone-zero/weapon/13112.webp",
     "quality": 4,
     "type": "defense",
@@ -509,7 +509,7 @@
   "13113": {
     "name": "Bashful Demon",
     "version": 1,
-    "id": "13113",
+    "id": 13113,
     "icon": "zenless-zone-zero/weapon/13113.webp",
     "quality": 4,
     "type": "support",
@@ -522,7 +522,7 @@
   "13115": {
     "name": "Kaboom the Cannon",
     "version": 1,
-    "id": "13115",
+    "id": 13115,
     "icon": "zenless-zone-zero/weapon/13115.webp",
     "quality": 4,
     "type": "support",
@@ -535,7 +535,7 @@
   "13127": {
     "name": "Peacekeeper - Specialized",
     "version": 1.1,
-    "id": "13127",
+    "id": 13127,
     "icon": "zenless-zone-zero/weapon/13127.webp",
     "quality": 4,
     "type": "defense",
@@ -548,7 +548,7 @@
   "13128": {
     "name": "Roaring Ride",
     "version": 1,
-    "id": "13128",
+    "id": 13128,
     "icon": "zenless-zone-zero/weapon/13128.webp",
     "quality": 4,
     "type": "anomaly",
@@ -561,7 +561,7 @@
   "13135": {
     "name": "Box Cutter",
     "version": 1.6,
-    "id": "13135",
+    "id": 13135,
     "icon": "zenless-zone-zero/weapon/13135.webp",
     "quality": 4,
     "type": "stun",
@@ -574,7 +574,7 @@
   "13142": {
     "name": "Tremor Trigram Vessel",
     "version": 2,
-    "id": "13142",
+    "id": 13142,
     "icon": "zenless-zone-zero/weapon/13142.webp",
     "quality": 4,
     "type": "defense",
@@ -587,7 +587,7 @@
   "13144": {
     "name": "Grill O'Wisp",
     "version": 2.3,
-    "id": "13144",
+    "id": 13144,
     "icon": "zenless-zone-zero/weapon/13144.webp",
     "quality": 4,
     "type": "rupture",
@@ -600,7 +600,7 @@
   "14001": {
     "name": "Cannon Rotor",
     "version": 1,
-    "id": "14001",
+    "id": 14001,
     "icon": "zenless-zone-zero/weapon/14001.webp",
     "quality": 4,
     "type": "attack",
@@ -613,7 +613,7 @@
   "14002": {
     "name": "Unfettered Game Ball",
     "version": 1,
-    "id": "14002",
+    "id": 14002,
     "icon": "zenless-zone-zero/weapon/14002.webp",
     "quality": 4,
     "type": "support",
@@ -626,7 +626,7 @@
   "14003": {
     "name": "Six Shooter",
     "version": 1,
-    "id": "14003",
+    "id": 14003,
     "icon": "zenless-zone-zero/weapon/14003.webp",
     "quality": 4,
     "type": "stun",
@@ -639,7 +639,7 @@
   "14102": {
     "name": "Steel Cushion",
     "version": 1,
-    "id": "14102",
+    "id": 14102,
     "icon": "zenless-zone-zero/weapon/14102.webp",
     "quality": 5,
     "type": "attack",
@@ -652,7 +652,7 @@
   "14104": {
     "name": "The Brimstone",
     "version": 1,
-    "id": "14104",
+    "id": 14104,
     "icon": "zenless-zone-zero/weapon/14104.webp",
     "quality": 5,
     "type": "attack",
@@ -665,7 +665,7 @@
   "14105": {
     "name": "Kraken's Cradle",
     "version": 2.3,
-    "id": "14105",
+    "id": 14105,
     "icon": "zenless-zone-zero/weapon/14105.webp",
     "quality": 5,
     "type": "rupture",
@@ -678,7 +678,7 @@
   "14107": {
     "name": "Tusks of Fury",
     "version": 1.2,
-    "id": "14107",
+    "id": 14107,
     "icon": "zenless-zone-zero/weapon/14107.webp",
     "quality": 5,
     "type": "defense",
@@ -691,7 +691,7 @@
   "14109": {
     "name": "Hailstorm Shrine",
     "version": 1.4,
-    "id": "14109",
+    "id": 14109,
     "icon": "zenless-zone-zero/weapon/14109.webp",
     "quality": 5,
     "type": "anomaly",
@@ -704,7 +704,7 @@
   "14110": {
     "name": "Hellfire Gears",
     "version": 1,
-    "id": "14110",
+    "id": 14110,
     "icon": "zenless-zone-zero/weapon/14110.webp",
     "quality": 5,
     "type": "stun",
@@ -717,7 +717,7 @@
   "14114": {
     "name": "The Restrained",
     "version": 1,
-    "id": "14114",
+    "id": 14114,
     "icon": "zenless-zone-zero/weapon/14114.webp",
     "quality": 5,
     "type": "stun",
@@ -730,7 +730,7 @@
   "14116": {
     "name": "Blazing Laurel",
     "version": 1.3,
-    "id": "14116",
+    "id": 14116,
     "icon": "zenless-zone-zero/weapon/14116.webp",
     "quality": 5,
     "type": "stun",
@@ -743,7 +743,7 @@
   "14117": {
     "name": "Flamemaker Shaker",
     "version": 1.2,
-    "id": "14117",
+    "id": 14117,
     "icon": "zenless-zone-zero/weapon/14117.webp",
     "quality": 5,
     "type": "anomaly",
@@ -756,7 +756,7 @@
   "14118": {
     "name": "Fusion Compiler",
     "version": 1,
-    "id": "14118",
+    "id": 14118,
     "icon": "zenless-zone-zero/weapon/14118.webp",
     "quality": 5,
     "type": "anomaly",
@@ -769,7 +769,7 @@
   "14119": {
     "name": "Deep Sea Visitor",
     "version": 1,
-    "id": "14119",
+    "id": 14119,
     "icon": "zenless-zone-zero/weapon/14119.webp",
     "quality": 5,
     "type": "attack",
@@ -782,7 +782,7 @@
   "14120": {
     "name": "Zanshin Herb Case",
     "version": 1.4,
-    "id": "14120",
+    "id": 14120,
     "icon": "zenless-zone-zero/weapon/14120.webp",
     "quality": 5,
     "type": "attack",
@@ -795,7 +795,7 @@
   "14121": {
     "name": "Weeping Cradle",
     "version": 1,
-    "id": "14121",
+    "id": 14121,
     "icon": "zenless-zone-zero/weapon/14121.webp",
     "quality": 5,
     "type": "support",
@@ -808,7 +808,7 @@
   "14122": {
     "name": "Timeweaver",
     "version": 1.3,
-    "id": "14122",
+    "id": 14122,
     "icon": "zenless-zone-zero/weapon/14122.webp",
     "quality": 5,
     "type": "anomaly",
@@ -821,7 +821,7 @@
   "14124": {
     "name": "Riot Suppressor Mark VI",
     "version": 1,
-    "id": "14124",
+    "id": 14124,
     "icon": "zenless-zone-zero/weapon/14124.webp",
     "quality": 5,
     "type": "attack",
@@ -834,7 +834,7 @@
   "14125": {
     "name": "Ice-Jade Teapot",
     "version": 1.1,
-    "id": "14125",
+    "id": 14125,
     "icon": "zenless-zone-zero/weapon/14125.webp",
     "quality": 5,
     "type": "stun",
@@ -847,7 +847,7 @@
   "14126": {
     "name": "Sharpened Stinger",
     "version": 1.1,
-    "id": "14126",
+    "id": 14126,
     "icon": "zenless-zone-zero/weapon/14126.webp",
     "quality": 5,
     "type": "anomaly",
@@ -860,7 +860,7 @@
   "14129": {
     "name": "Myriad Eclipse",
     "version": 1.7,
-    "id": "14129",
+    "id": 14129,
     "icon": "zenless-zone-zero/weapon/14129.webp",
     "quality": 5,
     "type": "attack",
@@ -873,7 +873,7 @@
   "14130": {
     "name": "Bellicose Blaze",
     "version": 2.2,
-    "id": "14130",
+    "id": 14130,
     "icon": "zenless-zone-zero/weapon/14130.webp",
     "quality": 5,
     "type": "attack",
@@ -886,7 +886,7 @@
   "14131": {
     "name": "Elegant Vanity",
     "version": 1.5,
-    "id": "14131",
+    "id": 14131,
     "icon": "zenless-zone-zero/weapon/14131.webp",
     "quality": 5,
     "type": "support",
@@ -899,7 +899,7 @@
   "14132": {
     "name": "Heartstring Nocturne",
     "version": 1.5,
-    "id": "14132",
+    "id": 14132,
     "icon": "zenless-zone-zero/weapon/14132.webp",
     "quality": 5,
     "type": "attack",
@@ -912,7 +912,7 @@
   "14133": {
     "name": "Flight of Fancy",
     "version": 1.7,
-    "id": "14133",
+    "id": 14133,
     "icon": "zenless-zone-zero/weapon/14133.webp",
     "quality": 5,
     "type": "anomaly",
@@ -925,7 +925,7 @@
   "14134": {
     "name": "Half-Sugar Bunny",
     "version": 2.5,
-    "id": "14134",
+    "id": 14134,
     "icon": "zenless-zone-zero/weapon/14134.webp",
     "quality": 5,
     "type": "defense",
@@ -938,7 +938,7 @@
   "14136": {
     "name": "Spectral Gaze",
     "version": 1.6,
-    "id": "14136",
+    "id": 14136,
     "icon": "zenless-zone-zero/weapon/14136.webp",
     "quality": 5,
     "type": "stun",
@@ -951,7 +951,7 @@
   "14137": {
     "name": "Qingming Birdcage",
     "version": 2,
-    "id": "14137",
+    "id": 14137,
     "icon": "zenless-zone-zero/weapon/14137.webp",
     "quality": 5,
     "type": "rupture",
@@ -964,7 +964,7 @@
   "14138": {
     "name": "Severed Innocence",
     "version": 1.6,
-    "id": "14138",
+    "id": 14138,
     "icon": "zenless-zone-zero/weapon/14138.webp",
     "quality": 5,
     "type": "attack",
@@ -977,7 +977,7 @@
   "14139": {
     "name": "Roaring Fur-nace",
     "version": 2,
-    "id": "14139",
+    "id": 14139,
     "icon": "zenless-zone-zero/weapon/14139.webp",
     "quality": 5,
     "type": "stun",
@@ -990,7 +990,7 @@
   "14140": {
     "name": "Practiced Perfection",
     "version": 2.1,
-    "id": "14140",
+    "id": 14140,
     "icon": "zenless-zone-zero/weapon/14140.webp",
     "quality": 5,
     "type": "anomaly",
@@ -1003,7 +1003,7 @@
   "14141": {
     "name": "Metanukimorphosis",
     "version": 2.1,
-    "id": "14141",
+    "id": 14141,
     "icon": "zenless-zone-zero/weapon/14141.webp",
     "quality": 5,
     "type": "support",
@@ -1016,7 +1016,7 @@
   "14143": {
     "name": "Cloudcleave Radiance",
     "version": 2.5,
-    "id": "14143",
+    "id": 14143,
     "icon": "zenless-zone-zero/weapon/14143.webp",
     "quality": 5,
     "type": "attack",
@@ -1029,7 +1029,7 @@
   "14145": {
     "name": "Dreamlit Hearth",
     "version": 2.3,
-    "id": "14145",
+    "id": 14145,
     "icon": "zenless-zone-zero/weapon/14145.webp",
     "quality": 5,
     "type": "support",
@@ -1042,7 +1042,7 @@
   "14146": {
     "name": "Cordis Germina",
     "version": 2.2,
-    "id": "14146",
+    "id": 14146,
     "icon": "zenless-zone-zero/weapon/14146.webp",
     "quality": 5,
     "type": "attack",
@@ -1055,7 +1055,7 @@
   "14147": {
     "name": "Wrathful Vajra",
     "version": 2.4,
-    "id": "14147",
+    "id": 14147,
     "icon": "zenless-zone-zero/weapon/14147.webp",
     "quality": 5,
     "type": "rupture",
@@ -1068,7 +1068,7 @@
   "14148": {
     "name": "Yesterday Calls",
     "version": 2.4,
-    "id": "14148",
+    "id": 14148,
     "icon": "zenless-zone-zero/weapon/14148.webp",
     "quality": 5,
     "type": "stun",
@@ -1081,7 +1081,7 @@
   "14149": {
     "name": "Thoughtbop",
     "version": 2.6,
-    "id": "14149",
+    "id": 14149,
     "icon": "zenless-zone-zero/weapon/14149.webp",
     "quality": 5,
     "type": "support",
@@ -1094,7 +1094,7 @@
   "14150": {
     "name": "Angel in the Shell",
     "version": 2.6,
-    "id": "14150",
+    "id": 14150,
     "icon": "zenless-zone-zero/weapon/14150.webp",
     "quality": 5,
     "type": "anomaly",
@@ -1107,7 +1107,7 @@
   "14151": {
     "name": "Neon Fantasies",
     "version": 2.7,
-    "id": "14151",
+    "id": 14151,
     "icon": "zenless-zone-zero/weapon/14151.webp",
     "quality": 5,
     "type": "stun",
@@ -1120,7 +1120,7 @@
   "14152": {
     "name": "Serpentine Seeker",
     "version": 2.7,
-    "id": "14152",
+    "id": 14152,
     "icon": "zenless-zone-zero/weapon/14152.webp",
     "quality": 5,
     "type": "attack",
@@ -1133,7 +1133,7 @@
   "14153": {
     "name": "Starlight Rider Faceplate",
     "version": 2.8,
-    "id": "14153",
+    "id": 14153,
     "icon": "zenless-zone-zero/weapon/14153.webp",
     "quality": 5,
     "type": "rupture",
@@ -1146,7 +1146,7 @@
   "14154": {
     "name": "Frostfall Sickle",
     "version": 2.8,
-    "id": "14154",
+    "id": 14154,
     "icon": "zenless-zone-zero/weapon/14154.webp",
     "quality": 5,
     "type": "anomaly",
@@ -1159,7 +1159,7 @@
   "14155": {
     "name": "Sol Exuvia",
     "version": 3,
-    "id": "14155",
+    "id": 14155,
     "icon": "zenless-zone-zero/weapon/14155.webp",
     "quality": 5,
     "type": "attack",
@@ -1172,7 +1172,7 @@
   "14156": {
     "name": "Joyau Dore",
     "version": 3,
-    "id": "14156",
+    "id": 14156,
     "icon": "zenless-zone-zero/weapon/14156.webp",
     "quality": 5,
     "type": "anomaly",
@@ -1185,7 +1185,7 @@
   "14157": {
     "name": "Chief Sidekick",
     "version": 3,
-    "id": "14157",
+    "id": 14157,
     "icon": "zenless-zone-zero/weapon/14157.webp",
     "quality": 5,
     "type": "stun",
@@ -1198,7 +1198,7 @@
   "14158": {
     "name": "Ode of Resurrected Wings",
     "version": 3.1,
-    "id": "14158",
+    "id": 14158,
     "icon": "zenless-zone-zero/weapon/14158.webp",
     "quality": 5,
     "type": "anomaly",
@@ -1211,7 +1211,7 @@
   "14159": {
     "name": "Knight's Extolment",
     "version": 3.1,
-    "id": "14159",
+    "id": 14159,
     "icon": "zenless-zone-zero/weapon/14159.webp",
     "quality": 5,
     "type": "attack",

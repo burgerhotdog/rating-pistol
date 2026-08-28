@@ -8,7 +8,7 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import { clamp, formatNum } from '@/utils';
+import { formatNum, estimateDay } from '@/utils';
 
 const GRADE_BANDS = [
   { floor: 90, letter: 'A', color: '#4ade80' },
@@ -31,16 +31,24 @@ function getGrade(pct) {
   return { grade: 'E', color: '#ef4444' };
 }
 
-function formatWeeks(weeks) {
-  if (weeks < (52 / 12)) {
-    return `${weeks.toFixed(1)} weeks`;
+function formatDays(days) {
+  if (days < 14) {
+    return `${days.toFixed()} days`;
   }
 
-  if (weeks < 52) {
-    return `${(weeks / (52 / 12)).toFixed()} months`;
+  const weeks = days / 7;
+
+  if (days < 30) {
+    return `${weeks.toFixed()} weeks`;
   }
 
-  const years = weeks / 52;
+  const months = days / 30;
+
+  if (months < 12) {
+    return `${months.toFixed()} months`;
+  }
+
+  const years = months / 12;
 
   if (years < 10) {
     return `${years.toFixed(1)} years`; 
@@ -49,36 +57,11 @@ function formatWeeks(weeks) {
   return `${years.toFixed()} years`;
 }
 
-// Inverts the fitted power-law decay (remaining = A * week^-q) to find the farming week equivalent to userDps
-function estimateEquivalentWeek(userDps, dpsCeiling, fit) {
-  if (!fit || !dpsCeiling) return null;
-  const remaining = dpsCeiling - userDps;
-  if (remaining <= 0) return Infinity;
-  return (fit.A / remaining) ** (1 / fit.q);
-}
-
-const THRESHOLD_ORDER = [0.5, 0.75, 0.9, 0.95, 0.99];
-
-function getMilestones(thresholdWeeks) {
-  if (!thresholdWeeks) return [];
-  return THRESHOLD_ORDER
-    .map((threshold) => ({ threshold, ...thresholdWeeks[threshold] }))
-    .filter((entry) => entry.week != null);
-}
-
 function getEfficiencyLabel(q) {
   if (q == null) return null;
   if (q >= 1.5) return { label: 'Fast', color: 'success.main' };
   if (q >= 0.8) return { label: 'Moderate', color: 'warning.main' };
   return { label: 'Slow', color: 'error.main' };
-}
-
-function getConfidenceLabel(bands) {
-  if (!bands?.mean) return null;
-  const spread = (bands.p90 - bands.p10) / bands.mean;
-  if (spread < 0.1) return { label: 'High', color: 'success.main' };
-  if (spread < 0.25) return { label: 'Medium', color: 'warning.main' };
-  return { label: 'Low', color: 'error.main' };
 }
 
 const Stat = ({ label, value, valueColor, tooltip }) => {
@@ -96,27 +79,15 @@ const Stat = ({ label, value, valueColor, tooltip }) => {
   return tooltip ? <Tooltip title={tooltip}>{content}</Tooltip> : content;
 };
 
-const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsProgression }) => {
-  const finalBands = dpsProgression?.at(-1);
-
+const Rating = ({ userDay, userDps, dpsCeiling, fit, dpsProgression, benchmarkDay, benchmarkDps }) => {
   const benchmarkPct = userDps / benchmarkDps * 100;
-  const pctOfCeiling = dpsCeiling ? clamp(userDps / dpsCeiling * 100, 0, 100) : null;
   const { grade, color: gradeColor } = getGrade(benchmarkPct);
-
-  const equivalentWeek = estimateEquivalentWeek(userDps, dpsCeiling, fit);
-  const milestones = getMilestones(thresholdWeeks);
-  const nextMilestone = pctOfCeiling != null
-    ? milestones.find((m) => m.threshold * 100 > pctOfCeiling)
-    : null;
-
-  const timePercentMore1 = estimateEquivalentWeek(userDps * 1.01, dpsCeiling, fit);
-  const timePercentMore5 = estimateEquivalentWeek(userDps * 1.05, dpsCeiling, fit);
-  const timePercentMore10 = estimateEquivalentWeek(userDps * 1.1, dpsCeiling, fit);
-
-  const hasExtrapolated = milestones.some((m) => m.isExtrapolated);
+  
+  const timePercentMore1 = estimateDay(userDps * 1.01, dpsCeiling, dpsProgression, fit);
+  const timePercentMore5 = estimateDay(userDps * 1.05, dpsCeiling, dpsProgression, fit);
+  const timePercentMore10 = estimateDay(userDps * 1.1, dpsCeiling, dpsProgression, fit);
 
   const efficiency = getEfficiencyLabel(fit?.q);
-  const confidence = getConfidenceLabel(finalBands);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -142,14 +113,6 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
             {dpsCeiling != null && (
               <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
             )}
-            {confidence && (
-              <Stat
-                label="Simulation Confidence"
-                value={confidence.label}
-                valueColor={confidence.color}
-                tooltip="How tightly the final week's simulated outcomes cluster around the mean"
-              />
-            )}
             {efficiency && (
               <Stat
                 label="Farming Curve"
@@ -160,80 +123,53 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
             )}
           </Box>
 
-          {(equivalentWeek != null || nextMilestone) && (
-            <Stack spacing={1} sx={{ flex: 1 }}>
-              <Typography>
-                Estimated farming time
+          <Stack spacing={1} sx={{ flex: 1 }}>
+            <Typography>
+              Estimated farming time
+            </Typography>
+
+            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+              <Typography variant="body2" color="textSecondary">
+                {formatNum(userDps)} dps (current)
               </Typography>
+              <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                ~ {formatDays(userDay)}
+              </Typography>
+            </Stack>
 
-              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+              <Typography variant="body2" color="textSecondary">
+                {formatNum(userDps * 1.01)} dps (+1%)
+              </Typography>
+              <Stack direction="row" spacing={1}>
                 <Typography variant="body2" color="textSecondary">
-                  {formatNum(userDps)} dps (current)
+                  + {formatDays(timePercentMore1 - userDay)}
                 </Typography>
-                <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                  ~ {formatWeeks(equivalentWeek)}
-                </Typography>
-              </Stack>
-
-              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-                <Typography variant="body2" color="textSecondary">
-                  {formatNum(userDps * 1.01)} dps (+1%)
-                </Typography>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body2" color="textSecondary">
-                    + {formatWeeks(timePercentMore1 - equivalentWeek)}
-                  </Typography>
-                </Stack>
-              </Stack>
-
-              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-                <Typography variant="body2" color="textSecondary">
-                  {formatNum(userDps * 1.05)} dps (+5%)
-                </Typography>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body2" color="textSecondary">
-                    + {formatWeeks(timePercentMore5 - equivalentWeek)}
-                  </Typography>
-                </Stack>
-              </Stack>
-
-              <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-                <Typography variant="body2" color="textSecondary">
-                  {formatNum(userDps * 1.1)} dps (+10%)
-                </Typography>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body2" color="textSecondary">
-                    + {formatWeeks(timePercentMore10 - equivalentWeek)}
-                  </Typography>
-                </Stack>
               </Stack>
             </Stack>
-          )}
 
-          {milestones.length > 0 && (
-            <Stack sx={{ flex: 1 }}>
-              <Typography variant="overline" color="textSecondary">
-                Milestones
+            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+              <Typography variant="body2" color="textSecondary">
+                {formatNum(userDps * 1.05)} dps (+5%)
               </Typography>
-              <Stack>
-                {milestones.map((m) => (
-                  <Stack key={m.threshold} direction="row" sx={{ justifyContent: 'space-between' }}>
-                    <Typography variant="caption" color="textSecondary">
-                      {Math.round(m.threshold * 100)}% of max
-                    </Typography>
-                    <Typography variant="caption">
-                      {m.isExtrapolated ? '*' : ''}{formatWeeks(m.week)}
-                    </Typography>
-                  </Stack>
-                ))}
-                {hasExtrapolated && (
-                  <Typography variant="caption" color="textSecondary" sx={{ opacity: 0.7 }}>
-                    * extrapolated from fitted trend, not directly observed
-                  </Typography>
-                )}
+              <Stack direction="row" spacing={1}>
+                <Typography variant="body2" color="textSecondary">
+                  + {formatDays(timePercentMore5 - userDay)}
+                </Typography>
               </Stack>
             </Stack>
-          )}
+
+            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+              <Typography variant="body2" color="textSecondary">
+                {formatNum(userDps * 1.1)} dps (+10%)
+              </Typography>
+              <Stack direction="row" spacing={1}>
+                <Typography variant="body2" color="textSecondary">
+                  + {formatDays(timePercentMore10 - userDay)}
+                </Typography>
+              </Stack>
+            </Stack>
+          </Stack>
         </Stack>
       </CardContent>
     </Card>
@@ -241,4 +177,3 @@ const Rating = ({ userDps, benchmarkDps, dpsCeiling, thresholdWeeks, fit, dpsPro
 };
 
 export default Rating;
-

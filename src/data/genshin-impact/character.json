@@ -2,7 +2,7 @@
   "10000002": {
     "name": "Kamisato Ayaka",
     "version": 2,
-    "id": "10000002",
+    "id": 10000002,
     "icon": "genshin-impact/character/10000002.webp",
     "quality": 5,
     "element": "cryo",
@@ -356,12 +356,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000003": {
     "name": "Jean",
     "version": 1,
-    "id": "10000003",
+    "id": 10000003,
     "icon": "genshin-impact/character/10000003.webp",
     "quality": 5,
     "element": "anemo",
@@ -801,12 +801,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000006": {
     "name": "Lisa",
     "version": 1,
-    "id": "10000006",
+    "id": 10000006,
     "icon": "genshin-impact/character/10000006.webp",
     "quality": 4,
     "element": "electro",
@@ -1218,12 +1218,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000014": {
     "name": "Barbara",
     "version": 1,
-    "id": "10000014",
+    "id": 10000014,
     "icon": "genshin-impact/character/10000014.webp",
     "quality": 4,
     "element": "hydro",
@@ -1635,12 +1635,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000015": {
     "name": "Kaeya",
     "version": 1,
-    "id": "10000015",
+    "id": 10000015,
     "icon": "genshin-impact/character/10000015.webp",
     "quality": 4,
     "element": "cryo",
@@ -1990,12 +1990,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000016": {
     "name": "Diluc",
     "version": 1,
-    "id": "10000016",
+    "id": 10000016,
     "icon": "genshin-impact/character/10000016.webp",
     "quality": 5,
     "element": "pyro",
@@ -2430,12 +2430,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000020": {
     "name": "Razor",
     "version": 1,
-    "id": "10000020",
+    "id": 10000020,
     "icon": "genshin-impact/character/10000020.webp",
     "quality": 4,
     "element": "electro",
@@ -2845,12 +2845,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000021": {
     "name": "Amber",
     "version": 1,
-    "id": "10000021",
+    "id": 10000021,
     "icon": "genshin-impact/character/10000021.webp",
     "quality": 4,
     "element": "pyro",
@@ -3263,12 +3263,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000022": {
     "name": "Venti",
     "version": 1,
-    "id": "10000022",
+    "id": 10000022,
     "icon": "genshin-impact/character/10000022.webp",
     "quality": 5,
     "element": "anemo",
@@ -3776,12 +3776,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000023": {
     "name": "Xiangling",
     "version": 1,
-    "id": "10000023",
+    "id": 10000023,
     "icon": "genshin-impact/character/10000023.webp",
     "quality": 4,
     "element": "pyro",
@@ -4212,12 +4212,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000024": {
     "name": "Beidou",
     "version": 1,
-    "id": "10000024",
+    "id": 10000024,
     "icon": "genshin-impact/character/10000024.webp",
     "quality": 4,
     "element": "electro",
@@ -4697,12 +4697,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000025": {
     "name": "Xingqiu",
     "version": 1,
-    "id": "10000025",
+    "id": 10000025,
     "icon": "genshin-impact/character/10000025.webp",
     "quality": 4,
     "element": "hydro",
@@ -5137,12 +5137,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000026": {
     "name": "Xiao",
     "version": 1.3,
-    "id": "10000026",
+    "id": 10000026,
     "icon": "genshin-impact/character/10000026.webp",
     "quality": 5,
     "element": "anemo",
@@ -5561,12 +5561,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000027": {
     "name": "Ningguang",
     "version": 1,
-    "id": "10000027",
+    "id": 10000027,
     "icon": "genshin-impact/character/10000027.webp",
     "quality": 4,
     "element": "geo",
@@ -5844,12 +5844,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000029": {
     "name": "Klee",
     "version": 1,
-    "id": "10000029",
+    "id": 10000029,
     "icon": "genshin-impact/character/10000029.webp",
     "quality": 5,
     "element": "pyro",
@@ -6155,12 +6155,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000030": {
     "name": "Zhongli",
     "version": 1.1,
-    "id": "10000030",
+    "id": 10000030,
     "icon": "genshin-impact/character/10000030.webp",
     "quality": 5,
     "element": "geo",
@@ -6641,12 +6641,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000031": {
     "name": "Fischl",
     "version": 1,
-    "id": "10000031",
+    "id": 10000031,
     "icon": "genshin-impact/character/10000031.webp",
     "quality": 4,
     "element": "electro",
@@ -7030,12 +7030,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000032": {
     "name": "Bennett",
     "version": 1,
-    "id": "10000032",
+    "id": 10000032,
     "icon": "genshin-impact/character/10000032.webp",
     "quality": 4,
     "element": "pyro",
@@ -7573,12 +7573,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000033": {
     "name": "Tartaglia",
     "version": 1.1,
-    "id": "10000033",
+    "id": 10000033,
     "icon": "genshin-impact/character/10000033.webp",
     "quality": 5,
     "element": "hydro",
@@ -8322,12 +8322,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000034": {
     "name": "Noelle",
     "version": 1,
-    "id": "10000034",
+    "id": 10000034,
     "icon": "genshin-impact/character/10000034.webp",
     "quality": 4,
     "element": "geo",
@@ -8824,12 +8824,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000035": {
     "name": "Qiqi",
     "version": 1,
-    "id": "10000035",
+    "id": 10000035,
     "icon": "genshin-impact/character/10000035.webp",
     "quality": 5,
     "element": "cryo",
@@ -9369,12 +9369,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000036": {
     "name": "Chongyun",
     "version": 1,
-    "id": "10000036",
+    "id": 10000036,
     "icon": "genshin-impact/character/10000036.webp",
     "quality": 4,
     "element": "cryo",
@@ -9728,12 +9728,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000037": {
     "name": "Ganyu",
     "version": 1.2,
-    "id": "10000037",
+    "id": 10000037,
     "icon": "genshin-impact/character/10000037.webp",
     "quality": 5,
     "element": "cryo",
@@ -10195,12 +10195,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000038": {
     "name": "Albedo",
     "version": 1.2,
-    "id": "10000038",
+    "id": 10000038,
     "icon": "genshin-impact/character/10000038.webp",
     "quality": 5,
     "element": "geo",
@@ -10659,22 +10659,20 @@
         ]
       }
     },
-    "presets": [
-      {
-        "weaponId": "11415",
-        "setCounts": {
-          "15021": 5
-        },
-        "rotation": [
-          "elementalSkill.0"
-        ]
-      }
-    ]
+    "memberPreset": {
+      "weaponId": 11415,
+      "setCounts": {
+        "15021": 5
+      },
+      "rotation": [
+        "elementalSkill.0"
+      ]
+    }
   },
   "10000039": {
     "name": "Diona",
     "version": 1.1,
-    "id": "10000039",
+    "id": 10000039,
     "icon": "genshin-impact/character/10000039.webp",
     "quality": 4,
     "element": "cryo",
@@ -11175,12 +11173,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000041": {
     "name": "Mona",
     "version": 1,
-    "id": "10000041",
+    "id": 10000041,
     "icon": "genshin-impact/character/10000041.webp",
     "quality": 5,
     "element": "hydro",
@@ -11567,12 +11565,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000042": {
     "name": "Keqing",
     "version": 1,
-    "id": "10000042",
+    "id": 10000042,
     "icon": "genshin-impact/character/10000042.webp",
     "quality": 5,
     "element": "electro",
@@ -12045,12 +12043,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000043": {
     "name": "Sucrose",
     "version": 1,
-    "id": "10000043",
+    "id": 10000043,
     "icon": "genshin-impact/character/10000043.webp",
     "quality": 4,
     "element": "anemo",
@@ -12383,12 +12381,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000044": {
     "name": "Xinyan",
     "version": 1.1,
-    "id": "10000044",
+    "id": 10000044,
     "icon": "genshin-impact/character/10000044.webp",
     "quality": 4,
     "element": "pyro",
@@ -12907,12 +12905,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000045": {
     "name": "Rosaria",
     "version": 1.4,
-    "id": "10000045",
+    "id": 10000045,
     "icon": "genshin-impact/character/10000045.webp",
     "quality": 4,
     "element": "cryo",
@@ -13323,12 +13321,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000046": {
     "name": "Hu Tao",
     "version": 1.3,
-    "id": "10000046",
+    "id": 10000046,
     "icon": "genshin-impact/character/10000046.webp",
     "quality": 5,
     "element": "pyro",
@@ -13810,12 +13808,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000047": {
     "name": "Kaedehara Kazuha",
     "version": 1.6,
-    "id": "10000047",
+    "id": 10000047,
     "icon": "genshin-impact/character/10000047.webp",
     "quality": 5,
     "element": "anemo",
@@ -14261,12 +14259,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000048": {
     "name": "Yanfei",
     "version": 1.5,
-    "id": "10000048",
+    "id": 10000048,
     "icon": "genshin-impact/character/10000048.webp",
     "quality": 4,
     "element": "pyro",
@@ -14642,12 +14640,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000049": {
     "name": "Yoimiya",
     "version": 2,
-    "id": "10000049",
+    "id": 10000049,
     "icon": "genshin-impact/character/10000049.webp",
     "quality": 5,
     "element": "pyro",
@@ -15056,12 +15054,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000050": {
     "name": "Thoma",
     "version": 2.2,
-    "id": "10000050",
+    "id": 10000050,
     "icon": "genshin-impact/character/10000050.webp",
     "quality": 4,
     "element": "pyro",
@@ -15526,12 +15524,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000051": {
     "name": "Eula",
     "version": 1.5,
-    "id": "10000051",
+    "id": 10000051,
     "icon": "genshin-impact/character/10000051.webp",
     "quality": 5,
     "element": "cryo",
@@ -16085,12 +16083,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000052": {
     "name": "Raiden Shogun",
     "version": 2.1,
-    "id": "10000052",
+    "id": 10000052,
     "icon": "genshin-impact/character/10000052.webp",
     "quality": 5,
     "element": "electro",
@@ -16871,12 +16869,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000053": {
     "name": "Sayu",
     "version": 2,
-    "id": "10000053",
+    "id": 10000053,
     "icon": "genshin-impact/character/10000053.webp",
     "quality": 4,
     "element": "anemo",
@@ -17449,12 +17447,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000054": {
     "name": "Sangonomiya Kokomi",
     "version": 2.1,
-    "id": "10000054",
+    "id": 10000054,
     "icon": "genshin-impact/character/10000054.webp",
     "quality": 5,
     "element": "hydro",
@@ -17902,12 +17900,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000055": {
     "name": "Gorou",
     "version": 2.3,
-    "id": "10000055",
+    "id": 10000055,
     "icon": "genshin-impact/character/10000055.webp",
     "quality": 4,
     "element": "geo",
@@ -18289,12 +18287,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000056": {
     "name": "Kujou Sara",
     "version": 2.1,
-    "id": "10000056",
+    "id": 10000056,
     "icon": "genshin-impact/character/10000056.webp",
     "quality": 4,
     "element": "electro",
@@ -18703,12 +18701,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000057": {
     "name": "Arataki Itto",
     "version": 2.3,
-    "id": "10000057",
+    "id": 10000057,
     "icon": "genshin-impact/character/10000057.webp",
     "quality": 5,
     "element": "geo",
@@ -19062,12 +19060,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000058": {
     "name": "Yae Miko",
     "version": 2.5,
-    "id": "10000058",
+    "id": 10000058,
     "icon": "genshin-impact/character/10000058.webp",
     "quality": 5,
     "element": "electro",
@@ -19448,12 +19446,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000059": {
     "name": "Shikanoin Heizou",
     "version": 2.8,
-    "id": "10000059",
+    "id": 10000059,
     "icon": "genshin-impact/character/10000059.webp",
     "quality": 4,
     "element": "anemo",
@@ -19899,12 +19897,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000060": {
     "name": "Yelan",
     "version": 2.7,
-    "id": "10000060",
+    "id": 10000060,
     "icon": "genshin-impact/character/10000060.webp",
     "quality": 5,
     "element": "hydro",
@@ -20305,12 +20303,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000061": {
     "name": "Kirara",
     "version": 3.7,
-    "id": "10000061",
+    "id": 10000061,
     "icon": "genshin-impact/character/10000061.webp",
     "quality": 4,
     "element": "dendro",
@@ -20840,12 +20838,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000062": {
     "name": "Aloy",
     "version": 2.2,
-    "id": "10000062",
+    "id": 10000062,
     "icon": "genshin-impact/character/10000062.webp",
     "quality": 5,
     "element": "cryo",
@@ -21338,12 +21336,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000063": {
     "name": "Shenhe",
     "version": 2.4,
-    "id": "10000063",
+    "id": 10000063,
     "icon": "genshin-impact/character/10000063.webp",
     "quality": 5,
     "element": "cryo",
@@ -21797,12 +21795,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000064": {
     "name": "Yun Jin",
     "version": 2.4,
-    "id": "10000064",
+    "id": 10000064,
     "icon": "genshin-impact/character/10000064.webp",
     "quality": 4,
     "element": "geo",
@@ -22294,12 +22292,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000065": {
     "name": "Kuki Shinobu",
     "version": 2.7,
-    "id": "10000065",
+    "id": 10000065,
     "icon": "genshin-impact/character/10000065.webp",
     "quality": 4,
     "element": "electro",
@@ -22737,12 +22735,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000066": {
     "name": "Kamisato Ayato",
     "version": 2.6,
-    "id": "10000066",
+    "id": 10000066,
     "icon": "genshin-impact/character/10000066.webp",
     "quality": 5,
     "element": "hydro",
@@ -23204,12 +23202,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000067": {
     "name": "Collei",
     "version": 3,
-    "id": "10000067",
+    "id": 10000067,
     "icon": "genshin-impact/character/10000067.webp",
     "quality": 4,
     "element": "dendro",
@@ -23564,12 +23562,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000068": {
     "name": "Dori",
     "version": 3,
-    "id": "10000068",
+    "id": 10000068,
     "icon": "genshin-impact/character/10000068.webp",
     "quality": 4,
     "element": "electro",
@@ -23988,12 +23986,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000069": {
     "name": "Tighnari",
     "version": 3,
-    "id": "10000069",
+    "id": 10000069,
     "icon": "genshin-impact/character/10000069.webp",
     "quality": 5,
     "element": "dendro",
@@ -24401,12 +24399,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000070": {
     "name": "Nilou",
     "version": 3.1,
-    "id": "10000070",
+    "id": 10000070,
     "icon": "genshin-impact/character/10000070.webp",
     "quality": 5,
     "element": "hydro",
@@ -24863,12 +24861,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000071": {
     "name": "Cyno",
     "version": 3.1,
-    "id": "10000071",
+    "id": 10000071,
     "icon": "genshin-impact/character/10000071.webp",
     "quality": 5,
     "element": "electro",
@@ -25450,12 +25448,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000072": {
     "name": "Candace",
     "version": 3.1,
-    "id": "10000072",
+    "id": 10000072,
     "icon": "genshin-impact/character/10000072.webp",
     "quality": 4,
     "element": "hydro",
@@ -25874,12 +25872,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000073": {
     "name": "Nahida",
     "version": 3.2,
-    "id": "10000073",
+    "id": 10000073,
     "icon": "genshin-impact/character/10000073.webp",
     "quality": 5,
     "element": "dendro",
@@ -26387,12 +26385,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000074": {
     "name": "Layla",
     "version": 3.2,
-    "id": "10000074",
+    "id": 10000074,
     "icon": "genshin-impact/character/10000074.webp",
     "quality": 4,
     "element": "cryo",
@@ -26757,12 +26755,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000075": {
     "name": "Wanderer",
     "version": 3.3,
-    "id": "10000075",
+    "id": 10000075,
     "icon": "genshin-impact/character/10000075.webp",
     "quality": 5,
     "element": "anemo",
@@ -27108,12 +27106,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000076": {
     "name": "Faruzan",
     "version": 3.3,
-    "id": "10000076",
+    "id": 10000076,
     "icon": "genshin-impact/character/10000076.webp",
     "quality": 4,
     "element": "anemo",
@@ -27495,12 +27493,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000077": {
     "name": "Yaoyao",
     "version": 3.4,
-    "id": "10000077",
+    "id": 10000077,
     "icon": "genshin-impact/character/10000077.webp",
     "quality": 4,
     "element": "dendro",
@@ -27938,12 +27936,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000078": {
     "name": "Alhaitham",
     "version": 3.4,
-    "id": "10000078",
+    "id": 10000078,
     "icon": "genshin-impact/character/10000078.webp",
     "quality": 5,
     "element": "dendro",
@@ -28484,12 +28482,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000079": {
     "name": "Dehya",
     "version": 3.5,
-    "id": "10000079",
+    "id": 10000079,
     "icon": "genshin-impact/character/10000079.webp",
     "quality": 5,
     "element": "pyro",
@@ -28981,12 +28979,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000080": {
     "name": "Mika",
     "version": 3.5,
-    "id": "10000080",
+    "id": 10000080,
     "icon": "genshin-impact/character/10000080.webp",
     "quality": 4,
     "element": "cryo",
@@ -29478,12 +29476,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000081": {
     "name": "Kaveh",
     "version": 3.6,
-    "id": "10000081",
+    "id": 10000081,
     "icon": "genshin-impact/character/10000081.webp",
     "quality": 4,
     "element": "dendro",
@@ -29837,12 +29835,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000082": {
     "name": "Baizhu",
     "version": 3.6,
-    "id": "10000082",
+    "id": 10000082,
     "icon": "genshin-impact/character/10000082.webp",
     "quality": 5,
     "element": "dendro",
@@ -30280,12 +30278,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000083": {
     "name": "Lynette",
     "version": 4,
-    "id": "10000083",
+    "id": 10000083,
     "icon": "genshin-impact/character/10000083.webp",
     "quality": 4,
     "element": "anemo",
@@ -30704,12 +30702,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000084": {
     "name": "Lyney",
     "version": 4,
-    "id": "10000084",
+    "id": 10000084,
     "icon": "genshin-impact/character/10000084.webp",
     "quality": 5,
     "element": "pyro",
@@ -31217,12 +31215,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000085": {
     "name": "Freminet",
     "version": 4,
-    "id": "10000085",
+    "id": 10000085,
     "icon": "genshin-impact/character/10000085.webp",
     "quality": 4,
     "element": "cryo",
@@ -31795,12 +31793,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000086": {
     "name": "Wriothesley",
     "version": 4.1,
-    "id": "10000086",
+    "id": 10000086,
     "icon": "genshin-impact/character/10000086.webp",
     "quality": 5,
     "element": "cryo",
@@ -32173,12 +32171,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000087": {
     "name": "Neuvillette",
     "version": 4.1,
-    "id": "10000087",
+    "id": 10000087,
     "icon": "genshin-impact/character/10000087.webp",
     "quality": 5,
     "element": "hydro",
@@ -32532,12 +32530,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000088": {
     "name": "Charlotte",
     "version": 4.2,
-    "id": "10000088",
+    "id": 10000088,
     "icon": "genshin-impact/character/10000088.webp",
     "quality": 4,
     "element": "cryo",
@@ -33037,12 +33035,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000089": {
     "name": "Furina",
     "version": 4.2,
-    "id": "10000089",
+    "id": 10000089,
     "icon": "genshin-impact/character/10000089.webp",
     "quality": 5,
     "element": "hydro",
@@ -33550,12 +33548,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000090": {
     "name": "Chevreuse",
     "version": 4.3,
-    "id": "10000090",
+    "id": 10000090,
     "icon": "genshin-impact/character/10000090.webp",
     "quality": 4,
     "element": "pyro",
@@ -34028,12 +34026,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000091": {
     "name": "Navia",
     "version": 4.3,
-    "id": "10000091",
+    "id": 10000091,
     "icon": "genshin-impact/character/10000091.webp",
     "quality": 5,
     "element": "geo",
@@ -34414,12 +34412,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000092": {
     "name": "Gaming",
     "version": 4.4,
-    "id": "10000092",
+    "id": 10000092,
     "icon": "genshin-impact/character/10000092.webp",
     "quality": 4,
     "element": "pyro",
@@ -34746,12 +34744,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000093": {
     "name": "Xianyun",
     "version": 4.4,
-    "id": "10000093",
+    "id": 10000093,
     "icon": "genshin-impact/character/10000093.webp",
     "quality": 5,
     "element": "anemo",
@@ -35235,12 +35233,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000094": {
     "name": "Chiori",
     "version": 4.5,
-    "id": "10000094",
+    "id": 10000094,
     "icon": "genshin-impact/character/10000094.webp",
     "quality": 5,
     "element": "geo",
@@ -35662,12 +35660,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000095": {
     "name": "Sigewinne",
     "version": 4.7,
-    "id": "10000095",
+    "id": 10000095,
     "icon": "genshin-impact/character/10000095.webp",
     "quality": 5,
     "element": "hydro",
@@ -36068,12 +36066,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000096": {
     "name": "Arlecchino",
     "version": 4.6,
-    "id": "10000096",
+    "id": 10000096,
     "icon": "genshin-impact/character/10000096.webp",
     "quality": 5,
     "element": "pyro",
@@ -36527,12 +36525,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000097": {
     "name": "Sethos",
     "version": 4.7,
-    "id": "10000097",
+    "id": 10000097,
     "icon": "genshin-impact/character/10000097.webp",
     "quality": 4,
     "element": "electro",
@@ -36897,12 +36895,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000098": {
     "name": "Clorinde",
     "version": 4.7,
-    "id": "10000098",
+    "id": 10000098,
     "icon": "genshin-impact/character/10000098.webp",
     "quality": 5,
     "element": "electro",
@@ -37424,12 +37422,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000099": {
     "name": "Emilie",
     "version": 4.8,
-    "id": "10000099",
+    "id": 10000099,
     "icon": "genshin-impact/character/10000099.webp",
     "quality": 5,
     "element": "dendro",
@@ -37810,12 +37808,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000100": {
     "name": "Kachina",
     "version": 5,
-    "id": "10000100",
+    "id": 10000100,
     "icon": "genshin-impact/character/10000100.webp",
     "quality": 4,
     "element": "geo",
@@ -38161,12 +38159,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000101": {
     "name": "Kinich",
     "version": 5,
-    "id": "10000101",
+    "id": 10000101,
     "icon": "genshin-impact/character/10000101.webp",
     "quality": 5,
     "element": "dendro",
@@ -38520,12 +38518,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000102": {
     "name": "Mualani",
     "version": 5,
-    "id": "10000102",
+    "id": 10000102,
     "icon": "genshin-impact/character/10000102.webp",
     "quality": 5,
     "element": "hydro",
@@ -38852,12 +38850,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000103": {
     "name": "Xilonen",
     "version": 5.1,
-    "id": "10000103",
+    "id": 10000103,
     "icon": "genshin-impact/character/10000103.webp",
     "quality": 5,
     "element": "geo",
@@ -39357,12 +39355,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000104": {
     "name": "Chasca",
     "version": 5.2,
-    "id": "10000104",
+    "id": 10000104,
     "icon": "genshin-impact/character/10000104.webp",
     "quality": 5,
     "element": "anemo",
@@ -39825,12 +39823,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000105": {
     "name": "Ororon",
     "version": 5.2,
-    "id": "10000105",
+    "id": 10000105,
     "icon": "genshin-impact/character/10000105.webp",
     "quality": 4,
     "element": "electro",
@@ -40158,12 +40156,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000106": {
     "name": "Mavuika",
     "version": 5.3,
-    "id": "10000106",
+    "id": 10000106,
     "icon": "genshin-impact/character/10000106.webp",
     "quality": 5,
     "element": "pyro",
@@ -40814,12 +40812,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000107": {
     "name": "Citlali",
     "version": 5.3,
-    "id": "10000107",
+    "id": 10000107,
     "icon": "genshin-impact/character/10000107.webp",
     "quality": 5,
     "element": "cryo",
@@ -41192,12 +41190,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000108": {
     "name": "Lan Yan",
     "version": 5.3,
-    "id": "10000108",
+    "id": 10000108,
     "icon": "genshin-impact/character/10000108.webp",
     "quality": 4,
     "element": "anemo",
@@ -41581,12 +41579,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000109": {
     "name": "Yumemizuki Mizuki",
     "version": 5.4,
-    "id": "10000109",
+    "id": 10000109,
     "icon": "genshin-impact/character/10000109.webp",
     "quality": 5,
     "element": "anemo",
@@ -41986,12 +41984,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000110": {
     "name": "Iansan",
     "version": 5.5,
-    "id": "10000110",
+    "id": 10000110,
     "icon": "genshin-impact/character/10000110.webp",
     "quality": 4,
     "element": "electro",
@@ -42318,12 +42316,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000111": {
     "name": "Varesa",
     "version": 5.5,
-    "id": "10000111",
+    "id": 10000111,
     "icon": "genshin-impact/character/10000111.webp",
     "quality": 5,
     "element": "electro",
@@ -42858,12 +42856,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000112": {
     "name": "Escoffier",
     "version": 5.6,
-    "id": "10000112",
+    "id": 10000112,
     "icon": "genshin-impact/character/10000112.webp",
     "quality": 5,
     "element": "cryo",
@@ -43255,12 +43253,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000113": {
     "name": "Ifa",
     "version": 5.6,
-    "id": "10000113",
+    "id": 10000113,
     "icon": "genshin-impact/character/10000113.webp",
     "quality": 4,
     "element": "anemo",
@@ -43606,12 +43604,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000114": {
     "name": "Skirk",
     "version": 5.7,
-    "id": "10000114",
+    "id": 10000114,
     "icon": "genshin-impact/character/10000114.webp",
     "quality": 5,
     "element": "cryo",
@@ -44349,12 +44347,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000115": {
     "name": "Dahlia",
     "version": 5.7,
-    "id": "10000115",
+    "id": 10000115,
     "icon": "genshin-impact/character/10000115.webp",
     "quality": 4,
     "element": "hydro",
@@ -44738,12 +44736,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000116": {
     "name": "Ineffa",
     "version": 5.8,
-    "id": "10000116",
+    "id": 10000116,
     "icon": "genshin-impact/character/10000116.webp",
     "quality": 5,
     "element": "electro",
@@ -45135,12 +45133,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000119": {
     "name": "Lauma",
     "version": 6,
-    "id": "10000119",
+    "id": 10000119,
     "icon": "genshin-impact/character/10000119.webp",
     "quality": 5,
     "element": "dendro",
@@ -45567,12 +45565,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000120": {
     "name": "Flins",
     "version": 6,
-    "id": "10000120",
+    "id": 10000120,
     "icon": "genshin-impact/character/10000120.webp",
     "quality": 5,
     "element": "electro",
@@ -46169,12 +46167,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000121": {
     "name": "Aino",
     "version": 6,
-    "id": "10000121",
+    "id": 10000121,
     "icon": "genshin-impact/character/10000121.webp",
     "quality": 4,
     "element": "hydro",
@@ -46501,12 +46499,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000122": {
     "name": "Nefer",
     "version": 6.1,
-    "id": "10000122",
+    "id": 10000122,
     "icon": "genshin-impact/character/10000122.webp",
     "quality": 5,
     "element": "dendro",
@@ -47091,12 +47089,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000123": {
     "name": "Durin",
     "version": 6.2,
-    "id": "10000123",
+    "id": 10000123,
     "icon": "genshin-impact/character/10000123.webp",
     "quality": 5,
     "element": "pyro",
@@ -47666,12 +47664,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000124": {
     "name": "Jahoda",
     "version": 6.2,
-    "id": "10000124",
+    "id": 10000124,
     "icon": "genshin-impact/character/10000124.webp",
     "quality": 4,
     "element": "anemo",
@@ -48172,12 +48170,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000125": {
     "name": "Columbina",
     "version": 6.3,
-    "id": "10000125",
+    "id": 10000125,
     "icon": "genshin-impact/character/10000125.webp",
     "quality": 5,
     "element": "hydro",
@@ -48612,12 +48610,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000126": {
     "name": "Zibai",
     "version": 6.3,
-    "id": "10000126",
+    "id": 10000126,
     "icon": "genshin-impact/character/10000126.webp",
     "quality": 5,
     "element": "geo",
@@ -49209,12 +49207,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000127": {
     "name": "Illuga",
     "version": 6.3,
-    "id": "10000127",
+    "id": 10000127,
     "icon": "genshin-impact/character/10000127.webp",
     "quality": 4,
     "element": "geo",
@@ -49671,12 +49669,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000128": {
     "name": "Varka",
     "version": 6.4,
-    "id": "10000128",
+    "id": 10000128,
     "icon": "genshin-impact/character/10000128.webp",
     "quality": 5,
     "element": "anemo",
@@ -50476,12 +50474,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000129": {
     "name": "Lohen",
     "version": 6.6,
-    "id": "10000129",
+    "id": 10000129,
     "icon": "genshin-impact/character/10000129.webp",
     "quality": 5,
     "element": "cryo",
@@ -51091,12 +51089,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000130": {
     "name": "Linnea",
     "version": 6.5,
-    "id": "10000130",
+    "id": 10000130,
     "icon": "genshin-impact/character/10000130.webp",
     "quality": 5,
     "element": "geo",
@@ -51516,12 +51514,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000131": {
     "name": "Nicole",
     "version": 6.6,
-    "id": "10000131",
+    "id": 10000131,
     "icon": "genshin-impact/character/10000131.webp",
     "quality": 5,
     "element": "pyro",
@@ -51923,12 +51921,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000132": {
     "name": "Prune",
     "version": 6.6,
-    "id": "10000132",
+    "id": 10000132,
     "icon": "genshin-impact/character/10000132.webp",
     "quality": 4,
     "element": "anemo",
@@ -52255,12 +52253,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000133": {
     "name": "Sandrone",
     "version": 6.7,
-    "id": "10000133",
+    "id": 10000133,
     "icon": "genshin-impact/character/10000133.webp",
     "quality": 5,
     "element": "cryo",
@@ -52768,12 +52766,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000148": {
     "name": "Alyosha",
     "version": 7.0,
-    "id": "10000148",
+    "id": 10000148,
     "icon": "genshin-impact/character/10000148.webp",
     "quality": 4,
     "element": "electro",
@@ -53354,12 +53352,12 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   },
   "10000150": {
     "name": "Odette",
     "version": 7.0,
-    "id": "10000150",
+    "id": 10000150,
     "icon": "genshin-impact/character/10000150.webp",
     "quality": 5,
     "element": "cryo",
@@ -54186,6 +54184,6 @@
         ]
       }
     },
-    "presets": []
+    "memberPreset": {}
   }
 }

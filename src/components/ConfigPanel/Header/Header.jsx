@@ -10,28 +10,28 @@ import EditDialog from './EditDialog';
 
 const Header = () => {
   const { charId } = useParams();
-  const character = useData('character')[charId];
-  const element = useData('element')[character.element];
-  const type = useData('type')[character.type];
+  const charData = useData('character')[charId];
+  const element = useData('element')[charData.element];
+  const type = useData('type')[charData.type];
 
   const [open, setOpen] = useState(false);
 
   return (
     <CardHeader
-      avatar={<Avatar src={character.icon} alt={character.name} />}
-      title={character.name}
+      avatar={<Avatar src={charData.icon} alt={charData.name} />}
+      title={charData.name}
       subheader={(
         <Stack direction="row" spacing={0.5}>
           <Chip
             variant="outlined"
             avatar={<Avatar src={element.icon} />}
-            label={formatStr(character.element)}
+            label={formatStr(charData.element)}
             sx={{ fontWeight: 'bold', color: element.color }}
           />
           <Chip
             variant="outlined"
             avatar={<Avatar src={type.icon} />}
-            label={formatStr(character.type)}
+            label={formatStr(charData.type)}
             sx={{ fontWeight: 'bold' }}
           />
         </Stack>

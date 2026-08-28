@@ -1,59 +1,19 @@
-import { buildEquipMap, getTotals } from '@/utils';
+import { getTotals, estimateDps, estimateDay } from '@/utils';
 import { runRotation } from './rotation';
 import { compileCache } from './cache';
 import { runTrials } from './runTrials';
 import { getSubRollSums, getMainConfig } from './utils';
 import { weaponTests } from './weaponTests';
 
-const buildConfigStats = (gameId, trials) => {
-  const configMap = {};
-
-  for (const trial of trials) {
-    const key = getMainConfig(gameId, trial.equipList);
-
-    if (!configMap[key]) {
-      configMap[key] = {
-        count: 0,
-        subDist: {},
-      };
-    }
-
-    const entry = configMap[key];
-    entry.count++;
-
-    const { subDist } = entry;
-    const rollMap = getSubRollSums(gameId, trial.equipList, true);
-    for (const [stat, rolls] of Object.entries(rollMap)) {
-      subDist[stat] = (subDist[stat] ?? 0) + rolls;
-    }
-  }
-
-  for (const { count, subDist } of Object.values(configMap)) {
-    for (const [stat, rolls] of Object.entries(subDist)) {
-      subDist[stat] = rolls / count;
-    }
-  }
-
-  return configMap;
-};
-
-function generateEquipMap(cache, memberId) {
+async function generateEquipMap(cache, memberId) {
   self.postMessage({ status: `Generating trial build for ${memberId}` });
 
   const equipMaps = resolveEquipMaps(cache, 'allowBlank');
-  const { trials } = runTrials(cache, equipMaps, memberId);
-
-  return trials.reduce((acc, { equipList }) => {
-    const equipMap = buildEquipMap(equipList, true);
-    for (const stat in equipMap) {
-      const value = equipMap[stat] / trials.length;
-      acc[stat] = (acc[stat] ?? 0) + value;
-    }
-    return acc;
-  }, {});
+  const meanEquipMap = await runTrials(cache, equipMaps, memberId);
+  return meanEquipMap;
 }
 
-function resolveEquipMaps(cache, allowBlank) {
+async function resolveEquipMaps(cache, allowBlank) {
   const equipMaps = {};
 
   for (const member of Object.values(cache.member)) {
@@ -64,15 +24,45 @@ function resolveEquipMaps(cache, allowBlank) {
 
     equipMaps[member.id] = allowBlank
       ? {}
-      : generateEquipMap(cache, member.id);
+      : await generateEquipMap(cache, member.id);
   }
 
   return equipMaps;
 }
 
-self.onmessage = ({ data }) => {
+function findInefficientDay(dpsProgression, fit, dpsCeiling) {
+  let today = 0;
+  let todayDps = dpsProgression[0].mean;
+
+  while (true) {
+    const tomorrowDps = estimateDps(today + 1, dpsCeiling, dpsProgression, fit);
+    if ((tomorrowDps / todayDps) >= 1.01) {
+      today++;
+      todayDps = tomorrowDps;
+      continue;
+    }
+
+    let daysForMoreThanOnePercentGain = 2;
+    while (true) {
+      const nextDps = estimateDps(today + daysForMoreThanOnePercentGain, dpsCeiling, dpsProgression, fit);
+      if ((nextDps / todayDps) >= 1.05) {
+        break;
+      }
+      daysForMoreThanOnePercentGain++;
+    }
+
+    if (daysForMoreThanOnePercentGain > today) {
+      return { benchmarkDay: today, benchmarkDps: todayDps };
+    }
+
+    today++;
+    todayDps = tomorrowDps;
+  }
+}
+
+self.onmessage = async ({ data }) => {
   const cache = compileCache(data);
-  const equipMaps = resolveEquipMaps(cache);
+  const equipMaps = await resolveEquipMaps(cache);
 
   self.postMessage({ status: 'Running simulation' });
 
@@ -85,21 +75,20 @@ self.onmessage = ({ data }) => {
     throw new Error('error');
   }
 
-  const results = runTrials(cache, equipMaps, cache.charId, true);
+  const results = await runTrials(cache, equipMaps, cache.charId, true);
 
-  const configMap = buildConfigStats(cache.gameId, results.trials);
-  const benchmarkDps = results.dpsProgression.at(-1).mean;
+  const { benchmarkDay, benchmarkDps } = findInefficientDay(results.dpsProgression, results.fit, results.dpsCeiling);
   const weaponResults = weaponTests(cache, equipMaps, cache.charId);
 
   self.postMessage({
     dpsProgression: results.dpsProgression,
     dpsCeiling: results.dpsCeiling,
-    thresholdWeeks: results.thresholdWeeks,
-    // fit's predict/weekForRemaining closures can't cross postMessage, only q/A are needed downstream
-    fit: results.fit ? { q: results.fit.q, A: results.fit.A } : null,
-    configMap,
+    fit: results.fit,
+    configMap: results.configMap,
     userSummary,
+    userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
     userDps,
+    benchmarkDay,
     benchmarkDps,
     userConfigKey: getMainConfig(cache.gameId, cache.member[cache.charId].equipList),
     userSubStats: getSubRollSums(cache.gameId, cache.member[cache.charId].equipList),

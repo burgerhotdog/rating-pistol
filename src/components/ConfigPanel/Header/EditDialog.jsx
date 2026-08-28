@@ -17,7 +17,7 @@ const EditDialog = ({ open, onClose }) => {
   const { gameId, charId } = useParams();
   const { saveBuildEntries } = useBuild();
   const build = useBuilds()[charId];
-  const character = useData('character')[charId];
+  const charData = useData('character')[charId];
 
   const [draft, setDraft] = useState(build);
   const [deleteOpen, setDeleteOpen] = useState(false);
@@ -34,7 +34,7 @@ const EditDialog = ({ open, onClose }) => {
       fullWidth
     >
       <DialogTitle>
-        Edit {character.name}
+        Edit {charData.name}
       </DialogTitle>
 
       <DialogContent dividers>

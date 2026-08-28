@@ -5,30 +5,26 @@ def get_path(dirname, filename):
 
 def modify(data, game_id, filetype):
     for entry in data.values():
-        char_id = entry["id"]
-        icon = f"{game_id}/{filetype}/{char_id}.webp"
-        new_entry = {}
-        for key, value in entry.items():
-            new_entry[key] = value
-            if key == "id":
-                new_entry["icon"] = icon
+        memberPreset = entry.get("memberPreset", {})
+        if memberPreset.get("weaponId") is not None:
+            memberPreset["weaponId"] = int(memberPreset["weaponId"])
+        if memberPreset.get("mainEcho") is not None:
+            memberPreset["mainEcho"] = int(memberPreset["mainEcho"])
 
-        entry.clear()
-        entry.update(new_entry)
     return True
 
 GAMES_TO_MODIFY = [
-    "genshin-impact",
-    "honkai-star-rail",
+    #"genshin-impact",
+    #"honkai-star-rail",
     "wuthering-waves",
-    "zenless-zone-zero",
+    #"zenless-zone-zero",
 ]
 
 FILES_TO_MODIFY = [
     "character.json",
-    "weapon.json",
-    "set.json",
-    "echo.json",
+    #"weapon.json",
+    #"set.json",
+    #"echo.json",
 ]
 
 def main():
@@ -43,7 +39,7 @@ def main():
 
             was_changed = modify(data, dirname, filename.removesuffix(".json"))
             if was_changed:
-                #shutil.copy2(path, f"{path}.bak")
+                shutil.copy2(path, f"{path}.bak")
                 with open(path, "w", encoding="utf-8") as f:
                     json.dump(data, f, indent=2)
 

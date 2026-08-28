@@ -24,7 +24,7 @@ import {
   YAxis,
 } from 'recharts';
 import { WW, SUBSTAT } from '@/data';
-import { useElementColors } from '@/hooks';
+import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -160,9 +160,10 @@ function CustomPolarAngleAxisTick({ x, y, payload, textAnchor, color }) {
 }
 
 const Substats = ({ configMap, userConfigKey, userSubStats }) => {
-  const { gameId } = useParams();
+  const { gameId, charId } = useParams();
+  const { element } = useData('character')[charId];
+  const { color } = useData('element')[element];
   const { palette } = useTheme();
-  const color = useElementColors({ char: '$curr' });
   if (!configMap) return null;
 
   const { subDist = {} } = configMap[userConfigKey] ?? {};

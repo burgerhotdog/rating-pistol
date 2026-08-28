@@ -18,7 +18,8 @@ const CharacterPicker = ({ member, setMember }) => {
   const builds = useBuilds();
   const [open, setOpen] = useState(false);
 
-  const memberData = useData('character')[member.id];
+  const charDatas = useData('character');
+  const memberData = charDatas[member.id];
 
   return (
     <>
@@ -49,7 +50,7 @@ const CharacterPicker = ({ member, setMember }) => {
             className="member-remove-btn"
             onClick={(e) => {
               e.stopPropagation();
-              setMember({});
+              setMember(initMember(gameId));
             }}
             sx={{
               position: 'absolute',
@@ -70,7 +71,7 @@ const CharacterPicker = ({ member, setMember }) => {
               },
             }}
           >
-            <CloseIcon sx={{ fontSize: 11 }} />
+            <CloseIcon />
           </IconButton>
         </Box>
         <Typography variant="caption">
@@ -81,7 +82,7 @@ const CharacterPicker = ({ member, setMember }) => {
       <CharacterPickerDialog
         open={open}
         onClose={() => setOpen(false)}
-        onSelect={(id) => setMember(initMember(id, gameId, builds))}
+        onSelect={(id) => setMember(initMember(gameId, id, builds[id]))}
       />
     </>
   );

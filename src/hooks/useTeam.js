@@ -1,21 +1,37 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { CHARACTER } from '@/data';
 import { useData } from '@/hooks';
 import { initMember } from '@/utils';
 import { useBuilds } from './useBuilds';
 
 export function useTeam() {
   const { gameId, charId } = useParams();
-  const builds = useBuilds();
+  const charData = useData('character')[charId];
   const { maxMembers } = useData('misc');
+  const builds = useBuilds();
 
   return useState(() => {
-    const charPresets = CHARACTER[gameId][charId].presets ?? [];
-    const charPreset = charPresets[0] ?? {};
-    const teamPreset = charPreset.team ??
-      [charId, ...Array(maxMembers - 1).fill(null)];
+    const teamPreset =
+      charData.teamPreset ??
+      [Number(charId)];
 
-    return teamPreset.map((key) => initMember(key, gameId, builds));
+    const presets = [
+      ...teamPreset,
+      ...Array(maxMembers - teamPreset.length).fill(null),
+    ];
+
+    return presets.map((presetSpec) => {
+      if (typeof presetSpec === 'number') {
+        const memberId = presetSpec;
+        return initMember(gameId, memberId, builds[memberId]);
+      }
+
+      if (presetSpec) {
+        const memberId = presetSpec.id;
+        return initMember(gameId, memberId, builds[memberId], presetSpec);
+      }
+
+      return initMember(gameId);
+    });
   });
 }

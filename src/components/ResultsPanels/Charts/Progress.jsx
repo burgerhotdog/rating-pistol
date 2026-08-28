@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -17,105 +18,66 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useElementColors } from '@/hooks';
+import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
-const PROJECTED_WEEKS = 5;
+function buildData(dpsProgression, estimatedDay, upperBound, dpsCeiling, fit) {
+  const data = dpsProgression.filter(({ day }) => day <= upperBound).map(({ day, mean }) => {
+    if (day < estimatedDay) {
+      return { day, mean };
+    } else if (day > estimatedDay) {
+      return { day, extrapolatedMean: mean };
+    } else {
+      return { day, mean, extrapolatedMean: mean };
+    }
+  });
 
-function buildData(series) {
-  const data = [];
-  for (const entry of series) {
-    const { p10, p25, p50, p75, p90, ...rest } = entry;
-    data.push({
-      ...rest,
-      median: p50,
-      band50Low: p25,
-      band50High: p75 - p25,
-      band80Low: p10,
-      band80High: p90 - p10,
+  // fit line
+  const fitLineStart = dpsProgression.at(-1).day + 7;
+  for (let day = fitLineStart; day <= upperBound; day += 7) {
+    const mean = dpsCeiling - fit.A * day ** -fit.q;
+
+    if (day < estimatedDay) {
+      data.push({ day, mean });
+    } else if (day > estimatedDay) {
+      data.push({ day, extrapolatedMean: mean });
+    } else {
+      data.push({ day, mean, extrapolatedMean: mean });
+    }
+  }
+
+  // lerp estimatedDay point
+  if (!Number.isInteger(estimatedDay)) {
+    const hiIndex = data.findIndex(({ day }) => day > estimatedDay);
+
+    const hi = data[hiIndex];
+    const lo = data[hiIndex - 1];
+
+    const t = (estimatedDay - lo.day) / (hi.day - lo.day);
+    const mean = lo.mean + (hi.extrapolatedMean - lo.mean) * t;
+
+    data.splice(hiIndex, 0, {
+      day: estimatedDay,
+      mean,
+      extrapolatedMean: mean,
     });
   }
+
   return data;
 }
 
-function estimateEquivalentWeek(userDps, dpsCeiling, fit) {
-  if (!fit || !dpsCeiling) return null;
-  const remaining = dpsCeiling - userDps;
-  if (remaining <= 0) return null;
-  return (fit.A / remaining) ** (1 / fit.q);
-}
-
-const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) => {
+const Progress = ({ dpsProgression, userDay, userDps, dpsCeiling, fit, benchmarkDay, benchmarkDps }) => {
+  const { charId } = useParams();
+  const { element } = useData('character')[charId];
+  const { color } = useData('element')[element];
   const { palette } = useTheme();
-  const color = useElementColors({ char: '$curr' });
 
-  const levelsSeries = useMemo(() => dpsProgression.map((entry, index) => ({
-    ...entry,
-    week: index,
-  })), [dpsProgression]);
+  const upperBound = Math.max(userDay, benchmarkDay) * 1.25;
 
-  const levels = useMemo(() => buildData(levelsSeries), [levelsSeries]);
-
-  const dataSeriesByWeek = Object.fromEntries(levelsSeries.map((entry) => {
-    const { week, ...rest } = entry;
-    return [week, rest];
-  }));
-
-  const estimatedWeek = estimateEquivalentWeek(userDps, dpsCeiling, fit);
-
-  const chartData = useMemo(() => {
-    const estWeek = estimatedWeek ?? levels.at(-1).week;
-    const lastRealPoint = levels.at(-1);
-
-    const valueAt = (week) => {
-      if (week <= lastRealPoint.week) {
-        const lo = levels[Math.floor(week)];
-        const hi = levels[Math.ceil(week)] ?? lo;
-        const t = week - Math.floor(week);
-        const lerp = (a, b) => a + (b - a) * t;
-        return {
-          mean: lerp(lo.mean, hi.mean),
-          band50Low: lerp(lo.band50Low, hi.band50Low),
-          band50High: lerp(lo.band50High, hi.band50High),
-          band80Low: lerp(lo.band80Low, hi.band80Low),
-          band80High: lerp(lo.band80High, hi.band80High),
-        };
-      }
-      const mean = dpsCeiling - fit.A * week ** -fit.q;
-      const offset = mean - lastRealPoint.mean;
-      return {
-        mean,
-        band50Low: lastRealPoint.band50Low + offset,
-        band50High: lastRealPoint.band50High,
-        band80Low: lastRealPoint.band80Low + offset,
-        band80High: lastRealPoint.band80High,
-      };
-    };
-
-    const dataPoints = [];
-    for (let i = 0; i < estWeek + PROJECTED_WEEKS; i++ ) {
-      const { mean, ...bands } = valueAt(i);
-      const dataPoint = { week: i };
-
-      if (i > estWeek) {
-        dataPoint.extrapolatedMean = mean;
-      } else {
-        dataPoint.mean = mean;
-        Object.assign(dataPoint, bands);
-      }
-
-      dataPoints.push(dataPoint);
-    }
-
-    if (!Number.isInteger(estWeek)) {
-      const boundary = { week: estWeek, ...valueAt(estWeek) };
-      boundary.extrapolatedMean = boundary.mean;
-      const insertAt = dataPoints.findIndex((p) => p.week > estWeek);
-      dataPoints.splice(insertAt === -1 ? dataPoints.length : insertAt, 0, boundary);
-    }
-
-    return dataPoints;
-  }, [levels, fit, dpsCeiling, estimatedWeek]);
+  const chartData = useMemo(
+    () => buildData(dpsProgression, userDay, upperBound, dpsCeiling, fit),
+    [dpsProgression, userDay, upperBound, dpsCeiling, fit]
+  );
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -133,24 +95,27 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
               <stop offset="100%" stopColor={color} stopOpacity={0} />
             </linearGradient>
           </defs>
+
           <CartesianGrid
             strokeDasharray="3 3"
             stroke={palette.divider}
           />
+
           <XAxis
-            dataKey="week"
-            domain={[0, chartData.at(-1).week]}
+            dataKey="day"
+            domain={[0, chartData.at(-1).day]}
             type="number"
             tick={{ fontSize: 12 }}
             tickCount={chartData.length - 1}
             label={{
-              value: 'Weeks',
+              value: 'Days',
               position: 'insideBottomRight',
               fontSize: 12,
             }}
           />
+
           <YAxis
-            domain={[0, Math.max(levelsSeries.at(-1).p90, dpsCeiling ?? 0, userDps ?? 0)]}
+            domain={[0, dpsCeiling]}
             tick={{ fontSize: 12 }}
             tickFormatter={formatDmg}
             label={{
@@ -161,31 +126,38 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
             }}
           />
 
-          {dpsCeiling != null && (
-            <ReferenceLine
-              y={dpsCeiling}
-              stroke={palette.warning.main}
-              strokeDasharray="4 4"
-              label={{
-                value: 'Theoretical Max',
-                position: 'insideBottomRight',
-                fontSize: 11,
-                fill: palette.warning.main,
-              }}
-            />
-          )}
-          {fit && dpsCeiling != null && (
-            <ReferenceLine
-              x={estimatedWeek ?? levels.at(-1).week}
-              stroke={palette.divider}
-              label={{
-                value: 'projected trend →',
-                position: 'insideTop',
-                fontSize: 10,
-                fill: palette.text.secondary,
-              }}
-            />
-          )}
+          <ReferenceLine
+            y={dpsCeiling}
+            stroke={palette.warning.main}
+            strokeDasharray="4 4"
+            label={{
+              value: 'Theoretical Max',
+              position: 'insideBottomRight',
+              fontSize: 12,
+              fill: palette.warning.main,
+            }}
+          />
+
+          <ReferenceLine
+            x={userDay}
+            stroke={palette.divider}
+            label={{
+              value: 'projected trend →',
+              position: 'insideTop',
+              fontSize: 12,
+              fill: palette.text.secondary,
+            }}
+          />
+
+          <ReferenceLine
+            x={benchmarkDay}
+            label={{
+              value: 'Benchmark',
+              position: 'insideTop',
+              fontSize: 12,
+              fill: palette.text.secondary,
+            }}
+          />
 
           <Area
             type="monotone"
@@ -210,19 +182,14 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
 
           <ChartTooltip
             content={({ payload }) => {
-              const { mean, extrapolatedMean, week = 0 } = payload?.[0]?.payload ?? {};
-              const weekEntry = dataSeriesByWeek[week] ?? {};
-              const prevEntry = dataSeriesByWeek[Number(week) - 1] ?? {};
+              const { mean, extrapolatedMean, day = 0 } = payload?.[0]?.payload ?? {};
 
               const value = mean ?? extrapolatedMean;
-              const prevValue = prevEntry.mean ?? weekEntry.extrapolatedMean;
-              const pctDiff = prevValue != null ? (value / prevValue - 1) * 100 : null;
-              const diffColor = pctDiff >= 0 ? 'success.main' : 'error.main';
               return (
                 <Card elevation={4}>
                   <CardContent component={Stack} spacing={1}>
                     <Typography variant="subtitle2">
-                      Week {week}:
+                      Day {Math.round(day)}:
                     </Typography>
 
                     <Divider />
@@ -235,13 +202,6 @@ const Progress = ({ dpsProgression, userDps, dpsCeiling, thresholdWeeks, fit }) 
                       <Typography variant="body2">
                         {formatNum(value ?? 0)}
                       </Typography>
-
-                      {pctDiff != null && (
-                        <Typography variant="body2" align="right" sx={{ color: diffColor }}>
-                          {pctDiff > 0 ? '+' : ''}
-                          {pctDiff.toFixed(2)}%
-                        </Typography>
-                      )}
                     </Stack>
                   </CardContent>
                 </Card>

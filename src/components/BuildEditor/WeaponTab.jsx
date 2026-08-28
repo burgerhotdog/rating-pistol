@@ -18,7 +18,7 @@ const WeaponTab = ({ draft, setDraft }) => {
       .sort((a, b) =>
         b.quality - a.quality ||
         b.version - a.version ||
-        Number(b.id) - Number(a.id)
+        b.id - a.id
       ),
     [weapons, typeLock],
   );

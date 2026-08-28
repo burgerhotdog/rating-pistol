@@ -104,7 +104,7 @@ const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
   );
 };
 
-const Mainstats = ({ configMap, userConfigKey }) => {
+const Mainstats = ({ configMap, userConfigKey, dpsProgression }) => {
   const { gameId } = useParams();
   if (!configMap) return null;
 
@@ -123,11 +123,7 @@ const Mainstats = ({ configMap, userConfigKey }) => {
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
         title="Mainstat Distribution"
-        subheader={
-          userRank != null
-            ? `Your config ranks #${userRank} of ${sorted.length} · ${total.toLocaleString()} builds simulated`
-            : `${total.toLocaleString()} builds simulated`
-        }
+        subheader={`Your config ranks #${userRank} of ${sorted.length} · ${total.toLocaleString()} builds simulated for ${dpsProgression.at(-1).day} days`}
       />
       <CardContent component={Stack} sx={{ flex: 1 }}>
         <Stack spacing={0.25}>
