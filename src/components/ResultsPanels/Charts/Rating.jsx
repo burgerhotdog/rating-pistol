@@ -8,7 +8,7 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import { formatNum } from '@/utils';
+import { formatNum, estimateDay } from '@/utils';
 
 const GRADE_BANDS = [
   { floor: 90, letter: 'A', color: '#4ade80' },
@@ -57,14 +57,6 @@ function formatDays(days) {
   return `${years.toFixed()} years`;
 }
 
-// Inverts the fitted power-law decay (remaining = A * week^-q) to find the farming week equivalent to userDps
-function estimateEquivalentWeek(userDps, dpsCeiling, fit) {
-  if (!fit || !dpsCeiling) return null;
-  const remaining = dpsCeiling - userDps;
-  if (remaining <= 0) return Infinity;
-  return (fit.A / remaining) ** (1 / fit.q);
-}
-
 function getEfficiencyLabel(q) {
   if (q == null) return null;
   if (q >= 1.5) return { label: 'Fast', color: 'success.main' };
@@ -90,10 +82,10 @@ const Stat = ({ label, value, valueColor, tooltip }) => {
 const Rating = ({ userDay, userDps, dpsCeiling, fit, dpsProgression, benchmarkDay, benchmarkDps }) => {
   const benchmarkPct = userDps / benchmarkDps * 100;
   const { grade, color: gradeColor } = getGrade(benchmarkPct);
-
-  const timePercentMore1 = estimateEquivalentWeek(userDps * 1.01, dpsCeiling, fit);
-  const timePercentMore5 = estimateEquivalentWeek(userDps * 1.05, dpsCeiling, fit);
-  const timePercentMore10 = estimateEquivalentWeek(userDps * 1.1, dpsCeiling, fit);
+  
+  const timePercentMore1 = estimateDay(userDps * 1.01, dpsCeiling, dpsProgression, fit);
+  const timePercentMore5 = estimateDay(userDps * 1.05, dpsCeiling, dpsProgression, fit);
+  const timePercentMore10 = estimateDay(userDps * 1.1, dpsCeiling, dpsProgression, fit);
 
   const efficiency = getEfficiencyLabel(fit?.q);
 

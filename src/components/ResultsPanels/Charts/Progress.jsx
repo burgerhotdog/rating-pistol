@@ -21,11 +21,6 @@ import {
 import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
-function estimateEquivalentDay(dpsCeiling, userDps, fit) {
-  const remaining = dpsCeiling - userDps;
-  return (fit.A / remaining) ** (1 / fit.q);
-}
-
 function buildData(dpsProgression, estimatedDay, upperBound, dpsCeiling, fit) {
   const data = dpsProgression.filter(({ day }) => day <= upperBound).map(({ day, mean }) => {
     if (day < estimatedDay) {
