@@ -189,7 +189,7 @@ const Progress = ({ dpsProgression, userDay, userDps, dpsCeiling, fit, benchmark
                 <Card elevation={4}>
                   <CardContent component={Stack} spacing={1}>
                     <Typography variant="subtitle2">
-                      Day {day}:
+                      Day {Math.round(day)}:
                     </Typography>
 
                     <Divider />
