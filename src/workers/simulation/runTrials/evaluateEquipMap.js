@@ -1,13 +1,6 @@
-import { GI, HSR, WW, ZZZ } from '@/data';
+import { MISC } from '@/data';
 import { runRotation } from '../rotation';
 import { getAttr, getTotals, toMergedObj } from '@/utils';
-
-const ENERGY_ATTR = {
-  [GI]: 'energyRecharge%',
-  [HSR]: 'energyRegenerationRate%',
-  [WW]: 'energyRegen%',
-  [ZZZ]: 'energyRegen%',
-};
 
 export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   const mCache = cache.member[evalId];
@@ -23,7 +16,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
     return baseScore;
   }
 
-  const energyAttr = ENERGY_ATTR[cache.gameId];
+  const energyAttr = MISC[cache.gameId].energyAttr;
   const energyReq = getAttr(energyAttr, mCache.statMap ?? mCache.baseMap);
   function energyPenalty(testStatMap) {
     if (!mCache.energy) return 1; // no energy req

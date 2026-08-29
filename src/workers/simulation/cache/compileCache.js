@@ -129,7 +129,13 @@ export const compileCache = ({ gameId, charId, team }) => {
     const charData = CHARACTER[gameId][member.id];
     if (charData.tagged.includes('healing')) mCache.healing = true;
     if (charData.tagged.includes('shield')) mCache.shield = true;
-    if (charData.energy) mCache.energy = charData.energy;
+
+    if (charData.energy) {
+      mCache.energy = charData.energy;
+      if (member.energyReq) {
+        mCache.energyReq = member.energyReq;
+      }
+    }
 
     cache.member[member.id] = mCache;
   }
