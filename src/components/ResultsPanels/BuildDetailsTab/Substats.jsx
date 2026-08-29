@@ -8,7 +8,6 @@ import {
   FormControlLabel,
   Paper,
   Stack,
-  Switch,
   Typography,
 } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
@@ -16,6 +15,7 @@ import { Bar, BarChart, Scatter, Tooltip, XAxis, YAxis } from 'recharts';
 import { WW, SUBSTAT } from '@/data';
 import { useAccent } from '@/hooks';
 import { formatStr } from '@/utils';
+import { Switch } from '../../Colored';
 
 const chanceOfStat = (weights, stat) => {
   const dfs = (pool, remainingDraws, prob) => {
@@ -174,13 +174,12 @@ const Substats = ({ results }) => {
           <FormControlLabel
             control={
               <Switch
+                color={accent}
                 checked={showAll}
                 onChange={(e) => setShowAll(e.target.checked)}
               />
             }
             label="Show all"
-            labelPlacement="start"
-            sx={{ mr: 1 }}
           />
         }
       />
