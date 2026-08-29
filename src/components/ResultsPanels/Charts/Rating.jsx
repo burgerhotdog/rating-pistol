@@ -112,9 +112,7 @@ const Rating = ({ results }) => {
           <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1, flex: 1 }}>
             <Stat label="Team DPS" value={formatNum(userDps)} />
             <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
-            {dpsCeiling != null && (
-              <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
-            )}
+            <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
             {efficiency && (
               <Stat
                 label="Farming Curve"
@@ -143,33 +141,27 @@ const Rating = ({ results }) => {
               <Typography variant="body2" color="textSecondary">
                 {formatNum(userDps * 1.01)} dps (+1%)
               </Typography>
-              <Stack direction="row" spacing={1}>
-                <Typography variant="body2" color="textSecondary">
-                  + {formatDays(timePercentMore1 - userDay)}
-                </Typography>
-              </Stack>
+              <Typography variant="body2" color="textSecondary">
+                + {formatDays(timePercentMore1 - userDay)}
+              </Typography>
             </Stack>
 
             <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
               <Typography variant="body2" color="textSecondary">
                 {formatNum(userDps * 1.05)} dps (+5%)
               </Typography>
-              <Stack direction="row" spacing={1}>
-                <Typography variant="body2" color="textSecondary">
-                  + {formatDays(timePercentMore5 - userDay)}
-                </Typography>
-              </Stack>
+              <Typography variant="body2" color="textSecondary">
+                + {formatDays(timePercentMore5 - userDay)}
+              </Typography>
             </Stack>
 
             <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
               <Typography variant="body2" color="textSecondary">
                 {formatNum(userDps * 1.1)} dps (+10%)
               </Typography>
-              <Stack direction="row" spacing={1}>
-                <Typography variant="body2" color="textSecondary">
-                  + {formatDays(timePercentMore10 - userDay)}
-                </Typography>
-              </Stack>
+              <Typography variant="body2" color="textSecondary">
+                + {formatDays(timePercentMore10 - userDay)}
+              </Typography>
             </Stack>
           </Stack>
         </Stack>

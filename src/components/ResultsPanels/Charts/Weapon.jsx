@@ -56,23 +56,11 @@ function buildData(gameId, weapData, weaponResults, userDps, userMember) {
 const Weapon = ({ results }) => {
   const { weaponResults, userDps, userMember } = results;
   const { gameId } = useParams();
-  const accent = useAccent();
   const { palette, qualityColors } = useTheme();
+  const accent = useAccent();
   const weapons = useData('weapon');
 
   const data = buildData(gameId, weapons, weaponResults, userDps, userMember);
-
-  const renderR1Bar = (props) => {
-    const { index, ...rest } = props;
-    const entry = data[index];
-    return <Rectangle {...rest} fill={accent} fillOpacity={entry.opacity} />;
-  };
-
-  const renderR5Bar = (props) => {
-    const { index, ...rest } = props;
-    const entry = data[index];
-    return <Rectangle {...rest} fill={qualityColors[entry.quality]} fillOpacity={0.5} />;
-  };
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -111,8 +99,25 @@ const Weapon = ({ results }) => {
             }}
           />
 
-          <Bar dataKey="dpsR1" stackId="a" shape={renderR1Bar} />
-          <Bar dataKey="dpsR5" stackId="a" shape={renderR5Bar}>
+          <Bar
+            dataKey="dpsR1"
+            stackId="a"
+            shape={(props) => {
+              const { index, ...rest } = props;
+              const entry = data[index];
+              return <Rectangle {...rest} fill={accent} fillOpacity={entry.opacity} />;
+            }}
+          />
+
+          <Bar
+            dataKey="dpsR5"
+            stackId="a"
+            shape={(props) => {
+              const { index, ...rest } = props;
+              const entry = data[index];
+              return <Rectangle {...rest} fill={qualityColors[entry.quality]} fillOpacity={0.5} />;
+            }}
+          >
             <LabelList
               content={({ x, y, width, height, index }) => {
                 const entry = data[index];
