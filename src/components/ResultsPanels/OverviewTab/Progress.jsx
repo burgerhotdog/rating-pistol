@@ -190,6 +190,7 @@ const Progress = ({ results }) => {
                 </Paper>
               );
             }}
+            isAnimationActive={false}
           />
         </ComposedChart>
       </CardContent>

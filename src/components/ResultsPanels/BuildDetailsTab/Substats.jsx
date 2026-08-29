@@ -344,6 +344,8 @@ const Substats = ({ results }) => {
                 </Paper>
               );
             }}
+            cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+            isAnimationActive={false}
           />
         </BarChart>
       </CardContent>

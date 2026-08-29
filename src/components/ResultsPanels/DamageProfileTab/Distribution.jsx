@@ -93,6 +93,7 @@ const Distribution = ({ results }) => {
                   </Paper>
                 );
               }}
+              isAnimationActive={false}
             />
           </PieChart>
 

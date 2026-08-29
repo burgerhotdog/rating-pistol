@@ -86,7 +86,6 @@ const Weapon = ({ results }) => {
           />
 
           <Tooltip
-            cursor={{ fill: alpha(palette.text.primary, 0.04) }}
             content={({ payload, label }) => {
               const { dps = [] } = payload?.[0]?.payload ?? {};
               return (
@@ -97,6 +96,8 @@ const Weapon = ({ results }) => {
                 </Paper>
               );
             }}
+            cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+            isAnimationActive={false}
           />
 
           <Bar
