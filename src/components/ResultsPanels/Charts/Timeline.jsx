@@ -19,7 +19,7 @@ import {
   CartesianGrid,
   Scatter,
   ScatterChart,
-  Tooltip as ChartTooltip,
+  Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
@@ -287,7 +287,7 @@ const Timeline = ({ results }) => {
               );
             })}
 
-            <ChartTooltip
+            <Tooltip
               content={({ payload }) => (
                 <TooltipContent
                   time={payload[0]?.payload?.time}
@@ -317,7 +317,7 @@ const Timeline = ({ results }) => {
               );
             })}
 
-            <ChartTooltip
+            <Tooltip
               isAnimationActive={false}
               content={({ payload }) => (
                 <TooltipContent

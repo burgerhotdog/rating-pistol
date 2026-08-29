@@ -3,7 +3,7 @@ import {
   Card,
   CardContent,
   CardHeader,
-  Divider,
+  Paper,
   Stack,
   Typography,
 } from '@mui/material';
@@ -13,7 +13,7 @@ import {
   ComposedChart,
   CartesianGrid,
   ReferenceLine,
-  Tooltip as ChartTooltip,
+  Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
@@ -31,7 +31,6 @@ function buildData(dpsProgression, userDay, userDps, upperBound, dpsCeiling, fit
     }
   });
 
-  // fit line
   const fitLineStart = dpsProgression.at(-1).day + 10;
   for (let day = fitLineStart; day <= upperBound; day += 10) {
     const mean = dpsCeiling - fit.A * day ** -fit.q;
@@ -45,7 +44,6 @@ function buildData(dpsProgression, userDay, userDps, upperBound, dpsCeiling, fit
     }
   }
 
-  // lerp estimatedDay point
   if (!Number.isInteger(userDay)) {
     const hiIndex = data.findIndex(({ day }) => day > userDay);
     if (hiIndex) {
@@ -180,31 +178,16 @@ const Progress = ({ results }) => {
             />
           )}
 
-          <ChartTooltip
+          <Tooltip
             content={({ payload }) => {
               const { mean, extrapolatedMean, day = 0 } = payload?.[0]?.payload ?? {};
-
               const value = mean ?? extrapolatedMean;
               return (
-                <Card elevation={4}>
-                  <CardContent component={Stack} spacing={1}>
-                    <Typography variant="subtitle2">
-                      Day {Math.round(day)}:
-                    </Typography>
-
-                    <Divider />
-
-                    <Stack direction="row" sx={{ justifyContent: 'space-between', gap: 1 }}>
-                      <Typography variant="body2">
-                        Mean:
-                      </Typography>
-
-                      <Typography variant="body2">
-                        {formatNum(value ?? 0)}
-                      </Typography>
-                    </Stack>
-                  </CardContent>
-                </Card>
+                <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+                  <Typography variant="caption">
+                    Day {Math.round(day)}: {formatNum(value ?? 0)}
+                  </Typography>
+                </Paper>
               );
             }}
           />

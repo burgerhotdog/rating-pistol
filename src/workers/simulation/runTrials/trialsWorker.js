@@ -1,5 +1,5 @@
 import { mean } from 'simple-statistics';
-import { MISC } from '@/data';
+import { SUBSTAT, MISC } from '@/data';
 import { buildEquipMap } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { createAdvanceTrial } from './advance';
@@ -70,9 +70,8 @@ self.onmessage = ({ data }) => {
         const dist = configMap[configKey].subDist;
 
         const rollMap = getSubRollSums(gameId, trial.equipList, true);
-        for (const id in rollMap) {
-          const value = rollMap[id];
-          dist[id] = (dist[id] ?? 0) + value;
+        for (const id in SUBSTAT[gameId]) {
+          (dist[id] ??= []).push(rollMap[id] ?? 0);
         }
       }
 

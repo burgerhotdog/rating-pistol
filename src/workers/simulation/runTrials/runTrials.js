@@ -63,7 +63,7 @@ function runContinuous(workers, maxDay, dpsCeil, logDays) {
         dst.count += src.count;
 
         for (const id in src.subDist) {
-          dst.subDist[id] = (dst.subDist[id] ?? 0) + src.subDist[id];
+          (dst.subDist[id] ??= []).push(...src.subDist[id]);
         }
       }
     };
@@ -109,12 +109,6 @@ function runContinuous(workers, maxDay, dpsCeil, logDays) {
           doneCount++;
 
           if (doneCount === workers.length) {
-            for (const configKey in configMap) {
-              const config = configMap[configKey];
-              for (const id in config.subDist) {
-                config.subDist[id] /= config.count;
-              }
-            }
             resolve({ dpsUpdates, remainingHistory, configMap });
           }
 
