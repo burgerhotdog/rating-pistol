@@ -56,7 +56,7 @@ export function useSimulation(team) {
     worker.onmessage = ({ data }) => {
       setResult((prev) => ({ ...prev, ...data }));
 
-      if ('userSummary' in data) {
+      if (data.userSnapshots) {
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;
       }

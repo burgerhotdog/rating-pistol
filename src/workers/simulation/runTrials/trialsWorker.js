@@ -12,7 +12,7 @@ let gameId;
 self.onmessage = ({ data }) => {
   switch (data.type) {
     case 'init': {
-      const { cache, equipMaps, currId, summary, score, baseDps } = data;
+      const { cache, equipMaps, currId, snapshots, score, baseDps } = data;
 
       gameId = cache.gameId;
 
@@ -23,7 +23,7 @@ self.onmessage = ({ data }) => {
 
       trials = Array.from({ length: 250 }, () => ({
         equipList: new Array(equipListLength).fill(null),
-        summary,
+        snapshots,
         score,
         dps: baseDps,
       }));

@@ -118,10 +118,10 @@ export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
 
   // Initialize trials
   if (isMainChar) self.postMessage({ status: `Initializing Trials` });
-  const { summary, totals, score, penalty } = evaluateEquipMap();
+  const { snapshots, totals, score, penalty } = evaluateEquipMap();
   const baseDps = totals.damage / cache.rotationDuration * 1000 * penalty;
   dpsProgression.push({ day: 0, mean: baseDps });
-  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, summary, score, baseDps });
+  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score, baseDps });
 
   if (isMainChar) self.postMessage({ status: `Running Trials` });
   const result = await runContinuous(workers, dpsCeil, isMainChar);

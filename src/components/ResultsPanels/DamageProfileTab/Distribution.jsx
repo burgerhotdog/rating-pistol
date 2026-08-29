@@ -22,10 +22,10 @@ import {
 import { useAccent } from '@/hooks';
 import { formatNum, formatStr } from '@/utils';
 
-const buildData = (summary, charId) => {
+const buildData = (snapshots, charId) => {
   const damageByType = {};
 
-  for (const { ownerId, damage, damageType } of summary) {
+  for (const { ownerId, damage, damageType } of snapshots) {
     if (ownerId !== charId || !damage) continue;
 
     const type = damageType ?? 'other';
@@ -50,13 +50,13 @@ const buildData = (summary, charId) => {
 };
 
 const Distribution = ({ results }) => {
-  const { userSummary } = results;
+  const { userSnapshots } = results;
   const { charId } = useParams();
   const accent = useAccent();
 
-  const data = buildData(userSummary, Number(charId));
+  const data = buildData(userSnapshots, Number(charId));
   const totalDamage = data.reduce((acc, entry) => acc + entry.value, 0);
-  const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
+  const duration = userSnapshots.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
   const dps = duration > 0 ? totalDamage / (duration / 1000) : null;
 
   return (

@@ -13,17 +13,17 @@ import AreaView from './AreaView';
 import ScatterView from './ScatterView';
 
 const RotationTimeline = ({ results }) => {
-  const { userDps, userSummary, memberIds } = results;
+  const { userDps, userSnapshots, memberIds } = results;
   const accent = useAccent();
   const [showHits, setShowHits] = useState(false);
 
   const memberStack = [...memberIds];
-  if (userSummary.some((snapshot) => snapshot.ownerId === 'other')) {
+  if (userSnapshots.some((snapshot) => snapshot.ownerId === 'other')) {
     memberStack.push('other');
   }
 
-  const totalDamage = userSummary.reduce((acc, { damage = 0 }) => acc + damage, 0);
-  const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
+  const totalDamage = userSnapshots.reduce((acc, { damage = 0 }) => acc + damage, 0);
+  const duration = userSnapshots.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>

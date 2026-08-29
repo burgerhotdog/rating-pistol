@@ -17,7 +17,7 @@ const ResultsPanels = ({ team }) => {
     return;
   }
 
-  if (!results.userSummary) {
+  if (!results.userSnapshots) {
     return <LoadingBar results={results} />;
   }
 

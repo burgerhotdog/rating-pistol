@@ -11,10 +11,10 @@ import {
 import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
-function buildData(summary) {
+function buildData(snapshots) {
   const data = [];
 
-  for (const { runtime, ownerId, damage, hitOffsets, name } of summary) {
+  for (const { runtime, ownerId, damage, hitOffsets, name } of snapshots) {
     if (!damage) continue;
 
     if (!hitOffsets?.length) {
@@ -35,18 +35,18 @@ function buildData(summary) {
 }
 
 const ScatterView = ({ results }) => {
-  const { userSummary, memberIds } = results;
+  const { userSnapshots, memberIds } = results;
   const { palette } = useTheme();
   const charDatas = useData('character');
   const elementDatas = useData('element');
 
   const dataIds = [
     ...memberIds,
-    ...(userSummary.some((ss) => ss.ownerId === 'other') && ['other']),
+    ...(userSnapshots.some((ss) => ss.ownerId === 'other') && ['other']),
   ];
 
-  const data = buildData(userSummary);
-  const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0); // wrong
+  const data = buildData(userSnapshots);
+  const duration = userSnapshots.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0); // wrong
 
   return (
     <ScatterChart

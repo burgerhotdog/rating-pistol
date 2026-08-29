@@ -11,10 +11,10 @@ import {
 import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
-function buildData(summary, memberStack) {
+function buildData(snapshots, memberStack) {
   const runtimeDamage = {};
 
-  for (const { runtime, ownerId, damage, hitOffsets, name } of summary) {
+  for (const { runtime, ownerId, damage, hitOffsets, name } of snapshots) {
     if (!damage) continue;
 
     if (!hitOffsets?.length) {
@@ -54,13 +54,13 @@ function buildData(summary, memberStack) {
 }
 
 const AreaView = ({ results }) => {
-  const { userSummary, memberIds } = results;
+  const { userSnapshots, memberIds } = results;
   const { palette } = useTheme();
   const charDatas = useData('character');
   const elementDatas = useData('element');
 
   const memberStack = [...memberIds];
-  if (userSummary.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
+  if (userSnapshots.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
 
   const memberColors = Object.fromEntries(
     memberStack.map((id) => {
@@ -69,8 +69,8 @@ const AreaView = ({ results }) => {
     })
   );
 
-  const data = buildData(userSummary, memberStack);
-  const duration = userSummary.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
+  const data = buildData(userSnapshots, memberStack);
+  const duration = userSnapshots.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
 
   return (
     <AreaChart

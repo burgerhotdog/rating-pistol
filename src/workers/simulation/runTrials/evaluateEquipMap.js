@@ -11,7 +11,7 @@ const ENERGY_ATTR = {
 
 export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   const mCache = cache.member[evalId];
-  const evalRotationSpecs = runRotation(cache, equipMaps, evalId);
+  const snapshotSpecs = runRotation(cache, equipMaps, evalId);
 
   const evalHealing = mCache.healing;
   const evalShield = mCache.shield;
@@ -39,11 +39,11 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   return (evalEquipMap = {}) => {
     const evalStatMap = toMergedObj(mCache.baseMap, evalEquipMap);
 
-    const summary = evalRotationSpecs(evalStatMap);
-    const totals = getTotals(summary);
+    const snapshots = snapshotSpecs(evalStatMap);
+    const totals = getTotals(snapshots);
     const penalty = energyPenalty(evalStatMap);
     const score = baseScore(totals) * penalty;
 
-    return { summary, totals, score, penalty };
+    return { snapshots, totals, score, penalty };
   };
 }

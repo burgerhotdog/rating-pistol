@@ -1,4 +1,8 @@
-import { getTotals, estimateDps, estimateDay } from '@/utils';
+import {
+  computeDps,
+  estimateDps,
+  estimateDay,
+} from '@/utils';
 import { compileCache } from './cache';
 import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
@@ -37,8 +41,8 @@ self.onmessage = async ({ data }) => {
 
   // Sanity check
   self.postMessage({ status: 'Checking rotation' });
-  const userSummary = runRotation(cache, equipMaps);
-  const userDps = getTotals(userSummary).damage / cache.rotationDuration * 1000
+  const userSnapshots = runRotation(cache, equipMaps);
+  const userDps = computeDps(userSnapshots, cache.rotationDuration);
   if (Number.isNaN(userDps)) {
     console.log(userDps);
     self.postMessage({ errorLog: cache.effects });
@@ -55,7 +59,7 @@ self.onmessage = async ({ data }) => {
     dpsCeiling: results.dpsCeiling,
     fit: results.fit,
     configMap: results.configMap,
-    userSummary,
+    userSnapshots,
     userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
     userDps,
     benchmarkDay,
