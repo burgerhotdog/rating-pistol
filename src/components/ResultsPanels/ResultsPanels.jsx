@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Stack, Tab, Tabs } from '@mui/material';
+import { Stack, Tab } from '@mui/material';
 import { useAccent, useSimulation } from '@/hooks';
+import { Tabs } from '../Colored';
 import LoadingBar from './LoadingBar';
 import OverviewTab from './OverviewTab';
 import DamageProfileTab from './DamageProfileTab';
@@ -24,10 +25,10 @@ const ResultsPanels = ({ team }) => {
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Tabs
+        color={accent}
         value={tab}
         onChange={(_, value) => setTab(value)}
         textColor="inherit"
-        slotProps={{ indicator: { sx: { backgroundColor: accent } } }}
         centered
       >
         <Tab value={0} label="Overview" />

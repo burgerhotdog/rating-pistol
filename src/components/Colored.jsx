@@ -1,5 +1,6 @@
 import { alpha, styled } from '@mui/material/styles';
 import MuiSwitch from '@mui/material/Switch';
+import MuiTabs from '@mui/material/Tabs';
 
 export const Switch = styled(MuiSwitch, {
   shouldForwardProp: (prop) => prop !== 'color',
@@ -11,6 +12,14 @@ export const Switch = styled(MuiSwitch, {
     },
   },
   '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+    backgroundColor: color,
+  },
+}));
+
+export const Tabs = styled(MuiTabs, {
+  shouldForwardProp: (prop) => prop !== 'color',
+})(({ color }) => ({
+  '& .MuiTabs-indicator': {
     backgroundColor: color,
   },
 }));
