@@ -8,7 +8,7 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import { formatNum, estimateDay } from '@/utils';
+import { formatDays, formatNum, estimateDay } from '@/utils';
 
 const GRADE_BANDS = [
   { floor: 90, letter: 'A', color: '#4ade80' },
@@ -31,32 +31,6 @@ function getGrade(pct) {
   return { grade: 'E', color: '#ef4444' };
 }
 
-function formatDays(days) {
-  if (days < 14) {
-    return `${days.toFixed()} days`;
-  }
-
-  const weeks = days / 7;
-
-  if (days < 30) {
-    return `${weeks.toFixed()} weeks`;
-  }
-
-  const months = days / 30;
-
-  if (months < 12) {
-    return `${months.toFixed()} months`;
-  }
-
-  const years = months / 12;
-
-  if (years < 10) {
-    return `${years.toFixed(1)} years`; 
-  }
-
-  return `${years.toFixed()} years`;
-}
-
 function getEfficiencyLabel(q) {
   if (q == null) return null;
   if (q >= 1.5) return { label: 'Fast', color: 'success.main' };
@@ -64,8 +38,8 @@ function getEfficiencyLabel(q) {
   return { label: 'Slow', color: 'error.main' };
 }
 
-const Stat = ({ label, value, valueColor, tooltip }) => {
-  const content = (
+const Stat = ({ label, value, valueColor }) => {
+  return (
     <Box>
       <Typography variant="overline" color="textSecondary">
         {label}
@@ -75,8 +49,6 @@ const Stat = ({ label, value, valueColor, tooltip }) => {
       </Typography>
     </Box>
   );
-
-  return tooltip ? <Tooltip title={tooltip}>{content}</Tooltip> : content;
 };
 
 const Rating = ({ results }) => {
@@ -89,7 +61,11 @@ const Rating = ({ results }) => {
   const timePercentMore5 = estimateDay(userDps * 1.05, dpsCeiling, dpsProgression, fit);
   const timePercentMore10 = estimateDay(userDps * 1.1, dpsCeiling, dpsProgression, fit);
 
-  const efficiency = getEfficiencyLabel(fit?.q);
+  const efficiency = getEfficiencyLabel(fit.k);
+
+  const formatEdgeDays = (days) => Math.floor(days) === 0
+    ? '<1 day'
+    : formatDays(days);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -113,14 +89,13 @@ const Rating = ({ results }) => {
             <Stat label="Team DPS" value={formatNum(userDps)} />
             <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
             <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
-            {efficiency && (
+            <Tooltip title={`Diminishing-returns rate (q = ${fit.k.toFixed(2)}). Faster curves front-load most of the value early.`}>
               <Stat
                 label="Farming Curve"
                 value={efficiency.label}
                 valueColor={efficiency.color}
-                tooltip={`Diminishing-returns rate (q = ${fit.k.toFixed(2)}). Faster curves front-load most of the value early.`}
               />
-            )}
+            </Tooltip>
           </Box>
 
           <Stack spacing={1} sx={{ flex: 1 }}>
@@ -133,7 +108,7 @@ const Rating = ({ results }) => {
                 {formatNum(userDps)} dps (current)
               </Typography>
               <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                ~ {formatDays(userDay)}
+                {formatEdgeDays(userDay)}
               </Typography>
             </Stack>
 
@@ -142,7 +117,7 @@ const Rating = ({ results }) => {
                 {formatNum(userDps * 1.01)} dps (+1%)
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                + {formatDays(timePercentMore1 - userDay)}
+                + {formatEdgeDays(timePercentMore1 - userDay)}
               </Typography>
             </Stack>
 
@@ -151,7 +126,7 @@ const Rating = ({ results }) => {
                 {formatNum(userDps * 1.05)} dps (+5%)
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                + {formatDays(timePercentMore5 - userDay)}
+                + {formatEdgeDays(timePercentMore5 - userDay)}
               </Typography>
             </Stack>
 
@@ -160,7 +135,7 @@ const Rating = ({ results }) => {
                 {formatNum(userDps * 1.1)} dps (+10%)
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                + {formatDays(timePercentMore10 - userDay)}
+                + {formatEdgeDays(timePercentMore10 - userDay)}
               </Typography>
             </Stack>
           </Stack>
