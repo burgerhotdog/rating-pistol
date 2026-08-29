@@ -97,13 +97,15 @@ const ScatterView = ({ results }) => {
           return (
             <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
               <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-                <Avatar
-                  src={charDatas[ownerId]?.icon}
-                  sx={{ width: 20, height: 20 }}
-                />
-                <Typography variant="body2" color="textSecondary">
-                  {name}:
-                </Typography>
+                <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
+                  <Avatar
+                    src={charDatas[ownerId]?.icon}
+                    sx={{ width: 20, height: 20 }}
+                  />
+                  <Typography variant="body2" color="textSecondary">
+                    {name}:
+                  </Typography>
+                </Stack>
                 <Typography variant="body2">
                   {formatNum(point.value)}
                 </Typography>
