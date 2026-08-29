@@ -33,7 +33,7 @@ function buildData(dpsProgression, userDay, userDps, upperBound, dpsCeiling, fit
 
   const fitLineStart = dpsProgression.at(-1).day + 10;
   for (let day = fitLineStart; day <= upperBound; day += 10) {
-    const mean = dpsCeiling - fit.A * day ** -fit.q;
+    const mean = dpsCeiling - fit.A * day ** -fit.k;
 
     if (day < userDay) {
       data.push({ day, mean });

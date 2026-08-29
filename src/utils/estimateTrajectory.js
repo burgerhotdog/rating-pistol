@@ -6,7 +6,7 @@ export function estimateDay(inputDps, dpsCeiling, dpsProgression, fit) {
   }
 
   if (inputDps > dpsProgression.at(-1).mean) {
-    return (fit.A / (dpsCeiling - inputDps)) ** (1 / fit.q);
+    return (fit.A / (dpsCeiling - inputDps)) ** (1 / fit.k);
   }
 
   const datapoint = dpsProgression.find(({ mean }) => mean === inputDps);
@@ -25,7 +25,7 @@ export function estimateDay(inputDps, dpsCeiling, dpsProgression, fit) {
 
 export function estimateDps(inputDay, dpsCeiling, dpsProgression, fit) {
   if (inputDay > dpsProgression.at(-1).day) {
-    return dpsCeiling - fit.A * inputDay ** -fit.q;
+    return dpsCeiling - fit.A * inputDay ** -fit.k;
   }
 
   const datapoint = dpsProgression.find(({ day }) => day === inputDay);

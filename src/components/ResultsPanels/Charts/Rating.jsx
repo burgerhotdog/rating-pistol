@@ -118,7 +118,7 @@ const Rating = ({ results }) => {
                 label="Farming Curve"
                 value={efficiency.label}
                 valueColor={efficiency.color}
-                tooltip={`Diminishing-returns rate (q = ${fit.q.toFixed(2)}). Faster curves front-load most of the value early.`}
+                tooltip={`Diminishing-returns rate (q = ${fit.k.toFixed(2)}). Faster curves front-load most of the value early.`}
               />
             )}
           </Box>

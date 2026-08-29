@@ -1,22 +1,7 @@
-import { mean, linearRegression } from 'simple-statistics';
+import { mean } from 'simple-statistics';
+import { fitDecay } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { findBestPossibleEquipMap } from './bestEquipMap';
-
-function fitRemainingCurve(remainingHistory) {
-  // Transform:
-  // ln(remaining) = ln(A) + B * ln(day)
-  const logPoints = remainingHistory.map(({ day, remaining }) => [
-    Math.log(day),
-    Math.log(remaining),
-  ]);
-
-  const { m, b } = linearRegression(logPoints);
-  const q = -m;
-  if (!(q > 0)) return;
-
-  const A = Math.exp(b);
-  return { q, A };
-}
 
 async function initWorkers(payload) {
   const workers = Array.from({ length: 4 }, () => new Worker(
@@ -38,7 +23,7 @@ async function initWorkers(payload) {
   return workers;
 }
 
-function runContinuous(workers, maxDay, dpsCeil, logDays) {
+function runContinuous(workers, dpsCeil, isMainChar) {
   return new Promise((resolve) => {
     const pending = new Map(); // day -> meanDps values collected so far
     const dpsUpdates = [];
@@ -81,10 +66,10 @@ function runContinuous(workers, maxDay, dpsCeil, logDays) {
             const avgDps = mean(bucket);
             dpsUpdates.push({ day, mean: avgDps });
 
-            if (maxDay === 100) {
+            if (isMainChar) {
               const remaining = dpsCeil - avgDps;
               if (day >= 95) remainingHistory.push({ day, remaining });
-              if (logDays) self.postMessage({ progressDay: day });
+              if (isMainChar) self.postMessage({ progressDay: day });
             }
 
             pending.delete(day);
@@ -119,12 +104,12 @@ function runContinuous(workers, maxDay, dpsCeil, logDays) {
 
     workers.forEach((worker) => {
       worker.onmessage = handleMessage;
-      worker.postMessage({ type: 'run', maxDay });
+      worker.postMessage({ type: 'run', maxDay: isMainChar ? 100 : 30 });
     });
   });
 }
 
-export async function runTrials(cache, equipMaps, currId, logDays = false) {
+export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
   const bestEquipMap = findBestPossibleEquipMap(evaluateEquipMap);
   const dpsCeil = bestEquipMap.totals.damage / cache.rotationDuration * 1000;
@@ -132,32 +117,23 @@ export async function runTrials(cache, equipMaps, currId, logDays = false) {
   const dpsProgression = [];
 
   // Initialize trials
-  if (logDays) {
-    self.postMessage({ status: `Initializing Trials` });
-  }
-
+  if (isMainChar) self.postMessage({ status: `Initializing Trials` });
   const { summary, totals, score, penalty } = evaluateEquipMap();
   const baseDps = totals.damage / cache.rotationDuration * 1000 * penalty;
   dpsProgression.push({ day: 0, mean: baseDps });
-
   const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, summary, score, baseDps });
 
-  // Phase 1
-  if (logDays) {
-    self.postMessage({ status: `Running Trials` });
-  }
-
-  const maxDay = logDays ? 100 : 30;
-  const result = await runContinuous(workers, maxDay, dpsCeil, logDays);
+  if (isMainChar) self.postMessage({ status: `Running Trials` });
+  const result = await runContinuous(workers, dpsCeil, isMainChar);
 
   dpsProgression.push(...result.dpsUpdates);
   workers.forEach((worker) => worker.terminate());
 
-  if (!logDays) {
+  if (!isMainChar) {
     return result.meanEquipMap;
   }
 
-  const fit = fitRemainingCurve(result.remainingHistory);
+  const fit = fitDecay(result.remainingHistory.map(({ day, remaining }) => [day, remaining]));
 
   return {
     dpsProgression,
