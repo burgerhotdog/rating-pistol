@@ -1,61 +1,16 @@
 import { useState } from 'react';
 import { Stack, Tab, Tabs } from '@mui/material';
 import { useAccent, useSimulation } from '@/hooks';
-import { formatStr } from '@/utils';
-import {
-  RatingCard,
-  ProgressCard,
-  TimelineCard,
-  DistributionCard,
-  MainstatsCard,
-  SubstatsCard,
-  WeaponCard,
-} from './Charts';
 import LoadingBar from './LoadingBar';
-
-const TabPanels = [
-  {
-    value: 'overview',
-    render: (results) => (
-      <Stack spacing={1} sx={{ flex: 1 }}>
-        <RatingCard results={results} />
-        <ProgressCard results={results} />
-      </Stack>
-    ),
-  },
-  {
-    value: 'damageProfile',
-    render: (results) => (
-      <Stack spacing={1} sx={{ flex: 1 }}>
-        <TimelineCard results={results} />
-        <DistributionCard results={results} />
-      </Stack>
-    ),
-  },
-  {
-    value: 'buildDetails',
-    render: (results) => (
-      <Stack spacing={1} sx={{ flex: 1 }}>
-        <MainstatsCard results={results} />
-        <SubstatsCard results={results} />
-      </Stack>
-    ),
-  },
-  {
-    value: 'comparisons',
-    render: (results) => (
-      <Stack spacing={1} sx={{ flex: 1 }}>
-        <WeaponCard results={results} />
-      </Stack>
-    ),
-  },
-];
+import OverviewTab from './OverviewTab';
+import DamageProfileTab from './DamageProfileTab';
+import BuildDetailsTab from './BuildDetailsTab';
+import ComparisonsTab from './ComparisonsTab';
 
 const ResultsPanels = ({ team }) => {
   const accent = useAccent();
-
-  const [tab, setTab] = useState(TabPanels[0].value);
   const results = useSimulation(team);
+  const [tab, setTab] = useState(0);
 
   if (results.errorLog) {
     console.log(results.errorLog);
@@ -66,8 +21,6 @@ const ResultsPanels = ({ team }) => {
     return <LoadingBar results={results} />;
   }
 
-  const activeTab = TabPanels.find((t) => t.value === tab);
-
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Tabs
@@ -77,12 +30,16 @@ const ResultsPanels = ({ team }) => {
         slotProps={{ indicator: { sx: { backgroundColor: accent } } }}
         centered
       >
-        {TabPanels.map(({ value }) => (
-          <Tab key={value} value={value} label={formatStr(value)} />
-        ))}
+        <Tab value={0} label="Overview" />
+        <Tab value={1} label="Damage Profile" />
+        <Tab value={2} label="Build Details" />
+        <Tab value={3} label="Comparisons" />
       </Tabs>
 
-      {activeTab?.render(results)}
+      {tab === 0 && <OverviewTab results={results} />}
+      {tab === 1 && <DamageProfileTab results={results} />}
+      {tab === 2 && <BuildDetailsTab results={results} />}
+      {tab === 3 && <ComparisonsTab results={results} />}
     </Stack>
   );
 };

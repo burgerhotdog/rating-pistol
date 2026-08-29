@@ -210,17 +210,24 @@ const Timeline = ({ results }) => {
           </linearGradient>
         ))}
       </defs>
+
       <CartesianGrid
         strokeDasharray="3 3"
         stroke={palette.divider}
       />
+
       <XAxis
         dataKey="time"
         domain={[0, 'dataMax']}
+        ticks={Array.from(
+          { length: Math.floor(duration / 5000) + 1 },
+          (_, i) => i * 5000,
+        )}
         tick={{ fontSize: 12 }}
         tickFormatter={(time) => `${(time / 1000).toFixed()}s`}
         type="number"
       />
+
       <YAxis
         tick={{ fontSize: 12 }}
         tickFormatter={formatDmg}
