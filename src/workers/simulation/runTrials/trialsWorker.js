@@ -65,13 +65,14 @@ self.onmessage = ({ data }) => {
       for (const trial of trials) {
         const configKey = getMainConfig(gameId, trial.equipList);
 
-        configMap[configKey] ??= { count: 0, subDist: {} };
+        configMap[configKey] ??= { count: 0, dpsDist: [], subDist: {} };
         configMap[configKey].count++;
-        const dist = configMap[configKey].subDist;
+        configMap[configKey].dpsDist.push(trial.dps);
 
+        const subDist = configMap[configKey].subDist;
         const rollMap = getSubRollSums(gameId, trial.equipList, true);
         for (const id in SUBSTAT[gameId]) {
-          (dist[id] ??= []).push(rollMap[id] ?? 0);
+          (subDist[id] ??= []).push(rollMap[id] ?? 0);
         }
       }
 

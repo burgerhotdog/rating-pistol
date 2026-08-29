@@ -43,9 +43,10 @@ function runContinuous(workers, dpsCeil, isMainChar) {
       configMap ??= {};
       for (const configKey in partial) {
         const src = partial[configKey];
-        configMap[configKey] ??= { count: 0, subDist: {} };
+        configMap[configKey] ??= { count: 0, dpsDist: [], subDist: {} };
         const dst = configMap[configKey];
         dst.count += src.count;
+        dst.dpsDist.push(...src.dpsDist);
 
         for (const id in src.subDist) {
           (dst.subDist[id] ??= []).push(...src.subDist[id]);

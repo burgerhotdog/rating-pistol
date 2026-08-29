@@ -47,8 +47,8 @@ const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
         py: 0.5,
         borderRadius: 1.5,
         border: '0.5px solid',
-        borderColor: isUser ? alpha(USER_COLOR, 0.35) : isUser ? 'divider' : 'transparent',
-        bgcolor: isUser ? alpha(USER_COLOR, 0.06) : isUser ? 'action.hover' : 'transparent',
+        borderColor: isUser ? alpha(USER_COLOR, 0.35) : 'transparent',
+        bgcolor: isUser ? alpha(USER_COLOR, 0.06) : 'transparent',
         cursor: 'pointer',
         transition: 'background-color 0.15s',
         '&:hover': {
@@ -84,7 +84,7 @@ const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
               color="textSecondary"
               sx={{ minWidth: 30, textAlign: 'right' }}
             >
-              {(pct * 100).toFixed(0)}%
+              {(pct * 100).toFixed()}%
             </Typography>
           </Tooltip>
         </Box>
