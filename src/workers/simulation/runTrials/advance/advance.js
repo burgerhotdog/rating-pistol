@@ -8,19 +8,20 @@ function createEquipEvaluator(cache, evaluateEquipMap) {
     const next = { ...prev };
     for (const equipIndex of slots) {
       const equipList = prev.equipList.with(equipIndex, equip);
-      const { summary, totals, score } = evaluateEquipMap(buildEquipMap(equipList, true));
+      const { summary, totals, score, penalty } = evaluateEquipMap(buildEquipMap(equipList, true));
 
       if (score > next.score) {
-        const dps = totals.damage / cache.rotationDuration * 1000;
+        const dps = totals.damage / cache.rotationDuration * 1000 * penalty;
         Object.assign(next, { equipList, summary, score, dps });
       }
     }
     return next;
   }
 
-  return function evaluateEquip(equip, trial) {
-    if ('index' in equip)
+  return (equip, trial) => {
+    if ('index' in equip) {
       return trySlots([equip.index], equip, trial);
+    }
 
     switch (equip.cost) {
       case 4:

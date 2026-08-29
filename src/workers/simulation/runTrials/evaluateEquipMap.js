@@ -41,8 +41,9 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
 
     const summary = evalRotationSpecs(evalStatMap);
     const totals = getTotals(summary);
-    const score = baseScore(totals) * energyPenalty(evalStatMap);
+    const penalty = energyPenalty(evalStatMap);
+    const score = baseScore(totals) * penalty;
 
-    return { summary, totals, score };
+    return { summary, totals, score, penalty };
   };
 }
