@@ -85,21 +85,6 @@ const Weapon = ({ results }) => {
             axisLine={false}
           />
 
-          <Tooltip
-            content={({ payload, label }) => {
-              const { dps = [] } = payload?.[0]?.payload ?? {};
-              return (
-                <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
-                  <Typography variant="caption">
-                    {label}: {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
-                  </Typography>
-                </Paper>
-              );
-            }}
-            cursor={{ fill: alpha(palette.text.primary, 0.1) }}
-            isAnimationActive={false}
-          />
-
           <Bar
             dataKey="dpsR1"
             stackId="a"
@@ -155,6 +140,21 @@ const Weapon = ({ results }) => {
               }}
             />
           </Bar>
+
+          <Tooltip
+            content={({ payload, label }) => {
+              const { dps = [] } = payload?.[0]?.payload ?? {};
+              return (
+                <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+                  <Typography variant="caption">
+                    {label}: {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
+                  </Typography>
+                </Paper>
+              );
+            }}
+            cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+            isAnimationActive={false}
+          />
         </BarChart>
       </CardContent>
     </Card>
