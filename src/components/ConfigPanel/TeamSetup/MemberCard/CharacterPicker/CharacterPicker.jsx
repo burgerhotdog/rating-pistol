@@ -13,13 +13,15 @@ import { useBuilds, useData } from '@/hooks';
 import { initMember } from '@/utils';
 import CharacterPickerDialog from './CharacterPickerDialog';
 
-const CharacterPicker = ({ member, setMember }) => {
-  const { gameId } = useParams();
+const CharacterPicker = ({ member, setMember, allyIds }) => {
+  const { gameId, charId } = useParams();
   const builds = useBuilds();
   const [open, setOpen] = useState(false);
 
   const charDatas = useData('character');
   const memberData = charDatas[member.id];
+
+  const disabled = member.id === Number(charId);
 
   return (
     <>
@@ -37,7 +39,7 @@ const CharacterPicker = ({ member, setMember }) => {
       >
         <Box sx={{ position: 'relative' }}>
           <Card sx={{ width: 80 }}>
-            <CardActionArea onClick={() => setOpen(true)}>
+            <CardActionArea onClick={() => setOpen(true)} disabled={disabled}>
               <CardMedia
                 image={memberData?.icon}
                 title={memberData?.name ?? null}
@@ -46,33 +48,35 @@ const CharacterPicker = ({ member, setMember }) => {
             </CardActionArea>
           </Card>
 
-          <IconButton
-            className="member-remove-btn"
-            onClick={(e) => {
-              e.stopPropagation();
-              setMember(initMember(gameId));
-            }}
-            sx={{
-              position: 'absolute',
-              top: -6,
-              right: -6,
-              bgcolor: 'background.paper',
-              border: '1px solid',
-              borderColor: 'divider',
-              width: 18,
-              height: 18,
-              opacity: 0,
-              pointerEvents: 'none',
-              transition: 'opacity 0.15s',
-              '&:hover': {
-                bgcolor: 'error.main',
-                color: '#fff',
-                borderColor: 'error.main',
-              },
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
+          {!disabled && (
+            <IconButton
+              className="member-remove-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setMember(initMember(gameId));
+              }}
+              sx={{
+                position: 'absolute',
+                top: -6,
+                right: -6,
+                bgcolor: 'background.paper',
+                border: '1px solid',
+                borderColor: 'divider',
+                width: 18,
+                height: 18,
+                opacity: 0,
+                pointerEvents: 'none',
+                transition: 'opacity 0.15s',
+                '&:hover': {
+                  bgcolor: 'error.main',
+                  color: '#fff',
+                  borderColor: 'error.main',
+                },
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+          )}
         </Box>
         <Typography variant="caption">
           {memberData?.name ?? '—'}
@@ -83,6 +87,7 @@ const CharacterPicker = ({ member, setMember }) => {
         open={open}
         onClose={() => setOpen(false)}
         onSelect={(id) => setMember(initMember(gameId, id, builds[id]))}
+        allyIds={allyIds}
       />
     </>
   );

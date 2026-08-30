@@ -16,7 +16,7 @@ import {
 import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
 
-const CharacterPickerDialog = ({ open, onClose, onSelect }) => {
+const CharacterPickerDialog = ({ open, onClose, onSelect, allyIds }) => {
   const characters = useData('character');
   const elements = useData('element');
   const types = useData('type');
@@ -120,31 +120,36 @@ const CharacterPickerDialog = ({ open, onClose, onSelect }) => {
             gap: 1,
           }}
         >
-          {options.map(({ id, name, icon }) => (
-            <Card key={id} title={name}>
-              <CardActionArea
-                onClick={() => {
-                  onSelect(id);
-                  onClose();
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  src={icon}
-                  alt={name}
-                  loading="lazy"
-                  sx={{ width: 100, height: 100 }}
-                />
-                <Typography
-                  variant="body2"
-                  noWrap
-                  sx={{ textAlign: 'center', px: 1 }}
+          {options.map(({ id, name, icon }) => {
+            const isDisabled = allyIds.includes(id);
+            return (
+              <Card key={id} title={name}>
+                <CardActionArea
+                  onClick={() => {
+                    onSelect(id);
+                    onClose();
+                  }}
+                  disabled={isDisabled}
                 >
-                  {name}
-                </Typography>
-              </CardActionArea>
-            </Card>
-          ))}
+                  <CardMedia
+                    component="img"
+                    src={icon}
+                    alt={name}
+                    loading="lazy"
+                    sx={{ width: 100, height: 100, filter: isDisabled && 'brightness(60%)' }}
+                  />
+                  <Typography
+                    variant="body2"
+                    noWrap
+                    color={isDisabled && 'textDisabled'}
+                    sx={{ textAlign: 'center', px: 1 }}
+                  >
+                    {name}
+                  </Typography>
+                </CardActionArea>
+              </Card>
+            );
+          })}
         </Box>
       </DialogContent>
     </Dialog>
