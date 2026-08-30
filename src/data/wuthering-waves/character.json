@@ -727,6 +727,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 12812,
       "baseAtk": 212,
@@ -8157,6 +8158,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 16712,
       "baseAtk": 287,
@@ -17885,6 +17887,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 15375,
       "baseAtk": 287,
@@ -22289,6 +22292,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
+    "energy": 125,
     "tagged": [],
     "stats": {
       "baseHp": 15375,
@@ -40675,10 +40679,93 @@
     },
     "effects": [
       {
+        "key": "swordOfDivinitysShadow",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.3"
+            }
+          },
+          "duration": 20000
+        }
+      },
+      {
+        "key": "swordOfDiscordsShadow",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.4",
+                "introSkill.0"
+              ]
+            }
+          },
+          "duration": 20000
+        }
+      },
+      {
+        "key": "mandateOfDivinity",
+        "stores": "global",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "swordOfDivinitysShadow"
+                }
+              },
+              {
+                "action": {
+                  "ref": "normalAttack.8"
+                }
+              }
+            ]
+          }
+        },
+        "gameRule": "mandateOfDivinity",
+        "buff": {
+          "stats": {
+            "aeroErosionDmgAmp%": 0.5
+          }
+        }
+      },
+      {
+        "key": "powerOfDiscord",
+        "stores": "global",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "swordOfDiscordsShadow"
+                }
+              },
+              {
+                "action": {
+                  "ref": "normalAttack.8"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "manifest",
+        "apply": {
+          "action": {
+            "ref": "resonanceLiberation.0"
+          }
+        }
+      },
+      {
         "buff": {
           "filter": {
             "action": {
-              "ref": "resonanceLiberation.0"
+              "ref": "resonanceLiberation.1"
             }
           },
           "stats": {
@@ -40699,11 +40786,7 @@
           "filter": {
             "states": {
               "negativeStatuses": {
-                "aeroErosion": {
-                  "stacks": {
-                    ">=": 3
-                  }
-                }
+                "has": "aeroErosion"
               }
             }
           },
@@ -40772,7 +40855,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 20000
@@ -40787,110 +40870,6 @@
           },
           "stats": {
             "aeroDmgAmp%": 0.175
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "critDmg%": 1
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "normalAttack.0",
-                "normalAttack.1",
-                "normalAttack.2",
-                "normalAttack.3",
-                "normalAttack.5",
-                "normalAttack.4",
-                "introSkill.0"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.5
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "normalAttack.6",
-                "normalAttack.7",
-                "normalAttack.8",
-                "normalAttack.9"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 2
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 1
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "buff": {
-          "stats": {
-            "dmgBonus%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceLiberation.0",
-                "introSkill.1",
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2",
-                "forteCircuit.3",
-                "forteCircuit.4",
-                "forteCircuit.5",
-                "forteCircuit.6",
-                "forteCircuit.7",
-                "forteCircuit.8",
-                "forteCircuit.9",
-                "forteCircuit.10",
-                "forteCircuit.11",
-                "forteCircuit.12",
-                "forteCircuit.13"
-              ]
-            }
-          },
-          "stats": {
-            "dmgBonus%": 0.4
           }
         }
       }
@@ -41121,6 +41100,11 @@
           {
             "name": "Basic Attack 4",
             "type": "basicAttack",
+            "inflict": {
+              "status": {
+                "aeroErosion": 1
+              }
+            },
             "damage": {
               "attr": "hp",
               "multipliers": [
@@ -41171,112 +41155,6 @@
                     0.1252,
                     0.1314,
                     0.1376
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Dodge Counter",
-            "type": "dodgeCounter",
-            "damage": {
-              "type": "basicAttack",
-              "attr": "hp",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0345,
-                    0.0373,
-                    0.0401,
-                    0.0441,
-                    0.0469,
-                    0.0502,
-                    0.0547,
-                    0.0592,
-                    0.0637,
-                    0.0685,
-                    0.0742,
-                    0.0798,
-                    0.0854,
-                    0.0911,
-                    0.0967,
-                    0.1024,
-                    0.108,
-                    0.1137,
-                    0.1193,
-                    0.125
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0345,
-                    0.0373,
-                    0.0401,
-                    0.0441,
-                    0.0469,
-                    0.0502,
-                    0.0547,
-                    0.0592,
-                    0.0637,
-                    0.0685,
-                    0.0742,
-                    0.0798,
-                    0.0854,
-                    0.0911,
-                    0.0967,
-                    0.1024,
-                    0.108,
-                    0.1137,
-                    0.1193,
-                    0.125
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0345,
-                    0.0373,
-                    0.0401,
-                    0.0441,
-                    0.0469,
-                    0.0502,
-                    0.0547,
-                    0.0592,
-                    0.0637,
-                    0.0685,
-                    0.0742,
-                    0.0798,
-                    0.0854,
-                    0.0911,
-                    0.0967,
-                    0.1024,
-                    0.108,
-                    0.1137,
-                    0.1193,
-                    0.125
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0345,
-                    0.0373,
-                    0.0401,
-                    0.0441,
-                    0.0469,
-                    0.0502,
-                    0.0547,
-                    0.0592,
-                    0.0637,
-                    0.0685,
-                    0.0742,
-                    0.0798,
-                    0.0854,
-                    0.0911,
-                    0.0967,
-                    0.1024,
-                    0.108,
-                    0.1137,
-                    0.1193,
-                    0.125
                   ]
                 }
               ]
@@ -41482,6 +41360,112 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Dodge Counter",
+            "type": "dodgeCounter",
+            "damage": {
+              "type": "basicAttack",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0345,
+                    0.0373,
+                    0.0401,
+                    0.0441,
+                    0.0469,
+                    0.0502,
+                    0.0547,
+                    0.0592,
+                    0.0637,
+                    0.0685,
+                    0.0742,
+                    0.0798,
+                    0.0854,
+                    0.0911,
+                    0.0967,
+                    0.1024,
+                    0.108,
+                    0.1137,
+                    0.1193,
+                    0.125
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0345,
+                    0.0373,
+                    0.0401,
+                    0.0441,
+                    0.0469,
+                    0.0502,
+                    0.0547,
+                    0.0592,
+                    0.0637,
+                    0.0685,
+                    0.0742,
+                    0.0798,
+                    0.0854,
+                    0.0911,
+                    0.0967,
+                    0.1024,
+                    0.108,
+                    0.1137,
+                    0.1193,
+                    0.125
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0345,
+                    0.0373,
+                    0.0401,
+                    0.0441,
+                    0.0469,
+                    0.0502,
+                    0.0547,
+                    0.0592,
+                    0.0637,
+                    0.0685,
+                    0.0742,
+                    0.0798,
+                    0.0854,
+                    0.0911,
+                    0.0967,
+                    0.1024,
+                    0.108,
+                    0.1137,
+                    0.1193,
+                    0.125
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0345,
+                    0.0373,
+                    0.0401,
+                    0.0441,
+                    0.0469,
+                    0.0502,
+                    0.0547,
+                    0.0592,
+                    0.0637,
+                    0.0685,
+                    0.0742,
+                    0.0798,
+                    0.0854,
+                    0.0911,
+                    0.0967,
+                    0.1024,
+                    0.108,
+                    0.1137,
+                    0.1193,
+                    0.125
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -41489,8 +41473,13 @@
         "name": "Sword to Bear Their Names",
         "actions": [
           {
-            "name": "Sword to Bear Their Names",
+            "name": "Resonance Skill",
             "type": "resonanceSkill",
+            "inflict": {
+              "status": {
+                "aeroErosion": 2
+              }
+            },
             "damage": {
               "type": "basicAttack",
               "attr": "hp",
@@ -41552,6 +41541,10 @@
       "resonanceLiberation": {
         "name": "A Knight's Heartfelt Prayers",
         "actions": [
+          {
+            "name": "A Knight's Heartfelt Prayers",
+            "type": "resonanceLiberation"
+          },
           {
             "name": "Blade of Howling Squall",
             "type": "resonanceLiberation",
@@ -41926,115 +41919,9 @@
             }
           },
           {
-            "name": "Fleurdelys: Dodge Counter",
-            "type": "dodgeCounter",
+            "name": "Fleurdelys: Basic Attack: Upward Cut",
+            "type": "basicAttack",
             "damage": {
-              "type": "basicAttack",
-              "attr": "hp",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0161,
-                    0.0174,
-                    0.0187,
-                    0.0206,
-                    0.0219,
-                    0.0234,
-                    0.0255,
-                    0.0276,
-                    0.0297,
-                    0.032,
-                    0.0346,
-                    0.0373,
-                    0.0399,
-                    0.0425,
-                    0.0452,
-                    0.0478,
-                    0.0504,
-                    0.0531,
-                    0.0557,
-                    0.0583
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0161,
-                    0.0174,
-                    0.0187,
-                    0.0206,
-                    0.0219,
-                    0.0234,
-                    0.0255,
-                    0.0276,
-                    0.0297,
-                    0.032,
-                    0.0346,
-                    0.0373,
-                    0.0399,
-                    0.0425,
-                    0.0452,
-                    0.0478,
-                    0.0504,
-                    0.0531,
-                    0.0557,
-                    0.0583
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0161,
-                    0.0174,
-                    0.0187,
-                    0.0206,
-                    0.0219,
-                    0.0234,
-                    0.0255,
-                    0.0276,
-                    0.0297,
-                    0.032,
-                    0.0346,
-                    0.0373,
-                    0.0399,
-                    0.0425,
-                    0.0452,
-                    0.0478,
-                    0.0504,
-                    0.0531,
-                    0.0557,
-                    0.0583
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0322,
-                    0.0348,
-                    0.0374,
-                    0.0411,
-                    0.0438,
-                    0.0468,
-                    0.051,
-                    0.0552,
-                    0.0594,
-                    0.0639,
-                    0.0692,
-                    0.0745,
-                    0.0797,
-                    0.085,
-                    0.0903,
-                    0.0955,
-                    0.1008,
-                    0.1061,
-                    0.1114,
-                    0.1166
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Fleurdelys: Upward Cut",
-            "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42124,9 +42011,10 @@
             }
           },
           {
-            "name": "Fleurdelys: Enhanced Heavy Attack",
-            "type": "basicAttack",
+            "name": "Fleurdelys: Heavy Attack: Enhanced",
+            "type": "heavyAttack",
             "damage": {
+              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42380,7 +42268,113 @@
             }
           },
           {
-            "name": "Fleurdelys: Sword to Answer Waves' Call",
+            "name": "Fleurdelys: Dodge Counter",
+            "type": "dodgeCounter",
+            "damage": {
+              "type": "basicAttack",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0161,
+                    0.0174,
+                    0.0187,
+                    0.0206,
+                    0.0219,
+                    0.0234,
+                    0.0255,
+                    0.0276,
+                    0.0297,
+                    0.032,
+                    0.0346,
+                    0.0373,
+                    0.0399,
+                    0.0425,
+                    0.0452,
+                    0.0478,
+                    0.0504,
+                    0.0531,
+                    0.0557,
+                    0.0583
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0161,
+                    0.0174,
+                    0.0187,
+                    0.0206,
+                    0.0219,
+                    0.0234,
+                    0.0255,
+                    0.0276,
+                    0.0297,
+                    0.032,
+                    0.0346,
+                    0.0373,
+                    0.0399,
+                    0.0425,
+                    0.0452,
+                    0.0478,
+                    0.0504,
+                    0.0531,
+                    0.0557,
+                    0.0583
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0161,
+                    0.0174,
+                    0.0187,
+                    0.0206,
+                    0.0219,
+                    0.0234,
+                    0.0255,
+                    0.0276,
+                    0.0297,
+                    0.032,
+                    0.0346,
+                    0.0373,
+                    0.0399,
+                    0.0425,
+                    0.0452,
+                    0.0478,
+                    0.0504,
+                    0.0531,
+                    0.0557,
+                    0.0583
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0322,
+                    0.0348,
+                    0.0374,
+                    0.0411,
+                    0.0438,
+                    0.0468,
+                    0.051,
+                    0.0552,
+                    0.0594,
+                    0.0639,
+                    0.0692,
+                    0.0745,
+                    0.0797,
+                    0.085,
+                    0.0903,
+                    0.0955,
+                    0.1008,
+                    0.1061,
+                    0.1114,
+                    0.1166
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Fleurdelys: Resonance Skill: Sword to Answer Waves' Call",
             "type": "resonanceSkill",
             "damage": {
               "attr": "hp",
@@ -42438,7 +42432,7 @@
             }
           },
           {
-            "name": "May Tempest Break the Tides",
+            "name": "Fleurdelys: Resonance Skill: May Tempest Break the Tides",
             "type": "resonanceSkill",
             "damage": {
               "attr": "hp",
@@ -42645,10 +42639,10 @@
         "normalAttack.2",
         "normalAttack.3",
         "resonanceSkill.0",
-        "normalAttack.9",
+        "normalAttack.8",
         "resonanceLiberation.0",
         "forteCircuit.12",
-        "forteCircuit.11",
+        "forteCircuit.10",
         "forteCircuit.2",
         "forteCircuit.3",
         "forteCircuit.4",
@@ -42656,7 +42650,7 @@
         "forteCircuit.2",
         "forteCircuit.3",
         "forteCircuit.4",
-        "resonanceLiberation.0",
+        "resonanceLiberation.1",
         "outroSkill.0"
       ],
       "duration": 13230
@@ -46615,6 +46609,7 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
+    "energy": 125,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -48711,6 +48706,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 14237,
       "baseAtk": 337,
@@ -51009,6 +51005,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 16712,
       "baseAtk": 287,

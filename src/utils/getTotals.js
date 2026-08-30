@@ -1,9 +1,9 @@
 const PARTS = new Set(['damage', 'healing', 'shield']);
 
-export function getTotals(summary, filterId) {
+export function getTotals(snapshots, filterId) {
   const totals = { damage: 0, healing: 0, shield: 0 };
 
-  for (const snapshot of summary) {
+  for (const snapshot of snapshots) {
     if (filterId && snapshot.ownerId !== filterId) continue;
 
     for (const part of PARTS) {

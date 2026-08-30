@@ -11,7 +11,7 @@ import MainEcho from './MainEcho';
 import Mode from './Mode';
 import RotationEditor from './RotationEditor';
 
-const MemberCard = ({ member, setMember }) => {
+const MemberCard = ({ member, setMember, allyIds }) => {
   const { gameId } = useParams();
   const memberData = useData('character')[member.id];
 
@@ -22,6 +22,7 @@ const MemberCard = ({ member, setMember }) => {
           <CharacterPicker
             member={member}
             setMember={setMember}
+            allyIds={allyIds}
           />
           <Rank
             memberId={member.id}
@@ -58,13 +59,11 @@ const MemberCard = ({ member, setMember }) => {
           )}
         </Stack>
         <Stack direction="row" spacing={1}>
-          {member.id && (
-            <RotationEditor
-              member={member}
-              onChange={(rotation) => setMember({ ...member, rotation })}
-            />
-          )}
-          {gameId === WW && 'modes' in memberData && (
+          <RotationEditor
+            member={member}
+            onChange={(rotation) => setMember({ ...member, rotation })}
+          />
+          {gameId === WW && memberData?.modes && (
             <Mode
               member={member}
               onChange={(mode) => setMember({ ...member, mode })}

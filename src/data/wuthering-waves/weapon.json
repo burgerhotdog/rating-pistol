@@ -216,6 +216,7 @@
     "icon": "wuthering-waves/weapon/21010024.webp",
     "quality": 4,
     "type": "broadblade",
+    "concerto": true,
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
@@ -749,6 +750,7 @@
     "icon": "wuthering-waves/weapon/21010066.webp",
     "quality": 5,
     "type": "broadblade",
+    "concerto": true,
     "stats": {
       "baseAtk": 412,
       "energyRegen%": 0.77
@@ -1408,6 +1410,7 @@
     "icon": "wuthering-waves/weapon/21020024.webp",
     "quality": 4,
     "type": "sword",
+    "concerto": true,
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
@@ -2684,6 +2687,7 @@
     "icon": "wuthering-waves/weapon/21030024.webp",
     "quality": 4,
     "type": "pistols",
+    "concerto": true,
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
@@ -3673,6 +3677,7 @@
     "icon": "wuthering-waves/weapon/21040024.webp",
     "quality": 4,
     "type": "gauntlets",
+    "concerto": true,
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
@@ -4669,6 +4674,7 @@
     "icon": "wuthering-waves/weapon/21050024.webp",
     "quality": 4,
     "type": "rectifier",
+    "concerto": true,
     "stats": {
       "baseAtk": 337,
       "energyRegen%": 0.518
@@ -4847,6 +4853,7 @@
     "icon": "wuthering-waves/weapon/21050036.webp",
     "quality": 5,
     "type": "rectifier",
+    "concerto": true,
     "stats": {
       "baseAtk": 412,
       "energyRegen%": 0.77
@@ -5578,6 +5585,7 @@
     "icon": "wuthering-waves/weapon/21050096.webp",
     "quality": 5,
     "type": "rectifier",
+    "concerto": true,
     "stats": {
       "baseAtk": 412,
       "energyRegen%": 0.7704

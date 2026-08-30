@@ -1,44 +1,51 @@
-import { getTotals, estimateDps, estimateDay } from '@/utils';
-import { runRotation } from './rotation';
+import {
+  computeDps,
+  estimateDps,
+  estimateDay,
+} from '@/utils';
 import { compileCache } from './cache';
+import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
 import { getSubRollSums, getMainConfig } from './utils';
 import { weaponTests } from './weaponTests';
 
-async function generateEquipMap(cache, memberId) {
-  self.postMessage({ status: `Generating trial build for ${memberId}` });
-
-  const equipMaps = await resolveEquipMaps(cache, 'allowBlank');
-  const meanEquipMap = await runTrials(cache, equipMaps, memberId);
-  return meanEquipMap;
-}
-
-async function resolveEquipMaps(cache, allowBlank) {
+async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
 
   for (const member of Object.values(cache.member)) {
-    if ('equipList' in member) {
+    if (member.equipList) {
       equipMaps[member.id] = member.equipMap;
       continue;
     }
 
-    equipMaps[member.id] = allowBlank
-      ? {}
-      : await generateEquipMap(cache, member.id);
+    if (allowBlank) {
+      equipMaps[member.id] = {};
+      continue;
+    }
+
+    self.postMessage({ status: `Generating trial build for ${member.id}` });
+
+    const trialEquipMaps = await resolveEquipMaps(cache, true);
+    equipMaps[member.id] = await runTrials(cache, trialEquipMaps, member.id);
   }
 
   return equipMaps;
 }
 
 self.onmessage = async ({ data }) => {
+  self.postMessage({ status: 'Starting simulation' });
+
+  self.postMessage({ status: 'Compiling cache' });
   const cache = compileCache(data);
   const equipMaps = await resolveEquipMaps(cache);
 
-  self.postMessage({ status: 'Running simulation' });
-
   // Sanity check
-  const userSummary = runRotation(cache, equipMaps);
-  const userDps = getTotals(userSummary).damage / cache.rotationDuration * 1000
+  self.postMessage({ status: 'Checking rotation' });
+  const userSnapshots = runRotation(cache, equipMaps);
+  const concertoExtraTime = cache.member[cache.charId].concertoPenalty
+    ? ((100 / 92) * cache.member[cache.charId].duration - cache.member[cache.charId].duration)
+    : 0;
+  const userDps = computeDps(userSnapshots, cache.rotationDuration + concertoExtraTime);
   if (Number.isNaN(userDps)) {
     console.log(userDps);
     self.postMessage({ errorLog: cache.effects });
@@ -55,7 +62,7 @@ self.onmessage = async ({ data }) => {
     dpsCeiling: results.dpsCeiling,
     fit: results.fit,
     configMap: results.configMap,
-    userSummary,
+    userSnapshots,
     userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
     userDps,
     benchmarkDay,

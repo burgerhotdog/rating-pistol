@@ -1,9 +1,10 @@
+export * from './buildMap';
+export * from './compute';
 export * from './format';
 export * from './init';
 export * from './randomStat';
 export * from './resolve';
 
-export * from './buildMap';
 export * from './estimateTrajectory';
 export * from './getAttr';
 export * from './getDefault';

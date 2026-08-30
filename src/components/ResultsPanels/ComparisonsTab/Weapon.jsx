@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardHeader,
+  Paper,
   Stack,
   Typography,
 } from '@mui/material';
@@ -12,11 +13,11 @@ import {
   BarChart,
   LabelList,
   Rectangle,
-  Tooltip as RechartsTooltip,
+  Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { useData } from '@/hooks';
+import { useAccent, useData } from '@/hooks';
 import { getDefaultWeapRank } from '@/utils';
 
 function getDpsIndex(gameId, weapId) {
@@ -54,29 +55,16 @@ function buildData(gameId, weapData, weaponResults, userDps, userMember) {
 
 const Weapon = ({ results }) => {
   const { weaponResults, userDps, userMember } = results;
-  const { gameId, charId } = useParams();
-  const { element } = useData('character')[charId];
-  const { color } = useData('element')[element];
+  const { gameId } = useParams();
   const { palette, qualityColors } = useTheme();
+  const accent = useAccent();
   const weapons = useData('weapon');
 
   const data = buildData(gameId, weapons, weaponResults, userDps, userMember);
 
-  const renderR1Bar = (props) => {
-    const { index, ...rest } = props;
-    const entry = data[index];
-    return <Rectangle {...rest} fill={color} fillOpacity={entry.opacity} />;
-  };
-
-  const renderR5Bar = (props) => {
-    const { index, ...rest } = props;
-    const entry = data[index];
-    return <Rectangle {...rest} fill={qualityColors[entry.quality]} fillOpacity={0.5} />;
-  };
-
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader title="Weapon Rankings" />
+      <CardHeader title="Weapon Comparisons" />
       <CardContent component={Stack} sx={{ flex: 1 }}>
         <BarChart
           data={data}
@@ -97,27 +85,25 @@ const Weapon = ({ results }) => {
             axisLine={false}
           />
 
-          <RechartsTooltip
-            cursor={{ fill: alpha(palette.text.primary, 0.04) }}
-            content={({ payload, label }) => {
-              const { dps = [] } = payload?.[0]?.payload ?? {};
-              return (
-                <Card elevation={4} sx={{ minWidth: 180 }}>
-                  <CardContent>
-                    <Typography variant="subtitle2">
-                      {label}
-                    </Typography>
-                    <Typography variant="body2">
-                      R1-5: {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              );
+          <Bar
+            dataKey="dpsR1"
+            stackId="a"
+            shape={(props) => {
+              const { index, ...rest } = props;
+              const entry = data[index];
+              return <Rectangle {...rest} fill={accent} fillOpacity={entry.opacity} />;
             }}
           />
 
-          <Bar dataKey="dpsR1" stackId="a" shape={renderR1Bar} />
-          <Bar dataKey="dpsR5" stackId="a" shape={renderR5Bar}>
+          <Bar
+            dataKey="dpsR5"
+            stackId="a"
+            shape={(props) => {
+              const { index, ...rest } = props;
+              const entry = data[index];
+              return <Rectangle {...rest} fill={qualityColors[entry.quality]} fillOpacity={0.5} />;
+            }}
+          >
             <LabelList
               content={({ x, y, width, height, index }) => {
                 const entry = data[index];
@@ -154,6 +140,21 @@ const Weapon = ({ results }) => {
               }}
             />
           </Bar>
+
+          <Tooltip
+            content={({ payload, label }) => {
+              const { dps = [] } = payload?.[0]?.payload ?? {};
+              return (
+                <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+                  <Typography variant="caption">
+                    {label}: {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
+                  </Typography>
+                </Paper>
+              );
+            }}
+            cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+            isAnimationActive={false}
+          />
         </BarChart>
       </CardContent>
     </Card>

@@ -1,172 +1,145 @@
-import { mean, linearRegression } from 'simple-statistics';
+import { mean } from 'simple-statistics';
+import { fitDecay } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { findBestPossibleEquipMap } from './bestEquipMap';
 
-const Q_STABILITY_WINDOW = 5;
-const Q_STABILITY_TOLERANCE = 0.05;
-
-function isFitStable(qHistory) {
-  if (qHistory.length < Q_STABILITY_WINDOW) return false;
-  const recent = qHistory.slice(-Q_STABILITY_WINDOW);
-  const spread = Math.max(...recent) - Math.min(...recent);
-  return spread < Q_STABILITY_TOLERANCE;
-}
-
-function fitRemainingCurve(remainingHistory) {
-  if (remainingHistory.length < 3) return;
-
-  // Transform:
-  // ln(remaining) = ln(A) + B * ln(day)
-  const logPoints = remainingHistory.map(({ day, remaining }) => [
-    Math.log(day),
-    Math.log(remaining),
-  ]);
-
-  const { m, b } = linearRegression(logPoints);
-  const q = -m;
-  if (!(q > 0)) return;
-
-  const A = Math.exp(b);
-  return { q, A };
-}
-
-const createWorker = () => new Worker(
-  new URL('./trialsWorker.js', import.meta.url),
-  { type: 'module' },
-);
-
-const waitForReady = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'ready') resolve();
-  };
-});
-
-const runPhase1 = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'phase1') resolve(data.means);
-  };
-  worker.postMessage({ type: 'runPhase1' });
-});
-
-const buildMeanEquipMap = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'meanEquipMap') resolve(data.meanEquipMap);
-  };
-  worker.postMessage({ type: 'buildMeanEquipMap' });
-});
-
-const runPhase2 = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'phase2') resolve(data.meanDps);
-  };
-  worker.postMessage({ type: 'runPhase2' });
-});
-
-const tallyConfigMap = (worker) => new Promise((resolve) => {
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'configMap') resolve(data.configMap);
-  };
-  worker.postMessage({ type: 'tallyConfigMap' });
-});
-
 async function initWorkers(payload) {
-  const workers = Array.from({ length: 4 }, createWorker);
-  const readyPromises = workers.map(waitForReady);
+  const workers = Array.from({ length: 4 }, () => new Worker(
+    new URL('./trialsWorker.js', import.meta.url),
+    { type: 'module' },
+  ));
+
+  const readyPromises = workers.map((worker) => new Promise((resolve) => {
+    worker.onmessage = ({ data }) => {
+      if (data.type === 'ready') resolve();
+    };
+  }));
+
   for (const worker of workers) {
     worker.postMessage(payload);
   }
+
   await Promise.all(readyPromises);
   return workers;
 }
 
-export async function runTrials(cache, equipMaps, currId, logDays = false) {
+function runContinuous(workers, dpsCeil, isMainChar) {
+  return new Promise((resolve) => {
+    const pending = new Map(); // day -> meanDps values collected so far
+    const dpsUpdates = [];
+    const remainingHistory = [];
+    let doneCount = 0;
+    let meanEquipMap = null;
+    let configMap = null;
+
+    const mergeMeanEquipMap = (partial) => {
+      meanEquipMap ??= {};
+      for (const id in partial) {
+        meanEquipMap[id] = (meanEquipMap[id] ?? 0) + partial[id] / workers.length;
+      }
+    };
+
+    const mergeConfigMap = (partial) => {
+      configMap ??= {};
+      for (const configKey in partial) {
+        const src = partial[configKey];
+        configMap[configKey] ??= { count: 0, dpsDist: [], subDist: {} };
+        const dst = configMap[configKey];
+        dst.count += src.count;
+        dst.dpsDist.push(...src.dpsDist);
+
+        for (const id in src.subDist) {
+          (dst.subDist[id] ??= []).push(...src.subDist[id]);
+        }
+      }
+    };
+
+    const handleMessage = ({ data }) => {
+      switch (data.type) {
+        case 'progress': {
+          const { day, meanDps } = data;
+
+          if (!pending.has(day)) pending.set(day, []);
+          const bucket = pending.get(day);
+          bucket.push(meanDps);
+
+          if (bucket.length === workers.length) {
+            const avgDps = mean(bucket);
+            dpsUpdates.push({ day, mean: avgDps });
+
+            if (isMainChar) {
+              const remaining = dpsCeil - avgDps;
+              if (day >= 95) remainingHistory.push({ day, remaining });
+              if (isMainChar) self.postMessage({ progressDay: day });
+            }
+
+            pending.delete(day);
+          }
+
+          break;
+        }
+
+        case 'meanEquipMap': {
+          mergeMeanEquipMap(data.meanEquipMap);
+          doneCount++;
+
+          if (doneCount === workers.length) {
+            resolve({ dpsUpdates, meanEquipMap });
+          }
+
+          break;
+        }
+
+        case 'configMap': {
+          mergeConfigMap(data.configMap);
+          doneCount++;
+
+          if (doneCount === workers.length) {
+            resolve({ dpsUpdates, remainingHistory, configMap });
+          }
+
+          break;
+        }
+      }
+    };
+
+    workers.forEach((worker) => {
+      worker.onmessage = handleMessage;
+      worker.postMessage({ type: 'run', maxDay: isMainChar ? 100 : 30 });
+    });
+  });
+}
+
+export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
   const bestEquipMap = findBestPossibleEquipMap(evaluateEquipMap);
   const dpsCeil = bestEquipMap.totals.damage / cache.rotationDuration * 1000;
 
   const dpsProgression = [];
-  const qHistory = [];
-  let lastFit = null;
 
   // Initialize trials
-  const { summary, totals, score } = evaluateEquipMap();
-  const baseDps = totals.damage / cache.rotationDuration * 1000;
+  if (isMainChar) self.postMessage({ status: `Initializing Trials` });
+  const { snapshots, totals, score, penalty } = evaluateEquipMap();
+  const baseDps = totals.damage / cache.rotationDuration * 1000 * penalty;
   dpsProgression.push({ day: 0, mean: baseDps });
+  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score, baseDps });
 
-  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, summary, score, baseDps });
+  if (isMainChar) self.postMessage({ status: `Running Trials` });
+  const result = await runContinuous(workers, dpsCeil, isMainChar);
 
-  // Phase 1
-  const workerMeans = await Promise.all(workers.map(runPhase1));
-  for (let day = 1; day < 22; day++) {
-    dpsProgression.push({
-      day,
-      mean: mean(workerMeans.map((means) => means[day - 1])),
-    });
-  }
-
-  // Early exit for non charId
-  if (!logDays) {
-    const workerMeanEquipMaps = await Promise.all(workers.map(buildMeanEquipMap));
-    const meanEquipMap = {};
-
-    for (const workerMeanEquipMap of workerMeanEquipMaps) {
-      for (const id in workerMeanEquipMap) {
-        const value = workerMeanEquipMap[id] / workers.length;
-        meanEquipMap[id] = (meanEquipMap[id] ?? 0) + value;
-      }
-    }
-
-    workers.forEach((worker) => worker.terminate());
-    return meanEquipMap;
-  }
-
-  // Phase 2
-  const remainingHistory = [];
-  for (let day = 28; day <= 700; day += 7) {
-    const workerMeanDps = await Promise.all(workers.map(runPhase2));
-    const meanDps = mean(workerMeanDps);
-    dpsProgression.push({ day, mean: meanDps });
-
-    const remaining = dpsCeil - meanDps;
-    remainingHistory.push({ day, remaining });
-
-    const fit = fitRemainingCurve(remainingHistory);
-    if (!fit) continue;
-
-    lastFit = fit;
-    qHistory.push(fit.q);
-
-    if (isFitStable(qHistory)) break;
-  }
-
-  // Configs
-  const workerConfigMaps = await Promise.all(workers.map(tallyConfigMap));
-  const configMap = {};
-  for (const workerConfigMap of workerConfigMaps) {
-    for (const configKey in workerConfigMap) {
-      const workerConfig = workerConfigMap[configKey];
-
-      configMap[configKey] ??= { count: 0, subDist: {} };
-      configMap[configKey].count += workerConfig.count;
-      const dist = configMap[configKey].subDist;
-
-      for (const id in workerConfig.subDist) {
-        const value = workerConfig.subDist[id];
-        dist[id] = (dist[id] ?? 0) + value;
-      }
-    }
-  }
-
-  for (const configKey in configMap) {
-    const config = configMap[configKey];
-    const dist = config.subDist;
-
-    for (const id in dist) {
-      const value = dist[id];
-      dist[id] = value / config.count;
-    }
-  }
-
+  dpsProgression.push(...result.dpsUpdates);
   workers.forEach((worker) => worker.terminate());
-  return { dpsProgression, dpsCeiling: dpsCeil, fit: lastFit, configMap };
+
+  if (!isMainChar) {
+    return result.meanEquipMap;
+  }
+
+  const fit = fitDecay(result.remainingHistory.map(({ day, remaining }) => [day, remaining]));
+
+  return {
+    dpsProgression,
+    dpsCeiling: dpsCeil,
+    fit,
+    configMap: result.configMap,
+  };
 }

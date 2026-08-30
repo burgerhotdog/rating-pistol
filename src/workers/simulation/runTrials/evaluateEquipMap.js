@@ -1,17 +1,10 @@
-import { GI, HSR, WW, ZZZ } from '@/data';
+import { MISC } from '@/data';
 import { runRotation } from '../rotation';
 import { getAttr, getTotals, toMergedObj } from '@/utils';
 
-const ENERGY_ATTR = {
-  [GI]: 'energyRecharge%',
-  [HSR]: 'energyRegenerationRate%',
-  [WW]: 'energyRegen%',
-  [ZZZ]: 'energyRegen%',
-};
-
 export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   const mCache = cache.member[evalId];
-  const evalRotationSpecs = runRotation(cache, equipMaps, evalId);
+  const snapshotSpecs = runRotation(cache, equipMaps, evalId);
 
   const evalHealing = mCache.healing;
   const evalShield = mCache.shield;
@@ -23,7 +16,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
     return baseScore;
   }
 
-  const energyAttr = ENERGY_ATTR[cache.gameId];
+  const energyAttr = MISC[cache.gameId].energyAttr;
   const energyReq = getAttr(energyAttr, mCache.statMap ?? mCache.baseMap);
   function energyPenalty(testStatMap) {
     if (!mCache.energy) return 1; // no energy req
@@ -39,10 +32,11 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   return (evalEquipMap = {}) => {
     const evalStatMap = toMergedObj(mCache.baseMap, evalEquipMap);
 
-    const summary = evalRotationSpecs(evalStatMap);
-    const totals = getTotals(summary);
-    const score = baseScore(totals) * energyPenalty(evalStatMap);
+    const snapshots = snapshotSpecs(evalStatMap);
+    const totals = getTotals(snapshots);
+    const penalty = energyPenalty(evalStatMap);
+    const score = baseScore(totals) * penalty;
 
-    return { summary, totals, score };
+    return { snapshots, totals, score, penalty };
   };
 }

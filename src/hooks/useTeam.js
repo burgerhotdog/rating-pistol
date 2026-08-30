@@ -11,9 +11,7 @@ export function useTeam() {
   const builds = useBuilds();
 
   return useState(() => {
-    const teamPreset =
-      charData.teamPreset ??
-      [Number(charId)];
+    const teamPreset = charData.teamPreset ?? [Number(charId)];
 
     const presets = [
       ...teamPreset,

@@ -7,15 +7,32 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
-import { formatDate, formatTime } from '@/utils';
+import { formatDate, formatDays } from '@/utils';
 import Header from './Header';
 import MenuAttrs from './MenuAttrs';
 import TeamSetup from './TeamSetup';
+
+function getDaysAgo(dateString) {
+  if (!dateString) return 'Unknown';
+
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return 'Unknown';
+
+  const now = new Date();
+  const diffMs = now - date;
+  return diffMs / (1000 * 60 * 60 * 24);
+}
 
 const ConfigPanel = ({ team, setTeam }) => {
   const { charId } = useParams();
 
   const member = team.find((member) => member.id === Number(charId));
+
+  const dateString = member.build?.lastUpdated;
+  const daysAgo = getDaysAgo(dateString);
+  const daysAgoStr = Math.floor(daysAgo) === 0
+    ? 'Today'
+    : `${formatDays(daysAgo)} ago`;
 
   return (
     <Card component={Stack} sx={{ width: 320 }}>
@@ -28,9 +45,9 @@ const ConfigPanel = ({ team, setTeam }) => {
       >
         <MenuAttrs team={team} member={member}/>
         <TeamSetup team={team} setTeam={setTeam} />
-        <Tooltip title={formatDate(member.build?.lastUpdated)}>
+        <Tooltip title={formatDate(dateString)}>
           <Typography variant="caption" color="textSecondary">
-            Last updated {formatTime(member.build?.lastUpdated)}
+            Last updated: {daysAgoStr}
           </Typography>
         </Tooltip>
       </CardContent>

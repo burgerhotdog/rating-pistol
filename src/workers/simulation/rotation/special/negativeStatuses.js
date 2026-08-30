@@ -174,10 +174,11 @@ const STATUSES = {
         currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
         currState.timeLeft = 15000;
       } else {
+        const timer = hasGameRule(ctx, 'mandateOfDivinity') ? 1500 : 3000;
         negativeStatuses.aeroErosion = {
           status,
           stacks: Math.min(stacks, maxStacks),
-          timer: 3000,
+          timer,
           timeLeft: 15000,
         };
       }
@@ -185,6 +186,8 @@ const STATUSES = {
     advance: (ctx, elapsed) => {
       const { negativeStatuses } = ctx.states;
       const currState = negativeStatuses.aeroErosion;
+      const maxTimer = hasGameRule(ctx, 'mandateOfDivinity') ? 1500 : 3000;
+      if (currState.timer > maxTimer) currState.timer = maxTimer;
       let remaining = elapsed;
       while (remaining > 0) {
         const decrease = Math.min(currState.timeLeft, currState.timer, remaining);
@@ -193,9 +196,10 @@ const STATUSES = {
         remaining -= decrease;
 
         if (currState.timer === 0) {
-          if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
+          const snapshot = buildSnapshot(ctx, currState, elapsed - remaining);
+          if (ctx.saveSnapshots) ctx.snapshots.push(snapshot);
 
-          currState.timer = 3000;
+          currState.timer = maxTimer;
         }
 
         if (currState.timeLeft === 0) {

@@ -1,10 +1,9 @@
-import { useRef } from 'react';
 import { Box, LinearProgress, Stack, Typography } from '@mui/material';
+import { useAccent } from '@/hooks';
 
-const LoadingBar = ({ status, week, diff }) => {
-  const initialDiffRef = useRef(null);
-
-  // const value = diff != null ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
+const LoadingBar = ({ results }) => {
+  const { status, progressDay } = results;
+  const accent = useAccent();
 
   return (
     <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -20,25 +19,28 @@ const LoadingBar = ({ status, week, diff }) => {
         {status && (
           <LinearProgress
             variant="determinate"
-            value={0}
+            value={progressDay ?? 0}
             sx={{
               height: 6,
               borderRadius: 3,
               backgroundColor: 'action.hover',
-              '& .MuiLinearProgress-bar': { borderRadius: 3 },
+              '& .MuiLinearProgress-bar': {
+                borderRadius: 3,
+                backgroundColor: accent,
+              },
             }}
           />
         )}
 
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
           <Typography
             variant="caption"
             color="textSecondary"
-            sx={{ visibility: week ? 'visible' : 'hidden' }}
+            sx={{ visibility: progressDay ? 'visible' : 'hidden' }}
           >
-            {`Day ${week}`}
+            Day {progressDay}
           </Typography>
-        </Box>
+        </Stack>
       </Stack>
     </Box>
   );

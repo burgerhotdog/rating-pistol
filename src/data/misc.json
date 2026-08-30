@@ -4,27 +4,31 @@
     "maxLevel": 90,
     "maxEquips": 5,
     "maxSubstats": 4,
-    "equipsPerDay": 9
+    "equipsPerDay": 9,
+    "energyAttr": "energyRecharge%"
   },
   "honkai-star-rail": {
     "maxMembers": 4,
     "maxLevel": 80,
     "maxEquips": 6,
     "maxSubstats": 4,
-    "equipsPerDay": 10
+    "equipsPerDay": 10,
+    "energyAttr": "energyRegenerationRate%"
   },
   "wuthering-waves": {
     "maxMembers": 3,
     "maxLevel": 90,
     "maxEquips": 5,
     "maxSubstats": 5,
-    "equipsPerDay": 17
+    "equipsPerDay": 17,
+    "energyAttr": "energyRegen%"
   },
   "zenless-zone-zero": {
     "maxMembers": 3,
     "maxLevel": 60,
     "maxEquips": 6,
     "maxSubstats": 4,
-    "equipsPerDay": 15
+    "equipsPerDay": 15,
+    "energyAttr": "energyRegen%"
   }
 }

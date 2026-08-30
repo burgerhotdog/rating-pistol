@@ -1,13 +1,16 @@
+import { lerp } from './math';
+
 export function estimateDay(inputDps, dpsCeiling, dpsProgression, fit) {
   if (inputDps >= dpsCeiling) {
     return Infinity;
   }
 
   if (inputDps > dpsProgression.at(-1).mean) {
-    return (fit.A / (dpsCeiling - inputDps)) ** (1 / fit.q);
+    return (fit.A / (dpsCeiling - inputDps)) ** (1 / fit.k);
   }
 
   const datapoint = dpsProgression.find(({ mean }) => mean === inputDps);
+
   if (datapoint) {
     return datapoint.day;
   }
@@ -17,15 +20,16 @@ export function estimateDay(inputDps, dpsCeiling, dpsProgression, fit) {
   const lo = dpsProgression[hiIndex - 1];
 
   const t = (inputDps - lo.mean) / (hi.mean - lo.mean);
-  return lo.day + (hi.day - lo.day) * t;
+  return lerp(lo.day, hi.day, t);
 }
 
 export function estimateDps(inputDay, dpsCeiling, dpsProgression, fit) {
   if (inputDay > dpsProgression.at(-1).day) {
-    return dpsCeiling - fit.A * inputDay ** -fit.q;
+    return dpsCeiling - fit.A * inputDay ** -fit.k;
   }
 
   const datapoint = dpsProgression.find(({ day }) => day === inputDay);
+
   if (datapoint) {
     return datapoint.mean;
   }
@@ -35,5 +39,5 @@ export function estimateDps(inputDay, dpsCeiling, dpsProgression, fit) {
   const lo = dpsProgression[hiIndex - 1];
 
   const t = (inputDay - lo.day) / (hi.day - lo.day);
-  return lo.mean + (hi.mean - lo.mean) * t;
+  return lerp(lo.mean, hi.mean, t);
 }

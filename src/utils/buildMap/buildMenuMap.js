@@ -1,75 +1,10 @@
-import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET, ECHO } from '@/data';
-import { toMergedObj } from './merge';
-import { isEnabledChar, isEnabledWeap, isEnabledSet, isEnabledEcho } from './isEnabledEffect';
-import { resolveRankedValue } from './resolve';
-import { toArray } from './toArray';
-
-const GAME_STATS = {
-  [GI]: {
-    'critRate%': 0.05,
-    'critDmg%': 0.5,
-    'energyRecharge%': 1,
-  },
-  [HSR]: {
-    'critRate%': 0.05,
-    'critDmg%': 0.5,
-    'energyRegenerationRate%': 1,
-  },
-  [WW]: {
-    'critRate%': 0.05,
-    'critDmg%': 0.5,
-    'energyRegen%': 1,
-    'offTuneBuildupRate%': 1,
-  },
-  [ZZZ]: {
-    'baseEnergyRegen': 1.2,
-    'critRate%': 0.05,
-    'critDmg%': 0.5,
-  },
-};
-
-export function buildBaseMap(gameId, charId, weapId) {
-  const gameStats = GAME_STATS[gameId];
-  const charStats = CHARACTER[gameId][charId]?.stats ?? {};
-  const weapStats = WEAPON[gameId][weapId]?.stats ?? {};
-
-  return toMergedObj(gameStats, charStats, weapStats);
-}
-
-export function buildEquipMap(equipList = [], isTrialBuild = false) {
-  const equipMap = {};
-
-  function addToEquipMap(stat, value) {
-    const normalized = !isTrialBuild && stat.endsWith('%')
-      ? value / 10000
-      : value;
-    equipMap[stat] = (equipMap[stat] ?? 0) + normalized;
-  }
-
-  for (const equip of equipList) {
-    if (!equip) continue;
-
-    if ('mainstatId' in equip && equip.mainstatValue) {
-      addToEquipMap(equip.mainstatId, equip.mainstatValue);
-    }
-
-    if ('mainstatSubId' in equip && equip.mainstatSubValue) {
-      addToEquipMap(equip.mainstatSubId, equip.mainstatSubValue);
-    }
-
-    if ('substats' in equip) {
-      for (const line of equip.substats) {
-        if (!line) continue;
-
-        if ('id' in line && line.value) {
-          addToEquipMap(line.id, line.value);
-        }
-      }
-    }
-  }
-
-  return equipMap;
-}
+import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
+import { toMergedObj } from '../merge';
+import { isEnabledChar, isEnabledWeap, isEnabledSet, isEnabledEcho } from '../isEnabledEffect';
+import { resolveRankedValue } from '../resolve';
+import { toArray } from '../toArray';
+import { buildBaseMap } from './buildBaseMap';
+import { buildEquipMap } from './buildEquipMap';
 
 export function buildMenuMap(gameId, charId, team) {
   const member = team.find((member) => member?.id === charId);

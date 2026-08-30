@@ -1,4 +1,4 @@
-import { WW, CHARACTER, ECHO } from '@/data';
+import { WW, CHARACTER, WEAPON, ECHO } from '@/data';
 import { toMergedObj, buildEquipMap, buildBaseMap } from '@/utils';
 import { getActionDefs } from './actions';
 import { normalizeEffects } from './effects';
@@ -129,7 +129,15 @@ export const compileCache = ({ gameId, charId, team }) => {
     const charData = CHARACTER[gameId][member.id];
     if (charData.tagged.includes('healing')) mCache.healing = true;
     if (charData.tagged.includes('shield')) mCache.shield = true;
-    if (charData.energy) mCache.energy = charData.energy;
+
+    if (charData.energy) {
+      mCache.energy = charData.energy;
+      if (member.energyReq) {
+        mCache.energyReq = member.energyReq;
+      }
+    }
+
+    mCache.concertoPenalty = charData.concertoReq && !WEAPON[WW][member.weaponId]?.concerto;
 
     cache.member[member.id] = mCache;
   }

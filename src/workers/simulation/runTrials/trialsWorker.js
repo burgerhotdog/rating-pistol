@@ -1,5 +1,5 @@
 import { mean } from 'simple-statistics';
-import { MISC } from '@/data';
+import { SUBSTAT, MISC } from '@/data';
 import { buildEquipMap } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { createAdvanceTrial } from './advance';
@@ -12,16 +12,18 @@ let gameId;
 self.onmessage = ({ data }) => {
   switch (data.type) {
     case 'init': {
-      const { cache, equipMaps, currId, summary, score, baseDps } = data;
+      const { cache, equipMaps, currId, snapshots, score, baseDps } = data;
+
       gameId = cache.gameId;
-      const equipListLength = MISC[cache.gameId].maxEquips;
+
+      const equipListLength = MISC[gameId].maxEquips;
       const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
 
       advanceTrial = createAdvanceTrial(cache, evaluateEquipMap);
 
       trials = Array.from({ length: 250 }, () => ({
         equipList: new Array(equipListLength).fill(null),
-        summary,
+        snapshots,
         score,
         dps: baseDps,
       }));
@@ -29,61 +31,48 @@ self.onmessage = ({ data }) => {
       return self.postMessage({ type: 'ready' });
     }
 
-    case 'runPhase1': {
-      const means = [];
+    case 'run': {
+      const { maxDay } = data;
 
-      for (let day = 0; day < 21; day++) {
+      for (let day = 1; day <= maxDay; day++) {
         for (const trial of trials) {
           advanceTrial(trial);
         }
 
-        means.push(mean(trials.map((trial) => trial.dps)));
+        const meanDps = mean(trials.map((trial) => trial.dps));
+        self.postMessage({ type: 'progress', day, meanDps });
       }
 
-      return self.postMessage({ type: 'phase1', means });
-    }
+      // Early-exit path (non-logDays): report the mean equip map at day 30
+      if (maxDay === 30) {
+        const meanEquipMap = {};
 
-    case 'buildMeanEquipMap': {
-      const meanEquipMap = {};
-
-      for (const trial of trials) {
-        const equipMap = buildEquipMap(trial.equipList, true);
-
-        for (const id in equipMap) {
-          const value = equipMap[id] / trials.length;
-          meanEquipMap[id] = (meanEquipMap[id] ?? 0) + value;
-        }
-      }
-
-      return self.postMessage({ type: 'meanEquipMap', meanEquipMap });
-    }
-
-    case 'runPhase2': {
-      for (let day = 0; day < 7; day++) {
         for (const trial of trials) {
-          advanceTrial(trial);
+          const equipMap = buildEquipMap(trial.equipList, true);
+
+          for (const id in equipMap) {
+            const value = equipMap[id] / trials.length;
+            meanEquipMap[id] = (meanEquipMap[id] ?? 0) + value;
+          }
         }
+
+        return self.postMessage({ type: 'meanEquipMap', meanEquipMap });
       }
 
-      const meanDps = mean(trials.map((trial) => trial.dps));
-
-      return self.postMessage({ type: 'phase2', meanDps });
-    }
-
-    case 'tallyConfigMap': {
+      // Full run: report the config tally at day 100
       const configMap = {};
 
       for (const trial of trials) {
         const configKey = getMainConfig(gameId, trial.equipList);
 
-        configMap[configKey] ??= { count: 0, subDist: {} };
+        configMap[configKey] ??= { count: 0, dpsDist: [], subDist: {} };
         configMap[configKey].count++;
-        const dist = configMap[configKey].subDist;
+        configMap[configKey].dpsDist.push(trial.dps);
 
+        const subDist = configMap[configKey].subDist;
         const rollMap = getSubRollSums(gameId, trial.equipList, true);
-        for (const id in rollMap) {
-          const value = rollMap[id];
-          dist[id] = (dist[id] ?? 0) + value;
+        for (const id in SUBSTAT[gameId]) {
+          (subDist[id] ??= []).push(rollMap[id] ?? 0);
         }
       }
 

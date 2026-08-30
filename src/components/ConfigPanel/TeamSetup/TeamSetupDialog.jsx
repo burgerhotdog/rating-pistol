@@ -26,7 +26,7 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import MemberCard from './MemberCard';
 
-function SortableMemberCard({ id, member, setMember }) {
+function SortableMemberCard({ id, member, setMember, allyIds }) {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
 
   return (
@@ -50,7 +50,11 @@ function SortableMemberCard({ id, member, setMember }) {
         <DragIndicatorIcon sx={{ transform: 'rotate(90deg)' }} />
       </Box>
 
-      <MemberCard member={member} setMember={setMember} />
+      <MemberCard
+        member={member}
+        setMember={setMember}
+        allyIds={allyIds}
+      />
     </Box>
   );
 }
@@ -100,6 +104,7 @@ const TeamSetupDialog = ({ team, setTeam, open, onClose }) => {
                   id={ids[index]}
                   member={member}
                   setMember={(next) => setDraft((prev) => prev.with(index, next))}
+                  allyIds={draft.map((member) => member?.id).filter((id) => id && id !== member.id)}
                 />
               ))}
             </Stack>
