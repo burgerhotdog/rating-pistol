@@ -38,7 +38,6 @@ function buildData(snapshots, memberStack) {
   runtimeDamage[0] ??= { time: 0 };
   for (const id of memberStack) runtimeDamage[0][id] ??= 0;
 
-
   const data = Object.values(runtimeDamage);
 
   for (let i = 0; i < data.length; i++) {
