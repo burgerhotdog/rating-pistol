@@ -40872,110 +40872,6 @@
             "aeroDmgAmp%": 0.175
           }
         }
-      },
-      {
-        "rank": 1,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "critDmg%": 1
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "normalAttack.0",
-                "normalAttack.1",
-                "normalAttack.2",
-                "normalAttack.3",
-                "normalAttack.5",
-                "normalAttack.4",
-                "introSkill.0"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.5
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "normalAttack.6",
-                "normalAttack.7",
-                "normalAttack.8",
-                "normalAttack.9"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 2
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 1
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "buff": {
-          "stats": {
-            "dmgBonus%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceLiberation.0",
-                "introSkill.1",
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2",
-                "forteCircuit.3",
-                "forteCircuit.4",
-                "forteCircuit.5",
-                "forteCircuit.6",
-                "forteCircuit.7",
-                "forteCircuit.8",
-                "forteCircuit.9",
-                "forteCircuit.10",
-                "forteCircuit.11",
-                "forteCircuit.12",
-                "forteCircuit.13"
-              ]
-            }
-          },
-          "stats": {
-            "dmgBonus%": 0.4
-          }
-        }
       }
     ],
     "skills": {
@@ -42023,115 +41919,9 @@
             }
           },
           {
-            "name": "Fleurdelys: Dodge Counter",
-            "type": "dodgeCounter",
+            "name": "Fleurdelys: Basic Attack: Upward Cut",
+            "type": "basicAttack",
             "damage": {
-              "type": "basicAttack",
-              "attr": "hp",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0161,
-                    0.0174,
-                    0.0187,
-                    0.0206,
-                    0.0219,
-                    0.0234,
-                    0.0255,
-                    0.0276,
-                    0.0297,
-                    0.032,
-                    0.0346,
-                    0.0373,
-                    0.0399,
-                    0.0425,
-                    0.0452,
-                    0.0478,
-                    0.0504,
-                    0.0531,
-                    0.0557,
-                    0.0583
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0161,
-                    0.0174,
-                    0.0187,
-                    0.0206,
-                    0.0219,
-                    0.0234,
-                    0.0255,
-                    0.0276,
-                    0.0297,
-                    0.032,
-                    0.0346,
-                    0.0373,
-                    0.0399,
-                    0.0425,
-                    0.0452,
-                    0.0478,
-                    0.0504,
-                    0.0531,
-                    0.0557,
-                    0.0583
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0161,
-                    0.0174,
-                    0.0187,
-                    0.0206,
-                    0.0219,
-                    0.0234,
-                    0.0255,
-                    0.0276,
-                    0.0297,
-                    0.032,
-                    0.0346,
-                    0.0373,
-                    0.0399,
-                    0.0425,
-                    0.0452,
-                    0.0478,
-                    0.0504,
-                    0.0531,
-                    0.0557,
-                    0.0583
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0322,
-                    0.0348,
-                    0.0374,
-                    0.0411,
-                    0.0438,
-                    0.0468,
-                    0.051,
-                    0.0552,
-                    0.0594,
-                    0.0639,
-                    0.0692,
-                    0.0745,
-                    0.0797,
-                    0.085,
-                    0.0903,
-                    0.0955,
-                    0.1008,
-                    0.1061,
-                    0.1114,
-                    0.1166
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Fleurdelys: Upward Cut",
-            "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42221,9 +42011,10 @@
             }
           },
           {
-            "name": "Fleurdelys: Enhanced Heavy Attack",
-            "type": "basicAttack",
+            "name": "Fleurdelys: Heavy Attack: Enhanced",
+            "type": "heavyAttack",
             "damage": {
+              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42477,7 +42268,113 @@
             }
           },
           {
-            "name": "Fleurdelys: Sword to Answer Waves' Call",
+            "name": "Fleurdelys: Dodge Counter",
+            "type": "dodgeCounter",
+            "damage": {
+              "type": "basicAttack",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0161,
+                    0.0174,
+                    0.0187,
+                    0.0206,
+                    0.0219,
+                    0.0234,
+                    0.0255,
+                    0.0276,
+                    0.0297,
+                    0.032,
+                    0.0346,
+                    0.0373,
+                    0.0399,
+                    0.0425,
+                    0.0452,
+                    0.0478,
+                    0.0504,
+                    0.0531,
+                    0.0557,
+                    0.0583
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0161,
+                    0.0174,
+                    0.0187,
+                    0.0206,
+                    0.0219,
+                    0.0234,
+                    0.0255,
+                    0.0276,
+                    0.0297,
+                    0.032,
+                    0.0346,
+                    0.0373,
+                    0.0399,
+                    0.0425,
+                    0.0452,
+                    0.0478,
+                    0.0504,
+                    0.0531,
+                    0.0557,
+                    0.0583
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0161,
+                    0.0174,
+                    0.0187,
+                    0.0206,
+                    0.0219,
+                    0.0234,
+                    0.0255,
+                    0.0276,
+                    0.0297,
+                    0.032,
+                    0.0346,
+                    0.0373,
+                    0.0399,
+                    0.0425,
+                    0.0452,
+                    0.0478,
+                    0.0504,
+                    0.0531,
+                    0.0557,
+                    0.0583
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0322,
+                    0.0348,
+                    0.0374,
+                    0.0411,
+                    0.0438,
+                    0.0468,
+                    0.051,
+                    0.0552,
+                    0.0594,
+                    0.0639,
+                    0.0692,
+                    0.0745,
+                    0.0797,
+                    0.085,
+                    0.0903,
+                    0.0955,
+                    0.1008,
+                    0.1061,
+                    0.1114,
+                    0.1166
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Fleurdelys: Resonance Skill: Sword to Answer Waves' Call",
             "type": "resonanceSkill",
             "damage": {
               "attr": "hp",
@@ -42535,7 +42432,7 @@
             }
           },
           {
-            "name": "May Tempest Break the Tides",
+            "name": "Fleurdelys: Resonance Skill: May Tempest Break the Tides",
             "type": "resonanceSkill",
             "damage": {
               "attr": "hp",
@@ -42745,7 +42642,7 @@
         "normalAttack.8",
         "resonanceLiberation.0",
         "forteCircuit.12",
-        "forteCircuit.11",
+        "forteCircuit.10",
         "forteCircuit.2",
         "forteCircuit.3",
         "forteCircuit.4",
