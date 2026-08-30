@@ -22292,6 +22292,7 @@
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
+    "energy": 125,
     "tagged": [],
     "stats": {
       "baseHp": 15375,
@@ -40678,10 +40679,93 @@
     },
     "effects": [
       {
+        "key": "swordOfDivinitysShadow",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.3"
+            }
+          },
+          "duration": 20000
+        }
+      },
+      {
+        "key": "swordOfDiscordsShadow",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.4",
+                "introSkill.0"
+              ]
+            }
+          },
+          "duration": 20000
+        }
+      },
+      {
+        "key": "mandateOfDivinity",
+        "stores": "global",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "swordOfDivinitysShadow"
+                }
+              },
+              {
+                "action": {
+                  "ref": "normalAttack.8"
+                }
+              }
+            ]
+          }
+        },
+        "gameRule": "mandateOfDivinity",
+        "buff": {
+          "stats": {
+            "aeroErosionDmgAmp%": 0.5
+          }
+        }
+      },
+      {
+        "key": "powerOfDiscord",
+        "stores": "global",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "swordOfDiscordsShadow"
+                }
+              },
+              {
+                "action": {
+                  "ref": "normalAttack.8"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "manifest",
+        "apply": {
+          "action": {
+            "ref": "resonanceLiberation.0"
+          }
+        }
+      },
+      {
         "buff": {
           "filter": {
             "action": {
-              "ref": "resonanceLiberation.0"
+              "ref": "resonanceLiberation.1"
             }
           },
           "stats": {
@@ -40702,11 +40786,7 @@
           "filter": {
             "states": {
               "negativeStatuses": {
-                "aeroErosion": {
-                  "stacks": {
-                    ">=": 3
-                  }
-                }
+                "has": "aeroErosion"
               }
             }
           },
@@ -40775,7 +40855,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "outroSkill.0"
             }
           },
           "duration": 20000
@@ -41124,6 +41204,11 @@
           {
             "name": "Basic Attack 4",
             "type": "basicAttack",
+            "inflict": {
+              "status": {
+                "aeroErosion": 1
+              }
+            },
             "damage": {
               "attr": "hp",
               "multipliers": [
@@ -41174,112 +41259,6 @@
                     0.1252,
                     0.1314,
                     0.1376
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Dodge Counter",
-            "type": "dodgeCounter",
-            "damage": {
-              "type": "basicAttack",
-              "attr": "hp",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0345,
-                    0.0373,
-                    0.0401,
-                    0.0441,
-                    0.0469,
-                    0.0502,
-                    0.0547,
-                    0.0592,
-                    0.0637,
-                    0.0685,
-                    0.0742,
-                    0.0798,
-                    0.0854,
-                    0.0911,
-                    0.0967,
-                    0.1024,
-                    0.108,
-                    0.1137,
-                    0.1193,
-                    0.125
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0345,
-                    0.0373,
-                    0.0401,
-                    0.0441,
-                    0.0469,
-                    0.0502,
-                    0.0547,
-                    0.0592,
-                    0.0637,
-                    0.0685,
-                    0.0742,
-                    0.0798,
-                    0.0854,
-                    0.0911,
-                    0.0967,
-                    0.1024,
-                    0.108,
-                    0.1137,
-                    0.1193,
-                    0.125
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0345,
-                    0.0373,
-                    0.0401,
-                    0.0441,
-                    0.0469,
-                    0.0502,
-                    0.0547,
-                    0.0592,
-                    0.0637,
-                    0.0685,
-                    0.0742,
-                    0.0798,
-                    0.0854,
-                    0.0911,
-                    0.0967,
-                    0.1024,
-                    0.108,
-                    0.1137,
-                    0.1193,
-                    0.125
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0345,
-                    0.0373,
-                    0.0401,
-                    0.0441,
-                    0.0469,
-                    0.0502,
-                    0.0547,
-                    0.0592,
-                    0.0637,
-                    0.0685,
-                    0.0742,
-                    0.0798,
-                    0.0854,
-                    0.0911,
-                    0.0967,
-                    0.1024,
-                    0.108,
-                    0.1137,
-                    0.1193,
-                    0.125
                   ]
                 }
               ]
@@ -41485,6 +41464,112 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Dodge Counter",
+            "type": "dodgeCounter",
+            "damage": {
+              "type": "basicAttack",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0345,
+                    0.0373,
+                    0.0401,
+                    0.0441,
+                    0.0469,
+                    0.0502,
+                    0.0547,
+                    0.0592,
+                    0.0637,
+                    0.0685,
+                    0.0742,
+                    0.0798,
+                    0.0854,
+                    0.0911,
+                    0.0967,
+                    0.1024,
+                    0.108,
+                    0.1137,
+                    0.1193,
+                    0.125
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0345,
+                    0.0373,
+                    0.0401,
+                    0.0441,
+                    0.0469,
+                    0.0502,
+                    0.0547,
+                    0.0592,
+                    0.0637,
+                    0.0685,
+                    0.0742,
+                    0.0798,
+                    0.0854,
+                    0.0911,
+                    0.0967,
+                    0.1024,
+                    0.108,
+                    0.1137,
+                    0.1193,
+                    0.125
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0345,
+                    0.0373,
+                    0.0401,
+                    0.0441,
+                    0.0469,
+                    0.0502,
+                    0.0547,
+                    0.0592,
+                    0.0637,
+                    0.0685,
+                    0.0742,
+                    0.0798,
+                    0.0854,
+                    0.0911,
+                    0.0967,
+                    0.1024,
+                    0.108,
+                    0.1137,
+                    0.1193,
+                    0.125
+                  ]
+                },
+                {
+                  "mv": [
+                    0.0345,
+                    0.0373,
+                    0.0401,
+                    0.0441,
+                    0.0469,
+                    0.0502,
+                    0.0547,
+                    0.0592,
+                    0.0637,
+                    0.0685,
+                    0.0742,
+                    0.0798,
+                    0.0854,
+                    0.0911,
+                    0.0967,
+                    0.1024,
+                    0.108,
+                    0.1137,
+                    0.1193,
+                    0.125
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -41492,8 +41577,13 @@
         "name": "Sword to Bear Their Names",
         "actions": [
           {
-            "name": "Sword to Bear Their Names",
+            "name": "Resonance Skill",
             "type": "resonanceSkill",
+            "inflict": {
+              "status": {
+                "aeroErosion": 2
+              }
+            },
             "damage": {
               "type": "basicAttack",
               "attr": "hp",
@@ -41555,6 +41645,10 @@
       "resonanceLiberation": {
         "name": "A Knight's Heartfelt Prayers",
         "actions": [
+          {
+            "name": "A Knight's Heartfelt Prayers",
+            "type": "resonanceLiberation"
+          },
           {
             "name": "Blade of Howling Squall",
             "type": "resonanceLiberation",
@@ -42648,7 +42742,7 @@
         "normalAttack.2",
         "normalAttack.3",
         "resonanceSkill.0",
-        "normalAttack.9",
+        "normalAttack.8",
         "resonanceLiberation.0",
         "forteCircuit.12",
         "forteCircuit.11",
@@ -42659,7 +42753,7 @@
         "forteCircuit.2",
         "forteCircuit.3",
         "forteCircuit.4",
-        "resonanceLiberation.0",
+        "resonanceLiberation.1",
         "outroSkill.0"
       ],
       "duration": 13230
@@ -46618,6 +46712,7 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
+    "energy": 125,
     "tagged": [],
     "stats": {
       "baseHp": 10300,

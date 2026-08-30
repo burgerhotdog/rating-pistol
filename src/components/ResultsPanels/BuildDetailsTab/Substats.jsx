@@ -49,7 +49,7 @@ function createSubFilter(gameId, configKey = '', subDist = {}) {
     .reduce((acc, rollsList) => acc + mean(rollsList), 0);
 
   function getFrequency(stat) {
-    return (mean(subDist[stat]) ?? 0) / totalSubRolls;
+    return (mean(subDist[stat] ?? []) ?? 0) / totalSubRolls;
   }
 
   if (gameId === WW) {
@@ -148,6 +148,7 @@ const Substats = ({ results }) => {
   const accent = useAccent();
 
   const [showAll, setShowAll] = useState(false);
+  if (!configMap[userConfigKey]) return;
 
   const { subDist = {} } = configMap[userConfigKey] ?? {};
   const subFilter = createSubFilter(gameId, userConfigKey, subDist);
