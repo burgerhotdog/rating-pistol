@@ -196,7 +196,8 @@ const STATUSES = {
         remaining -= decrease;
 
         if (currState.timer === 0) {
-          if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
+          const snapshot = buildSnapshot(ctx, currState, elapsed - remaining);
+          if (ctx.saveSnapshots) ctx.snapshots.push(snapshot);
 
           currState.timer = maxTimer;
         }
