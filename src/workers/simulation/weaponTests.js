@@ -140,6 +140,7 @@ function getModifiedCache(cache, charId, weapon, weaponRank) {
       ...cache.member[charId],
       baseMap,
       statMap,
+      concertoPenalty: CHARACTER[cache.gameId][charId].concertoReq && !WEAPON[cache.gameId][weapon.id]?.concerto,
     },
   };
 
@@ -191,14 +192,17 @@ export function weaponTests(cache, equipMaps, charId) {
   for (const weapon of weaponsToTest) {
     // R1
     const moddedCacheR1 = getModifiedCache(cache, charId, weapon, 1);
+    const concertoExtraTime = moddedCacheR1.member[charId].concertoPenalty
+      ? ((100 / 92) * moddedCacheR1.member[charId].duration - moddedCacheR1.member[charId].duration)
+      : 0;
     const testSnapshotsR1 = runRotation(moddedCacheR1, equipMaps);
-    const rawDpsR1 = getTotals(testSnapshotsR1).damage / cache.rotationDuration * 1000
+    const rawDpsR1 = getTotals(testSnapshotsR1).damage / (cache.rotationDuration + concertoExtraTime) * 1000;
     const dpsR1 = rawDpsR1 * getPenalty(moddedCacheR1.member[charId].statMap);
 
     // R5
     const moddedCacheR5 = getModifiedCache(cache, charId, weapon, 5);
     const testSnapshotsR5 = runRotation(moddedCacheR5, equipMaps);
-    const rawDpsR5 = getTotals(testSnapshotsR5).damage / cache.rotationDuration * 1000
+    const rawDpsR5 = getTotals(testSnapshotsR5).damage / (cache.rotationDuration + concertoExtraTime) * 1000;
     const dpsR5 = rawDpsR5 * getPenalty(moddedCacheR5.member[charId].statMap);
 
     weaponResults[weapon.id] = [dpsR1, dpsR5];

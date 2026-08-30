@@ -727,6 +727,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 12812,
       "baseAtk": 212,
@@ -8157,6 +8158,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 16712,
       "baseAtk": 287,
@@ -17885,6 +17887,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 15375,
       "baseAtk": 287,
@@ -48711,6 +48714,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 14237,
       "baseAtk": 337,
@@ -51009,6 +51013,7 @@
     "tagged": [
       "healing"
     ],
+    "concertoReq": true,
     "stats": {
       "baseHp": 16712,
       "baseAtk": 287,

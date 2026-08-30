@@ -1,4 +1,4 @@
-import { WW, CHARACTER, ECHO } from '@/data';
+import { WW, CHARACTER, WEAPON, ECHO } from '@/data';
 import { toMergedObj, buildEquipMap, buildBaseMap } from '@/utils';
 import { getActionDefs } from './actions';
 import { normalizeEffects } from './effects';
@@ -136,6 +136,8 @@ export const compileCache = ({ gameId, charId, team }) => {
         mCache.energyReq = member.energyReq;
       }
     }
+
+    mCache.concertoPenalty = charData.concertoReq && !WEAPON[WW][member.weaponId]?.concerto;
 
     cache.member[member.id] = mCache;
   }

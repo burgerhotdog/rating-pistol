@@ -13,3 +13,6 @@ comapre echo sets and teammates
 
 editing rot doesnt update duration
 per resin not per week
+
+fix concerto, make apply to all
+improve speed of healing chars

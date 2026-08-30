@@ -42,7 +42,10 @@ self.onmessage = async ({ data }) => {
   // Sanity check
   self.postMessage({ status: 'Checking rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
-  const userDps = computeDps(userSnapshots, cache.rotationDuration);
+  const concertoExtraTime = cache.member[cache.charId].concertoPenalty
+    ? ((100 / 92) * cache.member[cache.charId].duration - cache.member[cache.charId].duration)
+    : 0;
+  const userDps = computeDps(userSnapshots, cache.rotationDuration + concertoExtraTime);
   if (Number.isNaN(userDps)) {
     console.log(userDps);
     self.postMessage({ errorLog: cache.effects });
