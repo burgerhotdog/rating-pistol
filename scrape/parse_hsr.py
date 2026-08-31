@@ -123,6 +123,7 @@ def parse_character(version, id, data):
         stats[stat] = stats.get(stat, 0) + value
 
     return {
+        "disabled": True,
         "name": str(data["name"]),
         "version": float(version),
         "id": int(id),
@@ -138,6 +139,7 @@ def parse_character(version, id, data):
 
 def parse_weapon(version, id, data):
     return {
+        "disabled": True,
         "name": str(data["name"]),
         "version": float(version),
         "id": int(id),
@@ -161,6 +163,17 @@ def parse_weapon(version, id, data):
         "effects": [],
     }
 
+def parse_set(version, id, data):
+    return {
+        "disabled": True,
+        "name": str(data["name"]),
+        "version": float(version),
+        "id": int(id),
+        "icon": f"honkai-star-rail/set/{id}.webp",
+        "bonuses": [num for num in data.get("require_num", {})],
+        "effects": [],
+    }
+
 def parse_hsr(type, version, id, data):
     match type:
         case "character":
@@ -170,11 +183,4 @@ def parse_hsr(type, version, id, data):
             return parse_weapon(version, id, data)
 
         case "set":
-            return {
-                "name": str(data["name"]),
-                "version": float(version),
-                "id": int(id),
-                "icon": f"honkai-star-rail/set/{id}.webp",
-                "bonuses": [num for num in data.get("require_num", {})],
-                "effects": [],
-            }
+            return parse_set(version, id, data)

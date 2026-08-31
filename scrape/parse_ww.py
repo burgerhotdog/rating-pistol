@@ -181,6 +181,7 @@ def parse_character(version, id, data):
         stats[stat] = round(ascension[stat], 4 if stat.endswith("%") else 1)
 
     return {
+        "disabled": True,
         "name": str(data["name"]),
         "version": float(version),
         "id": int(id),
@@ -198,6 +199,7 @@ def parse_weapon(version, id, data):
     stat = lookup_stat[data["stats"]["6"]["90"][1]["name"]]
     value = data["stats"]["6"]["90"][1]["value"]
     return {
+        "disabled": True,
         "name": str(data["name"]),
         "version": float(version),
         "id": int(id),
@@ -242,6 +244,7 @@ def parse_echo(version, id, data):
         actions.append(action)
 
     return {
+        "disabled": True,
         "name": str(data["name"]),
         "version": float(version),
         "id": int(id),
@@ -250,6 +253,17 @@ def parse_echo(version, id, data):
         "cost": lookup_cost[data["intensity_code"]],
         "effects": [],
         "actions": actions,
+    }
+
+def parse_set(version, id, data):
+    return {
+        "disabled": True,
+        "name": str(data["name"]["en"]),
+        "version": float(version),
+        "id": int(id),
+        "icon": f"wuthering-waves/set/{id}.webp",
+        "bonuses": [num for num in data.get("set", {})],
+        "effects": [],
     }
 
 def parse_ww(type, version, id, data):
@@ -264,11 +278,4 @@ def parse_ww(type, version, id, data):
             return parse_echo(version, id, data)
 
         case "set":
-            return {
-                "name": str(data["name"]["en"]),
-                "version": float(version),
-                "id": int(id),
-                "icon": f"wuthering-waves/set/{id}.webp",
-                "bonuses": [num for num in data.get("set", {})],
-                "effects": [],
-            }
+            return parse_set(version, id, data)
