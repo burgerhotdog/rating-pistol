@@ -37,7 +37,7 @@ export const fetchEnka = async (gameId, uid) => {
 
     const rawData = await response.json();
     const avatarList = parseAvatarList[gameId](rawData)
-      .filter(({ avatarId }) => avatarId in CHARACTER[gameId]);
+      .filter(({ avatarId }) => CHARACTER[gameId][avatarId]);
 
     if (!avatarList.length) {
       return [204, 'Profile showcase empty'];

@@ -179,10 +179,7 @@ def parse_zzz(type, version, id, data):
     match type:
         case "character":
             return parse_character(version, id, data)
-
         case "weapon":
             return parse_weapon(version, id, data)
-
         case "set":
             return parse_set(version, id, data)
-
