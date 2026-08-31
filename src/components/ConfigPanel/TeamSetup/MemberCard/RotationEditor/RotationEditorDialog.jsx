@@ -92,12 +92,7 @@ const SkillSelectDialog = ({ gameId, charId, open, onClose, onSelect }) => {
         />
       </Box>
 
-      <DialogContent
-        dividers
-        sx={{
-          scrollbarColor: 'rgba(255,255,255,0.18) transparent'
-        }}
-      >
+      <DialogContent dividers>
         {hasMatches ? (
           <Stack spacing={1}>
             {categories.map(({ category, name, actions }) => {
@@ -296,8 +291,6 @@ const RotationEditorDialog = ({ open, onClose, charId, member, rotation = [], on
           borderRadius: 1,
           mb: 1,
           scrollbarGutter: 'stable',
-          scrollbarWidth: 'thin',
-          scrollbarColor: (theme) => `${theme.palette.grey[600]} transparent`,
         }}
       >
         {rotation.length > 0 ? (
