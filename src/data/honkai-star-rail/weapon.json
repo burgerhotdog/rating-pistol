@@ -1,5 +1,6 @@
 {
   "20000": {
+    "disabled": true,
     "name": "Arrows",
     "version": 1,
     "id": 20000,
@@ -14,6 +15,7 @@
     "effects": []
   },
   "20001": {
+    "disabled": true,
     "name": "Cornucopia",
     "version": 1,
     "id": 20001,
@@ -28,6 +30,7 @@
     "effects": []
   },
   "20002": {
+    "disabled": true,
     "name": "Collapsing Sky",
     "version": 1,
     "id": 20002,
@@ -42,6 +45,7 @@
     "effects": []
   },
   "20003": {
+    "disabled": true,
     "name": "Amber",
     "version": 1,
     "id": 20003,
@@ -56,6 +60,7 @@
     "effects": []
   },
   "20004": {
+    "disabled": true,
     "name": "Void",
     "version": 1,
     "id": 20004,
@@ -70,6 +75,7 @@
     "effects": []
   },
   "20005": {
+    "disabled": true,
     "name": "Chorus",
     "version": 1,
     "id": 20005,
@@ -84,6 +90,7 @@
     "effects": []
   },
   "20006": {
+    "disabled": true,
     "name": "Data Bank",
     "version": 1,
     "id": 20006,
@@ -98,6 +105,7 @@
     "effects": []
   },
   "20007": {
+    "disabled": true,
     "name": "Darting Arrow",
     "version": 1,
     "id": 20007,
@@ -112,6 +120,7 @@
     "effects": []
   },
   "20008": {
+    "disabled": true,
     "name": "Fine Fruit",
     "version": 1,
     "id": 20008,
@@ -126,6 +135,7 @@
     "effects": []
   },
   "20009": {
+    "disabled": true,
     "name": "Shattered Home",
     "version": 1,
     "id": 20009,
@@ -140,6 +150,7 @@
     "effects": []
   },
   "20010": {
+    "disabled": true,
     "name": "Defense",
     "version": 1,
     "id": 20010,
@@ -154,6 +165,7 @@
     "effects": []
   },
   "20011": {
+    "disabled": true,
     "name": "Loop",
     "version": 1,
     "id": 20011,
@@ -168,6 +180,7 @@
     "effects": []
   },
   "20012": {
+    "disabled": true,
     "name": "Meshing Cogs",
     "version": 1,
     "id": 20012,
@@ -182,6 +195,7 @@
     "effects": []
   },
   "20013": {
+    "disabled": true,
     "name": "Passkey",
     "version": 1,
     "id": 20013,
@@ -196,6 +210,7 @@
     "effects": []
   },
   "20014": {
+    "disabled": true,
     "name": "Adversarial",
     "version": 1,
     "id": 20014,
@@ -210,6 +225,7 @@
     "effects": []
   },
   "20015": {
+    "disabled": true,
     "name": "Multiplication",
     "version": 1,
     "id": 20015,
@@ -224,6 +240,7 @@
     "effects": []
   },
   "20016": {
+    "disabled": true,
     "name": "Mutual Demise",
     "version": 1,
     "id": 20016,
@@ -238,6 +255,7 @@
     "effects": []
   },
   "20017": {
+    "disabled": true,
     "name": "Pioneering",
     "version": 1,
     "id": 20017,
@@ -252,6 +270,7 @@
     "effects": []
   },
   "20018": {
+    "disabled": true,
     "name": "Hidden Shadow",
     "version": 1,
     "id": 20018,
@@ -266,6 +285,7 @@
     "effects": []
   },
   "20019": {
+    "disabled": true,
     "name": "Mediation",
     "version": 1,
     "id": 20019,
@@ -280,6 +300,7 @@
     "effects": []
   },
   "20020": {
+    "disabled": true,
     "name": "Sagacity",
     "version": 1,
     "id": 20020,
@@ -294,6 +315,7 @@
     "effects": []
   },
   "20021": {
+    "disabled": true,
     "name": "Shadowburn",
     "version": 3,
     "id": 20021,
@@ -308,6 +330,7 @@
     "effects": []
   },
   "20022": {
+    "disabled": true,
     "name": "Reminiscence",
     "version": 3,
     "id": 20022,
@@ -322,6 +345,7 @@
     "effects": []
   },
   "20023": {
+    "disabled": true,
     "name": "Sneering",
     "version": 4,
     "id": 20023,
@@ -336,6 +360,7 @@
     "effects": []
   },
   "20024": {
+    "disabled": true,
     "name": "Lingering Tear",
     "version": 4,
     "id": 20024,
@@ -350,6 +375,7 @@
     "effects": []
   },
   "21000": {
+    "disabled": true,
     "name": "Post-Op Conversation",
     "version": 1,
     "id": 21000,
@@ -364,6 +390,7 @@
     "effects": []
   },
   "21001": {
+    "disabled": true,
     "name": "Good Night and Sleep Well",
     "version": 1,
     "id": 21001,
@@ -378,6 +405,7 @@
     "effects": []
   },
   "21002": {
+    "disabled": true,
     "name": "Day One of My New Life",
     "version": 1,
     "id": 21002,
@@ -392,6 +420,7 @@
     "effects": []
   },
   "21003": {
+    "disabled": true,
     "name": "Only Silence Remains",
     "version": 1,
     "id": 21003,
@@ -406,6 +435,7 @@
     "effects": []
   },
   "21004": {
+    "disabled": true,
     "name": "Memories of the Past",
     "version": 1,
     "id": 21004,
@@ -420,6 +450,7 @@
     "effects": []
   },
   "21005": {
+    "disabled": true,
     "name": "The Moles Welcome You",
     "version": 1,
     "id": 21005,
@@ -434,6 +465,7 @@
     "effects": []
   },
   "21006": {
+    "disabled": true,
     "name": "The Birth of the Self",
     "version": 1,
     "id": 21006,
@@ -448,6 +480,7 @@
     "effects": []
   },
   "21007": {
+    "disabled": true,
     "name": "Shared Feeling",
     "version": 1,
     "id": 21007,
@@ -462,6 +495,7 @@
     "effects": []
   },
   "21008": {
+    "disabled": true,
     "name": "Eyes of the Prey",
     "version": 1,
     "id": 21008,
@@ -476,6 +510,7 @@
     "effects": []
   },
   "21009": {
+    "disabled": true,
     "name": "Landau's Choice",
     "version": 1,
     "id": 21009,
@@ -490,6 +525,7 @@
     "effects": []
   },
   "21010": {
+    "disabled": true,
     "name": "Swordplay",
     "version": 1,
     "id": 21010,
@@ -504,6 +540,7 @@
     "effects": []
   },
   "21011": {
+    "disabled": true,
     "name": "Planetary Rendezvous",
     "version": 1,
     "id": 21011,
@@ -518,6 +555,7 @@
     "effects": []
   },
   "21012": {
+    "disabled": true,
     "name": "A Secret Vow",
     "version": 1,
     "id": 21012,
@@ -532,6 +570,7 @@
     "effects": []
   },
   "21013": {
+    "disabled": true,
     "name": "Make the World Clamor",
     "version": 1,
     "id": 21013,
@@ -546,6 +585,7 @@
     "effects": []
   },
   "21014": {
+    "disabled": true,
     "name": "Perfect Timing",
     "version": 1,
     "id": 21014,
@@ -560,6 +600,7 @@
     "effects": []
   },
   "21015": {
+    "disabled": true,
     "name": "Resolution Shines As Pearls of Sweat",
     "version": 1,
     "id": 21015,
@@ -574,6 +615,7 @@
     "effects": []
   },
   "21016": {
+    "disabled": true,
     "name": "Trend of the Universal Market",
     "version": 1,
     "id": 21016,
@@ -588,6 +630,7 @@
     "effects": []
   },
   "21017": {
+    "disabled": true,
     "name": "Subscribe for More!",
     "version": 1,
     "id": 21017,
@@ -602,6 +645,7 @@
     "effects": []
   },
   "21018": {
+    "disabled": true,
     "name": "Dance! Dance! Dance!",
     "version": 1,
     "id": 21018,
@@ -616,6 +660,7 @@
     "effects": []
   },
   "21019": {
+    "disabled": true,
     "name": "Under the Blue Sky",
     "version": 1,
     "id": 21019,
@@ -630,6 +675,7 @@
     "effects": []
   },
   "21020": {
+    "disabled": true,
     "name": "Geniuses' Repose",
     "version": 1,
     "id": 21020,
@@ -644,6 +690,7 @@
     "effects": []
   },
   "21021": {
+    "disabled": true,
     "name": "Quid Pro Quo",
     "version": 1,
     "id": 21021,
@@ -658,6 +705,7 @@
     "effects": []
   },
   "21022": {
+    "disabled": true,
     "name": "Fermata",
     "version": 1,
     "id": 21022,
@@ -672,6 +720,7 @@
     "effects": []
   },
   "21023": {
+    "disabled": true,
     "name": "We Are Wildfire",
     "version": 1,
     "id": 21023,
@@ -686,6 +735,7 @@
     "effects": []
   },
   "21024": {
+    "disabled": true,
     "name": "River Flows in Spring",
     "version": 1,
     "id": 21024,
@@ -700,6 +750,7 @@
     "effects": []
   },
   "21025": {
+    "disabled": true,
     "name": "Past and Future",
     "version": 1,
     "id": 21025,
@@ -714,6 +765,7 @@
     "effects": []
   },
   "21026": {
+    "disabled": true,
     "name": "Woof! Walk Time!",
     "version": 1,
     "id": 21026,
@@ -728,6 +780,7 @@
     "effects": []
   },
   "21027": {
+    "disabled": true,
     "name": "The Seriousness of Breakfast",
     "version": 1,
     "id": 21027,
@@ -742,6 +795,7 @@
     "effects": []
   },
   "21028": {
+    "disabled": true,
     "name": "Warmth Shortens Cold Nights",
     "version": 1,
     "id": 21028,
@@ -756,6 +810,7 @@
     "effects": []
   },
   "21029": {
+    "disabled": true,
     "name": "We Will Meet Again",
     "version": 1,
     "id": 21029,
@@ -770,6 +825,7 @@
     "effects": []
   },
   "21030": {
+    "disabled": true,
     "name": "This Is Me!",
     "version": 1,
     "id": 21030,
@@ -784,6 +840,7 @@
     "effects": []
   },
   "21031": {
+    "disabled": true,
     "name": "Return to Darkness",
     "version": 1,
     "id": 21031,
@@ -798,6 +855,7 @@
     "effects": []
   },
   "21032": {
+    "disabled": true,
     "name": "Carve the Moon, Weave the Clouds",
     "version": 1,
     "id": 21032,
@@ -812,6 +870,7 @@
     "effects": []
   },
   "21033": {
+    "disabled": true,
     "name": "Nowhere to Run",
     "version": 1,
     "id": 21033,
@@ -826,6 +885,7 @@
     "effects": []
   },
   "21034": {
+    "disabled": true,
     "name": "Today Is Another Peaceful Day",
     "version": 1,
     "id": 21034,
@@ -840,6 +900,7 @@
     "effects": []
   },
   "21035": {
+    "disabled": true,
     "name": "What Is Real?",
     "version": 2,
     "id": 21035,
@@ -854,6 +915,7 @@
     "effects": []
   },
   "21036": {
+    "disabled": true,
     "name": "Dreamville Adventure",
     "version": 2,
     "id": 21036,
@@ -868,6 +930,7 @@
     "effects": []
   },
   "21037": {
+    "disabled": true,
     "name": "Final Victor",
     "version": 2,
     "id": 21037,
@@ -882,6 +945,7 @@
     "effects": []
   },
   "21038": {
+    "disabled": true,
     "name": "Flames Afar",
     "version": 2,
     "id": 21038,
@@ -896,6 +960,7 @@
     "effects": []
   },
   "21039": {
+    "disabled": true,
     "name": "Destiny's Threads Forewoven",
     "version": 2,
     "id": 21039,
@@ -910,6 +975,7 @@
     "effects": []
   },
   "21040": {
+    "disabled": true,
     "name": "The Day The Cosmos Fell",
     "version": 2,
     "id": 21040,
@@ -924,6 +990,7 @@
     "effects": []
   },
   "21041": {
+    "disabled": true,
     "name": "It's Showtime",
     "version": 2,
     "id": 21041,
@@ -938,6 +1005,7 @@
     "effects": []
   },
   "21042": {
+    "disabled": true,
     "name": "Indelible Promise",
     "version": 2,
     "id": 21042,
@@ -952,6 +1020,7 @@
     "effects": []
   },
   "21043": {
+    "disabled": true,
     "name": "Concert for Two",
     "version": 2.1,
     "id": 21043,
@@ -966,6 +1035,7 @@
     "effects": []
   },
   "21044": {
+    "disabled": true,
     "name": "Boundless Choreo",
     "version": 2.2,
     "id": 21044,
@@ -980,6 +1050,7 @@
     "effects": []
   },
   "21045": {
+    "disabled": true,
     "name": "After the Charmony Fall",
     "version": 2.3,
     "id": 21045,
@@ -994,6 +1065,7 @@
     "effects": []
   },
   "21046": {
+    "disabled": true,
     "name": "Poised to Bloom",
     "version": 2.4,
     "id": 21046,
@@ -1008,6 +1080,7 @@
     "effects": []
   },
   "21047": {
+    "disabled": true,
     "name": "Shadowed by Night",
     "version": 2.5,
     "id": 21047,
@@ -1022,6 +1095,7 @@
     "effects": []
   },
   "21048": {
+    "disabled": true,
     "name": "Dream's Montage",
     "version": 2.6,
     "id": 21048,
@@ -1036,6 +1110,7 @@
     "effects": []
   },
   "21050": {
+    "disabled": true,
     "name": "Victory In a Blink",
     "version": 3,
     "id": 21050,
@@ -1050,6 +1125,7 @@
     "effects": []
   },
   "21051": {
+    "disabled": true,
     "name": "Geniuses' Greetings",
     "version": 3,
     "id": 21051,
@@ -1064,6 +1140,7 @@
     "effects": []
   },
   "21052": {
+    "disabled": true,
     "name": "Sweat Now, Cry Less",
     "version": 3,
     "id": 21052,
@@ -1078,6 +1155,7 @@
     "effects": []
   },
   "21053": {
+    "disabled": true,
     "name": "Journey, Forever Peaceful",
     "version": 3.4,
     "id": 21053,
@@ -1092,6 +1170,7 @@
     "effects": []
   },
   "21054": {
+    "disabled": true,
     "name": "The Story's Next Page",
     "version": 3.4,
     "id": 21054,
@@ -1106,6 +1185,7 @@
     "effects": []
   },
   "21055": {
+    "disabled": true,
     "name": "Unto Tomorrow's Morrow",
     "version": 3.4,
     "id": 21055,
@@ -1120,6 +1200,7 @@
     "effects": []
   },
   "21056": {
+    "disabled": true,
     "name": "In Pursuit of the Wind",
     "version": 3.4,
     "id": 21056,
@@ -1134,6 +1215,7 @@
     "effects": []
   },
   "21057": {
+    "disabled": true,
     "name": "The Flower Remembers",
     "version": 3.4,
     "id": 21057,
@@ -1148,6 +1230,7 @@
     "effects": []
   },
   "21058": {
+    "disabled": true,
     "name": "A Trail of Bygone Blood",
     "version": 3.4,
     "id": 21058,
@@ -1162,6 +1245,7 @@
     "effects": []
   },
   "21060": {
+    "disabled": true,
     "name": "A Dream Scented in Wheat",
     "version": 3.4,
     "id": 21060,
@@ -1176,6 +1260,7 @@
     "effects": []
   },
   "21061": {
+    "disabled": true,
     "name": "Holiday Thermae Escapade",
     "version": 3.4,
     "id": 21061,
@@ -1190,6 +1275,7 @@
     "effects": []
   },
   "21062": {
+    "disabled": true,
     "name": "See You at the End",
     "version": 3.4,
     "id": 21062,
@@ -1204,6 +1290,7 @@
     "effects": []
   },
   "21064": {
+    "disabled": true,
     "name": "Mushy Shroomy's Adventures",
     "version": 4,
     "id": 21064,
@@ -1218,6 +1305,7 @@
     "effects": []
   },
   "21065": {
+    "disabled": true,
     "name": "Today's Good Luck",
     "version": 4,
     "id": 21065,
@@ -1232,6 +1320,7 @@
     "effects": []
   },
   "21066": {
+    "disabled": true,
     "name": "A Little Getaway",
     "version": 4.5,
     "id": 21066,
@@ -1246,6 +1335,7 @@
     "effects": []
   },
   "22000": {
+    "disabled": true,
     "name": "Before the Tutorial Mission Starts",
     "version": 1.1,
     "id": 22000,
@@ -1260,6 +1350,7 @@
     "effects": []
   },
   "22001": {
+    "disabled": true,
     "name": "Hey, Over Here",
     "version": 1.5,
     "id": 22001,
@@ -1274,6 +1365,7 @@
     "effects": []
   },
   "22002": {
+    "disabled": true,
     "name": "For Tomorrow's Journey",
     "version": 2.2,
     "id": 22002,
@@ -1288,6 +1380,7 @@
     "effects": []
   },
   "22003": {
+    "disabled": true,
     "name": "Ninja Record: Sound Hunt",
     "version": 2.6,
     "id": 22003,
@@ -1302,6 +1395,7 @@
     "effects": []
   },
   "22004": {
+    "disabled": true,
     "name": "The Great Cosmic Enterprise",
     "version": 3.2,
     "id": 22004,
@@ -1316,6 +1410,7 @@
     "effects": []
   },
   "22005": {
+    "disabled": true,
     "name": "The Forever Victual",
     "version": 3.5,
     "id": 22005,
@@ -1330,6 +1425,7 @@
     "effects": []
   },
   "22006": {
+    "disabled": true,
     "name": "Fly Into a Pink Tomorrow",
     "version": 3.7,
     "id": 22006,
@@ -1344,6 +1440,7 @@
     "effects": []
   },
   "22007": {
+    "disabled": true,
     "name": "Tomorrow, Together",
     "version": 4.2,
     "id": 22007,
@@ -1358,6 +1455,7 @@
     "effects": []
   },
   "22008": {
+    "disabled": true,
     "name": "Race to the Horizon",
     "version": 4.5,
     "id": 22008,
@@ -1372,6 +1470,7 @@
     "effects": []
   },
   "23000": {
+    "disabled": true,
     "name": "Night on the Milky Way",
     "version": 1,
     "id": 23000,
@@ -1386,6 +1485,7 @@
     "effects": []
   },
   "23001": {
+    "disabled": true,
     "name": "In the Night",
     "version": 1,
     "id": 23001,
@@ -1400,6 +1500,7 @@
     "effects": []
   },
   "23002": {
+    "disabled": true,
     "name": "Something Irreplaceable",
     "version": 1,
     "id": 23002,
@@ -1414,6 +1515,7 @@
     "effects": []
   },
   "23003": {
+    "disabled": true,
     "name": "But the Battle Isn't Over",
     "version": 1,
     "id": 23003,
@@ -1428,6 +1530,7 @@
     "effects": []
   },
   "23004": {
+    "disabled": true,
     "name": "In the Name of the World",
     "version": 1,
     "id": 23004,
@@ -1442,6 +1545,7 @@
     "effects": []
   },
   "23005": {
+    "disabled": true,
     "name": "Moment of Victory",
     "version": 1,
     "id": 23005,
@@ -1456,6 +1560,7 @@
     "effects": []
   },
   "23006": {
+    "disabled": true,
     "name": "Patience Is All You Need",
     "version": 1.2,
     "id": 23006,
@@ -1470,6 +1575,7 @@
     "effects": []
   },
   "23007": {
+    "disabled": true,
     "name": "Incessant Rain",
     "version": 1.1,
     "id": 23007,
@@ -1484,6 +1590,7 @@
     "effects": []
   },
   "23008": {
+    "disabled": true,
     "name": "Echoes of the Coffin",
     "version": 1.1,
     "id": 23008,
@@ -1498,6 +1605,7 @@
     "effects": []
   },
   "23009": {
+    "disabled": true,
     "name": "The Unreachable Side",
     "version": 1.2,
     "id": 23009,
@@ -1512,6 +1620,7 @@
     "effects": []
   },
   "23010": {
+    "disabled": true,
     "name": "Before Dawn",
     "version": 1,
     "id": 23010,
@@ -1526,6 +1635,7 @@
     "effects": []
   },
   "23011": {
+    "disabled": true,
     "name": "She Already Shut Her Eyes",
     "version": 1.3,
     "id": 23011,
@@ -1540,6 +1650,7 @@
     "effects": []
   },
   "23012": {
+    "disabled": true,
     "name": "Sleep Like the Dead",
     "version": 1,
     "id": 23012,
@@ -1554,6 +1665,7 @@
     "effects": []
   },
   "23013": {
+    "disabled": true,
     "name": "Time Waits for No One",
     "version": 1,
     "id": 23013,
@@ -1568,6 +1680,7 @@
     "effects": []
   },
   "23014": {
+    "disabled": true,
     "name": "I Shall Be My Own Sword",
     "version": 1.4,
     "id": 23014,
@@ -1582,6 +1695,7 @@
     "effects": []
   },
   "23015": {
+    "disabled": true,
     "name": "Brighter Than the Sun",
     "version": 1.3,
     "id": 23015,
@@ -1596,6 +1710,7 @@
     "effects": []
   },
   "23016": {
+    "disabled": true,
     "name": "Worrisome, Blissful",
     "version": 1.4,
     "id": 23016,
@@ -1610,6 +1725,7 @@
     "effects": []
   },
   "23017": {
+    "disabled": true,
     "name": "Night of Fright",
     "version": 1.5,
     "id": 23017,
@@ -1624,6 +1740,7 @@
     "effects": []
   },
   "23018": {
+    "disabled": true,
     "name": "An Instant Before A Gaze",
     "version": 1.5,
     "id": 23018,
@@ -1638,6 +1755,7 @@
     "effects": []
   },
   "23019": {
+    "disabled": true,
     "name": "Past Self in Mirror",
     "version": 1.6,
     "id": 23019,
@@ -1652,6 +1770,7 @@
     "effects": []
   },
   "23020": {
+    "disabled": true,
     "name": "Baptism of Pure Thought",
     "version": 1.6,
     "id": 23020,
@@ -1666,6 +1785,7 @@
     "effects": []
   },
   "23021": {
+    "disabled": true,
     "name": "Earthly Escapade",
     "version": 2,
     "id": 23021,
@@ -1680,6 +1800,7 @@
     "effects": []
   },
   "23022": {
+    "disabled": true,
     "name": "Reforged Remembrance",
     "version": 2,
     "id": 23022,
@@ -1694,6 +1815,7 @@
     "effects": []
   },
   "23023": {
+    "disabled": true,
     "name": "Inherently Unjust Destiny",
     "version": 2.1,
     "id": 23023,
@@ -1708,6 +1830,7 @@
     "effects": []
   },
   "23024": {
+    "disabled": true,
     "name": "Along the Passing Shore",
     "version": 2.1,
     "id": 23024,
@@ -1722,6 +1845,7 @@
     "effects": []
   },
   "23025": {
+    "disabled": true,
     "name": "Whereabouts Should Dreams Rest",
     "version": 2.3,
     "id": 23025,
@@ -1736,6 +1860,7 @@
     "effects": []
   },
   "23026": {
+    "disabled": true,
     "name": "Flowing Nightglow",
     "version": 2.2,
     "id": 23026,
@@ -1750,6 +1875,7 @@
     "effects": []
   },
   "23027": {
+    "disabled": true,
     "name": "Sailing Towards a Second Life",
     "version": 2.2,
     "id": 23027,
@@ -1764,6 +1890,7 @@
     "effects": []
   },
   "23028": {
+    "disabled": true,
     "name": "Yet Hope Is Priceless",
     "version": 2.3,
     "id": 23028,
@@ -1778,6 +1905,7 @@
     "effects": []
   },
   "23029": {
+    "disabled": true,
     "name": "Those Many Springs",
     "version": 2.4,
     "id": 23029,
@@ -1792,6 +1920,7 @@
     "effects": []
   },
   "23030": {
+    "disabled": true,
     "name": "Dance at Sunset",
     "version": 2.4,
     "id": 23030,
@@ -1806,6 +1935,7 @@
     "effects": []
   },
   "23031": {
+    "disabled": true,
     "name": "I Venture Forth to Hunt",
     "version": 2.5,
     "id": 23031,
@@ -1820,6 +1950,7 @@
     "effects": []
   },
   "23032": {
+    "disabled": true,
     "name": "Scent Alone Stays True",
     "version": 2.5,
     "id": 23032,
@@ -1834,6 +1965,7 @@
     "effects": []
   },
   "23033": {
+    "disabled": true,
     "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
     "version": 2.6,
     "id": 23033,
@@ -1848,6 +1980,7 @@
     "effects": []
   },
   "23034": {
+    "disabled": true,
     "name": "A Grounded Ascent",
     "version": 2.7,
     "id": 23034,
@@ -1862,6 +1995,7 @@
     "effects": []
   },
   "23035": {
+    "disabled": true,
     "name": "Long Road Leads Home",
     "version": 2.7,
     "id": 23035,
@@ -1876,6 +2010,7 @@
     "effects": []
   },
   "23036": {
+    "disabled": true,
     "name": "Time Woven Into Gold",
     "version": 3,
     "id": 23036,
@@ -1890,6 +2025,7 @@
     "effects": []
   },
   "23037": {
+    "disabled": true,
     "name": "Into the Unreachable Veil",
     "version": 3,
     "id": 23037,
@@ -1904,6 +2040,7 @@
     "effects": []
   },
   "23038": {
+    "disabled": true,
     "name": "If Time Were a Flower",
     "version": 3.1,
     "id": 23038,
@@ -1918,6 +2055,7 @@
     "effects": []
   },
   "23039": {
+    "disabled": true,
     "name": "Flame of Blood, Blaze My Path",
     "version": 3.1,
     "id": 23039,
@@ -1932,6 +2070,7 @@
     "effects": []
   },
   "23040": {
+    "disabled": true,
     "name": "Make Farewells More Beautiful",
     "version": 3.2,
     "id": 23040,
@@ -1946,6 +2085,7 @@
     "effects": []
   },
   "23041": {
+    "disabled": true,
     "name": "Life Should Be Cast to Flames",
     "version": 3.2,
     "id": 23041,
@@ -1960,6 +2100,7 @@
     "effects": []
   },
   "23042": {
+    "disabled": true,
     "name": "Long May Rainbows Adorn the Sky",
     "version": 3.3,
     "id": 23042,
@@ -1974,6 +2115,7 @@
     "effects": []
   },
   "23043": {
+    "disabled": true,
     "name": "Lies Dance on the Breeze",
     "version": 3.3,
     "id": 23043,
@@ -1988,6 +2130,7 @@
     "effects": []
   },
   "23044": {
+    "disabled": true,
     "name": "Thus Burns the Dawn",
     "version": 3.4,
     "id": 23044,
@@ -2002,6 +2145,7 @@
     "effects": []
   },
   "23045": {
+    "disabled": true,
     "name": "A Thankless Coronation",
     "version": 3.4,
     "id": 23045,
@@ -2016,6 +2160,7 @@
     "effects": []
   },
   "23046": {
+    "disabled": true,
     "name": "The Hell Where Ideals Burn",
     "version": 3.4,
     "id": 23046,
@@ -2030,6 +2175,7 @@
     "effects": []
   },
   "23047": {
+    "disabled": true,
     "name": "Why Does the Ocean Sing",
     "version": 3.5,
     "id": 23047,
@@ -2044,6 +2190,7 @@
     "effects": []
   },
   "23048": {
+    "disabled": true,
     "name": "Epoch Etched in Golden Blood",
     "version": 3.5,
     "id": 23048,
@@ -2058,6 +2205,7 @@
     "effects": []
   },
   "23049": {
+    "disabled": true,
     "name": "To Evernight's Stars",
     "version": 3.6,
     "id": 23049,
@@ -2072,6 +2220,7 @@
     "effects": []
   },
   "23050": {
+    "disabled": true,
     "name": "Never Forget Her Flame",
     "version": 3.8,
     "id": 23050,
@@ -2086,6 +2235,7 @@
     "effects": []
   },
   "23051": {
+    "disabled": true,
     "name": "Though Worlds Apart",
     "version": 3.6,
     "id": 23051,
@@ -2100,6 +2250,7 @@
     "effects": []
   },
   "23052": {
+    "disabled": true,
     "name": "This Love, Forever",
     "version": 3.7,
     "id": 23052,
@@ -2114,6 +2265,7 @@
     "effects": []
   },
   "23053": {
+    "disabled": true,
     "name": "Dazzled by a Flowery World",
     "version": 4,
     "id": 23053,
@@ -2128,6 +2280,7 @@
     "effects": []
   },
   "23054": {
+    "disabled": true,
     "name": "When She Decided to See",
     "version": 4,
     "id": 23054,
@@ -2142,6 +2295,7 @@
     "effects": []
   },
   "23056": {
+    "disabled": true,
     "name": "The Finale of a Lie",
     "version": 4.1,
     "id": 23056,
@@ -2156,6 +2310,7 @@
     "effects": []
   },
   "23057": {
+    "disabled": true,
     "name": "Welcome to the Cosmic City",
     "version": 4.2,
     "id": 23057,
@@ -2170,6 +2325,7 @@
     "effects": []
   },
   "23058": {
+    "disabled": true,
     "name": "Until the Flowers Bloom Again",
     "version": 4.2,
     "id": 23058,
@@ -2184,6 +2340,7 @@
     "effects": []
   },
   "23059": {
+    "disabled": true,
     "name": "Reforged in Hellfire",
     "version": 4.3,
     "id": 23059,
@@ -2198,6 +2355,7 @@
     "effects": []
   },
   "23060": {
+    "disabled": true,
     "name": "A Star That Lights the Night",
     "version": 4.4,
     "id": 23060,
@@ -2212,6 +2370,7 @@
     "effects": []
   },
   "23061": {
+    "disabled": true,
     "name": "Flickering Stars",
     "version": 4.4,
     "id": 23061,
@@ -2226,6 +2385,7 @@
     "effects": []
   },
   "23062": {
+    "disabled": true,
     "name": "I Am As You Behold",
     "version": 4.4,
     "id": 23062,
@@ -2240,6 +2400,7 @@
     "effects": []
   },
   "23063": {
+    "disabled": true,
     "name": "Rise and Sing",
     "version": 4.5,
     "id": 23063,
@@ -2254,6 +2415,7 @@
     "effects": []
   },
   "23064": {
+    "disabled": true,
     "name": "Summer Rides the Surf",
     "version": 4.5,
     "id": 23064,
@@ -2268,6 +2430,7 @@
     "effects": []
   },
   "24000": {
+    "disabled": true,
     "name": "On the Fall of an Aeon",
     "version": 1,
     "id": 24000,
@@ -2282,6 +2445,7 @@
     "effects": []
   },
   "24001": {
+    "disabled": true,
     "name": "Cruising in the Stellar Sea",
     "version": 1,
     "id": 24001,
@@ -2296,6 +2460,7 @@
     "effects": []
   },
   "24002": {
+    "disabled": true,
     "name": "Texture of Memories",
     "version": 1,
     "id": 24002,
@@ -2310,6 +2475,7 @@
     "effects": []
   },
   "24003": {
+    "disabled": true,
     "name": "Solitary Healing",
     "version": 1.3,
     "id": 24003,
@@ -2324,6 +2490,7 @@
     "effects": []
   },
   "24004": {
+    "disabled": true,
     "name": "Eternal Calculus",
     "version": 2.3,
     "id": 24004,
@@ -2338,6 +2505,7 @@
     "effects": []
   },
   "24005": {
+    "disabled": true,
     "name": "Memory's Curtain Never Falls",
     "version": 3.1,
     "id": 24005,
@@ -2352,6 +2520,7 @@
     "effects": []
   },
   "24006": {
+    "disabled": true,
     "name": "Elation Brimming With Blessings",
     "version": 4.1,
     "id": 24006,

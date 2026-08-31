@@ -1,5 +1,6 @@
 {
   "10000002": {
+    "disabled": true,
     "name": "Kamisato Ayaka",
     "version": 2,
     "id": 10000002,
@@ -359,6 +360,7 @@
     "memberPreset": {}
   },
   "10000003": {
+    "disabled": true,
     "name": "Jean",
     "version": 1,
     "id": 10000003,
@@ -804,6 +806,7 @@
     "memberPreset": {}
   },
   "10000006": {
+    "disabled": true,
     "name": "Lisa",
     "version": 1,
     "id": 10000006,
@@ -1221,6 +1224,7 @@
     "memberPreset": {}
   },
   "10000014": {
+    "disabled": true,
     "name": "Barbara",
     "version": 1,
     "id": 10000014,
@@ -1638,6 +1642,7 @@
     "memberPreset": {}
   },
   "10000015": {
+    "disabled": true,
     "name": "Kaeya",
     "version": 1,
     "id": 10000015,
@@ -1993,6 +1998,7 @@
     "memberPreset": {}
   },
   "10000016": {
+    "disabled": true,
     "name": "Diluc",
     "version": 1,
     "id": 10000016,
@@ -2433,6 +2439,7 @@
     "memberPreset": {}
   },
   "10000020": {
+    "disabled": true,
     "name": "Razor",
     "version": 1,
     "id": 10000020,
@@ -2848,6 +2855,7 @@
     "memberPreset": {}
   },
   "10000021": {
+    "disabled": true,
     "name": "Amber",
     "version": 1,
     "id": 10000021,
@@ -3266,6 +3274,7 @@
     "memberPreset": {}
   },
   "10000022": {
+    "disabled": true,
     "name": "Venti",
     "version": 1,
     "id": 10000022,
@@ -3779,6 +3788,7 @@
     "memberPreset": {}
   },
   "10000023": {
+    "disabled": true,
     "name": "Xiangling",
     "version": 1,
     "id": 10000023,
@@ -4215,6 +4225,7 @@
     "memberPreset": {}
   },
   "10000024": {
+    "disabled": true,
     "name": "Beidou",
     "version": 1,
     "id": 10000024,
@@ -4700,6 +4711,7 @@
     "memberPreset": {}
   },
   "10000025": {
+    "disabled": true,
     "name": "Xingqiu",
     "version": 1,
     "id": 10000025,
@@ -5140,6 +5152,7 @@
     "memberPreset": {}
   },
   "10000026": {
+    "disabled": true,
     "name": "Xiao",
     "version": 1.3,
     "id": 10000026,
@@ -5564,6 +5577,7 @@
     "memberPreset": {}
   },
   "10000027": {
+    "disabled": true,
     "name": "Ningguang",
     "version": 1,
     "id": 10000027,
@@ -5847,6 +5861,7 @@
     "memberPreset": {}
   },
   "10000029": {
+    "disabled": true,
     "name": "Klee",
     "version": 1,
     "id": 10000029,
@@ -6158,6 +6173,7 @@
     "memberPreset": {}
   },
   "10000030": {
+    "disabled": true,
     "name": "Zhongli",
     "version": 1.1,
     "id": 10000030,
@@ -6644,6 +6660,7 @@
     "memberPreset": {}
   },
   "10000031": {
+    "disabled": true,
     "name": "Fischl",
     "version": 1,
     "id": 10000031,
@@ -7033,6 +7050,7 @@
     "memberPreset": {}
   },
   "10000032": {
+    "disabled": true,
     "name": "Bennett",
     "version": 1,
     "id": 10000032,
@@ -7576,6 +7594,7 @@
     "memberPreset": {}
   },
   "10000033": {
+    "disabled": true,
     "name": "Tartaglia",
     "version": 1.1,
     "id": 10000033,
@@ -8325,6 +8344,7 @@
     "memberPreset": {}
   },
   "10000034": {
+    "disabled": true,
     "name": "Noelle",
     "version": 1,
     "id": 10000034,
@@ -8827,6 +8847,7 @@
     "memberPreset": {}
   },
   "10000035": {
+    "disabled": true,
     "name": "Qiqi",
     "version": 1,
     "id": 10000035,
@@ -9372,6 +9393,7 @@
     "memberPreset": {}
   },
   "10000036": {
+    "disabled": true,
     "name": "Chongyun",
     "version": 1,
     "id": 10000036,
@@ -9731,6 +9753,7 @@
     "memberPreset": {}
   },
   "10000037": {
+    "disabled": true,
     "name": "Ganyu",
     "version": 1.2,
     "id": 10000037,
@@ -10198,6 +10221,7 @@
     "memberPreset": {}
   },
   "10000038": {
+    "disabled": true,
     "name": "Albedo",
     "version": 1.2,
     "id": 10000038,
@@ -10670,6 +10694,7 @@
     }
   },
   "10000039": {
+    "disabled": true,
     "name": "Diona",
     "version": 1.1,
     "id": 10000039,
@@ -11176,6 +11201,7 @@
     "memberPreset": {}
   },
   "10000041": {
+    "disabled": true,
     "name": "Mona",
     "version": 1,
     "id": 10000041,
@@ -11568,6 +11594,7 @@
     "memberPreset": {}
   },
   "10000042": {
+    "disabled": true,
     "name": "Keqing",
     "version": 1,
     "id": 10000042,
@@ -12046,6 +12073,7 @@
     "memberPreset": {}
   },
   "10000043": {
+    "disabled": true,
     "name": "Sucrose",
     "version": 1,
     "id": 10000043,
@@ -12384,6 +12412,7 @@
     "memberPreset": {}
   },
   "10000044": {
+    "disabled": true,
     "name": "Xinyan",
     "version": 1.1,
     "id": 10000044,
@@ -12908,6 +12937,7 @@
     "memberPreset": {}
   },
   "10000045": {
+    "disabled": true,
     "name": "Rosaria",
     "version": 1.4,
     "id": 10000045,
@@ -13324,6 +13354,7 @@
     "memberPreset": {}
   },
   "10000046": {
+    "disabled": true,
     "name": "Hu Tao",
     "version": 1.3,
     "id": 10000046,
@@ -13811,6 +13842,7 @@
     "memberPreset": {}
   },
   "10000047": {
+    "disabled": true,
     "name": "Kaedehara Kazuha",
     "version": 1.6,
     "id": 10000047,
@@ -14262,6 +14294,7 @@
     "memberPreset": {}
   },
   "10000048": {
+    "disabled": true,
     "name": "Yanfei",
     "version": 1.5,
     "id": 10000048,
@@ -14643,6 +14676,7 @@
     "memberPreset": {}
   },
   "10000049": {
+    "disabled": true,
     "name": "Yoimiya",
     "version": 2,
     "id": 10000049,
@@ -15057,6 +15091,7 @@
     "memberPreset": {}
   },
   "10000050": {
+    "disabled": true,
     "name": "Thoma",
     "version": 2.2,
     "id": 10000050,
@@ -15527,6 +15562,7 @@
     "memberPreset": {}
   },
   "10000051": {
+    "disabled": true,
     "name": "Eula",
     "version": 1.5,
     "id": 10000051,
@@ -16086,6 +16122,7 @@
     "memberPreset": {}
   },
   "10000052": {
+    "disabled": true,
     "name": "Raiden Shogun",
     "version": 2.1,
     "id": 10000052,
@@ -16872,6 +16909,7 @@
     "memberPreset": {}
   },
   "10000053": {
+    "disabled": true,
     "name": "Sayu",
     "version": 2,
     "id": 10000053,
@@ -17450,6 +17488,7 @@
     "memberPreset": {}
   },
   "10000054": {
+    "disabled": true,
     "name": "Sangonomiya Kokomi",
     "version": 2.1,
     "id": 10000054,
@@ -17903,6 +17942,7 @@
     "memberPreset": {}
   },
   "10000055": {
+    "disabled": true,
     "name": "Gorou",
     "version": 2.3,
     "id": 10000055,
@@ -18290,6 +18330,7 @@
     "memberPreset": {}
   },
   "10000056": {
+    "disabled": true,
     "name": "Kujou Sara",
     "version": 2.1,
     "id": 10000056,
@@ -18704,6 +18745,7 @@
     "memberPreset": {}
   },
   "10000057": {
+    "disabled": true,
     "name": "Arataki Itto",
     "version": 2.3,
     "id": 10000057,
@@ -19063,6 +19105,7 @@
     "memberPreset": {}
   },
   "10000058": {
+    "disabled": true,
     "name": "Yae Miko",
     "version": 2.5,
     "id": 10000058,
@@ -19449,6 +19492,7 @@
     "memberPreset": {}
   },
   "10000059": {
+    "disabled": true,
     "name": "Shikanoin Heizou",
     "version": 2.8,
     "id": 10000059,
@@ -19900,6 +19944,7 @@
     "memberPreset": {}
   },
   "10000060": {
+    "disabled": true,
     "name": "Yelan",
     "version": 2.7,
     "id": 10000060,
@@ -20306,6 +20351,7 @@
     "memberPreset": {}
   },
   "10000061": {
+    "disabled": true,
     "name": "Kirara",
     "version": 3.7,
     "id": 10000061,
@@ -20841,6 +20887,7 @@
     "memberPreset": {}
   },
   "10000062": {
+    "disabled": true,
     "name": "Aloy",
     "version": 2.2,
     "id": 10000062,
@@ -21339,6 +21386,7 @@
     "memberPreset": {}
   },
   "10000063": {
+    "disabled": true,
     "name": "Shenhe",
     "version": 2.4,
     "id": 10000063,
@@ -21798,6 +21846,7 @@
     "memberPreset": {}
   },
   "10000064": {
+    "disabled": true,
     "name": "Yun Jin",
     "version": 2.4,
     "id": 10000064,
@@ -22295,6 +22344,7 @@
     "memberPreset": {}
   },
   "10000065": {
+    "disabled": true,
     "name": "Kuki Shinobu",
     "version": 2.7,
     "id": 10000065,
@@ -22738,6 +22788,7 @@
     "memberPreset": {}
   },
   "10000066": {
+    "disabled": true,
     "name": "Kamisato Ayato",
     "version": 2.6,
     "id": 10000066,
@@ -23205,6 +23256,7 @@
     "memberPreset": {}
   },
   "10000067": {
+    "disabled": true,
     "name": "Collei",
     "version": 3,
     "id": 10000067,
@@ -23565,6 +23617,7 @@
     "memberPreset": {}
   },
   "10000068": {
+    "disabled": true,
     "name": "Dori",
     "version": 3,
     "id": 10000068,
@@ -23989,6 +24042,7 @@
     "memberPreset": {}
   },
   "10000069": {
+    "disabled": true,
     "name": "Tighnari",
     "version": 3,
     "id": 10000069,
@@ -24402,6 +24456,7 @@
     "memberPreset": {}
   },
   "10000070": {
+    "disabled": true,
     "name": "Nilou",
     "version": 3.1,
     "id": 10000070,
@@ -24864,6 +24919,7 @@
     "memberPreset": {}
   },
   "10000071": {
+    "disabled": true,
     "name": "Cyno",
     "version": 3.1,
     "id": 10000071,
@@ -25451,6 +25507,7 @@
     "memberPreset": {}
   },
   "10000072": {
+    "disabled": true,
     "name": "Candace",
     "version": 3.1,
     "id": 10000072,
@@ -25875,6 +25932,7 @@
     "memberPreset": {}
   },
   "10000073": {
+    "disabled": true,
     "name": "Nahida",
     "version": 3.2,
     "id": 10000073,
@@ -26388,6 +26446,7 @@
     "memberPreset": {}
   },
   "10000074": {
+    "disabled": true,
     "name": "Layla",
     "version": 3.2,
     "id": 10000074,
@@ -26758,6 +26817,7 @@
     "memberPreset": {}
   },
   "10000075": {
+    "disabled": true,
     "name": "Wanderer",
     "version": 3.3,
     "id": 10000075,
@@ -27109,6 +27169,7 @@
     "memberPreset": {}
   },
   "10000076": {
+    "disabled": true,
     "name": "Faruzan",
     "version": 3.3,
     "id": 10000076,
@@ -27496,6 +27557,7 @@
     "memberPreset": {}
   },
   "10000077": {
+    "disabled": true,
     "name": "Yaoyao",
     "version": 3.4,
     "id": 10000077,
@@ -27939,6 +28001,7 @@
     "memberPreset": {}
   },
   "10000078": {
+    "disabled": true,
     "name": "Alhaitham",
     "version": 3.4,
     "id": 10000078,
@@ -28485,6 +28548,7 @@
     "memberPreset": {}
   },
   "10000079": {
+    "disabled": true,
     "name": "Dehya",
     "version": 3.5,
     "id": 10000079,
@@ -28982,6 +29046,7 @@
     "memberPreset": {}
   },
   "10000080": {
+    "disabled": true,
     "name": "Mika",
     "version": 3.5,
     "id": 10000080,
@@ -29479,6 +29544,7 @@
     "memberPreset": {}
   },
   "10000081": {
+    "disabled": true,
     "name": "Kaveh",
     "version": 3.6,
     "id": 10000081,
@@ -29838,6 +29904,7 @@
     "memberPreset": {}
   },
   "10000082": {
+    "disabled": true,
     "name": "Baizhu",
     "version": 3.6,
     "id": 10000082,
@@ -30281,6 +30348,7 @@
     "memberPreset": {}
   },
   "10000083": {
+    "disabled": true,
     "name": "Lynette",
     "version": 4,
     "id": 10000083,
@@ -30705,6 +30773,7 @@
     "memberPreset": {}
   },
   "10000084": {
+    "disabled": true,
     "name": "Lyney",
     "version": 4,
     "id": 10000084,
@@ -31218,6 +31287,7 @@
     "memberPreset": {}
   },
   "10000085": {
+    "disabled": true,
     "name": "Freminet",
     "version": 4,
     "id": 10000085,
@@ -31796,6 +31866,7 @@
     "memberPreset": {}
   },
   "10000086": {
+    "disabled": true,
     "name": "Wriothesley",
     "version": 4.1,
     "id": 10000086,
@@ -32174,6 +32245,7 @@
     "memberPreset": {}
   },
   "10000087": {
+    "disabled": true,
     "name": "Neuvillette",
     "version": 4.1,
     "id": 10000087,
@@ -32533,6 +32605,7 @@
     "memberPreset": {}
   },
   "10000088": {
+    "disabled": true,
     "name": "Charlotte",
     "version": 4.2,
     "id": 10000088,
@@ -33038,6 +33111,7 @@
     "memberPreset": {}
   },
   "10000089": {
+    "disabled": true,
     "name": "Furina",
     "version": 4.2,
     "id": 10000089,
@@ -33551,6 +33625,7 @@
     "memberPreset": {}
   },
   "10000090": {
+    "disabled": true,
     "name": "Chevreuse",
     "version": 4.3,
     "id": 10000090,
@@ -34029,6 +34104,7 @@
     "memberPreset": {}
   },
   "10000091": {
+    "disabled": true,
     "name": "Navia",
     "version": 4.3,
     "id": 10000091,
@@ -34415,6 +34491,7 @@
     "memberPreset": {}
   },
   "10000092": {
+    "disabled": true,
     "name": "Gaming",
     "version": 4.4,
     "id": 10000092,
@@ -34747,6 +34824,7 @@
     "memberPreset": {}
   },
   "10000093": {
+    "disabled": true,
     "name": "Xianyun",
     "version": 4.4,
     "id": 10000093,
@@ -35236,6 +35314,7 @@
     "memberPreset": {}
   },
   "10000094": {
+    "disabled": true,
     "name": "Chiori",
     "version": 4.5,
     "id": 10000094,
@@ -35663,6 +35742,7 @@
     "memberPreset": {}
   },
   "10000095": {
+    "disabled": true,
     "name": "Sigewinne",
     "version": 4.7,
     "id": 10000095,
@@ -36069,6 +36149,7 @@
     "memberPreset": {}
   },
   "10000096": {
+    "disabled": true,
     "name": "Arlecchino",
     "version": 4.6,
     "id": 10000096,
@@ -36528,6 +36609,7 @@
     "memberPreset": {}
   },
   "10000097": {
+    "disabled": true,
     "name": "Sethos",
     "version": 4.7,
     "id": 10000097,
@@ -36898,6 +36980,7 @@
     "memberPreset": {}
   },
   "10000098": {
+    "disabled": true,
     "name": "Clorinde",
     "version": 4.7,
     "id": 10000098,
@@ -37425,6 +37508,7 @@
     "memberPreset": {}
   },
   "10000099": {
+    "disabled": true,
     "name": "Emilie",
     "version": 4.8,
     "id": 10000099,
@@ -37811,6 +37895,7 @@
     "memberPreset": {}
   },
   "10000100": {
+    "disabled": true,
     "name": "Kachina",
     "version": 5,
     "id": 10000100,
@@ -38162,6 +38247,7 @@
     "memberPreset": {}
   },
   "10000101": {
+    "disabled": true,
     "name": "Kinich",
     "version": 5,
     "id": 10000101,
@@ -38521,6 +38607,7 @@
     "memberPreset": {}
   },
   "10000102": {
+    "disabled": true,
     "name": "Mualani",
     "version": 5,
     "id": 10000102,
@@ -38853,6 +38940,7 @@
     "memberPreset": {}
   },
   "10000103": {
+    "disabled": true,
     "name": "Xilonen",
     "version": 5.1,
     "id": 10000103,
@@ -39358,6 +39446,7 @@
     "memberPreset": {}
   },
   "10000104": {
+    "disabled": true,
     "name": "Chasca",
     "version": 5.2,
     "id": 10000104,
@@ -39826,6 +39915,7 @@
     "memberPreset": {}
   },
   "10000105": {
+    "disabled": true,
     "name": "Ororon",
     "version": 5.2,
     "id": 10000105,
@@ -40159,6 +40249,7 @@
     "memberPreset": {}
   },
   "10000106": {
+    "disabled": true,
     "name": "Mavuika",
     "version": 5.3,
     "id": 10000106,
@@ -40815,6 +40906,7 @@
     "memberPreset": {}
   },
   "10000107": {
+    "disabled": true,
     "name": "Citlali",
     "version": 5.3,
     "id": 10000107,
@@ -41193,6 +41285,7 @@
     "memberPreset": {}
   },
   "10000108": {
+    "disabled": true,
     "name": "Lan Yan",
     "version": 5.3,
     "id": 10000108,
@@ -41582,6 +41675,7 @@
     "memberPreset": {}
   },
   "10000109": {
+    "disabled": true,
     "name": "Yumemizuki Mizuki",
     "version": 5.4,
     "id": 10000109,
@@ -41987,6 +42081,7 @@
     "memberPreset": {}
   },
   "10000110": {
+    "disabled": true,
     "name": "Iansan",
     "version": 5.5,
     "id": 10000110,
@@ -42319,6 +42414,7 @@
     "memberPreset": {}
   },
   "10000111": {
+    "disabled": true,
     "name": "Varesa",
     "version": 5.5,
     "id": 10000111,
@@ -42859,6 +42955,7 @@
     "memberPreset": {}
   },
   "10000112": {
+    "disabled": true,
     "name": "Escoffier",
     "version": 5.6,
     "id": 10000112,
@@ -43256,6 +43353,7 @@
     "memberPreset": {}
   },
   "10000113": {
+    "disabled": true,
     "name": "Ifa",
     "version": 5.6,
     "id": 10000113,
@@ -43607,6 +43705,7 @@
     "memberPreset": {}
   },
   "10000114": {
+    "disabled": true,
     "name": "Skirk",
     "version": 5.7,
     "id": 10000114,
@@ -44350,6 +44449,7 @@
     "memberPreset": {}
   },
   "10000115": {
+    "disabled": true,
     "name": "Dahlia",
     "version": 5.7,
     "id": 10000115,
@@ -44739,6 +44839,7 @@
     "memberPreset": {}
   },
   "10000116": {
+    "disabled": true,
     "name": "Ineffa",
     "version": 5.8,
     "id": 10000116,
@@ -45136,6 +45237,7 @@
     "memberPreset": {}
   },
   "10000119": {
+    "disabled": true,
     "name": "Lauma",
     "version": 6,
     "id": 10000119,
@@ -45568,6 +45670,7 @@
     "memberPreset": {}
   },
   "10000120": {
+    "disabled": true,
     "name": "Flins",
     "version": 6,
     "id": 10000120,
@@ -46170,6 +46273,7 @@
     "memberPreset": {}
   },
   "10000121": {
+    "disabled": true,
     "name": "Aino",
     "version": 6,
     "id": 10000121,
@@ -46502,6 +46606,7 @@
     "memberPreset": {}
   },
   "10000122": {
+    "disabled": true,
     "name": "Nefer",
     "version": 6.1,
     "id": 10000122,
@@ -47092,6 +47197,7 @@
     "memberPreset": {}
   },
   "10000123": {
+    "disabled": true,
     "name": "Durin",
     "version": 6.2,
     "id": 10000123,
@@ -47667,6 +47773,7 @@
     "memberPreset": {}
   },
   "10000124": {
+    "disabled": true,
     "name": "Jahoda",
     "version": 6.2,
     "id": 10000124,
@@ -48173,6 +48280,7 @@
     "memberPreset": {}
   },
   "10000125": {
+    "disabled": true,
     "name": "Columbina",
     "version": 6.3,
     "id": 10000125,
@@ -48613,6 +48721,7 @@
     "memberPreset": {}
   },
   "10000126": {
+    "disabled": true,
     "name": "Zibai",
     "version": 6.3,
     "id": 10000126,
@@ -49210,6 +49319,7 @@
     "memberPreset": {}
   },
   "10000127": {
+    "disabled": true,
     "name": "Illuga",
     "version": 6.3,
     "id": 10000127,
@@ -49672,6 +49782,7 @@
     "memberPreset": {}
   },
   "10000128": {
+    "disabled": true,
     "name": "Varka",
     "version": 6.4,
     "id": 10000128,
@@ -50477,6 +50588,7 @@
     "memberPreset": {}
   },
   "10000129": {
+    "disabled": true,
     "name": "Lohen",
     "version": 6.6,
     "id": 10000129,
@@ -51092,6 +51204,7 @@
     "memberPreset": {}
   },
   "10000130": {
+    "disabled": true,
     "name": "Linnea",
     "version": 6.5,
     "id": 10000130,
@@ -51517,6 +51630,7 @@
     "memberPreset": {}
   },
   "10000131": {
+    "disabled": true,
     "name": "Nicole",
     "version": 6.6,
     "id": 10000131,
@@ -51924,6 +52038,7 @@
     "memberPreset": {}
   },
   "10000132": {
+    "disabled": true,
     "name": "Prune",
     "version": 6.6,
     "id": 10000132,
@@ -52256,6 +52371,7 @@
     "memberPreset": {}
   },
   "10000133": {
+    "disabled": true,
     "name": "Sandrone",
     "version": 6.7,
     "id": 10000133,
@@ -52769,6 +52885,7 @@
     "memberPreset": {}
   },
   "10000148": {
+    "disabled": true,
     "name": "Alyosha",
     "version": 7.0,
     "id": 10000148,
@@ -53355,6 +53472,7 @@
     "memberPreset": {}
   },
   "10000150": {
+    "disabled": true,
     "name": "Odette",
     "version": 7.0,
     "id": 10000150,

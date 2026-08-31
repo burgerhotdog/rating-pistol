@@ -1,5 +1,6 @@
 {
   "101": {
+    "disabled": true,
     "name": "Passerby of Wandering Cloud",
     "version": 1,
     "id": 101,
@@ -20,6 +21,7 @@
     ]
   },
   "102": {
+    "disabled": true,
     "name": "Musketeer of Wild Wheat",
     "version": 1,
     "id": 102,
@@ -49,6 +51,7 @@
     ]
   },
   "103": {
+    "disabled": true,
     "name": "Knight of Purity Palace",
     "version": 1,
     "id": 103,
@@ -77,6 +80,7 @@
     ]
   },
   "104": {
+    "disabled": true,
     "name": "Hunter of Glacial Forest",
     "version": 1,
     "id": 104,
@@ -113,6 +117,7 @@
     ]
   },
   "105": {
+    "disabled": true,
     "name": "Champion of Streetwise Boxing",
     "version": 1,
     "id": 105,
@@ -150,6 +155,7 @@
     ]
   },
   "106": {
+    "disabled": true,
     "name": "Guard of Wuthering Snow",
     "version": 1,
     "id": 106,
@@ -161,6 +167,7 @@
     "effects": []
   },
   "107": {
+    "disabled": true,
     "name": "Firesmith of Lava-Forging",
     "version": 1,
     "id": 107,
@@ -211,6 +218,7 @@
     ]
   },
   "108": {
+    "disabled": true,
     "name": "Genius of Brilliant Stars",
     "version": 1,
     "id": 108,
@@ -239,6 +247,7 @@
     ]
   },
   "109": {
+    "disabled": true,
     "name": "Band of Sizzling Thunder",
     "version": 1,
     "id": 109,
@@ -276,6 +285,7 @@
     ]
   },
   "110": {
+    "disabled": true,
     "name": "Eagle of Twilight Line",
     "version": 1,
     "id": 110,
@@ -296,6 +306,7 @@
     ]
   },
   "111": {
+    "disabled": true,
     "name": "Thief of Shooting Meteor",
     "version": 1,
     "id": 111,
@@ -324,6 +335,7 @@
     ]
   },
   "112": {
+    "disabled": true,
     "name": "Wastelander of Banditry Desert",
     "version": 1,
     "id": 112,
@@ -353,6 +365,7 @@
     ]
   },
   "113": {
+    "disabled": true,
     "name": "Longevous Disciple",
     "version": 1.2,
     "id": 113,
@@ -381,6 +394,7 @@
     ]
   },
   "114": {
+    "disabled": true,
     "name": "Messenger Traversing Hackerspace",
     "version": 1.2,
     "id": 114,
@@ -401,6 +415,7 @@
     ]
   },
   "115": {
+    "disabled": true,
     "name": "The Ashblazing Grand Duke",
     "version": 1.5,
     "id": 115,
@@ -429,6 +444,7 @@
     ]
   },
   "116": {
+    "disabled": true,
     "name": "Prisoner in Deep Confinement",
     "version": 1.5,
     "id": 116,
@@ -457,6 +473,7 @@
     ]
   },
   "117": {
+    "disabled": true,
     "name": "Pioneer Diver of Dead Waters",
     "version": 2,
     "id": 117,
@@ -494,6 +511,7 @@
     ]
   },
   "118": {
+    "disabled": true,
     "name": "Watchmaker, Master of Dream Machinations",
     "version": 2,
     "id": 118,
@@ -523,6 +541,7 @@
     ]
   },
   "119": {
+    "disabled": true,
     "name": "Iron Cavalry Against the Scourge",
     "version": 2.3,
     "id": 119,
@@ -551,6 +570,7 @@
     ]
   },
   "120": {
+    "disabled": true,
     "name": "The Wind-Soaring Valorous",
     "version": 2.3,
     "id": 120,
@@ -595,6 +615,7 @@
     ]
   },
   "121": {
+    "disabled": true,
     "name": "Sacerdos' Relived Ordeal",
     "version": 2.6,
     "id": 121,
@@ -615,6 +636,7 @@
     ]
   },
   "122": {
+    "disabled": true,
     "name": "Scholar Lost in Erudition",
     "version": 2.6,
     "id": 122,
@@ -661,6 +683,7 @@
     ]
   },
   "123": {
+    "disabled": true,
     "name": "Hero of Triumphant Song",
     "version": 3,
     "id": 123,
@@ -690,6 +713,7 @@
     ]
   },
   "124": {
+    "disabled": true,
     "name": "Poet of Mourning Collapse",
     "version": 3,
     "id": 124,
@@ -748,6 +772,7 @@
     ]
   },
   "125": {
+    "disabled": true,
     "name": "Warrior Goddess of Sun and Thunder",
     "version": 3.3,
     "id": 125,
@@ -801,6 +826,7 @@
     ]
   },
   "126": {
+    "disabled": true,
     "name": "Wavestrider Captain",
     "version": 3.3,
     "id": 126,
@@ -829,6 +855,7 @@
     ]
   },
   "127": {
+    "disabled": true,
     "name": "World-Remaking Deliverer",
     "version": 3.6,
     "id": 127,
@@ -866,6 +893,7 @@
     ]
   },
   "128": {
+    "disabled": true,
     "name": "Self-Enshrouded Recluse",
     "version": 3.6,
     "id": 128,
@@ -903,6 +931,7 @@
     ]
   },
   "129": {
+    "disabled": true,
     "name": "Ever-Glorious Magical Girl",
     "version": 4,
     "id": 129,
@@ -931,6 +960,7 @@
     ]
   },
   "130": {
+    "disabled": true,
     "name": "Diviner of Distant Reach",
     "version": 4,
     "id": 130,
@@ -990,6 +1020,7 @@
     ]
   },
   "131": {
+    "disabled": true,
     "name": "As Navigator Isee Sees It",
     "version": 4.3,
     "id": 131,
@@ -1019,6 +1050,7 @@
     ]
   },
   "132": {
+    "disabled": true,
     "name": "Divine-Querying Master Smith",
     "version": 4.3,
     "id": 132,
@@ -1056,6 +1088,7 @@
     ]
   },
   "301": {
+    "disabled": true,
     "name": "Space Sealing Station",
     "version": 1,
     "id": 301,
@@ -1090,6 +1123,7 @@
     ]
   },
   "302": {
+    "disabled": true,
     "name": "Fleet of the Ageless",
     "version": 1,
     "id": 302,
@@ -1125,6 +1159,7 @@
     ]
   },
   "303": {
+    "disabled": true,
     "name": "Pan-Cosmic Commercial Enterprise",
     "version": 1,
     "id": 303,
@@ -1157,6 +1192,7 @@
     ]
   },
   "304": {
+    "disabled": true,
     "name": "Belobog of the Architects",
     "version": 1,
     "id": 304,
@@ -1191,6 +1227,7 @@
     ]
   },
   "305": {
+    "disabled": true,
     "name": "Celestial Differentiator",
     "version": 1,
     "id": 305,
@@ -1210,6 +1247,7 @@
     ]
   },
   "306": {
+    "disabled": true,
     "name": "Inert Salsotto",
     "version": 1,
     "id": 306,
@@ -1245,6 +1283,7 @@
     ]
   },
   "307": {
+    "disabled": true,
     "name": "Talia: Kingdom of Banditry",
     "version": 1,
     "id": 307,
@@ -1279,6 +1318,7 @@
     ]
   },
   "308": {
+    "disabled": true,
     "name": "Sprightly Vonwacq",
     "version": 1,
     "id": 308,
@@ -1298,6 +1338,7 @@
     ]
   },
   "309": {
+    "disabled": true,
     "name": "Rutilant Arena",
     "version": 1.2,
     "id": 309,
@@ -1333,6 +1374,7 @@
     ]
   },
   "310": {
+    "disabled": true,
     "name": "Broken Keel",
     "version": 1.2,
     "id": 310,
@@ -1368,6 +1410,7 @@
     ]
   },
   "311": {
+    "disabled": true,
     "name": "Firmament Frontline: Glamoth",
     "version": 1.5,
     "id": 311,
@@ -1417,6 +1460,7 @@
     ]
   },
   "312": {
+    "disabled": true,
     "name": "Penacony, Land of the Dreams",
     "version": 1.5,
     "id": 312,
@@ -1436,6 +1480,7 @@
     ]
   },
   "313": {
+    "disabled": true,
     "name": "Sigonia, the Unclaimed Desolation",
     "version": 2.1,
     "id": 313,
@@ -1463,6 +1508,7 @@
     ]
   },
   "314": {
+    "disabled": true,
     "name": "Izumo Gensei and Takama Divine Realm",
     "version": 2.1,
     "id": 314,
@@ -1490,6 +1536,7 @@
     ]
   },
   "315": {
+    "disabled": true,
     "name": "Duran, Dynasty of Running Wolves",
     "version": 2.3,
     "id": 315,
@@ -1510,6 +1557,7 @@
     ]
   },
   "316": {
+    "disabled": true,
     "name": "Forge of the Kalpagni Lantern",
     "version": 2.3,
     "id": 316,
@@ -1537,6 +1585,7 @@
     ]
   },
   "317": {
+    "disabled": true,
     "name": "Lushaka, the Sunken Seas",
     "version": 2.5,
     "id": 317,
@@ -1565,6 +1614,7 @@
     ]
   },
   "318": {
+    "disabled": true,
     "name": "The Wondrous BananAmusement Park",
     "version": 2.5,
     "id": 318,
@@ -1592,6 +1642,7 @@
     ]
   },
   "319": {
+    "disabled": true,
     "name": "Bone Collection's Serene Demesne",
     "version": 3.1,
     "id": 319,
@@ -1626,6 +1677,7 @@
     ]
   },
   "320": {
+    "disabled": true,
     "name": "Giant Tree of Rapt Brooding",
     "version": 3.1,
     "id": 320,
@@ -1675,6 +1727,7 @@
     ]
   },
   "321": {
+    "disabled": true,
     "name": "Arcadia of Woven Dreams",
     "version": 3.4,
     "id": 321,
@@ -1694,6 +1747,7 @@
     ]
   },
   "322": {
+    "disabled": true,
     "name": "Revelry by the Sea",
     "version": 3.4,
     "id": 322,
@@ -1743,6 +1797,7 @@
     ]
   },
   "323": {
+    "disabled": true,
     "name": "Amphoreus, The Eternal Land",
     "version": 3.7,
     "id": 323,
@@ -1771,6 +1826,7 @@
     ]
   },
   "324": {
+    "disabled": true,
     "name": "Tengoku@Livestream",
     "version": 3.7,
     "id": 324,
@@ -1798,6 +1854,7 @@
     ]
   },
   "325": {
+    "disabled": true,
     "name": "Punklorde Stage Zero",
     "version": 4.1,
     "id": 325,
@@ -1825,6 +1882,7 @@
     ]
   },
   "326": {
+    "disabled": true,
     "name": "City of Converging Stars",
     "version": 4.1,
     "id": 326,
@@ -1861,6 +1919,7 @@
     ]
   },
   "327": {
+    "disabled": true,
     "name": "Fallen Star Anchorage",
     "version": 4.4,
     "id": 327,
@@ -1871,6 +1930,7 @@
     "effects": []
   },
   "328": {
+    "disabled": true,
     "name": "Cosmic Life Sciences Institute",
     "version": 4.4,
     "id": 328,

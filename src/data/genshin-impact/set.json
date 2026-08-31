@@ -1,5 +1,6 @@
 {
   "14001": {
+    "disabled": true,
     "name": "Blizzard Strayer",
     "version": 1.2,
     "id": 14001,
@@ -20,6 +21,7 @@
     ]
   },
   "14002": {
+    "disabled": true,
     "name": "Thundersoother",
     "version": 1,
     "id": 14002,
@@ -31,6 +33,7 @@
     "effects": []
   },
   "14003": {
+    "disabled": true,
     "name": "Lavawalker",
     "version": 1,
     "id": 14003,
@@ -42,6 +45,7 @@
     "effects": []
   },
   "14004": {
+    "disabled": true,
     "name": "Maiden Beloved",
     "version": 1,
     "id": 14004,
@@ -83,6 +87,7 @@
     ]
   },
   "15001": {
+    "disabled": true,
     "name": "Gladiator's Finale",
     "version": 1,
     "id": 15001,
@@ -118,6 +123,7 @@
     ]
   },
   "15002": {
+    "disabled": true,
     "name": "Viridescent Venerer",
     "version": 1,
     "id": 15002,
@@ -138,6 +144,7 @@
     ]
   },
   "15003": {
+    "disabled": true,
     "name": "Wanderer's Troupe",
     "version": 1,
     "id": 15003,
@@ -172,6 +179,7 @@
     ]
   },
   "15005": {
+    "disabled": true,
     "name": "Thundering Fury",
     "version": 1,
     "id": 15005,
@@ -192,6 +200,7 @@
     ]
   },
   "15006": {
+    "disabled": true,
     "name": "Crimson Witch of Flames",
     "version": 1,
     "id": 15006,
@@ -212,6 +221,7 @@
     ]
   },
   "15007": {
+    "disabled": true,
     "name": "Noblesse Oblige",
     "version": 1,
     "id": 15007,
@@ -250,6 +260,7 @@
     ]
   },
   "15008": {
+    "disabled": true,
     "name": "Bloodstained Chivalry",
     "version": 1,
     "id": 15008,
@@ -270,6 +281,7 @@
     ]
   },
   "15014": {
+    "disabled": true,
     "name": "Archaic Petra",
     "version": 1,
     "id": 15014,
@@ -290,6 +302,7 @@
     ]
   },
   "15015": {
+    "disabled": true,
     "name": "Retracing Bolide",
     "version": 1,
     "id": 15015,
@@ -301,6 +314,7 @@
     "effects": []
   },
   "15016": {
+    "disabled": true,
     "name": "Heart of Depth",
     "version": 1.2,
     "id": 15016,
@@ -338,6 +352,7 @@
     ]
   },
   "15017": {
+    "disabled": true,
     "name": "Tenacity of the Millelith",
     "version": 1.5,
     "id": 15017,
@@ -379,6 +394,7 @@
     ]
   },
   "15018": {
+    "disabled": true,
     "name": "Pale Flame",
     "version": 1.5,
     "id": 15018,
@@ -421,6 +437,7 @@
     ]
   },
   "15019": {
+    "disabled": true,
     "name": "Shimenawa's Reminiscence",
     "version": 2,
     "id": 15019,
@@ -461,6 +478,7 @@
     ]
   },
   "15020": {
+    "disabled": true,
     "name": "Emblem of Severed Fate",
     "version": 2,
     "id": 15020,
@@ -493,6 +511,7 @@
     ]
   },
   "15021": {
+    "disabled": true,
     "name": "Husk of Opulent Dreams",
     "version": 2.3,
     "id": 15021,
@@ -522,6 +541,7 @@
     ]
   },
   "15022": {
+    "disabled": true,
     "name": "Ocean-Hued Clam",
     "version": 2.3,
     "id": 15022,
@@ -567,6 +587,7 @@
     ]
   },
   "15023": {
+    "disabled": true,
     "name": "Vermillion Hereafter",
     "version": 2.6,
     "id": 15023,
@@ -610,6 +631,7 @@
     ]
   },
   "15024": {
+    "disabled": true,
     "name": "Echoes of an Offering",
     "version": 2.6,
     "id": 15024,
@@ -630,6 +652,7 @@
     ]
   },
   "15025": {
+    "disabled": true,
     "name": "Deepwood Memories",
     "version": 3,
     "id": 15025,
@@ -672,6 +695,7 @@
     ]
   },
   "15026": {
+    "disabled": true,
     "name": "Gilded Dreams",
     "version": 3,
     "id": 15026,
@@ -700,6 +724,7 @@
     ]
   },
   "15027": {
+    "disabled": true,
     "name": "Desert Pavilion Chronicle",
     "version": 3.3,
     "id": 15027,
@@ -742,6 +767,7 @@
     ]
   },
   "15028": {
+    "disabled": true,
     "name": "Flower of Paradise Lost",
     "version": 3.3,
     "id": 15028,
@@ -762,6 +788,7 @@
     ]
   },
   "15029": {
+    "disabled": true,
     "name": "Nymph's Dream",
     "version": 3.6,
     "id": 15029,
@@ -808,6 +835,7 @@
     ]
   },
   "15030": {
+    "disabled": true,
     "name": "Vourukasha's Glow",
     "version": 3.6,
     "id": 15030,
@@ -846,6 +874,7 @@
     ]
   },
   "15031": {
+    "disabled": true,
     "name": "Marechaussee Hunter",
     "version": 4,
     "id": 15031,
@@ -875,6 +904,7 @@
     ]
   },
   "15032": {
+    "disabled": true,
     "name": "Golden Troupe",
     "version": 4,
     "id": 15032,
@@ -914,6 +944,7 @@
     ]
   },
   "15033": {
+    "disabled": true,
     "name": "Song of Days Past",
     "version": 4.3,
     "id": 15033,
@@ -934,6 +965,7 @@
     ]
   },
   "15034": {
+    "disabled": true,
     "name": "Nighttime Whispers in the Echoing Woods",
     "version": 4.3,
     "id": 15034,
@@ -962,6 +994,7 @@
     ]
   },
   "15035": {
+    "disabled": true,
     "name": "Fragment of Harmonic Whimsy",
     "version": 4.6,
     "id": 15035,
@@ -990,6 +1023,7 @@
     ]
   },
   "15036": {
+    "disabled": true,
     "name": "Unfinished Reverie",
     "version": 4.6,
     "id": 15036,
@@ -1018,6 +1052,7 @@
     ]
   },
   "15037": {
+    "disabled": true,
     "name": "Scroll of the Hero of Cinder City",
     "version": 5,
     "id": 15037,
@@ -1029,6 +1064,7 @@
     "effects": []
   },
   "15038": {
+    "disabled": true,
     "name": "Obsidian Codex",
     "version": 5,
     "id": 15038,
@@ -1060,6 +1096,7 @@
     ]
   },
   "15039": {
+    "disabled": true,
     "name": "Long Night's Oath",
     "version": 5.5,
     "id": 15039,
@@ -1088,6 +1125,7 @@
     ]
   },
   "15040": {
+    "disabled": true,
     "name": "Finale of the Deep Galleries",
     "version": 5.5,
     "id": 15040,
@@ -1120,6 +1158,7 @@
     ]
   },
   "15041": {
+    "disabled": true,
     "name": "Night of the Sky's Unveiling",
     "version": 6,
     "id": 15041,
@@ -1151,6 +1190,7 @@
     ]
   },
   "15042": {
+    "disabled": true,
     "name": "Silken Moon's Serenade",
     "version": 6,
     "id": 15042,
@@ -1189,6 +1229,7 @@
     ]
   },
   "15043": {
+    "disabled": true,
     "name": "Aubade of Morningstar and Moon",
     "version": 6.3,
     "id": 15043,
@@ -1209,6 +1250,7 @@
     ]
   },
   "15044": {
+    "disabled": true,
     "name": "A Day Carved From Rising Winds",
     "version": 6.3,
     "id": 15044,
@@ -1280,6 +1322,7 @@
     ]
   },
   "15045": {
+    "disabled": true,
     "name": "Celestial Gift",
     "version": 6.6,
     "id": 15045,
@@ -1321,6 +1364,7 @@
     ]
   },
   "15046": {
+    "disabled": true,
     "name": "Disenchantment in Deep Shadow",
     "version": 6.6,
     "id": 15046,
@@ -1341,6 +1385,7 @@
     ]
   },
   "15047": {
+    "disabled": true,
     "name": "Scarlet Proof",
     "version": 7.0,
     "id": 15047,
@@ -1352,6 +1397,7 @@
     "effects": []
   },
   "15048": {
+    "disabled": true,
     "name": "Heart of the Furnace",
     "version": 7.0,
     "id": 15048,
