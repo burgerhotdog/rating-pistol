@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
 
@@ -22,9 +22,7 @@ const isValid = ({ gameId, charId, team }) => team
     }
 
     // charId must have build
-    if (member.id === charId) {
-      if (!member.build?.equipList) return;
-    }
+    if (member.id === charId && !member.build?.equipList) return;
 
     return true;
   });
@@ -61,7 +59,9 @@ export const useSimulation = (team) => {
 
       if (data.userSnapshots) {
         worker.terminate();
-        if (workerRef.current === worker) workerRef.current = null;
+        if (workerRef.current === worker) {
+          workerRef.current = null;
+        }
       }
     };
 
@@ -69,7 +69,9 @@ export const useSimulation = (team) => {
 
     return () => {
       worker.terminate();
-      if (workerRef.current === worker) workerRef.current = null;
+      if (workerRef.current === worker) {
+        workerRef.current = null;
+      }
     };
   }, [payload]);
 
