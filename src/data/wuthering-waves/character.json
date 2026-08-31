@@ -16348,7 +16348,7 @@
             }
           },
           "stats": {
-            "mv%": 0.85
+            "damageMv%": 0.85
           }
         }
       },
@@ -19150,6 +19150,67 @@
     ],
     "effects": [
       {
+        "mode": "tuneRupture",
+        "key": "rupturousTrail",
+        "apply": {
+          "by": "$team",
+          "when": "tuneResponse",
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "tuneRupture"
+              }
+            }
+          },
+          "duration": 30000,
+          "stacks": 10
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.3"
+            }
+          },
+          "stats": {
+            "tuneMv%": 0.04
+          }
+        },
+        "maxStacks": 30
+      },
+      {
+        "mode": "tuneRupture",
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
+            }
+          },
+          "action": "forteCircuit.3",
+          "times": 5
+        }
+      },
+      {
+        "mode": "tuneRupture",
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
+            }
+          },
+          "action": "forteCircuit.3",
+          "times": 10
+        }
+      },
+      {
+        "mode": "tuneRupture",
         "use": {
           "when": "tuneResponse",
           "filter": {
@@ -20610,7 +20671,7 @@
           {
             "name": "Seraphic Duet Bonus DMG (Per Instance)",
             "damage": {
-              "type": "buff",
+              "type": "tuneRupture",
               "attr": "tuneAmp",
               "multipliers": [
                 {
@@ -20857,7 +20918,7 @@
             }
           },
           "stats": {
-            "mv%": 1.5
+            "damageMv%": 1.5
           }
         },
         "maxStacks": 3
@@ -20947,7 +21008,7 @@
             }
           },
           "stats": {
-            "mv%": 0.5
+            "damageMv%": 0.5
           }
         }
       },
@@ -33410,7 +33471,7 @@
             }
           },
           "stats": {
-            "mv%": 0.2
+            "damageMv%": 0.2
           }
         }
       },
@@ -33423,7 +33484,7 @@
             }
           },
           "stats": {
-            "mv%": 0.2
+            "damageMv%": 0.2
           }
         }
       },
@@ -33480,7 +33541,7 @@
             }
           },
           "stats": {
-            "mv%": 0.2
+            "damageMv%": 0.2
           }
         }
       }
@@ -38957,7 +39018,7 @@
             }
           },
           "stats": {
-            "mv%": 0.2
+            "damageMv%": 0.2
           }
         }
       },
@@ -38973,7 +39034,7 @@
             }
           },
           "stats": {
-            "mv%": 0.3
+            "damageMv%": 0.3
           }
         }
       }
@@ -46633,7 +46694,7 @@
             }
           },
           "stats": {
-            "mv%": 1
+            "damageMv%": 1
           }
         }
       },
@@ -46729,7 +46790,7 @@
             }
           },
           "stats": {
-            "mv%": 1
+            "damageMv%": 1
           }
         }
       }
@@ -53137,13 +53198,6 @@
         }
       },
       {
-        "key": "heliacalEmber",
-        "apply": {
-          "by": "$team",
-          "filter": {}
-        }
-      },
-      {
         "use": {
           "when": "hit",
           "filter": {
@@ -55994,7 +56048,7 @@
             }
           },
           "stats": {
-            "mv%": 1.2
+            "damageMv%": 1.2
           }
         }
       },
@@ -56036,7 +56090,7 @@
             }
           },
           "stats": {
-            "mv%": 0.9
+            "damageMv%": 0.9
           }
         }
       },
@@ -56057,7 +56111,7 @@
             }
           },
           "stats": {
-            "mv%": 0.7
+            "damageMv%": 0.7
           }
         }
       }
@@ -57401,7 +57455,7 @@
             }
           },
           "stats": {
-            "mv%": 1.1
+            "damageMv%": 1.1
           }
         }
       },
@@ -63933,7 +63987,7 @@
             }
           },
           "stats": {
-            "mv%": 0.5
+            "damageMv%": 0.5
           }
         }
       },

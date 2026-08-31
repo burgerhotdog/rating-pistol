@@ -102,8 +102,9 @@ export function runApplyEffect(ctx, effect, spec = {}) {
     else if (target in memberEffects) updateState(memberEffects[target]);
   }
 
-  if (effect.apply?.cooldown)
+  if (effect.apply?.cooldown) {
     applyCooldowns[id] = effect.apply.cooldown;
+  }
 }
 
 function advanceEffectState(ctx, state, elapsed) {
