@@ -102,9 +102,18 @@ const STATUSES = {
       }
 
       const currState = negativeStatuses.fusionBurst;
-      if (currState.stacks === maxStacks) {
+      const stacksToPop = hasGameRule(ctx, 'aemeathFusionBurst') ? 5 : maxStacks;
+      if (currState.stacks >= stacksToPop) {
+        currState.stacks = maxStacks;
         if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState));
         delete negativeStatuses.fusionBurst;
+        if (hasGameRule(ctx, 'aemeathFusionBurst')) {
+          negativeStatuses.fusionBurst = {
+            status,
+            stacks: 1,
+            timeLeft: 15000,
+          };
+        }
       }
     },
     advance: (ctx, elapsed) => {
@@ -113,6 +122,13 @@ const STATUSES = {
       currState.timeLeft -= elapsed;
       if (currState.timeLeft <= 0) {
         delete negativeStatuses.fusionBurst;
+        if (hasGameRule(ctx, 'aemeathFusionBurst')) {
+          negativeStatuses.fusionBurst = {
+            status: STATUSES.fusionBurst,
+            stacks: 1,
+            timeLeft: 15000,
+          };
+        }
       }
     },
   },

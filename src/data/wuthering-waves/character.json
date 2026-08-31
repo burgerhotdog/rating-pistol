@@ -19190,6 +19190,35 @@
         "maxStacks": 30
       },
       {
+        "stores": "global",
+        "gameRule": "aemeathFusionBurst"
+      },
+      {
+        "mode": "fusionBurst",
+        "key": "fusionTrail",
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "fusionBurst"
+                }
+              }
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "fusionBurstDmgAmp%": 0.1
+          }
+        },
+        "maxStacks": 30
+      },
+      {
         "mode": "tuneRupture",
         "use": {
           "when": "start",
@@ -22421,7 +22450,10 @@
       "duration": 5630
     },
     "teamPreset": [
-      1210,
+      {
+        "id": 1210,
+        "mode": "fusionBurst"
+      },
       1211,
       1508
     ]
