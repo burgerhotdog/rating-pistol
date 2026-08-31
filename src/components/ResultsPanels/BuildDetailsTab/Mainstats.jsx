@@ -105,38 +105,27 @@ const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
 };
 
 const Mainstats = ({ results }) => {
-  const { configMap, userConfigKey, dpsProgression } = results;
+  const { configMap, userConfigKey } = results;
   const { gameId } = useParams();
-  if (!configMap) return null;
 
-  const entries = Object.entries(configMap);
-  const total = entries.reduce((sum, [, c]) => sum + c.count, 0);
-  const sorted = entries.slice().sort(([, a], [, b]) => b.count - a.count);
-  const userIdx = sorted.findIndex(([k]) => k === userConfigKey);
-
-  const ordered = userIdx >= 0
-    ? [sorted[userIdx], ...sorted.filter((_, i) => i !== userIdx)]
-    : sorted;
-
-  const userRank = userIdx >= 0 ? userIdx + 1 : null;
+  const data = Object.entries(configMap)
+    .filter(([, a]) => a.count >= 50)
+    .sort(([, a], [, b]) => b.count - a.count);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader
-        title="Mainstat Distribution"
-        subheader={`Your config ranks #${userRank} of ${sorted.length} · ${total.toLocaleString()} builds simulated for ${dpsProgression.at(-1).day} days`}
-      />
+      <CardHeader title="Mainstat Distribution" />
       <CardContent component={Stack} sx={{ flex: 1 }}>
-        <Stack spacing={0.25}>
-          {ordered.map(([key, config]) => (
+        <Stack spacing={0.5}>
+          {data.map(([key, config]) => (
             <ConfigRow
               key={key}
               gameId={gameId}
               configKey={key}
               isUser={key === userConfigKey}
               count={config.count}
-              total={total}
-              pct={config.count / total}
+              total={1000}
+              pct={config.count / 1000}
             />
           ))}
         </Stack>
