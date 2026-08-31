@@ -19150,6 +19150,18 @@
     ],
     "effects": [
       {
+        "key": "stardustResonance",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
         "mode": "tuneRupture",
         "key": "rupturousTrail",
         "apply": {
@@ -19198,12 +19210,21 @@
         "use": {
           "when": "start",
           "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1"
-              ]
-            }
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "forteCircuit.0",
+                    "forteCircuit.1"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "stardustResonance"
+                }
+              }
+            ]
           },
           "action": "forteCircuit.3",
           "times": 10
@@ -19221,6 +19242,66 @@
             }
           },
           "action": "forteCircuit.2"
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.4",
+                "normalAttack.5",
+                "resonanceSkill.6",
+                "resonanceSkill.7"
+              ]
+            }
+          },
+          "stats": {
+            "dmgAmp%": 2
+          }
+        }
+      },
+      {
+        "mode": "tuneRupture",
+        "key": "betweenTheStars",
+        "apply": {
+          "by": "$team",
+          "when": "tuneResponse",
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "tuneRupture"
+              }
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": 0.2
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "mode": "tuneRupture",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "betweenTheStars": 3
+                }
+              },
+              {
+                "action": {
+                  "ref": "resonanceLiberation.1"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "dmgAmp%": 0.25
+          }
         }
       },
       {
