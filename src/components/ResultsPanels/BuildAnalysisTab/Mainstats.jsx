@@ -12,29 +12,13 @@ import {
 } from '@mui/material';
 import { alpha } from '@mui/material/styles';
 import { ATTR_ASSETS } from '@/assets';
+import { useAccent } from '@/hooks';
 import { formatStr } from '@/utils';
 
-const IconRow = ({ gameId, slots }) => {
-  return (
-    <Card>
-      {slots.map((statId, i) =>
-        <Tooltip key={i} title={formatStr(statId)}>
-          <IconButton>
-            <Avatar
-              src={ATTR_ASSETS[gameId][statId.replace('%', '')]}
-              alt={formatStr(statId)}
-              sx={{ width: 32, height: 32 }}
-            />
-          </IconButton>
-        </Tooltip>
-      )}
-    </Card>
-  )
-};
+const ConfigRow = ({ configKey, isUser, count, total, pct }) => {
+  const { gameId } = useParams();
+  const accent = useAccent();
 
-const USER_COLOR = '#BA7517';
-
-const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
   const slots = configKey.split('|');
 
   return (
@@ -47,33 +31,47 @@ const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
         py: 0.5,
         borderRadius: 1.5,
         border: '0.5px solid',
-        borderColor: isUser ? alpha(USER_COLOR, 0.35) : 'transparent',
-        bgcolor: isUser ? alpha(USER_COLOR, 0.06) : 'transparent',
+        borderColor: isUser ? alpha(accent, 0.35) : 'transparent',
+        bgcolor: isUser ? alpha(accent, 0.06) : 'transparent',
         cursor: 'pointer',
         transition: 'background-color 0.15s',
         '&:hover': {
-          bgcolor: isUser ? alpha(USER_COLOR, 0.09) : 'action.hover',
+          bgcolor: isUser ? alpha(accent, 0.09) : 'action.hover',
         },
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
         <Box sx={{ display: 'flex', flex: 1, flexWrap: 'wrap' }}>
-          <IconRow gameId={gameId} slots={slots} />
+          <Card>
+            {slots.map((statId, i) =>
+              <Tooltip key={i} title={formatStr(statId)}>
+                <IconButton>
+                  <Avatar
+                    src={ATTR_ASSETS[gameId][statId.replace('%', '')]}
+                    alt={formatStr(statId)}
+                    sx={{ width: 32, height: 32 }}
+                  />
+                </IconButton>
+              </Tooltip>
+            )}
+          </Card>
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, flexShrink: 0 }}>
           {isUser && (
-            <Box sx={{
-              bgcolor: alpha(USER_COLOR, 0.12),
-              color: USER_COLOR,
-              border: '0.5px solid',
-              borderColor: alpha(USER_COLOR, 0.4),
-              borderRadius: 0.75,
-              px: 0.75,
-              fontSize: 10,
-              fontWeight: 500,
-              lineHeight: 1.8,
-            }}>
+            <Box
+              sx={{
+                bgcolor: alpha(accent, 0.12),
+                color: accent,
+                border: '0.5px solid',
+                borderColor: alpha(accent, 0.4),
+                borderRadius: 0.75,
+                px: 0.75,
+                fontSize: 10,
+                fontWeight: 500,
+                lineHeight: 1.8,
+              }}
+            >
               you
             </Box>
           )}
@@ -95,7 +93,7 @@ const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
           sx={{
             height: '100%',
             width: `${pct * 100}%`,
-            bgcolor: isUser ? USER_COLOR : 'primary.main',
+            bgcolor: isUser ? accent : 'primary.main',
             borderRadius: 1,
           }}
         />
@@ -106,7 +104,6 @@ const ConfigRow = ({ gameId, configKey, isUser, count, total, pct }) => {
 
 const Mainstats = ({ results }) => {
   const { configMap, userConfigKey } = results;
-  const { gameId } = useParams();
 
   const data = Object.entries(configMap)
     .filter(([, a]) => a.count >= 50)
@@ -115,12 +112,11 @@ const Mainstats = ({ results }) => {
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader title="Mainstat Distribution" />
-      <CardContent component={Stack} sx={{ flex: 1 }}>
-        <Stack spacing={0.5}>
+      <CardContent component={Stack} sx={{ flex: 1, overflow: 'hidden' }}>
+        <Stack spacing={0.5} sx={{ overflow: 'auto' }}>
           {data.map(([key, config]) => (
             <ConfigRow
               key={key}
-              gameId={gameId}
               configKey={key}
               isUser={key === userConfigKey}
               count={config.count}

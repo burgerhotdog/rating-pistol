@@ -10,6 +10,8 @@ import {
   DialogTitle,
   Paper,
   Stack,
+  ToggleButton,
+  ToggleButtonGroup,
   Typography,
 } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
@@ -25,26 +27,46 @@ import {
 import { useAccent, useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
-function buildData(gameId, setDatas, setResults, userDps) {
+// the set the user actually has 4 pieces of equipped, if any
+function getUserSetId(setCounts = {}) {
+  const entry = Object.entries(setCounts).find(([, count]) => count >= 4);
+  return entry ? Number(entry[0]) : null;
+}
+
+function limitSets(entries, userSetId) {
+  const top = entries.slice(0, 8);
+  if (userSetId == null || top.some(({ setId }) => setId === userSetId)) {
+    return top;
+  }
+
+  const userEntry = entries.find(({ setId }) => setId === userSetId);
+  if (!userEntry) return top;
+
+  return [...top.slice(0, 7), userEntry].sort((a, b) => b.dps - a.dps);
+}
+
+function buildData(gameId, setDatas, setResults, userDps, userSetId) {
   const dataEntries = Object.entries(setResults)
     .map(([id, dps]) => ({ setId: Number(id), dps }))
-    .sort((a, b) => b.dps - a.dps)
-    .slice(0, 8);
+    .sort((a, b) => b.dps - a.dps);
 
-  return dataEntries.map(({ setId, dps }) => {
+  const limitedEntries = limitSets(dataEntries, userSetId);
+
+  return limitedEntries.map(({ setId, dps }) => {
     return {
       setId,
       name: setDatas[setId].name,
       icon: setDatas[setId].icon,
       dps,
       pct: (dps / userDps) * 100,
+      isUser: setId === userSetId,
     };
   });
 }
 
-function buildFullData(gameId, setDatas, weaponResults, userDps) {
-  const dataEntries = Object.entries(weaponResults)
-    .flatMap(([id, dps]) => ({ setId: Number(id), dps }))
+function buildFullData(gameId, setDatas, setResults, userDps, userSetId) {
+  const dataEntries = Object.entries(setResults)
+    .map(([id, dps]) => ({ setId: Number(id), dps }))
     .sort((a, b) => b.dps - a.dps);
 
   return dataEntries.map(({ setId, dps }) => {
@@ -54,29 +76,78 @@ function buildFullData(gameId, setDatas, weaponResults, userDps) {
       icon: setDatas[setId].icon,
       dps,
       pct: (dps / userDps) * 100,
+      isUser: setId === userSetId,
     };
   });
 }
 
+const renderTooltip = ({ payload, label }) => {
+  const { dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
+  return (
+    <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+      <Typography variant="caption" color="textSecondary">
+        {label}
+      </Typography>
+      <Typography variant="caption" sx={{ display: 'block' }}>
+        {formatNum(dps)} dps · {pct.toFixed(0)}% of your build
+      </Typography>
+      {isUser && (
+        <Typography variant="caption" color="warning.main" sx={{ display: 'block', fontWeight: 600 }}>
+          Your pick
+        </Typography>
+      )}
+    </Paper>
+  );
+};
+
 const Set = ({ results }) => {
-  const { setResults, userDps } = results;
+  const { setResults, userDps, userMember } = results;
   const { gameId } = useParams();
   const { palette } = useTheme();
   const setDatas = useData('set');
   const accent = useAccent();
   const [open, setOpen] = useState(false);
+  const [mode, setMode] = useState('dps');
 
-  const data = buildData(gameId, setDatas, setResults, userDps);
-  const fullData = buildFullData(gameId, setDatas, setResults, userDps);
+  const userSetId = getUserSetId(userMember?.setCounts);
+  const data = buildData(gameId, setDatas, setResults, userDps, userSetId);
+  const fullData = buildFullData(gameId, setDatas, setResults, userDps, userSetId);
+
+  const valueKey = mode === 'pct' ? 'pct' : 'dps';
+  const tickFormatter = (v) => (mode === 'pct' ? `${Math.round(v)}%` : formatDmg(v));
+
+  const barShape = (props) => {
+    const { isUser, ...rest } = props;
+    return (
+      <Rectangle
+        {...rest}
+        fill={accent}
+        fillOpacity={isUser ? 1 : 0.6}
+        stroke={isUser ? palette.text.primary : 'none'}
+        strokeWidth={isUser ? 2 : 0}
+      />
+    );
+  };
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
         title="Sets"
         action={
-          <Button onClick={() => setOpen(true)}>
-            View all
-          </Button>
+          <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
+            <ToggleButtonGroup
+              exclusive
+              value={mode}
+              onChange={(_, value) => value && setMode(value)}
+            >
+              <ToggleButton value="dps">DPS</ToggleButton>
+              <ToggleButton value="pct">%</ToggleButton>
+            </ToggleButtonGroup>
+
+            <Button onClick={() => setOpen(true)}>
+              View all
+            </Button>
+          </Stack>
         }
       />
 
@@ -94,20 +165,12 @@ const Set = ({ results }) => {
 
           <YAxis
             type="number"
-            tickFormatter={(v) => formatDmg(v)}
+            tickFormatter={tickFormatter}
           />
 
           <Bar
-            dataKey="dps"
-            shape={(props) => {
-              return (
-                <Rectangle
-                  {...props}
-                  fill={accent}
-                  fillOpacity={0.6}
-                />
-              );
-            }}
+            dataKey={valueKey}
+            shape={barShape}
           >
             <LabelList
               content={({ x, y, width, height, index }) => {
@@ -133,19 +196,7 @@ const Set = ({ results }) => {
           </Bar>
 
           <Tooltip
-            content={({ payload, label }) => {
-              const { dps = [] } = payload?.[0]?.payload ?? {};
-              return (
-                <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
-                  <Typography variant="caption" color="textSecondary">
-                    {label}: {' '}
-                  </Typography>
-                  <Typography variant="caption">
-                    {formatNum(dps)}
-                  </Typography>
-                </Paper>
-              );
-            }}
+            content={renderTooltip}
             cursor={{ fill: alpha(palette.text.primary, 0.1) }}
             isAnimationActive={false}
           />
@@ -176,20 +227,12 @@ const Set = ({ results }) => {
 
             <YAxis
               type="number"
-              tickFormatter={(v) => formatDmg(v)}
+              tickFormatter={tickFormatter}
             />
 
             <Bar
-              dataKey="dps"
-              shape={(props) => {
-                return (
-                  <Rectangle
-                    {...props}
-                    fill={accent}
-                    fillOpacity={0.6}
-                  />
-                );
-              }}
+              dataKey={valueKey}
+              shape={barShape}
             >
               <LabelList
                 content={({ x, y, width, height, index }) => {
@@ -215,19 +258,7 @@ const Set = ({ results }) => {
             </Bar>
 
             <Tooltip
-              content={({ payload, label }) => {
-                const { dps = 0 } = payload?.[0]?.payload ?? {};
-                return (
-                  <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
-                    <Typography variant="caption" color="textSecondary">
-                      {label}: {' '}
-                    </Typography>
-                    <Typography variant="caption">
-                      {formatNum(dps)}
-                    </Typography>
-                  </Paper>
-                );
-              }}
+              content={renderTooltip}
               cursor={{ fill: alpha(palette.text.primary, 0.1) }}
               isAnimationActive={false}
             />

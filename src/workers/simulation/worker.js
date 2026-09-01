@@ -77,6 +77,7 @@ self.onmessage = async ({ data }) => {
     userMember: {
       weaponId: cache.member[cache.charId].weaponId,
       weaponRank: cache.member[cache.charId].weaponRank,
+      setCounts: cache.member[cache.charId].setCounts,
     },
   });
 };
