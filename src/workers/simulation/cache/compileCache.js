@@ -1,5 +1,5 @@
 import { WW, CHARACTER, WEAPON, ECHO } from '@/data';
-import { toMergedObj, buildEquipMap, buildBaseMap } from '@/utils';
+import { toMergedObj, buildEquipMap, buildBaseMap, buildMenuMap } from '@/utils';
 import { getActionDefs } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
@@ -114,6 +114,7 @@ export const compileCache = ({ gameId, charId, team }) => {
       mCache.equipList = member.build.equipList;
       mCache.equipMap = buildEquipMap(mCache.equipList);
       mCache.statMap = toMergedObj(mCache.baseMap, mCache.equipMap);
+      mCache.menuMap = buildMenuMap(gameId, member.id, team, { baseMap: mCache.baseMap, equipMap: mCache.equipMap });
     }
 
     const actionDefs = getActionDefs(gameId, member, cache.teamSize);

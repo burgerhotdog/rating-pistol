@@ -1,13 +1,7 @@
-import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON } from '@/data';
-import {
-  buildBaseMap,
-  getAttr,
-  getTotals,
-  isEnabledWeap,
-  toMergedObj,
-} from '@/utils';
-import { runRotation } from './rotation';
-import { normEffect } from './cache/effects';
+import { CHARACTER, WEAPON } from '@/data';
+import { buildBaseMap, isEnabledWeap, toMergedObj } from '@/utils';
+import { normEffect, resolveEffectTokens } from './cache/effects';
+import { runVariantDps } from './variantDps';
 
 function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weaponRank, memberIds) {
   const normalized = {};
@@ -30,182 +24,37 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
     normalized[effect.id] = effect;
   }
 
-  // Resolve tokens
-  const resolveEffectId = (key, sourceId) =>
-    key.includes(':')
-      ? key
-      : Object.values(normalized)
-        .filter((effect) => effect.sourceId === sourceId)
-        .find((effect) => effect.key === key).id;
-
-  function walkBooleanTree(node, onLeaf) {
-    if (node == null || typeof node !== 'object') return;
-    if (Array.isArray(node)) {
-      node.forEach((n) => walkBooleanTree(n, onLeaf));
-      return;
-    }
-    if ('and' in node) {
-      node.and.forEach((n) => walkBooleanTree(n, onLeaf));
-      return;
-    }
-    if ('or' in node) {
-      node.or.forEach((n) => walkBooleanTree(n, onLeaf));
-      return;
-    }
-    if ('not' in node) {
-      walkBooleanTree(node.not, onLeaf);
-      return;
-    }
-    onLeaf(node);
-  }
-
-  function traverseFilter(node, sourceId) {
-    walkBooleanTree(node, (leaf) => {
-      if ('has' in leaf) return; // generic has (e.g. action.has) - not an effect reference
-
-      const [key, value] = Object.entries(leaf)[0];
-      if (key === 'effectStacks') {
-        resolveEffectStacksKeys(value, sourceId);
-        return;
-      }
-      traverseFilter(value, sourceId);
-    });
-  }
-
-  function resolveEffectStacksKeys(value, sourceId) {
-    walkBooleanTree(value, (leaf) => {
-      if ('has' in leaf) {
-        if (Array.isArray(leaf.has)) {
-          leaf.has = leaf.has.map((key) => resolveEffectId(key, sourceId));
-        } else if (leaf.has !== '*') {
-          leaf.has = resolveEffectId(leaf.has, sourceId);
-        }
-        return;
-      }
-
-      // remaining keys are effect ids being compared (stacks thresholds etc.)
-      for (const key of Object.keys(leaf)) {
-        const comparison = leaf[key];
-        delete leaf[key];
-        leaf[resolveEffectId(key, sourceId)] = comparison;
-      }
-    });
-  }
-
-  for (const effect of Object.values(normalized)) {
-    const { sourceId } = effect;
-
-    for (const field in effect) {
-      if (/^on[A-Z]\w*Do[A-Z]\w*$/.test(field)) {
-        const resolved = {};
-        for (const [key, stacks] of Object.entries(effect[field])) {
-          const id = resolveEffectId(key, sourceId);
-          resolved[id] = stacks;
-        }
-        effect[field] = resolved;
-      }
-    }
-
-    if (effect.apply?.filter) {
-      traverseFilter(effect.apply.filter, sourceId);
-    }
-
-    if (effect.remove?.filter) {
-      traverseFilter(effect.remove.filter, sourceId);
-    }
-
-    if (effect.use?.filter) {
-      traverseFilter(effect.use.filter, sourceId);
-    }
-
-    if (effect.buff?.filter) {
-      traverseFilter(effect.buff.filter, sourceId);
-    }
-  }
-
-
-  return normalized;
+  return resolveEffectTokens(normalized);
 }
-
-function getModifiedCache(cache, charId, weapon, weaponRank) {
-  const moddedCache = { ...cache };
-
-  const baseMap = buildBaseMap(cache.gameId, charId, weapon.id);
-  const equipMap = cache.member[charId].equipMap;
-  const statMap = toMergedObj(baseMap, equipMap);
-
-  moddedCache.member = {
-    ...cache.member,
-    [charId]: {
-      ...cache.member[charId],
-      baseMap,
-      statMap,
-      concertoPenalty: CHARACTER[cache.gameId][charId].concertoReq && !WEAPON[cache.gameId][weapon.id]?.concerto,
-    },
-  };
-
-  const weaponEffects = getNormalizedWeaponEffects(weapon.effects, cache.gameId, charId, weapon.id, weaponRank, cache.memberIds);
-  const moddedEffects = { ...weaponEffects };
-  for (const effect of Object.values(cache.effects)) {
-    if (effect.sourceId !== cache.member[charId].weaponId) {
-      moddedEffects[effect.id] = effect;
-    }
-  }
-
-  moddedCache.effects = moddedEffects;
-
-  return moddedCache;
-}
-
-const ENERGY_ATTR = {
-  [GI]: 'energyRecharge%',
-  [HSR]: 'energyRegenerationRate%',
-  [WW]: 'energyRegen%',
-  [ZZZ]: 'energyRegen%',
-};
 
 export function weaponTests(cache, equipMaps, charId) {
-  // er penalty
-  const energyAttr = ENERGY_ATTR[cache.gameId];
   const mCache = cache.member[charId];
+  const charData = CHARACTER[cache.gameId][charId];
+  const weapDatas = WEAPON[cache.gameId];
 
-  const energyReq = getAttr(energyAttr, mCache.statMap);
+  const nonWeapEffects = Object.fromEntries(
+    Object.entries(cache.effects)
+      .filter(([, effect]) => effect.sourceId !== mCache.weaponId)
+  );
 
-  function getPenalty(testStatMap) {
-    if (!mCache.energy) return 1;
-
-    const testEnergy = getAttr(energyAttr, testStatMap);
-    if (testEnergy >= energyReq) return 1;
-
-    const testCharDuration = mCache.duration * (energyReq / testEnergy);
-    const addedTime = testCharDuration - mCache.duration;
-    return cache.rotationDuration / (cache.rotationDuration + addedTime);
-  }
-
-  // weapons to test
-  const allowedWeaponType = CHARACTER[cache.gameId][charId].type;
-  const weaponsToTest = Object.values(WEAPON[cache.gameId])
-    .filter((weapon) => weapon.type === allowedWeaponType);
+  const weapDatasToTest = Object.values(weapDatas)
+    .filter((weapData) => weapData.type === charData.type);
 
   const weaponResults = {};
 
-  for (const weapon of weaponsToTest) {
-    // R1
-    const moddedCacheR1 = getModifiedCache(cache, charId, weapon, 1);
-    const concertoExtraTime = moddedCacheR1.member[charId].concertoPenalty
-      ? ((100 / 92) * moddedCacheR1.member[charId].duration - moddedCacheR1.member[charId].duration)
-      : 0;
-    const testSnapshotsR1 = runRotation(moddedCacheR1, equipMaps);
-    const rawDpsR1 = getTotals(testSnapshotsR1).damage / (cache.rotationDuration + concertoExtraTime) * 1000;
-    const dpsR1 = rawDpsR1 * getPenalty(moddedCacheR1.member[charId].statMap);
+  for (const weapData of weapDatasToTest) {
+    const baseMap = buildBaseMap(cache.gameId, charId, weapData.id);
+    const statMap = toMergedObj(baseMap, mCache.equipMap);
 
-    // R5
-    const moddedCacheR5 = getModifiedCache(cache, charId, weapon, 5);
-    const testSnapshotsR5 = runRotation(moddedCacheR5, equipMaps);
-    const rawDpsR5 = getTotals(testSnapshotsR5).damage / (cache.rotationDuration + concertoExtraTime) * 1000;
-    const dpsR5 = rawDpsR5 * getPenalty(moddedCacheR5.member[charId].statMap);
+    const concertoPenalty = charData.concertoReq && !weapDatas[weapData.id]?.concerto;
+    const memberOverride = { baseMap, statMap, concertoPenalty };
 
-    weaponResults[weapon.id] = [dpsR1, dpsR5];
+    weaponResults[weapData.id] = [1, 5].map((weaponRank) => {
+      const weaponEffects = getNormalizedWeaponEffects(weapData.effects, cache.gameId, charId, weapData.id, weaponRank, cache.memberIds);
+      const effects = { ...nonWeapEffects, ...weaponEffects };
+
+      return runVariantDps(cache, equipMaps, charId, { effects, memberOverride });
+    });
   }
 
   return weaponResults;

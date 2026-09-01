@@ -1,9 +1,8 @@
 import { mean } from 'simple-statistics';
-import { SUBSTAT, MISC } from '@/data';
-import { buildEquipMap } from '@/utils';
+import { MISC } from '@/data';
+import { buildEquipListConfigs, buildEquipMap } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { createAdvanceTrial } from './advance';
-import { getSubRollSums, getMainConfig } from '../utils';
 
 let advanceTrial;
 let trials;
@@ -60,23 +59,8 @@ self.onmessage = ({ data }) => {
       }
 
       // Full run: report the config tally at day 100
-      const configMap = {};
-
-      for (const trial of trials) {
-        const configKey = getMainConfig(gameId, trial.equipList);
-
-        configMap[configKey] ??= { count: 0, dpsDist: [], subDist: {} };
-        configMap[configKey].count++;
-        configMap[configKey].dpsDist.push(trial.dps);
-
-        const subDist = configMap[configKey].subDist;
-        const rollMap = getSubRollSums(gameId, trial.equipList, true);
-        for (const id in SUBSTAT[gameId]) {
-          (subDist[id] ??= []).push(rollMap[id] ?? 0);
-        }
-      }
-
-      return self.postMessage({ type: 'configMap', configMap });
+      const partialEquipListConfigs = buildEquipListConfigs(gameId, trials);
+      return self.postMessage({ type: 'partialEquipListConfigs', partialEquipListConfigs });
     }
   }
 };

@@ -1,5 +1,5 @@
 import { mean } from 'simple-statistics';
-import { fitDecay } from '@/utils';
+import { fitDecay, mergeEquipListConfigs } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { findBestPossibleEquipMap } from './bestEquipMap';
 
@@ -30,27 +30,12 @@ function runContinuous(workers, dpsCeil, isMainChar) {
     const remainingHistory = [];
     let doneCount = 0;
     let meanEquipMap = null;
-    let configMap = null;
+    const partialEquipListConfigsList = [];
 
     const mergeMeanEquipMap = (partial) => {
       meanEquipMap ??= {};
       for (const id in partial) {
         meanEquipMap[id] = (meanEquipMap[id] ?? 0) + partial[id] / workers.length;
-      }
-    };
-
-    const mergeConfigMap = (partial) => {
-      configMap ??= {};
-      for (const configKey in partial) {
-        const src = partial[configKey];
-        configMap[configKey] ??= { count: 0, dpsDist: [], subDist: {} };
-        const dst = configMap[configKey];
-        dst.count += src.count;
-        dst.dpsDist.push(...src.dpsDist);
-
-        for (const id in src.subDist) {
-          (dst.subDist[id] ??= []).push(...src.subDist[id]);
-        }
       }
     };
 
@@ -90,12 +75,12 @@ function runContinuous(workers, dpsCeil, isMainChar) {
           break;
         }
 
-        case 'configMap': {
-          mergeConfigMap(data.configMap);
-          doneCount++;
+        case 'partialEquipListConfigs': {
+          partialEquipListConfigsList.push(data.partialEquipListConfigs);
 
-          if (doneCount === workers.length) {
-            resolve({ dpsUpdates, remainingHistory, configMap });
+          if (partialEquipListConfigsList.length === workers.length) {
+            const equipListConfigs = mergeEquipListConfigs(partialEquipListConfigsList);
+            resolve({ dpsUpdates, remainingHistory, equipListConfigs });
           }
 
           break;
@@ -140,6 +125,6 @@ export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
     dpsProgression,
     dpsCeiling: dpsCeil,
     fit,
-    configMap: result.configMap,
+    equipListConfigs: result.equipListConfigs,
   };
 }

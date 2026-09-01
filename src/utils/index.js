@@ -4,6 +4,7 @@ export * from './format';
 export * from './init';
 export * from './randomStat';
 export * from './resolve';
+export * from './equipListConfig';
 
 export * from './estimateTrajectory';
 export * from './getAttr';

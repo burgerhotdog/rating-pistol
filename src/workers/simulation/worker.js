@@ -1,13 +1,16 @@
 import {
+  computeConcertoExtraTime,
   computeDps,
-  estimateDps,
   estimateDay,
+  estimateDps,
+  getMainstatConfigKey,
+  sumSubstatRolls,
 } from '@/utils';
 import { compileCache } from './cache';
 import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
-import { getSubRollSums, getMainConfig } from './utils';
 import { weaponTests } from './weaponTests';
+import { setTests } from './setTests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -33,18 +36,18 @@ async function resolveEquipMaps(cache, allowBlank = false) {
 }
 
 self.onmessage = async ({ data }) => {
-  self.postMessage({ status: 'Starting simulation' });
-
   self.postMessage({ status: 'Compiling cache' });
+
+  console.time('compileCache');
   const cache = compileCache(data);
+  console.timeEnd('compileCache');
+
   const equipMaps = await resolveEquipMaps(cache);
 
   // Sanity check
   self.postMessage({ status: 'Checking rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
-  const concertoExtraTime = cache.member[cache.charId].concertoPenalty
-    ? ((100 / 92) * cache.member[cache.charId].duration - cache.member[cache.charId].duration)
-    : 0;
+  const concertoExtraTime = computeConcertoExtraTime(cache.member[cache.charId]);
   const userDps = computeDps(userSnapshots, cache.rotationDuration + concertoExtraTime);
   if (Number.isNaN(userDps)) {
     console.log(userDps);
@@ -52,28 +55,39 @@ self.onmessage = async ({ data }) => {
     throw new Error('error');
   }
 
+  console.time('runTrials');
   const results = await runTrials(cache, equipMaps, cache.charId, true);
+  console.timeEnd('runTrials');
 
   const { benchmarkDay, benchmarkDps } = findBenchmark(results.dpsProgression, results.fit, results.dpsCeiling);
+
+  console.time('weaponTests');
   const weaponResults = weaponTests(cache, equipMaps, cache.charId);
+  console.timeEnd('weaponTests');
+
+  console.time('setTests');
+  const setResults = setTests(cache, equipMaps, cache.charId);
+  console.timeEnd('setTests');
 
   self.postMessage({
     dpsProgression: results.dpsProgression,
     dpsCeiling: results.dpsCeiling,
     fit: results.fit,
-    configMap: results.configMap,
+    equipListConfigs: results.equipListConfigs,
     userSnapshots,
     userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
     userDps,
     benchmarkDay,
     benchmarkDps,
-    userConfigKey: getMainConfig(cache.gameId, cache.member[cache.charId].equipList),
-    userSubStats: getSubRollSums(cache.gameId, cache.member[cache.charId].equipList),
+    userMainstatConfigKey: getMainstatConfigKey(cache.gameId, cache.member[cache.charId].equipList),
+    userSubstatRolls: sumSubstatRolls(cache.gameId, cache.member[cache.charId].equipList),
     memberIds: cache.memberIds,
     weaponResults,
+    setResults,
     userMember: {
       weaponId: cache.member[cache.charId].weaponId,
       weaponRank: cache.member[cache.charId].weaponRank,
+      setCounts: cache.member[cache.charId].setCounts,
     },
   });
 };

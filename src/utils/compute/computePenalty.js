@@ -13,3 +13,13 @@ export function computePenaltyTimeCoef(gameId, sourceStatMap, testStatMap) {
 
   return energyReq / energyValue;
 }
+
+// Scales dps down to account for the extra time needed to reach full energy on testStatMap
+export function computeEnergyPenalty(gameId, rotationDuration, sourceDuration, sourceStatMap, testStatMap) {
+  const timeCoef = computePenaltyTimeCoef(gameId, sourceStatMap, testStatMap);
+  if (timeCoef === 1) return 1;
+
+  const addedTime = sourceDuration * (timeCoef - 1);
+  return rotationDuration / (rotationDuration + addedTime);
+}
+
