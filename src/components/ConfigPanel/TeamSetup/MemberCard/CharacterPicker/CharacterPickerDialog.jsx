@@ -105,12 +105,7 @@ const CharacterPickerDialog = ({ open, onClose, onSelect, allyIds }) => {
 
       <DialogContent
         dividers
-        sx={{
-          height: '80vh',
-          scrollbarGutter: 'stable',
-          scrollbarWidth: 'thin',
-          scrollbarColor: (theme) => `${theme.palette.grey[600]} transparent`,
-        }}
+        sx={{ height: '80vh', scrollbarGutter: 'stable' }}
       >
         <Box
           sx={{

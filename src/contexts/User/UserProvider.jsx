@@ -29,8 +29,7 @@ export const UserProvider = ({ children }) => {
       if (!userData['pinned-ids']) missing['pinned-ids'] = {};
 
       if (Object.keys(missing).length) {
-        setDoc(ref, missing, { merge: true })
-          .catch((err) => console.error(err));
+        setDoc(ref, missing, { merge: true });
       }
     });
 
@@ -38,17 +37,16 @@ export const UserProvider = ({ children }) => {
   }, [user]);
 
   const updateSavedUids = async (gameId, uid) => {
-    if (savedUids[gameId] === uid) return;
+    if (savedUids[gameId] === uid) {
+      return;
+    }
 
     if (user) {
-      updateDoc(ref, { [`saved-uids.${gameId}`]: String(uid) })
-        .catch((err) => console.error(err));
-    } else {
-      setSavedUids((prev) => ({
-        ...prev,
-        [gameId]: uid,
-      }));
+      await updateDoc(ref, { [`saved-uids.${gameId}`]: String(uid) });
+      return;
     }
+
+    setSavedUids((prev) => ({ ...prev, [gameId]: uid }));
   };
 
   const updatePinnedIds = async (gameId, id) => {
@@ -56,16 +54,21 @@ export const UserProvider = ({ children }) => {
     const op = isPinned ? deleteField() : String(id);
 
     if (user) {
-      updateDoc(ref, { [`pinned-ids.${gameId}`]: op })
-        .catch((err) => console.error(err));
-    } else {
-      setPinnedIds((prev) => {
-        const newState = { ...prev };
-        if (isPinned) delete newState[gameId];
-        else newState[gameId] = id;
-        return newState;
-      });
+      await updateDoc(ref, { [`pinned-ids.${gameId}`]: op });
+      return;
     }
+
+    setPinnedIds((prev) => {
+      const newState = { ...prev };
+
+      if (isPinned) {
+        delete newState[gameId];
+      } else {
+        newState[gameId] = id;
+      }
+
+      return newState;
+    });
   };
 
   return (

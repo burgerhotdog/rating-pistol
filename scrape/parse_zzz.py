@@ -132,6 +132,7 @@ def parse_character(version, id, data):
         stats[stat] = stats.get(stat, 0) + value
 
     return {
+        "disabled": True,
         "name": str(data["name"]),
         "version": float(version),
         "id": int(id),
@@ -149,6 +150,7 @@ def parse_weapon(version, id, data):
     stat = lookup_stat[data["rand_property"]["name"]]
     value = data["rand_property"]["value"] * 2.5
     return {
+        "disabled": True,
         "name": str(data["name"]),
         "version": float(version),
         "id": int(id),
@@ -162,20 +164,22 @@ def parse_weapon(version, id, data):
         "effects": [],
     }
 
+def parse_set(version, id, data):
+    return {
+        "disabled": True,
+        "name": str(data["name"]),
+        "version": float(version),
+        "id": int(id),
+        "icon": f"zenless-zone-zero/set/{id}.webp",
+        "bonuses": [],
+        "effects": [],
+    }
+
 def parse_zzz(type, version, id, data):
     match type:
         case "character":
             return parse_character(version, id, data)
-
         case "weapon":
             return parse_weapon(version, id, data)
-
         case "set":
-            return {
-                "name": str(data["name"]),
-                "version": float(version),
-                "id": int(id),
-                "icon": f"zenless-zone-zero/set/{id}.webp",
-                "bonuses": [],
-                "effects": [],
-            }
+            return parse_set(version, id, data)

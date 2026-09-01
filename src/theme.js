@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material';
+import { grey } from '@mui/material/colors';
 
 const theme = createTheme({
   palette: {
@@ -52,6 +53,14 @@ const theme = createTheme({
     MuiChip: {
       defaultProps: {
         size: 'small',
+      },
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        '*': {
+          scrollbarWidth: 'thin',
+          scrollbarColor: `${grey[600]} transparent`,
+        },
       },
     },
     MuiFormControlLabel: {

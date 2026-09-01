@@ -20,19 +20,43 @@ const Header = () => {
     <CardHeader
       avatar={<Avatar src={charData.icon} alt={charData.name} />}
       title={charData.name}
+      slotProps={{
+        title: {
+          noWrap: true,
+          sx: {
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }
+        }
+      }}
       subheader={(
-        <Stack direction="row" spacing={0.5}>
+        <Stack
+          direction="row"
+          spacing={0.5}
+          sx={{ minWidth: 0, overflow: 'hidden' }}
+        >
           <Chip
             variant="outlined"
             avatar={<Avatar src={element.icon} />}
             label={formatStr(charData.element)}
-            sx={{ fontWeight: 'bold', color: element.color }}
+            sx={{
+              fontWeight: 'bold',
+              color: element.color,
+            }}
           />
           <Chip
             variant="outlined"
             avatar={<Avatar src={type.icon} />}
             label={formatStr(charData.type)}
-            sx={{ fontWeight: 'bold' }}
+            sx={{
+              minWidth: 0,
+              fontWeight: 'bold',
+              '& .MuiChip-label': {
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+              },
+            }}
           />
         </Stack>
       )}
@@ -54,6 +78,12 @@ const Header = () => {
           />
         </Stack>
       )}
+      sx={{
+        '& .MuiCardHeader-content': {
+          minWidth: 0,
+          overflow: 'hidden',
+        },
+      }}
     />
   );
 };

@@ -53,7 +53,7 @@ function buildData(gameId, weapData, weaponResults, userDps, userMember) {
   });
 }
 
-const Weapon = ({ results }) => {
+const Set = ({ results }) => {
   const { weaponResults, userDps, userMember } = results;
   const { gameId } = useParams();
   const { palette, qualityColors } = useTheme();
@@ -64,7 +64,7 @@ const Weapon = ({ results }) => {
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader title="Weapon Comparisons" />
+      <CardHeader title="Set Comparisons" />
       <CardContent component={Stack} sx={{ flex: 1 }}>
         <BarChart
           data={data}
@@ -161,4 +161,4 @@ const Weapon = ({ results }) => {
   );
 };
 
-export default Weapon;
+export default Set;

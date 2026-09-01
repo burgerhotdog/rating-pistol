@@ -1,5 +1,6 @@
 {
   "1001": {
+    "disabled": true,
     "name": "March 7th",
     "version": 1,
     "id": 1001,
@@ -184,6 +185,7 @@
     "memberPreset": {}
   },
   "1002": {
+    "disabled": true,
     "name": "Dan Heng",
     "version": 1,
     "id": 1002,
@@ -349,6 +351,7 @@
     "memberPreset": {}
   },
   "1003": {
+    "disabled": true,
     "name": "Himeko",
     "version": 1,
     "id": 1003,
@@ -514,6 +517,7 @@
     "memberPreset": {}
   },
   "1004": {
+    "disabled": true,
     "name": "Welt",
     "version": 1,
     "id": 1004,
@@ -698,6 +702,7 @@
     "memberPreset": {}
   },
   "1005": {
+    "disabled": true,
     "name": "Kafka",
     "version": 1.2,
     "id": 1005,
@@ -920,6 +925,7 @@
     "memberPreset": {}
   },
   "1006": {
+    "disabled": true,
     "name": "Silver Wolf",
     "version": 1.1,
     "id": 1006,
@@ -1199,6 +1205,7 @@
     "memberPreset": {}
   },
   "1008": {
+    "disabled": true,
     "name": "Arlan",
     "version": 1,
     "id": 1008,
@@ -1364,6 +1371,7 @@
     "memberPreset": {}
   },
   "1009": {
+    "disabled": true,
     "name": "Asta",
     "version": 1,
     "id": 1009,
@@ -1510,6 +1518,7 @@
     "memberPreset": {}
   },
   "1013": {
+    "disabled": true,
     "name": "Herta",
     "version": 1,
     "id": 1013,
@@ -1656,6 +1665,7 @@
     "memberPreset": {}
   },
   "1014": {
+    "disabled": true,
     "name": "Saber",
     "version": 3.4,
     "id": 1014,
@@ -1928,6 +1938,7 @@
     "memberPreset": {}
   },
   "1015": {
+    "disabled": true,
     "name": "Archer",
     "version": 3.4,
     "id": 1015,
@@ -2099,6 +2110,7 @@
     "memberPreset": {}
   },
   "1101": {
+    "disabled": true,
     "name": "Bronya",
     "version": 1,
     "id": 1101,
@@ -2283,6 +2295,7 @@
     "memberPreset": {}
   },
   "1102": {
+    "disabled": true,
     "name": "Seele",
     "version": 1,
     "id": 1102,
@@ -2429,6 +2442,7 @@
     "memberPreset": {}
   },
   "1103": {
+    "disabled": true,
     "name": "Serval",
     "version": 1,
     "id": 1103,
@@ -2613,6 +2627,7 @@
     "memberPreset": {}
   },
   "1104": {
+    "disabled": true,
     "name": "Gepard",
     "version": 1,
     "id": 1104,
@@ -2797,6 +2812,7 @@
     "memberPreset": {}
   },
   "1105": {
+    "disabled": true,
     "name": "Natasha",
     "version": 1,
     "id": 1105,
@@ -3019,6 +3035,7 @@
     "memberPreset": {}
   },
   "1106": {
+    "disabled": true,
     "name": "Pela",
     "version": 1,
     "id": 1106,
@@ -3184,6 +3201,7 @@
     "memberPreset": {}
   },
   "1107": {
+    "disabled": true,
     "name": "Clara",
     "version": 1,
     "id": 1107,
@@ -3368,6 +3386,7 @@
     "memberPreset": {}
   },
   "1108": {
+    "disabled": true,
     "name": "Sampo",
     "version": 1,
     "id": 1108,
@@ -3533,6 +3552,7 @@
     "memberPreset": {}
   },
   "1109": {
+    "disabled": true,
     "name": "Hook",
     "version": 1,
     "id": 1109,
@@ -3763,6 +3783,7 @@
     "memberPreset": {}
   },
   "1110": {
+    "disabled": true,
     "name": "Lynx",
     "version": 1.3,
     "id": 1110,
@@ -4042,6 +4063,7 @@
     "memberPreset": {}
   },
   "1111": {
+    "disabled": true,
     "name": "Luka",
     "version": 1.2,
     "id": 1111,
@@ -4262,6 +4284,7 @@
     "memberPreset": {}
   },
   "1112": {
+    "disabled": true,
     "name": "Topaz & Numby",
     "version": 1.4,
     "id": 1112,
@@ -4446,6 +4469,7 @@
     "memberPreset": {}
   },
   "1201": {
+    "disabled": true,
     "name": "Qingque",
     "version": 1,
     "id": 1201,
@@ -4628,6 +4652,7 @@
     "memberPreset": {}
   },
   "1202": {
+    "disabled": true,
     "name": "Tingyun",
     "version": 1,
     "id": 1202,
@@ -4812,6 +4837,7 @@
     "memberPreset": {}
   },
   "1203": {
+    "disabled": true,
     "name": "Luocha",
     "version": 1.1,
     "id": 1203,
@@ -4996,6 +5022,7 @@
     "memberPreset": {}
   },
   "1204": {
+    "disabled": true,
     "name": "Jing Yuan",
     "version": 1,
     "id": 1204,
@@ -5142,6 +5169,7 @@
     "memberPreset": {}
   },
   "1205": {
+    "disabled": true,
     "name": "Blade",
     "version": 1.2,
     "id": 1205,
@@ -5466,6 +5494,7 @@
     "memberPreset": {}
   },
   "1206": {
+    "disabled": true,
     "name": "Sushang",
     "version": 1,
     "id": 1206,
@@ -5650,6 +5679,7 @@
     "memberPreset": {}
   },
   "1207": {
+    "disabled": true,
     "name": "Yukong",
     "version": 1.1,
     "id": 1207,
@@ -5834,6 +5864,7 @@
     "memberPreset": {}
   },
   "1208": {
+    "disabled": true,
     "name": "Fu Xuan",
     "version": 1.3,
     "id": 1208,
@@ -6018,6 +6049,7 @@
     "memberPreset": {}
   },
   "1209": {
+    "disabled": true,
     "name": "Yanqing",
     "version": 1,
     "id": 1209,
@@ -6259,6 +6291,7 @@
     "memberPreset": {}
   },
   "1210": {
+    "disabled": true,
     "name": "Guinaifen",
     "version": 1.4,
     "id": 1210,
@@ -6462,6 +6495,7 @@
     "memberPreset": {}
   },
   "1211": {
+    "disabled": true,
     "name": "Bailu",
     "version": 1,
     "id": 1211,
@@ -6703,6 +6737,7 @@
     "memberPreset": {}
   },
   "1212": {
+    "disabled": true,
     "name": "Jingliu",
     "version": 1.4,
     "id": 1212,
@@ -6933,6 +6968,7 @@
     "memberPreset": {}
   },
   "1213": {
+    "disabled": true,
     "name": "Dan Heng: Imbibitor Lunae",
     "version": 1.3,
     "id": 1213,
@@ -7199,6 +7235,7 @@
     "memberPreset": {}
   },
   "1214": {
+    "disabled": true,
     "name": "Xueyi",
     "version": 1.6,
     "id": 1214,
@@ -7402,6 +7439,7 @@
     "memberPreset": {}
   },
   "1215": {
+    "disabled": true,
     "name": "Hanya",
     "version": 1.5,
     "id": 1215,
@@ -7567,6 +7605,7 @@
     "memberPreset": {}
   },
   "1217": {
+    "disabled": true,
     "name": "Huohuo",
     "version": 1.5,
     "id": 1217,
@@ -7808,6 +7847,7 @@
     "memberPreset": {}
   },
   "1218": {
+    "disabled": true,
     "name": "Jiaoqiu",
     "version": 2.4,
     "id": 1218,
@@ -8049,6 +8089,7 @@
     "memberPreset": {}
   },
   "1220": {
+    "disabled": true,
     "name": "Feixiao",
     "version": 2.5,
     "id": 1220,
@@ -8371,6 +8412,7 @@
     "memberPreset": {}
   },
   "1221": {
+    "disabled": true,
     "name": "Yunli",
     "version": 2.4,
     "id": 1221,
@@ -8650,6 +8692,7 @@
     "memberPreset": {}
   },
   "1222": {
+    "disabled": true,
     "name": "Lingsha",
     "version": 2.5,
     "id": 1222,
@@ -8948,6 +8991,7 @@
     "memberPreset": {}
   },
   "1223": {
+    "disabled": true,
     "name": "Moze",
     "version": 2.5,
     "id": 1223,
@@ -9113,6 +9157,7 @@
     "memberPreset": {}
   },
   "1224": {
+    "disabled": true,
     "name": "March 7th",
     "version": 2.4,
     "id": 1224,
@@ -9300,6 +9345,7 @@
     "memberPreset": {}
   },
   "1225": {
+    "disabled": true,
     "name": "Fugue",
     "version": 2.7,
     "id": 1225,
@@ -9501,6 +9547,7 @@
     "memberPreset": {}
   },
   "1301": {
+    "disabled": true,
     "name": "Gallagher",
     "version": 2.1,
     "id": 1301,
@@ -9702,6 +9749,7 @@
     "memberPreset": {}
   },
   "1302": {
+    "disabled": true,
     "name": "Argenti",
     "version": 1.5,
     "id": 1302,
@@ -9894,6 +9942,7 @@
     "memberPreset": {}
   },
   "1303": {
+    "disabled": true,
     "name": "Ruan Mei",
     "version": 1.6,
     "id": 1303,
@@ -10078,6 +10127,7 @@
     "memberPreset": {}
   },
   "1304": {
+    "disabled": true,
     "name": "Aventurine",
     "version": 2.1,
     "id": 1304,
@@ -10281,6 +10331,7 @@
     "memberPreset": {}
   },
   "1305": {
+    "disabled": true,
     "name": "Dr. Ratio",
     "version": 1.6,
     "id": 1305,
@@ -10427,6 +10478,7 @@
     "memberPreset": {}
   },
   "1306": {
+    "disabled": true,
     "name": "Sparkle",
     "version": 2,
     "id": 1306,
@@ -10592,6 +10644,7 @@
     "memberPreset": {}
   },
   "1307": {
+    "disabled": true,
     "name": "Black Swan",
     "version": 2,
     "id": 1307,
@@ -10861,6 +10914,7 @@
     "memberPreset": {}
   },
   "1308": {
+    "disabled": true,
     "name": "Acheron",
     "version": 2.1,
     "id": 1308,
@@ -11343,6 +11397,7 @@
     "memberPreset": {}
   },
   "1309": {
+    "disabled": true,
     "name": "Robin",
     "version": 2.2,
     "id": 1309,
@@ -11527,6 +11582,7 @@
     "memberPreset": {}
   },
   "1310": {
+    "disabled": true,
     "name": "Firefly",
     "version": 2.3,
     "id": 1310,
@@ -11798,6 +11854,7 @@
     "memberPreset": {}
   },
   "1312": {
+    "disabled": true,
     "name": "Misha",
     "version": 2,
     "id": 1312,
@@ -12001,6 +12058,7 @@
     "memberPreset": {}
   },
   "1313": {
+    "disabled": true,
     "name": "Sunday",
     "version": 2.7,
     "id": 1313,
@@ -12185,6 +12243,7 @@
     "memberPreset": {}
   },
   "1314": {
+    "disabled": true,
     "name": "Jade",
     "version": 2.3,
     "id": 1314,
@@ -12383,6 +12442,7 @@
     "memberPreset": {}
   },
   "1315": {
+    "disabled": true,
     "name": "Boothill",
     "version": 2.2,
     "id": 1315,
@@ -12608,6 +12668,7 @@
     "memberPreset": {}
   },
   "1317": {
+    "disabled": true,
     "name": "Rappa",
     "version": 2.6,
     "id": 1317,
@@ -12931,6 +12992,7 @@
     "memberPreset": {}
   },
   "1321": {
+    "disabled": true,
     "name": "The Dahlia",
     "version": 3.8,
     "id": 1321,
@@ -13134,6 +13196,7 @@
     "memberPreset": {}
   },
   "1401": {
+    "disabled": true,
     "name": "The Herta",
     "version": 3,
     "id": 1401,
@@ -13364,6 +13427,7 @@
     "memberPreset": {}
   },
   "1402": {
+    "disabled": true,
     "name": "Aglaea",
     "version": 3,
     "id": 1402,
@@ -13725,6 +13789,7 @@
     "memberPreset": {}
   },
   "1403": {
+    "disabled": true,
     "name": "Tribbie",
     "version": 3.1,
     "id": 1403,
@@ -13923,6 +13988,7 @@
     "memberPreset": {}
   },
   "1404": {
+    "disabled": true,
     "name": "Mydei",
     "version": 3.1,
     "id": 1404,
@@ -14218,6 +14284,7 @@
     "memberPreset": {}
   },
   "1405": {
+    "disabled": true,
     "name": "Anaxa",
     "version": 3.2,
     "id": 1405,
@@ -14364,6 +14431,7 @@
     "memberPreset": {}
   },
   "1406": {
+    "disabled": true,
     "name": "Cipher",
     "version": 3.3,
     "id": 1406,
@@ -14548,6 +14616,7 @@
     "memberPreset": {}
   },
   "1407": {
+    "disabled": true,
     "name": "Castorice",
     "version": 3.2,
     "id": 1407,
@@ -14977,6 +15046,7 @@
     "memberPreset": {}
   },
   "1408": {
+    "disabled": true,
     "name": "Phainon",
     "version": 3.4,
     "id": 1408,
@@ -15335,6 +15405,7 @@
     "memberPreset": {}
   },
   "1409": {
+    "disabled": true,
     "name": "Hyacine",
     "version": 3.3,
     "id": 1409,
@@ -15747,6 +15818,7 @@
     "memberPreset": {}
   },
   "1410": {
+    "disabled": true,
     "name": "Hysilens",
     "version": 3.5,
     "id": 1410,
@@ -15969,6 +16041,7 @@
     "memberPreset": {}
   },
   "1412": {
+    "disabled": true,
     "name": "Cerydra",
     "version": 3.5,
     "id": 1412,
@@ -16153,6 +16226,7 @@
     "memberPreset": {}
   },
   "1413": {
+    "disabled": true,
     "name": "Evernight",
     "version": 3.6,
     "id": 1413,
@@ -16487,6 +16561,7 @@
     "memberPreset": {}
   },
   "1414": {
+    "disabled": true,
     "name": "Dan Heng: Permansor Terrae",
     "version": 3.6,
     "id": 1414,
@@ -16747,6 +16822,7 @@
     "memberPreset": {}
   },
   "1415": {
+    "disabled": true,
     "name": "Cyrene",
     "version": 3.7,
     "id": 1415,
@@ -17541,6 +17617,7 @@
     "memberPreset": {}
   },
   "1501": {
+    "disabled": true,
     "name": "Sparxie",
     "version": 4,
     "id": 1501,
@@ -17894,6 +17971,7 @@
     "memberPreset": {}
   },
   "1502": {
+    "disabled": true,
     "name": "Yao Guang",
     "version": 4,
     "id": 1502,
@@ -18106,6 +18184,7 @@
     "memberPreset": {}
   },
   "1504": {
+    "disabled": true,
     "name": "Ashveil",
     "version": 4.1,
     "id": 1504,
@@ -18309,6 +18388,7 @@
     "memberPreset": {}
   },
   "1505": {
+    "disabled": true,
     "name": "Evanescia",
     "version": 4.2,
     "id": 1505,
@@ -18602,6 +18682,7 @@
     "memberPreset": {}
   },
   "1506": {
+    "disabled": true,
     "name": "Silver Wolf: LV.999",
     "version": 4.2,
     "id": 1506,
@@ -18884,6 +18965,7 @@
     "memberPreset": {}
   },
   "1507": {
+    "disabled": true,
     "name": "Mortenax Blade",
     "version": 4.3,
     "id": 1507,
@@ -19143,6 +19225,7 @@
     "memberPreset": {}
   },
   "1508": {
+    "disabled": true,
     "name": "Rin Tohsaka",
     "version": 4.4,
     "id": 1508,
@@ -19419,6 +19502,7 @@
     "memberPreset": {}
   },
   "1509": {
+    "disabled": true,
     "name": "Gilgamesh",
     "version": 4.4,
     "id": 1509,
@@ -19728,6 +19812,7 @@
     "memberPreset": {}
   },
   "1510": {
+    "disabled": true,
     "name": "Himeko: Nova",
     "version": 4.4,
     "id": 1510,
@@ -20088,6 +20173,7 @@
     "memberPreset": {}
   },
   "1512": {
+    "disabled": true,
     "name": "Robin: Summeretto",
     "version": 4.5,
     "id": 1512,
@@ -20359,6 +20445,7 @@
     }
   },
   "1513": {
+    "disabled": true,
     "name": "Aventurine: Waveflair",
     "version": 4.5,
     "id": 1513,

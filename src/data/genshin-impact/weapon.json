@@ -1,5 +1,6 @@
 {
   "11101": {
+    "disabled": true,
     "name": "Dull Blade",
     "version": 1,
     "id": 11101,
@@ -12,6 +13,7 @@
     "effects": []
   },
   "11201": {
+    "disabled": true,
     "name": "Silver Sword",
     "version": 1,
     "id": 11201,
@@ -24,6 +26,7 @@
     "effects": []
   },
   "11301": {
+    "disabled": true,
     "name": "Cool Steel",
     "version": 1,
     "id": 11301,
@@ -37,6 +40,7 @@
     "effects": []
   },
   "11302": {
+    "disabled": true,
     "name": "Harbinger of Dawn",
     "version": 1,
     "id": 11302,
@@ -61,6 +65,7 @@
     ]
   },
   "11303": {
+    "disabled": true,
     "name": "Traveler's Handy Sword",
     "version": 1,
     "id": 11303,
@@ -74,6 +79,7 @@
     "effects": []
   },
   "11304": {
+    "disabled": true,
     "name": "Dark Iron Sword",
     "version": 1,
     "id": 11304,
@@ -87,6 +93,7 @@
     "effects": []
   },
   "11305": {
+    "disabled": true,
     "name": "Fillet Blade",
     "version": 1,
     "id": 11305,
@@ -100,6 +107,7 @@
     "effects": []
   },
   "11306": {
+    "disabled": true,
     "name": "Skyrider Sword",
     "version": 1,
     "id": 11306,
@@ -113,6 +121,7 @@
     "effects": []
   },
   "11401": {
+    "disabled": true,
     "name": "Favonius Sword",
     "version": 1,
     "id": 11401,
@@ -126,6 +135,7 @@
     "effects": []
   },
   "11402": {
+    "disabled": true,
     "name": "The Flute",
     "version": 1,
     "id": 11402,
@@ -139,6 +149,7 @@
     "effects": []
   },
   "11403": {
+    "disabled": true,
     "name": "Sacrificial Sword",
     "version": 1,
     "id": 11403,
@@ -152,6 +163,7 @@
     "effects": []
   },
   "11404": {
+    "disabled": true,
     "name": "Royal Longsword",
     "version": 1,
     "id": 11404,
@@ -165,6 +177,7 @@
     "effects": []
   },
   "11405": {
+    "disabled": true,
     "name": "Lion's Roar",
     "version": 1,
     "id": 11405,
@@ -178,11 +191,13 @@
     "effects": []
   },
   "11406": {
+    "disabled": true,
     "name": "Prototype Rancour",
     "version": 1,
     "id": 11406,
     "icon": "genshin-impact/weapon/11406.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 565,
@@ -191,11 +206,13 @@
     "effects": []
   },
   "11407": {
+    "disabled": true,
     "name": "Iron Sting",
     "version": 1,
     "id": 11407,
     "icon": "genshin-impact/weapon/11407.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 510,
@@ -204,6 +221,7 @@
     "effects": []
   },
   "11408": {
+    "disabled": true,
     "name": "Blackcliff Longsword",
     "version": 1,
     "id": 11408,
@@ -217,6 +235,7 @@
     "effects": []
   },
   "11409": {
+    "disabled": true,
     "name": "The Black Sword",
     "version": 1,
     "id": 11409,
@@ -230,6 +249,7 @@
     "effects": []
   },
   "11410": {
+    "disabled": true,
     "name": "The Alley Flash",
     "version": 1.4,
     "id": 11410,
@@ -243,6 +263,7 @@
     "effects": []
   },
   "11412": {
+    "disabled": true,
     "name": "Sword of Descension",
     "version": 1,
     "id": 11412,
@@ -256,11 +277,13 @@
     "effects": []
   },
   "11413": {
+    "disabled": true,
     "name": "Festering Desire",
     "version": 1.2,
     "id": 11413,
     "icon": "genshin-impact/weapon/11413.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 510,
@@ -269,11 +292,13 @@
     "effects": []
   },
   "11414": {
+    "disabled": true,
     "name": "Amenoma Kageuchi",
     "version": 2,
     "id": 11414,
     "icon": "genshin-impact/weapon/11414.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 454,
@@ -282,11 +307,13 @@
     "effects": []
   },
   "11415": {
+    "disabled": true,
     "name": "Cinnabar Spindle",
     "version": 2.3,
     "id": 11415,
     "icon": "genshin-impact/weapon/11415.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 454,
@@ -313,6 +340,7 @@
     ]
   },
   "11416": {
+    "disabled": true,
     "name": "Kagotsurube Isshin",
     "version": 2.8,
     "id": 11416,
@@ -326,11 +354,13 @@
     "effects": []
   },
   "11417": {
+    "disabled": true,
     "name": "Sapwood Blade",
     "version": 3,
     "id": 11417,
     "icon": "genshin-impact/weapon/11417.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 565,
@@ -339,6 +369,7 @@
     "effects": []
   },
   "11418": {
+    "disabled": true,
     "name": "Xiphos' Moonlight",
     "version": 3.1,
     "id": 11418,
@@ -352,11 +383,13 @@
     "effects": []
   },
   "11422": {
+    "disabled": true,
     "name": "Toukabou Shigure",
     "version": 3.3,
     "id": 11422,
     "icon": "genshin-impact/weapon/11422.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 510,
@@ -365,6 +398,7 @@
     "effects": []
   },
   "11424": {
+    "disabled": true,
     "name": "Wolf-Fang",
     "version": 4,
     "id": 11424,
@@ -378,11 +412,13 @@
     "effects": []
   },
   "11425": {
+    "disabled": true,
     "name": "Finale of the Deep",
     "version": 4,
     "id": 11425,
     "icon": "genshin-impact/weapon/11425.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 565,
@@ -391,6 +427,7 @@
     "effects": []
   },
   "11426": {
+    "disabled": true,
     "name": "Fleuve Cendre Ferryman",
     "version": 4,
     "id": 11426,
@@ -404,6 +441,7 @@
     "effects": []
   },
   "11427": {
+    "disabled": true,
     "name": "The Dockhand's Assistant",
     "version": 4.1,
     "id": 11427,
@@ -417,6 +455,7 @@
     "effects": []
   },
   "11428": {
+    "disabled": true,
     "name": "Sword of Narzissenkreuz",
     "version": 4.2,
     "id": 11428,
@@ -430,6 +469,7 @@
     "effects": []
   },
   "11430": {
+    "disabled": true,
     "name": "Sturdy Bone",
     "version": 5.1,
     "id": 11430,
@@ -443,11 +483,13 @@
     "effects": []
   },
   "11431": {
+    "disabled": true,
     "name": "Flute of Ezpitzal",
     "version": 5,
     "id": 11431,
     "icon": "genshin-impact/weapon/11431.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 454,
@@ -456,11 +498,13 @@
     "effects": []
   },
   "11432": {
+    "disabled": true,
     "name": "Calamity of Eshu",
     "version": 5.2,
     "id": 11432,
     "icon": "genshin-impact/weapon/11432.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 565,
@@ -469,11 +513,13 @@
     "effects": []
   },
   "11433": {
+    "disabled": true,
     "name": "Serenity's Call",
     "version": 6,
     "id": 11433,
     "icon": "genshin-impact/weapon/11433.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 454,
@@ -482,6 +528,7 @@
     "effects": []
   },
   "11434": {
+    "disabled": true,
     "name": "Moonweaver's Dawn",
     "version": 6,
     "id": 11434,
@@ -495,6 +542,7 @@
     "effects": []
   },
   "11435": {
+    "disabled": true,
     "name": "Heretic's Molten Blade",
     "version": 7.0,
     "id": 11435,
@@ -508,11 +556,13 @@
     "effects": []
   },
   "11436": {
+    "disabled": true,
     "name": "Emberwell",
     "version": 7.0,
     "id": 11436,
     "icon": "genshin-impact/weapon/11436.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 510,
@@ -521,11 +571,13 @@
     "effects": []
   },
   "11501": {
+    "disabled": true,
     "name": "Aquila Favonia",
     "version": 1,
     "id": 11501,
     "icon": "genshin-impact/weapon/11501.webp",
     "quality": 5,
+    "standard": true,
     "type": "sword",
     "stats": {
       "baseAtk": 674,
@@ -534,11 +586,13 @@
     "effects": []
   },
   "11502": {
+    "disabled": true,
     "name": "Skyward Blade",
     "version": 1,
     "id": 11502,
     "icon": "genshin-impact/weapon/11502.webp",
     "quality": 5,
+    "standard": true,
     "type": "sword",
     "stats": {
       "baseAtk": 608,
@@ -547,6 +601,7 @@
     "effects": []
   },
   "11503": {
+    "disabled": true,
     "name": "Freedom-Sworn",
     "version": 1.6,
     "id": 11503,
@@ -560,6 +615,7 @@
     "effects": []
   },
   "11504": {
+    "disabled": true,
     "name": "Summit Shaper",
     "version": 1.2,
     "id": 11504,
@@ -573,6 +629,7 @@
     "effects": []
   },
   "11505": {
+    "disabled": true,
     "name": "Primordial Jade Cutter",
     "version": 1.3,
     "id": 11505,
@@ -586,6 +643,7 @@
     "effects": []
   },
   "11509": {
+    "disabled": true,
     "name": "Mistsplitter Reforged",
     "version": 2,
     "id": 11509,
@@ -599,6 +657,7 @@
     "effects": []
   },
   "11510": {
+    "disabled": true,
     "name": "Haran Geppaku Futsu",
     "version": 2.6,
     "id": 11510,
@@ -612,6 +671,7 @@
     "effects": []
   },
   "11511": {
+    "disabled": true,
     "name": "Key of Khaj-Nisut",
     "version": 3.1,
     "id": 11511,
@@ -625,6 +685,7 @@
     "effects": []
   },
   "11512": {
+    "disabled": true,
     "name": "Light of Foliar Incision",
     "version": 3.4,
     "id": 11512,
@@ -638,6 +699,7 @@
     "effects": []
   },
   "11513": {
+    "disabled": true,
     "name": "Splendor of Tranquil Waters",
     "version": 4.2,
     "id": 11513,
@@ -651,6 +713,7 @@
     "effects": []
   },
   "11514": {
+    "disabled": true,
     "name": "Uraku Misugiri",
     "version": 4.5,
     "id": 11514,
@@ -664,6 +727,7 @@
     "effects": []
   },
   "11515": {
+    "disabled": true,
     "name": "Absolution",
     "version": 4.7,
     "id": 11515,
@@ -677,6 +741,7 @@
     "effects": []
   },
   "11516": {
+    "disabled": true,
     "name": "Peak Patrol Song",
     "version": 5.1,
     "id": 11516,
@@ -690,6 +755,7 @@
     "effects": []
   },
   "11517": {
+    "disabled": true,
     "name": "Azurelight",
     "version": 5.7,
     "id": 11517,
@@ -703,6 +769,7 @@
     "effects": []
   },
   "11518": {
+    "disabled": true,
     "name": "Athame Artis",
     "version": 6.2,
     "id": 11518,
@@ -716,6 +783,7 @@
     "effects": []
   },
   "11519": {
+    "disabled": true,
     "name": "Lightbearing Moonshard",
     "version": 6.3,
     "id": 11519,
@@ -729,6 +797,7 @@
     "effects": []
   },
   "11520": {
+    "disabled": true,
     "name": "Whitelake Frostfeather",
     "version": 7.0,
     "id": 11520,
@@ -742,6 +811,7 @@
     "effects": []
   },
   "12101": {
+    "disabled": true,
     "name": "Waster Greatsword",
     "version": 1,
     "id": 12101,
@@ -754,6 +824,7 @@
     "effects": []
   },
   "12201": {
+    "disabled": true,
     "name": "Old Merc's Pal",
     "version": 1,
     "id": 12201,
@@ -766,6 +837,7 @@
     "effects": []
   },
   "12301": {
+    "disabled": true,
     "name": "Ferrous Shadow",
     "version": 1,
     "id": 12301,
@@ -779,6 +851,7 @@
     "effects": []
   },
   "12302": {
+    "disabled": true,
     "name": "Bloodtainted Greatsword",
     "version": 1,
     "id": 12302,
@@ -792,6 +865,7 @@
     "effects": []
   },
   "12303": {
+    "disabled": true,
     "name": "White Iron Greatsword",
     "version": 1,
     "id": 12303,
@@ -805,6 +879,7 @@
     "effects": []
   },
   "12305": {
+    "disabled": true,
     "name": "Debate Club",
     "version": 1,
     "id": 12305,
@@ -818,6 +893,7 @@
     "effects": []
   },
   "12306": {
+    "disabled": true,
     "name": "Skyrider Greatsword",
     "version": 1,
     "id": 12306,
@@ -831,6 +907,7 @@
     "effects": []
   },
   "12401": {
+    "disabled": true,
     "name": "Favonius Greatsword",
     "version": 1,
     "id": 12401,
@@ -844,6 +921,7 @@
     "effects": []
   },
   "12402": {
+    "disabled": true,
     "name": "The Bell",
     "version": 1,
     "id": 12402,
@@ -857,6 +935,7 @@
     "effects": []
   },
   "12403": {
+    "disabled": true,
     "name": "Sacrificial Greatsword",
     "version": 1,
     "id": 12403,
@@ -870,6 +949,7 @@
     "effects": []
   },
   "12404": {
+    "disabled": true,
     "name": "Royal Greatsword",
     "version": 1,
     "id": 12404,
@@ -883,6 +963,7 @@
     "effects": []
   },
   "12405": {
+    "disabled": true,
     "name": "Rainslasher",
     "version": 1,
     "id": 12405,
@@ -896,11 +977,13 @@
     "effects": []
   },
   "12406": {
+    "disabled": true,
     "name": "Prototype Archaic",
     "version": 1,
     "id": 12406,
     "icon": "genshin-impact/weapon/12406.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -909,11 +992,13 @@
     "effects": []
   },
   "12407": {
+    "disabled": true,
     "name": "Whiteblind",
     "version": 1,
     "id": 12407,
     "icon": "genshin-impact/weapon/12407.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 510,
@@ -922,6 +1007,7 @@
     "effects": []
   },
   "12408": {
+    "disabled": true,
     "name": "Blackcliff Slasher",
     "version": 1,
     "id": 12408,
@@ -935,6 +1021,7 @@
     "effects": []
   },
   "12409": {
+    "disabled": true,
     "name": "Serpent Spine",
     "version": 1,
     "id": 12409,
@@ -948,6 +1035,7 @@
     "effects": []
   },
   "12410": {
+    "disabled": true,
     "name": "Lithic Blade",
     "version": 1.3,
     "id": 12410,
@@ -961,11 +1049,13 @@
     "effects": []
   },
   "12411": {
+    "disabled": true,
     "name": "Snow-Tombed Starsilver",
     "version": 1.2,
     "id": 12411,
     "icon": "genshin-impact/weapon/12411.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -974,11 +1064,13 @@
     "effects": []
   },
   "12412": {
+    "disabled": true,
     "name": "Luxurious Sea-Lord",
     "version": 2.1,
     "id": 12412,
     "icon": "genshin-impact/weapon/12412.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 454,
@@ -987,11 +1079,13 @@
     "effects": []
   },
   "12414": {
+    "disabled": true,
     "name": "Katsuragikiri Nagamasa",
     "version": 2,
     "id": 12414,
     "icon": "genshin-impact/weapon/12414.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 510,
@@ -1000,6 +1094,7 @@
     "effects": []
   },
   "12415": {
+    "disabled": true,
     "name": "Makhaira Aquamarine",
     "version": 3.1,
     "id": 12415,
@@ -1013,6 +1108,7 @@
     "effects": []
   },
   "12416": {
+    "disabled": true,
     "name": "Akuoumaru",
     "version": 2.2,
     "id": 12416,
@@ -1026,11 +1122,13 @@
     "effects": []
   },
   "12417": {
+    "disabled": true,
     "name": "Forest Regalia",
     "version": 3,
     "id": 12417,
     "icon": "genshin-impact/weapon/12417.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1039,11 +1137,13 @@
     "effects": []
   },
   "12418": {
+    "disabled": true,
     "name": "Mailed Flower",
     "version": 3.5,
     "id": 12418,
     "icon": "genshin-impact/weapon/12418.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1052,6 +1152,7 @@
     "effects": []
   },
   "12424": {
+    "disabled": true,
     "name": "Talking Stick",
     "version": 4,
     "id": 12424,
@@ -1065,11 +1166,13 @@
     "effects": []
   },
   "12425": {
+    "disabled": true,
     "name": "Tidal Shadow",
     "version": 4,
     "id": 12425,
     "icon": "genshin-impact/weapon/12425.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 510,
@@ -1078,11 +1181,13 @@
     "effects": []
   },
   "12426": {
+    "disabled": true,
     "name": "\"Ultimate Overlord's Mega Magic Sword\"",
     "version": 4.3,
     "id": 12426,
     "icon": "genshin-impact/weapon/12426.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1091,6 +1196,7 @@
     "effects": []
   },
   "12427": {
+    "disabled": true,
     "name": "Portable Power Saw",
     "version": 4.1,
     "id": 12427,
@@ -1104,6 +1210,7 @@
     "effects": []
   },
   "12430": {
+    "disabled": true,
     "name": "Fruitful Hook",
     "version": 5.1,
     "id": 12430,
@@ -1117,11 +1224,13 @@
     "effects": []
   },
   "12431": {
+    "disabled": true,
     "name": "Earth Shaker",
     "version": 5,
     "id": 12431,
     "icon": "genshin-impact/weapon/12431.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1130,11 +1239,13 @@
     "effects": []
   },
   "12432": {
+    "disabled": true,
     "name": "Flame-Forged Insight",
     "version": 5.8,
     "id": 12432,
     "icon": "genshin-impact/weapon/12432.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1143,11 +1254,13 @@
     "effects": []
   },
   "12433": {
+    "disabled": true,
     "name": "Master Key",
     "version": 6,
     "id": 12433,
     "icon": "genshin-impact/weapon/12433.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 454,
@@ -1156,6 +1269,7 @@
     "effects": []
   },
   "12435": {
+    "disabled": true,
     "name": "Forged by the Golden Melody",
     "version": 7.0,
     "id": 12435,
@@ -1169,11 +1283,13 @@
     "effects": []
   },
   "12436": {
+    "disabled": true,
     "name": "Blade of Atonement",
     "version": 7.0,
     "id": 12436,
     "icon": "genshin-impact/weapon/12436.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1182,11 +1298,13 @@
     "effects": []
   },
   "12501": {
+    "disabled": true,
     "name": "Skyward Pride",
     "version": 1,
     "id": 12501,
     "icon": "genshin-impact/weapon/12501.webp",
     "quality": 5,
+    "standard": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 674,
@@ -1195,11 +1313,13 @@
     "effects": []
   },
   "12502": {
+    "disabled": true,
     "name": "Wolf's Gravestone",
     "version": 1,
     "id": 12502,
     "icon": "genshin-impact/weapon/12502.webp",
     "quality": 5,
+    "standard": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 608,
@@ -1208,6 +1328,7 @@
     "effects": []
   },
   "12503": {
+    "disabled": true,
     "name": "Song of Broken Pines",
     "version": 1.5,
     "id": 12503,
@@ -1221,6 +1342,7 @@
     "effects": []
   },
   "12504": {
+    "disabled": true,
     "name": "The Unforged",
     "version": 1.1,
     "id": 12504,
@@ -1234,6 +1356,7 @@
     "effects": []
   },
   "12510": {
+    "disabled": true,
     "name": "Redhorn Stonethresher",
     "version": 2.3,
     "id": 12510,
@@ -1247,6 +1370,7 @@
     "effects": []
   },
   "12511": {
+    "disabled": true,
     "name": "Beacon of the Reed Sea",
     "version": 3.5,
     "id": 12511,
@@ -1260,6 +1384,7 @@
     "effects": []
   },
   "12512": {
+    "disabled": true,
     "name": "Verdict",
     "version": 4.3,
     "id": 12512,
@@ -1273,6 +1398,7 @@
     "effects": []
   },
   "12513": {
+    "disabled": true,
     "name": "Fang of the Mountain King",
     "version": 5,
     "id": 12513,
@@ -1286,6 +1412,7 @@
     "effects": []
   },
   "12514": {
+    "disabled": true,
     "name": "A Thousand Blazing Suns",
     "version": 5.3,
     "id": 12514,
@@ -1299,6 +1426,7 @@
     "effects": []
   },
   "12515": {
+    "disabled": true,
     "name": "Gest of the Mighty Wolf",
     "version": 6.4,
     "id": 12515,
@@ -1312,6 +1440,7 @@
     "effects": []
   },
   "12516": {
+    "disabled": true,
     "name": "A Teaspoon of Transcendence",
     "version": 6.7,
     "id": 12516,
@@ -1325,6 +1454,7 @@
     "effects": []
   },
   "13101": {
+    "disabled": true,
     "name": "Beginner's Protector",
     "version": 1,
     "id": 13101,
@@ -1337,6 +1467,7 @@
     "effects": []
   },
   "13201": {
+    "disabled": true,
     "name": "Iron Point",
     "version": 1,
     "id": 13201,
@@ -1349,6 +1480,7 @@
     "effects": []
   },
   "13301": {
+    "disabled": true,
     "name": "White Tassel",
     "version": 1,
     "id": 13301,
@@ -1362,6 +1494,7 @@
     "effects": []
   },
   "13302": {
+    "disabled": true,
     "name": "Halberd",
     "version": 1,
     "id": 13302,
@@ -1375,6 +1508,7 @@
     "effects": []
   },
   "13303": {
+    "disabled": true,
     "name": "Black Tassel",
     "version": 1,
     "id": 13303,
@@ -1388,6 +1522,7 @@
     "effects": []
   },
   "13401": {
+    "disabled": true,
     "name": "Dragon's Bane",
     "version": 1,
     "id": 13401,
@@ -1401,11 +1536,13 @@
     "effects": []
   },
   "13402": {
+    "disabled": true,
     "name": "Prototype Starglitter",
     "version": 1,
     "id": 13402,
     "icon": "genshin-impact/weapon/13402.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1414,11 +1551,13 @@
     "effects": []
   },
   "13403": {
+    "disabled": true,
     "name": "Crescent Pike",
     "version": 1,
     "id": 13403,
     "icon": "genshin-impact/weapon/13403.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1427,6 +1566,7 @@
     "effects": []
   },
   "13404": {
+    "disabled": true,
     "name": "Blackcliff Pole",
     "version": 1,
     "id": 13404,
@@ -1440,6 +1580,7 @@
     "effects": []
   },
   "13405": {
+    "disabled": true,
     "name": "Deathmatch",
     "version": 1,
     "id": 13405,
@@ -1453,6 +1594,7 @@
     "effects": []
   },
   "13406": {
+    "disabled": true,
     "name": "Lithic Spear",
     "version": 1.3,
     "id": 13406,
@@ -1466,6 +1608,7 @@
     "effects": []
   },
   "13407": {
+    "disabled": true,
     "name": "Favonius Lance",
     "version": 1,
     "id": 13407,
@@ -1479,6 +1622,7 @@
     "effects": []
   },
   "13408": {
+    "disabled": true,
     "name": "Royal Spear",
     "version": 1.1,
     "id": 13408,
@@ -1492,11 +1636,13 @@
     "effects": []
   },
   "13409": {
+    "disabled": true,
     "name": "Dragonspine Spear",
     "version": 1.2,
     "id": 13409,
     "icon": "genshin-impact/weapon/13409.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 454,
@@ -1505,11 +1651,13 @@
     "effects": []
   },
   "13414": {
+    "disabled": true,
     "name": "Kitain Cross Spear",
     "version": 2,
     "id": 13414,
     "icon": "genshin-impact/weapon/13414.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1518,6 +1666,7 @@
     "effects": []
   },
   "13415": {
+    "disabled": true,
     "name": "\"The Catch\"",
     "version": 2.1,
     "id": 13415,
@@ -1531,6 +1680,7 @@
     "effects": []
   },
   "13416": {
+    "disabled": true,
     "name": "Wavebreaker's Fin",
     "version": 2.2,
     "id": 13416,
@@ -1544,11 +1694,13 @@
     "effects": []
   },
   "13417": {
+    "disabled": true,
     "name": "Moonpiercer",
     "version": 3,
     "id": 13417,
     "icon": "genshin-impact/weapon/13417.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1557,11 +1709,13 @@
     "effects": []
   },
   "13419": {
+    "disabled": true,
     "name": "Missive Windspear",
     "version": 3.1,
     "id": 13419,
     "icon": "genshin-impact/weapon/13419.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1570,6 +1724,7 @@
     "effects": []
   },
   "13424": {
+    "disabled": true,
     "name": "Ballad of the Fjords",
     "version": 4,
     "id": 13424,
@@ -1583,11 +1738,13 @@
     "effects": []
   },
   "13425": {
+    "disabled": true,
     "name": "Rightful Reward",
     "version": 4,
     "id": 13425,
     "icon": "genshin-impact/weapon/13425.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1596,11 +1753,13 @@
     "effects": []
   },
   "13426": {
+    "disabled": true,
     "name": "Dialogues of the Desert Sages",
     "version": 4.5,
     "id": 13426,
     "icon": "genshin-impact/weapon/13426.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1609,6 +1768,7 @@
     "effects": []
   },
   "13427": {
+    "disabled": true,
     "name": "Prospector's Drill",
     "version": 4.1,
     "id": 13427,
@@ -1622,6 +1782,7 @@
     "effects": []
   },
   "13430": {
+    "disabled": true,
     "name": "Mountain-Bracing Bolt",
     "version": 5.1,
     "id": 13430,
@@ -1635,11 +1796,13 @@
     "effects": []
   },
   "13431": {
+    "disabled": true,
     "name": "Footprint of the Rainbow",
     "version": 5,
     "id": 13431,
     "icon": "genshin-impact/weapon/13431.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1648,11 +1811,13 @@
     "effects": []
   },
   "13432": {
+    "disabled": true,
     "name": "Tamayuratei no Ohanashi",
     "version": 5.4,
     "id": 13432,
     "icon": "genshin-impact/weapon/13432.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1661,11 +1826,13 @@
     "effects": []
   },
   "13433": {
+    "disabled": true,
     "name": "Prospector's Shovel",
     "version": 6,
     "id": 13433,
     "icon": "genshin-impact/weapon/13433.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1674,6 +1841,7 @@
     "effects": []
   },
   "13434": {
+    "disabled": true,
     "name": "Sacrificer's Staff",
     "version": 6.1,
     "id": 13434,
@@ -1687,6 +1855,7 @@
     "effects": []
   },
   "13435": {
+    "disabled": true,
     "name": "Frostbreath",
     "version": 7.0,
     "id": 13435,
@@ -1700,11 +1869,13 @@
     "effects": []
   },
   "13436": {
+    "disabled": true,
     "name": "Song of the Vigil",
     "version": 7.0,
     "id": 13436,
     "icon": "genshin-impact/weapon/13436.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1713,6 +1884,7 @@
     "effects": []
   },
   "13501": {
+    "disabled": true,
     "name": "Staff of Homa",
     "version": 1.3,
     "id": 13501,
@@ -1726,11 +1898,13 @@
     "effects": []
   },
   "13502": {
+    "disabled": true,
     "name": "Skyward Spine",
     "version": 1,
     "id": 13502,
     "icon": "genshin-impact/weapon/13502.webp",
     "quality": 5,
+    "standard": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 674,
@@ -1739,6 +1913,7 @@
     "effects": []
   },
   "13504": {
+    "disabled": true,
     "name": "Vortex Vanquisher",
     "version": 1.1,
     "id": 13504,
@@ -1752,11 +1927,13 @@
     "effects": []
   },
   "13505": {
+    "disabled": true,
     "name": "Primordial Jade Winged-Spear",
     "version": 1,
     "id": 13505,
     "icon": "genshin-impact/weapon/13505.webp",
     "quality": 5,
+    "standard": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 674,
@@ -1765,6 +1942,7 @@
     "effects": []
   },
   "13507": {
+    "disabled": true,
     "name": "Calamity Queller",
     "version": 2.4,
     "id": 13507,
@@ -1778,6 +1956,7 @@
     "effects": []
   },
   "13509": {
+    "disabled": true,
     "name": "Engulfing Lightning",
     "version": 2.1,
     "id": 13509,
@@ -1791,6 +1970,7 @@
     "effects": []
   },
   "13511": {
+    "disabled": true,
     "name": "Staff of the Scarlet Sands",
     "version": 3.1,
     "id": 13511,
@@ -1804,6 +1984,7 @@
     "effects": []
   },
   "13512": {
+    "disabled": true,
     "name": "Crimson Moon's Semblance",
     "version": 4.6,
     "id": 13512,
@@ -1817,6 +1998,7 @@
     "effects": []
   },
   "13513": {
+    "disabled": true,
     "name": "Lumidouce Elegy",
     "version": 4.8,
     "id": 13513,
@@ -1830,6 +2012,7 @@
     "effects": []
   },
   "13514": {
+    "disabled": true,
     "name": "Symphonist of Scents",
     "version": 5.6,
     "id": 13514,
@@ -1843,6 +2026,7 @@
     "effects": []
   },
   "13515": {
+    "disabled": true,
     "name": "Fractured Halo",
     "version": 5.8,
     "id": 13515,
@@ -1856,6 +2040,7 @@
     "effects": []
   },
   "13516": {
+    "disabled": true,
     "name": "Bloodsoaked Ruins",
     "version": 6,
     "id": 13516,
@@ -1869,6 +2054,7 @@
     "effects": []
   },
   "13517": {
+    "disabled": true,
     "name": "Disaster and Remorse",
     "version": 6.6,
     "id": 13517,
@@ -1882,6 +2068,7 @@
     "effects": []
   },
   "14101": {
+    "disabled": true,
     "name": "Apprentice's Notes",
     "version": 1,
     "id": 14101,
@@ -1894,6 +2081,7 @@
     "effects": []
   },
   "14201": {
+    "disabled": true,
     "name": "Pocket Grimoire",
     "version": 1,
     "id": 14201,
@@ -1906,6 +2094,7 @@
     "effects": []
   },
   "14301": {
+    "disabled": true,
     "name": "Magic Guide",
     "version": 1,
     "id": 14301,
@@ -1919,6 +2108,7 @@
     "effects": []
   },
   "14302": {
+    "disabled": true,
     "name": "Thrilling Tales of Dragon Slayers",
     "version": 1,
     "id": 14302,
@@ -1932,6 +2122,7 @@
     "effects": []
   },
   "14303": {
+    "disabled": true,
     "name": "Otherworldly Story",
     "version": 1,
     "id": 14303,
@@ -1945,6 +2136,7 @@
     "effects": []
   },
   "14304": {
+    "disabled": true,
     "name": "Emerald Orb",
     "version": 1,
     "id": 14304,
@@ -1958,6 +2150,7 @@
     "effects": []
   },
   "14305": {
+    "disabled": true,
     "name": "Twin Nephrite",
     "version": 1,
     "id": 14305,
@@ -1971,6 +2164,7 @@
     "effects": []
   },
   "14401": {
+    "disabled": true,
     "name": "Favonius Codex",
     "version": 1,
     "id": 14401,
@@ -1984,6 +2178,7 @@
     "effects": []
   },
   "14402": {
+    "disabled": true,
     "name": "The Widsith",
     "version": 1,
     "id": 14402,
@@ -1997,6 +2192,7 @@
     "effects": []
   },
   "14403": {
+    "disabled": true,
     "name": "Sacrificial Fragments",
     "version": 1,
     "id": 14403,
@@ -2010,6 +2206,7 @@
     "effects": []
   },
   "14404": {
+    "disabled": true,
     "name": "Royal Grimoire",
     "version": 1,
     "id": 14404,
@@ -2023,6 +2220,7 @@
     "effects": []
   },
   "14405": {
+    "disabled": true,
     "name": "Solar Pearl",
     "version": 1,
     "id": 14405,
@@ -2036,11 +2234,13 @@
     "effects": []
   },
   "14406": {
+    "disabled": true,
     "name": "Prototype Amber",
     "version": 1,
     "id": 14406,
     "icon": "genshin-impact/weapon/14406.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2049,11 +2249,13 @@
     "effects": []
   },
   "14407": {
+    "disabled": true,
     "name": "Mappa Mare",
     "version": 1,
     "id": 14407,
     "icon": "genshin-impact/weapon/14407.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2062,6 +2264,7 @@
     "effects": []
   },
   "14408": {
+    "disabled": true,
     "name": "Blackcliff Agate",
     "version": 1,
     "id": 14408,
@@ -2075,6 +2278,7 @@
     "effects": []
   },
   "14409": {
+    "disabled": true,
     "name": "Eye of Perception",
     "version": 1,
     "id": 14409,
@@ -2088,6 +2292,7 @@
     "effects": []
   },
   "14410": {
+    "disabled": true,
     "name": "Wine and Song",
     "version": 1.4,
     "id": 14410,
@@ -2101,11 +2306,13 @@
     "effects": []
   },
   "14412": {
+    "disabled": true,
     "name": "Frostbearer",
     "version": 1.2,
     "id": 14412,
     "icon": "genshin-impact/weapon/14412.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2114,11 +2321,13 @@
     "effects": []
   },
   "14413": {
+    "disabled": true,
     "name": "Dodoco Tales",
     "version": 1.6,
     "id": 14413,
     "icon": "genshin-impact/weapon/14413.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 454,
@@ -2127,11 +2336,13 @@
     "effects": []
   },
   "14414": {
+    "disabled": true,
     "name": "Hakushin Ring",
     "version": 2,
     "id": 14414,
     "icon": "genshin-impact/weapon/14414.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2140,11 +2351,13 @@
     "effects": []
   },
   "14415": {
+    "disabled": true,
     "name": "Oathsworn Eye",
     "version": 2.5,
     "id": 14415,
     "icon": "genshin-impact/weapon/14415.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2153,6 +2366,7 @@
     "effects": []
   },
   "14416": {
+    "disabled": true,
     "name": "Wandering Evenstar",
     "version": 3.1,
     "id": 14416,
@@ -2166,11 +2380,13 @@
     "effects": []
   },
   "14417": {
+    "disabled": true,
     "name": "Fruit of Fulfillment",
     "version": 3,
     "id": 14417,
     "icon": "genshin-impact/weapon/14417.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2179,6 +2395,7 @@
     "effects": []
   },
   "14424": {
+    "disabled": true,
     "name": "Sacrificial Jade",
     "version": 4,
     "id": 14424,
@@ -2192,11 +2409,13 @@
     "effects": []
   },
   "14425": {
+    "disabled": true,
     "name": "Flowing Purity",
     "version": 4,
     "id": 14425,
     "icon": "genshin-impact/weapon/14425.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2205,11 +2424,13 @@
     "effects": []
   },
   "14426": {
+    "disabled": true,
     "name": "Ballad of the Boundless Blue",
     "version": 4.1,
     "id": 14426,
     "icon": "genshin-impact/weapon/14426.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2218,11 +2439,13 @@
     "effects": []
   },
   "14427": {
+    "disabled": true,
     "name": "Ash-Graven Drinking Horn",
     "version": 5,
     "id": 14427,
     "icon": "genshin-impact/weapon/14427.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2231,6 +2454,7 @@
     "effects": []
   },
   "14430": {
+    "disabled": true,
     "name": "Waveriding Whirl",
     "version": 5.2,
     "id": 14430,
@@ -2244,11 +2468,13 @@
     "effects": []
   },
   "14431": {
+    "disabled": true,
     "name": "Ring of Yaxche",
     "version": 5,
     "id": 14431,
     "icon": "genshin-impact/weapon/14431.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2257,11 +2483,13 @@
     "effects": []
   },
   "14432": {
+    "disabled": true,
     "name": "Etherlight Spindlelute",
     "version": 6,
     "id": 14432,
     "icon": "genshin-impact/weapon/14432.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2270,11 +2498,13 @@
     "effects": []
   },
   "14433": {
+    "disabled": true,
     "name": "Blackmarrow Lantern",
     "version": 6,
     "id": 14433,
     "icon": "genshin-impact/weapon/14433.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 454,
@@ -2283,6 +2513,7 @@
     "effects": []
   },
   "14434": {
+    "disabled": true,
     "name": "Dawning Frost",
     "version": 6.1,
     "id": 14434,
@@ -2296,6 +2527,7 @@
     "effects": []
   },
   "14435": {
+    "disabled": true,
     "name": "Clash of Kings",
     "version": 7.0,
     "id": 14435,
@@ -2309,11 +2541,13 @@
     "effects": []
   },
   "14436": {
+    "disabled": true,
     "name": "Echoes of the Heart",
     "version": 7.0,
     "id": 14436,
     "icon": "genshin-impact/weapon/14436.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2322,11 +2556,13 @@
     "effects": []
   },
   "14501": {
+    "disabled": true,
     "name": "Skyward Atlas",
     "version": 1,
     "id": 14501,
     "icon": "genshin-impact/weapon/14501.webp",
     "quality": 5,
+    "standard": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 674,
@@ -2335,11 +2571,13 @@
     "effects": []
   },
   "14502": {
+    "disabled": true,
     "name": "Lost Prayer to the Sacred Winds",
     "version": 1,
     "id": 14502,
     "icon": "genshin-impact/weapon/14502.webp",
     "quality": 5,
+    "standard": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 608,
@@ -2348,6 +2586,7 @@
     "effects": []
   },
   "14504": {
+    "disabled": true,
     "name": "Memory of Dust",
     "version": 1.1,
     "id": 14504,
@@ -2361,6 +2600,7 @@
     "effects": []
   },
   "14505": {
+    "disabled": true,
     "name": "Jadefall's Splendor",
     "version": 3.6,
     "id": 14505,
@@ -2374,6 +2614,7 @@
     "effects": []
   },
   "14506": {
+    "disabled": true,
     "name": "Everlasting Moonglow",
     "version": 2.1,
     "id": 14506,
@@ -2387,6 +2628,7 @@
     "effects": []
   },
   "14509": {
+    "disabled": true,
     "name": "Kagura's Verity",
     "version": 2.5,
     "id": 14509,
@@ -2400,6 +2642,7 @@
     "effects": []
   },
   "14511": {
+    "disabled": true,
     "name": "A Thousand Floating Dreams",
     "version": 3.2,
     "id": 14511,
@@ -2413,6 +2656,7 @@
     "effects": []
   },
   "14512": {
+    "disabled": true,
     "name": "Tulaytullah's Remembrance",
     "version": 3.3,
     "id": 14512,
@@ -2426,6 +2670,7 @@
     "effects": []
   },
   "14513": {
+    "disabled": true,
     "name": "Cashflow Supervision",
     "version": 4.1,
     "id": 14513,
@@ -2439,6 +2684,7 @@
     "effects": []
   },
   "14514": {
+    "disabled": true,
     "name": "Tome of the Eternal Flow",
     "version": 4.1,
     "id": 14514,
@@ -2452,6 +2698,7 @@
     "effects": []
   },
   "14515": {
+    "disabled": true,
     "name": "Crane's Echoing Call",
     "version": 4.4,
     "id": 14515,
@@ -2465,6 +2712,7 @@
     "effects": []
   },
   "14516": {
+    "disabled": true,
     "name": "Surf's Up",
     "version": 5,
     "id": 14516,
@@ -2478,6 +2726,7 @@
     "effects": []
   },
   "14517": {
+    "disabled": true,
     "name": "Starcaller's Watch",
     "version": 5.3,
     "id": 14517,
@@ -2491,6 +2740,7 @@
     "effects": []
   },
   "14518": {
+    "disabled": true,
     "name": "Sunny Morning Sleep-In",
     "version": 5.4,
     "id": 14518,
@@ -2504,6 +2754,7 @@
     "effects": []
   },
   "14519": {
+    "disabled": true,
     "name": "Vivid Notions",
     "version": 5.5,
     "id": 14519,
@@ -2517,6 +2768,7 @@
     "effects": []
   },
   "14520": {
+    "disabled": true,
     "name": "Nightweaver's Looking Glass",
     "version": 6,
     "id": 14520,
@@ -2530,6 +2782,7 @@
     "effects": []
   },
   "14521": {
+    "disabled": true,
     "name": "Reliquary of Truth",
     "version": 6.1,
     "id": 14521,
@@ -2543,6 +2796,7 @@
     "effects": []
   },
   "14522": {
+    "disabled": true,
     "name": "Nocturne's Curtain Call",
     "version": 6.3,
     "id": 14522,
@@ -2556,6 +2810,7 @@
     "effects": []
   },
   "14523": {
+    "disabled": true,
     "name": "Angelos' Heptades",
     "version": 6.6,
     "id": 14523,
@@ -2569,6 +2824,7 @@
     "effects": []
   },
   "15101": {
+    "disabled": true,
     "name": "Hunter's Bow",
     "version": 1,
     "id": 15101,
@@ -2581,6 +2837,7 @@
     "effects": []
   },
   "15201": {
+    "disabled": true,
     "name": "Seasoned Hunter's Bow",
     "version": 1,
     "id": 15201,
@@ -2593,6 +2850,7 @@
     "effects": []
   },
   "15301": {
+    "disabled": true,
     "name": "Raven Bow",
     "version": 1,
     "id": 15301,
@@ -2606,6 +2864,7 @@
     "effects": []
   },
   "15302": {
+    "disabled": true,
     "name": "Sharpshooter's Oath",
     "version": 1,
     "id": 15302,
@@ -2619,6 +2878,7 @@
     "effects": []
   },
   "15303": {
+    "disabled": true,
     "name": "Recurve Bow",
     "version": 1,
     "id": 15303,
@@ -2632,6 +2892,7 @@
     "effects": []
   },
   "15304": {
+    "disabled": true,
     "name": "Slingshot",
     "version": 1,
     "id": 15304,
@@ -2645,6 +2906,7 @@
     "effects": []
   },
   "15305": {
+    "disabled": true,
     "name": "Messenger",
     "version": 1,
     "id": 15305,
@@ -2658,6 +2920,7 @@
     "effects": []
   },
   "15401": {
+    "disabled": true,
     "name": "Favonius Warbow",
     "version": 1,
     "id": 15401,
@@ -2671,6 +2934,7 @@
     "effects": []
   },
   "15402": {
+    "disabled": true,
     "name": "The Stringless",
     "version": 1,
     "id": 15402,
@@ -2684,6 +2948,7 @@
     "effects": []
   },
   "15403": {
+    "disabled": true,
     "name": "Sacrificial Bow",
     "version": 1,
     "id": 15403,
@@ -2697,6 +2962,7 @@
     "effects": []
   },
   "15404": {
+    "disabled": true,
     "name": "Royal Bow",
     "version": 1,
     "id": 15404,
@@ -2710,6 +2976,7 @@
     "effects": []
   },
   "15405": {
+    "disabled": true,
     "name": "Rust",
     "version": 1,
     "id": 15405,
@@ -2723,11 +2990,13 @@
     "effects": []
   },
   "15406": {
+    "disabled": true,
     "name": "Prototype Crescent",
     "version": 1,
     "id": 15406,
     "icon": "genshin-impact/weapon/15406.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -2736,11 +3005,13 @@
     "effects": []
   },
   "15407": {
+    "disabled": true,
     "name": "Compound Bow",
     "version": 1,
     "id": 15407,
     "icon": "genshin-impact/weapon/15407.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 454,
@@ -2749,6 +3020,7 @@
     "effects": []
   },
   "15408": {
+    "disabled": true,
     "name": "Blackcliff Warbow",
     "version": 1,
     "id": 15408,
@@ -2762,6 +3034,7 @@
     "effects": []
   },
   "15409": {
+    "disabled": true,
     "name": "The Viridescent Hunt",
     "version": 1,
     "id": 15409,
@@ -2775,6 +3048,7 @@
     "effects": []
   },
   "15410": {
+    "disabled": true,
     "name": "Alley Hunter",
     "version": 1.4,
     "id": 15410,
@@ -2788,11 +3062,13 @@
     "effects": []
   },
   "15411": {
+    "disabled": true,
     "name": "Fading Twilight",
     "version": 2.7,
     "id": 15411,
     "icon": "genshin-impact/weapon/15411.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 565,
@@ -2801,6 +3077,7 @@
     "effects": []
   },
   "15412": {
+    "disabled": true,
     "name": "Mitternachts Waltz",
     "version": 1.6,
     "id": 15412,
@@ -2814,11 +3091,13 @@
     "effects": []
   },
   "15413": {
+    "disabled": true,
     "name": "Windblume Ode",
     "version": 1.4,
     "id": 15413,
     "icon": "genshin-impact/weapon/15413.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -2827,11 +3106,13 @@
     "effects": []
   },
   "15414": {
+    "disabled": true,
     "name": "Hamayumi",
     "version": 2,
     "id": 15414,
     "icon": "genshin-impact/weapon/15414.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 454,
@@ -2840,6 +3121,7 @@
     "effects": []
   },
   "15415": {
+    "disabled": true,
     "name": "Predator",
     "version": 2.1,
     "id": 15415,
@@ -2853,6 +3135,7 @@
     "effects": []
   },
   "15416": {
+    "disabled": true,
     "name": "Mouun's Moon",
     "version": 2.2,
     "id": 15416,
@@ -2866,11 +3149,13 @@
     "effects": []
   },
   "15417": {
+    "disabled": true,
     "name": "King's Squire",
     "version": 3,
     "id": 15417,
     "icon": "genshin-impact/weapon/15417.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 454,
@@ -2879,6 +3164,7 @@
     "effects": []
   },
   "15418": {
+    "disabled": true,
     "name": "End of the Line",
     "version": 3,
     "id": 15418,
@@ -2892,11 +3178,13 @@
     "effects": []
   },
   "15419": {
+    "disabled": true,
     "name": "Ibis Piercer",
     "version": 3.7,
     "id": 15419,
     "icon": "genshin-impact/weapon/15419.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 565,
@@ -2905,6 +3193,7 @@
     "effects": []
   },
   "15424": {
+    "disabled": true,
     "name": "Scion of the Blazing Sun",
     "version": 4,
     "id": 15424,
@@ -2918,11 +3207,13 @@
     "effects": []
   },
   "15425": {
+    "disabled": true,
     "name": "Song of Stillness",
     "version": 4,
     "id": 15425,
     "icon": "genshin-impact/weapon/15425.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -2931,11 +3222,13 @@
     "effects": []
   },
   "15426": {
+    "disabled": true,
     "name": "Cloudforged",
     "version": 4.7,
     "id": 15426,
     "icon": "genshin-impact/weapon/15426.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -2944,6 +3237,7 @@
     "effects": []
   },
   "15427": {
+    "disabled": true,
     "name": "Range Gauge",
     "version": 4.1,
     "id": 15427,
@@ -2957,6 +3251,7 @@
     "effects": []
   },
   "15430": {
+    "disabled": true,
     "name": "Flower-Wreathed Feathers",
     "version": 5.2,
     "id": 15430,
@@ -2970,11 +3265,13 @@
     "effects": []
   },
   "15431": {
+    "disabled": true,
     "name": "Chain Breaker",
     "version": 5,
     "id": 15431,
     "icon": "genshin-impact/weapon/15431.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 565,
@@ -2983,11 +3280,13 @@
     "effects": []
   },
   "15432": {
+    "disabled": true,
     "name": "Sequence of Solitude",
     "version": 5.6,
     "id": 15432,
     "icon": "genshin-impact/weapon/15432.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -2996,11 +3295,13 @@
     "effects": []
   },
   "15433": {
+    "disabled": true,
     "name": "Snare Hook",
     "version": 6,
     "id": 15433,
     "icon": "genshin-impact/weapon/15433.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 454,
@@ -3009,11 +3310,13 @@
     "effects": []
   },
   "15434": {
+    "disabled": true,
     "name": "Rainbow Serpent's Rain Bow",
     "version": 6.2,
     "id": 15434,
     "icon": "genshin-impact/weapon/15434.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -3022,6 +3325,7 @@
     "effects": []
   },
   "15435": {
+    "disabled": true,
     "name": "Jade Vista",
     "version": 7.0,
     "id": 15435,
@@ -3035,11 +3339,13 @@
     "effects": []
   },
   "15436": {
+    "disabled": true,
     "name": "Covenant of Frost and Snow",
     "version": 7.0,
     "id": 15436,
     "icon": "genshin-impact/weapon/15436.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -3048,11 +3354,13 @@
     "effects": []
   },
   "15501": {
+    "disabled": true,
     "name": "Skyward Harp",
     "version": 1,
     "id": 15501,
     "icon": "genshin-impact/weapon/15501.webp",
     "quality": 5,
+    "standard": true,
     "type": "bow",
     "stats": {
       "baseAtk": 674,
@@ -3061,11 +3369,13 @@
     "effects": []
   },
   "15502": {
+    "disabled": true,
     "name": "Amos' Bow",
     "version": 1,
     "id": 15502,
     "icon": "genshin-impact/weapon/15502.webp",
     "quality": 5,
+    "standard": true,
     "type": "bow",
     "stats": {
       "baseAtk": 608,
@@ -3074,6 +3384,7 @@
     "effects": []
   },
   "15503": {
+    "disabled": true,
     "name": "Elegy for the End",
     "version": 1.4,
     "id": 15503,
@@ -3087,6 +3398,7 @@
     "effects": []
   },
   "15507": {
+    "disabled": true,
     "name": "Polar Star",
     "version": 2.2,
     "id": 15507,
@@ -3100,6 +3412,7 @@
     "effects": []
   },
   "15508": {
+    "disabled": true,
     "name": "Aqua Simulacra",
     "version": 2.7,
     "id": 15508,
@@ -3113,6 +3426,7 @@
     "effects": []
   },
   "15509": {
+    "disabled": true,
     "name": "Thundering Pulse",
     "version": 2,
     "id": 15509,
@@ -3126,6 +3440,7 @@
     "effects": []
   },
   "15511": {
+    "disabled": true,
     "name": "Hunter's Path",
     "version": 3,
     "id": 15511,
@@ -3139,6 +3454,7 @@
     "effects": []
   },
   "15512": {
+    "disabled": true,
     "name": "The First Great Magic",
     "version": 4,
     "id": 15512,
@@ -3152,6 +3468,7 @@
     "effects": []
   },
   "15513": {
+    "disabled": true,
     "name": "Silvershower Heartstrings",
     "version": 4.7,
     "id": 15513,
@@ -3165,6 +3482,7 @@
     "effects": []
   },
   "15514": {
+    "disabled": true,
     "name": "Astral Vulture's Crimson Plumage",
     "version": 5.2,
     "id": 15514,
@@ -3178,6 +3496,7 @@
     "effects": []
   },
   "15515": {
+    "disabled": true,
     "name": "The Daybreak Chronicles",
     "version": 6.2,
     "id": 15515,
@@ -3191,6 +3510,7 @@
     "effects": []
   },
   "15516": {
+    "disabled": true,
     "name": "Golden Frostbound Oath",
     "version": 6.5,
     "id": 15516,

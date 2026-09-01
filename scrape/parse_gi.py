@@ -103,6 +103,7 @@ def parse_character(version, id, data):
         stats["elementalMastery"] = stats.get("elementalMastery", 0) + extra_em
 
     return {
+        "disabled": True,
         "name": str(data["name"]),
         "version": float(version),
         "id": int(id),
@@ -121,6 +122,7 @@ def parse_weapon(version, id, data):
     stat = lookup_stat[raw_id]
     value = value_map["base"] * value_map["levels"]["90"]
     return {
+        "disabled": True,
         "name": str(data["name"]),
         "version": float(version),
         "id": int(id),
@@ -139,20 +141,22 @@ def parse_weapon(version, id, data):
         "effects": [],
     }
 
+def parse_set(version, id, data):
+    return {
+        "disabled": True,
+        "name": str(data["affix"][0]["name"]),
+        "version": float(version),
+        "id": int(id),
+        "icon": f"genshin-impact/set/{id}.webp",
+        "bonuses": [2, 4],
+        "effects": [],
+    }
+
 def parse_gi(type, version, id, data):
     match type:
         case "character":
             return parse_character(version, id, data)
-
         case "weapon":
             return parse_weapon(version, id, data)
-
         case "set":
-            return {
-                "name": str(data["affix"][0]["name"]),
-                "version": float(version),
-                "id": int(id),
-                "icon": f"genshin-impact/set/{id}.webp",
-                "bonuses": [2, 4],
-                "effects": [],
-            }
+            return parse_set(version, id, data)

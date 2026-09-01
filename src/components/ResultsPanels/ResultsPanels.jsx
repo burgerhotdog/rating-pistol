@@ -6,7 +6,6 @@ import LoadingBar from './LoadingBar';
 import OverviewTab from './OverviewTab';
 import DamageProfileTab from './DamageProfileTab';
 import BuildDetailsTab from './BuildDetailsTab';
-import ComparisonsTab from './ComparisonsTab';
 
 const ResultsPanels = ({ team }) => {
   const accent = useAccent();
@@ -32,15 +31,13 @@ const ResultsPanels = ({ team }) => {
         centered
       >
         <Tab value={0} label="Overview" />
-        <Tab value={1} label="Damage Profile" />
-        <Tab value={2} label="Build Details" />
-        <Tab value={3} label="Comparisons" />
+        <Tab value={1} label="Build Analysis" />
+        <Tab value={2} label="Damage Stats" />
       </Tabs>
 
       {tab === 0 && <OverviewTab results={results} />}
-      {tab === 1 && <DamageProfileTab results={results} />}
-      {tab === 2 && <BuildDetailsTab results={results} />}
-      {tab === 3 && <ComparisonsTab results={results} />}
+      {tab === 1 && <BuildDetailsTab results={results} />}
+      {tab === 2 && <DamageProfileTab results={results} />}
     </Stack>
   );
 };

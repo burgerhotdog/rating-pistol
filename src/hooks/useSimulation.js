@@ -1,40 +1,41 @@
-import { useMemo, useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { WW, CHARACTER, WEAPON, SET, ECHO } from '@/data';
+import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
 
-const VALID_GAMES = new Set([WW]);
+const isValid = ({ gameId, charId, team }) => team
+  .filter((member) => member.id != null)
+  .every((member) => {
+    const charData = CHARACTER[gameId][member.id];
+    if (!charData || charData.disabled) return;
 
-function validTeam(gameId, charId, team) {
-  if (!VALID_GAMES.has(gameId)) return;
+    const weapData = WEAPON[gameId][member.weaponId];
+    if (!weapData || weapData.disabled) return;
 
-  const fTeam = team.filter((member) => member?.id);
-  if (!fTeam.length) return;
-  return fTeam.every((member) => {
-    // Check all ids are valid
-    if (!(member.id in CHARACTER[gameId])) return;
-    if (!(member.weaponId in WEAPON[gameId])) return;
-    if (Object.keys(member.setCounts).some((setId) => !(setId in SET[gameId]))) return;
-    if (member.mainEcho && !(member.mainEcho in ECHO)) return;
+    for (const setId in member.setCounts) {
+      const setData = SET[gameId][setId];
+      if (!setData || setData.disabled) return;
+    }
+
+    if (member.mainEcho) {
+      const echoData = ECHO[member.mainEcho];
+      if (!echoData || echoData.disabled) return;
+    }
 
     // charId must have build
-    if (member.id === charId) {
-      if (!member.build?.equipList) return;
-    }
+    if (member.id === charId && !member.build?.equipList) return;
 
     return true;
   });
-}
 
-export function useSimulation(team) {
+export const useSimulation = (team) => {
   const { gameId, charId } = useParams();
   const workerRef = useRef(null);
   const prevPayloadRef = useRef(undefined);
   const [result, setResult] = useState({});
 
   const payload = useMemo(() => {
-    const charIdNum = Number(charId);
-    if (!validTeam(gameId, charIdNum, team)) return;
-    return { gameId, charId: charIdNum, team };
+    const data = { gameId, charId: Number(charId), team };
+    return isValid(data) ? data : null;
   }, [gameId, charId, team]);
 
   if (prevPayloadRef.current !== payload) {
@@ -58,7 +59,9 @@ export function useSimulation(team) {
 
       if (data.userSnapshots) {
         worker.terminate();
-        if (workerRef.current === worker) workerRef.current = null;
+        if (workerRef.current === worker) {
+          workerRef.current = null;
+        }
       }
     };
 
@@ -66,9 +69,11 @@ export function useSimulation(team) {
 
     return () => {
       worker.terminate();
-      if (workerRef.current === worker) workerRef.current = null;
+      if (workerRef.current === worker) {
+        workerRef.current = null;
+      }
     };
   }, [payload]);
 
   return payload ? result : {};
-}
+};

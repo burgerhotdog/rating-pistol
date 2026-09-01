@@ -16348,7 +16348,7 @@
             }
           },
           "stats": {
-            "mv%": 0.85
+            "damageMv%": 0.85
           }
         }
       },
@@ -19150,6 +19150,117 @@
     ],
     "effects": [
       {
+        "key": "stardustResonance",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "mode": "tuneRupture",
+        "key": "rupturousTrail",
+        "apply": {
+          "by": "$team",
+          "when": "tuneResponse",
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "tuneRupture"
+              }
+            }
+          },
+          "duration": 30000,
+          "stacks": 10
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.3"
+            }
+          },
+          "stats": {
+            "tuneMv%": 0.04
+          }
+        },
+        "maxStacks": 30
+      },
+      {
+        "stores": "global",
+        "gameRule": "aemeathFusionBurst"
+      },
+      {
+        "mode": "fusionBurst",
+        "key": "fusionTrail",
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "fusionBurst"
+                }
+              }
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "fusionBurstDmgAmp%": 0.1
+          }
+        },
+        "maxStacks": 30
+      },
+      {
+        "mode": "tuneRupture",
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.0",
+                "forteCircuit.1"
+              ]
+            }
+          },
+          "action": "forteCircuit.3",
+          "times": 5
+        }
+      },
+      {
+        "mode": "tuneRupture",
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "forteCircuit.0",
+                    "forteCircuit.1"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "stardustResonance"
+                }
+              }
+            ]
+          },
+          "action": "forteCircuit.3",
+          "times": 10
+        }
+      },
+      {
+        "mode": "tuneRupture",
         "use": {
           "when": "tuneResponse",
           "filter": {
@@ -19160,6 +19271,66 @@
             }
           },
           "action": "forteCircuit.2"
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.4",
+                "normalAttack.5",
+                "resonanceSkill.6",
+                "resonanceSkill.7"
+              ]
+            }
+          },
+          "stats": {
+            "dmgAmp%": 2
+          }
+        }
+      },
+      {
+        "mode": "tuneRupture",
+        "key": "betweenTheStars",
+        "apply": {
+          "by": "$team",
+          "when": "tuneResponse",
+          "filter": {
+            "states": {
+              "tune": {
+                "interfered": "tuneRupture"
+              }
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": 0.2
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "mode": "tuneRupture",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "betweenTheStars": 3
+                }
+              },
+              {
+                "action": {
+                  "ref": "resonanceLiberation.1"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "dmgAmp%": 0.25
+          }
         }
       },
       {
@@ -20610,7 +20781,7 @@
           {
             "name": "Seraphic Duet Bonus DMG (Per Instance)",
             "damage": {
-              "type": "buff",
+              "type": "tuneRupture",
               "attr": "tuneAmp",
               "multipliers": [
                 {
@@ -20857,7 +21028,7 @@
             }
           },
           "stats": {
-            "mv%": 1.5
+            "damageMv%": 1.5
           }
         },
         "maxStacks": 3
@@ -20947,7 +21118,7 @@
             }
           },
           "stats": {
-            "mv%": 0.5
+            "damageMv%": 0.5
           }
         }
       },
@@ -22279,7 +22450,10 @@
       "duration": 5630
     },
     "teamPreset": [
-      1210,
+      {
+        "id": 1210,
+        "mode": "fusionBurst"
+      },
       1211,
       1508
     ]
@@ -33410,7 +33584,7 @@
             }
           },
           "stats": {
-            "mv%": 0.2
+            "damageMv%": 0.2
           }
         }
       },
@@ -33423,7 +33597,7 @@
             }
           },
           "stats": {
-            "mv%": 0.2
+            "damageMv%": 0.2
           }
         }
       },
@@ -33480,7 +33654,7 @@
             }
           },
           "stats": {
-            "mv%": 0.2
+            "damageMv%": 0.2
           }
         }
       }
@@ -38957,7 +39131,7 @@
             }
           },
           "stats": {
-            "mv%": 0.2
+            "damageMv%": 0.2
           }
         }
       },
@@ -38973,7 +39147,7 @@
             }
           },
           "stats": {
-            "mv%": 0.3
+            "damageMv%": 0.3
           }
         }
       }
@@ -46633,7 +46807,7 @@
             }
           },
           "stats": {
-            "mv%": 1
+            "damageMv%": 1
           }
         }
       },
@@ -46729,7 +46903,7 @@
             }
           },
           "stats": {
-            "mv%": 1
+            "damageMv%": 1
           }
         }
       }
@@ -53137,13 +53311,6 @@
         }
       },
       {
-        "key": "heliacalEmber",
-        "apply": {
-          "by": "$team",
-          "filter": {}
-        }
-      },
-      {
         "use": {
           "when": "hit",
           "filter": {
@@ -55994,7 +56161,7 @@
             }
           },
           "stats": {
-            "mv%": 1.2
+            "damageMv%": 1.2
           }
         }
       },
@@ -56036,7 +56203,7 @@
             }
           },
           "stats": {
-            "mv%": 0.9
+            "damageMv%": 0.9
           }
         }
       },
@@ -56057,7 +56224,7 @@
             }
           },
           "stats": {
-            "mv%": 0.7
+            "damageMv%": 0.7
           }
         }
       }
@@ -57401,7 +57568,7 @@
             }
           },
           "stats": {
-            "mv%": 1.1
+            "damageMv%": 1.1
           }
         }
       },
@@ -63933,7 +64100,7 @@
             }
           },
           "stats": {
-            "mv%": 0.5
+            "damageMv%": 0.5
           }
         }
       },

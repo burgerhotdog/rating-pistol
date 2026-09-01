@@ -3,6 +3,8 @@ import { getDefMult } from '../formula/enemyDef';
 import { getResMult } from '../formula/enemyRes';
 import { getBuffMap } from '../getStatMap';
 import { getEffectStates } from '../getEffectStates';
+import { runApplyEffect } from '../effects';
+import { onApplyDoCommand } from '../commands';
 
 const LEVEL_MODIFIER = 716.22;
 const ENEMY_TYPE_MODIFIER = 14;
@@ -16,12 +18,13 @@ const tuneBreakAction = {
 };
 
 export const runTuneFormula = (gameId, statMap, tuneAmp, element) => {
+  const tuneAmpMvBonus = 1 + getAttr('tuneMv%', statMap);
   const defMult = getDefMult(gameId, statMap);
   const resMult = getResMult(gameId, element, statMap);
   const tuneBreakBoostMult = 1 + (getAttr('tuneBreakBoost', statMap) / 100);
   const vulnMult = 1 + getAttr('vuln%', statMap);
 
-  return LEVEL_MODIFIER * tuneAmp *
+  return LEVEL_MODIFIER * (tuneAmp * tuneAmpMvBonus) *
     ENEMY_TYPE_MODIFIER *
     defMult * resMult *
     tuneBreakBoostMult *
@@ -65,14 +68,29 @@ function recordTuneBreak(ctx) {
   const { shifting } = ctx.states.tune;
   if (shifting !== 'tuneRupture' && shifting !== 'hack') return;
   for (const state of getEffectStates(ctx, { member: 'all', type: 'action' })) {
-    const { effect: { use = {} } } = state;
-    if (
-      use.when !== 'tuneResponse' ||
-      use.filter?.states?.tune?.interfered !== shifting
-    ) continue;
+    const { effect } = state;
+    const { ownerId: responseOwnerId, use } = effect;
 
-    ctx.snapshots.push(buildSnapshot(use.action[0]));
-    state.useCooldown = 8000;
+    if (use?.when === 'tuneResponse' && use?.filter?.states?.tune?.interfered === shifting) {
+      ctx.snapshots.push(buildSnapshot(use?.action[0]));
+      state.useCooldown = 8000;
+
+      const { applyCooldowns } = ctx.states;
+      for (const effect of Object.values(ctx.cache.effects)) {
+        if (!effect.apply) continue;
+
+        const { apply } = effect;
+        if (
+          !apply.by.includes(responseOwnerId) ||
+          applyCooldowns[effect.id] ||
+          apply.when !== 'tuneResponse' ||
+          !use?.filter?.states?.tune?.interfered === shifting
+        ) continue;
+
+        onApplyDoCommand(ctx, effect, responseOwnerId);
+        runApplyEffect(ctx, effect, { applier: responseOwnerId });
+      }
+    }
   }
 }
 

@@ -1,5 +1,6 @@
 {
   "12001": {
+    "disabled": true,
     "name": "[Lunar] Pleniluna",
     "version": 1,
     "id": 12001,
@@ -13,6 +14,7 @@
     "effects": []
   },
   "12002": {
+    "disabled": true,
     "name": "[Lunar] Decrescent",
     "version": 1,
     "id": 12002,
@@ -26,6 +28,7 @@
     "effects": []
   },
   "12003": {
+    "disabled": true,
     "name": "[Lunar] Noviluna",
     "version": 1,
     "id": 12003,
@@ -39,6 +42,7 @@
     "effects": []
   },
   "12004": {
+    "disabled": true,
     "name": "[Reverb] Mark I",
     "version": 1,
     "id": 12004,
@@ -52,6 +56,7 @@
     "effects": []
   },
   "12005": {
+    "disabled": true,
     "name": "[Reverb] Mark II",
     "version": 1,
     "id": 12005,
@@ -65,6 +70,7 @@
     "effects": []
   },
   "12006": {
+    "disabled": true,
     "name": "[Reverb] Mark III",
     "version": 1,
     "id": 12006,
@@ -78,6 +84,7 @@
     "effects": []
   },
   "12007": {
+    "disabled": true,
     "name": "[Vortex] Revolver",
     "version": 1,
     "id": 12007,
@@ -91,6 +98,7 @@
     "effects": []
   },
   "12008": {
+    "disabled": true,
     "name": "[Vortex] Arrow",
     "version": 1,
     "id": 12008,
@@ -104,6 +112,7 @@
     "effects": []
   },
   "12009": {
+    "disabled": true,
     "name": "[Vortex] Hatchet",
     "version": 1,
     "id": 12009,
@@ -117,6 +126,7 @@
     "effects": []
   },
   "12010": {
+    "disabled": true,
     "name": "[Magnetic Storm] Alpha",
     "version": 1,
     "id": 12010,
@@ -130,6 +140,7 @@
     "effects": []
   },
   "12011": {
+    "disabled": true,
     "name": "[Magnetic Storm] Bravo",
     "version": 1,
     "id": 12011,
@@ -143,6 +154,7 @@
     "effects": []
   },
   "12012": {
+    "disabled": true,
     "name": "[Magnetic Storm] Charlie",
     "version": 1,
     "id": 12012,
@@ -156,6 +168,7 @@
     "effects": []
   },
   "12013": {
+    "disabled": true,
     "name": "[Identity] Base",
     "version": 1,
     "id": 12013,
@@ -169,6 +182,7 @@
     "effects": []
   },
   "12014": {
+    "disabled": true,
     "name": "[Identity] Inflection",
     "version": 1,
     "id": 12014,
@@ -182,6 +196,7 @@
     "effects": []
   },
   "12015": {
+    "disabled": true,
     "name": "[Cinder] Cobalt",
     "version": 2,
     "id": 12015,
@@ -195,11 +210,13 @@
     "effects": []
   },
   "13001": {
+    "disabled": true,
     "name": "Street Superstar",
     "version": 1,
     "id": 13001,
     "icon": "zenless-zone-zero/weapon/13001.webp",
     "quality": 4,
+    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -208,11 +225,13 @@
     "effects": []
   },
   "13002": {
+    "disabled": true,
     "name": "Slice of Time",
     "version": 1,
     "id": 13002,
     "icon": "zenless-zone-zero/weapon/13002.webp",
     "quality": 4,
+    "free": true,
     "type": "support",
     "stats": {
       "baseAtk": 594,
@@ -221,11 +240,13 @@
     "effects": []
   },
   "13003": {
+    "disabled": true,
     "name": "Rainforest Gourmet",
     "version": 1,
     "id": 13003,
     "icon": "zenless-zone-zero/weapon/13003.webp",
     "quality": 4,
+    "free": true,
     "type": "anomaly",
     "stats": {
       "baseAtk": 594,
@@ -234,11 +255,13 @@
     "effects": []
   },
   "13004": {
+    "disabled": true,
     "name": "Starlight Engine",
     "version": 1,
     "id": 13004,
     "icon": "zenless-zone-zero/weapon/13004.webp",
     "quality": 4,
+    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -247,11 +270,13 @@
     "effects": []
   },
   "13005": {
+    "disabled": true,
     "name": "Steam Oven",
     "version": 1,
     "id": 13005,
     "icon": "zenless-zone-zero/weapon/13005.webp",
     "quality": 4,
+    "free": true,
     "type": "stun",
     "stats": {
       "baseAtk": 594,
@@ -260,11 +285,13 @@
     "effects": []
   },
   "13006": {
+    "disabled": true,
     "name": "Precious Fossilized Core",
     "version": 1,
     "id": 13006,
     "icon": "zenless-zone-zero/weapon/13006.webp",
     "quality": 4,
+    "free": true,
     "type": "stun",
     "stats": {
       "baseAtk": 594,
@@ -273,11 +300,13 @@
     "effects": []
   },
   "13007": {
+    "disabled": true,
     "name": "Original Transmorpher",
     "version": 1,
     "id": 13007,
     "icon": "zenless-zone-zero/weapon/13007.webp",
     "quality": 4,
+    "free": true,
     "type": "defense",
     "stats": {
       "baseAtk": 594,
@@ -286,11 +315,13 @@
     "effects": []
   },
   "13008": {
+    "disabled": true,
     "name": "Weeping Gemini",
     "version": 1,
     "id": 13008,
     "icon": "zenless-zone-zero/weapon/13008.webp",
     "quality": 4,
+    "free": true,
     "type": "anomaly",
     "stats": {
       "baseAtk": 594,
@@ -299,6 +330,7 @@
     "effects": []
   },
   "13009": {
+    "disabled": true,
     "name": "Electro-Lip Gloss",
     "version": 1,
     "id": 13009,
@@ -312,11 +344,13 @@
     "effects": []
   },
   "13010": {
+    "disabled": true,
     "name": "Bunny Band",
     "version": 1,
     "id": 13010,
     "icon": "zenless-zone-zero/weapon/13010.webp",
     "quality": 4,
+    "free": true,
     "type": "defense",
     "stats": {
       "baseAtk": 594,
@@ -325,6 +359,7 @@
     "effects": []
   },
   "13011": {
+    "disabled": true,
     "name": "Spring Embrace",
     "version": 1,
     "id": 13011,
@@ -338,11 +373,13 @@
     "effects": []
   },
   "13012": {
+    "disabled": true,
     "name": "Puzzle Sphere",
     "version": 2,
     "id": 13012,
     "icon": "zenless-zone-zero/weapon/13012.webp",
     "quality": 4,
+    "free": true,
     "type": "rupture",
     "stats": {
       "baseAtk": 594,
@@ -351,11 +388,13 @@
     "effects": []
   },
   "13013": {
+    "disabled": true,
     "name": "Gilded Blossom",
     "version": 1.1,
     "id": 13013,
     "icon": "zenless-zone-zero/weapon/13013.webp",
     "quality": 4,
+    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -364,6 +403,7 @@
     "effects": []
   },
   "13014": {
+    "disabled": true,
     "name": "Radiowave Journey",
     "version": 2,
     "id": 13014,
@@ -377,11 +417,13 @@
     "effects": []
   },
   "13015": {
+    "disabled": true,
     "name": "Marcato Desire",
     "version": 1.4,
     "id": 13015,
     "icon": "zenless-zone-zero/weapon/13015.webp",
     "quality": 4,
+    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -390,11 +432,13 @@
     "effects": []
   },
   "13016": {
+    "disabled": true,
     "name": "Reel Projector",
     "version": 2,
     "id": 13016,
     "icon": "zenless-zone-zero/weapon/13016.webp",
     "quality": 4,
+    "free": true,
     "type": "defense",
     "stats": {
       "baseAtk": 594,
@@ -402,12 +446,29 @@
     },
     "effects": []
   },
+  "13018": {
+    "disabled": true,
+    "name": "Boisterous Echoes",
+    "version": 3.1,
+    "id": 13018,
+    "icon": "zenless-zone-zero/weapon/13018.webp",
+    "quality": 4,
+    "free": true,
+    "type": "anomaly",
+    "stats": {
+      "baseAtk": 594,
+      "anomalyProficiency": 75
+    },
+    "effects": []
+  },
   "13019": {
+    "disabled": true,
     "name": "Cauldron of Clarity",
     "version": 2.5,
     "id": 13019,
     "icon": "zenless-zone-zero/weapon/13019.webp",
     "quality": 4,
+    "free": true,
     "type": "rupture",
     "stats": {
       "baseAtk": 594,
@@ -416,11 +477,13 @@
     "effects": []
   },
   "13020": {
+    "disabled": true,
     "name": "The Simmering Pot",
     "version": 2.7,
     "id": 13020,
     "icon": "zenless-zone-zero/weapon/13020.webp",
     "quality": 4,
+    "free": true,
     "type": "stun",
     "stats": {
       "baseAtk": 594,
@@ -429,6 +492,7 @@
     "effects": []
   },
   "13101": {
+    "disabled": true,
     "name": "Demara Battery Mark II",
     "version": 1,
     "id": 13101,
@@ -442,6 +506,7 @@
     "effects": []
   },
   "13103": {
+    "disabled": true,
     "name": "The Vault",
     "version": 1,
     "id": 13103,
@@ -455,6 +520,7 @@
     "effects": []
   },
   "13106": {
+    "disabled": true,
     "name": "Housekeeper",
     "version": 1,
     "id": 13106,
@@ -468,6 +534,7 @@
     "effects": []
   },
   "13108": {
+    "disabled": true,
     "name": "Starlight Engine Replica",
     "version": 1,
     "id": 13108,
@@ -481,6 +548,7 @@
     "effects": []
   },
   "13111": {
+    "disabled": true,
     "name": "Drill Rig - Red Axis",
     "version": 1,
     "id": 13111,
@@ -494,6 +562,7 @@
     "effects": []
   },
   "13112": {
+    "disabled": true,
     "name": "Big Cylinder",
     "version": 1,
     "id": 13112,
@@ -507,6 +576,7 @@
     "effects": []
   },
   "13113": {
+    "disabled": true,
     "name": "Bashful Demon",
     "version": 1,
     "id": 13113,
@@ -520,6 +590,7 @@
     "effects": []
   },
   "13115": {
+    "disabled": true,
     "name": "Kaboom the Cannon",
     "version": 1,
     "id": 13115,
@@ -533,6 +604,7 @@
     "effects": []
   },
   "13127": {
+    "disabled": true,
     "name": "Peacekeeper - Specialized",
     "version": 1.1,
     "id": 13127,
@@ -546,6 +618,7 @@
     "effects": []
   },
   "13128": {
+    "disabled": true,
     "name": "Roaring Ride",
     "version": 1,
     "id": 13128,
@@ -559,6 +632,7 @@
     "effects": []
   },
   "13135": {
+    "disabled": true,
     "name": "Box Cutter",
     "version": 1.6,
     "id": 13135,
@@ -572,6 +646,7 @@
     "effects": []
   },
   "13142": {
+    "disabled": true,
     "name": "Tremor Trigram Vessel",
     "version": 2,
     "id": 13142,
@@ -585,6 +660,7 @@
     "effects": []
   },
   "13144": {
+    "disabled": true,
     "name": "Grill O'Wisp",
     "version": 2.3,
     "id": 13144,
@@ -598,6 +674,7 @@
     "effects": []
   },
   "14001": {
+    "disabled": true,
     "name": "Cannon Rotor",
     "version": 1,
     "id": 14001,
@@ -611,6 +688,7 @@
     "effects": []
   },
   "14002": {
+    "disabled": true,
     "name": "Unfettered Game Ball",
     "version": 1,
     "id": 14002,
@@ -624,6 +702,7 @@
     "effects": []
   },
   "14003": {
+    "disabled": true,
     "name": "Six Shooter",
     "version": 1,
     "id": 14003,
@@ -637,11 +716,13 @@
     "effects": []
   },
   "14102": {
+    "disabled": true,
     "name": "Steel Cushion",
     "version": 1,
     "id": 14102,
     "icon": "zenless-zone-zero/weapon/14102.webp",
     "quality": 5,
+    "standard": true,
     "type": "attack",
     "stats": {
       "baseAtk": 683,
@@ -650,11 +731,13 @@
     "effects": []
   },
   "14104": {
+    "disabled": true,
     "name": "The Brimstone",
     "version": 1,
     "id": 14104,
     "icon": "zenless-zone-zero/weapon/14104.webp",
     "quality": 5,
+    "standard": true,
     "type": "attack",
     "stats": {
       "baseAtk": 683,
@@ -663,6 +746,7 @@
     "effects": []
   },
   "14105": {
+    "disabled": true,
     "name": "Kraken's Cradle",
     "version": 2.3,
     "id": 14105,
@@ -676,6 +760,7 @@
     "effects": []
   },
   "14107": {
+    "disabled": true,
     "name": "Tusks of Fury",
     "version": 1.2,
     "id": 14107,
@@ -689,6 +774,7 @@
     "effects": []
   },
   "14109": {
+    "disabled": true,
     "name": "Hailstorm Shrine",
     "version": 1.4,
     "id": 14109,
@@ -702,11 +788,13 @@
     "effects": []
   },
   "14110": {
+    "disabled": true,
     "name": "Hellfire Gears",
     "version": 1,
     "id": 14110,
     "icon": "zenless-zone-zero/weapon/14110.webp",
     "quality": 5,
+    "standard": true,
     "type": "stun",
     "stats": {
       "baseAtk": 683,
@@ -715,11 +803,13 @@
     "effects": []
   },
   "14114": {
+    "disabled": true,
     "name": "The Restrained",
     "version": 1,
     "id": 14114,
     "icon": "zenless-zone-zero/weapon/14114.webp",
     "quality": 5,
+    "standard": true,
     "type": "stun",
     "stats": {
       "baseAtk": 683,
@@ -728,6 +818,7 @@
     "effects": []
   },
   "14116": {
+    "disabled": true,
     "name": "Blazing Laurel",
     "version": 1.3,
     "id": 14116,
@@ -741,6 +832,7 @@
     "effects": []
   },
   "14117": {
+    "disabled": true,
     "name": "Flamemaker Shaker",
     "version": 1.2,
     "id": 14117,
@@ -754,11 +846,13 @@
     "effects": []
   },
   "14118": {
+    "disabled": true,
     "name": "Fusion Compiler",
     "version": 1,
     "id": 14118,
     "icon": "zenless-zone-zero/weapon/14118.webp",
     "quality": 5,
+    "standard": true,
     "type": "anomaly",
     "stats": {
       "baseAtk": 683,
@@ -767,6 +861,7 @@
     "effects": []
   },
   "14119": {
+    "disabled": true,
     "name": "Deep Sea Visitor",
     "version": 1,
     "id": 14119,
@@ -780,6 +875,7 @@
     "effects": []
   },
   "14120": {
+    "disabled": true,
     "name": "Zanshin Herb Case",
     "version": 1.4,
     "id": 14120,
@@ -793,11 +889,13 @@
     "effects": []
   },
   "14121": {
+    "disabled": true,
     "name": "Weeping Cradle",
     "version": 1,
     "id": 14121,
     "icon": "zenless-zone-zero/weapon/14121.webp",
     "quality": 5,
+    "standard": true,
     "type": "support",
     "stats": {
       "baseAtk": 683,
@@ -806,6 +904,7 @@
     "effects": []
   },
   "14122": {
+    "disabled": true,
     "name": "Timeweaver",
     "version": 1.3,
     "id": 14122,
@@ -819,6 +918,7 @@
     "effects": []
   },
   "14124": {
+    "disabled": true,
     "name": "Riot Suppressor Mark VI",
     "version": 1,
     "id": 14124,
@@ -832,6 +932,7 @@
     "effects": []
   },
   "14125": {
+    "disabled": true,
     "name": "Ice-Jade Teapot",
     "version": 1.1,
     "id": 14125,
@@ -845,6 +946,7 @@
     "effects": []
   },
   "14126": {
+    "disabled": true,
     "name": "Sharpened Stinger",
     "version": 1.1,
     "id": 14126,
@@ -858,6 +960,7 @@
     "effects": []
   },
   "14129": {
+    "disabled": true,
     "name": "Myriad Eclipse",
     "version": 1.7,
     "id": 14129,
@@ -871,6 +974,7 @@
     "effects": []
   },
   "14130": {
+    "disabled": true,
     "name": "Bellicose Blaze",
     "version": 2.2,
     "id": 14130,
@@ -884,6 +988,7 @@
     "effects": []
   },
   "14131": {
+    "disabled": true,
     "name": "Elegant Vanity",
     "version": 1.5,
     "id": 14131,
@@ -897,6 +1002,7 @@
     "effects": []
   },
   "14132": {
+    "disabled": true,
     "name": "Heartstring Nocturne",
     "version": 1.5,
     "id": 14132,
@@ -910,6 +1016,7 @@
     "effects": []
   },
   "14133": {
+    "disabled": true,
     "name": "Flight of Fancy",
     "version": 1.7,
     "id": 14133,
@@ -923,6 +1030,7 @@
     "effects": []
   },
   "14134": {
+    "disabled": true,
     "name": "Half-Sugar Bunny",
     "version": 2.5,
     "id": 14134,
@@ -936,6 +1044,7 @@
     "effects": []
   },
   "14136": {
+    "disabled": true,
     "name": "Spectral Gaze",
     "version": 1.6,
     "id": 14136,
@@ -949,6 +1058,7 @@
     "effects": []
   },
   "14137": {
+    "disabled": true,
     "name": "Qingming Birdcage",
     "version": 2,
     "id": 14137,
@@ -962,6 +1072,7 @@
     "effects": []
   },
   "14138": {
+    "disabled": true,
     "name": "Severed Innocence",
     "version": 1.6,
     "id": 14138,
@@ -975,6 +1086,7 @@
     "effects": []
   },
   "14139": {
+    "disabled": true,
     "name": "Roaring Fur-nace",
     "version": 2,
     "id": 14139,
@@ -988,6 +1100,7 @@
     "effects": []
   },
   "14140": {
+    "disabled": true,
     "name": "Practiced Perfection",
     "version": 2.1,
     "id": 14140,
@@ -1001,6 +1114,7 @@
     "effects": []
   },
   "14141": {
+    "disabled": true,
     "name": "Metanukimorphosis",
     "version": 2.1,
     "id": 14141,
@@ -1014,6 +1128,7 @@
     "effects": []
   },
   "14143": {
+    "disabled": true,
     "name": "Cloudcleave Radiance",
     "version": 2.5,
     "id": 14143,
@@ -1027,6 +1142,7 @@
     "effects": []
   },
   "14145": {
+    "disabled": true,
     "name": "Dreamlit Hearth",
     "version": 2.3,
     "id": 14145,
@@ -1040,6 +1156,7 @@
     "effects": []
   },
   "14146": {
+    "disabled": true,
     "name": "Cordis Germina",
     "version": 2.2,
     "id": 14146,
@@ -1053,6 +1170,7 @@
     "effects": []
   },
   "14147": {
+    "disabled": true,
     "name": "Wrathful Vajra",
     "version": 2.4,
     "id": 14147,
@@ -1066,6 +1184,7 @@
     "effects": []
   },
   "14148": {
+    "disabled": true,
     "name": "Yesterday Calls",
     "version": 2.4,
     "id": 14148,
@@ -1079,6 +1198,7 @@
     "effects": []
   },
   "14149": {
+    "disabled": true,
     "name": "Thoughtbop",
     "version": 2.6,
     "id": 14149,
@@ -1092,6 +1212,7 @@
     "effects": []
   },
   "14150": {
+    "disabled": true,
     "name": "Angel in the Shell",
     "version": 2.6,
     "id": 14150,
@@ -1105,6 +1226,7 @@
     "effects": []
   },
   "14151": {
+    "disabled": true,
     "name": "Neon Fantasies",
     "version": 2.7,
     "id": 14151,
@@ -1118,6 +1240,7 @@
     "effects": []
   },
   "14152": {
+    "disabled": true,
     "name": "Serpentine Seeker",
     "version": 2.7,
     "id": 14152,
@@ -1131,6 +1254,7 @@
     "effects": []
   },
   "14153": {
+    "disabled": true,
     "name": "Starlight Rider Faceplate",
     "version": 2.8,
     "id": 14153,
@@ -1144,6 +1268,7 @@
     "effects": []
   },
   "14154": {
+    "disabled": true,
     "name": "Frostfall Sickle",
     "version": 2.8,
     "id": 14154,
@@ -1157,6 +1282,7 @@
     "effects": []
   },
   "14155": {
+    "disabled": true,
     "name": "Sol Exuvia",
     "version": 3,
     "id": 14155,
@@ -1170,6 +1296,7 @@
     "effects": []
   },
   "14156": {
+    "disabled": true,
     "name": "Joyau Dore",
     "version": 3,
     "id": 14156,
@@ -1183,6 +1310,7 @@
     "effects": []
   },
   "14157": {
+    "disabled": true,
     "name": "Chief Sidekick",
     "version": 3,
     "id": 14157,
@@ -1196,6 +1324,7 @@
     "effects": []
   },
   "14158": {
+    "disabled": true,
     "name": "Ode of Resurrected Wings",
     "version": 3.1,
     "id": 14158,
@@ -1209,6 +1338,7 @@
     "effects": []
   },
   "14159": {
+    "disabled": true,
     "name": "Knight's Extolment",
     "version": 3.1,
     "id": 14159,
