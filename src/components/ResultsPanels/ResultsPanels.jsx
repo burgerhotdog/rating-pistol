@@ -5,7 +5,7 @@ import { Tabs } from '../Colored';
 import LoadingBar from './LoadingBar';
 import OverviewTab from './OverviewTab';
 import DamageProfileTab from './DamageProfileTab';
-import BuildDetailsTab from './BuildDetailsTab';
+import BuildAnalysisTab from './BuildAnalysisTab';
 
 const ResultsPanels = ({ team }) => {
   const accent = useAccent();
@@ -36,7 +36,7 @@ const ResultsPanels = ({ team }) => {
       </Tabs>
 
       {tab === 0 && <OverviewTab results={results} />}
-      {tab === 1 && <BuildDetailsTab results={results} />}
+      {tab === 1 && <BuildAnalysisTab results={results} />}
       {tab === 2 && <DamageProfileTab results={results} />}
     </Stack>
   );

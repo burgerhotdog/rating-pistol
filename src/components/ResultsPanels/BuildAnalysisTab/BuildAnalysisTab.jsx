@@ -4,7 +4,7 @@ import Set from './Set';
 import Mainstats from './Mainstats';
 import Substats from './Substats';
 
-const BuildDetailsTab = ({ results }) => {
+const BuildAnalysisTab = ({ results }) => {
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
@@ -19,4 +19,4 @@ const BuildDetailsTab = ({ results }) => {
   );
 };
 
-export default BuildDetailsTab;
+export default BuildAnalysisTab;
