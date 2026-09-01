@@ -197,6 +197,7 @@
     "id": 11406,
     "icon": "genshin-impact/weapon/11406.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 565,
@@ -211,6 +212,7 @@
     "id": 11407,
     "icon": "genshin-impact/weapon/11407.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 510,
@@ -281,6 +283,7 @@
     "id": 11413,
     "icon": "genshin-impact/weapon/11413.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 510,
@@ -295,6 +298,7 @@
     "id": 11414,
     "icon": "genshin-impact/weapon/11414.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 454,
@@ -309,6 +313,7 @@
     "id": 11415,
     "icon": "genshin-impact/weapon/11415.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 454,
@@ -355,6 +360,7 @@
     "id": 11417,
     "icon": "genshin-impact/weapon/11417.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 565,
@@ -383,6 +389,7 @@
     "id": 11422,
     "icon": "genshin-impact/weapon/11422.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 510,
@@ -411,6 +418,7 @@
     "id": 11425,
     "icon": "genshin-impact/weapon/11425.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 565,
@@ -481,6 +489,7 @@
     "id": 11431,
     "icon": "genshin-impact/weapon/11431.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 454,
@@ -495,6 +504,7 @@
     "id": 11432,
     "icon": "genshin-impact/weapon/11432.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 565,
@@ -509,6 +519,7 @@
     "id": 11433,
     "icon": "genshin-impact/weapon/11433.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 454,
@@ -551,6 +562,7 @@
     "id": 11436,
     "icon": "genshin-impact/weapon/11436.webp",
     "quality": 4,
+    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 510,
@@ -565,6 +577,7 @@
     "id": 11501,
     "icon": "genshin-impact/weapon/11501.webp",
     "quality": 5,
+    "standard": true,
     "type": "sword",
     "stats": {
       "baseAtk": 674,
@@ -579,6 +592,7 @@
     "id": 11502,
     "icon": "genshin-impact/weapon/11502.webp",
     "quality": 5,
+    "standard": true,
     "type": "sword",
     "stats": {
       "baseAtk": 608,
@@ -969,6 +983,7 @@
     "id": 12406,
     "icon": "genshin-impact/weapon/12406.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -983,6 +998,7 @@
     "id": 12407,
     "icon": "genshin-impact/weapon/12407.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 510,
@@ -1039,6 +1055,7 @@
     "id": 12411,
     "icon": "genshin-impact/weapon/12411.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1053,6 +1070,7 @@
     "id": 12412,
     "icon": "genshin-impact/weapon/12412.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 454,
@@ -1067,6 +1085,7 @@
     "id": 12414,
     "icon": "genshin-impact/weapon/12414.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 510,
@@ -1109,6 +1128,7 @@
     "id": 12417,
     "icon": "genshin-impact/weapon/12417.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1123,6 +1143,7 @@
     "id": 12418,
     "icon": "genshin-impact/weapon/12418.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1151,6 +1172,7 @@
     "id": 12425,
     "icon": "genshin-impact/weapon/12425.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 510,
@@ -1165,6 +1187,7 @@
     "id": 12426,
     "icon": "genshin-impact/weapon/12426.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1207,6 +1230,7 @@
     "id": 12431,
     "icon": "genshin-impact/weapon/12431.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1221,6 +1245,7 @@
     "id": 12432,
     "icon": "genshin-impact/weapon/12432.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1235,6 +1260,7 @@
     "id": 12433,
     "icon": "genshin-impact/weapon/12433.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 454,
@@ -1263,6 +1289,7 @@
     "id": 12436,
     "icon": "genshin-impact/weapon/12436.webp",
     "quality": 4,
+    "free": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 565,
@@ -1277,6 +1304,7 @@
     "id": 12501,
     "icon": "genshin-impact/weapon/12501.webp",
     "quality": 5,
+    "standard": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 674,
@@ -1291,6 +1319,7 @@
     "id": 12502,
     "icon": "genshin-impact/weapon/12502.webp",
     "quality": 5,
+    "standard": true,
     "type": "claymore",
     "stats": {
       "baseAtk": 608,
@@ -1513,6 +1542,7 @@
     "id": 13402,
     "icon": "genshin-impact/weapon/13402.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1527,6 +1557,7 @@
     "id": 13403,
     "icon": "genshin-impact/weapon/13403.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1611,6 +1642,7 @@
     "id": 13409,
     "icon": "genshin-impact/weapon/13409.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 454,
@@ -1625,6 +1657,7 @@
     "id": 13414,
     "icon": "genshin-impact/weapon/13414.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1667,6 +1700,7 @@
     "id": 13417,
     "icon": "genshin-impact/weapon/13417.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1681,6 +1715,7 @@
     "id": 13419,
     "icon": "genshin-impact/weapon/13419.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1709,6 +1744,7 @@
     "id": 13425,
     "icon": "genshin-impact/weapon/13425.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1723,6 +1759,7 @@
     "id": 13426,
     "icon": "genshin-impact/weapon/13426.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1765,6 +1802,7 @@
     "id": 13431,
     "icon": "genshin-impact/weapon/13431.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1779,6 +1817,7 @@
     "id": 13432,
     "icon": "genshin-impact/weapon/13432.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1793,6 +1832,7 @@
     "id": 13433,
     "icon": "genshin-impact/weapon/13433.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 510,
@@ -1835,6 +1875,7 @@
     "id": 13436,
     "icon": "genshin-impact/weapon/13436.webp",
     "quality": 4,
+    "free": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 565,
@@ -1863,6 +1904,7 @@
     "id": 13502,
     "icon": "genshin-impact/weapon/13502.webp",
     "quality": 5,
+    "standard": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 674,
@@ -1891,6 +1933,7 @@
     "id": 13505,
     "icon": "genshin-impact/weapon/13505.webp",
     "quality": 5,
+    "standard": true,
     "type": "polearm",
     "stats": {
       "baseAtk": 674,
@@ -2197,6 +2240,7 @@
     "id": 14406,
     "icon": "genshin-impact/weapon/14406.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2211,6 +2255,7 @@
     "id": 14407,
     "icon": "genshin-impact/weapon/14407.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2267,6 +2312,7 @@
     "id": 14412,
     "icon": "genshin-impact/weapon/14412.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2281,6 +2327,7 @@
     "id": 14413,
     "icon": "genshin-impact/weapon/14413.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 454,
@@ -2295,6 +2342,7 @@
     "id": 14414,
     "icon": "genshin-impact/weapon/14414.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2309,6 +2357,7 @@
     "id": 14415,
     "icon": "genshin-impact/weapon/14415.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2337,6 +2386,7 @@
     "id": 14417,
     "icon": "genshin-impact/weapon/14417.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2365,6 +2415,7 @@
     "id": 14425,
     "icon": "genshin-impact/weapon/14425.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2379,6 +2430,7 @@
     "id": 14426,
     "icon": "genshin-impact/weapon/14426.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2393,6 +2445,7 @@
     "id": 14427,
     "icon": "genshin-impact/weapon/14427.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2421,6 +2474,7 @@
     "id": 14431,
     "icon": "genshin-impact/weapon/14431.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2435,6 +2489,7 @@
     "id": 14432,
     "icon": "genshin-impact/weapon/14432.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 510,
@@ -2449,6 +2504,7 @@
     "id": 14433,
     "icon": "genshin-impact/weapon/14433.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 454,
@@ -2491,6 +2547,7 @@
     "id": 14436,
     "icon": "genshin-impact/weapon/14436.webp",
     "quality": 4,
+    "free": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 565,
@@ -2505,6 +2562,7 @@
     "id": 14501,
     "icon": "genshin-impact/weapon/14501.webp",
     "quality": 5,
+    "standard": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 674,
@@ -2519,6 +2577,7 @@
     "id": 14502,
     "icon": "genshin-impact/weapon/14502.webp",
     "quality": 5,
+    "standard": true,
     "type": "catalyst",
     "stats": {
       "baseAtk": 608,
@@ -2937,6 +2996,7 @@
     "id": 15406,
     "icon": "genshin-impact/weapon/15406.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -2951,6 +3011,7 @@
     "id": 15407,
     "icon": "genshin-impact/weapon/15407.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 454,
@@ -3007,6 +3068,7 @@
     "id": 15411,
     "icon": "genshin-impact/weapon/15411.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 565,
@@ -3035,6 +3097,7 @@
     "id": 15413,
     "icon": "genshin-impact/weapon/15413.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -3049,6 +3112,7 @@
     "id": 15414,
     "icon": "genshin-impact/weapon/15414.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 454,
@@ -3091,6 +3155,7 @@
     "id": 15417,
     "icon": "genshin-impact/weapon/15417.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 454,
@@ -3119,6 +3184,7 @@
     "id": 15419,
     "icon": "genshin-impact/weapon/15419.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 565,
@@ -3147,6 +3213,7 @@
     "id": 15425,
     "icon": "genshin-impact/weapon/15425.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -3161,6 +3228,7 @@
     "id": 15426,
     "icon": "genshin-impact/weapon/15426.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -3203,6 +3271,7 @@
     "id": 15431,
     "icon": "genshin-impact/weapon/15431.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 565,
@@ -3217,6 +3286,7 @@
     "id": 15432,
     "icon": "genshin-impact/weapon/15432.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -3231,6 +3301,7 @@
     "id": 15433,
     "icon": "genshin-impact/weapon/15433.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 454,
@@ -3245,6 +3316,7 @@
     "id": 15434,
     "icon": "genshin-impact/weapon/15434.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -3273,6 +3345,7 @@
     "id": 15436,
     "icon": "genshin-impact/weapon/15436.webp",
     "quality": 4,
+    "free": true,
     "type": "bow",
     "stats": {
       "baseAtk": 510,
@@ -3287,6 +3360,7 @@
     "id": 15501,
     "icon": "genshin-impact/weapon/15501.webp",
     "quality": 5,
+    "standard": true,
     "type": "bow",
     "stats": {
       "baseAtk": 674,
@@ -3301,6 +3375,7 @@
     "id": 15502,
     "icon": "genshin-impact/weapon/15502.webp",
     "quality": 5,
+    "standard": true,
     "type": "bow",
     "stats": {
       "baseAtk": 608,

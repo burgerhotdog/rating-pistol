@@ -696,6 +696,7 @@
     "id": 21021,
     "icon": "honkai-star-rail/weapon/21021.webp",
     "quality": 4,
+    "free": true,
     "type": "abundance",
     "stats": {
       "baseHp": 953,
@@ -711,6 +712,7 @@
     "id": 21022,
     "icon": "honkai-star-rail/weapon/21022.webp",
     "quality": 4,
+    "free": true,
     "type": "nihility",
     "stats": {
       "baseHp": 953,
@@ -726,6 +728,7 @@
     "id": 21023,
     "icon": "honkai-star-rail/weapon/21023.webp",
     "quality": 4,
+    "free": true,
     "type": "preservation",
     "stats": {
       "baseHp": 741,
@@ -741,6 +744,7 @@
     "id": 21024,
     "icon": "honkai-star-rail/weapon/21024.webp",
     "quality": 4,
+    "free": true,
     "type": "hunt",
     "stats": {
       "baseHp": 847,
@@ -756,6 +760,7 @@
     "id": 21025,
     "icon": "honkai-star-rail/weapon/21025.webp",
     "quality": 4,
+    "free": true,
     "type": "harmony",
     "stats": {
       "baseHp": 953,
@@ -771,6 +776,7 @@
     "id": 21026,
     "icon": "honkai-star-rail/weapon/21026.webp",
     "quality": 4,
+    "free": true,
     "type": "destruction",
     "stats": {
       "baseHp": 953,
@@ -786,6 +792,7 @@
     "id": 21027,
     "icon": "honkai-star-rail/weapon/21027.webp",
     "quality": 4,
+    "free": true,
     "type": "erudition",
     "stats": {
       "baseHp": 847,
@@ -906,6 +913,7 @@
     "id": 21035,
     "icon": "honkai-star-rail/weapon/21035.webp",
     "quality": 4,
+    "free": true,
     "type": "abundance",
     "stats": {
       "baseHp": 1058,
@@ -921,6 +929,7 @@
     "id": 21036,
     "icon": "honkai-star-rail/weapon/21036.webp",
     "quality": 4,
+    "free": true,
     "type": "harmony",
     "stats": {
       "baseHp": 953,
@@ -936,6 +945,7 @@
     "id": 21037,
     "icon": "honkai-star-rail/weapon/21037.webp",
     "quality": 4,
+    "free": true,
     "type": "hunt",
     "stats": {
       "baseHp": 953,
@@ -951,6 +961,7 @@
     "id": 21038,
     "icon": "honkai-star-rail/weapon/21038.webp",
     "quality": 4,
+    "free": true,
     "type": "destruction",
     "stats": {
       "baseHp": 1058,
@@ -966,6 +977,7 @@
     "id": 21039,
     "icon": "honkai-star-rail/weapon/21039.webp",
     "quality": 4,
+    "free": true,
     "type": "preservation",
     "stats": {
       "baseHp": 953,
@@ -981,6 +993,7 @@
     "id": 21040,
     "icon": "honkai-star-rail/weapon/21040.webp",
     "quality": 4,
+    "free": true,
     "type": "erudition",
     "stats": {
       "baseHp": 953,
@@ -996,6 +1009,7 @@
     "id": 21041,
     "icon": "honkai-star-rail/weapon/21041.webp",
     "quality": 4,
+    "free": true,
     "type": "nihility",
     "stats": {
       "baseHp": 1058,
@@ -1116,6 +1130,7 @@
     "id": 21050,
     "icon": "honkai-star-rail/weapon/21050.webp",
     "quality": 4,
+    "free": true,
     "type": "remembrance",
     "stats": {
       "baseHp": 847,
@@ -1296,6 +1311,7 @@
     "id": 21064,
     "icon": "honkai-star-rail/weapon/21064.webp",
     "quality": 4,
+    "free": true,
     "type": "elation",
     "stats": {
       "baseHp": 847,
@@ -1341,6 +1357,7 @@
     "id": 22000,
     "icon": "honkai-star-rail/weapon/22000.webp",
     "quality": 4,
+    "free": true,
     "type": "nihility",
     "stats": {
       "baseHp": 953,
@@ -1356,6 +1373,7 @@
     "id": 22001,
     "icon": "honkai-star-rail/weapon/22001.webp",
     "quality": 4,
+    "free": true,
     "type": "abundance",
     "stats": {
       "baseHp": 953,
@@ -1371,6 +1389,7 @@
     "id": 22002,
     "icon": "honkai-star-rail/weapon/22002.webp",
     "quality": 4,
+    "free": true,
     "type": "harmony",
     "stats": {
       "baseHp": 953,
@@ -1386,6 +1405,7 @@
     "id": 22003,
     "icon": "honkai-star-rail/weapon/22003.webp",
     "quality": 4,
+    "free": true,
     "type": "destruction",
     "stats": {
       "baseHp": 1058,
@@ -1401,6 +1421,7 @@
     "id": 22004,
     "icon": "honkai-star-rail/weapon/22004.webp",
     "quality": 4,
+    "free": true,
     "type": "erudition",
     "stats": {
       "baseHp": 953,
@@ -1416,6 +1437,7 @@
     "id": 22005,
     "icon": "honkai-star-rail/weapon/22005.webp",
     "quality": 4,
+    "free": true,
     "type": "harmony",
     "stats": {
       "baseHp": 953,
@@ -1461,6 +1483,7 @@
     "id": 22008,
     "icon": "honkai-star-rail/weapon/22008.webp",
     "quality": 4,
+    "free": true,
     "type": "hunt",
     "stats": {
       "baseHp": 847,
@@ -1476,6 +1499,7 @@
     "id": 23000,
     "icon": "honkai-star-rail/weapon/23000.webp",
     "quality": 5,
+    "standard": true,
     "type": "erudition",
     "stats": {
       "baseHp": 1164,
@@ -1506,6 +1530,7 @@
     "id": 23002,
     "icon": "honkai-star-rail/weapon/23002.webp",
     "quality": 5,
+    "standard": true,
     "type": "destruction",
     "stats": {
       "baseHp": 1164,
@@ -1521,6 +1546,7 @@
     "id": 23003,
     "icon": "honkai-star-rail/weapon/23003.webp",
     "quality": 5,
+    "standard": true,
     "type": "harmony",
     "stats": {
       "baseHp": 1164,
@@ -1536,6 +1562,7 @@
     "id": 23004,
     "icon": "honkai-star-rail/weapon/23004.webp",
     "quality": 5,
+    "standard": true,
     "type": "nihility",
     "stats": {
       "baseHp": 1058,
@@ -1551,6 +1578,7 @@
     "id": 23005,
     "icon": "honkai-star-rail/weapon/23005.webp",
     "quality": 5,
+    "standard": true,
     "type": "preservation",
     "stats": {
       "baseHp": 1058,
@@ -1656,6 +1684,7 @@
     "id": 23012,
     "icon": "honkai-star-rail/weapon/23012.webp",
     "quality": 5,
+    "standard": true,
     "type": "hunt",
     "stats": {
       "baseHp": 1058,
@@ -1671,6 +1700,7 @@
     "id": 23013,
     "icon": "honkai-star-rail/weapon/23013.webp",
     "quality": 5,
+    "standard": true,
     "type": "abundance",
     "stats": {
       "baseHp": 1270,
@@ -2436,6 +2466,7 @@
     "id": 24000,
     "icon": "honkai-star-rail/weapon/24000.webp",
     "quality": 5,
+    "free": true,
     "type": "destruction",
     "stats": {
       "baseHp": 1058,
@@ -2451,6 +2482,7 @@
     "id": 24001,
     "icon": "honkai-star-rail/weapon/24001.webp",
     "quality": 5,
+    "free": true,
     "type": "hunt",
     "stats": {
       "baseHp": 953,
@@ -2466,6 +2498,7 @@
     "id": 24002,
     "icon": "honkai-star-rail/weapon/24002.webp",
     "quality": 5,
+    "free": true,
     "type": "preservation",
     "stats": {
       "baseHp": 1058,
@@ -2481,6 +2514,7 @@
     "id": 24003,
     "icon": "honkai-star-rail/weapon/24003.webp",
     "quality": 5,
+    "free": true,
     "type": "nihility",
     "stats": {
       "baseHp": 1058,
@@ -2496,6 +2530,7 @@
     "id": 24004,
     "icon": "honkai-star-rail/weapon/24004.webp",
     "quality": 5,
+    "free": true,
     "type": "erudition",
     "stats": {
       "baseHp": 1058,
@@ -2511,6 +2546,7 @@
     "id": 24005,
     "icon": "honkai-star-rail/weapon/24005.webp",
     "quality": 5,
+    "free": true,
     "type": "remembrance",
     "stats": {
       "baseHp": 1058,
@@ -2526,6 +2562,7 @@
     "id": 24006,
     "icon": "honkai-star-rail/weapon/24006.webp",
     "quality": 5,
+    "free": true,
     "type": "elation",
     "stats": {
       "baseHp": 953,

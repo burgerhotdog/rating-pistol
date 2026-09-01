@@ -216,6 +216,7 @@
     "id": 13001,
     "icon": "zenless-zone-zero/weapon/13001.webp",
     "quality": 4,
+    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -230,6 +231,7 @@
     "id": 13002,
     "icon": "zenless-zone-zero/weapon/13002.webp",
     "quality": 4,
+    "free": true,
     "type": "support",
     "stats": {
       "baseAtk": 594,
@@ -244,6 +246,7 @@
     "id": 13003,
     "icon": "zenless-zone-zero/weapon/13003.webp",
     "quality": 4,
+    "free": true,
     "type": "anomaly",
     "stats": {
       "baseAtk": 594,
@@ -258,6 +261,7 @@
     "id": 13004,
     "icon": "zenless-zone-zero/weapon/13004.webp",
     "quality": 4,
+    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -272,6 +276,7 @@
     "id": 13005,
     "icon": "zenless-zone-zero/weapon/13005.webp",
     "quality": 4,
+    "free": true,
     "type": "stun",
     "stats": {
       "baseAtk": 594,
@@ -286,6 +291,7 @@
     "id": 13006,
     "icon": "zenless-zone-zero/weapon/13006.webp",
     "quality": 4,
+    "free": true,
     "type": "stun",
     "stats": {
       "baseAtk": 594,
@@ -300,6 +306,7 @@
     "id": 13007,
     "icon": "zenless-zone-zero/weapon/13007.webp",
     "quality": 4,
+    "free": true,
     "type": "defense",
     "stats": {
       "baseAtk": 594,
@@ -314,6 +321,7 @@
     "id": 13008,
     "icon": "zenless-zone-zero/weapon/13008.webp",
     "quality": 4,
+    "free": true,
     "type": "anomaly",
     "stats": {
       "baseAtk": 594,
@@ -342,6 +350,7 @@
     "id": 13010,
     "icon": "zenless-zone-zero/weapon/13010.webp",
     "quality": 4,
+    "free": true,
     "type": "defense",
     "stats": {
       "baseAtk": 594,
@@ -370,6 +379,7 @@
     "id": 13012,
     "icon": "zenless-zone-zero/weapon/13012.webp",
     "quality": 4,
+    "free": true,
     "type": "rupture",
     "stats": {
       "baseAtk": 594,
@@ -384,6 +394,7 @@
     "id": 13013,
     "icon": "zenless-zone-zero/weapon/13013.webp",
     "quality": 4,
+    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -412,6 +423,7 @@
     "id": 13015,
     "icon": "zenless-zone-zero/weapon/13015.webp",
     "quality": 4,
+    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -426,10 +438,26 @@
     "id": 13016,
     "icon": "zenless-zone-zero/weapon/13016.webp",
     "quality": 4,
+    "free": true,
     "type": "defense",
     "stats": {
       "baseAtk": 594,
       "impact%": 0.15
+    },
+    "effects": []
+  },
+  "13018": {
+    "disabled": true,
+    "name": "Boisterous Echoes",
+    "version": 3.1,
+    "id": 13018,
+    "icon": "zenless-zone-zero/weapon/13018.webp",
+    "quality": 4,
+    "free": true,
+    "type": "anomaly",
+    "stats": {
+      "baseAtk": 594,
+      "anomalyProficiency": 75
     },
     "effects": []
   },
@@ -440,6 +468,7 @@
     "id": 13019,
     "icon": "zenless-zone-zero/weapon/13019.webp",
     "quality": 4,
+    "free": true,
     "type": "rupture",
     "stats": {
       "baseAtk": 594,
@@ -454,6 +483,7 @@
     "id": 13020,
     "icon": "zenless-zone-zero/weapon/13020.webp",
     "quality": 4,
+    "free": true,
     "type": "stun",
     "stats": {
       "baseAtk": 594,
@@ -692,6 +722,7 @@
     "id": 14102,
     "icon": "zenless-zone-zero/weapon/14102.webp",
     "quality": 5,
+    "standard": true,
     "type": "attack",
     "stats": {
       "baseAtk": 683,
@@ -706,6 +737,7 @@
     "id": 14104,
     "icon": "zenless-zone-zero/weapon/14104.webp",
     "quality": 5,
+    "standard": true,
     "type": "attack",
     "stats": {
       "baseAtk": 683,
@@ -762,6 +794,7 @@
     "id": 14110,
     "icon": "zenless-zone-zero/weapon/14110.webp",
     "quality": 5,
+    "standard": true,
     "type": "stun",
     "stats": {
       "baseAtk": 683,
@@ -776,6 +809,7 @@
     "id": 14114,
     "icon": "zenless-zone-zero/weapon/14114.webp",
     "quality": 5,
+    "standard": true,
     "type": "stun",
     "stats": {
       "baseAtk": 683,
@@ -818,6 +852,7 @@
     "id": 14118,
     "icon": "zenless-zone-zero/weapon/14118.webp",
     "quality": 5,
+    "standard": true,
     "type": "anomaly",
     "stats": {
       "baseAtk": 683,
@@ -860,6 +895,7 @@
     "id": 14121,
     "icon": "zenless-zone-zero/weapon/14121.webp",
     "quality": 5,
+    "standard": true,
     "type": "support",
     "stats": {
       "baseAtk": 683,

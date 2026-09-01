@@ -22,21 +22,19 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useAccent, useData } from '@/hooks';
-import { getDefaultWeapRank } from '@/utils';
+import { useData } from '@/hooks';
+import { formatDmg, formatNum, getDefaultWeapRank } from '@/utils';
 
-function getDpsIndex(gameId, weapId) {
-  const rank = getDefaultWeapRank(gameId, weapId);
-  return rank === 5 ? 1: 0;
-}
-
-const limitWeapons = (entries, weapData, isPreview) => {
-  if (!isPreview) return entries;
-
+const limitWeapons = (entries, weapDatas) => {
+  let standardPicked = false;
   const limits = { 3: 1, 4: 3, 5: 3 };
   const counts = { 3: 0, 4: 0, 5: 0 };
-  return entries.filter(([weaponId]) => {
-    const quality = weapData[weaponId].quality;
+  return entries.filter(({ weaponId }) => {
+    const { quality, standard } = weapDatas[weaponId];
+    if (standard && !standardPicked) {
+      standardPicked = true;
+      return true;
+    }
     if (!limits[quality] || counts[quality] >= limits[quality]) {
       return false;
     }
@@ -45,52 +43,63 @@ const limitWeapons = (entries, weapData, isPreview) => {
   });
 };
 
-function buildData(gameId, weapData, weaponResults, userDps, userMember, isPreview = false) {
+function buildData(gameId, weapDatas, weaponResults, userDps) {
   const dataEntries = Object.entries(weaponResults)
-    .sort(([aId, aDps], [bId, bDps]) => {
-      const aIndex = getDpsIndex(gameId, aId);
-      const bIndex = getDpsIndex(gameId, bId);
-      return bDps[bIndex] - aDps[aIndex];
-    });
+    .map(([id, [dpsR1, dpsR5]]) => ({
+      weaponId: Number(id),
+      weaponRank: getDefaultWeapRank(gameId, id),
+      dps: getDefaultWeapRank(gameId, id) === 5 ? dpsR5 : dpsR1,
+    }))
+    .sort((a, b) => b.dps - a.dps);
 
-  const limitedEntries = limitWeapons(dataEntries, weapData, isPreview);
+  const limitedEntries = limitWeapons(dataEntries, weapDatas);
 
-  const refIndex = getDpsIndex(gameId, limitedEntries[0][0]);
-  const maxDps = limitedEntries[0][1][refIndex];
-
-  return limitedEntries.map(([weaponId, dps]) => {
-    const pctDps = dps[getDpsIndex(gameId, weaponId)];
-
+  return limitedEntries.map(({ weaponId, weaponRank, dps }) => {
     return {
       weaponId,
-      quality: weapData[weaponId].quality,
-      name: weapData[weaponId].name,
+      weaponRank,
+      name: `${weapDatas[weaponId].name} R${weaponRank}`,
       icon: `${gameId}/weapon/${weaponId}.webp`,
-      equipped: weaponId === userMember.weaponId,
       dps,
-      dpsR1: dps[0],
-      dpsR5: Math.max(dps[1] - dps[0], 0.001),
-      pct: (pctDps / userDps) * 100,
-      opacity: (pctDps / maxDps) ** 2,
+      pct: (dps / userDps) * 100,
+    };
+  });
+}
+
+function buildFullData(gameId, weapDatas, weaponResults, userDps) {
+  const dataEntries = Object.entries(weaponResults)
+    .flatMap(([id, [dpsR1, dpsR5]]) => [
+      { weaponId: Number(id), weaponRank: 5, dps: dpsR5 },
+      { weaponId: Number(id), weaponRank: 1, dps: dpsR1 },
+    ])
+    .sort((a, b) => b.dps - a.dps);
+
+  return dataEntries.map(({ weaponId, weaponRank, dps }) => {
+    return {
+      weaponId,
+      weaponRank,
+      name: `${weapDatas[weaponId].name} R${weaponRank}`,
+      icon: `${gameId}/weapon/${weaponId}.webp`,
+      dps,
+      pct: (dps / userDps) * 100,
     };
   });
 }
 
 const Weapon = ({ results }) => {
-  const { weaponResults, userDps, userMember } = results;
+  const { weaponResults, userDps } = results;
   const { gameId } = useParams();
   const { palette, qualityColors } = useTheme();
-  const accent = useAccent();
-  const weapons = useData('weapon');
+  const weapDatas = useData('weapon');
   const [open, setOpen] = useState(false);
 
-  const data = buildData(gameId, weapons, weaponResults, userDps, userMember, true);
-  const fullData = buildData(gameId, weapons, weaponResults, userDps, userMember);
+  const data = buildData(gameId, weapDatas, weaponResults, userDps);
+  const fullData = buildFullData(gameId, weapDatas, weaponResults, userDps);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
-        title="Weapon Comparisons"
+        title="Weapons"
         action={
           <Button onClick={() => setOpen(true)}>
             View all
@@ -101,40 +110,32 @@ const Weapon = ({ results }) => {
       <CardContent component={Stack} sx={{ flex: 1 }}>
         <BarChart
           data={data}
-          layout="vertical"
-          margin={{ right: 32 }}
           style={{ width: '100%', height: '100%' }}
           responsive
         >
           <XAxis
-            type="number"
-            tickFormatter={(v) => v.toFixed()}
-          />
-
-          <YAxis
             type="category"
             dataKey="name"
             tick={false}
-            axisLine={false}
+          />
+
+          <YAxis
+            type="number"
+            tickFormatter={(v) => formatDmg(v)}
           />
 
           <Bar
-            dataKey="dpsR1"
-            stackId="a"
+            dataKey="dps"
             shape={(props) => {
-              const { index, ...rest } = props;
-              const entry = data[index];
-              return <Rectangle {...rest} fill={accent} fillOpacity={entry.opacity} />;
-            }}
-          />
-
-          <Bar
-            dataKey="dpsR5"
-            stackId="a"
-            shape={(props) => {
-              const { index, ...rest } = props;
-              const entry = data[index];
-              return <Rectangle {...rest} fill={qualityColors[entry.quality]} fillOpacity={0.5} />;
+              const { weaponId, ...rest } = props;
+              const { quality } = weapDatas[weaponId];
+              return (
+                <Rectangle
+                  {...rest}
+                  fill={qualityColors[quality]}
+                  fillOpacity={0.6}
+                />
+              );
             }}
           >
             <LabelList
@@ -142,33 +143,19 @@ const Weapon = ({ results }) => {
                 const entry = data[index];
                 if (!entry?.icon) return null;
 
-                const size = height;
-                const ix = x + width + 8;
-                const iy = y;
+                const size = width - 16;
+                const ix = x + 8;
+                const iy = y + height - size - 8;
 
                 return (
-                  <g>
-                    {entry.equipped && (
-                      <rect
-                        x={ix - 2}
-                        y={iy - 2}
-                        width={size + 4}
-                        height={size + 4}
-                        rx={4}
-                        fill={alpha(palette.primary.main, 0.15)}
-                        stroke={palette.primary.main}
-                      />
-                    )}
-
-                    <image
-                      x={ix}
-                      y={iy}
-                      width={size}
-                      height={size}
-                      href={entry.icon}
-                      xlinkHref={entry.icon}
-                    />
-                  </g>
+                  <image
+                    x={ix}
+                    y={iy}
+                    width={size}
+                    height={size}
+                    href={entry.icon}
+                    xlinkHref={entry.icon}
+                  />
                 );
               }}
             />
@@ -179,8 +166,11 @@ const Weapon = ({ results }) => {
               const { dps = [] } = payload?.[0]?.payload ?? {};
               return (
                 <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+                  <Typography variant="caption" color="textSecondary">
+                    {label}: {' '}
+                  </Typography>
                   <Typography variant="caption">
-                    {label}: {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
+                    {formatNum(dps)}
                   </Typography>
                 </Paper>
               );
@@ -198,46 +188,38 @@ const Weapon = ({ results }) => {
         fullWidth
       >
         <DialogTitle>
-          Weapon Comparisons
+          All Weapons
         </DialogTitle>
 
         <DialogContent sx={{ height: '80vh' }}>
           <BarChart
             data={fullData}
-            layout="vertical"
-            margin={{ right: 32 }}
             style={{ width: '100%', height: '100%' }}
             responsive
           >
             <XAxis
-              type="number"
-              tickFormatter={(v) => v.toFixed()}
-            />
-
-            <YAxis
               type="category"
               dataKey="name"
               tick={false}
-              axisLine={false}
+            />
+
+            <YAxis
+              type="number"
+              tickFormatter={(v) => formatDmg(v)}
             />
 
             <Bar
-              dataKey="dpsR1"
-              stackId="a"
+              dataKey="dps"
               shape={(props) => {
-                const { index, ...rest } = props;
-                const entry = fullData[index];
-                return <Rectangle {...rest} fill={accent} fillOpacity={entry.opacity} />;
-              }}
-            />
-
-            <Bar
-              dataKey="dpsR5"
-              stackId="a"
-              shape={(props) => {
-                const { index, ...rest } = props;
-                const entry = fullData[index];
-                return <Rectangle {...rest} fill={qualityColors[entry.quality]} fillOpacity={0.5} />;
+                const { weaponId, ...rest } = props;
+                const { quality } = weapDatas[weaponId];
+                return (
+                  <Rectangle
+                    {...rest}
+                    fill={qualityColors[quality]}
+                    fillOpacity={0.6}
+                  />
+                );
               }}
             >
               <LabelList
@@ -245,33 +227,19 @@ const Weapon = ({ results }) => {
                   const entry = fullData[index];
                   if (!entry?.icon) return null;
 
-                  const size = height;
-                  const ix = x + width + 8;
-                  const iy = y;
+                  const size = width - 8;
+                  const ix = x + 4;
+                  const iy = y + height - size - 4;
 
                   return (
-                    <g>
-                      {entry.equipped && (
-                        <rect
-                          x={ix - 2}
-                          y={iy - 2}
-                          width={size + 4}
-                          height={size + 4}
-                          rx={4}
-                          fill={alpha(palette.primary.main, 0.15)}
-                          stroke={palette.primary.main}
-                        />
-                      )}
-
-                      <image
-                        x={ix}
-                        y={iy}
-                        width={size}
-                        height={size}
-                        href={entry.icon}
-                        xlinkHref={entry.icon}
-                      />
-                    </g>
+                    <image
+                      x={ix}
+                      y={iy}
+                      width={size}
+                      height={size}
+                      href={entry.icon}
+                      xlinkHref={entry.icon}
+                    />
                   );
                 }}
               />
@@ -279,11 +247,14 @@ const Weapon = ({ results }) => {
 
             <Tooltip
               content={({ payload, label }) => {
-                const { dps = [] } = payload?.[0]?.payload ?? {};
+                const { dps = 0 } = payload?.[0]?.payload ?? {};
                 return (
                   <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+                    <Typography variant="caption" color="textSecondary">
+                      {label}: {' '}
+                    </Typography>
                     <Typography variant="caption">
-                      {label}: {(dps[0] ?? 0).toFixed()} - {(dps[1] ?? 0).toFixed()}
+                      {formatNum(dps)}
                     </Typography>
                   </Paper>
                 );
