@@ -8,6 +8,7 @@ import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
 import { getSubRollSums, getMainConfig } from './utils';
 import { weaponTests } from './weaponTests';
+import { setTests } from './setTests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -56,6 +57,7 @@ self.onmessage = async ({ data }) => {
 
   const { benchmarkDay, benchmarkDps } = findBenchmark(results.dpsProgression, results.fit, results.dpsCeiling);
   const weaponResults = weaponTests(cache, equipMaps, cache.charId);
+  const setResults = setTests(cache, equipMaps, cache.charId);
 
   self.postMessage({
     dpsProgression: results.dpsProgression,
@@ -71,6 +73,7 @@ self.onmessage = async ({ data }) => {
     userSubStats: getSubRollSums(cache.gameId, cache.member[cache.charId].equipList),
     memberIds: cache.memberIds,
     weaponResults,
+    setResults,
     userMember: {
       weaponId: cache.member[cache.charId].weaponId,
       weaponRank: cache.member[cache.charId].weaponRank,

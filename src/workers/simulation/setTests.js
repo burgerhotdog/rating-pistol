@@ -1,29 +1,21 @@
-import { CHARACTER, WEAPON, MISC } from '@/data';
-import {
-  buildBaseMap,
-  getAttr,
-  getTotals,
-  isEnabledWeap,
-  toMergedObj,
-} from '@/utils';
+import { CHARACTER, SET, MISC } from '@/data';
+import { getAttr, getTotals, isEnabledSet } from '@/utils';
 import { runRotation } from './rotation';
 import { normEffect } from './cache/effects';
 
-function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weaponRank, memberIds) {
+function getNormalizedSetEffects(rawEffects, gameId, ownerId, sourceId, memberIds) {
   const normalized = {};
   const sharedNormCtx = {
     gameId,
     ownerId,
     sourceId,
-    sourceType: 'weapon',
-    weaponRank,
+    sourceType: 'set',
     memberIds,
   };
 
   const charData = CHARACTER[gameId][ownerId];
-  const weapData = WEAPON[gameId][sourceId];
   for (const [index, rawEffect] of rawEffects.entries()) {
-    if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
+    if (!isEnabledSet(rawEffect, 5, charData)) continue;
 
     const normCtx = { ...sharedNormCtx, index };
     const effect = normEffect(normCtx, rawEffect);
@@ -127,27 +119,13 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
   return normalized;
 }
 
-function getModifiedCache(cache, charId, weapon, weaponRank) {
+function getModifiedCache(cache, charId, setData) {
   const moddedCache = { ...cache };
 
-  const baseMap = buildBaseMap(cache.gameId, charId, weapon.id);
-  const equipMap = cache.member[charId].equipMap;
-  const statMap = toMergedObj(baseMap, equipMap);
-
-  moddedCache.member = {
-    ...cache.member,
-    [charId]: {
-      ...cache.member[charId],
-      baseMap,
-      statMap,
-      concertoPenalty: CHARACTER[cache.gameId][charId].concertoReq && !WEAPON[cache.gameId][weapon.id]?.concerto,
-    },
-  };
-
-  const weaponEffects = getNormalizedWeaponEffects(weapon.effects, cache.gameId, charId, weapon.id, weaponRank, cache.memberIds);
-  const moddedEffects = { ...weaponEffects };
+  const setEffects = getNormalizedSetEffects(setData.effects, cache.gameId, charId, setData.id, cache.memberIds);
+  const moddedEffects = { ...setEffects };
   for (const effect of Object.values(cache.effects)) {
-    if (effect.sourceId !== cache.member[charId].weaponId) {
+    if (!cache.member[charId].setCounts[effect.sourceId]) {
       moddedEffects[effect.id] = effect;
     }
   }
@@ -157,7 +135,7 @@ function getModifiedCache(cache, charId, weapon, weaponRank) {
   return moddedCache;
 }
 
-export function weaponTests(cache, equipMaps, charId) {
+export function setTests(cache, equipMaps, charId) {
   // er penalty
   const { energyAttr } = MISC[cache.gameId];
   const mCache = cache.member[charId];
@@ -175,31 +153,24 @@ export function weaponTests(cache, equipMaps, charId) {
     return cache.rotationDuration / (cache.rotationDuration + addedTime);
   }
 
-  // weapons to test
-  const allowedWeaponType = CHARACTER[cache.gameId][charId].type;
-  const weaponsToTest = Object.values(WEAPON[cache.gameId])
-    .filter((weapon) => weapon.type === allowedWeaponType);
+  // sets to test
+  const setsToTest =
+    Object.values(SET[cache.gameId])
+      .filter((setData) => setData.bonuses.includes(5));
 
-  const weaponResults = {};
+  const setResults = {};
 
-  for (const weapon of weaponsToTest) {
-    // R1
-    const moddedCacheR1 = getModifiedCache(cache, charId, weapon, 1);
-    const concertoExtraTime = moddedCacheR1.member[charId].concertoPenalty
-      ? ((100 / 92) * moddedCacheR1.member[charId].duration - moddedCacheR1.member[charId].duration)
+  for (const setData of setsToTest) {
+    const moddedCache = getModifiedCache(cache, charId, setData);
+    const concertoExtraTime = moddedCache.member[charId].concertoPenalty
+      ? ((100 / 92) * moddedCache.member[charId].duration - moddedCache.member[charId].duration)
       : 0;
-    const testSnapshotsR1 = runRotation(moddedCacheR1, equipMaps);
-    const rawDpsR1 = getTotals(testSnapshotsR1).damage / (cache.rotationDuration + concertoExtraTime) * 1000;
-    const dpsR1 = rawDpsR1 * getPenalty(moddedCacheR1.member[charId].statMap);
+    const testSnapshots = runRotation(moddedCache, equipMaps);
+    const rawDps = getTotals(testSnapshots).damage / (cache.rotationDuration + concertoExtraTime) * 1000;
+    const dps = rawDps * getPenalty(moddedCache.member[charId].statMap);
 
-    // R5
-    const moddedCacheR5 = getModifiedCache(cache, charId, weapon, 5);
-    const testSnapshotsR5 = runRotation(moddedCacheR5, equipMaps);
-    const rawDpsR5 = getTotals(testSnapshotsR5).damage / (cache.rotationDuration + concertoExtraTime) * 1000;
-    const dpsR5 = rawDpsR5 * getPenalty(moddedCacheR5.member[charId].statMap);
-
-    weaponResults[weapon.id] = [dpsR1, dpsR5];
+    setResults[setData.id] = dps;
   }
 
-  return weaponResults;
+  return setResults;
 }
