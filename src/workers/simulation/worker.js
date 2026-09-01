@@ -1,13 +1,14 @@
 import {
   computeConcertoExtraTime,
   computeDps,
-  estimateDps,
   estimateDay,
+  estimateDps,
+  getMainstatConfigKey,
+  sumSubstatRolls,
 } from '@/utils';
 import { compileCache } from './cache';
 import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
-import { getSubRollSums, getMainConfig } from './utils';
 import { weaponTests } from './weaponTests';
 import { setTests } from './setTests';
 
@@ -72,14 +73,14 @@ self.onmessage = async ({ data }) => {
     dpsProgression: results.dpsProgression,
     dpsCeiling: results.dpsCeiling,
     fit: results.fit,
-    configMap: results.configMap,
+    equipListConfigs: results.equipListConfigs,
     userSnapshots,
     userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
     userDps,
     benchmarkDay,
     benchmarkDps,
-    userConfigKey: getMainConfig(cache.gameId, cache.member[cache.charId].equipList),
-    userSubStats: getSubRollSums(cache.gameId, cache.member[cache.charId].equipList),
+    userMainstatConfigKey: getMainstatConfigKey(cache.gameId, cache.member[cache.charId].equipList),
+    userSubstatRolls: sumSubstatRolls(cache.gameId, cache.member[cache.charId].equipList),
     memberIds: cache.memberIds,
     weaponResults,
     setResults,

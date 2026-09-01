@@ -44,25 +44,23 @@ const chanceOfStat = (weights, stat) => {
   return dfs(weights, 4, 1);
 };
 
-function createSubFilter(gameId, configKey = '', subDist = {}) {
-  const totalSubRolls = Object.values(subDist)
-    .reduce((acc, rollsList) => acc + mean(rollsList), 0);
+function createIsImportantStat(gameId, userMainstatConfigKey = '', userConfigSubstatRolls = {}) {
+  const meanTotalSubstatRolls = Object.values(userConfigSubstatRolls)
+    .reduce((acc, rollsArray) => acc + mean(rollsArray), 0);
 
-  function getFrequency(stat) {
-    return (mean(subDist[stat] ?? []) ?? 0) / totalSubRolls;
-  }
+  const getFrequency = (stat) => mean(userConfigSubstatRolls[stat]) / meanTotalSubstatRolls;
 
   if (gameId === WW) {
     const unbiasedFrequency = 11899 / 128700;
     return (stat) => getFrequency(stat) > unbiasedFrequency;
   }
 
-  const mainstatsList = configKey.split('|');
+  const mainstatIds = userMainstatConfigKey.split('|');
 
   return (stat) => {
-    const baseChances = mainstatsList.map((mainstat) => {
+    const baseChances = mainstatIds.map((mainstatId) => {
       const weights = Object.values(SUBSTAT[gameId])
-        .filter(({ id }) => id !== mainstat)
+        .filter(({ id }) => id !== mainstatId)
         .map(({ id, weight }) => [id, weight]);
       return chanceOfStat(weights, stat);
     });
@@ -142,25 +140,24 @@ const classifyRoll = (user, { min, q1, q3, max }) => {
 };
 
 const Substats = ({ results }) => {
-  const { configMap, userConfigKey, userSubStats } = results;
+  const { equipListConfigs, userMainstatConfigKey, userSubstatRolls } = results;
   const { gameId } = useParams();
   const { palette } = useTheme();
   const accent = useAccent();
 
   const [showAll, setShowAll] = useState(false);
-  if (!configMap[userConfigKey]) return;
+  const userConfig = equipListConfigs[userMainstatConfigKey];
+  if (!userConfig) return;
 
-  const { subDist = {} } = configMap[userConfigKey] ?? {};
-  const subFilter = createSubFilter(gameId, userConfigKey, subDist);
+  const isImportantStat = createIsImportantStat(gameId, userMainstatConfigKey, userConfig.substatRolls);
 
-  const data = Object.keys(SUBSTAT[gameId])
-    .filter((stat) => showAll || subFilter(stat))
-    .map((stat) => {
-      const rolls = subDist[stat] ?? [];
+  const data = Object.entries(userConfig.substatRolls)
+    .filter(([id]) => showAll || isImportantStat(id))
+    .map(([id, rolls]) => {
       const { min, q1, median, q3, max } = getQuantiles(rolls);
       const violin = gaussianKDE(rolls);
-      const user = userSubStats[stat] ?? 0;
-      const label = formatStr(stat);
+      const user = userSubstatRolls[id] ?? 0;
+      const label = formatStr(id);
       const zone = classifyRoll(user, { min, q1, q3, max });
 
       return { stat: label, min, q1, median, q3, max, user, violin, zone };

@@ -103,11 +103,11 @@ const ConfigRow = ({ configKey, isUser, count, total, pct }) => {
 };
 
 const Mainstats = ({ results }) => {
-  const { configMap, userConfigKey } = results;
+  const { equipListConfigs, userMainstatConfigKey } = results;
 
-  const data = Object.entries(configMap)
-    .filter(([, a]) => a.count >= 50)
-    .sort(([, a], [, b]) => b.count - a.count);
+  const data = Object.entries(equipListConfigs)
+    .filter(([, config]) => config.trialCount >= 50)
+    .sort(([, a], [, b]) => b.trialCount - a.trialCount);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -118,10 +118,10 @@ const Mainstats = ({ results }) => {
             <ConfigRow
               key={key}
               configKey={key}
-              isUser={key === userConfigKey}
-              count={config.count}
+              isUser={key === userMainstatConfigKey}
+              count={config.trialCount}
               total={1000}
-              pct={config.count / 1000}
+              pct={config.trialCount / 1000}
             />
           ))}
         </Stack>

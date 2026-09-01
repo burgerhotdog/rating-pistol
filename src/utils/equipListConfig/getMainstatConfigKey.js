@@ -16,21 +16,20 @@ const ORDER = {
   'def%': 13,
 };
 
-export const getMainConfig = (gameId, equipList) => {
+export const getMainstatConfigKey = (gameId, equipList) => {
   // Hoyo mainstats have fixed slots
   if (gameId !== WW) {
-    const mainstats = equipList.map((equip) => equip?.mainstatId ?? 'none');
-    return mainstats.join('|');
+    const mainstatIds = equipList.map((equip) => equip?.mainstatId ?? 'none');
+    return mainstatIds.join('|');
   }
 
   // Wuwa mainstats can have multiple orders due to cost system
   const mainstatCounts = {};
   for (const equip of equipList) {
     if (!equip) continue;
-    const { cost, mainstatId } = equip;
 
-    mainstatCounts[cost] ??= [];
-    mainstatCounts[cost].push(mainstatId);
+    const { cost, mainstatId } = equip;
+    (mainstatCounts[cost] ??= []).push(mainstatId);
   }
 
   return Object.values(mainstatCounts)
