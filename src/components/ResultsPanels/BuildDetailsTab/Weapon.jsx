@@ -26,11 +26,16 @@ import { useData } from '@/hooks';
 import { formatDmg, formatNum, getDefaultWeapRank } from '@/utils';
 
 const limitWeapons = (entries, weapDatas) => {
+  let freePicked = false;
   let standardPicked = false;
   const limits = { 3: 1, 4: 3, 5: 3 };
   const counts = { 3: 0, 4: 0, 5: 0 };
   return entries.filter(({ weaponId }) => {
-    const { quality, standard } = weapDatas[weaponId];
+    const { quality, standard, free } = weapDatas[weaponId];
+    if (free && !freePicked) {
+      freePicked = true;
+      return true;
+    }
     if (standard && !standardPicked) {
       standardPicked = true;
       return true;
