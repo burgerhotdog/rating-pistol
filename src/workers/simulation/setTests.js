@@ -140,12 +140,12 @@ export function setTests(cache, equipMaps, charId) {
   const { energyAttr } = MISC[cache.gameId];
   const mCache = cache.member[charId];
 
-  const energyReq = getAttr(energyAttr, mCache.statMap);
+  const energyReq = getAttr(energyAttr, mCache.menuMap);
 
-  function getPenalty(testStatMap) {
+  function getPenalty(testMenuMap) {
     if (!mCache.energy) return 1;
 
-    const testEnergy = getAttr(energyAttr, testStatMap);
+    const testEnergy = getAttr(energyAttr, testMenuMap);
     if (testEnergy >= energyReq) return 1;
 
     const testCharDuration = mCache.duration * (energyReq / testEnergy);
@@ -167,7 +167,7 @@ export function setTests(cache, equipMaps, charId) {
       : 0;
     const testSnapshots = runRotation(moddedCache, equipMaps);
     const rawDps = getTotals(testSnapshots).damage / (cache.rotationDuration + concertoExtraTime) * 1000;
-    const dps = rawDps * getPenalty(moddedCache.member[charId].statMap);
+    const dps = rawDps * getPenalty(moddedCache.member[charId].menuMap);
 
     setResults[setData.id] = dps;
   }

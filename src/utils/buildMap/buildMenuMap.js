@@ -6,11 +6,12 @@ import { toArray } from '../toArray';
 import { buildBaseMap } from './buildBaseMap';
 import { buildEquipMap } from './buildEquipMap';
 
-export function buildMenuMap(gameId, charId, team) {
+export function buildMenuMap(gameId, charId, team, spec = {}) {
+
   const member = team.find((member) => member?.id === charId);
 
-  const baseMap = buildBaseMap(gameId, charId, member.weaponId);
-  const equipMap = buildEquipMap(member.build?.equipList ?? []);
+  const baseMap = spec.baseMap ?? buildBaseMap(gameId, charId, member.weaponId);
+  const equipMap = spec.equipMap ?? buildEquipMap(member.build?.equipList ?? []);
 
   // Static buffs from effects
   const effectMaps = [];

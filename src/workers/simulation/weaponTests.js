@@ -1,6 +1,7 @@
 import { CHARACTER, WEAPON, MISC } from '@/data';
 import {
   buildBaseMap,
+  buildMenuMap,
   getAttr,
   getTotals,
   isEnabledWeap,
@@ -164,10 +165,10 @@ export function weaponTests(cache, equipMaps, charId) {
 
   const energyReq = getAttr(energyAttr, mCache.statMap);
 
-  function getPenalty(testStatMap) {
+  function getPenalty(testMenuMap) {
     if (!mCache.energy) return 1;
 
-    const testEnergy = getAttr(energyAttr, testStatMap);
+    const testEnergy = getAttr(energyAttr, testMenuMap);
     if (testEnergy >= energyReq) return 1;
 
     const testCharDuration = mCache.duration * (energyReq / testEnergy);
