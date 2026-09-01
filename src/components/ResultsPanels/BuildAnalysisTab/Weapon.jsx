@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-  Button,
   Card,
   CardContent,
   CardHeader,
@@ -10,8 +9,6 @@ import {
   DialogTitle,
   Paper,
   Stack,
-  ToggleButton,
-  ToggleButtonGroup,
   Typography,
 } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
@@ -26,6 +23,7 @@ import {
 } from 'recharts';
 import { useAccent, useData } from '@/hooks';
 import { formatDmg, formatNum, getDefaultWeapRank } from '@/utils';
+import { Button } from '../../Colored';
 
 // only R1/R5 dps samples exist, so bucket the user's real rank to whichever was simulated
 const bucketWeaponRank = (rank) => (rank >= 3 ? 5 : 1);
@@ -143,13 +141,11 @@ const Weapon = ({ results }) => {
   const accent = useAccent();
   const weapDatas = useData('weapon');
   const [open, setOpen] = useState(false);
-  const [mode, setMode] = useState('dps');
 
   const data = buildData(gameId, weapDatas, weaponResults, userDps, userMember);
   const fullData = buildFullData(gameId, weapDatas, weaponResults, userDps, userMember);
 
-  const valueKey = mode === 'pct' ? 'pct' : 'dps';
-  const tickFormatter = (v) => (mode === 'pct' ? `${Math.round(v)}%` : formatDmg(v));
+  const tickFormatter = (v) => formatDmg(v);
 
   const barShape = (props) => {
     const { weaponId, isUser, ...rest } = props;
@@ -170,20 +166,12 @@ const Weapon = ({ results }) => {
       <CardHeader
         title="Weapons"
         action={
-          <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-            <ToggleButtonGroup
-              exclusive
-              value={mode}
-              onChange={(_, value) => value && setMode(value)}
-            >
-              <ToggleButton value="dps">DPS</ToggleButton>
-              <ToggleButton value="pct">%</ToggleButton>
-            </ToggleButtonGroup>
-
-            <Button onClick={() => setOpen(true)}>
-              View all
-            </Button>
-          </Stack>
+          <Button
+            color={accent}
+            onClick={() => setOpen(true)}
+          >
+            View all
+          </Button>
         }
       />
 
@@ -205,7 +193,7 @@ const Weapon = ({ results }) => {
           />
 
           <Bar
-            dataKey={valueKey}
+            dataKey="dps"
             shape={barShape}
           >
             <LabelList
@@ -267,7 +255,7 @@ const Weapon = ({ results }) => {
             />
 
             <Bar
-              dataKey={valueKey}
+              dataKey="dps"
               shape={barShape}
             >
               <LabelList

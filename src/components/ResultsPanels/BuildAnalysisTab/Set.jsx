@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-  Button,
   Card,
   CardContent,
   CardHeader,
@@ -10,8 +9,6 @@ import {
   DialogTitle,
   Paper,
   Stack,
-  ToggleButton,
-  ToggleButtonGroup,
   Typography,
 } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
@@ -26,6 +23,7 @@ import {
 } from 'recharts';
 import { useAccent, useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
+import { Button } from '../../Colored';
 
 // the set the user actually has 4 pieces of equipped, if any
 function getUserSetId(setCounts = {}) {
@@ -107,14 +105,12 @@ const Set = ({ results }) => {
   const setDatas = useData('set');
   const accent = useAccent();
   const [open, setOpen] = useState(false);
-  const [mode, setMode] = useState('dps');
 
   const userSetId = getUserSetId(userMember?.setCounts);
   const data = buildData(gameId, setDatas, setResults, userDps, userSetId);
   const fullData = buildFullData(gameId, setDatas, setResults, userDps, userSetId);
 
-  const valueKey = mode === 'pct' ? 'pct' : 'dps';
-  const tickFormatter = (v) => (mode === 'pct' ? `${Math.round(v)}%` : formatDmg(v));
+  const tickFormatter = (v) => formatDmg(v);
 
   const barShape = (props) => {
     const { isUser, ...rest } = props;
@@ -134,20 +130,9 @@ const Set = ({ results }) => {
       <CardHeader
         title="Sets"
         action={
-          <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-            <ToggleButtonGroup
-              exclusive
-              value={mode}
-              onChange={(_, value) => value && setMode(value)}
-            >
-              <ToggleButton value="dps">DPS</ToggleButton>
-              <ToggleButton value="pct">%</ToggleButton>
-            </ToggleButtonGroup>
-
-            <Button onClick={() => setOpen(true)}>
-              View all
-            </Button>
-          </Stack>
+          <Button color={accent} onClick={() => setOpen(true)}>
+            View all
+          </Button>
         }
       />
 
@@ -169,7 +154,7 @@ const Set = ({ results }) => {
           />
 
           <Bar
-            dataKey={valueKey}
+            dataKey="dps"
             shape={barShape}
           >
             <LabelList
@@ -231,7 +216,7 @@ const Set = ({ results }) => {
             />
 
             <Bar
-              dataKey={valueKey}
+              dataKey="dps"
               shape={barShape}
             >
               <LabelList
