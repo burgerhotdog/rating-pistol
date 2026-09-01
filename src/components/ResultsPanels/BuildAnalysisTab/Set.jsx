@@ -21,70 +21,96 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import { SET } from '@/data';
 import { useAccent, useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 import { Button } from '../../Colored';
 
-// the set the user actually has 4 pieces of equipped, if any
-function getUserSetId(setCounts = {}) {
-  const entry = Object.entries(setCounts).find(([, count]) => count >= 4);
-  return entry ? Number(entry[0]) : null;
+function toComboKey(setCounts) {
+  return Object.entries(setCounts)
+    .map(([setId, count]) => `${setId}_${count}`)
+    .join('+');
 }
 
-function limitSets(entries, userSetId) {
+function toSetCounts(comboKey) {
+  return Object.fromEntries(
+    comboKey.split('+')
+      .map((setStr) => {
+        const [setId, count] = setStr.split('_');
+        return [setId, Number(count)];
+      })
+  );
+}
+
+function limitSets(entries, userComboKey) {
   const top = entries.slice(0, 8);
-  if (userSetId == null || top.some(({ setId }) => setId === userSetId)) {
+  if (userComboKey == null || top.some(({ comboKey }) => comboKey === userComboKey)) {
     return top;
   }
 
-  const userEntry = entries.find(({ setId }) => setId === userSetId);
+  const userEntry = entries.find(({ comboKey }) => comboKey === userComboKey);
   if (!userEntry) return top;
 
   return [...top.slice(0, 7), userEntry].sort((a, b) => b.dps - a.dps);
 }
 
-function buildData(gameId, setDatas, setResults, userDps, userSetId) {
+function buildData(setResults, userDps, userComboKey) {
+  const baselineDps = Object.entries(setResults)
+    .find(([comboKey]) => comboKey === 'none')[1];
+
   const dataEntries = Object.entries(setResults)
-    .map(([id, dps]) => ({ setId: Number(id), dps }))
+    .filter(([comboKey, dps]) => comboKey === 'none' || dps > baselineDps)
+    .map(([comboKey, dps]) => ({ comboKey, dps }))
     .sort((a, b) => b.dps - a.dps);
 
-  const limitedEntries = limitSets(dataEntries, userSetId);
+  const limitedEntries = limitSets(dataEntries, userComboKey);
 
-  return limitedEntries.map(({ setId, dps }) => {
+  return limitedEntries.map(({ comboKey, dps }) => {
+    const reOrderedKey = toComboKey(toSetCounts(comboKey));
     return {
-      setId,
-      name: setDatas[setId].name,
-      icon: setDatas[setId].icon,
+      comboKey,
+      name: comboKey,
       dps,
       pct: (dps / userDps) * 100,
-      isUser: setId === userSetId,
+      isUser: reOrderedKey === userComboKey,
     };
   });
 }
 
-function buildFullData(gameId, setDatas, setResults, userDps, userSetId) {
+function buildFullData(setResults, userDps, userComboKey) {
+  const baselineDps = Object.entries(setResults)
+    .find(([comboKey]) => comboKey === 'none')[1];
+
   const dataEntries = Object.entries(setResults)
-    .map(([id, dps]) => ({ setId: Number(id), dps }))
+    .filter(([comboKey, dps]) => comboKey === 'none' || dps > baselineDps)
+    .map(([comboKey, dps]) => ({ comboKey, dps }))
     .sort((a, b) => b.dps - a.dps);
 
-  return dataEntries.map(({ setId, dps }) => {
+  return dataEntries.map(({ comboKey, dps }) => {
+    const reOrderedKey = toComboKey(toSetCounts(comboKey));
     return {
-      setId,
-      name: setDatas[setId].name,
-      icon: setDatas[setId].icon,
+      comboKey,
+      name: comboKey,
       dps,
       pct: (dps / userDps) * 100,
-      isUser: setId === userSetId,
+      isUser: reOrderedKey === userComboKey,
     };
   });
 }
 
-const renderTooltip = ({ payload, label }) => {
+const renderTooltip = ({ gameId, payload, label = '' }) => {
   const { dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
+
+  const labelParts = label.split('+');
+  const adjustedLabelParts = label === 'none' ? 'None' : labelParts.map((part) => {
+    const [id, count] = part.split('_');
+    return `${SET[gameId][id]?.name} (${count})`;
+  }).join(' + ');
+
   return (
     <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
       <Typography variant="caption" color="textSecondary">
-        {label}
+        {adjustedLabelParts}
       </Typography>
       <Typography variant="caption" sx={{ display: 'block' }}>
         {formatNum(dps)} dps · {pct.toFixed(0)}% of your build
@@ -106,9 +132,9 @@ const Set = ({ results }) => {
   const accent = useAccent();
   const [open, setOpen] = useState(false);
 
-  const userSetId = getUserSetId(userMember?.setCounts);
-  const data = buildData(gameId, setDatas, setResults, userDps, userSetId);
-  const fullData = buildFullData(gameId, setDatas, setResults, userDps, userSetId);
+  const userComboKey = toComboKey(userMember.setCounts);
+  const data = buildData(setResults, userDps, userComboKey);
+  const fullData = buildFullData(setResults, userDps, userComboKey);
 
   const tickFormatter = (v) => formatDmg(v);
 
@@ -160,28 +186,54 @@ const Set = ({ results }) => {
             <LabelList
               content={({ x, y, width, height, index }) => {
                 const entry = data[index];
-                if (!entry?.icon) return null;
+                if (!entry?.comboKey || entry.comboKey === 'none') return null;
 
                 const size = width - 16;
                 const ix = x + 8;
                 const iy = y + height - size - 8;
 
+                const parts = entry.comboKey.split('+');
+
+                if (parts.length === 1) {
+                  const setId = parts[0].split('_')[0];
+                  const icon = setDatas[setId].icon;
+                  return (
+                    <image
+                      x={ix}
+                      y={iy}
+                      width={size}
+                      height={size}
+                      href={icon}
+                      xlinkHref={icon}
+                    />
+                  );
+                }
+
                 return (
-                  <image
-                    x={ix}
-                    y={iy}
-                    width={size}
-                    height={size}
-                    href={entry.icon}
-                    xlinkHref={entry.icon}
-                  />
+                  <g>
+                    {parts.toReversed().map((partStr, i) => {
+                      const [id] = partStr.split('_');
+                      const icon = setDatas[id].icon;
+                      return (
+                        <image
+                          key={i}
+                          x={ix}
+                          y={iy - i * (size + 8)}
+                          width={size}
+                          height={size}
+                          href={icon}
+                          xlinkHref={icon}
+                        />
+                      );
+                    })}
+                  </g>
                 );
               }}
             />
           </Bar>
 
           <Tooltip
-            content={renderTooltip}
+            content={(props) => renderTooltip({ gameId, ...props })}
             cursor={{ fill: alpha(palette.text.primary, 0.1) }}
             isAnimationActive={false}
           />
@@ -222,28 +274,53 @@ const Set = ({ results }) => {
               <LabelList
                 content={({ x, y, width, height, index }) => {
                   const entry = fullData[index];
-                  if (!entry?.icon) return null;
+                  if (!entry?.comboKey || entry.comboKey === 'none') return null;
 
                   const size = width - 8;
                   const ix = x + 4;
                   const iy = y + height - size - 4;
 
+                  const parts = entry.comboKey.split('+');
+                  if (parts.length === 1) {
+                    const setId = parts[0].split('_')[0];
+                    const icon = setDatas[setId].icon;
+                    return (
+                      <image
+                        x={ix}
+                        y={iy}
+                        width={size}
+                        height={size}
+                        href={icon}
+                        xlinkHref={icon}
+                      />
+                    );
+                  }
+
                   return (
-                    <image
-                      x={ix}
-                      y={iy}
-                      width={size}
-                      height={size}
-                      href={entry.icon}
-                      xlinkHref={entry.icon}
-                    />
+                    <g>
+                      {parts.toReversed().map((partStr, i) => {
+                        const [id] = partStr.split('_');
+                        const icon = setDatas[id].icon;
+                        return (
+                          <image
+                            key={i}
+                            x={ix}
+                            y={iy - i * (size + 4)}
+                            width={size}
+                            height={size}
+                            href={icon}
+                            xlinkHref={icon}
+                          />
+                        );
+                      })}
+                    </g>
                   );
                 }}
               />
             </Bar>
 
             <Tooltip
-              content={renderTooltip}
+              content={(props) => renderTooltip({ gameId, ...props })}
               cursor={{ fill: alpha(palette.text.primary, 0.1) }}
               isAnimationActive={false}
             />
