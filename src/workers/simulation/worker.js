@@ -1,4 +1,5 @@
 import {
+  computeConcertoExtraTime,
   computeDps,
   estimateDps,
   estimateDay,
@@ -34,18 +35,18 @@ async function resolveEquipMaps(cache, allowBlank = false) {
 }
 
 self.onmessage = async ({ data }) => {
-  self.postMessage({ status: 'Starting simulation' });
-
   self.postMessage({ status: 'Compiling cache' });
+
+  console.time('compileCache');
   const cache = compileCache(data);
+  console.timeEnd('compileCache');
+
   const equipMaps = await resolveEquipMaps(cache);
 
   // Sanity check
   self.postMessage({ status: 'Checking rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
-  const concertoExtraTime = cache.member[cache.charId].concertoPenalty
-    ? ((100 / 92) * cache.member[cache.charId].duration - cache.member[cache.charId].duration)
-    : 0;
+  const concertoExtraTime = computeConcertoExtraTime(cache.member[cache.charId]);
   const userDps = computeDps(userSnapshots, cache.rotationDuration + concertoExtraTime);
   if (Number.isNaN(userDps)) {
     console.log(userDps);
@@ -53,11 +54,19 @@ self.onmessage = async ({ data }) => {
     throw new Error('error');
   }
 
+  console.time('runTrials');
   const results = await runTrials(cache, equipMaps, cache.charId, true);
+  console.timeEnd('runTrials');
 
   const { benchmarkDay, benchmarkDps } = findBenchmark(results.dpsProgression, results.fit, results.dpsCeiling);
+
+  console.time('weaponTests');
   const weaponResults = weaponTests(cache, equipMaps, cache.charId);
+  console.timeEnd('weaponTests');
+
+  console.time('setTests');
   const setResults = setTests(cache, equipMaps, cache.charId);
+  console.timeEnd('setTests');
 
   self.postMessage({
     dpsProgression: results.dpsProgression,

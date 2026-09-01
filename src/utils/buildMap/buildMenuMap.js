@@ -6,6 +6,17 @@ import { toArray } from '../toArray';
 import { buildBaseMap } from './buildBaseMap';
 import { buildEquipMap } from './buildEquipMap';
 
+// Buff has no condition on when it applies - safe to bake into a static stat map
+export const isStaticBuff = (effect) => (
+  effect.buff?.stats &&
+  !effect.buff?.filter &&
+  !effect.apply
+);
+
+export const appliesToCharId = (effect, charId) =>
+  !effect.stores ||
+  toArray(effect.stores).some((store) => ['global', '$team', charId].includes(store));
+
 export function buildMenuMap(gameId, charId, team, spec = {}) {
 
   const member = team.find((member) => member?.id === charId);
@@ -15,15 +26,7 @@ export function buildMenuMap(gameId, charId, team, spec = {}) {
 
   // Static buffs from effects
   const effectMaps = [];
-  const isStaticBuff = (effect) => (
-    effect.buff?.stats &&
-    !effect.buff?.filter &&
-    !effect.apply
-  );
-  const appliesToCharId = (effect) =>
-    !effect.stores ||
-    toArray(effect.stores).some((store) => ['global', '$team', charId].includes(store));
-  
+
   const character = CHARACTER[gameId][charId];
   if (character.effects) {
     const memberIds = team.filter((member) => member?.id).map((member) => member.id);
@@ -31,7 +34,7 @@ export function buildMenuMap(gameId, charId, team, spec = {}) {
       if (
         !isEnabledChar(effect, member, gameId, memberIds) ||
         !isStaticBuff(effect) ||
-        !appliesToCharId(effect)
+        !appliesToCharId(effect, charId)
       ) continue;
       effectMaps.push(effect.buff.stats);
     }
@@ -43,7 +46,7 @@ export function buildMenuMap(gameId, charId, team, spec = {}) {
       if (
         !isEnabledWeap(effect, character, weapon) ||
         !isStaticBuff(effect) ||
-        !appliesToCharId(effect)
+        !appliesToCharId(effect, charId)
       ) continue;
       const resolvedMap = {};
       for (const [stat, value] of Object.entries(effect.buff.stats)) {
@@ -63,7 +66,7 @@ export function buildMenuMap(gameId, charId, team, spec = {}) {
   for (const effect of allSetEffects) {
     if (
       !isStaticBuff(effect) ||
-      !appliesToCharId(effect)
+      !appliesToCharId(effect, charId)
     ) continue;
     effectMaps.push(effect.buff.stats);
   }
@@ -74,7 +77,7 @@ export function buildMenuMap(gameId, charId, team, spec = {}) {
       if (
         !isEnabledEcho(effect, character) ||
         !isStaticBuff(effect) ||
-        !appliesToCharId(effect)
+        !appliesToCharId(effect, charId)
       ) continue;
       effectMaps.push(effect.buff.stats);
     }
