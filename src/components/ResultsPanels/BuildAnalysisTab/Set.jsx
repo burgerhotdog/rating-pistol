@@ -180,7 +180,10 @@ const Set = ({ results }) => {
       <Rectangle
         {...rest}
         fill="url(#gradient)"
-        style={!isUser ? { filter: 'brightness(0.5)' } : undefined}
+        style={!isUser
+          ? { filter: 'brightness(0.5)' }
+          : undefined
+        }
       />
     );
   };
@@ -275,11 +278,7 @@ const Set = ({ results }) => {
         onClose={() => setOpen(false)}
         maxWidth={false}
         fullWidth
-        slotProps={{
-          paper: {
-            elevation: 2,
-          },
-        }}
+        slotProps={{ paper: { elevation: 2 } }}
       >
         <DialogTitle>
           All Sets
