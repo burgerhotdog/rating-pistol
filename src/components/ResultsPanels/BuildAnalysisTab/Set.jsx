@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
+  Button,
   Card,
   CardContent,
   CardHeader,
@@ -21,10 +22,9 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { SET } from '@/data';
+import { ECHO, SET } from '@/data';
 import { useAccent, useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
-import { Button } from '../../Colored';
 
 function toComboKey(setCounts) {
   return Object.entries(setCounts)
@@ -32,14 +32,30 @@ function toComboKey(setCounts) {
     .join('+');
 }
 
+// Trailing `|<echoId>` encodes the main echo that produced the result, if any
+function splitComboKey(comboKey) {
+  const separatorIndex = comboKey.indexOf('|');
+  return separatorIndex === -1
+    ? { setKey: comboKey, echoId: null }
+    : { setKey: comboKey.slice(0, separatorIndex), echoId: Number(comboKey.slice(separatorIndex + 1)) };
+}
+
 function toSetCounts(comboKey) {
+  const { setKey } = splitComboKey(comboKey);
   return Object.fromEntries(
-    comboKey.split('+')
+    setKey.split('+')
       .map((setStr) => {
         const [setId, count] = setStr.split('_');
         return [setId, Number(count)];
       })
   );
+}
+
+function getComboIcons(comboKey, setDatas) {
+  const { setKey, echoId } = splitComboKey(comboKey);
+  const icons = setKey.split('+').map((partStr) => setDatas[partStr.split('_')[0]]?.icon);
+  if (echoId != null) icons.push(ECHO[echoId]?.icon);
+  return icons.filter(Boolean);
 }
 
 function limitSets(entries, userComboKey) {
@@ -101,25 +117,45 @@ function buildFullData(setResults, userDps, userComboKey) {
 const renderTooltip = ({ gameId, payload, label = '' }) => {
   const { dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
 
-  const labelParts = label.split('+');
-  const adjustedLabelParts = label === 'none' ? 'None' : labelParts.map((part) => {
+  const { setKey, echoId } = splitComboKey(label);
+  const echoName = echoId != null ? ECHO[echoId]?.name : null;
+
+  const labelParts = setKey.split('+');
+  const adjustedLabelParts = setKey === 'none' ? 'None' : labelParts.map((part) => {
     const [id, count] = part.split('_');
-    return `${SET[gameId][id]?.name} (${count})`;
+    return `${SET[gameId][id]?.name} (${count}pc)`;
   }).join(' + ');
+
+  const diff = pct - 100;
+  const diffStr = diff >= 0
+    ? `+${diff.toFixed(1)}`
+    : diff.toFixed(1);
 
   return (
     <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
-      <Typography variant="caption" color="textSecondary">
-        {adjustedLabelParts}
-      </Typography>
-      <Typography variant="caption" sx={{ display: 'block' }}>
-        {formatNum(dps)} dps · {pct.toFixed(0)}% of your build
-      </Typography>
-      {isUser && (
-        <Typography variant="caption" color="warning.main" sx={{ display: 'block', fontWeight: 600 }}>
-          Your pick
+      <Stack>
+        <Typography variant="caption" color="textSecondary">
+          {adjustedLabelParts}
         </Typography>
-      )}
+        {echoName && (
+          <Typography variant="caption" color="textSecondary">
+            {echoName}
+          </Typography>
+        )}
+        <Stack direction="row" spacing={0.5}>
+          <Typography variant="caption">
+            {formatNum(dps)} dps
+          </Typography>
+          {!isUser && (
+            <Typography
+              variant="caption"
+              color={diff >= 0 ? 'success' : 'error'}
+            >
+              ({diffStr}%)
+            </Typography>
+          )}
+        </Stack>
+      </Stack>
     </Paper>
   );
 };
@@ -143,10 +179,8 @@ const Set = ({ results }) => {
     return (
       <Rectangle
         {...rest}
-        fill={accent}
-        fillOpacity={isUser ? 1 : 0.6}
-        stroke={isUser ? palette.text.primary : 'none'}
-        strokeWidth={isUser ? 2 : 0}
+        fill="url(#gradient)"
+        style={!isUser ? { filter: 'brightness(0.5)' } : undefined}
       />
     );
   };
@@ -156,7 +190,7 @@ const Set = ({ results }) => {
       <CardHeader
         title="Sets"
         action={
-          <Button color={accent} onClick={() => setOpen(true)}>
+          <Button onClick={() => setOpen(true)}>
             View all
           </Button>
         }
@@ -168,6 +202,13 @@ const Set = ({ results }) => {
           style={{ width: '100%', height: '100%' }}
           responsive
         >
+          <defs>
+            <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={accent} stopOpacity={1} />
+              <stop offset="100%" stopColor={accent} stopOpacity={0} />
+            </linearGradient>
+          </defs>
+
           <XAxis
             type="category"
             dataKey="name"
@@ -192,40 +233,29 @@ const Set = ({ results }) => {
                 const ix = x + 8;
                 const iy = y + height - size - 8;
 
-                const parts = entry.comboKey.split('+');
-
-                if (parts.length === 1) {
-                  const setId = parts[0].split('_')[0];
-                  const icon = setDatas[setId].icon;
-                  return (
-                    <image
-                      x={ix}
-                      y={iy}
-                      width={size}
-                      height={size}
-                      href={icon}
-                      xlinkHref={icon}
-                    />
-                  );
-                }
+                const icons = getComboIcons(entry.comboKey, setDatas);
 
                 return (
                   <g>
-                    {parts.toReversed().map((partStr, i) => {
-                      const [id] = partStr.split('_');
-                      const icon = setDatas[id].icon;
-                      return (
-                        <image
-                          key={i}
-                          x={ix}
-                          y={iy - i * (size + 8)}
-                          width={size}
-                          height={size}
-                          href={icon}
-                          xlinkHref={icon}
-                        />
-                      );
-                    })}
+                    {icons.toReversed().map((icon, i) => (
+                      <image
+                        key={i}
+                        x={ix}
+                        y={iy - i * (size + 8)}
+                        width={size}
+                        height={size}
+                        href={icon}
+                        xlinkHref={icon}
+                        opacity={!entry.isUser
+                          ? 0.5
+                          : undefined
+                        }
+                        style={!entry.isUser
+                          ? { filter: 'brightness(0.5)' }
+                          : undefined
+                        }
+                      />
+                    ))}
                   </g>
                 );
               }}
@@ -245,6 +275,11 @@ const Set = ({ results }) => {
         onClose={() => setOpen(false)}
         maxWidth={false}
         fullWidth
+        slotProps={{
+          paper: {
+            elevation: 2,
+          },
+        }}
       >
         <DialogTitle>
           All Sets
@@ -280,39 +315,29 @@ const Set = ({ results }) => {
                   const ix = x + 4;
                   const iy = y + height - size - 4;
 
-                  const parts = entry.comboKey.split('+');
-                  if (parts.length === 1) {
-                    const setId = parts[0].split('_')[0];
-                    const icon = setDatas[setId].icon;
-                    return (
-                      <image
-                        x={ix}
-                        y={iy}
-                        width={size}
-                        height={size}
-                        href={icon}
-                        xlinkHref={icon}
-                      />
-                    );
-                  }
+                  const icons = getComboIcons(entry.comboKey, setDatas);
 
                   return (
                     <g>
-                      {parts.toReversed().map((partStr, i) => {
-                        const [id] = partStr.split('_');
-                        const icon = setDatas[id].icon;
-                        return (
-                          <image
-                            key={i}
-                            x={ix}
-                            y={iy - i * (size + 4)}
-                            width={size}
-                            height={size}
-                            href={icon}
-                            xlinkHref={icon}
-                          />
-                        );
-                      })}
+                      {icons.toReversed().map((icon, i) => (
+                        <image
+                          key={i}
+                          x={ix}
+                          y={iy - i * (size + 4)}
+                          width={size}
+                          height={size}
+                          href={icon}
+                          xlinkHref={icon}
+                          opacity={!entry.isUser
+                            ? 0.5
+                            : undefined
+                          }
+                          style={!entry.isUser
+                            ? { filter: 'brightness(0.5)' }
+                            : undefined
+                          }
+                        />
+                      ))}
                     </g>
                   );
                 }}
