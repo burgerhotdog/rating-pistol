@@ -403,6 +403,7 @@
               }
             ]
           },
+          "cooldown": 20000,
           "duration": 15000
         },
         "remove": {
@@ -1538,6 +1539,7 @@
           },
           "action": {
             "damage": {
+              "type": "echoSkill",
               "element": "aero",
               "multipliers": [
                 {
@@ -1548,19 +1550,7 @@
           }
         }
       }
-    ],
-    "action": {
-      "name": "Echo Skill: Nightmare: Kelpie",
-      "type": "echoSkill",
-      "damage": {
-        "element": "glacio",
-        "multipliers": [
-          {
-            "mv": 4.05
-          }
-        ]
-      }
-    }
+    ]
   },
   "6000114": {
     "name": "Lioness of Glory",
@@ -3403,6 +3393,15 @@
     "effects": [
       {
         "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          },
+          "duration": 15000
+        },
         "buff": {
           "stats": {
             "dmgBonus%": 0.1

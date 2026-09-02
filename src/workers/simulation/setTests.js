@@ -140,7 +140,7 @@ function getEchoCandidates(gameId, testSetIds) {
   if (gameId !== WW || !testSetIds.length) return [];
   const includesSet32 = testSetIds.includes(32);
   return Object.values(ECHO).filter((echo) => {
-    if (!echo.action) return false;
+    if (!echo.action && !echo.effects?.length) return false;
     if (!echo.sets.some((setId) => testSetIds.includes(setId))) return false;
 
     // Exception: when set 32 is part of this test, disallow 4-cost echoes
