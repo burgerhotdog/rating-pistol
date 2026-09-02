@@ -22,7 +22,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { SET } from '@/data';
+import { ECHO, SET } from '@/data';
 import { useAccent, useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
@@ -32,14 +32,30 @@ function toComboKey(setCounts) {
     .join('+');
 }
 
+// Trailing `|<echoId>` encodes the main echo that produced the result, if any
+function splitComboKey(comboKey) {
+  const separatorIndex = comboKey.indexOf('|');
+  return separatorIndex === -1
+    ? { setKey: comboKey, echoId: null }
+    : { setKey: comboKey.slice(0, separatorIndex), echoId: Number(comboKey.slice(separatorIndex + 1)) };
+}
+
 function toSetCounts(comboKey) {
+  const { setKey } = splitComboKey(comboKey);
   return Object.fromEntries(
-    comboKey.split('+')
+    setKey.split('+')
       .map((setStr) => {
         const [setId, count] = setStr.split('_');
         return [setId, Number(count)];
       })
   );
+}
+
+function getComboIcons(comboKey, setDatas) {
+  const { setKey, echoId } = splitComboKey(comboKey);
+  const icons = setKey.split('+').map((partStr) => setDatas[partStr.split('_')[0]]?.icon);
+  if (echoId != null) icons.push(ECHO[echoId]?.icon);
+  return icons.filter(Boolean);
 }
 
 function limitSets(entries, userComboKey) {
@@ -101,34 +117,44 @@ function buildFullData(setResults, userDps, userComboKey) {
 const renderTooltip = ({ gameId, payload, label = '' }) => {
   const { dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
 
-  const labelParts = label.split('+');
-  const adjustedLabelParts = label === 'none' ? 'None' : labelParts.map((part) => {
+  const { setKey, echoId } = splitComboKey(label);
+  const echoName = echoId != null ? ECHO[echoId]?.name : null;
+
+  const labelParts = setKey.split('+');
+  const adjustedLabelParts = setKey === 'none' ? 'None' : labelParts.map((part) => {
     const [id, count] = part.split('_');
     return `${SET[gameId][id]?.name} (${count}pc)`;
   }).join(' + ');
 
   const diff = pct - 100;
-  const diffStr = diff > 0
-    ? `+${diff.toFixed()}`
-    : diff.toFixed();
+  const diffStr = diff >= 0
+    ? `+${diff.toFixed(1)}`
+    : diff.toFixed(1);
 
   return (
     <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
-      <Typography variant="caption" color="textSecondary">
-        {adjustedLabelParts}
-      </Typography>
-      <Stack direction="row" spacing={0.5}>
-        <Typography variant="caption">
-          {formatNum(dps)} dps
+      <Stack>
+        <Typography variant="caption" color="textSecondary">
+          {adjustedLabelParts}
         </Typography>
-        {!isUser && (
-          <Typography
-            variant="caption"
-            color={diff > 0 ? 'success' : 'error'}
-          >
-            ({diffStr}%)
+        {echoName && (
+          <Typography variant="caption" color="textSecondary">
+            {echoName}
           </Typography>
         )}
+        <Stack direction="row" spacing={0.5}>
+          <Typography variant="caption">
+            {formatNum(dps)} dps
+          </Typography>
+          {!isUser && (
+            <Typography
+              variant="caption"
+              color={diff >= 0 ? 'success' : 'error'}
+            >
+              ({diffStr}%)
+            </Typography>
+          )}
+        </Stack>
       </Stack>
     </Paper>
   );
@@ -207,56 +233,29 @@ const Set = ({ results }) => {
                 const ix = x + 8;
                 const iy = y + height - size - 8;
 
-                const parts = entry.comboKey.split('+');
-
-                if (parts.length === 1) {
-                  const setId = parts[0].split('_')[0];
-                  const icon = setDatas[setId].icon;
-                  return (
-                    <image
-                      x={ix}
-                      y={iy}
-                      width={size}
-                      height={size}
-                      href={icon}
-                      xlinkHref={icon}
-                      opacity={!entry.isUser
-                        ? 0.5
-                        : undefined
-                      }
-                      style={!entry.isUser
-                        ? { filter: 'brightness(0.5)' }
-                        : undefined
-                      }
-                    />
-                  );
-                }
+                const icons = getComboIcons(entry.comboKey, setDatas);
 
                 return (
                   <g>
-                    {parts.toReversed().map((partStr, i) => {
-                      const [id] = partStr.split('_');
-                      const icon = setDatas[id].icon;
-                      return (
-                        <image
-                          key={i}
-                          x={ix}
-                          y={iy - i * (size + 8)}
-                          width={size}
-                          height={size}
-                          href={icon}
-                          xlinkHref={icon}
-                          opacity={!entry.isUser
-                            ? 0.5
-                            : undefined
-                          }
-                          style={!entry.isUser
-                            ? { filter: 'brightness(0.5)' }
-                            : undefined
-                          }
-                        />
-                      );
-                    })}
+                    {icons.toReversed().map((icon, i) => (
+                      <image
+                        key={i}
+                        x={ix}
+                        y={iy - i * (size + 8)}
+                        width={size}
+                        height={size}
+                        href={icon}
+                        xlinkHref={icon}
+                        opacity={!entry.isUser
+                          ? 0.5
+                          : undefined
+                        }
+                        style={!entry.isUser
+                          ? { filter: 'brightness(0.5)' }
+                          : undefined
+                        }
+                      />
+                    ))}
                   </g>
                 );
               }}
@@ -316,55 +315,29 @@ const Set = ({ results }) => {
                   const ix = x + 4;
                   const iy = y + height - size - 4;
 
-                  const parts = entry.comboKey.split('+');
-                  if (parts.length === 1) {
-                    const setId = parts[0].split('_')[0];
-                    const icon = setDatas[setId].icon;
-                    return (
-                      <image
-                        x={ix}
-                        y={iy}
-                        width={size}
-                        height={size}
-                        href={icon}
-                        xlinkHref={icon}
-                        opacity={!entry.isUser
-                          ? 0.5
-                          : undefined
-                        }
-                        style={!entry.isUser
-                          ? { filter: 'brightness(0.5)' }
-                          : undefined
-                        }
-                      />
-                    );
-                  }
+                  const icons = getComboIcons(entry.comboKey, setDatas);
 
                   return (
                     <g>
-                      {parts.toReversed().map((partStr, i) => {
-                        const [id] = partStr.split('_');
-                        const icon = setDatas[id].icon;
-                        return (
-                          <image
-                            key={i}
-                            x={ix}
-                            y={iy - i * (size + 4)}
-                            width={size}
-                            height={size}
-                            href={icon}
-                            xlinkHref={icon}
-                            opacity={!entry.isUser
-                              ? 0.5
-                              : undefined
-                            }
-                            style={!entry.isUser
-                              ? { filter: 'brightness(0.5)' }
-                              : undefined
-                            }
-                          />
-                        );
-                      })}
+                      {icons.toReversed().map((icon, i) => (
+                        <image
+                          key={i}
+                          x={ix}
+                          y={iy - i * (size + 4)}
+                          width={size}
+                          height={size}
+                          href={icon}
+                          xlinkHref={icon}
+                          opacity={!entry.isUser
+                            ? 0.5
+                            : undefined
+                          }
+                          style={!entry.isUser
+                            ? { filter: 'brightness(0.5)' }
+                            : undefined
+                          }
+                        />
+                      ))}
                     </g>
                   );
                 }}

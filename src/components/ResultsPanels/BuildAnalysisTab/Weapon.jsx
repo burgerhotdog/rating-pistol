@@ -118,7 +118,7 @@ function buildFullData(gameId, weapDatas, weaponResults, userDps, userMember) {
 const renderTooltip = ({ payload, label }) => {
   const { dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
   const diff = pct - 100;
-  const diffStr = diff > 0
+  const diffStr = diff >= 0
     ? `+${diff.toFixed(1)}`
     : diff.toFixed(1);
 
@@ -134,7 +134,7 @@ const renderTooltip = ({ payload, label }) => {
         {!isUser && (
           <Typography
             variant="caption"
-            color={diff > 0 ? 'success' : 'error'}
+            color={diff >= 0 ? 'success' : 'error'}
           >
             ({diffStr}%)
           </Typography>
