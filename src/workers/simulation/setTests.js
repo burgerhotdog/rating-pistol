@@ -115,7 +115,7 @@ export function setTests(cache, equipMaps, charId) {
 
   const results = {};
 
-  const runTest = (testId, effectSources) => {
+  const runTest = (effectSources) => {
     const setEffects = getNormalizedSetEffects(effectSources, gameId, charId, cache.memberIds);
     const effects = { ...nonSetEffects, ...setEffects };
  
@@ -124,21 +124,19 @@ export function setTests(cache, equipMaps, charId) {
       .map((effect) => effect.buff.stats);
     const testStatMap = toMergedObj(mCache.baseMap, mCache.equipMap, ...staticBuffMaps);
  
-    const result = runVariantDps(cache, equipMaps, charId, {
+    return runVariantDps(cache, equipMaps, charId, {
       effects,
       sourceStatMap: mCache.menuMap,
       testStatMap,
     });
- 
-    results[testId] = result;
-    return result;
   };
 
   const buildId = (assignment) =>
     assignment.map(({ setId, size }) => `${setId}_${size}`).join('+');
 
   // Pass 1
-  const baselineDps = runTest('none', []);
+  const baselineDps = runTest([]);
+  results.none = baselineDps;
   const soloPositive = {};
 
   for (let tier = 1; tier <= TOTAL_SLOTS; tier++) {
@@ -147,11 +145,24 @@ export function setTests(cache, equipMaps, charId) {
     for (const setId of setsByTier[tier]) {
       const setData = SET[gameId][setId];
 
-      const result = runTest(`${setId}_${tier}`, [
-        { rawEffects: setData.effects, pieceCount: tier, sourceId: setId },
-      ]);
- 
-      if (result > baselineDps) {
+      const dps = runTest([{
+        rawEffects: setData.effects,
+        pieceCount: tier,
+        sourceId: setId,
+      }]);
+
+      let prevTier = 1;
+      let prevTierDps = baselineDps;
+      while (prevTier < tier) {
+        const prevComboKey = `${setId}_${prevTier}`;
+        if (results[prevComboKey] && results[prevComboKey] > prevTierDps) {
+          prevTierDps = results[prevComboKey];
+        }
+        prevTier++;
+      }
+
+      if (dps > prevTierDps) {
+        results[`${setId}_${tier}`] = dps;
         positiveSets.add(setId);
       }
     }
@@ -176,7 +187,8 @@ export function setTests(cache, equipMaps, charId) {
         sourceId: setId,
       }));
  
-      runTest(buildId(assignment), effectSources);
+      const comboKey = buildId(assignment);
+      results[comboKey] = runTest(effectSources);
     }
   }
  

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
+  Button,
   Card,
   CardContent,
   CardHeader,
@@ -21,9 +22,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useAccent, useData } from '@/hooks';
+import { useData } from '@/hooks';
 import { formatDmg, formatNum, getDefaultWeapRank } from '@/utils';
-import { Button } from '../../Colored';
 
 // only R1/R5 dps samples exist, so bucket the user's real rank to whichever was simulated
 const bucketWeaponRank = (rank) => (rank >= 3 ? 5 : 1);
@@ -117,19 +117,29 @@ function buildFullData(gameId, weapDatas, weaponResults, userDps, userMember) {
 
 const renderTooltip = ({ payload, label }) => {
   const { dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
+  const diff = pct - 100;
+  const diffStr = diff > 0
+    ? `+${diff.toFixed(1)}`
+    : diff.toFixed(1);
+
   return (
     <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
       <Typography variant="caption" color="textSecondary">
         {label}
       </Typography>
-      <Typography variant="caption" sx={{ display: 'block' }}>
-        {formatNum(dps)} dps · {pct.toFixed(0)}% of your build
-      </Typography>
-      {isUser && (
-        <Typography variant="caption" color="warning.main" sx={{ display: 'block', fontWeight: 600 }}>
-          Your pick
+      <Stack direction="row" spacing={0.5}>
+        <Typography variant="caption">
+          {formatNum(dps)} dps
         </Typography>
-      )}
+        {!isUser && (
+          <Typography
+            variant="caption"
+            color={diff > 0 ? 'success' : 'error'}
+          >
+            ({diffStr}%)
+          </Typography>
+        )}
+      </Stack>
     </Paper>
   );
 };
@@ -138,7 +148,6 @@ const Weapon = ({ results }) => {
   const { weaponResults, userDps, userMember } = results;
   const { gameId } = useParams();
   const { palette, qualityColors } = useTheme();
-  const accent = useAccent();
   const weapDatas = useData('weapon');
   const [open, setOpen] = useState(false);
 
@@ -150,13 +159,12 @@ const Weapon = ({ results }) => {
   const barShape = (props) => {
     const { weaponId, isUser, ...rest } = props;
     const { quality } = weapDatas[weaponId];
+
     return (
       <Rectangle
         {...rest}
-        fill={qualityColors[quality]}
-        fillOpacity={isUser ? 1 : 0.6}
-        stroke={isUser ? accent : 'none'}
-        strokeWidth={isUser ? 2 : 0}
+        fill={`url(#gradient${quality})`}
+        style={!isUser ? { filter: 'brightness(0.5)' } : undefined}
       />
     );
   };
@@ -167,7 +175,6 @@ const Weapon = ({ results }) => {
         title="Weapons"
         action={
           <Button
-            color={accent}
             onClick={() => setOpen(true)}
           >
             View all
@@ -181,6 +188,15 @@ const Weapon = ({ results }) => {
           style={{ width: '100%', height: '100%' }}
           responsive
         >
+          <defs>
+            {Object.entries(qualityColors).map(([q, qColor]) => (
+              <linearGradient key={q} id={`gradient${q}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={qColor} stopOpacity={1} />
+                <stop offset="100%" stopColor={qColor} stopOpacity={0} />
+              </linearGradient>
+            ))}
+          </defs>
+
           <XAxis
             type="category"
             dataKey="name"
@@ -213,6 +229,14 @@ const Weapon = ({ results }) => {
                     height={size}
                     href={entry.icon}
                     xlinkHref={entry.icon}
+                    opacity={!entry.isUser
+                      ? 0.5
+                      : undefined
+                    }
+                    style={!entry.isUser
+                      ? { filter: 'brightness(0.5)' }
+                      : undefined
+                    }
                   />
                 );
               }}
@@ -232,6 +256,11 @@ const Weapon = ({ results }) => {
         onClose={() => setOpen(false)}
         maxWidth={false}
         fullWidth
+        slotProps={{
+          paper: {
+            elevation: 2,
+          },
+        }}
       >
         <DialogTitle>
           All Weapons
@@ -275,6 +304,14 @@ const Weapon = ({ results }) => {
                       height={size}
                       href={entry.icon}
                       xlinkHref={entry.icon}
+                      opacity={!entry.isUser
+                        ? 0.5
+                        : undefined
+                      }
+                      style={!entry.isUser
+                        ? { filter: 'brightness(0.5)' }
+                        : undefined
+                      }
                     />
                   );
                 }}

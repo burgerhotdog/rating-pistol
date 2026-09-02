@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
+  Button,
   Card,
   CardContent,
   CardHeader,
@@ -24,7 +25,6 @@ import {
 import { SET } from '@/data';
 import { useAccent, useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
-import { Button } from '../../Colored';
 
 function toComboKey(setCounts) {
   return Object.entries(setCounts)
@@ -104,22 +104,32 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
   const labelParts = label.split('+');
   const adjustedLabelParts = label === 'none' ? 'None' : labelParts.map((part) => {
     const [id, count] = part.split('_');
-    return `${SET[gameId][id]?.name} (${count})`;
+    return `${SET[gameId][id]?.name} (${count}pc)`;
   }).join(' + ');
+
+  const diff = pct - 100;
+  const diffStr = diff > 0
+    ? `+${diff.toFixed()}`
+    : diff.toFixed();
 
   return (
     <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
       <Typography variant="caption" color="textSecondary">
         {adjustedLabelParts}
       </Typography>
-      <Typography variant="caption" sx={{ display: 'block' }}>
-        {formatNum(dps)} dps · {pct.toFixed(0)}% of your build
-      </Typography>
-      {isUser && (
-        <Typography variant="caption" color="warning.main" sx={{ display: 'block', fontWeight: 600 }}>
-          Your pick
+      <Stack direction="row" spacing={0.5}>
+        <Typography variant="caption">
+          {formatNum(dps)} dps
         </Typography>
-      )}
+        {!isUser && (
+          <Typography
+            variant="caption"
+            color={diff > 0 ? 'success' : 'error'}
+          >
+            ({diffStr}%)
+          </Typography>
+        )}
+      </Stack>
     </Paper>
   );
 };
@@ -143,10 +153,8 @@ const Set = ({ results }) => {
     return (
       <Rectangle
         {...rest}
-        fill={accent}
-        fillOpacity={isUser ? 1 : 0.6}
-        stroke={isUser ? palette.text.primary : 'none'}
-        strokeWidth={isUser ? 2 : 0}
+        fill="url(#gradient)"
+        style={!isUser ? { filter: 'brightness(0.5)' } : undefined}
       />
     );
   };
@@ -156,7 +164,7 @@ const Set = ({ results }) => {
       <CardHeader
         title="Sets"
         action={
-          <Button color={accent} onClick={() => setOpen(true)}>
+          <Button onClick={() => setOpen(true)}>
             View all
           </Button>
         }
@@ -168,6 +176,13 @@ const Set = ({ results }) => {
           style={{ width: '100%', height: '100%' }}
           responsive
         >
+          <defs>
+            <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={accent} stopOpacity={1} />
+              <stop offset="100%" stopColor={accent} stopOpacity={0} />
+            </linearGradient>
+          </defs>
+
           <XAxis
             type="category"
             dataKey="name"
@@ -205,6 +220,14 @@ const Set = ({ results }) => {
                       height={size}
                       href={icon}
                       xlinkHref={icon}
+                      opacity={!entry.isUser
+                        ? 0.5
+                        : undefined
+                      }
+                      style={!entry.isUser
+                        ? { filter: 'brightness(0.5)' }
+                        : undefined
+                      }
                     />
                   );
                 }
@@ -223,6 +246,14 @@ const Set = ({ results }) => {
                           height={size}
                           href={icon}
                           xlinkHref={icon}
+                          opacity={!entry.isUser
+                            ? 0.5
+                            : undefined
+                          }
+                          style={!entry.isUser
+                            ? { filter: 'brightness(0.5)' }
+                            : undefined
+                          }
                         />
                       );
                     })}
@@ -245,6 +276,11 @@ const Set = ({ results }) => {
         onClose={() => setOpen(false)}
         maxWidth={false}
         fullWidth
+        slotProps={{
+          paper: {
+            elevation: 2,
+          },
+        }}
       >
         <DialogTitle>
           All Sets
@@ -292,6 +328,14 @@ const Set = ({ results }) => {
                         height={size}
                         href={icon}
                         xlinkHref={icon}
+                        opacity={!entry.isUser
+                          ? 0.5
+                          : undefined
+                        }
+                        style={!entry.isUser
+                          ? { filter: 'brightness(0.5)' }
+                          : undefined
+                        }
                       />
                     );
                   }
@@ -310,6 +354,14 @@ const Set = ({ results }) => {
                             height={size}
                             href={icon}
                             xlinkHref={icon}
+                            opacity={!entry.isUser
+                              ? 0.5
+                              : undefined
+                            }
+                            style={!entry.isUser
+                              ? { filter: 'brightness(0.5)' }
+                              : undefined
+                            }
                           />
                         );
                       })}
