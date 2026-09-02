@@ -102,7 +102,7 @@ export function setTests(cache, equipMaps, charId) {
 
   const nonSetEffects = Object.fromEntries(
     Object.entries(cache.effects)
-      .filter(([, effect]) => !mCache.setCounts[effect.sourceId])
+      .filter(([, effect]) => !(effect.ownerId === charId && mCache.setCounts[effect.sourceId]))
   );
 
   const setDatasList = Object.values(SET[gameId]);

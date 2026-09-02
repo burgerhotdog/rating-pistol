@@ -34,7 +34,7 @@ export function weaponTests(cache, equipMaps, charId) {
 
   const nonWeapEffects = Object.fromEntries(
     Object.entries(cache.effects)
-      .filter(([, effect]) => effect.sourceId !== mCache.weaponId)
+      .filter(([, effect]) => !(effect.ownerId === charId && effect.sourceId === mCache.weaponId))
   );
 
   const weapDatasToTest = Object.values(weapDatas)
