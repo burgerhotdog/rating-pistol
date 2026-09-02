@@ -1,24 +1,12 @@
 import { CHARACTER, ECHO, SET, WW } from '@/data';
 import { appliesToCharId, isEnabledEcho, isEnabledSet, isStaticBuff, toMergedObj } from '@/utils';
-import { normAction } from './cache/actions';
-import { normEffect, resolveEffectTokens } from './cache/effects';
-import { runVariantDps } from './variantDps';
+import { normAction } from '../cache/actions';
+import { normEffect, resolveEffectTokens } from '../cache/effects';
+import { runVariantDps } from '../variantDps';
+
+import { buildUsefulSetBonuses } from './buildUsefulSetBonuses';
 
 const TOTAL_SLOTS = 5;
-
-// All integer partitions of n, parts in non-increasing order.
-// partitionsOf(5) => [[5], [4, 1], [3, 2], [3, 1, 1], [2, 2, 1], [2, 1, 1, 1], [1, 1, 1, 1, 1]]
-function partitionsOf(n, maxPart = n) {
-  if (n === 0) return [[]];
- 
-  const results = [];
-  for (let k = Math.min(n, maxPart); k >= 1; k--) {
-    for (const rest of partitionsOf(n - k, k)) {
-      results.push([k, ...rest]);
-    }
-  }
-  return results;
-}
 
 function combinations(arr, k) {
   const results = [];
@@ -50,7 +38,7 @@ function toSizeGroups(partition) {
     .sort((a, b) => b.size - a.size);
 }
 
-function assignPartition(groups, candidatesBySize) {
+function assignPartition(groups, usefulSetBonuses) {
   const results = [];
  
   function recurse(groupIdx, used, chosen) {
@@ -60,10 +48,12 @@ function assignPartition(groups, candidatesBySize) {
     }
  
     const { size, count } = groups[groupIdx];
-    const candidates = candidatesBySize(size).filter((setId) => !used.has(setId));
+    const candidates = [...usefulSetBonuses[size]]
+      .filter((setId) => !used.has(setId));
  
     for (const combo of combinations(candidates, count)) {
       const newUsed = new Set(used);
+
       combo.forEach((id) => newUsed.add(id));
  
       recurse(
@@ -161,24 +151,18 @@ export function setTests(cache, equipMaps, charId) {
     Object.entries(cache.effects)
       .filter(([, effect]) => !(
         effect.ownerId === charId &&
-        (mCache.setCounts[effect.sourceId] || effect.sourceId === mCache.mainEcho)
+        (
+          mCache.setCounts[effect.sourceId] ||
+          effect.sourceId === mCache.mainEcho
+        )
       ))
   );
 
-  // Rotation with the member's actual main echo skill stripped out, so each test can insert its own
-  const baseRotation = mCache.rotation.filter(
-    (action) => !(action.type === 'echoSkill' && action.ownerId === charId)
-  );
-
-  const setDatasList = Object.values(SET[gameId]);
-  const setsByTier = {};
-  for (let tier = 1; tier <= TOTAL_SLOTS; tier++) {
-    setsByTier[tier] = setDatasList
-      .filter((setData) => setData.bonuses.includes(tier))
-      .map((setData) => setData.id);
-  }
-
-  const results = {};
+  const nonEchoRotation = mCache.rotation
+    .filter((action) =>
+      action.type !== 'echoSkill' ||
+      action.ownerId !== charId
+    );
 
   const runTest = (effectSources, { testEcho = true } = {}) => {
     const setEffects = getNormalizedSetEffects(effectSources, gameId, charId, cache.memberIds);
@@ -197,7 +181,7 @@ export function setTests(cache, equipMaps, charId) {
       const testStatMap = toMergedObj(mCache.baseMap, mCache.equipMap, ...staticBuffMaps);
 
       const echoAction = echoId != null ? buildEchoAction(gameId, echoId, charId, cache.teamSize) : undefined;
-      const rotation = withEchoAction(baseRotation, echoAction, ECHO[echoId]?.timing);
+      const rotation = withEchoAction(nonEchoRotation, echoAction, ECHO[echoId]?.timing);
  
       return runVariantDps(cache, equipMaps, charId, {
         effects,
@@ -207,92 +191,65 @@ export function setTests(cache, equipMaps, charId) {
       });
     };
 
-    if (!echoCandidates.length) return { dps: runWithEcho(null), echoId: null };
+    if (!echoCandidates.length) {
+      return { dps: runWithEcho(null), echoId: null };
+    }
 
     let best = { dps: -Infinity, echoId: null };
+
     for (const echo of echoCandidates) {
       const dps = runWithEcho(echo.id);
-      if (dps > best.dps) best = { dps, echoId: echo.id };
+      if (dps > best.dps) {
+        best = { dps, echoId: echo.id };
+      }
     }
+
     return best;
   };
 
-  const buildId = (assignment) =>
-    assignment.map(({ setId, size }) => `${setId}_${size}`).join('+');
-
-  const withEchoKey = (key, echoId) => (echoId != null ? `${key}|${echoId}` : key);
-
-  // Pass 1: find which sets are worth combining, ignoring main echo so a lucky echo match can't prop up a dead set
+  // Pass 1: Find which sets are worth combining, ignoring main echo so a lucky echo match can't prop up a dead set
   const { dps: baselineDps } = runTest([], { testEcho: false });
-  const soloNoEchoDps = {};
-  const soloPositive = {};
-
-  for (let tier = 1; tier <= TOTAL_SLOTS; tier++) {
-    const positiveSets = new Set();
- 
-    for (const setId of setsByTier[tier]) {
-      const setData = SET[gameId][setId];
-
-      const { dps } = runTest([{
-        rawEffects: setData.effects,
-        pieceCount: tier,
-        sourceId: setId,
-      }], { testEcho: false });
-
-      let prevTier = 1;
-      let prevTierDps = baselineDps;
-      while (prevTier < tier) {
-        const prevComboKey = `${setId}_${prevTier}`;
-        if (soloNoEchoDps[prevComboKey] && soloNoEchoDps[prevComboKey] > prevTierDps) {
-          prevTierDps = soloNoEchoDps[prevComboKey];
-        }
-        prevTier++;
-      }
-
-      if (dps > prevTierDps) {
-        soloNoEchoDps[`${setId}_${tier}`] = dps;
-        positiveSets.add(setId);
-      }
-    }
- 
-    soloPositive[tier] = positiveSets;
-  }
+  const usefulSetBonuses = buildUsefulSetBonuses(gameId, TOTAL_SLOTS, baselineDps, runTest);
 
   // Pass 2: build the actual results, with main echo candidates tested
+  const results = {};
   results.none = baselineDps;
 
-  for (let tier = 1; tier <= TOTAL_SLOTS; tier++) {
-    for (const setId of soloPositive[tier]) {
-      const setData = SET[gameId][setId];
-      const { dps, echoId } = runTest([{
-        rawEffects: setData.effects,
-        pieceCount: tier,
-        sourceId: setId,
-      }]);
-      results[withEchoKey(`${setId}_${tier}`, echoId)] = dps;
-    }
-  }
+  const PASS_2_TYPES = [[5], [3, 2], [2, 2, 1]];
 
-  const candidatesBySize = (size) => [...soloPositive[size]];
+  for (const sizes of PASS_2_TYPES) {
+    const assignments = assignPartition(toSizeGroups(sizes), usefulSetBonuses);
+    const seen2pc = new Set();
 
-  const combinablePartitions = partitionsOf(TOTAL_SLOTS)
-    .filter((partition) => partition.length > 1);
-
-  for (const partition of combinablePartitions) {
-    const groups = toSizeGroups(partition);
-    const assignments = assignPartition(groups, candidatesBySize);
- 
     for (const assignment of assignments) {
+      if (sizes.includes(2)) {
+        const key = get2pcKey(gameId, assignment);
+
+        if (seen2pc.has(key)) continue;
+        seen2pc.add(key);
+      }
+
       const effectSources = assignment.map(({ size, setId }) => ({
         rawEffects: SET[gameId][setId].effects,
         pieceCount: size,
         sourceId: setId,
       }));
- 
+
       const { dps, echoId } = runTest(effectSources);
-      results[withEchoKey(buildId(assignment), echoId)] = dps;
+      const key = assignment.map(({ setId, size }) => `${setId}_${size}`).join('+');
+      const keyWithEcho = echoId != null ? `${key}|${echoId}` : key;
+
+      results[keyWithEcho] = dps;
     }
   }
- 
+
   return results;
+}
+
+function get2pcKey(gameId, assignment) {
+  return assignment
+    .filter(({ size }) => size === 2)
+    .map(({ setId }) => SET[gameId][setId].halfStat)
+    .sort()
+    .join('|');
 }

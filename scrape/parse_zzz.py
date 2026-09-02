@@ -172,6 +172,7 @@ def parse_set(version, id, data):
         "id": int(id),
         "icon": f"zenless-zone-zero/set/{id}.webp",
         "bonuses": [],
+        "halfStat": "",
         "effects": [],
     }
 
