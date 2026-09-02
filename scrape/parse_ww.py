@@ -263,6 +263,7 @@ def parse_set(version, id, data):
         "id": int(id),
         "icon": f"wuthering-waves/set/{id}.webp",
         "bonuses": [num for num in data.get("set", {})],
+        "halfStat": "",
         "effects": [],
     }
 

@@ -149,6 +149,7 @@ def parse_set(version, id, data):
         "id": int(id),
         "icon": f"genshin-impact/set/{id}.webp",
         "bonuses": [2, 4],
+        "halfStat": "",
         "effects": [],
     }
 

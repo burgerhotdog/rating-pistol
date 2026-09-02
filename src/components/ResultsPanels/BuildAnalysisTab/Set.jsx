@@ -41,6 +41,7 @@ function splitComboKey(comboKey) {
 }
 
 function toSetCounts(comboKey) {
+  if (comboKey === 'none') return {};
   const { setKey } = splitComboKey(comboKey);
   return Object.fromEntries(
     setKey.split('+')
@@ -58,19 +59,35 @@ function getComboIcons(comboKey, setDatas) {
   return icons.filter(Boolean);
 }
 
-function limitSets(entries, userComboKey) {
+function limitSets(entries, userComboKey, isUser) {
   const top = entries.slice(0, 8);
-  if (userComboKey == null || top.some(({ comboKey }) => comboKey === userComboKey)) {
+  if (
+    userComboKey == null ||
+    top.some(({ comboKey }) => isUser(comboKey))
+  ) {
     return top;
   }
 
-  const userEntry = entries.find(({ comboKey }) => comboKey === userComboKey);
+  const userEntry = entries.find(({ comboKey }) => isUser(comboKey));
   if (!userEntry) return top;
 
   return [...top.slice(0, 7), userEntry].sort((a, b) => b.dps - a.dps);
 }
 
-function buildData(setResults, userDps, userComboKey) {
+const toEquivKey = (gameId, setCounts) =>
+  Object.entries(setCounts)
+    .map(([id, count]) => {
+      const { halfStat } = SET[gameId][id];
+
+      if (count !== 2 || !halfStat) {
+        return `${id}_${count}`;
+      }
+
+      return `${halfStat}_${count}`;
+    })
+    .join('+');
+
+function buildData(gameId, setResults, userDps, userSetCounts) {
   const baselineDps = Object.entries(setResults)
     .find(([comboKey]) => comboKey === 'none')[1];
 
@@ -79,21 +96,29 @@ function buildData(setResults, userDps, userComboKey) {
     .map(([comboKey, dps]) => ({ comboKey, dps }))
     .sort((a, b) => b.dps - a.dps);
 
-  const limitedEntries = limitSets(dataEntries, userComboKey);
+  const userComboKey = toComboKey(userSetCounts);
+  const userEquivKey = toEquivKey(gameId, userSetCounts);
+
+  const isUser = (comboKey) => {
+    const testSetCounts = toSetCounts(comboKey);
+    const testEquivKey = toEquivKey(gameId, testSetCounts);
+    return testEquivKey === userEquivKey;
+  };
+
+  const limitedEntries = limitSets(dataEntries, userComboKey, isUser);
 
   return limitedEntries.map(({ comboKey, dps }) => {
-    const reOrderedKey = toComboKey(toSetCounts(comboKey));
     return {
       comboKey,
       name: comboKey,
       dps,
       pct: (dps / userDps) * 100,
-      isUser: reOrderedKey === userComboKey,
+      isUser: isUser(comboKey),
     };
   });
 }
 
-function buildFullData(setResults, userDps, userComboKey) {
+function buildFullData(gameId, setResults, userDps, userSetCounts) {
   const baselineDps = Object.entries(setResults)
     .find(([comboKey]) => comboKey === 'none')[1];
 
@@ -102,14 +127,21 @@ function buildFullData(setResults, userDps, userComboKey) {
     .map(([comboKey, dps]) => ({ comboKey, dps }))
     .sort((a, b) => b.dps - a.dps);
 
+  const userEquivKey = toEquivKey(gameId, userSetCounts);
+
+  const isUser = (comboKey) => {
+    const testSetCounts = toSetCounts(comboKey);
+    const testEquivKey = toEquivKey(gameId, testSetCounts);
+    return testEquivKey === userEquivKey;
+  };
+
   return dataEntries.map(({ comboKey, dps }) => {
-    const reOrderedKey = toComboKey(toSetCounts(comboKey));
     return {
       comboKey,
       name: comboKey,
       dps,
       pct: (dps / userDps) * 100,
-      isUser: reOrderedKey === userComboKey,
+      isUser: isUser(comboKey),
     };
   });
 }
@@ -168,9 +200,8 @@ const Set = ({ results }) => {
   const accent = useAccent();
   const [open, setOpen] = useState(false);
 
-  const userComboKey = toComboKey(userMember.setCounts);
-  const data = buildData(setResults, userDps, userComboKey);
-  const fullData = buildFullData(setResults, userDps, userComboKey);
+  const data = buildData(gameId, setResults, userDps, userMember.setCounts);
+  const fullData = buildFullData(gameId, setResults, userDps, userMember.setCounts);
 
   const tickFormatter = (v) => formatDmg(v);
 

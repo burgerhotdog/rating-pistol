@@ -8,6 +8,7 @@
       2,
       5
     ],
+    "halfStat": "glacioDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -49,6 +50,7 @@
       2,
       5
     ],
+    "halfStat": "fusionDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -86,6 +88,7 @@
       2,
       5
     ],
+    "halfStat": "electroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -140,6 +143,7 @@
       2,
       5
     ],
+    "halfStat": "aeroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -177,6 +181,7 @@
       2,
       5
     ],
+    "halfStat": "spectroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -214,6 +219,7 @@
       2,
       5
     ],
+    "halfStat": "havocDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -255,6 +261,7 @@
       2,
       5
     ],
+    "halfStat": "healingBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -293,6 +300,7 @@
       2,
       5
     ],
+    "halfStat": "energyRegen%",
     "effects": [
       {
         "bonus": 2,
@@ -331,6 +339,7 @@
       2,
       5
     ],
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -388,6 +397,7 @@
       2,
       5
     ],
+    "halfStat": "resonanceSkillDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -444,6 +454,7 @@
       2,
       5
     ],
+    "halfStat": "spectroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -517,6 +528,7 @@
       2,
       5
     ],
+    "halfStat": "havocDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -577,6 +589,7 @@
       2,
       5
     ],
+    "halfStat": "energyRegen%",
     "effects": [
       {
         "bonus": 2,
@@ -631,6 +644,7 @@
       2,
       5
     ],
+    "halfStat": "energyRegen%",
     "effects": [
       {
         "bonus": 2,
@@ -674,6 +688,7 @@
       2,
       5
     ],
+    "halfStat": "aeroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -737,6 +752,7 @@
       2,
       5
     ],
+    "halfStat": "aeroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -786,6 +802,7 @@
       2,
       5
     ],
+    "halfStat": "fusionDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1074,6 +1091,7 @@
       2,
       5
     ],
+    "halfStat": "spectroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1147,6 +1165,7 @@
       2,
       5
     ],
+    "halfStat": "healingBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1190,6 +1209,7 @@
       2,
       5
     ],
+    "halfStat": "spectroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1253,6 +1273,7 @@
       2,
       5
     ],
+    "halfStat": "fusionDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1304,6 +1325,7 @@
       2,
       5
     ],
+    "halfStat": "fusionDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1373,6 +1395,7 @@
       2,
       5
     ],
+    "halfStat": "aeroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1438,6 +1461,7 @@
       2,
       5
     ],
+    "halfStat": "glacioDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1588,6 +1612,7 @@
       2,
       5
     ],
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -1662,6 +1687,7 @@
       2,
       5
     ],
+    "halfStat": "energyRegen%",
     "effects": [
       {
         "bonus": 2,
@@ -1731,6 +1757,7 @@
       2,
       5
     ],
+    "halfStat": "aeroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1771,6 +1798,7 @@
       2,
       5
     ],
+    "halfStat": "hp%",
     "effects": [
       {
         "bonus": 2,

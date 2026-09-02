@@ -171,6 +171,7 @@ def parse_set(version, id, data):
         "id": int(id),
         "icon": f"honkai-star-rail/set/{id}.webp",
         "bonuses": [num for num in data.get("require_num", {})],
+        "halfStat": "",
         "effects": [],
     }
 
