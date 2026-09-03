@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   Button,
   Card,
@@ -25,74 +24,33 @@ import {
 import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
-const limitWeapons = (entries, weapDatas, userWeaponId) => {
+function buildData(weapDatas, weaponResults, userDps, userMember, limit = false) {
+  const remaining = { 3: 1, 4: 3, 5: 3 };
   let freePicked = false;
   let standardPicked = false;
-  const limits = { 3: 1, 4: 3, 5: 3 };
-  const counts = { 3: 0, 4: 0, 5: 0 };
-  const picked = entries.filter(({ weaponId }) => {
-    const { quality, standard, free } = weapDatas[weaponId];
-    if (free && !freePicked) {
-      freePicked = true;
+
+  return weaponResults
+    .toSorted((a, b) => b.dps - a.dps)
+    .filter(({ weaponId }) => {
+      if (!limit || weaponId === userMember?.weaponId) return true;
+
+      const { quality, standard, free } = weapDatas[weaponId];
+      if (free && !freePicked) return freePicked = true;
+      if (standard && !standardPicked) return standardPicked = true;
+      if (!remaining[quality]) return false;
+
+      remaining[quality]--;
       return true;
-    }
-    if (standard && !standardPicked) {
-      standardPicked = true;
-      return true;
-    }
-    if (!limits[quality] || counts[quality] >= limits[quality]) {
-      return false;
-    }
-    counts[quality]++;
-    return true;
-  });
-
-  // guarantee the user's own weapon is always visible so it can be highlighted
-  const hasUserWeapon = picked.some(({ weaponId }) => weaponId === userWeaponId);
-  if (userWeaponId != null && !hasUserWeapon) {
-    const userEntry = entries.find(({ weaponId }) => weaponId === userWeaponId);
-    if (userEntry) {
-      picked.push(userEntry);
-    }
-  }
-
-  return picked.sort((a, b) => b.dps - a.dps);
-};
-
-function buildData(gameId, weapDatas, weaponResults, userDps, userMember) {
-  const dataEntries = weaponResults
-    .sort((a, b) => b.dps - a.dps);
-
-  const limitedEntries = limitWeapons(dataEntries, weapDatas, userMember?.weaponId);
-
-  return limitedEntries.map(({ weaponId, weaponRank, dps }) => {
-    return {
+    })
+    .map(({ weaponId, weaponRank, dps }) => ({
       weaponId,
       weaponRank,
       name: `${weapDatas[weaponId].name} R${weaponRank}`,
-      icon: `${gameId}/weapon/${weaponId}.webp`,
+      icon: weapDatas[weaponId].icon,
       dps,
       pct: (dps / userDps) * 100,
       isUser: weaponId === userMember?.weaponId,
-    };
-  });
-}
-
-function buildFullData(gameId, weapDatas, weaponResults, userDps, userMember) {
-  return weaponResults
-    .sort((a, b) => b.dps - a.dps)
-    .map(({ weaponId, weaponRank, dps }) => {
-      const isUser = weaponId === userMember?.weaponId;
-      return {
-        weaponId,
-        weaponRank,
-        name: `${weapDatas[weaponId].name} R${weaponRank}`,
-        icon: `${gameId}/weapon/${weaponId}.webp`,
-        dps,
-        pct: (dps / userDps) * 100,
-        isUser,
-      };
-    });
+    }));
 }
 
 const renderTooltip = ({ payload, label }) => {
@@ -126,13 +84,12 @@ const renderTooltip = ({ payload, label }) => {
 
 const Weapon = ({ results }) => {
   const { weaponResults, userDps, userMember } = results;
-  const { gameId } = useParams();
   const { palette, qualityColors } = useTheme();
   const weapDatas = useData('weapon');
   const [open, setOpen] = useState(false);
 
-  const data = buildData(gameId, weapDatas, weaponResults, userDps, userMember);
-  const fullData = buildFullData(gameId, weapDatas, weaponResults, userDps, userMember);
+  const data = buildData(weapDatas, weaponResults, userDps, userMember, true);
+  const fullData = buildData(weapDatas, weaponResults, userDps, userMember);
 
   const tickFormatter = (v) => formatDmg(v);
 
@@ -154,9 +111,7 @@ const Weapon = ({ results }) => {
       <CardHeader
         title="Weapons"
         action={
-          <Button
-            onClick={() => setOpen(true)}
-          >
+          <Button onClick={() => setOpen(true)}>
             View all
           </Button>
         }
@@ -236,11 +191,7 @@ const Weapon = ({ results }) => {
         onClose={() => setOpen(false)}
         maxWidth="xl"
         fullWidth
-        slotProps={{
-          paper: {
-            elevation: 2,
-          },
-        }}
+        slotProps={{ paper: { elevation: 2 } }}
       >
         <DialogTitle>
           All Weapons
