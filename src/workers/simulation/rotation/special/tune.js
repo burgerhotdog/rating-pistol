@@ -12,6 +12,8 @@ const ENEMY_TYPE_MODIFIER = 14;
 const tuneBreakAction = {
   id: 'other:tuneBreak',
   ownerId: 'other',
+  name: 'Tune Break',
+  type: 'tuneBreak',
   damageType: 'tuneBreak',
   element: 'physical',
   attr: 'tuneAmp',
@@ -52,7 +54,7 @@ function recordTuneBreak(ctx) {
 
     return {
       ...(action ?? tuneBreakAction),
-      ...(action && 'damage' in action &&
+      ...(action && action.damage &&
         { damageType: action.damage.type }),
       ...(action &&
         { field: ctx.states.getField(action.ownerId) }),

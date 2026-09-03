@@ -11,42 +11,56 @@ import {
 import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
+const BUCKET_SIZE = 500;
+
 function buildData(snapshots, memberStack) {
   const runtimeDamage = {};
+
+  const addDamage = (runtime, ownerId, damage, name) => {
+    const time = Math.floor(runtime / BUCKET_SIZE) * BUCKET_SIZE;
+
+    runtimeDamage[time] ??= { time, name };
+    runtimeDamage[time][ownerId] ??= 0;
+    runtimeDamage[time][ownerId] += damage;
+  };
 
   for (const { runtime, ownerId, damage, hitOffsets, name } of snapshots) {
     if (!damage) continue;
 
     if (!hitOffsets?.length) {
-      runtimeDamage[runtime] ??= { time: runtime, name };
-      runtimeDamage[runtime][ownerId] ??= 0;
-      runtimeDamage[runtime][ownerId] += damage;
+      addDamage(runtime, ownerId, damage, name);
       continue;
     }
 
     const initOffset = hitOffsets[0];
     const splitDamage = damage / hitOffsets.length;
+
     for (const offset of hitOffsets) {
-      const offsetDiff = offset - initOffset;
-      const adjustedRuntime = runtime + offsetDiff;
-      runtimeDamage[adjustedRuntime] ??= { time: adjustedRuntime, name };
-      runtimeDamage[adjustedRuntime][ownerId] ??= 0;
-      runtimeDamage[adjustedRuntime][ownerId] += splitDamage;
+      addDamage(runtime + offset - initOffset, ownerId, splitDamage, name);
     }
   }
 
   runtimeDamage[0] ??= { time: 0 };
-  for (const id of memberStack) runtimeDamage[0][id] ??= 0;
+  for (const id of memberStack) {
+    runtimeDamage[0][id] ??= 0;
+  }
 
-  const data = Object.values(runtimeDamage);
+  const data = Object.values(runtimeDamage).sort((a, b) => a.time - b.time);;
 
   for (let i = 0; i < data.length; i++) {
     const curr = data[i];
-    for (const id of memberStack) curr[id] ??= 0;
+
+    for (const id of memberStack) {
+      curr[id] ??= 0;
+    }
+
     if (i === 0) continue;
 
     const prev = data[i - 1];
-    for (const id of memberStack) curr[id] += prev[id];
+
+    for (const id of memberStack) {
+      curr[id] += prev[id];
+    }
   }
 
   return data;
@@ -104,6 +118,7 @@ const AreaView = ({ results }) => {
       />
 
       <YAxis
+        domain={[0, 'dataMax']}
         tick={{ fontSize: 12 }}
         tickFormatter={formatDmg}
       />

@@ -1,3 +1,4 @@
+import { formatStr } from '@/utils';
 import { getEffectStates } from '../getEffectStates';
 import { getBuffMap } from '../getStatMap';
 import { getDmgAmpMult } from '../formula/dmgAmp';
@@ -380,7 +381,8 @@ export const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
   return {
     id: `other:${status.id}`,
     ownerId: 'other',
-    type: 'damage',
+    name: formatStr(status.id),
+    type: 'negativeStatus',
     damageType: status.id,
     damage: baseDmg * dmgAmpMult * defMult * resMult,
     runtime: ctx.states.runtime + runtimeOffset,
