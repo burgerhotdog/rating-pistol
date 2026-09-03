@@ -23,10 +23,7 @@ import {
   YAxis,
 } from 'recharts';
 import { useData } from '@/hooks';
-import { formatDmg, formatNum, getDefaultWeapRank } from '@/utils';
-
-// only R1/R5 dps samples exist, so bucket the user's real rank to whichever was simulated
-const bucketWeaponRank = (rank) => (rank >= 3 ? 5 : 1);
+import { formatDmg, formatNum } from '@/utils';
 
 const limitWeapons = (entries, weapDatas, userWeaponId) => {
   let freePicked = false;
@@ -54,31 +51,21 @@ const limitWeapons = (entries, weapDatas, userWeaponId) => {
   const hasUserWeapon = picked.some(({ weaponId }) => weaponId === userWeaponId);
   if (userWeaponId != null && !hasUserWeapon) {
     const userEntry = entries.find(({ weaponId }) => weaponId === userWeaponId);
-    if (userEntry) picked.push(userEntry);
+    if (userEntry) {
+      picked.push(userEntry);
+    }
   }
 
   return picked.sort((a, b) => b.dps - a.dps);
 };
 
 function buildData(gameId, weapDatas, weaponResults, userDps, userMember) {
-  const dataEntries = Object.entries(weaponResults)
-    .map(([id, [dpsR1, dpsR5]]) => {
-      const weaponId = Number(id);
-      const isUser = weaponId === userMember?.weaponId;
-      const weaponRank = isUser ? userMember.weaponRank : getDefaultWeapRank(gameId, id);
-      const sampleRank = isUser ? bucketWeaponRank(userMember.weaponRank) : weaponRank;
-      return {
-        weaponId,
-        weaponRank,
-        dps: sampleRank === 5 ? dpsR5 : dpsR1,
-        isUser,
-      };
-    })
+  const dataEntries = weaponResults
     .sort((a, b) => b.dps - a.dps);
 
   const limitedEntries = limitWeapons(dataEntries, weapDatas, userMember?.weaponId);
 
-  return limitedEntries.map(({ weaponId, weaponRank, dps, isUser }) => {
+  return limitedEntries.map(({ weaponId, weaponRank, dps }) => {
     return {
       weaponId,
       weaponRank,
@@ -86,33 +73,26 @@ function buildData(gameId, weapDatas, weaponResults, userDps, userMember) {
       icon: `${gameId}/weapon/${weaponId}.webp`,
       dps,
       pct: (dps / userDps) * 100,
-      isUser,
+      isUser: weaponId === userMember?.weaponId,
     };
   });
 }
 
 function buildFullData(gameId, weapDatas, weaponResults, userDps, userMember) {
-  const userSampleRank = userMember ? bucketWeaponRank(userMember.weaponRank) : null;
-
-  const dataEntries = Object.entries(weaponResults)
-    .flatMap(([id, [dpsR1, dpsR5]]) => [
-      { weaponId: Number(id), weaponRank: 5, dps: dpsR5 },
-      { weaponId: Number(id), weaponRank: 1, dps: dpsR1 },
-    ])
-    .sort((a, b) => b.dps - a.dps);
-
-  return dataEntries.map(({ weaponId, weaponRank, dps }) => {
-    const isUser = weaponId === userMember?.weaponId && weaponRank === userSampleRank;
-    return {
-      weaponId,
-      weaponRank,
-      name: `${weapDatas[weaponId].name} R${weaponRank}`,
-      icon: `${gameId}/weapon/${weaponId}.webp`,
-      dps,
-      pct: (dps / userDps) * 100,
-      isUser,
-    };
-  });
+  return weaponResults
+    .sort((a, b) => b.dps - a.dps)
+    .map(({ weaponId, weaponRank, dps }) => {
+      const isUser = weaponId === userMember?.weaponId;
+      return {
+        weaponId,
+        weaponRank,
+        name: `${weapDatas[weaponId].name} R${weaponRank}`,
+        icon: `${gameId}/weapon/${weaponId}.webp`,
+        dps,
+        pct: (dps / userDps) * 100,
+        isUser,
+      };
+    });
 }
 
 const renderTooltip = ({ payload, label }) => {
@@ -254,7 +234,7 @@ const Weapon = ({ results }) => {
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
-        maxWidth={false}
+        maxWidth="xl"
         fullWidth
         slotProps={{
           paper: {

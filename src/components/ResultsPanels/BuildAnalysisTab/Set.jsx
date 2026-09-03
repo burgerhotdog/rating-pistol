@@ -307,7 +307,7 @@ const Set = ({ results }) => {
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
-        maxWidth={false}
+        maxWidth="xl"
         fullWidth
         slotProps={{ paper: { elevation: 2 } }}
       >

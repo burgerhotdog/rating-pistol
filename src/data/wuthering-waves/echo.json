@@ -2072,6 +2072,16 @@
       28
     ],
     "cost": 3,
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "spectroDmgBonus%": 0.12,
+            "basicAttackDmgBonus%": 0.12
+          }
+        }
+      }
+    ],
     "action": {
       "name": "Echo Skill: Twin Nova: Nebulous Cannon",
       "type": "echoSkill",
