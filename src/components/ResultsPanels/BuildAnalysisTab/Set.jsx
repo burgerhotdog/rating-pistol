@@ -17,7 +17,6 @@ import {
   Bar,
   BarChart,
   LabelList,
-  Rectangle,
   Tooltip,
   XAxis,
   YAxis,
@@ -87,63 +86,29 @@ const toEquivKey = (gameId, setCounts) =>
     })
     .join('+');
 
-function buildData(gameId, setResults, userDps, userSetCounts) {
-  const baselineDps = Object.entries(setResults)
-    .find(([comboKey]) => comboKey === 'none')[1];
+function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
+  const dataEntries = setResults.toSorted((a, b) => b.dps - a.dps);
 
-  const dataEntries = Object.entries(setResults)
-    .filter(([comboKey, dps]) => comboKey === 'none' || dps > baselineDps)
-    .map(([comboKey, dps]) => ({ comboKey, dps }))
-    .sort((a, b) => b.dps - a.dps);
+  const userEquivKey = toEquivKey(gameId, userSetCounts);
+  const isUser = (comboKey) => {
+    const testSetCounts = toSetCounts(comboKey);
+    const testEquivKey = toEquivKey(gameId, testSetCounts);
+    return testEquivKey === userEquivKey;
+  };
 
   const userComboKey = toComboKey(userSetCounts);
-  const userEquivKey = toEquivKey(gameId, userSetCounts);
+  const limitedEntries = limit ? limitSets(dataEntries, userComboKey, isUser) : dataEntries;
 
-  const isUser = (comboKey) => {
-    const testSetCounts = toSetCounts(comboKey);
-    const testEquivKey = toEquivKey(gameId, testSetCounts);
-    return testEquivKey === userEquivKey;
-  };
-
-  const limitedEntries = limitSets(dataEntries, userComboKey, isUser);
-
-  return limitedEntries.map(({ comboKey, dps }) => {
-    return {
+  return limitedEntries
+    .map(({ comboKey, dps }) => ({
       comboKey,
       name: comboKey,
       dps,
       pct: (dps / userDps) * 100,
       isUser: isUser(comboKey),
-    };
-  });
-}
-
-function buildFullData(gameId, setResults, userDps, userSetCounts) {
-  const baselineDps = Object.entries(setResults)
-    .find(([comboKey]) => comboKey === 'none')[1];
-
-  const dataEntries = Object.entries(setResults)
-    .filter(([comboKey, dps]) => comboKey === 'none' || dps > baselineDps)
-    .map(([comboKey, dps]) => ({ comboKey, dps }))
-    .sort((a, b) => b.dps - a.dps);
-
-  const userEquivKey = toEquivKey(gameId, userSetCounts);
-
-  const isUser = (comboKey) => {
-    const testSetCounts = toSetCounts(comboKey);
-    const testEquivKey = toEquivKey(gameId, testSetCounts);
-    return testEquivKey === userEquivKey;
-  };
-
-  return dataEntries.map(({ comboKey, dps }) => {
-    return {
-      comboKey,
-      name: comboKey,
-      dps,
-      pct: (dps / userDps) * 100,
-      isUser: isUser(comboKey),
-    };
-  });
+      fill: "url(#gradientAccent)",
+      style: !isUser(comboKey) ? { filter: 'brightness(0.5)' } : undefined,
+    }));
 }
 
 const renderTooltip = ({ gameId, payload, label = '' }) => {
@@ -153,10 +118,14 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
   const echoName = echoId != null ? ECHO[echoId]?.name : null;
 
   const labelParts = setKey.split('+');
-  const adjustedLabelParts = setKey === 'none' ? 'None' : labelParts.map((part) => {
-    const [id, count] = part.split('_');
-    return `${SET[gameId][id]?.name} (${count}pc)`;
-  }).join(' + ');
+  const adjustedLabelParts = setKey === 'none'
+    ? 'None'
+    : labelParts
+      .map((part) => {
+        const [id, count] = part.split('_');
+        return `${SET[gameId][id]?.name} (${count}pc)`;
+      })
+      .join(' + ');
 
   const diff = pct - 100;
   const diffStr = diff >= 0
@@ -200,24 +169,8 @@ const Set = ({ results }) => {
   const accent = useAccent();
   const [open, setOpen] = useState(false);
 
-  const data = buildData(gameId, setResults, userDps, userMember.setCounts);
-  const fullData = buildFullData(gameId, setResults, userDps, userMember.setCounts);
-
-  const tickFormatter = (v) => formatDmg(v);
-
-  const barShape = (props) => {
-    const { isUser, ...rest } = props;
-    return (
-      <Rectangle
-        {...rest}
-        fill="url(#gradient)"
-        style={!isUser
-          ? { filter: 'brightness(0.5)' }
-          : undefined
-        }
-      />
-    );
-  };
+  const data = buildData(gameId, setResults, userDps, userMember.setCounts, true);
+  const fullData = buildData(gameId, setResults, userDps, userMember.setCounts);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -236,28 +189,9 @@ const Set = ({ results }) => {
           style={{ width: '100%', height: '100%' }}
           responsive
         >
-          <defs>
-            <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={accent} stopOpacity={1} />
-              <stop offset="100%" stopColor={accent} stopOpacity={0} />
-            </linearGradient>
-          </defs>
-
-          <XAxis
-            type="category"
-            dataKey="name"
-            tick={false}
-          />
-
-          <YAxis
-            type="number"
-            tickFormatter={tickFormatter}
-          />
-
-          <Bar
-            dataKey="dps"
-            shape={barShape}
-          >
+          <XAxis dataKey="name" tick={false} />
+          <YAxis type="number" tickFormatter={(v) => formatDmg(v)} />
+          <Bar dataKey="dps">
             <LabelList
               content={({ x, y, width, height, index }) => {
                 const entry = data[index];
@@ -280,14 +214,8 @@ const Set = ({ results }) => {
                         height={size}
                         href={icon}
                         xlinkHref={icon}
-                        opacity={!entry.isUser
-                          ? 0.5
-                          : undefined
-                        }
-                        style={!entry.isUser
-                          ? { filter: 'brightness(0.5)' }
-                          : undefined
-                        }
+                        opacity={!entry.isUser ? 0.5 : undefined}
+                        style={entry.style}
                       />
                     ))}
                   </g>
@@ -295,7 +223,6 @@ const Set = ({ results }) => {
               }}
             />
           </Bar>
-
           <Tooltip
             content={(props) => renderTooltip({ gameId, ...props })}
             cursor={{ fill: alpha(palette.text.primary, 0.1) }}
@@ -321,21 +248,9 @@ const Set = ({ results }) => {
             style={{ width: '100%', height: '100%' }}
             responsive
           >
-            <XAxis
-              type="category"
-              dataKey="name"
-              tick={false}
-            />
-
-            <YAxis
-              type="number"
-              tickFormatter={tickFormatter}
-            />
-
-            <Bar
-              dataKey="dps"
-              shape={barShape}
-            >
+            <XAxis dataKey="name" tick={false} />
+            <YAxis type="number" tickFormatter={(v) => formatDmg(v)} />
+            <Bar dataKey="dps">
               <LabelList
                 content={({ x, y, width, height, index }) => {
                   const entry = fullData[index];
@@ -358,14 +273,8 @@ const Set = ({ results }) => {
                           height={size}
                           href={icon}
                           xlinkHref={icon}
-                          opacity={!entry.isUser
-                            ? 0.5
-                            : undefined
-                          }
-                          style={!entry.isUser
-                            ? { filter: 'brightness(0.5)' }
-                            : undefined
-                          }
+                          opacity={!entry.isUser ? 0.5 : undefined}
+                          style={entry.style}
                         />
                       ))}
                     </g>
@@ -373,7 +282,6 @@ const Set = ({ results }) => {
                 }}
               />
             </Bar>
-
             <Tooltip
               content={(props) => renderTooltip({ gameId, ...props })}
               cursor={{ fill: alpha(palette.text.primary, 0.1) }}
@@ -382,6 +290,15 @@ const Set = ({ results }) => {
           </BarChart>
         </DialogContent>
       </Dialog>
+
+      <svg width="0" height="0">
+        <defs>
+          <linearGradient id="gradientAccent" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={accent} stopOpacity={1} />
+            <stop offset="100%" stopColor={accent} stopOpacity={0} />
+          </linearGradient>
+        </defs>
+      </svg>
     </Card>
   );
 };

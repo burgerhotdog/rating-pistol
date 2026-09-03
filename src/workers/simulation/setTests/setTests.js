@@ -212,8 +212,8 @@ export function setTests(cache, equipMaps, charId) {
   const usefulSetBonuses = buildUsefulSetBonuses(gameId, TOTAL_SLOTS, baselineDps, runTest);
 
   // Pass 2: build the actual results, with main echo candidates tested
-  const results = {};
-  results.none = baselineDps;
+  const results = [];
+  results.push({ comboKey: 'none', dps: baselineDps });
 
   const PASS_2_TYPES = [[5], [3, 2], [2, 2, 1]];
 
@@ -239,7 +239,7 @@ export function setTests(cache, equipMaps, charId) {
       const key = assignment.map(({ setId, size }) => `${setId}_${size}`).join('+');
       const keyWithEcho = echoId != null ? `${key}|${echoId}` : key;
 
-      results[keyWithEcho] = dps;
+      results.push({ comboKey: keyWithEcho, dps });
     }
   }
 

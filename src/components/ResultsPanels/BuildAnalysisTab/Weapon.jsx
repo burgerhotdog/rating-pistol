@@ -16,7 +16,6 @@ import {
   Bar,
   BarChart,
   LabelList,
-  Rectangle,
   Tooltip,
   XAxis,
   YAxis,
@@ -50,6 +49,8 @@ function buildData(weapDatas, weaponResults, userDps, userMember, limit = false)
       dps,
       pct: (dps / userDps) * 100,
       isUser: weaponId === userMember?.weaponId,
+      fill: `url(#gradient${weapDatas[weaponId].quality})`,
+      style: !(weaponId === userMember?.weaponId) ? { filter: 'brightness(0.5)' } : undefined,
     }));
 }
 
@@ -91,21 +92,6 @@ const Weapon = ({ results }) => {
   const data = buildData(weapDatas, weaponResults, userDps, userMember, true);
   const fullData = buildData(weapDatas, weaponResults, userDps, userMember);
 
-  const tickFormatter = (v) => formatDmg(v);
-
-  const barShape = (props) => {
-    const { weaponId, isUser, ...rest } = props;
-    const { quality } = weapDatas[weaponId];
-
-    return (
-      <Rectangle
-        {...rest}
-        fill={`url(#gradient${quality})`}
-        style={!isUser ? { filter: 'brightness(0.5)' } : undefined}
-      />
-    );
-  };
-
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
       <CardHeader
@@ -123,30 +109,9 @@ const Weapon = ({ results }) => {
           style={{ width: '100%', height: '100%' }}
           responsive
         >
-          <defs>
-            {Object.entries(qualityColors).map(([q, qColor]) => (
-              <linearGradient key={q} id={`gradient${q}`} x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor={qColor} stopOpacity={1} />
-                <stop offset="100%" stopColor={qColor} stopOpacity={0} />
-              </linearGradient>
-            ))}
-          </defs>
-
-          <XAxis
-            type="category"
-            dataKey="name"
-            tick={false}
-          />
-
-          <YAxis
-            type="number"
-            tickFormatter={tickFormatter}
-          />
-
-          <Bar
-            dataKey="dps"
-            shape={barShape}
-          >
+          <XAxis dataKey="name" tick={false} />
+          <YAxis type="number" tickFormatter={(v) => formatDmg(v)} />
+          <Bar dataKey="dps">
             <LabelList
               content={({ x, y, width, height, index }) => {
                 const entry = data[index];
@@ -164,20 +129,13 @@ const Weapon = ({ results }) => {
                     height={size}
                     href={entry.icon}
                     xlinkHref={entry.icon}
-                    opacity={!entry.isUser
-                      ? 0.5
-                      : undefined
-                    }
-                    style={!entry.isUser
-                      ? { filter: 'brightness(0.5)' }
-                      : undefined
-                    }
+                    opacity={!entry.isUser ? 0.5 : undefined}
+                    style={!entry.isUser ? { filter: 'brightness(0.5)' } : undefined}
                   />
                 );
               }}
             />
           </Bar>
-
           <Tooltip
             content={renderTooltip}
             cursor={{ fill: alpha(palette.text.primary, 0.1) }}
@@ -203,21 +161,9 @@ const Weapon = ({ results }) => {
             style={{ width: '100%', height: '100%' }}
             responsive
           >
-            <XAxis
-              type="category"
-              dataKey="name"
-              tick={false}
-            />
-
-            <YAxis
-              type="number"
-              tickFormatter={tickFormatter}
-            />
-
-            <Bar
-              dataKey="dps"
-              shape={barShape}
-            >
+            <XAxis dataKey="name" tick={false} />
+            <YAxis type="number" tickFormatter={(v) => formatDmg(v)} />
+            <Bar dataKey="dps">
               <LabelList
                 content={({ x, y, width, height, index }) => {
                   const entry = fullData[index];
@@ -235,20 +181,13 @@ const Weapon = ({ results }) => {
                       height={size}
                       href={entry.icon}
                       xlinkHref={entry.icon}
-                      opacity={!entry.isUser
-                        ? 0.5
-                        : undefined
-                      }
-                      style={!entry.isUser
-                        ? { filter: 'brightness(0.5)' }
-                        : undefined
-                      }
+                      opacity={!entry.isUser ? 0.5 : undefined}
+                      style={!entry.isUser ? { filter: 'brightness(0.5)' } : undefined}
                     />
                   );
                 }}
               />
             </Bar>
-
             <Tooltip
               content={renderTooltip}
               cursor={{ fill: alpha(palette.text.primary, 0.1) }}
@@ -257,6 +196,17 @@ const Weapon = ({ results }) => {
           </BarChart>
         </DialogContent>
       </Dialog>
+
+      <svg width="0" height="0">
+        <defs>
+          {Object.entries(qualityColors).map(([q, qColor]) => (
+            <linearGradient key={q} id={`gradient${q}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={qColor} stopOpacity={1} />
+              <stop offset="100%" stopColor={qColor} stopOpacity={0} />
+            </linearGradient>
+          ))}
+        </defs>
+      </svg>
     </Card>
   );
 };
