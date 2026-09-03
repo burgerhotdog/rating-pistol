@@ -75,7 +75,7 @@ function handleApplyWhen(ctx, action, when) {
     ) continue;
 
     onApplyDoCommand(ctx, effect, action.ownerId);
-    runApplyEffect(ctx, effect, { applier: action.ownerId });
+    runApplyEffect(ctx, effect, { applier: action.ownerId, inflict: action.inflict });
   }
 }
 

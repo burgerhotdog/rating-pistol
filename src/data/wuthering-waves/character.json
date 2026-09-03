@@ -53352,6 +53352,25 @@
         "gameRule": "heliacalEmber"
       },
       {
+        "key": "blaze",
+        "apply": {
+          "by": "$team",
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "spectroFrazzle"
+                }
+              }
+            }
+          },
+          "stacks": 5,
+          "perStatusInflict": "spectroFrazzle"
+        },
+        "maxStacks": 100
+      },
+      {
         "use": {
           "when": "hit",
           "filter": {
@@ -54079,7 +54098,7 @@
         "name": "There Will Be A Light",
         "actions": [
           {
-            "name": "Heavy Slash - Daybreak",
+            "name": "Basic Attack: Heavy Slash - Daybreak",
             "tagged": "Inferno Mode",
             "type": "basicAttack",
             "damage": {
@@ -54114,7 +54133,7 @@
             }
           },
           {
-            "name": "Heavy Slash - Dawning",
+            "name": "Basic Attack: Heavy Slash - Dawning",
             "tagged": "Inferno Mode",
             "type": "basicAttack",
             "damage": {
@@ -54149,7 +54168,7 @@
             }
           },
           {
-            "name": "Heavy Slash - Nightfall",
+            "name": "Basic Attack: Heavy Slash - Nightfall",
             "tagged": "Inferno Mode",
             "type": "basicAttack",
             "damage": {
@@ -54242,8 +54261,9 @@
             "times": 40
           },
           {
-            "name": "Heavy Slash - Lightsmash",
+            "name": "Basic Attack: Heavy Slash - Lightsmash",
             "tagged": "Inferno Mode",
+            "type": "basicAttack",
             "damage": {
               "type": "heavyAttack",
               "extraType": "spectroFrazzle",

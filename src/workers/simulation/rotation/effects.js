@@ -52,7 +52,11 @@ export function runApplyEffect(ctx, effect, spec = {}) {
     const prevState = store[id] ?? {};
     const prevStacks = prevState.stacks ?? 0;
 
-    const nextStacks = prevStacks + (spec.stacks ?? effect?.apply?.stacks ?? 1);
+    const statusInflictMult = effect?.apply?.perStatusInflict
+      ? spec.inflict?.status?.[effect.apply.perStatusInflict] ?? 0
+      : 1;
+    const stacksToApply = (spec.stacks ?? effect?.apply?.stacks ?? 1) * statusInflictMult;
+    const nextStacks = prevStacks + stacksToApply;
 
     if (isExt && !prevState.extensionsLeft) return;
 
