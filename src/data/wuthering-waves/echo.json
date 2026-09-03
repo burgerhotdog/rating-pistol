@@ -2458,6 +2458,46 @@
       31
     ],
     "cost": 3,
+    "effects": [
+      {
+        "key": "summoned",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          },
+          "duration": 15000
+        }
+      },
+      {
+        "stores": "$next",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "summoned"
+                }
+              },
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              }
+            ]
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
+        }
+      }
+    ],
     "action": {
       "name": "Echo Skill: Voidwing Moth",
       "type": "echoSkill",
