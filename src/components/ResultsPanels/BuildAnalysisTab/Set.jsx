@@ -23,13 +23,7 @@ import {
 } from 'recharts';
 import { ECHO, SET } from '@/data';
 import { useAccent, useData } from '@/hooks';
-import { formatDmg, formatNum } from '@/utils';
-
-function toComboKey(setCounts) {
-  return Object.entries(setCounts)
-    .map(([setId, count]) => `${setId}_${count}`)
-    .join('+');
-}
+import { formatDmg, formatNum, formatStr } from '@/utils';
 
 // Trailing `|<echoId>` encodes the main echo that produced the result, if any
 function splitComboKey(comboKey) {
@@ -58,21 +52,6 @@ function getComboIcons(comboKey, setDatas) {
   return icons.filter(Boolean);
 }
 
-function limitSets(entries, userComboKey, isUser) {
-  const top = entries.slice(0, 8);
-  if (
-    userComboKey == null ||
-    top.some(({ comboKey }) => isUser(comboKey))
-  ) {
-    return top;
-  }
-
-  const userEntry = entries.find(({ comboKey }) => isUser(comboKey));
-  if (!userEntry) return top;
-
-  return [...top.slice(0, 7), userEntry].sort((a, b) => b.dps - a.dps);
-}
-
 const toEquivKey = (gameId, setCounts) =>
   Object.entries(setCounts)
     .map(([id, count]) => {
@@ -96,10 +75,20 @@ function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
     return testEquivKey === userEquivKey;
   };
 
-  const userComboKey = toComboKey(userSetCounts);
-  const limitedEntries = limit ? limitSets(dataEntries, userComboKey, isUser) : dataEntries;
+  let limitLeft = 6;
+  const bestDps = dataEntries[0].dps;
 
-  return limitedEntries
+  const data = dataEntries
+    .filter(({ comboKey, dps }) => {
+      if (!limit) return true;
+      if (isUser(comboKey)) return true;
+      if (comboKey === 'none') return true;
+
+      if (limitLeft && (dps / bestDps) >= 0.9) {
+        limitLeft--;
+        return true;
+      }
+    })
     .map(({ comboKey, dps }) => ({
       comboKey,
       name: comboKey,
@@ -109,23 +98,38 @@ function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
       fill: "url(#gradientAccent)",
       style: !isUser(comboKey) ? { filter: 'brightness(0.5)' } : undefined,
     }));
+
+  return [
+    ...data,
+    ...Array.from({ length: Math.max(0, 5 - data.length) }, (_, i) => ({
+      comboKey: `empty-${i}`,
+      name: `empty-${i}`,
+      dps: 0,
+      empty: true,
+    })),
+  ];
 }
 
 const renderTooltip = ({ gameId, payload, label = '' }) => {
-  const { dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
+  const { empty, dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
+
+  if (empty) return;
 
   const { setKey, echoId } = splitComboKey(label);
   const echoName = echoId != null ? ECHO[echoId]?.name : null;
 
   const labelParts = setKey.split('+');
   const adjustedLabelParts = setKey === 'none'
-    ? 'None'
+    ? ['None']
     : labelParts
       .map((part) => {
         const [id, count] = part.split('_');
-        return `${SET[gameId][id]?.name} (${count}pc)`;
-      })
-      .join(' + ');
+        if (count !== '2') {
+          return `${SET[gameId][id]?.name} (${count}pc)`;
+        }
+
+        return `${formatStr(SET[gameId][id]?.halfStat)} (${count}pc)`;
+      });
 
   const diff = pct - 100;
   const diffStr = diff >= 0
@@ -135,9 +139,11 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
   return (
     <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
       <Stack>
-        <Typography variant="caption" color="textSecondary">
-          {adjustedLabelParts}
-        </Typography>
+        {adjustedLabelParts.map((labelPart, i) => (
+          <Typography key={i} variant="caption" color="textSecondary">
+            {labelPart}
+          </Typography>
+        ))}
         {echoName && (
           <Typography variant="caption" color="textSecondary">
             {echoName}
@@ -195,7 +201,7 @@ const Set = ({ results }) => {
             <LabelList
               content={({ x, y, width, height, index }) => {
                 const entry = data[index];
-                if (!entry?.comboKey || entry.comboKey === 'none') return null;
+                if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
 
                 const size = width - 16;
                 const ix = x + 8;
@@ -254,7 +260,7 @@ const Set = ({ results }) => {
               <LabelList
                 content={({ x, y, width, height, index }) => {
                   const entry = fullData[index];
-                  if (!entry?.comboKey || entry.comboKey === 'none') return null;
+                  if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
 
                   const size = width - 8;
                   const ix = x + 4;
