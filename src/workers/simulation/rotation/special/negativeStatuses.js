@@ -46,70 +46,68 @@ const STATUSES = {
     id: 'glacioChafe',
     element: 'glacio',
     mv: [2450, 4442, 6434, 8426, 10417, 12409, 14401, 16393, 18385, 20377, 27169, 33961, 40753],
-    inflict: (ctx, status, stacks) => {
-      const maxStacks = getStatusMaxStacks(ctx, 'glacioChafe');
+    inflict: (ctx, stacks) => {
       const { negativeStatuses } = ctx.states;
+      const state = negativeStatuses.glacioChafe ??= {
+        status: STATUSES.glacioChafe,
+        stacks: 0,
+        timeLeft: 15000,
+      };
 
-      if ('glacioChafe' in negativeStatuses) {
-        const currState = negativeStatuses.glacioChafe;
-        currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
-        currState.timeLeft = 15000;
-      } else {
-        negativeStatuses.glacioChafe = {
-          status,
-          stacks: Math.min(stacks, maxStacks),
-          timeLeft: 15000,
-        };
-      }
+      const maxStacks = getStatusMaxStacks(ctx, 'glacioChafe');
+      state.stacks = Math.min(state.stacks + stacks, maxStacks);
+      state.timeLeft = 15000;
 
-      const currState = negativeStatuses.glacioChafe;
       if (ctx.saveSnapshots) {
-        const snapshot = buildSnapshot(
-          ctx,
-          hasGameRule(ctx, 'glacioBite')
-            ? { ...currState, stacks: maxStacks }
-            : currState,
-        );
-        ctx.snapshots.push(snapshot);
+        const snapshotState = hasGameRule(ctx, 'glacioBite')
+          ? { ...state, stacks: maxStacks }
+          : state;
+        ctx.snapshots.push(buildSnapshot(ctx, snapshotState));
       }
-      if (currState.stacks === maxStacks) delete negativeStatuses.glacioChafe;
+
+      if (state.stacks === maxStacks) {
+        delete negativeStatuses.glacioChafe;
+      }
     },
     advance: (ctx, elapsed) => {
       const { negativeStatuses } = ctx.states;
-      const currState = negativeStatuses.glacioChafe;
-      currState.timeLeft -= elapsed;
-      if (currState.timeLeft <= 0) delete negativeStatuses.glacioChafe;
+      const state = negativeStatuses.glacioChafe;
+
+      state.timeLeft -= elapsed;
+      if (state.timeLeft <= 0) {
+        delete negativeStatuses.glacioChafe;
+      }
     },
   },
   fusionBurst: {
     id: 'fusionBurst',
     element: 'fusion',
     mv: [8400, 15229, 22058, 28888, 35717, 42546, 49375, 56204, 63034, 69863, 93150, 116438, 139726],
-    inflict: (ctx, status, stacks) => {
-      const maxStacks = getStatusMaxStacks(ctx, 'fusionBurst');
+    inflict: (ctx, stacks) => {
       const { negativeStatuses } = ctx.states;
+      const state = negativeStatuses.fusionBurst ??= {
+        status: STATUSES.fusionBurst,
+        stacks: 0,
+        timeLeft: 15000,
+      };
 
-      if ('fusionBurst' in negativeStatuses) {
-        const currState = negativeStatuses.fusionBurst;
-        currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
-        currState.timeLeft = 15000;
-      } else {
-        negativeStatuses.fusionBurst = {
-          status,
-          stacks: Math.min(stacks, maxStacks),
-          timeLeft: 15000,
-        };
-      }
+      const maxStacks = getStatusMaxStacks(ctx, 'fusionBurst');
+      state.stacks = Math.min(state.stacks + stacks, maxStacks);
+      state.timeLeft = 15000;
 
-      const currState = negativeStatuses.fusionBurst;
       const stacksToPop = hasGameRule(ctx, 'aemeathFusionBurst') ? 5 : maxStacks;
-      if (currState.stacks >= stacksToPop) {
-        currState.stacks = maxStacks;
-        if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState));
+      if (state.stacks >= stacksToPop) {
+        state.stacks = maxStacks;
+
+        if (ctx.saveSnapshots) {
+          ctx.snapshots.push(buildSnapshot(ctx, state));
+        }
+
         delete negativeStatuses.fusionBurst;
+
         if (hasGameRule(ctx, 'aemeathFusionBurst')) {
           negativeStatuses.fusionBurst = {
-            status,
+            status: STATUSES.fusionBurst,
             stacks: 1,
             timeLeft: 15000,
           };
@@ -118,10 +116,12 @@ const STATUSES = {
     },
     advance: (ctx, elapsed) => {
       const { negativeStatuses } = ctx.states;
-      const currState = negativeStatuses.fusionBurst;
-      currState.timeLeft -= elapsed;
-      if (currState.timeLeft <= 0) {
+      const state = negativeStatuses.fusionBurst;
+
+      state.timeLeft -= elapsed;
+      if (state.timeLeft <= 0) {
         delete negativeStatuses.fusionBurst;
+
         if (hasGameRule(ctx, 'aemeathFusionBurst')) {
           negativeStatuses.fusionBurst = {
             status: STATUSES.fusionBurst,
@@ -136,40 +136,39 @@ const STATUSES = {
     id: 'electroFlare',
     element: 'electro',
     mv: [5000, 9065, 13130, 17195, 21260, 25325, 29390, 33455, 37520, 41585, 55447, 69308, 83170],
-    inflict: (ctx, status, stacks) => {
-      const maxStacks = getStatusMaxStacks(ctx, 'electroFlare');
+    inflict: (ctx, stacks) => {
       const { negativeStatuses } = ctx.states;
+      const state = negativeStatuses.electroFlare ??= {
+        status: STATUSES.electroFlare,
+        stacks: 0,
+        rage: 0,
+        timer: 5000,
+      };
 
-      if ('electroFlare' in negativeStatuses) {
-        const currState = negativeStatuses.electroFlare;
-        const nextStacks = currState.stacks + stacks;
-        currState.stacks = Math.min(nextStacks, maxStacks);
-        currState.rage = Math.max(nextStacks - maxStacks, 0);
-      } else {
-        negativeStatuses.electroFlare = {
-          status,
-          stacks: Math.min(stacks, maxStacks),
-          rage: Math.max(stacks - maxStacks, 0),
-          timer: 5000,
-        };
-      }
+      const maxStacks = getStatusMaxStacks(ctx, 'electroFlare');
+      const excess = Math.max(state.stacks + stacks - maxStacks, 0);
+      state.stacks = Math.min(state.stacks + stacks, maxStacks);
+      state.rage = Math.min(state.rage + excess, maxStacks);
     },
     advance: (ctx, elapsed) => {
       const { negativeStatuses } = ctx.states;
-      const currState = negativeStatuses.electroFlare;
+      const state = negativeStatuses.electroFlare;
+
       let remaining = elapsed;
       while (remaining > 0) {
-        const decrease = Math.min(currState.timer, remaining);
-        currState.timer -= decrease;
-        remaining -= decrease;
+        const interval = Math.min(state.timer, remaining);
+        remaining -= interval;
+        state.timer -= interval;
 
-        if (!currState.timer) {
-          if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
+        if (state.timer === 0) {
+          if (ctx.saveSnapshots) {
+            ctx.snapshots.push(buildSnapshot(ctx, state, elapsed - remaining));
+          }
 
-          currState.stacks = Math.floor(currState.stacks / 2);
-          currState.timer = 5000;
+          state.stacks = Math.floor(state.stacks / 2);
+          state.timer = 5000;
 
-          if (!currState.stacks) {
+          if (!state.stacks) {
             delete negativeStatuses.electroFlare;
             break;
           }
@@ -181,44 +180,44 @@ const STATUSES = {
     id: 'aeroErosion',
     element: 'aero',
     mv: [4500, 11250, 22500, 33750, 45000, 56250, 67500, 78750, 90000, 101250, 112500, 123750],
-    inflict: (ctx, status, stacks) => {
-      const maxStacks = getStatusMaxStacks(ctx, 'aeroErosion');
+    inflict: (ctx, stacks) => {
       const { negativeStatuses } = ctx.states;
+      const state = negativeStatuses.aeroErosion ??= {
+        status: STATUSES.aeroErosion,
+        stacks: 0,
+        timer: hasGameRule(ctx, 'mandateOfDivinity') ? 1500 : 3000,
+        timeLeft: 15000,
+      };
 
-      if ('aeroErosion' in negativeStatuses) {
-        const currState = negativeStatuses.aeroErosion;
-        currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
-        currState.timeLeft = 15000;
-      } else {
-        const timer = hasGameRule(ctx, 'mandateOfDivinity') ? 1500 : 3000;
-        negativeStatuses.aeroErosion = {
-          status,
-          stacks: Math.min(stacks, maxStacks),
-          timer,
-          timeLeft: 15000,
-        };
-      }
+      const maxStacks = getStatusMaxStacks(ctx, 'aeroErosion');
+      state.stacks = Math.min(state.stacks + stacks, maxStacks);
+      state.timeLeft = 15000;
     },
     advance: (ctx, elapsed) => {
       const { negativeStatuses } = ctx.states;
-      const currState = negativeStatuses.aeroErosion;
+      const state = negativeStatuses.aeroErosion;
+
       const maxTimer = hasGameRule(ctx, 'mandateOfDivinity') ? 1500 : 3000;
-      if (currState.timer > maxTimer) currState.timer = maxTimer;
+      if (state.timer > maxTimer) {
+        state.timer = maxTimer;
+      }
+
       let remaining = elapsed;
       while (remaining > 0) {
-        const decrease = Math.min(currState.timeLeft, currState.timer, remaining);
-        currState.timeLeft -= decrease;
-        currState.timer -= decrease;
-        remaining -= decrease;
+        const interval = Math.min(state.timeLeft, state.timer, remaining);
+        remaining -= interval;
+        state.timer -= interval;
+        state.timeLeft -= interval;
 
-        if (currState.timer === 0) {
-          const snapshot = buildSnapshot(ctx, currState, elapsed - remaining);
-          if (ctx.saveSnapshots) ctx.snapshots.push(snapshot);
+        if (state.timer === 0) {
+          if (ctx.saveSnapshots) {
+            ctx.snapshots.push(buildSnapshot(ctx, state, elapsed - remaining));
+          }
 
-          currState.timer = maxTimer;
+          state.timer = maxTimer;
         }
 
-        if (currState.timeLeft === 0) {
+        if (state.timeLeft === 0) {
           delete negativeStatuses.aeroErosion;
           break;
         }
@@ -229,39 +228,47 @@ const STATUSES = {
     id: 'spectroFrazzle',
     element: 'spectro',
     mv: [3000, 5439, 7878, 10317, 12756, 15195, 17634, 20073, 22512, 24951, 33268, 41585, 49902],
-    inflict: (ctx, status, stacks) => {
-      const maxStacks = getStatusMaxStacks(ctx, 'spectroFrazzle');
+    inflict: (ctx, stacks) => {
+      const heliacalEmberEnabled = hasGameRule(ctx, 'heliacalEmber');
       const { negativeStatuses } = ctx.states;
+      const state = negativeStatuses.spectroFrazzle ??= {
+        status: STATUSES.spectroFrazzle,
+        stacks: 0,
+        timer: heliacalEmberEnabled ? 6000 : 3000,
+      };
 
-      if ('spectroFrazzle' in negativeStatuses) {
-        const currState = negativeStatuses.spectroFrazzle;
-        currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
-      } else {
-        negativeStatuses.spectroFrazzle = {
-          status,
-          stacks: Math.min(stacks, maxStacks),
-          timer: 3000,
-        };
+      const maxStacks = heliacalEmberEnabled
+        ? 60
+        : getStatusMaxStacks(ctx, 'spectroFrazzle');
+      state.stacks = Math.min(state.stacks + stacks, maxStacks);
+
+      if (ctx.saveSnapshots && heliacalEmberEnabled) {
+        ctx.snapshots.push(buildSnapshot(ctx, { ...state, stacks }));
       }
     },
     advance: (ctx, elapsed) => {
+      const heliacalEmberEnabled = hasGameRule(ctx, 'heliacalEmber');
       const { negativeStatuses } = ctx.states;
-      const currState = negativeStatuses.spectroFrazzle;
+      const state = negativeStatuses.spectroFrazzle;
+
       let remaining = elapsed;
       while (remaining > 0) {
-        const decrease = Math.min(currState.timer, remaining);
-        currState.timer -= decrease;
-        remaining -= decrease;
+        const interval = Math.min(state.timer, remaining);
+        remaining -= interval;
+        state.timer -= interval;
 
-        if (!currState.timer) {
-          if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, currState, elapsed - remaining));
-
-          if (!hasGameRule(ctx, 'shimmer')) {
-            currState.stacks--;
+        if (state.timer === 0) {
+          if (ctx.saveSnapshots && !heliacalEmberEnabled) {
+            ctx.snapshots.push(buildSnapshot(ctx, state, elapsed - remaining));
           }
-          currState.timer = 3000;
 
-          if (!currState.stacks) {
+          state.timer = heliacalEmberEnabled ? 6000 : 3000;
+
+          if (!hasGameRule(ctx, 'shimmer') || heliacalEmberEnabled) {
+            state.stacks--;
+          }
+
+          if (!state.stacks) {
             delete negativeStatuses.spectroFrazzle;
             break;
           }
@@ -272,27 +279,24 @@ const STATUSES = {
   havocBane: {
     id: 'havocBane',
     element: 'havoc',
-    inflict: (ctx, status, stacks) => {
-      const maxStacks = getStatusMaxStacks(ctx, 'havocBane');
+    inflict: (ctx, stacks) => {
       const { negativeStatuses } = ctx.states;
+      const state = negativeStatuses.havocBane ??= {
+        status: STATUSES.havocBane,
+        stacks: 0,
+        timeLeft: 15000,
+      };
 
-      if ('havocBane' in negativeStatuses) {
-        const currState = negativeStatuses.havocBane;
-        currState.stacks = Math.min(currState.stacks + stacks, maxStacks);
-        currState.timeLeft = 15000;
-      } else {
-        negativeStatuses.havocBane = {
-          status,
-          stacks: Math.min(stacks, maxStacks),
-          timeLeft: 15000,
-        };
-      }
+      const maxStacks = getStatusMaxStacks(ctx, 'havocBane');
+      state.stacks = Math.min(state.stacks + stacks, maxStacks);
+      state.timeLeft = 15000;
     },
     advance: (ctx, elapsed) => {
       const { negativeStatuses } = ctx.states;
-      const currState = negativeStatuses.havocBane;
-      currState.timeLeft -= elapsed;
-      if (currState.timeLeft <= 0) {
+      const state = negativeStatuses.havocBane;
+
+      state.timeLeft -= elapsed;
+      if (state.timeLeft <= 0) {
         delete negativeStatuses.havocBane;
       }
     },
@@ -319,7 +323,7 @@ export function inflictNegativeStatuses(ctx, action) {
 
   for (const [id, stacks] of Object.entries(toInflict)) {
     const status = STATUSES[id];
-    status.inflict(ctx, status, stacks);
+    status.inflict(ctx, stacks);
 
     if ( // Hiyuki 2 special handling
       id === 'glacioChafe' &&

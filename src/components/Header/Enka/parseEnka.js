@@ -106,7 +106,7 @@ export function parseEnka(gameId, charEnka) {
   build.rank = parsers.rank(charEnka);
 
   const weaponId = parsers.weaponId(charEnka);
-  if (weaponId in WEAPON[gameId]) {
+  if (WEAPON[gameId][weaponId]) {
     build.weaponId = weaponId;
     build.weaponLevel = parsers.weaponLevel(charEnka);
     build.weaponRank = parsers.weaponRank(charEnka);

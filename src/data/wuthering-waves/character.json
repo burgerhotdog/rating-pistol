@@ -53272,9 +53272,29 @@
     },
     "effects": [
       {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.2",
+                "resonanceSkill.3"
+              ]
+            }
+          },
+          "action": {
+            "inflict": {
+              "status": {
+                "spectroFrazzle": 1
+              }
+            }
+          }
+        }
+      },
+      {
         "key": "sunburst",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "ref": [
@@ -53293,6 +53313,23 @@
       },
       {
         "key": "infernoMode",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 20000
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "buff": {
           "filter": {
             "action": {
@@ -53309,6 +53346,10 @@
             "damageMv%": 0.25
           }
         }
+      },
+      {
+        "stores": "global",
+        "gameRule": "heliacalEmber"
       },
       {
         "use": {
@@ -53338,6 +53379,36 @@
         }
       },
       {
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "action": {
+            "consume": {
+              "status": {
+                "spectroFrazzle": 60
+              }
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.1
+          },
+          "statusStacks": "spectroFrazzle"
+        }
+      },
+      {
         "stores": "$ally",
         "apply": {
           "when": "start",
@@ -53349,128 +53420,15 @@
           "duration": 20000
         },
         "buff": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "has": "spectroFrazzle"
+              }
+            }
+          },
           "stats": {
             "spectroDmgAmp%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.2",
-                "resonanceSkill.3"
-              ]
-            }
-          },
-          "duration": 14000
-        },
-        "buff": {
-          "stats": {
-            "spectroDmgBonus%": 0.5
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "stats": {
-            "critRate%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.2",
-                "resonanceSkill.3"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.8
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.1"
-            }
-          },
-          "stats": {
-            "damageMv%": 12
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 1.2
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2",
-                "forteCircuit.3",
-                "forteCircuit.4"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.4
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.2"
-            }
-          },
-          "stats": {
-            "damageMv": 16
           }
         }
       }
