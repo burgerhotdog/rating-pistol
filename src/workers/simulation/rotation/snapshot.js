@@ -2,6 +2,7 @@ import { toMergedObj } from '@/utils';
 import { resolveStatSpecs, mergeStatMap } from '../utils';
 import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
+import { getUsedAttrs } from './formula/solver';
 
 const snapshotParts = ['damage', 'healing', 'shield'];
 
@@ -34,22 +35,26 @@ export const buildSnapshot = (ctx, action, options = {}) => {
 
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: action.ownerId, action });
   const isSpecIdAction = action.ownerId === ctx.specId;
-  const hasVariableBuffs = buffSpecs.length > 0;
   let currBuffMap;
 
   for (const part of snapshotParts) {
     if (!action[part]) continue;
 
+    const usedAttrs = getUsedAttrs(gameId, action, part);
+    const usesSpecs = buffSpecs.some(({ specs }) =>
+      Object.keys(specs).some((statId) => usedAttrs.has(statId))
+    );
+
     // Can be resolved now
-    // Action is not from specId and has no variable buffs from specId
-    if (!ctx.specId || (!isSpecIdAction && !hasVariableBuffs)) {
+    // Action is not from specId and uses no variable buffs from specId
+    if (!ctx.specId || (!isSpecIdAction && !usesSpecs)) {
       const statMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
       snapshot[part] = runFormula(gameId, part, action, statMap);
       continue;
     }
 
     // Action is from specId but has no variable buffs from specId
-    if (!hasVariableBuffs) {
+    if (!usesSpecs) {
       snapshot[part] = (currBuildMap) => {
         const statMap = toMergedObj(currBuildMap, buffMap);
         return runFormula(gameId, part, action, statMap);

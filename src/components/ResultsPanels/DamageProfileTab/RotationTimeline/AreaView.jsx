@@ -73,7 +73,9 @@ const AreaView = ({ results }) => {
   const elementDatas = useData('element');
 
   const memberStack = [...memberIds];
-  if (userSnapshots.some((ss) => ss.ownerId === 'other')) memberStack.push('other');
+  if (userSnapshots.some((ss) => ss.ownerId === 'other')) {
+    memberStack.push('other');
+  }
 
   const memberColors = Object.fromEntries(
     memberStack.map((id) => {
