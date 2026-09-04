@@ -42,7 +42,76 @@
       "forteCircuit",
       "introSkill"
     ],
-    "maxSkillLevel": 10
+    "maxSkillLevel": 10,
+    "skillLevelUpgradeCosts": [
+      {
+        "money": 1500,
+        "material": 2,
+        "weekly": 0
+      },
+      {
+        "money": 2000,
+        "material": 3,
+        "weekly": 0
+      },
+      {
+        "money": 4500,
+        "material": 6,
+        "weekly": 0
+      },
+      {
+        "money": 6000,
+        "material": 9,
+        "weekly": 0
+      },
+      {
+        "money": 16000,
+        "material": 27,
+        "weekly": 0
+      },
+      {
+        "money": 30000,
+        "material": 45,
+        "weekly": 1
+      },
+      {
+        "money": 50000,
+        "material": 54,
+        "weekly": 1
+      },
+      {
+        "money": 70000,
+        "material": 81,
+        "weekly": 1
+      },
+      {
+        "money": 100000,
+        "material": 162,
+        "weekly": 1
+      }
+    ],
+    "domains": {
+      "money": {
+        "stamina": 40,
+        "reward": {
+          "money": 84000
+        }
+      },
+      "material": {
+        "stamina": 40,
+        "reward": {
+          "money": 4000,
+          "material": 51
+        }
+      },
+      "weekly": {
+        "stamina": 60,
+        "reward": {
+          "money": 54000,
+          "weekly": 3
+        }
+      }
+    }
   },
   "zenless-zone-zero": {
     "maxMembers": 3,
