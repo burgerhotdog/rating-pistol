@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   Button,
   Card,
@@ -23,39 +23,10 @@ import {
 import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
-function buildData(weapDatas, weaponResults, userDps, userMember, limit = false) {
-  const remaining = { 3: 1, 4: 3, 5: 3 };
-  let freePicked = false;
-  let standardPicked = false;
-
-  return weaponResults
-    .toSorted((a, b) => b.dps - a.dps)
-    .filter(({ weaponId }) => {
-      if (!limit || weaponId === userMember?.weaponId) return true;
-
-      const { quality, standard, free } = weapDatas[weaponId];
-      if (free && !freePicked) return freePicked = true;
-      if (standard && !standardPicked) return standardPicked = true;
-      if (!remaining[quality]) return false;
-
-      remaining[quality]--;
-      return true;
-    })
-    .map(({ weaponId, weaponRank, dps }) => ({
-      weaponId,
-      weaponRank,
-      name: `${weapDatas[weaponId].name} R${weaponRank}`,
-      icon: weapDatas[weaponId].icon,
-      dps,
-      pct: (dps / userDps) * 100,
-      isUser: weaponId === userMember?.weaponId,
-      fill: `url(#gradient${weapDatas[weaponId].quality})`,
-      style: !(weaponId === userMember?.weaponId) ? { filter: 'brightness(0.5)' } : undefined,
-    }));
-}
-
 const renderTooltip = ({ payload, label }) => {
-  const { dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
+  const { empty, dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
+  if (empty) return;
+
   const diff = pct - 100;
   const diffStr = diff >= 0
     ? `+${diff.toFixed(1)}`
@@ -89,8 +60,97 @@ const Weapon = ({ results }) => {
   const weapDatas = useData('weapon');
   const [open, setOpen] = useState(false);
 
-  const data = buildData(weapDatas, weaponResults, userDps, userMember, true);
-  const fullData = buildData(weapDatas, weaponResults, userDps, userMember);
+  const userWeaponId = userMember.weaponId;
+
+  const data = useMemo(
+    () => weaponResults
+      .toSorted((a, b) => b.dps - a.dps)
+      .map(({ weaponId, weaponRank, dps }) => {
+        const { name, icon, quality } = weapDatas[weaponId];
+        const isUser = weaponId === userWeaponId;
+
+        return {
+          weaponId,
+          weaponRank,
+          name: `${name} R${weaponRank}`,
+          icon,
+          dps,
+          pct: (dps / userDps) * 100,
+          isUser,
+          fill: `url(#gradient${quality})`,
+          ...(!isUser && { filter: 'brightness(0.5)' }),
+        };
+      }),
+    [weapDatas, weaponResults, userWeaponId, userDps],
+  );
+
+  const previewData = useMemo(() => {
+    const hasAtLeastOne = {
+      craftable: false,
+      standard: false,
+      quality3: false,
+    };
+
+    const noMoreThan = {
+      total: 4,
+      quality5: 1,
+    };
+
+    if (weapDatas[userWeaponId].standard) {
+      hasAtLeastOne.standard = true;
+      noMoreThan.total++;
+    }
+
+    if (weapDatas[userWeaponId].craftable) {
+      hasAtLeastOne.craftable = true;
+      noMoreThan.total++;
+    }
+
+    if (weapDatas[userWeaponId].quality3) {
+      hasAtLeastOne.quality3 = true;
+      noMoreThan.total++;
+    }
+
+    const filtered = data.filter(({ weaponId }) => {
+      const { quality, standard, craftable } = weapDatas[weaponId];
+
+      if (weaponId === userWeaponId) {
+        return true;
+      }
+
+      if (!hasAtLeastOne.craftable && craftable) {
+        hasAtLeastOne.craftable = true;
+        return true;
+      }
+
+      if (!hasAtLeastOne.standard && standard) {
+        hasAtLeastOne.standard = true;
+        return true;
+      }
+
+      if (!hasAtLeastOne.quality3 && quality === 3) {
+        hasAtLeastOne.quality3 = true;
+        return true;
+      }
+
+      if (noMoreThan.total <= 0) return;
+      if (quality === 5 && noMoreThan.quality5 <= 0) return;
+
+      if (quality === 5) noMoreThan.quality5--;
+      noMoreThan.total--;
+      return true;
+    });
+
+    return [
+      ...filtered,
+      ...Array.from({ length: Math.max(0, 8 - filtered.length) }, (_, i) => ({
+        comboKey: `empty-${i}`,
+        name: `empty-${i}`,
+        dps: 0,
+        empty: true,
+      })),
+    ];
+  }, [weapDatas, data, userWeaponId]);
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -105,16 +165,16 @@ const Weapon = ({ results }) => {
 
       <CardContent component={Stack} sx={{ flex: 1 }}>
         <BarChart
-          data={data}
+          data={previewData}
           style={{ width: '100%', height: '100%' }}
           responsive
         >
           <XAxis dataKey="name" tick={false} />
-          <YAxis type="number" tickFormatter={(v) => formatDmg(v)} />
+          <YAxis type="number" tickFormatter={formatDmg} />
           <Bar dataKey="dps">
             <LabelList
               content={({ x, y, width, height, index }) => {
-                const entry = data[index];
+                const entry = previewData[index];
                 if (!entry?.icon) return null;
 
                 const size = width - 16;
@@ -128,9 +188,8 @@ const Weapon = ({ results }) => {
                     width={size}
                     height={size}
                     href={entry.icon}
-                    xlinkHref={entry.icon}
-                    opacity={!entry.isUser ? 0.5 : undefined}
-                    style={!entry.isUser ? { filter: 'brightness(0.5)' } : undefined}
+                    {...(!entry.isUser && { opacity: 0.5 })}
+                    filter={entry.filter}
                   />
                 );
               }}
@@ -157,16 +216,16 @@ const Weapon = ({ results }) => {
 
         <DialogContent sx={{ height: '80vh' }}>
           <BarChart
-            data={fullData}
+            data={data}
             style={{ width: '100%', height: '100%' }}
             responsive
           >
             <XAxis dataKey="name" tick={false} />
-            <YAxis type="number" tickFormatter={(v) => formatDmg(v)} />
+            <YAxis type="number" tickFormatter={formatDmg} />
             <Bar dataKey="dps">
               <LabelList
                 content={({ x, y, width, height, index }) => {
-                  const entry = fullData[index];
+                  const entry = data[index];
                   if (!entry?.icon) return null;
 
                   const size = width - 8;
@@ -180,9 +239,8 @@ const Weapon = ({ results }) => {
                       width={size}
                       height={size}
                       href={entry.icon}
-                      xlinkHref={entry.icon}
-                      opacity={!entry.isUser ? 0.5 : undefined}
-                      style={!entry.isUser ? { filter: 'brightness(0.5)' } : undefined}
+                      {...(!entry.isUser && { opacity: 0.5 })}
+                      filter={entry.filter}
                     />
                   );
                 }}

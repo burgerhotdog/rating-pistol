@@ -96,12 +96,12 @@ function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
       pct: (dps / userDps) * 100,
       isUser: isUser(comboKey),
       fill: "url(#gradientAccent)",
-      style: !isUser(comboKey) ? { filter: 'brightness(0.5)' } : undefined,
+      ...(!isUser(comboKey) && { filter: 'brightness(0.5)' }),
     }));
 
   return [
     ...data,
-    ...Array.from({ length: Math.max(0, 5 - data.length) }, (_, i) => ({
+    ...Array.from({ length: Math.max(0, 8 - data.length) }, (_, i) => ({
       comboKey: `empty-${i}`,
       name: `empty-${i}`,
       dps: 0,
@@ -196,7 +196,7 @@ const Set = ({ results }) => {
           responsive
         >
           <XAxis dataKey="name" tick={false} />
-          <YAxis type="number" tickFormatter={(v) => formatDmg(v)} />
+          <YAxis type="number" tickFormatter={formatDmg} />
           <Bar dataKey="dps">
             <LabelList
               content={({ x, y, width, height, index }) => {
@@ -219,9 +219,8 @@ const Set = ({ results }) => {
                         width={size}
                         height={size}
                         href={icon}
-                        xlinkHref={icon}
-                        opacity={!entry.isUser ? 0.5 : undefined}
-                        style={entry.style}
+                        {...(!entry.isUser && { opacity: 0.5 })}
+                        filter={entry.filter}
                       />
                     ))}
                   </g>
@@ -255,7 +254,7 @@ const Set = ({ results }) => {
             responsive
           >
             <XAxis dataKey="name" tick={false} />
-            <YAxis type="number" tickFormatter={(v) => formatDmg(v)} />
+            <YAxis type="number" tickFormatter={formatDmg} />
             <Bar dataKey="dps">
               <LabelList
                 content={({ x, y, width, height, index }) => {
@@ -278,9 +277,8 @@ const Set = ({ results }) => {
                           width={size}
                           height={size}
                           href={icon}
-                          xlinkHref={icon}
-                          opacity={!entry.isUser ? 0.5 : undefined}
-                          style={entry.style}
+                          {...(!entry.isUser && { opacity: 0.5 })}
+                          filter={entry.filter}
                         />
                       ))}
                     </g>

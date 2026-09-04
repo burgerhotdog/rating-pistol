@@ -292,7 +292,7 @@
     "id": 21010034,
     "icon": "wuthering-waves/weapon/21010034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "broadblade",
     "stats": {
       "baseAtk": 412,
@@ -580,7 +580,6 @@
     "id": 21010053,
     "icon": "wuthering-waves/weapon/21010053.webp",
     "quality": 3,
-    "free": true,
     "type": "broadblade",
     "stats": {
       "baseAtk": 325,
@@ -701,7 +700,6 @@
     "id": 21010063,
     "icon": "wuthering-waves/weapon/21010063.webp",
     "quality": 3,
-    "free": true,
     "type": "broadblade",
     "stats": {
       "baseAtk": 300,
@@ -1049,7 +1047,7 @@
     "id": 21010094,
     "icon": "wuthering-waves/weapon/21010094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "broadblade",
     "stats": {
       "baseAtk": 462,
@@ -1321,7 +1319,6 @@
     "id": 21020017,
     "icon": "wuthering-waves/weapon/21020017.webp",
     "quality": 4,
-    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 462,
@@ -1507,7 +1504,7 @@
     "id": 21020034,
     "icon": "wuthering-waves/weapon/21020034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "sword",
     "stats": {
       "baseAtk": 387,
@@ -1724,7 +1721,7 @@
     "id": 21020046,
     "icon": "wuthering-waves/weapon/21020046.webp",
     "quality": 5,
-    "free": true,
+    "permanent": true,
     "type": "sword",
     "stats": {
       "baseAtk": 587,
@@ -1787,7 +1784,6 @@
     "id": 21020053,
     "icon": "wuthering-waves/weapon/21020053.webp",
     "quality": 3,
-    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 300,
@@ -2247,7 +2243,7 @@
     "id": 21020094,
     "icon": "wuthering-waves/weapon/21020094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "sword",
     "stats": {
       "baseAtk": 462,
@@ -2792,7 +2788,7 @@
     "id": 21030034,
     "icon": "wuthering-waves/weapon/21030034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "pistols",
     "stats": {
       "baseAtk": 387,
@@ -3077,7 +3073,6 @@
     "id": 21030053,
     "icon": "wuthering-waves/weapon/21030053.webp",
     "quality": 3,
-    "free": true,
     "type": "pistols",
     "stats": {
       "baseAtk": 300,
@@ -3360,7 +3355,7 @@
     "id": 21030094,
     "icon": "wuthering-waves/weapon/21030094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "pistols",
     "stats": {
       "baseAtk": 462,
@@ -3755,7 +3750,7 @@
     "id": 21040034,
     "icon": "wuthering-waves/weapon/21040034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "gauntlets",
     "stats": {
       "baseAtk": 387,
@@ -4075,7 +4070,6 @@
     "id": 21040053,
     "icon": "wuthering-waves/weapon/21040053.webp",
     "quality": 3,
-    "free": true,
     "type": "gauntlets",
     "stats": {
       "baseAtk": 300,
@@ -4354,7 +4348,7 @@
     "id": 21040094,
     "icon": "wuthering-waves/weapon/21040094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "gauntlets",
     "stats": {
       "baseAtk": 462,
@@ -4626,7 +4620,7 @@
     "id": 21050017,
     "icon": "wuthering-waves/weapon/21050017.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 337,
@@ -4798,7 +4792,6 @@
     "id": 21050027,
     "icon": "wuthering-waves/weapon/21050027.webp",
     "quality": 4,
-    "free": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 462,
@@ -4845,7 +4838,7 @@
     "id": 21050034,
     "icon": "wuthering-waves/weapon/21050034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 337,
@@ -5103,7 +5096,6 @@
     "id": 21050053,
     "icon": "wuthering-waves/weapon/21050053.webp",
     "quality": 3,
-    "free": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 325,
@@ -5567,7 +5559,7 @@
     "id": 21050094,
     "icon": "wuthering-waves/weapon/21050094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 462,

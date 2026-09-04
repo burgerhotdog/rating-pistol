@@ -16,8 +16,8 @@ const toResolvedSpecs = (buffSpecs, sourceMap) => {
 };
 
 export const buildSnapshot = (ctx, action, options = {}) => {
-  const { cache: { gameId }, states } = ctx;
   const { runtimeOffset = 0 } = options;
+  const gameId = ctx.cache.gameId;
 
   const snapshot = {
     id: action.id,
@@ -25,20 +25,26 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     ownerId: action.ownerId,
     category: action.category,
     type: action.type,
-    field: states.getField(action.ownerId),
-    runtime: states.runtime + runtimeOffset,
-    ...(action.damage &&
-      { damageType: action.damage.type }),
-    ...(action.hitOffsets &&
-      { hitOffsets: action.hitOffsets }),
+    field: ctx.states.getField(action.ownerId),
+    runtime: ctx.states.runtime + runtimeOffset,
+    ...(action.damage && { damageType: action.damage.type }),
+    ...(action.hitOffsets && { hitOffsets: action.hitOffsets }),
   };
 
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: action.ownerId, action });
   const isSpecIdAction = action.ownerId === ctx.specId;
-  let currBuffMap;
+  let testBuffMap;
 
   for (const part of snapshotParts) {
     if (!action[part]) continue;
+
+    // Can be resolved now
+    // Not in spec mode
+    if (!ctx.specId) {
+      const statMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
+      snapshot[part] = runFormula(gameId, part, action, statMap);
+      continue;
+    }
 
     const usedAttrs = getUsedAttrs(gameId, action, part);
     const usesSpecs = buffSpecs.some(({ specs }) =>
@@ -47,7 +53,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
 
     // Can be resolved now
     // Action is not from specId and uses no variable buffs from specId
-    if (!ctx.specId || (!isSpecIdAction && !usesSpecs)) {
+    if (!isSpecIdAction && !usesSpecs) {
       const statMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
       snapshot[part] = runFormula(gameId, part, action, statMap);
       continue;
@@ -62,14 +68,14 @@ export const buildSnapshot = (ctx, action, options = {}) => {
       continue;
     }
 
-    currBuffMap ??= getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true });
+    testBuffMap ??= getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true });
 
     // Action is not from specId but has variable buffs from specId
     if (!isSpecIdAction) {
       const partiallyBuffedMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
-      snapshot[part] = (currBuildMap) => {
-        const currBuffedMap = toMergedObj(currBuildMap, currBuffMap);
-        const resolvedBuffs = toResolvedSpecs(buffSpecs, currBuffedMap);
+      snapshot[part] = (testBuildMap) => {
+        const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
+        const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
         const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
         return runFormula(gameId, part, action, statMap);
       };
@@ -77,10 +83,10 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     }
 
     // Action is from specId and has variable buffs from specId
-    snapshot[part] = (currBuildMap) => {
-      const currBuffedMap = toMergedObj(currBuildMap, currBuffMap);
-      const resolvedBuffs = toResolvedSpecs(buffSpecs, currBuffedMap);
-      const statMap = toMergedObj(currBuildMap, buffMap, resolvedBuffs);
+    snapshot[part] = (testBuildMap) => {
+      const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
+      const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
+      const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
       return runFormula(gameId, part, action, statMap);
     };
   }
