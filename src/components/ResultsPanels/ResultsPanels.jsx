@@ -5,6 +5,7 @@ import { Tabs } from '../Colored';
 import OverviewTab from './OverviewTab';
 import DamageProfileTab from './DamageProfileTab';
 import BuildAnalysisTab from './BuildAnalysisTab';
+import SkillLevelsAnalysisTab from './SkillLevelsAnalysisTab';
 
 const LoadingBar = ({ results }) => {
   const { status, progressDay } = results;
@@ -64,12 +65,14 @@ const ResultsPanels = ({ team }) => {
       >
         <Tab value={0} label="Overview" />
         <Tab value={1} label="Build Analysis" />
-        <Tab value={2} label="Damage Stats" />
+        <Tab value={2} label="Skill Levels Analysis" />
+        <Tab value={3} label="Damage Stats" />
       </Tabs>
 
       {tab === 0 && <OverviewTab results={results} />}
       {tab === 1 && <BuildAnalysisTab results={results} />}
-      {tab === 2 && <DamageProfileTab results={results} />}
+      {tab === 2 && <SkillLevelsAnalysisTab results={results} />}
+      {tab === 3 && <DamageProfileTab results={results} />}
     </Stack>
   );
 };

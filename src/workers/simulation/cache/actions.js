@@ -28,7 +28,7 @@ const DEFAULT_DURATIONS = {
   },
 };
 
-const getCompressed = (multipliers, attr, { index, weaponRank }) => {
+export const getCompressed = (multipliers, attr, { index, weaponRank }) => {
   const resolveScaling = (scaling) =>
     typeof scaling === 'number'
       ? scaling // fixed
@@ -183,24 +183,22 @@ export const normAction = (gameId, rawAction, spec) => {
   return action;
 }
 
-function createMvIndexGetter(gameId, memberId, memberRank) {
-  const defaultIndex = gameId === ZZZ ? 11 : 9;
-
-  const { rankMods = {} } = CHARACTER[gameId][memberId];
+export function createMvIndexGetter(gameId, member) {
+  const { rankMods = {} } = CHARACTER[gameId][member.id];
   const addByCategory = {};
   for (const [rank, mod] of Object.entries(rankMods)) {
-    if (Number(rank) > memberRank) continue;
+    if (Number(rank) > member.rank) continue;
     for (const [category, offset] of Object.entries(mod)) {
       addByCategory[category] ??= 0;
       addByCategory[category] += offset;
     }
   }
 
-  return (category) => defaultIndex + (addByCategory[category] ?? 0);
+  return (category) => member.skillLevels[category] - 1 + (addByCategory[category] ?? 0);
 }
 
 export const getActionDefs = (gameId, member, teamSize) => {
-  const getMvIndex = createMvIndexGetter(gameId, member.id, member.rank);
+  const getMvIndex = createMvIndexGetter(gameId, member);
   const charData = CHARACTER[gameId][member.id];
   const actionDefs = {};
 

@@ -108,6 +108,7 @@ export const compileCache = ({ gameId, charId, team }) => {
     mCache.weaponRank = member.weaponRank;
     mCache.setCounts = member.setCounts;
     mCache.mainEcho = member.mainEcho;
+    mCache.skillLevels = member.skillLevels;
 
     mCache.baseMap = buildBaseMap(gameId, member.id, member.weaponId);
     if (member.build?.equipList) {

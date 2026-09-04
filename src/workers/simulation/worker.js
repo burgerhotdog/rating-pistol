@@ -11,6 +11,7 @@ import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
 import { weaponTests } from './weaponTests';
 import { setTests } from './setTests';
+import { skillLevelTests } from './skillLevelTests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -69,6 +70,11 @@ self.onmessage = async ({ data }) => {
   const setResults = setTests(cache, equipMaps, cache.charId);
   console.timeEnd('setTests');
 
+  console.time('skillLevelTests');
+  const skillLevelResults = skillLevelTests(cache, equipMaps, cache.charId);
+  console.timeEnd('skillLevelTests');
+  
+
   self.postMessage({
     dpsProgression: results.dpsProgression,
     dpsCeiling: results.dpsCeiling,
@@ -84,6 +90,7 @@ self.onmessage = async ({ data }) => {
     memberIds: cache.memberIds,
     weaponResults,
     setResults,
+    skillLevelResults,
     userMember: {
       weaponId: cache.member[cache.charId].weaponId,
       weaponRank: cache.member[cache.charId].weaponRank,
