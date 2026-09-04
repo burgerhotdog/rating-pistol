@@ -29,5 +29,6 @@ export function initBuild(gameId) {
       { length: maxEquips },
       () => initEquip(maxSubstats),
     ),
+    skillLevels: {},
   };
 }

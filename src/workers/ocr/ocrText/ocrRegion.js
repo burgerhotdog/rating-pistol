@@ -2,6 +2,7 @@ const whitelists = {
   id: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ',
   stat: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .',
   value: '0123456789.%',
+  skill: '0123456789LV./',
 };
 
 export async function ocrRegion(region, imageBitmap, worker, mode = 7, wlType) {

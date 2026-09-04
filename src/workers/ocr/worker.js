@@ -15,6 +15,7 @@ import {
   ocrMainstatValue,
   ocrMainstatSubValue,
   ocrSubstat,
+  ocrSkillLevel,
 } from './ocrText';
 
 let worker = null;
@@ -62,6 +63,13 @@ self.onmessage = async ({ data }) => {
         substat.value = value;
       }
     }
+
+    const skillLevels = build.skillLevels;
+    skillLevels.normalAttack = await ocrSkillLevel(imageBitmap, ocrWorker, 'normalAttack');
+    skillLevels.resonanceSkill = await ocrSkillLevel(imageBitmap, ocrWorker, 'resonanceSkill');
+    skillLevels.resonanceLiberation = await ocrSkillLevel(imageBitmap, ocrWorker, 'resonanceLiberation');
+    skillLevels.forteCircuit = await ocrSkillLevel(imageBitmap, ocrWorker, 'forteCircuit');
+    skillLevels.introSkill = await ocrSkillLevel(imageBitmap, ocrWorker, 'introSkill');
 
     self.postMessage({ success: true, entry: build });
   } catch (error) {

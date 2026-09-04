@@ -5,7 +5,12 @@
     "maxEquips": 5,
     "maxSubstats": 4,
     "equipsPerDay": 9,
-    "energyAttr": "energyRecharge%"
+    "energyAttr": "energyRecharge%",
+    "skillIds": [
+      "normalAttack",
+      "elementalSkill",
+      "elementalBurst"
+    ]
   },
   "honkai-star-rail": {
     "maxMembers": 4,
@@ -13,7 +18,12 @@
     "maxEquips": 6,
     "maxSubstats": 4,
     "equipsPerDay": 10,
-    "energyAttr": "energyRegenerationRate%"
+    "energyAttr": "energyRegenerationRate%",
+    "skillIds": [
+      "normalAttack",
+      "elementalSkill",
+      "elementalBurst"
+    ]
   },
   "wuthering-waves": {
     "maxMembers": 3,
@@ -21,7 +31,14 @@
     "maxEquips": 5,
     "maxSubstats": 5,
     "equipsPerDay": 17,
-    "energyAttr": "energyRegen%"
+    "energyAttr": "energyRegen%",
+    "skillIds": [
+      "normalAttack",
+      "resonanceSkill",
+      "resonanceLiberation",
+      "forteCircuit",
+      "introSkill"
+    ]
   },
   "zenless-zone-zero": {
     "maxMembers": 3,
@@ -29,6 +46,11 @@
     "maxEquips": 6,
     "maxSubstats": 4,
     "equipsPerDay": 15,
-    "energyAttr": "energyRegen%"
+    "energyAttr": "energyRegen%",
+    "skillIds": [
+      "normalAttack",
+      "elementalSkill",
+      "elementalBurst"
+    ]
   }
 }
