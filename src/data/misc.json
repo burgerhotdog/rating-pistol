@@ -110,6 +110,15 @@
           "money": 54000,
           "weekly": 3
         }
+      },
+      "equip": {
+        "stamina": 60,
+        "reward": {
+          "money": 5250,
+          "equip": 4.3,
+          "tuners": 20,
+          "exp": 24155
+        }
       }
     }
   },
