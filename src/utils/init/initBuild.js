@@ -1,22 +1,17 @@
 import { MISC } from '@/data';
 
-const initSubstat = () => ({
-  id: null,
-  value: null,
-});
-
 const initEquip = (size) => ({
   setId: null,
   mainstatId: null,
   mainstatValue: null,
-  substats: Array.from(
-    { length: size },
-    initSubstat,
-  ),
+  substats: Array.from({ length: size }, () => ({
+    id: null,
+    value: null,
+  })),
 });
 
 export function initBuild(gameId) {
-  const { maxEquips, maxSubstats } = MISC[gameId];
+  const { maxEquips, maxSubstats, skillIds } = MISC[gameId];
 
   return {
     id: null,
@@ -25,10 +20,7 @@ export function initBuild(gameId) {
     weaponId: null,
     weaponLevel: null,
     weaponRank: null,
-    equipList: Array.from(
-      { length: maxEquips },
-      () => initEquip(maxSubstats),
-    ),
-    skillLevels: {},
+    equipList: Array.from({ length: maxEquips }, () => initEquip(maxSubstats)),
+    skillLevels: Object.fromEntries(skillIds.map((skillId) => [skillId, 1])),
   };
 }

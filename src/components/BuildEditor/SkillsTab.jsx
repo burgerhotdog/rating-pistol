@@ -3,7 +3,7 @@ import { useData } from '@/hooks';
 import { formatStr, inRange } from '@/utils';
 
 const SkillsTab = ({ draft, setDraft }) => {
-  const { skillIds } = useData('misc');
+  const { skillIds, maxSkillLevel } = useData('misc');
 
   return (
     <Stack spacing={1}>
@@ -18,7 +18,7 @@ const SkillsTab = ({ draft, setDraft }) => {
               if (!/^\d*$/.test(value)) return;
 
               const skillLevel = value === '' ? null : Number(value);
-              if (skillLevel === null || inRange(skillLevel, 1, 10)) {
+              if (skillLevel === null || inRange(skillLevel, 1, maxSkillLevel)) {
                 setDraft((prev) => ({
                   ...prev,
                   skillLevels: {
@@ -33,7 +33,7 @@ const SkillsTab = ({ draft, setDraft }) => {
             slotProps={{
               htmlInput: {
                 min: 1,
-                max: 10,
+                max: maxSkillLevel,
                 step: 1,
               },
             }}

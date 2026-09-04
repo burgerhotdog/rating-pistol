@@ -10,7 +10,8 @@
       "normalAttack",
       "elementalSkill",
       "elementalBurst"
-    ]
+    ],
+    "maxSkillLevel": 10
   },
   "honkai-star-rail": {
     "maxMembers": 4,
@@ -20,10 +21,12 @@
     "equipsPerDay": 10,
     "energyAttr": "energyRegenerationRate%",
     "skillIds": [
-      "normalAttack",
-      "elementalSkill",
-      "elementalBurst"
-    ]
+      "basicAtk",
+      "skill",
+      "ultimate",
+      "talent"
+    ],
+    "maxSkillLevel": 10
   },
   "wuthering-waves": {
     "maxMembers": 3,
@@ -38,7 +41,8 @@
       "resonanceLiberation",
       "forteCircuit",
       "introSkill"
-    ]
+    ],
+    "maxSkillLevel": 10
   },
   "zenless-zone-zero": {
     "maxMembers": 3,
@@ -48,9 +52,12 @@
     "equipsPerDay": 15,
     "energyAttr": "energyRegen%",
     "skillIds": [
-      "normalAttack",
-      "elementalSkill",
-      "elementalBurst"
-    ]
+      "basicAttack",
+      "dodge",
+      "assist",
+      "specialAttack",
+      "chainAttack"
+    ],
+    "maxSkillLevel": 12
   }
 }

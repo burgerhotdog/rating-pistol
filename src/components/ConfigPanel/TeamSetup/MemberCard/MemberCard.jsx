@@ -8,6 +8,7 @@ import WeaponId from './WeaponId';
 import WeaponRank from './WeaponRank';
 import SetCounts from './SetCounts';
 import MainEcho from './MainEcho';
+import SkillLevels from './SkillLevels';
 import Mode from './Mode';
 import RotationEditor from './RotationEditor';
 
@@ -58,6 +59,11 @@ const MemberCard = ({ member, setMember, allyIds }) => {
             />
           )}
         </Stack>
+        <SkillLevels
+          memberId={member.id}
+          skillLevels={member.skillLevels}
+          onChange={(skillLevels) => setMember({ ...member, skillLevels })}
+        />
         <Stack direction="row" spacing={1}>
           <RotationEditor
             member={member}
