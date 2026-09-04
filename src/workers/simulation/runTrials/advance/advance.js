@@ -44,7 +44,9 @@ export function createAdvanceTrial(cache, evaluateEquipMap) {
   const generateEquip = createEquipGenerator(skippable);
   const evaluateEquip = createEquipEvaluator(cache, evaluateEquipMap);
 
-  const { equipsPerDay } = MISC[gameId];
+  const { staminaPerDay, domains } = MISC[gameId];
+  const runsPerDay = staminaPerDay / domains.equip.stamina;
+  const equipsPerDay = Math.round(runsPerDay * domains.equip.reward.equip);
 
   return (trial) => {
     for (let i = 0; i < equipsPerDay; i++) {

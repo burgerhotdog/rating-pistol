@@ -16,8 +16,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useAccent } from '@/hooks';
-import { formatDmg, formatNum } from '@/utils';
+import { useAccent, useData } from '@/hooks';
+import { estimateDps, formatDmg, formatNum } from '@/utils';
 
 function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
   const data = [];
@@ -63,6 +63,7 @@ const Progress = ({ results }) => {
   const { dpsProgression, userDay, userDps, dpsCeiling, fit, benchmarkDay } = results;
   const { palette } = useTheme();
   const accent = useAccent();
+  const { staminaPerDay } = useData('misc');
 
   const maxDay = Math.ceil(Math.max(userDay, benchmarkDay, 1) * 1.25);
   const data = buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit);
@@ -167,14 +168,27 @@ const Progress = ({ results }) => {
 
           <Tooltip
             content={({ payload }) => {
-              const { solidMean, dottedMean, day = 0 } = payload?.[0]?.payload ?? {};
+              if (!payload?.[0]?.payload) return;
+              const { solidMean, dottedMean, day = 0 } = payload[0].payload;
               const value = solidMean ?? dottedMean;
+
+              const nextDayDps = estimateDps(day + 1, dpsCeiling, dpsProgression, fit);
+              const nextDiff = (nextDayDps / value * 100) - 100;
+              const diffPerStamina = nextDiff / staminaPerDay;
 
               return (
                 <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
-                  <Typography variant="caption">
-                    Day {Math.round(day)}: {formatNum(value ?? 0)}
-                  </Typography>
+                  <Stack>
+                    <Typography variant="caption">
+                      Day {Math.round(day)}
+                    </Typography>
+                    <Typography variant="caption">
+                      DPS: {formatNum(value ?? 0)}
+                    </Typography>
+                    <Typography variant="caption">
+                      Rate: {Math.abs(diffPerStamina).toFixed(4)}% per stamina
+                    </Typography>
+                  </Stack>
                 </Paper>
               );
             }}

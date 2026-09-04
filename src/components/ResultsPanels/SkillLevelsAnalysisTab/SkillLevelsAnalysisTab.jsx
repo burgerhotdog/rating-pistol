@@ -46,8 +46,7 @@ const SkillLevelsAnalysisTab = ({ results }) => {
       staminaCost += moneyDomainTimes * domains.money.stamina;
 
       const rate = diff / staminaCost;
-      const ratePerDay = rate * 240;
-      return { ...entry, staminaCost, rate, ratePerDay };
+      return { ...entry, staminaCost, rate };
     })
     .toSorted((a, b) => (a.isMax - b.isMax) || (b.rate - a.rate));
 
@@ -109,11 +108,11 @@ const SkillLevelsAnalysisTab = ({ results }) => {
             >
               <XAxis type="number" />
               <YAxis dataKey="name" type="category" tick={{ fontSize: 11 }} />
-              <Bar dataKey="ratePerDay" fill={accent} />
+              <Bar dataKey="rate" fill={accent} />
               <Tooltip
                 content={({ payload, label }) => {
                   if (!payload?.[0]?.payload) return;
-                  const { isMax, diff, rate, ratePerDay, staminaCost, newLevel } = payload[0].payload;
+                  const { isMax, diff, rate, staminaCost, newLevel } = payload[0].payload;
                   if (isMax) return;
 
                   return (
@@ -125,14 +124,11 @@ const SkillLevelsAnalysisTab = ({ results }) => {
                         <Typography variant="body2">
                           Δ DPS: +{Math.abs(diff).toFixed(2)}%
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography variant="body2" gutterBottom>
                           Cost: {staminaCost.toFixed()} stamina
                         </Typography>
-                        <Typography variant="body2" gutterBottom>
-                          Rate: {rate.toFixed(4)}% per stamina
-                        </Typography>
                         <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                          +{ratePerDay.toFixed(2)}% per day
+                          Rate: {rate.toFixed(4)}% per stamina
                         </Typography>
                       </Stack>
                     </Paper>
