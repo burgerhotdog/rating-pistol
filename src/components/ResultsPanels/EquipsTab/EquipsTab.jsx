@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  Button,
   Card,
   CardContent,
   CardHeader,
@@ -9,35 +8,17 @@ import {
 } from '@mui/material';
 import { useAccent } from '@/hooks';
 import { Switch } from '../../Colored';
-import SetCountsChart from './SetCountsChart';
 import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
 
 const EquipsTab = ({ results }) => {
   const accent = useAccent();
-  const [open, setOpen] = useState(false);
   const [substatsAll, setSubstatsAll] = useState(false);
 
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-        <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader
-            title="Set Bonuses"
-            action={
-              <Button onClick={() => setOpen(true)}>
-                View all
-              </Button>
-            }
-          />
-          <SetCountsChart
-            results={results}
-            open={open}
-            onClose={() => setOpen(false)}
-          />
-        </Card>
-
         <Card component={Stack} sx={{ flex: 1 }}>
           <CardHeader title="Mainstat Distribution" />
           <CardContent component={Stack} sx={{ flex: 1, overflow: 'hidden' }}>

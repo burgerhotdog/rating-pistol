@@ -3,7 +3,7 @@ import { LinearProgress, Stack, Tab, Typography } from '@mui/material';
 import { useAccent, useSimulation } from '@/hooks';
 import { Tabs } from '../Colored';
 import OverviewTab from './OverviewTab';
-import WeaponTab from './WeaponTab';
+import ComparisonTab from './ComparisonTab';
 import EquipsTab from './EquipsTab';
 import SkillLevelsTab from './SkillLevelsTab';
 
@@ -64,13 +64,13 @@ const ResultsPanels = ({ team }) => {
         centered
       >
         <Tab value={0} label="Overview" />
-        <Tab value={1} label="Weapon" />
-        <Tab value={2} label="Equips" />
+        <Tab value={1} label="Weapon/Set Bonuses" />
+        <Tab value={2} label="Main/Substats" />
         <Tab value={3} label="Skill Levels" />
       </Tabs>
 
       {tab === 0 && <OverviewTab results={results} />}
-      {tab === 1 && <WeaponTab results={results} />}
+      {tab === 1 && <ComparisonTab results={results} />}
       {tab === 2 && <EquipsTab results={results} />}
       {tab === 3 && <SkillLevelsTab results={results} />}
     </Stack>

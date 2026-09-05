@@ -96,7 +96,7 @@ function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
 
   return [
     ...data,
-    ...Array.from({ length: Math.max(0, 4 - data.length) }, (_, i) => ({
+    ...Array.from({ length: Math.max(0, 8 - data.length) }, (_, i) => ({
       comboKey: `empty-${i}`,
       name: `empty-${i}`,
       dps: 0,
@@ -160,7 +160,7 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
   );
 };
 
-const SetCountsChart = ({ results, open, onClose }) => {
+const SetBonusesChart = ({ results, open, onClose }) => {
   const { setResults, userDps, userMember } = results;
   const { gameId } = useParams();
   const { palette } = useTheme();
@@ -278,4 +278,4 @@ const SetCountsChart = ({ results, open, onClose }) => {
   );
 };
 
-export default SetCountsChart;
+export default SetBonusesChart;

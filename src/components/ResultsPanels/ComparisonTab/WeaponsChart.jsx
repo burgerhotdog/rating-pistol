@@ -42,7 +42,7 @@ const renderTooltip = ({ payload, label }) => {
   );
 };
 
-const ComparisonChart = ({ data }) => {
+const WeaponsChart = ({ data }) => {
   const { palette } = useTheme();
 
   return (
@@ -86,4 +86,4 @@ const ComparisonChart = ({ data }) => {
   );
 };
 
-export default ComparisonChart;
+export default WeaponsChart;
