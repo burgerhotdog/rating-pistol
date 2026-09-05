@@ -1,6 +1,7 @@
 import { CHARACTER, MISC } from '@/data';
+import { getCompressed } from '@/utils';
 import { runVariantDps } from './variantDps';
-import { createMvIndexGetter, getCompressed } from './cache/actions';
+import { createMvIndexGetter } from './cache/actions';
 
 const parts = ['damage', 'healing', 'shield'];
 
@@ -32,6 +33,7 @@ export function skillLevelTests(cache, equipMaps, charId) {
 
         const rawPartDef = CHARACTER[cache.gameId][charId].skills[skillId].actions[action.index]?.[part];
         if (!rawPartDef) continue;
+
         actionPart.compressed = getCompressed(rawPartDef.multipliers, rawPartDef.attr ?? 'atk', { index: mvIndex });
       }
     }

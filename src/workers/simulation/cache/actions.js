@@ -1,33 +1,5 @@
-import { WW, ECHO } from '@/data';
-import { CHARACTER } from '@/data';
-import { resolveRankedValue, normalizeAction } from '@/utils';
-
-export const getCompressed = (multipliers, attr, { index, weaponRank }) => {
-  const resolveScaling = (scaling) =>
-    typeof scaling === 'number'
-      ? scaling // fixed
-      : scaling.length === 2
-        ? resolveRankedValue(scaling, weaponRank) // ranked
-        : scaling[index]; // indexed
-
-  const compressed = { flat: 0, mvs: {}, hitCount: 0 };
-  for (const { flat, mv, times = 1 } of multipliers) {
-    if (flat) compressed.flat += resolveScaling(flat) * times;
-    if (mv) {
-      if (typeof mv === 'object' && !Array.isArray(mv)) { // dual attr scaling
-        for (const [attrKey, scaling] of Object.entries(mv)) {
-          compressed.mvs[attrKey] ??= 0;
-          compressed.mvs[attrKey] += resolveScaling(scaling) * times;
-        }
-      } else { // single attr scaling
-        compressed.mvs[attr] ??= 0;
-        compressed.mvs[attr] += resolveScaling(mv) * times;
-      }
-    }
-    compressed.hitCount += times;
-  }
-  return compressed;
-};
+import { WW, CHARACTER, ECHO } from '@/data';
+import { normalizeAction } from '@/utils';
 
 export function createMvIndexGetter(gameId, member) {
   const { rankMods = {} } = CHARACTER[gameId][member.id];
