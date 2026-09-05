@@ -54,7 +54,7 @@ const renderTooltip = ({ payload, label }) => {
   );
 };
 
-const Weapon = ({ results }) => {
+const ComparisonChart = ({ results }) => {
   const { weaponResults, userDps, userMember } = results;
   const { palette, qualityColors } = useTheme();
   const weapDatas = useData('weapon');
@@ -269,4 +269,4 @@ const Weapon = ({ results }) => {
   );
 };
 
-export default Weapon;
+export default ComparisonChart;

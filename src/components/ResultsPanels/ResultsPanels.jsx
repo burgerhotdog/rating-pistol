@@ -3,9 +3,10 @@ import { LinearProgress, Stack, Tab, Typography } from '@mui/material';
 import { useAccent, useSimulation } from '@/hooks';
 import { Tabs } from '../Colored';
 import OverviewTab from './OverviewTab';
+import WeaponTab from './WeaponTab';
+import EquipsTab from './EquipsTab';
+import SkillLevelsTab from './SkillLevelsTab';
 import DamageProfileTab from './DamageProfileTab';
-import BuildAnalysisTab from './BuildAnalysisTab';
-import SkillLevelsAnalysisTab from './SkillLevelsAnalysisTab';
 
 const LoadingBar = ({ results }) => {
   const { status, progressDay } = results;
@@ -64,15 +65,17 @@ const ResultsPanels = ({ team }) => {
         centered
       >
         <Tab value={0} label="Overview" />
-        <Tab value={1} label="Build Analysis" />
-        <Tab value={2} label="Skill Levels Analysis" />
-        <Tab value={3} label="Damage Stats" />
+        <Tab value={1} label="Weapon" />
+        <Tab value={2} label="Equips" />
+        <Tab value={3} label="Skill Levels" />
+        <Tab value={4} label="Damage Stats" />
       </Tabs>
 
       {tab === 0 && <OverviewTab results={results} />}
-      {tab === 1 && <BuildAnalysisTab results={results} />}
-      {tab === 2 && <SkillLevelsAnalysisTab results={results} />}
-      {tab === 3 && <DamageProfileTab results={results} />}
+      {tab === 1 && <WeaponTab results={results} />}
+      {tab === 2 && <EquipsTab results={results} />}
+      {tab === 3 && <SkillLevelsTab results={results} />}
+      {tab === 4 && <DamageProfileTab results={results} />}
     </Stack>
   );
 };

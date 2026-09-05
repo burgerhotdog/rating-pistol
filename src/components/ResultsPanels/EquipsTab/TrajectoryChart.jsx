@@ -59,7 +59,7 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
   return data;
 }
 
-const Progress = ({ results }) => {
+const TrajectoryChart = ({ results }) => {
   const { dpsProgression, userDay, userDps, dpsCeiling, fit, benchmarkDay } = results;
   const { palette } = useTheme();
   const accent = useAccent();
@@ -78,13 +78,6 @@ const Progress = ({ results }) => {
           style={{ width: '100%', height: '100%' }}
           responsive
         >
-          <defs>
-            <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={accent} stopOpacity={0.5} />
-              <stop offset="100%" stopColor={accent} stopOpacity={0} />
-            </linearGradient>
-          </defs>
-
           <CartesianGrid strokeDasharray="3 3" stroke={palette.divider} />
 
           <XAxis
@@ -149,8 +142,7 @@ const Progress = ({ results }) => {
             type="monotone"
             dataKey="solidMean"
             stroke={accent}
-            strokeWidth={1.5}
-            fill="url(#gradient)"
+            fill="url(#accentGradient)"
             activeDot={false}
           />
 
@@ -159,7 +151,6 @@ const Progress = ({ results }) => {
               type="monotone"
               dataKey="dottedMean"
               stroke={accent}
-              strokeWidth={1.5}
               strokeDasharray="5 3"
               fill="none"
               activeDot={false}
@@ -200,4 +191,4 @@ const Progress = ({ results }) => {
   );
 };
 
-export default Progress;
+export default TrajectoryChart;

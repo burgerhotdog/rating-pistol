@@ -22,7 +22,7 @@ import {
   YAxis,
 } from 'recharts';
 import { ECHO, SET } from '@/data';
-import { useAccent, useData } from '@/hooks';
+import { useData } from '@/hooks';
 import { formatDmg, formatNum, formatStr } from '@/utils';
 
 // Trailing `|<echoId>` encodes the main echo that produced the result, if any
@@ -95,7 +95,7 @@ function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
       dps,
       pct: (dps / userDps) * 100,
       isUser: isUser(comboKey),
-      fill: "url(#gradientAccent)",
+      fill: "url(#accentGradient)",
       ...(!isUser(comboKey) && { filter: 'brightness(0.5)' }),
     }));
 
@@ -172,7 +172,6 @@ const Set = ({ results }) => {
   const { gameId } = useParams();
   const { palette } = useTheme();
   const setDatas = useData('set');
-  const accent = useAccent();
   const [open, setOpen] = useState(false);
 
   const data = buildData(gameId, setResults, userDps, userMember.setCounts, true);
@@ -294,15 +293,6 @@ const Set = ({ results }) => {
           </BarChart>
         </DialogContent>
       </Dialog>
-
-      <svg width="0" height="0">
-        <defs>
-          <linearGradient id="gradientAccent" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={accent} stopOpacity={1} />
-            <stop offset="100%" stopColor={accent} stopOpacity={0} />
-          </linearGradient>
-        </defs>
-      </svg>
     </Card>
   );
 };

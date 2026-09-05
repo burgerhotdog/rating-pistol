@@ -81,7 +81,7 @@
       "equip": {
         "stamina": 20,
         "reward": {
-          "equip": 1
+          "equip": 1.065
         }
       }
     }
