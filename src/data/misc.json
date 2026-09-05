@@ -10,7 +10,81 @@
       "elementalSkill",
       "elementalBurst"
     ],
-    "maxSkillLevel": 10
+    "maxSkillLevel": 10,
+    "skillLevelUpgradeCosts": [
+      {
+        "money": 12500,
+        "material": 3,
+        "weekly": 0
+      },
+      {
+        "money": 17500,
+        "material": 6,
+        "weekly": 0
+      },
+      {
+        "money": 25000,
+        "material": 12,
+        "weekly": 0
+      },
+      {
+        "money": 30000,
+        "material": 18,
+        "weekly": 0
+      },
+      {
+        "money": 37500,
+        "material": 27,
+        "weekly": 0
+      },
+      {
+        "money": 120000,
+        "material": 36,
+        "weekly": 1
+      },
+      {
+        "money": 260000,
+        "material": 54,
+        "weekly": 1
+      },
+      {
+        "money": 450000,
+        "material": 108,
+        "weekly": 2
+      },
+      {
+        "money": 700000,
+        "material": 144,
+        "weekly": 2
+      }
+    ],
+    "domains": {
+      "money": {
+        "stamina": 20,
+        "reward": {
+          "money": 60000
+        }
+      },
+      "material": {
+        "stamina": 20,
+        "reward": {
+          "material": 10.12
+        }
+      },
+      "weekly": {
+        "stamina": 30,
+        "reward": {
+          "money": 8100,
+          "weekly": 0.8
+        }
+      },
+      "equip": {
+        "stamina": 20,
+        "reward": {
+          "equip": 1
+        }
+      }
+    }
   },
   "honkai-star-rail": {
     "maxMembers": 4,
