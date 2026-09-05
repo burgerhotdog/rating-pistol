@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Button, Card, CardHeader, FormControlLabel, Stack } from '@mui/material';
+import { Card, CardHeader, FormControlLabel, Stack } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useAccent, useData } from '@/hooks';
 import { Switch } from '../../Colored';
@@ -15,7 +15,6 @@ const ComparisonTab = ({ results }) => {
   const { memberPreset } = useData('character')[charId];
   const weapDatas = useData('weapon');
 
-  const [open, setOpen] = useState(false);
   const [showOtherSig, setShowOtherSig] = useState(false);
   
   const userWeaponId = userMember.weaponId;
@@ -77,22 +76,11 @@ const ComparisonTab = ({ results }) => {
       </Card>
 
       <Card component={Stack} sx={{ flex: 1 }}>
-        <CardHeader
-          title="Set Bonuses" 
-          action={
-            <Button onClick={() => setOpen(true)}>
-              View all
-            </Button>
-          }
-        />
-        <SetBonusesChart
-          results={results}
-          open={open}
-          onClose={() => setOpen(false)}
-        />
+        <CardHeader title="Set Bonuses" />
+        <SetBonusesChart results={results} />
       </Card>
 
-      <svg width="0" height="0">
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
         <defs>
           <linearGradient id={`accentGradient`} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={accent} stopOpacity={1} />

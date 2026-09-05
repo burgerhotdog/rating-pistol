@@ -1,12 +1,5 @@
 import { useParams } from 'react-router-dom';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  Paper,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Paper, Stack, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
@@ -160,121 +153,59 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
   );
 };
 
-const SetBonusesChart = ({ results, open, onClose }) => {
+const SetBonusesChart = ({ results }) => {
   const { setResults, userDps, userMember } = results;
   const { gameId } = useParams();
   const { palette } = useTheme();
   const setDatas = useData('set');
 
-  const data = buildData(gameId, setResults, userDps, userMember.setCounts, true);
-  const fullData = buildData(gameId, setResults, userDps, userMember.setCounts);
+  const data = buildData(gameId, setResults, userDps, userMember.setCounts);
 
   return (
-    <>
-      <BarChart
-        data={data}
-        style={{ width: '100%', height: '100%' }}
-        responsive
-      >
-        <XAxis dataKey="name" tick={false} />
-        <YAxis type="number" tickFormatter={formatDmg} />
-        <Bar dataKey="dps">
-          <LabelList
-            content={({ x, y, width, height, index }) => {
-              const entry = data[index];
-              if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
+    <BarChart
+      data={data}
+      style={{ width: '100%', height: '100%' }}
+      responsive
+    >
+      <XAxis dataKey="name" tick={false} />
+      <YAxis type="number" tickFormatter={formatDmg} />
+      <Bar dataKey="dps">
+        <LabelList
+          content={({ x, y, width, height, index }) => {
+            const entry = data[index];
+            if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
 
-              const size = width - 16;
-              const ix = x + 8;
-              const iy = y + height - size - 8;
+            const size = width - 16;
+            const ix = x + 8;
+            const iy = y + height - size - 8;
 
-              const icons = getComboIcons(entry.comboKey, setDatas).toReversed();
+            const icons = getComboIcons(entry.comboKey, setDatas).toReversed();
 
-              return (
-                <g>
-                  {icons.map((icon, i) => (
-                    <image
-                      key={i}
-                      x={ix}
-                      y={iy - i * (size + 8)}
-                      width={size}
-                      height={size}
-                      href={icon}
-                      {...(!entry.isUser && { opacity: 0.5 })}
-                      filter={entry.filter}
-                    />
-                  ))}
-                </g>
-              );
-            }}
-          />
-        </Bar>
-        <Tooltip
-          content={(props) => renderTooltip({ gameId, ...props })}
-          cursor={{ fill: alpha(palette.text.primary, 0.1) }}
-          isAnimationActive={false}
+            return (
+              <g>
+                {icons.map((icon, i) => (
+                  <image
+                    key={i}
+                    x={ix}
+                    y={iy - i * (size + 8)}
+                    width={size}
+                    height={size}
+                    href={icon}
+                    {...(!entry.isUser && { opacity: 0.5 })}
+                    filter={entry.filter}
+                  />
+                ))}
+              </g>
+            );
+          }}
         />
-      </BarChart>
-
-      <Dialog
-        open={open}
-        onClose={onClose}
-        maxWidth="xl"
-        fullWidth
-        slotProps={{ paper: { elevation: 2 } }}
-      >
-        <DialogTitle>
-          All Sets
-        </DialogTitle>
-
-        <DialogContent sx={{ height: '80vh' }}>
-          <BarChart
-            data={fullData}
-            style={{ width: '100%', height: '100%' }}
-            responsive
-          >
-            <XAxis dataKey="name" tick={false} />
-            <YAxis type="number" tickFormatter={formatDmg} />
-            <Bar dataKey="dps">
-              <LabelList
-                content={({ x, y, width, height, index }) => {
-                  const entry = fullData[index];
-                  if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
-
-                  const size = width - 8;
-                  const ix = x + 4;
-                  const iy = y + height - size - 4;
-
-                  const icons = getComboIcons(entry.comboKey, setDatas);
-
-                  return (
-                    <g>
-                      {icons.toReversed().map((icon, i) => (
-                        <image
-                          key={i}
-                          x={ix}
-                          y={iy - i * (size + 4)}
-                          width={size}
-                          height={size}
-                          href={icon}
-                          {...(!entry.isUser && { opacity: 0.5 })}
-                          filter={entry.filter}
-                        />
-                      ))}
-                    </g>
-                  );
-                }}
-              />
-            </Bar>
-            <Tooltip
-              content={(props) => renderTooltip({ gameId, ...props })}
-              cursor={{ fill: alpha(palette.text.primary, 0.1) }}
-              isAnimationActive={false}
-            />
-          </BarChart>
-        </DialogContent>
-      </Dialog>
-    </>
+      </Bar>
+      <Tooltip
+        content={(props) => renderTooltip({ gameId, ...props })}
+        cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+        isAnimationActive={false}
+      />
+    </BarChart>
   );
 };
 

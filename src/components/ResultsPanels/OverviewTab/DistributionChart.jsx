@@ -32,7 +32,7 @@ const buildData = (snapshots, charId) => {
   });
 };
 
-const Distribution = ({ results }) => {
+const DistributionChart = ({ results }) => {
   const { userSnapshots } = results;
   const { charId } = useParams();
   const accent = useAccent();
@@ -74,4 +74,4 @@ const Distribution = ({ results }) => {
   );
 };
 
-export default Distribution;
+export default DistributionChart;

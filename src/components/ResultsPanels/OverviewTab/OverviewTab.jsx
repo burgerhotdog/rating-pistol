@@ -1,14 +1,19 @@
+import { useState } from 'react';
 import {
   Card,
   CardContent,
   CardHeader,
   Divider,
+  FormControlLabel,
   Stack,
   Typography,
 } from '@mui/material';
+import { useAccent } from '@/hooks';
 import { formatNum } from '@/utils';
-import RotationTimeline from './RotationTimeline';
-import Distribution from './Distribution';
+import { Switch } from '../../Colored';
+import DistributionChart from './DistributionChart';
+import AreaView from './RotationTimeline/AreaView';
+import ScatterView from './RotationTimeline/ScatterView';
 
 const GRADE_BANDS = [
   { floor: 90, letter: 'A', color: '#4ade80' },
@@ -54,7 +59,17 @@ const Stat = ({ label, value, valueColor }) => {
 };
 
 const OverviewTab = ({ results }) => {
-  const { userDps, dpsCeiling, benchmarkDps } = results;
+  const { userDps, dpsCeiling, benchmarkDps, memberIds, userSnapshots } = results;
+  const accent = useAccent();
+  const [showHits, setShowHits] = useState(false);
+
+  const memberStack = [...memberIds];
+  if (userSnapshots.some((snapshot) => snapshot.ownerId === 'other')) {
+    memberStack.push('other');
+  }
+
+  const totalDamage = userSnapshots.reduce((acc, { damage = 0 }) => acc + damage, 0);
+  const duration = userSnapshots.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
 
   const benchmarkPct = userDps / benchmarkDps * 100;
   const { grade, color: gradeColor } = getGrade(benchmarkPct);
@@ -93,14 +108,33 @@ const OverviewTab = ({ results }) => {
         </Card>
 
         <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader
-            title="Damage Distribution"
-          />
-          <Distribution results={results} />
+          <CardHeader title="Damage Distribution" />
+          <DistributionChart results={results} />
         </Card>
       </Stack>
 
-      <RotationTimeline results={results} />
+      <Card component={Stack} sx={{ flex: 1 }}>
+        <CardHeader
+          title="Rotation Timeline"
+          subheader={`${(duration / 1000).toFixed(1)}s rotation · ${formatNum(totalDamage)} dmg · ${formatNum(userDps)} DPS`}
+          action={
+            <FormControlLabel
+              control={
+                <Switch
+                  color={accent}
+                  checked={showHits}
+                  onChange={(e) => setShowHits(e.target.checked)}
+                />
+              }
+              label="Show Damage Ticks"
+            />
+          }
+        />
+        {!showHits
+          ? <AreaView results={results} />
+          : <ScatterView results={results} />
+        }
+      </Card>
     </Stack>
   );
 };
