@@ -26,7 +26,7 @@ const EquipsTab = ({ results }) => {
           </CardContent>
         </Card>
 
-        <Card component={Stack} sx={{ flex: 1 }}>
+        <Card component={Stack} sx={{ flex: 2 }}>
           <CardHeader
             title="Substat Distribution"
             action={
