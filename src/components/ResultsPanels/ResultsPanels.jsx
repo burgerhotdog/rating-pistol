@@ -6,7 +6,6 @@ import OverviewTab from './OverviewTab';
 import WeaponTab from './WeaponTab';
 import EquipsTab from './EquipsTab';
 import SkillLevelsTab from './SkillLevelsTab';
-import DamageProfileTab from './DamageProfileTab';
 
 const LoadingBar = ({ results }) => {
   const { status, progressDay } = results;
@@ -68,14 +67,12 @@ const ResultsPanels = ({ team }) => {
         <Tab value={1} label="Weapon" />
         <Tab value={2} label="Equips" />
         <Tab value={3} label="Skill Levels" />
-        <Tab value={4} label="Damage Stats" />
       </Tabs>
 
       {tab === 0 && <OverviewTab results={results} />}
       {tab === 1 && <WeaponTab results={results} />}
       {tab === 2 && <EquipsTab results={results} />}
       {tab === 3 && <SkillLevelsTab results={results} />}
-      {tab === 4 && <DamageProfileTab results={results} />}
     </Stack>
   );
 };

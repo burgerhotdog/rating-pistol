@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Stack } from '@mui/material';
+import { Card, CardHeader, Stack } from '@mui/material';
 import { useAccent, useData } from '@/hooks';
 import { computeStaminaToUpgradeSkill } from '@/utils';
 import SkillLevelsAnalysisCharts from './SkillLevelsAnalysisCharts';
@@ -25,12 +25,19 @@ const SkillLevelsAnalysisTab = ({ results }) => {
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-        <SkillLevelsAnalysisCharts results={results} />
-        <UpgradeCosts data={costData} />
+        <Card component={Stack} sx={{ flex: 1 }}>
+          <CardHeader title="Team DPS after increasing skill level by 1" />
+          <SkillLevelsAnalysisCharts results={results} />
+        </Card>
+
+        <Card component={Stack} sx={{ flex: 1 }}>
+          <CardHeader title="Stamina Cost to upgrade skill level" />
+          <UpgradeCosts data={costData} />
+        </Card>
       </Stack>
+
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <RatePerStamina results={results} />
-        <UpgradeCosts data={costData} />
       </Stack>
 
       <svg width="0" height="0">

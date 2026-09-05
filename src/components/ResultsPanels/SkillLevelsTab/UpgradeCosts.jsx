@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Paper,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Paper, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from 'recharts';
 import { formatDmg } from '@/utils';
@@ -26,26 +19,22 @@ const tooltipContent = ({ payload }) => {
 
 const UpgradeCosts = ({ data }) => {
   const { palette } = useTheme();
+
   return (
-    <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader title="Upgrade Cost" />
-      <CardContent component={Stack} sx={{ flex: 1 }}>
-        <BarChart
-          data={data}
-          style={{ width: '100%', height: '100%' }}
-          responsive
-        >
-          <XAxis dataKey="level" />
-          <YAxis type="number" tickFormatter={formatDmg} />
-          <Bar dataKey="stamina" />
-          <Tooltip
-            content={tooltipContent}
-            cursor={{ fill: alpha(palette.text.primary, 0.1) }}
-            isAnimationActive={false}
-          />
-        </BarChart>
-      </CardContent>
-    </Card>
+    <BarChart
+      data={data}
+      style={{ width: '100%', height: '100%' }}
+      responsive
+    >
+      <XAxis dataKey="level" />
+      <YAxis type="number" tickFormatter={formatDmg} />
+      <Bar dataKey="stamina" />
+      <Tooltip
+        content={tooltipContent}
+        cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+        isAnimationActive={false}
+      />
+    </BarChart>
   );
 };
 

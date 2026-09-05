@@ -1,10 +1,5 @@
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
   Dialog,
   DialogContent,
   DialogTitle,
@@ -101,7 +96,7 @@ function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
 
   return [
     ...data,
-    ...Array.from({ length: Math.max(0, 8 - data.length) }, (_, i) => ({
+    ...Array.from({ length: Math.max(0, 4 - data.length) }, (_, i) => ({
       comboKey: `empty-${i}`,
       name: `empty-${i}`,
       dps: 0,
@@ -111,8 +106,8 @@ function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
 }
 
 const renderTooltip = ({ gameId, payload, label = '' }) => {
-  const { empty, dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
-
+  if (!payload?.[0]?.payload) return;
+  const { empty, dps, pct, isUser } = payload[0].payload;
   if (empty) return;
 
   const { setKey, echoId } = splitComboKey(label);
@@ -132,9 +127,7 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
       });
 
   const diff = pct - 100;
-  const diffStr = diff >= 0
-    ? `+${diff.toFixed(1)}`
-    : diff.toFixed(1);
+  const diffStr = diff >= 0 ? `+${diff.toFixed(1)}` : diff.toFixed(1);
 
   return (
     <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
@@ -167,77 +160,65 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
   );
 };
 
-const Set = ({ results }) => {
+const SetCountsChart = ({ results, open, onClose }) => {
   const { setResults, userDps, userMember } = results;
   const { gameId } = useParams();
   const { palette } = useTheme();
   const setDatas = useData('set');
-  const [open, setOpen] = useState(false);
 
   const data = buildData(gameId, setResults, userDps, userMember.setCounts, true);
   const fullData = buildData(gameId, setResults, userDps, userMember.setCounts);
 
   return (
-    <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader
-        title="Sets"
-        action={
-          <Button onClick={() => setOpen(true)}>
-            View all
-          </Button>
-        }
-      />
+    <>
+      <BarChart
+        data={data}
+        style={{ width: '100%', height: '100%' }}
+        responsive
+      >
+        <XAxis dataKey="name" tick={false} />
+        <YAxis type="number" tickFormatter={formatDmg} />
+        <Bar dataKey="dps">
+          <LabelList
+            content={({ x, y, width, height, index }) => {
+              const entry = data[index];
+              if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
 
-      <CardContent component={Stack} sx={{ flex: 1 }}>
-        <BarChart
-          data={data}
-          style={{ width: '100%', height: '100%' }}
-          responsive
-        >
-          <XAxis dataKey="name" tick={false} />
-          <YAxis type="number" tickFormatter={formatDmg} />
-          <Bar dataKey="dps">
-            <LabelList
-              content={({ x, y, width, height, index }) => {
-                const entry = data[index];
-                if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
+              const size = width - 16;
+              const ix = x + 8;
+              const iy = y + height - size - 8;
 
-                const size = width - 16;
-                const ix = x + 8;
-                const iy = y + height - size - 8;
+              const icons = getComboIcons(entry.comboKey, setDatas).toReversed();
 
-                const icons = getComboIcons(entry.comboKey, setDatas);
-
-                return (
-                  <g>
-                    {icons.toReversed().map((icon, i) => (
-                      <image
-                        key={i}
-                        x={ix}
-                        y={iy - i * (size + 8)}
-                        width={size}
-                        height={size}
-                        href={icon}
-                        {...(!entry.isUser && { opacity: 0.5 })}
-                        filter={entry.filter}
-                      />
-                    ))}
-                  </g>
-                );
-              }}
-            />
-          </Bar>
-          <Tooltip
-            content={(props) => renderTooltip({ gameId, ...props })}
-            cursor={{ fill: alpha(palette.text.primary, 0.1) }}
-            isAnimationActive={false}
+              return (
+                <g>
+                  {icons.map((icon, i) => (
+                    <image
+                      key={i}
+                      x={ix}
+                      y={iy - i * (size + 8)}
+                      width={size}
+                      height={size}
+                      href={icon}
+                      {...(!entry.isUser && { opacity: 0.5 })}
+                      filter={entry.filter}
+                    />
+                  ))}
+                </g>
+              );
+            }}
           />
-        </BarChart>
-      </CardContent>
+        </Bar>
+        <Tooltip
+          content={(props) => renderTooltip({ gameId, ...props })}
+          cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+          isAnimationActive={false}
+        />
+      </BarChart>
 
       <Dialog
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={onClose}
         maxWidth="xl"
         fullWidth
         slotProps={{ paper: { elevation: 2 } }}
@@ -293,8 +274,8 @@ const Set = ({ results }) => {
           </BarChart>
         </DialogContent>
       </Dialog>
-    </Card>
+    </>
   );
 };
 
-export default Set;
+export default SetCountsChart;

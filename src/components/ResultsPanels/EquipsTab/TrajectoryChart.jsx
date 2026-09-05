@@ -1,7 +1,4 @@
 import {
-  Card,
-  CardContent,
-  CardHeader,
   Paper,
   Stack,
   Typography,
@@ -69,125 +66,109 @@ const TrajectoryChart = ({ results }) => {
   const data = buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit);
 
   return (
-    <Card component={Stack} sx={{ flex: 1 }}>
-      <CardHeader title="Estimated Farming Trajectory" />
-      <CardContent component={Stack} sx={{ flex: 1 }}>
-        <ComposedChart
-          data={data}
-          margin={{ top: 16 }}
-          style={{ width: '100%', height: '100%' }}
-          responsive
-        >
-          <CartesianGrid strokeDasharray="3 3" stroke={palette.divider} />
+    <ComposedChart
+      data={data}
+      margin={{ top: 16 }}
+      style={{ width: '100%', height: '100%' }}
+      responsive
+    >
+      <CartesianGrid strokeDasharray="3 3" stroke={palette.divider} />
 
-          <XAxis
-            dataKey="day"
-            domain={[0, maxDay]}
-            ticks={Array.from({ length: maxDay + 1 }, (_, i) => i)}
-            tick={{ fontSize: 12 }}
-            type="number"
-            label={{
-              value: 'Days',
-              position: 'insideBottomRight',
-              fontSize: 12,
-            }}
-          />
+      <XAxis
+        dataKey="day"
+        domain={[0, maxDay]}
+        ticks={Array.from({ length: maxDay + 1 }, (_, i) => i)}
+        tick={{ fontSize: 12 }}
+        type="number"
+        label={{
+          value: 'Days',
+          position: 'insideBottomRight',
+          fontSize: 12,
+        }}
+      />
 
-          <YAxis
-            domain={[0, dpsCeiling]}
-            tick={{ fontSize: 12 }}
-            tickFormatter={formatDmg}
-            label={{
-              value: 'Team DPS',
-              angle: -90,
-              position: 'insideLeft',
-              fontSize: 12,
-            }}
-          />
+      <YAxis
+        domain={[0, dpsCeiling]}
+        tick={{ fontSize: 12 }}
+        tickFormatter={formatDmg}
+        label={{
+          value: 'Team DPS',
+          angle: -90,
+          position: 'insideLeft',
+          fontSize: 12,
+        }}
+      />
 
-          <ReferenceLine
-            y={dpsCeiling}
-            stroke={palette.warning.main}
-            strokeDasharray="4 4"
-            label={{
-              value: 'Theoretical Max',
-              position: 'insideBottomRight',
-              fontSize: 12,
-              fill: palette.warning.main,
-            }}
-          />
+      <ReferenceLine
+        y={dpsCeiling}
+        stroke={palette.warning.main}
+        strokeDasharray="4 4"
+        label={{
+          value: 'Theoretical Max',
+          position: 'insideBottomRight',
+          fontSize: 12,
+          fill: palette.warning.main,
+        }}
+      />
 
-          <ReferenceLine
-            x={userDay}
-            stroke={palette.divider}
-            label={{
-              value: 'projected trend →',
-              position: 'insideTop',
-              fontSize: 12,
-              fill: palette.text.secondary,
-            }}
-          />
+      <ReferenceLine
+        x={benchmarkDay}
+        label={{
+          value: 'Benchmark',
+          position: 'insideTop',
+          fontSize: 12,
+          fill: palette.text.secondary,
+        }}
+      />
 
-          <ReferenceLine
-            x={benchmarkDay}
-            label={{
-              value: 'Benchmark',
-              position: 'insideTop',
-              fontSize: 12,
-              fill: palette.text.secondary,
-            }}
-          />
+      <Area
+        type="monotone"
+        dataKey="solidMean"
+        stroke={accent}
+        fill="url(#accentGradient)"
+        activeDot={false}
+      />
 
-          <Area
-            type="monotone"
-            dataKey="solidMean"
-            stroke={accent}
-            fill="url(#accentGradient)"
-            activeDot={false}
-          />
+      {fit && dpsCeiling != null && (
+        <Area
+          type="monotone"
+          dataKey="dottedMean"
+          stroke={accent}
+          strokeDasharray="5 3"
+          fill="none"
+          activeDot={false}
+        />
+      )}
 
-          {fit && dpsCeiling != null && (
-            <Area
-              type="monotone"
-              dataKey="dottedMean"
-              stroke={accent}
-              strokeDasharray="5 3"
-              fill="none"
-              activeDot={false}
-            />
-          )}
+      <Tooltip
+        content={({ payload }) => {
+          if (!payload?.[0]?.payload) return;
+          const { solidMean, dottedMean, day = 0 } = payload[0].payload;
+          const value = solidMean ?? dottedMean;
 
-          <Tooltip
-            content={({ payload }) => {
-              if (!payload?.[0]?.payload) return;
-              const { solidMean, dottedMean, day = 0 } = payload[0].payload;
-              const value = solidMean ?? dottedMean;
+          const nextDayDps = estimateDps(day + 1, dpsCeiling, dpsProgression, fit);
+          const nextDiff = (nextDayDps / value * 100) - 100;
+          const diffPerStamina = nextDiff / staminaPerDay;
 
-              const nextDayDps = estimateDps(day + 1, dpsCeiling, dpsProgression, fit);
-              const nextDiff = (nextDayDps / value * 100) - 100;
-              const diffPerStamina = nextDiff / staminaPerDay;
-
-              return (
-                <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
-                  <Stack>
-                    <Typography variant="caption">
-                      Day {Math.round(day)}
-                    </Typography>
-                    <Typography variant="caption">
-                      DPS: {formatNum(value ?? 0)}
-                    </Typography>
-                    <Typography variant="caption">
-                      Rate: {Math.abs(diffPerStamina).toFixed(4)}% per stamina
-                    </Typography>
-                  </Stack>
-                </Paper>
-              );
-            }}
-            isAnimationActive={false}
-          />
-        </ComposedChart>
-      </CardContent>
-    </Card>
+          return (
+            <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+              <Stack>
+                <Typography variant="caption">
+                  Day {Math.round(day)}
+                </Typography>
+                <Typography variant="caption">
+                  DPS: {formatNum(value ?? 0)}
+                </Typography>
+                <Typography variant="caption">
+                  Rate: {Math.abs(diffPerStamina).toFixed(4)}% per stamina
+                </Typography>
+              </Stack>
+            </Paper>
+          );
+        }}
+        isAnimationActive={false}
+      />
+    </ComposedChart>
   );
 };
 

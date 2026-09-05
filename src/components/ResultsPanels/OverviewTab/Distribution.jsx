@@ -9,15 +9,10 @@ import {
 } from '@mui/material';
 import { alpha, darken } from '@mui/material/styles';
 import {
-  Bar,
-  BarChart,
   Pie,
   PieChart,
   Sector,
   Tooltip,
-  XAxis,
-  YAxis,
-  matchByDataKey,
 } from 'recharts';
 import { useAccent } from '@/hooks';
 import { formatNum, formatStr } from '@/utils';
@@ -96,22 +91,6 @@ const Distribution = ({ results }) => {
               isAnimationActive={false}
             />
           </PieChart>
-
-          <BarChart
-            data={data}
-            layout="vertical"
-            style={{ width: '100%', height: '100%' }}
-            responsive
-          >
-            <XAxis type="number" />
-            <YAxis dataKey="name" type="category" tick={{ fontSize: 11 }} />
-
-            <Bar
-              dataKey="percent"
-              animationMatchBy={matchByDataKey('name')}
-              fill={accent}
-            />
-          </BarChart>
         </Stack>
       </CardContent>
     </Card>
