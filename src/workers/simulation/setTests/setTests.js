@@ -1,6 +1,12 @@
 import { CHARACTER, ECHO, SET, WW } from '@/data';
-import { appliesToCharId, isEnabledEcho, isEnabledSet, isStaticBuff, toMergedObj } from '@/utils';
-import { normAction } from '../cache/actions';
+import {
+  appliesToCharId,
+  isEnabledEcho,
+  isEnabledSet,
+  isStaticBuff,
+  toMergedObj,
+  normalizeAction,
+} from '@/utils';
 import { normEffect, resolveEffectTokens } from '../cache/effects';
 import { runVariantDps } from '../variantDps';
 
@@ -107,7 +113,7 @@ function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank
 function buildEchoAction(gameId, echoId, ownerId, teamSize) {
   const rawAction = ECHO[echoId]?.action;
   if (!rawAction) return undefined;
-  return normAction(gameId, rawAction, { ownerId, category: 'echoSkill', index: 0, teamSize });
+  return normalizeAction(gameId, rawAction, { ownerId, category: 'echoSkill', index: 0, teamSize });
 }
 
 // Mirrors the main echo insertion timing in compileCache's getConvertedRotation
