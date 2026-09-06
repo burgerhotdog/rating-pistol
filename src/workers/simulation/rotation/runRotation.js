@@ -63,19 +63,21 @@ function handleUseWhen(ctx, action, when) {
 
 function handleApplyWhen(ctx, action, when) {
   const { applyCooldowns } = ctx.states;
-  for (const effect of Object.values(ctx.cache.effects)) {
-    if (!effect.apply) continue;
+  for (const mCache of Object.values(ctx.cache.member)) {
+    for (const effect of Object.values(mCache.effects)) {
+      if (!effect.apply) continue;
 
-    const { apply } = effect;
-    if (
-      !apply.by.includes(action.ownerId) ||
-      applyCooldowns[effect.id] ||
-      apply.when !== when ||
-      !ctx.eventFilter(apply.filter, action, effect)
-    ) continue;
+      const { apply } = effect;
+      if (
+        !apply.by.includes(action.ownerId) ||
+        applyCooldowns[effect.id] ||
+        apply.when !== when ||
+        !ctx.eventFilter(apply.filter, action, effect)
+      ) continue;
 
-    onApplyDoCommand(ctx, effect, action.ownerId);
-    runApplyEffect(ctx, effect, { applier: action.ownerId, inflict: action.inflict });
+      onApplyDoCommand(ctx, effect, action.ownerId);
+      runApplyEffect(ctx, effect, { applier: action.ownerId, inflict: action.inflict });
+    }
   }
 }
 
@@ -202,9 +204,11 @@ export const runRotation = (cache, equipMaps, specId) => {
   ctx.eventFilter = createEventFilter(ctx);
 
   // Init passives into effect states
-  for (const effect of Object.values(cache.effects)) {
-    if (effect.apply?.when) continue;
-    runApplyEffect(ctx, effect);
+  for (const mCache of Object.values(cache.member)) {
+    for (const effect of Object.values(mCache.effects)) {
+      if (effect.apply?.when) continue;
+      runApplyEffect(ctx, effect);
+    }
   }
 
   // Rotation loop

@@ -154,13 +154,10 @@ export function setTests(cache, equipMaps, charId) {
   const mCache = cache.member[charId];
 
   const nonSetEffects = Object.fromEntries(
-    Object.entries(cache.effects)
+    Object.entries(mCache.effects)
       .filter(([, effect]) => !(
-        effect.ownerId === charId &&
-        (
-          mCache.setCounts[effect.sourceId] ||
-          effect.sourceId === mCache.mainEcho
-        )
+        mCache.setCounts[effect.sourceId] ||
+        effect.sourceId === mCache.mainEcho
       ))
   );
 
@@ -182,7 +179,7 @@ export function setTests(cache, equipMaps, charId) {
       const effects = { ...nonSetEffects, ...setEffects, ...echoEffects };
  
       const staticBuffMaps = Object.values(effects)
-        .filter((effect) => effect.ownerId === charId && isStaticBuff(effect) && appliesToCharId(effect, charId))
+        .filter((effect) => isStaticBuff(effect) && appliesToCharId(effect, charId))
         .map((effect) => effect.buff.stats);
       const testStatMap = toMergedObj(mCache.baseMap, mCache.equipMap, ...staticBuffMaps);
 
@@ -190,10 +187,9 @@ export function setTests(cache, equipMaps, charId) {
       const rotation = withEchoAction(nonEchoRotation, echoAction, ECHO[echoId]?.timing);
  
       return runVariantDps(cache, equipMaps, charId, {
-        effects,
         sourceStatMap: mCache.menuMap,
         testStatMap,
-        memberOverride: { rotation },
+        memberOverride: { effects, rotation },
       });
     };
 

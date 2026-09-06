@@ -1699,6 +1699,7 @@
       },
       {
         "bonus": 5,
+        "key": "xuanlingsFeather",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1721,6 +1722,7 @@
       },
       {
         "bonus": 5,
+        "key": "chongmingsFeather",
         "stores": "$team",
         "apply": {
           "when": "inflict",

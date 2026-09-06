@@ -4,7 +4,6 @@ import { runRotation } from './rotation';
 export function runVariantDps(cache, equipMaps, charId, options = {}) {
   const mCache = cache.member[charId];
   const {
-    effects,
     memberOverride,
     sourceStatMap = mCache.statMap,
     testStatMap = memberOverride?.statMap ?? mCache.statMap,
@@ -17,7 +16,6 @@ export function runVariantDps(cache, equipMaps, charId, options = {}) {
 
   const variantCache = {
     ...cache,
-    effects,
     ...(memberOverride && {
       member: {
         ...cache.member,

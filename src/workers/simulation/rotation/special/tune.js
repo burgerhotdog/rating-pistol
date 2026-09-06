@@ -78,19 +78,21 @@ function recordTuneBreak(ctx) {
       state.useCooldown = 8000;
 
       const { applyCooldowns } = ctx.states;
-      for (const effect of Object.values(ctx.cache.effects)) {
-        if (!effect.apply) continue;
+      for (const mCache of Object.values(ctx.cache.member)) {
+        for (const effect of Object.values(mCache.effects)) {
+          if (!effect.apply) continue;
 
-        const { apply } = effect;
-        if (
-          !apply.by.includes(responseOwnerId) ||
-          applyCooldowns[effect.id] ||
-          apply.when !== 'tuneResponse' ||
-          !use?.filter?.states?.tune?.interfered === shifting
-        ) continue;
+          const { apply } = effect;
+          if (
+            !apply.by.includes(responseOwnerId) ||
+            applyCooldowns[effect.id] ||
+            apply.when !== 'tuneResponse' ||
+            !use?.filter?.states?.tune?.interfered === shifting
+          ) continue;
 
-        onApplyDoCommand(ctx, effect, responseOwnerId);
-        runApplyEffect(ctx, effect, { applier: responseOwnerId });
+          onApplyDoCommand(ctx, effect, responseOwnerId);
+          runApplyEffect(ctx, effect, { applier: responseOwnerId });
+        }
       }
     }
   }

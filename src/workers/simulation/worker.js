@@ -45,16 +45,10 @@ self.onmessage = async ({ data }) => {
 
   const equipMaps = await resolveEquipMaps(cache);
 
-  // Sanity check
   self.postMessage({ status: 'Checking rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
   const concertoExtraTime = computeConcertoExtraTime(cache.member[cache.charId]);
   const userDps = computeDps(userSnapshots, cache.rotationDuration + concertoExtraTime);
-  if (Number.isNaN(userDps)) {
-    console.log(userDps);
-    self.postMessage({ errorLog: cache.effects });
-    throw new Error('error');
-  }
 
   console.time('runTrials');
   const results = await runTrials(cache, equipMaps, cache.charId, true);

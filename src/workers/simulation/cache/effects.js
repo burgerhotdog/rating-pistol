@@ -76,7 +76,7 @@ export const normEffect = (ctx, rawEffect) => {
     ...rawEffect,
     ownerId, sourceId, index,
     category: `${sourceId}:effect${index}`,
-    id: `${ownerId}.${sourceId}:effect${index}`,
+    id: `${sourceId}:effect${index}`,
   };
 
   // Scope
