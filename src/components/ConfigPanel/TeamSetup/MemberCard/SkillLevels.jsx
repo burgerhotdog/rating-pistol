@@ -5,6 +5,7 @@ import {
   DialogTitle,
   DialogActions,
   DialogContent,
+  Stack,
   TextField,
 } from '@mui/material';
 import { useData } from '@/hooks';
@@ -37,33 +38,35 @@ const SkillLevels = ({ memberId, skillLevels, onChange }) => {
         <DialogTitle>
           Edit Skill Levels
         </DialogTitle>
-        <DialogContent>
-          {skillIds.map((skillId, i) => {
-            return (
-              <TextField
-                key={i}
-                type="number"
-                value={draftLevels[skillId] ?? ''}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  if (!/^\d*$/.test(value)) return;
-    
-                  const skillLevel = value === '' ? null : Number(value);
-                  if (skillLevel === null || inRange(skillLevel, 1, maxSkillLevel)) {
-                    setDraftLevels((prev) => ({ ...prev, [skillId]: skillLevel }));
-                  }
-                }}
-                label={formatStr(skillId)}
-                slotProps={{
-                  htmlInput: {
-                    min: 1,
-                    max: maxSkillLevel,
-                    step: 1,
-                  },
-                }}
-              />
-            );
-          })}
+        <DialogContent dividers>
+          <Stack direction="row" spacing={1}>
+            {skillIds.map((skillId, i) => {
+              return (
+                <TextField
+                  key={i}
+                  type="number"
+                  value={draftLevels[skillId] ?? ''}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (!/^\d*$/.test(value)) return;
+      
+                    const skillLevel = value === '' ? null : Number(value);
+                    if (skillLevel === null || inRange(skillLevel, 1, maxSkillLevel)) {
+                      setDraftLevels((prev) => ({ ...prev, [skillId]: skillLevel }));
+                    }
+                  }}
+                  label={formatStr(skillId)}
+                  slotProps={{
+                    htmlInput: {
+                      min: 1,
+                      max: maxSkillLevel,
+                      step: 1,
+                    },
+                  }}
+                />
+              );
+            })}
+          </Stack>
         </DialogContent>
         <DialogActions>
           <Button

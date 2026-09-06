@@ -9,7 +9,7 @@ const BuildEditor = ({ ...props }) => {
   const [tab, setTab] = useState('character');
 
   return (
-    <Stack spacing={1}>
+    <Stack spacing={2}>
       <Tabs
         component={Card}
         value={tab}

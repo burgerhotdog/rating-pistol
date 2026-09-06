@@ -4,13 +4,13 @@
     "maxLevel": 90,
     "maxEquips": 5,
     "maxSubstats": 4,
+    "maxSkillLevel": 10,
     "energyAttr": "energyRecharge%",
     "skillIds": [
       "normalAttack",
       "elementalSkill",
       "elementalBurst"
     ],
-    "maxSkillLevel": 10,
     "skillLevelUpgradeCosts": [
       {
         "money": 12500,
@@ -91,30 +91,30 @@
     "maxLevel": 80,
     "maxEquips": 6,
     "maxSubstats": 4,
+    "maxSkillLevel": 10,
     "energyAttr": "energyRegenerationRate%",
     "skillIds": [
       "basicAtk",
       "skill",
       "ultimate",
       "talent"
-    ],
-    "maxSkillLevel": 10
+    ]
   },
   "wuthering-waves": {
     "maxMembers": 3,
     "maxLevel": 90,
     "maxEquips": 5,
     "maxSubstats": 5,
+    "maxSkillLevel": 10,
     "staminaPerDay": 240,
     "energyAttr": "energyRegen%",
     "skillIds": [
       "normalAttack",
       "resonanceSkill",
-      "resonanceLiberation",
       "forteCircuit",
+      "resonanceLiberation",
       "introSkill"
     ],
-    "maxSkillLevel": 10,
     "skillLevelUpgradeCosts": [
       {
         "money": 1500,
@@ -199,6 +199,7 @@
     "maxLevel": 60,
     "maxEquips": 6,
     "maxSubstats": 4,
+    "maxSkillLevel": 12,
     "energyAttr": "energyRegen%",
     "skillIds": [
       "basicAttack",
@@ -206,7 +207,6 @@
       "assist",
       "specialAttack",
       "chainAttack"
-    ],
-    "maxSkillLevel": 12
+    ]
   }
 }

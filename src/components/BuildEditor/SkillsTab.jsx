@@ -6,7 +6,7 @@ const SkillsTab = ({ draft, setDraft }) => {
   const { skillIds, maxSkillLevel } = useData('misc');
 
   return (
-    <Stack spacing={1}>
+    <Stack direction="row" spacing={1}>
       {skillIds.map((skillId, i) => {
         return (
           <TextField
@@ -30,6 +30,7 @@ const SkillsTab = ({ draft, setDraft }) => {
             }}
             label={formatStr(skillId)}
             disabled={!draft?.id}
+            fullWidth
             slotProps={{
               htmlInput: {
                 min: 1,
