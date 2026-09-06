@@ -108,6 +108,18 @@ export function runApplyEffect(ctx, effect, spec = {}) {
         delete store[id];
       }
     }
+
+    // If same effect was already applied by another member
+    if (!effect.stackable) {
+      for (const member of Object.values(ctx.cache.member)) {
+        if (member.id === effect.ownerId) continue;
+
+        const otherEffectId = `${member.id}.${effect.category}`;
+        if (otherEffectId in store) {
+          delete store[otherEffectId];
+        }
+      }
+    }
   }
 
   for (const target of effect.stores) {
